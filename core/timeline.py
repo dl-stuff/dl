@@ -192,7 +192,7 @@ class Timer(object):
 
     def add(self, time=0):
         self.timeout += time
-        self._timing += time
+        self.timing += time
 
     # alias
     disable = off
