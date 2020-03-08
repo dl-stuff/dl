@@ -1266,9 +1266,7 @@ class Adv(object):
         return cc * att * k
 
     def killer_mod(self, name=None):
-        rates = {
-            'overdrive': Overdrive_Punisher.EFFICIENCY
-        }
+        rates = {}
         for afflic in AFFLICT_LIST:
             rate = vars(self.afflics)[afflic].get()
             if rate > 0:
@@ -1278,13 +1276,16 @@ class Adv(object):
         for mask in product(*[[0, 1]] * len(rate_list)):
             p = 1.0
             modifiers = defaultdict(lambda: set())
+            for order, mods in self.all_modifiers['killer'].items():
+                for mod in mods:
+                    modifiers[order].add(mod)
             for i, on in enumerate(mask):
                 cond = rate_list[i]
                 cond_name = cond[0]
                 cond_p = cond[1]
                 if on:
                     p *= cond_p
-                    for order, mods in self.all_modifiers[f"{cond_name}_killer"].items():
+                    for order, mods in self.all_modifiers[f'{cond_name}_killer'].items():
                         for mod in mods:
                             modifiers[order].add(mod)
                 else:
