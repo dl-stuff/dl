@@ -39,7 +39,7 @@ class Dot(object):
     def tick_proc(self, t):
         if self.active == 0:
             return
-        t.timing += self.iv
+        t.on(self.iv)
         self.true_dmg_event.count = self.tick_dmg
         self.true_dmg_event.on()
 
