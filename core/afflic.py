@@ -83,7 +83,6 @@ class AfflicUncapped(object):
 
         self.c_uptime = (0, 0)
         self.last_afflict = 0
-        Timer(self.uptime, repeat=1).on(1)
 
     def get_tolerance(self):
         if self.tolerance > 1:
@@ -107,6 +106,7 @@ class AfflicUncapped(object):
         return self._get
 
     def update(self):
+        self.uptime()
         nostack_p = 1.0
         for stack_p in self.stacks:
             nostack_p *= 1.0 - stack_p
@@ -146,7 +146,7 @@ class AfflicUncapped(object):
         self.update()
         return total_success_p
 
-    def uptime(self, t):
+    def uptime(self):
         next_r = self.get()
         next_t = now()
         if next_r == 0:
@@ -174,7 +174,6 @@ class AfflicCapped(object):
 
         self.c_uptime = (0, 0)
         self.last_afflict = 0
-        Timer(self.uptime, repeat=1).on(1)
 
     def get_tolerance(self):
         if self.tolerance > 1:
@@ -198,6 +197,7 @@ class AfflicCapped(object):
         return self._get
 
     def update(self):
+        self.uptime()
         total_p = 0.0
         states = defaultdict(lambda: 0.0)
         for state, state_p in self.states.items():
@@ -243,7 +243,7 @@ class AfflicCapped(object):
         self.update()
         return total_p
 
-    def uptime(self, t):
+    def uptime(self):
         next_r = self.get()
         next_t = now()
         if next_r == 0:
@@ -434,6 +434,7 @@ class Afflics(object):
         # for atype in ['poison', 'burn', 'paralysis', 'blind', 'freeze', 'stun', 'sleep', 'bog']:
         for atype in AFFLICT_LIST:
             aff = self.__dict__[atype]
+            aff.uptime()
             rate, t = aff.c_uptime
             # last = aff.last_afflict
             if rate > 0:
