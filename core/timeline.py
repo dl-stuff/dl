@@ -239,21 +239,6 @@ class Timeline(object):
     def add(self, t):
         heapq.heappush(self._tlist, (t.timing, t))
 
-    def process_head(self):
-        global _g_now
-        tcount = len(self._tlist)
-        if tcount == 0:
-            return -1
-
-        headt = heapq.heappop(self._tlist)[1]
-        if headt.timing >= _g_now:
-            _g_now = headt.timing
-            headt.process()
-        else:
-            print('timeline time err')
-            exit()
-        return 0
-
     @classmethod
     def run(cls, last=100):
         global _g_timeline
@@ -269,14 +254,18 @@ class Timeline(object):
         _g_stop = 1
 
     def _run(self, last=100):
+        global _g_now
         last += _g_now
-        while 1:
-            if _g_now > last:
+        while True:
+            if _g_now > last or not self._tlist:
                 return _g_now
 
-            r = self.process_head()
-            if r == -1:
-                return _g_now
+            headt = heapq.heappop(self._tlist)[1]
+            if headt.timing >= _g_now:
+                _g_now = headt.timing
+                headt.process()
+            else:
+                raise RuntimeError('Timing of next trigger is before current time')
 
             if _g_stop:
                 return _g_now
