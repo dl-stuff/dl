@@ -1532,22 +1532,21 @@ class Adv(object):
 
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
-        def cb_think(t):
-            if loglevel >= 2:
-                log('think', t.pin, t.dname)
-            self._acl(self, t)
 
         if pin in self.conf.latency:
             latency = self.conf.latency[pin]
         else:
             latency = self.conf.latency.default
 
-        t = Timer(cb_think).on(latency)
         doing = self.action.getdoing()
-        t.pin = pin
-        t.dname = doing.name
-        t.dstat = doing.status
-        t.didx = doing.index
+        dname = doing.name
+        dstat = doing.status
+        didx = doing.index
+        def cb_think():
+            if loglevel >= 2:
+                log('think', pin, dname)
+            self._acl(self, pin, dname, dstat, didx)
+        schedule(cb_think, latency)
 
     def l_silence_end(self, e):
         doing = self.action.getdoing()

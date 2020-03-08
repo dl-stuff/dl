@@ -171,9 +171,8 @@ class Acl_Condition:
 
 def acl_str(acl):
     acl_base = """
-def do_act_list(self, e):
+def do_act_list(self, pin, dname, dstat, didx):
     self = self
-    pin, dname, dstat, didx = e.pin, e.dname, e.dstat, e.didx
     prev = self.action.getprev()
     seq = didx if dname[0] == 'x' else 0 if dstat == -2 else -1
     cancel = pin =='x' or pin == 'fs'
