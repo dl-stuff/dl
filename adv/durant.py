@@ -1,4 +1,3 @@
-import adv.adv_test
 from core.advbase import *
 from slot.a import *
 from slot.d import *
@@ -11,14 +10,14 @@ class Durant(Adv):
     a3 = ('cd',0.17,'hp100')
 
     conf = {}
-    conf['slot.a'] = Seaside_Princess()+FWHC()
+    conf['slot.a'] = Seaside_Princess()+Luck_of_the_Draw()
 
     conf['acl'] = """
+        `s3, not self.s3_buff
         `s1
-        `s2
-        `s3, seq=5
+        `s2, x=5
         """
 
 if __name__ == '__main__':
-    adv.adv_test.test(module(), conf)
-
+    from core.simulate import test_with_argv
+    test_with_argv(None, *sys.argv)

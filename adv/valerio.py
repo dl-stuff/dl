@@ -139,7 +139,7 @@ appetizer_conf = {
     # C2D: 24 (x4 hits) (Low Damage)
     # C2E: 6 (x4 hits) (Low Damage)
     # C2F: 6 (x4 hits) (Low Damage)
-    # C3A: 46 
+    # C3A: 46
     # C3B: 99
     # C3C: 4
     # C3D: 4
@@ -248,7 +248,7 @@ class Valerio(Adv):
     def prerun(self):
         random.seed()
         self.stance = 'dessert'
-        self.next_stance = None
+        self.next_stance = 'dessert'
         self.stance_dict = {
             'appetizer': X_alt(self, 'appetizer', appetizer_conf, x_proc=self.l_stance_x),
             'entree': X_alt(self, 'entree', entree_conf, x_proc=self.l_stance_x),
@@ -309,7 +309,7 @@ class Valerio(Adv):
         dmg_coef = xalt.conf[xseq].dmg
         sp = xalt.conf[xseq].sp
         hit = xalt.conf[xseq].hit
-        log('x', xseq, 0)
+        log('x', xseq, self.stance)
         self.hits += hit
         self.dmg_make(xseq, dmg_coef)
         self.charge(xseq, sp)

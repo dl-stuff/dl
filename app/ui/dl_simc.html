@@ -108,11 +108,11 @@
             width: 3em;
         }
 
-        #affliction-resist > div > input:placeholder-shown {
+        #affliction-resist>div>input:placeholder-shown {
             border: 1px solid #ced4da;
         }
 
-        #affliction-resist > div > input {
+        #affliction-resist>div>input {
             border: 1px solid black;
         }
     </style>
@@ -132,7 +132,7 @@
                     <label for="input-teamdps">Team DPS</label><input id="input-teamdps" class="form-control" type="text" />
                 </div>
                 <div class="col-md-3">
-                    <label for="input-missile">Missile(s)</label><input id="input-missile" class="form-control" type="text" />
+                    <label for="input-missile">Missile</label><input id="input-missile" class="form-control" type="text" />
                 </div>
             </div>
             <div class="form-row">
@@ -178,8 +178,12 @@
                         <label for="ex-sword" class="custom-control-label" title="+15% Dragon Haste">Sword</label>
                     </div>
                     <div class="custom-control custom-checkbox custom-control-inline">
-                        <input id="ex-geuden" class="custom-control-input" type="checkbox" />
-                        <label for="ex-geuden" class="custom-control-label" title="+10% Dragon Damage, +20% Dragon Time">GEuden</label>
+                        <input id="ex-g_euden" class="custom-control-input" type="checkbox" />
+                        <label for="ex-g_euden" class="custom-control-label" title="+10% Dragon Damage, +20% Dragon Time">GEuden</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input id="ex-tobias" class="custom-control-input" type="checkbox" />
+                        <label for="ex-tobias" class="custom-control-label" title="+20% Buff Time">Tobias</label>
                     </div>
                 </div>
             </div>
@@ -214,31 +218,31 @@
                 </div>
                 <div class="form-row collapse" id="affliction-resist">
                     <div class="col-sm col-4">
-                        <label for="input-res-poison">Poison</label><input id="input-res-poison" class="form-control" type="text" placeholder="0"/>
+                        <label for="input-res-poison">Poison</label><input id="input-res-poison" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-res-paralysis">Paralysis</label><input id="input-res-paralysis" class="form-control" type="text" placeholder="0"/>
+                        <label for="input-res-paralysis">Paralysis</label><input id="input-res-paralysis" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-res-burn">Burn</label><input id="input-res-burn" class="form-control" type="text" placeholder="0"/>
+                        <label for="input-res-burn">Burn</label><input id="input-res-burn" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-res-frostbite">Frostbite</label><input id="input-res-frostbite" class="form-control" type="text" placeholder="0"/>
+                        <label for="input-res-frostbite">Frostbite</label><input id="input-res-frostbite" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-res-bog">Bog</label><input id="input-res-bog" class="form-control" type="text" placeholder="100"/>
+                        <label for="input-res-bog">Bog</label><input id="input-res-bog" class="form-control" type="text" placeholder="100" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-res-blind">Blind</label><input id="input-res-blind" class="form-control" type="text" placeholder="80"/>
+                        <label for="input-res-blind">Blind</label><input id="input-res-blind" class="form-control" type="text" placeholder="80" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-res-stun">Stun</label><input id="input-res-stun" class="form-control" type="text" placeholder="80"/>
+                        <label for="input-res-stun">Stun</label><input id="input-res-stun" class="form-control" type="text" placeholder="80" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-res-freeze">Freeze</label><input id="input-res-freeze" class="form-control" type="text" placeholder="100"/>
+                        <label for="input-res-freeze">Freeze</label><input id="input-res-freeze" class="form-control" type="text" placeholder="100" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-res-sleep">Sleep</label><input id="input-res-sleep" class="form-control" type="text" placeholder="100"/>
+                        <label for="input-res-sleep">Sleep</label><input id="input-res-sleep" class="form-control" type="text" placeholder="100" />
                     </div>
                 </div>
             </div>
@@ -274,13 +278,15 @@
                     </div>
                     <div class="modal-body">
                         <h5>What is this?</h5>
-                        <p>This is a fork of the <a href="https://github.com/b1ueb1ues/dl">Dragalia Lost damage simulator created by b1ueb1ues</a> with a UI made to allow people without any python/CLI knowledge to use the simulator. The source code of this fork can be found <a href="https://github.com/Mushymato/dl">here</a>.</p>
+                        <p>This is a fork of the <a href="https://github.com/b1ueb1ues/dl">Dragalia Lost damage simulator created by b1ueb1ues</a> with a UI made to allow people without any python/CLI knowledge to use the simulator. The source code of this fork can be found <a href="https://github.com/Mushymato/dl/tree/api">here</a>.</p>
+                        <h5>What assumptions are made during damage simulation?</h5>
+                        <p>Please consult <a href="https://github.com/b1ueb1ues/b1ueb1ues.github.io/blob/master/dl-sim/README.md">the readme</a> for assumed sim conditions. Note that some characters are simulated with expected value instead of average of 1000 trials.</p>
+                        <h5>How do I enter ACL?</h5>
+                        <p>Please consult <a href="https://github.com/b1ueb1ues/dl/blob/master/README.md">this page</a> for ACL syntax.</p>
                         <h5>How does simulated afflictions work?</h5>
                         <p>The affliction is active for the first [uptime]% * [sim time] seconds. Default uptimes are burn 75% (Rena), paralysis 75% (Mitsuhide), poison 90% (Delphi). Adventurers that already have affliction in their kit will not get more uptime from this.</p>
                         <h5>How does simulated buff/debuff work?</h5>
                         <p>1 stack of the entered buff/debuff is active for the entire duration of the simulation.</p>
-                        <h5>What is Missile?</h5>
-                        <p>Ranged projectiles takes time to hit the target and this input lets you specify how long in seconds. By default we assume you are point blank (0s).</p>
                         <h5>Something is <i>wrong</i> with this tool/Please add a new feature!</h5>
                         <p>Ask me on discord I'm chu2.718281828459045235360287471#0110</p>
                     </div>

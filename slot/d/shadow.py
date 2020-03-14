@@ -41,9 +41,9 @@ class Marishiten(DragonBase):
         self.bleed = Bleed('ds_bleed', 1.46).reset()
 
     def ds_proc(self):
-        dmg = self.adv.dmg_make('d_ds',1.04,'s')
+        dmg = self.adv.dmg_make('ds',1.04,'s')
         self.bleed.on()
-        return dmg + self.adv.dmg_make('d_ds',5.20,'s')
+        return dmg + self.adv.dmg_make('ds',5.20,'s')
 
 class Shinobi(DragonBase):
     ele = 'shadow'
@@ -73,7 +73,7 @@ class Shinobi(DragonBase):
     }
 
     def ds_proc(self):
-        count = self.adv.dmg_make('d_ds',8.83,'s')
+        count = self.adv.dmg_make('ds',8.83,'s')
         self.adv.energy.add(5, team=True)
         return count
 
@@ -148,8 +148,7 @@ class Nyarlathotep(DragonBase):
         self.bloody_tongue(0)
         buff_rate = 90
         if adv.condition('low HP every {}s'.format(buff_rate)):
-            from adv.adv_test import sim_duration
-            buff_times = ceil(sim_duration/buff_rate)
+            buff_times = ceil(adv.duration/buff_rate)
             for i in range(1, buff_times):
                 adv.Timer(self.bloody_tongue).on(buff_rate*i)
 
@@ -193,7 +192,7 @@ class Chthonius(DragonBase):
         Event('dragon').listener(dragon_might)
 
     def ds_proc(self):
-        dmg = self.adv.dmg_make('d_ds',4.90,'s')
+        dmg = self.adv.dmg_make('ds',4.90,'s')
         self.adv.afflics.poison('ds',120,0.582,dtype='s')
         return dmg
 
@@ -224,7 +223,7 @@ class Epimetheus(DragonBase):
     }
 
     def ds_proc(self):
-        dmg = self.adv.dmg_make('d_ds',6.30,'s')
+        dmg = self.adv.dmg_make('ds',6.30,'s')
         self.adv.afflics.poison('ds',120,0.291,30,dtype='s')
         return dmg
 

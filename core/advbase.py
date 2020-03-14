@@ -12,7 +12,8 @@ from core.afflic import *
 import core.acl
 import conf as globalconf
 import slot
-import core.floatsingle as floatsingle
+from ctypes import c_float
+from math import ceil
 
 # import core.condition
 # m_condition = core.condition
@@ -534,6 +535,18 @@ class Skill(object):
                 log('silence', 'start')
             return 1
 
+    def autocharge_init(self, sp, iv=1):
+        if callable(sp):
+            self.autocharge_timer = Timer(sp, iv, 1)
+        else:
+            if sp < 1:
+                sp = int(sp * self.sp)
+            def autocharge(t):
+                if self.charged < self.sp:
+                    self.charge(sp)
+                    log('sp', self.name+'_autocharge', int(sp))
+            self.autocharge_timer = Timer(autocharge, iv, 1)
+        return self.autocharge_timer
 
 #    def ac(self):
 #        #self.cast_event = Event(self.name+'_cast')
@@ -1077,13 +1090,12 @@ class Adv(object):
                         vars(self.afflics)[afflic].resist = 100
 
     def sim_affliction(self):
-        if 'sim_afflict' in self.conf:
-            t = int(self.conf.sim_afflict.time)
-            if t > 0:
-                # if self.condition('{} for {}s'.format(self.conf.sim_afflict.type, t)):
-                aff = vars(self.afflics)[self.conf.sim_afflict.type]
-                aff.on('simulated'.format(self.conf.sim_afflict.type), 200, 0, duration=t, iv=t)
-                aff.states = None
+        if 'sim_afflict' in self.conf and self.conf.sim_afflict.time > 0:
+            # if self.condition('{} for {}s'.format(self.conf.sim_afflict.type, t)):
+            t = min(self.duration, int(float(self.conf.sim_afflict.time) * self.duration))
+            aff = vars(self.afflics)[self.conf.sim_afflict.type]
+            aff.on('simulated', 200, 0, duration=t, iv=t)
+            aff.states = None
 
     def sim_buffbot(self):
         if 'sim_buffbot' in self.conf:
@@ -1159,8 +1171,6 @@ class Adv(object):
         self.condition = Condition(cond)
         # self.m_condition = m_condition
         # self.m_condition.set(cond)
-
-        logreset()
 
         self.s3_buff_list = []
         self.s3_buff = None
@@ -1325,11 +1335,9 @@ class Adv(object):
 
     def sp_val(self, param):
         if isinstance(param, str):
-            return self.ceiling(self.float_problem(self.conf[param + '.sp'] * self.float_problem(self.sp_mod(param))))
-        elif isinstance(param, int) and 1 <= param <= 5:
-            return sum([self.ceiling(
-                self.float_problem(self.conf['x{}.sp'.format(x)] * self.float_problem(self.sp_mod('x{}'.format(x)))))
-                for x in range(1, param + 1)])
+            return self.sp_convert(self.sp_mod(param), self.conf[param + '.sp'])
+        elif isinstance(param, int) and 0 < param:
+            return sum([self.sp_convert(self.sp_mod('x{}'.format(x)), self.conf['x{}.sp'.format(x)]) for x in range(1, param + 1)])
 
     def bufftime(self):
         return self.mod('buff')
@@ -1389,7 +1397,8 @@ class Adv(object):
             log('x', '%s' % xseq, 0)
         self.x_before(e)
         missile_timer = Timer(self.cb_missile, self.conf['missile_iv'][xseq])
-        missile_timer.dname = '%s_missile' % xseq
+        # missile_timer.dname = '%s_missile' % xseq
+        missile_timer.dname = xseq
         missile_timer.amount = dmg_coef
         missile_timer.samount = sp_gain
         missile_timer()
@@ -1438,13 +1447,14 @@ class Adv(object):
             pass
 
     def run(self, d=300):
+        self.duration = d
         global loglevel
         if not loglevel:
             loglevel = 0
 
         self.ctx.on()
-
         self.doconfig()
+        logreset()
 
         self.l_idle = Listener('idle', self.l_idle)
         self.l_x = Listener('x', self.l_x)
@@ -1468,12 +1478,15 @@ class Adv(object):
                 self.slots.c.mod.append(v)
             if type(v) == list:
                 self.slots.c.mod += v
-        if self.a1:
-            self.slots.c.a.append(self.a1)
-        if self.a2:
-            self.slots.c.a.append(self.a2)
-        if self.a3:
-            self.slots.c.a.append(self.a3)
+
+        for ab in (self.a1, self.a2, self.a3):
+            if ab:
+                if isinstance(ab, list):
+                    self.slots.c.a.extend(ab)
+                else:
+                    self.slots.c.a.append(ab)
+        if 'ex' in self.conf:
+            self.slots.c.ex.update(dict(self.conf.ex.__dict__))
 
         self.equip()
         self.setup()
@@ -1493,9 +1506,7 @@ class Adv(object):
         self.acl_backdoor()
 
         if not self._acl:
-            self._acl_str = core.acl.acl_func_str(self.conf.acl)
-            from core.acl import do_act
-            self._acl = do_act
+            self._acl_str, self._acl = core.acl.acl_func_str(self.conf.acl)
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 
@@ -1537,6 +1548,8 @@ class Adv(object):
                     self.comment += '; '
                 self.comment += '{:.0%} {} uptime'.format(up, aff)
 
+        self.logs = copy.deepcopy(g_logs)
+
         return end
 
     def debug(self):
@@ -1572,32 +1585,25 @@ class Adv(object):
         # if doing.name[0] == 's':
         #   no_deed_to_do_anythin
 
-    # implement single float of c in python
-    def float_problem(self, a):
-        return floatsingle.tofloat(a)
+    # DL uses C floats and round SP up, which leads to precision issues
+    @staticmethod
+    def sp_convert(haste, sp):
+        sp_hasted = c_float(c_float(haste).value * sp).value
+        sp_int = int(sp_hasted)
+        return sp_int if sp_int == sp_hasted else sp_int + 1
 
-    # self ceiling is the true ceiling
-    def ceiling(self, a):
-        b = int(a)
-        if b == a:
-            return b
-        else:
-            return b + 1
-
-    def charge_p(self, name, sp):
-        percent = sp
-        self.s1.charge(self.ceiling(self.conf.s1.sp * percent))
-        self.s2.charge(self.ceiling(self.conf.s2.sp * percent))
-        self.s3.charge(self.ceiling(self.conf.s3.sp * percent))
+    def charge_p(self, name, percent):
+        percent = percent / 100 if percent > 1 else percent
+        self.s1.charge(self.sp_convert(percent, self.conf.s2.sp))
+        self.s2.charge(self.sp_convert(percent, self.conf.s2.sp))
+        self.s3.charge(self.sp_convert(percent, self.conf.s2.sp))
         log('sp', name, '{:.0f}%   '.format(percent * 100), '%d/%d, %d/%d, %d/%d' % ( \
             self.s1.charged, self.s1.sp, self.s2.charged, self.s2.sp, self.s3.charged, self.s3.sp))
         self.think_pin('prep')
 
     def charge(self, name, sp):
         # sp should be integer
-        sp = int(sp) * self.float_problem(self.sp_mod(name))
-        sp = self.float_problem(sp)
-        sp = self.ceiling(sp)
+        sp = self.sp_convert(self.sp_mod(name), sp)
         self.s1.charge(sp)
         self.s2.charge(sp)
         self.s3.charge(sp)
@@ -1669,7 +1675,7 @@ class Adv(object):
         self.dmg_proc(name, count)
 
     def l_melee_fs(self, e):
-        log('fs', 'succ')
+        log('cast', 'fs')
         dmg_coef = self.conf.fs.dmg
         self.fs_before(e)
         self.update_hits('fs')
@@ -1679,13 +1685,14 @@ class Adv(object):
         self.charge('fs', self.conf.fs.sp)
 
     def l_range_fs(self, e):
-        log('fs', 'succ')
+        log('cast', 'fs')
         self.fs_before(e)
         self.update_hits('fs')
         dmg_coef = self.conf['fs.dmg']
         sp_gain = self.conf['fs.sp']
         missile_timer = Timer(self.cb_missile, self.conf['missile_iv']['fs'])
-        missile_timer.dname = 'fs_missile'
+        missile_timer.dname = 'fs'
+        # missile_timer.dname = 'fs_missile'
         missile_timer.amount = dmg_coef
         missile_timer.samount = sp_gain
         missile_timer()
@@ -1693,7 +1700,7 @@ class Adv(object):
         self.think_pin('fs')
 
     def l_s(self, e):
-        if e.name == 'd_ds':
+        if e.name == 'ds':
             return
 
         self.update_hits(e.name)
@@ -1731,14 +1738,10 @@ class Adv(object):
                         self.s3_buff_list[0].on()
                         self.s3_buff = self.s3_buff_list[0]
                 else:
-                    self.s3_buff = None
+                    idx = (self.s3_buff_list.index(self.s3_buff) + 1) % len(self.s3_buff_list)
                     for buff in self.s3_buff_list:
-                        if buff is not None:
-                            if buff.get():
-                                buff.off()
-                            else:
-                                buff.on()
-                                self.s3_buff = buff
+                        buff.off()
+                    self.s3_buff_list[idx].on()
             else:
                 self.do_buff(e, buffarg).on()
 

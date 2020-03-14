@@ -1,8 +1,5 @@
-import adv.adv_test
-from core.advbase import *
 from core.advbase import *
 from slot.a import *
-from slot.d import *
 
 def module():
     return Yaten
@@ -10,13 +7,16 @@ def module():
 class Yaten(Adv):
     a1 = ('epassive_att_crit', 3)
     a3 = ('energized_att', 0.20)
+    
     conf = {}
-    conf['slot.a'] = HoH()+JotS()
+    conf['slot.a'] = The_Shining_Overlord()+JotS()
     conf['acl'] = """
+        `dragon
+        `s3, not this.s3_buff
         `s1
-        `s2, fsc and self.energy() < 4
+        `s2, fsc and this.energy() < 4
         `fs, seq=3
-        """
+    """
 
     def d_slots(self):
         if 'bow' in self.ex:
@@ -30,9 +30,6 @@ class Yaten(Adv):
     def s2_proc(self, e):
         self.energy.add(2, team=True)
 
-
 if __name__ == '__main__':
-    conf = {}
-    adv.adv_test.test(module(), conf)
-
-
+    from core.simulate import test_with_argv
+    test_with_argv(None, *sys.argv)

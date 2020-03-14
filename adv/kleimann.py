@@ -1,6 +1,4 @@
-import adv.adv_test
 from core.advbase import *
-import slot
 
 def module():
     return Kleimann
@@ -11,12 +9,12 @@ class Kleimann(Adv):
  
     conf = {}
     conf['acl'] = """
-        `fs, seq=5 and s1.charged >= 2500
-        `s1, seq=5 and cancel or pin='fs'
-        `s2, seq=5 and cancel or pin='fs'
+        `dragon
+        `s3, not this.s3_buff
+        `s1
+        `s2
         """
 
-
 if __name__ == '__main__':
-    conf = {}
-    adv.adv_test.test(module(), conf)
+    from core.simulate import test_with_argv
+    test_with_argv(None, *sys.argv)

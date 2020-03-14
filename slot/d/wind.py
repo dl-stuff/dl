@@ -59,10 +59,10 @@ class Pazuzu(DragonBase):
         self.ds_buff = Debuff('ds',0.05,10)
 
     def ds_proc(self):
-        dmg = self.adv.dmg_make('d_ds',0.91,'s')
+        dmg = self.adv.dmg_make('ds',0.91,'s')
         self.ds_buff.on()
         self.adv.afflics.poison('ds',120,0.291,30,dtype='s')
-        return dmg + self.adv.dmg_make('d_ds',7*0.91,'s')
+        return dmg + self.adv.dmg_make('ds',7*0.91,'s')
 
 class Long_Long(DragonBase):
     ele = 'wind'
@@ -158,7 +158,7 @@ class Vayu(DragonBase):
         self.ds_buff = SingleActionBuff('d_sd_buff',0.40,1,'s','buff')
 
     def ds_proc(self):
-        dmg = self.adv.dmg_make('d_ds',8.96,'s')
+        dmg = self.adv.dmg_make('ds',8.96,'s')
         self.ds_buff.on(1)
         return dmg
 
@@ -225,7 +225,7 @@ Garland = AC011_Garland
 class Ariel(DragonBase):
     ele = 'wind'
     att = 126
-    a = [('a', 0.5), ('sp', 0.3)]
+    a = [('a', 0.50), ('sp',0.30)]
     dragonform = {
         'act': 'c3 s',
 
@@ -237,10 +237,10 @@ class Ariel(DragonBase):
         'dx2.startup': 38 / 60.0, # c2 frames
         'dx2.hit': 1,
 
-        'dx3.dmg': 2.46,
-        'dx3.startup': 40 / 60.0, # c3 frames
-        'dx3.recovery': 78 / 60.0, # recovery
-        'dx3.hit': 1,
+        'dx3.dmg': 0.82,
+        'dx3.startup': 60 / 60.0, # c3 frames
+        'dx3.recovery': 58 / 60.0, # recovery
+        'dx3.hit': 3,
 
         'ds.dmg': 12.00,
         'ds.recovery': 145 / 60, # skill frames

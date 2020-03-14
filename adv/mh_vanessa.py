@@ -37,8 +37,7 @@ class Hunter_Vanessa(Adv):
     conf['afflict_res.paralysis'] = 0
 
     def d_slots(self):
-        from adv.adv_test import sim_duration
-        if sim_duration <= 90:
+        if self.duration <= 90:
             self.slots.a = Resounding_Rendition()+The_Chocolatiers()
 
     def init(self):
@@ -72,7 +71,7 @@ class Hunter_Vanessa(Adv):
         self.fs = None
 
     def do_fs(self, e, name):
-        log('fs','succ')
+        log('cast','fs')
         self.__dict__['a_'+name].getdoing().cancel_by.append(name)
         self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
         self.fs_before(e)

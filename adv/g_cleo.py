@@ -1,4 +1,3 @@
-import adv.adv_test
 from core.advbase import *
 from slot import *
 from slot.w import *
@@ -20,11 +19,10 @@ class Gala_Cleo(Adv):
     conf['slot.a'] = CC()+JotS()  # wand c2*1.08 = 217
     conf['slot.d'] = Shinobi()
     conf['acl'] = """
-        `s2, pin='prep'
+        `s3, pin='prep'
         `fs, s1.charged>=s1.sp and self.fs_alt.uses > 0
-        `s2, x=5 or x=4 or fsc
+        `s2, x=5 or x=4 or fsc or s=3
         `s1, s=2 or fsc
-        `s3, x=5 or fsc
         """
 
     def d_slots(self):
@@ -32,9 +30,10 @@ class Gala_Cleo(Adv):
             self.slots.a = CC()+Primal_Crisis()
 
     def fs_proc_alt(self, e):
-        buff = Teambuff('a1_str',0.25,10)
-        buff.bufftime = buff.nobufftime
-        buff.on()
+        if self.a1_buffed:
+            buff = Teambuff('a1_str',0.25,10)
+            buff.bufftime = buff.nobufftime
+            buff.on()
 
     def prerun(self):
         self.a1_buffed = self.condition('always in a1')
@@ -50,9 +49,9 @@ class Gala_Cleo(Adv):
         self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
 
     def s1_dmg(self, t):
-        self.dmg_make('s1_hit_single',0.88)
+        self.dmg_make('s1',0.88)
         self.hits += 1
-        self.dmg_make('s1_hit_aoe',2.65)
+        self.dmg_make('s1',2.65)
         self.hits += 1
 
     def s1_proc(self, e):
@@ -77,7 +76,10 @@ class Gala_Cleo(Adv):
 
         self.fs_alt.on()
 
+    def s2_proc(self, e):
+        Debuff('s2', 0.10, 20).on()
+
 
 if __name__ == '__main__':
-    conf = {}
-    adv.adv_test.test(module(), conf)
+    from core.simulate import test_with_argv
+    test_with_argv(None, *sys.argv)

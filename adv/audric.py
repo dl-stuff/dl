@@ -1,4 +1,3 @@
-import adv.adv_test
 from core.advbase import *
 from slot.a import *
 from slot.d import *
@@ -36,6 +35,5 @@ class Audric(Adv):
         self.dragonform.charge_gauge(3)
 
 if __name__ == '__main__':
-    conf = {}
-    adv.adv_test.test(module(), conf)
-    # logcat([str(type(module().conf['slot.d']).__name__)])
+    from core.simulate import test_with_argv
+    test_with_argv(None, *sys.argv)

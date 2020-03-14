@@ -1,5 +1,5 @@
-import adv.adv_test
 from core.advbase import *
+from slot.a import *
 
 def module():
     return Lathna
@@ -10,12 +10,14 @@ class Lathna(Adv):
     a3 = ('dt', 0.25)
     
     conf = {}
-    conf['slot.d'] = slot.d.Shinobi()
+    conf['slot.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
+        `dragon.act('s')
+        `s3, not this.s3_buff
         `s1a
-        `s2, seq = 5
-        `s3, seq = 5
+        `s2, x=5
         """
+    
     conf['dragonform'] = {
         'act': 'c3 s c3 c3 c2 c2 c2',
 
@@ -38,10 +40,10 @@ class Lathna(Adv):
         'dodge.startup': 41 / 60.0, # dodge frames
     }
     def ds_proc(self):
-        dmg = self.dmg_make('d_ds', 3.64, 's')
+        dmg = self.dmg_make('ds', 3.64, 's')
         self.afflics.poison('ds',120,0.291,30,dtype='s')
         # self.afflics.poison('ds',120,3.00,30,dtype='s')
-        return dmg + self.dmg_make('d_ds',3.64,'s')
+        return dmg + self.dmg_make('ds',3.64,'s')
 
     def prerun(self):
         self.faceless_god = Selfbuff('faceless_god',2.00,-1,'poison_killer','passive')
@@ -86,6 +88,5 @@ class Lathna(Adv):
             self.dmg_make("s2", 17.26)
 
 if __name__ == '__main__':
-    conf = {}
-    adv.adv_test.test(module(), conf)
-
+    from core.simulate import test_with_argv
+    test_with_argv(None, *sys.argv)

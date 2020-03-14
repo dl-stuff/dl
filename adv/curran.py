@@ -1,8 +1,6 @@
-import adv.adv_test
 from core.advbase import *
-from slot.d import *
 from slot.a import *
-
+from slot.d import *
 
 def module():
     return Curran
@@ -14,12 +12,13 @@ class Curran(Adv):
     a3 = ('lo',0.6)
 
     conf = {}
+    conf['slot.a'] = Kung_Fu_Masters()+The_Wyrmclan_Duo()
+    conf['slot.d'] = Fatalis()
     conf['acl'] = """
+        `s3, not this.s3_buff
         `s1
-        `s2, seq=2
-        `s3, seq=5
+        `s2, x=2
         """
-    conf['slot.a'] = KFM()+FitF()
 
     def s1_proc(self, e):
         with Modifier("s1killer", "poison_killer", "hit", 0.6):
@@ -30,5 +29,5 @@ class Curran(Adv):
             self.dmg_make("s2", 12.54)
 
 if __name__ == '__main__':
-    conf = {}
-    adv.adv_test.test(module(), conf)
+    from core.simulate import test_with_argv
+    test_with_argv(None, *sys.argv)

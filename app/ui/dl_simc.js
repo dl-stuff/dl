@@ -6,16 +6,19 @@ EX_MAP = {
     'dagger': 'd',
     'axe2': 'm',
     'sword': 's',
-    'geuden': 'g'
+    'g_euden': 'g',
+    'tobias': 't'
 }
 AXE2_ADV = ['h_mym', 'v_melody']
+UNIQUE_ADV = ['g_euden', 'tobias']
 RANGED = ['wand', 'bow', 'staff']
 BASE_SIM_T = 180
-BASE_TEAM_DPS = 16000
+BASE_TEAM_DPS = 20000
 BASE_AFFLICT_UPTIME = {
     'poison': 90,
     'burn': 75,
-    'paralysis': 80
+    'paralysis': 80,
+    'frostbite': 90
 }
 PREFIX_MAPS = {
     'adv': {
@@ -27,7 +30,8 @@ PREFIX_MAPS = {
         's_': 'summer_',
         'v_': 'valentines_',
         'w_': 'wedding_',
-        'mh_': 'hunter_'
+        'mh_': 'hunter_',
+        't_hope': 'templar_hope'
     },
 }
 function name_fmt(name) {
@@ -68,8 +72,6 @@ function slots_icon_fmt(adv, ele, wt, slots) {
     const dragon = slots_list[1];
     if (!dragon.startsWith('Unreleased')) {
         img_urls.push('<img src="/dl-sim/pic/dragon/' + dragon + '.png" class="slot-icon"/>');
-    } else {
-        img_urls.push('<img src="/dl-sim/pic/dragon/Unreleased.png" class="slot-icon"/>');
     }
     const weapon = slots_list[2];
     if (weapon === 'HDT2' || (weapon === 'Agito')) {
@@ -148,7 +150,7 @@ function createDpsBar(resDiv, arr, extra, total_dps = undefined) {
     } else {
         slots = '';
     }
-    resDiv.append($('<h6>DPS:' + total + name_fmt(slots) + cond_comment_str + '</h6>'));
+    resDiv.append($('<h6>DPS:' + total + slots + cond_comment_str + '</h6>'));
     copyTxt += slots + '```DPS: ' + total + cond_cpy_str + '\n';
     let resBar = $('<div></div>').attr({ class: 'result-bar' });
     let colorIdx = 0;
@@ -271,14 +273,14 @@ function loadAdvSlots() {
                 if (AXE2_ADV.includes(adv_name)) {
                     $('#ex-axe2').prop('checked', true);
                     $('#ex-axe2').prop('disabled', true);
-                } else if (adv_name == 'g_euden') {
-                    $('#ex-geuden').prop('checked', true);
-                    $('#ex-geuden').prop('disabled', true);
+                } else if (UNIQUE_ADV.includes(adv_name)) {
+                    $('#ex-' + adv_name).prop('checked', true);
+                    $('#ex-' + adv_name).prop('disabled', true);
                 } else if (adv_name != 'megaman') {
                     $('#ex-' + slots.adv.wt).prop('checked', true);
                     $('#ex-' + slots.adv.wt).prop('disabled', true);
                 }
-                if (RANGED.includes(slots.adv.wt)){
+                if (RANGED.includes(slots.adv.wt)) {
                     $('#input-missile').prop('disabled', false);
                 } else {
                     $('#input-missile').prop('disabled', true);
@@ -291,11 +293,11 @@ function loadAdvSlots() {
                 $('#input-acl').data('default_acl', acl);
                 if (slots.adv.afflict_res != undefined) {
                     for (const key in slots.adv.afflict_res) {
-                        $('#input-res-'+key).val(slots.adv.afflict_res[key]);
+                        $('#input-res-' + key).val(slots.adv.afflict_res[key]);
                     }
                 } else {
                     for (const key in slots.adv.afflict_res) {
-                        $('#input-res-'+key).removeAttr('value');
+                        $('#input-res-' + key).removeAttr('value');
                     }
                 }
                 if (slots.adv.no_config != undefined) {
@@ -343,7 +345,7 @@ function readConditionList() {
         return conditions;
     }
 }
-function readResistDict(){
+function readResistDict() {
     let resists = {};
     const resistList = $('#affliction-resist > div > input[type="text"]');
     if (resistList.length === 0) {
@@ -448,7 +450,7 @@ function runAdvTest() {
                         copyTxt += createDpsBar(newResultItem, cond_false, extra, cond_true[0]);
                     }
                     // createChart(res.log.dmg, name);
-                    const logs = ['dragon', 'skill_stat', 'action', 'timeline'].map(key => {
+                    const logs = ['dragon', 'summation', 'action', 'timeline'].map(key => {
                         if (res.logs[key] !== undefined && res.logs[key] !== "") {
                             return res.logs[key];
                         } else {
@@ -509,10 +511,11 @@ function clearResults() {
     $('#input-teamdps').val(BASE_TEAM_DPS);
     $('#input-missile').val(0);
     const resistList = $('#affliction-resist > div > input[type="text"]');
-    resistList.each(function (idx, res) {$(res).val('')});
+    resistList.each(function (idx, res) { $(res).val(''); });
     $('#input-sim-afflict-type')[0].selectedIndex = 0;
     $('#input-sim-afflict-time').removeAttr('value');
     $('#input-sim-afflict-time').prop('disabled', true);
+    $('#input-sim-afflict-time').empty();
     $('#input-sim-buff-str').removeAttr('value');
     $('#input-sim-buff-def').removeAttr('value');
     $('#input-conditions').empty();
