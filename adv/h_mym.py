@@ -11,7 +11,8 @@ class Halloween_Mym(Adv):
     conf['slots.a'] = KFM()+Jewels_of_the_Sun()
     conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `dragon, s=2
+        `s3, not this.s3_buff_on
         `s1, fsc
         `s2, cancel
         `fs, x=5

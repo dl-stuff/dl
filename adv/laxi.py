@@ -10,11 +10,14 @@ class Laxi(Adv):
     comment = "a1 proc at 0s"
     
     conf = {}
-    conf['slot.a'] = HoH()+DD()
+    conf['slot.a'] = MF()+DD()
+    conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
-        `s3, not self.s3_buff
-        `s2, not self.s2buff.get()
+        `dragon, fsc
+        `s3, fsc and not this.s3_buff
+        `s2, not this.s2buff.get()
         `s1
+        `fs, x=2
         """
 
     def prerun(self):

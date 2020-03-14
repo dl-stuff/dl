@@ -1,5 +1,7 @@
 import adv.adv_test
 from core.advbase import *
+from slot.a import *
+from slot.d import *
 
 def module():
     return Vida
@@ -8,11 +10,13 @@ class Vida(Adv):
 #    comment = 'unsuitable resist'
     a1 = ('fs',0.30)
     conf = {}
+    conf['slot.a'] = Twinfold_Bonds()+The_Lurker_in_the_Woods()
+    conf['slot.d'] = Fatalis()
     conf['acl'] = """
-        `s1, seq=5 and cancel or fsc
-        `s2, seq=5 and cancel or fsc
-        `s3, seq=5 and cancel or fsc
-        `fs, seq=5
+        `s3, not this.s3_buff
+        `s1
+        `s2
+        `fs, x=2
         """
 
     def prerun(self):

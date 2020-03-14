@@ -11,12 +11,13 @@ class Valentines_Orion(Adv):
     conf = {}
 
     conf['acl'] = """
-        `s3, fsc and not self.s3_buff
+        ``dragon, fsc
+        `s3, fsc and not this.s3_buff_on
         `s1, fsc
-        `fs, seq=2 and cancel
+        `fs, seq=3 and cancel
         """
-    conf['slot.a'] = Mega_Friends()+EE()
-    conf['slot.d'] = Dreadking_Rathalos()
+    conf['slot.a'] = TSO()+EE()
+    conf['slot.d'] = Apollo()
     conf['afflict_res.burn'] = 0
 
     def prerun(self):

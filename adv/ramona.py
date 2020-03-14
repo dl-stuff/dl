@@ -13,9 +13,10 @@ class Ramona(Adv):
     conf['slots.a'] = KFM()+VC()
     conf['slots.d'] = Sakuya()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `dragon.act('c3 s end')
+        `s3, not this.s3_buff_on
         `s1a
-        `s2,seq=4
+        `s2, x=4
         """
 
     def prerun(self):

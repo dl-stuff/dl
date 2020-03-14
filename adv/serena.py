@@ -11,9 +11,10 @@ def module():
 class Serena(Adv):
     conf = {}
     conf['slot.d'] = Dreadking_Rathalos()
-    conf['slot.a'] = Mega_Friends()+Primal_Crisis()
+    conf['slot.a'] = TSO()+Primal_Crisis()
     conf['acl'] = """
-        `s3, fsc and not self.s3_buff
+        `dragon, fsc
+        `s3, fsc and not this.s3_buff_on
         `s1, fsc
         `s2, fsc
         `fs, seq=2

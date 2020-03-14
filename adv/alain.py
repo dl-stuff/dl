@@ -1,6 +1,7 @@
 import adv.adv_test
 from core.advbase import *
 from slot.a import *
+from slot.d import *
 
 def module():
     return Alain
@@ -8,11 +9,13 @@ def module():
 class Alain(Adv):
     conf = {}
     conf['slot.a'] = RR()+EE()
+    conf['slot.d'] = Apollo()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `dragon, x=5
+        `s3, not this.s3_buff_on
         `s1
         `s2
-        `fs, seq=5
+        `fs, x=5
         """
     conf['afflict_res.burn'] = 0
 

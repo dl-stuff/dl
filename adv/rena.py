@@ -2,8 +2,6 @@ import adv.adv_test
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-from slot.w import *
-
 
 def module():
     return Rena
@@ -15,7 +13,8 @@ class Rena(Adv):
     conf['slot.d'] = Sakuya()
     conf['slot.a'] = RR()+Elegant_Escort()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `dragon.act('c3 s end'), s=2
+        `s3, not this.s3_buff_on
         `s1
         `s2, s=1
         `fs, seq=5 and (s1.charged=1500 or s1.charged=3200)

@@ -8,10 +8,11 @@ def module():
 class Marty(Adv):
     a1 = ('sp',0.05)
     conf = {}
-    conf['slots.a'] = Mega_Friends()+BN()
+    conf['slots.a'] = TSO()+The_Lurker_in_the_Woods()
     conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
-        `s3, fsc and not self.s3_buff
+        `dragon, fsc
+        `s3, fsc and not this.s3_buff_on
         `s1, fsc
         `fs, seq=2
         """

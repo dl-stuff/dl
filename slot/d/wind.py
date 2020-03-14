@@ -225,27 +225,26 @@ Garland = AC011_Garland
 class Ariel(DragonBase):
     ele = 'wind'
     att = 126
-    a = [('a', 0.5), ('sp', 0.35)]
+    a = [('a', 0.5), ('sp', 0.3)]
     dragonform = {
         'act': 'c3 s',
 
-        'dx1.dmg': 1.60,
-        'dx1.startup': 20 / 60.0, # c1 frames
+        'dx1.dmg': 1.90,
+        'dx1.startup': 19 / 60.0, # c1 frames
         'dx1.hit': 1,
 
-        'dx2.dmg': 1.76,
-        'dx2.startup': 26 / 60.0, # c2 frames
-        'dx2.hit': 2,
+        'dx2.dmg': 2.09,
+        'dx2.startup': 38 / 60.0, # c2 frames
+        'dx2.hit': 1,
 
-        'dx3.dmg': 3.99,
-        'dx3.startup': 49 / 60.0, # c3 frames
-        'dx3.recovery': 45 / 60.0, # recovery
+        'dx3.dmg': 2.46,
+        'dx3.startup': 40 / 60.0, # c3 frames
+        'dx3.recovery': 78 / 60.0, # recovery
         'dx3.hit': 1,
 
-        'ds.recovery': 105 / 60, # skill frames
-        'ds.hit': -1,
-
-        'dodge.startup': 39 / 60, # dodge frames
+        'ds.dmg': 12.00,
+        'ds.recovery': 145 / 60, # skill frames
+        'ds.hit': 1,
     }
 
 class Unreleased_DKR_Baby_dont_hurt_me(DragonBase):

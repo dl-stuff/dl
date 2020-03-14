@@ -13,7 +13,8 @@ class Renelle(Adv):
     conf['slot.d'] = Dreadking_Rathalos()
     conf['slot.a'] = TB()+EE()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `dragon, fsc
+        `s3, not this.s3_buff_on
         `s1, fsc
         `s2, fsc
         `fs, x=2

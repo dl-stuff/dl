@@ -11,9 +11,10 @@ class Yuya(Adv):
     conf['slot.d'] = Dreadking_Rathalos()
     conf['slot.a'] = Twinfold_Bonds()+The_Lurker_in_the_Woods()
     conf['acl'] = """
-        `s3, fsc and not self.s3_buff
+        `dragon, fsc
+        `s3, fsc and not this.s3_buff
         `s1, fsc
-        `fs, seq=2
+        `fs, x=2
         """
 
     a3 = ('primed_crit_chance', 0.5,5)

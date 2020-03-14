@@ -9,13 +9,14 @@ def module():
 class Gala_Sarisse(Adv):
     a3 = ('bt',0.3)
     conf = {}
-    conf['slot.d'] = Sakuya()
+    conf['slot.d'] = Dreadking_Rathalos()
     conf['slot.a'] = Forest_Bonds()+Dear_Diary()
     conf['acl'] = """
-        `s3, fsc and not self.s3_buff
-        `s1, cancel
+        `dragon.act('c3 s end')
+        `s3, fsc and not this.s3_buff_on
+        `s1, fsc
         `s2, fsc
-        `fs, seq=4
+        `fs, seq=2
     """
 
     def prerun(self):

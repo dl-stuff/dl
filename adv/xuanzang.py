@@ -13,15 +13,12 @@ class Xuan_Zang(Adv):
     conf['slot.d'] = Dreadking_Rathalos()
     conf['slot.a'] = RR()+Jewels_of_the_Sun()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `dragon, s=2
+        `s3, not this.s3_buff_on
         `s1, fsc
         `s2, cancel
         `fs, seq=4
         """
-
-    def d_slots(self):
-        if 'bow' in self.ex:
-            self.conf.slot.a = RR()+JotS()
 
     def s1_proc(self, e):
         if self.mod('def')!= 1:

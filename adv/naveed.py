@@ -11,10 +11,11 @@ class Naveed(Adv):
     a3 = ('prep','100%')
     conf = {}
     conf['acl'] = """
-        `s3, not self.s3_buff
-        `s2, self.s1level < 5
+        `dragon.act('c3 s end')
+        `s3, not this.s3_buff_on
+        `s2, this.s1level < 5
         `s1
-        `fs, seq=3 and cancel
+        `fs, x=3
         """
     conf['slot.a'] = TSO()+Primal_Crisis()
             

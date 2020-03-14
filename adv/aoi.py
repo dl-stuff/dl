@@ -1,6 +1,7 @@
 import adv.adv_test
 from core.advbase import *
 from slot.a import *
+from slot.d import *
 
 def module():
     return Aoi
@@ -10,7 +11,8 @@ class Aoi(Adv):
     conf = {}
     conf['slot.a'] = RR()+EE()
     conf['acl'] = """
-        `s3, not self.s3_buff 
+        `dragon, x=5
+        `s3, not this.s3_buff_on
         `s1
         `s2
         """

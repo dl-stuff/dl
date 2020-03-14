@@ -10,12 +10,14 @@ class Audric(Adv):
     a1 = ('dp', 10)
     
     conf = {}
-    conf['slot.d'] = Shinobi()
+    conf['slot.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
+    conf['slot.d'] = Epimetheus()
     conf['acl'] = """
-        `s1
+        `dragon
+        `s3, fsc and not this.s3_buff
+        `s1, fsc
         `s2, fsc
-        `s3, fsc
-        `fs, seq=3
+        `fs, x=3
     """
     def prerun(self):
         self.cursed_blood = Selfbuff('cursed_blood',0.30,-1,'crit','chance')
