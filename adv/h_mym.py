@@ -7,14 +7,16 @@ def module():
     return Halloween_Mym
 
 class Halloween_Mym(Adv):
+    comment = 'c5fs'
+    
     conf = {}
-    conf['slots.a'] = KFM()+Jewels_of_the_Sun()
+    conf['slot.a'] = KFM() + JotS()
     conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1, fsc
         `s2, cancel
-        `fs, x=5
+        `fs, x = 5
     """
     conf['dragonform'] = {
         'act': 'c3 s',

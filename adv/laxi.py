@@ -7,14 +7,16 @@ def module():
     return Laxi
 
 class Laxi(Adv):
-    comment = "a1 proc at 0s"
+    comment = "c5fs; a1 proc at 0s"
     
     conf = {}
-    conf['slot.a'] = HoH()+DD()
+    conf['slot.a'] = RR() + BN()
+    conf['slot.d'] = Sakuya()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s2, not self.s2buff.get()
-        `s1
+        `s1, cancel
+        `fs, x = 5
         """
 
     def prerun(self):

@@ -1,22 +1,22 @@
 import adv.adv_test
 from core.advbase import *
-from core.advbase import *
-from core.log import *
-from slot.d import *
 from slot.a import *
+from slot.d import *
 
 def module():
     return Serena
 
 class Serena(Adv):
+    comment = 'c2fs'
+    
     conf = {}
+    conf['slot.a'] = MF() + PC()
     conf['slot.d'] = Dreadking_Rathalos()
-    conf['slot.a'] = Mega_Friends()+Primal_Crisis()
     conf['acl'] = """
         `s3, fsc and not self.s3_buff
         `s1, fsc
         `s2, fsc
-        `fs, seq=2
+        `fs, x = 2
         """
 
     def s1_before(self, e):

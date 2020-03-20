@@ -1,22 +1,23 @@
 import adv.adv_test
 from core.advbase import *
 from slot.a import *
-import random
 from slot.d import *
 
 def module():
     return Xuan_Zang
 
 class Xuan_Zang(Adv):
+    comment = 'c4fs'
     a3 = ('cc',0.06,'hp70')
+    
     conf = {}
     conf['slot.d'] = Dreadking_Rathalos()
-    conf['slot.a'] = RR()+Jewels_of_the_Sun()
+    conf['slot.a'] = RR() + JotS()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1, fsc
         `s2, cancel
-        `fs, seq=4
+        `fs, x = 4
         """
 
     def d_slots(self):

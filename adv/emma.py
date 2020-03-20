@@ -1,24 +1,24 @@
 import adv.adv_test
 from core.advbase import *
-from slot.d import *
 from slot.a import *
-
+from slot.d import *
 
 def module():
     return Emma
 
 class Emma(Adv):
+    comment = 'c5fs; no s2'
     a1 = ('bt',0.25)
     a3 = ('primed_att', 0.05)
 
     conf = {}
-    conf['slots.d'] = Dreadking_Rathalos()
-    conf['slot.a'] = Castle_Cheer_Corps()+FWHC()
+    conf['slot.a'] = CCC() + FWHC()
+    conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
         `fs, self.fs_prep_c==3
         `s3, not self.s3_buff
         `s1, cancel
-        `fs, x=5
+        `fs, x = 5
         """
 
     def init(self):

@@ -11,11 +11,12 @@ class Mikoto(Adv):
     a3 = ('cc',0.08)
     
     conf = {}
+    conf['slot.a'] = RR() + BN()
     conf['slot.d'] = Arctos()
     conf['acl'] = """
-        `s3, x=5 and not self.s3_buff
-        `s1, x=5
-        `s2, x=5
+        `s3, not self.s3_buff
+        `s1, x = 5
+        `s2, x = 5
         """
 
     def prerun(self):

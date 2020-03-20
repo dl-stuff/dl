@@ -7,8 +7,10 @@ def module():
     return Yue
 
 class Yue(Adv):
+    comment = "c5fs"
+        
     conf = {}
-    conf['slot.a'] = Kung_Fu_Masters()+Flower_in_the_Fray()
+    conf['slot.a'] = KFM() + TWD()
     conf['slot.d'] = Arctos()
     conf['acl'] = """
         `s3, not self.s3_buff

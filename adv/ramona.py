@@ -7,15 +7,17 @@ def module():
     return Ramona
 
 class Ramona(Adv):
+    comment = ''
     a1 = ('primed_att',0.10)
     a3 = ('bc',0.13)
+    
     conf = {}
-    conf['slots.a'] = KFM()+VC()
+    conf['slots.a'] = KFM() + VC()
     conf['slots.d'] = Sakuya()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1a
-        `s2,seq=4
+        `s2, x = 4
         """
 
     def prerun(self):

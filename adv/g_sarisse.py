@@ -7,15 +7,17 @@ def module():
     return Gala_Sarisse
 
 class Gala_Sarisse(Adv):
+    comment = 'c1fs'
     a3 = ('bt',0.3)
+
     conf = {}
-    conf['slot.d'] = Sakuya()
-    conf['slot.a'] = Forest_Bonds()+Dear_Diary()
+    conf['slot.a'] = FB() + DD()
+    conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
         `s3, fsc and not self.s3_buff
-        `s1, cancel
+        `s1, fsc
         `s2, fsc
-        `fs, seq=4
+        `fs, x = 1
     """
 
     def prerun(self):

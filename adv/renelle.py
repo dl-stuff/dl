@@ -7,17 +7,19 @@ def module():
     return Renelle
 
 class Renelle(Adv):
+    comment = 'c2fs'
     a1 = ('cc',0.15,'hit15')
+    
     conf = {}
-    conf['afflict_res.burn'] = 0
+    conf['slot.a'] = TB() + EE()
     conf['slot.d'] = Dreadking_Rathalos()
-    conf['slot.a'] = TB()+EE()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1, fsc
         `s2, fsc
-        `fs, x=2
+        `fs, x = 2
         """
+    conf['afflict_res.burn'] = 0
 
     def s1_proc(self, e):
         self.afflics.burn('s1',100,0.803)

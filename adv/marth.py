@@ -10,14 +10,15 @@ class Marth(Adv):
     comment = 'c2fs'
     a1 = ('prep',100)
     a3 = ('cc',0.13,'hit15')
+    
     conf = {}
-    conf['slot.a'] = Mega_Friends()+Primal_Crisis()
+    conf['slot.a'] = MF() + PC()
     conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
         `s3, not self.s3_buff
-        `s2,fsc
-        `s1,fsc
-        `fs, seq=2
+        `s2, fsc
+        `s1, fsc
+        `fs, x = 2
         """
 
     def init(self):

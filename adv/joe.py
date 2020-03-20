@@ -2,18 +2,21 @@ import adv.adv_test
 from core.advbase import *
 from slot.a import *
 from slot.d import *
+
 def module():
     return Joe
 
 class Joe(Adv):
+    comment = 'c1fs'
+    
     conf = {}
+    conf['slot.a'] = MF() + DD()
     conf['slot.d'] = Dreadking_Rathalos()
-    conf['slot.a'] = Mega_Friends()+Dear_Diary()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `s3, fsc and not self.s3_buff
         `s1, fsc
         `s2, fsc
-        `fs, x=3
+        `fs, x = 1
         """
     conf['afflict_res.burn'] = 0
 

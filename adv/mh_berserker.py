@@ -29,9 +29,11 @@ class FS_MH(Action):
 
 
 class Hunter_Berserker(Adv):
+    comment = 'fs roll'
     a1 = ('fs', 0.30)
+    
     conf ={}
-    conf['slot.a'] = Resounding_Rendition()+The_Lurker_in_the_Woods()
+    conf['slot.a'] = RR() + The_Lurker_in_the_Woods()
     conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
         `s3, not self.s3_buff

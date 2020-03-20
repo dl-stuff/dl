@@ -7,18 +7,18 @@ def module():
     return Lea
 
 class Lea(Adv):
-    comment = 'c2+fs'
+    comment = 'c2fs'
     a1 = ('fs', 0.50)
     a3 = ('sp', 0.12, 'fs')
         
     conf = {}
-    conf['slot.a'] = TSO()+EE()
+    conf['slot.a'] = RR() + EE()
     conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1, fsc
         `s2, fsc
-        `fs, seq=2
+        `fs, x = 2
         """
     conf['afflict_res.burn'] = 0
     

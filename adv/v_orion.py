@@ -1,6 +1,5 @@
 import adv.adv_test
 from core.advbase import *
-from core.log import *
 from slot.a import *
 from slot.d import *
 
@@ -8,15 +7,16 @@ def module():
     return Valentines_Orion
 
 class Valentines_Orion(Adv):
+    comment = 'c2fs'
+    
     conf = {}
-
+    conf['slot.a'] = MF() + EE()
+    conf['slot.d'] = Dreadking_Rathalos()
     conf['acl'] = """
         `s3, fsc and not self.s3_buff
         `s1, fsc
-        `fs, seq=2 and cancel
+        `fs, x = 2
         """
-    conf['slot.a'] = Mega_Friends()+EE()
-    conf['slot.d'] = Dreadking_Rathalos()
     conf['afflict_res.burn'] = 0
 
     def prerun(self):

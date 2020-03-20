@@ -1,22 +1,25 @@
 import adv.adv_test
 from core.advbase import *
-from core.advbase import *
 from slot.a import *
+from slot.d import *
 
 def module():
     return Naveed
 
 class Naveed(Adv):
+    comment = 'c3fs'
     a1 = ('a',0.08,'hit15')
     a3 = ('prep','100%')
+    
     conf = {}
+    conf['slot.a'] = TSO() + PC()
+    conf['slot.d'] = Sakuya()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s2, self.s1level < 5
         `s1
-        `fs, seq=3 and cancel
+        `fs, x = 3
         """
-    conf['slot.a'] = TSO()+Primal_Crisis()
             
     def prerun(self):
         self.s1level = 0

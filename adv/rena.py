@@ -2,23 +2,22 @@ import adv.adv_test
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-from slot.w import *
-
 
 def module():
     return Rena
 
 class Rena(Adv):
+    comment = 'c5fs'
     a1 = ('primed_defense',0.08)
 
     conf = {}
-    conf['slot.d'] = Sakuya()
     conf['slot.a'] = RR()+Elegant_Escort()
+    conf['slot.d'] = Sakuya()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1
-        `s2, s=1
-        `fs, seq=5 and (s1.charged=1500 or s1.charged=3200)
+        `s2, s = 1
+        `fs, x = 5
         """
     conf['afflict_res.burn'] = 0
 

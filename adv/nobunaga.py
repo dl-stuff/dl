@@ -1,20 +1,23 @@
 import adv.adv_test
 from core.advbase import *
 from slot.a import *
-#from slot.d import *
+from slot.d import *
 
 def module():
     return Nobunaga
 
 class Nobunaga(Adv):
+    comment = 'c5fs'
     a1 = ('a',0.2,'hit15')
+    
     conf = {}
     conf['slot.a'] = RR()+Primal_Crisis()
+    conf['slot.d'] = Sakuya()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1
         `s2
-        `fs, x=5
+        `fs, x = 5
         """
 
     def prerun(self):

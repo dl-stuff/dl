@@ -1,18 +1,22 @@
 import adv.adv_test
 from core.advbase import *
 from slot.a import *
+from slot.d import *
 
 def module():
     return Alain
 
 class Alain(Adv):
+    comment = 'c5fs'
+    
     conf = {}
-    conf['slot.a'] = RR()+EE()
+    conf['slot.a'] = RR() + EE()
+    conf['slot.d'] = Sakuya()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1
         `s2
-        `fs, seq=5
+        `fs, x = 5
         """
     conf['afflict_res.burn'] = 0
 

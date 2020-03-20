@@ -1,20 +1,23 @@
 import adv.adv_test
 from core.advbase import *
+from slot.a import *
 from slot.d import *
 
 def module():
     return Ezelith
 
 class Ezelith(Adv):
-    comment = ''
+    comment = 'c5fs'
     a3 = ('bk',0.35)
+    
     conf = {}
+    conf['slot.a'] = TB() + LC()
     conf['slot.d'] = Arctos()
     conf['acl'] = """
         `s3, not self.s3_buff
         `s1
-        `s2, seq=4
-        `fs, seq=5
+        `s2, x = 4
+        `fs, x = 5
         """
 
 

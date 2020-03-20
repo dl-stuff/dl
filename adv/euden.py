@@ -7,18 +7,19 @@ def module():
     return Euden
 
 class Euden(Adv):
+    comment = ''
     a1 = ('dc', 4)
+    
     conf = {}
+    conf['slot.a'] = TSO() + EE()
     conf['slot.d'] = Dreadking_Rathalos()
-    conf['slot.a'] = The_Shining_Overlord()+Elegant_Escort()
-
     conf['acl'] = """
         `dragon
         `s3, not self.s3_buff
         `s1, fsc
         `s2, fsc
-        `fs, x=2 and s1.charged > self.sp_val(3)+self.sp_val('fs')
-        `fs, x=3
+        `fs, x = 2 and s1.charged > self.sp_val(3)+self.sp_val('fs')
+        `fs, x = 3
         """
     conf['afflict_res.burn'] = 0
 
