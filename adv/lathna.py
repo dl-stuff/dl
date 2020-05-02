@@ -18,7 +18,7 @@ class Lathna(Adv):
         `s1a
         `s2, x=5
         """
-    coab = ['Ieyasu','Gala_Alex','Cleo']
+    coab = ['Ieyasu','Euden','Cleo']
     
     conf['dragonform'] = {
         'act': 'c3 s c3 c3 c2 c2 c2',
