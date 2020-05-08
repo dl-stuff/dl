@@ -72,8 +72,8 @@ class Tiki(Adv):
     a1 = ('k_frostbite', 0.30)
 
     conf = tiki_conf.copy()
-    conf['slots.a'] = Twinfold_Bonds()+The_Prince_of_Dragonyule()
-    conf['slots.frostbite.a'] = Twinfold_Bonds()+The_Prince_of_Dragonyule()
+    conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
+    conf['slots.frostbite.a'] = Twinfold_Bonds()+His_Clever_Brother()
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
         if self.divine_dragon.get()
@@ -81,13 +81,12 @@ class Tiki(Adv):
         `s2
         `dodge, x=3
         else
-        `dragon, self.dragonform.dragon_gauge>1000
+        `dragon, self.dragonform.dragon_gauge>559
         `s2
         `s1
-        `s3
         end
     """
-    coab = ['Blade', 'Xander', 'Dagger']
+    coab = ['Blade', 'Xander', 'Pipple']
 
     def d_slots(self):
         if self.duration <= 60:
