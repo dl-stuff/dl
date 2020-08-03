@@ -19,7 +19,7 @@ class Luther(Adv):
         `s4
         `fs, x=5
     """
-    coab = ['Blade', 'Xander', 'Dagger2']
+    coab = ['Blade', 'Xander', 'Tiki']
     share = ['Gala_Elisanne', 'Ranzal']
 
     def fs_proc_alt(self, e):
