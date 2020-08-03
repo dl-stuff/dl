@@ -18,7 +18,7 @@ class Vida(Adv):
     share = ['Curran']
 
     def prerun(self):
-        conf_fs_alt = {'fs.dmg': 0.110, 'fs.hit': 6}
+        conf_fs_alt = {'fs.dmg': 2.04, 'fs.hit': 6}
         self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
 
     def s2_proc(self, e):
