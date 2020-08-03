@@ -16,7 +16,7 @@ class Cibella(Adv):
         `s4
         `fs, seq=5
         """
-    coab = ['Dagger2', 'Xander', 'Dagger']
+    coab = ['Tiki', 'Xander', 'Dagger']
     share = ['Gala_Elisanne', 'Ranzal']
 
 if __name__ == '__main__':
