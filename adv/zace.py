@@ -8,17 +8,17 @@ def module():
 class Zace(Adv):
     a1 = ('s',0.2)
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Jewels_of_the_Sun()
+    conf['slots.a'] = Dragon_and_Tamer()+Primal_Crisis()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'), fsc
         `s3, not self.s3_buff
         `s4
-        `s1
-        `s2
+        `s1, cancel
+        `s2, x>=3
         `fs, x=5
     """
-    coab = ['Ieyasu','Wand','Dagger2']
-    share = ['Ranzal']
+    coab = ['Ieyasu','Wand','Bow']
+    share = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
