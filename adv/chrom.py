@@ -27,13 +27,14 @@ class Chrom(Adv):
     conf['acl'] = """
         `dragon, s
         `s3, fsc and not self.s3_buff
-        `s2, self.s2.flames=3 and self.s2.count=3
+        `s4, fsc and (self.energy() = 0 or self.s2.count=3 or (self.sim_afflict and self.s2.count=3))
+        `s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.burn.get() and (self.energy()=0 or self.s4.charged < self.s4.sp - 1000)
         `s1, fsc
-        `s4, fsc
+        `fs, x=2 and self.s1.charged >=1682
         `fs, x=3
     """
     coab = ['Blade', 'Wand', 'Marth']
-    share = ['Curran']
+    share = ['Nadine']
 
     def init(self):
         del self.slots.c.coabs['Sword']
