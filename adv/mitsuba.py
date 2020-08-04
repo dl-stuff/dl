@@ -1,5 +1,6 @@
 from core.advbase import *
 from slot.a import *
+from slot.d import *
 from module.x_alt import X_alt
 
 def module():
@@ -208,6 +209,7 @@ class Mitsuba(Adv):
 
     conf = fs_conf.copy()
     conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
+    conf['slots.d'] = Siren()
     # tc2afsf tc2a- s1
     conf['acl'] = """
         if s1.check() and not self.afflics.frostbite.get()
@@ -222,9 +224,17 @@ class Mitsuba(Adv):
         `s1
         `fsf
         end
+        # buffbot mitsuba w/ G&C
+        # `tempura
+        # if x=2
+        # `s2
+        # `s4
+        # `s3
+        # `fsf
+        # end
     """
     coab = ['Blade','Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    share = ['Gala_Elisanne', 'Eugene']
     conf['afflict_res.frostbite'] = 0
 
     def prerun(self):

@@ -162,6 +162,23 @@ class CrisisModifier(Modifier):
         return self.mod_value
 
 
+class MultiBuffManager:
+    def __init__(self, buffs):
+        self.buffs = buffs
+
+    def on(self):
+        for b in self.buffs:
+            b.on()
+        return self
+
+    def off(self):
+        for b in self.buffs:
+            b.off()
+        return self
+
+    def get(self):
+        return all(map(lambda b: b.get(), self.buffs))
+
 class Buff(object):
     _static = Static({
         'all_buffs': [],
@@ -183,7 +200,7 @@ class Buff(object):
         else:
             self.mod_order = morder or '<null>' or 'passive' or 'ex' or 'buff' or 'punisher'  # ...
 
-        self.bufftime = self._bufftime
+        self.bufftime = self._bufftime if self.duration > 0 else self._no_bufftime
 
         self.buff_end_timer = Timer(self.buff_end_proc)
         if modifier:
@@ -817,6 +834,28 @@ class Fs_group(object):
             return self.actions['default']()
 
 
+class FS_MH(Action):
+    def __init__(self, name, conf, act=None):
+        Action.__init__(self, name, conf, act)
+        self.atype = 'fs'
+        self.interrupt_by = ['s']
+        self.cancel_by = ['s','dodge']
+
+    def act(self, action):
+        self.act_event.name = 'fs'
+        self.act_event.idx = self.idx
+        self.act_event()
+
+    def sync_config(self, c):
+        self._charge = c.charge
+        self._startup = c.startup
+        self._recovery = c.recovery
+        self._active = c.active
+
+    def getstartup(self):
+        return self._charge + (self._startup / self.speed())
+
+
 class S(Action):
     def __init__(self, name, conf, act=None):
         Action.__init__(self, name, conf, act)
@@ -914,6 +953,9 @@ class Adv(object):
         pass
 
     def d_slots(self):
+        pass
+
+    def d_skillshare(self):
         pass
 
     def slot_backdoor(self):
@@ -1304,31 +1346,46 @@ class Adv(object):
     def crit_mod(self):
         pass
 
-    def solid_crit_mod(self, name=None):
-        m = {'chance': 0, 'dmg': 0, 'damage': 0, 'passive': 0, 'rate': 0, }
+    def combine_crit_mods(self):
+        m = {'chance': 0, 'dmg': 0, 'damage': 0, 'passive': 0, 'rate': 0 }
         for order, modifiers in self.all_modifiers['crit'].items():
             for modifier in modifiers:
                 if order in m:
                     m[order] += modifier.get()
                 else:
                     raise ValueError(f"Invalid crit mod order {order}")
+
+        rate_list = self.build_rates()
+        for mask in product(*[[0, 1]] * len(rate_list)):
+            p = 1.0
+            modifiers = defaultdict(lambda: set())
+            for i, on in enumerate(mask):
+                cond = rate_list[i]
+                cond_name = cond[0]
+                cond_p = cond[1]
+                if on:
+                    p *= cond_p
+                    for order, mods in self.all_modifiers[f'{cond_name}_crit'].items():
+                        for mod in mods:
+                            modifiers[order].add(mod)
+                else:
+                    p *= 1 - cond_p
+            # total += p * reduce(operator.mul, [1 + sum([mod.get() for mod in order]) for order in modifiers.values()], 1.0)
+            for order, values in modifiers.items():
+                m[order] += p * sum([mod.get() for mod in values])
+
         chance = min(m['chance'] + m['passive'] + m['rate'], 1)
         cdmg = m['dmg'] + m['damage'] + 1.7
+
+        return chance, cdmg
+
+    def solid_crit_mod(self, name=None):
+        chance, cdmg = self.combine_crit_mods()
         average = chance * (cdmg - 1) + 1
         return average
 
     def rand_crit_mod(self, name=None):
-        m = {'chance': 0, 'dmg': 0, 'damage': 0, 'passive': 0, 'rate': 0, }
-        for order, modifiers in self.all_modifiers['crit'].items():
-            for modifier in modifiers:
-                if order in m:
-                    m[order] += modifier.get()
-                else:
-                    raise ValueError(f"Invalid crit mod order {order}")
-        chance = m['chance'] + m['passive'] + m['rate']
-        if chance > 1:
-            chance = 1
-        cdmg = m['dmg'] + m['damage'] + 1.7
+        chance, cdmg = self.combine_crit_mods()
         r = random.random()
         if r < chance:
             return cdmg
@@ -1341,9 +1398,7 @@ class Adv(object):
         k = self.killer_mod(name)
         return cc * att * k
 
-    def killer_mod(self, name=None):
-        total = self.mod('killer') - 1
-
+    def build_rates(self):
         rates = {}
         for afflic in AFFLICT_LIST:
             rate = vars(self.afflics)[afflic].get()
@@ -1365,8 +1420,12 @@ class Adv(object):
         for dkey in debuff_rates.keys():
             debuff_rates[dkey] = 1 - debuff_rates[dkey]
         rates.update(debuff_rates)
-        
-        rate_list = list(rates.items())
+
+        return list(rates.items())
+
+    def killer_mod(self, name=None):
+        total = self.mod('killer') - 1
+        rate_list = self.build_rates()
         for mask in product(*[[0, 1]] * len(rate_list)):
             p = 1.0
             modifiers = defaultdict(lambda: set())
@@ -1548,6 +1607,7 @@ class Adv(object):
         return self.s1, self.s2, self.s3, self.s4
 
     def config_skillshare(self):
+        self.d_skillshare()
         preruns = {}
         if 'skill_share' in self.conf:
             self.skillshare_list = self.conf['skill_share'].copy()
@@ -1679,6 +1739,7 @@ class Adv(object):
             prerun(self, dst_key)
         self.prerun()
 
+        self.hp = self.condition.prev_hp
         if 'hp' in self.conf:
             self.set_hp(self.conf['hp'])
 
@@ -1920,20 +1981,27 @@ class Adv(object):
 
     @staticmethod
     def do_buff(e, buffarg):
-        wide = buffarg[0]
-        buffarg = buffarg[1:]
-        buff = None
-        if wide == 'team':
-            buff = Teambuff(e.name, *buffarg)
-        elif wide == 'self':
-            buff = Selfbuff(e.name, *buffarg)
-        elif wide == 'debuff':
-            buff = Debuff(e.name, *buffarg)
-        elif wide == 'spd':
-            buff = Spdbuff(e.name, *buffarg)
+        if not isinstance(buffarg[0], tuple):
+            buffarg = [buffarg]
+        buffs = []
+        for ba in buffarg:
+            wide = ba[0]
+            ba = ba[1:]
+            if wide == 'team':
+                buff = Teambuff(e.name, *ba)
+            elif wide == 'self':
+                buff = Selfbuff(e.name, *ba)
+            elif wide == 'debuff':
+                buff = Debuff(e.name, *ba)
+            elif wide == 'spd':
+                buff = Spdbuff(e.name, *ba)
+            else:
+                buff = Buff(e.name, *ba)
+            buffs.append(buff)
+        if len(buffs) > 1:
+            return MultiBuffManager(buffs)
         else:
-            buff = Buff(e.name, *buffarg)
-        return buff
+            return buffs[0]
 
     def rotation(self):
         r = 0

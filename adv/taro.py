@@ -6,13 +6,14 @@ def module():
 class Taro(Adv):
     conf = {}
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'),fsc
         `s3, not self.s3_buff
-        `s1
-        `s2
         `s4
+        `s1,x=5
+        `s2,x=5
+        `fs,x=5 and self.s3_buff
         """
-    coab = ['Wand','Dagger','Tiki']
+    coab = ['Wand','Dagger','Bow']
     share = ['Curran']
 
 if __name__ == '__main__':

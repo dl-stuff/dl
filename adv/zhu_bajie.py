@@ -2,29 +2,10 @@ from core.advbase import *
 from slot.a import *
 from slot.d import *
 
+
 def module():
     return Zhu_Bajie
 
-class FS_MH(Action):
-    def __init__(self, name, conf, act=None):
-        Action.__init__(self, name, conf, act)
-        self.atype = 'fs'
-        self.interrupt_by = ['s']
-        self.cancel_by = ['s','dodge']
-
-    def act(self, action):
-        self.act_event.name = 'fs'
-        self.act_event.idx = self.idx
-        self.act_event()
-
-    def sync_config(self, c):
-        self._charge = c.charge
-        self._startup = c.startup
-        self._recovery = c.recovery
-        self._active = c.active
-
-    def getstartup(self):
-        return self._charge + (self._startup / self.speed())
 
 class Zhu_Bajie(Adv):
     a3 = ('ro', 0.10)
@@ -40,7 +21,7 @@ class Zhu_Bajie(Adv):
         `dodge, fsc
         `fs3
         """
-    coab = ['Blade','Grace','Peony']
+    coab = ['Blade', 'Grace', 'Peony']
     share = ['Veronica']
 
     def prerun(self):
@@ -73,13 +54,13 @@ class Zhu_Bajie(Adv):
             act = FS_MH(n, self.conf[n])
             self.__dict__['a_'+n] = act
 
-        self.l_fs1 = Listener('fs1',self.l_fs1)
-        self.l_fs2 = Listener('fs2',self.l_fs2)
-        self.l_fs3 = Listener('fs3',self.l_fs3)
+        self.l_fs1 = Listener('fs1', self.l_fs1)
+        self.l_fs2 = Listener('fs2', self.l_fs2)
+        self.l_fs3 = Listener('fs3', self.l_fs3)
         self.fs = None
 
     def do_fs(self, e, name):
-        log('cast','fs')
+        log('cast', 'fs')
         self.__dict__['a_'+name].getdoing().cancel_by.append(name)
         self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
         self.fs_before(e)
@@ -88,7 +69,7 @@ class Zhu_Bajie(Adv):
             self.dmg_make('fs', self.conf[name+'.dmg'], 'fs')
         self.fs_proc(e)
         self.think_pin('fs')
-        self.charge(name,self.conf[name+'.sp'])
+        self.charge(name, self.conf[name+'.sp'])
 
     def l_fs1(self, e):
         self.do_fs(e, 'fs1')
@@ -117,7 +98,8 @@ class Zhu_Bajie(Adv):
         if self.hp > 30:
             self.set_hp(20)
         else:
-            Selfbuff(e.name, 0.15, 10).on()
+            Selfbuff(e.name, 0.20, 10).on()
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
