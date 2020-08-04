@@ -16,7 +16,7 @@ class Marth(Adv):
     conf['acl'] = """
         `dragon, s=2
         `s3, not self.s3_buff
-        `s2
+        `s2, self.afflics.burn.get()
         `s1, fsc
         `s4, fsc
         `fs, x=3
