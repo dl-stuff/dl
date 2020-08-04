@@ -34,7 +34,6 @@ class Chrom(Adv):
         else
         `s4, fsc
         `s2, self.s2.flames=3 and self.s2.count=3 and (self.afflics.burn.get() or self.afflics.poison.get())
-        `s1, fsc
         end
         `s1, fsc
         `fs, x=2 and self.s1.charged >=1682
