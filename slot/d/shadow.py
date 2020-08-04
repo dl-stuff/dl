@@ -343,7 +343,8 @@ class Gala_Cat_Sith(DragonBase):
             self.trickery_buff.on()
 
     def shift_end_trickery(self, e):
-        self.add_trickery(8)
+        if not self.adv.dragonform.is_dragondrive:
+            self.add_trickery(8)
 						
 class Unreleased_ShadowCritDamage(DragonBase):
     ele = 'shadow'
