@@ -24,17 +24,28 @@ class Chrom(Adv):
     a1 = ('a', 0.15, 'hp100')
 
     conf = {}
+    conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon, s
         `s3, fsc and not self.s3_buff
-        `s4, fsc and (self.energy() = 0 or self.s2.count=3 or (self.sim_afflict and self.s2.count=3))
+        if self.sim_afflict
+        `s4, fsc and (self.energy() = 0 or self.s2.count=3)
         `s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.burn.get() and (self.energy()=0 or self.s4.charged < self.s4.sp - 1000)
+        else
+        `s4, fsc
+        `s2, self.s2.flames=3 and self.s2.count=3 and (self.afflics.burn.get() or self.afflics.poison.get())
+        `s1, fsc
+        end
         `s1, fsc
         `fs, x=2 and self.s1.charged >=1682
         `fs, x=3
     """
     coab = ['Blade', 'Wand', 'Marth']
-    share = ['Nadine']
+    share = ['Kleimann']
+
+    def d_skillshare(self):
+        if self.sim_afflict:
+            share = ['Nadine']
 
     def init(self):
         del self.slots.c.coabs['Sword']
