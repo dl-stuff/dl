@@ -8,13 +8,13 @@ class Valentines_Orion(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon
+        `dragon,s
         `s3, fsc and not self.s3_buff
-        `s4
-        `s1
-        `fs, x=3
+        `s4,fsc
+        `s1,cancel
+        `fs, x=2
     """
-    coab = ['Blade', 'Marth', 'Serena']
+    coab = ['Blade', 'Marth', 'Wand']
     conf['afflict_res.burn'] = 0
     share = ['Ranzal']
 
