@@ -17,12 +17,12 @@ class Summer_Celliera(Adv):
     conf['acl'] = """
         `dragon.act('c3 s end')
         `s2
-        `s3
+        `s3, fsc
         `s4, fsc
         `s1, fsc
         `fs, x=2
         """
-    coab = ['Blade', 'Renee', 'Summer_Estelle']
+    coab = ['Tobias', 'Hunter_Sarisse', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
     share = ['Patia', 'Summer_Luca']
 
