@@ -1186,6 +1186,12 @@ class Adv(object):
             if 'buff' in self.conf.sim_buffbot:
                 if self.condition('team str {:+.0%}'.format(self.conf.sim_buffbot.buff)):
                     self.Selfbuff('simulated_att', self.conf.sim_buffbot.buff, -1).on()
+            if 'critr' in self.conf.sim_buffbot:
+                if self.condition('team crit rate {:+.0%}'.format(self.conf.sim_buffbot.critr)):
+                    self.Selfbuff('simulated_crit_rate', self.conf.sim_buffbot.critr, -1, 'crit', 'rate').on()
+            if 'critd' in self.conf.sim_buffbot:
+                if self.condition('team crit dmg {:+.0%}'.format(self.conf.sim_buffbot.critd)):
+                    self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'dmg').on()
 
     def sync_slot(self, conf):
         # self.cmnslots(conf)
