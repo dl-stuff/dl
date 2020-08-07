@@ -377,10 +377,10 @@ class SingleActionBuff(Buff):
         self.end_event = event if event is not None else mtype
         self.end_proc = end_proc
         if isinstance(self.end_event, str):
-            Listener(self.end_event, self.l_off).on()
+            Listener(self.end_event, self.l_off, after=True).on()
         else:
             for e in self.end_event:
-                Listener(e, self.l_off).on()
+                Listener(e, self.l_off, after=True).on()
 
     def on(self, casts=1):
         self.casts = casts
