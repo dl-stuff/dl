@@ -10,10 +10,11 @@ class Rodrigo(Adv):
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act("c3 s end"),fsc
-        `s3, not self.s3_buff
+        `s3, fsc and not self.s3_buff
         `s4
-        `s1,cancel and self.s3_buff
+        `s1, cancel and self.s3_buff
         `s2, fsc
+        `fs, x=2 and s1.charged > 841
         `fs, x=3
         """
     coab = ['Ieyasu','Wand','Forte']
