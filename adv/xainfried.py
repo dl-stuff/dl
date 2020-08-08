@@ -16,7 +16,7 @@ class Xainfried(Adv):
         `s3
         `s2
         `s4
-        `s1,fsc
+        `s1, fsc
         `fs, x=5
         """
     coab = ['Summer_Celliera', 'Yurius', 'Renee']
