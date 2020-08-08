@@ -11,22 +11,34 @@ def set_time(time):
     _g_now = time
 
 
-def add_event_listener(eventname, listener): #listener should be a function
+def add_event_listener(eventname, listener, after=False): #listener should be a function
     global _g_event_listeners
 
     if eventname in _g_event_listeners:
-        _g_event_listeners[eventname].append(listener)
+        if after:
+            _g_event_listeners[eventname+'_after'].append(listener)
+        else:
+            _g_event_listeners[eventname].append(listener)
     else:
-        _g_event_listeners[eventname] = [listener]
+        if after:
+            _g_event_listeners[eventname+'_after'] = [listener]
+        else:
+            _g_event_listeners[eventname] = [listener]
 
 
 def get_event_trigger(eventname, trigger = []): 
     global _g_event_listeners
-    if eventname in _g_event_listeners:
-        return _g_event_listeners[eventname]
-    else:
+    if eventname not in _g_event_listeners:
         _g_event_listeners[eventname] = []
-        return _g_event_listeners[eventname]
+    return _g_event_listeners[eventname]
+
+
+def get_post_event_trigger(eventname, trigger = []):
+    global _g_event_listeners
+    eventname += '_after'
+    if eventname not in _g_event_listeners:
+        _g_event_listeners[eventname] = []
+    return _g_event_listeners[eventname]
 
 
 class Event(object):
@@ -35,8 +47,10 @@ class Event(object):
             self.name = name
             self.__name = name
             self._trigger = get_event_trigger(name)
+            self._trigger_after = get_post_event_trigger(name)
         else:
             self._trigger = []
+            self._trigger_after = []
 
 
     def listener(self, cb, eventname = None):
@@ -53,6 +67,8 @@ class Event(object):
     def on(self, e=None):
         for i in self._trigger:
             i(self)
+        for i in self._trigger_after:
+            i(self)
 
     def __call__(self, expand=None):
         self.on(self)
@@ -66,10 +82,11 @@ class Event(object):
 #} class Event
 
 class Listener(object):
-    def __init__(self, eventname, cb):
+    def __init__(self, eventname, cb, after=False):
         self.__cb = cb
         self.__eventname = eventname
         self.__online = 0
+        self.__after = after
         self.on()
 
     def __call__(self, e):
@@ -82,9 +99,9 @@ class Listener(object):
             self.__cb = cb
         if type(self.__eventname) == list or type(self.__eventname) == tuple:
             for i in self.__eventname:
-                add_event_listener(i, self.__cb)
+                add_event_listener(i, self.__cb, self.__after)
         else:
-            add_event_listener(self.__eventname, self.__cb)
+            add_event_listener(self.__eventname, self.__cb, self.__after)
         self.__online = 1
         return self
 

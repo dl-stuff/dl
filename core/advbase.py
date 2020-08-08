@@ -377,17 +377,19 @@ class SingleActionBuff(Buff):
         self.end_event = event if event is not None else mtype
         self.end_proc = end_proc
         if isinstance(self.end_event, str):
-            Listener(self.end_event, self.l_off).on()
+            Listener(self.end_event, self.l_off, after=True).on()
         else:
             for e in self.end_event:
-                Listener(e, self.l_off).on()
+                Listener(e, self.l_off, after=True).on()
 
     def on(self, casts=1):
         self.casts = casts
         return super().on(-1)
 
     def l_off(self, e):
-        if e.name in self.modifier._static.damage_sources or (hasattr(e, 'damage') and e.damage):
+        if (e.name in self.modifier._static.damage_sources
+            or (e.name.startswith('fs') and 'fs' in self.modifier._static.damage_sources)
+            or (hasattr(e, 'damage') and e.damage)):
             self.casts -= 1
             if self.casts <= 0:
                 result = super().off()
