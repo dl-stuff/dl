@@ -9,18 +9,18 @@ class Xainfried(Adv):
     a1 = ('dc', 4)
     a3 = ('dt', 0.25)
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate() # lol
+    conf['slots.a'] = Resounding_Rendition()+His_Clever_Brother() # no more poison lol
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
         `dragon.act('c3 s end')
         `s3
         `s2
         `s4
-        `s1
+        `s1, fsc
         `fs, x=5
         """
-    coab = ['Xander', 'Yurius', 'Bow']
-    share = ['Gala_Elisanne', 'Ranzal']
+    coab = ['Summer_Celliera', 'Yurius', 'Renee']
+    share = ['Gala_Elisanne', 'Eugene']
     conf['afflict_res.frostbite'] = 0
 
     def s1_proc(self, e):
