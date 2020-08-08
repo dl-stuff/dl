@@ -16,8 +16,8 @@ class Luther(Adv):
         `dragon.act('c3 s end')
         `s1
         `s4
-        `s3,cancel
-        `s2,cancel
+        `s3, cancel
+        `s2, cancel
         `fs, x=5
     """
     coab = ['Blade', 'Xander', 'Summer_Estelle']
