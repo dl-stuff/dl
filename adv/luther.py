@@ -10,16 +10,17 @@ class Luther(Adv):
     a1 = ('cc', 0.15, 'hit15')
 
     conf = {}
-    conf ['slots.d'] = Nimis()
+    conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
+    conf ['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
-        `s3
+        `dragon.act('c3 s end')
         `s1
-        `s2
         `s4
+        `s3, cancel
+        `s2, cancel
         `fs, x=5
     """
-    coab = ['Blade', 'Xander', 'Tiki']
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     share = ['Gala_Elisanne', 'Ranzal']
 
     def fs_proc_alt(self, e):
