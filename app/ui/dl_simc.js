@@ -579,6 +579,12 @@ function runAdvTest() {
     if (!isNaN(parseInt($('#input-sim-buff-str').val()))) {
         requestJson['sim_buff_str'] = $('#input-sim-buff-str').val();
     }
+    if (!isNaN(parseInt($('#input-sim-buff-critr').val()))) {
+        requestJson['sim_buff_critr'] = $('#input-sim-buff-critr').val();
+    }
+    if (!isNaN(parseInt($('#input-sim-buff-critd').val()))) {
+        requestJson['sim_buff_critd'] = $('#input-sim-buff-critd').val();
+    }
     if (!isNaN(parseInt($('#input-sim-buff-def').val()))) {
         requestJson['sim_buff_def'] = $('#input-sim-buff-def').val();
     }
