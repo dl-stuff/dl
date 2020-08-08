@@ -10,8 +10,8 @@ BASE_AFFLICT_UPTIME = {
 WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
 RANGED = ['wand', 'bow', 'staff'];
 SECONDARY_COABS = {
-    'axe2': 'Valentines_Melody',
-    'dagger2': 'Gala_Laxi'
+    'Axe2': 'Valentines_Melody',
+    'Dagger2': 'Gala_Laxi'
 }
 DEFAULT_SHARE = 'Ranzal';
 DEFAULT_SHARE_ALT = 'Curran';
@@ -541,7 +541,6 @@ function runAdvTest() {
         requestJson['wp2'] = $('#input-wp2').val();
     }
     requestJson['share'] = readSkillShare();
-    console.log(requestJson['share']);
     requestJson['coab'] = readCoabList();
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {

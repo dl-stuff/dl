@@ -1,4 +1,5 @@
 from core.advbase import *
+from slot.d import *
 
 def module():
     return Dragonyule_Cleo
@@ -6,7 +7,7 @@ def module():
 class Dragonyule_Cleo(Adv):
     a1 = ('a',0.13,'hp70')
     a3 = ('ecombo',30)
-    
+
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
