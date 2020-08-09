@@ -5,21 +5,20 @@ def module():
     return Dragonyule_Malora
 
 class Dragonyule_Malora(Adv):
-    comment = 'c4fsf c5 c4 s1'
     a1 = ('od',0.13)
 
     conf = {}
     conf['slots.a'] = Summer_Paladyns() + Primal_Crisis()
-    conf['slots.paralysis.a'] = Resounding_Rendition() + Spirit_of_the_Season()
+    conf['slots.paralysis.a'] = Summer_Paladyns() + Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon.act("c3 s end")
-        `s1
-        `s4
-        `s2, self.def_mod()!=1
-        `fsf, x=4 and (s1.charged == self.sp_val(4))
+		`dragon.act("c3 s end")
+		`s1
+		`s2, self.def_mod()!=1
+		`s4, cancel
+		`s3, x=4
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Wand','Dagger','Peony']
+    share = ['Ranzal','Kleimann']
 
     def prerun(self):
         self.s1debuff = Debuff('s1',0.15,15) if self.condition('buff all team') else None

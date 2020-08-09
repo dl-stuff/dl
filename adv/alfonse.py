@@ -11,15 +11,15 @@ class Alfonse(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, fsc
-        `s1
-        `s2, fsc
-        `s3, fsc
-        `s4, fsc
-        `fs, x=3
+		`dragon.act('c3 s end')
+		`s1
+		`s2, fsc
+		`s3, fsc
+		`s4, fsc
+		`fs, x=2
     """
-    coab = ['Sharena','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Sharena','Wand','Peony']
+    share = ['Ranzal','Kleimann']	
 
     def s1_before(self, e):
         Selfbuff('s1_buff',0.20,12).on()

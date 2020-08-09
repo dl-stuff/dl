@@ -8,20 +8,20 @@ class Hunter_Vanessa(Adv):
     a1 = ('fs', 0.30)
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
+    conf['slots.a'] = Mega_Friends()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, fsc
-        `fs2, s1.charged>=s1.sp-self.sp_val('fs2')
-        `s2, not self.s2_att_boost.get()
-        if x=5 or fsc
-        `s1
-        `s4
-        `s3
-        end
-    """
+		`dragon, fsc
+		`s2, not self.s2_att_boost.get()
+		`fs2, s1.charged>=s1.sp-self.sp_val('fs2') or s3.charged>=s3.sp-self.sp_val('fs2') or s4.charged>=s4.sp-self.sp_val('fs2')
+		`s1,fsc
+		`s3,fsc
+		`s4,fsc
+		`dodge,fsc
+		`fs2,x=5
+		"""
     coab = ['Sharena','Dagger','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def d_slots(self):
         if self.duration <= 90:

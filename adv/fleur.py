@@ -13,16 +13,16 @@ class Fleur(Adv):
     conf = {}
     conf['slots.a'] = TB()+SotS()
     conf['acl'] = '''
-        `dragon.act('c3 s end')
-        `s2, s=1
-        `s1
-        `s3
-        `s4, s
-        `fs, seq=4
+		`dragon.act('c3 s end'),x=5
+		`s2, s=1
+		`s1
+		`s3
+		`s4, s
+		`fs, x=5
     '''
-    coab = ['Blade','Sharena','Peony']
+    coab = ['Wand','Sharena','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Ranzal']
+    share = ['Ranzal','Kleimann']
 
     def init(self):
         self.phase['s1'] = 0

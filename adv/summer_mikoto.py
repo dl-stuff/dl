@@ -34,7 +34,7 @@ class Summer_Mikoto(Adv):
         `fs, self.light=self.wave and not self.celestial_wave.get()
     """
     coab = ['Blade', 'Sharena', 'Peony']
-    share = ['Ranzal']
+    share = ['Ranzal','Kleimann']
     conf['afflict_res.paralysis'] = 0
 
     def prerun(self):

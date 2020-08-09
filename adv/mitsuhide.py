@@ -11,15 +11,15 @@ class Mitsuhide(Adv):
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'),x=5
         `s1
         `s2
-        `s3
         `s4
+        `s3
         `fs, seq=4
     """
-    coab = ['Blade','Sharena','Peony']
-    share = ['Ranzal']
+    coab = ['Wand','Sharena','Peony']
+    share = ['Ranzal','Kleimann']
     conf['afflict_res.paralysis'] = 0
 
     def init(self):

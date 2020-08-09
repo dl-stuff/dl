@@ -17,15 +17,15 @@ class Peony(Adv):
     conf = peony_conf.copy()
     conf['slots.a'] = Valiant_Crown()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, fsc
+        `dragon.act('c3 s end')
         `fs, s2.charged>=s2.sp and self.fs_alt.uses > 0
         `s1, x=5
         `s2, cancel
         `s3, cancel
         `s4, cancel
     """
-    coab = ['Blade','Sharena','Malora']
-    share = ['Ranzal']
+    coab = ['Blade','Sharena','Dagger']
+    share = ['Ranzal','Kleimann']
     conf['afflict_res.paralysis'] = 0
 
     def d_coabs(self):

@@ -25,15 +25,15 @@ class Radiant_Xuan_Zang(Adv):
     conf = staff_fs_conf.copy()
     conf['slots.a'] = Candy_Couriers()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, x=1
-        `s2
+        `dragon.act('c3 s end'), x=1
         `s1
-        `s4
-        `s3, x=5
+        `s2
+        `s4, cancel
+        `s3, cancel
         `fs, self.fs_alt.uses>0 and cancel
     """
     coab = ['Sharena', 'Blade', 'Peony']
-    share = ['Curran']
+    share = ['Ranzal','Curran']
     conf['afflict_res.paralysis'] = 0
 
     def fs_proc_alt(self, e):
