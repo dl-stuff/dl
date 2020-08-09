@@ -21,7 +21,7 @@ class Hunter_Vanessa(Adv):
 		"""
     coab = ['Sharena','Dagger','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Kleimann']
+    share = ['Ranzal','Kleimann']
 
     def d_slots(self):
         if self.duration <= 90:
