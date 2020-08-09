@@ -16,7 +16,7 @@ class Valentines_Orion(Adv):
     """
     coab = ['Blade', 'Marth', 'Wand']
     conf['afflict_res.burn'] = 0
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,100,0.803)

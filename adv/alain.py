@@ -17,7 +17,7 @@ class Alain(Adv):
         """
     conf['afflict_res.burn'] = 0
     coab = ['Blade', 'Wand', 'Marth']
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,100,0.803)

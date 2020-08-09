@@ -10,14 +10,14 @@ class Xania(Adv):
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon, s=2
-        `s3, not self.s3_buff
-        `s1
-        `s2, x=5
-        `s4, x=5
+		`dragon.act('c1 s s end'),s
+		`s3, not self.s3_buff and x=5
+		`s1
+		`s4,cancel
+		`s2,x=5
     """
     coab = ['Blade', 'Marth', 'Joe']
-    share = ['Ranzal']
+    share = ['Kleimann']
     conf['afflict_res.burn'] = 0
 
     def s1_proc(self, e):

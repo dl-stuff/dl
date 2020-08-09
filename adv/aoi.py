@@ -16,9 +16,9 @@ class Aoi(Adv):
         `s1
         `s2
     """
-    coab = ['Wand', 'Marth', 'Serena']
+    coab = ['Wand', 'Marth', 'Yuya']
     conf['afflict_res.burn'] = 0
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,100,0.803)

@@ -11,16 +11,16 @@ class Valentines_Ezelith(Adv):
     conf = {}
     conf['slots.a'] = Forest_Bonds()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon
-        `s3, not self.s3_buff
-        `s4
-        `s1
+        `dragon, s
+        `s3, not self.s3_buff and fsc
         `s2
+        `s1
+        `s4
         `fs, seq=4
     """
-    coab = ['Blade', 'Marth', 'Serena']
+    coab = ['Blade', 'Marth', 'Wand']
     conf['afflict_res.burn'] = 0
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,110,0.883)

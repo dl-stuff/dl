@@ -8,7 +8,7 @@ class Xuan_Zang(Adv):
     a3 = ('cc',0.06,'hp70')
     
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s=2
@@ -19,7 +19,7 @@ class Xuan_Zang(Adv):
         `fs, x=5
         """
     coab = ['Blade', 'Marth', 'Gala_Sarisse']
-    share = ['Curran']
+    share = ['Kleimann']
 
     def s1_proc(self, e):
         with KillerModifier(e.name, 'hit', 0.2, ['debuff']):

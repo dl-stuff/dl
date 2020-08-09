@@ -12,11 +12,11 @@ class Ramona(Adv):
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
     conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon, s=1
-        `s3, not self.s3_buff
-        `s2, s1.check()
-        `s4
-        `s1
+		`dragon.act('c1 s s end'),s=1
+		`s3, not self.s3_buff
+		`s2, s1.check()
+		`s4
+		`s1
         """
     coab = ['Blade', 'Wand', 'Marth']
     share = ['Ranzal']

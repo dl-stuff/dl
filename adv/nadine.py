@@ -60,7 +60,7 @@ class Nadine(Adv):
         """
     coab = ['Blade', 'Wand', 'Marth']
     conf['afflict_res.burn'] = 0
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def prerun(self):
         self.team_s1_hits = 1

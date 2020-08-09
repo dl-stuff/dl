@@ -12,15 +12,15 @@ class Lea(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon, fsc
-        `s3, not self.s3_buff
-        `s1, fsc
-        `s4, fsc
-        `fs, x=2
+		`dragon.act('c1 s s end')
+		`s3, not self.s3_buff and fsc
+		`s4, cancel
+		`s1, fsc
+		`fs, x=2
         """
     conf['afflict_res.burn'] = 0
     coab = ['Blade', 'Wand', 'Marth']
-    share = ['Ranzal']
+    share = ['Kleimann']
     
     def s1_proc(self, e):
         self.afflics.burn(e.name,120,0.97)

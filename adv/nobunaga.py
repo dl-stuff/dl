@@ -19,8 +19,8 @@ class Nobunaga(Adv):
         `s2, self.burning_ambition
         `fs, x=5 and s2.charged<s2.sp-self.sp_val(2)
         """
-    coab = ['Wand','Marth','Serena']
-    share = ['Ranzal']
+    coab = ['Wand','Marth','Yuya']
+    share = ['Kleimann']
 
     def prerun(self):
         self.burning_ambition = 0

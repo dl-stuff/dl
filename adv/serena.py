@@ -10,15 +10,15 @@ class Serena(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
-        `dragon, fsc
-        `s3, not self.s3_buff
-        `s4, fsc
-        `s1, fsc
-        `s2, fsc
-        `fs, seq=2
+		`dragon.act('c1 s s end'),s
+		`s3, not self.s3_buff
+		`s4, fsc
+		`s1, fsc
+		`s2, fsc
+		`fs, seq=3
         """
-    coab = ['Blade', 'Yuya', 'Marth']
-    share = ['Ranzal']
+    coab = ['Blade', 'Yuya', 'Halloween_Mym']
+    share = ['Kleimann']
 
     def s1_before(self, e):
         Selfbuff(f'{e.name}buff',0.1,5,'crit','rate').on()

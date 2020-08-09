@@ -11,7 +11,7 @@ class Ezelith(Adv):
     conf = {}
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
-        `dragon, s=1
+		`dragon.act('c1 s s end'),s=1
         `s3, not self.s3_buff
         `s1
         `s2, cancel
@@ -19,7 +19,7 @@ class Ezelith(Adv):
         `fs, x=5
         """
     coab = ['Halloween_Mym', 'Blade', 'Marth']
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def prerun(self):
         self.s2_buff = Selfbuff('s2',0.2,15)
