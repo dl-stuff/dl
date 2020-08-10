@@ -16,7 +16,7 @@ class Mitsuhide(Adv):
         `s2
         `s4
         `s3
-        `fs, seq=4
+        `fs, x=5
     """
     coab = ['Wand','Sharena','Peony']
     share = ['Ranzal','Kleimann']
