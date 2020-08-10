@@ -15,7 +15,8 @@ class Lathna(Adv):
     conf['slots.d'] = Chthonius()
     conf['slots.poison.d'] = Gala_Cat_Sith()
     conf['acl'] = """
-        `dragon
+        `dragon, not self.sim_afflict
+        `dragon.act('c3 s end'), self.sim_afflict
         `s3, not self.s3_buff
         `s1
         `s4

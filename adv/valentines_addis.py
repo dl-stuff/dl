@@ -14,7 +14,7 @@ class Valentines_Addis(Adv):
     conf['slots.a'] = The_Plaguebringer()+Primal_Crisis()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), (self.hp>0 and (self.slots.tmp.d.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)
         `s3, not self.s3_buff
         `s2, self.hp > 30
         `s1
