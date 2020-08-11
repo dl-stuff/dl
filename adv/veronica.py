@@ -10,9 +10,9 @@ class Veronica(Adv):
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
-    conf['slots.poison.a'] = Candy_Couriers()+The_Plaguebringer()
+    conf['slots.poison.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act("c3 s end"), s
+        `dragon.act("c3 s end"), ((self.hp>0 and s) or (self.hp=0 and x=5)) and (self.slots.tmp.d.trickery <= 1 or not self.sim_afflict)
         `s3, not self.s3_buff
         `s1
         `s4
