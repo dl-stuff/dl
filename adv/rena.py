@@ -10,7 +10,7 @@ class Rena(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon.act('c1 s s end'),s=1
+        `dragon.act('c3 s s end'),s=1
 		`s3, not self.s3_buff
 		`s1
 		`s2, s=1

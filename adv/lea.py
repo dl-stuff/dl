@@ -12,7 +12,7 @@ class Lea(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['acl'] = """
-		`dragon.act('c1 s s end')
+		`dragon
 		`s3, not self.s3_buff and fsc
 		`s4, cancel
 		`s1, fsc

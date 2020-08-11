@@ -10,7 +10,7 @@ class Serena(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
-		`dragon.act('c1 s s end'),s
+		`dragon,s
 		`s3, not self.s3_buff
 		`s4, fsc
 		`s1, fsc

@@ -8,7 +8,7 @@ class Marty(Adv):
 
     conf = {}
     conf['acl'] = """
-        `dragon.act('c1 s s end')
+        `dragon, s=4
         `s3, fsc and not self.s3_buff
         `s4, cancel
         `s1, fsc

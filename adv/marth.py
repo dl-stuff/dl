@@ -14,7 +14,7 @@ class Marth(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['acl'] = """
-		`dragon.act('c1 s s end'),s=2
+		`dragon.act('c3 s s end'),s=2
         `s3, not self.s3_buff
         `s2, self.afflics.burn.get()
         `s1, fsc
