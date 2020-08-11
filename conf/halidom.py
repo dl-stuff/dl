@@ -19,7 +19,7 @@ fac_ele = {
         'circus': 0.085
     },
     'shadow': {
-        'tree': 0.16,
+        'tree': 0.26,
         'library': 0.07
     }
 }

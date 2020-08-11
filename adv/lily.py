@@ -33,13 +33,13 @@ class Lily(Adv):
     conf['slots.a'] = Candy_Couriers()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end'), cancel
-        `s1, not self.sim_afflict
+        `dragon.act('c3 s end'), s
         `s3
         `s4
-        `s2
+        `s2, cancel
+        `s1, x=5
     """
-    coab = ['Blade', 'Renee', 'Dagger2']
+    coab = ['Blade', 'Renee', 'Summer_Celliera']
     share = ['Gala_Elisanne', 'Eugene']
 
     # conf['slots.a'] = Candy_Couriers()+His_Clever_Brother()

@@ -8,18 +8,18 @@ class Xuan_Zang(Adv):
     a3 = ('cc',0.06,'hp70')
     
     conf = {}
-    conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
+    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s=2
-        `s3, not self.s3_buff
-        `s2
-        `s1
+        `s3, not self.s3_buff and fsc
         `s4
+        `s2
+        `s1,fsc
         `fs, x=5
         """
-    coab = ['Blade', 'Marth', 'Dagger2']
-    share = ['Ranzal']
+    coab = ['Blade', 'Marth', 'Gala_Sarisse']
+    share = ['Curran']
 
     def s1_proc(self, e):
         with KillerModifier(e.name, 'hit', 0.2, ['debuff']):

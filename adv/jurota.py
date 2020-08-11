@@ -18,7 +18,7 @@ class Jurota(Adv):
         `s2, seq=5
         `s4
     """
-    coab = ['Dagger2', 'Xander', 'Dagger']
+    coab = ['Tiki', 'Xander', 'Dagger']
     share = ['Gala_Elisanne', 'Eugene']
 
 if __name__ == '__main__':

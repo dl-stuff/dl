@@ -19,7 +19,7 @@ class Waike(Adv):
         `s2, fsc
         `fs, seq=4
         """
-    coab = ['Blade', 'Xander', 'Dagger2']
+    coab = ['Blade', 'Xander', 'Tiki']
     conf['afflict_res.bog'] = 100
     share = ['Gala_Elisanne', 'Ranzal']
 

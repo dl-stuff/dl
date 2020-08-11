@@ -8,15 +8,16 @@ class Audric(Adv):
     a1 = ('dp', 10)
     
     conf = {}
+    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon.act('c3 s end'), fsc
         `s3, not self.s3_buff
-        `s1, fsc
+        `s4
+        `s1, cancel
         `s2, fsc
-        `s4, fsc
-        `fs, x=3
+        `fs, x=2
     """
-    coab = ['Ieyasu','Dagger2','Forte']
+    coab = ['Wand','Cleo','Forte']
     share = ['Curran']
 
     def prerun(self):

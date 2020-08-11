@@ -9,11 +9,11 @@ class Orion(Adv):
     a3 = ('prep', 0.50)
     conf = {}
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'),s
         `s3, not self.s3_buff
-        `s1
-        `s2
         `s4
+        `s2, x=4 or x=5
+        `s1, self.s3_buff and cancel
         `fs, x=5
     """
     coab = ['Ieyasu','Wand','Axe2']
@@ -21,7 +21,7 @@ class Orion(Adv):
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Ieyasu','Wand','Dagger2']
+            self.coab = ['Ieyasu','Wand','Forte']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -9,16 +9,16 @@ class Melsa(Adv):
     a3 = ('cc',0.08,'hit15')
 
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Stellar_Show()
+    conf['slots.a'] = Twinfold_Bonds()+Levins_Champion()
     conf['acl'] = """
-        `dragon
-        `s3, not self.s3_buff
-        `s1, fsc
-        `s2, fsc
-        `s4, fsc
-        `fs, x=2
+        `dragon,s
+        `s3, not self.s3_buff and x=5
+        `s4
+        `s1, cancel
+        `s2,s=1
+        `fs, x=5
     """
-    coab = ['Blade', 'Serena', 'Marth']
+    coab = ['Blade', 'Wand', 'Marth']
     share = ['Ranzal']
 
 if __name__ == '__main__':

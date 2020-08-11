@@ -10,8 +10,8 @@ BASE_AFFLICT_UPTIME = {
 WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
 RANGED = ['wand', 'bow', 'staff'];
 SECONDARY_COABS = {
-    'axe2': 'Valentines_Melody',
-    'dagger2': 'Gala_Laxi'
+    'Axe2': 'Valentines_Melody',
+    'Dagger2': 'Gala_Laxi'
 }
 DEFAULT_SHARE = 'Ranzal';
 DEFAULT_SHARE_ALT = 'Curran';
@@ -541,7 +541,6 @@ function runAdvTest() {
         requestJson['wp2'] = $('#input-wp2').val();
     }
     requestJson['share'] = readSkillShare();
-    console.log(requestJson['share']);
     requestJson['coab'] = readCoabList();
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {
@@ -578,6 +577,12 @@ function runAdvTest() {
     // }
     if (!isNaN(parseInt($('#input-sim-buff-str').val()))) {
         requestJson['sim_buff_str'] = $('#input-sim-buff-str').val();
+    }
+    if (!isNaN(parseInt($('#input-sim-buff-critr').val()))) {
+        requestJson['sim_buff_critr'] = $('#input-sim-buff-critr').val();
+    }
+    if (!isNaN(parseInt($('#input-sim-buff-critd').val()))) {
+        requestJson['sim_buff_critd'] = $('#input-sim-buff-critd').val();
     }
     if (!isNaN(parseInt($('#input-sim-buff-def').val()))) {
         requestJson['sim_buff_def'] = $('#input-sim-buff-def').val();
@@ -692,6 +697,7 @@ function clearResults() {
     $('input:checked.coab-check').prop('check', false);
     $('#input-sim-buff-str').val('');
     $('#input-sim-buff-def').val('');
+    $('#input-sim-buff-count').val('');
     $('#input-conditions').empty();
 }
 function weaponSelectChange() {

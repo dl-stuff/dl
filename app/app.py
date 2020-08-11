@@ -222,6 +222,14 @@ def simc_adv_test():
     except:
         pass
     try:
+        conf['sim_buffbot.critr'] = min(max(int(params['sim_buff_critr']), -100), 100)/100
+    except:
+        pass
+    try:
+        conf['sim_buffbot.critd'] = min(max(int(params['sim_buff_critd']), -1000), 1000)/100
+    except:
+        pass
+    try:
         conf['sim_buffbot.debuff'] = min(max(int(params['sim_buff_def']), -50), 50)/100
     except:
         pass

@@ -12,19 +12,19 @@ class Vanessa(Adv):
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
     conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon
+        `dragon, s
         `s3, not self.s3_buff
+        `s4, cancel
         `s1, cancel
-        `s2, x=4
-        `s4
-        `fs, x=5
+        `s2, fsc
+        `fs, x=4
     """
     coab = ['Blade', 'Marth', 'Wand']
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Blade','Marth','Serena']
+            self.coab = ['Blade','Marth','Wand']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
