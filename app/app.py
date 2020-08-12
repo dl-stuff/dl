@@ -230,6 +230,10 @@ def simc_adv_test():
     except:
         pass
     try:
+        conf['sim_buffbot.doublebuffs'] = min(max(float(params['sim_doublebuff_interval']), 0.5), 600.0)
+    except:
+        pass
+    try:
         conf['sim_buffbot.debuff'] = min(max(int(params['sim_buff_def']), -50), 50)/100
     except:
         pass

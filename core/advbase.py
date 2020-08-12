@@ -1194,6 +1194,12 @@ class Adv(object):
             if 'critd' in self.conf.sim_buffbot:
                 if self.condition('team crit dmg {:+.0%}'.format(self.conf.sim_buffbot.critd)):
                     self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'dmg').on()
+            if 'doublebuffs' in self.conf.sim_buffbot:
+                interval = round(self.conf.sim_buffbot.doublebuffs, 2)
+                if self.condition('team doublebuff every {:.2f} sec'.format(interval)):
+                    def doublebuff(t):
+                        Event('defchain').on()
+                    Timer(doublebuff, interval, True).on()
 
     def sync_slot(self, conf):
         # self.cmnslots(conf)

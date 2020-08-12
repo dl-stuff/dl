@@ -587,6 +587,9 @@ function runAdvTest() {
     if (!isNaN(parseInt($('#input-sim-buff-def').val()))) {
         requestJson['sim_buff_def'] = $('#input-sim-buff-def').val();
     }
+    if (!isNaN(parseFloat($('#input-sim-doublebuff-interval').val()))) {
+        requestJson['sim_doublebuff_interval'] = $('#input-sim-doublebuff-interval').val();
+    }
     if (!isNaN(parseInt($('#input-sim-buff-count').val()))) {
         requestJson['sim_buff_count'] = $('#input-sim-buff-count').val();
     }
