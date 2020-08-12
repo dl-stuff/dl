@@ -1197,9 +1197,8 @@ class Adv(object):
             if 'doublebuffs' in self.conf.sim_buffbot:
                 interval = round(self.conf.sim_buffbot.doublebuffs, 2)
                 if self.condition('team doublebuff every {:.2f} sec'.format(interval)):
-                    def doublebuff(t):
-                        Event('defchain').on()
-                    Timer(doublebuff, interval, True).on()
+                    Event('defchain').on()
+                    Timer(lambda t: Event('defchain').on(), interval, True).on()
 
     def sync_slot(self, conf):
         # self.cmnslots(conf)

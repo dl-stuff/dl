@@ -252,7 +252,7 @@ ability_dict['bc'] = Doublebuff
 
 
 class Doublebuff_CD(Doublebuff):
-    DB_CD = 14.999 # inaccurate, but avoids a potential unintuitive race condition
+    DB_CD = 14.99 # inaccurate, but avoids a potential unintuitive race condition
     def oninit(self, adv, afrom=None):
         self.is_cd = False
 
