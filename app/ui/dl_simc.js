@@ -699,7 +699,10 @@ function clearResults() {
     simAff.each(function (idx, res) { $(res).val(''); });
     $('input:checked.coab-check').prop('check', false);
     $('#input-sim-buff-str').val('');
+    $('#input-sim-buff-critr').val('');
+    $('#input-sim-buff-critd').val('');
     $('#input-sim-buff-def').val('');
+    $('#input-sim-doublebuff-interval').val('');
     $('#input-sim-buff-count').val('');
     $('#input-conditions').empty();
 }
