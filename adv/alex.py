@@ -14,7 +14,7 @@ class Alex(Adv):
     conf['slots.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon.act('c3 s end'), self.slots.tmp.d.trickery <= 1
         `s3, not self.s3_buff
         `s4
         `s1

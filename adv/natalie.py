@@ -13,7 +13,7 @@ class Natalie(Adv):
     conf['slots.a'] = HoH() + Dear_Diary()
     conf['slots.poison.a'] = HoH() + The_Plaguebringer()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), (x=5 and self.slots.tmp.d.trickery <= 1) or self.hp=0
         `s3, not self.s3_buff
         `s2, s=3 or x=5
         `s4
