@@ -11,18 +11,20 @@ class Zhu_Bajie(Adv):
     a3 = ('ro', 0.10)
 
     conf = {}
-    conf['slots.a'] = Mega_Friends()+Dear_Diary()
+    conf['slots.a'] = Mega_Friends()+The_Fires_of_Hate()
+	conf['slots.paralysis.a'] = Mega_Friends()+Spirit_of_the_Season()
     conf['slots.d'] = Cupid()
     conf['slots.paralysis.d'] = Corsaint_Phoenix()
     conf['acl'] = """
         `s2, fsc
         `s1, fsc
+		`s3, fsc
         `s4, fsc
         `dodge, fsc
         `fs3
         """
-    coab = ['Blade', 'Grace', 'Peony']
-    share = ['Veronica']
+    coab = ['Blade', 'Wand', 'Peony']
+    share = ['Ranzal','Veronica']
 
     def prerun(self):
         self.conf.fs.hit = 1

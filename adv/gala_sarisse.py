@@ -11,15 +11,15 @@ class Gala_Sarisse(Adv):
     conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
-        `dragon, s=1
-        `s3, not self.s3_buff
-        `s1
-        `s2
-        `s4
-        `fs, x=4
+			`dragon.act('c3 s c3 c3 s end'), s=1
+			`s3, not self.s3_buff
+			`s1
+			`s4
+			`s2,cancel
+			`fs, x=4
     """
     coab = ['Blade', 'Wand', 'Marth']
-    share = ['Ranzal']
+    share = ['Karl']
 
     def prerun(self):
         self.ahits = 0

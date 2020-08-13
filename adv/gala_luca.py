@@ -15,10 +15,9 @@ class Gala_Luca(Adv):
         `s1
         `s4, x=5
         `s3, x=5
-        `fs, x=5
         """
     coab = ['Axe2','Dagger','Peony']
-    share = ['Ranzal']
+    share = ['Ranzal','Kleimann']
 
     def init(self):
         self.crit_mod = self.custom_crit_mod

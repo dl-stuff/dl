@@ -14,7 +14,7 @@ class Marth(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon, s=2
+		`dragon.act('c3 s s end'),s=2
         `s3, not self.s3_buff
         `s2, self.afflics.burn.get()
         `s1, fsc
@@ -22,7 +22,7 @@ class Marth(Adv):
         `fs, x=3
     """
     coab = ['Blade', 'Wand', 'Joe']
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def d_coabs(self):
         if self.duration <= 60:

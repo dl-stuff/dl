@@ -51,7 +51,7 @@ class Nadine(Adv):
     conf = gyaru_phone_conf.copy()
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon.act('c1 s s end'), s=1
+        `dragon.act('c3 s s end'), s=1
         `s3, not self.s3_buff
         `s2
         `s4
@@ -60,7 +60,7 @@ class Nadine(Adv):
         """
     coab = ['Blade', 'Wand', 'Marth']
     conf['afflict_res.burn'] = 0
-    share = ['Ranzal']
+    share = ['Kleimann']
 
     def prerun(self):
         self.team_s1_hits = 1

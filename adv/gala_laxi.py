@@ -86,7 +86,7 @@ class Gala_Laxi(Adv):
     conf['acl'] = """
         # `norm
         `ex
-        `dragon
+        `dragon.act('c3 s s end'),s=2
         `s3, not self.s3_buff
         `s2
         `s1

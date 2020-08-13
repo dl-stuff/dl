@@ -13,13 +13,13 @@ class Chitose(Adv):
     conf['slots.paralysis.a'] = conf['slots.a']
     conf['slots.d'] = Tie_Shan_Gongzhu()
     conf['acl'] = """
-        `fs, self.fs_prep_c>0 and x=5
-        `s4
-        `s1
-        `s3
+		`fs, self.fs_prep_c>0 and x=5
+		`s1
+		`s3
+		`s4, cancel
         """
     coab = ['Tobias','Peony','Bow']
-    share = ['Patia','Summer_Cleo']
+    share = ['Patia','Summer_Luca']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

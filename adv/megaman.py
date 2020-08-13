@@ -93,10 +93,10 @@ class Mega_Man(Adv):
 
     conf = megaman_conf.copy()
     conf['slots.d'] = Gala_Mars()
-    conf['slots.a'] = Primal_Crisis()+Dear_Diary()
+    conf['slots.a'] = Primal_Crisis()+Levins_Champion()
     conf['acl'] = """
         # check_s(n) means neither s1 or s2 are active, and s[n] has full ammo
-        `dragon
+        `dragon, s=4
         `s3, not self.s3_buff
         `s4
         `s1, self.check_s(1) and self.bleed._static['stacks']<3
@@ -104,7 +104,7 @@ class Mega_Man(Adv):
         `s1, self.s1_x.active and self.bleed._static['stacks']>=3
     """
     coab = ['Blade', 'Marth', 'Dagger2']
-    share = ['Emma']
+    share = ['Karl']
 
     conf['dragonform'] = {
         'act': 'c5 s',

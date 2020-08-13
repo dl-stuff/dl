@@ -18,16 +18,12 @@ class Gala_Mym(Adv):
         end
         `s3, not self.s3_buff
         `s1
-        `s2, fsc
-        `s4, fsc
+        `s2, cancel
+        `s4, cancel
         `fs, x=5
     """
-    share = ['Ranzal']
-    coab = ['Blade', 'Marth', 'Yuya']
-
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.coab = ['Blade', 'Verica', 'Yuya']
+    share = ['Kleimann']
+    coab = ['Verica', 'Marth', 'Yuya']
     
     conf['dragonform1'] = {
         'act': 'c3 s',

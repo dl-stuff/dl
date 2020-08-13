@@ -10,16 +10,16 @@ class Renelle(Adv):
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon
-        `s3, not self.s3_buff
-        `s1, fsc
-        `s2, fsc
-        `s4, fsc
-        `fs, x=5
+		`dragon
+		`s3, not self.s3_buff
+		`s2
+		`s4,cancel
+		`s1,cancel
+		`fs, x=5
         """
     conf['afflict_res.burn'] = 0
-    coab = ['Blade', 'Marth', 'Serena']
-    share = ['Ranzal']
+    coab = ['Blade', 'Marth', 'Wand']
+    share = ['Kleimann']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,100,0.803)
