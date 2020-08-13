@@ -28,15 +28,16 @@ class Halloween_Elisanne(Adv):
     conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['slots.paralysis.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon
-        `s4
-        `s2
+        `dragon.act('c3 s end'), x=5
+        `s2, s1.charged<s1.sp-700 and s4.charged<s4.sp-700 and s3.charged<s3.sp-700
+        `s3
         `s1
+        `s4
         `fs, x=5
         """
-    coab = ['Blade','Sharena','Peony']
+    coab = ['Wand','Sharena','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Ranzal']
+    share = ['Ranzal','Curran']
 
     def prerun(self):
         self.phase['s1'] = 0
