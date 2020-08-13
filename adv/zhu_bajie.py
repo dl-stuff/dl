@@ -12,7 +12,7 @@ class Zhu_Bajie(Adv):
 
     conf = {}
     conf['slots.a'] = Mega_Friends()+The_Fires_of_Hate()
-	conf['slots.paralysis.a'] = Mega_Friends()+Spirit_of_the_Season()
+    conf['slots.paralysis.a'] = Mega_Friends()+Spirit_of_the_Season()
     conf['slots.d'] = Cupid()
     conf['slots.paralysis.d'] = Corsaint_Phoenix()
     conf['acl'] = """

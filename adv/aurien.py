@@ -11,7 +11,7 @@ class Aurien(Adv):
 
     conf = {}
     conf['slots.a'] = Primal_Crisis()+The_Fires_of_Hate()
-	conf['slots.burn.a'] = Primal_Crisis()+Me_and_My_Bestie()
+    conf['slots.burn.a'] = Primal_Crisis()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s
         `s3, not self.s3_buff
