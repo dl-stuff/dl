@@ -19,7 +19,7 @@ class Julietta(Adv):
     share = ['Ranzal']
 
     def s2_proc(self, e):
-       Event('defchain')()
+       Selfbuff(e.name+'_defense', 0.50, 10, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -5,15 +5,17 @@ def module():
     return Yue
 
 class Yue(Adv):
+    a1 = ('lo_defense', 0.60)
+
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['slots.burn.a'] = Kung_Fu_Masters()+Me_and_My_Bestie()
     conf['acl'] = """
-`dragon, s=2
-`s3, not self.s3_buff
-`s2
-`s4
-`s1
+        `dragon, s=2
+        `s3, not self.s3_buff
+        `s2
+        `s4
+        `s1
     """
     coab = ['Blade', 'Dagger2', 'Halloween_Mym']
     share = ['Ranzal']

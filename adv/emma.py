@@ -36,7 +36,7 @@ class Emma(Adv):
         self.buff_class(e.name,0.25,15).on()
 
     def s2_proc(self, e):
-        Event('defchain')()
+        Teambuff(e.name+'_defense', 0.15, 15, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

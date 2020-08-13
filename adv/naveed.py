@@ -37,7 +37,7 @@ class Naveed(Adv):
         self.s1level += 1
         if self.s1level >= 5:
             self.s1level = 5
-        Event('defchain')()
+        Selfbuff(e.name+'_defense', 0.20, 10, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

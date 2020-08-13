@@ -4,6 +4,8 @@ def module():
     return Taro
 
 class Taro(Adv):
+    a1 = ('lo_defense', 0.50)
+
     conf = {}
     conf['acl'] = """
         `dragon.act('c3 s end'),fsc
