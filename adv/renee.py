@@ -27,7 +27,7 @@ class Renee(Adv):
         self.dmg_make(e.name,5.55)
 
     def s2_proc(self, e):
-        Event('defchain')()
+        Selfbuff(f'{e.name}_defense', 0.10, 5, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

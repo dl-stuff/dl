@@ -42,7 +42,7 @@ class Gala_Euden(Adv):
             Teambuff(e.name,0.20,10,'att').no_bufftime().on()
 
     def s2_proc(self, e):
-        Event('defchain')()
+        Teambuff(e.name+'_defense', 0.15, 15, 'defense').on()
         self.afflics.paralysis(e.name, 120, 0.97)
 
 

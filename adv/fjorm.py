@@ -23,6 +23,7 @@ class Fjorm(Adv):
 
     def prerun(self):
         Teambuff('last_bravery',0.3,15).on()
+        Teambuff('last_bravery_defense', 0.40, 15, 'defense').on()
 
     def s1_proc(self, e):
         self.afflics.frostbite(e.name,120,0.41)
