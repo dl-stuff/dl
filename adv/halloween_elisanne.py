@@ -40,9 +40,9 @@ class Halloween_Elisanne(Adv):
 
     def prerun(self):
         self.phase['s1'] = 0
-        self.vampire_maiden = X_alt(self, 'vampire_maiden', vm_auto_conf, x_proc=self.l_cp_x)
+        self.vampire_maiden = X_alt(self, 'vampire_maiden', vm_auto_conf, x_proc=self.l_vm_x)
 
-    def l_cp_x(self, e):
+    def l_vm_x(self, e):
         self.vampire_maiden.x_proc_default(e)
     
     @staticmethod
