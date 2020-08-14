@@ -10,12 +10,12 @@ class Serena(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
-		`dragon,s
-		`s3, not self.s3_buff
-		`s4, fsc
-		`s1, fsc
-		`s2, fsc
-		`fs, seq=3
+        `dragon,s
+        `s3, not self.s3_buff
+        `s4, fsc
+        `s1, fsc
+        `s2, fsc
+        `fs, seq=3
         """
     coab = ['Blade', 'Yuya', 'Halloween_Mym']
     share = ['Kleimann']

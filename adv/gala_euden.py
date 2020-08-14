@@ -9,12 +9,12 @@ class Gala_Euden(Adv):
     comment = 'c2+fs'
     conf = {}
     conf['acl'] = """
-		`dragon, s=1
-		`s3
-		`s4
-		`s1, fsc
-		`s2, fsc
-		`fs, x=2
+        `dragon, s=1
+        `s3
+        `s4
+        `s1, fsc
+        `s2, fsc
+        `fs, x=2
     """
     coab = ['Dagger2','Blade','Peony']
     share = ['Gala_Mym','Rodrigo']
