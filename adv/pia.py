@@ -6,13 +6,15 @@ def module():
 
 class Pia(Adv):
     conf = {}
-    conf['slots.d'] = AC011_Garland()
+    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.d'] = Vayu()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'), s4.check()
         `s3, not self.s3_buff
-        `s1
-        `s2, fsc
+        `s2, self.energy() = 4 and s4.check()
         `s4
+        `s2,fsc and self.energy()<4
+        `s1, self.s3_buff
         `fs, x=5
         """
     coab = ['Blade','Dragonyule_Xainfried','Lin_You']

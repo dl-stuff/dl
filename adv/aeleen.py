@@ -7,12 +7,12 @@ def module():
 class Aeleen(Adv):
     a1 = ('bt',0.25)
     conf = {}
-    conf['slots.d'] = AC011_Garland()
+    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'), s4.check()
         `s3, not self.s3_buff
-        `s1
         `s4
+        `s1, self.s3_buff
         `fs, seq=5
         """
     coab = ['Blade','Dragonyule_Xainfried','Lin_You']

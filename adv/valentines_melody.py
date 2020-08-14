@@ -11,17 +11,16 @@ class Valentines_Melody(Adv):
     a3 = ('k_poison',0.3)
 
     conf = {}
-    conf['slots.a'] = Kung_Fu_Masters()+The_Fires_of_Hate()
+    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['slots.d'] = Ariel()
-    conf['slots.poison.d'] = AC011_Garland()
     conf['acl'] = """
+        `dragon.act('c3 s end'),s=1
         `s3, not self.s3_buff
         `s1
-        `s2
         `s4
-        `fsf, x=4 and (s1.charged == self.sp_val(4))
-    """
-    coab = ['Blade','Eleonora','Lin_You']
+        `s2, cancel
+        """
+    coab = ['Blade','Eleonora','Dragonyule_Xainfried']
     share = ['Curran']
     conf['afflict_res.poison'] = 0
 
@@ -39,3 +38,4 @@ class Valentines_Melody(Adv):
 if __name__ == '__main__':
     from core.simulate import test_with_argv
     test_with_argv(None, *sys.argv)
+    

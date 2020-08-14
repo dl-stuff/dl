@@ -10,12 +10,12 @@ class Marty(Adv):
     conf['acl'] = """
         `dragon, s=4
         `s3, fsc and not self.s3_buff
-        `s4, cancel
+        `s4, fsc
         `s1, fsc
-        `fs, x=2
+        `fs, x=3
         """
     coab = ['Blade', 'Marth', 'Yuya']
-    share = ['Kleimann']
+    share = ['Summer_Patia']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

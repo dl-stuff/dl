@@ -14,12 +14,12 @@ class Gala_Sarisse(Adv):
         `dragon.act('c3 s c3 c3 s end'), s=1
         `s3, not self.s3_buff
         `s1
-        `s4
-        `s2,cancel
+        `s4, cancel
+        `s2, cancel
         `fs, x=4
         """
     coab = ['Blade', 'Wand', 'Marth']
-    share = ['Karl']
+    share = ['Summer_Patia']
 
     def prerun(self):
         self.ahits = 0

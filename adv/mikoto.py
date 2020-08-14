@@ -19,7 +19,7 @@ class Mikoto(Adv):
         `s4, x=5
         """
     coab = ['Yuya', 'Dagger2', 'Marth']
-    share = ['Kleimann']
+    share = ['Summer_Patia']
 
     def prerun(self):
         self.s1buff = Selfbuff('s1',0.0, 20)

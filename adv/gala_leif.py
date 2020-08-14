@@ -59,13 +59,13 @@ class Gala_Leif(Adv):
         elif s2.check()
         `shielding
         end
-        `dragon.act('c3 s end')
+        `dragon.act('c3 s end'),fsc
         `s3, not self.s3_buff
-        `s4
-        `s1
+        `s4, self.afflics.poison.get()
         `s2
+        `s1
         `fs, x=3
-    """
+        """
     coab = ['Dragonyule_Xainfried', 'Blade', 'Lin_You']
     share = ['Curran']
     conf['afflict_res.poison'] = 0

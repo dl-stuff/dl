@@ -20,7 +20,7 @@ class Karl(Adv):
         `fs, x=2
     """
     coab = ['Blade', 'Dagger2', 'Bow']
-    share = ['Ranzal']
+    share = ['Summer_Patia']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

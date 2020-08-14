@@ -10,12 +10,12 @@ class Su_Fang(Adv):
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"),s4.check()
         `s3, not self.s3_buff
+        `s4
+        `s1, cancel and self.s3_buff 
         `s2, fsc
-        `s4, fsc
-        `s1
-        `fs, x=4
+        `fs, x=5
         """
     coab = ['Blade','Dragonyule_Xainfried','Lin_You']
     share = ['Curran']

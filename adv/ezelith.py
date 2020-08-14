@@ -15,11 +15,11 @@ class Ezelith(Adv):
         `s3, not self.s3_buff
         `s1
         `s2, cancel
-        `s4, cancel
+        `s4, x=5 or fsc
         `fs, x=5
         """
     coab = ['Halloween_Mym', 'Blade', 'Marth']
-    share = ['Kleimann']
+    share = ['Summer_Patia']
 
     def prerun(self):
         self.s2_buff = Selfbuff('s2',0.2,15)

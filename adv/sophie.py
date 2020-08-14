@@ -9,15 +9,14 @@ class Sophie(Adv):
     comment = 'no s1'
 
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+The_Fires_of_Hate()
-    conf['slots.d'] = Garland()
+    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon
-        `s3, not self.s3_buff
-        `s2, x=5
-        `s4, x=5
-    """
-    coab = ['Blade', 'Dagger2', 'Lin_You']
+        `dragon.act('c3 s c2 end'), s4.check()
+        `s4
+        `s3
+        `s2, x>1
+        """
+    coab = ['Blade', 'Dragonyule_Xainfried', 'Lin_You']
     conf['afflict_res.poison'] = 0
     share = ['Curran']
 

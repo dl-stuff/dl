@@ -90,11 +90,11 @@ class Gala_Laxi(Adv):
         `s3, not self.s3_buff
         `s2
         `s1
-        `s4
+        `s4, x=4
         """
     conf['afflict_res.burn'] = 0
     coab = ['Blade', 'Marth', 'Serena']
-    share = ['Ranzal']
+    share = ['Summer_Patia']
 
     def init(self):
         self.slots.c.coabs['Dagger'] = [None, 'dagger2']

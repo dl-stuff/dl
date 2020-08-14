@@ -9,12 +9,12 @@ class Francesca(Adv):
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), s4.check()
         `s3, not self.s3_buff
-        `s1
-        `s2
         `s4
-        `fs, x=4
+        `s2
+        `s1, cancel
+        `fs, x=5
         """
     coab = ['Blade','Dragonyule_Xainfried','Lin_You']
     share = ['Curran']

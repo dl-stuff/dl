@@ -18,11 +18,11 @@ class Marth(Adv):
         `s3, not self.s3_buff
         `s2, self.afflics.burn.get()
         `s1, fsc
-        `s4, fsc
+        `s4, cancel
         `fs, x=3
     """
     coab = ['Blade', 'Wand', 'Joe']
-    share = ['Kleimann']
+    share = ['Summer_Patia']
 
     def d_coabs(self):
         if self.duration <= 60:

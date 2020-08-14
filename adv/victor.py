@@ -8,12 +8,13 @@ def module():
 class Victor(Adv):
     a1 = ('a',0.13,'hp70')
     conf = {}
+    conf['slots.a'] = Resounding_Rendition()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), s4.check()
         `s3, not self.s3_buff
+        `s4, x=5
         `s1, self.bleed._static['stacks'] < 3
         `s2, x=5
-        `s4, x=5
         """
     coab = ['Akasha','Dragonyule_Xainfried','Lin_You']
     share = ['Curran']

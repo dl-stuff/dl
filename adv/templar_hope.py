@@ -7,16 +7,16 @@ def module():
 
 class Templar_Hope(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Beautiful_Nothingness()
+    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['slots.d'] = AC011_Garland()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s c3 c3 end')
         `s3, not self.s3_buff
-        `s2
         `s4
+        `s2, cancel
         `fs, x=2
         """
-    coab = ['Blade','Dragonyule_Xainfried','Dagger2']
+    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
     share = ['Curran']
     
     def s1_proc(self, e):

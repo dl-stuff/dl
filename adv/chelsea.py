@@ -16,7 +16,7 @@ class Chelsea(Adv):
         `fs, x=1
     """
     coab = ['Blade', 'Grace', 'Serena']
-    share = ['Ranzal']
+    share = ['Summer_Patia']
 
     def prerun(self):
         self.obsession = 0
