@@ -14,7 +14,7 @@ class Student_Maribelle(Adv):
         `s4
         `s1
         `s2,cancel
-    """
+        """
     coab = ['Blade', 'Marth', 'Gala_Sarisse']
     share = ['Kleimann']
 

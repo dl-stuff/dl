@@ -14,7 +14,7 @@ class Yue(Adv):
         `s2,x=5
         `s4,cancel
         `s1,cancel
-    """
+        """
     coab = ['Blade', 'Marth', 'Halloween_Mym']
     share = ['Kleimann']
 

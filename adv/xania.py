@@ -15,7 +15,7 @@ class Xania(Adv):
         `s1
         `s4,cancel
         `s2,x=5
-    """
+        """
     coab = ['Blade', 'Marth', 'Joe']
     share = ['Kleimann']
     conf['afflict_res.burn'] = 0
