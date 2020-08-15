@@ -11,7 +11,7 @@ class Yaten(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+United_by_One_Vision()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), fsc and self.energy() = 5
         `s3, not self.s3_buff
         `s4
         `s1

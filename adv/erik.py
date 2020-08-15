@@ -8,7 +8,7 @@ class Erik(Adv):
     a1 = ('fs',0.30)
     conf = {}
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), self.slots.tmp.d.trickery <= 1
         `s3, not self.s3_buff
         `s1
         `s2, fsc

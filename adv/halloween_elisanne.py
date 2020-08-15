@@ -1,8 +1,25 @@
 from core.advbase import *
 from slot.a import *
+from module.x_alt import X_alt
+import wep.lance
 
 def module():
     return Halloween_Elisanne
+
+vm_auto_conf = wep.lance.conf.copy()
+vm_auto_conf.update({
+    'x1.dmg': 0.6006,
+    'x2.dmg': 0.32175,
+    'x3.dmg': 0.7722,
+    'x4.dmg': 1.0725,
+    'x5.dmg': 0.8008,
+
+    'x1.sp': 180,
+    'x2.sp': 360,
+    'x3.sp': 180,
+    'x4.sp': 720,
+    'x5.sp': 900,
+})
 
 class Halloween_Elisanne(Adv):
     a1 = ('s',0.35)
@@ -11,11 +28,10 @@ class Halloween_Elisanne(Adv):
     conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['slots.paralysis.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon, fsc
-        `s4, fsc or x=5
+        `dragon
+        `s4
         `s2
         `s1
-        `s3, x=5
         `fs, x=5
         """
     coab = ['Blade','Sharena','Peony']
@@ -24,13 +40,15 @@ class Halloween_Elisanne(Adv):
 
     def prerun(self):
         self.phase['s1'] = 0
-        self.heli_s1_sp = {0: 4548, 1: 5499, 2: 6145}
+        self.vampire_maiden = X_alt(self, 'vampire_maiden', vm_auto_conf, x_proc=self.l_vm_x)
 
+    def l_vm_x(self, e):
+        self.vampire_maiden.x_proc_default(e)
+    
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.rebind_function(Halloween_Elisanne, 's1_latency')
         adv.phase[dst] = 0
-        adv.heli_s1_sp = {0: 6822, 1: 12097, 2: 13826}
 
     def s1_latency(self, t):
         Teambuff(t.name,0.13,15).on()
@@ -46,11 +64,10 @@ class Halloween_Elisanne(Adv):
                 self.afflics.paralysis(e.name, 120, 0.97)
             self.dmg_make(e.name, 1.17*6)
         self.phase[e.name] %= 3
-        self.conf[e.name].sp = self.heli_s1_sp[self.phase[e.name]]
-        self.__getattribute__(e.name).sp = self.heli_s1_sp[self.phase[e.name]]
-
+        
     def s2_proc(self, e):
         self.charge(e.name, 700)
+        self.vampire_maiden.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

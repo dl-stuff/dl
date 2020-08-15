@@ -177,7 +177,7 @@ def simc_adv_test():
     acl = params['acl'] if 'acl' in params else None
     cond = params['condition'] if 'condition' in params and params['condition'] != {} else None
     teamdps = None if not 'teamdps' in params else abs(float(params['teamdps']))
-    t   = 180 if not 't' in params else abs(float(params['t']))
+    t   = 180 if not 't' in params else min(abs(float(params['t'])), 600.0)
     log = -2
     mass = 25 if adv_name in MASS_SIM_ADV and adv_name not in MEANS_ADV else 0
     coab = None if 'coab' not in params else params['coab']

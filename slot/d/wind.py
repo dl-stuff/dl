@@ -246,3 +246,55 @@ class Ariel(DragonBase):
         'ds.recovery': 145 / 60, # skill frames
         'ds.hit': 1,
     }
+
+class Summer_Konohana_Sakuya(DragonBase):
+    ele = 'wind'
+    att = 127
+    a = []
+    dragonform = {
+        'act': 'c3 s',
+
+        'dx1.dmg': 2.90,
+        'dx1.startup': 72 / 60.0, # c1 frames
+        'dx1.hit': 1,
+
+        'dx2.dmg': 3.48,
+        'dx2.startup': 35 / 60.0, # c2 frames
+        'dx2.hit': 1,
+
+        'dx3.dmg': 8.12,
+        'dx3.startup': 69 / 60.0, # c3 frames
+        'dx3.recovery': 17 / 60.0, # recovery
+        'dx3.hit': 2,
+
+        'ds.dmg': 0.0,
+        'ds.recovery': 120 / 60, # skill frames
+        'ds.hit': 0,
+    }
+    flower_stack = 1
+    flower_buff_values = {
+        1: (0.40, -1, 'att', 'buff'),
+        2: (0.20, -1, 'defense', 'buff'),
+        3: (0.50, -1, 's', 'buff'),
+        4: (0.05, -1, 'res', 'water'),
+        6: (0.20, -1, 'regen', 'buff')
+    }
+    def ds_proc(self):
+        self.add_flower()
+        return 0
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        from core.advbase import Selfbuff, Timer
+        self.flower_buffs = {idx: Selfbuff(f'sakuya_flower_{idx}', *args) for idx, args in self.flower_buff_values.items()}
+        self.flower_stack = 0
+        self.add_flower()
+        Timer(self.add_flower, 60, True).on()
+
+    def add_flower(self, t=None):
+        if self.flower_stack < 6:
+            self.flower_stack += 1
+            try:
+                self.flower_buffs[self.flower_stack].on()
+            except KeyError:
+                pass
