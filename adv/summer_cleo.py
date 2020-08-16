@@ -32,21 +32,21 @@ class Summer_Cleo(Adv):
 
     def s1_lantency(self, t):
         self.dmg_make(t.name,1.06)
-        self.hits += 1
+        self.add_hits(1)
         p = self.afflics.paralysis(t.name,120,0.97)
         self.afflics.paralysis.get()
         if random.random() < p :
             Selfbuff('a1',0.10,20,'sp','passive').on()
         self.dmg_make(t.name,1.06)
-        self.hits += 1
+        self.add_hits(1)
         self.dmg_make(t.name,1.06)
-        self.hits += 1
+        self.add_hits(1)
         self.dmg_make(t.name,5.3)
-        self.hits += 1
+        self.add_hits(1)
 
         for _ in range(min(self.buffcount, 4)):
             self.dmg_make(f'o_{t.name}_boost',1.06)
-            self.hits += 1
+            self.add_hits(1)
 
     def s1_proc(self, e):
         t = Timer(self.s1_lantency)

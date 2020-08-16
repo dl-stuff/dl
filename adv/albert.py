@@ -56,7 +56,7 @@ class Albert(Adv):
             self.dmg_make(name,12.38-0.825)
             for _ in range(2, self.s1_hits+1):
                 self.dmg_make(name, 0.83)
-                self.hits += 1
+                self.add_hits(1)
             self.s2buff.buff_end_timer.timing += 2.6
             self.a3.buff_end_timer.timing += 2.6
 

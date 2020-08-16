@@ -63,15 +63,15 @@ class Lazry(Adv):
             # 120, 41 fb
             self.dmg_make(e.name, 1.77)
             self.afflics.frostbite(e.name, 120, 0.41)
-            self.hits += 1
+            self.add_hits(1)
             self.dmg_make(e.name, 1.77+3.37)
-            self.hits += 2
+            self.add_hits(2)
         else:
             # 1.0 + 1.0 + 1.0 + 5.730000019073486
             # 20 sd to next skill
             # 1.5666667222976685s
             self.dmg_make(f'{e.name}_high', 8.73)
-            self.hits += 5
+            self.add_hits(5)
             Timer(self.s1_buff_on).on(0.001)
 
     def s1_buff_on(self, t):
@@ -87,7 +87,7 @@ class Lazry(Adv):
             # 2.5
             # recover s1 sp
             self.dmg_make(f'{e.name}_high', 11.83)
-            self.hits += 2
+            self.add_hits(2)
             self.s1.charge(self.s1.sp)
 
 

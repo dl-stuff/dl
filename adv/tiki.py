@@ -110,7 +110,7 @@ class Tiki(Adv):
         hit = xalt.conf[xseq].hit
         # utp = xalt.conf[xseq].utp
         log('x', xseq, 'divine_dragon')
-        self.hits += hit
+        self.add_hits(hit)
         self.dmg_make(xseq, dmg_coef)
         self.charge(xseq, sp)
 

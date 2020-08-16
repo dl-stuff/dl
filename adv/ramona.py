@@ -31,7 +31,7 @@ class Ramona(Adv):
 
     def s1_proc(self, e):
         self.dmg_make(e.name, 2.93*6)
-        self.hits += 6
+        self.add_hits(6)
 
     def s2_proc(self, e):
        Event('defchain')()

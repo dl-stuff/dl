@@ -280,7 +280,7 @@ class Mitsuba(Adv):
         sp = xalt.conf[xseq].sp
         hit = xalt.conf[xseq].hit
         log('x', xseq, self.stance)
-        self.hits += hit
+        self.add_hits(hit)
         self.dmg_make(xseq, dmg_coef)
         self.charge(xseq, sp)
         self.update_stance()
@@ -294,16 +294,16 @@ class Mitsuba(Adv):
     def s1_proc(self, e):
         coef = self.s1_mod[self.stance]
         if self.stance == 'sashimi':
-            self.hits += 1
+            self.add_hits(1)
             self.afflics.frostbite(e.name,120,0.41)
             for _ in range(7):
                 self.dmg_make(e.name, coef)
-                self.hits += 1
+                self.add_hits(1)
         elif self.stance == 'tempura':
             with KillerModifier('s1_killer', 'hit', 0.6, ['frostbite']):
                 for _ in range(8):
                     self.dmg_make(e.name, coef)
-                    self.hits += 1
+                    self.add_hits(1)
 
     def s2_proc(self, e):
         buff, insp = self.s2_buff[self.stance]

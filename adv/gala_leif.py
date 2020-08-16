@@ -101,13 +101,13 @@ class Gala_Leif(Adv):
                 self.dmg_make(e.name, 4.91)
                 self.s2_attdown.on()
                 self.dmg_make(e.name, 4.91+5.40)
-                self.hits += 3
+                self.add_hits(3)
         else:
             with KillerModifier('s2_killer', 'hit', 0.2, ['debuff_def']):
                 self.dmg_make(e.name, 7.02)
                 self.afflics.poison(e.name, 120, 0.582)
                 self.dmg_make(e.name, 7.72+8.42)
-                self.hits += 3
+                self.add_hits(3)
 
     def queue_stance(self, stance):
         # assume you can swap stance instantly instead of on next auto, to simplify acl
@@ -137,7 +137,7 @@ class Gala_Leif(Adv):
         sp = xalt.conf[xseq].sp
         hit = xalt.conf[xseq].hit
         log('x', xseq, self.stance)
-        self.hits += hit
+        self.add_hits(hit)
         self.dmg_make(xseq, dmg_coef)
         self.charge(xseq, sp)
         self.update_stance()

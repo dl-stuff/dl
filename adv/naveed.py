@@ -31,7 +31,7 @@ class Naveed(Adv):
         for _ in range(self.s1level):
             for _ in range(3):
                 self.dmg_make(e.name,0.7)
-                self.hits += 1
+                self.add_hits(1)
 
     def s2_proc(self, e):
         self.s1level += 1

@@ -46,13 +46,13 @@ class Sha_Wujing(Adv):
         hit1, hit2 = self.s1_mods[self.s1_p]
         self.s1_p += 1
         self.dmg_make(e.name, hit1)
-        self.hits += 1
+        self.add_hits(1)
         if self.s1_p > 1:
             self.s1_defdown.on()
         if self.s1_p > 2:
             self.charge_p(e.name, 0.30, target='s2')
         self.dmg_make(e.name, hit2)
-        self.hits += 1
+        self.add_hits(1)
         self.s1_p %= 3
 
         self.a1_check()

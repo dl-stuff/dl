@@ -50,7 +50,7 @@ class Zena(Adv):
 
     def s2_extra_hits(self, t):
         self.dmg_make(f'{t.name}_extra', self.s2_extra_hit_rate*0.50)
-        self.hits += self.s2_extra_hit_rate
+        self.add_hits(self.s2_extra_hit_rate)
 
     def s2_clear(self, e):
         for t in self.s2_timers:

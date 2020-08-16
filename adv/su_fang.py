@@ -33,7 +33,7 @@ class Su_Fang(Adv):
             self.dmg_make(e.name, 5.58)
             if self.s2_buff.get():
                 self.dmg_make(e.name, 2.60)
-                self.hits += 2
+                self.add_hits(2)
 
     def s2_proc(self, e):
         self.fs_alt.on(1)

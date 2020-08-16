@@ -1571,17 +1571,18 @@ class Adv(object):
         log('dodge', '-')
         self.think_pin('dodge')
 
+    def add_hits(self, hit):
+        if hit >= 0:
+            self.hits += hit
+        else:
+            self.hits = -hit
+
     def update_hits(self, name):
         if '_missile' in name:
             name = name.split('_')[0]
         try:
             hit = self.conf['{}.hit'.format(name)]
-            if hit >= 0:
-                self.hits += hit
-                # print('debug', 'combo add', name, '{} -> {}'.format(hit, self.hits))
-            else:
-                self.hits = -hit
-                # print('debug', 'combo break', name, '{} -> {}'.format(hit, self.hits))
+            self.add_hits(hit)
         except AttributeError:
             pass
 
@@ -1906,7 +1907,12 @@ class Adv(object):
         else:
             self.dmg_make(e.dname, e.dmg_coef)
 
-    def dmg_make(self, name, dmg_coef, dtype=None, fixed=False):
+    def dmg_make(self, name, dmg_coef, dtype=None, fixed=False, attenuation=None):
+        if attenuation is not None:
+            rate, pierce = attenuation
+            dmg_coef = dmg_coef*(rate**pierce)
+            if dmg_coef < 0.01:
+                return 0
         self.damage_sources.add(name)
         for t in self.tension:
             t.check(name)

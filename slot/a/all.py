@@ -452,3 +452,11 @@ class Me_and_My_Bestie(Amulet):
 class Blossoms_on_the_Waters_Edge(Amulet):
     att = 62
     a = [('dh', 0.08), ('dp', 0.10)]
+
+class Memories_of_Summers_Dusk(Amulet):
+    att = 65
+    a = [('k_stun', 0.2), ('k_paralysis', 0.2)]
+
+class A_Passion_for_Produce(Amulet):
+    att = 52
+    a = [('s',0.20), ('cc',0.12)]

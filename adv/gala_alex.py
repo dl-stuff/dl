@@ -131,17 +131,17 @@ class Gala_Alex(Adv):
             with KillerModifier('s1_killer', 'hit', 0.1, ['debuff_def']):
                 self.dmg_make(e.name, 2.02*3)
                 self.dmg_make(e.name, 4.85)
-                self.hits += 4
+                self.add_hits(4)
         else:
             self.dmg_make(e.name, 2.02)
             self.s1_debuff.on()
             self.dmg_make(e.name, 2.02*2)
-            self.hits += 3
+            self.add_hits(3)
         # elif self.sr.chain_status == 2:
         #     k = 1 + (self.mod('def') != 1) * 0.1
         #     self.dmg_make('s1', 2.02*3)
         #     self.dmg_make('s1', 4.85*k)
-        #     self.hits += 4
+        #     self.add_hits(4)
         #     break only
         #     352.5 * 3 + 987
         self.sr.chain_on(1)
@@ -151,11 +151,11 @@ class Gala_Alex(Adv):
             with KillerModifier('s2_killer', 'hit', 0.1, ['poison']):
                 self.dmg_make(e.name, 5.53)
                 self.dmg_make(e.name, 4.42)
-                self.hits += 2
+                self.add_hits(2)
         else:
             self.dmg_make(e.name, 5.53)
             self.afflics.poison(e.name, 120, 0.582)
-            self.hits += 1
+            self.add_hits(1)
         # elif self.sr.chain_status == 2:
         #     self.dmg_make('s2', 5.53)
         #     with Modifier('s2_killer', 'poison_killer', 'hit', 0.1):

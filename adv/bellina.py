@@ -81,7 +81,7 @@ class Bellina(Adv):
         hit = xalt.conf[xseq].hit
         utp = xalt.conf[xseq].utp
         log('x', xseq, 'dragondrive')
-        self.hits += hit
+        self.add_hits(hit)
         with CrisisModifier('x', 1.00, self.hp):
             self.dmg_make(xseq, dmg_coef)
         self.charge(xseq, sp)
@@ -121,19 +121,19 @@ class Bellina(Adv):
         if self.dragondrive_buff.get():
             with CrisisModifier(e.name, 0.50, self.hp):
                 self.dmg_make(e.name, 2.02 * 5)
-                self.hits += 5
+                self.add_hits(5)
             self.s1.charge(self.conf.s1.sp)
             self.dragonform.charge_gauge(-750, utp=True)
         else:
             with CrisisModifier(e.name, 0.50, self.hp):
                 self.dmg_make(e.name, 8.40)
-                self.hits += 1
+                self.add_hits(1)
 
     def s2_proc(self, e):
         if self.dragondrive_buff.get():
             with CrisisModifier(e.name, 2.00, self.hp):
                 self.dmg_make(e.name, 12.12)
-                self.hits += 1
+                self.add_hits(1)
             self.dragonform.charge_gauge(-3000, utp=True)
             # -3000 gauge
             # 2.7666666507720947 (?)

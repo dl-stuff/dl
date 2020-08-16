@@ -60,9 +60,9 @@ class Gala_Cleo(Adv):
 
     def s1_dmg(self, t):
         self.dmg_make(t.name,0.88)
-        self.hits += 1
+        self.add_hits(1)
         self.dmg_make(t.name,2.65)
-        self.hits += 1
+        self.add_hits(1)
 
     def s1_proc(self, e):
         self.phase[e.name] += 1

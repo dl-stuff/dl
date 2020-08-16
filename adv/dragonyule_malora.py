@@ -27,7 +27,7 @@ class Dragonyule_Malora(Adv):
         if self.s1debuff is not None:
             self.s1debuff.on()
         self.dmg_make(e.name,4.67,'s')
-        self.hits += 1
+        self.add_hits(1)
 
     def s2_proc(self, e):
         with KillerModifier('s2_killer', 'hit', 0.8, ['debuff_def']):

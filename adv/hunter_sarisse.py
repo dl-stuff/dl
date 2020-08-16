@@ -131,14 +131,16 @@ class Hunter_Sarisse(Adv):
         self.fs_before(e)
         fs_hits = 0
         for p in range(self.conf[name+'.pierce']):
-            coef = self.conf[name+'.dmg']*(0.3**p)
+            # coef = self.conf[name+'.dmg']*(0.3**p)
             coef_name = 'fs' if p == 0 else 'o_fs_extra_{}'.format(p)
-            if coef < 0.01:
-                break
             for _ in range(self.conf[name+'.hit']):
-                self.dmg_make(coef_name, coef, 'fs')
+                res = self.dmg_make(coef_name, self.conf[name+'.dmg'], 'fs', attenuation=(0.3, p))
+                if not res:
+                    break
                 fs_hits += 1
-        self.hits += fs_hits
+            if not res:
+                break
+        self.add_hits(fs_hits)
         self.fs_proc(e)
         self.think_pin('fs')
         self.charge(name,self.conf[name+'.sp'])
