@@ -9,16 +9,17 @@ class Jakob(Adv):
     a1 = ('prep','50%')
 
     conf = {}
-    conf['slots.frostbite.a'] = Primal_Crisis()+His_Clever_Brother()
-    conf['slots.d'] = Leviathan()
+    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.frostbite.a'] = conf['slots.a']
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'),s
         `s3
-        `s1
         `s4
+        `s1, cancel
         `fs, seq=5
     """
-    coab = ['Tiki', 'Xander', 'Dagger']
+    coab = ['Summer_Estelle', 'Xander', 'Blade']
     share = ['Gala_Elisanne', 'Ranzal']
     conf['afflict_res.bog'] = 100
 

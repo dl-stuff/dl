@@ -6,6 +6,7 @@ def module():
     return Dragonyule_Xainfried
 
 class Dragonyule_Xainfried(Adv):
+    comment = 'no s2'
     a1 = ('dc', 1)
     a3 = ('primed_att', 0.08)
 

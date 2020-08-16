@@ -6,22 +6,22 @@ def module():
     return Pietro
 
 class Pietro(Adv):
-#    comment = 'unsuitable resist'
+#    comment = 'no s2'
     
     a1 = ('cd',0.13)
 
     conf = {}
-    conf['slots.a'] = RR()+Breakfast_at_Valerios()
-    conf['slots.frostbite.a'] = Primal_Crisis()+His_Clever_Brother()
-    conf['slots.d'] = Nimis()
+    conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
+    conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s c3 end'),cancel
         `s3
-        `s1
         `s4
-        `fs, x=5
+        `s1
+        `fs, cancel and (s3.charged>=s3.sp-self.sp_val('fs') or s4.charged>=s4.sp-self.sp_val('fs')) and not x=2
         """
-    coab = ['Tiki', 'Xander', 'Dagger']
+    coab = ['Tiki', 'Summer_Celliera', 'Yurius']
     share = ['Gala_Elisanne', 'Ranzal']
 
 if __name__ == '__main__':

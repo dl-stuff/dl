@@ -17,21 +17,18 @@ class Pipple(Adv):
     a3 = ('epassive_att_crit', 7)
 
     conf = pipple_conf.copy()
-    conf['slots.a'] = Primal_Crisis()+Brothers_in_Arms()
-    conf['slots.d'] = Leviathan()
+    conf['slots.a'] = Felyne_Hospitality()+Brothers_in_Arms()
+    conf['slots.frostbite.a'] = conf['slots.a']
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        if self.afflics.bog.resist>=100
-        `dragon.act('c2 '*10)
-        else
-        `dragon
-        end
-        `s3, not self.s3_buff
-        `s1, not self.afflics.frostbite.get()
-        `s2, x=5
-        `s4, x=5
-    """
-    coab = ['Tiki', 'Xander', 'Axe2']
-    share = ['Gala_Elisanne']
+        `dragon.act('c3 s end'),x=5
+        `s2, (x=5 or s) and not self.energy()=5
+        `s4, x>2
+        `s3, cancel
+        `s1, x>2
+        """
+    coab = ['Tiki', 'Renee', 'Tobias']
+    share = ['Summer_Luca','Patia']
 
     def prerun(self):
         self.phase['s1'] = 0

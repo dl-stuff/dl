@@ -10,16 +10,15 @@ class Dragonyule_Xander(Adv):
 
     conf = {}
     conf['slots.a'] = CC()+PC()
-    conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Leviathan()
+    conf['slots.frostbite.a'] = CC()+His_Clever_Brother()
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end')
         `s3
         `s4
-        `s1
-        `s2, x=5 or s
+        `s1, cancel
     """
-    coab = ['Tiki', 'Blade', 'Thaniel']
+    coab = ['Renee', 'Blade', 'Bow']
     share = ['Gala_Elisanne', 'Eugene']
 
     def prerun(self):
