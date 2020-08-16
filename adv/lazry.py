@@ -20,11 +20,11 @@ class Lazry(Adv):
         else
         `high_power
         end
-        `dragon.act('c3 s end'), s
+        `dragon.act('c3 s end')
         `s3
-        `s1
-        `s2
         `s4
+        `s2
+        `s1
     """
     coab = ['Blade', 'Xander', 'Summer_Estelle']
     conf['afflict_res.frostbite'] = 0

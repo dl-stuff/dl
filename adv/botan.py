@@ -8,20 +8,17 @@ def module():
 class Botan(Adv):
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
     conf = {}
-    conf['slots.a'] = RR() + United_by_One_Vision()
+    conf['slots.a'] = Dragon_and_Tamer() + Memory_of_a_Friend()
     conf['acl'] = """
-        `dragon.act('c3 s end'), self.sim_afflict or self.slots.tmp.d.trickery <= 1
+        `dragon.act('c3 s end'),cancel
         `s3, not self.s3_buff and prep
-        `s4
         `s2
-        `s1, cancel
+        `s4
+        `s1
+        `fs,x=5
     """
-    coab = ['Blade','Wand','Dagger']
-    share = ['Ranzal']
-
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.coab = ['Blade','Wand','Bow']
+    coab = ['Blade','Wand','Dagger  ']
+    share = ['Curran']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

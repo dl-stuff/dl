@@ -10,17 +10,17 @@ class Karina(Adv):
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
 
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+His_Clever_Brother()
+    conf['slots.a'] = Summer_Paladyns()+Brothers_in_Arms()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
         `dragon.act('c3 s end'), s
         `s3
+        `s4
         `s2
         `s1
-        `s4
     """
-    coab = ['Xander', 'Blade', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Eugene']
+    coab = ['Tobias', 'Renee', 'Summer_Estelle']
+    share = ['Summer_Cleo', 'Patia']
 
     def s1_proc(self, e):
         boost = 0.05*self.buffcount

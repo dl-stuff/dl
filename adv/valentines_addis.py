@@ -11,7 +11,7 @@ class Valentines_Addis(Adv):
     a3 = ('crisisattspd', 3)
     
     conf = {}
-    conf['slots.a'] = The_Plaguebringer()+Primal_Crisis()
+    conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon.act("c3 s end"), (self.hp>0 and (self.slots.tmp.d.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)
@@ -19,6 +19,7 @@ class Valentines_Addis(Adv):
         `s2, self.hp > 30
         `s1
         `s4
+        `fs, x=5
     """
     coab = ['Wand','Curran','Summer_Patia']
     conf['afflict_res.poison'] = 0
