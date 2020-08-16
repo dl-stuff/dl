@@ -41,21 +41,20 @@ class Yukata_Curran(Adv):
 
     def s1_proc(self, e):
         bullet = self.s1_bullet[self.maskable_faith]
-        ehits = 0
+        old_hits = self.hits
         self.dmg_make(e.name, bullet*1.10)
-        ehits += bullet
         self.add_hits(bullet)
         if self.maskable_faith:
             self.afflics.paralysis(e.name, 120, 0.97)
         for p in range(1, self.s1_rebound):
             self.dmg_make(f'{e.name}_rebound_{p}', bullet*1.10, attenuation=(0.55, p))
-            ehits += bullet
             self.add_hits(bullet)
         if self.s1_ehits > -1:
-            self.s1_ehits += ehits
+            self.s1_ehits += (self.hits - old_hits)
             if self.s1_ehits > 10:
-                self.s1_ehits = 0
-                self.energy.add(5)
+                self.s1_ehits -= 10
+                # can gain energy during skill
+                self.energy.add(5, queue=True)
 
     def s2_proc(self, e):
         if self.maskable_faith:
