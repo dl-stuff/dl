@@ -10,16 +10,21 @@ class Norwin(Adv):
     
     conf = {}
     conf['slots.a'] = RR()+Breakfast_at_Valerios()
+    conf['slots.poison.a'] = Forest_Bonds()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon
+        `dragon, s
         `s3, not self.s3_buff
         `s1, self.s3_buff
         `s2
         `s4
     """
-    coab = ['Ieyasu','Wand','Dagger2']
+    coab = ['Ieyasu','Wand','Axe2']
     share = ['Curran']
     conf['afflict_res.blind'] = 80
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.coab = ['Blade','Wand','Dagger2']
 
     def s1_proc(self, e):
         self.afflics.blind(e.name,100)

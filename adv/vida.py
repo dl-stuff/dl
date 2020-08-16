@@ -8,13 +8,13 @@ class Vida(Adv):
     a1 = ('fs',0.30)
     conf = {}
     conf['acl'] = """
-        `dragon
+        `dragon, x=5
         `s3, not self.s3_buff
         `s4
         `s1
         `fs, x=5
         """
-    coab = ['Ieyasu','Wand','Dagger2']
+    coab = ['Ieyasu','Wand','Axe2']
     share = ['Curran']
 
     def prerun(self):

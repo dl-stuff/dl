@@ -11,6 +11,7 @@ class Sazanka(Adv):
 
     conf = {}
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
+    conf['slots.poison.a'] = Summer_Paladyns()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act("c3 s end"),s1.charged=s1.sp
         `s3, not self.s3_buff

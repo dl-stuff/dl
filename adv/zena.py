@@ -14,7 +14,6 @@ class Zena(Adv):
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act('c3 s end')
         `s3, not self.s3_buff
         `s2
         `s1
