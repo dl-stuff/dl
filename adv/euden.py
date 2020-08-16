@@ -18,7 +18,7 @@ class Euden(Adv):
         `s2, fsc
         `s4, fsc
         `fs, x=2
-    """
+        """
     coab = ['Blade', 'Wand', 'Yuya']
     conf['afflict_res.burn'] = 0
     share = ['Summer_Patia']

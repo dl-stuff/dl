@@ -87,6 +87,9 @@ class Gala_Laxi(Adv):
         # `norm
         `ex
         `dragon.act('c3 s s end'),s=2
+        queue prep
+        `s2;s1;s4
+        end
         `s3, not self.s3_buff
         `s2
         `s1

@@ -14,11 +14,11 @@ class Ezelith(Adv):
         `dragon.act('c3 s s end'),s=1
         `s3, not self.s3_buff
         `s1
-        `s2, cancel
-        `s4, x=5 or fsc
+        `s4
+        `s2
         `fs, x=5
         """
-    coab = ['Halloween_Mym', 'Blade', 'Marth']
+    coab = ['Halloween_Mym', 'Blade', 'Wand']
     share = ['Summer_Patia']
 
     def prerun(self):
