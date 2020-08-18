@@ -17,16 +17,13 @@ class Marth(Adv):
         `queue not self.s3_buff
         `s3;s1;s2;s4
         `end
-        if self.afflics.burn.get()
-        queue prep
+        `dragon.act('c3 s s end'),s=2
+        queue prep and self.afflics.burn.get()
         `s2;s4;s1
         end
-        else
-        queue prep
+        queue prep and not self.afflics.burn.get()
         `s1;s2;s4
         end
-        end
-        `dragon.act('c3 s s end'),s=2
         `s2, self.afflics.burn.get()
         `s4, fsc
         `s1, fsc
@@ -36,10 +33,8 @@ class Marth(Adv):
     share = ['Kleimann']
 
     def d_coabs(self):
-        if self.duration <= 60:
+        if self.sim_afflict:
             self.coab = ['Blade','Wand','Gala_Sarisse']
-		if self.sim_afflict:
-			self.coab = ['Blade','Wand','Gala_Sarisse']
 
     def init(self):
         self.phase['s2'] = 0
