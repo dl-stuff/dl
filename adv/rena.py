@@ -31,24 +31,24 @@ class Rena(Adv):
         self.phase[e.name] += 1
         if self.phase[e.name] == 1:
             self.dmg_make(e.name, 0.72)
-            self.hits += 1
+            self.add_hits(1)
             self.afflics.burn(e.name,120,0.97)
             self.dmg_make(e.name,8.81)
-            self.hits += 4
+            self.add_hits(4)
         elif self.phase[e.name] == 2:
             self.dmg_make(e.name, 0.72)
             self.afflics.burn(e.name,120,0.97)
-            self.hits += 1
+            self.add_hits(1)
             self.dmg_make(e.name,8.81)
             Selfbuff(e.name,0.1,15,'crit','chance').on()
-            self.hits += 4
+            self.add_hits(4)
         elif self.phase[e.name] == 3:
             with KillerModifier('s1_killer', 'hit', 0.8, ['burn']):
                 self.dmg_make(e.name, 0.72)
-                self.hits += 1
+                self.add_hits(1)
                 self.afflics.burn(e.name,120,0.97)
                 self.dmg_make(e.name, 8.81)
-                self.hits += 4
+                self.add_hits(4)
             Selfbuff(e.name,0.1,15,'crit','chance').on()
         self.phase[e.name] %= 3
 

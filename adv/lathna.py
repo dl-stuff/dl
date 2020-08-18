@@ -101,7 +101,7 @@ class Lathna(Adv):
             self.dmg_make(e.name, 2.37*3)
             self.dmg_make(e.name, 2.37*4*self.sub_mod('s', 'passive')*self.sub_mod('s', 'ex'), 'hecking_spaget')
 
-            self.hits += 7
+            self.add_hits(7)
 
     def s2_proc(self, e):
         with KillerModifier('s2_killer', 'hit', 0.5, ['poison']):

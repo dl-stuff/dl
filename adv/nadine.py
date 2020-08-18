@@ -83,7 +83,7 @@ class Nadine(Adv):
         if is_ss:
             s1_hits += 2
         self.dmg_make(e.name, 8.22)
-        self.hits += s1_hits
+        self.add_hits(s1_hits)
         self.afflics.burn(e.name,120,0.97)
         if s1_hits == 3:
             self.dmg_make(e.name, 1.64)
@@ -94,7 +94,7 @@ class Nadine(Adv):
         elif s1_hits > 5:
             self.dmg_make(e.name, 5.75)
             self.energy.add(5)
-        self.hits += 1
+        self.add_hits(1)
 
     def s2_proc(self, e):
         if random.random() < 0.50:

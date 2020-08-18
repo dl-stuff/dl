@@ -30,7 +30,7 @@ class Mitsuhide(Adv):
         self.afflics.paralysis(e.name,120, 0.97)
         for _ in range(11):
             self.dmg_make(e.name,0.61)
-            self.hits += 1
+            self.add_hits(1)
 
     def s2_proc(self, e):
         if(self.hits >= 5):

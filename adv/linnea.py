@@ -96,7 +96,7 @@ class Linnea(Adv):
             self.s2.ac = self.a_s2a
         else:
             self.dmg_make(e.name, 14.20)
-            self.hits += 3
+            self.add_hits(3)
             self.s2.ac = self.a_s2
         self.s2_mode = (self.s2_mode + 1) % 2
 

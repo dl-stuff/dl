@@ -30,7 +30,7 @@ class Lin_You(Adv):
         if self.s2_buff.get():
             self.dmg_make(f'{e.name}_powerup', 1.86*3)
             self.s2_buff.buff_end_timer.add(self.s1.ac.getstartup()+self.s1.ac.getrecovery())
-            self.hits += 3
+            self.add_hits(3)
             self.afflics.sleep(e.name, 150)
         self.fs_alt.on(3)
 

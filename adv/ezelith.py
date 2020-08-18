@@ -42,8 +42,7 @@ class Ezelith(Adv):
 
     def s1_hit(self, t):
         self.dmg_make(t.name,t.dmg_coef,'s')
-        self.a1_hits += 1
-        self.hits += 1
+        self.a1_hits += self.add_hits(1)
         if self.a1_on and self.a1_hits % 2 == 0:
             Selfbuff('a1',0.2,7,'crit','chance').on()
 

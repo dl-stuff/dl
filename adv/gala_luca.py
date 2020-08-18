@@ -111,7 +111,7 @@ class Gala_Luca(Adv):
         self.in_s1 = True
         for _ in range(4):
             self.dmg_make(e.name, 3.14)
-            self.hits += 1
+            self.add_hits(1)
         if self.shared_crit:
             crit_mod.off()
         else:

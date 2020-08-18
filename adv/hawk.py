@@ -60,7 +60,7 @@ class Hawk(Adv):
             self.conf.s2.startup = 0.25
             self.conf.s2.recovery = 0.9
             self.s2.ac = self.a_s2
-            self.hits += 3
+            self.add_hits(3)
         self.s2_mode = (self.s2_mode + 1) % 2
 
 

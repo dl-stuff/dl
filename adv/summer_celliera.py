@@ -28,8 +28,6 @@ class Summer_Celliera(Adv):
 
     def init(self):
         self.phase['s2'] = 0
-        self.celery_s1_bog = 120
-        self.celery_s1_hits = 5
 
     def s1_proc(self, e):
         self.dmg_make(e.name, 1.84)

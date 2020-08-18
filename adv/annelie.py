@@ -32,15 +32,15 @@ class Annelie(Adv):
         if self.phase[e.name] == 1:
             self.dmg_make(e.name,0.1+8.14)
             self.energy.add(1)
-            self.hits += 2
+            self.add_hits(2)
         elif self.phase[e.name] == 2:
             self.dmg_make(e.name,2*(0.1+4.07))
             self.energy.add(2)
-            self.hits += 4
+            self.add_hits(4)
         elif self.phase[e.name] == 3:
             self.dmg_make(e.name,3*0.1)
             self.dmg_make(e.name,3*3.54)
-            self.hits += 6
+            self.add_hits(6)
         self.phase[e.name] %= 3
 
     def s2_proc(self, e):

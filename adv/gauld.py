@@ -38,10 +38,10 @@ class Gauld(Adv):
     def s1_proc(self, e):
         with KillerModifier('s1_killer', 'hit', 0.20, ['frostbite']):
             self.dmg_make(e.name, 2.11)
-            self.hits += 1
+            self.add_hits(1)
             self.afflics.frostbite(e.name,*self.s1_frostbite[self.phase[e.name]])
             self.dmg_make(e.name, 2.11)
-            self.hits += 1
+            self.add_hits(1)
         if self.phase[e.name] == 2:
             Selfbuff(e.name,0.15,10).on()
         self.phase[e.name] = (self.phase[e.name] + 1) % 3

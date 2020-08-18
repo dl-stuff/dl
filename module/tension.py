@@ -14,10 +14,11 @@ class Tension:
         self.scope = {'s1', 's2', 's3', 's4', 's'}
         self.current_scope = None
         self.stack = 0
+        self.queued_stack = 0
         self.has_stack = Buff('has_'+self.name, 1, -1, self.name, self.name)
         self.disabled = False
 
-    def add(self, n=1, team=False):
+    def add(self, n=1, team=False, queue=False):
         if self.disabled:
             return
         if n < 1:
@@ -25,7 +26,9 @@ class Tension:
         if team:
             log(self.name, 'team', n)
         # cannot add if max stacks
-        if self.stack == self.MAX_STACK:
+        if self.stack >= self.MAX_STACK:
+            if queue:
+                self.queued_stack = n
             return
         self.stack += n
         self.has_stack.on()
@@ -77,6 +80,10 @@ class Tension:
 
         self.event.stack = self.stack
         self.event.on()
+
+        if self.queued_stack:
+            self.add(self.queued_stack)
+            self.queued_stack = 0
 
     def __call__(self):
         return self.stack

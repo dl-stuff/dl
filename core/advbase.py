@@ -61,9 +61,11 @@ class Modifier(object):
         # self.__active = 1
 
     @classmethod
-    def mod(cls, mtype, all_modifiers=None):
+    def mod(cls, mtype, all_modifiers=None, morder=None):
         if not all_modifiers:
             all_modifiers = cls._static.all_modifiers
+        if morder:
+            return 1 + sum([modifier.get() for modifier in all_modifiers[mtype][morder]])
         m = defaultdict(lambda: 1)
         for order, modifiers in all_modifiers[mtype].items():
             m[order] += sum([modifier.get() for modifier in modifiers])
@@ -266,6 +268,12 @@ class Buff(object):
                     value += i.__value
         return value, stack
 
+    def effect_on(self):
+        return self.modifier.on()
+
+    def effect_off(self):
+        return self.modifier.off()
+
     def buff_end_proc(self, e):
         log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value()}', f'{self.name} buff end <timeout>')
         self.__active = 0
@@ -283,7 +291,7 @@ class Buff(object):
         value, stack = self.valuestack()
         if stack > 0:
             log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value}', f'{self.name} buff stack <{stack}>')
-        self.modifier.off()
+        self.effect_off()
 
     def count_team_buff(self):
         self.dmg_test_event.modifiers = ModifierDict()
@@ -350,7 +358,7 @@ class Buff(object):
         if self.mod_type == 'defense':
             Event('defchain').on()
 
-        self.modifier.on()
+        self.effect_on()
         return self
 
     def off(self):
@@ -1140,6 +1148,8 @@ class Adv(object):
         self.inspiration = Inspiration()
         self.tension = [self.energy, self.inspiration]
 
+        self.disable_echo()
+
     def set_hp(self, hp):
         old_hp = self.hp
         hp = round(hp*10)/10
@@ -1350,6 +1360,21 @@ class Adv(object):
 
     def c_speed(self):
         return min(self.mod('cspd'), 1.50)
+
+    def enable_echo(self, mod):
+        self.echo = 2
+        self.echo_att = mod * self.base_att * self.modifier.mod('att')
+        log('debug', 'echo_att', self.echo_att)
+
+    def disable_echo(self):
+        self.echo = 1
+        self.echo_att = 0
+        log('debug', 'echo_att', self.echo_att)
+
+    def dmg_formula_echo(self, coef):
+        # so 5/3(Bonus Damage amount)/EnemyDef +/- 5%
+        armor = 10 * self.def_mod()
+        return 5/3 * (self.echo_att * coef) / armor
 
     def crit_mod(self):
         pass
@@ -1571,17 +1596,21 @@ class Adv(object):
         log('dodge', '-')
         self.think_pin('dodge')
 
+    def add_hits(self, hit):
+        if hit >= 0:
+            delta = hit*self.echo
+            self.hits += hit*self.echo
+            return delta
+        else:
+            self.hits = -hit
+            return -hit
+
     def update_hits(self, name):
         if '_missile' in name:
             name = name.split('_')[0]
         try:
             hit = self.conf['{}.hit'.format(name)]
-            if hit >= 0:
-                self.hits += hit
-                # print('debug', 'combo add', name, '{} -> {}'.format(hit, self.hits))
-            else:
-                self.hits = -hit
-                # print('debug', 'combo break', name, '{} -> {}'.format(hit, self.hits))
+            self.add_hits(hit)
         except AttributeError:
             pass
 
@@ -1906,15 +1935,27 @@ class Adv(object):
         else:
             self.dmg_make(e.dname, e.dmg_coef)
 
-    def dmg_make(self, name, dmg_coef, dtype=None, fixed=False):
+    def dmg_make(self, name, dmg_coef, dtype=None, fixed=False, attenuation=None):
+        if attenuation is not None:
+            rate, pierce = attenuation
+            coef = dmg_coef*(rate**pierce)
+            if coef < 0.01:
+                return 0
+        else:
+            coef = dmg_coef
         self.damage_sources.add(name)
         for t in self.tension:
             t.check(name)
         if dtype == None:
             dtype = name
-        count = self.dmg_formula(dtype, dmg_coef) if not fixed else dmg_coef
+        count = self.dmg_formula(dtype, coef) if not fixed else coef
         log('dmg', name, count)
         self.dmg_proc(name, count)
+        if self.echo > 1:
+            echo_count = self.dmg_formula_echo(coef)
+            self.dmg_proc(name, echo_count)
+            log('dmg', 'echo', echo_count, f'from {name}')
+            count += echo_count
         return count
 
     def l_melee_fs(self, e):

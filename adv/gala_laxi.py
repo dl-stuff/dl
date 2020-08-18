@@ -193,7 +193,7 @@ class Gala_Laxi(Adv):
         cp = xalt.conf[xseq].cp
         hit = xalt.conf[xseq].hit
         log('x', xseq, self.stance)
-        self.hits += hit
+        self.add_hits(hit)
         self.dmg_make(xseq, dmg_coef)
         self.charge(xseq, sp)
         self.update_a1(cp * hit)
@@ -206,11 +206,11 @@ class Gala_Laxi(Adv):
 
     def s1_proc(self, e):
         if self.eden_mode:
-            self.hits += 12
+            self.add_hits(12)
             self.dmg_make(e.name, 10.91)
             self.afflics.burn(e.name,120,0.97)
         else:
-            self.hits += 4
+            self.add_hits(4)
             self.dmg_make(e.name, 8.432)
     
     def s2_proc(self, e):

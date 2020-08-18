@@ -26,16 +26,19 @@ MEANS_ADV = {
     'victor': 'victor.py.means.py'
 }
 
-NORMAL_ADV = ['halloween_lowen']
-MASS_SIM_ADV = []
+def load_chara_file(fn, extra=None):
+    if extra:
+        chara = list(extra)
+    else:
+        chara = []
+    with open(os.path.join(ROOT_DIR, fn)) as f:
+        for l in f:
+            chara.append(l.strip().replace('.py', ''))
+    return chara
 
-with open(os.path.join(ROOT_DIR, 'chara_quick.txt')) as f:
-    for l in f:
-        NORMAL_ADV.append(l.strip().replace('.py', ''))
-
-with open(os.path.join(ROOT_DIR, 'chara_slow.txt')) as f:
-    for l in f:
-        MASS_SIM_ADV.append(l.strip().replace('.py', ''))
+NORMAL_ADV = load_chara_file('chara_quick.txt', extra=('halloween_lowen',))
+MASS_SIM_ADV = load_chara_file('chara_slow.txt')
+PRELIM_ADV = load_chara_file('chara_prelim.txt')
 
 SPECIAL_ADV = {
     'chelsea_rollfs': {
@@ -75,7 +78,7 @@ def get_adv_module(adv_name):
         ).module()
 
 ADV_MODULES = {}
-for adv in NORMAL_ADV+MASS_SIM_ADV:
+for adv in NORMAL_ADV+MASS_SIM_ADV+PRELIM_ADV:
     module = get_adv_module(adv)
     name = module.__name__
     ADV_MODULES[name.lower()] = module
@@ -283,6 +286,7 @@ def get_adv_slotlist():
                 result['adv']['afflict_res'] = res_dict
         if result['adv']['name'] in SPECIAL_ADV:
             result['adv']['no_config'] = SPECIAL_ADV[result['adv']['name']]['nc']
+        result['adv']['prelim'] = result['adv']['name'] in PRELIM_ADV
     # result['amulets'] = list_members(slot.a, is_amulet)
     result['dragons'] = list_members(dragon_module, is_dragon, element=adv_ele)
     result['weapons'] = list_members(weap_module, is_weapon, element=adv_ele)

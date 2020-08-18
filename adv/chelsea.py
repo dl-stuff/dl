@@ -56,7 +56,7 @@ class Chelsea(Adv):
     def s1_proc(self, e):
         for _ in range(7):
             self.dmg_make(e.name,1.36)
-            self.hits += 1
+            self.add_hits(1)
 
     def update_hp(self, new_hp):
         if new_hp <= 30:

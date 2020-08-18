@@ -199,7 +199,7 @@ class Mega_Man(Adv):
     #     super().l_range_x(e)
 
     def l_megaman_s1_x(self, e):
-        self.hits += self.conf.s1.x1.hit
+        self.add_hits(self.conf.s1.x1.hit)
         self.dmg_make('o_metal_blade', self.conf.s1.x1.dmg*self.conf.s1.x1.hit, 'x')
         self.proc_bleed()
         self.s1.current_ammo -= self.s1.cost
@@ -209,7 +209,7 @@ class Mega_Man(Adv):
             self.s1_x.off()
 
     def l_megaman_s2_x(self, e):
-        self.hits += self.conf.s2.x1.hit
+        self.add_hits(self.conf.s2.x1.hit)
         self.dmg_make('o_leaf_shield', self.conf.s2.x1.dmg*self.conf.s2.x1.hit, 'x')
         self.s2.current_ammo -= self.s2.cost
         log('sp', 'leaf_shield', -self.s2.cost,'%d/%d, %d/%d, %d/%d'%(\

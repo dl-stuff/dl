@@ -106,7 +106,7 @@ class Tobias(Adv):
         sp = self.s2_x_alt.conf[xseq].sp
         hit = self.s2_x_alt.conf[xseq].hit
         log('x', xseq, 'sacred_blade')
-        self.hits += hit
+        self.add_hits(hit)
         self.dmg_make(xseq, dmg_coef)
         self.charge(xseq, sp)
 
@@ -131,7 +131,7 @@ class Tobias(Adv):
             Timer(self.s2_x_alt_off).on(10*self.mod('buff'))
         else:
             self.dmg_make(e.name,1.04)
-            self.hits += 8
+            self.add_hits(8)
             self.afflics.poison(e.name, 120, 0.582)
             self.s2.ac = self.a_s2
             self.s2_x_alt.on()

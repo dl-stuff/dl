@@ -309,7 +309,7 @@ class Valerio(Adv):
         sp = xalt.conf[xseq].sp
         hit = xalt.conf[xseq].hit
         log('x', xseq, self.stance)
-        self.hits += hit
+        self.add_hits(hit)
         self.dmg_make(xseq, dmg_coef)
         self.charge(xseq, sp)
         self.update_stance()
@@ -325,7 +325,7 @@ class Valerio(Adv):
 
     def s1_proc(self, e):
         self.dmg_make(e.name, self.s1_mod[self.stance])
-        self.hits += 1
+        self.add_hits(1)
         if self.stance == 'appetizer':
             self.afflics.frostbite(e.name,120,0.41)
             self.s1_debuff.on()
@@ -333,7 +333,7 @@ class Valerio(Adv):
             self.s1_atkdown.on()
         for _ in range(5):
             self.dmg_make(e.name, self.s1_mod[self.stance])
-            self.hits += 1
+            self.add_hits(1)
 
     def s2_proc(self, e):
         buff, insp = self.s2_buff[self.stance]

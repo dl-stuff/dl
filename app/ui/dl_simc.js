@@ -270,7 +270,7 @@ function loadAdvWPList() {
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            $('#test-results').html('Failed to load initial data');
+            $('#test-error').html('Failed to load initial data');
         }
     });
 }
@@ -332,11 +332,11 @@ function loadAdvSlots() {
 
                 selectSkillShare(slots.adv.fullname, slots.adv.pref_share);
 
-                // if (RANGED.includes(slots.adv.wt)) {
-                //     $('#input-missile').prop('disabled', false);
-                // } else {
-                //     $('#input-missile').prop('disabled', true);
-                // }
+                if (slots.adv.prelim) {
+                    $('#test-warning').html('Warning: preliminary sim, need review/optimization.');
+                } else {
+                    $('#test-warning').empty();
+                }
 
                 $('#input-acl').blur();
                 $('#input-edit-acl').prop('checked', false);
@@ -373,7 +373,7 @@ function loadAdvSlots() {
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            $('#test-results').html('Failed to load adventurer');
+            $('#test-error').html('Failed to load adventurer');
         }
     });
 }
