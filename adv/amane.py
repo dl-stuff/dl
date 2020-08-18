@@ -18,6 +18,15 @@ class Amane(Adv):
     coab = ['Blade','Halloween_Elisanne','Peony']
     share = ['Ranzal']
 
+    def s1_proc(self, e):
+        with KillerModifier('s1_killer', 'hit', 0.1, ['paralysis']):
+            self.dmg_make(e.name, 4.92)
+            self.afflics.paralysis(e.name,120,0.97)
+            self.dmg_make(e.name, 4.92)
+            
+            for _ in range(min(self.buffcount, 2)):
+                self.dmg_make(f'o_{e.name}_boost',0.35)
+                self.add_hits(1)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
