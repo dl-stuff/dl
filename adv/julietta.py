@@ -6,17 +6,15 @@ def module():
     return Julietta
 
 class Julietta(Adv):
-    comment = 'no fs & no s2'
-
     conf = {}
-    conf['slots.a'] = RR()+Breakfast_at_Valerios()
+    conf['slots.a'] = Valiant_Crown()+Breakfast_at_Valerios()
     conf['acl'] = """
         `dragon
         `s1
         `s2
         `s3
         `s4
-        `fs, x=5 and self.fs_alt.uses>0
+        `fs, x=4 and self.fs_alt.uses>0
         """
     coab = ['Blade','Dagger','Peony']
     share = ['Ranzal','Kleimann']

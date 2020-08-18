@@ -1363,7 +1363,7 @@ class Adv(object):
 
     def enable_echo(self, mod):
         self.echo = 2
-        self.echo_att = mod * self.base_att * self.modifier.mod('att', morder='passive')
+        self.echo_att = mod * self.base_att * self.modifier.mod('att')
         log('debug', 'echo_att', self.echo_att)
 
     def disable_echo(self):

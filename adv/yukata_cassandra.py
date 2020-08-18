@@ -9,15 +9,19 @@ def module():
 echo_mod = 0.20
 
 class Yukata_Cassandra(Adv):
+    comment = 's1 team buff not considered'
     a1 = ('a',0.20,'hp100')
 
     conf = {}
+    conf['slots.a'] = Proper_Maintenance()+The_Bridal_Dragon()
     conf['acl'] = """
-        `s1
+        `dragon
+        `s3, not self.s3_buff
         `s4
+        `s1
     """
-    coab = ['Tobias', 'Euden', 'Yuya']
-    share = ['Ranzal']
+    coab = ['Marth', 'Blade', 'Tobias']
+    share = ['Emma']
 
     @staticmethod
     def setup_fluorescent_fish(adv):

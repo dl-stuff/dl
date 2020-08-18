@@ -5,9 +5,11 @@ from slot.d import *
 def module():
     return Yukata_Curran
 
-default_rebound = 1
+# number of hits per s1 bullet
+default_rebound = 2
 
 class Yukata_Curran(Adv):
+    comment = f'assume {default_rebound} hits per s1 bullet'
     a3 = ('epassive_att_crit', 3)
 
     conf = {}
@@ -17,7 +19,6 @@ class Yukata_Curran(Adv):
         `dragon
         `s1
         `s2
-        `s3
         `s4
         `fs, x=5
         """
@@ -49,7 +50,7 @@ class Yukata_Curran(Adv):
             self.afflics.paralysis(e.name, 120, 0.97)
         for p in range(1, self.s1_rebound):
             self.dmg_make(f'{e.name}_rebound_{p}', bullet*1.10, attenuation=(0.55, p))
-            self.add_hits(bullet)
+            self.s1_ehits += self.add_hits(bullet)
         if self.s1_ehits > 10:
             self.s1_ehits -= 10
             # can gain energy during skill
