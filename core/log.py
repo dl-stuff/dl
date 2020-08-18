@@ -56,7 +56,7 @@ class Log:
             output.write('{:>8.3f}: '.format(time))
             for value in entry[1:]:
                 if isinstance(value, float):
-                    output.write('{:<8.3f}'.format(value))
+                    output.write('{:<16.3f},'.format(value))
                 else:
                     output.write('{:<16},'.format(value))
             output.write('\n')

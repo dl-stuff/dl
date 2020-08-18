@@ -34,27 +34,26 @@ class Yukata_Curran(Adv):
         self.s2_hits = 30
 
     @staticmethod
-    def prerun_skillshare(self):
-        self.s1_rebound = default_rebound
-        self.s1_ehits = -1
-        self.s1_bullet = { False: 3, True: 5 }
+    def prerun_skillshare(adv, dst):
+        adv.maskable_faith = False
+        adv.s1_rebound = default_rebound
+        adv.s1_ehits = -float('inf')
+        adv.s1_bullet = { False: 3, True: 5 }
 
     def s1_proc(self, e):
         bullet = self.s1_bullet[self.maskable_faith]
         old_hits = self.hits
         self.dmg_make(e.name, bullet*1.10)
-        self.add_hits(bullet)
+        self.s1_ehits += self.add_hits(bullet)
         if self.maskable_faith:
             self.afflics.paralysis(e.name, 120, 0.97)
         for p in range(1, self.s1_rebound):
             self.dmg_make(f'{e.name}_rebound_{p}', bullet*1.10, attenuation=(0.55, p))
             self.add_hits(bullet)
-        if self.s1_ehits > -1:
-            self.s1_ehits += (self.hits - old_hits)
-            if self.s1_ehits > 10:
-                self.s1_ehits -= 10
-                # can gain energy during skill
-                self.energy.add(5, queue=True)
+        if self.s1_ehits > 10:
+            self.s1_ehits -= 10
+            # can gain energy during skill
+            self.energy.add(5, queue=True)
 
     def s2_proc(self, e):
         if self.maskable_faith:
