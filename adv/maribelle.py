@@ -10,11 +10,11 @@ class Maribelle(Adv):
     conf = {}
     conf['slots.d'] = AC011_Garland()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), s4.check()
         `s3, not self.s3_buff
-        `s1
-        `s2, x=5
         `s4
+        `s1
+        `s2, cancel
         """
     coab = ['Blade','Akasha','Lin_You']
     share = ['Curran']

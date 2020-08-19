@@ -7,16 +7,16 @@ def module():
 
 class Cibella(Adv):
     conf = {}
-    conf['slots.frostbite.a'] = Primal_Crisis()+His_Clever_Brother()
-    conf['slots.d'] = Leviathan()
+    conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
-        `s3
-        `s2
+        `dragon.act('c3 s end'),s
         `s4
+        `s3, cancel
+        `s2, cancel
         `fs, seq=5
         """
-    coab = ['Tiki', 'Xander', 'Dagger']
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     share = ['Gala_Elisanne', 'Ranzal']
 
 if __name__ == '__main__':

@@ -10,17 +10,17 @@ class Aurien(Adv):
     a1 = ('s',0.4,'hp70')
 
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+The_Fires_of_Hate()
-    conf['slots.burn.a'] = Primal_Crisis()+Me_and_My_Bestie()
+    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon, s
-        `s3, not self.s3_buff
-        `s4, cancel
-        `s2, x=5
-    """
+        `dragon.act('c3 s s end'), s
+        `s4
+        `s3
+        `s2, cancel
+        """
     conf['afflict_res.burn'] = 0
-    coab = ['Blade', 'Marth', 'Dagger2']
-    share = ['Kleimann']
+    coab = ['Blade', 'Marth', 'Wand']
+    share = ['Summer_Patia']
 
     def s2_proc(self, e):
         self.afflics.burn(e.name,100,0.803)

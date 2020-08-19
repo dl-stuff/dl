@@ -10,14 +10,14 @@ class Zardin(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act('c3 s end')
-        `s3, cancel
-        `s4, fsc
+        `dragon.act('c3 s c1 end'),s
+        `s3
+        `s4, cancel or (s2.check() and s1.check())
+        `s2, fsc or s1.check()
         `s1, fsc
-        `s2, fsc
-        `fs, seq=3 and cancel
+        `fs, x=2
         """
-    coab = ['Blade', 'Dagger', 'Yurius']
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     share = ['Gala_Elisanne', 'Ranzal']
 
     def s1_proc(self, e):

@@ -14,16 +14,18 @@ class Ku_Hai(Adv):
     conf = {}
     # c1+fs_alt has higher dps and sp rate than c2+fs_alt with or without stellar show  (x)
     # c2+fs_alt fs can init quicker than c1+fs_alt
-    conf['slots.a'] = The_Lurker_in_the_Woods()+The_Shining_Overlord()
+    conf['slots.a'] = Mega_Friends()+Primal_Crisis()
+    conf['slots.poison.a'] = Mega_Friends()+The_Fires_of_Hate()
     conf['slots.d'] = AC011_Garland()
+    conf['slots.poison.d'] = Pazuzu()
     conf['acl'] = '''
-        `dragon.act("c3 s c1 end")
+        `dragon.act("c3 s end"),fsc
         `s3, not self.s3_buff
-        `s1, fsc
-        `s2
         `s4
-        `fs, seq=2 and self.fs_alt.get()
-        `fs, seq=3
+        `s2
+        `s1, fsc
+        `fs, x=2 and self.fs_alt.get()
+        `fs, x=3
         '''
     coab = ['Blade','Dragonyule_Xainfried','Akasha']
     share = ['Curran']

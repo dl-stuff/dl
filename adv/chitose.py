@@ -13,10 +13,10 @@ class Chitose(Adv):
     conf['slots.paralysis.a'] = conf['slots.a']
     conf['slots.d'] = Tie_Shan_Gongzhu()
     conf['acl'] = """
-		`fs, self.fs_prep_c>0 and x=5
-		`s1
-		`s3
-		`s4, cancel
+        `fs, self.fs_prep_c>0 and x=5
+        `s1
+        `s3
+        `s4, cancel
         """
     coab = ['Tobias','Peony','Bow']
     share = ['Patia','Summer_Luca']

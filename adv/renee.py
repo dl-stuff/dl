@@ -10,14 +10,21 @@ class Renee(Adv):
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'), x=2
+        if self.afflics.frostbite.get()
+        `s3
+        `s4, cancel or s1.check()
+        `s1, cancel
+        `s2, cancel
+        else
         `s3
         `s4
-        `s1
-        `s2
-        `fs, seq=5
+        `s1, cancel
+        `s2, x=1 or s
+        end
+        `fs, x=5
         """
-    coab = ['Blade', 'Xander', 'Tiki']
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
     share = ['Gala_Elisanne', 'Eugene']
 

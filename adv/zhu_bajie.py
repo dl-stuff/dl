@@ -18,7 +18,7 @@ class Zhu_Bajie(Adv):
     conf['acl'] = """
         `s2, fsc
         `s1, fsc
-		`s3, fsc
+        `s3, fsc
         `s4, fsc
         `dodge, fsc
         `fs3

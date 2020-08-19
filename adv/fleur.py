@@ -13,12 +13,12 @@ class Fleur(Adv):
     conf = {}
     conf['slots.a'] = TB()+SotS()
     conf['acl'] = '''
-		`dragon.act('c3 s end'),x=5
-		`s2, s=1
-		`s1
-		`s3
-		`s4, s
-		`fs, x=5
+        `dragon.act('c3 s end'),x=5
+        `s2, s=1
+        `s1
+        `s3
+        `s4, s
+        `fs, x=5
     '''
     coab = ['Wand','Sharena','Peony']
     conf['afflict_res.paralysis'] = 0

@@ -5,20 +5,24 @@ def module():
     return Gauld
 
 class Gauld(Adv):
+    comment = 's2 after s1'
     a1 = ('a', 0.10, 'hp70')
     a3 = ('k_frostbite', 0.20)
 
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+His_Clever_Brother()
+    conf['slots.a'] = Resounding_Rendition()+His_Clever_Brother()
+    conf['slots.frostbite.a'] = conf['slots.a']
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end')
-        `s3, not self.s3_buff
-        `s1
+        `dragon.act('c3 s c3 end'), s and (not s2.check() or not s=2)
+        `s1, s=2
+        `s4
+        `s3
+        `s1, cancel
         `s2, s=1
-        `s4, cancel
         `fs, x=5
-    """
-    coab = ['Dagger', 'Xander', 'Summer_Estelle']
+        """
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     share = ['Gala_Elisanne', 'Ranzal']
     conf['afflict_res.frostbite'] = 0
 

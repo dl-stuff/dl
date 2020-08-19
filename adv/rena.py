@@ -11,14 +11,14 @@ class Rena(Adv):
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon.act('c3 s s end'),s=1
-		`s3, not self.s3_buff
-		`s1
-		`s2, s=1
-		`s4, x=5
-		"""
+        `s3, not self.s3_buff
+        `s1
+        `s2, s=1
+        `s4, x=5
+        """
     coab = ['Wand', 'Serena', 'Marth']
     conf['afflict_res.burn'] = 0
-    share = ['Kleimann']
+    share = ['Summer_Patia']
 
     def prerun(self):
         self.phase['s1'] = 0

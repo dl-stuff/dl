@@ -9,17 +9,17 @@ class Jurota(Adv):
     a1 = ('bk',0.2)
 
     conf = {}
-    conf['slots.frostbite.a'] = Primal_Crisis() + His_Clever_Brother()
-    conf['slots.d'] = Leviathan()
+    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s c3 end'), (self.afflics.frostbite.get() and s=3) or (not self.afflics.frostbite.get() and s=1)
         `s3
-        `s1
-        `s2, seq=5
         `s4
-    """
-    coab = ['Tiki', 'Xander', 'Dagger']
-    share = ['Gala_Elisanne', 'Eugene']
+        `s1, cancel
+        """
+    coab = ['Renee', 'Xander', 'Summer_Estelle']
+    share = ['Gala_Elisanne', 'Ranzal   ']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

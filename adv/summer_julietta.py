@@ -11,22 +11,23 @@ class Summer_Julietta(Adv):
 
     conf = {}
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
-    conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
+    conf['slots.frostbite.a'] = Summer_Paladyns()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
         `dragon.act("c3 s end")
         `s3
-        `s2
         `s4
         `s1
+        `s2, cancel
+        `fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')
     """
-    coab = ['Blade', 'Dagger', 'Summer_Estelle']
+    coab = ['Blade', 'Hunter_Sarisse', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
     share = ['Gala_Elisanne', 'Ranzal']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Blade', 'Renee', 'Summer_Estelle']
+            self.coab = ['Blade', 'Xander', 'Summer_Estelle']
 
     def init(self):
         self.phase['s2'] = 0

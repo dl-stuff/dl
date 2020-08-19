@@ -9,16 +9,17 @@ class Dragonyule_Nefaria(Adv):
     a1 = ('s',0.25)
     
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+Mega_Friends()
-    conf['slots.d'] = Leviathan()
+    conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
+    conf['slots.frostbite.a'] = conf['slots.a']
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
-        `s3, fsc
-        `s1, fsc
-        `s4, fsc
+        `dragon.act('c3 s end'),s 
+        `s3
+        `s4
+        `s1
         `fs, seq=4
     """
-    coab = ['Blade', 'Xander', 'Thaniel']
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     share = ['Gala_Elisanne', 'Ranzal']
 
 if __name__ == '__main__':

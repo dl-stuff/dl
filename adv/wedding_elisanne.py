@@ -6,18 +6,17 @@ def module():
 
 
 class Wedding_Elisanne(Adv):
-    comment = '2in1'
     a1 = ('sp',0.08)
     a3 = ('bc',0.13)
 
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+United_by_One_Vision()
+    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), s4.check()
         `s3, not self.s3_buff
-        `s4, fsc
+        `s2
+        `s4
         `s1, fsc
-        `s2, fsc
         `fs, x=2
     """
     coab = ['Blade','Dragonyule_Xainfried','Lin_You']

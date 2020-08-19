@@ -6,13 +6,13 @@ def module():
 class Nicolas(Adv):
     conf = {}
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"),s4.check()
         `s3, not self.s3_buff
-        `s1
-        `s2
         `s4
+        `s2
+        `s1, x>2
         """
-    coab = ['Blade','Ku_Hai','Lin_You']
+    coab = ['Blade','Akasha','Lin_You']
     share = ['Curran']
 
 if __name__ == '__main__':

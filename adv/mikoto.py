@@ -10,15 +10,19 @@ class Mikoto(Adv):
     a3 = ('cc',0.08)
     
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+The_Wyrmclan_Duo()
+    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon, s=2
-        `s3, x=5 and not self.s3_buff
-        `s1, x=5
+        `dragon, s=2 
+        queue prep
+        `s4;s1;s2
+        end
+        `s3, not self.s3_buff
+        `s4
+        `s1, cancel
         `s2, x=5
-        `s4, x=5
         """
-    coab = ['Yuya', 'Dagger2', 'Marth']
+    coab = ['Haloween_Mym', 'Dagger2', 'Marth']
     share = ['Kleimann']
 
     def prerun(self):

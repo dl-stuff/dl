@@ -12,12 +12,12 @@ class Laxi(Adv):
     conf['slots.a'] = Primal_Crisis()+The_Wyrmclan_Duo()
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = '''
-		`dragon
-		`s3, not self.s3_buff
-		`s2, not self.s2buff.get()
-		`s1,cancel
-		`s4,cancel
-		`fs, x=5 and s2.charged > s2.sp-100 and not self.s2buff.get()
+        `dragon
+        `s3, not self.s3_buff
+        `s2, not self.s2buff.get()
+        `s1,cancel
+        `s4,cancel
+        `fs, x=5 and s2.charged > s2.sp-100 and not self.s2buff.get()
         '''
     coab = ['Dagger', 'Marth', 'Dagger2']
     share = ['Kleimann']

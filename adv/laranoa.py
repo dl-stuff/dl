@@ -11,8 +11,9 @@ class Laranoa(Adv):
     a3 = ('s',0.3)
     
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+The_Wyrmclan_Duo()
-    conf['slots.d'] = Siren()
+    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
         `s3
         `s4

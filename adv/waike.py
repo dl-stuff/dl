@@ -9,17 +9,18 @@ class Waike(Adv):
     a1 = ('edge_bog', 40, 'hp100')
 
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+Mega_Friends()
-    conf['slots.d'] = Leviathan()
+    conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
+    conf['slots.frostbite.a'] = Forest_Bonds()+His_Clever_Brother()
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
-        `s3, fsc
-        `s4, fsc
-        `s1, fsc
-        `s2, fsc
+        `dragon.act('c3 s end')
+        `s3
+        `s4
+        `s1, cancel
+        `s2, cancel
         `fs, seq=4
         """
-    coab = ['Blade', 'Xander', 'Tiki']
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
     share = ['Gala_Elisanne', 'Ranzal']
 

@@ -10,16 +10,22 @@ class Fjorm(Adv):
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+His_Clever_Brother()
+    conf['slots.a'] = Dragon_and_Tamer()+His_Clever_Brother()
+    conf['slots.frostbite.a'] = conf['slots.a']
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `s3, fsc
+        queue prep
+        `s3;s1;s4;s2
+        end
+        `dragon.act('c3 s c1 end'),cancel
+        `s3
         `s4
-        `s1
-        `s2, fsc
+        `s1, cancel
+        `s2, s=1
         `fs, x=5
     """
-    coab = ['Blade', 'Summer_Estelle', 'Xander']
-    share = ['Gala_Elisanne', 'Ranzal']
+    coab = ['Blade', 'Summer_Estelle', 'Renee']
+    share = ['Gala_Elisanne', 'Eugene']
 
     def prerun(self):
         Teambuff('last_bravery',0.3,15).on()

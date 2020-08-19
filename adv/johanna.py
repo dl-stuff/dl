@@ -6,14 +6,15 @@ def module():
 
 class Johanna(Adv):
     conf = {}
-    conf['slots.a'] = Kung_Fu_Masters()+Crystalian_Envoy()
+    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.poison.a'] = Kung_Fu_Masters()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s c2 end")
-        `s3, not self.s3_buff
-        `s1 
-        `s2 
+        `dragon.act("c3 s end")
+        `s3, not self.s3_buff 
         `s4
-        `fs,seq=5
+        `s1 
+        `s2
+        `fs, x=5
         """
     coab = ['Blade','Dragonyule_Xainfried','Lin_You']
     share = ['Curran']

@@ -14,18 +14,26 @@ class Marth(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['acl'] = """
-		`dragon.act('c3 s s end'),s=2
-        `s3, not self.s3_buff
+        `queue not self.s3_buff
+        `s3;s1;s2;s4
+        `end
+        `dragon.act('c3 s s end'),s=2
+        queue prep and self.afflics.burn.get()
+        `s2;s4;s1
+        end
+        queue prep and not self.afflics.burn.get()
+        `s1;s2;s4
+        end
         `s2, self.afflics.burn.get()
-        `s1, fsc
         `s4, fsc
+        `s1, fsc
         `fs, x=3
-    """
+        """
     coab = ['Blade', 'Wand', 'Joe']
     share = ['Kleimann']
 
     def d_coabs(self):
-        if self.duration <= 60:
+        if self.sim_afflict:
             self.coab = ['Blade','Wand','Gala_Sarisse']
 
     def init(self):

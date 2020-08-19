@@ -5,20 +5,20 @@ def module():
     return Orsem
 
 class Orsem(Adv):
+    comment = 'no s2'
     a1 = ('cc',0.10,'hit15')
     a3 = ('cc',0.06,'hp70')
     
     conf = {}
-    conf['slots.d'] = Nimis()
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end') self.afflics.frostbite.get() or (not self.afflics.frostbite.get() and fsc)
         `s3
-        `s1
         `s4
-        `s2, fsc
-        `fs, x=4
+        `s1
+        `fs, x=5
     """
-    coab = ['Tiki', 'Xander', 'Yurius']
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     share = ['Gala_Elisanne', 'Ranzal']
 
 if __name__ == '__main__':

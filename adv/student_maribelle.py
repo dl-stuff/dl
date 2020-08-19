@@ -9,12 +9,12 @@ class Student_Maribelle(Adv):
     
     conf = {}
     conf['acl'] = """
-		`dragon.act('c3 s c3 c3 s end'),s
-		`s3, not self.s3_buff and x=5
-		`s4
-		`s1
-		`s2,cancel
-    """
+        `dragon.act('c3 s c3 c3 s end'),s
+        `s3, not self.s3_buff and x=5
+        `s4
+        `s1
+        `s2,cancel
+        """
     coab = ['Blade', 'Marth', 'Gala_Sarisse']
     share = ['Kleimann']
 

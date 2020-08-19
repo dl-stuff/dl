@@ -8,28 +8,18 @@ def module():
 class Rex(Adv):
     conf = {}
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
-    conf['slots.frostbite.a'] = KFM()+His_Clever_Brother()
-    conf['slots.d'] = Leviathan()
+    conf['slots.frostbite.a'] = conf['slots.a']
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon
+        `dragon.act('c3 s end'), cancel
         `s3
+        `s4
         `s1
-        `s4, x=4 
-        `s2, x=4
-        `fs, x=5
+        `s2, cancel
+        `fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')
     """
-    coab = ['Blade', 'Xander', 'Renee']
+    coab = ['Blade', 'Xander', 'Summer_Estelle']
     share = ['Gala_Elisanne', 'Ranzal']
-
-    def d_slots(self):
-        if self.duration <= 120:
-            self.conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
-        if self.duration <= 120 and self.duration > 60:
-            self.conf['slots.frostbite.a'] = Primal_Crisis()+His_Clever_Brother()
-
-    def d_coabs(self):
-        if self.sim_afflict and (self.duration > 120 or self.duration <= 60):
-            self.coab = ['Blade', 'Xander','Yurius']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

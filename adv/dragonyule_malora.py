@@ -11,11 +11,11 @@ class Dragonyule_Malora(Adv):
     conf['slots.a'] = Summer_Paladyns() + Primal_Crisis()
     conf['slots.paralysis.a'] = Summer_Paladyns() + Spirit_of_the_Season()
     conf['acl'] = """
-		`dragon.act("c3 s end")
-		`s1
-		`s2, self.def_mod()!=1
-		`s4, cancel
-		`s3, x=4
+        `dragon.act("c3 s end")
+        `s1
+        `s2, self.def_mod()!=1
+        `s4, cancel
+        `s3, x=4
         """
     coab = ['Wand','Dagger','Peony']
     share = ['Ranzal','Kleimann']

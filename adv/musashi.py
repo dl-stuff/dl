@@ -10,11 +10,11 @@ class Musashi(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), s4.check()
         `s3, not self.s3_buff
-        `s2, x=5
+        `s2, s4.check()
         `s4
-        `s1
+        `s1, self.s3_buff
         """
     coab = ['Eleonora','Dragonyule_Xainfried','Lin_You']
     conf['afflict_res.poison'] = 0

@@ -8,11 +8,11 @@ class Kirsty(Adv):
 
     conf = {}
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"),s4.check()
         `s3, not self.s3_buff
         `s4
-        `s1
-        `s2, seq=5
+        `s1,cancel
+        `s2,x=5
         """
     coab = ['Blade','Dragonyule_Xainfried','Akasha']
     share = ['Curran']

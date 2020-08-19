@@ -9,12 +9,13 @@ class Philia(Adv):
     a1 = ('a',0.1,'hp100')
     conf = {}
     conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
+    conf['slots.poison.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), s4.check()
         `s3, not self.s3_buff
-        `s1, x=5 or fsc
-        `s2, x=5 or fsc
-        `s4, x=5 or fsc
+        `s4
+        `s2
+        `s1, cancel
         """
     coab = ['Blade','Dragonyule_Xainfried','Lin_You']
     share = ['Curran']

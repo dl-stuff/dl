@@ -12,16 +12,16 @@ class Euden(Adv):
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
-		`dragon.act('c3 s s end')
-		`s3, not self.s3_buff
-		`s1
-		`s2, fsc
-		`s4, fsc
-		`fs, x=2
-    """
+        `dragon.act('c3 s s end')
+        `s3, not self.s3_buff
+        `s1
+        `s2, fsc
+        `s4, fsc
+        `fs, x=2
+        """
     coab = ['Blade', 'Wand', 'Yuya']
     conf['afflict_res.burn'] = 0
-    share = ['Kleimann']
+    share = ['Summer_Patia']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,110,0.883)
