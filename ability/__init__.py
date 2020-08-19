@@ -496,6 +496,13 @@ class Force_Charge(Ability):
                 if self.charge == 0:
                     self.l_fs_charge.off()
             self.l_fs_charge = adv.Listener('fs', l_fs_charge)
+
+            i = 1
+            fsi = f'fs{i}'
+            while hasattr(adv, fsi):
+                self.l_fs_charge = adv.Listener(fsi, l_fs_charge)
+                i += 1
+                fsi = f'fs{i}'
             adv.fs_prep_c = self.charge
             adv.fs_prep_v = self.value
 
