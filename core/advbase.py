@@ -510,7 +510,7 @@ class Skill(object):
         pass
 
     def charge(self, sp):
-        self.charged = min(self.sp, self.charged + sp)
+        self.charged = max(min(self.sp, self.charged + sp), 0)
         if self.charged >= self.sp:
             self.skill_charged()
         # if self.charged > self.sp:  # should be
