@@ -17,7 +17,7 @@ class Botan(Adv):
         `s1
         `fs,x=5
     """
-    coab = ['Blade','Wand','Dagger  ']
+    coab = ['Blade','Wand','Dagger']
     share = ['Curran']
 
     def init(self):
