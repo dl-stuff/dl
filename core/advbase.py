@@ -1630,8 +1630,8 @@ class Adv(object):
         for name in self.coab_list:
             try:
                 self.slots.c.coabs[name] = coability_dict(self.slots.c.ele)[name]
-            except:
-                pass
+            except KeyError:
+                raise ValueError(f'No such coability: {name}')
         self.coab_list = list(self.slots.c.coabs.keys())
         try:
             self.coab_list.remove(self_coab)
