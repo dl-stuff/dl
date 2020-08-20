@@ -41,10 +41,11 @@ class Halloween_Elisanne(Adv):
 
     def prerun(self):
         self.phase['s1'] = 0
-        self.vampire_maiden = X_alt(self, 'vampire_maiden', vm_auto_conf, x_proc=self.l_vm_x)
+        self.vampire_maiden = vampire_maiden(self, 'vampire_maiden',1, 15,'ss','ss')
+        self.vampire_maiden_xalt = X_alt(self, 'vampire_maiden_xalt', vm_auto_conf, x_proc=self.l_vm_x)
 
     def l_vm_x(self, e):
-        self.vampire_maiden.x_proc_default(e)
+        self.vampire_maiden_xalt.x_proc_default(e)
     
     @staticmethod
     def prerun_skillshare(adv, dst):
@@ -69,6 +70,17 @@ class Halloween_Elisanne(Adv):
     def s2_proc(self, e):
         self.charge(e.name, 700)
         self.vampire_maiden.on()
+        self.vampire_maiden_xalt.on()
+
+class vampire_maiden(Selfbuff):
+    def __init__(self, adv, name='<buff_noname>', value=0, duration=0, mtype=None, morder=None):
+        Buff.__init__(self, name, value, duration, mtype, morder)
+        self.adv = adv
+        self.bufftype = 'self' 
+
+    def buff_end_proc(self, e):
+        Buff.buff_end_proc(self, e)
+        self.adv.vampire_maiden_xalt.off()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
