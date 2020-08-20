@@ -27,7 +27,7 @@ class Yukata_Cassandra(Adv):
     def setup_fluorescent_fish(adv):
         # actually a teambuff
         adv.fluorescent_fish = Selfbuff('fluorescent_fish', echo_mod, 15, 'blub', 'blub')
-        adv.fluorescent_fish.effect_on = lambda: adv.enable_echo(echo_mod)
+        adv.fluorescent_fish.effect_on = lambda: adv.enable_echo(mod=echo_mod)
         adv.fluorescent_fish.effect_off = lambda: adv.disable_echo()
 
     def prerun(self):
@@ -40,7 +40,7 @@ class Yukata_Cassandra(Adv):
 
     def a3_get(self):
         return self.s2.sp==self.s2.charged
-    
+
     def s1_proc(self, e):
         self.fluorescent_fish.on()
 

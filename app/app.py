@@ -59,6 +59,15 @@ SPECIAL_ADV = {
     }
 }
 
+SIMULATED_BUFFS = {
+    'str': (-100, 200, 100),
+    'def': (-50, 200, 100),
+    'critr': (-100, 200, 100),
+    'critd': (-100, 200, 100),
+    'count': (0, float('inf'), 1),
+    'echo': (0, float('inf'), 1)
+};
+
 def get_adv_module(adv_name):
     if adv_name in SPECIAL_ADV or adv_name in MEANS_ADV:
         if adv_name in MEANS_ADV:
@@ -214,32 +223,19 @@ def simc_adv_test():
     for afflic in AFFLICT_LIST:
         try:
             conf['sim_afflict.'+afflic] = min(abs(int(params['sim_afflict'][afflic])), 100)/100
-        except:
+        except KeyError:
             pass
         try:
             conf['afflict_res.'+afflic] = min(abs(int(params['afflict_res'][afflic])), 100)
-        except:
+        except KeyError:
             pass
-    try:
-        conf['sim_buffbot.buff'] = min(max(int(params['sim_buff_str']), -1000), 1000)/100
-    except:
-        pass
-    try:
-        conf['sim_buffbot.critr'] = min(max(int(params['sim_buff_critr']), -100), 100)/100
-    except:
-        pass
-    try:
-        conf['sim_buffbot.critd'] = min(max(int(params['sim_buff_critd']), -1000), 1000)/100
-    except:
-        pass
-    try:
-        conf['sim_buffbot.debuff'] = min(max(int(params['sim_buff_def']), -50), 50)/100
-    except:
-        pass
-    try:
-        conf['sim_buffbot.count'] = abs(int(params['sim_buff_count']))
-    except:
-        pass
+
+    for buff, bounds in SIMULATED_BUFFS.items():
+        b_min, b_max, b_ratio = bounds
+        try:
+            conf[f'sim_buffbot.{buff}'] = min(max(int(params[f'sim_buff_{buff}']), -b_min), b_max)/b_ratio
+        except KeyError:
+            pass
 
     result = run_adv_test(adv_name, wp1, wp2, dra, wep, acl, conf, cond, teamdps, t=t, log=log, mass=mass)
     return jsonify(result)

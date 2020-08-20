@@ -1188,14 +1188,14 @@ class Adv(object):
 
     def sim_buffbot(self):
         if 'sim_buffbot' in self.conf:
-            if 'debuff' in self.conf.sim_buffbot:
+            if 'def' in self.conf.sim_buffbot:
                 value = -self.conf.sim_buffbot.debuff
                 if self.condition('boss def {:+.0%}'.format(value)):
                     buff = self.Selfbuff('simulated_def', value, -1, mtype='def')
                     buff.chance = 1
                     buff.val = value
                     buff.on()
-            if 'buff' in self.conf.sim_buffbot:
+            if 'str' in self.conf.sim_buffbot:
                 if self.condition('team str {:+.0%}'.format(self.conf.sim_buffbot.buff)):
                     self.Selfbuff('simulated_att', self.conf.sim_buffbot.buff, -1).on()
             if 'critr' in self.conf.sim_buffbot:
@@ -1204,6 +1204,9 @@ class Adv(object):
             if 'critd' in self.conf.sim_buffbot:
                 if self.condition('team crit dmg {:+.0%}'.format(self.conf.sim_buffbot.critd)):
                     self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'dmg').on()
+            if 'echo' in self.conf.sim_buffbot:
+                if self.condition('echo att {:g}'.format(self.conf.sim_buffbot.echo)):
+                    self.enable_echo(fixed_att=self.conf.sim_buffbot.echo)
 
     def sync_slot(self, conf):
         # self.cmnslots(conf)
@@ -1361,9 +1364,9 @@ class Adv(object):
     def c_speed(self):
         return min(self.mod('cspd'), 1.50)
 
-    def enable_echo(self, mod):
+    def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2
-        self.echo_att = mod * self.base_att * self.modifier.mod('att')
+        self.echo_att = fixed_att or (mod * self.base_att * self.modifier.mod('att'))
         log('debug', 'echo_att', self.echo_att)
 
     def disable_echo(self):
