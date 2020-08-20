@@ -22,7 +22,7 @@ class Mikoto(Adv):
         `s1, cancel
         `s2, x=5
         """
-    coab = ['Haloween_Mym', 'Dagger2', 'Marth']
+    coab = ['Halloween_Mym', 'Dagger2', 'Marth']
     share = ['Kleimann']
 
     def prerun(self):
