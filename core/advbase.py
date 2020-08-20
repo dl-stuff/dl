@@ -371,6 +371,14 @@ class Buff(object):
         return self
 
 
+class EffectBuff(Buff):
+    def __init__(self, name, duration, effect_on, effect_off):
+        Buff.__init__(self, name, 1, duration, 'special', 'effect')
+        self.bufftype = 'self'
+        self.effect_on = effect_on
+        self.effect_off = effect_off
+
+
 class Selfbuff(Buff):
     def __init__(self, name='<buff_noname>', value=0, duration=0, mtype=None, morder=None):
         Buff.__init__(self, name, value, duration, mtype, morder)

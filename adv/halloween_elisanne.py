@@ -42,6 +42,11 @@ class Halloween_Elisanne(Adv):
     def prerun(self):
         self.phase['s1'] = 0
         self.vampire_maiden = X_alt(self, 'vampire_maiden', vm_auto_conf, x_proc=self.l_vm_x)
+        self.vampire_maiden_buff = EffectBuff(
+            'vampire_maiden', 15, 
+            lambda: self.vampire_maiden.on(), 
+            lambda: self.vampire_maiden.off()
+        )
 
     def l_vm_x(self, e):
         self.vampire_maiden.x_proc_default(e)
@@ -68,7 +73,7 @@ class Halloween_Elisanne(Adv):
         
     def s2_proc(self, e):
         self.charge(e.name, 700)
-        self.vampire_maiden.on()
+        self.vampire_maiden_buff.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
