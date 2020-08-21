@@ -32,7 +32,6 @@ class Ku_Hai(Adv):
 
     def prerun(self):
         self.fshit = 2
-        self.alttimer = Timer(self.altend)
         conf_fs_alt = {
             'fs.dmg':0.83*2,
             'fs.sp' :330,
@@ -48,14 +47,15 @@ class Ku_Hai(Adv):
         if self.condition('big hitbox'):
             conf_fs_alt['fs.dmg'] += 0.83
             conf_fs_alt['fs.hit'] += 1
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
-
-    def altend(self,t):
-        self.fs_alt.off()
+        self.fs_alt = Fs_alt(self, conf_fs_alt)
+        self.apsaras_formation_buff = EffectBuff(
+            'apsaras_formation', 10, 
+            lambda: self.fs_alt.on(-1), 
+            lambda: self.fs_alt.off()
+        )
 
     def s2_proc(self, e):
-        self.fs_alt.on(-1)
-        self.alttimer.on(10)
+        self.apsaras_formation_buff.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
