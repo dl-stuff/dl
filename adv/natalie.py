@@ -10,22 +10,22 @@ class Natalie(Adv):
     a3 = ('crisisattspd', 3)
 
     conf = {}
-    conf['slots.a'] = HoH() + Dear_Diary()
-    conf['slots.poison.a'] = HoH() + The_Plaguebringer()
+    conf['slots.a'] = HoH() + Primal_Crisis()
+    conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon.act("c3 s end"), (x=5 and self.slots.tmp.d.trickery <= 1) or self.hp=0
         `s3, not self.s3_buff
         `s2, s=3 or x=5
-        `s4
         `s1
+        `s4
         """
     coab = ['Wand','Curran','Summer_Patia']
     share = ['Veronica']
 
     def d_slots(self):
         if self.duration <= 60:
-            self.conf['slots.a'] = The_Chocolatiers()+TL()
-            self.conf['slots.poison.a'] = The_Chocolatiers()+The_Plaguebringer()
+            self.conf['slots.a'] = The_Chocolatiers()+Primal_Crisis()
+            self.conf['slots.poison.a'] = The_Chocolatiers()+Primal_Crisis()
 
     def s1_proc(self, e):
         with CrisisModifier(e.name, 1, self.hp):

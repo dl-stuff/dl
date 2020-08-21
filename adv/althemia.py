@@ -11,20 +11,15 @@ class Althemia(Adv):
     conf = {}
     conf['slots.a'] = Candy_Couriers()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act('c3 s end'), x=5 and not self.sim_afflict
+        `dragon.act('c3 s end'), s=4
         `s3, not self.s3_buff
         `s2
         `s4
-        `s1,self.s3_buff
-        `dragon.act('c3 s end'), x=5
+        `s1,self.s3_buff and cancel
     """
-    coab = ['Blade','Delphi','Gala_Alex']
+    coab = ['Ieyasu','Delphi','Gala_Alex']
     conf['afflict_res.poison'] = 0
     share = ['Curran']
-
-    def d_coabs(self):
-        if self.duration <= 60:
-            self.coab = ['Blade','Bow',"Gala_Alex"]
 
     def s1_proc(self, e):
         self.afflics.poison(e.name,100,0.482)

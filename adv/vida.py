@@ -5,16 +5,17 @@ def module():
     return Vida
 
 class Vida(Adv):
+    comment = 'no s2'
     a1 = ('fs',0.30)
     conf = {}
     conf['acl'] = """
-        `dragon, x=5
-        `s3, not self.s3_buff
+        `dragon.act('c3 s end'), s or fsc
+        `s3, not self.s3_buff and x=5
         `s4
-        `s1
+        `s1, cancel
         `fs, x=5
         """
-    coab = ['Ieyasu','Wand','Axe2']
+    coab = ['Ieyasu','Wand','Forte']
     share = ['Curran']
 
     def prerun(self):

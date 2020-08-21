@@ -10,23 +10,18 @@ class Cassandra(Adv):
     a3 = ('ro', 0.15, 180)
 
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+The_Plaguebringer()
+    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon.act('c3 s end'), x=5
         `s3, not self.s3_buff
-        `s1
-        `s2
         `s4
-    """
-    coab = ['Curran','Summer_Patia','Delphi']
-    share = ['Veronica']
+        `s1, cancel
+        `s2, x>2    
+        """
+    coab = ['Curran','Summer_Patia','Ieyasu']
+    share = ['Curran']
     conf['afflict_res.poison'] = 0
-
-    def d_coabs(self):
-        if self.sim_afflict:
-            # Ieyasu > Blade only when sim time is sufficiently long
-            self.coab = ['Curran','Summer_Patia','Ieyasu']
 
     def prerun(self):
         self.set_hp(80)

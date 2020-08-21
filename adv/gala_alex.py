@@ -76,7 +76,7 @@ class Gala_Alex(Adv):
     conf = galex_conf.copy()
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon.act("c3 s end"), s=1
         `s3, not self.s3_buff
         if fsc
         # use s4/s2 if no poison or if s1 def down has less than 1/3 time left
@@ -88,13 +88,13 @@ class Gala_Alex(Adv):
         end
         `fs, x=4
     """
-    coab = ['Blade','Wand','Delphi']
+    coab = ['Ieyasu','Wand','Delphi']
     share = ['Rodrigo']
     conf['afflict_res.poison'] = 0
 
     def d_coabs(self):
         if self.duration <= 120:
-            self.coab = ['Blade','Wand','Heinwald']
+            self.coab = ['Ieyasu','Wand','Heinwald']
     
     def prerun(self):
         self.s1_debuff = Debuff('s1', 0.05, 15)

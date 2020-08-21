@@ -12,10 +12,11 @@ class Nefaria(Adv):
     a3 = [('k_blind',0.4), ('k_poison',0.3)]
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.a'] = Forest_Bonds()+The_Fires_of_Hate()
+    conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon.act("c3 s end")
-        `s3, not self.s3_buff
+        `s3, not self.s3_buff and x=4
         `fs, self.fs_alt.uses > 0 and x=4
         `s1, fsc or x=1 or not self.s3_buff
         `s4
