@@ -8,16 +8,16 @@ def module():
 class Heinwald(Adv):
     a1 = ('s',0.4,'hp70')
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
-
     conf = {}
+    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = '''
+        `dragon.act('c3 s end'),x=5
         queue prep and not self.s3_buff
         `s3;s1;s4;s2
         end
         `s4
         `s1
         `s2, cancel
-        `dragon.act('c3 s end'),x=5
         '''
     coab = ['Blade','Wand','Bow']
     share = ['Curran']

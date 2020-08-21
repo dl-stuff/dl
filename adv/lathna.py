@@ -11,32 +11,18 @@ class Lathna(Adv):
     a3 = ('dt', 0.25)
     
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+An_Ancient_Oath()
-    conf['slots.d'] = Chthonius()
-    conf['slots.poison.d'] = Gala_Cat_Sith()
+    conf['slots.a'] = Dragon_and_Tamer()+Primal_Crisis()
+    conf['slots.poison.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon, not self.sim_afflict
-        `dragon.act('c3 s end'), self.sim_afflict
+        `dragon.act('c3 s end'), cancel
         `s3, not self.s3_buff
-        `s1
+        `s2
         `s4
-        `s2, x=5
+        `s1, x=5
         """
-    coab = ['Ieyasu','Audric','Forte']
+    coab = ['Ieyasu','Wand','Forte']
     share = ['Curran']
 
-    def d_coabs(self):
-        if self.duration <= 120 and self.duration > 60:
-            self.coab = ['Ieyasu','Yaten','Dagger2']
-        if self.duration <= 60:
-            self.coab = ['Ieyasu','Gala_Alex','Dagger2']
-        if self.sim_afflict:
-            if self.duration > 120:
-                self.coab = ['Ieyasu','Forte','Wand']
-            if self.duration <= 120 and self.duration > 60:
-                self.coab = ['Ieyasu','Forte','Dagger2']
-            if self.duration <= 60:
-                self.coab = ['Ieyasu','Yaten','Dagger2']
         
     conf['dragonform'] = {
         'act': 'c3 s c3 c3 c2 c2 c2',
@@ -101,7 +87,7 @@ class Lathna(Adv):
             self.dmg_make(e.name, 2.37*3)
             self.dmg_make(e.name, 2.37*4*self.sub_mod('s', 'passive')*self.sub_mod('s', 'ex'), 'hecking_spaget')
 
-            self.add_hits(7)
+            self.hits += 7
 
     def s2_proc(self, e):
         with KillerModifier('s2_killer', 'hit', 0.5, ['poison']):

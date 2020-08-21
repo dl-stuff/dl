@@ -11,13 +11,13 @@ class Forte(Adv):
     a3 = ('k_poison', 0.30)
 
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer()+The_Red_Impulse()
+    conf['slots.a'] = Dragon_and_Tamer()+Primal_Crisis()
     conf['acl'] = """
         `dragon.act('c3 s end'), x=5
         `s3, not self.s3_buff
         `s2
-        `s4
-        `s1
+        `s4, cancel or s=2
+        `s1, 
         `fs, x=5
         """
     coab = ['Ieyasu', 'Wand', 'Cleo']

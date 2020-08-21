@@ -9,13 +9,13 @@ class Berserker(Adv):
     a3 = ('lo',0.3)
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
-    conf['slots.poison.a'] = The_Shining_Overlord()+Primal_Crisis()
+    conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon.act('c3 s end'),fsc
         `s3, not self.s3_buff and fsc
         `s4
-        `s1,fsc
-        `fs, x=3
+        `s1, cancel
+        `fs, x=2
         """
     coab = ['Berserker','Ieyasu','Wand','Curran']
     share = ['Curran']

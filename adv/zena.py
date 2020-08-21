@@ -16,8 +16,8 @@ class Zena(Adv):
     conf['acl'] = """
         `s3, not self.s3_buff
         `s2
-        `s1
         `s4
+        `s1
 
         # If healing FS is needed
         # `fs, s1.check() and self.fs_alt.uses>0

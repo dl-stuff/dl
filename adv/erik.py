@@ -1,5 +1,5 @@
 from core.advbase import *
-from slot.d import *
+from slot.a import *
 
 def module():
     return Erik
@@ -7,15 +7,18 @@ def module():
 class Erik(Adv):
     a1 = ('fs',0.30)
     conf = {}
+    
+    conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
+    conf['slots.poison.a'] = Summer_Paladyns()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act("c3 s end"), self.slots.tmp.d.trickery <= 1
         `s3, not self.s3_buff
+        `s2
         `s1
-        `s2, fsc
-        `s4, fsc
-        `fs, x=5
+        `s4, cancel 
+        `fs, cancel and s2.charged>=s2.sp-self.sp_val('fs')
     """
-    coab = ['Blade','Wand','Dagger']
+    coab = ['Blade','Wand','Bow']
     share = ['Curran']
 
     def s1_proc(self, e):

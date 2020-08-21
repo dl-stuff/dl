@@ -11,17 +11,17 @@ class Alex(Adv):
     a3 = ('sp',0.05)
 
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+The_Plaguebringer()
+    conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon.act('c3 s end'), self.slots.tmp.d.trickery <= 1
         `s3, not self.s3_buff
         `s4
-        `s1
         `s2
+        `s1, cancel
         `fs, x=5
         """
-    coab = ['Blade','Wand','Heinwald']
+    coab = ['Blade','Wand','Bow']
     conf['afflict_res.poison'] = 0
     share = ['Curran']
 
