@@ -76,17 +76,17 @@ class Gala_Alex(Adv):
     conf = galex_conf.copy()
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
-`dragon.act("c3 s end"), s=1
-`s3, not self.s3_buff
-if fsc
-# use s4/s2 if no poison or if s1 def down has less than 1/3 time left
-if (not self.afflics.poison.get()) or (self.sr.chain_status=1 and self.s1_debuff.buff_end_timer.timing-now()<5)
-`s4
-`s2
-end
-`s1, not self.s1_debuff.get() or self.sr.count > 1
-end
-`fs, x=4
+        `dragon.act("c3 s end"), s=1
+        `s3, not self.s3_buff
+        if fsc
+        # use s4/s2 if no poison or if s1 def down has less than 1/3 time left
+        if (not self.afflics.poison.get()) or (self.sr.chain_status=1 and self.s1_debuff.buff_end_timer.timing-now()<5)
+        `s4
+        `s2
+        end
+        `s1, not self.s1_debuff.get() or self.sr.count > 1
+        end
+        `fs, x=4
     """
     coab = ['Ieyasu','Wand','Delphi']
     share = ['Rodrigo']
