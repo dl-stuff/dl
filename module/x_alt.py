@@ -57,7 +57,7 @@ class X_alt:
         self.name = name
         self.x_og = adv.x
         self.a_x_alt = {}
-        self.x_proc = x_proc or X_alt.x_proc_default
+        self.x_proc = x_proc or self.x_proc_default
         self.l_x_alt = Listener('x', self.l_x).off()
         self.no_fs = no_fs
         self.no_dodge = no_dodge
