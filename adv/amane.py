@@ -16,7 +16,7 @@ class Amane(Adv):
         `s4
         """
     coab = ['Blade','Halloween_Elisanne','Peony']
-    share = ['Ranzal']
+    share = ['Ranzal','Kleimann']
 
     def s1_proc(self, e):
         with KillerModifier('s1_killer', 'hit', 0.1, ['paralysis']):
