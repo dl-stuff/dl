@@ -15,7 +15,7 @@ class Amane(Adv):
         `s3
         `s4
         """
-    coab = ['Blade','Halloween_Elisanne','Peony']
+    coab = ['Blade','Sharena','Peony']
     share = ['Ranzal','Kleimann']
 
     def s1_proc(self, e):
