@@ -305,6 +305,12 @@ class Conf(lobject):
             Conf.update(self, a)
         elif type(a) == dict:
             Conf.update(self, a)
+    
+    def __len__(self):
+        return len(self.__dict__)
+    
+    def items(self):
+        return self.__dict__.items()
 
 
 # all method in conf will be sync funtion, so use [function] to set a config to function
