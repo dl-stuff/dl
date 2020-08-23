@@ -6,11 +6,6 @@ from slot.d import *
 def module():
     return Albert
 
-# non electrified fs
-conf_albert_fs = {
-    'fs.dmg': 1.265
-}
-
 conf_alt_fs = {
     'fs1': {
         'dmg': 1.12,
@@ -26,6 +21,11 @@ conf_alt_fs = {
         'startup': 9 / 60.0,
         'recovery':26 / 60.0,
     }
+}
+
+# non electrified fs
+conf_albert_fs = {
+    'fs.dmg': 1.265
 }
 
 class Albert(Adv):
@@ -63,9 +63,21 @@ class Albert(Adv):
         self.a1_fs = Selfbuff('a1_fs_passive',0.10, 25,'fs','passive')
         self.a3_att = Selfbuff('a3_att_passive',0.30, 25,'att','passive')
         self.a3_spd = Spdbuff('a3_spd', 0.10, 25)
-        self.electrified = EffectBuff('electrified', 25, lambda:self.fs_alt.on(0), lambda: self.fs_alt.off())
+        self.electrified = EffectBuff('electrified', 25, self.electrified_on, self.electrified_off)
 
         self.s1_hits = 6 if self.condition('big hitbox') else 4
+
+    def electrified_on(self):
+        self.fs_alt.on(-1)
+        self.a1_fs.on()
+        self.a3_att.on()
+        self.a3_spd.on()
+
+    def electrified_off(self):
+        self.fs_alt.off()
+        self.a1_fs.off()
+        self.a3_att.off()
+        self.a3_spd.off()
 
     @staticmethod
     def prerun_skillshare(adv, dst):

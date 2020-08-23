@@ -8,11 +8,13 @@ import re
 class Fs_alt:
     def __init__(self, adv, conf, fs_proc=None):
         # TODO add l_fs_alt to better handle before and after when needed; maybe fsnf 
-        self.patterns = ["^a_fs(?!f).*", "^conf$", "^fs.*proc$"]
+        self.patterns = [
+            re.compile(r'^a_fs(?!f).*'),
+            re.compile(r'^conf$'),
+            re.compile(r'^fs.*proc$')
+        ]
+        self.pattern_fsn = re.compile(r'^f.*(?<!f)$')
         self.adv = adv
-        # self.a_fs_og = adv.a_fs
-        # self.conf_og = adv.conf
-        # self.fs_proc_og = adv.fs_proc
         self.conf_alt = adv.conf + Conf(conf)
         self.fs_proc_alt_temp = fs_proc
         self.uses = 0
@@ -58,9 +60,9 @@ class Fs_alt:
         return self.uses
 
     def do_config(self, conf):
-        r = re.compile("^f.*(?<!f)$")
-        fsns = list(filter(r.match, [n for n, c in conf.items()]))
-        for fsn in fsns: 
+        # fsns = [n for n, c in conf.items() if self.pattern_fsn.match(n)]
+        fsns = list(filter(self.pattern_fsn.match, conf.__dict__.keys()))
+        for fsn in fsns:
             self._set_attr_f(fsn, conf)
         if len(fsns) > 1:
             self.a_fs_alt = lambda before: None
@@ -68,25 +70,24 @@ class Fs_alt:
             self._back_up(pattern)
 
     def _back_up(self, pattern):
-        self._copy_attr(pattern, self, self.adv, "_og", "")
+        self._copy_attr(pattern, self, self.adv, '_og', '')
 
     def _replace(self, pattern):
-        self._copy_attr(pattern, self.adv, self, "", "_alt")
+        self._copy_attr(pattern, self.adv, self, '', '_alt')
 
     def _restore(self, pattern):
-        self._copy_attr(pattern, self.adv, self, "", "_og")
+        self._copy_attr(pattern, self.adv, self, '', '_og')
     
     def _copy_attr(self, pattern, dest, orig, d_sfx, o_sfx):
-        r = re.compile(pattern)
-        attrs = list(filter(r.match, dir(self.adv)))
+        attrs = list(filter(pattern.match, dir(self.adv)))
         for attr in attrs:
             setattr(dest, f'{attr}{d_sfx}', getattr(orig, f'{attr}{o_sfx}'))
 
     def _set_attr_f(self, n, conf):
-            if not hasattr(self.adv, n):
-                setattr(self.adv, f'a_{n}', lambda before: None)
-                setattr(self.adv, n, lambda:getattr(self.adv, f'a_{n}')(self.adv.action.getdoing().name))
-            setattr(self, f'a_{n}_alt', Fs_group(n, conf))
+        if not hasattr(self.adv, n):
+            setattr(self.adv, f'a_{n}', lambda before: None)
+            setattr(self.adv, n, lambda:getattr(self.adv, f'a_{n}')(self.adv.action.getdoing().name))
+        setattr(self, f'a_{n}_alt', Fs_group(n, conf))
             
 class X_alt:
     def __init__(self, adv, name, conf, x_proc=None, no_fs=False, no_dodge=False):

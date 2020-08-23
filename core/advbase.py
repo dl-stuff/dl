@@ -1971,25 +1971,30 @@ class Adv(object):
 
     def l_melee_fs(self, e):
         log('cast', e.name)
-        dmg_coef = self.conf['%s.dmg' % e.name]
+        try:
+            fs_conf = self.conf[e.name]
+        except AttributeError:
+            fs_conf = self.conf['fs']
         self.fs_before(e)
         self.update_hits('fs')
-        self.dmg_make('fs', dmg_coef)
+        self.dmg_make('fs', fs_conf.dmg)
         self.fs_proc(e)
         self.think_pin('fs')
-        self.charge(e.name, self.conf[e.name].sp)
+        self.charge(e.name, fs_conf.sp)
 
     def l_range_fs(self, e):
         log('cast', e.name)
         self.fs_before(e)
         self.update_hits('fs')
-        dmg_coef = self.conf['%s.dmg' % e.name]
-        sp_gain = self.conf['%s.sp' % e.name]
+        try:
+            fs_conf = self.conf[e.name]
+        except AttributeError:
+            fs_conf = self.conf['fs']
         missile_timer = Timer(self.cb_missile, self.conf['missile_iv']['fs'])
         missile_timer.dname = 'fs'
         # missile_timer.dname = 'fs_missile'
-        missile_timer.amount = dmg_coef
-        missile_timer.samount = sp_gain
+        missile_timer.amount = fs_conf.dmg
+        missile_timer.samount = fs_conf.sp
         missile_timer()
         self.fs_proc(e)
         self.think_pin('fs')
