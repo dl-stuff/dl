@@ -5,10 +5,11 @@ def module():
     return Summer_Cleo
 
 class Summer_Cleo(Adv):
-    a3 = ('k_paralysis',0.3)
+    a1 = ('affself_paralysis_sp_passive', 0.12, 20, 5, True)
+    a3 = ('k_paralysis',0.35)
 
     conf = {}
-    conf['slots.a'] = RR()+Spirit_of_the_Season()
+    conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
         `s2
@@ -31,9 +32,7 @@ class Summer_Cleo(Adv):
     def s1_lantency(self, t):
         self.dmg_make(t.name,1.07)
         self.add_hits(1)
-        p = self.afflics.paralysis(t.name,120,0.97)
-        if random.random() < p:
-            Selfbuff('a1',0.10,20,'sp','passive').on()
+        self.afflics.paralysis(t.name,120,0.97)
         self.dmg_make(t.name,1.07)
         self.add_hits(1)
         self.dmg_make(t.name,1.07)
@@ -48,7 +47,7 @@ class Summer_Cleo(Adv):
     def s1_proc(self, e):
         t = Timer(self.s1_lantency)
         t.name = e.name
-        t.on(1)
+        t.on(0.8333)
 
     def s2_proc(self, e):
         self.buff_class(e.name,0.05,10).on()
