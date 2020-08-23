@@ -15,11 +15,11 @@ class Chitose(Adv):
     conf['acl'] = """
         `fs, self.fs_prep_c>0 and x=5
         `s1
-        `s3
-        `s4, cancel
+        `s4, s=1
+        `s3, cancel and x!=1
         """
-    coab = ['Tobias','Peony','Bow']
-    share = ['Patia','Summer_Luca']
+    coab = ['Tobias','Dagger2','Bow']
+    share = ['Summer_Luca','Summer_Cleo']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff
