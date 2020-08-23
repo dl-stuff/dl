@@ -1,4 +1,5 @@
 from core.advbase import *
+from module.x_alt import Fs_alt
 from slot.a import *
 from slot.d import *
 
@@ -8,6 +9,23 @@ def module():
 # non electrified fs
 conf_albert_fs = {
     'fs.dmg': 1.265
+}
+
+conf_alt_fs = {
+    'fs1': {
+        'dmg': 1.12,
+        'sp': 330,
+        'charge': 4 / 60.0,
+        'startup': 9 / 60.0,
+        'recovery':26 / 60.0,
+    },
+    'fs2': {
+        'dmg': 1.12,
+        'sp': 330,
+        'charge': 34 / 60.0, # 0.5 ?
+        'startup': 9 / 60.0,
+        'recovery':26 / 60.0,
+    }
 }
 
 class Albert(Adv):
@@ -38,71 +56,20 @@ class Albert(Adv):
 
     def init(self):
         self.conf.fs.hit = 1
-        conf_alt_fs = {
-            'fs1': {
-                'dmg': 1.12,
-                'sp': 330,
-                'charge': 4 / 60.0,
-                'startup': 9 / 60.0,
-                'recovery':26 / 60.0,
-            },
-            'fs2': {
-                'dmg': 1.12,
-                'sp': 330,
-                'charge': 34 / 60.0, # 0.5 ?
-                'startup': 9 / 60.0,
-                'recovery':26 / 60.0,
-            }
-        }
-        for n, c in conf_alt_fs.items():
-            self.conf[n] = Conf(c)
-            act = FS_MH(n, self.conf[n])
-            self.__dict__['a_'+n] = act
-        
-        self.l_fs1 = Listener('fs1',self.l_fs1)
-        self.l_fs2 = Listener('fs2',self.l_fs2)
-        self.fs = None
-
-    def do_fs(self, e, name):
-        log('cast',e.name)
-        self.__dict__['a_'+name].getdoing().cancel_by.append(name)
-        self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
-        self.fs_before(e)
-        self.update_hits('fs')
-        self.dmg_make('fs', self.conf[name+'.dmg'], 'fs')
-        e.name = name
-        self.fs_proc(e)
-        self.think_pin('fs')
-        self.charge(name,self.conf[name+'.sp'])
-
-    def l_fs1(self, e):
-        self.do_fs(e, 'fs1')
-
-    def fs1(self):
-        return self.electrified.get() and self.a_fs1()
-
-    def l_fs2(self, e):
-        self.do_fs(e, 'fs2')
-
-    def fs2(self):
-        return self.electrified.get() and self.a_fs2()
 
     def prerun(self):
         self.s2.autocharge_init(self.s2autocharge).on()
-        self.electrified = Selfbuff('electrified',1, 25,'ss','ss')
+        self.fs_alt = Fs_alt(self, conf_alt_fs, fs_proc=self.fs_proc)
         self.a1_fs = Selfbuff('a1_fs_passive',0.10, 25,'fs','passive')
         self.a3_att = Selfbuff('a3_att_passive',0.30, 25,'att','passive')
         self.a3_spd = Spdbuff('a3_spd', 0.10, 25)
+        self.electrified = EffectBuff('electrified', 25, lambda:self.fs_alt.on(0), lambda: self.fs_alt.off())
 
-        self.fs_alt_timer = Timer(self.fs_alt_end)
         self.s1_hits = 6 if self.condition('big hitbox') else 4
 
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.electrified = Dummy()
-
-    def fs_alt_end(self,t):
-        self.fs_alt.off()
 
     def s2autocharge(self, t):
         if not self.electrified.get():

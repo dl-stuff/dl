@@ -823,11 +823,11 @@ class Fs_group(object):
     def __init__(self, name, conf, act=None):
         self.actions = {}
         self.conf = conf
-        fsconf = conf.fs
+        fsconf = conf[name]
         xnfsconf = [fsconf, fsconf, fsconf, fsconf, fsconf, fsconf]
 
         for i in range(5):
-            xnfs = 'x%dfs' % (i + 1)
+            xnfs = f'x{(i + 1)}{name}'
             if xnfs in self.conf:
                 xnfsconf[i] += self.conf[xnfs]
 
@@ -860,7 +860,7 @@ class FS_MH(Action):
         self.cancel_by = ['s','dodge']
 
     def act(self, action):
-        self.act_event.name = 'fs'
+        self.act_event.name = self.name
         self.act_event.idx = self.idx
         self.act_event()
 
@@ -1970,21 +1970,21 @@ class Adv(object):
         return count
 
     def l_melee_fs(self, e):
-        log('cast', 'fs')
-        dmg_coef = self.conf.fs.dmg
+        log('cast', e.name)
+        dmg_coef = self.conf['%s.dmg' % e.name]
         self.fs_before(e)
         self.update_hits('fs')
         self.dmg_make('fs', dmg_coef)
         self.fs_proc(e)
         self.think_pin('fs')
-        self.charge('fs', self.conf.fs.sp)
+        self.charge(e.name, self.conf[e.name].sp)
 
     def l_range_fs(self, e):
-        log('cast', 'fs')
+        log('cast', e.name)
         self.fs_before(e)
         self.update_hits('fs')
-        dmg_coef = self.conf['fs.dmg']
-        sp_gain = self.conf['fs.sp']
+        dmg_coef = self.conf['%s.dmg' % e.name]
+        sp_gain = self.conf['%s.sp' % e.name]
         missile_timer = Timer(self.cb_missile, self.conf['missile_iv']['fs'])
         missile_timer.dname = 'fs'
         # missile_timer.dname = 'fs_missile'

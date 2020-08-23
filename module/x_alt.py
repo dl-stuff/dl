@@ -3,27 +3,30 @@ from core.timeline import Listener, Timer, now
 from core.log import log
 from core.config import Conf
 from core.dragonform import DragonForm
+import re
 
 class Fs_alt:
     def __init__(self, adv, conf, fs_proc=None):
+        # TODO add l_fs_alt to better handle before and after when needed; maybe fsnf 
+        self.patterns = ["^a_fs(?!f).*", "^conf$", "^fs.*proc$"]
         self.adv = adv
-        self.a_fs_og = adv.a_fs
-        self.conf_og = adv.conf
-        self.fs_proc_og = adv.fs_proc
+        # self.a_fs_og = adv.a_fs
+        # self.conf_og = adv.conf
+        # self.fs_proc_og = adv.fs_proc
         self.conf_alt = adv.conf + Conf(conf)
-        self.a_fs_alt = Fs_group('fs', self.conf_alt)
-        self.fs_proc_alt = fs_proc
+        self.fs_proc_alt_temp = fs_proc
         self.uses = 0
         self.has_fsf = False
+        self.do_config(self.conf_alt)
         if 'fsf' in conf:
             self.a_fsf_og = adv.a_fsf
             self.a_fsf_alt = Fs('fsf', conf.fsf)
             self.a_fsf_alt.act_event = Event('none')
             self.has_fsf = True
 
-    def fs_proc(self, e):
-        if callable(self.fs_proc_alt):
-            self.fs_proc_alt(e)
+    def fs_proc_alt(self, e):
+        if callable(self.fs_proc_alt_temp):
+            self.fs_proc_alt_temp(e)
         if self.uses != -1:
             self.uses -= 1
             if self.uses == 0:
@@ -32,24 +35,59 @@ class Fs_alt:
     def on(self, uses = 1):
         log('debug', 'fs_alt on', uses)
         self.uses = uses
-        self.adv.a_fs = self.a_fs_alt
-        self.adv.conf = self.conf_alt
-        self.adv.fs_proc = self.fs_proc
+        # self.adv.a_fs = self.a_fs_alt
+        # self.adv.conf = self.conf_alt
+        # self.adv.fs_proc = self.fs_proc
+        for pattern in self.patterns:
+            self._replace(pattern)
         if self.has_fsf:
             self.adv.fsf = self.a_fsf_alt
 
     def off(self):
         log('debug', 'fs_alt off', 0)
         self.uses = 0
-        self.adv.a_fs = self.a_fs_og
-        self.adv.conf = self.conf_og
-        self.adv.fs_proc = self.fs_proc_og
+        # self.adv.a_fs = self.a_fs_og
+        # self.adv.conf = self.conf_og
+        # self.adv.fs_proc = self.fs_proc_og
+        for pattern in self.patterns:
+            self._restore(pattern)
         if self.has_fsf:
             self.adv.fsf = self.a_fsf_og
 
     def get(self):
         return self.uses
 
+    def do_config(self, conf):
+        r = re.compile("^f.*(?<!f)$")
+        fsns = list(filter(r.match, [n for n, c in conf.items()]))
+        for fsn in fsns: 
+            self._set_attr_f(fsn, conf)
+        if len(fsns) > 1:
+            self.a_fs_alt = lambda before: None
+        for pattern in self.patterns:
+            self._back_up(pattern)
+
+    def _back_up(self, pattern):
+        self._copy_attr(pattern, self, self.adv, "_og", "")
+
+    def _replace(self, pattern):
+        self._copy_attr(pattern, self.adv, self, "", "_alt")
+
+    def _restore(self, pattern):
+        self._copy_attr(pattern, self.adv, self, "", "_og")
+    
+    def _copy_attr(self, pattern, dest, orig, d_sfx, o_sfx):
+        r = re.compile(pattern)
+        attrs = list(filter(r.match, dir(self.adv)))
+        for attr in attrs:
+            setattr(dest, f'{attr}{d_sfx}', getattr(orig, f'{attr}{o_sfx}'))
+
+    def _set_attr_f(self, n, conf):
+            if not hasattr(self.adv, n):
+                setattr(self.adv, f'a_{n}', lambda before: None)
+                setattr(self.adv, n, lambda:getattr(self.adv, f'a_{n}')(self.adv.action.getdoing().name))
+            setattr(self, f'a_{n}_alt', Fs_group(n, conf))
+            
 class X_alt:
     def __init__(self, adv, name, conf, x_proc=None, no_fs=False, no_dodge=False):
         self.conf = Conf(conf)
