@@ -1,5 +1,6 @@
 from core.advbase import *
 from slot.a import *
+from module.x_alt import Fs_alt
 
 def module():
     return Hunter_Vanessa
@@ -45,38 +46,7 @@ class Hunter_Vanessa(Adv):
                 'recovery': 46 / 60.0
             }
         }
-        for n, c in conf_alt_fs.items():
-            self.conf[n] = Conf(c)
-            act = FS_MH(n, self.conf[n])
-            self.__dict__['a_'+n] = act
-        
-        self.l_fs1 = Listener('fs1',self.l_fs1)
-        self.l_fs2 = Listener('fs2',self.l_fs2)
-        self.fs = None
-
-    def do_fs(self, e, name):
-        log('cast','fs')
-        self.__dict__['a_'+name].getdoing().cancel_by.append(name)
-        self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
-        self.fs_before(e)
-        self.update_hits('fs')
-        self.dmg_make('fs', self.conf[name+'.dmg'], 'fs')
-        e.name = name
-        self.fs_proc(e)
-        self.think_pin('fs')
-        self.charge(name,self.conf[name+'.sp'])
-
-    def l_fs1(self, e):
-        self.do_fs(e, 'fs1')
-
-    def fs1(self):
-        return self.a_fs1()
-
-    def l_fs2(self, e):
-        self.do_fs(e, 'fs2')
-
-    def fs2(self):
-        return self.a_fs2()
+        self.fs_alt = Fs_alt(self, conf_alt_fs, fs_proc=self.fs_proc)
 
     def prerun(self):
         self.s2_att_boost = Selfbuff('s2', 0.30, 90, 'att', 'buff')
@@ -86,6 +56,7 @@ class Hunter_Vanessa(Adv):
         self.a3_crit.on()
 
         self.fs_debuff = Debuff('fs',0.05,15)
+        self.fs_alt.on(-1)
 
     def a3_crit_get(self):
         return (self.mod('def') != 1) * 0.20

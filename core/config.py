@@ -311,6 +311,9 @@ class Conf(lobject):
     
     def items(self):
         return self.__dict__.items()
+    
+    def keys(self):
+        return self.__dict__.keys()
 
 
 # all method in conf will be sync funtion, so use [function] to set a config to function

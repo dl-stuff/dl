@@ -61,7 +61,7 @@ class Fs_alt:
 
     def do_config(self, conf):
         # fsns = [n for n, c in conf.items() if self.pattern_fsn.match(n)]
-        fsns = list(filter(self.pattern_fsn.match, conf.__dict__.keys()))
+        fsns = list(filter(self.pattern_fsn.match, conf.keys()))
         for fsn in fsns:
             self._set_attr_f(fsn, conf)
         if len(fsns) > 1:
