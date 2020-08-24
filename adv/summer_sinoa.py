@@ -6,6 +6,7 @@ def module():
     return Summer_Sinoa
 
 class Summer_Sinoa(Adv):
+    comment = 's!cleo ss after s1 at 2 overload'
     a1 = ('s', 0.30)
     conf = {}
     conf['slots.d'] = Ariel()

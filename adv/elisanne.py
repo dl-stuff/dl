@@ -6,7 +6,7 @@ def module():
     return Elisanne
 
 class Elisanne(Adv):
-    comment = 'no s2, s!cleo skill after s1'
+    comment = 'no s2, s!cleo ss after s1'
     a1 = ('bt',0.25)
 
     conf = {}

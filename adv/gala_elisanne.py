@@ -6,6 +6,7 @@ def module():
     return Gala_Elisanne
 
 class Gala_Elisanne(Adv):
+    comment = 'no s2, s!cleo ss after s1'
     a3 = ('primed_att',0.10)
 
     conf = {}
