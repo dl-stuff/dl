@@ -7,6 +7,7 @@ import re
 
 class Fs_alt:
     def __init__(self, adv, conf, fs_proc=None):
+        # Note: Do not run this in adv init, as it will copy premature conf.
         # TODO add l_fs_alt to better handle before and after when needed; maybe fsnf 
         self.patterns = [
             re.compile(r'^a_fs(?!f).*'),
@@ -86,6 +87,8 @@ class Fs_alt:
     def _set_attr_f(self, n, conf):
         if not hasattr(self.adv, n):
             setattr(self.adv, f'a_{n}', lambda before: None)
+            # setattr(self.adv, f'{n}_before', lambda e:)
+            # setattr(self.adv, f'{n}_after', lambda e:)
             setattr(self.adv, n, lambda:getattr(self.adv, f'a_{n}')(self.adv.action.getdoing().name))
         setattr(self, f'a_{n}_alt', Fs_group(n, conf))
             

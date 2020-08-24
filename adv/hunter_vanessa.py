@@ -46,7 +46,6 @@ class Hunter_Vanessa(Adv):
                 'recovery': 46 / 60.0
             }
         }
-        self.fs_alt = Fs_alt(self, conf_alt_fs, fs_proc=self.fs_proc)
 
     def prerun(self):
         self.s2_att_boost = Selfbuff('s2', 0.30, 90, 'att', 'buff')
@@ -56,6 +55,8 @@ class Hunter_Vanessa(Adv):
         self.a3_crit.on()
 
         self.fs_debuff = Debuff('fs',0.05,15)
+
+        self.fs_alt = Fs_alt(self, conf_alt_fs, fs_proc=self.fs_proc)
         self.fs_alt.on(-1)
 
     def a3_crit_get(self):
