@@ -1,7 +1,7 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-
+from module.x_alt import Fs_alt
 
 def module():
     return Zhu_Bajie
@@ -51,45 +51,18 @@ class Zhu_Bajie(Adv):
                 'recovery': 20 / 60.0,
             }
         }
-        for n, c in conf_alt_fs.items():
-            self.conf[n] = Conf(c)
-            act = FS_MH(n, self.conf[n])
-            self.__dict__['a_'+n] = act
+        self.fs_alt = Fs_alt(self, conf_alt_fs, l_fs=self.l_melee_fs)
+        self.fs_alt.on(-1)
 
-        self.l_fs1 = Listener('fs1', self.l_fs1)
-        self.l_fs2 = Listener('fs2', self.l_fs2)
-        self.l_fs3 = Listener('fs3', self.l_fs3)
-        self.fs = None
-
-    def do_fs(self, e, name):
+    def l_melee_fs(self, e):
         log('cast', 'fs')
-        self.__dict__['a_'+name].getdoing().cancel_by.append(name)
-        self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
         self.fs_before(e)
         self.update_hits('fs')
         with KillerModifier(e.name, 'hit', 0.5, ['paralysis']):
-            self.dmg_make('fs', self.conf[name+'.dmg'], 'fs')
+            self.dmg_make('fs', self.conf[e.name+'.dmg'], 'fs')
         self.fs_proc(e)
         self.think_pin('fs')
-        self.charge(name, self.conf[name+'.sp'])
-
-    def l_fs1(self, e):
-        self.do_fs(e, 'fs1')
-
-    def fs1(self):
-        return self.a_fs1()
-
-    def l_fs2(self, e):
-        self.do_fs(e, 'fs2')
-
-    def fs2(self):
-        return self.a_fs2()
-
-    def l_fs3(self, e):
-        self.do_fs(e, 'fs3')
-
-    def fs3(self):
-        return self.a_fs3()
+        self.charge(e.name, self.conf[e.name+'.sp'])
 
     def s1_proc(self, e):
         with CrisisModifier(e.name, 1.15, self.hp):
