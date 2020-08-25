@@ -1217,8 +1217,8 @@ class Adv(object):
             if 'echo' in self.conf.sim_buffbot:
                 if self.condition('echo att {:g}'.format(self.conf.sim_buffbot.echo)):
                     self.enable_echo(fixed_att=self.conf.sim_buffbot.echo)
-            if 'doublebuffs' in self.conf.sim_buffbot:
-                interval = round(self.conf.sim_buffbot.doublebuffs, 2)
+            if 'doublebuff_interval' in self.conf.sim_buffbot:
+                interval = round(self.conf.sim_buffbot.doublebuff_interval, 2)
                 if self.condition('team doublebuff every {:.2f} sec'.format(interval)):
                     Event('defchain').on()
                     Timer(lambda t: Event('defchain').on(), interval, True).on()

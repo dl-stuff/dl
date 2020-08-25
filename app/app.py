@@ -64,6 +64,7 @@ SIMULATED_BUFFS = {
     'def_down': (-50, 200, 100),
     'critr': (-100, 100, 100),
     'critd': (-100, 200, 100),
+    'doublebuff_interval': (0.5, 600.0, 1),
     'count': (0, float('inf'), 1),
     'echo': (0, float('inf'), 1)
 };
