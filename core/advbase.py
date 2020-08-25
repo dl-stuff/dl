@@ -357,6 +357,8 @@ class Buff(object):
 
         if self.mod_type == 'defense':
             Event('defchain').on()
+            if self.bufftype == 'team':
+                log('buff', 'team_defense', 'proc team doublebuffs')
 
         self.effect_on()
         return self
@@ -1843,6 +1845,11 @@ class Adv(object):
                 if len(self.comment) > 0:
                     self.comment += '; '
                 self.comment += '{:.0%} {} uptime'.format(up, aff)
+
+        if g_logs.team_doublebuffs > 0:
+            if len(self.comment) > 0:
+                self.comment += '; '
+            self.comment += f'{d/g_logs.team_doublebuffs:.2f}s team doublebuff interval'
 
         self.logs = copy.deepcopy(g_logs)
 
