@@ -23,8 +23,14 @@ class Sazanka(Adv):
     share = ['Curran']
 
     def prerun(self):
+        random.seed()
         self.bleed = Bleed('g_bleed',0).reset()
         self.s2fscharge = 0
+
+    @staticmethod
+    def prerun_skillshare(adv, dst):
+        random.seed()
+        adv.bleed = Bleed('g_bleed',0).reset()
 
     def s1_proc(self, e):
         if random.random() < 0.8:

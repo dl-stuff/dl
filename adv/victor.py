@@ -23,6 +23,11 @@ class Victor(Adv):
         random.seed()
         self.bleed = Bleed('g_bleed',0).reset()
 
+    @staticmethod
+    def prerun_skillshare(adv, dst):
+        random.seed()
+        adv.bleed = Bleed('g_bleed',0).reset()
+
     def s1_proc(self, e):
         if random.random() < 0.8:
             Bleed(e.name, 1.46).on()
