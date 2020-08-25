@@ -233,7 +233,7 @@ def simc_adv_test():
     for buff, bounds in SIMULATED_BUFFS.items():
         b_min, b_max, b_ratio = bounds
         try:
-            conf[f'sim_buffbot.{buff}'] = min(max(int(params[f'sim_buff_{buff}']), b_min), b_max)/b_ratio
+            conf[f'sim_buffbot.{buff}'] = min(max(float(params[f'sim_buff_{buff}']), b_min), b_max)/b_ratio
         except KeyError:
             pass
 
