@@ -1198,16 +1198,16 @@ class Adv(object):
 
     def sim_buffbot(self):
         if 'sim_buffbot' in self.conf:
-            if 'def' in self.conf.sim_buffbot:
-                value = -self.conf.sim_buffbot.debuff
+            if 'def_down' in self.conf.sim_buffbot:
+                value = -self.conf.sim_buffbot.def_down
                 if self.condition('boss def {:+.0%}'.format(value)):
                     buff = self.Selfbuff('simulated_def', value, -1, mtype='def')
                     buff.chance = 1
                     buff.val = value
                     buff.on()
-            if 'str' in self.conf.sim_buffbot:
-                if self.condition('team str {:+.0%}'.format(self.conf.sim_buffbot.buff)):
-                    self.Selfbuff('simulated_att', self.conf.sim_buffbot.buff, -1).on()
+            if 'str_buff' in self.conf.sim_buffbot:
+                if self.condition('team str {:+.0%}'.format(self.conf.sim_buffbot.str_buff)):
+                    self.Selfbuff('simulated_att', self.conf.sim_buffbot.str_buff, -1).on()
             if 'critr' in self.conf.sim_buffbot:
                 if self.condition('team crit rate {:+.0%}'.format(self.conf.sim_buffbot.critr)):
                     self.Selfbuff('simulated_crit_rate', self.conf.sim_buffbot.critr, -1, 'crit', 'rate').on()
