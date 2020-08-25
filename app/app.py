@@ -62,7 +62,7 @@ SPECIAL_ADV = {
 SIMULATED_BUFFS = {
     'str': (-100, 200, 100),
     'def': (-50, 200, 100),
-    'critr': (-100, 200, 100),
+    'critr': (-100, 100, 100),
     'critd': (-100, 200, 100),
     'count': (0, float('inf'), 1),
     'echo': (0, float('inf'), 1)
@@ -233,7 +233,7 @@ def simc_adv_test():
     for buff, bounds in SIMULATED_BUFFS.items():
         b_min, b_max, b_ratio = bounds
         try:
-            conf[f'sim_buffbot.{buff}'] = min(max(int(params[f'sim_buff_{buff}']), -b_min), b_max)/b_ratio
+            conf[f'sim_buffbot.{buff}'] = min(max(int(params[f'sim_buff_{buff}']), b_min), b_max)/b_ratio
         except KeyError:
             pass
 
