@@ -24,7 +24,7 @@ class Julietta(Adv):
         self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
 
     def s2_proc(self, e):
-       Event('defchain')()
+       Selfbuff(e.name+'_defense', 0.50, 10, 'defense').on()
        self.fs_alt.on(1)
 
 if __name__ == '__main__':

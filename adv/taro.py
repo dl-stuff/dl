@@ -5,6 +5,8 @@ def module():
     return Taro
 
 class Taro(Adv):
+    a1 = ('lo_defense', 0.50)
+
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """

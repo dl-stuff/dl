@@ -252,7 +252,7 @@ ability_dict['bc'] = Doublebuff
 
 
 class Doublebuff_CD(Doublebuff):
-    DB_CD = 15
+    DB_CD = 14.99 # inaccurate, but avoids a potential unintuitive race condition
     def oninit(self, adv, afrom=None):
         self.is_cd = False
 
@@ -274,7 +274,7 @@ class Doublebuff_CD(Doublebuff):
                     adv.Timer(cd_end).on(self.DB_CD)
             adv.Event('defchain').listener(defchain)
 
-ability_dict['bcc'] = Doublebuff
+ability_dict['bcc'] = Doublebuff_CD
 
 
 # class Slayer_Strength(BuffingAbility):
