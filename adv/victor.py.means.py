@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.bleed import mBleed as Bleed
+from module.bleed import mBleed
 from slot.d import *
 from slot.a import *
 from adv import victor
@@ -9,15 +9,15 @@ def module():
 
 class Victor(victor.Victor):
     def prerun(self):
-        self.bleed = Bleed('g_bleed',0).reset()
+        self.bleed = mBleed('g_bleed',0).reset()
 
     @staticmethod
     def prerun_skillshare(adv, dst):
-        adv.bleed = Bleed('g_bleed',0).reset()
+        adv.bleed = mBleed('g_bleed',0).reset()
 
 
     def s1_proc(self, e):
-        Bleed(e.name, 1.46).on()
+        mBleed(e.name, 1.46).on()
 
 
 if __name__ == '__main__':
