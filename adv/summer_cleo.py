@@ -54,8 +54,8 @@ class Summer_Cleo(Adv):
         self.buff_class(f'{e.name}_cc',0.03,10,'crit','chance').on()
         self.buff_class(f'{e.name}_sd',0.10,10,'s').on()
         self.buff_class(f'{e.name}_sp',0.10,10,'sp','passive').on()
+        Selfbuff(f'{e.name}_def',0.10,10,'defense').on()
         if self.buff_class == Teambuff:
-            Selfbuff(f'{e.name}_def',0.10,10,'defense').on()
             Selfbuff(f'{e.name}_cd',0.10,10,'crit','damage').on()
             self.s1.charge(self.s1.sp)
 
