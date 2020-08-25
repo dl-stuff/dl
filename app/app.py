@@ -60,8 +60,8 @@ SPECIAL_ADV = {
 }
 
 SIMULATED_BUFFS = {
-    'str': (-100, 200, 100),
-    'def': (-50, 200, 100),
+    'str_buff': (-100, 200, 100),
+    'def_down': (-50, 200, 100),
     'critr': (-100, 100, 100),
     'critd': (-100, 200, 100),
     'count': (0, float('inf'), 1),

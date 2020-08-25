@@ -574,7 +574,7 @@ function runAdvTest() {
     }
     for (let key of SIMULATED_BUFFS){
         const buff_value = $('#input-sim-buff-'+key).val();
-        if (!isNaN(parseInt(buff_value))) {
+        if (!isNaN(parseFloat(buff_value))) {
             requestJson['sim_buff_'+key] = buff_value;
         }
     }
