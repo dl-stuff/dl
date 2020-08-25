@@ -28,12 +28,9 @@ class Halloween_Lowen(Adv):
 
     def init(self):
         self.hp_stack = 0
-        # self.doublebuff = self.condition('doublebuff 3 other')
     
     def s1_proc(self, e):
-        Event('defchain')()
-        # if self.doublebuff:
-        #     self.Teambuff('defchain',0.10,15).on()
+        self.Teambuff('defchain',0.10,15).on()
     
     def s2_proc(self, e):
         if self.hp_stack < 3:
