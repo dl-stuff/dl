@@ -28,7 +28,7 @@ class Hunter_Vanessa(Adv):
         if self.duration <= 90:
             self.slots.a = Resounding_Rendition()+The_Chocolatiers()
 
-    def init(self):
+    def prerun(self):
         self.conf.fs.hit = 1
         conf_alt_fs = {
             'fs1': {
@@ -47,7 +47,6 @@ class Hunter_Vanessa(Adv):
             }
         }
 
-    def prerun(self):
         self.s2_att_boost = Selfbuff('s2', 0.30, 90, 'att', 'buff')
 
         self.a3_crit = Modifier('a3', 'crit', 'chance', 0)

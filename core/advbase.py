@@ -1778,7 +1778,6 @@ class Adv(object):
                     self.slots.c.a.append(ab)
 
         self.config_coabs()
-        preruns_ss = self.config_skillshare()
 
         if not ('forced' in self.conf.slots and self.conf.slots.forced):
             self.d_slots()
@@ -1790,6 +1789,7 @@ class Adv(object):
         self.base_att = int(self.slots.att(globalconf.halidom))
         self.slots.oninit(self)
 
+        preruns_ss = self.config_skillshare()
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)
         self.prerun()

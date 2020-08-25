@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.bleed import Bleed
+from module.bleed import Bleed, mBleed
 from slot.d import *
 from slot.a import *
 
@@ -23,12 +23,23 @@ class Sazanka(Adv):
     share = ['Curran']
 
     def prerun(self):
-        self.bleed = Bleed('g_bleed',0).reset()
-        self.s2fscharge = 0
+        random.seed()
+        self.bleed_class = Bleed
+        self.bleed = self.bleed_class('g_bleed',0).reset()
+        self.bleed_rate = 0.8
+
+        # change to Fs_alt 1 day
+        self.s2fscharge = 3
+
+    @staticmethod
+    def prerun_skillshare(adv, dst):
+        adv.bleed_class = mBleed
+        adv.bleed = adv.bleed_class('g_bleed',0).reset()
+        adv.bleed_rate = 1
 
     def s1_proc(self, e):
-        if random.random() < 0.8:
-            Bleed(e.name, 1.32).on()
+        if random.random() < self.bleed_rate:
+            self.bleed_class(e.name, 1.32).on()
 
     def s2_proc(self, e):
         self.s2fscharge = 3
