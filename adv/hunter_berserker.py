@@ -1,10 +1,34 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
+from module.x_alt import Fs_alt
 
 def module():
     return Hunter_Berserker
 
+conf_alt_fs = {
+    'fs1': {
+        'dmg': 296 / 100.0,
+        'sp': 600,
+        'charge': 24 / 60.0,
+        'startup': 50 / 60.0, # 40 + 10
+        'recovery': 40 / 60.0,
+    },
+    'fs2': {
+        'dmg': 424 / 100.0,
+        'sp': 960,
+        'charge': 48 / 60.0,
+        'startup': 50 / 60.0,
+        'recovery': 40 / 60.0,
+    },
+    'fs3': {
+        'dmg': 548 / 100.0,
+        'sp': 1400,
+        'charge': 72 / 60.0,
+        'startup': 50 / 60.0,
+        'recovery': 40 / 60.0,
+    }
+}
 
 class Hunter_Berserker(Adv):
     comment = 'needs combo time from chain coability to keep combo & do c1 after s2'
@@ -28,76 +52,18 @@ class Hunter_Berserker(Adv):
 
     def init(self):
         self.conf.fs.hit = 1
-        conf_alt_fs = {
-            'fs1': {
-                'dmg': 296 / 100.0,
-                'sp': 600,
-                'charge': 24 / 60.0,
-                'startup': 50 / 60.0, # 40 + 10
-                'recovery': 40 / 60.0,
-            },
-            'fs2': {
-                'dmg': 424 / 100.0,
-                'sp': 960,
-                'charge': 48 / 60.0,
-                'startup': 50 / 60.0,
-                'recovery': 40 / 60.0,
-            },
-            'fs3': {
-                'dmg': 548 / 100.0,
-                'sp': 1400,
-                'charge': 72 / 60.0,
-                'startup': 50 / 60.0,
-                'recovery': 40 / 60.0,
-            }
-        }
-        for n, c in conf_alt_fs.items():
-            self.conf[n] = Conf(c)
-            act = FS_MH(n, self.conf[n])
-            self.__dict__['a_'+n] = act
-
-        self.l_fs1 = Listener('fs1',self.l_fs1)
-        self.l_fs2 = Listener('fs2',self.l_fs2)
-        self.l_fs3 = Listener('fs3',self.l_fs3)
-        self.fs = None
-
-    def do_fs(self, e, name):
-        log('cast','fs')
-        self.__dict__['a_'+name].getdoing().cancel_by.append(name)
-        self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
-        self.fs_before(e)
-        self.update_hits('fs')
-        self.dmg_make('fs', self.conf[name+'.dmg'], 'fs')
-        self.fs_proc(e)
-        self.think_pin('fs')
-        self.charge(name,self.conf[name+'.sp'])
-
-    def l_fs1(self, e):
-        self.do_fs(e, 'fs1')
-
-    def fs1(self):
-        return self.a_fs1()
-
-    def l_fs2(self, e):
-        self.do_fs(e, 'fs2')
-
-    def fs2(self):
-        return self.a_fs2()
-
-    def l_fs3(self, e):
-        self.do_fs(e, 'fs3')
-
-    def fs3(self):
-        return self.a_fs3()
 
     def prerun(self):
         self.s1_debuff = Debuff('s1', 0.05, 10)
 
-        self.s2_fs_boost = SingleActionBuff('s2', 0.80, 1, 'fs', 'buff', ['fs1','fs2','fs3'])
+        self.s2_fs_boost = SingleActionBuff('s2', 0.80, 1, 'fs', 'buff', 'fs')
 
         self.a3_crit = Modifier('a3', 'crit', 'chance', 0)
         self.a3_crit.get = self.a3_crit_get
         self.a3_crit.on()
+
+        self.fs_alt = Fs_alt(self, conf_alt_fs)
+        self.fs_alt.on(-1)
 
     @staticmethod
     def prerun_skillshare(adv, dst):

@@ -6,7 +6,8 @@ from core.dragonform import DragonForm
 import re
 
 class Fs_alt:
-    def __init__(self, adv, conf, fs_proc=None):
+    def __init__(self, adv, conf, fs_proc=None, l_fs=None):
+        # Note: Do not run this in adv init, as it will copy premature conf.
         # TODO add l_fs_alt to better handle before and after when needed; maybe fsnf 
         self.patterns = [
             re.compile(r'^a_fs(?!f).*'),
@@ -17,6 +18,7 @@ class Fs_alt:
         self.adv = adv
         self.conf_alt = adv.conf + Conf(conf)
         self.fs_proc_alt_temp = fs_proc
+        self.l_fs = l_fs
         self.uses = 0
         self.has_fsf = False
         self.do_config(self.conf_alt)
@@ -37,6 +39,9 @@ class Fs_alt:
     def on(self, uses = 1):
         log('debug', 'fs_alt on', uses)
         self.uses = uses
+        if (self.l_fs):
+            self.adv.l_fs.off()
+            self.l_fs.on()
         # self.adv.a_fs = self.a_fs_alt
         # self.adv.conf = self.conf_alt
         # self.adv.fs_proc = self.fs_proc
@@ -48,6 +53,9 @@ class Fs_alt:
     def off(self):
         log('debug', 'fs_alt off', 0)
         self.uses = 0
+        if (self.l_fs):
+            self.adv.l_fs.on()
+            self.l_fs.off()
         # self.adv.a_fs = self.a_fs_og
         # self.adv.conf = self.conf_og
         # self.adv.fs_proc = self.fs_proc_og
@@ -60,8 +68,10 @@ class Fs_alt:
         return self.uses
 
     def do_config(self, conf):
+        if (self.l_fs):
+            self.l_fs = Listener('fs', self.l_fs).off()
         # fsns = [n for n, c in conf.items() if self.pattern_fsn.match(n)]
-        fsns = list(filter(self.pattern_fsn.match, conf.__dict__.keys()))
+        fsns = list(filter(self.pattern_fsn.match, conf.keys()))
         for fsn in fsns:
             self._set_attr_f(fsn, conf)
         if len(fsns) > 1:
@@ -86,6 +96,8 @@ class Fs_alt:
     def _set_attr_f(self, n, conf):
         if not hasattr(self.adv, n):
             setattr(self.adv, f'a_{n}', lambda before: None)
+            # setattr(self.adv, f'{n}_before', lambda e:)
+            # setattr(self.adv, f'{n}_after', lambda e:)
             setattr(self.adv, n, lambda:getattr(self.adv, f'a_{n}')(self.adv.action.getdoing().name))
         setattr(self, f'a_{n}_alt', Fs_group(n, conf))
             
