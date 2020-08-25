@@ -6,18 +6,19 @@ def module():
     return Summer_Sinoa
 
 class Summer_Sinoa(Adv):
+    comment = 's!cleo ss after s1 at 2 overload'
     a1 = ('s', 0.30)
     conf = {}
     conf['slots.d'] = Ariel()
     conf['slots.a'] = Candy_Couriers()+The_Fires_of_Hate()
     conf['acl'] = """
-        `s3, not self.s3_buff
-        `s4
+        `s3, not self.s3_buff and x=5
+        `s4, s=1 and self.overload=2
         `s2, self.overload=3
         `s1
         """
     coab = ['Blade','Eleonora','Tobias']
-    share = ['Curran']
+    share = ['Summer_Cleo']
 
     def prerun(self):
         self.overload = 0

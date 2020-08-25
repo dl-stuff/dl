@@ -69,21 +69,22 @@ sacred_blade_conf = {
 
 
 class Tobias(Adv):
+    comment = 'c5fs, no s2, s!cleo ss after s1'
     a1 = ('bt',0.25)
     a3 = ('k_poison',0.3)
 
     conf = {}
     conf['slots.a'] = A_Dogs_Day()+Castle_Cheer_Corps()
     conf['slots.poison.a'] = conf['slots.a']
-    conf['slots.d'] = Ariel()
+    conf['slots.d'] = Freyja()
     conf['acl'] = """
-        `fs, self.fs_prep_c>0 and x=5
-        `s3, not self.s3_buff
-        `s4
         `s1
+        `s3
+        `s4, s
+        `fs, x=5
     """
     coab = ['Bow','Blade','Dagger2']
-    share = ['Dragonyule_Xainfried']
+    share = ['Summer_Luca', 'Summer_Cleo']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

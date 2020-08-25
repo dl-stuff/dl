@@ -9,7 +9,7 @@ class Naveed(Adv):
     a3 = ('prep','100%')
     conf = {}
     conf['acl'] = """
-        `dragon.act('c1 s s end'),s
+        `dragon,s
         `s3, not self.s3_buff
         `s2, self.s1level < 5
         `s1, cancel

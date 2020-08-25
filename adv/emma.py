@@ -15,15 +15,15 @@ class Emma(Adv):
     conf['slots.a'] = Castle_Cheer_Corps()+From_Whence_He_Comes()
     conf['slots.burn.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon.act('c1 s s end'), s=1
-        `fs, self.fs_prep_c==3
-        `s4, cancel
+        `dragon.act('c3 s end'), s=1 and not s4.check()
+        `fs, self.fs_prep_c=3
+        `s4, s=1
         `s1
-        `s3
+        `s3, fsc
         `fs, x=5
         """
     coab = ['Tobias', 'Dagger2', 'Bow']
-    share = ['Patia','Summer_Cleo']
+    share = ['Summer_Luca','Summer_Cleo']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

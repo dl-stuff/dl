@@ -6,21 +6,21 @@ def module():
     return Elisanne
 
 class Elisanne(Adv):
-    comment = 'no s2 or s3'
+    comment = 'no s2, s!cleo ss after s1'
     a1 = ('bt',0.25)
 
     conf = {}
-    conf['slots.a'] = Beach_Battle()+Castle_Cheer_Corps()
+    conf['slots.a'] = Beach_Battle()+From_Whence_He_Comes()
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `s3, not self.s3_buff
         `s1
-        `s4
+        `s4, s=1
+        `s3
         `fs, x=5
     """
     coab = ['Tobias', 'Renee', 'Bow']
-    share = ['Gala_Elisanne']
+    share = ['Summer_Luca', 'Summer_Cleo']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -7,7 +7,7 @@ def module():
     return Noelle
 
 class Noelle(Adv):
-    comment = 'use Freyja & Castle Cheer Corps in 4DPS team'
+    comment = 'scleo ss after s1. use Freyja in 4DPS team'
     a1 = ('bt',0.25)
     a3 = ('primed_defense',0.08)
 
@@ -17,12 +17,12 @@ class Noelle(Adv):
     conf['slots.d'] = Ariel()
     conf['acl'] = """
         `fs, self.fs_prep_c>0 and x=5
-        `s3, not self.s3_buff
-        `s4
         `s1
+        `s4, s=1
+        `s3
         """
     coab = ['Dagger2','Tobias','Bow']
-    share = ['Dragonyule_Xainfried']
+    share = ['Summer_Luca', 'Summer_Cleo']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff
