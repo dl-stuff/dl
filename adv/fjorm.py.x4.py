@@ -28,7 +28,7 @@ class Fjorm(adv.fjorm.Fjorm):
     def s2_before(self, e):
         for _ in range(4):
             Selfbuff('last_bravery',0.3,15).on()
-            Event('defchain')()
+            Selfbuff('last_bravery_defense', 0.40, 15, 'defense').on()
 
     def s2_proc(self, e):
         self.dmg_make(f'{e.name}_reflect', 3792*8, fixed=True)

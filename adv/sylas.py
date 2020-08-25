@@ -44,6 +44,7 @@ class Sylas(Adv):
     def s2_proc(self, e):
         Selfbuff(f'{e.name}_sp',0.30,15,'sp','buff').on()
         Teambuff(e.name,0.25/2,15,'att','buff').on()
+        # maybe someday doublebuffs will get a "means" parameter
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

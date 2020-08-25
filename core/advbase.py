@@ -357,6 +357,8 @@ class Buff(object):
 
         if self.mod_type == 'defense':
             Event('defchain').on()
+            if self.bufftype == 'team':
+                log('buff', 'team_defense', 'proc team doublebuffs')
 
         self.effect_on()
         return self
@@ -1196,16 +1198,16 @@ class Adv(object):
 
     def sim_buffbot(self):
         if 'sim_buffbot' in self.conf:
-            if 'def' in self.conf.sim_buffbot:
-                value = -self.conf.sim_buffbot.debuff
+            if 'def_down' in self.conf.sim_buffbot:
+                value = -self.conf.sim_buffbot.def_down
                 if self.condition('boss def {:+.0%}'.format(value)):
                     buff = self.Selfbuff('simulated_def', value, -1, mtype='def')
                     buff.chance = 1
                     buff.val = value
                     buff.on()
-            if 'str' in self.conf.sim_buffbot:
-                if self.condition('team str {:+.0%}'.format(self.conf.sim_buffbot.buff)):
-                    self.Selfbuff('simulated_att', self.conf.sim_buffbot.buff, -1).on()
+            if 'str_buff' in self.conf.sim_buffbot:
+                if self.condition('team str {:+.0%}'.format(self.conf.sim_buffbot.str_buff)):
+                    self.Selfbuff('simulated_att', self.conf.sim_buffbot.str_buff, -1).on()
             if 'critr' in self.conf.sim_buffbot:
                 if self.condition('team crit rate {:+.0%}'.format(self.conf.sim_buffbot.critr)):
                     self.Selfbuff('simulated_crit_rate', self.conf.sim_buffbot.critr, -1, 'crit', 'rate').on()
@@ -1215,6 +1217,11 @@ class Adv(object):
             if 'echo' in self.conf.sim_buffbot:
                 if self.condition('echo att {:g}'.format(self.conf.sim_buffbot.echo)):
                     self.enable_echo(fixed_att=self.conf.sim_buffbot.echo)
+            if 'doublebuff_interval' in self.conf.sim_buffbot:
+                interval = round(self.conf.sim_buffbot.doublebuff_interval, 2)
+                if self.condition('team doublebuff every {:.2f} sec'.format(interval)):
+                    Event('defchain').on()
+                    Timer(lambda t: Event('defchain').on(), interval, True).on()
 
     def sync_slot(self, conf):
         # self.cmnslots(conf)
@@ -1843,6 +1850,11 @@ class Adv(object):
                 if len(self.comment) > 0:
                     self.comment += '; '
                 self.comment += '{:.0%} {} uptime'.format(up, aff)
+
+        if g_logs.team_doublebuffs > 0:
+            if len(self.comment) > 0:
+                self.comment += '; '
+            self.comment += f'{d/g_logs.team_doublebuffs:.2f}s team doublebuff interval'
 
         self.logs = copy.deepcopy(g_logs)
 

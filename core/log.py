@@ -33,6 +33,8 @@ class Log:
                     pt, pb = self.p_buff
                     self.team_buff += (time_now - pt) * pb
                 self.p_buff = (time_now, float(args[2]))
+            elif category == 'buff' and name == 'team_defense':
+                self.team_doublebuffs += 1
             elif category in ('energy', 'inspiration') and name == 'team':
                 self.update_dict(self.team_tension, category, float(args[2]))
 
@@ -70,6 +72,7 @@ class Log:
         self.counts = {'x':{},'s':{},'f':{},'d':{},'o':{}}
         self.p_buff = None
         self.team_buff = 0
+        self.team_doublebuffs = 0
         self.team_tension = {}
         self.act_seq = []
 

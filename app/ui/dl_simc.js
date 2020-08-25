@@ -15,7 +15,7 @@ SECONDARY_COABS = {
 }
 DEFAULT_SHARE = 'Ranzal';
 DEFAULT_SHARE_ALT = 'Curran';
-SIMULATED_BUFFS = ['str', 'def', 'critr', 'critd', 'count', 'echo'];
+SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
 function name_fmt(name) {
     return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
 }
@@ -574,7 +574,7 @@ function runAdvTest() {
     }
     for (let key of SIMULATED_BUFFS){
         const buff_value = $('#input-sim-buff-'+key).val();
-        if (!isNaN(parseInt(buff_value))) {
+        if (!isNaN(parseFloat(buff_value))) {
             requestJson['sim_buff_'+key] = buff_value;
         }
     }

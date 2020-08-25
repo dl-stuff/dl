@@ -34,7 +34,7 @@ class Ramona(Adv):
         self.add_hits(6)
 
     def s2_proc(self, e):
-       Event('defchain')()
+        Teambuff(e.name+'_defense', 0.25, 15, 'defense').on()
 
 
 if __name__ == '__main__':
