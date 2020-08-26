@@ -97,9 +97,7 @@ class WeaponBase(Slot):
 
         if self.onele:
             self.att *= 1.5
-            if adv is not None and adv.s3.owner is None:
-                self.conf.s3 = Conf(self.s3)
-        elif 'all' in self.ele:
+        if self.onele or 'all' in self.ele:
             if adv is not None and adv.s3.owner is None:
                 self.conf.s3 = Conf(self.s3)
 
