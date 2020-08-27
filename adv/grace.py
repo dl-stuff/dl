@@ -13,7 +13,7 @@ class Grace(Adv):
     conf['slots.d'] = Epimetheus()
     conf['acl'] = """
         `dragon
-        `s3, not self.s3_buff=
+        `s3, not self.s3_buff
         `s4, fsc
         `dodge, fsc
         `fs, x=1
