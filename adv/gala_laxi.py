@@ -96,11 +96,11 @@ class Gala_Laxi(Adv):
         `s4, x=4
         """
     conf['afflict_res.burn'] = 0
-    coab = ['Blade', 'Marth', 'Serena']
+    coab = ['Blade', 'Marth', 'Dagger']
     share = ['Summer_Patia']
 
     def init(self):
-        self.slots.c.coabs['Dagger'] = [None, 'dagger2']
+        self.slots.c.coabs = {'Dagger2': [None, 'dagger2']}
 
     def prerun(self):
         self.eden_mode = False
