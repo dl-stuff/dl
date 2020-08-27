@@ -1,5 +1,6 @@
 from core.advbase import *
 from slot.a import *
+from slot.d import *
 
 def module():
     return Zardin
@@ -9,6 +10,7 @@ class Zardin(Adv):
     
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
+    conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
         `dragon.act('c3 s c1 end'),s
         `s3

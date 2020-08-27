@@ -11,11 +11,11 @@ class Louise(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end"), fsc
+        `dragon.act('c3 s end'), s2.check()
         `s3, not self.s3_buff
-        `s1
-        `s4
         `s2
+        `s1
+        `s4, fsc
         `fs, x=5
         """
     coab = ['Blade','Dragonyule_Xainfried','Lin_You']
