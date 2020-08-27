@@ -1175,6 +1175,19 @@ class Adv(object):
             if 'hp' in self.conf and self.hp != self.conf['hp']:
                 self.set_hp(self.conf['hp'])
 
+    def buff_max_hp(self, name='<hp_buff>', value=0, team=False):
+        max_hp = self.mod('maxhp')
+        mod_val = min(value, max(1.30-max_hp, 0))
+        if mod_val > 0:
+            if team:
+                buff = Teambuff(name, mod_val, -1, 'maxhp', 'buff').on()
+            else:
+                buff = Selfbuff(name, mod_val, -1, 'maxhp', 'buff').on()
+        else:
+            buff = None
+        self.set_hp((self.hp*max_hp+value)/(max_hp+mod_val))
+        return buff
+
     def afflic_condition(self):
         if 'afflict_res' in self.conf:
             res_conf = self.conf.afflict_res

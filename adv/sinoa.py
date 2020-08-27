@@ -30,7 +30,9 @@ class Sinoa(Adv):
         if self.s1_buff_mode == 'means':
             Teambuff(f'{e.name}_att',0.25/4,15,'att').on()
             Teambuff(f'{e.name}_crit',0.25/4,10,'crit').on()
+            self.buff_max_hp(f'{e.name}_hp', 0.15/4, True) # inaccurate for buffcount skills
             # maybe someday doublebuffs will get a "means" parameter
+            # Teambuff(f'{e.name}_defense', 0.25/4, 15, 'defense').on()
         elif self.s1_buff_mode == 'random':
             r = random.random()
             if r<0.25  :
@@ -40,7 +42,7 @@ class Sinoa(Adv):
             elif r<0.75:
                 Teambuff(f'{e.name}_defense', 0.25, 15, 'defense').on()
             else:
-                log('debug','s1 HP buff')
+                self.buff_max_hp(f'{e.name}_hp', 0.15, True)
         elif self.s1_buff_mode == 'att':
             Teambuff(f'{e.name}_att',0.25,15,'att').on()
         elif self.s1_buff_mode == 'crit':
@@ -48,7 +50,7 @@ class Sinoa(Adv):
         elif self.s1_buff_mode == 'defense':
             Teambuff(f'{e.name}_defense', 0.25, 15, 'defense').on()
         elif self.s1_buff_mode == 'hp':
-            log('debug','s1 HP buff')
+            self.buff_max_hp(f'{e.name}_hp', 0.15, True)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -28,6 +28,7 @@ class Cassandra(Adv):
 
     def s1_proc(self, e):
         self.afflics.poison(e.name,120,0.582)
+        self.buff_max_hp(f'{e.name}_hp', 0.05)
 
     def s2_proc(self, e):
         with CrisisModifier(e.name, 1, self.hp):
