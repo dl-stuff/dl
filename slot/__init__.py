@@ -106,6 +106,9 @@ class WeaponBase(Slot):
         else :
             self.mod.append(('crit','chance',0.02))
 
+    def s3_before(self, adv, e):
+        pass
+
     def s3_proc(self, adv, e):
         pass
 

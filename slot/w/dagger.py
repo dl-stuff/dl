@@ -174,14 +174,17 @@ class Agito1_Futsu_no_Mitama(WeaponBase):
     att = 1513
     s3 = agito_buffs['water'][1]
 
-class UnreleasedAgitoStr_LightDagger(Agito2_Hrotti):
-    ele = ['light']
-
-class UnreleasedAgitoSpd_LightDagger(Agito1_Qinghong_Jian):
-    ele = ['light']
+class Agito1_Claiomh_Solais(LightAgitoWeaponBase):
+    wt = 'dagger'
+    att = 1513
+    s3a = {
+        'dmg': 6.56,
+        'startup': 0.1,
+        'recovery': 2.43,
+    }
 
 flame = Agito2_Hrotti
 water = Agito1_Futsu_no_Mitama
 wind = Agito1_Carnwennan
-light = HDT2_Fulminators_Maw
+light = Agito1_Claiomh_Solais
 shadow = Agito2_Qinghong_Jian
