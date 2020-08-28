@@ -209,6 +209,48 @@ class Tie_Shan_Gongzhu(DragonBase):
         self.adv.energy.add(5, team=True)
         return count
 
+class Gala_Thor(DragonBase):
+    ele = 'light'
+    att = 124
+    a = [('a', 0.5)]
+    # need to impl unique combo mechanic
+    dragonform = {
+        'act': 'c3 s',
+
+        'dx1.dmg': 1.60,
+        'dx1.startup': 21 / 60.0, # c1 frames
+        'dx1.hit': 2,
+
+        'dx2.dmg': 1.76,
+        'dx2.startup': 24 / 60.0, # c2 frames
+        'dx2.hit': 4,
+
+        'dx3.dmg': 2.22,
+        'dx3.startup': 35 / 60.0, # c3 frames
+        'dx3.recovery': 83 / 60.0, # recovery
+        'dx3.hit': 6,
+
+        'ds.dmg': 5.60,
+        'ds.recovery': 100 / 60, # skill frames
+        'ds.hit': 1,
+
+        'dodge.startup': 33 / 60, # dodge frames
+    }
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        from core.advbase import Timer
+        def chariot_energy(t):
+            adv.energy.add(1)
+        Timer(chariot_energy, 5, True).on()
+        att_values = (0.0, 0.25, 0.30, 0.35, 0.40, 0.45)
+        att_buff = adv.Selfbuff('chariot_att', 0.00,-1,'att', 'passive').on()
+        def l_energy(e):
+            att_buff.off()
+            att_buff.set(att_values[round(e.stack)])
+            att_buff.on()
+        adv.Event('energy').listener(l_energy)
+
 
 class Unreleased_LightSkillDamage(DragonBase):
     ele = 'light'
