@@ -1,5 +1,5 @@
 from slot import WeaponBase
-from slot.w import agito_buffs
+from slot.w import agito_buffs, LightAgitoWeaponBase
 
 class HDT1_Valkyries_Blaze(WeaponBase):
     ele = ['flame']
