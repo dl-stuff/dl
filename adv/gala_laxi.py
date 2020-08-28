@@ -105,7 +105,7 @@ class Gala_Laxi(Adv):
     def prerun(self):
         self.eden_mode = False
         self.eden_mode_timer = Timer(self.eden_mode_off, 20)
-        self.fig = Timer(self.fig_dmg, 0.33, True).on()
+        self.fig = Timer(self.fig_dmg, 0.32, True).on()
         self.stance = 'norm'
         self.next_stance = 'norm'
         self.stance_dict = {
