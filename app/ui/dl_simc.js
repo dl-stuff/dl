@@ -718,7 +718,7 @@ window.onload = function () {
     $('#clear-results').click(clearResults);
     $('#reset-test').click(loadAdvSlots);
     $('#input-edit-acl').change(editAcl);
-    $('#input-wep').change(weaponSelectChange);
+    // $('#input-wep').change(weaponSelectChange);
     clearResults();
     loadAdvWPList();
 }
