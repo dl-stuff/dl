@@ -356,20 +356,20 @@ class Ramiel(DragonBase):
         'act': 'c3 s',
 
         'dx1.dmg': 1.95,
-        'dx1.startup': 12 / 60.0, # c1 frames
+        'dx1.startup': 20 / 60.0, # c1 frames
         'dx1.hit': 1,
 
         'dx2.dmg': 2.35,
-        'dx2.startup': 36 / 60.0, # c2 frames
+        'dx2.startup': 40 / 60.0, # c2 frames
         'dx2.hit': 1,
 
         'dx3.dmg': 3.40,
-        'dx3.startup': 39 / 60.0, # c3 frames
-        'dx3.recovery': 56 / 60.0, # recovery
-        'dx3.hit': 3,
+        'dx3.startup': 55 / 60.0, # c3 frames
+        'dx3.recovery': 45 / 60.0, # recovery
+        'dx3.hit': 1,
 
         'ds.recovery': 220 / 60,
-        'ds.hit': 1,
+        'ds.hit': -2,
     }
 
     def oninit(self, adv):

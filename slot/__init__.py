@@ -135,7 +135,11 @@ class DragonBase(Slot):
         'dx3.recovery': 0,
         'dx4.recovery': 0,
         'dx5.recovery': 0,
-        
+        'dx6.recovery': 0,
+        'dx7.recovery': 0,
+        'dx8.recovery': 0,
+        'dx9.recovery': 0,
+
         'ds.startup': 0,
         'ds.recovery': 0,
         'ds.dmg': 0,

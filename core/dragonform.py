@@ -3,6 +3,7 @@ from core.timeline import Event, Timer, now
 from core.log import log
 from math import ceil
 
+MAX_C = 10
 class DragonForm(Action):
     def __init__(self, name, conf, adv, ds_proc):
         self.name = name
@@ -19,7 +20,7 @@ class DragonForm(Action):
         self.act_list = []
         self.act_sum = []
 
-        self.dx_list = ['dx{}'.format(i) for i in range(1, 6) if 'dmg' in self.conf['dx{}'.format(i)]]
+        self.dx_list = ['dx{}'.format(i) for i in range(1, MAX_C) if 'dmg' in self.conf['dx{}'.format(i)]]
 
         self.ds_event = Event('s')
         self.ds_event.name = 'ds'

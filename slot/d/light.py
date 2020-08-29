@@ -213,33 +213,56 @@ class Gala_Thor(DragonBase):
     ele = 'light'
     att = 124
     a = [('a', 0.5)]
-    # need to impl unique combo mechanic
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c8 s',
 
-        'dx1.dmg': 1.60,
-        'dx1.startup': 21 / 60.0, # c1 frames
-        'dx1.hit': 2,
+        'dx1.dmg': 2.10,
+        'dx1.startup': 16 / 60.0, # c1 frames
+        'dx1.hit': 1,
 
         'dx2.dmg': 1.76,
-        'dx2.startup': 24 / 60.0, # c2 frames
-        'dx2.hit': 4,
+        'dx2.startup': 37 / 60.0, # c2 frames
+        'dx2.hit': 1,
 
-        'dx3.dmg': 2.22,
-        'dx3.startup': 35 / 60.0, # c3 frames
-        'dx3.recovery': 83 / 60.0, # recovery
-        'dx3.hit': 6,
+        'dx3.dmg': 6.38,
+        'dx3.startup': 124 / 60.0, # c3 frames
+        # 'dx3.recovery': 24 / 60.0, # recovery
+        'dx3.hit': 11,
 
-        'ds.dmg': 5.60,
-        'ds.recovery': 100 / 60, # skill frames
-        'ds.hit': 1,
+        'dx4.dmg': 6.38,
+        'dx4.startup': 72 / 60.0,
+        'dx4.hit': 11,
+
+        'dx5.dmg': 6.38,
+        'dx5.startup': 72 / 60.0,
+        'dx5.hit': 11,
+
+        'dx6.dmg': 6.38,
+        'dx6.startup': 72 / 60.0,
+        'dx6.hit': 11,
+
+        'dx7.dmg': 6.38,
+        'dx7.startup': 72 / 60.0,
+        'dx7.hit': 11,
+
+        'dx8.dmg': 6.38,
+        'dx8.startup': 72 / 60.0,
+        'dx8.hit': 11,
+
+        'dx9.dmg': 6.38,
+        'dx9.startup': 72 / 60.0,
+        'dx9.hit': 11,
+
+        'ds.dmg': 17.80,
+        'ds.recovery': 180 / 60, # skill frames
+        'ds.hit': -1,
 
         'dodge.startup': 33 / 60, # dodge frames
     }
 
     def oninit(self, adv):
         super().oninit(adv)
-        from core.advbase import Timer
+        from core.advbase import Timer, Event
         def chariot_energy(t):
             adv.energy.add(1)
         Timer(chariot_energy, 5, True).on()
@@ -250,6 +273,10 @@ class Gala_Thor(DragonBase):
             att_buff.set(att_values[round(e.stack)])
             att_buff.on()
         adv.Event('energy').listener(l_energy)
+
+        def shift_end_energy(e):
+            adv.energy.add(5, team=True)
+        Event('dragon_end').listener(shift_end_energy)
 
 
 class Unreleased_LightSkillDamage(DragonBase):
