@@ -1,5 +1,5 @@
 from slot import WeaponBase
-from slot.w import agito_buffs
+from slot.w import agito_buffs, LightAgitoWeaponBase
 
 class HDT1_Conflagration(WeaponBase):
     ele = ['flame']
@@ -174,14 +174,17 @@ class Agito1_Ame_no_Habakiri(WeaponBase):
     att = 1636
     s3 = agito_buffs['water'][1]
 
-class UnreleasedAgitoStr_LightBlade(Agito1_Tyrfing):
-    ele = ['light']
-
-class UnreleasedAgitoSpd_LightBlade(Agito1_Qixing_Baodao):
-    ele = ['light']
+class Agito1_Fragarach(LightAgitoWeaponBase):
+    wt = 'blade'
+    att = 1636
+    s3a = {
+        'dmg': 8.52,
+        'startup': 0.1,
+        'recovery': 2.2,
+    }
 
 flame = Agito2_Tyrfing
 water = Agito1_Ame_no_Habakiri
 wind = Agito1_Arondight
-light = HDT2_Brilliant_Flash
+light = Agito1_Fragarach
 shadow = Agito2_Qixing_Baodao

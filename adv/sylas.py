@@ -42,8 +42,9 @@ class Sylas(Adv):
             self.dmg_make(e.name, 5.52)
 
     def s2_proc(self, e):
-        Selfbuff(f'{e.name}_sp',0.30,15,'sp','buff').on()
+        Selfbuff(f'{e.name}_sp',0.30,15,'sp','passive').on()
         Teambuff(e.name,0.25/2,15,'att','buff').on()
+        # maybe someday doublebuffs will get a "means" parameter
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

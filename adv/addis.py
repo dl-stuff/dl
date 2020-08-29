@@ -1,5 +1,7 @@
 from core.advbase import *
 from module.bleed import Bleed
+from slot.a import *
+from slot.d import *
 
 def module():
     return Addis

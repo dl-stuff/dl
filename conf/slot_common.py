@@ -9,7 +9,7 @@ ele_dragon = {
     'flame': Gala_Mars,
     'water': Siren,
     'wind': Vayu,
-    'light': Daikokuten,
+    'light': Gala_Thor,
     'shadow': Gala_Cat_Sith
 }
 

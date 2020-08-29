@@ -5,6 +5,8 @@ def module():
     return Alain
 
 class Alain(Adv):
+    a1 = ('lo_defense', 1.00)
+
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """

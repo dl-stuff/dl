@@ -15,6 +15,7 @@ SECONDARY_COABS = {
 }
 DEFAULT_SHARE = 'Ranzal';
 DEFAULT_SHARE_ALT = 'Curran';
+SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
 function name_fmt(name) {
     return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
 }
@@ -571,24 +572,11 @@ function runAdvTest() {
     if (sim_aff != null) {
         requestJson['sim_afflict'] = sim_aff;
     }
-    // if ($('#input-sim-afflict').val() !== 'none' && !isNaN(parseInt($('#input-sim-afflict-time').val()))) {
-    //     requestJson['sim_afflict_type'] = $('#input-sim-afflict-type').val();
-    //     requestJson['sim_afflict_time'] = $('#input-sim-afflict-time').val();
-    // }
-    if (!isNaN(parseInt($('#input-sim-buff-str').val()))) {
-        requestJson['sim_buff_str'] = $('#input-sim-buff-str').val();
-    }
-    if (!isNaN(parseInt($('#input-sim-buff-critr').val()))) {
-        requestJson['sim_buff_critr'] = $('#input-sim-buff-critr').val();
-    }
-    if (!isNaN(parseInt($('#input-sim-buff-critd').val()))) {
-        requestJson['sim_buff_critd'] = $('#input-sim-buff-critd').val();
-    }
-    if (!isNaN(parseInt($('#input-sim-buff-def').val()))) {
-        requestJson['sim_buff_def'] = $('#input-sim-buff-def').val();
-    }
-    if (!isNaN(parseInt($('#input-sim-buff-count').val()))) {
-        requestJson['sim_buff_count'] = $('#input-sim-buff-count').val();
+    for (let key of SIMULATED_BUFFS){
+        const buff_value = $('#input-sim-buff-'+key).val();
+        if (!isNaN(parseFloat(buff_value))) {
+            requestJson['sim_buff_'+key] = buff_value;
+        }
     }
     const condition = readConditionList();
     if (condition !== null) {
@@ -695,9 +683,9 @@ function clearResults() {
     const simAff = $('#affliction-sim > div > input[type="text"]');
     simAff.each(function (idx, res) { $(res).val(''); });
     $('input:checked.coab-check').prop('check', false);
-    $('#input-sim-buff-str').val('');
-    $('#input-sim-buff-def').val('');
-    $('#input-sim-buff-count').val('');
+    for (let key of SIMULATED_BUFFS){
+        $('#input-sim-buff-'+key).val('');
+    }
     $('#input-conditions').empty();
 }
 function weaponSelectChange() {
@@ -730,7 +718,7 @@ window.onload = function () {
     $('#clear-results').click(clearResults);
     $('#reset-test').click(loadAdvSlots);
     $('#input-edit-acl').change(editAcl);
-    $('#input-wep').change(weaponSelectChange);
+    // $('#input-wep').change(weaponSelectChange);
     clearResults();
     loadAdvWPList();
 }

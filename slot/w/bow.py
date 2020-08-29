@@ -1,5 +1,5 @@
 from slot import WeaponBase
-from slot.w import agito_buffs
+from slot.w import agito_buffs, LightAgitoWeaponBase
 
 class HDT1_Valkyries_Blaze(WeaponBase):
     ele = ['flame']
@@ -173,14 +173,17 @@ class Agito2_Longshe_Gong(WeaponBase):
     att = 1629
     s3 = agito_buffs['shadow'][2]
 
-class UnreleasedAgitoStr_LightBow(Agito1_Ydalir):
-    ele = ['light']
-
-class UnreleasedAgitoSpd_LightBow(Agito1_Longshe_Gong):
-    ele = ['light']
+class Agito1_Tathlum(LightAgitoWeaponBase):
+    wt = 'bow'
+    att = 1482
+    s3a = {
+        'dmg': 9.49,
+        'startup': 0.1,
+        'recovery': 2.00,
+    }
 
 flame = Agito2_Ichaival
 water = Agito1_Ame_no_Hajiyumi
 wind = Agito1_Failnaught
-light = HDT2_Jupiters_Sky
+light = Agito1_Tathlum
 shadow = Agito2_Longshe_Gong

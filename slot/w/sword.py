@@ -1,5 +1,5 @@
 from slot import WeaponBase
-from slot.w import agito_buffs
+from slot.w import agito_buffs, LightAgitoWeaponBase
 
 class HDT1_Crimson(WeaponBase):
     ele = ['flame']
@@ -174,14 +174,17 @@ class Agito2_Yitian_Jian(WeaponBase):
     att = 1696
     s3 = agito_buffs['shadow'][2]
 
-class UnreleasedAgitoStr_LightSword(Agito1_Nothung):
-    ele = ['light']
-
-class UnreleasedAgitoSpd_LightSword(Agito1_Yitian_Jian):
-    ele = ['light']
+class Agito1_Caladbolg(LightAgitoWeaponBase):
+    wt = 'sword'
+    att = 1544
+    s3a = {
+        'dmg': 9.92,
+        'startup': 0.1,
+        'recovery': 1.7667,
+    }
 
 flame = Agito2_Nothung
 water = Agito1_Ame_no_Murakumo
 wind = Agito1_Excalibur
-light = HDT2_Absolute_Lightning
+light = Agito1_Caladbolg
 shadow = Agito2_Yitian_Jian

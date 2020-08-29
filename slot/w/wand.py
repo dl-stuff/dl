@@ -1,5 +1,5 @@
 from slot import WeaponBase
-from slot.w import agito_buffs
+from slot.w import agito_buffs, LightAgitoWeaponBase
 
 class HDT1_Muspelheim(WeaponBase):
     ele = ['flame']
@@ -174,14 +174,17 @@ class Agito2_Jiu_Ci(WeaponBase):
     att = 1747
     s3 = agito_buffs['shadow'][2]
 
-class UnreleasedAgitoStr_LightWand(Agito1_Brisingr):
-    ele = ['light']
-
-class UnreleasedAgitoSpd_LightWand(Agito1_Jiu_Ci):
-    ele = ['light']
+class Agito1_Brionac(LightAgitoWeaponBase):
+    wt = 'wand'
+    att = 1590
+    s3a = {
+        'dmg': 10.84,
+        'startup': 0.1,
+        'recovery': 1.6667,
+    }
 
 flame = Agito2_Brisinga
 water = Agito1_Omizununo
 wind = Agito1_Camelot
-light = HDT2_Primeval_Thunder
+light = Agito1_Brionac
 shadow = Agito2_Jiu_Ci

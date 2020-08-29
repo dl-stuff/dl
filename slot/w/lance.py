@@ -1,5 +1,5 @@
 from slot import WeaponBase
-from slot.w import agito_buffs
+from slot.w import agito_buffs, LightAgitoWeaponBase
 
 class HDT1_Crimsonflame_Lance(WeaponBase):
     ele = ['flame']
@@ -174,14 +174,17 @@ class Agito1_Ame_no_Nuhoko(WeaponBase):
     att = 1575
     s3 = agito_buffs['water'][1]
 
-class UnreleasedAgitoStr_LightLance(Agito1_Gungnir):
-    ele = ['light']
-
-class UnreleasedAgitoSpd_LightLance(Agito1_Qinglong_Yanyuedao):
-    ele = ['light']
+class Agito1_Areadbhar(LightAgitoWeaponBase):
+    wt = 'lance'
+    att = 1575
+    s3a = {
+        'dmg': 8.28,
+        'startup': 0.1,
+        'recovery': 3.233, # need confirm
+    }
 
 flame = Agito2_Gungnir
 water = Agito1_Ame_no_Nuhoko
 wind = Agito1_Rhongomyniad
-light = HDT2_Brilliant_Lightflash
+light = Agito1_Areadbhar
 shadow = Agito2_Qinglong_Yanyuedao

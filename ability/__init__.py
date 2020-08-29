@@ -252,7 +252,7 @@ ability_dict['bc'] = Doublebuff
 
 
 class Doublebuff_CD(Doublebuff):
-    DB_CD = 15
+    DB_CD = 14.99 # inaccurate, but avoids a potential unintuitive race condition
     def oninit(self, adv, afrom=None):
         self.is_cd = False
 
@@ -274,7 +274,7 @@ class Doublebuff_CD(Doublebuff):
                     adv.Timer(cd_end).on(self.DB_CD)
             adv.Event('defchain').listener(defchain)
 
-ability_dict['bcc'] = Doublebuff
+ability_dict['bcc'] = Doublebuff_CD
 
 
 # class Slayer_Strength(BuffingAbility):
@@ -496,6 +496,13 @@ class Force_Charge(Ability):
                 if self.charge == 0:
                     self.l_fs_charge.off()
             self.l_fs_charge = adv.Listener('fs', l_fs_charge)
+
+            i = 1
+            fsi = f'fs{i}'
+            while hasattr(adv, fsi):
+                self.l_fs_charge = adv.Listener(fsi, l_fs_charge)
+                i += 1
+                fsi = f'fs{i}'
             adv.fs_prep_c = self.charge
             adv.fs_prep_v = self.value
 
@@ -544,13 +551,14 @@ ability_dict['energy'] = Energy_Buff
 
 
 class Affliction_Selfbuff(Ability):
-    def __init__(self, name, value, duration=15, cd=10):
+    def __init__(self, name, value, duration=15, cd=10, is_rng=False):
         nameparts = name.split('_')
         self.atype = nameparts[1].strip()
         self.value = value
         self.duration = duration
         self.buff_args = nameparts[2:]
         self.cd = cd
+        self.is_rng = is_rng
         self.is_cd = False
         super().__init__(name)
 
@@ -559,9 +567,16 @@ class Affliction_Selfbuff(Ability):
             self.is_cd = False
         def l_afflict(e):
             if not self.is_cd:
-                adv.Buff(self.name, self.value * e.rate, self.duration, *self.buff_args).on()
-                self.is_cd = True
-                adv.Timer(cd_end).on(self.cd)
+                if self.is_rng:
+                    import random
+                    if random.random() < e.rate:
+                        adv.Buff(self.name, self.value, self.duration, *self.buff_args).on()
+                        self.is_cd = True
+                        adv.Timer(cd_end).on(self.cd)
+                else:
+                    adv.Buff(self.name, self.value * e.rate, self.duration, *self.buff_args).on()
+                    self.is_cd = True
+                    adv.Timer(cd_end).on(self.cd)
         adv.Event(self.atype).listener(l_afflict)
 
 ability_dict['affself'] = Affliction_Selfbuff

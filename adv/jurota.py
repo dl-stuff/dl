@@ -19,7 +19,7 @@ class Jurota(Adv):
         `s1, cancel
         """
     coab = ['Renee', 'Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal   ']
+    share = ['Gala_Elisanne', 'Ranzal']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -232,6 +232,11 @@ class Buff(object):
         self.bufftime = self._no_bufftime
         return self
 
+    def zone(self):
+        self.bufftime = self._no_bufftime
+        self.name += '_zone'
+        return self
+
     def value(self, newvalue=None):
         if newvalue:
             return self.set(newvalue)
@@ -357,6 +362,8 @@ class Buff(object):
 
         if self.mod_type == 'defense':
             Event('defchain').on()
+            if self.bufftype == 'team':
+                log('buff', 'team_defense', 'proc team doublebuffs')
 
         self.effect_on()
         return self
@@ -369,6 +376,14 @@ class Buff(object):
         self.modifier.off()
         self.buff_end_timer.off()
         return self
+
+
+class EffectBuff(Buff):
+    def __init__(self, name, duration, effect_on, effect_off):
+        Buff.__init__(self, name, 1, duration, 'special', 'effect')
+        self.bufftype = 'self'
+        self.effect_on = effect_on
+        self.effect_off = effect_off
 
 
 class Selfbuff(Buff):
@@ -510,7 +525,7 @@ class Skill(object):
         pass
 
     def charge(self, sp):
-        self.charged = min(self.sp, self.charged + sp)
+        self.charged = max(min(self.sp, self.charged + sp), 0)
         if self.charged >= self.sp:
             self.skill_charged()
         # if self.charged > self.sp:  # should be
@@ -815,11 +830,11 @@ class Fs_group(object):
     def __init__(self, name, conf, act=None):
         self.actions = {}
         self.conf = conf
-        fsconf = conf.fs
+        fsconf = conf[name]
         xnfsconf = [fsconf, fsconf, fsconf, fsconf, fsconf, fsconf]
 
         for i in range(5):
-            xnfs = 'x%dfs' % (i + 1)
+            xnfs = f'x{(i + 1)}{name}'
             if xnfs in self.conf:
                 xnfsconf[i] += self.conf[xnfs]
 
@@ -852,7 +867,7 @@ class FS_MH(Action):
         self.cancel_by = ['s','dodge']
 
     def act(self, action):
-        self.act_event.name = 'fs'
+        self.act_event.name = self.name
         self.act_event.idx = self.idx
         self.act_event()
 
@@ -909,7 +924,7 @@ class Adv(object):
         pass
 
     def s3_proc(self, e):
-        self.slots.w.s3_proc(self, e)
+        pass
 
     def s4_proc(self, e):
         pass
@@ -1188,22 +1203,30 @@ class Adv(object):
 
     def sim_buffbot(self):
         if 'sim_buffbot' in self.conf:
-            if 'debuff' in self.conf.sim_buffbot:
-                value = -self.conf.sim_buffbot.debuff
+            if 'def_down' in self.conf.sim_buffbot:
+                value = -self.conf.sim_buffbot.def_down
                 if self.condition('boss def {:+.0%}'.format(value)):
                     buff = self.Selfbuff('simulated_def', value, -1, mtype='def')
                     buff.chance = 1
                     buff.val = value
                     buff.on()
-            if 'buff' in self.conf.sim_buffbot:
-                if self.condition('team str {:+.0%}'.format(self.conf.sim_buffbot.buff)):
-                    self.Selfbuff('simulated_att', self.conf.sim_buffbot.buff, -1).on()
+            if 'str_buff' in self.conf.sim_buffbot:
+                if self.condition('team str {:+.0%}'.format(self.conf.sim_buffbot.str_buff)):
+                    self.Selfbuff('simulated_att', self.conf.sim_buffbot.str_buff, -1).on()
             if 'critr' in self.conf.sim_buffbot:
                 if self.condition('team crit rate {:+.0%}'.format(self.conf.sim_buffbot.critr)):
                     self.Selfbuff('simulated_crit_rate', self.conf.sim_buffbot.critr, -1, 'crit', 'rate').on()
             if 'critd' in self.conf.sim_buffbot:
                 if self.condition('team crit dmg {:+.0%}'.format(self.conf.sim_buffbot.critd)):
                     self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'dmg').on()
+            if 'echo' in self.conf.sim_buffbot:
+                if self.condition('echo att {:g}'.format(self.conf.sim_buffbot.echo)):
+                    self.enable_echo(fixed_att=self.conf.sim_buffbot.echo)
+            if 'doublebuff_interval' in self.conf.sim_buffbot:
+                interval = round(self.conf.sim_buffbot.doublebuff_interval, 2)
+                if self.condition('team doublebuff every {:.2f} sec'.format(interval)):
+                    Event('defchain').on()
+                    Timer(lambda t: Event('defchain').on(), interval, True).on()
 
     def sync_slot(self, conf):
         # self.cmnslots(conf)
@@ -1361,9 +1384,9 @@ class Adv(object):
     def c_speed(self):
         return min(self.mod('cspd'), 1.50)
 
-    def enable_echo(self, mod):
+    def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2
-        self.echo_att = mod * self.base_att * self.modifier.mod('att')
+        self.echo_att = fixed_att or (mod * self.base_att * self.modifier.mod('att'))
         log('debug', 'echo_att', self.echo_att)
 
     def disable_echo(self):
@@ -1627,8 +1650,8 @@ class Adv(object):
         for name in self.coab_list:
             try:
                 self.slots.c.coabs[name] = coability_dict(self.slots.c.ele)[name]
-            except:
-                pass
+            except KeyError:
+                raise ValueError(f'No such coability: {name}')
         self.coab_list = list(self.slots.c.coabs.keys())
         try:
             self.coab_list.remove(self_coab)
@@ -1716,7 +1739,9 @@ class Adv(object):
                         'startup': 0.1
                     })
                     self.conf[dst_key] = default_skill
-                    self.__setattr__(dst_key, Skill(dst_key, default_skill))
+                    s = Skill(dst_key, default_skill)
+                    s.owner = owner
+                    self.__setattr__(dst_key, s)
         return preruns
 
     def run(self, d=300):
@@ -1832,6 +1857,11 @@ class Adv(object):
                 if len(self.comment) > 0:
                     self.comment += '; '
                 self.comment += '{:.0%} {} uptime'.format(up, aff)
+
+        if g_logs.team_doublebuffs > 0:
+            if len(self.comment) > 0:
+                self.comment += '; '
+            self.comment += f'{d/g_logs.team_doublebuffs:.2f}s team doublebuff interval'
 
         self.logs = copy.deepcopy(g_logs)
 
@@ -1959,26 +1989,31 @@ class Adv(object):
         return count
 
     def l_melee_fs(self, e):
-        log('cast', 'fs')
-        dmg_coef = self.conf.fs.dmg
+        log('cast', e.name)
+        try:
+            fs_conf = self.conf[e.name]
+        except AttributeError:
+            fs_conf = self.conf['fs']
         self.fs_before(e)
         self.update_hits('fs')
-        self.dmg_make('fs', dmg_coef)
+        self.dmg_make('fs', fs_conf.dmg)
         self.fs_proc(e)
         self.think_pin('fs')
-        self.charge('fs', self.conf.fs.sp)
+        self.charge(e.name, fs_conf.sp)
 
     def l_range_fs(self, e):
-        log('cast', 'fs')
+        log('cast', e.name)
         self.fs_before(e)
         self.update_hits('fs')
-        dmg_coef = self.conf['fs.dmg']
-        sp_gain = self.conf['fs.sp']
+        try:
+            fs_conf = self.conf[e.name]
+        except AttributeError:
+            fs_conf = self.conf['fs']
         missile_timer = Timer(self.cb_missile, self.conf['missile_iv']['fs'])
         missile_timer.dname = 'fs'
         # missile_timer.dname = 'fs_missile'
-        missile_timer.amount = dmg_coef
-        missile_timer.samount = sp_gain
+        missile_timer.amount = fs_conf.dmg
+        missile_timer.samount = fs_conf.sp
         missile_timer()
         self.fs_proc(e)
         self.think_pin('fs')

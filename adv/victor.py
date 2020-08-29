@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.bleed import Bleed
+from module.bleed import Bleed, mBleed
 from slot.a import *
 
 def module():
@@ -22,11 +22,19 @@ class Victor(Adv):
 
     def prerun(self):
         random.seed()
-        self.bleed = Bleed('g_bleed',0).reset()
+        self.bleed_class = Bleed
+        self.bleed = self.bleed_class('g_bleed',0).reset()
+        self.bleed_rate = 0.8
+
+    @staticmethod
+    def prerun_skillshare(adv, dst):
+        adv.bleed_class = mBleed
+        adv.bleed = adv.bleed_class('g_bleed',0).reset()
+        adv.bleed_rate = 1
 
     def s1_proc(self, e):
-        if random.random() < 0.8:
-            Bleed(e.name, 1.46).on()
+        if random.random() < self.bleed_rate:
+            self.bleed_class(e.name, 1.46).on()
 
 
 if __name__ == '__main__':

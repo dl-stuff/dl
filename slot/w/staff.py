@@ -1,5 +1,5 @@
 from slot import WeaponBase
-from slot.w import agito_buffs
+from slot.w import agito_buffs, LightAgitoWeaponBase
 
 class HDT1_Brightblaze(WeaponBase):
     ele = ['flame']
@@ -174,14 +174,17 @@ class Agito2_Goosefoot_Staff(WeaponBase):
     att = 1612
     s3 = agito_buffs['shadow'][2]
 
-class UnreleasedAgitoStr_LightStaff(Agito1_Gjallarhorn):
-    ele = ['light']
-
-class UnreleasedAgitoSpd_LightStaff(Agito1_Goosefoot_Staff):
-    ele = ['light']
+class Agito1_Del_Frith(LightAgitoWeaponBase):
+    wt = 'staff'
+    att = 1467
+    s3a = {
+        'dmg': 7.55,
+        'startup': 0.1,
+        'recovery': 1.4,
+    }
 
 flame = Agito2_Gjallarhorn
 water = Agito1_Kunado
 wind = Agito1_Avalon
-light = HDT2_Heavensneer
+light = Agito1_Del_Frith
 shadow = Agito2_Goosefoot_Staff

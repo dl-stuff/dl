@@ -1,70 +1,120 @@
 from core.advbase import *
-import copy
 from module.x_alt import Fs_alt
+from slot.a import *
+from slot.d import *
 
 def module():
     return Albert
 
+conf_alt_fs = {
+    'fs1': {
+        'dmg': 1.12,
+        'sp': 330,
+        'charge': 4 / 60.0,
+        'startup': 9 / 60.0,
+        'recovery':26 / 60.0,
+    },
+    'fs2': {
+        'dmg': 1.12,
+        'sp': 330,
+        'charge': 34 / 60.0, # 0.5 ?
+        'startup': 9 / 60.0,
+        'recovery':26 / 60.0,
+    }
+}
+
+# non electrified fs
+conf_albert_fs = {
+    'fs.dmg': 1.265
+}
+
 class Albert(Adv):
     a1 = ('fs',0.5)
-    conf = {}
+    conf = conf_albert_fs.copy()
+    conf['slots.d'] = Corsaint_Phoenix()
+    conf['slots.a'] = The_Shining_Overlord()+Spirit_of_the_Season()
+    conf['slots.paralysis.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon, fsc
-        `s2, s1.charged>=s1.sp-330
-        `fs, s=2 and not self.afflics.paralysis.get()
-        `s1, fsc
+        if self.electrified.get()
+        `s1
         `s3, fsc
-        `s4
-        `fs, seq=2
+        if x=3
+        `fs2, not self.afflics.paralysis.get()
+        `fs1
+        end
+        else
+        `dragon
+        `s2, s1.charged>=s1.sp-self.sp_val(2)
+        `s1, cancel
+        `s3, cancel
+        `s4, cancel
+        end
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Blade','Wand','Peony']
+    share = ['Kleimann', 'Ranzal']
     conf['afflict_res.paralysis'] = 0
 
-    def fs_proc_alt(self, e):
-        self.afflics.paralysis('fs',100,0.803)
+    def init(self):
+        self.conf.fs.hit = 1
 
     def prerun(self):
-        conf_fs_alt = {
-            'fs.dmg':1.02,
-            'fs.sp':330,
-            'fs.recovery':26/60.0,
-        }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
         self.s2.autocharge_init(self.s2autocharge).on()
-        self.s2buff = Selfbuff("s2_shapshift",1, 20,'ss','ss')
-        self.a3 = Selfbuff('a2_str_passive',0.25,20,'att','passive')
+        self.fs_alt = Fs_alt(self, conf_alt_fs, fs_proc=self.fs_proc)
+        self.a1_fs = Selfbuff('a1_fs_passive',0.10, 25,'fs','passive')
+        self.a3_att = Selfbuff('a3_att_passive',0.30, 25,'att','passive')
+        self.a3_spd = Spdbuff('a3_spd', 0.10, 25)
+        self.electrified = EffectBuff('electrified', 25, self.electrified_on, self.electrified_off)
 
-        self.fs_alt_timer = Timer(self.fs_alt_end)
         self.s1_hits = 6 if self.condition('big hitbox') else 4
+
+    def electrified_on(self):
+        self.fs_alt.on(-1)
+        self.a1_fs.on()
+        self.a3_att.on()
+        self.a3_spd.on()
+
+    def electrified_off(self):
+        self.fs_alt.off()
+        self.a1_fs.off()
+        self.a3_att.off()
+        self.a3_spd.off()
 
     @staticmethod
     def prerun_skillshare(adv, dst):
-        adv.s2buff = Dummy()
-
-    def fs_alt_end(self,t):
-        self.fs_alt.off()
+        adv.electrified = Dummy()
 
     def s2autocharge(self, t):
-        if not self.s2buff.get():
-            self.s2.charge(160000.0/40)
+        if not self.electrified.get():
+            self.s2.charge(28000)
             log('sp','s2autocharge')
 
+    def fs_proc(self, e):
+        if not self.electrified.get():
+            self.s2.charge(-50000)
+        elif e.name == 'fs2':
+            self.afflics.paralysis('fs',120,0.97)
+
     def s1_proc(self, e):
-        if self.s2buff.get():
-            name = f'o_{e.name}_boost'
-            self.dmg_make(name,12.38-0.825)
-            for _ in range(2, self.s1_hits+1):
-                self.dmg_make(name, 0.83)
-                self.add_hits(1)
-            self.s2buff.buff_end_timer.timing += 2.6
-            self.a3.buff_end_timer.timing += 2.6
+        with KillerModifier('s1_killer','hit',0.2,['paralysis']):
+            if self.electrified.get():
+                self.dmg_make(e.name, 12.38)
+                for _ in range(2, self.s1_hits+1):
+                    self.dmg_make(e.name, 0.83)
+                    self.add_hits(1)
+                extend = self.s1.ac.getstartup()+self.s1.ac.getrecovery()
+                for buff in (self.electrified,
+                             self.a1_fs,
+                             self.a3_att,
+                             self.a3_spd):
+                    buff.buff_end_timer.timing += extend
+            else:
+                self.dmg_make(e.name, 8.25)
 
     def s2_proc(self, e):
-        self.s2buff.on()
-        self.a3.on()
-        self.fs_alt.on(-1)
-        self.fs_alt_timer(20)
+        self.electrified.on()
+        self.a1_fs.on()
+        self.a3_att.on()
+        self.a3_spd.on()
 
 
 if __name__ == '__main__':

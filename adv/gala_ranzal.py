@@ -91,7 +91,7 @@ class Gala_Ranzal(Adv):
     def s2_proc(self, e):
         self.fs_alt.on(3)
         self.ifs1ins2 = 0
-        Event('defchain')()
+        Teambuff(e.name+'_defense', 0.10, 10, 'defense').on()
 
 
 if __name__ == '__main__':
