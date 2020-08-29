@@ -1,7 +1,6 @@
 from core.ctx import *
 import core.log
 
-
 def now():
     return _g_now
 
@@ -176,10 +175,12 @@ class Timer(object):
         return self
 
     def add(self, time=0):
+        core.log.log('timeline', self.timing, self.timing+time, time, self.timing+time-now())
         self.timeout += time
         self.timing += time
-        if self.timing + time < now():
+        if self.timing < now():
             self.off()
+        return self.timing - now()
 
     #alias
     disable = off

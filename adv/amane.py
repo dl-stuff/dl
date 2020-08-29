@@ -15,8 +15,8 @@ class Amane(Adv):
         `s3
         `s4
         """
-    coab = ['Blade','Halloween_Elisanne','Peony']
-    share = ['Ranzal']
+    coab = ['Blade','Sharena','Peony']
+    share = ['Ranzal','Kleimann']
 
     def s1_proc(self, e):
         with KillerModifier('s1_killer', 'hit', 0.1, ['paralysis']):

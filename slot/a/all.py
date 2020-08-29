@@ -460,3 +460,11 @@ class Memories_of_Summers_Dusk(Amulet):
 class A_Passion_for_Produce(Amulet):
     att = 52
     a = [('s',0.20), ('cc',0.12)]
+
+class Treasury_of_Knowledge(Amulet):
+    att = 46
+    a = [('k_sleep',0.20)]
+
+class A_Day_in_Her_Life(Amulet):
+    att = 64
+    a = [('bc_energy', 1), ('fs', 0.50)]

@@ -280,6 +280,7 @@ class Azazel(DragonBase):
 
     def ds_proc(self):
         from core.advbase import Teambuff
+        self.adv.afflics.poison('ds',120,0.291,30,dtype='s')
         dmg = self.adv.dmg_make('ds',5.00,'s')
         Teambuff('ds', 0.15, 40, 'poison_killer', 'passive').on()
         return dmg
@@ -345,7 +346,54 @@ class Gala_Cat_Sith(DragonBase):
     def shift_end_trickery(self, e):
         if not self.adv.dragonform.is_dragondrive:
             self.add_trickery(8)
-						
+
+class Ramiel(DragonBase):
+    ele = 'shadow'
+    att = 128
+    a = [('a', 0.6), ('dp', 50)]
+    # need framedata
+    dragonform = {
+        'act': 'c3 s',
+
+        'dx1.dmg': 1.95,
+        'dx1.startup': 20 / 60.0, # c1 frames
+        'dx1.hit': 1,
+
+        'dx2.dmg': 2.35,
+        'dx2.startup': 40 / 60.0, # c2 frames
+        'dx2.hit': 1,
+
+        'dx3.dmg': 3.40,
+        'dx3.startup': 55 / 60.0, # c3 frames
+        'dx3.recovery': 45 / 60.0, # recovery
+        'dx3.hit': 1,
+
+        'ds.recovery': 220 / 60,
+        'ds.hit': -2,
+    }
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        from core.advbase import Debuff, EffectBuff, Timer
+        self.sp_convert = adv.sp_convert
+        self.s1 = adv.s1
+        self.s2 = adv.s2
+        self.ds_buff = Debuff('ds',0.20,15)
+        self.sp_regen_buff = EffectBuff('ds_sp', 90, lambda: self.sp_regen_timer.on(), lambda: self.self.sp_regen_timer.off())
+        self.sp_regen_timer = Timer(self.sp_regen, 1.99, 1)
+
+    def sp_regen(self, t):
+        self.s1.charge(self.sp_convert(0.015, self.s1.sp))
+        self.s2.charge(self.sp_convert(0.015, self.s2.sp))
+        
+    def ds_proc(self):
+        dmg = self.adv.dmg_make('ds',3.224,'s')
+        self.adv.afflics.poison('ds',120,0.582,dtype='s')
+        self.ds_buff.on()
+        self.s2.charge(self.s2.sp)
+        self.sp_regen_buff.on()
+        return dmg + self.adv.dmg_make('ds',4.836,'s')
+
 class Unreleased_ShadowCritDamage(DragonBase):
     ele = 'shadow'
     att = 127

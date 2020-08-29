@@ -5,6 +5,8 @@ def module():
     return Yue
 
 class Yue(Adv):
+    a1 = ('lo_defense', 0.60)
+
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['slots.burn.a'] = Kung_Fu_Masters()+Me_and_My_Bestie()

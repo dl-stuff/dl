@@ -44,7 +44,7 @@ class Chrom(Adv):
 
     def d_skillshare(self):
         if self.sim_afflict:
-            share = ['Nadine']
+            self.share = ['Nadine']
 
     def init(self):
         del self.slots.c.coabs['Sword']

@@ -31,7 +31,7 @@ class Peony(Adv):
     def fs_proc_alt(self, e):
         self.fs_str.on()
         self.fs_spd.on()
-        Event('defchain')()
+        self.fs_def.on()
         self.a1_is_cd = True
         self.a1_cd_timer.on(20)
 
@@ -51,8 +51,9 @@ class Peony(Adv):
             'fs.recovery': 60/60.0,
         }
         self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
-        self.fs_str = Teambuff('fs_str',0.10,10,'att','buff')
-        self.fs_spd = Spdbuff('fs_spd',0.10,10,wide='team')
+        self.fs_str = Teambuff('fs_str', 0.10, 10, 'att', 'buff')
+        self.fs_spd = Spdbuff('fs_spd', 0.10, 10, wide= 'team')
+        self.fs_def = Teambuff('fs_def', 0.20, 10, 'defense')
 
         self.a1_is_cd = False
         self.a1_charge_defer = False
@@ -66,7 +67,7 @@ class Peony(Adv):
     def s1_proc(self,e):
         self.afflics.paralysis(e.name,120,0.97)
         if self.s1_shift > 0:
-            Event('defchain')()
+            Selfbuff(e.name+'_defense', 0.10, 10, 'defense').on()
         if self.s1_shift > 1:
             Teambuff(e.name,0.10,10,'att','buff').on()
         self.s1_shift = (self.s1_shift + 1) % 3

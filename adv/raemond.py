@@ -4,6 +4,8 @@ def module():
     return Raemond
 
 class Raemond(Adv):
+    a1 = ('lo_defense', 0.50)
+
     conf = {}
     conf['acl'] = """
         `dragon, fsc

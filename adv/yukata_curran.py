@@ -19,11 +19,12 @@ class Yukata_Curran(Adv):
         `dragon
         `s1
         `s2
+        `s3
         `s4
         `fs, x=5
         """
     coab = ['Blade','Wand','Peony']
-    share = ['Ranzal']
+    share = ['Kleimann', 'Ranzal']
     conf['afflict_res.stun'] = 80
     conf['afflict_res.paralysis'] = 0
 

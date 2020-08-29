@@ -97,16 +97,16 @@ class WeaponBase(Slot):
 
         if self.onele:
             self.att *= 1.5
-            if adv is not None and adv.s3.owner is None:
-                self.conf.s3 = Conf(self.s3)
-        elif 'all' in self.ele:
-            if adv is not None and adv.s3.owner is None:
-                self.conf.s3 = Conf(self.s3)
+        if (self.onele or 'all' in self.ele) and adv is not None and adv.s3.owner is None:
+            self.conf.s3 = Conf(self.s3)
 
         if self.wt == 'axe':
             self.mod.append(('crit','chance',0.04))
         else :
             self.mod.append(('crit','chance',0.02))
+
+    def s3_before(self, adv, e):
+        pass
 
     def s3_proc(self, adv, e):
         pass
@@ -134,7 +134,11 @@ class DragonBase(Slot):
         'dx3.recovery': 0,
         'dx4.recovery': 0,
         'dx5.recovery': 0,
-        
+        'dx6.recovery': 0,
+        'dx7.recovery': 0,
+        'dx8.recovery': 0,
+        'dx9.recovery': 0,
+
         'ds.startup': 0,
         'ds.recovery': 0,
         'ds.dmg': 0,
