@@ -48,10 +48,11 @@ class Eugene(Adv):
 
     def s1_proc(self, e):
         self.phase[e.name] += 1
-        self.buff_class(e.name,0.20,10,'att').no_bufftime().on()
-        if self.phase[e.name] == 3:
-            self.buff_class(e.name,0.20,10,'crit','damage').no_bufftime().on()
-            self.checkmate = min(self.checkmate+1, 2)
+        if self.condition(f'{e.name} buff for 10s'):
+            self.buff_class(e.name,0.20,10,'att').zone().on()
+            if self.phase[e.name] == 3:
+                self.buff_class(e.name,0.20,10,'crit','damage').zone().on()
+                self.checkmate = min(self.checkmate+1, 2)
         self.phase[e.name] %= 3
 
     def s2_proc(self, e):

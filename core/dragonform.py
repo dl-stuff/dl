@@ -110,8 +110,7 @@ class DragonForm(Action):
             add_time = min(delta, max_add)
         else:
             add_time = min(delta/self.drain, max_add)
-        self.dragondrive_timer.add(add_time)
-        duration = self.dragondrive_timer.timing - now()
+        duration = self.dragondrive_timer.add(add_time)
         if duration <= 0:
             self.d_dragondrive_end('<gauge deplete>')
         else:

@@ -39,7 +39,7 @@ class Gala_Euden(Adv):
 
     def s1_proc(self, e):
         if self.condition(f'{e.name} buff for 10s'):
-            Teambuff(e.name,0.20,10,'att').no_bufftime().on()
+            Teambuff(e.name,0.20,10,'att').zone().on()
 
     def s2_proc(self, e):
         Teambuff(e.name+'_defense', 0.15, 15, 'defense').on()

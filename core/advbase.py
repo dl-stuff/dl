@@ -232,6 +232,11 @@ class Buff(object):
         self.bufftime = self._no_bufftime
         return self
 
+    def zone(self):
+        self.bufftime = self._no_bufftime
+        self.name += '_zone'
+        return self
+
     def value(self, newvalue=None):
         if newvalue:
             return self.set(newvalue)

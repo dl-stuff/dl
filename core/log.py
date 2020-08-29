@@ -21,6 +21,8 @@ class Log:
             if category == 'dmg':
                 if name[0:2] == 'o_' and name[2] in self.damage:
                     name = name[2:]
+                if name[0] == '#':
+                    name = name[1:]
                 if name[0] in self.damage:
                     self.update_dict(self.damage[name[0]], name, float(args[2]))
                 else:
