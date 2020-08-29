@@ -919,7 +919,7 @@ class Adv(object):
         pass
 
     def s3_proc(self, e):
-        self.slots.w.s3_proc(self, e)
+        pass
 
     def s4_proc(self, e):
         pass
@@ -943,7 +943,7 @@ class Adv(object):
         pass
 
     def s3_before(self, e):
-        self.slots.w.s3_before(self, e)
+        pass
 
     def s4_before(self, e):
         pass
