@@ -12,16 +12,16 @@ class Nevin(Adv):
 
     conf = nevin_conf.copy()
     conf['slots.d'] = Ramiel()
-    conf['slots.a'] = Twinfold_Bonds()+The_Red_Impulse()
+    conf['slots.a'] = Twinfold_Bonds()+Howling_to_the_Heavens()
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon.act('c3 s end'), x=5
         `s3, not self.s3_buff
         `s1
         `s2, s=1
         `s4, x=5
         """
-    coab = ['Wand','Ieyasu','Forte']
+    coab = ['Curran','Ieyasu','Forte']
     conf['afflict_res.poison'] = 0
     share = ['Veronica']
 
