@@ -1,4 +1,5 @@
 from core.advbase import *
+from slot.a import *
 
 def module():
     return Beautician_Zardin
@@ -9,14 +10,15 @@ class Beautician_Zardin(Adv):
     a3 = ('s',0.35,'hp70')
 
     conf = {}
+    conf['slots.a'] = RR()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon
+        `s3, not self.s3_buff
         `s1
-        `s3
-        `s4
+        `s4, x=5
         """
-    coab = ['Halloween_Elisanne','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Halloween_Elisanne','Lucretia','Peony']
+    share = ['Kleimann']
 
     def s1_proc(self, e):
         self.energy.add(1)

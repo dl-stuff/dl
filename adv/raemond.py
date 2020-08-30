@@ -8,15 +8,15 @@ class Raemond(Adv):
 
     conf = {}
     conf['acl'] = """
-        `dragon, fsc
+        `dragon
+        `s4
         `s1
         `s2, fsc
         `s3, fsc
-        `s4, fsc
-        `fs, x=3
+        `fs, x=2
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Cleo','Lucretia','Peony']
+    share = ['Kleimann']
 
 
 if __name__ == '__main__':

@@ -23,18 +23,18 @@ class Summer_Mikoto(Adv):
     a3 = [('cc_paralysis',0.20), ('cd_paralysis',0.15)]
 
     conf = fs_my_dude.copy()
-    conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
+    conf['slots.a'] = Forest_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, s=1
+        `dragon,s=1
         `s2
         `s1
-        `s3, cancel
-        `s4, cancel
+        `s4, cancel 
+        `s3, not self.s3_buff
         `fs, self.light=self.sun and not self.illuminating_sun.get()
         `fs, self.light=self.wave and not self.celestial_wave.get()
     """
-    coab = ['Blade', 'Sharena', 'Peony']
-    share = ['Ranzal','Summer_Patia']
+    coab = ['Lucretia', 'Sharena', 'Peony']
+    share = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def prerun(self):

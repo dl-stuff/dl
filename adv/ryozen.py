@@ -1,5 +1,6 @@
 import adv.adv_test
 from core.advbase import *
+from slot.a import *
 
 def module():
     return Ryozen
@@ -7,15 +8,16 @@ def module():
 class Ryozen(Adv):
     a3 = ('od',0.08)
     conf = {}
+    conf['slots.a'] = RR()+The_Red_Impulse()
     conf['acl'] = """
-        `dragon, cancel
-        `s4
-        `s2
+        `dragon
         `s3
+        `s4, cancel
+        `s2, x=5
         `fs, x=5
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Cleo','Raemond','Peony']
+    share = ['Kleimann']
     
     def s1_proc(self, e):
         Teambuff(e.name, 0.25, 15, 'defense').on()

@@ -28,12 +28,11 @@ class Halloween_Elisanne(Adv):
     conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
-        `s2
-        `s1
-        `s4, cancel 
-        `s3, cancel and not self.energy()=5
-        `fs, self.light=self.sun and not self.illuminating_sun.get()
-        `fs, self.light=self.wave and not self.celestial_wave.get()
+        `s3, not self.s3_buff
+        `s2, s1.charged<=s1.sp-700 and s4.charged<=s4.sp-700 
+        `s4
+        `s1, cancel
+        `fs, x=5
         """
     coab = ['Lucretia','Sharena','Peony']
     conf['afflict_res.paralysis'] = 0

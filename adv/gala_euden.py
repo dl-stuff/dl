@@ -16,7 +16,7 @@ class Gala_Euden(Adv):
         `s1, fsc and not self.energy()=5
         `fs, x=2
     """
-    coab = ['Dagger2','Blade','Peony']
+    coab = ['Raemond','Cleo','Peony']
     share = ['Gala_Mym']
     conf['afflict_res.paralysis'] = 0
 

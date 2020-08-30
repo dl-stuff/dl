@@ -7,18 +7,18 @@ def module():
 class Linus(Adv):
     # comment = 'do not use weapon skill'
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
+    conf['slots.a'] = Summer_Paladyns()+The_Red_Impulse()
     conf['slots.paralysis.a'] = RR()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
+        `s3
         `s1 
-        `s2
-        `s3, x=4
-        `s4
-        `fs, x=5
+        `s4, x=4
+        `s2, x=4
+        `fs, x=4
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Raemond','Lucretia','Peony']
+    share = ['Kleimann']
 
     def d_slots(self):
         if self.duration <= 120:

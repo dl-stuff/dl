@@ -9,14 +9,14 @@ class Malka(Adv):
     conf = {}
     conf['acl'] = """
         `dragon
-        `s1
+        `s3, not self.s3_buff
         `s2
-        `s3
         `s4
+        `s1, cancel
         `fs, seq=5
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Blade','Lucretia','Peony']
+    share = ['Summer_Patia']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -7,17 +7,17 @@ def module():
 
 class Julietta(Adv):
     conf = {}
-    conf['slots.a'] = Valiant_Crown()+Breakfast_at_Valerios()
+    conf['slots.a'] = Valiant_Crown()+Primal_Crisis()
     conf['acl'] = """
-        `dragon
-        `s1
+        `dragon, self.energy()<4
+        `s3, not self.s3_buff
         `s2
-        `s3
-        `s4
+        `s1
+        `s4, s1.charged<s1.sp/2
         `fs, x=4 and self.fs_alt.uses>0
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal','Kleimann']
+    coab = ['Blade','Lucretia','Peony']
+    share = ['Summer_Cleo']
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 14.976}

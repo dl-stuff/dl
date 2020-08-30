@@ -9,13 +9,13 @@ class Xiao_Lei(Adv):
     conf = {}
     conf['acl'] = """
         `dragon
-        `s1
         `s2
+        `s1, cancel
         `s3
-        `s4
+        `s4, x=5
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Blade','Halloween_Elisanne','Peony']
+    share = ['Summer_Patia']
 
     def s2_proc(self, e):
         Teambuff(f'{e.name}_cc',0.08,10,'crit','rate').on()

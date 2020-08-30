@@ -1,4 +1,5 @@
 from core.advbase import *
+from slot.a import *
 
 def module():
     return Annelie
@@ -8,17 +9,17 @@ class Annelie(Adv):
     a1 = ('s',0.35,'hp70')
     a3 = ('energized_att', 0.20)
     conf = {}
+    conf['slots.a'] = RR()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon
-        `s1, s2.charged<=10000
-        `s4, x=5
-        `s1, s=2
-        `s2
-        `s3
-        `fs, x=5 
+        `dragon, self.energy()=3
+        `s3, not self.s3_buff
+        `s4
+        `s1
+        `s2, self.energy()<5
+        `fs, x=5
         """
-    coab = ['Halloween_Elisanne','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Blade','Lucretia','Peony']
+    share = ['Kleimann']
 
     def prerun(self):
         self.phase['s1'] = 0

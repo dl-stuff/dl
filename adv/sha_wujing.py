@@ -10,14 +10,15 @@ class Sha_Wujing(Adv):
     conf['slots.a'] = Dragon_and_Tamer()+Primal_Crisis()
     conf['slots.paralysis.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, s=2
+        `dragon
+        `s3, not self.s3_buff
         `s2, cancel
         `s1
         `s4
         `fs, x=5
     """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Blade','Lucretia','Peony']
+    share = ['Summer_Patia']
 
     def prerun(self):
         self.s1_p = 0
