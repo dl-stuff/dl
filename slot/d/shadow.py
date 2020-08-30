@@ -379,7 +379,7 @@ class Ramiel(DragonBase):
         self.s1 = adv.s1
         self.s2 = adv.s2
         self.ds_buff = Debuff('ds',0.20,15)
-        self.sp_regen_buff = EffectBuff('ds_sp', 90, lambda: self.sp_regen_timer.on(), lambda: self.self.sp_regen_timer.off())
+        self.sp_regen_buff = EffectBuff('ds_sp', 90, lambda: self.sp_regen_timer.on(), lambda: self.sp_regen_timer.off())
         self.sp_regen_timer = Timer(self.sp_regen, 1.99, 1)
 
     def sp_regen(self, t):

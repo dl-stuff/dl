@@ -334,7 +334,7 @@ function loadAdvSlots() {
                 selectSkillShare(slots.adv.fullname, slots.adv.pref_share);
 
                 if (slots.adv.prelim) {
-                    $('#test-warning').html('Warning: preliminary sim, need review/optimization.');
+                    $('#test-warning').html('Warning: preliminary sim, need QC and optimization.');
                 } else {
                     $('#test-warning').empty();
                 }

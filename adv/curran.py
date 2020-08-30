@@ -6,8 +6,6 @@ def module():
     return Curran
 
 class Curran(Adv):
-    comment = 'no fs'
-
     a1 = ('od',0.15)
     a3 = ('lo',0.6)
 

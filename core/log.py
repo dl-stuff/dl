@@ -14,15 +14,16 @@ class Log:
 
     def log(self, *args):
         time_now = core.timeline.now()
-        self.record.append([time_now, *args])
+        n_rec = [time_now, *args]
         if len(args) >= 2:
             category = args[0]
             name = args[1]
             if category == 'dmg':
-                if name[0:2] == 'o_' and name[2] in self.damage:
-                    name = name[2:]
                 if name[0] == '#':
                     name = name[1:]
+                    n_rec[2] = name
+                if name[0:2] == 'o_' and name[2] in self.damage:
+                    name = name[2:]
                 if name[0] in self.damage:
                     self.update_dict(self.damage[name[0]], name, float(args[2]))
                 else:
@@ -39,6 +40,7 @@ class Log:
                 self.team_doublebuffs += 1
             elif category in ('energy', 'inspiration') and name == 'team':
                 self.update_dict(self.team_tension, category, float(args[2]))
+        self.record.append(n_rec)
 
     def filter_iter(self, log_filter):
         for entry in self.record:

@@ -2,7 +2,15 @@ from core.advbase import *
 from slot.a import *
 from slot.d import *
 
-nevin_conf = {'fs.dmg': 0} # get real frames 1 day, maybe
+nevin_conf = {
+    'fs.dmg': 0,
+
+    'x6.dmg': 0,
+    'x6.sp': 0,
+    'x6.startup': 2 / 60.0,
+    'x6.recovery': 0,
+    'x6.hit': 0,
+} # get real frames 1 day, maybe
 
 def module():
     return Nevin
@@ -25,11 +33,17 @@ class Nevin(Adv):
     conf['afflict_res.poison'] = 0
     share = ['Veronica']
 
+    def init(self):
+        self.x_max = 6
+
     def prerun(self):
+        self.x_max = 5
         self.conf.fs.dmg = 0
         self.unlocked = False
         self.sigil = EffectBuff('locked_sigil', 300, lambda: None, self.unlock).no_bufftime()
         self.sigil.on()
+        t = Timer(self.sword_dmg, 1.5, True)
+        self.sword = EffectBuff('revelation_sword', 12, lambda: t.on(), lambda: t.off()).no_bufftime()
         Event('dragon').listener(self.shift_sigil)
 
     @staticmethod
@@ -38,8 +52,7 @@ class Nevin(Adv):
         adv.rebind_function(Nevin, 'buff_zone_count')
 
     def unlock(self):
-        self.conf.fs.dmg = 47*3 / 100.0
-        self.conf.x5.startup = 0.5
+        self.x_max = 6
         self.unlocked = True
 
     def buff_zone_count(self):
@@ -50,10 +63,9 @@ class Nevin(Adv):
         self.add_hits(4)
 
     def x_proc(self, e):
-        if self.unlocked and e.name == 'x5':
+        if self.unlocked and e.name == 'x6':
             self.set_hp(self.hp*0.9)
-            t = Timer(self.sword_dmg, 1.5, True)
-            EffectBuff('revelation_sword', 12, lambda: t.on(), lambda: t.off()).no_bufftime().on()
+            self.sword.on()
 
     def s1_proc(self, e):
         if self.condition(f'{e.name} buff for 10s'):
