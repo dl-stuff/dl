@@ -8,7 +8,6 @@ class Tension:
         # self.adv.dmg_make = self.dmg_make
         self.name = name
         self.modifier = mod
-        self.damage_sources = mod._static.damage_sources # need to account for healing skills bleh
         self.modifier.off()
         self.event = event or Event(name)
         self.scope = {'s1', 's2', 's3', 's4', 's'}
@@ -56,7 +55,7 @@ class Tension:
         else:
             scope = scope[0]
         if self.stack >= self.MAX_STACK:
-            if self.current_scope is None and scope in self.scope and scope in self.damage_sources:
+            if self.current_scope is None and scope in self.scope:
                 # entering a new s1/s2/s3 block
                 if scope in self.scope:
                     self.current_scope = scope

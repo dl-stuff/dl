@@ -1107,11 +1107,12 @@ class Adv(object):
         # if 'dfs' in self.conf:
         #     xnfsconf[5] += self.conf.dfs
 
-        self.a_x1 = X(('x1', 1), self.conf.x1)
-        self.a_x2 = X(('x2', 2), self.conf.x2)
-        self.a_x3 = X(('x3', 3), self.conf.x3)
-        self.a_x4 = X(('x4', 4), self.conf.x4)
-        self.a_x5 = X(('x5', 5), self.conf.x5)
+        for n in range(1, self.x_max+1):
+            xn = f'x{n}'
+            try:
+                self.__setattr__(xn, X((xn, n), self.conf[xn]))
+            except AttributeError:
+                pass
 
         self.a_fs = Fs_group('fs', self.conf)
         self.a_fsf = Fs('fsf', self.conf.fsf)
@@ -1135,23 +1136,22 @@ class Adv(object):
             # self.fs_success = self.melee_fs_success
 
         # set cmd
-        self.x1 = self.a_x1
-        self.x2 = self.a_x2
-        self.x3 = self.a_x3
-        self.x4 = self.a_x4
-        self.x5 = self.a_x5
+        # self.x1 = self.a_x1
+        # self.x2 = self.a_x2
+        # self.x3 = self.a_x3
+        # self.x4 = self.a_x4
+        # self.x5 = self.a_x5
         # self.fs = self.a_fs
         self.fsf = self.a_fsf
         self.dodge = self.a_dodge
-        try:
-            self.a_x5ex = X(('x5ex', 5), self.conf.x5ex)
-            self.a_x5ex.atype = 'x'
-            self.a_x5ex.interrupt_by = ['fs', 's', 'dodge']
-            self.a_x5ex.cancel_by = ['fs', 's', 'dodge']
-            self.x4.cancel_by.append('x')
-            self.x5ex = self.a_x5ex
-        except:
-            pass
+        # try:
+        #     self.x5ex = X(('x5ex', 5), self.conf.x5ex)
+        #     self.x5ex.atype = 'x'
+        #     self.x5ex.interrupt_by = ['fs', 's', 'dodge']
+        #     self.x5ex.cancel_by = ['fs', 's', 'dodge']
+        #     self.x4.cancel_by.append('x')
+        # except:
+        #     pass
 
         self.hits = 0
         self.hp = 100
