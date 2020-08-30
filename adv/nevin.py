@@ -37,7 +37,6 @@ class Nevin(Adv):
 
     def prerun(self):
         self.x_max = 5
-        self.conf.fs.dmg = 0
         self.unlocked = False
         self.sigil = EffectBuff('locked_sigil', 300, lambda: None, self.unlock).no_bufftime()
         self.sigil.on()

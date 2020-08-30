@@ -20,8 +20,6 @@ class Tension:
     def add(self, n=1, team=False, queue=False):
         if self.disabled:
             return
-        if n < 1:
-            return
         if team:
             log(self.name, 'team', n)
         # cannot add if max stacks

@@ -1576,18 +1576,20 @@ class Adv(object):
 
     def l_range_x(self, e):
         xseq = e.name
-        dmg_coef = self.conf['%s.dmg' % xseq]
-        sp_gain = self.conf['%s.sp' % xseq]
-        if xseq == 'x5':
-            log('x', '%s' % xseq, 0, '-------------------------------------c5')
+        if xseq == f'x{self.x_max}':
+            log('x', xseq, 0, f'-------------------------------------c{self.x_max}')
         else:
-            log('x', '%s' % xseq, 0)
+            log('x', xseq, 0)
         self.x_before(e)
-        missile_timer = Timer(self.cb_missile, self.conf['missile_iv'][xseq])
+        try:
+            missile_iv = self.conf['missile_iv'][xseq]
+        except:
+            missile_iv = 0
+        missile_timer = Timer(self.cb_missile, missile_iv)
         # missile_timer.dname = '%s_missile' % xseq
         missile_timer.dname = xseq
-        missile_timer.amount = dmg_coef
-        missile_timer.samount = sp_gain
+        missile_timer.amount = self.conf[xseq].dmg
+        missile_timer.samount = self.conf[xseq].sp
         missile_timer()
         self.x_proc(e)
         self.think_pin('x')
@@ -1599,18 +1601,18 @@ class Adv(object):
 
     def l_melee_x(self, e):
         xseq = e.name
-        dmg_coef = self.conf['%s.dmg' % xseq]
-        sp = self.conf['%s.sp' % xseq]
-        if xseq == 'x5':
-            log('x', '%s' % xseq, 0, '-------------------------------------c5')
+        dmg_coef = self.conf[xseq].dmg
+        sp = self.conf[xseq].sp
+        if xseq == f'x{self.x_max}':
+            log('x', xseq, 0, f'-------------------------------------c{self.x_max}')
         else:
-            log('x', '%s' % xseq, 0)
+            log('x', xseq, 0)
         self.x_before(e)
         self.update_hits(xseq)
-        self.dmg_make('%s' % xseq, dmg_coef)
+        self.dmg_make(xseq, dmg_coef)
         self.x_proc(e)
         self.think_pin('x')
-        self.charge('%s' % xseq, sp)
+        self.charge(xseq, sp)
 
     def dodge(self):
         return self.a_dodge()
@@ -1852,6 +1854,8 @@ class Adv(object):
         end = Timeline.run(d)
         log('sim', 'end')
 
+        self.edit_comment()
+
         for aff, up in self.afflics.get_uptimes().items():
             if up > 0.10:
                 if len(self.comment) > 0:
@@ -1866,6 +1870,9 @@ class Adv(object):
         self.logs = copy.deepcopy(g_logs)
 
         return end
+
+    def edit_comment(self):
+        pass
 
     def debug(self):
         pass
