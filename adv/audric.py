@@ -10,7 +10,7 @@ class Audric(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act('c3 s end'), fsc and (self.dragonform.shift_count<3 or (self.dragonform.shift_count<=3 and self.slots.tmp.d.trickery <= 1))
+        `dragon.act('c3 s end'), fsc and (self.dragonform.shift_count<3 or (self.dragonform.shift_count<=3 and self.trickery <= 1))
         `s3, not self.s3_buff
         `s1
         `s4, cancel

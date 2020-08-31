@@ -10,7 +10,7 @@ class Tension:
         self.modifier = mod
         self.modifier.off()
         self.event = event or Event(name)
-        self.scope = {'s1', 's2', 's3', 's4', 's'}
+        self.scope = {'s1', 's2', 's3', 's4', 's', 'ds'}
         self.current_scope = None
         self.stack = 0
         self.queued_stack = 0
@@ -19,8 +19,6 @@ class Tension:
 
     def add(self, n=1, team=False, queue=False):
         if self.disabled:
-            return
-        if n < 1:
             return
         if team:
             log(self.name, 'team', n)

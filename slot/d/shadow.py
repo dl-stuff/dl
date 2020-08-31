@@ -314,7 +314,7 @@ class Gala_Cat_Sith(DragonBase):
         super().oninit(adv)
         from core.advbase import Event, SingleActionBuff
         Event('dragon_end').listener(self.shift_end_trickery)
-        self.trickery = 15
+        self.adv.trickery = 15
         self.threshold = 25
         self.trickery_buff = SingleActionBuff('d_trickery_buff', 1.80, 1,'s', 'buff', end_proc=self.check_trickery)
         self.check_trickery()
@@ -332,15 +332,15 @@ class Gala_Cat_Sith(DragonBase):
 
     def add_trickery(self, t):
         from core.log import log
-        log('debug', 'trickery', f'+{t}', self.trickery, self.adv.hits)
-        self.trickery = min(self.trickery+t, 15)
+        log('debug', 'trickery', f'+{t}', self.adv.trickery, self.adv.hits)
+        self.adv.trickery = min(self.adv.trickery+t, 15)
         self.check_trickery()
 
     def check_trickery(self, e=None):
         from core.log import log
-        if self.trickery > 0 and not self.trickery_buff.get():
-            self.trickery -= 1
-            log('debug', 'trickery', 'consume', self.trickery)
+        if self.adv.trickery > 0 and not self.trickery_buff.get():
+            self.adv.trickery -= 1
+            log('debug', 'trickery', 'consume', self.adv.trickery)
             self.trickery_buff.on()
 
     def shift_end_trickery(self, e):

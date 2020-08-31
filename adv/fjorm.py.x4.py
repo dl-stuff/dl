@@ -7,12 +7,11 @@ def module():
     return Fjorm
 
 class Fjorm(adv.fjorm.Fjorm):
-    comment = '4x Fjorm in 20.55s with sufficient dprep'
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
     a2 = [('dp', 50)] # team dprep
     conf = {}
     conf['slots.a'] = Unexpected_Requests()+Valiant_Crown()
-    conf['slots.frostbite.a'] = Unexpected_Requests()+Valiant_Crown()
+    conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Leviathan()
     conf['acl'] = "`rotation"
     conf['rotation'] = """
@@ -32,6 +31,9 @@ class Fjorm(adv.fjorm.Fjorm):
 
     def s2_proc(self, e):
         self.dmg_make(f'{e.name}_reflect', 3792*8, fixed=True)
+
+    def edit_comment(self):
+        self.comment = f'4x Fjorm in {now():.02f}s with sufficient dprep'
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
