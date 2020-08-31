@@ -253,7 +253,6 @@ class Gala_Thor(DragonBase):
         'dx9.startup': 72 / 60.0,
         'dx9.hit': 11,
 
-        'ds.dmg': 17.80,
         'ds.recovery': 180 / 60, # skill frames
         'ds.hit': -1,
 
@@ -277,6 +276,11 @@ class Gala_Thor(DragonBase):
         def shift_end_energy(e):
             adv.energy.add(5, team=True)
         Event('dragon_end').listener(shift_end_energy)
+
+    def ds_proc(self):
+        dmg = self.adv.dmg_make('ds',17.80,'s')
+        self.adv.afflics.paralysis('ds',110,0.442,26,dtype='s')
+        return dmg
 
 
 class Unreleased_LightSkillDamage(DragonBase):
