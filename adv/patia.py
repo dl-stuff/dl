@@ -15,7 +15,7 @@ class Patia(Adv):
     conf['slots.poison.a'] = Valiant_Crown()+The_Fires_of_Hate()
     conf['acl'] = """
         #Patia will almost never run out of trickery stacks
-        `dragon.act("c3 s end"), s=1 and self.slots.tmp.d.trickery <= 1
+        `dragon.act("c3 s end"), s=1 and self.trickery <= 1
         `s3, not self.s3_buff
         `s1
         `s2
