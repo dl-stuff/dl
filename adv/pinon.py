@@ -10,25 +10,23 @@ pinon_conf = {
     'x6.dmg': 10.6,
     'x6.sp': 325,
     'x6.startup': 1.3333,
-    'x6.recovery': 0,
+    'x6.recovery': 0.4333,
     'x6.hit': 1,
 
     'x7.dmg': 10.6,
     'x7.sp': 325,
     'x7.startup': 1.3333,
-    'x7.recovery': 0,
+    'x7.recovery': 0.4333,
     'x7.hit': 1,
 
     'x8.dmg': 10.6,
     'x8.sp': 325,
     'x8.startup': 1.3333,
-    # 'x8.recovery': 0.4333,
-    'x8.recovery': 0,
+    'x8.recovery': 0.4333,
     'x8.hit': 1,
 } # get real frames 1 day, maybe
 
 class Pinon(Adv):
-    comment = 'prefer c6-8 over skill; '
     a3 = ('spd',0.20,'hp70')
     
     conf = pinon_conf.copy()
@@ -41,6 +39,7 @@ class Pinon(Adv):
         if x=8 or fsc
         `s2
         `s4
+        `s1, self.energy()>=5
         end
         else
         if fsc
@@ -115,7 +114,7 @@ class Pinon(Adv):
                 if prev.index != self.x_max:
                     x_next = prev.index + 1
                 else:
-                    x_next = 6
+                    x_next = 8
             return getattr(self, 'x%d' % x_next)()
         else:
             return super().x()
@@ -130,7 +129,7 @@ class Pinon(Adv):
 
     def edit_comment(self):
         try:
-            self.comment += f'unlock at {self.unlock_time:.02f}s'
+            self.comment += f'unlock at {self.unlock_time:.02f}s; only s1 if energized after unlock'
         except AttributeError:
             self.comment += f'not unlocked'
 
