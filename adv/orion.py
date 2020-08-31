@@ -17,7 +17,11 @@ class Orion(Adv):
         `fs, x=5
     """
     coab = ['Ieyasu','Wand','Axe2']
-    share = ['Curran']
+    share = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.share = ['Curran']
 
     def d_coabs(self):
         if self.sim_afflict:

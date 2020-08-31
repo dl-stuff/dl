@@ -16,7 +16,11 @@ class Vida(Adv):
         `fs, x=5
         """
     coab = ['Ieyasu','Wand','Forte']
-    share = ['Curran']
+    share = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.share = ['Curran']
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 2.04, 'fs.hit': 6}

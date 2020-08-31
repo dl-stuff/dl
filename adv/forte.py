@@ -11,17 +11,32 @@ class Forte(Adv):
     a3 = ('k_poison', 0.30)
 
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer()+Primal_Crisis()
+    conf['slots.a'] = Dragon_and_Tamer()+The_Red_Impulse()
+    conf['slots.d'] = Ramiel()
+    conf['slots.poison.d'] = Gala_Cat_Sith()
     conf['acl'] = """
+        if self.sim_afflict
         `dragon.act('c3 s end'), x=5
         `s3, not self.s3_buff
         `s2
         `s4, cancel or s=2
-        `s1, 
+        `s1
         `fs, x=5
+        else
+        `dragon.act('c3 s end'), s2.charged<s2.sp/3 and cancel
+        `s3, not self.s3_buff
+        `s2
+        `s4
+        `s1, cancel or self.afflics.poison.get()
+        `fs, x=5
+        end
         """
     coab = ['Ieyasu', 'Wand', 'Cleo']
-    share = ['Curran']
+    share = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.share = ['Curran']
 
     def prerun(self):
         self.dgauge_charge = 40
