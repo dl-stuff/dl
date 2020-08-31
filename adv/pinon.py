@@ -16,13 +16,14 @@ pinon_conf = {
     'x7.dmg': 10.6,
     'x7.sp': 325,
     'x7.startup': 1.3333,
-    'x7.recovery': 0.4333,
+    'x7.recovery': 0,
     'x7.hit': 1,
 
     'x8.dmg': 10.6,
     'x8.sp': 325,
     'x8.startup': 1.3333,
-    'x8.recovery': 0.4333,
+    # 'x8.recovery': 0.4333,
+    'x8.recovery': 0,
     'x8.hit': 1,
 } # get real frames 1 day, maybe
 
