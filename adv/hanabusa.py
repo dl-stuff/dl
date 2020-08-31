@@ -7,13 +7,13 @@ class Hanabusa(Adv):
     conf = {}
     conf['acl'] = """
         `dragon
+        `s3, not self.s3_buff
         `s1
         `s2
-        `s3
-        `s4
+        `s4, x=5
         """
-    coab = ['Halloween_Elisanne','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Halloween_Elisanne','Lucretia','Peony']
+    share = ['Summer_Patia']
 
     def prerun(self):
         self.phase['s1'] = 0

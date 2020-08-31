@@ -9,6 +9,7 @@ class Summer_Estelle(Adv):
     a3 = ('bt',0.2)
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Proper_Maintenance()
+    conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
         `dragon.act('c3 s end'), s

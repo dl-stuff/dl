@@ -16,22 +16,22 @@ class Yachiyo(Adv):
     a3 = ('k_paralysis', 0.2)
 
     conf = {}
-    conf['slots.a'] = MF()+SotS()
+    conf['slots.a'] = RR()+SotS()
     conf['acl'] = """
-        `dragon
+        `dragon, s
+        `s3, not self.s3_buff
         `fs, self.fsa_charge and seq=5
-        `s2
         `s1
-        `s4
-        `s3, fsc
+        `s4, cancel
+        `s2, x=5
         """
-    coab = ['Malora','Dagger','Peony']
+    coab = ['Lucretia','Malora','Peony']
     share = ['Ranzal']
     conf['afflict_res.paralysis'] = 0
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Sharena','Dagger','Peony']
+            self.coab = ['Sharena','Lucretia','Peony']
 
     def prerun(self):
         self.fsa_charge = 0

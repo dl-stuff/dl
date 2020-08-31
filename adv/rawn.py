@@ -6,17 +6,17 @@ def module():
 
 class Rawn(Adv):
     conf = {}
-    conf['slots.paralysis.a'] = Resounding_Rendition()+Spirit_of_the_Season()
+    conf['slots.a'] = Resounding_Rendition()+The_Red_Impulse()
     conf['acl'] = """
-        `dragon, fsc
-        `s1
-        `s2
+        `dragon, fsc or s
         `s3
-        `s4
-        `fs, x=4
+        `s2
+        `s1
+        `s4, cancel
+        `fs, x=5
         """
-    coab = ['Blade','Halloween_Elisanne','Peony']
-    share = ['Ranzal']
+    coab = ['Cleo','Raemond','Peony']
+    share = ['Gala_Mym']
 
     def s1_proc(self, e):
         Debuff(e.name, 0.05, 10, 0.4, 'attack').on()

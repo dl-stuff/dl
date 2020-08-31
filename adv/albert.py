@@ -31,9 +31,7 @@ conf_albert_fs = {
 class Albert(Adv):
     a1 = ('fs',0.5)
     conf = conf_albert_fs.copy()
-    conf['slots.d'] = Corsaint_Phoenix()
     conf['slots.a'] = The_Shining_Overlord()+Spirit_of_the_Season()
-    conf['slots.paralysis.a'] = conf['slots.a']
     conf['acl'] = """
         if self.electrified.get()
         `s1
@@ -43,15 +41,15 @@ class Albert(Adv):
         `fs1
         end
         else
-        `dragon
+        `dragon, cancel
         `s2, s1.charged>=s1.sp-self.sp_val(2)
         `s1, cancel
         `s3, cancel
         `s4, cancel
         end
         """
-    coab = ['Blade','Wand','Peony']
-    share = ['Kleimann', 'Ranzal']
+    coab = ['Blade','Lucretia','Peony']
+    share = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def init(self):

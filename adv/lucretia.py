@@ -8,14 +8,14 @@ class Lucretia(Adv):
     a3 = ('bk',0.3)
     conf = {}
     conf['acl'] = """
-        `dragon, s=2
+        `dragon
         `s2, x=5
         `s4
-        `s1
-        `s3
+        `s1, cancel
+        `s3, cancel
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Cleo','Raemond','Peony']
+    share = ['Summer_Patia']
 
     def s1_proc(self, e):
         self.energy.add(1, team=True)

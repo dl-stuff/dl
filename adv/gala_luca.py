@@ -11,13 +11,13 @@ class Gala_Luca(Adv):
     conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
     conf['acl'] = """
         `dragon
+        `s3, not self.s3_buff
         `s2
         `s1
         `s4, x=5
-        `s3, x=5
         """
-    coab = ['Axe2','Dagger','Peony']
-    share = ['Ranzal','Kleimann']
+    coab = ['Axe2','Lucretia','Peony']
+    share = ['Summer_Patia']
 
     def init(self):
         self.crit_mod = self.custom_crit_mod

@@ -6,23 +6,22 @@ def module():
     return Fleur
 
 class Fleur(Adv):
-    comment = 'c4fs'
     a1 = ('sp',0.08,'hp70')
     a3 = ('k_paralysis',0.2)
 
     conf = {}
     conf['slots.a'] = TB()+SotS()
     conf['acl'] = '''
-        `dragon.act('c3 s end'),x=5
+        `dragon, cancel
+        `s3, not self.s3_buff
         `s2, s=1
         `s1
-        `s3
-        `s4, s
+        `s4, s=1
         `fs, x=5
     '''
-    coab = ['Wand','Sharena','Peony']
+    coab = ['Lucretia','Sharena','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Ranzal','Kleimann']
+    share = ['Kleimann']
 
     def init(self):
         self.phase['s1'] = 0

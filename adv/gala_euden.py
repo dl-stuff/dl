@@ -9,15 +9,15 @@ class Gala_Euden(Adv):
     comment = 'c2+fs'
     conf = {}
     conf['acl'] = """
-        `dragon, s=1
+        `dragon, self.energy()=5
+        `s2
         `s3
-        `s4
-        `s1, fsc
-        `s2, fsc
+        `s4, cancel
+        `s1, fsc and not self.energy()=5
         `fs, x=2
     """
-    coab = ['Dagger2','Blade','Peony']
-    share = ['Gala_Mym','Rodrigo']
+    coab = ['Raemond','Cleo','Peony']
+    share = ['Gala_Mym']
     conf['afflict_res.paralysis'] = 0
 
     def prerun(self):

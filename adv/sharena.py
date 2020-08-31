@@ -13,19 +13,20 @@ class Sharena(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, fsc
+        `dragon
+        `s3, not self.s3_buff
         `s4
-        `s1
+        `s1, cancel
         `s2, cancel
         `fs, x=5
     """
-    coab = ['Malora','Dagger','Peony']
+    coab = ['Malora','Lucretia','Peony']
     conf['afflict_res.paralysis'] = 0
     share = ['Ranzal']
 
     def d_coabs(self):
         if self.duration <= 60:
-            self.coab = ['Blade','Dagger','Peony']
+            self.coab = ['Blade','Lucretia','Peony']
 
     def prerun(self):
         self.s2_debuff = Debuff('s2',0.05,10)

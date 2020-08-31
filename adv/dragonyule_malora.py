@@ -9,16 +9,15 @@ class Dragonyule_Malora(Adv):
 
     conf = {}
     conf['slots.a'] = Summer_Paladyns() + Primal_Crisis()
-    conf['slots.paralysis.a'] = Summer_Paladyns() + Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon.act("c3 s end")
-        `s1
+        `dragon, s
+        `s3, not self.s3_buff
         `s2, self.def_mod()!=1
         `s4, cancel
-        `s3, x=4
+        `s1, cancel
         """
-    coab = ['Wand','Dagger','Peony']
-    share = ['Ranzal','Kleimann']
+    coab = ['Lucretia','Blade','Peony']
+    share = ['Sha_Wujing']
 
     def prerun(self):
         self.s1debuff = Debuff('s1',0.15,15) if self.condition('buff all team') else None

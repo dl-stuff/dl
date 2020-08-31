@@ -17,20 +17,16 @@ class Peony(Adv):
     conf = peony_conf.copy()
     conf['slots.a'] = Valiant_Crown()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon, self.energy()=5
         `fs, s2.charged>=s2.sp and self.fs_alt.uses > 0
-        `s1, x=5
         `s2, cancel
-        `s3, cancel
+        `s1, cancel and not self.energy()=5
         `s4, cancel
+        `s3, cancel
     """
-    coab = ['Blade','Sharena','Dagger']
-    share = ['Ranzal','Kleimann']
+    coab = ['Blade','Sharena','Lucretia']
+    share = ['Kleimann']
     conf['afflict_res.paralysis'] = 0
-
-    def d_coabs(self):
-        if self.duration <= 60:
-            self.coab = ['Dagger2','Sharena','Malora']
 
     def fs_proc_alt(self, e):
         self.fs_str.on()

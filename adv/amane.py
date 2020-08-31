@@ -1,4 +1,5 @@
 from core.advbase import *
+from slot.a import *
 
 def module():
     return Amane
@@ -8,15 +9,19 @@ class Amane(Adv):
     a3 = ('bk',0.35)
     
     conf = {}
+    conf['slots.a'] = CC()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon
-        `s2
+        `dragon, cancel
+        queue prep
+        `s2;s3;s1;s4
+        end
         `s1
-        `s3
-        `s4
+        `s4, x>3
+        `s3, cancel
+        `s2, x>3
         """
     coab = ['Blade','Sharena','Peony']
-    share = ['Ranzal','Kleimann']
+    share = ['Summer_Patia']
 
     def s1_proc(self, e):
         with KillerModifier('s1_killer', 'hit', 0.1, ['paralysis']):
