@@ -23,19 +23,18 @@ class Nevin(Adv):
     conf['slots.a'] = Twinfold_Bonds()+The_Red_Impulse()
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
-        `dragon.act('c3 s end'), (x=5 and not self.unlocked) or (self.unlocked and x=6)
         `s3, not self.s3_buff
-        if not self.unlocked
-        `s1, 
-        `s2, s=1 
-        `s4, x=5
-        else
         `s1
         `s2, cancel
+        if not self.unlocked
+        `dragon.act('c3 s end'), x=5
+        `s4, x=5
+        else
+        `dragon.act('c3 s end'), x=6
         `s4, x=6
         end
         """
-    coab = ['Curran','Ieyasu','Forte']
+    coab = ['Berserker','Ieyasu','Forte']
     conf['afflict_res.poison'] = 0
     share = ['Veronica']
 
