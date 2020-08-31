@@ -1571,8 +1571,7 @@ class Adv(object):
         if prev.name[0] == 'x':
             if prev.index != self.x_max:
                 x_next = prev.index + 1
-        getattr(self, 'x%d' % x_next)()
-        return 1
+        return getattr(self, 'x%d' % x_next)()
 
     def l_range_x(self, e):
         xseq = e.name

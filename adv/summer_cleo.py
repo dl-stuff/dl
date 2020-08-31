@@ -9,7 +9,7 @@ class Summer_Cleo(Adv):
     a3 = ('k_paralysis',0.35)
 
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Spirit_of_the_Season()
+    conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon, s=1
         `s3, not self.s3_buff
@@ -19,7 +19,7 @@ class Summer_Cleo(Adv):
         `fs,x=5
     """
     coab = ['Lucretia','Sharena','Peony']
-    share = ['Summer_Patia']
+    share = ['Althemia']
     conf['afflict_res.paralysis'] = 0
 
     def init(self):
