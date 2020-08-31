@@ -127,7 +127,7 @@ class Pinon(Adv):
         # only counts as 1 buff
         Event('defchain')()
 
-    def edit_comment(self):
+    def post_run(self):
         try:
             self.comment += f'unlock at {self.unlock_time:.02f}s; only s1 if energized after unlock'
         except AttributeError:

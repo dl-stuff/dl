@@ -10,7 +10,7 @@ default_rebound = 2
 
 class Yukata_Curran(Adv):
     comment = f'assume {default_rebound} hits per s1 bullet'
-    a3 = ('epassive_att_crit', 3)
+    a1 = [('estat_att', 3), ('estat_crit', 3)]
 
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()

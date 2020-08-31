@@ -14,7 +14,7 @@ class Tension:
         self.current_scope = None
         self.stack = 0
         self.queued_stack = 0
-        self.has_stack = Buff('has_'+self.name, 1, -1, self.name, self.name)
+        self.has_stack = Selfbuff('has_'+self.name, 1, -1, self.name, self.name)
         self.disabled = False
 
     def add(self, n=1, team=False, queue=False):

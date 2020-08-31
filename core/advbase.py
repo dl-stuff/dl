@@ -1853,7 +1853,7 @@ class Adv(object):
         end = Timeline.run(d)
         log('sim', 'end')
 
-        self.edit_comment()
+        self.post_run()
 
         for aff, up in self.afflics.get_uptimes().items():
             if up > 0.10:
@@ -1870,7 +1870,7 @@ class Adv(object):
 
         return end
 
-    def edit_comment(self):
+    def post_run(self):
         pass
 
     def debug(self):
@@ -1979,6 +1979,8 @@ class Adv(object):
                 return 0
         else:
             coef = dmg_coef
+            if coef <= 0:
+                return 0
         self.damage_sources.add(name)
         for t in self.tension:
             t.check(name)
