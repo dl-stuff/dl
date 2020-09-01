@@ -10,7 +10,7 @@ pinon_conf = {
     'x6.dmg': 10.6,
     'x6.sp': 325,
     'x6.startup': 1.3333,
-    'x6.recovery': 0,
+    'x6.recovery': 0.4333,
     'x6.hit': 1,
 
     'x7.dmg': 10.6,
@@ -30,20 +30,19 @@ class Pinon(Adv):
     a3 = ('spd',0.20,'hp70')
     
     conf = pinon_conf.copy()
-    conf['slots.a'] = Primal_Crisis()+Resounding_Rendition()
+    conf['slots.a'] = Primal_Crisis()+The_Wyrmclan_Duo()
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
         # `dragon.act('c3 s end'), s
+        `s3, not self.s3_buff
         if self.unlocked
         if x=8 or fsc
-        `s3
         `s2
         `s4
-        `s1
+        `s1, self.energy()>=5
         end
         else
         if fsc
-        `s3
         `s2
         `s4
         `s1
@@ -53,7 +52,7 @@ class Pinon(Adv):
         end
     """
     coab = ['Dagger2', 'Axe2', 'Blade']
-    share = ['Gala_Elisanne', 'Ranzal']
+    share = ['Gala_Elisanne']
 
     def init(self):
         self.x_max = 8
@@ -107,6 +106,19 @@ class Pinon(Adv):
         if self.unlocked and int(e.name[1]) > 5:
             self.energy.add(0.4)
 
+    def x(self):
+        if self.unlock:
+            prev = self.action.getprev()
+            x_next = 1
+            if prev.name[0] == 'x':
+                if prev.index != self.x_max:
+                    x_next = prev.index + 1
+                else:
+                    x_next = 8
+            return getattr(self, 'x%d' % x_next)()
+        else:
+            return super().x()
+
     def s1_proc(self, e):
         self.afflics.frostbite(e.name,120,0.41)
 
@@ -115,8 +127,11 @@ class Pinon(Adv):
         # only counts as 1 buff
         Event('defchain')()
 
-    def edit_comment(self):
-        self.comment = f'unlock at {self.unlock_time:.02f}s'
+    def post_run(self):
+        try:
+            self.comment += f'unlock at {self.unlock_time:.02f}s; only s1 if energized after unlock'
+        except AttributeError:
+            self.comment += f'not unlocked'
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

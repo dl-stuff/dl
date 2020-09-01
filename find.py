@@ -35,9 +35,11 @@ def stat_shared():
 def stat_conf(cond):
     with open(ADV_CONF) as f:
         data = json.load(f)
+    deploy = 'python deploy.py -c '
     for adv, d in data.items():
         if cond(d):
-            print(adv.lower()+'.py')
+            deploy += adv.lower()+'.py '
+    print(deploy)
 
 if __name__ == '__main__':
-    stat_conf(lambda d: d['c']['ele'] == 'shadow')
+    stat_conf(lambda d: d['c']['ele'] == 'light')

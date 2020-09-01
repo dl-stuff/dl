@@ -6,7 +6,7 @@ def module():
     return Summer_Norwin
 
 class Summer_Norwin(Adv):
-    a1 = ('ehaste', 3)
+    a1 = ('estat_sp', 3)
     a3 = ('k_poison',0.30)
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+The_Plaguebringer()

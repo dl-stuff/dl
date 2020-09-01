@@ -212,7 +212,7 @@ class Tie_Shan_Gongzhu(DragonBase):
 class Gala_Thor(DragonBase):
     ele = 'light'
     att = 124
-    a = [('a', 0.5)]
+    a = [('a', 0.5), ('estat_att', 'chariot')]
     dragonform = {
         'act': 'c8 s',
 
@@ -253,7 +253,6 @@ class Gala_Thor(DragonBase):
         'dx9.startup': 72 / 60.0,
         'dx9.hit': 11,
 
-        'ds.dmg': 17.80,
         'ds.recovery': 180 / 60, # skill frames
         'ds.hit': -1,
 
@@ -266,17 +265,14 @@ class Gala_Thor(DragonBase):
         def chariot_energy(t):
             adv.energy.add(1)
         Timer(chariot_energy, 5, True).on()
-        att_values = (0.0, 0.25, 0.30, 0.35, 0.40, 0.45)
-        att_buff = adv.Selfbuff('chariot_att', 0.00,-1,'att', 'passive').on()
-        def l_energy(e):
-            att_buff.off()
-            att_buff.set(att_values[round(e.stack)])
-            att_buff.on()
-        adv.Event('energy').listener(l_energy)
-
         def shift_end_energy(e):
             adv.energy.add(5, team=True)
         Event('dragon_end').listener(shift_end_energy)
+
+    def ds_proc(self):
+        dmg = self.adv.dmg_make('ds',17.80,'s')
+        self.adv.afflics.paralysis('ds',110,0.442,26,dtype='s')
+        return dmg
 
 
 class Unreleased_LightSkillDamage(DragonBase):

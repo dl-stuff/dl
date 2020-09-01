@@ -6,7 +6,7 @@ def module():
     return Yaten
 
 class Yaten(Adv):
-    a1 = ('epassive_att_crit', 3)
+    a1 = [('estat_att', 3), ('estat_crit', 3)]
     a3 = ('energized_att', 0.20)
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()

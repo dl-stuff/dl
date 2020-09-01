@@ -14,7 +14,7 @@ class Tension:
         self.current_scope = None
         self.stack = 0
         self.queued_stack = 0
-        self.has_stack = Buff('has_'+self.name, 1, -1, self.name, self.name)
+        self.has_stack = Selfbuff('has_'+self.name, 1, -1, self.name, self.name)
         self.disabled = False
 
     def add(self, n=1, team=False, queue=False):
@@ -31,7 +31,7 @@ class Tension:
         self.has_stack.on()
         if self.stack >= self.MAX_STACK:
             self.stack = self.MAX_STACK
-        log(self.name, '+{}'.format(n), 'stack <{}>'.format(self.stack))
+        log(self.name, '+{}'.format(n), 'stack <{}>'.format(int(self.stack)))
 
         self.event.stack = self.stack
         self.event.on()
@@ -44,7 +44,7 @@ class Tension:
         self.stack += n
         if self.stack >= self.MAX_STACK:
             self.stack = self.MAX_STACK
-        log('{}_extra'.format(self.name), '+{}'.format(n), 'stack <{}>'.format(self.stack))
+        log('{}_extra'.format(self.name), '+{}'.format(n), 'stack <{}>'.format(int(self.stack)))
 
     def check(self, name):
         scope = name.split('_')
@@ -57,7 +57,7 @@ class Tension:
                 # entering a new s1/s2/s3 block
                 if scope in self.scope:
                     self.current_scope = scope
-                    log(self.name, 'active', 'stack <{}>'.format(self.stack))
+                    log(self.name, 'active', 'stack <{}>'.format(int(self.stack)))
                     self.modifier.on()
                     return True
             elif self.current_scope == scope:
@@ -73,7 +73,7 @@ class Tension:
         self.current_scope = None
         self.modifier.off()
         self.has_stack.off()
-        log(self.name, 'reset', 'stack <{}>'.format(self.stack))
+        log(self.name, 'reset', 'stack <{}>'.format(int(self.stack)))
 
         self.event.stack = self.stack
         self.event.on()
