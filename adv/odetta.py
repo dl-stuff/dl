@@ -11,14 +11,14 @@ class Odetta(Adv):
     conf = {}
     conf['acl'] = """
         `dragon
-        `s2, fsc
-        `s1, fsc
+        `s4, cancel
+        `s2, cancel
         `s3, fsc
-        `s4, fsc
-        `fs, seq=2
+        `s1, fsc
+        `fs, x=2
         """
-    coab = ['Blade','Dagger','Peony']
-    share = ['Ranzal']
+    coab = ['Cleo','Lucretia','Peony']
+    share = ['Summer_Patia']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

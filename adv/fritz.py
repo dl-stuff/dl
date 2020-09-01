@@ -1,20 +1,23 @@
 from core.advbase import *
 from module.x_alt import Fs_alt
+from slot.a import *
 
 def module():
     return Fritz
 
 class Fritz(Adv):
     conf = {}
+    conf['slots.a'] = Twinfold_Bonds()+The_Red_Impulse()
     conf['acl'] = """
         `dragon
-        `s1, x=5 or fsc
-        `s4
-        `s2
+        `s3
+        `s1
+        `s4, cancel
+        `s2, x=5
         `fs, x=5
         """
-    coab = ['Blade','Halloween_Elisanne','Peony']
-    share = ['Ranzal']
+    coab = ['Cleo','Raemond','Peony']
+    share = ['Kleimann']
 
     def fs_proc_alt(self, e):
         self.afflics.stun('fs', 100)

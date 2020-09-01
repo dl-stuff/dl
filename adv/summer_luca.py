@@ -9,18 +9,20 @@ class Summer_Luca(Adv):
     a3 = ('eextra', 0.4)
 
     conf = {}
-    conf['slots.a'] = RR()+Breakfast_at_Valerios()
-    conf['slots.paralysis.a'] = Kung_Fu_Masters()+Spirit_of_the_Season()
+    conf['slots.a'] = RR()+The_Red_Impulse()
     conf['acl'] = """
-        `dragon, cancel
+        `dragon
         `s1
-        `s2
-        `s3, x=4
+        `s3
         `s4, x=4
-        `fs, x=5
+        `s2, cancel
         """
-    coab = ['Blade','Dagger','Peony']
+    coab = ['Raemond','Lucretia','Peony']
     share = ['Ranzal']
+    
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.coab = ['Raemond','Cleo','Peony']
 
     def s2_proc(self, e):
         Spdbuff(e.name,0.2,10).on()

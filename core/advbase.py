@@ -232,6 +232,11 @@ class Buff(object):
         self.bufftime = self._no_bufftime
         return self
 
+    def zone(self):
+        self.bufftime = self._no_bufftime
+        self.name += '_zone'
+        return self
+
     def value(self, newvalue=None):
         if newvalue:
             return self.set(newvalue)
@@ -919,7 +924,7 @@ class Adv(object):
         pass
 
     def s3_proc(self, e):
-        self.slots.w.s3_proc(self, e)
+        pass
 
     def s4_proc(self, e):
         pass
@@ -1102,11 +1107,12 @@ class Adv(object):
         # if 'dfs' in self.conf:
         #     xnfsconf[5] += self.conf.dfs
 
-        self.a_x1 = X(('x1', 1), self.conf.x1)
-        self.a_x2 = X(('x2', 2), self.conf.x2)
-        self.a_x3 = X(('x3', 3), self.conf.x3)
-        self.a_x4 = X(('x4', 4), self.conf.x4)
-        self.a_x5 = X(('x5', 5), self.conf.x5)
+        for n in range(1, self.x_max+1):
+            xn = f'x{n}'
+            try:
+                self.__setattr__(xn, X((xn, n), self.conf[xn]))
+            except AttributeError:
+                pass
 
         self.a_fs = Fs_group('fs', self.conf)
         self.a_fsf = Fs('fsf', self.conf.fsf)
@@ -1130,23 +1136,22 @@ class Adv(object):
             # self.fs_success = self.melee_fs_success
 
         # set cmd
-        self.x1 = self.a_x1
-        self.x2 = self.a_x2
-        self.x3 = self.a_x3
-        self.x4 = self.a_x4
-        self.x5 = self.a_x5
+        # self.x1 = self.a_x1
+        # self.x2 = self.a_x2
+        # self.x3 = self.a_x3
+        # self.x4 = self.a_x4
+        # self.x5 = self.a_x5
         # self.fs = self.a_fs
         self.fsf = self.a_fsf
         self.dodge = self.a_dodge
-        try:
-            self.a_x5ex = X(('x5ex', 5), self.conf.x5ex)
-            self.a_x5ex.atype = 'x'
-            self.a_x5ex.interrupt_by = ['fs', 's', 'dodge']
-            self.a_x5ex.cancel_by = ['fs', 's', 'dodge']
-            self.x4.cancel_by.append('x')
-            self.x5ex = self.a_x5ex
-        except:
-            pass
+        # try:
+        #     self.x5ex = X(('x5ex', 5), self.conf.x5ex)
+        #     self.x5ex.atype = 'x'
+        #     self.x5ex.interrupt_by = ['fs', 's', 'dodge']
+        #     self.x5ex.cancel_by = ['fs', 's', 'dodge']
+        #     self.x4.cancel_by.append('x')
+        # except:
+        #     pass
 
         self.hits = 0
         self.hp = 100
@@ -1579,23 +1584,24 @@ class Adv(object):
         if prev.name[0] == 'x':
             if prev.index != self.x_max:
                 x_next = prev.index + 1
-        getattr(self, 'x%d' % x_next)()
-        return 1
+        return getattr(self, 'x%d' % x_next)()
 
     def l_range_x(self, e):
         xseq = e.name
-        dmg_coef = self.conf['%s.dmg' % xseq]
-        sp_gain = self.conf['%s.sp' % xseq]
-        if xseq == 'x5':
-            log('x', '%s' % xseq, 0, '-------------------------------------c5')
+        if xseq == f'x{self.x_max}':
+            log('x', xseq, 0, f'-------------------------------------c{self.x_max}')
         else:
-            log('x', '%s' % xseq, 0)
+            log('x', xseq, 0)
         self.x_before(e)
-        missile_timer = Timer(self.cb_missile, self.conf['missile_iv'][xseq])
+        try:
+            missile_iv = self.conf['missile_iv'][xseq]
+        except:
+            missile_iv = 0
+        missile_timer = Timer(self.cb_missile, missile_iv)
         # missile_timer.dname = '%s_missile' % xseq
         missile_timer.dname = xseq
-        missile_timer.amount = dmg_coef
-        missile_timer.samount = sp_gain
+        missile_timer.amount = self.conf[xseq].dmg
+        missile_timer.samount = self.conf[xseq].sp
         missile_timer()
         self.x_proc(e)
         self.think_pin('x')
@@ -1607,18 +1613,18 @@ class Adv(object):
 
     def l_melee_x(self, e):
         xseq = e.name
-        dmg_coef = self.conf['%s.dmg' % xseq]
-        sp = self.conf['%s.sp' % xseq]
-        if xseq == 'x5':
-            log('x', '%s' % xseq, 0, '-------------------------------------c5')
+        dmg_coef = self.conf[xseq].dmg
+        sp = self.conf[xseq].sp
+        if xseq == f'x{self.x_max}':
+            log('x', xseq, 0, f'-------------------------------------c{self.x_max}')
         else:
-            log('x', '%s' % xseq, 0)
+            log('x', xseq, 0)
         self.x_before(e)
         self.update_hits(xseq)
-        self.dmg_make('%s' % xseq, dmg_coef)
+        self.dmg_make(xseq, dmg_coef)
         self.x_proc(e)
         self.think_pin('x')
-        self.charge('%s' % xseq, sp)
+        self.charge(xseq, sp)
 
     def dodge(self):
         return self.a_dodge()
@@ -1747,7 +1753,9 @@ class Adv(object):
                         'startup': 0.1
                     })
                     self.conf[dst_key] = default_skill
-                    self.__setattr__(dst_key, Skill(dst_key, default_skill))
+                    s = Skill(dst_key, default_skill)
+                    s.owner = owner
+                    self.__setattr__(dst_key, s)
         return preruns
 
     def run(self, d=300):
@@ -1791,6 +1799,7 @@ class Adv(object):
                     self.slots.c.a.append(ab)
 
         self.config_coabs()
+        preruns_ss = self.config_skillshare()
 
         if not ('forced' in self.conf.slots and self.conf.slots.forced):
             self.d_slots()
@@ -1802,7 +1811,6 @@ class Adv(object):
         self.base_att = int(self.slots.att(globalconf.halidom))
         self.slots.oninit(self)
 
-        preruns_ss = self.config_skillshare()
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)
         self.prerun()
@@ -1858,6 +1866,8 @@ class Adv(object):
         end = Timeline.run(d)
         log('sim', 'end')
 
+        self.post_run()
+
         for aff, up in self.afflics.get_uptimes().items():
             if up > 0.10:
                 if len(self.comment) > 0:
@@ -1872,6 +1882,9 @@ class Adv(object):
         self.logs = copy.deepcopy(g_logs)
 
         return end
+
+    def post_run(self):
+        pass
 
     def debug(self):
         pass
@@ -1979,6 +1992,8 @@ class Adv(object):
                 return 0
         else:
             coef = dmg_coef
+            if coef <= 0:
+                return 0
         self.damage_sources.add(name)
         for t in self.tension:
             t.check(name)

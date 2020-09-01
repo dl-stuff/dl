@@ -16,7 +16,7 @@ class Gala_Cleo(Adv):
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()  # wand c2*1.08 = 217
     conf['acl'] = """
-        `dragon.act("c3 s end"), x=5 and self.slots.tmp.d.trickery <= 1
+        `dragon.act("c3 s end"), x=5 and self.trickery <= 1
         `s3, not self.s3_buff
         `fs, s1.charged>=s1.sp and self.fs_alt.uses > 0
         if x=5 or x=4 or fsc or s
@@ -37,7 +37,7 @@ class Gala_Cleo(Adv):
 
     def fs_proc_alt(self, e):
         if self.a1_buffed:
-            Teambuff('a1_str',0.25,10).no_bufftime().on()
+            Teambuff('a1_str',0.25,10).zone().on()
 
     def prerun(self):
         self.a1_buffed = self.condition('a1 buff for 10s')

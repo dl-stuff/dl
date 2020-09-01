@@ -9,15 +9,15 @@ class Gala_Euden(Adv):
     comment = 'c2+fs'
     conf = {}
     conf['acl'] = """
-        `dragon, s=1
+        `dragon, self.energy()=5
+        `s2
         `s3
-        `s4
-        `s1, fsc
-        `s2, fsc
+        `s4, cancel
+        `s1, fsc and not self.energy()=5
         `fs, x=2
     """
-    coab = ['Dagger2','Blade','Peony']
-    share = ['Gala_Mym','Rodrigo']
+    coab = ['Raemond','Cleo','Peony']
+    share = ['Gala_Mym']
     conf['afflict_res.paralysis'] = 0
 
     def prerun(self):
@@ -39,7 +39,7 @@ class Gala_Euden(Adv):
 
     def s1_proc(self, e):
         if self.condition(f'{e.name} buff for 10s'):
-            Teambuff(e.name,0.20,10,'att').no_bufftime().on()
+            Teambuff(e.name,0.20,10,'att').zone().on()
 
     def s2_proc(self, e):
         Teambuff(e.name+'_defense', 0.15, 15, 'defense').on()

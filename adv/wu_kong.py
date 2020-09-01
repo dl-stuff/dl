@@ -9,17 +9,18 @@ class Wu_Kong(Adv):
     a3 = ('k_paralysis',0.3)
 
     conf = {}
+    conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
     conf['slots.paralysis.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon
-        `s1
-        `s2
-        `s3
+        `dragon, s
+        `s3, not self.s3_buff
         `s4
+        `s2
+        `s1
         `fs, x=5
         """
-    coab = ['Blade','Wand','Peony']
-    share = ['Ranzal']
+    coab = ['Blade','Lucretia','Peony']
+    share = ['Kleimann']
 
     def prerun(self):
         self.phase['s1'] = 0

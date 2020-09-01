@@ -42,7 +42,7 @@ class Sylas(Adv):
             self.dmg_make(e.name, 5.52)
 
     def s2_proc(self, e):
-        Selfbuff(f'{e.name}_sp',0.30,15,'sp','buff').on()
+        Selfbuff(f'{e.name}_sp',0.30,15,'sp','passive').on()
         Teambuff(e.name,0.25/2,15,'att','buff').on()
         self.buff_max_hp(f'{e_name}_hp', 0.20/2, True)
         # maybe someday doublebuffs will get a "means" parameter

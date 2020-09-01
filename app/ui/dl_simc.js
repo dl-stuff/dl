@@ -16,6 +16,7 @@ SECONDARY_COABS = {
 DEFAULT_SHARE = 'Ranzal';
 DEFAULT_SHARE_ALT = 'Curran';
 SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
+GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
 function name_fmt(name) {
     return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
 }
@@ -334,7 +335,7 @@ function loadAdvSlots() {
                 selectSkillShare(slots.adv.fullname, slots.adv.pref_share);
 
                 if (slots.adv.prelim) {
-                    $('#test-warning').html('Warning: preliminary sim, need review/optimization.');
+                    $('#test-warning').html('Warning: preliminary sim, need QC and optimization.');
                 } else {
                     $('#test-warning').empty();
                 }
@@ -707,6 +708,33 @@ function weaponSelectChange() {
         $('#input-acl').val($('#input-acl').data('default_acl'));
     }
 }
+function loadGithubCommits() {
+    $.ajax({
+        url: GITHUB_COMMIT_LOG,
+        dataType: 'text',
+        type: 'get',
+        contentType: 'application/json',
+        success: function (data, textStatus, jqXHR) {
+            if (jqXHR.status == 200) {
+                const commits = JSON.parse(data);
+                console.log(commits);
+                for (const commit of commits){
+                    const c = commit.commit;var startDate = new Date();
+                    const authorTime = moment(c.author.date);
+                    const entry = $('<a></a>').attr({ class: 'commit-entry',  href: commit.html_url });
+                    entry.append($('<span>'+commit.author.login+'</span>').attr({ class: 'commit-author' }));
+                    entry.append($('<span> - '+authorTime.fromNow()+'</span>').attr({ class: 'commit-time' }));
+                    entry.append($('<div>' + c.message + '</div>').attr({ class: 'commit-message' }));
+                    $('#changelog').append(entry);
+                }
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // $('#changelog').html('Failed to load github commits');
+        }
+    });
+
+}
 window.onload = function () {
     $('#input-adv').change(debounce(loadAdvSlots, 200));
     $('#run-test').click(debounce(runAdvTest, 200));
@@ -718,7 +746,8 @@ window.onload = function () {
     $('#clear-results').click(clearResults);
     $('#reset-test').click(loadAdvSlots);
     $('#input-edit-acl').change(editAcl);
-    $('#input-wep').change(weaponSelectChange);
+    // $('#input-wep').change(weaponSelectChange);
     clearResults();
     loadAdvWPList();
+    loadGithubCommits();
 }

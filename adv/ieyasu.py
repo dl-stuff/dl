@@ -13,7 +13,7 @@ class Ieyasu(Adv):
     conf['slots.a'] = Resounding_Rendition()+United_by_One_Vision()
     conf['acl'] = """
         ##Use Gala Cat Sith only when out of Skillful Trickery
-        `dragon.act('c3 s end'), self.slots.tmp.d.trickery <= 1
+        `dragon.act('c3 s end'), self.trickery <= 1
         `s3, not self.s3_buff
         `s1, self.s3_buff
         `s2, x=5

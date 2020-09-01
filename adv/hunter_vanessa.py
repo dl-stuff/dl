@@ -11,22 +11,22 @@ class Hunter_Vanessa(Adv):
     conf = {}
     conf['slots.a'] = Mega_Friends()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, fsc
+        `dragon, s
         `s2, not self.s2_att_boost.get()
-        `fs2, s1.charged>=s1.sp-self.sp_val('fs2') or s3.charged>=s3.sp-self.sp_val('fs2') or s4.charged>=s4.sp-self.sp_val('fs2')
-        `s1,fsc
-        `s3,fsc
-        `s4,fsc
+        `fs2, cancel and (s1.charged>=s1.sp-self.sp_val('fs2') or s4.charged>=s4.sp-self.sp_val('fs2'))
+        `s3, not self.s3_buff and fsc
+        `s1, fsc
+        `s4, fsc
         `dodge,fsc
         `fs2,x=5
         """
-    coab = ['Sharena','Dagger','Peony']
+    coab = ['Sharena','Blade','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Ranzal','Kleimann']
+    share = ['Kleimann']
 
     def d_slots(self):
-        if self.duration <= 90:
-            self.slots.a = Resounding_Rendition()+The_Chocolatiers()
+        if self.duration <= 60:
+            self.slots.a = Mega_Friends()+The_Chocolatiers()
 
     def prerun(self):
         self.conf.fs.hit = 1

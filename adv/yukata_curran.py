@@ -10,21 +10,20 @@ default_rebound = 2
 
 class Yukata_Curran(Adv):
     comment = f'assume {default_rebound} hits per s1 bullet'
-    a3 = ('epassive_att_crit', 3)
+    a1 = [('estat_att', 3), ('estat_crit', 3)]
 
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Memories_of_Summers_Dusk()
-    conf['slots.paralysis.a'] = conf['slots.a']
+    conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
-        `s1
+        `s3, not self.s3_buff
         `s2
-        `s3
-        `s4
+        `s4, x=5
+        `s1, not self.energy()=5 and cancel
         `fs, x=5
         """
-    coab = ['Blade','Wand','Peony']
-    share = ['Kleimann', 'Ranzal']
+    coab = ['Sharena','Lucretia','Peony']
+    share = ['Summer_Patia']
     conf['afflict_res.stun'] = 80
     conf['afflict_res.paralysis'] = 0
 

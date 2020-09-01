@@ -14,7 +14,7 @@ pipple_conf = {
 }
 
 class Pipple(Adv):
-    a3 = ('epassive_att_crit', 7)
+    a3 = [('estat_att', 7), ('estat_crit', 7)]
 
     conf = pipple_conf.copy()
     conf['slots.a'] = Felyne_Hospitality()+Brothers_in_Arms()

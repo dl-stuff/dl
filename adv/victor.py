@@ -7,6 +7,7 @@ def module():
 
 class Victor(Adv):
     a1 = ('a',0.13,'hp70')
+    a3 = ('bt',0.30)
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Primal_Crisis()
     conf['acl'] = """

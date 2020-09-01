@@ -11,14 +11,14 @@ class Luca(Adv):
     conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
-        `s1
-        `s2, fsc
         `s3
-        `s4
-        `fs, seq=4
+        `s1, cancel
+        `s4, cancel
+        `s2, fsc
+        `fs, x=5
         """
-    coab = ['Blade','Halloween_Elisanne','Peony']
-    share = ['Ranzal']
+    coab = ['Cleo','Raemond','Peony']
+    share = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def s1_proc(self, e):

@@ -407,7 +407,7 @@ class Prayers_Unto_Him(Amulet):
 
 class An_Ancient_Oath(Amulet):
     att = 65
-    a = [('da', 0.18), ('dc', 4)]
+    a = [('da', 0.18), ('dc', 3)]
 
 class The_Fires_of_Hate(Amulet):
     att = 65
@@ -451,7 +451,7 @@ class Me_and_My_Bestie(Amulet):
 
 class Blossoms_on_the_Waters_Edge(Amulet):
     att = 62
-    a = [('dh', 0.08), ('dp', 0.10)]
+    a = [('dh', 0.08), ('dp', 10)]
 
 class Memories_of_Summers_Dusk(Amulet):
     att = 65
@@ -460,3 +460,11 @@ class Memories_of_Summers_Dusk(Amulet):
 class A_Passion_for_Produce(Amulet):
     att = 52
     a = [('s',0.20), ('cc',0.12)]
+
+class Treasury_of_Knowledge(Amulet):
+    att = 46
+    a = [('k_sleep',0.20)]
+
+class A_Day_in_Her_Life(Amulet):
+    att = 64
+    a = [('bc_energy', 1), ('fs', 0.50)]

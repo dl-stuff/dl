@@ -169,6 +169,17 @@ class Dragon_Haste(Ability):
 ability_dict['dh'] = Dragon_Haste
 
 
+class Attack_Speed(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('spd','passive',value,cond)])
+    
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom)
+        adv.Event('speed')()
+
+ability_dict['spd'] = Attack_Speed
+
+
 class Co_Ability(Ability):
     EX_MAP = {
         'blade': [('att','ex',0.10)],
@@ -610,35 +621,40 @@ class AntiAffliction_Selfbuff(Affliction_Selfbuff):
 ability_dict['antiaffself'] = AntiAffliction_Selfbuff
 
 
-class Energy_StrCrit(Ability):
-    STR_LEVELS = {
-        3: (0.0, 0.04, 0.06, 0.08, 0.10, 0.20),
-        7: (0.0, 0.05, 0.10, 0.20, 0.30, 0.40)
-    }
-    CRIT_LEVELS = {
-        3: (0.0, 0.01, 0.02, 0.03, 0.04, 0.08),
-        7: (0.0, 0.01, 0.04, 0.07, 0.10, 0.15)
+class Energy_Stat(Ability):
+    STAT_LEVELS = {
+        ('att', 'passive'): {
+            3: (0.0, 0.04, 0.06, 0.08, 0.10, 0.20),
+            7: (0.0, 0.05, 0.10, 0.20, 0.30, 0.40),
+            'chariot': (0.0, 0.25, 0.30, 0.35, 0.40, 0.45)
+        },
+        ('crit', 'chance'): {
+            3: (0.0, 0.01, 0.02, 0.03, 0.04, 0.08),
+            7: (0.0, 0.01, 0.04, 0.07, 0.10, 0.15)
+        },
+        ('sp', 'passive'): {
+            3: (0.0, 0.05, 0.10, 0.15, 0.20, 0.25),
+        }
     }
     def __init__(self, name, value):
-        # self.atk_buff = Selfbuff('a1atk',0.00,-1,'att','passive').on()
-        # self.a1crit = Selfbuff('a1crit',0.00,-1,'crit','chance').on()
-        self.att_values = self.STR_LEVELS[value]
-        self.crit_values = self.CRIT_LEVELS[value]
+        parts = name.split('_')
+        self.mtype = parts[1]
+        try:
+            self.morder = parts[2]
+        except IndexError:
+            self.morder = 'chance' if self.mtype == 'crit' else 'passive'
+        self.stat_values = Energy_Stat.STAT_LEVELS[(self.mtype, self.morder)][value]
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
-        self.att_buff = adv.Selfbuff('epassive_att', 0.00,-1,'att', 'passive').on()
-        self.crit_buff = adv.Selfbuff('epassive_crit', 0.00,-1,'crit', 'chance').on()
+        from core.advbase import log
+        stat_mod = adv.Modifier(self.name, self.mtype, self.morder, 0.0)
         def l_energy(e):
-            self.att_buff.off()
-            self.crit_buff.off()
-            self.att_buff.set(self.att_values[round(e.stack)])
-            self.crit_buff.set(self.crit_values[round(e.stack)])
-            self.att_buff.on()
-            self.crit_buff.on()
+            stat_mod.mod_value = self.stat_values[round(adv.energy.stack)]
+            log(self.name, stat_mod.mod_value, adv.energy.stack)
         adv.Event('energy').listener(l_energy)
 
-ability_dict['epassive'] = Energy_StrCrit
+ability_dict['estat'] = Energy_Stat
 
 
 class Energy_Haste(Ability):
@@ -659,7 +675,7 @@ class Energy_Haste(Ability):
             self.haste_buff.on()
         adv.Event('energy').listener(l_energy)
 
-ability_dict['ehaste'] = Energy_StrCrit
+ability_dict['ehaste'] = Energy_Stat
 
 
 class Affliction_Edge(Ability):

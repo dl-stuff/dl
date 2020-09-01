@@ -209,6 +209,71 @@ class Tie_Shan_Gongzhu(DragonBase):
         self.adv.energy.add(5, team=True)
         return count
 
+class Gala_Thor(DragonBase):
+    ele = 'light'
+    att = 124
+    a = [('a', 0.5), ('estat_att', 'chariot')]
+    dragonform = {
+        'act': 'c8 s',
+
+        'dx1.dmg': 2.10,
+        'dx1.startup': 16 / 60.0, # c1 frames
+        'dx1.hit': 1,
+
+        'dx2.dmg': 1.76,
+        'dx2.startup': 37 / 60.0, # c2 frames
+        'dx2.hit': 1,
+
+        'dx3.dmg': 6.38,
+        'dx3.startup': 124 / 60.0, # c3 frames
+        # 'dx3.recovery': 24 / 60.0, # recovery
+        'dx3.hit': 11,
+
+        'dx4.dmg': 6.38,
+        'dx4.startup': 72 / 60.0,
+        'dx4.hit': 11,
+
+        'dx5.dmg': 6.38,
+        'dx5.startup': 72 / 60.0,
+        'dx5.hit': 11,
+
+        'dx6.dmg': 6.38,
+        'dx6.startup': 72 / 60.0,
+        'dx6.hit': 11,
+
+        'dx7.dmg': 6.38,
+        'dx7.startup': 72 / 60.0,
+        'dx7.hit': 11,
+
+        'dx8.dmg': 6.38,
+        'dx8.startup': 72 / 60.0,
+        'dx8.hit': 11,
+
+        'dx9.dmg': 6.38,
+        'dx9.startup': 72 / 60.0,
+        'dx9.hit': 11,
+
+        'ds.recovery': 180 / 60, # skill frames
+        'ds.hit': -1,
+
+        'dodge.startup': 33 / 60, # dodge frames
+    }
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        from core.advbase import Timer, Event
+        def chariot_energy(t):
+            adv.energy.add(1)
+        Timer(chariot_energy, 5, True).on()
+        def shift_end_energy(e):
+            adv.energy.add(5, team=True)
+        Event('dragon_end').listener(shift_end_energy)
+
+    def ds_proc(self):
+        dmg = self.adv.dmg_make('ds',17.80,'s')
+        self.adv.afflics.paralysis('ds',110,0.442,26,dtype='s')
+        return dmg
+
 
 class Unreleased_LightSkillDamage(DragonBase):
     ele = 'light'
