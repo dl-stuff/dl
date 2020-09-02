@@ -16,8 +16,8 @@ class Julietta(Adv):
         `s4, s1.charged<s1.sp/2
         `fs, x=4 and self.fs_alt.uses>0
         """
-    coab = ['Blade','Lucretia','Peony']
-    share = ['Summer_Cleo']
+    conf['coabs'] = ['Blade','Lucretia','Peony']
+    conf['share'] = ['Summer_Cleo']
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 14.976}

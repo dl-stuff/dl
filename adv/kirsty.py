@@ -14,8 +14,8 @@ class Kirsty(Adv):
         `s1,cancel
         `s2,x=5
         """
-    coab = ['Blade','Dragonyule_Xainfried','Akasha']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
+    conf['share'] = ['Curran']
 
     def prerun(self):
         if self.condition('maintain Dauntless Strength'):

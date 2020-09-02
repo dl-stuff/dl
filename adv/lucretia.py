@@ -14,8 +14,8 @@ class Lucretia(Adv):
         `s1, cancel
         `s3, cancel
         """
-    coab = ['Cleo','Raemond','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Cleo','Raemond','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def s1_proc(self, e):
         self.energy.add(1, team=True)

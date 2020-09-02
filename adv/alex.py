@@ -21,9 +21,9 @@ class Alex(Adv):
         `s1, cancel
         `fs, x=5
         """
-    coab = ['Blade','Wand','Bow']
+    conf['coabs'] = ['Blade','Wand','Bow']
     conf['afflict_res.poison'] = 0
-    share = ['Curran']
+    conf['share'] = ['Curran']
 
     def s1_proc(self, e):
         self.afflics.poison(e.name,100,0.396)

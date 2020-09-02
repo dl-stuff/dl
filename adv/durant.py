@@ -23,12 +23,12 @@ class Durant(Adv):
         `s2, x=5
         `s4
     """
-    coab = ['Dagger2', 'Tobias', 'Axe2']
-    share = ['Kleimann']
+    conf['coabs'] = ['Dagger2', 'Tobias', 'Axe2']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

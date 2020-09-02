@@ -25,8 +25,8 @@ class Fjorm(Adv):
         `s2, s=1
         `fs, x=5
     """
-    coab = ['Blade', 'Summer_Estelle', 'Renee']
-    share = ['Gala_Elisanne', 'Eugene']
+    conf['coabs'] = ['Blade', 'Summer_Estelle', 'Renee']
+    conf['share'] = ['Gala_Elisanne', 'Eugene']
 
     def prerun(self):
         Teambuff('last_bravery',0.3,15).on()

@@ -28,8 +28,8 @@ class Xander(Adv):
         `fs, x=2
         end
     """
-    coab = ['Blade', 'Yurius', 'Hunter_Sarisse']
-    share = ['Gala_Elisanne', 'Hunter_Sarisse']
+    conf['coabs'] = ['Blade', 'Yurius', 'Hunter_Sarisse']
+    conf['share'] = ['Gala_Elisanne', 'Hunter_Sarisse']
 
     def fs_proc_alt(self, e):
         if self.born_ruler_2.get():

@@ -16,8 +16,8 @@ class Aeleen(Adv):
         `s1, self.s3_buff
         `fs, seq=5
         """
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['share'] = ['Curran']
 
 
 if __name__ == '__main__':

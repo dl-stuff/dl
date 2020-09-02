@@ -66,8 +66,8 @@ class Gala_Leif(Adv):
         `s1
         `fs, x=3
         """
-    coab = ['Dragonyule_Xainfried', 'Blade', 'Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Dragonyule_Xainfried', 'Blade', 'Lin_You']
+    conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
     
     def prerun(self):

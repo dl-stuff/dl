@@ -16,16 +16,16 @@ class Orion(Adv):
         `s1, self.s3_buff and cancel
         `fs, x=5
     """
-    coab = ['Ieyasu','Wand','Axe2']
-    share = ['Kleimann']
+    conf['coabs'] = ['Ieyasu','Wand','Axe2']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Ieyasu','Wand','Forte']
+            self.conf['coabs'] = ['Ieyasu','Wand','Forte']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

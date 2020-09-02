@@ -39,8 +39,8 @@ class Lily(Adv):
         `s2, cancel
         `s1, x=5
     """
-    coab = ['Blade', 'Renee', 'Summer_Celliera']
-    share = ['Gala_Elisanne', 'Eugene']
+    conf['coabs'] = ['Blade', 'Renee', 'Summer_Celliera']
+    conf['share'] = ['Gala_Elisanne', 'Eugene']
 
     # conf['slots.a'] = Candy_Couriers()+His_Clever_Brother()
     # conf['slots.d'] = Siren()
@@ -51,8 +51,8 @@ class Lily(Adv):
     #     `s2
     #     `s1
     # """
-    # coab = ['Blade', 'Dagger', 'Lazry']
-    # share = ['Ranzal', 'Eugene']
+    # conf['coabs'] = ['Blade', 'Dagger', 'Lazry']
+    # conf['share'] = ['Ranzal', 'Eugene']
 
     def prerun(self):
         self.crystalian_princess = X_alt(self, 'crystalian_princess', cp_auto_conf, x_proc=self.l_cp_x)

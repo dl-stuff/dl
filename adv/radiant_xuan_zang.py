@@ -32,8 +32,8 @@ class Radiant_Xuan_Zang(Adv):
         `s4, x>2
         `fs, self.fs_alt.uses>0 and x=4
     """
-    coab = ['Sharena', 'Blade', 'Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Sharena', 'Blade', 'Peony']
+    conf['share'] = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def fs_proc_alt(self, e):

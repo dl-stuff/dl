@@ -19,8 +19,8 @@ class Zardin(Adv):
         `s1, fsc
         `fs, x=2
         """
-    coab = ['Blade', 'Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def s1_proc(self, e):
         self.afflics.frostbite(e.name,120,0.41)

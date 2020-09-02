@@ -16,8 +16,8 @@ class Halloween_Edward(Adv):
         `s1, cancel
         `s2, x=5
         """
-    coab = ['Raemond','Cleo','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Raemond','Cleo','Peony']
+    conf['share'] = ['Kleimann']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

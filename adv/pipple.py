@@ -27,8 +27,8 @@ class Pipple(Adv):
         `s3, cancel
         `s1, x>2
         """
-    coab = ['Tiki', 'Renee', 'Tobias']
-    share = ['Summer_Luca','Patia']
+    conf['coabs'] = ['Tiki', 'Renee', 'Tobias']
+    conf['share'] = ['Summer_Luca','Patia']
 
     def prerun(self):
         self.phase['s1'] = 0

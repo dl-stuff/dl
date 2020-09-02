@@ -19,9 +19,9 @@ class Summer_Ranzal(Adv):
         `s4
         `s2
         """
-    coab = ['Xander', 'Dagger', 'Tiki']
+    conf['coabs'] = ['Xander', 'Dagger', 'Tiki']
     conf['afflict_res.bog'] = 100
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def init(self):
         self.a3_iscding = 0

@@ -1,12 +1,6 @@
 APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 BASE_SIM_T = 180;
 BASE_TEAM_DPS = 20000;
-BASE_AFFLICT_UPTIME = {
-    'poison': 90,
-    'burn': 85,
-    'paralysis': 85,
-    'frostbite': 90
-};
 WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
 RANGED = ['wand', 'bow', 'staff'];
 SECONDARY_COABS = {
@@ -218,11 +212,125 @@ function trimAcl(acl_str) {
     return $.trim(acl_str.replace(new RegExp(/[\n] +/, 'g'), '\n'));
 }
 function getUrlVars() {
-    var vars = {};
+    let vars = {};
     window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         vars[key] = value;
     });
     return vars;
+}
+function updateUrl(urlVars) {
+    if (urlVars && urlVars.conf){
+        history.replaceState(null, '', `${location.pathname}?conf=${urlVars.conf}`);
+    } else {
+        history.replaceState(null, '', location.pathname);
+    }
+}
+function serConf(no_conf){
+    let requestJson = {
+        'adv': $('#input-adv').val(),
+        'dra': $('#input-dra').val(),
+        'wep': $('#input-wep').val()
+    }
+    if ($('#input-wp1').val() != '' && $('#input-wp2').val() != '') {
+        requestJson['wp1'] = $('#input-wp1').val();
+        requestJson['wp2'] = $('#input-wp2').val();
+    }
+    requestJson['share'] = readSkillShare();
+    requestJson['coab'] = readCoabList();
+    const t = $('#input-t').val();
+    if (!isNaN(parseInt(t))) {
+        requestJson['t'] = t;
+    }
+    const afflict_res = readResistDict();
+    if (afflict_res != null) {
+        requestJson['afflict_res'] = afflict_res;
+    }
+    if (!isNaN(parseInt($('#input-teamdps').val()))) {
+        const dps = $('#input-teamdps').val();
+        requestJson['teamdps'] = dps;
+        localStorage.setItem('teamdps', dps);
+    }
+    // if (!isNaN(parseInt($('#input-missile').val()))) {
+    //     requestJson['missile'] = $('#input-missile').val();
+    // }
+    if (!isNaN(parseInt($('#input-dragonbattle').val()))) {
+        requestJson['dragonbattle'] = $('#input-dragonbattle').val();
+    }
+    if (!isNaN(parseInt($('#input-hp').val()))) {
+        requestJson['hp'] = $('#input-hp').val();
+    }
+    if ($('#input-edit-acl').prop('checked')) {
+        requestJson['acl'] = $('#input-acl').val();
+    }
+    const sim_aff = readSimAfflic();
+    if (sim_aff != null) {
+        requestJson['sim_afflict'] = sim_aff;
+    }
+    const sim_buff = readSimBuff();
+    if (sim_buff != null){
+        requestJson['sim_buff'] = sim_buff;
+    }
+    const condition = readConditionList();
+    if (condition !== null) {
+        requestJson['condition'] = condition;
+    }
+
+    if (!no_conf){
+        const urlVars = {conf: btoa(JSON.stringify(requestJson))};
+        updateUrl(urlVars);
+    }
+
+    return requestJson;
+}
+function deserConf(confStr){
+    return JSON.parse(atob(confStr));
+}
+function loadConf(conf, slots){
+    slots.adv.pref_wep = conf.wep;
+    slots.adv.pref_dra = conf.dra;
+
+    if (conf.wp1 && conf.wp2){
+        slots.adv.pref_wp.wp1 = conf.wp1;
+        slots.adv.pref_wp.wp2 = conf.wp2;
+    }
+    if (conf.coab){
+        slots.adv.pref_coab = conf.coab;
+    }
+    if (conf.share){
+        slots.adv.pref_share = conf.share;
+    }
+    if (conf.acl){
+        slots.adv.acl_alt = conf.acl;
+    }
+    if (conf.afflict_res){
+        slots.adv.afflict_res = conf.afflict_res
+    }
+    if (conf.teamdps){
+        $('#input-teamdps').val(conf.teamdps);
+        localStorage.setItem('teamdps', conf.teamdps);
+    }
+    for (const key of ['t', 'hp', 'dragonbattle']){
+        if (conf[key]){
+            $('#input-'+key).val(conf[key]);
+        }
+    }
+    if (conf.sim_afflict){
+        for (const key of Object.keys(conf.sim_afflict)){
+            const res = $('#affliction-sim > div > #input-sim-'+key);
+            if (res){
+                res.val(conf.sim_afflict[key]);
+            }
+        }
+    }
+    if (conf.sim_buff){
+        for (const key of Object.keys(conf.sim_buff)){
+            const res = $('#input-sim-buff'+key);
+            if (res){
+                res.val(conf.sim_buff[key]);
+            }
+        }
+    }
+    return slots;
 }
 function populateSkillShare(skillshare) {
     $('#input-ss3').empty();
@@ -247,11 +355,18 @@ function populateSkillShare(skillshare) {
 }
 function loadAdvWPList() {
     let selectedAdv = 'euden';
-    let urlVars = getUrlVars();
-    if (urlVars.adv_name) {
-        selectedAdv = urlVars.adv_name.toLowerCase();
-    } else if (localStorage.getItem('selectedAdv')) {
+    if (localStorage.getItem('selectedAdv')) {
         selectedAdv = localStorage.getItem('selectedAdv');
+    }
+    const urlVars = getUrlVars();
+    if (urlVars) {
+        if (urlVars.conf) {
+            const conf = deserConf(urlVars.conf);
+            selectedAdv = conf.adv;
+        } else if (urlVars.adv_name){
+            selectedAdv = urlVars.adv_name.toLowerCase();
+        }
+        updateUrl(urlVars);
     }
     $.ajax({
         url: APP_URL + 'simc_adv_wp_list',
@@ -266,9 +381,8 @@ function loadAdvWPList() {
                 $('#adv-' + selectedAdv).prop('selected', true);
                 populateSelect('#input-wp1', advwp.amulets);
                 populateSelect('#input-wp2', advwp.amulets);
-
                 populateSkillShare(advwp.skillshare);
-                loadAdvSlots();
+                loadAdvSlots(true);
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -301,12 +415,16 @@ function selectSkillShare(fullname, pref_share) {
             break;
     }
 }
-function loadAdvSlots() {
+function loadAdvSlots(no_conf) {
     clearResults();
     if ($('#input-adv').val() == '') {
         return false;
     }
-    history.replaceState && history.replaceState(null, '', location.pathname);
+    const urlVars = getUrlVars();
+    let conf = undefined;
+    if (urlVars.conf) {
+        conf = deserConf(urlVars.conf);
+    }
     const adv_name = $('#input-adv').val();
     localStorage.setItem('selectedAdv', $('#input-adv').val());
     $.ajax({
@@ -317,35 +435,41 @@ function loadAdvSlots() {
         data: JSON.stringify({ 'adv': adv_name }),
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
-                const slots = JSON.parse(data);
+                let slots = JSON.parse(data);
                 populateSelect('#input-wep', slots.weapons);
-                $('#wep-' + slots.adv.pref_wep).prop('selected', true);
                 populateSelect('#input-dra', slots.dragons);
+                buildCoab(slots.coab, slots.adv.fullname, slots.adv.wt);
+
+                const urlVars = getUrlVars();
+                if (urlVars.conf) {slots = loadConf(conf, slots);}
+
+                $('#wep-' + slots.adv.pref_wep).prop('selected', true);
                 $('#dra-' + slots.adv.pref_dra).prop('selected', true);
                 $('#wp1-' + slots.adv.pref_wp.wp1).prop('selected', true);
                 $('#wp2-' + slots.adv.pref_wp.wp2).prop('selected', true);
-
-                buildCoab(slots.coab, slots.adv.fullname, slots.adv.wt);
                 for (const c of slots.adv.pref_coab) {
                     const check = $("input[id$='-" + c.toLowerCase() + "']");
                     check.prop('checked', true);
                     coabSelection(1);
                 }
-
                 selectSkillShare(slots.adv.fullname, slots.adv.pref_share);
-
                 if (slots.adv.prelim) {
                     $('#test-warning').html('Warning: preliminary sim, need QC and optimization.');
                 } else {
                     $('#test-warning').empty();
                 }
-
-                $('#input-acl').blur();
-                $('#input-edit-acl').prop('checked', false);
-                $('#input-acl').prop('disabled', true);
                 const acl = trimAcl(slots.adv.acl);
-                $('#input-acl').val(acl);
                 $('#input-acl').data('default_acl', acl);
+                $('#input-acl').blur();
+                $('#input-edit-acl').prop('checked', Boolean(slots.adv.acl_alt));
+                $('#input-acl').prop('disabled', !slots.adv.acl_alt);
+                if (slots.adv.acl_alt){
+                    const acl_alt = trimAcl(slots.adv.acl_alt);
+                    $('#input-acl').data('alternate_acl', acl_alt);
+                    $('#input-acl').val(acl_alt);
+                } else {
+                    $('#input-acl').val(acl);
+                }
                 if (slots.adv.afflict_res != undefined) {
                     for (const key in slots.adv.afflict_res) {
                         $('#input-res-' + key).val(slots.adv.afflict_res[key]);
@@ -371,7 +495,7 @@ function loadAdvSlots() {
                     $('#input-wp2').prop('disabled', false);
                     $('#input-edit-acl').prop('disabled', false);
                 }
-                runAdvTest();
+                runAdvTest(no_conf);
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -419,6 +543,9 @@ function readResistDict() {
                 resists[parts[parts.length - 1]] = resVal;
             }
         });
+        if ($.isEmptyObject(resists)){
+            return null;
+        }
         return resists;
     }
 }
@@ -524,65 +651,32 @@ function readSimAfflic() {
                 simAff[parts[parts.length - 1]] = resVal;
             }
         });
+        if ($.isEmptyObject(simAff)){
+            return null;
+        }
         return simAff;
     }
 }
-function runAdvTest() {
+function readSimBuff() {
+    let simBuff = {};
+    for (let key of SIMULATED_BUFFS){
+        const buff_value = $('#input-sim-buff-'+key).val();
+        if (!isNaN(parseFloat(buff_value))) {
+            simBuff[key] = buff_value;
+        }
+    }
+    if ($.isEmptyObject(simBuff)){
+        return null;
+    }
+    return simBuff;
+}
+function runAdvTest(no_conf) {
     if ($('#input-adv').val() == '') {
         return false;
     }
     $('#test-error').empty();
     $('div[role="tooltip"]').remove();
-    let requestJson = {
-        'adv': $('#input-adv').val(),
-        'dra': $('#input-dra').val(),
-        'wep': $('#input-wep').val()
-    }
-    if ($('#input-wp1').val() != '' && $('#input-wp2').val() != '') {
-        requestJson['wp1'] = $('#input-wp1').val();
-        requestJson['wp2'] = $('#input-wp2').val();
-    }
-    requestJson['share'] = readSkillShare();
-    requestJson['coab'] = readCoabList();
-    const t = $('#input-t').val();
-    if (!isNaN(parseInt(t))) {
-        requestJson['t'] = t;
-    }
-    const afflict_res = readResistDict();
-    if (afflict_res != null) {
-        requestJson['afflict_res'] = afflict_res;
-    }
-    if (!isNaN(parseInt($('#input-teamdps').val()))) {
-        const dps = $('#input-teamdps').val();
-        requestJson['teamdps'] = dps;
-        localStorage.setItem('teamdps', dps);
-    }
-    // if (!isNaN(parseInt($('#input-missile').val()))) {
-    //     requestJson['missile'] = $('#input-missile').val();
-    // }
-    if (!isNaN(parseInt($('#input-dragonbattle').val()))) {
-        requestJson['dragonbattle'] = $('#input-dragonbattle').val();
-    }
-    if (!isNaN(parseInt($('#input-hp').val()))) {
-        requestJson['hp'] = $('#input-hp').val();
-    }
-    if ($('#input-edit-acl').prop('checked')) {
-        requestJson['acl'] = $('#input-acl').val();
-    }
-    const sim_aff = readSimAfflic();
-    if (sim_aff != null) {
-        requestJson['sim_afflict'] = sim_aff;
-    }
-    for (let key of SIMULATED_BUFFS){
-        const buff_value = $('#input-sim-buff-'+key).val();
-        if (!isNaN(parseFloat(buff_value))) {
-            requestJson['sim_buff_'+key] = buff_value;
-        }
-    }
-    const condition = readConditionList();
-    if (condition !== null) {
-        requestJson['condition'] = condition;
-    }
+    const requestJson = serConf(no_conf);
     $.ajax({
         url: APP_URL + 'simc_adv_test',
         dataType: 'text',
@@ -600,7 +694,7 @@ function runAdvTest() {
                     const cond_true = result[1].split(',');
                     const name = name_fmt(cond_true[1]);
                     const icon_urls = slots_icon_fmt(cond_true);
-                    let copyTxt = '**' + name + ' ' + t + 's** ';
+                    let copyTxt = '**' + name + ' ' + requestJson['t'] + 's** ';
                     let newResultItem = $('<div></div>').attr({ class: 'test-result-item' });
                     newResultItem.append($(
                         '<h4 class="test-result-slot-grid"><div>' +
@@ -631,17 +725,25 @@ function runAdvTest() {
     });
 }
 function editAcl() {
-    $('#input-acl').prop('disabled', !$(this).prop('checked'));
-    $('#input-acl').val($('#input-acl').data('default_acl'));
+     $('#input-acl').prop('disabled', !$(this).prop('checked'));
+    if ($(this).prop('checked')){
+        $('#input-acl').prop('disabled', false);
+        const altAcl = $('#input-acl').data('alternate_acl');
+        if (altAcl){
+            $('#input-acl').val(altAcl);
+        }
+    } else {
+        $('#input-acl').data('alternate_acl', $('#input-acl').val());
+        $('#input-acl').prop('disabled', true);
+        $('#input-acl').val($('#input-acl').data('default_acl'));
+    }
 }
 function debounce(func, interval) {
-    var lastCall = -1;
+    let lastCall = -1;
     return function () {
         clearTimeout(lastCall);
-        var args = arguments;
-        var self = this;
         lastCall = setTimeout(function () {
-            func.apply(self, args);
+            func.apply();
         }, interval);
     };
 }
@@ -688,6 +790,11 @@ function clearResults() {
         $('#input-sim-buff-'+key).val('');
     }
     $('#input-conditions').empty();
+    $('#input-dragonbattle').val('');
+}
+function resetTest(){
+    updateUrl();
+    loadAdvSlots(true);
 }
 function weaponSelectChange() {
     const weapon = $('#input-wep').val();
@@ -717,7 +824,6 @@ function loadGithubCommits() {
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 const commits = JSON.parse(data);
-                console.log(commits);
                 for (const commit of commits){
                     const c = commit.commit;var startDate = new Date();
                     const authorTime = moment(c.author.date);
@@ -736,7 +842,7 @@ function loadGithubCommits() {
 
 }
 window.onload = function () {
-    $('#input-adv').change(debounce(loadAdvSlots, 200));
+    $('#input-adv').change(debounce(resetTest, 200));
     $('#run-test').click(debounce(runAdvTest, 200));
     if (!localStorage.getItem('displayMode')) {
         localStorage.setItem('displayMode', 'Markdown');
@@ -744,7 +850,7 @@ window.onload = function () {
     setDisplay(localStorage.getItem('displayMode'));
     $('#display-mode').click(toggleDisplay);
     $('#clear-results').click(clearResults);
-    $('#reset-test').click(loadAdvSlots);
+    $('#reset-test').click(resetTest);
     $('#input-edit-acl').change(editAcl);
     // $('#input-wep').change(weaponSelectChange);
     clearResults();

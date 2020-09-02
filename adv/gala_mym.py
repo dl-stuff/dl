@@ -22,8 +22,8 @@ class Gala_Mym(Adv):
         `s4, cancel
         `fs, x=5
     """
-    share = ['Kleimann']
-    coab = ['Verica', 'Marth', 'Yuya']
+    conf['share'] = ['Kleimann']
+    conf['coabs'] = ['Verica', 'Marth', 'Yuya']
     
     conf['dragonform1'] = {
         'act': 'c3 s',

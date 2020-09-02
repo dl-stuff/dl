@@ -240,9 +240,9 @@ class Valerio(Adv):
         `s4
         `s1
     """
-    coab = ['Summer_Estelle', 'Renee', 'Xander']
+    conf['coabs'] = ['Summer_Estelle', 'Renee', 'Xander']
     conf['afflict_res.frostbite'] = 0
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def prerun(self):
         random.seed()

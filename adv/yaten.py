@@ -18,16 +18,16 @@ class Yaten(Adv):
         `s2, fsc and self.energy() < 4
         `fs, x=3
     """
-    coab = ['Ieyasu','Wand','Delphi']
-    share = ['Kleimann']
+    conf['coabs'] = ['Ieyasu','Wand','Delphi']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Ieyasu','Wand','Bow']
+            self.conf['coabs'] = ['Ieyasu','Wand','Bow']
 
     def s1_proc(self, e):
         if self.energy() == 5:

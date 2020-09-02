@@ -17,8 +17,8 @@ class Beautician_Zardin(Adv):
         `s1
         `s4, x=5
         """
-    coab = ['Halloween_Elisanne','Lucretia','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Halloween_Elisanne','Lucretia','Peony']
+    conf['share'] = ['Kleimann']
 
     def s1_proc(self, e):
         self.energy.add(1)

@@ -21,6 +21,7 @@ class Patia(Adv):
         `s4, x=5
         `fs, x=5
     """
+
     coab = ['Audric','Bow','Tobias']
     share = ['Karl']
 

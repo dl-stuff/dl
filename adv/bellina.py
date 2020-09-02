@@ -65,8 +65,8 @@ class Bellina(Adv):
         `fs, x=4
         end
     """
-    coab = ['Ieyasu','Curran','Berserker']
-    share = ['Sha_Wujing']
+    conf['coabs'] = ['Ieyasu','Curran','Berserker']
+    conf['share'] = ['Sha_Wujing']
 
     def fs_proc_alt(self, e):
         with CrisisModifier(e.name, 1.00, self.hp):

@@ -24,8 +24,8 @@ class Yurius(Adv):
         `s4, cancel
         `s1, cancel
     """
-    coab = ['Blade','Hunter_Sarisse','Xander']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Blade','Hunter_Sarisse','Xander']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     # conf['sim_afflict.efficiency'] = 1
     # conf['sim_afflict.type'] = 'frostbite'

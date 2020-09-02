@@ -21,8 +21,8 @@ class Karina(Adv):
         `s1
     """
 
-    coab = ['Tobias', 'Renee', 'Summer_Estelle']
-    share = ['Summer_Cleo', 'Patia']
+    conf['coabs'] = ['Tobias', 'Renee', 'Summer_Estelle']
+    conf['share'] = ['Summer_Cleo', 'Patia']
 
 
     def s1_proc(self, e):

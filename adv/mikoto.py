@@ -22,8 +22,8 @@ class Mikoto(Adv):
         `s1, cancel
         `s2, x=5
         """
-    coab = ['Halloween_Mym', 'Dagger2', 'Marth']
-    share = ['Kleimann']
+    conf['coabs'] = ['Halloween_Mym', 'Dagger2', 'Marth']
+    conf['share'] = ['Kleimann']
 
     def prerun(self):
         self.s1buff = Selfbuff('s1',0.0, 20)

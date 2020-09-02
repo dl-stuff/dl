@@ -18,12 +18,12 @@ class Kleimann(Adv):
         `s4
         `fs, self.madness_status<5 and self.madness>0
         """
-    coab = ['Ieyasu','Gala_Alex','Dagger']
-    share = ['Curran']
+    conf['coabs'] = ['Ieyasu','Gala_Alex','Dagger']
+    conf['share'] = ['Curran']
 
     def d_coabs(self):
         if self.duration <= 60:
-            self.coab = ['Ieyasu','Gala_Alex','Bow']
+            self.conf['coabs'] = ['Ieyasu','Gala_Alex','Bow']
 
     def madness_autocharge(self, t):
         for s in self.skills:

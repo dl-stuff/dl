@@ -20,8 +20,8 @@ class Delphi(Adv):
         `s2, self.s1fscharge == 0 and (s1.charged <= ((s1.sp/13)*9))
         `fs, x=2
     """
-    coab = ['Ieyasu','Gala_Alex','Forte']
-    share = ['Karl']
+    conf['coabs'] = ['Ieyasu','Gala_Alex','Forte']
+    conf['share'] = ['Karl']
     conf['afflict_res.poison'] = 0
 
     def prerun(self):        

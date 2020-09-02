@@ -19,9 +19,9 @@ class Euden(Adv):
         `s4, fsc
         `fs, x=2
         """
-    coab = ['Blade', 'Wand', 'Yuya']
+    conf['coabs'] = ['Blade', 'Wand', 'Yuya']
     conf['afflict_res.burn'] = 0
-    share = ['Summer_Patia']
+    conf['share'] = ['Summer_Patia']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,110,0.883)

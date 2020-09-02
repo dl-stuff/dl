@@ -22,8 +22,8 @@ class Yukata_Curran(Adv):
         `s1, not self.energy()=5 and cancel
         `fs, x=5
         """
-    coab = ['Sharena','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Sharena','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
     conf['afflict_res.stun'] = 80
     conf['afflict_res.paralysis'] = 0
 

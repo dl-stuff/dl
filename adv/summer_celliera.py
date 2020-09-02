@@ -22,9 +22,9 @@ class Summer_Celliera(Adv):
         `s1, fsc
         `fs, x=2
         """
-    coab = ['Tobias', 'Hunter_Sarisse', 'Summer_Estelle']
+    conf['coabs'] = ['Tobias', 'Hunter_Sarisse', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
-    share = ['Patia', 'Summer_Luca']
+    conf['share'] = ['Patia', 'Summer_Luca']
 
     def init(self):
         self.phase['s2'] = 0

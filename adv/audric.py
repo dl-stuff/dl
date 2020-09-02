@@ -17,12 +17,12 @@ class Audric(Adv):
         `s2, fsc
         `fs, x=3
     """
-    coab = ['Wand','Cleo','Forte']
-    share = ['Kleimann']
+    conf['coabs'] = ['Wand','Cleo','Forte']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def prerun(self):
         self.cursed_blood = Selfbuff('cursed_blood',0.30,-1,'crit','chance')

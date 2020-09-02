@@ -23,8 +23,8 @@ class Gauld(Adv):
         `s2, s=1
         `fs, x=5
         """
-    coab = ['Blade', 'Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
     conf['afflict_res.frostbite'] = 0
 
     def prerun(self):

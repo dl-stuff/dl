@@ -18,8 +18,8 @@ class Alfonse(Adv):
         `s1, fsc or not self.afflics.paralysis.get()
         `fs, x=2
     """
-    coab = ['Sharena','Lucretia','Peony']
-    share = ['Kleimann']	
+    conf['coabs'] = ['Sharena','Lucretia','Peony']
+    conf['share'] = ['Kleimann']	
 
     def s1_before(self, e):
         Selfbuff('s1_buff',0.20,12).on()

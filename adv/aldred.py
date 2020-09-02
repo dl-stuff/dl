@@ -18,8 +18,8 @@ class Aldred(Adv):
         `s4
         `s1, x=5
     """
-    coab = ['Wand','Summer_Patia','Curran']
-    share = ['Veronica']
+    conf['coabs'] = ['Wand','Summer_Patia','Curran']
+    conf['share'] = ['Veronica']
 
     def prerun(self):
         self.dragondrive_buff = Selfbuff('dragondrive', 0.30, -1, 's', 'passive')

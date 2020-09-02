@@ -19,8 +19,8 @@ class Laxi(Adv):
         `s4,cancel
         `fs, x=5 and s2.charged > s2.sp-100 and not self.s2buff.get()
         '''
-    coab = ['Dagger', 'Marth', 'Dagger2']
-    share = ['Kleimann']
+    conf['coabs'] = ['Dagger', 'Marth', 'Dagger2']
+    conf['share'] = ['Kleimann']
 
     def prerun(self):  
         self.healed = 0

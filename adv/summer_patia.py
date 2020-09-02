@@ -22,8 +22,8 @@ class Summer_Patia(Adv):
         `dodge, fsc
         `fs3
     """
-    coab = ['Summer_Patia', 'Blade', 'Wand', 'Curran']
-    share = ['Curran']
+    conf['coabs'] = ['Summer_Patia', 'Blade', 'Wand', 'Curran']
+    conf['share'] = ['Curran']
 
     def d_slots(self):
         if self.duration <= 120:

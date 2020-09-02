@@ -21,9 +21,9 @@ class Valentines_Addis(Adv):
         `s4
         `fs, x=5
     """
-    coab = ['Wand','Curran','Summer_Patia']
+    conf['coabs'] = ['Wand','Curran','Summer_Patia']
     conf['afflict_res.poison'] = 0
-    share = ['Veronica']
+    conf['share'] = ['Veronica']
 
     def s1_proc(self, e):
         with CrisisModifier(e.name, 1.25, self.hp):

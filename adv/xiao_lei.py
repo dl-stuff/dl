@@ -14,8 +14,8 @@ class Xiao_Lei(Adv):
         `s3
         `s4, x=5
         """
-    coab = ['Blade','Halloween_Elisanne','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade','Halloween_Elisanne','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def s2_proc(self, e):
         Teambuff(f'{e.name}_cc',0.08,10,'crit','rate').on()

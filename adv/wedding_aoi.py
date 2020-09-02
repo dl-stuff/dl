@@ -16,8 +16,8 @@ class Wedding_Aoi(Adv):
         `s1,cancel
         `fs, x=5
         """
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['share'] = ['Curran']
     conf['afflict_res.sleep'] = 80
 
     def init(self):

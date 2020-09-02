@@ -17,8 +17,8 @@ class Victor(Adv):
         `s1, self.bleed._static['stacks'] < 3
         `s2, x=5
         """
-    coab = ['Akasha','Dragonyule_Xainfried','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Akasha','Dragonyule_Xainfried','Lin_You']
+    conf['share'] = ['Curran']
 
     def prerun(self):
         random.seed()

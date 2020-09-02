@@ -17,8 +17,8 @@ class Naveed(Adv):
         `fs, x=3 and cancel
         """
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
-    coab = ['Blade', 'Wand', 'Marth']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade', 'Wand', 'Marth']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.s1level = 0

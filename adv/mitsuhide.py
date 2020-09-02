@@ -18,8 +18,8 @@ class Mitsuhide(Adv):
         `s4, x>3 or fsc
         `fs, x=5
     """
-    coab = ['Lucretia','Sharena','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Lucretia','Sharena','Peony']
+    conf['share'] = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def init(self):

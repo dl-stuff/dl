@@ -18,8 +18,8 @@ class Xuan_Zang(Adv):
         `s1,fsc
         `fs, x=5
         """
-    coab = ['Blade', 'Marth', 'Gala_Sarisse']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Marth', 'Gala_Sarisse']
+    conf['share'] = ['Kleimann']
 
     def s1_proc(self, e):
         with KillerModifier(e.name, 'hit', 0.2, ['debuff']):
