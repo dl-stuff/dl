@@ -266,8 +266,8 @@ def get_adv_slotlist():
             'wp1': type(adv_instance.slots.a).__qualname__,
             'wp2': type(adv_instance.slots.a.a2).__qualname__
         }
-        result['adv']['pref_coab'] = adv_instance.coab
-        result['adv']['pref_share'] = adv_instance.share
+        result['adv']['pref_coab'] = adv_instance.conf.coabs
+        result['adv']['pref_share'] = adv_instance.conf.share
         result['adv']['acl'] = adv_instance.conf.acl
         if 'afflict_res' in adv_instance.conf:
             res_conf = adv_instance.conf.afflict_res
