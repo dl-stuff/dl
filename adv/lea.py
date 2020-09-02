@@ -19,8 +19,8 @@ class Lea(Adv):
         `fs, x=2
         """
     conf['afflict_res.burn'] = 0
-    coab = ['Blade', 'Wand', 'Marth']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Wand', 'Marth']
+    conf['share'] = ['Kleimann']
     
     def s1_proc(self, e):
         self.afflics.burn(e.name,120,0.97)

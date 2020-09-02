@@ -19,12 +19,12 @@ class Heinwald(Adv):
         `s1
         `s2, cancel
         '''
-    coab = ['Blade','Wand','Bow']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade','Wand','Bow']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
     
     def s2_proc(self, e):
         self.s2_buff = Selfbuff(e.name,0.25,10).on()

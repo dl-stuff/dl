@@ -12,8 +12,8 @@ class Hanabusa(Adv):
         `s2
         `s4, x=5
         """
-    coab = ['Halloween_Elisanne','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Halloween_Elisanne','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.phase['s1'] = 0

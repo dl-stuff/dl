@@ -216,7 +216,7 @@ def simc_adv_test():
     if coab is not None:
         conf['coabs'] = coab
     if share is not None:
-        conf['skill_share'] = share
+        conf['share'] = share
     for afflic in AFFLICT_LIST:
         try:
             conf[f'sim_afflict.{afflic}'] = min(abs(int(params['sim_afflict'][afflic])), 100)/100

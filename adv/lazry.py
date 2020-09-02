@@ -26,9 +26,9 @@ class Lazry(Adv):
         `s2
         `s1
     """
-    coab = ['Blade', 'Xander', 'Summer_Estelle']
+    conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['afflict_res.frostbite'] = 0
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def low_power(self):
         if self.mode != 'low_power' and not self.skill._static.silence:

@@ -18,8 +18,8 @@ class Melody(Adv):
         `s4
         `fs, x=5
     """
-    coab = ['Bow','Tobias','Dagger2']
-    share = ['Dragonyule_Xainfried']
+    conf['coabs'] = ['Bow','Tobias','Dagger2']
+    conf['share'] = ['Dragonyule_Xainfried']
 
     def prerun(self):
         conf_fs_alt = {

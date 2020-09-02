@@ -16,9 +16,9 @@ class Musashi(Adv):
         `s4
         `s1, self.s3_buff
         """
-    coab = ['Eleonora','Dragonyule_Xainfried','Lin_You']
+    conf['coabs'] = ['Eleonora','Dragonyule_Xainfried','Lin_You']
     conf['afflict_res.poison'] = 0
-    share = ['Curran']
+    conf['share'] = ['Curran']
 
     def s1_proc(self, e):
         self.afflics.poison(e.name,110,0.53)

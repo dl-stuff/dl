@@ -21,8 +21,8 @@ class Patia(Adv):
         `s2
         `s4
     """
-    coab = ['Blade','Bow','Tobias']
-    share = ['Karl']
+    conf['coabs'] = ['Blade','Bow','Tobias']
+    conf['share'] = ['Karl']
 
     def prerun(self):
         self.bleed = Bleed('g_bleed',0).reset()

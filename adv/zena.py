@@ -26,12 +26,12 @@ class Zena(Adv):
         # `s4
         # `s1, fsc or self.fs_alt.uses=0
         """
-    coab = ['Blade', 'Delphi', 'Bow']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Delphi', 'Bow']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def prerun(self):
         conf_fs_alt = {

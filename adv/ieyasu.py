@@ -20,12 +20,12 @@ class Ieyasu(Adv):
         `s4, fsc or not self.afflics.poison.get()
         `fs, x=5 and self.s3_buff
     """
-    coab = ['Wand','Delphi','Axe2']
-    share = ['Kleimann']
+    conf['coabs'] = ['Wand','Delphi','Axe2']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def s2ifbleed(self):
         if self.bleed._static['stacks'] > 0:

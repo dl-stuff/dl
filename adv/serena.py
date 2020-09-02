@@ -17,8 +17,8 @@ class Serena(Adv):
         `s2, fsc
         `fs, seq=3
         """
-    coab = ['Blade', 'Yuya', 'Halloween_Mym']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Yuya', 'Halloween_Mym']
+    conf['share'] = ['Kleimann']
 
     def s1_before(self, e):
         Selfbuff(f'{e.name}buff',0.1,5,'crit','rate').on()

@@ -20,8 +20,8 @@ class Amane(Adv):
         `s3, cancel
         `s2, x>3
         """
-    coab = ['Blade','Sharena','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade','Sharena','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def s1_proc(self, e):
         with KillerModifier('s1_killer', 'hit', 0.1, ['paralysis']):

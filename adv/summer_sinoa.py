@@ -17,8 +17,8 @@ class Summer_Sinoa(Adv):
         `s2, self.overload=3
         `s1
         """
-    coab = ['Blade','Eleonora','Tobias']
-    share = ['Summer_Cleo']
+    conf['coabs'] = ['Blade','Eleonora','Tobias']
+    conf['share'] = ['Summer_Cleo']
 
     def prerun(self):
         self.overload = 0

@@ -16,8 +16,8 @@ class Eleonora(Adv):
         `s4, fsc
         `fs, seq=4
         """
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
     a1 = ('edge_poison', 50, 'hp100')
 

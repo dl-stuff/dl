@@ -17,8 +17,8 @@ class Erik(Adv):
         `s4, cancel 
         `fs, cancel and s2.charged>=s2.sp-self.sp_val('fs')
     """
-    coab = ['Blade','Wand','Delphi']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade','Wand','Delphi']
+    conf['share'] = ['Kleimann']
 
     def s1_proc(self, e):
         with KillerModifier('s1_killer', 'hit', 0.5, ['poison']):

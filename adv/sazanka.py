@@ -18,13 +18,13 @@ class Sazanka(Adv):
         `s4
         `s1
     """
-    coab = ['Ieyasu', 'Wand', 'Bow']
+    conf['coabs'] = ['Ieyasu', 'Wand', 'Bow']
     conf['afflict_res.sleep'] = 80
-    share = ['Kleimann']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def prerun(self):
         random.seed()

@@ -16,8 +16,8 @@ class Xania(Adv):
         `s4,cancel
         `s2,x=5
         """
-    coab = ['Blade', 'Marth', 'Joe']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Marth', 'Joe']
+    conf['share'] = ['Kleimann']
     conf['afflict_res.burn'] = 0
 
     def s1_proc(self, e):

@@ -16,8 +16,8 @@ class Johanna(Adv):
         `s2
         `fs, x=5
         """
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['share'] = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

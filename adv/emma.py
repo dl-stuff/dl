@@ -22,8 +22,8 @@ class Emma(Adv):
         `s3, fsc
         `fs, x=5
         """
-    coab = ['Tobias', 'Dagger2', 'Bow']
-    share = ['Summer_Luca','Summer_Cleo']
+    conf['coabs'] = ['Tobias', 'Dagger2', 'Bow']
+    conf['share'] = ['Summer_Luca','Summer_Cleo']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

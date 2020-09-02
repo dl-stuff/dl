@@ -233,8 +233,8 @@ class Mitsuba(Adv):
         # `fsf
         # end
     """
-    coab = ['Blade','Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Eugene']
+    conf['coabs'] = ['Blade','Xander', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Eugene']
     conf['afflict_res.frostbite'] = 0
 
     def prerun(self):

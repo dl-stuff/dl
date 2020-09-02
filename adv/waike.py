@@ -20,9 +20,9 @@ class Waike(Adv):
         `s2, cancel
         `fs, seq=4
         """
-    coab = ['Blade', 'Xander', 'Summer_Estelle']
+    conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def s2_proc(self, e):
         self.afflics.bog.on(e.name, 80)

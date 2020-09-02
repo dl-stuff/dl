@@ -17,8 +17,8 @@ class Luca(Adv):
         `s2, fsc
         `fs, x=5
         """
-    coab = ['Cleo','Raemond','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Cleo','Raemond','Peony']
+    conf['share'] = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def s1_proc(self, e):

@@ -15,8 +15,8 @@ class Irfan(Adv):
         `s2, x>3 or fsc
         `fs, x=5
         """
-    coab = ['Cleo','Raemond','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Cleo','Raemond','Peony']
+    conf['share'] = ['Kleimann']
 
     def s2_proc(self, e):
         Debuff(e.name, 0.05, 10, 0.8, 'attack').on()

@@ -47,8 +47,8 @@ class Hunter_Berserker(Adv):
         `dodge, fsc
         `fs3
     """
-    coab = ['Blade','Grace','Marth']
-    share = ['Hunter_Sarisse']
+    conf['coabs'] = ['Blade','Grace','Marth']
+    conf['share'] = ['Hunter_Sarisse']
 
     def init(self):
         self.conf.fs.hit = 1

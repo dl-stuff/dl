@@ -18,8 +18,8 @@ class Summer_Estelle(Adv):
         `s4, x>2
         `s1, x=5
         """
-    coab = ['Hunter_Sarisse', 'Renee', 'Tobias']
-    share = ['Patia', 'Summer_Luca']
+    conf['coabs'] = ['Hunter_Sarisse', 'Renee', 'Tobias']
+    conf['share'] = ['Patia', 'Summer_Luca']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

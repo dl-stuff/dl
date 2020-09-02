@@ -18,12 +18,12 @@ class Curran(Adv):
         `s2
         `s4
         '''
-    coab = ['Curran','Blade','Wand','Bow']
-    share = ['Kleimann']
+    conf['coabs'] = ['Curran','Blade','Wand','Bow']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Veronica']
+            self.conf['share'] = ['Veronica']
 
     def s1_before(self, e):
         with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):

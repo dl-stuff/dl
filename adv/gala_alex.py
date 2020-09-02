@@ -88,13 +88,13 @@ class Gala_Alex(Adv):
         end
         `fs, x=4
     """
-    coab = ['Ieyasu','Wand','Delphi']
-    share = ['Rodrigo']
+    conf['coabs'] = ['Ieyasu','Wand','Delphi']
+    conf['share'] = ['Rodrigo']
     conf['afflict_res.poison'] = 0
 
     def d_coabs(self):
         if self.duration <= 120:
-            self.coab = ['Ieyasu','Wand','Heinwald']
+            self.conf['coabs'] = ['Ieyasu','Wand','Heinwald']
     
     def prerun(self):
         self.s1_debuff = Debuff('s1', 0.05, 15)

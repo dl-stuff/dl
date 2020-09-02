@@ -34,9 +34,9 @@ class Halloween_Elisanne(Adv):
         `s1, cancel
         `fs, x=5
         """
-    coab = ['Lucretia','Sharena','Peony']
+    conf['coabs'] = ['Lucretia','Sharena','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Kleimann']
+    conf['share'] = ['Kleimann']
 
     def prerun(self):
         self.phase['s1'] = 0

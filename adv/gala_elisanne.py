@@ -19,8 +19,8 @@ class Gala_Elisanne(Adv):
         `s3
         `fsf, x=4
     """
-    coab = ['Bow','Tobias', 'Renee']
-    share = ['Summer_Luca', 'Summer_Cleo']
+    conf['coabs'] = ['Bow','Tobias', 'Renee']
+    conf['share'] = ['Summer_Luca', 'Summer_Cleo']
     
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

@@ -17,12 +17,12 @@ class Zace(Adv):
         `s2, x>=3
         `fs, x=5
     """
-    coab = ['Ieyasu','Wand','Bow']
-    share = ['Kleimann']
+    conf['coabs'] = ['Ieyasu','Wand','Bow']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

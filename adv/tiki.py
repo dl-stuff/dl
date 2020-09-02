@@ -90,7 +90,7 @@ class Tiki(Adv):
         `s1
         end
     """
-    coab = ['Blade', 'Xander', 'Dagger']
+    conf['coabs'] = ['Blade', 'Xander', 'Dagger']
 
     def d_slots(self):
         if self.duration <= 60:

@@ -19,8 +19,8 @@ class Wu_Kong(Adv):
         `s1
         `fs, x=5
         """
-    coab = ['Blade','Lucretia','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade','Lucretia','Peony']
+    conf['share'] = ['Kleimann']
 
     def prerun(self):
         self.phase['s1'] = 0

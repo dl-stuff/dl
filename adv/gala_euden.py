@@ -16,8 +16,8 @@ class Gala_Euden(Adv):
         `s1, fsc and not self.energy()=5
         `fs, x=2
     """
-    coab = ['Raemond','Cleo','Peony']
-    share = ['Gala_Mym']
+    conf['coabs'] = ['Raemond','Cleo','Peony']
+    conf['share'] = ['Gala_Mym']
     conf['afflict_res.paralysis'] = 0
 
     def prerun(self):

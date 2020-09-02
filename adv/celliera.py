@@ -19,8 +19,8 @@ class Celliera(Adv):
         `s4, x=4
         `s1
     """
-    coab = ['Renee', 'Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Renee', 'Xander', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def prerun(self):
         self.s2_buff = Selfbuff('s2',0.25,-1,'att','buff')

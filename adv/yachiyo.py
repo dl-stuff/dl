@@ -25,13 +25,13 @@ class Yachiyo(Adv):
         `s4, cancel
         `s2, x=5
         """
-    coab = ['Lucretia','Malora','Peony']
-    share = ['Ranzal']
+    conf['coabs'] = ['Lucretia','Malora','Peony']
+    conf['share'] = ['Ranzal']
     conf['afflict_res.paralysis'] = 0
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Sharena','Lucretia','Peony']
+            self.conf['coabs'] = ['Sharena','Lucretia','Peony']
 
     def prerun(self):
         self.fsa_charge = 0

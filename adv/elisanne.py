@@ -19,8 +19,8 @@ class Elisanne(Adv):
         `s3
         `fs, x=5
     """
-    coab = ['Tobias', 'Renee', 'Bow']
-    share = ['Summer_Luca', 'Summer_Cleo']
+    conf['coabs'] = ['Tobias', 'Renee', 'Bow']
+    conf['share'] = ['Summer_Luca', 'Summer_Cleo']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -17,12 +17,12 @@ class Botan(Adv):
         `s1
         `fs,x=5
     """
-    coab = ['Ieyasu','Wand','Bow']
-    share = ['Kleimann']
+    conf['coabs'] = ['Ieyasu','Wand','Bow']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

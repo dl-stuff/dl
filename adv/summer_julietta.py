@@ -21,13 +21,13 @@ class Summer_Julietta(Adv):
         `s2, cancel
         `fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')
     """
-    coab = ['Blade', 'Hunter_Sarisse', 'Summer_Estelle']
+    conf['coabs'] = ['Blade', 'Hunter_Sarisse', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Blade', 'Xander', 'Summer_Estelle']
+            self.conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
 
     def init(self):
         self.phase['s2'] = 0
