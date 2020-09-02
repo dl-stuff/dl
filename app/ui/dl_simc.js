@@ -460,6 +460,7 @@ function loadAdvSlots(no_conf) {
                 }
                 const acl = trimAcl(slots.adv.acl);
                 $('#input-acl').data('default_acl', acl);
+                $('#input-acl').removeData('alternate_acl');
                 $('#input-acl').blur();
                 $('#input-edit-acl').prop('checked', Boolean(slots.adv.acl_alt));
                 $('#input-acl').prop('disabled', !slots.adv.acl_alt);
