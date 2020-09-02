@@ -138,7 +138,8 @@ def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, con
         conf['slots.d'] = getattr(slot.d, dra)()
     if wep is not None:
         conf['slots.w'] = getattr(slot.w, wep)()
-    conf['acl'] = acl
+    if acl:
+        conf['acl'] = acl
 
     result = {}
 
