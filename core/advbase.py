@@ -783,7 +783,7 @@ class Fs_group(object):
         self.conf = conf
         fsconf = conf[name]
         xnfsconf = {}
-        
+
         self.add('default', Fs(name, fsconf, act))
         for i in range(1, conf.x_max+1):
             xnfs = f'x{i}{name}'
@@ -941,6 +941,7 @@ class Adv(object):
     # ^^^^^^^^^ rewrite these to provide advanced tweak ^^^^^^^^^^
 
     comment = ''
+    duration = 180
     conf = None
     a1 = None
     a2 = None
@@ -1576,7 +1577,7 @@ class Adv(object):
         self.l_dmg_formula = Listener('dmg_formula', self.l_dmg_formula)
 
         self.ctx.on()
-        
+
         for ab in (self.a1, self.a2, self.a3):
             if ab:
                 if isinstance(ab, list):
