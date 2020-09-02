@@ -18,9 +18,9 @@ class Louise(Adv):
         `s4, fsc
         `fs, x=5
         """
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
     conf['afflict_res.poison'] = 0
-    share = ['Curran']
+    conf['share'] = ['Curran']
 
     def s1_proc(self, e):
         self.dmg_make(e.name, 3.87)

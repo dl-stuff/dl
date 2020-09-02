@@ -58,9 +58,9 @@ class Nadine(Adv):
         `s1
         `fs, x=5
         """
-    coab = ['Blade', 'Wand', 'Marth']
+    conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['afflict_res.burn'] = 0
-    share = ['Summer_Patia']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.team_s1_hits = 1

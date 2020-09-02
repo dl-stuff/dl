@@ -19,9 +19,9 @@ class Addis(Adv):
         `s2, s1.charged>=s1.sp-260 and self.bleed._static['stacks'] != 3
         `s1, s2.charged<s2.sp and self.bleed._static['stacks'] != 3
         """
-    coab = ['Akasha','Dragonyule_Xainfried','Lin_You']
+    conf['coabs'] = ['Akasha','Dragonyule_Xainfried','Lin_You']
     conf['afflict_res.poison'] = 0
-    share = ['Curran']
+    conf['share'] = ['Curran']
 
     def getbleedpunisher(self):
         if self.bleed._static['stacks'] > 0:

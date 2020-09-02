@@ -16,8 +16,8 @@ class Ryozen(Adv):
         `s2, x=5
         `fs, x=5
         """
-    coab = ['Cleo','Raemond','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Cleo','Raemond','Peony']
+    conf['share'] = ['Kleimann']
     
     def s1_proc(self, e):
         Teambuff(e.name, 0.25, 15, 'defense').on()

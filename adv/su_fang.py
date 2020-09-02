@@ -17,8 +17,8 @@ class Su_Fang(Adv):
         `s2, fsc
         `fs, x=5
         """
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['share'] = ['Curran']
 
     def fs_proc_alt(self, e):
         self.afflics.poison('fs', 120, 0.582)

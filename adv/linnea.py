@@ -37,8 +37,8 @@ class Linnea(Adv):
         `s1
         `fs3
         """
-    coab = ['Dagger', 'Grace', 'Axe2']
-    share = ['Hunter_Sarisse', 'Elisanne']
+    conf['coabs'] = ['Dagger', 'Grace', 'Axe2']
+    conf['share'] = ['Hunter_Sarisse', 'Elisanne']
 
     def init(self):
         conf_alt_fs = {

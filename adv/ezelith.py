@@ -18,8 +18,8 @@ class Ezelith(Adv):
         `s2
         `fs, x=5
         """
-    coab = ['Halloween_Mym', 'Blade', 'Wand']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Halloween_Mym', 'Blade', 'Wand']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.s2_buff = Selfbuff('s2',0.2,15)

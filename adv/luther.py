@@ -20,8 +20,8 @@ class Luther(Adv):
         `s2, cancel
         `fs, x=5
     """
-    coab = ['Blade', 'Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def fs_proc_alt(self, e):
         self.afflics.frostbite(e.name,120,0.41)

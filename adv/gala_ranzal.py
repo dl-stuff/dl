@@ -20,8 +20,8 @@ class Gala_Ranzal(Adv):
         `fs, seq=2 and self.gauges['x'] <= 500
         `fs, seq=3
     '''
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['share'] = ['Curran']
     
     a3 = ('s',0.3)
 

@@ -22,8 +22,8 @@ class Zhu_Bajie(Adv):
         `dodge, fsc
         `fs3
         """
-    coab = ['Blade', 'Lucretia', 'Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade', 'Lucretia', 'Peony']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.conf.fs.hit = 1

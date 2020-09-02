@@ -19,12 +19,12 @@ class Vanessa(Adv):
         `s2, fsc
         `fs, x=4
     """
-    coab = ['Blade', 'Marth', 'Wand']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Marth', 'Wand']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Blade','Marth','Wand']
+            self.conf['coabs'] = ['Blade','Marth','Wand']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

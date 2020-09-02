@@ -17,8 +17,8 @@ class Sha_Wujing(Adv):
         `s4
         `fs, x=5
     """
-    coab = ['Blade','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.s1_p = 0

@@ -15,8 +15,8 @@ class Raemond(Adv):
         `s3, fsc
         `fs, x=2
         """
-    coab = ['Cleo','Lucretia','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Cleo','Lucretia','Peony']
+    conf['share'] = ['Kleimann']
 
 
 if __name__ == '__main__':

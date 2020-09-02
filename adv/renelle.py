@@ -18,8 +18,8 @@ class Renelle(Adv):
         `fs, x=5
         """
     conf['afflict_res.burn'] = 0
-    coab = ['Blade', 'Marth', 'Wand']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Marth', 'Wand']
+    conf['share'] = ['Kleimann']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,100,0.803)

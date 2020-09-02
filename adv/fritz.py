@@ -16,8 +16,8 @@ class Fritz(Adv):
         `s2, x=5
         `fs, x=5
         """
-    coab = ['Cleo','Raemond','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Cleo','Raemond','Peony']
+    conf['share'] = ['Kleimann']
 
     def fs_proc_alt(self, e):
         self.afflics.stun('fs', 100)

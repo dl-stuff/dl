@@ -34,9 +34,9 @@ class Nevin(Adv):
         `s4, x=6
         end
         """
-    coab = ['Berserker','Ieyasu','Forte']
+    conf['coabs'] = ['Berserker','Ieyasu','Forte']
     conf['afflict_res.poison'] = 0
-    share = ['Veronica']
+    conf['share'] = ['Veronica']
 
     def init(self):
         self.x_max = 6

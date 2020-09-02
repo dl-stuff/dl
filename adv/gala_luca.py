@@ -16,8 +16,8 @@ class Gala_Luca(Adv):
         `s1
         `s4, x=5
         """
-    coab = ['Axe2','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Axe2','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def init(self):
         self.crit_mod = self.custom_crit_mod

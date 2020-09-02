@@ -20,9 +20,9 @@ class Hunter_Vanessa(Adv):
         `dodge,fsc
         `fs2,x=5
         """
-    coab = ['Sharena','Blade','Peony']
+    conf['coabs'] = ['Sharena','Blade','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Kleimann']
+    conf['share'] = ['Kleimann']
 
     def d_slots(self):
         if self.duration <= 60:

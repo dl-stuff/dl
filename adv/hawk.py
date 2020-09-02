@@ -23,8 +23,8 @@ class Hawk(Adv):
         `s4, s or x=5
     """
 
-    coab = ['Blade','Dragonyule_Xainfried','Sylas']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Sylas']
+    conf['share'] = ['Curran']
     conf['afflict_res.stun'] = 80
     conf['afflict_res.poison'] = 0
     

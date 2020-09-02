@@ -17,12 +17,12 @@ class Berserker(Adv):
         `s1, cancel
         `fs, x=2
         """
-    coab = ['Berserker','Ieyasu','Wand','Curran']
-    share = ['Kleimann']
+    conf['coabs'] = ['Berserker','Ieyasu','Wand','Curran']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def s1_proc(self, e):
         Debuff(e.name, 0.05, 10, 0.4, 'attack')

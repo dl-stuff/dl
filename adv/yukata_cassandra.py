@@ -20,8 +20,8 @@ class Yukata_Cassandra(Adv):
         `s4
         `s1
     """
-    coab = ['Marth', 'Blade', 'Tobias']
-    share = ['Emma']
+    conf['coabs'] = ['Marth', 'Blade', 'Tobias']
+    conf['share'] = ['Emma']
 
     @staticmethod
     def setup_fluorescent_fish(adv):

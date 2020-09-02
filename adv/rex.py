@@ -18,8 +18,8 @@ class Rex(Adv):
         `s2, cancel
         `fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')
     """
-    coab = ['Blade', 'Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

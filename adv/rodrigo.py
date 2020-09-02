@@ -17,8 +17,8 @@ class Rodrigo(Adv):
         `fs, x=2 and s1.charged > 841
         `fs, x=3
         """
-    coab = ['Ieyasu','Wand','Forte']
-    share = ['Curran']
+    conf['coabs'] = ['Ieyasu','Wand','Forte']
+    conf['share'] = ['Curran']
 
     def s1_proc(self, e):
         self.afflics.poison(e.name,120,0.582)

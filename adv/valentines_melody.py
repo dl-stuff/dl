@@ -20,8 +20,8 @@ class Valentines_Melody(Adv):
         `s4
         `s2, cancel
         """
-    coab = ['Blade','Eleonora','Dragonyule_Xainfried']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Eleonora','Dragonyule_Xainfried']
+    conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
     def init(self):

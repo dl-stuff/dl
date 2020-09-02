@@ -17,12 +17,12 @@ class Veronica(Adv):
         `s1
         `s4
         """
-    coab = ['Ieyasu','Curran','Summer_Patia']
-    share = ['Kleimann']
+    conf['coabs'] = ['Ieyasu','Curran','Summer_Patia']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
     def prerun(self):
         # Teambuff('last',2.28,1).on()

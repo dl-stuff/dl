@@ -74,8 +74,8 @@ class Hunter_Sarisse(Adv):
         `dodge, fsc
         `fs4
     """
-    coab = ['Dagger', 'Xander', 'Grace']
-    share = ['Gala_Elisanne', 'Eugene']
+    conf['coabs'] = ['Dagger', 'Xander', 'Grace']
+    conf['share'] = ['Gala_Elisanne', 'Eugene']
 
     def init(self):
         default_pierce = 1

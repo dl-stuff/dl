@@ -83,8 +83,8 @@ class Tobias(Adv):
         `s4, s
         `fs, x=5
     """
-    coab = ['Bow','Blade','Dagger2']
-    share = ['Summer_Luca', 'Summer_Cleo']
+    conf['coabs'] = ['Bow','Blade','Dagger2']
+    conf['share'] = ['Summer_Luca', 'Summer_Cleo']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

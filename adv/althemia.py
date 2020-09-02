@@ -17,9 +17,9 @@ class Althemia(Adv):
         `s4
         `s1,self.s3_buff and cancel
     """
-    coab = ['Ieyasu','Delphi','Gala_Alex']
+    conf['coabs'] = ['Ieyasu','Delphi','Gala_Alex']
     conf['afflict_res.poison'] = 0
-    share = ['Curran']
+    conf['share'] = ['Curran']
 
     def s1_proc(self, e):
         self.afflics.poison(e.name,100,0.482)

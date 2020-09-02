@@ -23,7 +23,7 @@ class Chelsea(adv.chelsea.Chelsea):
         `dodge, fsc
         `fs
     """
-    coab = ['Blade', 'Grace', 'Hunter_Berserker']
+    conf['coabs'] = ['Blade', 'Grace', 'Hunter_Berserker']
 
     def init(self):
         self.slots.c.coabs['Hunter_Berserker'] = [None, 'sword']

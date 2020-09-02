@@ -23,7 +23,7 @@ class Xander(adv.xander.Xander):
     conf = adv.xander.Xander.conf.copy()
     conf['slots.a'] = Here_Come_the_Sealers() + A_New_Look()
     conf['slots.frostbite.a'] = conf['slots.a']
-    coab = ['Blade', 'Yurius', 'Dagger']
+    conf['coabs'] = ['Blade', 'Yurius', 'Dagger']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

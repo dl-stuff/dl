@@ -15,8 +15,8 @@ class Malka(Adv):
         `s1, cancel
         `fs, seq=5
         """
-    coab = ['Blade','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

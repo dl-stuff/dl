@@ -18,8 +18,8 @@ class Melsa(Adv):
         `s2,s=1
         `fs, x=5
     """
-    coab = ['Blade', 'Wand', 'Marth']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Wand', 'Marth']
+    conf['share'] = ['Kleimann']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

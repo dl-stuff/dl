@@ -18,8 +18,8 @@ class Ramona(Adv):
         `s4
         `s1
         """
-    coab = ['Blade', 'Wand', 'Marth']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Wand', 'Marth']
+    conf['share'] = ['Kleimann']
 
     def prerun(self):
         self.a_s1 = self.s1.ac

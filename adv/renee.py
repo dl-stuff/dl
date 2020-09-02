@@ -24,9 +24,9 @@ class Renee(Adv):
         end
         `fs, x=5
         """
-    coab = ['Blade', 'Xander', 'Summer_Estelle']
+    conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
-    share = ['Gala_Elisanne', 'Eugene']
+    conf['share'] = ['Gala_Elisanne', 'Eugene']
 
     def s1_proc(self, e):
         self.dmg_make(e.name,1.11)

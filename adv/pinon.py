@@ -51,8 +51,8 @@ class Pinon(Adv):
         `fs2
         end
     """
-    coab = ['Dagger2', 'Axe2', 'Xander']
-    share = ['Gala_Elisanne']
+    conf['coabs'] = ['Dagger2', 'Axe2', 'Xander']
+    conf['share'] = ['Gala_Elisanne']
 
     def init(self):
         self.x_max = 8

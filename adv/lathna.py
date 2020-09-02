@@ -19,12 +19,12 @@ class Lathna(Adv):
         `s4
         `s1, x=5
         """
-    coab = ['Ieyasu','Wand','Forte']
-    share = ['Kleimann']
+    conf['coabs'] = ['Ieyasu','Wand','Forte']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.share = ['Curran']
+            self.conf['share'] = ['Curran']
 
         
     conf['dragonform'] = {

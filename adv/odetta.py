@@ -17,8 +17,8 @@ class Odetta(Adv):
         `s1, fsc
         `fs, x=2
         """
-    coab = ['Cleo','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Cleo','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

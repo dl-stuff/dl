@@ -17,9 +17,9 @@ class Joe(Adv):
         `s4
         `fs, x=4
     """
-    coab = ['Blade', 'Wand', 'Marth']
+    conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['afflict_res.burn'] = 0
-    share = ['Ranzal']
+    conf['share'] = ['Ranzal']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,100,0.803)

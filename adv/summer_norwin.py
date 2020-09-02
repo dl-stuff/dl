@@ -18,8 +18,8 @@ class Summer_Norwin(Adv):
         `s2, x=5
         `s4, x=5
         """
-    coab = ['Blade','Dragonyule_Xainfried','Eleonora']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Eleonora']
+    conf['share'] = ['Curran']
 
     def prerun(self):
         self.phase_s12 = 0

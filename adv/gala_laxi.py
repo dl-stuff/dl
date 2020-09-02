@@ -96,8 +96,8 @@ class Gala_Laxi(Adv):
         `s4, x=4
         """
     conf['afflict_res.burn'] = 0
-    coab = ['Blade', 'Marth', 'Dagger']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade', 'Marth', 'Dagger']
+    conf['share'] = ['Summer_Patia']
 
     def init(self):
         self.slots.c.coabs = {'Dagger2': [None, 'dagger2']}

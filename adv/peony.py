@@ -24,8 +24,8 @@ class Peony(Adv):
         `s4, cancel
         `s3, cancel
     """
-    coab = ['Blade','Sharena','Lucretia']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade','Sharena','Lucretia']
+    conf['share'] = ['Kleimann']
     conf['afflict_res.paralysis'] = 0
 
     def fs_proc_alt(self, e):

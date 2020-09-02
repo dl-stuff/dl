@@ -21,8 +21,8 @@ class Noelle(Adv):
         `s4, s=1
         `s3
         """
-    coab = ['Dagger2','Tobias','Bow']
-    share = ['Summer_Luca', 'Summer_Cleo']
+    conf['coabs'] = ['Dagger2','Tobias','Bow']
+    conf['share'] = ['Summer_Luca', 'Summer_Cleo']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

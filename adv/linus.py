@@ -17,8 +17,8 @@ class Linus(Adv):
         `s2, x=4
         `fs, x=4
         """
-    coab = ['Raemond','Lucretia','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Raemond','Lucretia','Peony']
+    conf['share'] = ['Kleimann']
 
     def d_slots(self):
         if self.duration <= 120:

@@ -20,13 +20,13 @@ class Sharena(Adv):
         `s2, cancel
         `fs, x=5
     """
-    coab = ['Malora','Lucretia','Peony']
+    conf['coabs'] = ['Malora','Lucretia','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Ranzal']
+    conf['share'] = ['Ranzal']
 
     def d_coabs(self):
         if self.duration <= 60:
-            self.coab = ['Blade','Lucretia','Peony']
+            self.conf['coabs'] = ['Blade','Lucretia','Peony']
 
     def prerun(self):
         self.s2_debuff = Debuff('s2',0.05,10)

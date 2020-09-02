@@ -29,12 +29,12 @@ class Marth(Adv):
         `s1, fsc
         `fs, x=3
         """
-    coab = ['Blade', 'Wand', 'Joe']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Wand', 'Joe']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Blade','Wand','Gala_Sarisse']
+            self.conf['coabs'] = ['Blade','Wand','Gala_Sarisse']
 
     def init(self):
         self.phase['s2'] = 0

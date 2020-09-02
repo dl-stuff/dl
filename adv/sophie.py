@@ -16,9 +16,9 @@ class Sophie(Adv):
         `s3
         `s2, x>1
         """
-    coab = ['Blade', 'Dragonyule_Xainfried', 'Lin_You']
+    conf['coabs'] = ['Blade', 'Dragonyule_Xainfried', 'Lin_You']
     conf['afflict_res.poison'] = 0
-    share = ['Curran']
+    conf['share'] = ['Curran']
 
 
     def s2_proc(self, e):

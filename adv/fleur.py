@@ -19,9 +19,9 @@ class Fleur(Adv):
         `s4, s=1
         `fs, x=5
     '''
-    coab = ['Lucretia','Sharena','Peony']
+    conf['coabs'] = ['Lucretia','Sharena','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Kleimann']
+    conf['share'] = ['Kleimann']
 
     def init(self):
         self.phase['s1'] = 0

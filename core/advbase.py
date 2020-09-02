@@ -1005,8 +1005,6 @@ class Adv(object):
     a1 = None
     a2 = None
     a3 = None
-    coab = []
-    share = []
 
     conf_default = Conf()
 
@@ -1638,11 +1636,21 @@ class Adv(object):
         except AttributeError:
             pass
 
+    def load_aff_conf(self, key):
+        try:
+            # if self.sim_afflict:
+            #     aff, _ = ele_punisher[self.slots.c.ele]
+            #     try:
+            #         return conf[aff]
+            #     except AttributeError:
+            #         return conf
+            return self.conf[key]
+        except AttributeError:
+            return []
+
     def config_coabs(self):
         self.d_coabs()
-        self.coab_list = self.coab.copy()
-        if 'coabs' in self.conf:
-            self.coab_list = self.conf['coabs']
+        self.coab_list = self.load_aff_conf('coabs')
         from conf import coability_dict
         try:
             self_coab = list(self.slots.c.coabs.keys())[0]
@@ -1670,13 +1678,10 @@ class Adv(object):
     def config_skillshare(self):
         self.d_skillshare()
         preruns = {}
-        if 'skill_share' in self.conf:
-            self.skillshare_list = self.conf['skill_share'].copy()
-        else:
-            self.skillshare_list = self.share.copy()
+        self.skillshare_list = self.load_aff_conf('share')
         try:
             self.skillshare_list.remove(self.__class__.__name__)
-        except:
+        except ValueError:
             pass
         self.skillshare_list = list(OrderedDict.fromkeys(self.skillshare_list))
         if len(self.skillshare_list) > 2:

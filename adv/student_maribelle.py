@@ -15,8 +15,8 @@ class Student_Maribelle(Adv):
         `s1
         `s2,cancel
         """
-    coab = ['Blade', 'Marth', 'Gala_Sarisse']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Marth', 'Gala_Sarisse']
+    conf['share'] = ['Kleimann']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

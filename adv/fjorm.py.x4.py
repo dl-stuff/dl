@@ -17,8 +17,8 @@ class Fjorm(adv.fjorm.Fjorm):
     conf['rotation'] = """
         s4 s2 s1 dragon end
     """
-    coab = ['Blade', 'Dagger2', 'Axe2']
-    share = ['Yue']
+    conf['coabs'] = ['Blade', 'Dagger2', 'Axe2']
+    conf['share'] = ['Yue']
     conf['afflict_res.bog'] = 80
 
     def prerun(self):
