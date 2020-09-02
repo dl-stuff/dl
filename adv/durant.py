@@ -10,7 +10,7 @@ class Durant(Adv):
     a3 = ('cd',0.17,'hp100')
 
     conf = {}
-    conf['slots.a'] = Proper_Maintenance()+Howling_to_the_Heavens()
+    conf['slots.a'] = The_Fires_of_Hate()+Howling_to_the_Heavens()
     conf['slots.d'] = Fatalis()
 
     conf['slots.poison.a'] = Proper_Maintenance()+The_Plaguebringer()
@@ -24,7 +24,11 @@ class Durant(Adv):
         `s4
     """
     coab = ['Dagger2', 'Tobias', 'Axe2']
-    share = ['Curran']
+    share = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.share = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

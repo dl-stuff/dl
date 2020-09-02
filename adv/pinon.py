@@ -30,7 +30,7 @@ class Pinon(Adv):
     a3 = ('spd',0.20,'hp70')
     
     conf = pinon_conf.copy()
-    conf['slots.a'] = Primal_Crisis()+The_Wyrmclan_Duo()
+    conf['slots.a'] = Primal_Crisis()+His_Clever_Brother()
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
         # `dragon.act('c3 s end'), s
@@ -51,7 +51,7 @@ class Pinon(Adv):
         `fs2
         end
     """
-    coab = ['Dagger2', 'Axe2', 'Blade']
+    coab = ['Dagger2', 'Axe2', 'Xander']
     share = ['Gala_Elisanne']
 
     def init(self):

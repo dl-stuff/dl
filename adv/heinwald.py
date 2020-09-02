@@ -9,7 +9,7 @@ class Heinwald(Adv):
     a1 = ('s',0.4,'hp70')
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = '''
         `dragon.act('c3 s end'),x=5
         queue prep and not self.s3_buff
@@ -20,7 +20,11 @@ class Heinwald(Adv):
         `s2, cancel
         '''
     coab = ['Blade','Wand','Bow']
-    share = ['Curran']
+    share = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.share = ['Curran']
     
     def s2_proc(self, e):
         self.s2_buff = Selfbuff(e.name,0.25,10).on()

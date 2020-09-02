@@ -8,7 +8,7 @@ def module():
 class Botan(Adv):
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer() + Memory_of_a_Friend()
+    conf['slots.a'] = Dragon_and_Tamer() + The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act('c3 s end'),cancel
         `s3, not self.s3_buff and prep
@@ -17,8 +17,12 @@ class Botan(Adv):
         `s1
         `fs,x=5
     """
-    coab = ['Blade','Wand','Dagger']
-    share = ['Curran']
+    coab = ['Ieyasu','Wand','Bow']
+    share = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.share = ['Curran']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff
