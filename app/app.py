@@ -63,7 +63,7 @@ SIMULATED_BUFFS = {
     'doublebuff_interval': (0.5, 600.0, 1),
     'count': (0, float('inf'), 1),
     'echo': (0, float('inf'), 1)
-};
+}
 
 def get_adv_module(adv_name):
     if adv_name in SPECIAL_ADV or adv_name in MEANS_ADV:
@@ -134,7 +134,7 @@ def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, con
     if conf is None:
         conf = {}
 
-    conf['slots.forced'] = True
+    conf['flask_env'] = True
     if wp1 is not None and wp2 is not None:
         conf['slots.a'] = getattr(slot.a, wp1)() + getattr(slot.a, wp2)()
     if dra is not None:

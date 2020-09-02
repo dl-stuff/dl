@@ -916,9 +916,6 @@ class Adv(object):
     def d_coabs(self):
         pass
 
-    def d_acl(self):
-        pass
-
     def d_slots(self):
         pass
 
@@ -926,9 +923,6 @@ class Adv(object):
         pass
 
     def slot_backdoor(self):
-        pass
-
-    def acl_backdoor(self):
         pass
 
     def prerun(self):
@@ -1100,14 +1094,13 @@ class Adv(object):
             self.slots.__dict__[s] = self.cmnslots.__dict__[s]
 
         if self.conf['slots']:
-            forced = self.conf.slots['forced']
-            if not forced:
+            if not self.conf.flask_env:
                 self.d_slots()
             for s in ('c', 'd', 'w', 'a'):
                 if self.conf.slots[s]:
                     # TODO: make this bit support string names
                     self.slots.__dict__[s] = self.conf.slots[s]
-            if forced:
+            if self.conf.flask_env:
                 return
 
         if self.sim_afflict:
@@ -1460,7 +1453,8 @@ class Adv(object):
         return self.conf[key] or []
 
     def config_coabs(self):
-        self.d_coabs()
+        if not self.conf.flask_env:
+            self.d_coabs()
         self.coab_list = self.load_aff_conf('coabs')
         from conf import coability_dict
         try:
@@ -1487,7 +1481,8 @@ class Adv(object):
         return self.s1, self.s2, self.s3, self.s4
 
     def config_skillshare(self):
-        self.d_skillshare()
+        if not self.conf.flask_env:
+            self.d_skillshare()
         preruns = {}
         self.skillshare_list = self.load_aff_conf('share')
         try:
@@ -1611,9 +1606,6 @@ class Adv(object):
         if 'dragonbattle' in self.conf and self.conf['dragonbattle']:
             self.conf['acl'] = '`dragon'
             self.dragonform.set_dragonbattle(self.duration)
-
-        self.d_acl()
-        self.acl_backdoor()
 
         self.acl_queue = []
         if not self._acl:
