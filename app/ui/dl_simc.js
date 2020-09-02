@@ -728,7 +728,10 @@ function editAcl() {
      $('#input-acl').prop('disabled', !$(this).prop('checked'));
     if ($(this).prop('checked')){
         $('#input-acl').prop('disabled', false);
-        $('#input-acl').val($('#input-acl').data('alternate_acl'));
+        const altAcl = $('#input-acl').data('alternate_acl');
+        if (altAcl){
+            $('#input-acl').val(altAcl);
+        }
     } else {
         $('#input-acl').data('alternate_acl', $('#input-acl').val());
         $('#input-acl').prop('disabled', true);
