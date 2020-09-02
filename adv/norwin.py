@@ -19,8 +19,8 @@ class Norwin(Adv):
         `s2
         `fs,x=5
     """
-    coab = ['Ieyasu','Wand','Forte']
-    share = ['Curran']
+    conf['coabs'] = ['Ieyasu','Wand','Forte']
+    conf['share'] = ['Curran']
     conf['afflict_res.blind'] = 80
 
     def s1_proc(self, e):

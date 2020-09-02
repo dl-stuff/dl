@@ -19,8 +19,8 @@ class Xainfried(Adv):
         `s1, fsc
         `fs, x=5
         """
-    coab = ['Summer_Celliera', 'Yurius', 'Renee']
-    share = ['Gala_Elisanne', 'Eugene']
+    conf['coabs'] = ['Summer_Celliera', 'Yurius', 'Renee']
+    conf['share'] = ['Gala_Elisanne', 'Eugene']
     conf['afflict_res.frostbite'] = 0
 
     def s1_proc(self, e):

@@ -16,8 +16,8 @@ class Gala_Luca(Adv):
         `s1
         `s4, x=5
         """
-    coab = ['Axe2','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Axe2','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def init(self):
         self.crit_mod = self.custom_crit_mod
@@ -59,10 +59,9 @@ class Gala_Luca(Adv):
     def buff_icon_count(self):
         # not accurate to game
         icon_count = len(set([b.name for b in self.all_buffs if b.get() and b.bufftype == 'self' or b.bufftype == 'team']))
-        try:
-            return min(self.conf.sim_buffbot.count + icon_count, 7)
-        except:
-            return min(icon_count, 7)
+        if self.conf['sim_buffbot.count'] is not None:
+            icon_count += self.conf.sim_buffbot.count
+        return min(icon_count, 7)
 
     def custom_crit_mod(self, name):
         if name == 'test':

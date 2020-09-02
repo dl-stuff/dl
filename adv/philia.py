@@ -17,8 +17,8 @@ class Philia(Adv):
         `s2
         `s1, cancel
         """
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['share'] = ['Curran']
     conf['afflict_res.paralysis'] = 0
 
     def s2_proc(self, e):

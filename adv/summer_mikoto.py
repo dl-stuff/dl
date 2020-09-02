@@ -33,8 +33,8 @@ class Summer_Mikoto(Adv):
         `fs, self.light=self.sun and not self.illuminating_sun.get()
         `fs, self.light=self.wave and not self.celestial_wave.get()
     """
-    coab = ['Lucretia', 'Sharena', 'Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Lucretia', 'Sharena', 'Peony']
+    conf['share'] = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def prerun(self):

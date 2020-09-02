@@ -8,7 +8,7 @@ def module():
 class Zace(Adv):
     a1 = ('s',0.2)
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer()+Primal_Crisis()
+    conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act('c3 s end'), fsc
         `s3, not self.s3_buff
@@ -17,8 +17,12 @@ class Zace(Adv):
         `s2, x>=3
         `fs, x=5
     """
-    coab = ['Ieyasu','Wand','Bow']
-    share = ['Curran']
+    conf['coabs'] = ['Ieyasu','Wand','Bow']
+    conf['share'] = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.conf['share'] = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

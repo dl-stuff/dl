@@ -19,13 +19,13 @@ class Sylas(Adv):
         `s2
         `fs, x=5
         """
-    coab = ['Eleonora','Dragonyule_Xainfried','Blade']
-    share = ['Curran']
+    conf['coabs'] = ['Eleonora','Dragonyule_Xainfried','Blade']
+    conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
     def d_coabs(self):
         if self.duration <= 60:
-            self.coab = ['Blade','Dragonyule_Xainfried','Lin_You']
+            self.conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
 
     def prerun(self):
         self.s1_attdown = Debuff('s1', 0.30, 10, 0.5, 'attack')

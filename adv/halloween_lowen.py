@@ -23,8 +23,8 @@ class Halloween_Lowen(Adv):
         `s4, x=5
         `fs, s=3 and self.fs_prep_c > 0
     """
-    coab = ['Tobias', 'Euden', 'Yuya']
-    share = ['Patia', 'Summer_Cleo']
+    conf['coabs'] = ['Tobias', 'Euden', 'Yuya']
+    conf['share'] = ['Patia', 'Summer_Cleo']
 
     def init(self):
         self.hp_stack = 0

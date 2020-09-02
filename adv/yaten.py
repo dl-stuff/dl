@@ -9,7 +9,7 @@ class Yaten(Adv):
     a1 = [('estat_att', 3), ('estat_crit', 3)]
     a3 = ('energized_att', 0.20)
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+United_by_One_Vision()
+    conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act("c3 s end"), fsc and self.energy() = 5
         `s3, not self.s3_buff
@@ -18,12 +18,16 @@ class Yaten(Adv):
         `s2, fsc and self.energy() < 4
         `fs, x=3
     """
-    coab = ['Ieyasu','Wand','Dagger']
-    share = ['Curran']
+    conf['coabs'] = ['Ieyasu','Wand','Delphi']
+    conf['share'] = ['Kleimann']
+
+    def d_skillshare(self):
+        if self.sim_afflict:
+            self.conf['share'] = ['Curran']
 
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Ieyasu','Wand','Bow']
+            self.conf['coabs'] = ['Ieyasu','Wand','Bow']
 
     def s1_proc(self, e):
         if self.energy() == 5:

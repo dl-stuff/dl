@@ -22,8 +22,8 @@ class Laranoa(Adv):
         `s1
         `fs, seq=4
     """
-    coab = ['Renee', 'Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Renee', 'Xander', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

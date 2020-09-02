@@ -12,7 +12,7 @@ def module():
 
 class Gala_Cleo(Adv):
     comment = '(the true cleo is here)'
-    a3 = ('prep','100%')
+    a3 = ('prep',1.00)
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()  # wand c2*1.08 = 217
     conf['acl'] = """
@@ -25,15 +25,11 @@ class Gala_Cleo(Adv):
         end
         `s1, s or fsc
 
-        # Buffbot Gleo with Azazel & Memory_of_a_Friend
-        # `s3, not self.s3_buff
-        # `fs, (s1.check() or s2.check()) and self.fs_alt.uses > 0
-        # `s4, cancel
-        # `s2, cancel
-        # `s1, cancel
+        # Buffbot Gleo
+        # https://wildshinobu.pythonanywhere.com/ui/dl_simc.html?conf=eyJhZHYiOiJnYWxhX2NsZW8iLCJkcmEiOiJSYW1pZWwiLCJ3ZXAiOiJBZ2l0bzJfSml1X0NpIiwid3AxIjoiQ2FuZHlfQ291cmllcnMiLCJ3cDIiOiJNZW1vcnlfb2ZfYV9GcmllbmQiLCJzaGFyZSI6WyJTdW1tZXJfQ2xlbyJdLCJjb2FiIjpbIklleWFzdSIsIkJvdyIsIkF1ZHJpYyJdLCJ0IjoiMTIwIiwidGVhbWRwcyI6IjMwMDAwIiwiYWNsIjoiYGRyYWdvbi5hY3QoJ3MgZW5kJyksIHM9MlxuYHMzLCBub3Qgc2VsZi5zM19idWZmXG5gZnMsIChzMS5jaGVjaygpIG9yIHMyLmNoZWNrKCkpIGFuZCBzZWxmLmZzX2FsdC51c2VzID4gMFxuYHMyLCBjYW5jZWxcbmBzMSwgY2FuY2VsXG5gczQsIHM9MSIsImNvbmRpdGlvbiI6eyJhMSBidWZmIGZvciAxMHMiOnRydWUsImJ1ZmYgYWxsIHRlYW0iOnRydWUsImhpdDE1Ijp0cnVlfX0=
         """
-    coab = ['Blade','Bow','Dagger']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Bow','Dagger']
+    conf['share'] = ['Curran']
 
     def fs_proc_alt(self, e):
         if self.a1_buffed:

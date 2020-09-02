@@ -20,30 +20,31 @@ class Hunter_Vanessa(Adv):
         `dodge,fsc
         `fs2,x=5
         """
-    coab = ['Sharena','Blade','Peony']
+    conf['coabs'] = ['Sharena','Blade','Peony']
     conf['afflict_res.paralysis'] = 0
-    share = ['Kleimann']
+    conf['share'] = ['Kleimann']
 
     def d_slots(self):
         if self.duration <= 60:
-            self.slots.a = Mega_Friends()+The_Chocolatiers()
+            self.conf['slots.a'] = Mega_Friends()+The_Chocolatiers()
 
     def prerun(self):
-        self.conf.fs.hit = 1
         conf_alt_fs = {
             'fs1': {
                 'dmg': 143 / 100.0,
                 'sp': 100,
                 'charge': 24 / 60.0,
                 'startup': 17 / 60.0,
-                'recovery': 46 / 60.0
+                'recovery': 46 / 60.0,
+                'hit': 1,
             },
             'fs2': {
                 'dmg': 370 / 100.0,
                 'sp': 300,
                 'charge': 72 / 60.0,
                 'startup': 17 / 60.0,
-                'recovery': 46 / 60.0
+                'recovery': 46 / 60.0,
+                'hit': 1,
             }
         }
 

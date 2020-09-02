@@ -16,8 +16,8 @@ class Sinoa(Adv):
         `s2
         `s4
     '''
-    coab = ['Yuya', 'Gala_Sarisse', 'Marth']
-    share = ['Kleimann']
+    conf['coabs'] = ['Yuya', 'Gala_Sarisse', 'Marth']
+    conf['share'] = ['Kleimann']
 
     def prerun(self):
         self.s1_buff_mode = 'means'

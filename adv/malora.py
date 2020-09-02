@@ -18,8 +18,8 @@ class Malora(Adv):
         `s3
         `fs, x=5
         """
-    coab = ['Cleo','Raemond','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Cleo','Raemond','Peony']
+    conf['share'] = ['Summer_Patia']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

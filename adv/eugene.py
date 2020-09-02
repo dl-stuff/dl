@@ -17,8 +17,8 @@ class Eugene(Adv):
         `s4, fsc and not self.inspiration()>=5 and not self.energy()>=5
         `fs, x=2
     """
-    coab = ['Hunter_Sarisse', 'Dagger', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Hunter_Sarisse', 'Dagger', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def prerun(self):
         self.phase['s1'] = 0

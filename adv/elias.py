@@ -16,8 +16,8 @@ class Elias(Adv):
         `s2, fsc and not self.energy()=5
         `fs, x=3
         """
-    coab = ['Cleo','Raemond','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Cleo','Raemond','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def s2_proc(self, e):
         self.energy.add(1, team=True)

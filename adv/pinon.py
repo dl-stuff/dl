@@ -7,6 +7,8 @@ def module():
     return Pinon
 
 pinon_conf = {
+    'x_max': 8,
+
     'x6.dmg': 10.6,
     'x6.sp': 325,
     'x6.startup': 1.3333,
@@ -30,7 +32,7 @@ class Pinon(Adv):
     a3 = ('spd',0.20,'hp70')
     
     conf = pinon_conf.copy()
-    conf['slots.a'] = Primal_Crisis()+The_Wyrmclan_Duo()
+    conf['slots.a'] = Primal_Crisis()+His_Clever_Brother()
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
         # `dragon.act('c3 s end'), s
@@ -51,11 +53,8 @@ class Pinon(Adv):
         `fs2
         end
     """
-    coab = ['Dagger2', 'Axe2', 'Blade']
-    share = ['Gala_Elisanne']
-
-    def init(self):
-        self.x_max = 8
+    conf['coabs'] = ['Dagger2', 'Axe2', 'Xander']
+    conf['share'] = ['Gala_Elisanne']
 
     def fs_proc_alt(self, e):
         if e.name == 'fs2':
@@ -64,7 +63,7 @@ class Pinon(Adv):
             self.update_sigil(-13)
 
     def prerun(self):
-        self.x_max = 5
+        self.conf.x_max = 5
         self.unlocked = False
         self.sigil = EffectBuff('locked_sigil', 300, lambda: None, self.unlock).no_bufftime()
         self.sigil.on()
@@ -92,7 +91,7 @@ class Pinon(Adv):
         self.fs_alt.on(-1)
 
     def unlock(self):
-        self.x_max = 8
+        self.conf.x_max = 8
         self.unlocked = True
         self.unlock_time = now()
 
@@ -111,10 +110,10 @@ class Pinon(Adv):
             prev = self.action.getprev()
             x_next = 1
             if prev.name[0] == 'x':
-                if prev.index != self.x_max:
+                if prev.index != self.conf.x_max:
                     x_next = prev.index + 1
                 else:
-                    x_next = 8
+                    x_next = self.conf.x_max
             return getattr(self, 'x%d' % x_next)()
         else:
             return super().x()

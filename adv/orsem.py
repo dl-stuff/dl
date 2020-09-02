@@ -18,8 +18,8 @@ class Orsem(Adv):
         `s1
         `fs, x=5
     """
-    coab = ['Blade', 'Xander', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

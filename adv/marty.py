@@ -14,8 +14,8 @@ class Marty(Adv):
         `s1, fsc
         `fs, x=3
         """
-    coab = ['Blade', 'Marth', 'Yuya']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade', 'Marth', 'Yuya']
+    conf['share'] = ['Summer_Patia']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -17,12 +17,12 @@ class Taro(Adv):
         `s2,x=5
         `fs,x=5 and self.s3_buff
         """
-    coab = ['Wand','Dagger','Axe2']
-    share = ['Curran']
+    conf['coabs'] = ['Wand','Dagger','Axe2']
+    conf['share'] = ['Curran']
     
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Wand','Dagger','Forte']
+            self.conf['coabs'] = ['Wand','Dagger','Forte']
 
 
 if __name__ == '__main__':

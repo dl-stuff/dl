@@ -19,8 +19,8 @@ class Cassandra(Adv):
         `s1, cancel
         `s2, x>2    
         """
-    coab = ['Curran','Summer_Patia','Ieyasu']
-    share = ['Curran']
+    conf['coabs'] = ['Curran','Summer_Patia','Ieyasu']
+    conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
     def prerun(self):

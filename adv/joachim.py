@@ -18,9 +18,9 @@ class Joachim(Adv):
         `s1
         `s4
     '''
-    coab = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
     conf['afflict_res.poison'] = 0
-    share = ['Curran']
+    conf['share'] = ['Curran']
 
     def init(self):
         self.phase['s1'] = 0

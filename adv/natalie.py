@@ -19,8 +19,8 @@ class Natalie(Adv):
         `s1
         `s4
         """
-    coab = ['Wand','Curran','Summer_Patia']
-    share = ['Veronica']
+    conf['coabs'] = ['Wand','Curran','Summer_Patia']
+    conf['share'] = ['Veronica']
 
     def d_slots(self):
         if self.duration <= 60:

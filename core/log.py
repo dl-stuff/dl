@@ -2,6 +2,7 @@ import core.timeline
 import sys
 
 class Log:
+    DEBUG = False
     def __init__(self):
         self.reset()
 
@@ -40,6 +41,8 @@ class Log:
                 self.team_doublebuffs += 1
             elif category in ('energy', 'inspiration') and name == 'team':
                 self.update_dict(self.team_tension, category, float(args[2]))
+        if self.DEBUG:
+            self.write_log_entry(n_rec, sys.stdout, flush=True)
         self.record.append(n_rec)
 
     def filter_iter(self, log_filter):
@@ -50,6 +53,18 @@ class Log:
             except:
                 continue
 
+    def write_log_entry(self, entry, output, flush=False):
+        time = entry[0]
+        output.write('{:>8.3f}: '.format(time))
+        for value in entry[1:]:
+            if isinstance(value, float):
+                output.write('{:<16.3f},'.format(value))
+            else:
+                output.write('{:<16},'.format(value))
+        output.write('\n')
+        if flush:
+            output.flush()
+
     def write_logs(self, log_filter=None, output=None):
         if output is None:
             output = sys.stdout
@@ -58,14 +73,7 @@ class Log:
         else:
             log_iter = self.filter_iter(log_filter)
         for entry in log_iter:
-            time = entry[0]
-            output.write('{:>8.3f}: '.format(time))
-            for value in entry[1:]:
-                if isinstance(value, float):
-                    output.write('{:<16.3f},'.format(value))
-                else:
-                    output.write('{:<16},'.format(value))
-            output.write('\n')
+            self.write_log_entry(entry, output)
 
     def get_log_list(self):
         return self.record

@@ -15,8 +15,8 @@ class Chelsea(Adv):
         `s4, fsc
         `fs, x=1
     """
-    coab = ['Blade', 'Grace', 'Serena']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade', 'Grace', 'Serena']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.obsession = 0

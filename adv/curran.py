@@ -10,7 +10,8 @@ class Curran(Adv):
     a3 = ('lo',0.6)
 
     conf = {}
-    conf['slots.poison.a'] = Summer_Paladyns()+The_Plaguebringer()
+    conf['slots.a'] = Summer_Paladyns()+The_Plaguebringer()
+    conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = '''
         `dragon.act('c3 s end'), s
         `s3, not self.s3_buff
@@ -18,8 +19,12 @@ class Curran(Adv):
         `s2
         `s4
         '''
-    coab = ['Curran','Blade','Wand','Bow']
-    share = ['Veronica']
+    conf['coabs'] = ['Curran','Blade','Wand','Bow']
+    conf['share'] = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.conf['share'] = ['Veronica']
 
     def s1_before(self, e):
         with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):

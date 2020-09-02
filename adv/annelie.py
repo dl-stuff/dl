@@ -18,8 +18,8 @@ class Annelie(Adv):
         `s2, self.energy()<5
         `fs, x=5
         """
-    coab = ['Blade','Lucretia','Peony']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade','Lucretia','Peony']
+    conf['share'] = ['Kleimann']
 
     def prerun(self):
         self.phase['s1'] = 0

@@ -256,8 +256,7 @@ class Timeline(object):
             headt = self._tlist[headindex]
             headt.callback()
         else:
-            print('timeline time err', headtiming, _g_now)
-            exit()
+            raise RuntimeError('Timeline error', headtiming, _g_now)
         return 0
     
     @classmethod
@@ -279,14 +278,14 @@ class Timeline(object):
         last += _g_now
         while 1:
             if _g_now > last:
-                return _g_now
+                return _g_now, 'timeout'
 
             r = self.process_head()
             if r == -1:
-                return _g_now
+                return _g_now, 'empty'
             
-            if _g_stop :
-                return _g_now
+            if _g_stop:
+                return _g_now, 'forced'
 
 
     def __str__(self):

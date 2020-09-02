@@ -39,12 +39,12 @@ class Chrom(Adv):
         `fs, x=2 and self.s1.charged >=1682
         `fs, x=3
     """
-    coab = ['Blade', 'Wand', 'Marth']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Wand', 'Marth']
+    conf['share'] = ['Kleimann']
 
     def d_skillshare(self):
         if self.sim_afflict:
-            self.share = ['Nadine']
+            self.conf['share'] = ['Nadine']
 
     def init(self):
         del self.slots.c.coabs['Sword']

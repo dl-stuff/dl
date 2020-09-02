@@ -63,7 +63,7 @@ SIMULATED_BUFFS = {
     'doublebuff_interval': (0.5, 600.0, 1),
     'count': (0, float('inf'), 1),
     'echo': (0, float('inf'), 1)
-};
+}
 
 def get_adv_module(adv_name):
     if adv_name in SPECIAL_ADV or adv_name in MEANS_ADV:
@@ -127,20 +127,19 @@ def set_teamdps_res(result, logs, real_d, suffix=''):
 
 def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=-2, mass=0):
     adv_module = ADV_MODULES[adv_name.lower()]
-    def acl_injection(self):
-        if acl is not None:
-            self.conf['acl'] = acl
-    adv_module.acl_backdoor = acl_injection
+
     if conf is None:
         conf = {}
 
-    conf['slots.forced'] = True
+    conf['flask_env'] = True
     if wp1 is not None and wp2 is not None:
         conf['slots.a'] = getattr(slot.a, wp1)() + getattr(slot.a, wp2)()
     if dra is not None:
         conf['slots.d'] = getattr(slot.d, dra)()
     if wep is not None:
         conf['slots.w'] = getattr(slot.w, wep)()
+    if acl:
+        conf['acl'] = acl
 
     result = {}
 
@@ -216,21 +215,21 @@ def simc_adv_test():
     if coab is not None:
         conf['coabs'] = coab
     if share is not None:
-        conf['skill_share'] = share
+        conf['share'] = share
     for afflic in AFFLICT_LIST:
         try:
-            conf['sim_afflict.'+afflic] = min(abs(int(params['sim_afflict'][afflic])), 100)/100
+            conf[f'sim_afflict.{afflic}'] = min(abs(int(params['sim_afflict'][afflic])), 100)/100
         except KeyError:
             pass
         try:
-            conf['afflict_res.'+afflic] = min(abs(int(params['afflict_res'][afflic])), 100)
+            conf[f'afflict_res.{afflic}'] = min(abs(int(params['afflict_res'][afflic])), 100)
         except KeyError:
             pass
 
     for buff, bounds in SIMULATED_BUFFS.items():
         b_min, b_max, b_ratio = bounds
         try:
-            conf[f'sim_buffbot.{buff}'] = min(max(float(params[f'sim_buff_{buff}']), b_min), b_max)/b_ratio
+            conf[f'sim_buffbot.{buff}'] = min(max(float(params['sim_buff'][buff]), b_min), b_max)/b_ratio
         except KeyError:
             pass
 
@@ -252,25 +251,26 @@ def get_adv_slotlist():
     dragon_module = slot.d
     weap_module = slot.w
     if result['adv']['name'] is not None:
-        adv_instance = ADV_MODULES[result['adv']['name'].lower()]()
-        adv_ele = adv_instance.slots.c.ele.lower()
-        result['adv']['fullname'] = adv_instance.__class__.__name__
+        adv = ADV_MODULES[result['adv']['name'].lower()]()
+        adv.config_slots()
+        adv_ele = adv.slots.c.ele.lower()
+        result['adv']['fullname'] = adv.__class__.__name__
         result['adv']['ele'] = adv_ele
         dragon_module = getattr(slot.d, adv_ele)
-        result['adv']['wt'] = adv_instance.slots.c.wt.lower()
+        result['adv']['wt'] = adv.slots.c.wt.lower()
         weap_module = getattr(slot.w, result['adv']['wt'])
         result['coab'] = coability_dict(adv_ele)
-        result['adv']['pref_dra'] = type(adv_instance.slots.d).__qualname__
-        result['adv']['pref_wep'] = type(adv_instance.slots.w).__qualname__
+        result['adv']['pref_dra'] = type(adv.slots.d).__qualname__
+        result['adv']['pref_wep'] = type(adv.slots.w).__qualname__
         result['adv']['pref_wp'] = {
-            'wp1': type(adv_instance.slots.a).__qualname__,
-            'wp2': type(adv_instance.slots.a.a2).__qualname__
+            'wp1': type(adv.slots.a).__qualname__,
+            'wp2': type(adv.slots.a.a2).__qualname__
         }
-        result['adv']['pref_coab'] = adv_instance.coab
-        result['adv']['pref_share'] = adv_instance.share
-        result['adv']['acl'] = adv_instance.conf.acl
-        if 'afflict_res' in adv_instance.conf:
-            res_conf = adv_instance.conf.afflict_res
+        result['adv']['pref_coab'] = adv.conf.coabs
+        result['adv']['pref_share'] = adv.conf.share
+        result['adv']['acl'] = adv.conf.acl
+        if 'afflict_res' in adv.conf:
+            res_conf = adv.conf.afflict_res
             res_dict = {}
             for afflic in AFFLICT_LIST:
                 if afflic in res_conf:

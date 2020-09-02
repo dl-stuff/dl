@@ -163,7 +163,7 @@ class DragonForm(Action):
             self.shift_silence = True
             Timer(self.end_silence).on(10)
             self.dragon_gauge_pause_timer = Timer(self.resume_auto_gauge).on(self.dragon_gauge_timer_diff)
-        self.status = -2
+        self.status = Action.OFF
         self._setprev() # turn self from doing to prev
         self._static.doing = self.nop
         self.end_event()
@@ -175,7 +175,7 @@ class DragonForm(Action):
         self.dragondrive_buff.off()
         self.shift_silence = True
         Timer(self.end_silence).on(10)
-        self.status = -2
+        self.status = Action.OFF
         self._setprev() # turn self from doing to prev
         self._static.doing = self.nop
         self.dragondrive_end_event()
@@ -299,10 +299,10 @@ class DragonForm(Action):
             if isinstance(doing, S) or isinstance(doing, DragonForm):
                 return False
             if not dryrun:
-                if doing.status == -1:
+                if doing.status == Action.STARTUP:
                     doing.startup_timer.off()
                     log('interrupt', doing.name , 'by '+self.name, 'after {:.2f}s'.format(now()-doing.startup_start))
-                elif doing.status == 1:
+                elif doing.status == Action.RECOVERY:
                     doing.recovery_timer.off()
                     log('cancel', doing.name , 'by '+self.name, 'after {:.2f}s'.format(now()-doing.recover_start))
         return True
@@ -331,7 +331,7 @@ class DragonForm(Action):
             self.pause_auto_gauge()
         self.shift_count += 1
         self.shift_damage_sum = 0
-        self.status = -1
+        self.status = Action.STARTUP
         self._setdoing()
         self.shift_start_time = now()
         self.shift_end_timer.on(self.dtime())

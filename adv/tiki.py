@@ -9,7 +9,7 @@ def module():
 
 
 # divine dragon mods
-tiki_conf = {
+tiki_conf = {    
     'x1.dmg': 7 / 100.0,
     'x1.sp': 88,
     'x1.utp': 2,
@@ -50,6 +50,8 @@ tiki_conf = {
 
 # divine dragon mods
 divine_dragon_conf = {
+    'x_max': 3,
+
     'x1.dmg': 211 / 100.0,
     'x1.sp': 290,
     'x1.startup': 20 / 60.0,
@@ -90,7 +92,7 @@ class Tiki(Adv):
         `s1
         end
     """
-    coab = ['Blade', 'Xander', 'Dagger']
+    conf['coabs'] = ['Blade', 'Xander', 'Dagger']
 
     def d_slots(self):
         if self.duration <= 60:
@@ -135,12 +137,10 @@ class Tiki(Adv):
             self, 'divine_dragon', divine_dragon_conf, x_proc=self.l_dragon_x, no_fs=True)
 
         self.o_s1 = self.s1
-        self.d_s1 = Skill('s1', self.conf.s1 +
-                          Conf({'startup': 0.10, 'recovery': 1.8, 'sp': 3480}))
+        self.d_s1 = Skill('s1', self.conf.s1 +  Conf({'startup': 0.10, 'recovery': 1.8, 'sp': 3480}))
 
         self.o_s2 = self.s2
-        self.d_s2 = Skill('s2', self.conf.s2 +
-                          Conf({'startup': 0.10, 'recovery': 1.91, 'sp': 5800}))
+        self.d_s2 = Skill('s2', self.conf.s2 + Conf({'startup': 0.10, 'recovery': 1.91, 'sp': 5800}))
 
         self.o_s3 = self.s3
         self.d_s3 = Skill('s3', self.conf.s3+Conf({'sp': 0}))

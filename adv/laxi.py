@@ -19,14 +19,12 @@ class Laxi(Adv):
         `s4,cancel
         `fs, x=5 and s2.charged > s2.sp-100 and not self.s2buff.get()
         '''
-    coab = ['Dagger', 'Marth', 'Dagger2']
-    share = ['Kleimann']
+    conf['coabs'] = ['Dagger', 'Marth', 'Dagger2']
+    conf['share'] = ['Kleimann']
 
     def prerun(self):  
         self.healed = 0
-        self.heal = Action('heal')
-        self.heal.conf.startup = 0.1
-        self.heal.conf.recovery = 5.0
+        self.heal = Action('heal', Conf({'startup': 0.1, 'recovery': 5.0}))
 
         self.set_hp(0)
         self.heal_initial = Timer(self.heal_proc, 0).on()

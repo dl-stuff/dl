@@ -19,8 +19,8 @@ class Dragonyule_Xainfried(Adv):
         `s1
         `s4
         """
-    coab = ['Blade','Bow','Tobias']
-    share = ['Tobias']
+    conf['coabs'] = ['Blade','Bow','Tobias']
+    conf['share'] = ['Tobias']
 
     def init(self):
         self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff

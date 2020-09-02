@@ -18,8 +18,8 @@ class Summer_Cleo(Adv):
         `s4, cancel
         `fs,x=5
     """
-    coab = ['Lucretia','Sharena','Peony']
-    share = ['Althemia']
+    conf['coabs'] = ['Lucretia','Sharena','Peony']
+    conf['share'] = ['Althemia']
     conf['afflict_res.paralysis'] = 0
 
     def init(self):

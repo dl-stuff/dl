@@ -17,12 +17,12 @@ class Summer_Luca(Adv):
         `s4, x=4
         `s2, cancel
         """
-    coab = ['Raemond','Lucretia','Peony']
-    share = ['Ranzal']
+    conf['coabs'] = ['Raemond','Lucretia','Peony']
+    conf['share'] = ['Ranzal']
     
     def d_coabs(self):
         if self.sim_afflict:
-            self.coab = ['Raemond','Cleo','Peony']
+            self.conf['coabs'] = ['Raemond','Cleo','Peony']
 
     def s2_proc(self, e):
         Spdbuff(e.name,0.2,10).on()

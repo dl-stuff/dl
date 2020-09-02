@@ -10,7 +10,7 @@ class Sazanka(Adv):
     a3 = ('k_sleep', 0.20)
 
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
+    conf['slots.a'] = Summer_Paladyns()+The_Fires_of_Hate()
     conf['slots.poison.a'] = Summer_Paladyns()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act("c3 s end"), s1.check()
@@ -18,9 +18,13 @@ class Sazanka(Adv):
         `s4
         `s1
     """
-    coab = ['Ieyasu', 'Wand', 'Bow']
+    conf['coabs'] = ['Ieyasu', 'Wand', 'Bow']
     conf['afflict_res.sleep'] = 80
-    share = ['Curran']
+    conf['share'] = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.conf['share'] = ['Curran']
 
     def prerun(self):
         random.seed()

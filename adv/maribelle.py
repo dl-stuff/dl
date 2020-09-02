@@ -16,8 +16,8 @@ class Maribelle(Adv):
         `s1
         `s2, cancel
         """
-    coab = ['Blade','Akasha','Lin_You']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Akasha','Lin_You']
+    conf['share'] = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

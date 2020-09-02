@@ -18,9 +18,9 @@ class Valentines_Ezelith(Adv):
         `s4
         `fs, seq=4
     """
-    coab = ['Blade', 'Marth', 'Wand']
+    conf['coabs'] = ['Blade', 'Marth', 'Wand']
     conf['afflict_res.burn'] = 0
-    share = ['Summer_Patia']
+    conf['share'] = ['Summer_Patia']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,110,0.883)

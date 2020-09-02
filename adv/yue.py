@@ -17,12 +17,12 @@ class Yue(Adv):
         `s4,cancel
         `s1,cancel
         """
-    coab = ['Blade', 'Marth', 'Halloween_Mym']
-    share = ['Kleimann']
+    conf['coabs'] = ['Blade', 'Marth', 'Halloween_Mym']
+    conf['share'] = ['Kleimann']
 
     def d_coabs(self):
         if self.duration <= 60:
-            self.coab = ['Yuya','Marth','Halloween_Mym']
+            self.conf['coabs'] = ['Yuya','Marth','Halloween_Mym']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

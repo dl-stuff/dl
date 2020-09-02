@@ -22,8 +22,8 @@ class Gala_Mym(Adv):
         `s4, cancel
         `fs, x=5
     """
-    share = ['Kleimann']
-    coab = ['Verica', 'Marth', 'Yuya']
+    conf['share'] = ['Kleimann']
+    conf['coabs'] = ['Verica', 'Marth', 'Yuya']
     
     conf['dragonform1'] = {
         'act': 'c3 s',
@@ -72,7 +72,7 @@ class Gala_Mym(Adv):
         if not self.a1_buff.get():
             self.a1_buff.on()
         else:
-            self.dragonform.conf += self.conf.dragonform2
+            self.dragonform.conf.update(self.conf.dragonform2)
 
     def s1_proc(self, e):
         self.dragonform.charge_gauge(50)

@@ -11,8 +11,7 @@ class Lathna(Adv):
     a3 = ('dt', 0.25)
     
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer()+Primal_Crisis()
-    conf['slots.poison.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
+    conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act('c3 s end'), cancel
         `s3, not self.s3_buff
@@ -20,8 +19,12 @@ class Lathna(Adv):
         `s4
         `s1, x=5
         """
-    coab = ['Ieyasu','Wand','Forte']
-    share = ['Curran']
+    conf['coabs'] = ['Ieyasu','Wand','Forte']
+    conf['share'] = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.conf['share'] = ['Curran']
 
         
     conf['dragonform'] = {

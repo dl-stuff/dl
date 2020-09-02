@@ -16,9 +16,9 @@ class Rena(Adv):
         `s2, s=1
         `s4, x=5
         """
-    coab = ['Wand', 'Serena', 'Marth']
+    conf['coabs'] = ['Wand', 'Serena', 'Marth']
     conf['afflict_res.burn'] = 0
-    share = ['Summer_Patia']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.phase['s1'] = 0

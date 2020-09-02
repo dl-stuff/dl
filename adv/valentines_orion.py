@@ -14,9 +14,9 @@ class Valentines_Orion(Adv):
         `s1,cancel
         `fs, x=2
     """
-    coab = ['Blade', 'Marth', 'Wand']
+    conf['coabs'] = ['Blade', 'Marth', 'Wand']
     conf['afflict_res.burn'] = 0
-    share = ['Kleimann']
+    conf['share'] = ['Kleimann']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,100,0.803)

@@ -12,25 +12,25 @@ class Hanabusa(Adv):
         `s2
         `s4, x=5
         """
-    coab = ['Halloween_Elisanne','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Halloween_Elisanne','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.phase['s1'] = 0
+        self.s1_stance = EffectBuff('dance_of_blades', 0, lambda: None, self.stance_end)
 
     def s1_proc(self, e):
         if self.phase['s1'] == 0:
-            self.s1.sp = 2567
+            self.conf.s1.sp = 2567
             self.phase['s1'] = 1
-            Timer(self.stanceend).on(20*self.mod('buff'))
+            self.s1_stance.on(20)
         elif self.phase['s1'] == 1:
             self.dmg_make(e.name,1.94)
             self.phase['s1'] = 2
-            Timer(self.stanceend).on(15*self.mod('buff'))
+            self.s1_stance.on(15)
         elif self.phase['s1'] == 2:
             self.dmg_make(e.name,2.51)
-            self.s1.sp = 2840
-            self.phase['s1'] = 0
+            self.stance_end()
 
     def s2_proc(self, e):
         if self.phase['s1'] == 0:
@@ -40,8 +40,8 @@ class Hanabusa(Adv):
         elif self.phase['s1'] == 2:
             Teambuff(e.name,0.15,21).on()
 
-    def stanceend(self, e):
-        self.s1.sp = 2840
+    def stance_end(self):
+        self.conf.s1.sp = 2840
         self.phase['s1'] = 0
 
 if __name__ == '__main__':

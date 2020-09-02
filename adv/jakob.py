@@ -19,8 +19,8 @@ class Jakob(Adv):
         `s1, cancel
         `fs, seq=5
     """
-    coab = ['Summer_Estelle', 'Xander', 'Blade']
-    share = ['Gala_Elisanne', 'Ranzal']
+    conf['coabs'] = ['Summer_Estelle', 'Xander', 'Blade']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
     conf['afflict_res.bog'] = 100
 
     def s1_proc(self, e):

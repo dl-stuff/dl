@@ -22,8 +22,8 @@ class Zhu_Bajie(Adv):
         `dodge, fsc
         `fs3
         """
-    coab = ['Blade', 'Lucretia', 'Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade', 'Lucretia', 'Peony']
+    conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.conf.fs.hit = 1
@@ -56,7 +56,7 @@ class Zhu_Bajie(Adv):
     def l_melee_fs(self, e):
         log('cast', 'fs')
         self.fs_before(e)
-        self.update_hits('fs')
+        self.add_hits(-1)
         with KillerModifier(e.name, 'hit', 0.5, ['paralysis']):
             self.dmg_make('fs', self.conf[e.name+'.dmg'], 'fs')
         self.fs_proc(e)

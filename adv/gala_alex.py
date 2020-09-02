@@ -43,6 +43,10 @@ class Skill_Reservoir(Skill):
         self.chain_timer = Timer(self.chain_off)
         self.chain_status = 0
 
+    @property
+    def sp(self):
+        return self.conf_tpl[0].sp
+
     def chain_on(self, skill, timeout=3):
         self.chain_status = skill
         self.chain_timer.on(timeout)
@@ -88,13 +92,13 @@ class Gala_Alex(Adv):
         end
         `fs, x=4
     """
-    coab = ['Ieyasu','Wand','Delphi']
-    share = ['Rodrigo']
+    conf['coabs'] = ['Ieyasu','Wand','Delphi']
+    conf['share'] = ['Rodrigo']
     conf['afflict_res.poison'] = 0
 
     def d_coabs(self):
         if self.duration <= 120:
-            self.coab = ['Ieyasu','Wand','Heinwald']
+            self.conf['coabs'] = ['Ieyasu','Wand','Heinwald']
     
     def prerun(self):
         self.s1_debuff = Debuff('s1', 0.05, 15)

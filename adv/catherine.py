@@ -6,6 +6,8 @@ def module():
     return Catherine
 
 ohoho_conf_base = {
+    'x_max': 3,
+
     'x1.dmg': 0.0,
     'x1.sp': 600,
     'x1.startup': 14 / 60.0,
@@ -57,11 +59,8 @@ class Catherine(Adv):
         `s2, self.perfect_escort=3 and self.energy()
         `s1
     """
-    coab = ['Renee', 'Hunter_Sarisse', 'Summer_Estelle']
-    share = ['Gala_Elisanne', 'Ranzal']
-
-    def init(self):
-        self.x_max = 3
+    conf['coabs'] = ['Renee', 'Hunter_Sarisse', 'Summer_Estelle']
+    conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def prerun(self):
         self.update_perfect_escort(reset=True)

@@ -13,6 +13,7 @@ conf_alt_fs = {
         'charge': 4 / 60.0,
         'startup': 9 / 60.0,
         'recovery':26 / 60.0,
+        'hit': 1,
     },
     'fs2': {
         'dmg': 1.12,
@@ -20,6 +21,7 @@ conf_alt_fs = {
         'charge': 34 / 60.0, # 0.5 ?
         'startup': 9 / 60.0,
         'recovery':26 / 60.0,
+        'hit': 1,
     }
 }
 
@@ -48,8 +50,8 @@ class Albert(Adv):
         `s4, cancel
         end
         """
-    coab = ['Blade','Lucretia','Peony']
-    share = ['Summer_Patia']
+    conf['coabs'] = ['Blade','Lucretia','Peony']
+    conf['share'] = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def init(self):

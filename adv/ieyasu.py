@@ -10,18 +10,22 @@ class Ieyasu(Adv):
     a2 = ('cd',0.3)
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+United_by_One_Vision()
+    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
         ##Use Gala Cat Sith only when out of Skillful Trickery
         `dragon.act('c3 s end'), self.trickery <= 1
         `s3, not self.s3_buff
         `s1, self.s3_buff
         `s2, x=5
-        `s4, fsc
+        `s4, fsc or not self.afflics.poison.get()
         `fs, x=5 and self.s3_buff
     """
-    coab = ['Wand','Dagger','Axe2']
-    share = ['Curran']
+    conf['coabs'] = ['Wand','Delphi','Axe2']
+    conf['share'] = ['Kleimann']
+
+    def d_coabs(self):
+        if self.sim_afflict:
+            self.conf['share'] = ['Curran']
 
     def s2ifbleed(self):
         if self.bleed._static['stacks'] > 0:

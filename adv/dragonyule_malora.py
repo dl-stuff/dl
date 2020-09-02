@@ -16,8 +16,8 @@ class Dragonyule_Malora(Adv):
         `s4, cancel
         `s1, cancel
         """
-    coab = ['Lucretia','Blade','Peony']
-    share = ['Sha_Wujing']
+    conf['coabs'] = ['Lucretia','Blade','Peony']
+    conf['share'] = ['Sha_Wujing']
 
     def prerun(self):
         self.s1debuff = Debuff('s1',0.15,15) if self.condition('buff all team') else None

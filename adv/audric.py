@@ -8,7 +8,7 @@ class Audric(Adv):
     a1 = ('dp', 10)
     
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
+    conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon.act('c3 s end'), fsc and (self.dragonform.shift_count<3 or (self.dragonform.shift_count<=3 and self.trickery <= 1))
         `s3, not self.s3_buff
@@ -17,8 +17,12 @@ class Audric(Adv):
         `s2, fsc
         `fs, x=3
     """
-    coab = ['Wand','Cleo','Forte']
-    share = ['Curran']
+    conf['coabs'] = ['Wand','Cleo','Forte']
+    conf['share'] = ['Kleimann']
+
+    def d_skillshare(self):
+        if self.sim_afflict:
+            self.conf['share'] = ['Curran']
 
     def prerun(self):
         self.cursed_blood = Selfbuff('cursed_blood',0.30,-1,'crit','chance')

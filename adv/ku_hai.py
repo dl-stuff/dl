@@ -27,8 +27,8 @@ class Ku_Hai(Adv):
         `fs, x=2 and self.fs_alt.get()
         `fs, x=3
         '''
-    coab = ['Blade','Dragonyule_Xainfried','Akasha']
-    share = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
+    conf['share'] = ['Curran']
 
     def prerun(self):
         self.fshit = 2

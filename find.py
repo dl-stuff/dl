@@ -15,8 +15,8 @@ def stat_shared():
             for adv_file in f:
                 adv_file = os.path.basename(adv_file).strip()
                 adv_module = load_adv_module_normal(adv_file)
-                if adv_module.share:
-                    has_shared[adv_file] = adv_module.share
+                if adv_module.conf['share']:
+                    has_shared[adv_file] = adv_module.conf['share']
                 else:
                     no_shared.append(adv_file)
 
@@ -41,5 +41,25 @@ def stat_conf(cond):
             deploy += adv.lower()+'.py '
     print(deploy)
 
+def move_abl():
+    with open(ADV_CONF) as f:
+        data = json.load(f)
+    for list_file in ADV_LISTS:
+        with open(os.path.join(ROOT_DIR, list_file)) as f:
+            for adv_file in f:
+                adv_file = os.path.basename(adv_file).strip()
+                adv_module = load_adv_module_normal(adv_file)
+                adv_name = str(adv_module.__name__)
+                abl = []
+                for ab in (adv_module.a1, adv_module.a2, adv_module.a3):
+                    if ab:
+                        if isinstance(ab, list):
+                            abl.extend(ab)
+                        else:
+                            abl.append(ab)
+                data[adv_name]['c']['a'] = abl
+    with open(ADV_CONF, 'w') as f:
+        json.dump(data, f, indent=4, sort_keys=True)
+
 if __name__ == '__main__':
-    stat_conf(lambda d: d['c']['ele'] == 'light')
+    move_abl()

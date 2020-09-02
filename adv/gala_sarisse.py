@@ -18,8 +18,8 @@ class Gala_Sarisse(Adv):
         `s2, cancel
         `fs, x=4
         """
-    coab = ['Blade', 'Wand', 'Marth']
-    share = ['Summer_Cleo']
+    conf['coabs'] = ['Blade', 'Wand', 'Marth']
+    conf['share'] = ['Summer_Cleo']
 
     def prerun(self):
         self.ahits = 0

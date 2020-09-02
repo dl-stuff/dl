@@ -18,9 +18,9 @@ class Vice(Adv):
         `s2
         `fs, x=5
         """
-    coab = ['Wand','Gala_Alex','Ieyasu']
+    conf['coabs'] = ['Wand','Gala_Alex','Ieyasu']
     conf['afflict_res.poison'] = 0
-    share = ['Curran']
+    conf['share'] = ['Curran']
 
     def fs_proc_alt(self, e):
         self.afflics.poison('fs', 120, 0.582)

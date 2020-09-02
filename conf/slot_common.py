@@ -74,7 +74,6 @@ def set(slots):
 
     typeweapon = getattr(slot.w, wt)
     weapon = getattr(typeweapon, ele)
-
     slots.w = weapon()
 
     return

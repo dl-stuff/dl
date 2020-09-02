@@ -22,8 +22,8 @@ class Nefaria(Adv):
         `s4
         `s2
         """
-    coab = ['Wand','Gala_Alex','Heinwald']
-    share = ['Curran']
+    conf['coabs'] = ['Wand','Gala_Alex','Heinwald']
+    conf['share'] = ['Curran']
 
     conf['afflict_res.blind'] = 80
     conf['afflict_res.poison'] = 0
