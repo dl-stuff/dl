@@ -11,17 +11,17 @@ class Patia(Adv):
     a3 = ('primed_crit_chance', 0.10, 5)
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Brothers_in_Arms()
-    conf['slots.poison.a'] = Valiant_Crown()+The_Fires_of_Hate()
+    conf['slots.a'] = Proper_Maintenance()+FWHC()
+    conf['slots.poison.a'] = conf['slots.a']
+    conf['slots.d'] = Azazel()
     conf['acl'] = """
-        #Patia will almost never run out of trickery stacks
-        `dragon.act("c3 s end"), s=1 and self.trickery <= 1
+        `dragon.act('c3 s end'), fsc
         `s3, not self.s3_buff
         `s1
-        `s2
-        `s4
+        `s4, x=5
+        `fs, x=5
     """
-    coab = ['Blade','Bow','Tobias']
+    coab = ['Audric','Bow','Tobias']
     share = ['Karl']
 
     def prerun(self):
