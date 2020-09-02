@@ -9,17 +9,17 @@ class Grace(Adv):
     a1 = ('fs',0.30)
 
     conf = {}
-    conf['slots.a'] = The_Lurker_in_the_Woods()+Dear_Diary()
-    conf['slots.d'] = Epimetheus()
+    conf['slots.a'] = The_Lurker_in_the_Woods()+The_Plaguebringer()
+    conf['slots.d'] = Ramiel()
     conf['acl'] = """
-        `dragon
+        `dragon, fsc
         `s3, not self.s3_buff
         `s4, fsc
         `dodge, fsc
-        `fs, x=1
+        `fs, x=2
     """
-    coab = ['Ieyasu', 'Dagger', 'Forte']
-    share = ['Karl']
+    coab = ['Ieyasu', 'Gala_Alex', 'Forte']
+    share = ['Rodrigo']
 
     def prerun(self):
         conf_fs_alt = {
@@ -34,7 +34,7 @@ class Grace(Adv):
         self.hp = 100
         def healing_doublebuff_iv(e):
             buff = self.Timer(lambda t: self.set_hp(self.hp+4), 3.9, True)
-            self.Timer(lambda t: buff.off()).on(20*self.buff.bufftime())
+            EffectBuff('a3_healing_doublebuff', 20, lambda: buff.on(), lambda: buff.off())
         self.Event('defchain').listener(healing_doublebuff_iv)
 
     def s1_proc(self, e):
