@@ -941,7 +941,6 @@ class Adv(object):
     # ^^^^^^^^^ rewrite these to provide advanced tweak ^^^^^^^^^^
 
     comment = ''
-    duration = 180
     conf = None
     a1 = None
     a2 = None
@@ -1158,6 +1157,7 @@ class Adv(object):
         self.conf_init = conf
         self.ctx = Ctx().on()
         self.condition = Condition(cond)
+        self.duration = 180
 
         self.s3_buff_list = []
         self.s3_buff = None
@@ -1577,13 +1577,15 @@ class Adv(object):
         self.l_dmg_formula = Listener('dmg_formula', self.l_dmg_formula)
 
         self.ctx.on()
-
-        for ab in (self.a1, self.a2, self.a3):
-            if ab:
-                if isinstance(ab, list):
-                    self.slots.c.a.extend(ab)
-                else:
-                    self.slots.c.a.append(ab)
+        
+        # for ab in (self.a1, self.a2, self.a3):
+        #     if ab:
+        #         if isinstance(ab, list):
+        #             self.slots.c.a.extend(ab)
+        #         else:
+        #             self.slots.c.a.append(ab)
+        if self.conf.c.a:
+            self.slots.c.a = list(self.conf.c.a)
 
         self.config_slots()
         self.slot_backdoor()
@@ -1618,6 +1620,9 @@ class Adv(object):
             self._acl_str, self._acl = core.acl.acl_func_str(self.conf.acl)
 
         self.displayed_att = int(self.base_att * self.mod('att'))
+
+        # from pprint import pprint
+        # pprint(self.conf)
 
         Event('idle')()
         end, reason = Timeline.run(d)

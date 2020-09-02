@@ -65,6 +65,15 @@ class Strength_Chain(Ability):
 ability_dict['achain'] = Strength_Chain
 
 
+class Resist(Ability):
+    def __init__(self, name, value, cond=None):
+        if not cond or cond.startswith('hp'):
+            super().__init__(name, [(name,'passive',value, cond)])
+        else:
+            super().__init__(name, [(name,'buff',value, cond)])
+ability_dict['res'] = Resist
+
+
 class Skill_Damage(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('s','passive',value, cond)])
@@ -417,17 +426,6 @@ class Skill_Prep(Ability):
         adv.charge_p('skill_prep',self.value)
 
 ability_dict['prep'] = Skill_Prep
-
-
-class Resist(Ability):
-    def __init__(self, name, value, cond=None):
-        self.resist = (cond, value)
-        super().__init__(name)
-
-    def oninit(self, adv, afrom=None):
-        adv.conf.resist = self.resist
-
-ability_dict['resist'] = Resist
 
 
 class Primed(BuffingAbility):
