@@ -172,10 +172,6 @@ ability_dict['dh'] = Dragon_Haste
 class Attack_Speed(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('spd','passive',value,cond)])
-    
-    def oninit(self, adv, afrom=None):
-        super().oninit(adv, afrom)
-        adv.Event('speed')()
 
 ability_dict['spd'] = Attack_Speed
 

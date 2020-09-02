@@ -252,25 +252,26 @@ def get_adv_slotlist():
     dragon_module = slot.d
     weap_module = slot.w
     if result['adv']['name'] is not None:
-        adv_instance = ADV_MODULES[result['adv']['name'].lower()]()
-        adv_ele = adv_instance.slots.c.ele.lower()
-        result['adv']['fullname'] = adv_instance.__class__.__name__
+        adv = ADV_MODULES[result['adv']['name'].lower()]()
+        adv.config_slots()
+        adv_ele = adv.slots.c.ele.lower()
+        result['adv']['fullname'] = adv.__class__.__name__
         result['adv']['ele'] = adv_ele
         dragon_module = getattr(slot.d, adv_ele)
-        result['adv']['wt'] = adv_instance.slots.c.wt.lower()
+        result['adv']['wt'] = adv.slots.c.wt.lower()
         weap_module = getattr(slot.w, result['adv']['wt'])
         result['coab'] = coability_dict(adv_ele)
-        result['adv']['pref_dra'] = type(adv_instance.slots.d).__qualname__
-        result['adv']['pref_wep'] = type(adv_instance.slots.w).__qualname__
+        result['adv']['pref_dra'] = type(adv.slots.d).__qualname__
+        result['adv']['pref_wep'] = type(adv.slots.w).__qualname__
         result['adv']['pref_wp'] = {
-            'wp1': type(adv_instance.slots.a).__qualname__,
-            'wp2': type(adv_instance.slots.a.a2).__qualname__
+            'wp1': type(adv.slots.a).__qualname__,
+            'wp2': type(adv.slots.a.a2).__qualname__
         }
-        result['adv']['pref_coab'] = adv_instance.conf.coabs
-        result['adv']['pref_share'] = adv_instance.conf.share
-        result['adv']['acl'] = adv_instance.conf.acl
-        if 'afflict_res' in adv_instance.conf:
-            res_conf = adv_instance.conf.afflict_res
+        result['adv']['pref_coab'] = adv.conf.coabs
+        result['adv']['pref_share'] = adv.conf.share
+        result['adv']['acl'] = adv.conf.acl
+        if 'afflict_res' in adv.conf:
+            res_conf = adv.conf.afflict_res
             res_dict = {}
             for afflic in AFFLICT_LIST:
                 if afflic in res_conf:

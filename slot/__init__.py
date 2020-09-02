@@ -29,8 +29,7 @@ class Slot(object):
             raise ValueError('Wrong weapon type, expected {} but got {}'.format(self.wt, c.wt))
 
     def oninit(self, adv):
-        adv.conf(self.conf)
-
+        adv.conf.update(self.conf)
         i = self.stype
         j = self.mod
         if type(j) == tuple:
@@ -174,7 +173,7 @@ class DragonBase(Slot):
         if 'dragonform' in adv.conf:
             name = type(adv).__name__
             dconf = Conf(self.default_dragonform)
-            dconf += adv.conf.dragonform
+            dconf.update(adv.conf.dragonform)
             dconf.gauge_iv = gauge_iv
             self.adv.dragonform = DragonForm(name, dconf, adv, adv.ds_proc)
         else:

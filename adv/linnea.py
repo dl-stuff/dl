@@ -15,11 +15,9 @@ class FS_Linnea(Action):
     def charge_speed(self):
         return self._static.c_spd_func()
 
-    def sync_config(self, c):
-        self._charge = c.charge
-        self._startup = c.startup
-        self._recovery = c.recovery
-        self._active = c.active
+    @property
+    def _charge(self):
+        return self.conf.charge
 
     def getstartup(self):
         return (self._charge / self.charge_speed()) + (self._startup / self.speed())
@@ -106,7 +104,6 @@ class Linnea(Adv):
         self.__dict__['a_'+name].getdoing().cancel_by.append(name)
         self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
         self.fs_before(e)
-        self.update_hits('fs')
         if name == 'fs3':
             with KillerModifier('fs_killer', 'hit', 0.2, ['poison']):
                 self.dmg_make(e.name, self.conf[name+'.dmg'], 'fs')

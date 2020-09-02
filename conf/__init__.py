@@ -2,6 +2,7 @@ import json
 from slot import Slots
 from core import Conf
 
+import wep
 import conf.halidom
 
 
@@ -34,19 +35,10 @@ def coability_dict(ele):
 
 
 def get(name):
-    conf = Conf()
-
-    json_conf = Conf(advconfs.get(name))
-
-    conf += json_conf
-
-    import wep
+    conf = Conf(advconfs.get(name))
     wt = conf.c.wt
     weapon = getattr(wep, wt)
-    wepconf = Conf(weapon.conf)
+    conf.update(Conf(weapon.conf))
     if bool(conf.c.lv2_autos):
-        wepconf += Conf(weapon.lv2)
-
-    conf += Conf(wepconf)
-
+        conf.update(Conf(weapon.lv2))
     return conf

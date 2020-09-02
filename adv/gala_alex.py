@@ -43,6 +43,10 @@ class Skill_Reservoir(Skill):
         self.chain_timer = Timer(self.chain_off)
         self.chain_status = 0
 
+    @property
+    def sp(self):
+        return self.conf_tpl[0].sp
+
     def chain_on(self, skill, timeout=3):
         self.chain_status = skill
         self.chain_timer.on(timeout)

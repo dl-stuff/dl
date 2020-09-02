@@ -3,6 +3,7 @@ from slot.a import *
 from slot.d import *
 
 nevin_conf = {
+    'x_max': 6,
     'fs.dmg': 0,
 
     'x6.dmg': 0,
@@ -38,11 +39,8 @@ class Nevin(Adv):
     conf['afflict_res.poison'] = 0
     conf['share'] = ['Veronica']
 
-    def init(self):
-        self.x_max = 6
-
     def prerun(self):
-        self.x_max = 5
+        self.conf.x_max = 5
         self.unlocked = False
         self.sigil = EffectBuff('locked_sigil', 300, lambda: None, self.unlock).no_bufftime()
         self.sigil.on()
@@ -56,7 +54,7 @@ class Nevin(Adv):
         adv.rebind_function(Nevin, 'buff_zone_count')
 
     def unlock(self):
-        self.x_max = 6
+        self.conf.x_max = 6
         self.unlocked = True
 
     def buff_zone_count(self):
