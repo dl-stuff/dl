@@ -33,9 +33,7 @@ class Halloween_Lowen(Adv):
         self.Teambuff('defchain',0.10,15).on()
     
     def s2_proc(self, e):
-        if self.hp_stack < 3:
-            self.hp_stack += 1
-        log('debug', 'HP {}0%'.format(self.hp_stack))
+        self.buff_max_hp(f'{e.name}_hp', 0.10, True)
 
 if __name__ == '__main__':
     import sys
