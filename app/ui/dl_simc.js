@@ -282,9 +282,10 @@ function serConf(no_conf){
 
     return requestJson;
 }
-function deserConf(confStr, slots){
-    const conf = JSON.parse(atob(confStr));
-
+function deserConf(confStr){
+    return JSON.parse(atob(confStr));
+}
+function loadConf(conf, slots){
     slots.adv.pref_wep = conf.wep;
     slots.adv.pref_dra = conf.dra;
 
@@ -354,12 +355,18 @@ function populateSkillShare(skillshare) {
 }
 function loadAdvWPList() {
     let selectedAdv = 'euden';
-    const urlVars = getUrlVars();
-    if (urlVars.adv_name) {
-        selectedAdv = urlVars.adv_name.toLowerCase();
-        updateUrl(urlVars);
-    } else if (localStorage.getItem('selectedAdv')) {
+    if (localStorage.getItem('selectedAdv')) {
         selectedAdv = localStorage.getItem('selectedAdv');
+    }
+    const urlVars = getUrlVars();
+    if (urlVars) {
+        if (urlVars.conf) {
+            const conf = deserConf(urlVars.conf);
+            selectedAdv = conf.adv;
+        } else if (urlVars.adv_name){
+            selectedAdv = urlVars.adv_name.toLowerCase();
+        }
+        updateUrl(urlVars);
     }
     $.ajax({
         url: APP_URL + 'simc_adv_wp_list',
@@ -413,6 +420,11 @@ function loadAdvSlots(no_conf) {
     if ($('#input-adv').val() == '') {
         return false;
     }
+    const urlVars = getUrlVars();
+    let conf = undefined;
+    if (urlVars.conf) {
+        conf = deserConf(urlVars.conf);
+    }
     const adv_name = $('#input-adv').val();
     localStorage.setItem('selectedAdv', $('#input-adv').val());
     $.ajax({
@@ -429,7 +441,7 @@ function loadAdvSlots(no_conf) {
                 buildCoab(slots.coab, slots.adv.fullname, slots.adv.wt);
 
                 const urlVars = getUrlVars();
-                if (urlVars.conf) {slots = deserConf(urlVars.conf, slots);}
+                if (urlVars.conf) {slots = loadConf(conf, slots);}
 
                 $('#wep-' + slots.adv.pref_wep).prop('selected', true);
                 $('#dra-' + slots.adv.pref_dra).prop('selected', true);
@@ -449,13 +461,13 @@ function loadAdvSlots(no_conf) {
                 const acl = trimAcl(slots.adv.acl);
                 $('#input-acl').data('default_acl', acl);
                 $('#input-acl').blur();
+                $('#input-edit-acl').prop('checked', Boolean(slots.adv.acl_alt));
+                $('#input-acl').prop('disabled', !slots.adv.acl_alt);
                 if (slots.adv.acl_alt){
-                    $('#input-edit-acl').prop('checked', true);
-                    $('#input-acl').prop('disabled', false);
-                    $('#input-acl').val(trimAcl(slots.adv.acl_alt));
+                    const acl_alt = trimAcl(slots.adv.acl_alt);
+                    $('#input-acl').data('alternate_acl', acl_alt);
+                    $('#input-acl').val(acl_alt);
                 } else {
-                    $('#input-edit-acl').prop('checked', false);
-                    $('#input-acl').prop('disabled', true);
                     $('#input-acl').val(acl);
                 }
                 if (slots.adv.afflict_res != undefined) {
@@ -713,7 +725,12 @@ function runAdvTest(no_conf) {
     });
 }
 function editAcl() {
-    if (!$(this).prop('checked')){
+     $('#input-acl').prop('disabled', !$(this).prop('checked'));
+    if ($(this).prop('checked')){
+        $('#input-acl').prop('disabled', false);
+        $('#input-acl').val($('#input-acl').data('alternate_acl'));
+    } else {
+        $('#input-acl').data('alternate_acl', $('#input-acl').val());
         $('#input-acl').prop('disabled', true);
         $('#input-acl').val($('#input-acl').data('default_acl'));
     }
