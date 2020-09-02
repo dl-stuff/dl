@@ -219,18 +219,18 @@ def simc_adv_test():
         conf['skill_share'] = share
     for afflic in AFFLICT_LIST:
         try:
-            conf['sim_afflict.'+afflic] = min(abs(int(params['sim_afflict'][afflic])), 100)/100
+            conf[f'sim_afflict.{afflic}'] = min(abs(int(params['sim_afflict'][afflic])), 100)/100
         except KeyError:
             pass
         try:
-            conf['afflict_res.'+afflic] = min(abs(int(params['afflict_res'][afflic])), 100)
+            conf[f'afflict_res.{afflic}'] = min(abs(int(params['afflict_res'][afflic])), 100)
         except KeyError:
             pass
 
     for buff, bounds in SIMULATED_BUFFS.items():
         b_min, b_max, b_ratio = bounds
         try:
-            conf[f'sim_buffbot.{buff}'] = min(max(float(params[f'sim_buff_{buff}']), b_min), b_max)/b_ratio
+            conf[f'sim_buffbot.{buff}'] = min(max(float(params['sim_buff'][buff]), b_min), b_max)/b_ratio
         except KeyError:
             pass
 
