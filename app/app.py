@@ -127,10 +127,7 @@ def set_teamdps_res(result, logs, real_d, suffix=''):
 
 def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=-2, mass=0):
     adv_module = ADV_MODULES[adv_name.lower()]
-    def acl_injection(self):
-        if acl is not None:
-            self.conf['acl'] = acl
-    adv_module.acl_backdoor = acl_injection
+
     if conf is None:
         conf = {}
 
@@ -141,6 +138,7 @@ def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, con
         conf['slots.d'] = getattr(slot.d, dra)()
     if wep is not None:
         conf['slots.w'] = getattr(slot.w, wep)()
+    conf['acl'] = acl
 
     result = {}
 
