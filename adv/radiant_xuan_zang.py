@@ -45,7 +45,7 @@ class Radiant_Xuan_Zang(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg':8.88}
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         self.xihe_gauge = 0
         self.xihe = {'s1': False, 's2': False}
         if self.condition('buff all team'):

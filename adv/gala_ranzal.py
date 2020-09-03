@@ -53,7 +53,7 @@ class Gala_Ranzal(Adv):
             'x2fs.recovery':13/60.0,
             'x3fs.recovery':13/60.0,
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
+        self.fs_alt = Fs_alt(self, conf_fs_alt)
 
     def dmg_proc(self, name, amount):
         if name == 'x1':

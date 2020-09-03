@@ -50,7 +50,7 @@ class Peony(Adv):
             'fs.startup': 20/60.0,
             'fs.recovery': 60/60.0,
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         self.fs_str = Teambuff('fs_str', 0.10, 10, 'att', 'buff')
         self.fs_spd = Spdbuff('fs_spd', 0.10, 10, wide= 'team')
         self.fs_def = Teambuff('fs_def', 0.20, 10, 'defense')

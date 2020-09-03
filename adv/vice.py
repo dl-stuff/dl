@@ -27,7 +27,7 @@ class Vice(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 0.174, 'fs.hit': 6}
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
 
     def s1_proc(self, e):
         with KillerModifier('s1_killer', 'hit', 0.5, ['poison']):

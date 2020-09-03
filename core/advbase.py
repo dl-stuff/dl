@@ -1124,13 +1124,13 @@ class Adv(object):
             self.slots.__dict__[s] = self.cmnslots.__dict__[s]
 
         if self.conf['slots']:
-            if not self.conf.flask_env:
+            if not self.conf['flask_env']:
                 self.d_slots()
             for s in ('c', 'd', 'w', 'a'):
                 if self.conf.slots[s]:
                     # TODO: make this bit support string names
                     self.slots.__dict__[s] = self.conf.slots[s]
-            if self.conf.flask_env:
+            if self.conf['flask_env']:
                 return
 
         if self.sim_afflict:
@@ -1483,7 +1483,7 @@ class Adv(object):
         return self.conf[key] or []
 
     def config_coabs(self):
-        if not self.conf.flask_env:
+        if not self.conf['flask_env']:
             self.d_coabs()
         self.coab_list = self.load_aff_conf('coabs')
         from conf import coability_dict
@@ -1511,7 +1511,7 @@ class Adv(object):
         return self.s1, self.s2, self.s3, self.s4
 
     def config_skillshare(self):
-        if not self.conf.flask_env:
+        if not self.conf['flask_env']:
             self.d_skillshare()
         preruns = {}
         self.skillshare_list = self.load_aff_conf('share')

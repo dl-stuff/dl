@@ -38,7 +38,7 @@ class Nefaria(Adv):
             'fs.sp':2400,
             'missile_iv.fs': 0.5
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         
     def s1_proc(self, e):
         with KillerModifier('s1killer', 'hit', 0.74, ['blind', 'poison']):

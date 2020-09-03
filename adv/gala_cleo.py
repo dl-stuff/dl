@@ -46,7 +46,7 @@ class Gala_Cleo(Adv):
             'fs.startup': 20/60.0,
             'fs.recovery': 60/60.0,
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
 
     @staticmethod
     def prerun_skillshare(adv, dst):

@@ -94,7 +94,7 @@ class Bellina(Adv):
         Event('dragondrive_end').listener(self.dragondrive_off)
 
         self.dragondrive_x = X_alt(self, 'dragondrive', dragondrive_auto_conf, x_proc=self.l_dragondrive_x)
-        self.fs_alt = Fs_alt(self, Conf(dragondrive_fs_conf), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, dragondrive_fs_conf, self.fs_proc_alt)
         
         self.a_s1 = self.s1.ac
         self.a_s1a = S('s1', Conf({'startup': 0.10, 'recovery': 1.10}))

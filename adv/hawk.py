@@ -39,7 +39,7 @@ class Hawk(Adv):
             'fs.sp':2400,
             'missile_iv.fs': 0.5
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         self.s2_mode = 0
         self.a_s2 = self.s2.ac
         self.a_s2a = S('s2', Conf({'startup': 0.10, 'recovery': 2.5}))

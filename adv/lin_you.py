@@ -23,7 +23,7 @@ class Lin_You(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 2.59, 'fs.hit': 6}
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
+        self.fs_alt = Fs_alt(self, conf_fs_alt)
         self.s2_buff = Spdbuff('s2_spd',0.20, 15)
 
     def s1_proc(self, e):
