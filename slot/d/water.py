@@ -279,9 +279,10 @@ class Styx(DragonBase):
     csd_stack = 0
     def ds_proc(self):
         # 7 10 13 16
-        spirit = self.adv.dragonform.act_sum.count('c3')
+        spirit = self.adv.dragonform.act_sum[self.count_from:].count('c3')
         dmg = self.adv.dmg_make('ds', 0.90*spirit*3+7, 's')
         self.adv.hits += spirit*3+7
+        self.count_from = len(self.adv.dragonform.act_sum)
         return dmg
 
     def oninit(self, adv):
@@ -290,6 +291,7 @@ class Styx(DragonBase):
         self.csd_buff = Selfbuff('d_compounding_sd',0.0,-1,'s','buff').on()
         self.csd_stack = 0
         self.csd_timer = Timer(self.add_csd, 15, True).on()
+        self.count_from = 0
         Event('s').listener(self.reset_csd)
 
     def add_csd(self, t):

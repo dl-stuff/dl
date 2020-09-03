@@ -75,6 +75,7 @@ class DragonForm(Action):
         self.dragon_gauge = self.max_gauge
         self.conf.duration = duration
         self.can_end = False
+        self.skill_sp = self.conf.skill_sp_db
         self.skill_use = -1
 
     def end_silence(self, t):
@@ -144,7 +145,7 @@ class DragonForm(Action):
 
     def ds_reset(self):
         self.skill_use = self.conf.skill_use
-        self.skill_sp = 30
+        self.skill_sp = self.conf.skill_sp
         self.skill_spc = self.skill_sp
 
     def d_shift_end(self, t):

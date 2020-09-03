@@ -118,6 +118,8 @@ class DragonBase(Slot):
         'dracolith': 0.70, # base dragon damage
         'exhilaration': 0, # psiren aura
         'skill_use': 1, # number of skill usage
+        'skill_sp': 30, # skill sp
+        'skill_sp_db': 45, # skill sp in dragonbattle
         'gauge_iv': 15, # gauge interval
         'gauge_val': 100, # gauge regen value
         'latency': 0, # amount of delay for cancel
