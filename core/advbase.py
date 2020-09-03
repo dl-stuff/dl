@@ -1052,9 +1052,9 @@ class Adv(object):
                 buff = Teambuff(name, mod_val, -1, 'maxhp', 'buff').on()
             else:
                 buff = Selfbuff(name, mod_val, -1, 'maxhp', 'buff').on()
-            self.set_hp((self.hp*max_hp+value*100)/(max_hp+mod_val))
         else:
             buff = None
+        self.set_hp((self.hp*max_hp+value*100)/(max_hp+mod_val))
         return buff
 
     def afflic_condition(self):
