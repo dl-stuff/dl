@@ -14,7 +14,7 @@ class Fs_alt:
             re.compile(r'^conf$'),
             re.compile(r'^fs.*proc$')
         ]
-        self.pattern_fsn = re.compile(r'^f.*(?<!f)$')
+        self.pattern_fsn = re.compile(r'^fs\d*$')
         self.adv = adv
         self.conf_alt = adv.conf + Conf(conf)
         self.fs_proc_alt_temp = fs_proc
