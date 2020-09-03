@@ -18,8 +18,8 @@ class Grace(Adv):
         `dodge, fsc
         `fs, x=2
     """
-    coab = ['Ieyasu', 'Gala_Alex', 'Forte']
-    share = ['Rodrigo']
+    conf['coabs'] = ['Ieyasu', 'Gala_Alex', 'Forte']
+    conf['share'] = ['Rodrigo']
 
     def prerun(self):
         conf_fs_alt = {
