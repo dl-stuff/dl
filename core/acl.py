@@ -1,6 +1,6 @@
 #from core.log import *
 import sys
-from core.timeline import now
+from core.timeline import now, Timeline
 import imp
 import re
 

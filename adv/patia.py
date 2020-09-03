@@ -22,7 +22,7 @@ class Patia(Adv):
         `fs, x=5
     """
 
-    conf['coabs'] = ['Audric','Bow','Tobias']	
+    conf['coabs'] = ['Audric','Bow','Tobias']
     conf['share'] = ['Karl']
 
     def prerun(self):

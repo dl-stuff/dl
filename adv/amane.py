@@ -34,8 +34,7 @@ class Amane(Adv):
                 self.add_hits(1)
 
     def s2_proc(self, e):
-        if self.mod('maxhp') < 1.30:
-            Selfbuff('s2_hp', 0.15, -1, 'maxhp', 'buff').on()
+        self.buff_max_hp(f'{e.name}_hp', 0.15)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

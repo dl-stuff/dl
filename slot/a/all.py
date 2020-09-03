@@ -317,7 +317,7 @@ class Dear_Diary_RO_90(Amulet):
 
 class Odd_Sparrows(Amulet):
     att = 51
-    a = [('bc',0.8)]
+    a = [('bc',0.8), ('bc_regen', 3, 20)]
 OS = Odd_Sparrows
 
 class Mega_Friends(Amulet):
@@ -468,3 +468,7 @@ class Treasury_of_Knowledge(Amulet):
 class A_Day_in_Her_Life(Amulet):
     att = 64
     a = [('bc_energy', 1), ('fs', 0.50)]
+
+class The_Synthetic_Dragon(Amulet):
+    att = 53
+    a = [('lo_regen', 14, 20), ('ro', 0.10)]

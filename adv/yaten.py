@@ -21,7 +21,7 @@ class Yaten(Adv):
     conf['coabs'] = ['Ieyasu','Wand','Delphi']
     conf['share'] = ['Kleimann']
 
-    def d_coabs(self):
+    def d_skillshare(self):
         if self.sim_afflict:
             self.conf['share'] = ['Curran']
 

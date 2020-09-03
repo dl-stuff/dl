@@ -28,11 +28,9 @@ class FS_Speedable(Action):
     def fs_speed_off(self, t):
         self.fs_speed = 1.2
 
-    def sync_config(self, c):
-        self._charge = c.charge
-        self._startup = 4 / 60
-        self._recovery = 59 / 60
-        self._active = c.active
+    @property
+    def _charge(self):
+        return self.conf.charge
 
     def getstartup(self):
         startup = self._startup_a
@@ -84,6 +82,7 @@ class Hunter_Sarisse(Adv):
                 'dmg': 0.74,
                 'sp': 500,
                 'charge': 29 / 60.0,
+                'startup': 4 / 60,
                 'recovery': 4 / 60.0,
                 'hit': 3,
                 'pierce': default_pierce
@@ -92,6 +91,8 @@ class Hunter_Sarisse(Adv):
                 'dmg': 0.84,
                 'sp': 710,
                 'charge': (29+43) / 60.0,
+                'startup': 4 / 60,
+                'recovery': 59 / 60,
                 'hit': 3,
                 'pierce': default_pierce
             },
@@ -99,6 +100,8 @@ class Hunter_Sarisse(Adv):
                 'dmg': 0.94,
                 'sp': 920,
                 'charge': (29+43*2) / 60.0,
+                'startup': 4 / 60,
+                'recovery': 59 / 60,
                 'hit': 4,
                 'pierce': default_pierce
             },
@@ -106,12 +109,14 @@ class Hunter_Sarisse(Adv):
                 'dmg': 1.29,
                 'sp': 1140,
                 'charge': (29+43*3) / 60.0,
+                'startup': 4 / 60,
+                'recovery': 59 / 60,
                 'hit': 4,
                 'pierce': default_pierce
             }
         }
+        self.conf.update(conf_alt_fs)
         for n, c in conf_alt_fs.items():
-            self.conf[n] = Conf(c)
             act = FS_Speedable(n, self.conf[n])
             self.s2_spd_boost = act.t_fs_speed
             self.__dict__['a_'+n] = act

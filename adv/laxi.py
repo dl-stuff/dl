@@ -24,9 +24,7 @@ class Laxi(Adv):
 
     def prerun(self):  
         self.healed = 0
-        self.heal = Action('heal')
-        self.heal.conf.startup = 0.1
-        self.heal.conf.recovery = 5.0
+        self.heal = Action('heal', Conf({'startup': 0.1, 'recovery': 5.0}))
 
         self.set_hp(0)
         self.heal_initial = Timer(self.heal_proc, 0).on()

@@ -20,7 +20,7 @@ class Audric(Adv):
     conf['coabs'] = ['Wand','Cleo','Forte']
     conf['share'] = ['Kleimann']
 
-    def d_coabs(self):
+    def d_skillshare(self):
         if self.sim_afflict:
             self.conf['share'] = ['Curran']
 

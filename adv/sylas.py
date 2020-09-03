@@ -6,8 +6,6 @@ def module():
     return Sylas
 
 class Sylas(Adv):
-    a3 = ('a',0.15,'hp70')
-
     comment = 'no skill haste for team'
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
@@ -44,7 +42,9 @@ class Sylas(Adv):
     def s2_proc(self, e):
         Selfbuff(f'{e.name}_sp',0.30,15,'sp','passive').on()
         Teambuff(e.name,0.25/2,15,'att','buff').on()
+        self.buff_max_hp(f'{e.name}_hp', 0.20/2, True)
         # maybe someday doublebuffs will get a "means" parameter
+        # Teambuff(f'{e.name}_defense', 0.25/2, 15, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

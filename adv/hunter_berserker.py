@@ -13,6 +13,7 @@ conf_alt_fs = {
         'charge': 24 / 60.0,
         'startup': 50 / 60.0, # 40 + 10
         'recovery': 40 / 60.0,
+        'hit': 1, # w/ combo time and doing a c1
     },
     'fs2': {
         'dmg': 424 / 100.0,
@@ -20,6 +21,7 @@ conf_alt_fs = {
         'charge': 48 / 60.0,
         'startup': 50 / 60.0,
         'recovery': 40 / 60.0,
+        'hit': 1, # w/ combo time and doing a c1
     },
     'fs3': {
         'dmg': 548 / 100.0,
@@ -27,6 +29,7 @@ conf_alt_fs = {
         'charge': 72 / 60.0,
         'startup': 50 / 60.0,
         'recovery': 40 / 60.0,
+        'hit': 1, # w/ combo time and doing a c1
     }
 }
 
@@ -49,9 +52,6 @@ class Hunter_Berserker(Adv):
     """
     conf['coabs'] = ['Blade','Grace','Marth']
     conf['share'] = ['Hunter_Sarisse']
-
-    def init(self):
-        self.conf.fs.hit = 1
 
     def prerun(self):
         self.s1_debuff = Debuff('s1', 0.05, 10)

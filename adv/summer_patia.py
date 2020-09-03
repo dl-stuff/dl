@@ -74,7 +74,7 @@ class Summer_Patia(Adv):
         self.__dict__['a_'+name].getdoing().cancel_by.append(name)
         self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
         self.fs_before(e)
-        self.update_hits('fs')
+        self.add_hits(-1)
         if self.fs_alt_uses:
             self.dmg_make(e.name, self.conf[name+'.dmg2'], 'fs')
             self.afflics.poison(e.name,110,0.436)

@@ -13,9 +13,14 @@ class Fjorm(adv.fjorm.Fjorm):
     conf['slots.a'] = Unexpected_Requests()+Valiant_Crown()
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Leviathan()
-    conf['acl'] = "`rotation"
-    conf['rotation'] = """
-        s4 s2 s1 dragon end
+    conf['acl'] = """
+        queue
+        `s4
+        `s2
+        `s1
+        `dragon
+        `stop
+        end
     """
     conf['coabs'] = ['Blade', 'Dagger2', 'Axe2']
     conf['share'] = ['Yue']

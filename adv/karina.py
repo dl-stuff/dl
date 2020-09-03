@@ -6,9 +6,6 @@ def module():
     return Karina
 
 class Karina(Adv):
-    a1 = ('bc_regen', 1, 25)
-    a3 = [('prep',1.00), ('scharge_all', 0.05)]
-
     conf = {}
     conf['slots.a'] = Valiant_Crown()+Felyne_Hospitality()
     conf['slots.frostbite.a'] = conf['slots.a']
@@ -24,6 +21,8 @@ class Karina(Adv):
     conf['coabs'] = ['Tobias', 'Renee', 'Summer_Estelle']
     conf['share'] = ['Summer_Cleo', 'Patia']
 
+    def prerun(self):
+        self.set_hp(1)
 
     def s1_proc(self, e):
         boost = 0.05*self.buffcount
