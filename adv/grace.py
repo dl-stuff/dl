@@ -6,8 +6,6 @@ def module():
     return Grace
 
 class Grace(Adv):
-    a1 = ('fs',0.30)
-
     conf = {}
     conf['slots.a'] = The_Lurker_in_the_Woods()+The_Plaguebringer()
     conf['slots.d'] = Ramiel()
@@ -30,12 +28,8 @@ class Grace(Adv):
             'fs.recovery': 0.6,
             'fs.hit': -1,
         }
-        self.conf += Conf(conf_fs_alt)
+        self.conf.update(conf_fs_alt)
         self.hp = 100
-        def healing_doublebuff_iv(e):
-            buff = self.Timer(lambda t: self.set_hp(self.hp+4), 3.9, True)
-            EffectBuff('a3_healing_doublebuff', 20, lambda: buff.on(), lambda: buff.off())
-        self.Event('defchain').listener(healing_doublebuff_iv)
 
     def s1_proc(self, e):
         if self.hp >= 40:

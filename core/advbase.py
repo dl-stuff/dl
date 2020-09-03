@@ -266,7 +266,7 @@ class Buff(object):
         return self.modifier.off()
 
     def buff_end_proc(self, e):
-        log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value()}', f'{self.name} buff end <timeout>')
+        log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff end <timeout>')
         self.__active = 0
 
         if self.__stored:
@@ -281,7 +281,7 @@ class Buff(object):
             self.__stored = 0
         value, stack = self.valuestack()
         if stack > 0:
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value}', f'{self.name} buff stack <{stack}>')
+            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
         self.effect_off()
 
     def count_team_buff(self):
@@ -335,15 +335,15 @@ class Buff(object):
                 self.__stored = 1
             if d >= 0:
                 self.buff_end_timer.on(d)
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value()}', f'{self.name} buff start <{d}s>')
+            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff start <{d:.02f}s>')
         else:
             if d >= 0:
                 self.buff_end_timer.on(d)
-                log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value()}', f'{self.name} buff refresh <{d}s>')
+                log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff refresh <{d:.02f}s>')
 
         value, stack = self.valuestack()
         if stack > 1:
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value}', f'{self.name} buff stack <{stack}>')
+            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
 
 
         if self.mod_type == 'defense':
@@ -351,13 +351,22 @@ class Buff(object):
             if self.bufftype == 'team':
                 log('buff', 'team_defense', 'proc team doublebuffs')
 
+        if self.mod_type == 'regen':
+            # may need to make this part global since game always regen all stacks at same ticks
+            self.set_hp_event = Event('set_hp')
+            self.set_hp_event.delta = self.get()
+            self.modifier = Timer(self.hp_regen, 3.9, True) # hax
+
         self.effect_on()
         return self
+
+    def hp_regen(self, t):
+        self.set_hp_event()
 
     def off(self):
         if self.__active == 0:
             return
-        log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value()}', f'{self.name} buff end <turn off>')
+        log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff end <turn off>')
         self.__active = 0
         self.modifier.off()
         self.buff_end_timer.off()
@@ -1029,17 +1038,25 @@ class Adv(object):
 
         self.disable_echo()
 
+    def l_set_hp(self, e):
+        try:
+            self.set_hp(self.hp+e.delta)
+        except AttributeError:
+            self.set_hp(e.hp)
+
     def set_hp(self, hp):
         old_hp = self.hp
         hp = round(hp*10)/10
         self.hp = max(min(hp, 100), 0)
         if self.hp != old_hp:
+            delta = self.hp-old_hp
             if self.hp == 0:
-                log('hp', f'{self.hp/100:.0%}', f'{(self.hp-old_hp)/100:.0%}')
+                log('hp', f'=1', f'{delta/100:.0%}')
             else:
-                log('hp', f'{self.hp/100:.0%}', f'{(self.hp-old_hp)/100:.0%}')
+                log('hp', f'{self.hp/100:.0%}', f'{delta/100:.0%}')
             self.condition.hp_cond_set(self.hp)
             self.hp_event.hp = self.hp
+            self.hp_event.delta = delta
             self.hp_event()
             if 'hp' in self.conf and self.hp != self.conf['hp']:
                 self.set_hp(self.conf['hp'])
@@ -1583,6 +1600,7 @@ class Adv(object):
         self.l_dmg_make = Listener('dmg_make', self.l_dmg_make)
         self.l_true_dmg = Listener('true_dmg', self.l_true_dmg)
         self.l_dmg_formula = Listener('dmg_formula', self.l_dmg_formula)
+        self.l_set_hp = Listener('set_hp', self.l_set_hp)
 
         self.ctx.on()
         

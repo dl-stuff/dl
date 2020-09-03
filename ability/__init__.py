@@ -218,19 +218,19 @@ class BuffingAbility(Ability):
             self.buff_args = (name, value, duration, *name.split('_')[1:])
         super().__init__(name)
 
-class Last_Offense(BuffingAbility):
-    def __init__(self, name, value, duration=15):
+class Last_Buff(BuffingAbility):
+    def __init__(self, name, value, duration=15, chances=1):
         super().__init__(name, value, duration)
-        self.proc_chances = 1
+        self.proc_chances = chances
+        self.auto_proc = 'regen' not in self.buff_args
 
     def oninit(self, adv, afrom=None):
         def l_lo_buff(e):
-            if e.hp <= 30 and self.proc_chances > 0:
+            if self.proc_chances > 0 and e.delta < 0 and e.hp <= 30:
                 self.proc_chances -= 1
                 adv.Buff(*self.buff_args).no_bufftime().on()
         adv.Event('hp').listener(l_lo_buff)
-
-        if 'hp' not in adv.conf and adv.condition('last offense'):
+        if self.auto_proc and 'hp' not in adv.conf and adv.condition('last offense'):
             def lo_damaged(t):
                 if adv.hp > 30 and self.proc_chances > 0:
                     next_hp = adv.condition.hp_threshold_list()
@@ -247,7 +247,7 @@ class Last_Offense(BuffingAbility):
                     adv.set_hp(100)
             adv.Timer(lo_damaged).on(0.1)
 
-ability_dict['lo'] = Last_Offense
+ability_dict['lo'] = Last_Buff
 
 
 class Doublebuff(BuffingAbility):
@@ -370,40 +370,38 @@ class Dragon_Skill(Dragon_Buff):
 
 ability_dict['dcs'] = Dragon_Skill
 
-class Resilient_Offense(Ability):
+class Resilient_Offense(BuffingAbility):
     def __init__(self, name, value, interval=None):
-        self.value = value
+        super().__init__(name, value, -1)
+        self.interval = interval
         if name == 'ro':
             self.proc_chances = 3
-            self.interval = interval
             self.hp_threshold = 30
         elif name == 'uo':
             self.proc_chances = 5
-            self.interval = interval
             self.hp_threshold = 70
-        super().__init__(name)
 
     def oninit(self, adv, afrom=None):
         def l_ro_buff(e):
-            if e.hp <= self.hp_threshold and self.proc_chances > 0:
+            if self.proc_chances > 0 and e.delta < 0 and e.hp <= self.hp_threshold:
                 self.proc_chances -= 1
-                adv.Buff(self.name, self.value, -1).on()
+                adv.Buff(*self.buff_args).on()
         adv.Event('hp').listener(l_ro_buff)
-        def ro_damaged(t):
-            if adv.hp > self.hp_threshold:
-                next_hp = adv.condition.hp_threshold_list()
-                if next_hp and next_hp[0] < self.hp_threshold:
-                    adv.set_hp(next_hp)
-                else:
-                    adv.set_hp(self.hp_threshold)
-                adv.Timer(ro_healed).on(10)
-        def ro_healed(t):
-            next_hp = adv.condition.hp_threshold_list(self.hp_threshold)
-            try:
-                adv.set_hp(next_hp[0])
-            except:
-                adv.set_hp(100)
-        if 'hp' not in adv.conf and self.interval:
+        if self.interval and 'hp' not in adv.conf:
+            def ro_damaged(t):
+                if adv.hp > self.hp_threshold:
+                    next_hp = adv.condition.hp_threshold_list()
+                    if next_hp and next_hp[0] < self.hp_threshold:
+                        adv.set_hp(next_hp)
+                    else:
+                        adv.set_hp(self.hp_threshold)
+                    adv.Timer(ro_healed).on(10)
+            def ro_healed(t):
+                next_hp = adv.condition.hp_threshold_list(self.hp_threshold)
+                try:
+                    adv.set_hp(next_hp[0])
+                except:
+                    adv.set_hp(100)
             if self.interval < adv.duration and adv.condition(f'hp={self.hp_threshold}% every {self.interval}s'):
                 for i in range(1, self.proc_chances):
                     adv.Timer(ro_damaged).on(self.interval*i)

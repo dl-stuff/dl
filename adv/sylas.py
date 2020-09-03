@@ -6,8 +6,6 @@ def module():
     return Sylas
 
 class Sylas(Adv):
-    a3 = ('a',0.15,'hp70')
-
     comment = 'no skill haste for team'
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
