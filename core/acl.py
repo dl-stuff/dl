@@ -62,7 +62,6 @@ class Acl_Condition:
     def prep(self, adv):
         Acl_Condition.AQU = []
         self._cond = {}
-        self.conditions = list(filter(lambda ca: ca[1], self.conditions))
         for cond, acts in self.conditions:
             if cond == 'True':
                 self._cond[cond] = None
@@ -70,12 +69,10 @@ class Acl_Condition:
                 self._cond[cond] = compile(cond, '<string>', 'eval')
             for a in acts:
                 a.prep(adv)
-        if self._act_cond is None:
-            try:
-                cond, acts = self.conditions[0]
+        if len(self.conditions) == 1:
+            cond, acts = self.conditions[0]
+            if len(acts) == 1:
                 self._act_cond = acts[0]._act, self._cond[cond]
-            except AttributeError:
-                pass
 
     def do(self):
         for cond, acts in self.conditions:
@@ -117,10 +114,9 @@ class Acl_Queue(Acl_Condition):
             if len(Acl_Condition.AQU) == 0 and Acl_Condition.eval(_c):
                 for a in acts:
                     if isinstance(a, Acl_Action):
-                        act_cond = a._act, None
-                    else:
-                        act_cond = self._act_cond
-                    Acl_Condition.AQU.append(act_cond)
+                        Acl_Condition.AQU.append((a._act, None))
+                    elif a._act_cond:
+                        Acl_Condition.AQU.append(a._act_cond)
         return False
 
 def acl_build(acl):
