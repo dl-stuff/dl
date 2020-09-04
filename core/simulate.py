@@ -30,8 +30,6 @@ def run_once(classname, conf, duration, cond):
 import multiprocessing
 def run_once_mass(classname, conf, duration, cond, idx):
     adv = classname(conf=conf,cond=cond)
-    from core.acl import do_act
-    adv._acl = do_act
     real_d = adv.run(duration)
     return adv.logs, real_d
 
@@ -90,7 +88,8 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
         act_sum(adv.logs.act_seq, output)
         return
     if verbose == 2:
-        output.write(adv._acl_str)
+        # output.write(adv._acl_str)
+        output.write(str(adv._acl))
         return
 
     if mass:

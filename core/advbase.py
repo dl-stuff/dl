@@ -1203,7 +1203,7 @@ class Adv(object):
         # self.crit_mod = self.rand_crit_mod
 
         self.skill = Skill()
-        self._acl = None
+        # self._acl = None
 
         # self.classconf = self.conf
         self.init()
@@ -1638,9 +1638,11 @@ class Adv(object):
             self.conf['acl'] = '`dragon'
             self.dragonform.set_dragonbattle(self.duration)
 
-        self.acl_queue = []
-        if not self._acl:
-            self._acl_str, self._acl = core.acl.acl_func_str(self.conf.acl)
+        self._acl = core.acl.acl_build(self.conf.acl)
+        self._acl.prep(self)
+        
+        # if not self._acl:
+        #     self._acl_str, self._acl = core.acl.acl_func_str(self.conf.acl)
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 
@@ -1677,8 +1679,8 @@ class Adv(object):
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
         def cb_think(t):
-            if loglevel >= 2:
-                log('think', t.pin, t.dname)
+            # if loglevel >= 2:
+            log('think', t.pin, t.dname, t.dstat, t.didx)
             self._acl(self, t)
 
         if pin in self.conf.latency:
