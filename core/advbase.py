@@ -1679,8 +1679,8 @@ class Adv(object):
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
         def cb_think(t):
-            # if loglevel >= 2:
-            log('think', t.pin, t.dname, t.dstat, t.didx)
+            if loglevel >= 2:
+                log('think', t.pin, t.dname, t.dstat, t.didx)
             self._acl(self, t)
 
         if pin in self.conf.latency:
