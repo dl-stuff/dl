@@ -2,16 +2,6 @@ import sys
 from core.timeline import now, Timeline
 import re
 
-do_act = None
-
-def acl_func_str(acl):
-    global do_act
-    s = acl_str(acl)
-    exec(s,globals())
-    # return do_act_list, s
-    do_act = do_act_list
-    return s, do_act_list
-
 class Acl_Action:
     dragon_act = re.compile(r'dragon(form)?.act\(["\']([A-Za-z \*\+\d]+)["\']\)')
     def __init__(self, action):
