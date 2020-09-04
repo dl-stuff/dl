@@ -12,7 +12,7 @@ class Luca(Adv):
         `dragon, s=1
         `s3, not self.s3_buff and fsc
         `s2
-        `s4, x>1 or fsc
+        `s4, cancel
         `s1, x>2 or fsc
         `fs, x=5
         """
