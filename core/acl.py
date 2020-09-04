@@ -22,7 +22,7 @@ class Acl_Action:
         if self.action == 'dragonform' and self.args is not None:
             self._act = lambda: adv.dragonform.act(self.args)
         else:
-            self._act = getattr(adv, self.action)
+            self._act = lambda: getattr(adv, self.action)()
 
     def do(self):
         return self._act()
@@ -49,7 +49,7 @@ class Acl_Condition:
     def add_action(self, action):
         self.conditions[-1][-1].append(action)
 
-    def add_condition(self, condition):
+    def add_condition(self, condition, is_else=False):
         self.conditions.append((self.sanitize_qwe_and_his_chunch_legs(condition), []))
 
     def __repr__(self):
@@ -62,6 +62,7 @@ class Acl_Condition:
     def prep(self, adv):
         Acl_Condition.AQU = []
         self._cond = {}
+        self.conditions = list(filter(lambda ca: ca[1], self.conditions))
         for cond, acts in self.conditions:
             if cond == 'True':
                 self._cond[cond] = None
@@ -82,6 +83,7 @@ class Acl_Condition:
                 for a in acts:
                     if a.do():
                         return True
+                break
         return False
 
     @staticmethod
