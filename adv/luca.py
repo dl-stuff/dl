@@ -12,12 +12,12 @@ class Luca(Adv):
         `dragon, s=1
         `s3, not self.s3_buff and fsc
         `s2
-        `s4, (x>1 or fsc) and self.energy()<5
+        `s4, x>1 or fsc
         `s1, x>2 or fsc
         `fs, x=5
         """
     conf['coabs'] = ['Sharena','Lucretia','Peony']
-    conf['share'] = ['Nadine']
+    conf['share'] = ['Summer_Patia']
     conf['afflict_res.paralysis'] = 0
 
     def s1_proc(self, e):
