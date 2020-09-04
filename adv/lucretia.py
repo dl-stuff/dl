@@ -18,7 +18,9 @@ class Lucretia(Adv):
     conf['coabs'] = ['Blade','Tobias','Peony']
     conf['share'] = ['Nadine']
 
-
+    def d_coabs(self):
+        if self.duration <= 120:
+            self.conf['coabs'] = ['Blade','Bow','Peony']
         
     def s1_proc(self, e):
         if self.energy() == 5:
