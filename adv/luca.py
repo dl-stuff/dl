@@ -9,15 +9,15 @@ class Luca(Adv):
     conf = {}
     conf['slots.a'] = Forest_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
-        `dragon, x=5
-        `s3, not self.s3_buff and x=5
+        `dragon, s=1
+        `s3, not self.s3_buff and fsc
         `s2
-        `s1
-        `s4, cancel
+        `s4, (x>1 or fsc) and self.energy()<5
+        `s1, x>2 or fsc
         `fs, x=5
         """
     conf['coabs'] = ['Sharena','Lucretia','Peony']
-    conf['share'] = ['Summer_Patia']
+    conf['share'] = ['Nadine']
     conf['afflict_res.paralysis'] = 0
 
     def s1_proc(self, e):
