@@ -1,4 +1,5 @@
 from core.advbase import *
+from slot.a import *
 
 def module():
     return Lucretia
@@ -6,15 +7,16 @@ def module():
 class Lucretia(Adv):
     
     conf = {}
+    conf['slots.a'] = CC()+Proper_Maintenance()
     conf['acl'] = """
-        `dragon, x>2
+        `dragon, s=2
         `s3, not self.s3_buff
-        `s1, cancel
+        `s1
         `s2, self.energy()<=3
-        `s4, x=5
+        `s4, x=5 and self.energy()<5
         """
     conf['coabs'] = ['Blade','Tobias','Peony']
-    conf['share'] = ['Summer_Patia']
+    conf['share'] = ['Nadine']
 
 
         

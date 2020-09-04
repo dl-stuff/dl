@@ -5,21 +5,23 @@ def module():
     return Joe
 
 class Joe(Adv):
-    a1 = ('edge_burn', 70, 'hp100')
 
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s=1
-        `s3, fsc and not self.s3_buff
-        `s1
-        `s2
+        queue prep
+        `s4;s1
+        end
+        `s3, x=5 and not self.s3_buff
         `s4
-        `fs, x=4
+        `s1, cancel and self.afflics.burn.timeleft()<7
+        `s2, fsc
+        `fs, x=5
     """
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['afflict_res.burn'] = 0
-    conf['share'] = ['Ranzal']
+    conf['share'] = ['Kleimann']
 
     def s1_proc(self, e):
         self.afflics.burn(e.name,100,0.803)
