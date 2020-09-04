@@ -80,18 +80,18 @@ class Tiki(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
-if self.divine_dragon.get()
-`s1
-`s2
-`dodge, x=3
-else
-`s3, not self.s3_buff and fsc
-`dragon, self.dragonform.dragon_gauge>=1800
-`s4, x=5
-`s2
-`s1, fsc
-`fs,x=5
-end
+        if self.divine_dragon.get()
+        `s1
+        `s2
+        `dodge, x=3
+        else
+        `s3, not self.s3_buff and fsc
+        `dragon, self.dragonform.dragon_gauge>=1800
+        `s4, x=5
+        `s2
+        `s1, fsc
+        `fs,x=5
+        end
     """
     conf['coabs'] = ['Blade', 'Xander', 'Catherine']
     conf['share'] = ['Kleimann']
