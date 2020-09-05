@@ -71,7 +71,7 @@ class Acl_Condition:
                 a.prep(adv)
         if len(self.conditions) == 1:
             cond, acts = self.conditions[0]
-            if len(acts) == 1:
+            if len(acts) == 1 and isinstance(acts[0], Acl_Action):
                 self._act_cond = acts[0]._act, self._cond[cond]
 
     def do(self):
