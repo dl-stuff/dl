@@ -10,18 +10,18 @@ echo_mod = 0.20
 
 class Yukata_Cassandra(Adv):
     comment = 's1 team buff not considered'
-    a1 = ('a',0.20,'hp100')
 
     conf = {}
-    conf['slots.a'] = Proper_Maintenance()+The_Bridal_Dragon()
+    conf['slots.a'] = Proper_Maintenance()+Jewels_of_the_Sun()
+    conf['slots.burn.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon
-        `s3, not self.s3_buff
+        `dragon, s
+        `s3, not self.s3_buff and x=5
         `s4
-        `s1
+        `s1, x>3
     """
     conf['coabs'] = ['Marth', 'Blade', 'Tobias']
-    conf['share'] = ['Emma']
+    conf['share'] = ['Karl']
 
     @staticmethod
     def setup_fluorescent_fish(adv):

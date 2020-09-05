@@ -9,7 +9,7 @@ class Kleimann(Adv):
     a3 = ('s',0.35)
  
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+The_Plaguebringer()
+    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """
         `dragon.act("c3 s end"), x=5
         `s3, not self.s3_buff
@@ -18,7 +18,7 @@ class Kleimann(Adv):
         `s4
         `fs, self.madness_status<5 and self.madness>0
         """
-    conf['coabs'] = ['Ieyasu','Gala_Alex','Dagger']
+    conf['coabs'] = ['Ieyasu','Gala_Alex','Delphi']
     conf['share'] = ['Curran']
 
     def d_coabs(self):
