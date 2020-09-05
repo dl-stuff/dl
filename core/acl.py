@@ -27,9 +27,12 @@ class Acl_Action:
     def do(self):
         return self._act()
 
+
 class Acl_Condition:
-    AQU = []
-    CTX = None
+    banned = re.compile(r'(exec|eval|compile|setattr|delattr|memoryview|property|globals|locals|open|print|__[a-zA-Z]+__).*')
+    banned_repl = 'True'
+    assignment = re.compile(r'([^=><!])=([^=])')
+    assignment_repl = lambda s: s[1]+'=='+s[2]
 
     banned = re.compile(r'(exec|eval|compile|setattr|delattr|memoryview|property|globals|locals|open|print|__[a-zA-Z]+__).*')
     banned_repl = 'True'
@@ -43,40 +46,46 @@ class Acl_Condition:
         return condition
 
     def __init__(self, condition):
-        self.conditions = [(self.sanitize_qwe_and_his_chunch_legs(condition), [])]
+        self.condition = Acl_Condition.sanitize_qwe_and_his_chunch_legs(condition)
+
+    def prep(self):
+        self._cond = compile(self.condition, '<string>', 'eval')
+
+    def eval(self):
+        return self.condition is None or eval(self.condition, Acl_Control.CTX)
+
+
+class Acl_Control:
+    AQU = []
+    CTX = None
+
+    def __init__(self, condition):
+        self.conditions = [(Acl_Condition(condition), [])]
         self._act_cond = None
 
     def add_action(self, action):
         self.conditions[-1][-1].append(action)
 
     def add_condition(self, condition, is_else=False):
-        self.conditions.append((self.sanitize_qwe_and_his_chunch_legs(condition), []))
+        self.conditions.append((Acl_Condition(condition), []))
 
     def __repr__(self):
         return '\n'.join(f'\n<{cond}> {acts}' for cond, acts in self.conditions)
 
-    @staticmethod
-    def eval(_c):
-        return _c is None or eval(_c, Acl_Condition.CTX)
-
     def prep(self, adv):
-        Acl_Condition.AQU = []
-        self._cond = {}
+        Acl_Control.AQU = []
         for cond, acts in self.conditions:
-            if cond == 'True':
-                self._cond[cond] = None
-            else:
-                self._cond[cond] = compile(cond, '<string>', 'eval')
+            cond.prep()
             for a in acts:
                 a.prep(adv)
         if len(self.conditions) == 1:
             cond, acts = self.conditions[0]
             if len(acts) == 1 and isinstance(acts[0], Acl_Action):
-                self._act_cond = acts[0]._act, self._cond[cond]
+                self._act_cond = acts[0], cond
 
     def do(self):
         for cond, acts in self.conditions:
-            if Acl_Condition.eval(self._cond[cond]):
+            if cond.eval():
                 for a in acts:
                     if a.do():
                         return True
@@ -96,31 +105,31 @@ class Acl_Condition:
         sp = dname if pin == 'sp' else 0
         prep = pin == 'prep'
         sim_duration = self.duration
-        Acl_Condition.CTX = locals()
+        Acl_Control.CTX = locals()
 
     def __call__(self, adv, e):
-        Acl_Condition.set_ctx(adv, e)
-        if len(Acl_Condition.AQU) > 0:
-            next_act, next_cond = Acl_Condition.AQU[0]
-            if Acl_Condition.eval(next_cond) and next_act():
-                return Acl_Condition.AQU.pop(0)
+        Acl_Control.set_ctx(adv, e)
+        if len(Acl_Control.AQU) > 0:
+            next_act, next_cond = Acl_Control.AQU[0]
+            if next_cond.eval() and next_act.do():
+                return Acl_Control.AQU.pop(0)
         self.do()
 
 
-class Acl_Queue(Acl_Condition):
+class Acl_Queue(Acl_Control):
     def do(self):
         for cond, acts in self.conditions:
-            _c = self._cond[cond]
-            if len(Acl_Condition.AQU) == 0 and Acl_Condition.eval(_c):
+            if len(Acl_Control.AQU) == 0 and cond.eval():
                 for a in acts:
                     if isinstance(a, Acl_Action):
-                        Acl_Condition.AQU.append((a._act, None))
+                        Acl_Control.AQU.append((a._act, None))
                     elif a._act_cond:
-                        Acl_Condition.AQU.append(a._act_cond)
+                        Acl_Control.AQU.append(a._act_cond)
         return False
 
+
 def acl_build(acl):
-    root = Acl_Condition('True')
+    root = Acl_Control('True')
     node_stack = [root]
     real_lines = []
     for line in acl.split('\n'):
@@ -136,7 +145,7 @@ def acl_build(acl):
     for line in real_lines:
         upper = line.upper()
         if upper.startswith('IF '):
-            node = Acl_Condition(line[3:])
+            node = Acl_Control(line[3:])
             node_stack[-1].add_action(node)
             node_stack.append(node)
         elif upper.startswith('QUEUE'):
@@ -159,7 +168,7 @@ def acl_build(acl):
             else:
                 action = parts[0]
                 condition = parts[1]
-                node = Acl_Condition(condition)
+                node = Acl_Control(condition)
                 node_stack[-1].add_action(node)
                 node.add_action(Acl_Action(action))
     return root
