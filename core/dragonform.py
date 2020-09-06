@@ -260,7 +260,7 @@ class DragonForm(Action):
         self.act_list = []
         skill_usage = 0
 
-        for a in act_str.split(' '):
+        for a in act_str.split('-'):
             if a[0] == 'c' or a[0] == 'x':
                 for i in range(1, int(a[1])+1):
                     dxseq = 'dx{}'.format(i)
