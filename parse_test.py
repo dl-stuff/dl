@@ -23,8 +23,17 @@ if __name__ == '__main__':
         show(adv, acl)
     else:
         test = """
-        `dragon(c3 s s end)
-        `s1
+        if cond1
+            if cond2
+            `act1
+            end
+        elif con3
+            if cond4
+            `blahblah
+            end
+        else
+        `blah
+        end
         """
         show('test', test)
 

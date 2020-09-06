@@ -7,11 +7,12 @@
 
 STRING: /['"]?[A-Za-z0-9 ]+['"]?/
 
-IF: "if"i
-ELIF: "elif"i
-ELSE: "else"i
+_IF: "if"i
+_ELIF: "elif"i
+_ELSE: "else"i
 _END: "end"i
 _QUEUE: "queue"i
+_EOL: NEWLINE | ";"
 AND: "and"i
 OR: "or"i
 NOT: "not"i
@@ -39,19 +40,18 @@ NOW: "now"i
 _COMMENT: /#.*/
 
 %ignore WS
-%ignore NEWLINE
-%ignore ";"
+%ignore _EOL
 %ignore "`"
 
 start: expr*
 
-?expr: _COMMENT | actcond | control
+?expr: _COMMENT | control | actcond
 
 control: ifelse | ifqueue
-ifelse: IF condition expr+ [ELIF condition expr+] [ELSE expr+] _END
+ifelse: _IF condition _EOL expr+ [_ELIF condition _EOL expr+] [_ELSE expr+] _END
 ifqueue: _QUEUE [condition] actcond* _END
 ?actcond: action ["," condition]
-?action: function | CNAME
+action: function | CNAME
 
 ?condition: pincond
     | selfcond
