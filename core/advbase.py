@@ -11,7 +11,7 @@ from core.timeline import *
 from core.log import *
 from core.afflic import *
 from core.dummy import Dummy, dummy_function
-import core.acl_old
+import core.acl
 import conf as globalconf
 import slot
 from ctypes import c_float
@@ -1203,7 +1203,7 @@ class Adv(object):
         # self.crit_mod = self.rand_crit_mod
 
         self.skill = Skill()
-        # self._acl = None
+        self._acl = None
 
         # self.classconf = self.conf
         self.init()
@@ -1409,6 +1409,11 @@ class Adv(object):
     def getprev(self):
         prev = self.action.getprev()
         return prev.name, prev.index, prev.status
+
+    def dragon(self, act_str=None):
+        if act_str:
+            return self.dragonform.act(act_str)
+        return self.dragonform()
 
     def fs(self):
         doing = self.action.getdoing()
@@ -1638,8 +1643,7 @@ class Adv(object):
             self.conf['acl'] = '`dragon'
             self.dragonform.set_dragonbattle(self.duration)
 
-        self._acl = core.acl_old.acl_build(self.conf.acl)
-        self._acl.prep(self)
+        self._acl = core.acl.build_acl(self.conf['acl'], self)
         
         # if not self._acl:
         #     self._acl_str, self._acl = core.acl_old.acl_func_str(self.conf.acl)
@@ -1681,7 +1685,7 @@ class Adv(object):
         def cb_think(t):
             if loglevel >= 2:
                 log('think', t.pin, t.dname, t.dstat, t.didx)
-            self._acl(self, t)
+            self._acl.run(t)
 
         if pin in self.conf.latency:
             latency = self.conf.latency[pin]

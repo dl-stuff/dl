@@ -39,11 +39,11 @@ BINARY_EXPR = {
 PIN_CMD = {
     'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
     'X': lambda e: e.didx if e.pin =='x' else 0,
-    'S': lambda e: int(pin[1]) if (pin[0] == 's' and pin[1].isdigit()) or pin[-2:] == '-x' else 0,
+    'S': lambda e: int(e.pin[1]) if (e.pin[0] == 's' and e.pin[1].isdigit()) or e.pin[-2:] == '-x' else 0,
     'FSC': lambda e: e.pin == 'fs',
-    'CANCEL': lambda e: pin =='x' or pin == 'fs',
-    'SP': lambda e: dname if pin == 'sp' else None,
-    'PREP': lambda e: pin == 'prep',
+    'CANCEL': lambda e: e.pin =='x' or e.pin == 'fs',
+    'SP': lambda e: e.dname if e.pin == 'sp' else None,
+    'PREP': lambda e: e.pin == 'prep',
 }
 
 
@@ -74,7 +74,6 @@ class AclInterpreter(Interpreter):
         try:
             n_actcond = self._queue.popleft()
             if not self.visit(n_actcond):
-                print('waiting for', n_actcond)
                 self._queue.appendleft(n_actcond)
         except IndexError:
             return self.visit(self._acl)
@@ -121,7 +120,6 @@ class AclInterpreter(Interpreter):
             self._inst = self._adv
         except AttributeError:
             value = getattr(inst, last.value)
-        print(inst, value)
         return value
 
     @v_args(inline=True)
@@ -162,6 +160,9 @@ def build_acl(acl, adv):
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()
     interpreter.bind(tree, adv)
+    print(acl)
+    print(tree)
+    print(tree.pretty())
     return interpreter
 
 """
