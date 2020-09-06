@@ -33,7 +33,7 @@ action: ["`"] (function | CNAME)
     | ((literal | arithmetic | condition) _op3 (literal | arithmetic | condition))
     | (NOT condition)
 
-arithmetic: (literal | _ident | arithmetic) _op1 (literal | _ident | arithmetic)
+?arithmetic: "(" arithmetic ")" | ((literal | _ident | arithmetic) _op1 (literal | _ident | arithmetic))
 _ident: params | pincond | selfcond
 
 selfcond: [_SELF "."] (CNAME ".")* (function | indice | CNAME)
