@@ -93,7 +93,7 @@ class Pinon(Adv):
     def unlock(self):
         self.conf.x_max = 8
         self.unlocked = True
-        self.unlock_time = now
+        self.unlock_time = now()
 
     def update_sigil(self, time):
         duration = self.sigil.buff_end_timer.add(time)

@@ -20,7 +20,7 @@ COMMENT: /#[^\n]*\n?/
 
 ?start: (ifelse | ifqueue | actcond) (_EOL (ifelse | ifqueue | actcond))* [_EOL]
 
-ifelse: _IF condition _EOL start [_ELIF condition _EOL start] [_ELSE [condition] _EOL start] [_EOL] _END
+ifelse: _IF condition _EOL start [_ELIF condition _EOL start] [_ELSE _EOL start] [_EOL] _END
 ifqueue: _QUEUE [condition] _EOL (actcond (_EOL actcond)*) [_EOL] _END
 
 ?actcond: action ["," condition]

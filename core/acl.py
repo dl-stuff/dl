@@ -92,7 +92,7 @@ class AclInterpreter(Interpreter):
         except IndexError:
             return self.visit(self._tree)
 
-    def block(self, t):
+    def start(self, t):
         for child in t.children:
             result = self.visit(child)
             if result:
@@ -100,9 +100,17 @@ class AclInterpreter(Interpreter):
         return False
 
     def ifelse(self, t):
-        for condition, block in pairs(t.children):
+        else_block = None
+        if len(t.children) % 2 > 0:
+            else_block = t.children[-1]
+            children_iter = pairs(t.children[:-1])
+        else:
+            children_iter = pairs(t.children)
+        for condition, block in children_iter:
             if self.visit(condition):
                 return self.visit(block)
+        if else_block is not None:
+            return self.visit(else_block)
         return False
 
     def ifqueue(self, t):
