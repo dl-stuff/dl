@@ -74,25 +74,28 @@ divine_dragon_conf = {
 
 class Tiki(Adv):
     comment = 'dragon damage does not work on divine dragon'
-    a1 = ('k_frostbite', 0.30)
 
     conf = tiki_conf.copy()
     conf['slots.a'] = Twinfold_Bonds()+The_Prince_of_Dragonyule()
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Nimis()
+    conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
         if self.divine_dragon.get()
         `s1
         `s2
         `dodge, x=3
         else
-        `s3, not self.s3_buff and x=5
+        `s3, not self.s3_buff and fsc
         `dragon, self.dragonform.dragon_gauge>=1800
+        `s4, x=5
         `s2
-        `s1
+        `s1, fsc
+        `fs,x=5
         end
     """
-    conf['coabs'] = ['Blade', 'Xander', 'Dagger']
+    conf['coabs'] = ['Blade', 'Xander', 'Catherine']
+    conf['share'] = ['Kleimann']
+    
 
     def d_slots(self):
         if self.duration <= 60:
