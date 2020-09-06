@@ -15,7 +15,7 @@ class Halloween_Lowen(Adv):
     conf['slots.d'] = PopStar_Siren()
     conf['acl'] = """
         `dragon
-        `s2, pin='prep' or x=5 and self.hp_stack < 3
+        `s2, prep or x=5 and self.hp_stack < 3
         `s1, x=5
         `s3, x=5
         `s4, x=5

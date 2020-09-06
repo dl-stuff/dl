@@ -1,4 +1,6 @@
 import json
+import os
+
 from slot import Slots
 from core import Conf
 
@@ -6,19 +8,9 @@ import wep
 import conf.halidom
 
 
-def load_json(name):
-    fname = ''
-    find = '/'
-    if __file__.find('/') == -1:
-        find = '\\'
-        if __file__.find('\\') == -1:
-            find = None
-            fname = name
-    if find:
-        l = __file__.rfind(find)
-        fname = __file__[:l] + find + name
-
-    with open(fname, 'r', encoding='utf8') as f:
+def load_json(fn):
+    fpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), fn)
+    with open(fpath, 'r', encoding='utf8') as f:
         return json.load(f, parse_float=float, parse_int=int)
 
 

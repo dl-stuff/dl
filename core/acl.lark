@@ -1,0 +1,64 @@
+%import common.CNAME
+%import common.DIGIT
+%import common.NEWLINE
+%import common.WS
+%import common.WS_INLINE
+%import common.SIGNED_NUMBER
+%import common.ESCAPED_STRING
+
+_EOL: NEWLINE | ";"
+
+IF: "if"i
+ELIF: "elif"i
+ELSE: "else"i
+_END: "end"i
+_QUEUE: "queue"i
+SEQ: "seq"i
+X: "x"i
+S: "s"i
+CANCEL: "cancel"i
+FSC: "fsc"i
+PREP: "prep"i
+DURATION: "duration"i
+NOW: "now"i
+CX: "c"DIGIT
+END: "end"i
+DODGE: "d"i
+AND: "and"i
+OR: "or"i
+NOT: "not"i
+GT: ">" 
+LT: "<" 
+EQ: "=" 
+GE: ">=" 
+LE: "<="
+NE: "!="
+ADD: "+"
+MINUS: "-" 
+TIMES: "*"
+DIVIDE: "//"
+MOD: "%"
+
+%ignore WS
+%ignore "`"
+
+start: expr*
+
+expr: _comment | actcond | control
+
+_comment: /#.*/ _EOL
+
+control: ifelse | ifqueue
+ifelse: IF condition expr+ [ELIF condition expr+] [ELSE expr+] _END
+ifqueue: _QUEUE [condition] actcond* _END
+?actcond: (action | dragon) ["," condition] _EOL
+action: CNAME
+dragon: "dragon(" [_dstring] ")"
+_dstring: ( CX | S | END | DODGE )+
+
+condition: (NOT condition) | (condition _operator condition) | (condition _operator condition) | selfcond | pincond | literal
+selfcond: ["self."] (CNAME ".")* (CNAME | function)
+function: CNAME "(" [literal] ")"
+pincond: SEQ | X | S | FSC | CANCEL | PREP | DURATION | NOW
+_operator: AND | OR | GT | LT | EQ | GE | LE | NE | ADD | MINUS | TIMES | DIVIDE | MOD
+literal: SIGNED_NUMBER | ESCAPED_STRING

@@ -41,6 +41,17 @@ def stat_conf(cond):
             deploy += adv.lower()+'.py '
     print(deploy)
 
+def get_all_adv():
+    adv_dict = {}
+    for list_file in ADV_LISTS:
+        with open(os.path.join(ROOT_DIR, list_file)) as f:
+            for adv_file in f:
+                adv_file = os.path.basename(adv_file).strip()
+                adv_module = load_adv_module_normal(adv_file)
+                adv_dict[adv_module.__name__] = adv_module
+    return adv_dict
+
+
 def move_abl():
     with open(ADV_CONF) as f:
         data = json.load(f)
@@ -61,5 +72,12 @@ def move_abl():
     with open(ADV_CONF, 'w') as f:
         json.dump(data, f, indent=4, sort_keys=True)
 
-if __name__ == '__main__':
-    move_abl()
+def get_acl():
+    adv_dict = get_all_adv()
+    acl_map = {}
+    for adv, module in adv_dict.items():
+        acl_map[adv] = module.conf['acl']
+    return acl_map
+
+# if __name__ == '__main__':
+#     get_acl()
