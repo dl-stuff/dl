@@ -868,6 +868,9 @@ class Adv(object):
     Listener = Listener
     # vvvvvvvvv rewrite self to provide advanced tweak vvvvvvvvvv
     name = None
+    _acl_default = None
+    _acl_dragonbattle = core.acl.build_acl('`dragon')
+    _acl = None
 
     def s1_proc(self, e):
         pass
@@ -1204,12 +1207,17 @@ class Adv(object):
         # self.crit_mod = self.rand_crit_mod
 
         self.skill = Skill()
-        self._acl = None
 
         # self.classconf = self.conf
         self.init()
 
         # self.ctx.off()
+        if 'acl' not in self.conf_init:
+            if self._acl_default is None:
+                self._acl_default = core.acl.build_acl(self.conf.acl)
+            self._acl = self._acl_default
+        else:
+            self._acl = None
 
     def dmg_mod(self, name):
         mod = 1
@@ -1641,13 +1649,12 @@ class Adv(object):
             self.set_hp(self.conf['hp'])
 
         if 'dragonbattle' in self.conf and self.conf['dragonbattle']:
-            self.conf['acl'] = '`dragon'
             self.dragonform.set_dragonbattle(self.duration)
-
-        # self._acl = core.acl.build_acl(self.conf['acl'], self)
         
         if not self._acl:
-            self._acl_str, self._acl = core.acl_old.acl_func_str(self.conf.acl)
+            self._acl = core.acl.build_acl(self.conf['acl'], self)
+        else:
+            self._acl._adv = self
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 
@@ -1687,7 +1694,7 @@ class Adv(object):
             if loglevel >= 2:
                 log('think', t.pin, t.dname, t.dstat, t.didx)
             # self._acl.run(t)
-            self._acl(self, t)
+            self._acl(t)
 
         if pin in self.conf.latency:
             latency = self.conf.latency[pin]

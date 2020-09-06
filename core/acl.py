@@ -63,13 +63,13 @@ LITERAL_EVAL = {
 
 
 class AclInterpreter(Interpreter):
-    def bind(self, acl, adv):
+    def bind(self, acl=None, adv=None):
         self._acl = acl
         self._adv = adv
         self._inst = self._adv
         self._queue = deque()
         
-    def run(self, e):
+    def __call__(self, e):
         self._e = e
         try:
             n_actcond = self._queue.popleft()
@@ -171,7 +171,7 @@ class AclInterpreter(Interpreter):
         else:
             return self.visit(fn)[self.visit(idx)]
 
-def build_acl(acl, adv):
+def build_acl(acl, adv=None):
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()
     interpreter.bind(tree, adv)
