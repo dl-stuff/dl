@@ -1212,12 +1212,7 @@ class Adv(object):
         self.init()
 
         # self.ctx.off()
-        if 'acl' not in self.conf_init:
-            if self._acl_default is None:
-                self._acl_default = core.acl.build_acl(self.conf.acl)
-            self._acl = self._acl_default
-        else:
-            self._acl = None
+        self._acl = None
 
     def dmg_mod(self, name):
         mod = 1
@@ -1637,8 +1632,8 @@ class Adv(object):
 
         self.sim_buffbot()
 
-        self.base_att = int(self.slots.att(globalconf.halidom))
         self.slots.oninit(self)
+        self.base_att = int(self.slots.att(globalconf.halidom))
 
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)
@@ -1649,12 +1644,15 @@ class Adv(object):
             self.set_hp(self.conf['hp'])
 
         if 'dragonbattle' in self.conf and self.conf['dragonbattle']:
+            self._acl = self._acl_dragonbattle
             self.dragonform.set_dragonbattle(self.duration)
-        
-        if not self._acl:
-            self._acl = core.acl.build_acl(self.conf['acl'], self)
+        elif 'acl' not in self.conf_init:
+            if self._acl_default is None:
+                self._acl_default = core.acl.build_acl(self.conf.acl)
+            self._acl = self._acl_default
         else:
-            self._acl._adv = self
+            self._acl = core.acl.build_acl(self.conf.acl)
+        self._acl.reset(self)
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 

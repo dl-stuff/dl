@@ -21,9 +21,9 @@ app = Flask(__name__)
 ROOT_DIR = os.getenv('ROOT_DIR', '..')
 ADV_DIR = 'adv'
 MEANS_ADV = {
-    'addis': 'addis.py.means.py',
-    'sazanka': 'sazanka.py.means.py',
-    'victor': 'victor.py.means.py'
+    'addis': 'addis_means.py',
+    'sazanka': 'sazanka_means.py',
+    'victor': 'victor_means.py'
 }
 
 def load_chara_file(fn, extra=None):
@@ -42,15 +42,12 @@ PRELIM_ADV = load_chara_file('chara_prelim.txt')
 
 SPECIAL_ADV = {
     'chelsea_rollfs': {
-        'fn': 'chelsea.py.rollfs.py',
         'nc': ['wp', 'coab']
     },
-    'fjorm_stack': {
-        'fn': 'fjorm.py.x4.py',
+    'fjorm_x4': {
         'nc': ['acl']
     },
     'hunter_sarisse_allhits': {
-        'fn': 'hunter_sarisse.py.allhits.py',
         'nc': []
     }
 }
@@ -65,31 +62,14 @@ SIMULATED_BUFFS = {
     'echo': (0, float('inf'), 1)
 }
 
-def get_adv_module(adv_name):
-    if adv_name in SPECIAL_ADV or adv_name in MEANS_ADV:
-        if adv_name in MEANS_ADV:
-            adv_file = MEANS_ADV[adv_name]
-        else:
-            adv_file = SPECIAL_ADV[adv_name]['fn']
-        fn = os.path.join(ROOT_DIR, ADV_DIR, adv_file)
-        spec = spec_from_file_location(adv_name, fn)
-        module = module_from_spec(spec)
-        sys.modules[adv_name] = module
-        spec.loader.exec_module(module)
-        return module.module()
-    else:
-        return getattr(
-            __import__('adv.{}'.format(adv_name.lower())),
-            adv_name.lower()
-        ).module()
 
 ADV_MODULES = {}
 for adv in NORMAL_ADV+MASS_SIM_ADV+PRELIM_ADV:
-    module = get_adv_module(adv)
+    module = core.simulate.load_adv_module(adv)
     name = module.__name__
     ADV_MODULES[name.lower()] = module
 for name, info in SPECIAL_ADV.items():
-    module = get_adv_module(name)
+    module = core.simulate.load_adv_module(name)
     ADV_MODULES[name.lower()] = module
 
 def is_amulet(obj):

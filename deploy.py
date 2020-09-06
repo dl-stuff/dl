@@ -14,7 +14,7 @@ SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
 ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
 
 
-def load_adv_module_special(adv_file):
+def load_adv_module_special(adv_name):
     adv_name = adv_file.split('.')[0]
     fn = os.path.join(ROOT_DIR, ADV_DIR, adv_file)
     spec = spec_from_file_location(adv_name, fn)
@@ -24,8 +24,7 @@ def load_adv_module_special(adv_file):
     return module.module()
 
 
-def load_adv_module_normal(adv_file):
-    adv_name = adv_file.split('.')[0]
+def load_adv_module_normal(adv_name):
     return getattr(
         __import__('adv.{}'.format(adv_name.lower())),
         adv_name.lower()
@@ -36,17 +35,21 @@ def sim_adv(adv_file, special=None, mass=None):
     t_start = monotonic()
 
     adv_file = os.path.basename(adv_file)
+    if adv_file.endswith('.py'):
+        adv_name = adv_file.split('.')[0]
+    else:
+        adv_name = adv_file
+        adv_file += '.py'
     output = open(os.path.join(ROOT_DIR, OUTPUT_DIR,
                                'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
     if special is None and adv_file.count('.py') > 1:
         special == True
+    load_adv_module = load_adv_module_normal
     if special:
         durations = [180]
-        load_adv_module = load_adv_module_special
     else:
         durations = DURATION_LIST
-        load_adv_module = load_adv_module_normal
-    adv_module = load_adv_module(adv_file)
+    adv_module = load_adv_module(adv_name)
     for d in durations:
         core.simulate.test(adv_module, {}, duration=d, verbose=-5,
                            mass=1000 if mass else None, special=special, output=output)

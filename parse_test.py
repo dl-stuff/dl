@@ -40,7 +40,8 @@ class FakeE:
 def show(adv, acl, prn=True, run=False):
     try:
         fake = FakeAdv()
-        interpreter = build_acl(acl, fake)
+        interpreter = build_acl(acl)
+        interpreter.reset(fake)
         event = FakeE('x', 'x5_missile', None, 5)
         if prn:
             print(acl)

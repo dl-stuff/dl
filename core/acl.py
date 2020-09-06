@@ -63,8 +63,10 @@ LITERAL_EVAL = {
 
 
 class AclInterpreter(Interpreter):
-    def bind(self, acl=None, adv=None):
+    def bind(self, acl):
         self._acl = acl
+
+    def reset(self, adv):
         self._adv = adv
         self._inst = self._adv
         self._queue = deque()
@@ -171,10 +173,10 @@ class AclInterpreter(Interpreter):
         else:
             return self.visit(fn)[self.visit(idx)]
 
-def build_acl(acl, adv=None):
+def build_acl(acl):
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()
-    interpreter.bind(tree, adv)
+    interpreter.bind(tree)
     return interpreter
 
 """
