@@ -145,7 +145,7 @@ class AclInterpreter(Interpreter):
         inst = self._adv
         children = t.children
         negate = False
-        if t.children[0].type == 'NOT':
+        if isinstance(t.children[0], Token) and t.children[0].type == 'NOT':
             negate = True
             children = t.children[1:-1]
         else:

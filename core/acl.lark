@@ -27,8 +27,8 @@ ifqueue: _QUEUE [condition] _EOL (actcond (_EOL actcond)*) [_EOL] _END
 
 action: ["`"] (function | CNAME)
 ?condition: _ident 
-    | (NOT "(" condition ")")
-    | (condition _logic condition)
+    | ([NOT] "(" condition ")")
+    | (condition _logic condition)  
     | ((literal | arithmetic | condition) _op2 (literal | arithmetic | condition)) 
     | ((literal | arithmetic | condition) _op3 (literal | arithmetic | condition))
 
