@@ -3,9 +3,8 @@
 %import common.NEWLINE
 %import common.WS
 %import common.WS_INLINE
-%import common.SIGNED_NUMBER
-
-STRING: /['"]?[A-Za-z0-9 ]+['"]?/
+%import common.SIGNED_INT
+%import common.SIGNED_FLOAT
 
 _IF: "if"i
 _ELIF: "elif"i
@@ -13,58 +12,72 @@ _ELSE: "else"i
 _END: "end"i
 _QUEUE: "queue"i
 _EOL: NEWLINE | ";"
-AND: "and"i
-OR: "or"i
 NOT: "not"i
-GT: ">" 
-LT: "<" 
-EQ: "="
-GE: ">=" 
-LE: "<="
-NE: "!="
-ADD: "+"
-MINUS: "-" 
-TIMES: "*"
-DIVIDE: "/"
-MOD: "%"
-
-SEQ: "seq"i
-X: "x"i
-S: "s"i
-CANCEL: "cancel"i
-FSC: "fsc"i
-PREP: "prep"i
-DURATION: "duration"i
-NOW: "now"i
-
 _COMMENT: /#.*/
 
 %ignore WS
 %ignore _EOL
 %ignore "`"
 
-start: expr*
+?start: block
+block: (_COMMENT | expr)*
+?expr: ifelse | ifqueue | actcond
 
-?expr: _COMMENT | control | actcond
-
-control: ifelse | ifqueue
-ifelse: _IF condition _EOL expr+ [_ELIF condition _EOL expr+] [_ELSE expr+] _END
+ifelse: _IF condition _EOL block [_ELIF condition _EOL block] [_ELSE [condition] _EOL block] _END
 ifqueue: _QUEUE [condition] actcond* _END
 ?actcond: action ["," condition]
-action: function | CNAME
+action: ("`" | ";") (function | CNAME)
 
-?condition: pincond
+?condition:
+    | params
+    | pincond
     | selfcond
     | "(" condition ")"
     | (NOT condition)
     | (condition _logic condition)
-    | ((condition | literal) _operator (condition | literal))
+    | ((condition | literal) _op2 (condition | literal))
+    | ((condition | literal) _op1 (condition | literal))
 
 selfcond: ["self."] (CNAME ".")* (CNAME | function | indice)
-pincond: SEQ | X | S | FSC | CANCEL | PREP | DURATION | NOW
-indice: CNAME "[" [literal] "]"
+
+DURATION: "duration"i
+NOW: "now"i
+params: DURATION | NOW
+
+SEQ: "seq"i
+X: "x"i
+S: "s"i
+FSC: "fsc"i
+CANCEL: "cancel"i
+SP: "sp"i
+PREP: "prep"i
+pincond: SEQ | X | S | FSC | CANCEL | SP | PREP
+
+AND: "and"i
+OR: "or"i
+IS: "is"i
+_logic: AND | OR | IS
+
+GE: ">="
+LE: "<="
+NE: "!="
+_op2: GE | LE | NE | EQ
+
+GT: ">"
+LT: "<"
+EQ: "==" | "="
+ADD: "+"
+MINUS: "-"
+MULT: "*"
+DIV: "/"
+MOD: "%"
+_op1: GT | LT | EQ | ADD | MINUS | MULT | DIV | MOD
+
+_QUOTE: "'" | "\""
+STRING: /[A-Za-z0-9 ]+/
+NONE: "none"i
+BOOLEAN: "true"i | "false"i
+indice: (function | CNAME) "[" [literal] "]"
 function: CNAME "(" [_args] ")"
-_logic: AND | OR
-_operator: GT | LT | EQ | GE | LE | NE | ADD | MINUS | TIMES | DIVIDE | MOD
 _args: literal ("," literal)*
-literal: SIGNED_NUMBER | STRING
+literal: NONE | SIGNED_INT | SIGNED_FLOAT | BOOLEAN | _QUOTE? STRING _QUOTE?

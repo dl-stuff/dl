@@ -1,19 +1,57 @@
 import sys
 
 from find import get_acl
-from core.acl import PARSER
+from core.acl import build_acl
 
-def show(adv, acl, res=True):
+class FakeAdv:
+    duration = 180
+    bolb = {'s1': False}
+    def __init__(self):
+        self.s3_buff = False
+
+    def s1(self):
+        print('Called s1')
+        return True
+
+    def s2(self):
+        print('Called s2')
+        return True
+
+    def s3(self):
+        print('Called s3')
+        return False
+
+    def fn(self, *args):
+        print('Call with', args)
+        return True
+
+    def rd(self):
+        return {'s3': 33333}
+
+
+class FakeE:
+    def __init__(self, pin, dname, dstat, didx):
+        self.pin = pin
+        self.dname = dname
+        self.dstat = dstat
+        self.didx = didx
+
+
+def show(adv, acl, prn=True, run=False):
     try:
-        result = PARSER.parse(acl)
-        if res:
+        fake = FakeAdv()
+        interpreter = build_acl(acl, fake)
+        event = FakeE('x', 'x5_missile', None, 5)
+        if prn:
             print(acl)
             print("-"*140)
-            print(result)
-            print(result.pretty())
+            print(interpreter._acl)
+            print(interpreter._acl.pretty())
+        if run:
+            interpreter.run(event)
     except Exception as e:
-        print(adv, str(e))
-        print("-"*140)
+        print(adv)
+        raise e
 
 if __name__ == '__main__':
     acl_map = get_acl()
@@ -23,19 +61,14 @@ if __name__ == '__main__':
         show(adv, acl)
     else:
         test = """
-        if cond1
-            if cond2
-            `act1
-            end
-        elif con3
-            if cond4
-            `blahblah
-            end
-        else
-        `blah
+        queue
+        `s1
+        `s2
+        `s3
         end
         """
-        show('test', test)
+        show('test', test, run=True)
 
         # for adv, acl in acl_map.items():
-        #     show(adv, acl, res=False)
+        #     show(adv, acl, prn=False, run=False)
+
