@@ -96,6 +96,7 @@ class AclInterpreter(Interpreter):
     def start(self, t):
         for child in t.children:
             result = self.visit(child)
+            # log('acl', str(result), str(t))
             if result:
                 return True
         return False
@@ -121,20 +122,19 @@ class AclInterpreter(Interpreter):
         return False
 
     def condition(self, t):
+        args = t.children
         argl = len(t.children)
         if argl == 0:
             return True
+        negate = False
+        if isinstance(args[0], Token) and args[0].type == 'NOT': # NOT cond
+            args = args[1:]
+            argl -= 1
+            negate = True
         if argl == 1:
-            return self.visit(t.children[0])
-        elif argl == 4 and t.children[0].type == 'NOT': # NOT cond
-            return not self.visit(t.children[1])
-        elif argl >= 3:
-            if argl == 4:
-                left, op, right = t.children[1:]
-                negate = True
-            else:
-                left, op, right = t.children
-                negate = False
+            res = self.visit(args[0])
+        else:
+            left, op, right = args
             lres = self.visit(left)
             try:
                 if SHORT_CIRCUIT[op.type](lres):
@@ -146,33 +146,23 @@ class AclInterpreter(Interpreter):
                 pass
             rres = self.visit(right)
             res = BINARY_EXPR[op.type](lres, rres)
-            if negate:
-                return not res
-            else:
-                return res
-        return False
+        if negate:
+            return not res
+        else:
+            return res
 
     def selfcond(self, t):
         inst = self._adv
-        children = t.children
-        negate = False
-        if isinstance(t.children[0], Token) and t.children[0].type == 'NOT':
-            negate = True
-            children = t.children[1:-1]
-        else:
-            children = t.children[0:-1]
+        children = t.children[0:-1]
         last = t.children[-1]
         for child in children:
             inst = getattr(inst, child.value)
-        last = t.children[-1]
         try:
             self._inst = inst
             value = self.visit(last)
             self._inst = self._adv
         except AttributeError:
             value = getattr(inst, last.value)
-        if negate:
-            return not value
         return value
 
     def arithmetic(self, t):
@@ -198,11 +188,7 @@ class AclInterpreter(Interpreter):
     # def pincond(self, cmd):
     def pincond(self, t):
         cmd = t.children[0]
-        if cmd.type == 'NOT':
-            cmd = t.children[1]
-            return not PIN_CMD[cmd.type](self._e)
-        else:
-            return PIN_CMD[cmd.type](self._e)
+        return PIN_CMD[cmd.type](self._e)
 
     # @v_args(inline=True)
     # def action(self, act):
