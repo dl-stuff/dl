@@ -5,24 +5,13 @@
 %import common.WS_INLINE
 %import common.SIGNED_NUMBER
 
-STRING: ("'"|"\"")? (/[^'"]+/)+ ("'"|"\"")
+STRING: /['"]?[A-Za-z0-9 ]+['"]?/
 
 IF: "if"i
 ELIF: "elif"i
 ELSE: "else"i
 _END: "end"i
 _QUEUE: "queue"i
-SEQ: "seq"i
-X: "x"i
-S: "s"i
-CANCEL: "cancel"i
-FSC: "fsc"i
-PREP: "prep"i
-DURATION: "duration"i
-NOW: "now"i
-CX: "c"DIGIT
-END: "end"i
-DODGE: "d"i
 AND: "and"i
 OR: "or"i
 NOT: "not"i
@@ -38,6 +27,15 @@ TIMES: "*"
 DIVIDE: "/"
 MOD: "%"
 
+SEQ: "seq"i
+X: "x"i
+S: "s"i
+CANCEL: "cancel"i
+FSC: "fsc"i
+PREP: "prep"i
+DURATION: "duration"i
+NOW: "now"i
+
 _COMMENT: /#.*/
 
 %ignore WS
@@ -52,12 +50,10 @@ start: expr*
 control: ifelse | ifqueue
 ifelse: IF condition expr+ [ELIF condition expr+] [ELSE expr+] _END
 ifqueue: _QUEUE [condition] actcond* _END
-?actcond: (action | dragon) ["," condition]
-action: CNAME
-dragon: "dragon(" [_dstring] ")"
-_dstring: ( CX | S | END | DODGE )+
+?actcond: action ["," condition]
+?action: function | CNAME
 
-?condition: pincond 
+?condition: pincond
     | selfcond
     | "(" condition ")"
     | (NOT condition)
@@ -67,7 +63,8 @@ _dstring: ( CX | S | END | DODGE )+
 selfcond: ["self."] (CNAME ".")* (CNAME | function | indice)
 pincond: SEQ | X | S | FSC | CANCEL | PREP | DURATION | NOW
 indice: CNAME "[" [literal] "]"
-function: CNAME "(" [literal] ")"
+function: CNAME "(" [_args] ")"
 _logic: AND | OR
 _operator: GT | LT | EQ | GE | LE | NE | ADD | MINUS | TIMES | DIVIDE | MOD
-literal: SIGNED_NUMBER | ("'"|"\"")? (/[^'"]+/)+ ("'"|"\"")?
+_args: literal ("," literal)*
+literal: SIGNED_NUMBER | STRING
