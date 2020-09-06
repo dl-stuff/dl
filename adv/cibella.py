@@ -10,7 +10,7 @@ class Cibella(Adv):
     conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end'),s
+        `dragon(c3 s end),s
         `s4
         `s3, cancel
         `s2, cancel

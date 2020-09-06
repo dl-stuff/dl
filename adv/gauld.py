@@ -15,7 +15,7 @@ class Gauld(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s c3 end'), s and (not s2.check() or not s=2)
+        `dragon(c3 s c3 end), s and (not s2.check() or not s=2)
         `s1, s=2
         `s4
         `s3

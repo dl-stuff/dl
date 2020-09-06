@@ -12,7 +12,7 @@ class Halloween_Odetta(Adv):
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end'), s=2
+        `dragon(c3 s end), s=2
         `s3, cancel
         `s2, cancel
         `s4, fsc

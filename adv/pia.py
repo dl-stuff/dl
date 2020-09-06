@@ -10,7 +10,7 @@ class Pia(Adv):
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['slots.d'] = Vayu()
     conf['acl'] = """
-        `dragon.act('c3 s end'), s4.check()
+        `dragon(c3 s end), s4.check()
         `s3, not self.s3_buff
         `s2, self.energy() = 4 and s4.check()
         `s4

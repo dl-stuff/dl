@@ -13,7 +13,7 @@ class Luther(Adv):
     conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
     conf ['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon(c3 s end)
         `s1
         `s4
         `s3, cancel

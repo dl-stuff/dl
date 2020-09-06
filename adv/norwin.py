@@ -12,7 +12,7 @@ class Norwin(Adv):
     conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
     conf['slots.poison.a'] = Forest_Bonds()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act('c3 s end'), fsc
+        `dragon(c3 s end), fsc
         `s3, not self.s3_buff
         `s4
         `s1, cancel and self.s3_buff

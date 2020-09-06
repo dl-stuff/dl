@@ -28,10 +28,10 @@ class Nevin(Adv):
         `s1
         `s2, cancel
         if not self.unlocked
-        `dragon.act('c3 s end'), x=5
+        `dragon(c3 s end), x=5
         `s4, x=5
         else
-        `dragon.act('c3 s end'), x=6
+        `dragon(c3 s end), x=6
         `s4, x=6
         end
         """

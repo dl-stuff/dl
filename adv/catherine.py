@@ -53,7 +53,7 @@ class Catherine(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end'), s
+        `dragon(c3 s end), s
         `s3
         `s4
         `s2, self.perfect_escort=3 and self.energy()

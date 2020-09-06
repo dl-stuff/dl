@@ -9,7 +9,7 @@ class Johanna(Adv):
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['slots.poison.a'] = Kung_Fu_Masters()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon(c3 s end)
         `s3, not self.s3_buff 
         `s4
         `s1 

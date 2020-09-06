@@ -12,7 +12,7 @@ class Xainfried(Adv):
     conf['slots.a'] = Resounding_Rendition()+His_Clever_Brother() # no more poison lol
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon(c3 s end)
         `s3
         `s2
         `s4

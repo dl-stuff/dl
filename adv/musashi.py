@@ -10,7 +10,7 @@ class Musashi(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end"), s4.check()
+        `dragon(c3 s end), s4.check()
         `s3, not self.s3_buff
         `s2, s4.check()
         `s4

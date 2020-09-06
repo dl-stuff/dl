@@ -11,7 +11,7 @@ class Lin_You(Adv):
     conf = {}
     conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon(c3 s end)
         `s3, not self.s3_buff
         `s4
         `s2, s1.check()

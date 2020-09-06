@@ -6,7 +6,7 @@ def module():
 class Nicolas(Adv):
     conf = {}
     conf['acl'] = """
-        `dragon.act("c3 s end"),s4.check()
+        `dragon(c3 s end),s4.check()
         `s3, not self.s3_buff
         `s4
         `s2

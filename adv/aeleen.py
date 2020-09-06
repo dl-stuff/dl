@@ -10,7 +10,7 @@ class Aeleen(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
-        `dragon.act('c3 s end'), s4.check()
+        `dragon(c3 s end), s4.check()
         `s3, not self.s3_buff
         `s4
         `s1, self.s3_buff

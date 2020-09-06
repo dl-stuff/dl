@@ -17,7 +17,7 @@ class Marth(Adv):
         `queue not self.s3_buff
         `s3;s1;s2;s4
         `end
-        `dragon.act('c3 s s end'),s=2
+        `dragon(c3 s s end),s=2
         queue prep and self.afflics.burn.get()
         `s2;s4;s1
         end

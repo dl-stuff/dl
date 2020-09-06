@@ -4,9 +4,8 @@
 %import common.WS
 %import common.WS_INLINE
 %import common.SIGNED_NUMBER
-%import common.ESCAPED_STRING
 
-_EOL: NEWLINE | ";"
+STRING: ("'"|"\"")? (/[^'"]+/)+ ("'"|"\"")
 
 IF: "if"i
 ELIF: "elif"i
@@ -29,36 +28,46 @@ OR: "or"i
 NOT: "not"i
 GT: ">" 
 LT: "<" 
-EQ: "=" 
+EQ: "="
 GE: ">=" 
 LE: "<="
 NE: "!="
 ADD: "+"
 MINUS: "-" 
 TIMES: "*"
-DIVIDE: "//"
+DIVIDE: "/"
 MOD: "%"
 
+_COMMENT: /#.*/
+
 %ignore WS
+%ignore NEWLINE
+%ignore ";"
 %ignore "`"
 
 start: expr*
 
-expr: _comment | actcond | control
-
-_comment: /#.*/ _EOL
+?expr: _COMMENT | actcond | control
 
 control: ifelse | ifqueue
 ifelse: IF condition expr+ [ELIF condition expr+] [ELSE expr+] _END
 ifqueue: _QUEUE [condition] actcond* _END
-?actcond: (action | dragon) ["," condition] _EOL
+?actcond: (action | dragon) ["," condition]
 action: CNAME
 dragon: "dragon(" [_dstring] ")"
 _dstring: ( CX | S | END | DODGE )+
 
-condition: (NOT condition) | (condition _operator condition) | (condition _operator condition) | selfcond | pincond | literal
-selfcond: ["self."] (CNAME ".")* (CNAME | function)
-function: CNAME "(" [literal] ")"
+?condition: pincond 
+    | selfcond
+    | "(" condition ")"
+    | (NOT condition)
+    | (condition _logic condition)
+    | ((condition | literal) _operator (condition | literal))
+
+selfcond: ["self."] (CNAME ".")* (CNAME | function | indice)
 pincond: SEQ | X | S | FSC | CANCEL | PREP | DURATION | NOW
-_operator: AND | OR | GT | LT | EQ | GE | LE | NE | ADD | MINUS | TIMES | DIVIDE | MOD
-literal: SIGNED_NUMBER | ESCAPED_STRING
+indice: CNAME "[" [literal] "]"
+function: CNAME "(" [literal] ")"
+_logic: AND | OR
+_operator: GT | LT | EQ | GE | LE | NE | ADD | MINUS | TIMES | DIVIDE | MOD
+literal: SIGNED_NUMBER | ("'"|"\"")? (/[^'"]+/)+ ("'"|"\"")?

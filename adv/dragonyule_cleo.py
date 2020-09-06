@@ -11,7 +11,7 @@ class Dragonyule_Cleo(Adv):
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon(c3 s end)
         `s1
         `s4
         `s3, cancel

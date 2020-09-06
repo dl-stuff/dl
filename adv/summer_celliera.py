@@ -15,7 +15,7 @@ class Summer_Celliera(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon(c3 s end)
         `s2
         `s3, fsc
         `s4, fsc

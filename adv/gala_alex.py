@@ -80,7 +80,7 @@ class Gala_Alex(Adv):
     conf = galex_conf.copy()
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end"), s=1
+        `dragon(c3 s end), s=1
         `s3, not self.s3_buff
         if fsc
         # use s4/s2 if no poison or if s1 def down has less than 1/3 time left

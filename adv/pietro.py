@@ -15,7 +15,7 @@ class Pietro(Adv):
     conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s c3 end'),cancel
+        `dragon(c3 s c3 end),cancel
         `s3
         `s4
         `s1

@@ -59,7 +59,7 @@ class Gala_Leif(Adv):
         elif s2.check()
         `shielding
         end
-        `dragon.act('c3 s end'),fsc
+        `dragon(c3 s end),fsc
         `s3, not self.s3_buff
         `s4, self.afflics.poison.get()
         `s2

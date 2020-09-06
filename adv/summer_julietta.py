@@ -14,7 +14,7 @@ class Summer_Julietta(Adv):
     conf['slots.frostbite.a'] = Summer_Paladyns()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon(c3 s end)
         `s3
         `s4
         `s1

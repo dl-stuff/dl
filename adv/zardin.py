@@ -12,7 +12,7 @@ class Zardin(Adv):
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s c1 end'),s
+        `dragon(c3 s c1 end),s
         `s3
         `s4, cancel or (s2.check() and s1.check())
         `s2, fsc or s1.check()

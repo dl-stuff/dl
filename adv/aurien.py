@@ -13,7 +13,7 @@ class Aurien(Adv):
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon.act('c3 s s end'), s
+        `dragon(c3 s s end), s
         `s4
         `s3
         `s2, cancel

@@ -12,7 +12,7 @@ class Wedding_Elisanne(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act("c3 s end"), s4.check()
+        `dragon(c3 s end), s4.check()
         `s3, not self.s3_buff
         `s2
         `s4

@@ -10,7 +10,7 @@ class Sylas(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon(c3 s end)
         `s3, not self.s3_buff
         `s4
         `s1

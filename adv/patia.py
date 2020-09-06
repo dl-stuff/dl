@@ -15,7 +15,7 @@ class Patia(Adv):
     conf['slots.poison.a'] = conf['slots.a']
     conf['slots.d'] = Azazel()
     conf['acl'] = """
-        `dragon.act('c3 s end'), fsc
+        `dragon(c3 s end), fsc
         `s3, not self.s3_buff
         `s1
         `s4, x=5

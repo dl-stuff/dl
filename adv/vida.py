@@ -9,7 +9,7 @@ class Vida(Adv):
     a1 = ('fs',0.30)
     conf = {}
     conf['acl'] = """
-        `dragon.act('c3 s end'), s or fsc
+        `dragon(c3 s end), s or fsc
         `s3, not self.s3_buff and x=5
         `s4
         `s1, cancel
