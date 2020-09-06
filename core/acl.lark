@@ -27,16 +27,15 @@ ifqueue: _QUEUE [condition] _EOL (actcond (_EOL actcond)*) [_EOL] _END
 
 action: ["`"] (function | CNAME)
 ?condition: _ident 
-    | ("(" condition ")") 
-    | (condition _logic condition)  
+    | (NOT "(" condition ")")
+    | (condition _logic condition)
     | ((literal | arithmetic | condition) _op2 (literal | arithmetic | condition)) 
     | ((literal | arithmetic | condition) _op3 (literal | arithmetic | condition))
-    | (NOT condition)
 
 ?arithmetic: "(" arithmetic ")" | ((literal | _ident | arithmetic) _op1 (literal | _ident | arithmetic))
 _ident: params | pincond | selfcond
 
-selfcond: [_SELF "."] (CNAME ".")* (function | indice | CNAME)
+selfcond: [NOT] [_SELF "."] (CNAME ".")* (function | indice | CNAME)
 
 DURATION: "duration"i
 NOW: "now"i
@@ -49,7 +48,7 @@ FSC: "fsc"i
 CANCEL: "cancel"i
 SP: "sp"i
 PREP: "prep"i
-pincond: SEQ | X | S | FSC | CANCEL | SP | PREP
+pincond: [NOT] (SEQ | X | S | FSC | CANCEL | SP | PREP)
 
 NOT: "not"i
 AND: "and"i

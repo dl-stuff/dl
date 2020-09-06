@@ -143,7 +143,15 @@ class AclInterpreter(Interpreter):
 
     def selfcond(self, t):
         inst = self._adv
-        for child in t.children[:-1]:
+        children = t.children
+        negate = False
+        if t.children[0].type == 'NOT':
+            negate = True
+            children = t.children[1:-1]
+        else:
+            children = t.children[0:-1]
+        last = t.children[-1]
+        for child in children:
             inst = getattr(inst, child.value)
         last = t.children[-1]
         try:
@@ -152,6 +160,8 @@ class AclInterpreter(Interpreter):
             self._inst = self._adv
         except AttributeError:
             value = getattr(inst, last.value)
+        if negate:
+            return not value
         return value
 
     def arithmetic(self, t):
@@ -177,7 +187,11 @@ class AclInterpreter(Interpreter):
     # def pincond(self, cmd):
     def pincond(self, t):
         cmd = t.children[0]
-        return PIN_CMD[cmd.type](self._e)
+        if cmd.type == 'NOT':
+            cmd = t.children[1]
+            return not PIN_CMD[cmd.type](self._e)
+        else:
+            return PIN_CMD[cmd.type](self._e)
 
     # @v_args(inline=True)
     # def action(self, act):
