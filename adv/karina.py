@@ -11,7 +11,7 @@ class Karina(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon(c3 s end), s=1
+        `dragon(c3-s-end), s=1
         `s4
         `s3
         `s2

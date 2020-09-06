@@ -14,7 +14,7 @@ class Dragonyule_Xainfried(Adv):
     conf['slots.a'] = A_Dogs_Day()+Primal_Crisis()
     conf['slots.d'] = Ariel()
     conf['acl'] = """
-        `dragon(s end)
+        `dragon(s-end)
         `s3, not self.s3_buff
         `s1
         `s4

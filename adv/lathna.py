@@ -13,7 +13,7 @@ class Lathna(Adv):
     conf = {}
     conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon(c3 s end), cancel
+        `dragon(c3-s-end), cancel
         `s3, not self.s3_buff
         `s2
         `s4

@@ -12,7 +12,7 @@ class Summer_Amane(Adv):
     conf['slots.poison.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['slots.d'] = Ariel()
     conf['acl'] = """
-        `dragon(c3 s c2 end), s=2
+        `dragon(c3-s-c2-end), s=2
         `s2
         `s4
         `s3, cancel

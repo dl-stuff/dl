@@ -13,7 +13,7 @@ class Addis(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
-        `dragon(c3 s end), s4.check()
+        `dragon(c3-s-end), s4.check()
         `s3, not self.s3_buff
         `s4, not self.s2buff.get()
         `s2, s1.charged>=s1.sp-260 and self.bleed._static['stacks'] != 3

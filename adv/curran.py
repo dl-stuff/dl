@@ -13,7 +13,7 @@ class Curran(Adv):
     conf['slots.a'] = Summer_Paladyns()+The_Plaguebringer()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = '''
-        `dragon(c3 s end), s
+        `dragon(c3-s-end), s
         `s3, not self.s3_buff
         `s1
         `s2

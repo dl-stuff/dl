@@ -11,7 +11,7 @@ class Berserker(Adv):
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon(c3 s end),fsc
+        `dragon(c3-s-end),fsc
         `s3, not self.s3_buff and fsc
         `s4
         `s1, cancel

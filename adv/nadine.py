@@ -51,7 +51,7 @@ class Nadine(Adv):
     conf = gyaru_phone_conf.copy()
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon(c3 s s end), s=1
+        `dragon(c3-s-s-end), s=1
         `s3, not self.s3_buff
         `s2
         `s4

@@ -12,7 +12,7 @@ class Summer_Estelle(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon(c3 s end), s
+        `dragon(c3-s-end), s
         `s2
         `s3
         `s4, x>2

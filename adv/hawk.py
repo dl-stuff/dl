@@ -16,7 +16,7 @@ class Hawk(Adv):
         # s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel
         # end
         `s3, not self.s3_buff
-        `dragon(c3 s end), s and self.duration >= 120
+        `dragon(c3-s-end), s and self.duration >= 120
         `s2, self.fs_alt.uses=0 or (self.s2_mode=1)
         `fs, (s1.check() and self.fs_alt.uses>1) or (x=4 and self.s2_mode=0 and self.fs_alt.uses>0)
         `s1, fsc or s=1

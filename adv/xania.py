@@ -10,7 +10,7 @@ class Xania(Adv):
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon(c3 s s end),s
+        `dragon(c3-s-s-end),s
         `s3, not self.s3_buff and x=5
         `s1
         `s4,cancel

@@ -9,7 +9,7 @@ class Francesca(Adv):
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Primal_Crisis()
     conf['acl'] = """
-        `dragon(c3 s end), s4.check()
+        `dragon(c3-s-end), s4.check()
         `s3, not self.s3_buff
         `s4
         `s2

@@ -52,7 +52,7 @@ class Bellina(Adv):
     conf['slots.a'] = Twinfold_Bonds()+Howling_to_the_Heavens()
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
-        `s2, sim_duration-now()<1.5
+        `s2, duration-now<1.5
         `s3, not self.s3_buff
         if self.dragondrive_buff.get()
         `s4, self.dragonform.dragon_gauge>1050 and x=3

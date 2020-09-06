@@ -1,6 +1,7 @@
 import os
 import json
-from deploy import load_adv_module_normal, ROOT_DIR
+from core.simulate import load_adv_module
+from deploy import ROOT_DIR
 import random
 
 ADV_LISTS = ['chara_quick.txt', 'chara_slow.txt']
@@ -13,8 +14,8 @@ def stat_shared():
     for list_file in ADV_LISTS:
         with open(os.path.join(ROOT_DIR, list_file)) as f:
             for adv_file in f:
-                adv_file = os.path.basename(adv_file).strip()
-                adv_module = load_adv_module_normal(adv_file)
+                adv_file = os.path.basename(adv_file).strip().split('.')[0]
+                adv_module = load_adv_module(adv_file)
                 if adv_module.conf['share']:
                     has_shared[adv_file] = adv_module.conf['share']
                 else:
@@ -46,8 +47,8 @@ def get_all_adv():
     for list_file in ADV_LISTS:
         with open(os.path.join(ROOT_DIR, list_file)) as f:
             for adv_file in f:
-                adv_file = os.path.basename(adv_file).strip()
-                adv_module = load_adv_module_normal(adv_file)
+                adv_file = os.path.basename(adv_file).strip().split('.')[0]
+                adv_module = load_adv_module(adv_file)
                 adv_dict[adv_module.__name__] = adv_module
     return adv_dict
 
@@ -58,8 +59,8 @@ def move_abl():
     for list_file in ADV_LISTS:
         with open(os.path.join(ROOT_DIR, list_file)) as f:
             for adv_file in f:
-                adv_file = os.path.basename(adv_file).strip()
-                adv_module = load_adv_module_normal(adv_file)
+                adv_file = os.path.basename(adv_file).strip().split('.')[0]
+                adv_module = load_adv_module(adv_file)
                 adv_name = str(adv_module.__name__)
                 abl = []
                 for ab in (adv_module.a1, adv_module.a2, adv_module.a3):

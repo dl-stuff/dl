@@ -11,11 +11,21 @@ from lark import Lark, Tree, Token
 from lark.visitors import Visitor, Interpreter, v_args
 
 from core.timeline import now
+from core.log import log
 
 
 lark_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'acl.lark')
 with open(lark_file) as f:
-    PARSER = Lark(f.read())
+    PARSER = Lark(
+        f.read(),
+        parser='lalr'
+    )
+
+
+SHORT_CIRCUIT = {
+    'AND': lambda l: bool(not l),
+    'OR': lambda l: bool(l)
+}
 
 
 BINARY_EXPR = {
@@ -34,7 +44,7 @@ BINARY_EXPR = {
     'DIV': lambda l, r: l / r,
     'MOD': lambda l, r: l % r,
 }
-
+BINARY_EXPR['EQQ'] = BINARY_EXPR['EQ']
 
 PIN_CMD = {
     'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
@@ -63,8 +73,9 @@ LITERAL_EVAL = {
 
 
 class AclInterpreter(Interpreter):
-    def bind(self, acl):
-        self._acl = acl
+    def bind(self, tree, acl):
+        self._tree = tree
+        self._acl_str = acl
 
     def reset(self, adv):
         self._adv = adv
@@ -73,16 +84,18 @@ class AclInterpreter(Interpreter):
         
     def __call__(self, e):
         self._e = e
+        self._inst = self._adv
         try:
             n_actcond = self._queue.popleft()
             if not self.visit(n_actcond):
                 self._queue.appendleft(n_actcond)
         except IndexError:
-            return self.visit(self._acl)
+            return self.visit(self._tree)
 
     def block(self, t):
         for child in t.children:
-            if self.visit(child):
+            result = self.visit(child)
+            if result:
                 return True
         return False
 
@@ -103,13 +116,21 @@ class AclInterpreter(Interpreter):
         if argl == 0:
             return True
         if argl == 1:
-            res = self.visit(t.children[0])
+            return self.visit(t.children[0])
         elif argl == 2 and t.children[0].type == 'NOT': # NOT cond
-            res = not self.visit(t.children[1])
+            return not self.visit(t.children[1])
         elif argl == 3:
             left, op, right = t.children
-            res = BINARY_EXPR[op.type](self.visit(left), self.visit(right))
-        return res
+            lres = self.visit(left)
+            try:
+                if SHORT_CIRCUIT[op.type](lres):
+                    return lres
+            except KeyError:
+                pass
+            rres = self.visit(right)
+            res = BINARY_EXPR[op.type](lres, rres)
+            return res
+        return False
 
     def selfcond(self, t):
         inst = self._adv
@@ -146,6 +167,7 @@ class AclInterpreter(Interpreter):
     # def action(self, act):
     def action(self, t):
         act = t.children[0]
+        self._inst = self._adv
         if isinstance(act, Token):
             return getattr(self._adv, act.value)()
         else:
@@ -173,10 +195,16 @@ class AclInterpreter(Interpreter):
         else:
             return self.visit(fn)[self.visit(idx)]
 
+
+def trim(acl):
+    return '\n'.join(filter(None, (a.strip() for a in acl.split('\n'))))
+
+
 def build_acl(acl):
+    acl = trim(acl)
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()
-    interpreter.bind(tree)
+    interpreter.bind(tree, acl)
     return interpreter
 
 """

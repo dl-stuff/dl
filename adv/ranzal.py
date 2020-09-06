@@ -12,7 +12,7 @@ class Ranzal(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon(c3 s end), s or x=5
+        `dragon(c3-s-end), s or x=5
         `s3, not self.s3_buff
         `s1
         `s4

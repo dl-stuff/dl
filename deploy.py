@@ -14,23 +14,6 @@ SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
 ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
 
 
-def load_adv_module_special(adv_name):
-    adv_name = adv_file.split('.')[0]
-    fn = os.path.join(ROOT_DIR, ADV_DIR, adv_file)
-    spec = spec_from_file_location(adv_name, fn)
-    module = module_from_spec(spec)
-    sys.modules[adv_name] = module
-    spec.loader.exec_module(module)
-    return module.module()
-
-
-def load_adv_module_normal(adv_name):
-    return getattr(
-        __import__('adv.{}'.format(adv_name.lower())),
-        adv_name.lower()
-    ).module()
-
-
 def sim_adv(adv_file, special=None, mass=None):
     t_start = monotonic()
 
@@ -44,16 +27,18 @@ def sim_adv(adv_file, special=None, mass=None):
                                'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
     if special is None and adv_file.count('.py') > 1:
         special == True
-    load_adv_module = load_adv_module_normal
     if special:
         durations = [180]
     else:
         durations = DURATION_LIST
-    adv_module = load_adv_module(adv_name)
-    for d in durations:
-        core.simulate.test(adv_module, {}, duration=d, verbose=-5,
-                           mass=1000 if mass else None, special=special, output=output)
-    print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
+    try:
+        adv_module = core.simulate.load_adv_module(adv_name)
+        for d in durations:
+            core.simulate.test(adv_module, {}, duration=d, verbose=-5,
+                            mass=1000 if mass else None, special=special, output=output)
+        print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
+    except:
+        print('\033[91m{:.4f}s - sim:{} FAILED\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
 
 
 def sim_adv_list(list_file):

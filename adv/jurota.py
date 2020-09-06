@@ -13,7 +13,7 @@ class Jurota(Adv):
     conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon(c3 s c3 end), (self.afflics.frostbite.get() and s=3) or (not self.afflics.frostbite.get() and s=1)
+        `dragon(c3-s-c3-end), (self.afflics.frostbite.get() and s=3) or (not self.afflics.frostbite.get() and s=1)
         `s3
         `s4
         `s1, cancel

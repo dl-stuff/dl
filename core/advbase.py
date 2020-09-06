@@ -869,7 +869,7 @@ class Adv(object):
     # vvvvvvvvv rewrite self to provide advanced tweak vvvvvvvvvv
     name = None
     _acl_default = None
-    _acl_dragonbattle = core.acl.build_acl('`dragon')
+    # _acl_dragonbattle = core.acl.build_acl('`dragon')
     _acl = None
 
     def s1_proc(self, e):
@@ -1689,7 +1689,7 @@ class Adv(object):
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
         def cb_think(t):
-            if loglevel >= 2:
+            if loglevel >= 0:
                 log('think', t.pin, t.dname, t.dstat, t.didx)
             # self._acl.run(t)
             self._acl(t)

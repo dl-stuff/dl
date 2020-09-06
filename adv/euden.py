@@ -12,7 +12,7 @@ class Euden(Adv):
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
-        `dragon(c3 s s end)
+        `dragon(c3-s-s-end)
         `s3, not self.s3_buff
         `s1
         `s2, fsc

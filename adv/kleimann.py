@@ -11,7 +11,7 @@ class Kleimann(Adv):
     conf = {}
     conf['slots.a'] = Candy_Couriers()+The_Plaguebringer()
     conf['acl'] = """
-        `dragon(c3 s end), x=5
+        `dragon(c3-s-end), x=5
         `s3, not self.s3_buff
         `s1
         `s2

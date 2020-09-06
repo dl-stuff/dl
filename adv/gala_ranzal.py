@@ -13,7 +13,7 @@ class Gala_Ranzal(Adv):
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['slots.d'] = AC011_Garland()
     conf['acl'] = '''
-        `dragon(c3 s end)
+        `dragon(c3-s-end)
         `s3, not self.s3_buff
         `s1, fsc
         `s4, fsc

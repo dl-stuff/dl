@@ -13,7 +13,7 @@ class Gala_Mym(Adv):
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
         if s
-        `dragon(c3 s end), self.dragonform.shift_count<1
+        `dragon(c3-s-end), self.dragonform.shift_count<1
         `dragon
         end
         `s3, not self.s3_buff

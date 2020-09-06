@@ -14,7 +14,7 @@ class Valentines_Melody(Adv):
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['slots.d'] = Ariel()
     conf['acl'] = """
-        `dragon(c3 s end),s=1
+        `dragon(c3-s-end),s=1
         `s3, not self.s3_buff
         `s1
         `s4

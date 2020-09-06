@@ -12,7 +12,7 @@ class Joachim(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = '''
-        `dragon(c3 s end)
+        `dragon(c3-s-end)
         `s3, not self.s3_buff
         `s2, s=1
         `s1

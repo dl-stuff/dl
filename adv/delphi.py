@@ -13,7 +13,7 @@ class Delphi(Adv):
     conf['slots.a'] = Mega_Friends()+The_Fires_of_Hate()
     conf['slots.d'] = Ramiel()
     conf['acl'] = """
-        `dragon(c3 s end), s=1
+        `dragon(c3-s-end), s=1
         `s3, not self.s3_buff
         `s1
         `s4

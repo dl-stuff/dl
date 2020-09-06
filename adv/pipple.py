@@ -21,7 +21,7 @@ class Pipple(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon(c3 s end),x=5
+        `dragon(c3-s-end),x=5
         `s2, (x=5 or s) and not self.energy()=5
         `s4
         `s3, cancel

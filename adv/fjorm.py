@@ -18,7 +18,7 @@ class Fjorm(Adv):
         queue prep
         `s3;s1;s4;s2
         end
-        `dragon(c3 s c1 end),cancel
+        `dragon(c3-s-c1-end),cancel
         `s3
         `s4
         `s1, cancel

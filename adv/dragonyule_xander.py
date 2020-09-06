@@ -13,7 +13,7 @@ class Dragonyule_Xander(Adv):
     conf['slots.frostbite.a'] = CC()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon(c3 s end)
+        `dragon(c3-s-end)
         `s3
         `s4
         `s1, cancel

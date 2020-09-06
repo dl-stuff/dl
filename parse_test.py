@@ -44,10 +44,8 @@ def show(adv, acl, prn=True, run=False):
         interpreter.reset(fake)
         event = FakeE('x', 'x5_missile', None, 5)
         if prn:
-            print(acl)
-            print("-"*140)
-            print(interpreter._acl)
-            print(interpreter._acl.pretty())
+            print(interpreter._tree)
+            print(interpreter._tree.pretty())
         if run:
             interpreter.run(event)
     except Exception as e:
@@ -61,15 +59,13 @@ if __name__ == '__main__':
         acl = acl_map[adv]
         show(adv, acl)
     else:
-        test = """
-        queue
-        `s1
-        `s2
-        `s3
-        end
-        """
-        show('test', test, run=True)
+        # test = """
+        # queue prep and not self.afflics.burn.get()
+        # `s1
+        # end
+        # """
+        # show('test', test, run=False)
 
-        # for adv, acl in acl_map.items():
-        #     show(adv, acl, prn=False, run=False)
+        for adv, acl in acl_map.items():
+            show(adv, acl, prn=False, run=False)
 

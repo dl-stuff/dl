@@ -12,7 +12,7 @@ class Summer_Norwin(Adv):
     conf['slots.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon(c3 s end), x=5 and s1.charged<2000
+        `dragon(c3-s-end), x=5 and s1.charged<2000
         `s3, not self.s3_buff
         `s1
         `s2, x=5

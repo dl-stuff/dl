@@ -33,7 +33,7 @@ class Lily(Adv):
     conf['slots.a'] = Candy_Couriers()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon(c3 s end), s
+        `dragon(c3-s-end), s
         `s3
         `s4
         `s2, cancel
@@ -45,7 +45,7 @@ class Lily(Adv):
     # conf['slots.a'] = Candy_Couriers()+His_Clever_Brother()
     # conf['slots.d'] = Siren()
     # conf['acl'] = """
-    #     `dragon(c3 s end), cancel
+    #     `dragon(c3-s-end), cancel
     #     `s3
     #     `s4
     #     `s2

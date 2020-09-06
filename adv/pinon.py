@@ -35,7 +35,7 @@ class Pinon(Adv):
     conf['slots.a'] = Primal_Crisis()+His_Clever_Brother()
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
-        # `dragon(c3 s end), s
+        # `dragon(c3-s-end), s
         `s3, not self.s3_buff
         if self.unlocked
         if x=8 or fsc
@@ -93,7 +93,7 @@ class Pinon(Adv):
     def unlock(self):
         self.conf.x_max = 8
         self.unlocked = True
-        self.unlock_time = now()
+        self.unlock_time = now
 
     def update_sigil(self, time):
         duration = self.sigil.buff_end_timer.add(time)
