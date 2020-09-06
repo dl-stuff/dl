@@ -122,35 +122,50 @@ class AclInterpreter(Interpreter):
             value = getattr(inst, last.value)
         return value
 
-    @v_args(inline=True)
-    def actcond(self, action, condition):
+    # @v_args(inline=True)
+    # def actcond(self, action, condition):
+    def actcond(self, t):
+        action, condition = t.children
         return self.visit(condition) and self.visit(action)
 
-    @v_args(inline=True)
-    def params(self, p):
+    # @v_args(inline=True)
+    # def params(self, p):
+    def params(self, t):
+        p = t.children[0]
         return PARAM_EVAL[p.type](self._adv)
 
-    @v_args(inline=True)
-    def pincond(self, cmd):
+    # @v_args(inline=True)
+    # def pincond(self, cmd):
+    def pincond(self, t):
+        cmd = t.children[0]
         return PIN_CMD[cmd.type](self._e)
 
-    @v_args(inline=True)
-    def action(self, act):
+    # @v_args(inline=True)
+    # def action(self, act):
+    def action(self, t):
+        act = t.children[0]
         if isinstance(act, Token):
             return getattr(self._adv, act.value)()
         else:
             return self.visit(act)
 
-    @v_args(inline=True)
-    def literal(self, token):
+    # @v_args(inline=True)
+    # def literal(self, token):
+    def literal(self, t):
+        token = t.children[0]
         return LITERAL_EVAL[token.type](token.value)
 
-    @v_args(inline=True)
-    def function(self, fn, *args):
+    # @v_args(inline=True)
+    # def function(self, fn, *args):
+    def function(self, t):
+        fn = t.children[0]
+        args = t.children[1:]
         return getattr(self._inst, fn.value)(*map(self.visit, args))
 
-    @v_args(inline=True)
-    def indice(self, fn, idx):
+    # @v_args(inline=True)
+    # def indice(self, fn, idx):
+    def indice(self, t):
+        fn, idx = t.children
         if isinstance(fn, Token):
             return getattr(self._inst, fn.value)[self.visit(idx)]
         else:
