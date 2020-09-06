@@ -11,7 +11,7 @@ from core.timeline import *
 from core.log import *
 from core.afflic import *
 from core.dummy import Dummy, dummy_function
-import core.acl
+import core.acl_old
 import conf as globalconf
 import slot
 from ctypes import c_float
@@ -1638,11 +1638,11 @@ class Adv(object):
             self.conf['acl'] = '`dragon'
             self.dragonform.set_dragonbattle(self.duration)
 
-        self._acl = core.acl.acl_build(self.conf.acl)
+        self._acl = core.acl_old.acl_build(self.conf.acl)
         self._acl.prep(self)
         
         # if not self._acl:
-        #     self._acl_str, self._acl = core.acl.acl_func_str(self.conf.acl)
+        #     self._acl_str, self._acl = core.acl_old.acl_func_str(self.conf.acl)
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 

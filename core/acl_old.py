@@ -46,14 +46,14 @@ class Acl_Condition:
         return condition
 
     def __init__(self, condition):
-        # self.condition = Acl_Condition.sanitize_qwe_and_his_chunch_legs(condition)
-        self.condition = condition
+        self.condition = Acl_Condition.sanitize_qwe_and_his_chunch_legs(condition)
+        # self.condition = condition
 
     def prep(self):
-        # self._cond = compile(self.condition, '<string>', 'eval')
+        self._cond = compile(self.condition, '<string>', 'eval')
 
     def eval(self):
-        # return self.condition is None or eval(self.condition, Acl_Control.CTX)
+        return self.condition is None or eval(self.condition, Acl_Control.CTX)
 
 
 class Acl_Control:

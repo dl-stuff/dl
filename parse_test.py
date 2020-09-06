@@ -20,12 +20,16 @@ if __name__ == '__main__':
         show(adv, acl)
     else:
         test = """
-        if cond
+        if cond1
         `s1
         `s2
-        end
-        if not cond
-        `s3
+            if cond2
+            `fs
+            end
+        else
+            if cond3
+            `s3
+            end
         end
         """
         show('test', test)
