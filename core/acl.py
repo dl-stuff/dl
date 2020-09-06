@@ -126,19 +126,30 @@ class AclInterpreter(Interpreter):
             return True
         if argl == 1:
             return self.visit(t.children[0])
-        elif argl == 2 and t.children[0].type == 'NOT': # NOT cond
+        elif argl == 4 and t.children[0].type == 'NOT': # NOT cond
             return not self.visit(t.children[1])
-        elif argl == 3:
-            left, op, right = t.children
+        elif argl >= 3:
+            if argl == 4:
+                left, op, right = t.children[1:]
+                negate = True
+            else:
+                left, op, right = t.children
+                negate = False
             lres = self.visit(left)
             try:
                 if SHORT_CIRCUIT[op.type](lres):
-                    return lres
+                    if negate:
+                        return not lres
+                    else:
+                        return lres
             except KeyError:
                 pass
             rres = self.visit(right)
             res = BINARY_EXPR[op.type](lres, rres)
-            return res
+            if negate:
+                return not res
+            else:
+                return res
         return False
 
     def selfcond(self, t):
