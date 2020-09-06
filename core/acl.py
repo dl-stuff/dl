@@ -160,9 +160,6 @@ def build_acl(acl, adv):
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()
     interpreter.bind(tree, adv)
-    print(acl)
-    print(tree)
-    print(tree.pretty())
     return interpreter
 
 """
