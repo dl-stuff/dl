@@ -38,7 +38,7 @@ action: ("`" | ";") (function | CNAME)
     | ((condition | literal) _op2 (condition | literal))
     | ((condition | literal) _op1 (condition | literal))
 
-selfcond: ["self."] (CNAME ".")* (CNAME | function | indice)
+selfcond: ["self."] (CNAME ".")* (function | indice | CNAME)
 
 DURATION: "duration"i
 NOW: "now"i
