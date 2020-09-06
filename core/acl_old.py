@@ -2,7 +2,26 @@ import sys
 from core.timeline import now, Timeline
 import re
 
+do_act = None
+
+def acl_func_str(acl):
+    global do_act
+    s = acl_str(acl_build(acl))
+    exec(s, globals())
+    # return do_act_list, s
+    do_act = do_act_list
+    return s, do_act_list
+
 class Acl_Action:
+    INDENT = '    '
+    PREP = """    try:
+        {act} = self.{act}
+    except Exception:
+        raise AttributeError('{act} is not an action')"""
+    ACT = """{indent}if {act}({args}):
+{indent}    return '{act}'"""
+    NONE = '{indent}return 0'
+    QUEUE_ACT = """{indent}Acl_Control.AQU.append(({act}, compile('{cond}', '<string>', 'eval')))"""
     dragon_act = re.compile(r'dragon(form)?.act\(["\']([A-Za-z \*\+\d]+)["\']\)')
     def __init__(self, action):
         self._act = None
@@ -14,6 +33,7 @@ class Acl_Action:
                 self.args = res.group(2)
         else:
             self.action = action
+        self.depth = 0
 
     def __repr__(self):
         return self.action
@@ -27,13 +47,23 @@ class Acl_Action:
     def do(self):
         return self._act()
 
+    def prepare(self):
+        if self.action is None:
+            return False
+        return self.PREP.format(act=self.action)
+
+    def act(self):
+        if self.action is None:
+            return self.NONE.format(indent=self.INDENT*self.depth)
+        return self.ACT.format(act=self.action, args=self.args or '', indent=self.INDENT*self.depth)
+
+    def queue_act(self, cond, depth_mod=0):
+        if self.action is None:
+            raise ValueError('No actions queued')
+        return self.QUEUE_ACT.format(act=self.action, args=self.arguments, cond=cond, indent=self.INDENT*(self.depth+depth_mod))
+
 
 class Acl_Condition:
-    banned = re.compile(r'(exec|eval|compile|setattr|delattr|memoryview|property|globals|locals|open|print|__[a-zA-Z]+__).*')
-    banned_repl = 'True'
-    assignment = re.compile(r'([^=><!])=([^=])')
-    assignment_repl = lambda s: s[1]+'=='+s[2]
-
     banned = re.compile(r'(exec|eval|compile|setattr|delattr|memoryview|property|globals|locals|open|print|__[a-zA-Z]+__).*')
     banned_repl = 'True'
     assignment = re.compile(r'([^=><!])=([^=])')
@@ -57,14 +87,26 @@ class Acl_Condition:
 
 
 class Acl_Control:
+    INDENT = '    '
+    IF = """{indent}if {cond}:
+{block}"""
+    ELIF = """{indent}elif {cond}:
+{block}"""
+    ELSE = """{indent}else:
+{block}"""
+    QUEUE = """{indent}if len(Acl_Control.AQU)==0 and {cond}:
+{block}"""
+
     AQU = []
     CTX = None
 
-    def __init__(self, condition):
+    def __init__(self, condition, depth=0):
         self.conditions = [(Acl_Condition(condition), [])]
         self._act_cond = None
+        self.depth = depth
 
     def add_action(self, action):
+        action.depth = self.depth + 1
         self.conditions[-1][-1].append(action)
 
     def add_condition(self, condition, is_else=False):
@@ -115,6 +157,50 @@ class Acl_Control:
             if next_cond.eval() and next_act.do():
                 return Acl_Control.AQU.pop(0)
         self.do()
+
+    def prepare(self):
+        prep_list = []
+        for _, acts in self.conditions:
+            prep_list.extend([a.prepare() for a in acts if a.prepare()])
+        return '\n'.join(prep_list)
+
+    def act(self):
+        act_list = []
+        for idx, value in enumerate(self.conditions):
+            cond, acts = value
+            cond = cond.condition
+            if len(acts) == 0:
+                continue
+            if cond.startswith('QUEUE'):
+                cond = 'True' if len(cond) < 6 else cond[6:]
+                pattern = self.QUEUE
+                block = [a.queue_act('True') for a in acts]
+                block.append("{indent}    return 'queued'".format(indent=self.INDENT*self.depth))
+            else:
+                if idx == 0:
+                    pattern = self.IF
+                elif cond != 'ELSE':
+                    pattern = self.ELIF
+                else:
+                    pattern = self.ELSE
+                block = [a.act() for a in acts]
+            if self.depth == 0:
+                act_list = block
+            else:
+                act_list.append(
+                    pattern.format(cond=cond, block='\n'.join(block), indent=self.INDENT*self.depth)
+                )
+        return '\n'.join(act_list)
+
+    def queue_act(self, bolb):
+        act_list = []
+        for value in self.conditions:
+            cond, acts = value
+            cond = cond.condition
+            if len(acts) == 0:
+                continue
+            act_list = [a.queue_act(cond, depth_mod=-1) for a in acts]
+        return '\n'.join(act_list)
 
 
 class Acl_Queue(Acl_Control):
@@ -174,6 +260,7 @@ def acl_build(acl):
                 node.add_action(Acl_Action(action))
     return root
 
+
 def acl_str(root):
     acl_base = """
 def do_act_list(self, e):
@@ -189,10 +276,10 @@ def do_act_list(self, e):
     prep = pin == 'prep'
     sim_duration = self.duration
 {act_prep_block}
-    if len(self.acl_queue) > 0:
-        next_act, next_cond = self.acl_queue[0]
+    if len(Acl_Control.AQU) > 0:
+        next_act, next_cond = Acl_Control.AQU[0]
         if eval(next_cond) and next_act():
-            self.acl_queue.pop(0)
+            Acl_Control.AQU.pop(0)
         return 'queue'
 {act_cond_block}
     return 0"""

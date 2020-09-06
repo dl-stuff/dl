@@ -12,6 +12,7 @@ from core.log import *
 from core.afflic import *
 from core.dummy import Dummy, dummy_function
 import core.acl
+import core.acl_old
 import conf as globalconf
 import slot
 from ctypes import c_float
@@ -1643,10 +1644,10 @@ class Adv(object):
             self.conf['acl'] = '`dragon'
             self.dragonform.set_dragonbattle(self.duration)
 
-        self._acl = core.acl.build_acl(self.conf['acl'], self)
+        # self._acl = core.acl.build_acl(self.conf['acl'], self)
         
-        # if not self._acl:
-        #     self._acl_str, self._acl = core.acl_old.acl_func_str(self.conf.acl)
+        if not self._acl:
+            self._acl_str, self._acl = core.acl_old.acl_func_str(self.conf.acl)
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 
@@ -1685,7 +1686,8 @@ class Adv(object):
         def cb_think(t):
             if loglevel >= 2:
                 log('think', t.pin, t.dname, t.dstat, t.didx)
-            self._acl.run(t)
+            # self._acl.run(t)
+            self._acl(self, t)
 
         if pin in self.conf.latency:
             latency = self.conf.latency[pin]

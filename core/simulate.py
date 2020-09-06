@@ -88,8 +88,8 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
         act_sum(adv.logs.act_seq, output)
         return
     if verbose == 2:
-        # output.write(adv._acl_str)
-        output.write(str(adv._acl))
+        output.write(adv._acl_str)
+        # output.write(str(adv._acl))
         return
 
     if mass:
