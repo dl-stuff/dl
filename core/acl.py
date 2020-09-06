@@ -244,4 +244,6 @@ dragon.act("c3 s end") -> dragon(c3 s end)
 with exception of stuff in PIN_CMD and PARAM_EVAL, all identifiers are assumed to be attributes of self
 
 end is now mandatory for if/elif/else/queue
+
+not behaves somewhat different than vanilla python, not self.energy()=3 would not give expected result, instead use self.energy()!=3
 """

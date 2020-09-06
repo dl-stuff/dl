@@ -59,13 +59,13 @@ if __name__ == '__main__':
         acl = acl_map[adv]
         show(adv, acl)
     else:
-        # test = """
-        # queue prep and not self.afflics.burn.get()
-        # `s1
-        # end
-        # """
-        # show('test', test, run=False)
+        test = """
+        `s1, not s3_buff or fsc
+        `s2, energy() != 5
+        `s3, not energy() = 5
+        """
+        show('test', test, run=False)
 
-        for adv, acl in acl_map.items():
-            show(adv, acl, prn=False, run=False)
+        # for adv, acl in acl_map.items():
+        #     show(adv, acl, prn=False, run=False)
 
