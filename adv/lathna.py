@@ -28,7 +28,7 @@ class Lathna(Adv):
 
         
     conf['dragonform'] = {
-        'act': 'c3 s c3 c3 c2 c2 c2',
+        'act': 'c3-s-c3-c3-c2-c2-c2',
 
         'dx1.dmg': 2.31,
         'dx1.startup': 19 / 60.0, # c1 frames

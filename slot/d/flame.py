@@ -6,7 +6,7 @@ class Agni(DragonBase):
     att = 127
     a = [('a', 0.6)]
     dragonform = {
-        'act': 'c2 c2 c2 c2 c2 s c2',
+        'act': 'c2-c2-c2-c2-c2-s-c2',
 
         'dx1.dmg': 2.80,
         'dx1.startup': 36 / 60.0, # c1 frames
@@ -33,7 +33,7 @@ class Cerberus(DragonBase):
     att = 127
     a = [('a', 0.6)]
     dragonform = {
-        'act': 'c3 s', # "c3 c2 s c2 c2 c2 c2 c2 c2"
+        'act': 'c3-s', # "c3 c2 s c2 c2 c2 c2 c2 c2"
 
         'dx1.dmg': 2.00,
         'dx1.startup': 12 / 60.0, # c1 frames
@@ -68,7 +68,7 @@ class Arctos(DragonBase):
     att = 121
     a = [('a', 0.45), ('cd', 0.55)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.10,
         'dx1.startup': 19 / 60.0, # c1 frames
@@ -93,7 +93,7 @@ class Prometheus(DragonBase):
     att = 121
     a = [('a', 0.5)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.60,
         'dx1.startup': 14 / 60.0, # c1 frames
@@ -120,7 +120,7 @@ class Konohana_Sakuya(DragonBase):
     att = 121
     a = [('s', 0.9), ('a', 0.2)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.08,
         'dx1.startup': 25 / 60.0, # c1 frames
@@ -155,7 +155,7 @@ class Apollo(DragonBase):
     att = 127
     a = [('k_burn', 0.2), ('a', 0.5)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.90,
         'dx1.startup': 23 / 60.0, # c1 frames
@@ -190,7 +190,7 @@ class Kagutsuchi(DragonBase):
     att = 127
     a = [('primed_att', 0.15), ('a', 0.45)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.00,
         'dx1.startup': 28 / 60.0, # c1 frames
@@ -220,7 +220,7 @@ class Dreadking_Rathalos(DragonBase):
     att = 127
     a = [('a', 0.55), ('fs', 0.60), ('sp',0.30,'fs')]
     dragonform = {
-        'act': 'c1 c1 c3 s',
+        'act': 'c1-c1-c3-s',
 
         'dx1.dmg': 2.20,
         'dx1.startup': 6 / 60.0, # c1 frames
@@ -252,7 +252,7 @@ class Gala_Mars(DragonBase):
     a = [('a', 0.7), ('a', 0.2, 'hp50')]
     dragonform = {
         'skill_use': 2,
-        'act': 'c1 s c3 c3 s',
+        'act': 'c1-s-c3-c3-s',
 
         'dx1.dmg': 2.70,
         'dx1.startup': 15 / 60.0, # c1 frames

@@ -107,7 +107,7 @@ class Mega_Man(Adv):
     conf['share'] = ['Karl']
 
     conf['dragonform'] = {
-        'act': 'c5 s',
+        'act': 'c5-s',
 
         'dx1.dmg': 1.20,
         'dx1.startup': 10 / 60.0, # c1 frames

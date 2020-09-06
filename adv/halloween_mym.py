@@ -20,7 +20,7 @@ class Halloween_Mym(Adv):
     conf['share'] = ['Gala_Mym']
 
     conf['dragonform'] = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.20,
         'dx1.startup': 15 / 60.0, # c1 frames

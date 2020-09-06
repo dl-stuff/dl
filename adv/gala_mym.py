@@ -26,7 +26,7 @@ class Gala_Mym(Adv):
     conf['coabs'] = ['Verica', 'Marth', 'Yuya']
     
     conf['dragonform1'] = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.16,
         'dx1.startup': 20 / 60.0, # c1 frames
