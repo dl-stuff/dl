@@ -26,14 +26,15 @@ ifqueue: _QUEUE [condition] _EOL (actcond (_EOL actcond)*) [_EOL] _END
 ?actcond: action ["," condition]
 
 action: ["`"] (function | CNAME)
-?condition: params 
-    | pincond 
-    | selfcond 
+?condition: _ident 
     | ("(" condition ")") 
-    | (condition _logic condition) 
-    | (NOT condition) 
-    | ((literal | condition) _op2 (literal | condition)) 
-    | ((literal | condition) _op1 (literal | condition))
+    | (condition _logic condition)  
+    | ((literal | arithmetic | condition) _op2 (literal | arithmetic | condition)) 
+    | ((literal | arithmetic | condition) _op3 (literal | arithmetic | condition))
+    | (NOT condition)
+
+arithmetic: (literal | _ident | arithmetic) _op1 (literal | _ident | arithmetic)
+_ident: params | pincond | selfcond
 
 selfcond: [_SELF "."] (CNAME ".")* (function | indice | CNAME)
 
@@ -56,6 +57,13 @@ OR: "or"i
 IS: "is"i
 _logic: AND | OR | IS
 
+ADD: "+"
+MINUS: "-"
+MULT: "*"
+DIV: "/"
+MOD: "%"
+_op1: ADD | MINUS | MULT | DIV | MOD
+
 GE: ">="
 LE: "<="
 NE: "!="
@@ -65,12 +73,7 @@ _op2: GE | LE | NE | EQQ
 GT: ">"
 LT: "<"
 EQ: "="
-ADD: "+"
-MINUS: "-"
-MULT: "*"
-DIV: "/"
-MOD: "%"
-_op1: GT | LT | EQ | ADD | MINUS | MULT | DIV | MOD
+_op3: GT | LT | EQ
 
 _QUOTE: "'" | "\""
 STRING: /[A-Za-z0-9\-]+/

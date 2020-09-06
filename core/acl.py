@@ -46,6 +46,7 @@ BINARY_EXPR = {
 }
 BINARY_EXPR['EQQ'] = BINARY_EXPR['EQ']
 
+
 PIN_CMD = {
     'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
     'X': lambda e: e.didx if e.pin =='x' else 0,
@@ -152,6 +153,13 @@ class AclInterpreter(Interpreter):
         except AttributeError:
             value = getattr(inst, last.value)
         return value
+
+    def arithmetic(self, t):
+        if len(t.children) == 3:
+            left, op, right = t.children
+            res = BINARY_EXPR[op.type](self.visit(left), self.visit(right))
+            return res
+        return 0
 
     # @v_args(inline=True)
     # def actcond(self, action, condition):

@@ -2,6 +2,7 @@ import sys
 import os
 import re
 from slot.a import *
+import core.acl
 
 BR = 64
 def skill_efficiency(real_d, team_dps, mod):
@@ -81,15 +82,16 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
     if verbose == -4:
         brute_force_coabs(classname, conf, output, team_dps, duration)
         return
+    if verbose == 2:
+        # output.write(adv._acl_str)
+        adv = classname()
+        output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
+        return
     run_results = []
     adv, real_d = run_once(classname, conf, duration, cond)
     if verbose == 1:
         adv.logs.write_logs(output=output)
         act_sum(adv.logs.act_seq, output)
-        return
-    if verbose == 2:
-        # output.write(adv._acl_str)
-        output.write(str(adv._acl._tree.pretty()))
         return
 
     if mass:
