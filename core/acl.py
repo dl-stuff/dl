@@ -1,193 +1,246 @@
-import sys
-from core.timeline import now, Timeline
-import re
+import os
+from itertools import islice
+from collections import deque
+def pairs(iterator):
+    "s -> (s0,s1), (s2,s3), (s4, s5), ..."
+    a = islice(iterator, 0, None, 2)
+    b = islice(iterator, 1, None, 2)
+    return zip(a, b)
 
-class Acl_Action:
-    dragon_act = re.compile(r'dragon(form)?.act\(["\']([A-Za-z \*\+\d]+)["\']\)')
-    def __init__(self, action):
-        self._act = None
-        self.args = None
-        if action.startswith('dragon'):
-            self.action = 'dragonform'
-            res = self.dragon_act.match(action)
-            if res:
-                self.args = res.group(2)
-        else:
-            self.action = action
+from lark import Lark, Tree, Token
+from lark.visitors import Visitor, Interpreter, v_args
 
-    def __repr__(self):
-        return self.action
-
-    def prep(self, adv):
-        if self.action == 'dragonform' and self.args is not None:
-            self._act = lambda: adv.dragonform.act(self.args)
-        else:
-            self._act = lambda: getattr(adv, self.action)()
-
-    def do(self):
-        return self._act()
-
-class Acl_Condition:
-    AQU = []
-    CTX = None
-
-    banned = re.compile(r'(exec|eval|compile|setattr|delattr|memoryview|property|globals|locals|open|print|__[a-zA-Z]+__).*')
-    banned_repl = 'True'
-    assignment = re.compile(r'([^=><!])=([^=])')
-    assignment_repl = lambda s: s[1]+'=='+s[2]
-
-    @staticmethod
-    def sanitize_qwe_and_his_chunch_legs(condition):
-        condition = Acl_Condition.banned.sub(Acl_Condition.banned_repl, condition)
-        condition = Acl_Condition.assignment.sub(Acl_Condition.assignment_repl, condition)
-        return condition
-
-    def __init__(self, condition):
-        self.conditions = [(self.sanitize_qwe_and_his_chunch_legs(condition), [])]
-        self._act_cond = None
-
-    def add_action(self, action):
-        self.conditions[-1][-1].append(action)
-
-    def add_condition(self, condition, is_else=False):
-        self.conditions.append((self.sanitize_qwe_and_his_chunch_legs(condition), []))
-
-    def __repr__(self):
-        return '\n'.join(f'\n<{cond}> {acts}' for cond, acts in self.conditions)
-
-    @staticmethod
-    def eval(_c):
-        return _c is None or eval(_c, Acl_Condition.CTX)
-
-    def prep(self, adv):
-        Acl_Condition.AQU = []
-        self._cond = {}
-        for cond, acts in self.conditions:
-            if cond == 'True':
-                self._cond[cond] = None
-            else:
-                self._cond[cond] = compile(cond, '<string>', 'eval')
-            for a in acts:
-                a.prep(adv)
-        if len(self.conditions) == 1:
-            cond, acts = self.conditions[0]
-            if len(acts) == 1:
-                self._act_cond = acts[0]._act, self._cond[cond]
-
-    def do(self):
-        for cond, acts in self.conditions:
-            if Acl_Condition.eval(self._cond[cond]):
-                for a in acts:
-                    if a.do():
-                        return True
-                break
-        return False
-
-    @staticmethod
-    def set_ctx(self, e):
-        this = self
-        pin, dname, dstat, didx = e.pin, e.dname, e.dstat, e.didx
-        prev = self.action.getprev()
-        seq = didx if dname[0] == 'x' else 0 if dstat == -2 else -1
-        cancel = pin =='x' or pin == 'fs'
-        x = didx if pin =='x' else 0
-        fsc = pin =='fs'
-        s = int(pin[1]) if (pin[0] == 's' and pin[1] in ('1', '2', '3')) or pin[-2:] == '-x' else 0
-        sp = dname if pin == 'sp' else 0
-        prep = pin == 'prep'
-        sim_duration = self.duration
-        Acl_Condition.CTX = locals()
-
-    def __call__(self, adv, e):
-        Acl_Condition.set_ctx(adv, e)
-        if len(Acl_Condition.AQU) > 0:
-            next_act, next_cond = Acl_Condition.AQU[0]
-            if Acl_Condition.eval(next_cond) and next_act():
-                return Acl_Condition.AQU.pop(0)
-        self.do()
+from core.timeline import now
+from core.log import log
 
 
-class Acl_Queue(Acl_Condition):
-    def do(self):
-        for cond, acts in self.conditions:
-            _c = self._cond[cond]
-            if len(Acl_Condition.AQU) == 0 and Acl_Condition.eval(_c):
-                for a in acts:
-                    if isinstance(a, Acl_Action):
-                        Acl_Condition.AQU.append((a._act, None))
-                    elif a._act_cond:
-                        Acl_Condition.AQU.append(a._act_cond)
-        return False
-
-def acl_build(acl):
-    root = Acl_Condition('True')
-    node_stack = [root]
-    real_lines = []
-    for line in acl.split('\n'):
-        line = line.strip().replace('`', '')
-        if len(line) > 0 and line[0] != '#':
-            if ';' in line:
-                for s in line.split(';'):
-                    s = s.strip().replace('`', '')
-                    if len(s) > 0 and s[0] != '#':
-                        real_lines.append(s)
-            else:
-                real_lines.append(line)
-    for line in real_lines:
-        upper = line.upper()
-        if upper.startswith('IF '):
-            node = Acl_Condition(line[3:])
-            node_stack[-1].add_action(node)
-            node_stack.append(node)
-        elif upper.startswith('QUEUE'):
-            cond = 'True' if upper == 'QUEUE' else line[6:]
-            node = Acl_Queue(cond)
-            node_stack[-1].add_action(node)
-            node_stack.append(node)
-        elif upper.startswith('ELIF '):
-            node_stack[-1].add_condition(line[5:])
-        elif upper.startswith('ELSE'):
-            node_stack[-1].add_condition('True')
-        elif upper.startswith('END'):
-            node_stack.pop()
-        else:
-            parts = [l.strip() for l in line.split(',')]
-            if len(parts) == 1 or len(parts[1]) == 0:
-                action = parts[0]
-                node = Acl_Action(action)
-                node_stack[-1].add_action(node)
-            else:
-                action = parts[0]
-                condition = parts[1]
-                node = Acl_Condition(condition)
-                node_stack[-1].add_action(node)
-                node.add_action(Acl_Action(action))
-    return root
-
-def acl_str(root):
-    acl_base = """
-def do_act_list(self, e):
-    this = self
-    pin, dname, dstat, didx = e.pin, e.dname, e.dstat, e.didx
-    prev = self.action.getprev()
-    seq = didx if dname[0] == 'x' else 0 if dstat == -2 else -1
-    cancel = pin =='x' or pin == 'fs'
-    x = didx if pin =='x' else 0
-    fsc = pin =='fs'
-    s = int(pin[1]) if (pin[0] == 's' and pin[1] in ('1', '2', '3')) or pin[-2:] == '-x' else 0
-    sp = dname if pin == 'sp' else 0
-    prep = pin == 'prep'
-    sim_duration = self.duration
-{act_prep_block}
-    if len(self.acl_queue) > 0:
-        next_act, next_cond = self.acl_queue[0]
-        if eval(next_cond) and next_act():
-            self.acl_queue.pop(0)
-        return 'queue'
-{act_cond_block}
-    return 0"""
-    acl_string = acl_base.format(
-        act_prep_block=root.prepare(),
-        act_cond_block=root.act()
+lark_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'acl.lark')
+with open(lark_file) as f:
+    PARSER = Lark(
+        f.read(),
+        parser='lalr'
     )
-    return acl_string
+
+
+SHORT_CIRCUIT = {
+    'AND': lambda l: bool(not l),
+    'OR': lambda l: bool(l)
+}
+
+
+BINARY_EXPR = {
+    'AND': lambda l, r: l and r,
+    'OR': lambda l, r: l or r,
+    'IS': lambda l, r: l is r,
+    'GT': lambda l, r: l > r,
+    'LT': lambda l, r: l < r,
+    'EQ': lambda l, r: l == r,
+    'NE': lambda l, r: l != r,
+    'GE': lambda l, r: l >= r,
+    'LE': lambda l, r: l <= r,
+    'ADD': lambda l, r: l + r,
+    'MINUS': lambda l, r: l - r,
+    'MULT': lambda l, r: l * r,
+    'DIV': lambda l, r: l / r,
+    'MOD': lambda l, r: l % r,
+}
+BINARY_EXPR['EQQ'] = BINARY_EXPR['EQ']
+
+
+PIN_CMD = {
+    'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
+    'X': lambda e: e.didx if e.pin =='x' else 0,
+    'S': lambda e: int(e.pin[1]) if (e.pin[0] == 's' and e.pin[1].isdigit()) or e.pin[-2:] == '-x' else 0,
+    'FSC': lambda e: e.pin == 'fs',
+    'CANCEL': lambda e: e.pin =='x' or e.pin == 'fs',
+    'SP': lambda e: e.dname if e.pin == 'sp' else None,
+    'PREP': lambda e: e.pin == 'prep',
+}
+
+
+PARAM_EVAL = {
+    'DURATION': lambda adv: adv.duration,
+    'NOW': lambda _: now(),
+}
+
+
+LITERAL_EVAL = {
+    'SIGNED_INT': int,
+    'SIGNED_FLOAT': float,
+    'STRING': str,
+    'BOOLEAN': bool,
+    'NONE': lambda: None,
+}
+
+
+class AclInterpreter(Interpreter):
+    def bind(self, tree, acl):
+        self._tree = tree
+        self._acl_str = acl
+
+    def reset(self, adv):
+        self._adv = adv
+        self._inst = self._adv
+        self._queue = deque()
+        
+    def __call__(self, e):
+        self._e = e
+        self._inst = self._adv
+        try:
+            n_actcond = self._queue.popleft()
+            if not self.visit(n_actcond):
+                self._queue.appendleft(n_actcond)
+        except IndexError:
+            return self.visit(self._tree)
+
+    def start(self, t):
+        for child in t.children:
+            result = self.visit(child)
+            # log('acl', str(result), str(t))
+            if result:
+                return True
+        return False
+
+    def ifelse(self, t):
+        else_block = None
+        if len(t.children) % 2 > 0:
+            else_block = t.children[-1]
+            children_iter = pairs(t.children[:-1])
+        else:
+            children_iter = pairs(t.children)
+        for condition, block in children_iter:
+            if self.visit(condition):
+                return self.visit(block)
+        if else_block is not None:
+            return self.visit(else_block)
+        return False
+
+    def ifqueue(self, t):
+        if self.visit(t.children[0]):
+            self._queue.extend(t.children[1:])
+            return True
+        return False
+
+    def condition(self, t):
+        args = t.children
+        argl = len(t.children)
+        if argl == 0:
+            return True
+        negate = False
+        if isinstance(args[0], Token) and args[0].type == 'NOT': # NOT cond
+            args = args[1:]
+            argl -= 1
+            negate = True
+        if argl == 1:
+            res = self.visit(args[0])
+        else:
+            left, op, right = args
+            lres = self.visit(left)
+            try:
+                if SHORT_CIRCUIT[op.type](lres):
+                    if negate:
+                        return not lres
+                    else:
+                        return lres
+            except KeyError:
+                pass
+            rres = self.visit(right)
+            res = BINARY_EXPR[op.type](lres, rres)
+        if negate:
+            return not res
+        else:
+            return res
+
+    def selfcond(self, t):
+        inst = self._adv
+        children = t.children[0:-1]
+        last = t.children[-1]
+        for child in children:
+            inst = getattr(inst, child.value)
+        try:
+            self._inst = inst
+            value = self.visit(last)
+            self._inst = self._adv
+        except AttributeError:
+            value = getattr(inst, last.value)
+        return value
+
+    def arithmetic(self, t):
+        if len(t.children) == 3:
+            left, op, right = t.children
+            res = BINARY_EXPR[op.type](self.visit(left), self.visit(right))
+            return res
+        return 0
+
+    # @v_args(inline=True)
+    # def actcond(self, action, condition):
+    def actcond(self, t):
+        action, condition = t.children
+        return self.visit(condition) and self.visit(action)
+
+    # @v_args(inline=True)
+    # def params(self, p):
+    def params(self, t):
+        p = t.children[0]
+        return PARAM_EVAL[p.type](self._adv)
+
+    # @v_args(inline=True)
+    # def pincond(self, cmd):
+    def pincond(self, t):
+        cmd = t.children[0]
+        return PIN_CMD[cmd.type](self._e)
+
+    # @v_args(inline=True)
+    # def action(self, act):
+    def action(self, t):
+        act = t.children[0]
+        self._inst = self._adv
+        if isinstance(act, Token):
+            return getattr(self._adv, act.value)()
+        else:
+            return self.visit(act)
+
+    # @v_args(inline=True)
+    # def literal(self, token):
+    def literal(self, t):
+        token = t.children[0]
+        return LITERAL_EVAL[token.type](token.value)
+
+    # @v_args(inline=True)
+    # def function(self, fn, *args):
+    def function(self, t):
+        fn = t.children[0]
+        args = t.children[1:]
+        return getattr(self._inst, fn.value)(*map(self.visit, args))
+
+    # @v_args(inline=True)
+    # def indice(self, fn, idx):
+    def indice(self, t):
+        fn, idx = t.children
+        if isinstance(fn, Token):
+            return getattr(self._inst, fn.value)[self.visit(idx)]
+        else:
+            return self.visit(fn)[self.visit(idx)]
+
+
+def trim(acl):
+    return '\n'.join(filter(None, (a.strip() for a in acl.split('\n'))))
+
+
+def build_acl(acl):
+    acl = trim(acl)
+    tree = PARSER.parse(acl)
+    interpreter = AclInterpreter()
+    interpreter.bind(tree, acl)
+    return interpreter
+
+"""
+changes from current:
+dragon.act("c3 s end") -> dragon(c3 s end)
+
+with exception of stuff in PIN_CMD and PARAM_EVAL, all identifiers are assumed to be attributes of self
+
+end is now mandatory for if/elif/else/queue
+
+not behaves somewhat different than vanilla python, not self.energy()=3 would not give expected result, instead use self.energy()!=3
+"""

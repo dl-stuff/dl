@@ -14,7 +14,7 @@ class Alex(Adv):
     conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon.act('c3 s end'), self.trickery <= 1
+        `dragon(c3-s-end), self.trickery <= 1
         `s3, not self.s3_buff
         `s4
         `s2

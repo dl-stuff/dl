@@ -12,7 +12,7 @@ class Orsem(Adv):
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end') self.afflics.frostbite.get() or (not self.afflics.frostbite.get() and fsc)
+        `dragon(c3-s-end), self.afflics.frostbite.get() or (not self.afflics.frostbite.get() and fsc)
         `s3
         `s4
         `s1

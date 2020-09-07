@@ -14,7 +14,7 @@ class Summer_Patia(Adv):
     conf['slots.d'] = Shinobi()
     conf['acl'] = """
         # use dragon if using Cat Sith
-        # `dragon.act('c3 s end'), fsc
+        # `dragon(c3-s-end), fsc
         `s3, not self.s3_buff
         `s1, fsc
         `s2, fsc

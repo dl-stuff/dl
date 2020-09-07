@@ -13,11 +13,11 @@ class Cassandra(Adv):
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon.act('c3 s end'), x=5
+        `dragon(c3-s-end), x=5
         `s3, not self.s3_buff
         `s4
         `s1, cancel
-        `s2, x>2    
+        `s2, x>2
         """
     conf['coabs'] = ['Curran','Summer_Patia','Ieyasu']
     conf['share'] = ['Curran']

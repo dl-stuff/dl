@@ -12,6 +12,7 @@ from core.log import *
 from core.afflic import *
 from core.dummy import Dummy, dummy_function
 import core.acl
+import core.acl_old
 import conf as globalconf
 import slot
 from ctypes import c_float
@@ -867,6 +868,9 @@ class Adv(object):
     Listener = Listener
     # vvvvvvvvv rewrite self to provide advanced tweak vvvvvvvvvv
     name = None
+    _acl_default = None
+    # _acl_dragonbattle = core.acl.build_acl('`dragon')
+    _acl = None
 
     def s1_proc(self, e):
         pass
@@ -1203,12 +1207,12 @@ class Adv(object):
         # self.crit_mod = self.rand_crit_mod
 
         self.skill = Skill()
-        # self._acl = None
 
         # self.classconf = self.conf
         self.init()
 
         # self.ctx.off()
+        self._acl = None
 
     def dmg_mod(self, name):
         mod = 1
@@ -1409,6 +1413,11 @@ class Adv(object):
     def getprev(self):
         prev = self.action.getprev()
         return prev.name, prev.index, prev.status
+
+    def dragon(self, act_str=None):
+        if act_str:
+            return self.dragonform.act(act_str)
+        return self.dragonform()
 
     def fs(self):
         doing = self.action.getdoing()
@@ -1623,8 +1632,8 @@ class Adv(object):
 
         self.sim_buffbot()
 
-        self.base_att = int(self.slots.att(globalconf.halidom))
         self.slots.oninit(self)
+        self.base_att = int(self.slots.att(globalconf.halidom))
 
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)
@@ -1635,14 +1644,15 @@ class Adv(object):
             self.set_hp(self.conf['hp'])
 
         if 'dragonbattle' in self.conf and self.conf['dragonbattle']:
-            self.conf['acl'] = '`dragon'
+            self._acl = self._acl_dragonbattle
             self.dragonform.set_dragonbattle(self.duration)
-
-        self._acl = core.acl.acl_build(self.conf.acl)
-        self._acl.prep(self)
-        
-        # if not self._acl:
-        #     self._acl_str, self._acl = core.acl.acl_func_str(self.conf.acl)
+        elif 'acl' not in self.conf_init:
+            if self._acl_default is None:
+                self._acl_default = core.acl.build_acl(self.conf.acl)
+            self._acl = self._acl_default
+        else:
+            self._acl = core.acl.build_acl(self.conf.acl)
+        self._acl.reset(self)
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 
@@ -1679,9 +1689,10 @@ class Adv(object):
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
         def cb_think(t):
-            if loglevel >= 2:
+            if loglevel >= 0:
                 log('think', t.pin, t.dname, t.dstat, t.didx)
-            self._acl(self, t)
+            # self._acl.run(t)
+            self._acl(t)
 
         if pin in self.conf.latency:
             latency = self.conf.latency[pin]

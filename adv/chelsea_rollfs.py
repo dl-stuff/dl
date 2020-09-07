@@ -41,7 +41,7 @@ class Chelsea(adv.chelsea.Chelsea):
         super().dmg_before(name)
         if self.ro_charges > 0 and hpold > 30 and self.hp < 30:
             Selfbuff('resilient_offense',0.10, -1).on()
-            self.comment += ' {}s'.format(round(now()))
+            self.comment += ' {}s'.format(round(now))
             self.ro_charges -= 1
         if self.hp < 100 and self.zerk_chain is not None:
             self.zerk_chain.on()

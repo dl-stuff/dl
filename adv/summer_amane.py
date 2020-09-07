@@ -8,19 +8,20 @@ def module():
 class Summer_Amane(Adv):
     comment = 'no s1'
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Memory_of_a_Friend()
-    conf['slots.poison.a'] = Resounding_Rendition()+The_Fires_of_Hate()
-    conf['slots.d'] = Ariel()
+    conf['slots.a'] = A_Dogs_Day()+CCC()
+    conf['slots.poison.a'] = conf['slots.a'] 
+    conf['slots.d'] = Freyja()
     conf['acl'] = """
-        `dragon.act("c3 s c2 end"), s=2
+        `s3
         `s2
-        `s4
-        `s3, cancel
+        `s4, cancel
+        `fs, self.fs_prep_c>0 and x=4
+        `fs, self.fs_prep_c=0 and x>2 and s3.charged>=s3.sp-self.sp_val('fs')
         ## For healing
         #`s1, x=5
         """
-    conf['coabs'] = ['Blade', 'Dragonyule_Xainfried', 'Lin_You']
-    conf['share'] = ['Ranzal', 'Curran']
+    conf['coabs'] = ['Blade', 'Tobias', 'Bow']
+    conf['share'] = ['Patia', 'Summer_Luca']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

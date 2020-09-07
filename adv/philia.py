@@ -11,7 +11,7 @@ class Philia(Adv):
     conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
     conf['slots.poison.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end"), s4.check()
+        `dragon(c3-s-end), s4.check()
         `s3, not self.s3_buff
         `s4
         `s2

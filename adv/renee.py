@@ -10,7 +10,7 @@ class Renee(Adv):
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end'), x=2
+        `dragon(c3-s-end), x=2
         if self.afflics.frostbite.get()
         `s3
         `s4, cancel or s1.check()

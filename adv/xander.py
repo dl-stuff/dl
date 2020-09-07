@@ -21,7 +21,7 @@ class Xander(Adv):
         `s2
         `s1
         else
-        `dragon.act('c3 s end'), fsc
+        `dragon(c3-s-end), fsc
         `s3, fsc or s
         `s2, fsc or s
         `s1, fsc or s

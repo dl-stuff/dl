@@ -13,7 +13,7 @@ class Jakob(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end'),s
+        `dragon(c3-s-end),s
         `s3
         `s4
         `s1, cancel

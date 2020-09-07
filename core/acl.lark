@@ -1,0 +1,85 @@
+%import common.CNAME
+%import common.DIGIT
+%import common.NEWLINE
+%import common.WS_INLINE
+%import common.SIGNED_INT
+%import common.SIGNED_FLOAT
+
+_IF: "if"i
+_ELIF: "elif"i
+_ELSE: "else"i
+_END: "end"i
+_QUEUE: "queue"i
+_EOL: (NEWLINE | ";")+
+_SELF: "self"
+
+COMMENT: /#[^\n]*\n?/
+
+%ignore COMMENT
+%ignore WS_INLINE
+
+?start: (ifelse | ifqueue | actcond) (_EOL (ifelse | ifqueue | actcond))* [_EOL]
+
+ifelse: _IF condition _EOL start [_ELIF condition _EOL start] [_ELSE _EOL start] [_EOL] _END
+ifqueue: _QUEUE [condition] _EOL (actcond (_EOL actcond)*) [_EOL] _END
+
+?actcond: action ["," condition]
+
+action: ["`"] (function | CNAME)
+?condition: [NOT] _ident 
+    | ([NOT] "(" condition ")")
+    | (condition _logic condition)
+    | [NOT] (_atomic _op2 _atomic) 
+    | [NOT] (_atomic _op3 _atomic)
+
+_atomic: literal | _ident | arithmetic
+?arithmetic: "(" arithmetic ")" | (_atomic _op1 _atomic)
+_ident: params | pincond | selfcond
+
+selfcond: [_SELF "."] (CNAME ".")* (function | indice | CNAME)
+
+DURATION: "duration"i
+NOW: "now"i
+params: DURATION | NOW
+
+SEQ: "seq"i
+X: "x"i
+S: "s"i
+FSC: "fsc"i
+CANCEL: "cancel"i
+SP: "sp"i
+PREP: "prep"i
+pincond: SEQ | X | S | FSC | CANCEL | SP | PREP
+
+NOT: "not"i
+AND: "and"i
+OR: "or"i
+IS: "is"i
+_logic: AND | OR | IS
+
+ADD: "+"
+MINUS: "-"
+MULT: "*"
+DIV: "/"
+MOD: "%"
+_op1: ADD | MINUS | MULT | DIV | MOD
+
+GE: ">="
+LE: "<="
+NE: "!="
+EQQ: "=="
+_op2: GE | LE | NE | EQQ
+
+GT: ">"
+LT: "<"
+EQ: "="
+_op3: GT | LT | EQ
+
+_QUOTE: "'" | "\""
+STRING: /[A-Za-z0-9\-]+/
+NONE: "none"i
+BOOLEAN: "true"i | "false"i
+indice: (function | CNAME) "[" [literal] "]"
+function: CNAME "(" [_args] ")"
+_args: literal ("," literal)*
+literal: NONE | SIGNED_INT | SIGNED_FLOAT | BOOLEAN | _QUOTE? STRING _QUOTE?
