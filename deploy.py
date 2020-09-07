@@ -33,12 +33,17 @@ def sim_adv(adv_file, special=None, mass=None):
         durations = DURATION_LIST
     try:
         adv_module = core.simulate.load_adv_module(adv_name)
+    except:
+        print('\033[93m{:.4f}s - sim:{} NOT FOUND\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
+        return
+    try:
         for d in durations:
             core.simulate.test(adv_module, {}, duration=d, verbose=-5,
                             mass=1000 if mass else None, special=special, output=output)
         print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
     except:
         print('\033[91m{:.4f}s - sim:{} FAILED\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
+        return
 
 
 def sim_adv_list(list_file):
@@ -136,7 +141,7 @@ if __name__ == '__main__':
         list_files = SLOW_LIST_FILES
     else:
         list_files = None
-        sim_targets = [a for a in sim_targets if a.endswith('.py')]
+        sim_targets = [a for a in sim_targets if not a.startswith('-')]
 
     if list_files is not None:
         do_combine = True
