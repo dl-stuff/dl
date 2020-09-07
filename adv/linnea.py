@@ -34,13 +34,11 @@ class Linnea(Adv):
         `s1
         `fs3
         """
-    conf['coabs'] = ['Dagger', 'Grace', 'Yaten']
+    conf['coabs'] = ['Delphi', 'Grace', 'Heinwald']
+    conf['coabs.poison'] = ['Dagger', 'Grace', 'Yaten']
     conf['share'] = ['Rodrigo']
+    conf['share.poison'] = ['Hunter_Sarisse']
 
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Hunter_Sarisse']
-            self.conf['coabs'] = ['Dagger', 'Grace', 'Heinwald']
             
     def init(self):
         conf_alt_fs = {
