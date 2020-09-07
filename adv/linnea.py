@@ -34,19 +34,20 @@ conf_alt_fs = {
     }
 }
 class Linnea(Adv):
+    comment = 'Gala Leif > Yaten if -Def% debuff. Axe2 > Yaten if +Str% buff'
     conf = conf_alt_fs.copy()
-    conf['slots.a'] = The_Lurker_in_the_Woods()+Levins_Champion()
+
+    conf['slots.a'] = The_Lurker_in_the_Woods()+Seaside_Princess()
     conf['slots.d'] = Fatalis()
     conf['acl'] = """
+        `s3, not self.s3_buff
         `s4
-        `s3
         `s2
         `s1
         `fs3
         """
-    conf['coabs'] = ['Dagger', 'Grace', 'Axe2']
-    conf['share'] = ['Hunter_Sarisse', 'Elisanne']
-
+    conf['coabs'] = ['Delphi', 'Grace', 'Yaten']
+    conf['share'] = ['Hunter_Sarisse']
     def prerun(self):
         self.fs_hits = 0
         self.fs_ahits = 0
