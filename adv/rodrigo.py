@@ -9,7 +9,7 @@ class Rodrigo(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end"),fsc
+        `dragon(c3-s-end),fsc
         `s3, fsc and not self.s3_buff
         `s4
         `s1, cancel and self.s3_buff

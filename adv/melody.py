@@ -26,7 +26,7 @@ class Melody(Adv):
             'fs.dmg':3.40,
             'fs.recovery': 72 / 60.0, # needs confirm
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
+        self.fs_alt = Fs_alt(self, conf_fs_alt)
 
     def s1_proc(self, e):
         self.fs_alt.on(1)

@@ -41,7 +41,7 @@ class Zena(Adv):
             'fs.startup': 20/60.0,
             'fs.recovery': 60/60.0,
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
+        self.fs_alt = Fs_alt(self, conf_fs_alt)
         self.s2_extra_hit_rate = 8 # number of hits per second
         self.s2_timers = []
         Event('dragon').listener(self.s2_clear)

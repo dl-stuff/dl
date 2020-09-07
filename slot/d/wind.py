@@ -5,7 +5,7 @@ class Zephyr(DragonBase):
     att = 127
     a = [('a', 0.6)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.56,
         'dx1.startup': 22 / 60.0, # c1 frames
@@ -104,7 +104,7 @@ class Freyja(DragonBase):
     att = 120
     a = [('sp', 0.35)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.60,
         'dx1.startup': 20 / 60.0, # c1 frames
@@ -133,7 +133,7 @@ class Vayu(DragonBase):
     att = 127
     a = [('s', 0.9), ('a', 0.2)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.08,
         'dx1.startup': (16+19) / 60.0, # c1 frames
@@ -192,7 +192,7 @@ class AC011_Garland(DragonBase):
     att = 127
     a = [('a', 0.5)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.80,
         'dx1.startup': 18 / 60.0, # c1 frames
@@ -227,7 +227,7 @@ class Ariel(DragonBase):
     att = 126
     a = [('a', 0.50), ('sp',0.30)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.90,
         'dx1.startup': 19 / 60.0, # c1 frames
@@ -252,7 +252,7 @@ class Summer_Konohana_Sakuya(DragonBase):
     att = 127
     a = []
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.90,
         'dx1.startup': 72 / 60.0, # c1 frames

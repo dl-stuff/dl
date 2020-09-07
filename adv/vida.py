@@ -9,7 +9,7 @@ class Vida(Adv):
     a1 = ('fs',0.30)
     conf = {}
     conf['acl'] = """
-        `dragon.act('c3 s end'), s or fsc
+        `dragon(c3-s-end), s or fsc
         `s3, not self.s3_buff and x=5
         `s4
         `s1, cancel
@@ -24,7 +24,7 @@ class Vida(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 2.04, 'fs.hit': 6}
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
+        self.fs_alt = Fs_alt(self, conf_fs_alt)
 
     def s2_proc(self, e):
         self.fs_alt.on(3)

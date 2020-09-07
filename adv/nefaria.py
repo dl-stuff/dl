@@ -15,7 +15,7 @@ class Nefaria(Adv):
     conf['slots.a'] = Forest_Bonds()+The_Fires_of_Hate()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon.act("c3 s end")
+        `dragon(c3-s-end)
         `s3, not self.s3_buff and x=4
         `fs, self.fs_alt.uses > 0 and x=4
         `s1, fsc or x=1 or not self.s3_buff
@@ -38,7 +38,7 @@ class Nefaria(Adv):
             'fs.sp':2400,
             'missile_iv.fs': 0.5
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         
     def s1_proc(self, e):
         with KillerModifier('s1killer', 'hit', 0.74, ['blind', 'poison']):

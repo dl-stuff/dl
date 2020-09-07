@@ -118,6 +118,8 @@ class DragonBase(Slot):
         'dracolith': 0.70, # base dragon damage
         'exhilaration': 0, # psiren aura
         'skill_use': 1, # number of skill usage
+        'skill_sp': 30, # skill sp
+        'skill_sp_db': 45, # skill sp in dragonbattle
         'gauge_iv': 15, # gauge interval
         'gauge_val': 100, # gauge regen value
         'latency': 0, # amount of delay for cancel
@@ -246,13 +248,16 @@ class Slots(object):
 
 
     def oninit(self, adv):
-        tmp = copy.deepcopy(self)
-        self.tmp = tmp
-        tmp.__setup(adv)
-        tmp.c.oninit(adv)
-        tmp.w.oninit(adv)
-        tmp.d.oninit(adv)
-        tmp.a.oninit(adv)
+        if not 'tmp' in self.__dict__:
+            tmp = copy.deepcopy(self)
+            self.tmp = tmp
+            tmp.__setup(adv)
+            tmp.c.oninit(adv)
+            tmp.w.oninit(adv)
+            tmp.d.oninit(adv)
+            tmp.a.oninit(adv)
+        else:
+            tmp = self.tmp
         self.abilities = {'c':{}, 'w':{}, 'd':{}, 'a':{}}
         for afrom, alist in [('c', tmp.c.a), ('w', tmp.w.a), ('d', tmp.d.a), ('a', tmp.a.a)]:
             for ab in alist:
@@ -265,9 +270,7 @@ class Slots(object):
                 self.abilities[afrom][name].oninit(adv, afrom)
 
     def att(self, forte=None):
-        tmp = copy.deepcopy(self)
-        self.tmp = tmp
-        tmp.__setup(None)
+        tmp = self.tmp
         if not forte:
             return tmp.c.att + tmp.d.att + tmp.w.att + tmp.a.att
         # return tmp.c.att*forte.c(tmp.c.ele,tmp.c.wt) + tmp.d.att*forte.d(tmp.d.ele) + tmp.w.att + tmp.a.att

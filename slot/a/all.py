@@ -152,25 +152,22 @@ class Lord_of_the_Skies(Amulet):
 
 class Witchs_Kitchen(Amulet):
     att = 57
-    a = [('s',0.40,'hp100'),
-         ('resist',50,'blind')]
+    a = [('s',0.40,'hp100')] # res blind
 
 
 class Silke_Lends_a_Hand(Amulet):
     att = 42
-    a = [('s',0.20),
-         ('resist',50,'blind')]
+    a = [('s',0.20)] # res blind
 
 
 class Saintly_Delivery(Amulet):
     att = 42
-    a = [('s',0.20),
-         ('resist',50,'stun')]
+    a = [('s',0.20)] # res stun
 
 
 class Luck_of_the_Draw(Amulet):
     att = 33
-    a = [('resist',25,'paralysis'), ('bt',0.25,'shadow')]
+    a = [('bt',0.25,'shadow')] # res para
 
 
 class Lunar_Festivities(Amulet):

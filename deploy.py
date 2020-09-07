@@ -14,43 +14,36 @@ SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
 ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
 
 
-def load_adv_module_special(adv_file):
-    adv_name = adv_file.split('.')[0]
-    fn = os.path.join(ROOT_DIR, ADV_DIR, adv_file)
-    spec = spec_from_file_location(adv_name, fn)
-    module = module_from_spec(spec)
-    sys.modules[adv_name] = module
-    spec.loader.exec_module(module)
-    return module.module()
-
-
-def load_adv_module_normal(adv_file):
-    adv_name = adv_file.split('.')[0]
-    return getattr(
-        __import__('adv.{}'.format(adv_name.lower())),
-        adv_name.lower()
-    ).module()
-
-
 def sim_adv(adv_file, special=None, mass=None):
     t_start = monotonic()
 
     adv_file = os.path.basename(adv_file)
+    if adv_file.endswith('.py'):
+        adv_name = adv_file.split('.')[0]
+    else:
+        adv_name = adv_file
+        adv_file += '.py'
     output = open(os.path.join(ROOT_DIR, OUTPUT_DIR,
                                'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
     if special is None and adv_file.count('.py') > 1:
         special == True
     if special:
         durations = [180]
-        load_adv_module = load_adv_module_special
     else:
         durations = DURATION_LIST
-        load_adv_module = load_adv_module_normal
-    adv_module = load_adv_module(adv_file)
-    for d in durations:
-        core.simulate.test(adv_module, {}, duration=d, verbose=-5,
-                           mass=1000 if mass else None, special=special, output=output)
-    print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
+    try:
+        adv_module = core.simulate.load_adv_module(adv_name)
+    except Exception:
+        print('\033[93m{:.4f}s - sim:{} NOT FOUND\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
+        return
+    try:
+        for d in durations:
+            core.simulate.test(adv_module, {}, duration=d, verbose=-5,
+                            mass=1000 if mass else None, special=special, output=output)
+        print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
+    except Exception:
+        print('\033[91m{:.4f}s - sim:{} FAILED\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
+        return
 
 
 def sim_adv_list(list_file):
@@ -148,7 +141,7 @@ if __name__ == '__main__':
         list_files = SLOW_LIST_FILES
     else:
         list_files = None
-        sim_targets = [a for a in sim_targets if a.endswith('.py')]
+        sim_targets = [a for a in sim_targets if not a.startswith('-')]
 
     if list_files is not None:
         do_combine = True

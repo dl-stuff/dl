@@ -5,7 +5,7 @@ class Gilgamesh(DragonBase):
     att = 124
     a = [('a', 0.5)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.60,
         'dx1.startup': 21 / 60.0, # c1 frames
@@ -34,7 +34,7 @@ class PopStar_Siren(DragonBase):
     dragonform = {
         'exhilaration': 3.0,
         'skill_use': 2,
-        'act': 's s end',
+        'act': 's-s-end',
 
         'dx1.dmg': 0.80,
         'dx1.startup': 17 / 60.0, # c1 frames
@@ -67,7 +67,7 @@ class Cupid(DragonBase):
     att = 119
     a = [('a', 0.6)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.01,
         'dx1.startup': 17 / 60.0, # c1 frames
@@ -98,7 +98,7 @@ class Takemikazuchi(DragonBase):
     att = 124
     a = [('od', 0.25), ('a', 0.4)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.53,
         'dx1.startup': 20 / 60.0, # c1 frames
@@ -125,7 +125,7 @@ class Corsaint_Phoenix(DragonBase):
     att = 124
     a = [('k_paralysis', 0.2), ('a', 0.5)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.20,
         'dx1.startup': 17 / 60.0, # c1 frames
@@ -157,7 +157,7 @@ class Daikokuten(DragonBase):
     att = 124
     a = [('a', 0.25, 'hit15'), ('a', 0.55)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.55,
         'dx1.startup': 18 / 60.0, # c1 frames
@@ -186,7 +186,7 @@ class Tie_Shan_Gongzhu(DragonBase):
     att = 124
     a = [('sp', 0.35)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.30,
         'dx1.startup': 31 / 60.0, # c1 frames
@@ -214,7 +214,7 @@ class Gala_Thor(DragonBase):
     att = 124
     a = [('a', 0.5), ('estat_att', 'chariot')]
     dragonform = {
-        'act': 'c8 s',
+        'act': 'c8-s',
 
         'dx1.dmg': 2.10,
         'dx1.startup': 16 / 60.0, # c1 frames

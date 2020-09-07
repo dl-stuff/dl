@@ -10,7 +10,7 @@ class Su_Fang(Adv):
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end"),s4.check()
+        `dragon(c3-s-end),s4.check()
         `s3, not self.s3_buff
         `s4
         `s1, cancel and self.s3_buff 
@@ -25,7 +25,7 @@ class Su_Fang(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 0.174, 'fs.hit': 6}
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         self.s2_buff = Selfbuff('s2', 0.30, 15)
 
     def s1_proc(self, e):

@@ -10,7 +10,7 @@ class Erik(Adv):
     
     conf['slots.a'] = Summer_Paladyns()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act("c3 s end"), self.trickery <= 1
+        `dragon(c3-s-end), self.trickery <= 1
         `s3, not self.s3_buff
         `s2
         `s1

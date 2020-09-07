@@ -11,7 +11,7 @@ class Sophie(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon.act('c3 s c2 end'), s4.check()
+        `dragon(c3-s-c2-end), s4.check()
         `s4
         `s3
         `s2, x>1

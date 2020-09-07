@@ -13,7 +13,7 @@ class Gala_Mym(Adv):
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
         if s
-        `dragon.act('c3 s end'), self.dragonform.shift_count<1
+        `dragon(c3-s-end), self.dragonform.shift_count<1
         `dragon
         end
         `s3, not self.s3_buff
@@ -26,7 +26,7 @@ class Gala_Mym(Adv):
     conf['coabs'] = ['Verica', 'Marth', 'Yuya']
     
     conf['dragonform1'] = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.16,
         'dx1.startup': 20 / 60.0, # c1 frames

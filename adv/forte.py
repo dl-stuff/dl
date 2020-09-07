@@ -16,14 +16,14 @@ class Forte(Adv):
     conf['slots.poison.d'] = Gala_Cat_Sith()
     conf['acl'] = """
         if self.sim_afflict
-        `dragon.act('c3 s end'), x=5
+        `dragon(c3-s-end), x=5
         `s3, not self.s3_buff
         `s2
         `s4, cancel or s=2
         `s1
         `fs, x=5
         else
-        `dragon.act('c3 s end'), s2.charged<s2.sp/3 and cancel
+        `dragon(c3-s-end), s2.charged<s2.sp/3 and cancel
         `s3, not self.s3_buff
         `s2
         `s4

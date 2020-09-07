@@ -86,7 +86,7 @@ class Gala_Laxi(Adv):
     conf['acl'] = """
         # `norm
         `ex
-        `dragon.act('c3 s s end'),s=2
+        `dragon(c3-s-s-end),s=2
         queue prep
         `s2;s1;s4
         end

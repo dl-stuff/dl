@@ -38,15 +38,13 @@ conf = {
     'fs.recovery': 43 / 60.0, 
     'fs.hit': 8,
 
-    'x1fs.charge': 22 / 60.0, # 2 delay + fs
-    'x2fs.charge': 27 / 60.0, # 7 delay + fs
+    'fs.x1.charge': 22 / 60.0, # 2 delay + fs
+    'fs.x2.charge': 27 / 60.0, # 7 delay + fs
 
     'fsf.charge': 20 / 60.0,
     'fsf.startup': 12 / 60.0,
     'fsf.recovery': 0 / 60.0,
 
-    # 'dfs.startup': (86-36) / 60.0, # ???
-    # 'dfs.recovery': 37 / 60.0,
     'dodge.startup': 36 / 60.0,
     'dodge.recovery': 0 / 60.0,
 

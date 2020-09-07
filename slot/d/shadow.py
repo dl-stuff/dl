@@ -6,7 +6,7 @@ class Marishiten(DragonBase):
     att = 121
     a = [('a', 0.6)]
     dragonform = {
-        'act': 'c5 c5 s c4',
+        'act': 'c5-c5-s-c4',
 
         'dx1.dmg': 2.20,
         'dx1.startup': 25 / 60.0, # c1 frames
@@ -50,7 +50,7 @@ class Shinobi(DragonBase):
     att = 128
     a = [('s', 0.9), ('a', 0.2)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
         # 'dshift.startup': 88 / 60, # shift 98 -> 88 + 10
 
         'dx1.dmg': 1.50,
@@ -82,7 +82,7 @@ class Fatalis(DragonBase):
     att = 128
     a = [('a', 0.8)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.15,
         'dx1.startup': 24 / 60.0, # c1 frames
@@ -163,7 +163,7 @@ class Chthonius(DragonBase):
     att = 128
     a = [('a',0.55), ('dm', 1)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 2.10,
         'dx1.startup': 21 / 60.0, # c1 frames
@@ -194,7 +194,7 @@ class Epimetheus(DragonBase):
     att = 128
     a = [('k_poison', 0.2), ('a', 0.5)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.80,
         'dx1.startup': 14 / 60.0, # c1 frames
@@ -226,7 +226,7 @@ class Andromeda(DragonBase):
     att = 128
     a = [('a', 0.4), ('a', 0.4, 'hp<30')]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.90,
         'dx1.startup': 20 / 60.0, # c1 frames
@@ -259,7 +259,7 @@ class Azazel(DragonBase):
     att = 128
     a = [('sp', 0.35)]
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.90,
         'dx1.startup': 12 / 60.0, # c1 frames
@@ -290,7 +290,7 @@ class Gala_Cat_Sith(DragonBase):
     att = 128
     a = []
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 3.00,
         'dx1.startup': 18 / 60.0, # c1 frames
@@ -353,7 +353,7 @@ class Ramiel(DragonBase):
     a = [('a', 0.6), ('dp', 50)]
     # need framedata
     dragonform = {
-        'act': 'c3 s',
+        'act': 'c3-s',
 
         'dx1.dmg': 1.95,
         'dx1.startup': 20 / 60.0, # c1 frames

@@ -16,7 +16,7 @@ class Hawk(Adv):
         # s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel
         # end
         `s3, not self.s3_buff
-        `dragon.act('c3 s end'), s and self.duration >= 120
+        `dragon(c3-s-end), s and self.duration >= 120
         `s2, self.fs_alt.uses=0 or (self.s2_mode=1)
         `fs, (s1.check() and self.fs_alt.uses>1) or (x=4 and self.s2_mode=0 and self.fs_alt.uses>0)
         `s1, fsc or s=1
@@ -39,7 +39,7 @@ class Hawk(Adv):
             'fs.sp':2400,
             'missile_iv.fs': 0.5
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         self.s2_mode = 0
         self.a_s2 = self.s2.ac
         self.a_s2a = S('s2', Conf({'startup': 0.10, 'recovery': 2.5}))

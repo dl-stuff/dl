@@ -1,9 +1,19 @@
+import re
+
 def _split(k):
     if k == '.':
         raise ValueError('Do not split .')
     return k.split('.', 1)
 
+
 class Conf(dict):
+    @staticmethod
+    def rebase(conf, pairings):
+        # should use this for dict
+        for base, alt in pairings:
+            conf[alt] = {**conf[base], **conf[alt]}
+        return conf
+
     def __init__(self, conf=None, parent=None):
         self._parent = parent
         super().__init__()
@@ -89,6 +99,11 @@ class Conf(dict):
             return super().__getitem__('.')
         except KeyError:
             return None
+
+    def find(self, pattern):
+        if isinstance(pattern, str):
+            pattern = re.compile(pattern)
+        return filter(lambda c: pattern.match(c[0]), self.items())
 
 
 if __name__ == '__main__':

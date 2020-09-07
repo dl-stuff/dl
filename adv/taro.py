@@ -10,7 +10,7 @@ class Taro(Adv):
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
-        `dragon.act('c3 s end'),fsc
+        `dragon(c3-s-end),fsc
         `s3, not self.s3_buff
         `s4
         `s1,x=5

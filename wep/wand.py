@@ -32,9 +32,6 @@ conf = {
     'x5.recovery': 29/60.0,
     'x5.hit': 5,
 
-    'fs._startup': 0,
-    'fs._recovery': 29/60.0,
-
     'fs.dmg': 0.9*2,
     'fs.sp': 400,
     'fs.charge': 28 / 60.0,
@@ -42,8 +39,8 @@ conf = {
     'fs.recovery': 46 / 60.0,
     'fs.hit': 2,
 
-    'x1fs.startup': 39 / 60.0, # 11 delay + FS
-    'x2fs.startup': 35 / 60.0, # 7 delay + FS
+    'fs.x1.startup': 39 / 60.0, # 11 delay + FS
+    'fs.x2.startup': 35 / 60.0, # 7 delay + FS
 
     'fsf.charge': 28 / 60.0,
     'fsf.startup': 1 / 60.0,

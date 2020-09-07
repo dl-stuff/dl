@@ -20,7 +20,7 @@ class Lazry(Adv):
         else
         `high_power
         end
-        `dragon.act('c3 s end')
+        `dragon(c3-s-end)
         `s3
         `s4
         `s2

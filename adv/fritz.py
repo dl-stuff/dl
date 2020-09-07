@@ -24,7 +24,7 @@ class Fritz(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 4.03, 'fs.hit': 11}
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
 
     def s2_proc(self, e):
         self.fs_alt.on(3)

@@ -15,7 +15,7 @@ class Emma(Adv):
     conf['slots.a'] = Castle_Cheer_Corps()+From_Whence_He_Comes()
     conf['slots.burn.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon.act('c3 s end'), s=1 and not s4.check()
+        `dragon(c3-s-end), s=1 and not s4.check()
         `fs, self.fs_prep_c=3
         `s4, s=1
         `s1

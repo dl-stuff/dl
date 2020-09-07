@@ -21,7 +21,7 @@ class Julietta(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 14.976}
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt))
+        self.fs_alt = Fs_alt(self, conf_fs_alt)
 
     def s2_proc(self, e):
        Selfbuff(e.name+'_defense', 0.50, 10, 'defense').on()

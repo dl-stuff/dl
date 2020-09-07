@@ -7,6 +7,7 @@ import re
 
 class Fs_alt:
     def __init__(self, adv, conf, fs_proc=None, l_fs=None):
+        raise RuntimeError('boop')
         # Note: Do not run this in adv init, as it will copy premature conf.
         # TODO add l_fs_alt to better handle before and after when needed; maybe fsnf 
         self.patterns = [
@@ -14,7 +15,7 @@ class Fs_alt:
             re.compile(r'^conf$'),
             re.compile(r'^fs.*proc$')
         ]
-        self.pattern_fsn = re.compile(r'^f.*(?<!f)$')
+        self.pattern_fsn = re.compile(r'^fs\d*$')
         self.adv = adv
         self.conf_alt = adv.conf + Conf(conf)
         self.fs_proc_alt_temp = fs_proc
@@ -100,7 +101,8 @@ class Fs_alt:
             # setattr(self.adv, f'{n}_after', lambda e:)
             setattr(self.adv, n, lambda:getattr(self.adv, f'a_{n}')(self.adv.action.getdoing().name))
         setattr(self, f'a_{n}_alt', Fs_group(n, conf))
-            
+
+
 class X_alt:
     def __init__(self, adv, name, conf, x_proc=None, no_fs=False, no_dodge=False):
         self.conf = Conf(conf)

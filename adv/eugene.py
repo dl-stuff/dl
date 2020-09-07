@@ -10,7 +10,7 @@ class Eugene(Adv):
     conf['slots.a'] = The_Shining_Overlord()+Memory_of_a_Friend()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end'), s
+        `dragon(c3-s-end), s
         `s3
         `s1
         `s2

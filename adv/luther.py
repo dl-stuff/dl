@@ -13,7 +13,7 @@ class Luther(Adv):
     conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
     conf ['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end')
+        `dragon(c3-s-end)
         `s1
         `s4
         `s3, cancel
@@ -28,7 +28,7 @@ class Luther(Adv):
 
     def prerun(self):
         conf_fs_alt = {}
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         Timer(self.fs_alt_on_crit, 10, True).on()
 
     def fs_alt_on_crit(self, t):

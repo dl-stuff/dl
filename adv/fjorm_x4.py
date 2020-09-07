@@ -8,7 +8,6 @@ def module():
 
 class Fjorm(adv.fjorm.Fjorm):
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
-    a2 = [('dp', 50)] # team dprep
     conf = {}
     conf['slots.a'] = Unexpected_Requests()+Valiant_Crown()
     conf['slots.frostbite.a'] = conf['slots.a']
@@ -27,7 +26,7 @@ class Fjorm(adv.fjorm.Fjorm):
     conf['afflict_res.bog'] = 80
 
     def prerun(self):
-        pass
+        self.dragonform.charge_gauge(500)
 
     def s2_before(self, e):
         for _ in range(4):

@@ -21,7 +21,7 @@ class Xander(Adv):
         `s2
         `s1
         else
-        `dragon.act('c3 s end'), fsc
+        `dragon(c3-s-end), fsc
         `s3, fsc or s
         `s2, fsc or s
         `s1, fsc or s
@@ -60,7 +60,7 @@ class Xander(Adv):
             'x2fs.recovery': 13/60.0,
             'x3fs.recovery': 13/60.0,
         }
-        self.fs_alt = Fs_alt(self, Conf(conf_fs_alt), self.fs_proc_alt)
+        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
         self.born_ruler = Selfbuff('born_ruler', 0.05, -1, 'att', 'buff')
         self.born_ruler_1 = Selfbuff('born_ruler_1', 1, -1, 'xunder', 'buff')
         self.born_ruler_2 = Selfbuff('born_ruler_2', 1, -1, 'xunder', 'buff')

@@ -11,7 +11,7 @@ class Rex(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
-        `dragon.act('c3 s end'), cancel
+        `dragon(c3-s-end), cancel
         `s3
         `s4
         `s1
