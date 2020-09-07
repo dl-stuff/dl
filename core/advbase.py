@@ -512,7 +512,15 @@ class Skill(object):
     def sp(self):
         return self.conf.sp
 
-    def __call__(self):
+    def precast(self, *args):
+        pass
+
+    def __call__(self, *args):
+        if not self.check():
+            return 0
+        if not self.ac():
+            return 0
+        self.precast(*args)
         return self.cast()
 
     def init(self):
@@ -540,19 +548,14 @@ class Skill(object):
             return 0
 
     def cast(self):
-        if not self.check():
-            return 0
-        else:
-            if not self.ac():
-                return 0
-            self.charged -= self.sp
-            self._static.s_prev = self.name
-            # Even if animation is shorter than 1.9, you can't cast next skill before 1.9
-            self.silence_end_timer.on(self.silence_duration)
-            self._static.silence = 1
-            if loglevel >= 2:
-                log('silence', 'start')
-            return 1
+        self.charged -= self.sp
+        self._static.s_prev = self.name
+        # Even if animation is shorter than 1.9, you can't cast next skill before 1.9
+        self.silence_end_timer.on(self.silence_duration)
+        self._static.silence = 1
+        if loglevel >= 2:
+            log('silence', 'start')
+        return 1
 
     def autocharge_init(self, sp, iv=1):
         if callable(sp):
@@ -939,6 +942,18 @@ class Adv(object):
         pass
 
     def prerun(self):
+        pass
+
+    def s1_cast(self, *args):
+        pass
+
+    def s2_cast(self, *args):
+        pass
+
+    def s3_cast(self, *args):
+        pass
+
+    def s4_cast(self, *args):
         pass
 
     @staticmethod
@@ -1577,14 +1592,18 @@ class Adv(object):
                     self.conf[dst_key] = Conf(owner_conf[src_key])
                     s = Skill(dst_key, self.conf[dst_key])
                     s.owner = owner
-                    self.__setattr__(dst_key, s)
+                    setattr(self, dst_key, s)
                     owner_module = load_adv_module(owner)
                     preruns[dst_key] = owner_module.prerun_skillshare
                     self.rebind_function(owner_module, f'{src_key}_before', f'{dst_key}_before')
                     self.rebind_function(owner_module, f'{src_key}_proc', f'{dst_key}_proc')
                 except:
                     self.conf[dst_key].sp = shared_sp
-                    self.__getattribute__(dst_key).owner = owner
+                    getattr(self, dst_key).owner = owner
+
+        for s in self.skills:
+            s.precast = getattr(self, f'{s.name}_cast')
+
         return preruns
 
     def run(self, d=300):

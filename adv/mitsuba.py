@@ -212,18 +212,16 @@ class Mitsuba(Adv):
     conf['slots.d'] = Siren()
     # tc2afsf tc2a- s1
     conf['acl'] = """
-        if s1.check() and not self.afflics.frostbite.get()
-        `sashimi
-        else
-        `tempura
-        end
+        queue_stance(tempura)
         if x=2
         `s4
         `s3
         `s2
+        `s1(sashimi), not self.afflics.frostbite.get()
         `s1
         `fsf
         end
+
         # buffbot mitsuba w/ G&C
         # `tempura
         # if x=2
@@ -285,11 +283,17 @@ class Mitsuba(Adv):
         self.charge(xseq, sp)
         self.update_stance()
 
-    def sashimi(self):
-        return self.queue_stance('sashimi')
+    # def sashimi(self):
+    #     return self.queue_stance('sashimi')
 
-    def tempura(self):
-        return self.queue_stance('tempura')
+    # def tempura(self):
+    #     return self.queue_stance('tempura')
+
+    def s1_cast(self, stance='tempura'):
+        self.queue_stance(stance)
+
+    def s2_cast(self, stance='tempura'):
+        self.queue_stance(stance)
 
     def s1_proc(self, e):
         coef = self.s1_mod[self.stance]
