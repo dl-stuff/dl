@@ -23,25 +23,21 @@ class FS_Linnea(Action):
         return (self._charge / self.charge_speed()) + (self._startup / self.speed())
 
 class Linnea(Adv):
-    comment = 'Gala Leif > Yaten if Def debuff is available. Axe2 > Yaten if Str buff is available.'
+    a3 = ('fs',0.50)
+
     conf = {}
-    conf['slots.a'] = The_Lurker_in_the_Woods()+The_Fires_of_Hate()
+    conf['slots.a'] = The_Lurker_in_the_Woods()+Levins_Champion()
     conf['slots.d'] = Fatalis()
     conf['acl'] = """
-        `s3, not self.s3_buff
         `s4
+        `s3
         `s2
         `s1
         `fs3
         """
-    conf['coabs'] = ['Dagger', 'Grace', 'Yaten']
-    conf['share'] = ['Rodrigo']
+    conf['coabs'] = ['Dagger', 'Grace', 'Axe2']
+    conf['share'] = ['Hunter_Sarisse', 'Elisanne']
 
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Hunter_Sarisse']
-            self.conf['coabs'] = ['Dagger', 'Grace', 'Heinwald']
-            
     def init(self):
         conf_alt_fs = {
             'fs1': {
