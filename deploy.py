@@ -14,7 +14,7 @@ SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
 ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
 
 
-def sim_adv(adv_file, special=None, mass=None):
+def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
     t_start = monotonic()
 
     adv_file = os.path.basename(adv_file)
@@ -23,14 +23,19 @@ def sim_adv(adv_file, special=None, mass=None):
     else:
         adv_name = adv_file
         adv_file += '.py'
-    output = open(os.path.join(ROOT_DIR, OUTPUT_DIR,
-                               'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
     if special is None and adv_file.count('.py') > 1:
         special == True
+    output = open(os.path.join(ROOT_DIR, OUTPUT_DIR, 'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
+
+    verbose = -5
+    durations = DURATION_LIST
     if special:
         durations = [180]
-    else:
-        durations = DURATION_LIST
+    if sanity_test:
+        verbose = 255
+        mass = None
+        durations = [30]
+
     try:
         adv_module = core.simulate.load_adv_module(adv_name)
     except Exception:
@@ -38,22 +43,23 @@ def sim_adv(adv_file, special=None, mass=None):
         return
     try:
         for d in durations:
-            core.simulate.test(adv_module, {}, duration=d, verbose=-5,
-                            mass=1000 if mass else None, special=special, output=output)
-        print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
+            core.simulate.test(adv_module, {}, duration=d, verbose=verbose, mass=1000 if mass else None, special=special, output=output)
+        if not sanity_test:
+            print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
     except Exception:
         print('\033[91m{:.4f}s - sim:{} FAILED\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
         return
 
 
-def sim_adv_list(list_file):
+def sim_adv_list(list_file, sanity_test=False):
     special = list_file.startswith('chara_sp')
     mass = list_file.endswith('slow.txt') and not special
     with open(os.path.join(ROOT_DIR, list_file), encoding='utf8') as f:
-        sorted_f = sorted(f)
+        sorted_f = list(sorted(f))
+    for adv_file in sorted_f:
+        sim_adv(adv_file.strip(), special, mass, sanity_test)
     with open(os.path.join(ROOT_DIR, list_file), 'w', encoding='utf8') as f:
         for adv_file in sorted_f:
-            sim_adv(adv_file.strip(), special, mass)
             f.write(adv_file)
 
 
@@ -122,6 +128,7 @@ if __name__ == '__main__':
     do_combine = False
     is_special = None
     is_mass = None
+    sanity_test = False
     if '-c' in arguments:
         do_combine = True
         arguments.remove('-c')
@@ -133,6 +140,8 @@ if __name__ == '__main__':
         arguments.remove('-m')
     if '-dw' in arguments:
         download_writeups()
+    if '-san' in arguments:
+        sanity_test = True
 
     sim_targets = arguments
 
@@ -149,12 +158,12 @@ if __name__ == '__main__':
     if list_files is not None:
         do_combine = True
         for list_file in list_files:
-            sim_adv_list(list_file)
+            sim_adv_list(list_file, sanity_test=sanity_test)
     else:
         for adv_file in sim_targets:
-            sim_adv(adv_file, special=is_special, mass=is_mass)
+            sim_adv(adv_file, special=is_special, mass=is_mass, sanity_test=sanity_test)
 
-    if do_combine:
+    if do_combine and not sanity_test:
         combine()
 
     print('total: {:.4f}s'.format(monotonic() - t_start))

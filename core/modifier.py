@@ -355,6 +355,49 @@ class EffectBuff(Buff):
 class FSAltBuff(Buff):
     def __init__(self, adv, fs_name=None, duration=-1, uses=-1, hidden=False):
         self.adv = adv
+        self.fs_name = fs_name
+        pattern = r'^fs\d+$' if fs_name is None else f'^fs\d*_{fs_name}$'
+        self.prev_fs = self.adv.alt_fs
+        self.fs_list = [fsn for fsn, _ in adv.conf.find(pattern)]
+        if not self.fs_list:
+            if fs_name is None:
+                raise ValueError(f'fs[n] not found in conf')
+            raise ValueError(f'{self.fs_name} is not an FS')
+        super().__init__(fs_name or 'alt', 1, duration, 'effect')
+        self.enable_fs(False)
+        self.base_uses = uses
+        self.uses = 0
+        Listener('fs', self.l_off, after=True).on()
+        self.bufftype = 'misc' if hidden else 'self'
+
+    def enable_fs(self, enabled):
+        for fsn in self.fs_list:
+            self.adv.a_fs_dict[fsn].enabled = enabled
+
+    def effect_on(self):
+        log('debug', f'fs {self.fs_name} on', self.uses)
+        self.enable_fs(True)
+        self.prev_fs = self.adv.alt_fs
+        self.adv.alt_fs = self.fs_name
+
+    def effect_off(self):
+        log('debug', f'fs {self.fs_name} off', self.uses)
+        self.enable_fs(False)
+        self.adv.alt_fs = self.prev_fs
+
+    def on(self, duration=None):
+        self.uses = self.base_uses
+        return super().on(duration)
+
+    def l_off(self, e):
+        self.uses -= 1
+        if self.uses <= 0:
+            self.off()
+
+
+class XAltBuff(Buff):
+    def __init__(self, adv, fs_name=None, duration=-1, uses=-1, hidden=False):
+        self.adv = adv
         self.fs_name = fs_name or 'alt'
         pattern = r'^fs\d+$' if fs_name is None else f'^fs\d*_{fs_name}$'
         self.prev_fs = self.adv.alt_fs

@@ -174,6 +174,8 @@ class Action(object):
         # self.tap, self.o_tap = self.rt_tap, self.tap
 
     def __call__(self):
+        if not self.enabled:
+            raise RuntimeError(f'FS {self.name} is disabled')
         return self.enabled and self.tap()
 
     def getdoing(self):
@@ -546,7 +548,8 @@ class Adv(object):
         self.modifier._static.g_condition = self.condition
 
         # init actions
-        for xn, xconf in self.conf.find(r'x\d+'):
+        self.a_x_dict = {}
+        for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z]+)?$'):
             n = int(xn[1:])
             setattr(self, xn, X((xn, n), self.conf[xn]))
 
@@ -990,6 +993,8 @@ class Adv(object):
             before = self.action.getdoing()
             if before.status == Action.STARTUP:
                 before = self.action.getprev()
+            if not self.a_fs_dict[fsn].enabled:
+                return False
             return self.a_fs_dict[fsn](before.name)
         except KeyError:
             raise ValueError(f'{fsn} is not an FS')
