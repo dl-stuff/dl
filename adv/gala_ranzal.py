@@ -1,15 +1,30 @@
 from core.advbase import *
-from module.x_alt import Fs_alt
 from slot.a import *
 from slot.d import *
 
 def module():
     return Gala_Ranzal
 
+conf_fs_alt = {
+    'fs_a.dmg':0.83*2+0.92,
+    'fs_a.sp' :330,
+    'fs_a.gauge': 350,
+    'fs_a.charge': 2/60.0, # needs confirm
+    'fs_a.startup':66/60.0,
+    'fs_a.x1.startup':75/60.0,
+    'fs_a.x2.startup':60/60.0,
+    'fs_a.x3.startup':60/60.0,
+
+    'fs_a.recovery':13/60.0,
+    'fs_a.x1.recovery':13/60.0,
+    'fs_a.x2.recovery':13/60.0,
+    'fs_a.x3.recovery':13/60.0,
+}
+
 class Gala_Ranzal(Adv):
     comment = 'no s2'
 
-    conf = {}
+    conf = conf_fs_alt.copy()
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['slots.d'] = AC011_Garland()
     conf['acl'] = '''
@@ -23,8 +38,6 @@ class Gala_Ranzal(Adv):
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
     conf['share'] = ['Curran']
     
-    a3 = ('s',0.3)
-
     #c3 770
     #fs1 802
     #fs3 832
@@ -33,27 +46,8 @@ class Gala_Ranzal(Adv):
 
     def prerun(self):
         self.ifs1ins2 = 0
-        self.gauges = {
-                'x':0,
-                'fs':0,
-                }
-        self.conf.fs.gauge = 150
-        conf_fs_alt = {
-            'fs.dmg':0.83*2+0.92,
-            'fs.sp' :330,
-            'fs.gauge': 350,
-            'fs.charge': 2/60.0, # needs confirm
-            'fs.startup':66/60.0,
-            'x1fs.startup':75/60.0,
-            'x2fs.startup':60/60.0,
-            'x3fs.startup':60/60.0,
-
-            'fs.recovery':13/60.0,
-            'x1fs.recovery':13/60.0,
-            'x2fs.recovery':13/60.0,
-            'x3fs.recovery':13/60.0,
-        }
-        self.fs_alt = Fs_alt(self, conf_fs_alt)
+        self.gauges = {'x':0, 'fs':0}
+        self.fs_alt = FSAltBuff(self, 'a', uses=3)
 
     def dmg_proc(self, name, amount):
         if name == 'x1':
@@ -67,7 +61,7 @@ class Gala_Ranzal(Adv):
         elif name == 'x5':
             self.gauges['x'] += 200
         elif name == 'fs':
-            self.gauges['fs'] += self.conf.fs.gauge
+            self.gauges['fs'] += 150
         log('gauges', name, self.gauges['x'], self.gauges['fs'])
 
     def s1_proc(self, e):

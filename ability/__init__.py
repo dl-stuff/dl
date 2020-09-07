@@ -180,9 +180,16 @@ ability_dict['dh'] = Dragon_Haste
 
 class Attack_Speed(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('spd','passive',value,cond)])
+        super().__init__(name, [('spd','passive',value, cond)])
 
 ability_dict['spd'] = Attack_Speed
+
+
+class Charge_Speed(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('cspd','passive',value, cond)])
+
+ability_dict['cspd'] = Charge_Speed
 
 
 class Co_Ability(Ability):

@@ -1,15 +1,17 @@
 from core.advbase import *
 from slot.a import *
-from module.x_alt import Fs_alt
 
 def module():
     return Hawk
 
-class Hawk(Adv):
-    a1 = [('edge_stun', 50), ('edge_poison', 50)]
-    a3 = [('k_stun',0.4), ('k_poison',0.3)]
-    
-    conf = {}
+conf_fs_alt = {
+    'fs_a.dmg': 4.94,
+    'fs_a.hit':19,
+    'fs_a.sp':2400,
+    'fs_a.iv': 0.5
+}
+class Hawk(Adv):    
+    conf = conf_fs_alt.copy()
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
         # queue self.duration<=60 and prep and self.afflics.stun.resist
@@ -28,18 +30,13 @@ class Hawk(Adv):
     conf['afflict_res.stun'] = 80
     conf['afflict_res.poison'] = 0
     
-    def fs_proc_alt(self, e):
-        self.afflics.stun('fs', 110)
-        self.afflics.poison('fs', 120, 0.582)
+    def fs_proc(self, e):
+        if e.suffix == 'a':
+            self.afflics.stun(e.name, 110)
+            self.afflics.poison(e.name, 120, 0.582)
 
     def prerun(self):
-        conf_fs_alt = {
-            'fs.dmg': 4.94,
-            'fs.hit':19,
-            'fs.sp':2400,
-            'missile_iv.fs': 0.5
-        }
-        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
+        self.fs_alt = FSAltBuff(self, 'a', uses=2)
         self.s2_mode = 0
         self.a_s2 = self.s2.ac
         self.a_s2a = S('s2', Conf({'startup': 0.10, 'recovery': 2.5}))
@@ -52,7 +49,7 @@ class Hawk(Adv):
 
     def s2_proc(self, e):
         if self.s2_mode == 0:
-            self.fs_alt.on(2)
+            self.fs_alt.on()
             self.s2.ac = self.a_s2a
         else:
             with KillerModifier('s2_killer', 'hit', 0.5, ['poison']):

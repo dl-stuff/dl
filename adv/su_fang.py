@@ -1,13 +1,13 @@
 from core.advbase import *
 from slot.a import *
-from module.x_alt import Fs_alt
 
 def module():
     return Su_Fang
 
+conf_fs_alt = {'fs_a.dmg': 0.174, 'fs_a.hit': 6}
+
 class Su_Fang(Adv):
-    a3 = ('s',0.35)
-    conf = {}
+    conf = conf_fs_alt.copy()
     conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end),s4.check()
@@ -20,12 +20,12 @@ class Su_Fang(Adv):
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
     conf['share'] = ['Curran']
 
-    def fs_proc_alt(self, e):
-        self.afflics.poison('fs', 120, 0.582)
+    def fs_proc(self, e):
+        if e.suffix == 'a':
+            self.afflics.poison('fs', 120, 0.582)
 
     def prerun(self):
-        conf_fs_alt = {'fs.dmg': 0.174, 'fs.hit': 6}
-        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
+        self.fs_alt = FSAltBuff(self, 'a', uses=1)
         self.s2_buff = Selfbuff('s2', 0.30, 15)
 
     def s1_proc(self, e):
@@ -36,7 +36,7 @@ class Su_Fang(Adv):
                 self.add_hits(2)
 
     def s2_proc(self, e):
-        self.fs_alt.on(1)
+        self.fs_alt.on()
         self.s2_buff = Selfbuff(e.name, 0.30, 15).on()
 
 

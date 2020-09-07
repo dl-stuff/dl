@@ -1,5 +1,4 @@
 from core.advbase import *
-from module.x_alt import Fs_alt
 from slot.a import *
 from slot.d import *
 
@@ -7,6 +6,23 @@ def module():
     return Pinon
 
 pinon_conf = {
+    'fs1': {
+        'dmg': 110 / 100.0,
+        'sp': 500,
+        'charge': 30 / 60.0,
+        'startup': 0.06666667,
+        'recovery': 1.0,
+        'hit': 1
+    },
+    'fs2': {
+        'dmg': 0,
+        'sp': 710,
+        'charge': 150 / 60.0,
+        'startup': 0.06666667,
+        'recovery': 1.0,
+        'hit': -1
+    },
+
     'x_max': 8,
 
     'x6.dmg': 10.6,
@@ -28,9 +44,7 @@ pinon_conf = {
     'x8.hit': 1,
 } # get real frames 1 day, maybe
 
-class Pinon(Adv):
-    a3 = ('spd',0.20,'hp70')
-    
+class Pinon(Adv):    
     conf = pinon_conf.copy()
     conf['slots.a'] = Primal_Crisis()+His_Clever_Brother()
     conf['slots.d'] = Dragonyule_Jeanne()
@@ -56,8 +70,8 @@ class Pinon(Adv):
     conf['coabs'] = ['Dagger2', 'Axe2', 'Xander']
     conf['share'] = ['Gala_Elisanne']
 
-    def fs_proc_alt(self, e):
-        if e.name == 'fs2':
+    def fs_proc(self, e):
+        if e.level == 2:
             with KillerModifier('fs_killer', 'hit', 2.0, ['frostbite']):
                 self.dmg_make(e.name, 3.00)
             self.update_sigil(-13)
@@ -68,27 +82,6 @@ class Pinon(Adv):
         self.sigil = EffectBuff('locked_sigil', 300, lambda: None, self.unlock).no_bufftime()
         self.sigil.on()
         self.s2_buff = Selfbuff('s2_att', 0.20, 20, 'att', 'buff')
-
-        conf_alt_fs = {
-            'fs1': {
-                'dmg': 110 / 100.0,
-                'sp': 500,
-                'charge': 30 / 60.0,
-                'startup': 0.06666667,
-                'recovery': 1.0,
-                'hit': 1
-            },
-            'fs2': {
-                'dmg': 0 / 100.0,
-                'sp': 710,
-                'charge': 150 / 60.0,
-                'startup': 0.06666667,
-                'recovery': 1.0,
-                'hit': -1
-            }
-        }
-        self.fs_alt = Fs_alt(self, conf_alt_fs, fs_proc=self.fs_proc_alt)
-        self.fs_alt.on(-1)
 
     def unlock(self):
         self.conf.x_max = 8

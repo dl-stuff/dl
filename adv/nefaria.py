@@ -1,17 +1,19 @@
 from core.advbase import *
-from module.x_alt import Fs_alt
 from slot.a import *
 
 def module():
     return Nefaria
 
+conf_fs_alt = {
+    'fs_blind.dmg':7.90,
+    'fs_blind.hit':19,
+    'fs_blind.sp':2400,
+    'fs_blind.iv': 0.5
+}
 class Nefaria(Adv):
     comment = 's2 fs(precharge) s1 s1'
     
-    a1 = [('edge_blind', 60, 'hp100'),('edge_poison', 60, 'hp100')]
-    a3 = [('k_blind',0.4), ('k_poison',0.3)]
-
-    conf = {}
+    conf = conf_fs_alt.copy()
     conf['slots.a'] = Forest_Bonds()+The_Fires_of_Hate()
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
@@ -28,17 +30,12 @@ class Nefaria(Adv):
     conf['afflict_res.blind'] = 80
     conf['afflict_res.poison'] = 0
 
-    def fs_proc_alt(self, e):
-        self.afflics.blind('s2_fs', 110)
+    def fs_proc(self, e):
+        if e.suffix == 'blind':
+            self.afflics.blind('s2_fs', 110)
     
     def prerun(self):
-        conf_fs_alt = {
-            'fs.dmg':7.90,
-            'fs.hit':19,
-            'fs.sp':2400,
-            'missile_iv.fs': 0.5
-        }
-        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
+        self.fs_alt = FSAltBuff(self, 'blind', uses=1)
         
     def s1_proc(self, e):
         with KillerModifier('s1killer', 'hit', 0.74, ['blind', 'poison']):
@@ -49,8 +46,7 @@ class Nefaria(Adv):
             self.add_hits(7)
 
     def s2_proc(self, e):
-        self.fsacharge = 1
-        self.fs_alt.on(1)
+        self.fs_alt.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

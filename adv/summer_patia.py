@@ -40,11 +40,6 @@ spatia_fs = {
         'dmg': 532 / 100.0,
     },
 }
-Conf.rebase(spatia_fs, [
-    ('fs1', 'fs1_a'),
-    ('fs2', 'fs2_a'),
-    ('fs3', 'fs3_a'),
-])
 
 class Summer_Patia(Adv):
     comment = 'cannot build combo for Cat Sith; uses up 15 stacks by 46.94s'
@@ -78,7 +73,7 @@ class Summer_Patia(Adv):
 
     def s1_proc(self, e):
         self.dmg_make(e.name, 7.47)
-        self.fs_alt.on(uses=1)
+        self.fs_alt.on()
 
     def s2_proc(self, e):
         self.afflics.poison(e.name,120,0.582)

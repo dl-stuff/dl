@@ -187,7 +187,7 @@ def simc_adv_test():
     if 'missile' in params:
         missile = abs(float(params['missile']))
         if missile > 0:
-            conf['missile_iv'] = {'fs': missile, 'x1': missile, 'x2': missile, 'x3': missile, 'x4': missile, 'x5': missile}
+            conf['missile_iv'] = missile
     if 'hp' in params:
         conf['hp'] = min(abs(int(params['hp'])), 100)
     if 'dragonbattle' in params:

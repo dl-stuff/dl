@@ -1,4 +1,5 @@
 from collections import defaultdict
+import copy
 
 from core.timeline import Timer, Event, Listener
 from core.log import log
@@ -282,7 +283,7 @@ class Buff(object):
                     if i.modifier.mod_type.endswith('_killer'):
                         mod_copy = copy.copy(i.modifier)
                         mod_copy.mod_type = 'killer'
-                        self.dmg_test_event.modifiers.append(i.modifier)
+                        self.dmg_test_event.modifiers.append(mod_copy)
                     else:
                         self.dmg_test_event.modifiers.append(i.modifier)
         self.dmg_test_event()
@@ -294,10 +295,7 @@ class Buff(object):
             mod.off()
 
     def on(self, duration=None):
-        if duration == None:
-            d = self.duration * self.bufftime()
-        else:
-            d = duration * self.bufftime()
+        d = (duration or self.duration) * self.bufftime()
         if self.__active == 0:
             self.__active = 1
             if self.__stored == 0:
@@ -342,6 +340,9 @@ class Buff(object):
         self.buff_end_timer.off()
         return self
 
+    def add_time(self, delta):
+        self.buff_end_timer.add(delta)
+
 
 class EffectBuff(Buff):
     def __init__(self, name, duration, effect_on, effect_off):
@@ -352,26 +353,38 @@ class EffectBuff(Buff):
 
 
 class FSAltBuff(Buff):
-    def __init__(self, adv, fs_name, duration=-1, uses=-1):
+    def __init__(self, adv, fs_name=None, duration=-1, uses=-1, hidden=False):
         self.adv = adv
-        self.fs_name = fs_name
-        if not adv.conf.find(f'fs_{self.fs_name}\d?'):
+        self.fs_name = fs_name or 'alt'
+        pattern = r'^fs\d+$' if fs_name is None else f'^fs\d*_{fs_name}$'
+        self.prev_fs = self.adv.alt_fs
+        self.fs_list = [fsn for fsn, _ in adv.conf.find(pattern)]
+        if not self.fs_list:
             raise ValueError(f'{self.fs_name} is not an FS')
-        self.uses = uses
-        Listener('fs', self.l_off, after=True).on()
         super().__init__(fs_name, 1, duration, 'effect')
+        self.enable_fs(False)
+        self.base_uses = uses
+        self.uses = 0
+        Listener('fs', self.l_off, after=True).on()
+        self.bufftype = 'misc' if hidden else 'self'
+
+    def enable_fs(self, enabled):
+        for fsn in self.fs_list:
+            self.adv.a_fs_dict[fsn].enabled = enabled
 
     def effect_on(self):
         log('debug', f'fs {self.fs_name} on', self.uses)
+        self.enable_fs(True)
         self.prev_fs = self.adv.alt_fs
         self.adv.alt_fs = self.fs_name
 
     def effect_off(self):
         log('debug', f'fs {self.fs_name} off', self.uses)
+        self.enable_fs(False)
         self.adv.alt_fs = self.prev_fs
 
-    def on(self, duration=None, uses=-1):
-        self.uses = uses
+    def on(self, duration=None):
+        self.uses = self.base_uses
         return super().on(duration)
 
     def l_off(self, e):
@@ -394,11 +407,7 @@ class SingleActionBuff(Buff):
         self.casts = casts
         self.end_event = event if event is not None else mtype
         self.end_proc = end_proc
-        if isinstance(self.end_event, str):
-            Listener(self.end_event, self.l_off, after=True).on()
-        else:
-            for e in self.end_event:
-                Listener(e, self.l_off, after=True).on()
+        Listener(self.end_event, self.l_off, after=True).on()
 
     def on(self, casts=1):
         self.casts = casts
@@ -483,12 +492,16 @@ class Debuff(Teambuff):
 
 
 class MultiBuffManager:
-    def __init__(self, buffs):
+    def __init__(self, buffs, duration=None):
         self.buffs = buffs
+        self.duration = duration
 
     def on(self):
         for b in self.buffs:
-            b.on()
+            try:
+                b.on(duration=self.duration)
+            except ValueError:
+                b.on()
         return self
 
     def off(self):
@@ -498,3 +511,8 @@ class MultiBuffManager:
 
     def get(self):
         return all(map(lambda b: b.get(), self.buffs))
+
+    def add_time(self, delta):
+        for b in self.buffs:
+            b.add_time(delta)
+        return self
