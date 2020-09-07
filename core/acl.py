@@ -1,6 +1,8 @@
 import os
+import re
 from itertools import islice
 from collections import deque
+
 def pairs(iterator):
     "s -> (s0,s1), (s2,s3), (s4, s5), ..."
     a = islice(iterator, 0, None, 2)
@@ -18,10 +20,7 @@ lark_file = os.path.join(froot, 'acl.lark')
 if not os.path.exists(lark_file):
     lark_file = os.path.join(froot, 'core', 'acl.lark')
 with open(lark_file) as f:
-    PARSER = Lark(
-        f.read(),
-        parser='lalr'
-    )
+    PARSER = Lark(f.read(), parser='lalr')
 
 
 SHORT_CIRCUIT = {
@@ -53,11 +52,11 @@ PIN_CMD = {
     'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
     'X': lambda e: e.didx if e.pin =='x' else 0,
     'S': lambda e: int(e.pin[1]) if (e.pin[0] == 's' and e.pin[1].isdigit()) or e.pin[-2:] == '-x' else 0,
-    'FSC': lambda e: e.pin == 'fs',
-    'CANCEL': lambda e: e.pin =='x' or e.pin == 'fs',
+    'FSC': lambda e: e.pin.startswith('fs'),
     'SP': lambda e: e.dname if e.pin == 'sp' else None,
     'PREP': lambda e: e.pin == 'prep',
 }
+PIN_CMD['CANCEL'] = lambda e: PIN_CMD['X'] or PIN_CMD['FSC']
 
 
 PARAM_EVAL = {
@@ -225,24 +224,18 @@ class AclInterpreter(Interpreter):
             return self.visit(fn)[self.visit(idx)]
 
 
-def trim(acl):
-    return '\n'.join(filter(None, (a.strip() for a in acl.split('\n'))))
+FSN_PATTERN = re.compile(r'^`?fs(\d+)')
+def _pre_parse(acl):
+    return '\n'.join(filter(None,(
+        FSN_PATTERN.sub(r'`fs(\1)', l.strip())
+        for l in acl.split('\n')
+    )))
 
 
 def build_acl(acl):
-    acl = trim(acl)
+    acl = _pre_parse(acl)
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()
     interpreter.bind(tree, acl)
     return interpreter
 
-"""
-changes from current:
-dragon.act("c3 s end") -> dragon(c3 s end)
-
-with exception of stuff in PIN_CMD and PARAM_EVAL, all identifiers are assumed to be attributes of self
-
-end is now mandatory for if/elif/else/queue
-
-not behaves somewhat different than vanilla python, not self.energy()=3 would not give expected result, instead use self.energy()!=3
-"""

@@ -38,8 +38,8 @@ conf = {
     'fs.recovery': 34 / 60.0,
     'fs.hit': 1,
 
-    'x1fs.charge': 33 / 60.0, # 7 delay + fs
-    'x2fs.charge': 35 / 60.0, # 10 delay + fs
+    'fs.x1.charge': 33 / 60.0, # 7 delay + fs
+    'fs.x2.charge': 35 / 60.0, # 10 delay + fs
 
     'fsf.charge': 26 / 60.0, # https://streamable.com/36bjj
     'fsf.startup': 8 / 60.0,

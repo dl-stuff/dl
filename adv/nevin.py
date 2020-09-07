@@ -3,7 +3,6 @@ from slot.a import *
 from slot.d import *
 
 nevin_conf = {
-    'x_max': 6,
     'fs.dmg': 0,
 
     'x6.dmg': 0,
@@ -40,7 +39,6 @@ class Nevin(Adv):
     conf['share'] = ['Veronica']
 
     def prerun(self):
-        self.conf.x_max = 5
         self.unlocked = False
         self.sigil = EffectBuff('locked_sigil', 300, lambda: None, self.unlock).no_bufftime()
         self.sigil.on()

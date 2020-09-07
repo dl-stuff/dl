@@ -40,7 +40,7 @@ conf = {
     'fs.recovery': 36 / 60.0,
     'fs.hit': 5,
 
-    'x1fs.charge': 24 / 60.0, # 16 delay + FS
+    'fs.x1.charge': 24 / 60.0, # 16 delay + FS
 
     'dodge.startup': 36 / 60.0,
     'dodge.recovery': 0 / 60.0,
