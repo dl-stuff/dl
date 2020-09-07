@@ -1,7 +1,7 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-from module.x_alt import X_alt, Fs_alt
+from module.x_alt import X_alt
 
 
 def module():

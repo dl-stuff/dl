@@ -1,14 +1,16 @@
 from core.advbase import *
 from slot.a import *
-from module.x_alt import Fs_alt
 
 def module():
     return Lin_You
 
+lin_fs = {
+    'fs_nados.dmg': 2.59,
+    'fs_nados.hit': 6
+}
+
 class Lin_You(Adv):
-    a1 = [('cc',0.10,'hp70'), ('cc',0.20,'hit25'), ('cc',0.20,'hit50')]
-    a3 = ('sp',0.08)
-    conf = {}
+    conf = lin_fs.copy()
     conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
     conf['acl'] = """
         `dragon(c3-s-end)
@@ -23,7 +25,7 @@ class Lin_You(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 2.59, 'fs.hit': 6}
-        self.fs_alt = Fs_alt(self, conf_fs_alt)
+        self.fs_alt = FSAltBuff(self, 'nados', uses=3)
         self.s2_buff = Spdbuff('s2_spd',0.20, 15)
 
     def s1_proc(self, e):
@@ -32,7 +34,7 @@ class Lin_You(Adv):
             self.s2_buff.buff_end_timer.add(self.s1.ac.getstartup()+self.s1.ac.getrecovery())
             self.add_hits(3)
             self.afflics.sleep(e.name, 150)
-        self.fs_alt.on(3)
+        self.fs_alt.on()
 
     def s2_proc(self, e):
         self.s2_buff.on()

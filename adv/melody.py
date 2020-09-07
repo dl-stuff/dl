@@ -1,15 +1,13 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-from module.x_alt import Fs_alt
 
 def module():
     return Melody
 
+maido_fs = {'fs_oops.dmg': 3.40, 'fs_oops.recovery': 72 / 60}
 class Melody(Adv):
-    a1 = ('cc',0.15,'hp100')
-
-    conf = {}
+    conf = maido_fs.copy()
     conf['slots.a'] = A_Dogs_Day()+From_Whence_He_Comes()
     conf['slots.d'] = Ariel()
     conf['acl'] = """
@@ -22,14 +20,10 @@ class Melody(Adv):
     conf['share'] = ['Dragonyule_Xainfried']
 
     def prerun(self):
-        conf_fs_alt = {
-            'fs.dmg':3.40,
-            'fs.recovery': 72 / 60.0, # needs confirm
-        }
-        self.fs_alt = Fs_alt(self, conf_fs_alt)
+        self.fs_alt = FSAltBuff(self, 'oops', uses=1)
 
     def s1_proc(self, e):
-        self.fs_alt.on(1)
+        self.fs_alt.on()
 
     def s2_proc(self, e):
         self.afflics.poison(e.name, 120, 0.582)

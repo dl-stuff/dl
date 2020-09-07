@@ -199,7 +199,7 @@ tempura_conf = {
 # C2A FS Delay: 6
 # FSF Recovery: 22
 fs_conf = {
-    'x2fs.charge': 14 / 60,
+    'fs.x2.charge': 14 / 60,
     'fs.recovery': 34 / 60,
     'fsf.startup': 14 / 60, # 22 - 8
 }

@@ -1,17 +1,29 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-from module.x_alt import Fs_alt
 
 def module():
     return Xander
 
+# identical to granzal FS in frames
+conf_fs_alt = {
+    'fs_a.dmg':0.83*2+0.92,
+    'fs_a.sp' :330,
+    'fs_a.gauge': 350,
+    'fs_a.charge': 2/60.0, # needs confirm
+    'fs_a.startup':66/60.0,
+    'fs_a.x1.startup':75/60.0,
+    'fs_a.x2.startup':60/60.0,
+    'fs_a.x3.startup':60/60.0,
+
+    'fs_a.recovery':13/60.0,
+    'fs_a.x1.recovery':13/60.0,
+    'fs_a.x2.recovery':13/60.0,
+    'fs_a.x3.recovery':13/60.0,
+}
+
 class Xander(Adv):
-    comment = 'c2+fs'
-
-    a3 = ('fs',0.55)
-
-    conf = {}
+    conf = conf_fs_alt.copy()
     conf['slots.a'] = The_Shining_Overlord()+His_Clever_Brother()
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
@@ -31,7 +43,7 @@ class Xander(Adv):
     conf['coabs'] = ['Blade', 'Yurius', 'Hunter_Sarisse']
     conf['share'] = ['Gala_Elisanne', 'Hunter_Sarisse']
 
-    def fs_proc_alt(self, e):
+    def fs_proc(self, e):
         if self.born_ruler_2.get():
             with KillerModifier('fs_killer', 'hit', 0.30, ['frostbite']):
                 self.dmg_make('fs', 6.66)
@@ -43,24 +55,7 @@ class Xander(Adv):
         self.born_ruler_2.off()
 
     def prerun(self):
-        # identical to granzal FS in frames
-        conf_fs_alt = {
-            'fs.dmg': 0.0,
-            'fs.sp': 330,
-            'fs.hit': 3,
-
-            'fs.charge': 2/60.0, # needs confirm
-            'fs.startup': 66/60.0,
-            'x1fs.startup': 75/60.0,
-            'x2fs.startup': 60/60.0,
-            'x3fs.startup': 60/60.0,
-
-            'fs.recovery': 13/60.0,
-            'x1fs.recovery': 13/60.0,
-            'x2fs.recovery': 13/60.0,
-            'x3fs.recovery': 13/60.0,
-        }
-        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
+        self.fs_alt = FSAltBuff(self, 'a', hidden=True)
         self.born_ruler = Selfbuff('born_ruler', 0.05, -1, 'att', 'buff')
         self.born_ruler_1 = Selfbuff('born_ruler_1', 1, -1, 'xunder', 'buff')
         self.born_ruler_2 = Selfbuff('born_ruler_2', 1, -1, 'xunder', 'buff')

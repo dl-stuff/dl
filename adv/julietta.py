@@ -1,12 +1,15 @@
 from core.advbase import *
 from slot.a import *
-from module.x_alt import Fs_alt
 
 def module():
     return Julietta
 
+juli_smash = {
+    'fs_divine.dmg': 14.976
+}
+
 class Julietta(Adv):
-    conf = {}
+    conf = juli_smash.copy()
     conf['slots.a'] = Valiant_Crown()+Primal_Crisis()
     conf['acl'] = """
         `dragon, self.energy()<4
@@ -20,12 +23,11 @@ class Julietta(Adv):
     conf['share'] = ['Summer_Cleo']
 
     def prerun(self):
-        conf_fs_alt = {'fs.dmg': 14.976}
-        self.fs_alt = Fs_alt(self, conf_fs_alt)
+        self.fs_alt = FSAltBuff(self, fs_name='divine', uses=1)
 
     def s2_proc(self, e):
-       Selfbuff(e.name+'_defense', 0.50, 10, 'defense').on()
-       self.fs_alt.on(1)
+       Selfbuff(f'{e.name}_defense', 0.50, 10, 'defense').on()
+       self.fs_alt.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

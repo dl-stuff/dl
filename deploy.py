@@ -50,8 +50,11 @@ def sim_adv_list(list_file):
     special = list_file.startswith('chara_sp')
     mass = list_file.endswith('slow.txt') and not special
     with open(os.path.join(ROOT_DIR, list_file), encoding='utf8') as f:
-        for adv_file in f:
+        sorted_f = sorted(f)
+    with open(os.path.join(ROOT_DIR, list_file), 'w', encoding='utf8') as f:
+        for adv_file in sorted_f:
             sim_adv(adv_file.strip(), special, mass)
+            f.write(adv_file)
 
 
 def download_writeups():

@@ -1,8 +1,6 @@
 from core.advbase import *
-from slot import *
 from slot.a import *
 from slot.d import *
-from module.x_alt import Fs_alt
 
 import random
 random.seed()
@@ -10,10 +8,18 @@ random.seed()
 def module():
     return Gala_Cleo
 
+gleo_fs = {
+    'fs_zone': {
+        'dmg': 0, 'sp': 0, 'hit': 0,
+        'charge': 0.5,
+        'startup': 0.333,
+        'recovery': 1
+    }
+}
+
 class Gala_Cleo(Adv):
     comment = '(the true cleo is here)'
-    a3 = ('prep',1.00)
-    conf = {}
+    conf = gleo_fs.copy()
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()  # wand c2*1.08 = 217
     conf['acl'] = """
         `dragon(c3-s-end), x=5 and self.trickery <= 1
@@ -31,22 +37,14 @@ class Gala_Cleo(Adv):
     conf['coabs'] = ['Blade','Bow','Dagger']
     conf['share'] = ['Curran']
 
-    def fs_proc_alt(self, e):
-        if self.a1_buffed:
+    def fs_proc(self, e):
+        if e.suffix == 'zone' and self.a1_buffed:
             Teambuff('a1_str',0.25,10).zone().on()
 
     def prerun(self):
         self.a1_buffed = self.condition('a1 buff for 10s')
         self.phase['s1'] = 0
-
-        conf_fs_alt = {
-            'fs.dmg':0,
-            'fs.sp' :0,
-            'fs.charge': 30/60.0,
-            'fs.startup': 20/60.0,
-            'fs.recovery': 60/60.0,
-        }
-        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
+        self.fs_alt = FSAltBuff(self, 'zone', uses=1)
 
     @staticmethod
     def prerun_skillshare(adv, dst):

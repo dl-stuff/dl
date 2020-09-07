@@ -1,17 +1,21 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-from module.x_alt import Fs_alt
 
 def module():
     return Zena
 
+conf_fs_alt = {
+    'fs_heal.dmg':0,
+    'fs_heal.sp' :0,
+    'fs_heal.charge': 30/60.0,
+    'fs_heal.startup': 20/60.0,
+    'fs_heal.recovery': 60/60.0,
+}
+
 class Zena(Adv):
     comment = '40 extra hits s2 on Agito size enemy (max 100 without roll & 120 with roll)'
-    a1 = ('a', 0.08)
-    a3 = ('prep', 100)
-
-    conf = {}
+    conf = conf_fs_alt.copy()
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """
         `s3, not self.s3_buff
@@ -34,14 +38,7 @@ class Zena(Adv):
             self.conf['share'] = ['Curran']
 
     def prerun(self):
-        conf_fs_alt = {
-            'fs.dmg':0,
-            'fs.sp' :0,
-            'fs.charge': 30/60.0,
-            'fs.startup': 20/60.0,
-            'fs.recovery': 60/60.0,
-        }
-        self.fs_alt = Fs_alt(self, conf_fs_alt)
+        self.fs_alt = FSAltBuff(self, 'heal', uses=1)
         self.s2_extra_hit_rate = 8 # number of hits per second
         self.s2_timers = []
         Event('dragon').listener(self.s2_clear)
@@ -50,7 +47,7 @@ class Zena(Adv):
         self.fs_alt = Dummy()
 
     def s1_proc(self, e):
-        self.fs_alt.on(1)
+        self.fs_alt.on()
 
     def s2_extra_hits(self, t):
         self.dmg_make(f'{t.name}_extra', self.s2_extra_hit_rate*0.50)

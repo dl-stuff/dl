@@ -25,7 +25,7 @@ with open(lark_file) as f:
 
 SHORT_CIRCUIT = {
     'AND': lambda l: bool(not l),
-    'OR': lambda l: bool(l)
+    'OR': lambda l: bool(l),
 }
 
 
@@ -33,6 +33,7 @@ BINARY_EXPR = {
     'AND': lambda l, r: l and r,
     'OR': lambda l, r: l or r,
     'IS': lambda l, r: l is r,
+    'IN': lambda l, r: l in r,
     'GT': lambda l, r: l > r,
     'LT': lambda l, r: l < r,
     'EQ': lambda l, r: l == r,
@@ -56,7 +57,7 @@ PIN_CMD = {
     'SP': lambda e: e.dname if e.pin == 'sp' else None,
     'PREP': lambda e: e.pin == 'prep',
 }
-PIN_CMD['CANCEL'] = lambda e: PIN_CMD['X'] or PIN_CMD['FSC']
+PIN_CMD['CANCEL'] = lambda e: PIN_CMD['X'](e) or PIN_CMD['FSC'](e)
 
 
 PARAM_EVAL = {

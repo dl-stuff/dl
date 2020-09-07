@@ -5,62 +5,60 @@ from slot.d import *
 def module():
     return Hunter_Sarisse
 
-class FS_Speedable(Action):
-    def __init__(self, name=None, conf=None, act=None):
-        super().__init__(name, conf, act)
-        self.atype = 'fs'
-        self.interrupt_by = ['s']
-        self.cancel_by = ['s','dodge']
-        self.fs_speed = 1.2
-        self.t_fs_speed = Timer(self.fs_speed_off)
-        self.l_fs_speed= Listener('fs_speed_buff', self.fs_speed_on)
-        self._startup_a = 0
+startups = {
+    'startup': 4 / 60,
+    'fs1.startup': 94 / 60,
+    'fs2.startup': 94 / 60,
+    'fs3.startup': 94 / 60,
+    'fs4.startup': 94 / 60,
+    'x1.startup': 7 / 60,
+    'dodge.startup': 18 / 60,
+    'recovery': 59 / 60,
+}
 
-    def act(self, action):
-        self.act_event.name = 'fs'
-        self.act_event.idx = self.idx
-        self.act_event()
+fs_damage = {
+    'fs1': 0.74,
+    'fs2': 0.84,
+    'fs3': 0.94,
+    'fs4': 1.29
+}
 
-    def fs_speed_on(self, e):
-        self.fs_speed = 1.5
-        self.t_fs_speed = self.t_fs_speed.on(30)
-
-    def fs_speed_off(self, t):
-        self.fs_speed = 1.2
-
-    @property
-    def _charge(self):
-        return self.conf.charge
-
-    def getstartup(self):
-        startup = self._startup_a
-        startup += self._charge / self.fs_speed
-        startup += self._startup / self.speed()
-        return startup
-
-    def __call__(self, before):
-        if type(before).__name__ == 'FS_Speedable':
-            self._startup_a = 88 / 60
-        elif type(before).__name__ == 'X':
-            if now()-before.startup_start > 0:
-                if before.name == 'x1' and self.fs_speed == 1.2:
-                    self._startup_a = 3 / 60
-                else:
-                    self._startup_a = 0
-            else:
-                return self(before.getprev())
-        elif type(before).__name__ == 'S':
-            self._startup_a = 0
-        elif type(before).__name__ == 'Dodge':
-            self._startup_a = 14 / 60
-        return self.tap()
+sarisse_derp = {
+    'fs1': {
+        **startups,
+        'dmg': 0.0,
+        'sp': 500,
+        'charge': 30 / 60.0,
+        'recovery': 4 / 60.0,
+        'hit': 3,
+    },
+    'fs2': {
+        **startups,
+        'dmg': 0.0,
+        'sp': 710,
+        'charge': (30+42) / 60.0,
+        'hit': 3,
+    },
+    'fs3': {
+        **startups,
+        'dmg': 0.0,
+        'sp': 920,
+        'charge': (30+42*2) / 60.0,
+        'hit': 4,
+    },
+    'fs4': {
+        **startups,
+        'dmg': 0.0,
+        'sp': 1140,
+        'charge': (30+42*3) / 60.0,
+        'hit': 4,
+    }
+}
 
 class Hunter_Sarisse(Adv):
     comment = '4hit FS on A&O sized enemy (see special for 20hit); needs combo time to keep combo'
-    a1 = ('fs', 0.30)
-    a3 = ('fs', 0.25)
 
-    conf = {}
+    conf = sarisse_derp.copy()
     conf['slots.a'] = The_Lurker_in_the_Woods()+Primal_Crisis()
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
@@ -75,124 +73,27 @@ class Hunter_Sarisse(Adv):
     conf['coabs'] = ['Dagger', 'Xander', 'Grace']
     conf['share'] = ['Gala_Elisanne', 'Eugene']
 
-    def init(self):
-        default_pierce = 1
-        conf_alt_fs = {
-            'fs1': {
-                'dmg': 0.74,
-                'sp': 500,
-                'charge': 29 / 60.0,
-                'startup': 4 / 60,
-                'recovery': 4 / 60.0,
-                'hit': 3,
-                'pierce': default_pierce
-            },
-            'fs2': {
-                'dmg': 0.84,
-                'sp': 710,
-                'charge': (29+43) / 60.0,
-                'startup': 4 / 60,
-                'recovery': 59 / 60,
-                'hit': 3,
-                'pierce': default_pierce
-            },
-            'fs3': {
-                'dmg': 0.94,
-                'sp': 920,
-                'charge': (29+43*2) / 60.0,
-                'startup': 4 / 60,
-                'recovery': 59 / 60,
-                'hit': 4,
-                'pierce': default_pierce
-            },
-            'fs4': {
-                'dmg': 1.29,
-                'sp': 1140,
-                'charge': (29+43*3) / 60.0,
-                'startup': 4 / 60,
-                'recovery': 59 / 60,
-                'hit': 4,
-                'pierce': default_pierce
-            }
-        }
-        self.conf.update(conf_alt_fs)
-        for n, c in conf_alt_fs.items():
-            act = FS_Speedable(n, self.conf[n])
-            self.s2_spd_boost = act.t_fs_speed
-            self.__dict__['a_'+n] = act
-
-        self.l_fs1 = Listener('fs1',self.l_fs1)
-        self.l_fs2 = Listener('fs2',self.l_fs2)
-        self.l_fs3 = Listener('fs3',self.l_fs3)
-        self.l_fs4 = Listener('fs4',self.l_fs4)
-        self.fs = None
-
-        self.fs_attdown = Debuff('fs', 0.15, 10, 1, 'attack')
-
-    def do_fs(self, e, name):
-        log('cast','fs')
-        self.__dict__['a_'+name].getdoing().cancel_by.append(name)
-        self.__dict__['a_'+name].getdoing().interrupt_by.append(name)
-        self.fs_before(e)
-        fs_hits = 0
-        for p in range(self.conf[name+'.pierce']):
-            # coef = self.conf[name+'.dmg']*(0.3**p)
-            coef_name = 'fs' if p == 0 else 'o_fs_extra_{}'.format(p)
-            for _ in range(self.conf[name+'.hit']):
-                res = self.dmg_make(coef_name, self.conf[name+'.dmg'], 'fs', attenuation=(0.3, p))
-                if not res:
-                    break
-                fs_hits += 1
-            if not res:
-                break
-        self.add_hits(fs_hits)
-        self.fs_proc(e)
-        self.think_pin('fs')
-        self.charge(name,self.conf[name+'.sp'])
-
-    def fs_proc(self, e):
-        self.fs_attdown.on()
-
-    def l_fs1(self, e):
-        self.do_fs(e, 'fs1')
-
-    def fs1(self):
-        doing = self.action.getdoing()
-        return self.a_fs1(doing)
-
-    def l_fs2(self, e):
-        self.do_fs(e, 'fs2')
-
-    def fs2(self):
-        doing = self.action.getdoing()
-        return self.a_fs2(doing)
-
-    def l_fs3(self, e):
-        self.do_fs(e, 'fs3')
-
-    def fs3(self):
-        doing = self.action.getdoing()
-        return self.a_fs3(doing)
-
-    def l_fs4(self, e):
-        self.do_fs(e, 'fs4')
-
-    def fs4(self):
-        doing = self.action.getdoing()
-        return self.a_fs4(doing)
-
     def prerun(self):
-        self.s1_fs_boost = SingleActionBuff('s1', 1.00, 1, 'fs', 'buff', ['fs1','fs2','fs3','fs4'])
+        self.fs_attdown = Debuff('fs', 0.15, 10, 1, 'attack')
+        self.hsari_fs_boost = SingleActionBuff('s1', 1.00, 1, 'fs', 'buff')
+        self.fs_attenuation = 1
+        self.s2_cspd = Spdbuff(f's2_spd',0.30,30, mtype='cspd')
 
     @staticmethod
     def prerun_skillshare(adv, dst):
-        adv.s1_fs_boost = SingleActionBuff(dst, 1.00, 1, 'fs', 'buff', ['fs','fs1','fs2','fs3','fs4'])
+        adv.hsari_fs_boost = SingleActionBuff(dst, 1.00, 1, 'fs', 'buff')
+
+    def fs_proc(self, e):
+        self.fs_attdown.on()
+        self.dmg_make(e.name, fs_damage[e.name]*self.conf[e.name].hit)
+        for p in range(1, self.fs_attenuation):
+            self.dmg_make(f'{e.name}_extra_{p}', fs_damage[e.name]*self.conf[e.name].hit, attenuation=(0.30, p))
 
     def s1_proc(self, e):
-        self.s1_fs_boost.on()
+        self.hsari_fs_boost.on()
 
     def s2_proc(self, e):
-        Event('fs_speed_buff')()
+        self.s2_cspd.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

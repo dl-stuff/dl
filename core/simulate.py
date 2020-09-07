@@ -347,6 +347,7 @@ def act_sum(actions, output):
                 condensed = append_condensed(condensed, p_act)
             p_xseq = xseq
         elif act.startswith('fs') and p_act[0] == 'x':
+            act = act.split('_')[0]
             p_xseq = 0
             condensed = append_condensed(condensed, p_act+act)
         else:

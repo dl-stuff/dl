@@ -6,10 +6,9 @@ from module.x_alt import *
 def module():
     return Luther
 
+luther_fs = {'fs_a':{}}
 class Luther(Adv):
-    a1 = ('cc', 0.15, 'hit15')
-
-    conf = {}
+    conf = luther_fs.copy()
     conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
     conf ['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
@@ -23,12 +22,12 @@ class Luther(Adv):
     conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
-    def fs_proc_alt(self, e):
-        self.afflics.frostbite(e.name,120,0.41)
+    def fs_proc(self, e):
+        e.suffix == 'a' and self.afflics.frostbite(e.name,120,0.41)
 
     def prerun(self):
         conf_fs_alt = {}
-        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
+        self.fs_alt = FSAltBuff(self, 'a', uses=1)
         Timer(self.fs_alt_on_crit, 10, True).on()
 
     def fs_alt_on_crit(self, t):

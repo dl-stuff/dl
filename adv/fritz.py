@@ -1,12 +1,19 @@
 from core.advbase import *
-from module.x_alt import Fs_alt
 from slot.a import *
+from slot.d import *
 
 def module():
     return Fritz
 
+fritz_fs = {
+    'fs_stun': {
+        'dmg': 4.03,
+        'hit': 11
+    }
+}
+
 class Fritz(Adv):
-    conf = {}
+    conf = fritz_fs.copy()
     conf['slots.a'] = Twinfold_Bonds()+The_Red_Impulse()
     conf['acl'] = """
         `dragon
@@ -19,15 +26,15 @@ class Fritz(Adv):
     conf['coabs'] = ['Cleo','Raemond','Peony']
     conf['share'] = ['Kleimann']
 
-    def fs_proc_alt(self, e):
-        self.afflics.stun('fs', 100)
+    def fs_proc(self, e):
+        if e.suffix == 'stun':
+            self.afflics.stun('fs', 100)
 
     def prerun(self):
-        conf_fs_alt = {'fs.dmg': 4.03, 'fs.hit': 11}
-        self.fs_alt = Fs_alt(self, conf_fs_alt, self.fs_proc_alt)
+        self.fs_alt = FSAltBuff(self, 'stun', uses=3)
 
     def s2_proc(self, e):
-        self.fs_alt.on(3)
+        self.fs_alt.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

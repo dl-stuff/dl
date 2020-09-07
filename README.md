@@ -1,7 +1,8 @@
 # dragalia lost sim and analysis
 
 ## Running
-Python 3.7+
+
+Requirements: Python 3.7+, [lark-parser](https://github.com/lark-parser/lark)
 
 ```
 python adv/[someone].py [loglevel(-4,-3,-2,-1,0,1,2)] [teamdps] [mass]

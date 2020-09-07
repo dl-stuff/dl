@@ -1,13 +1,12 @@
 from core.advbase import *
-from module.x_alt import Fs_alt
 
 def module():
     return Vida
 
+conf_fs_alt = {'fs_a.dmg': 2.04, 'fs_a.hit': 6}
 class Vida(Adv):
     comment = 'no s2'
-    a1 = ('fs',0.30)
-    conf = {}
+    conf = conf_fs_alt.copy()
     conf['acl'] = """
         `dragon(c3-s-end), s or fsc
         `s3, not self.s3_buff and x=5
@@ -23,11 +22,10 @@ class Vida(Adv):
             self.conf['share'] = ['Curran']
 
     def prerun(self):
-        conf_fs_alt = {'fs.dmg': 2.04, 'fs.hit': 6}
-        self.fs_alt = Fs_alt(self, conf_fs_alt)
+        self.fs_alt = FSAltBuff(self, 'a', uses=3)
 
     def s2_proc(self, e):
-        self.fs_alt.on(3)
+        self.fs_alt.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

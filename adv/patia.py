@@ -7,9 +7,6 @@ def module():
     return Patia
 
 class Patia(Adv):
-    a1 = ('bt',0.35)
-    a3 = ('primed_crit_chance', 0.10, 5)
-
     conf = {}
     conf['slots.a'] = Proper_Maintenance()+FWHC()
     conf['slots.poison.a'] = conf['slots.a']

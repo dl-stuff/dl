@@ -7,12 +7,6 @@ def _split(k):
 
 
 class Conf(dict):
-    @staticmethod
-    def rebase(conf, pairings):
-        # should use this for dict
-        for base, alt in pairings:
-            conf[alt] = {**conf[base], **conf[alt]}
-        return conf
 
     def __init__(self, conf=None, parent=None):
         self._parent = parent
@@ -72,11 +66,11 @@ class Conf(dict):
         else:
             super().__setitem__(k, v)
 
-    def update(self, other):
+    def update(self, other, rebase=False):
         for k, v in other.items():
             if isinstance(v, dict):
                 try:
-                    self[k].update(v)
+                    self[k].update(v, rebase=rebase)
                 except AttributeError:
                     o_val = self[k]
                     self[k] = Conf(conf=v, parent=self)
@@ -84,7 +78,7 @@ class Conf(dict):
                         self[k]['.'] = o_val
                 except KeyError:
                     self[k] = Conf(conf=v, parent=self)
-            else:
+            elif not (rebase and k in self):
                 self[k] = v
 
     def __add__(self, other):

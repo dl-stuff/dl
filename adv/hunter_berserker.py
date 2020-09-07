@@ -1,12 +1,11 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-from module.x_alt import Fs_alt
 
 def module():
     return Hunter_Berserker
 
-conf_alt_fs = {
+hzerk_fs = {
     'fs1': {
         'dmg': 296 / 100.0,
         'sp': 600,
@@ -35,8 +34,7 @@ conf_alt_fs = {
 
 class Hunter_Berserker(Adv):
     comment = 'needs combo time from chain coability to keep combo & do c1 after s2'
-    a1 = ('fs', 0.30)
-    conf ={}
+    conf = hzerk_fs.copy()
     conf['slots.a'] = The_Lurker_in_the_Woods()+Primal_Crisis()
     conf['slots.d'] = Dreadking_Rathalos()
     conf['acl'] = """
@@ -61,9 +59,6 @@ class Hunter_Berserker(Adv):
         self.a3_crit = Modifier('a3', 'crit', 'chance', 0)
         self.a3_crit.get = self.a3_crit_get
         self.a3_crit.on()
-
-        self.fs_alt = Fs_alt(self, conf_alt_fs)
-        self.fs_alt.on(-1)
 
     @staticmethod
     def prerun_skillshare(adv, dst):

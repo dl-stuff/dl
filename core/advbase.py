@@ -167,12 +167,14 @@ class Action(object):
         self.idle_event = Event('idle')
         self.act_event = Event(self.name)
 
+        self.enabled = True
+
         # ?????
         # self.rt_name = self.name
         # self.tap, self.o_tap = self.rt_tap, self.tap
 
     def __call__(self):
-        return self.tap()
+        return self.enabled and self.tap()
 
     def getdoing(self):
         return self._static.doing
@@ -309,15 +311,18 @@ class Fs(Action):
         super().__init__(name, conf, act)
         self.act_event = Event('fs')
         self.act_event.name = self.name
-        try:
-            parts = name.split('_')
+        self.act_event.base = self.name
+        self.act_event.suffix = None
+        self.act_event.level = 0
+        parts = name.split('_')
+        if len(parts) >= 2:
             self.act_event.base = parts[0]
-            self.act_event.level = int(parts[0][2:])
-            self.act_event.suffix = None if len(parts) == 1 else parts[1]
-        except (IndexError, ValueError):
-            self.act_event.base = 'fs'
-            self.act_event.level = 0
-            self.act_event.suffix = None
+            self.act_event.suffix = parts[1]
+        if len(parts[0]) > 2:
+            try:
+                self.act_event.level = int(parts[0][2:])
+            except ValueError:
+                pass
         self.atype = 'fs'
         self.interrupt_by = ['s']
         self.cancel_by = ['s', 'dodge']
@@ -339,6 +344,13 @@ class Fs_group(object):
         self.actions = {'default': Fs(name, self.conf, act)}
         for xn, xnconf in conf.find(r'x\d'):
             self.actions[xn] = Fs(name, self.conf+xnconf, act)
+        if conf['s']:
+            fs_s = Fs(name, self.conf+conf['s'], act)
+            for n in range(1, 5):
+                sn = f's{n}'
+                self.actions[sn] = fs_s
+        if conf['dodge']:
+            self.actions['dodge'] = Fs(name, self.conf+conf['dodge'], act)
 
     def __call__(self, before):
         try:
@@ -539,8 +551,16 @@ class Adv(object):
             setattr(self, xn, X((xn, n), self.conf[xn]))
 
         self.a_fs_dict = {}
-        for name, fs_conf in self.conf.find(r'fs\d*'):
+        for name, fs_conf in self.conf.find(r'^fs\d*(_[A-Za-z]+)?$'):
+            try:
+                base = name.split('_')[0]
+                if name != base:
+                    fs_conf.update(self.conf[base], rebase=True)
+            except KeyError:
+                pass
             self.a_fs_dict[name] = Fs_group(name, fs_conf)
+        if 'fs1' in self.a_fs_dict:
+            self.a_fs_dict['fs'].enabled = False
         self.alt_fs = None
 
         self.a_fsf = Fs('fsf', self.conf.fsf)
@@ -967,8 +987,10 @@ class Adv(object):
         if self.alt_fs is not None:
             fsn += '_' + self.alt_fs
         try:
-            doing = self.action.getdoing()
-            return self.a_fs_dict[fsn](doing.name)
+            before = self.action.getdoing()
+            if before.status == Action.STARTUP:
+                before = self.action.getprev()
+            return self.a_fs_dict[fsn](before.name)
         except KeyError:
             raise ValueError(f'{fsn} is not an FS')
 
@@ -980,6 +1002,16 @@ class Adv(object):
                 x_next = prev.index + 1
         return getattr(self, 'x%d' % x_next)()
 
+    def get_missile_iv(self, name):
+        if self.conf['missile_iv']:
+            return self.conf.missile_iv
+        else:
+            try:
+                return self.conf[name]['iv']
+            except KeyError:
+                return 0
+
+
     def l_range_x(self, e):
         xseq = e.name
         if xseq == f'x{self.conf.x_max}':
@@ -987,11 +1019,7 @@ class Adv(object):
         else:
             log('x', xseq, 0)
         self.x_before(e)
-        try:
-            missile_iv = self.conf[f'missile_iv.{xseq}']
-        except KeyError:
-            missile_iv = 0
-        missile_timer = Timer(self.cb_missile, missile_iv)
+        missile_timer = Timer(self.cb_missile, self.get_missile_iv(e.name))
         # missile_timer.dname = '%s_missile' % xseq
         missile_timer.dname = xseq
         missile_timer.conf = self.conf[xseq]
@@ -1242,7 +1270,7 @@ class Adv(object):
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
         def cb_think(t):
-            if loglevel >= 2:
+            if loglevel >= 0:
                 log('think', t.pin, t.dname, t.dstat, t.didx)
             # self._acl.run(t)
             self._acl(t)
@@ -1374,7 +1402,7 @@ class Adv(object):
         log('cast', e.name)
         getattr(self, f'{e.name}_before', self.fs_before)(e)
         fs_conf = self.conf[e.name] or self.conf['fs']
-        missile_timer = Timer(self.cb_missile, self.conf['missile_iv']['fs'])
+        missile_timer = Timer(self.cb_missile, self.get_missile_iv(e.name))
         missile_timer.dname = e.name
         # missile_timer.dname = 'fs_missile'
         missile_timer.conf = fs_conf

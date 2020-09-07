@@ -13,15 +13,13 @@ fs_my_dude = {
     'fs.recovery': 0.033367, 
     'fs.hit': 0,
 
-    'x1fs.charge': 32 / 60.0, # 2 delay + fs
-    'x2fs.charge': 37 / 60.0, # 7 delay + fs
+    'fs.x1.charge': 32 / 60.0, # 2 delay + fs
+    'fs.x2.charge': 37 / 60.0, # 7 delay + fs
 
     'fsf.charge': 0.5
 }
 
 class Summer_Mikoto(Adv):
-    a3 = [('cc_paralysis',0.20), ('cd_paralysis',0.15)]
-
     conf = fs_my_dude.copy()
     conf['slots.a'] = Forest_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
