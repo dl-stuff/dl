@@ -7,17 +7,18 @@ def module():
 
 class Veronica(Adv):
     comment = 'last destruction team DPS not considered'
-    a3 = [('prep',1.00), ('scharge_all', 0.05)]
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
-    conf['slots.poison.a'] = Candy_Couriers()+Primal_Crisis()
+    conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
-        `dragon.act("c3 s end"), ((self.hp>0 and s) or (self.hp=0 and x=5)) and (self.trickery <= 1 or not self.sim_afflict)
-        `s3, not self.s3_buff
+        `dragon.act(c3-s-end), ((self.hp>0 and s) or (self.hp=0 and x=5))
+        queue prep and not self.s3_buff
+        `s3;s4;s2;s1
+        end
         `s1
         `s4
         """
-    conf['coabs'] = ['Ieyasu','Curran','Summer_Patia']
+    conf['coabs'] = ['Berserker','Curran','Summer_Patia']
     conf['share'] = ['Kleimann']
 
     def d_coabs(self):

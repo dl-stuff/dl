@@ -10,16 +10,15 @@ class Ramona(Adv):
     a3 = ('bc',0.13)
     conf = {}
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
-    conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
-        `dragon,s=1
+        `dragon.act(c3-s-s-end),s=1 and not s4.check()
         `s3, not self.s3_buff
         `s2, s1.check()
-        `s4
+        `s4, s=1
         `s1
         """
-    conf['coabs'] = ['Blade', 'Wand', 'Marth']
-    conf['share'] = ['Kleimann']
+    conf['coabs'] = ['Gala_Sarisse', 'Wand', 'Marth']
+    conf['share'] = ['Summer_Cleo']
 
     def prerun(self):
         self.a_s1 = self.s1.ac
