@@ -7,7 +7,7 @@ def module():
     return Bellina
 
 # 2x crisis mods on autos and fs
-dragondrive_auto_conf = {
+renegade_queen = {
     'x1.dmg': 189 / 100.0,
     'x1.sp': 290,
     'x1.utp': 180,
@@ -28,9 +28,7 @@ dragondrive_auto_conf = {
     'x3.startup': 40 / 60.0,
     'x3.recovery': 40 / 60.0,
     'x3.hit': 1,
-}
 
-dragondrive_fs_conf = {
     'fs.dmg': 0 / 100.0,
     'fs.sp': 360,
     'fs.utp': 900,

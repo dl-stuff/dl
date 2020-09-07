@@ -34,7 +34,7 @@ class Radiant_Xuan_Zang(Adv):
     conf['afflict_res.paralysis'] = 0
 
     def fs_proc(self, e):
-        if e.suffix == 'xihe':
+        if e.group == 'xihe':
             self.afflics.paralysis.res_modifier = 0.20
             Timer(self.paralysis_rate_reset).on(20)
 

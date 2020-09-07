@@ -38,7 +38,7 @@ class Gala_Cleo(Adv):
     conf['share'] = ['Curran']
 
     def fs_proc(self, e):
-        if e.suffix == 'zone' and self.a1_buffed:
+        if e.group == 'zone' and self.a1_buffed:
             Teambuff('a1_str',0.25,10).zone().on()
 
     def prerun(self):

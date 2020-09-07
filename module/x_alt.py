@@ -105,6 +105,7 @@ class Fs_alt:
 
 class X_alt:
     def __init__(self, adv, name, conf, x_proc=None, no_fs=False, no_dodge=False):
+        raise RuntimeError('boop')
         self.conf = Conf(conf)
         self.adv = adv
         self.name = name

@@ -27,7 +27,7 @@ class Fritz(Adv):
     conf['share'] = ['Kleimann']
 
     def fs_proc(self, e):
-        if e.suffix == 'stun':
+        if e.group == 'stun':
             self.afflics.stun('fs', 100)
 
     def prerun(self):

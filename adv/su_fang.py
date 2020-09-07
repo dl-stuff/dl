@@ -21,7 +21,7 @@ class Su_Fang(Adv):
     conf['share'] = ['Curran']
 
     def fs_proc(self, e):
-        if e.suffix == 'a':
+        if e.group == 'a':
             self.afflics.poison('fs', 120, 0.582)
 
     def prerun(self):

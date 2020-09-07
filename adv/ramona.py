@@ -6,12 +6,10 @@ def module():
     return Ramona
 
 class Ramona(Adv):
-    a1 = ('primed_att',0.10)
-    a3 = ('bc',0.13)
     conf = {}
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
     conf['acl'] = """
-        `dragon.act(c3-s-s-end),s=1 and not s4.check()
+        `dragon(c3-s-s-end),s=1 and not s4.check()
         `s3, not self.s3_buff
         `s2, s1.check()
         `s4, s=1

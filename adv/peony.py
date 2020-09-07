@@ -33,7 +33,7 @@ class Peony(Adv):
     conf['afflict_res.paralysis'] = 0
 
     def fs_proc(self, e):
-        if e.suffix == 'dream':
+        if e.group == 'dream':
             self.fs_buffs.on()
             self.a1_is_cd = True
             self.a1_cd_timer.on(20)

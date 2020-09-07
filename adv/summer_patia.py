@@ -79,7 +79,7 @@ class Summer_Patia(Adv):
         self.afflics.poison(e.name,120,0.582)
 
     def fs_proc(self, e):
-        e.suffix and self.afflics.poison(e.name, 110, 0.436)
+        e.group and self.afflics.poison(e.name, 110, 0.436)
 
 
 if __name__ == '__main__':

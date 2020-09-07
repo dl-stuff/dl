@@ -22,20 +22,15 @@ class Vice(Adv):
     conf['share'] = ['Curran']
 
     def fs_proc(self, e):
-        if e.suffix == 'a':
+        if e.group == 'a':
             self.afflics.poison('fs', 120, 0.582)
 
     def prerun(self):
         self.fs_alt = FSAltBuff(self, 'a', uses=1)
 
-    def s1_proc(self, e):
-        with KillerModifier('s1_killer', 'hit', 0.5, ['poison']):
-            self.dmg_make(e.name, 15.84)
-
     def s2_proc(self, e):
         self.fs_alt.on()
-        with KillerModifier('s2_killer', 'hit', 0.5, ['poison']):
-            self.dmg_make(e.name, 16.77)
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

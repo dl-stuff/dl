@@ -5,8 +5,6 @@ def module():
     return Xania
 
 class Xania(Adv):
-    a1 = ('s',0.35)
-
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Me_and_My_Bestie()
     conf['acl'] = """

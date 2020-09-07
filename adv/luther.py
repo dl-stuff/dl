@@ -23,7 +23,7 @@ class Luther(Adv):
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def fs_proc(self, e):
-        e.suffix == 'a' and self.afflics.frostbite(e.name,120,0.41)
+        e.group == 'a' and self.afflics.frostbite(e.name,120,0.41)
 
     def prerun(self):
         conf_fs_alt = {}

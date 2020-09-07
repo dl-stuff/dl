@@ -243,7 +243,7 @@ class Gaibhne_and_Creidhne(DragonBase):
     def ds_proc(self):
         from core.timeline import Timer
         def autocharge(t):
-            self.adv.charge_p('ds', 0.091)
+            self.adv.charge_p('ds', 0.091, no_autocharge=True)
         charge = Timer(autocharge, 0.9, True).on()
         def autocharge_off(t):
             charge.off()

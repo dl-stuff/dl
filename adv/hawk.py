@@ -31,7 +31,7 @@ class Hawk(Adv):
     conf['afflict_res.poison'] = 0
     
     def fs_proc(self, e):
-        if e.suffix == 'a':
+        if e.group == 'a':
             self.afflics.stun(e.name, 110)
             self.afflics.poison(e.name, 120, 0.582)
 

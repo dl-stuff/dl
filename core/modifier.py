@@ -111,6 +111,7 @@ class KillerModifier(Modifier):
 
         for kcondition in self.killer_condition:
             self._static.all_modifiers[f"{kcondition}_killer"][self.mod_order].append(modifier)
+
         self._mod_active = 1
         return self
 
@@ -357,7 +358,7 @@ class FSAltBuff(Buff):
         self.adv = adv
         self.fs_name = fs_name
         pattern = r'^fs\d+$' if fs_name is None else f'^fs\d*_{fs_name}$'
-        self.prev_fs = self.adv.alt_fs
+        self.prev_fs = self.adv.current_fs
         self.fs_list = [fsn for fsn, _ in adv.conf.find(pattern)]
         if not self.fs_list:
             if fs_name is None:
@@ -377,13 +378,12 @@ class FSAltBuff(Buff):
     def effect_on(self):
         log('debug', f'fs {self.fs_name} on', self.uses)
         self.enable_fs(True)
-        self.prev_fs = self.adv.alt_fs
-        self.adv.alt_fs = self.fs_name
+        self.adv.current_fs = self.fs_name
 
     def effect_off(self):
         log('debug', f'fs {self.fs_name} off', self.uses)
         self.enable_fs(False)
-        self.adv.alt_fs = self.prev_fs
+        self.adv.current_fs = self.prev_fs
 
     def on(self, duration=None):
         self.uses = self.base_uses
@@ -559,3 +559,11 @@ class MultiBuffManager:
         for b in self.buffs:
             b.add_time(delta)
         return self
+
+
+class ActiveBuffDict(dict):
+    def __call__(self, k):
+        try:
+            return self[k].get()
+        except KeyError:
+            return False

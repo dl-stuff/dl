@@ -289,13 +289,21 @@ class Action(object):
 
 class X(Action):
     def __init__(self, name, conf, act=None):
-        super().__init__(name, conf, act)
+        parts = name.split('_')
+        index = int(parts[0][1:])
+        super().__init__((name, index), conf, act)
+        self.base = parts[0]
+        self.group = 'default' if len(parts) == 1 else parts[1]
         self.atype = 'x'
         self.interrupt_by = ['fs', 's', 'dodge']
         self.cancel_by = ['fs', 's', 'dodge']
 
         self.act_event = Event('x')
         self.act_event.name = self.name
+        self.act_event.base = self.base
+        self.act_event.index = self.index
+        self.act_event.group = self.group
+
         self.rt_name = self.name
         self.tap, self.o_tap = self.rt_tap, self.tap
 
@@ -311,15 +319,14 @@ class X(Action):
 class Fs(Action):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
+        parts = name.split('_')
         self.act_event = Event('fs')
         self.act_event.name = self.name
-        self.act_event.base = self.name
-        self.act_event.suffix = None
+        self.act_event.base = parts[0]
+        self.act_event.group = 'default'
         self.act_event.level = 0
-        parts = name.split('_')
         if len(parts) >= 2:
-            self.act_event.base = parts[0]
-            self.act_event.suffix = parts[1]
+            self.act_event.group = parts[1]
         if len(parts[0]) > 2:
             try:
                 self.act_event.level = int(parts[0][2:])
@@ -342,6 +349,7 @@ class Fs(Action):
 
 class Fs_group(object):
     def __init__(self, name, conf, act=None):
+        self.enabled = True
         self.conf = conf
         self.actions = {'default': Fs(name, self.conf, act)}
         for xn, xnconf in conf.find(r'x\d'):
@@ -503,7 +511,7 @@ class Adv(object):
     # ^^^^^^^^^ rewrite these to provide advanced tweak ^^^^^^^^^^
 
     comment = ''
-    conf = None
+    conf = {}
     a1 = None
     a2 = None
     a3 = None
@@ -518,8 +526,6 @@ class Adv(object):
         'latency.sp': 0,
         'latency.default': 0,
         'latency.idle': 0,
-
-        'x_max': 5,
 
         's1': skill_default,
         's2': skill_default,
@@ -536,11 +542,12 @@ class Adv(object):
         self.action._static.spd_func = self.speed
         self.action._static.c_spd_func = self.c_speed
         # set buff
-        self.buff = Buff()
+        self.base_buff = Buff()
         self.all_buffs = []
-        self.buff._static.all_buffs = self.all_buffs
-        self.buff._static.bufftime = lambda: self.mod('buff')
-        self.buff._static.debufftime = lambda: self.mod('debuff')
+        self.base_buff._static.all_buffs = self.all_buffs
+        self.base_buff._static.bufftime = lambda: self.mod('buff')
+        self.base_buff._static.debufftime = lambda: self.mod('debuff')
+        self.buff = ActiveBuffDict()
         # set modifier
         self.modifier = Modifier(0, 0, 0, 0)
         self.all_modifiers = ModifierDict()
@@ -548,10 +555,17 @@ class Adv(object):
         self.modifier._static.g_condition = self.condition
 
         # init actions
-        self.a_x_dict = {}
+        self.a_x_dict = defaultdict(lambda: {})
         for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z]+)?$'):
-            n = int(xn[1:])
-            setattr(self, xn, X((xn, n), self.conf[xn]))
+            a_x = X(xn, self.conf[xn])
+            if xn != a_x.base:
+                a_x.conf.update(self.conf[base], rebase=True)
+            self.a_x_dict[a_x.group][a_x.index] = a_x
+        self.a_x_dict = dict(self.a_x_dict)
+        for group, actions in self.a_x_dict.items():
+            self.conf[f'{group}.x_max'] = max(actions.keys())
+        self.current_x = 'default'
+        self.next_x_queued = None
 
         self.a_fs_dict = {}
         for name, fs_conf in self.conf.find(r'^fs\d*(_[A-Za-z]+)?$'):
@@ -564,7 +578,7 @@ class Adv(object):
             self.a_fs_dict[name] = Fs_group(name, fs_conf)
         if 'fs1' in self.a_fs_dict:
             self.a_fs_dict['fs'].enabled = False
-        self.alt_fs = None
+        self.current_fs = None
 
         self.a_fsf = Fs('fsf', self.conf.fsf)
         self.a_fsf.act_event = Event('none')
@@ -945,7 +959,7 @@ class Adv(object):
 
     def sp_val(self, param):
         if isinstance(param, str):
-            return self.sp_convert(self.sp_mod(param), self.conf[param + '.sp'])
+            return self.sp_convert(self.sp_mod(param), self.conf[param].sp)
         elif isinstance(param, int) and 0 < param:
             return sum([self.sp_convert(self.sp_mod('x{}'.format(x)), self.conf['x{}.sp'.format(x)]) for x in range(1, param + 1)])
 
@@ -987,8 +1001,8 @@ class Adv(object):
 
     def fs(self, n=None):
         fsn = 'fs' if n is None else f'fs{n}'
-        if self.alt_fs is not None:
-            fsn += '_' + self.alt_fs
+        if self.current_fs is not None:
+            fsn += '_' + self.current_fs
         try:
             before = self.action.getdoing()
             if before.status == Action.STARTUP:
@@ -1001,11 +1015,19 @@ class Adv(object):
 
     def x(self):
         prev = self.action.getprev()
-        x_next = 1
-        if prev.name[0] == 'x':
-            if prev.index != self.conf.x_max:
-                x_next = prev.index + 1
-        return getattr(self, 'x%d' % x_next)()
+        if isinstance(prev, X) and prev.group == self.current_x:
+            if prev.index < self.conf[prev.group].x_max:
+                x_next = self.a_x_dict[self.current_x][prev.index+1]
+            else:
+                x_next = self.a_x_dict[self.current_x][1]
+            if self.next_x_queued is not None:
+                self.current_x = self.next_x_queued
+                self.next_x_queued = None
+            if x_next.enabled:
+                return x_next()
+            else:
+                self.current_x = 'default'
+        return self.a_x_dict[self.current_x][1]()
 
     def get_missile_iv(self, name):
         if self.conf['missile_iv']:
@@ -1018,19 +1040,17 @@ class Adv(object):
 
 
     def l_range_x(self, e):
-        xseq = e.name
-        if xseq == f'x{self.conf.x_max}':
-            log('x', xseq, 0, f'-------------------------------------c{self.conf.x_max}')
+        # FIXME: race condition?
+        x_max = self.conf[self.current_x].x_max
+        if e.index == x_max:
+            log('x', e.name, 0, '-'*38 + f'c{x_max}')
         else:
-            log('x', xseq, 0)
-        self.x_before(e)
-        missile_timer = Timer(self.cb_missile, self.get_missile_iv(e.name))
-        # missile_timer.dname = '%s_missile' % xseq
-        missile_timer.dname = xseq
-        missile_timer.conf = self.conf[xseq]
-        missile_timer()
-        self.x_proc(e)
-        self.think_pin('x')
+            log('x', e.name, 0)
+        self.hit_make(
+            e, self.conf[e.name],
+            self.x_before, self.x_proc,
+            pin='x', missile=self.get_missile_iv(e.name)
+        )
 
     def cb_missile(self, t):
         self.add_hits(t.conf['hit'])
@@ -1038,20 +1058,17 @@ class Adv(object):
         self.charge(t.dname, t.conf.sp)
 
     def l_melee_x(self, e):
-        xseq = e.name
-        dmg_coef = self.conf[xseq].dmg
-        sp = self.conf[xseq].sp
-        hit = self.conf[xseq].hit
-        if xseq == f'x{self.conf.x_max}':
-            log('x', xseq, 0, f'-------------------------------------c{self.conf.x_max}')
+        # FIXME: race condition?
+        x_max = self.conf[self.current_x].x_max
+        if e.index == x_max:
+            log('x', e.name, 0, '-'*38 + f'c{x_max}')
         else:
-            log('x', xseq, 0)
-        self.x_before(e)
-        self.add_hits(hit)
-        self.dmg_make(xseq, dmg_coef)
-        self.x_proc(e)
-        self.think_pin('x')
-        self.charge(xseq, sp)
+            log('x', e.name, 0)
+        self.hit_make(
+            e, self.conf[e.name],
+            self.x_before, self.x_proc,
+            pin='x'
+        )
 
     def dodge(self):
         return self.a_dodge()
@@ -1310,28 +1327,23 @@ class Adv(object):
         sp_int = int(sp_hasted)
         return sp_int if sp_int == sp_hasted else sp_int + 1
 
-    def charge_p(self, name, percent, target=None):
+    def charge_p(self, name, percent, target=None, no_autocharge=False):
         percent = percent / 100 if percent > 1 else percent
-        if not target:
-            for s in self.skills:
-                s.charge(self.sp_convert(percent, s.sp))
-        else:
-            try:
-                skill = self.__dict__[target]
-                if hasattr(skill, 'autocharge_timer'):
-                    return
-                skill.charge(self.sp_convert(percent, skill.sp))
-            except:
-                return
+        target = target or self.skills
+        for s in target:
+            if no_autocharge and hasattr(s, 'autocharge_timer'):
+                continue
+            s.charge(self.sp_convert(percent, s.sp))
         log('sp', name, f'{percent*100:.0f}%', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
         if percent == 1:
             self.think_pin('prep')
 
-    def charge(self, name, sp):
+    def charge(self, name, sp, target=None):
         # sp should be integer
         sp = self.sp_convert(self.sp_mod(name), sp)
-        for s in self.skills:
+        target = target or self.skills
+        for s in target:
             s.charge(sp)
         self.think_pin('sp')
         log('sp', name, sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
@@ -1393,54 +1405,95 @@ class Adv(object):
             count += echo_count
         return count
 
+    def hitattr_make(self, name, attr):
+        if 'dmg' in attr:
+            hitmods = []
+            if 'killer' in attr:
+                hitmods.append(KillerModifier(f'{name}_killer', 'hit', *attr['killer']))
+            if 'crisis' in attr:
+                hitmods.append(CrisisModifier(f'{name}_crisis', attr['crisis'], self.hp))
+            for m in hitmods:
+                m.on()
+            self.dmg_make(name, attr['dmg'])
+            for m in hitmods:
+                m.off()
+            self.add_hits(1)
+
+        if 'sp' in attr:
+            value = attr['sp'][0]
+            mode = None if len(attr['sp']) == 1 else attr['sp'][1]
+            target = None if len(attr['sp']) == 2 else attr['sp'][2]
+            charge_f = self.charge_p
+            if mode == '%':
+                charge_f = self.charge_p
+            else:
+                charge_f = self.charge
+            charge_f(name, value, target=target)
+
+        if 'afflic' in attr:
+            aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
+            getattr(self.afflics, aff_type)(name, *aff_args)
+
+        if 'buff' in attr:
+            self.buff[name] = self.make_buff(name, buffarg)
+            self.buff[name].on()
+            
+    def l_hitattr_make(self, t):
+        self.hitattr_make(t.name, t.attr)
+
+    def hit_make(self, e, conf, before, proc, pin=None, missile=None):
+        before(e)
+        if conf['attr']:
+            if missile is not None:
+                for attr in conf['attr']:
+                    mt = Timer(self.l_hitattr_make)
+                    mt.name = e.base
+                    mt.attr = conf['attr']
+                    mt.on(missile)
+            else:
+                for attr in conf['attr']:
+                    self.hitattr_make(e.base, attr)
+        else:
+            # old dmg/hit/sp system
+            if missile is not None:
+                mt = Timer(self.cb_missile)
+                mt.dname = e.base
+                mt.conf = conf
+                mt.on(missile)
+            else:
+                self.add_hits(conf['hit'])
+                self.dmg_make(e.base, conf.dmg)
+                if e.name.startswith('x') or e.name.startswith('fs'):
+                    self.charge(e.name, conf.sp)
+        proc(e)
+        self.think_pin(pin or e.name)
+
     def l_melee_fs(self, e):
         log('cast', e.name)
-        fs_conf = self.conf[e.name] or self.conf['fs']
-        getattr(self, f'{e.name}_before', self.fs_before)(e)
-        self.add_hits(fs_conf['hit'])
-        self.dmg_make(e.base, fs_conf.dmg)
-        getattr(self, f'{e.name}_proc', self.fs_proc)(e)
-        self.think_pin(e.name)
-        self.charge(e.name, fs_conf.sp)
+        self.hit_make(
+            e, self.conf[e.name] or self.conf['fs'],
+            getattr(self, f'{e.name}_before', self.fs_before),
+            getattr(self, f'{e.name}_proc', self.fs_proc)
+        )
 
     def l_range_fs(self, e):
         log('cast', e.name)
-        getattr(self, f'{e.name}_before', self.fs_before)(e)
-        fs_conf = self.conf[e.name] or self.conf['fs']
-        missile_timer = Timer(self.cb_missile, self.get_missile_iv(e.name))
-        missile_timer.dname = e.name
-        # missile_timer.dname = 'fs_missile'
-        missile_timer.conf = fs_conf
-        missile_timer()
-        getattr(self, f'{e.name}_proc', self.fs_proc)(e)
-        self.think_pin(e.name)
+        self.hit_make(
+            e, self.conf[e.name] or self.conf['fs'],
+            getattr(self, f'{e.name}_before', self.fs_before),
+            getattr(self, f'{e.name}_proc', self.fs_proc),
+            missile=self.get_missile_iv(e.name)
+        )
 
-    def l_s(self, e):
-        if e.name == 'ds':
-            return
-
+    def old_s_buff(self, e):
         s_conf = self.conf[e.name]
-        self.add_hits(s_conf['hit'])
-
-        prev = self.action.getprev().name
-        log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
-
-        dmg_coef = s_conf['dmg']
-        func = e.name + '_before'
-        tmp = getattr(self, func)(e)
-        self.s_before(e)
-        if tmp != None:
-            dmg_coef = tmp
-        if dmg_coef:
-            self.dmg_make(e.name, dmg_coef)
-
         if s_conf['buff'] is not None:
             buffarg = s_conf['buff']
             if e.name == 's3' and self.s3.owner is None:
                 if len(self.s3_buff_list) == 0:
                     for ba in buffarg:
                         if ba is not None:
-                            buff = self.do_buff(e, ba)
+                            buff = self.make_buff(e.name, ba)
                             self.s3_buff_list.append(buff)
                         else:
                             self.s3_buff_list.append(None)
@@ -1455,14 +1508,32 @@ class Adv(object):
                     except:
                         self.s3_buff = None
             else:
-                self.do_buff(e, buffarg).on()
+                self.make_buff(e.name, buffarg).on()
 
-        func = e.name + '_proc'
-        getattr(self, func)(e)
+    def s_before_group(self, e):
+        self.s_before(e)
+        getattr(self, f'{e.name}_before')(e)
+
+    def s_proc_group(self, e):
+        self.old_s_buff(e)
+        getattr(self, f'{e.name}_proc')(e)
         self.s_proc(e)
 
-    @staticmethod
-    def do_buff(e, buffarg):
+    def l_s(self, e):
+        if e.name == 'ds':
+            return
+
+        prev = self.action.getprev().name
+        log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
+
+        e.base = e.name # FIXME
+        self.hit_make(
+            e, self.conf[e.name] or self.conf['fs'],
+            self.s_before_group,
+            self.s_proc_group
+        )
+
+    def make_buff(self, name, buffarg):
         if not isinstance(buffarg[0], tuple):
             buffarg = [buffarg]
         buffs = []
@@ -1470,15 +1541,15 @@ class Adv(object):
             wide = ba[0]
             ba = ba[1:]
             if wide == 'team':
-                buff = Teambuff(e.name, *ba)
+                buff = Teambuff(name, *ba)
             elif wide == 'self':
-                buff = Selfbuff(e.name, *ba)
+                buff = Selfbuff(name, *ba)
             elif wide == 'debuff':
-                buff = Debuff(e.name, *ba)
+                buff = Debuff(name, *ba)
             elif wide == 'spd':
-                buff = Spdbuff(e.name, *ba)
+                buff = Spdbuff(name, *ba)
             else:
-                buff = Buff(e.name, *ba)
+                buff = Buff(name, *ba)
             buffs.append(buff)
         if len(buffs) > 1:
             return MultiBuffManager(buffs)

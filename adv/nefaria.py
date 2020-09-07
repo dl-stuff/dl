@@ -31,7 +31,7 @@ class Nefaria(Adv):
     conf['afflict_res.poison'] = 0
 
     def fs_proc(self, e):
-        if e.suffix == 'blind':
+        if e.group == 'blind':
             self.afflics.blind('s2_fs', 110)
     
     def prerun(self):

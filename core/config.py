@@ -112,7 +112,8 @@ if __name__ == '__main__':
     }
     t2 = {
         'x1.sp': 293,
-        'coabs.paralysis': ['Halloween_Mym', 'Dagger2', 'Sharena']
+        'coabs.paralysis': ['Halloween_Mym', 'Dagger2', 'Sharena'],
+        None: 333
     }
     conf1 = Conf(t1)
     conf2 = Conf(t2)

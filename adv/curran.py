@@ -6,9 +6,6 @@ def module():
     return Curran
 
 class Curran(Adv):
-    a1 = ('od',0.15)
-    a3 = ('lo',0.6)
-
     conf = {}
     conf['slots.a'] = Summer_Paladyns()+The_Plaguebringer()
     conf['slots.poison.a'] = conf['slots.a']
@@ -35,8 +32,9 @@ class Curran(Adv):
             self.dmg_make(e.name, 12.70)
 
     def s2_proc(self, e):
-        with Modifier('s2killer', 'poison_killer', 'hit', 1):
+        with KillerModifier('s2_killer', 'hit', 1, ['poison']):
             self.dmg_make(e.name, 12.54)
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
