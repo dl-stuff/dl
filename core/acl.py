@@ -13,8 +13,10 @@ from lark.visitors import Visitor, Interpreter, v_args
 from core.timeline import now
 from core.log import log
 
-
-lark_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'acl.lark')
+froot = os.path.dirname(os.path.realpath('__file__'))
+lark_file = os.path.join(froot, 'acl.lark')
+if not os.path.exists(lark_file):
+    lark_file = os.path.join(froot, 'core', 'acl.lark')
 with open(lark_file) as f:
     PARSER = Lark(
         f.read(),
@@ -82,7 +84,7 @@ class AclInterpreter(Interpreter):
         self._adv = adv
         self._inst = self._adv
         self._queue = deque()
-        
+
     def __call__(self, e):
         self._e = e
         self._inst = self._adv

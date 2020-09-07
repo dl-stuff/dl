@@ -7,9 +7,11 @@ from core import Conf
 import wep
 import conf.halidom
 
-
 def load_json(fn):
-    fpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), fn)
+    froot = os.path.dirname(os.path.realpath('__file__'))
+    fpath = os.path.join(froot, fn)
+    if not os.path.exists(fpath):
+        fpath = os.path.join(froot, 'conf', fn)
     with open(fpath, 'r', encoding='utf8') as f:
         return json.load(f, parse_float=float, parse_int=int)
 
