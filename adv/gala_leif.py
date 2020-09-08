@@ -119,7 +119,7 @@ class Gala_Leif(Adv):
         return False
 
     def update_stance(self):
-        if self.hits >= 5 and self.next_stance is not None and not self.skill._static.silence:
+        if self.hits >= 5 and self.next_stance is not None and not self.Skill._static.silence:
             curr_stance = self.stance_dict[self.stance]
             next_stance = self.stance_dict[self.next_stance]
             next_stance.switch(curr_stance)

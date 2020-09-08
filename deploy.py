@@ -146,7 +146,7 @@ if __name__ == '__main__':
 
     sim_targets = arguments
 
-    if 'all' in sim_targets:
+    if sanity_test or 'all' in sim_targets:
         list_files = ADV_LIST_FILES
     elif 'quick' in sim_targets:
         list_files = QUICK_LIST_FILES

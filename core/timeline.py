@@ -107,9 +107,9 @@ class Listener(object):
             return 
         if type(self.__eventname) == list or type(self.__eventname) == tuple:
             for i in self.__eventname:
-                remove_event_listener(i)
+                remove_event_listener(i, self.__cb)
         else:
-            remove_event_listener(self.__eventname)
+            remove_event_listener(self.__eventname, self.__cb)
         self.__online = 0
         return self
 

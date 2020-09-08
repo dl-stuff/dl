@@ -253,7 +253,7 @@ class Mitsuba(Adv):
 
     def queue_stance(self, stance):
         # assume you can swap stance instantly instead of on next auto, to simplify acl
-        if self.stance != stance and self.next_stance != stance and not self.skill._static.silence:
+        if self.stance != stance and self.next_stance != stance and not self.Skill._static.silence:
             log('stance', stance, 'queued')
             self.next_stance = stance
             self.update_stance()
@@ -289,11 +289,9 @@ class Mitsuba(Adv):
     # def tempura(self):
     #     return self.queue_stance('tempura')
 
-    def s1_cast(self, stance='tempura'):
+    def s(self, n, stance='tempura'):
         self.queue_stance(stance)
-
-    def s2_cast(self, stance='tempura'):
-        self.queue_stance(stance)
+        return super().s(n)
 
     def s1_proc(self, e):
         coef = self.s1_mod[self.stance]

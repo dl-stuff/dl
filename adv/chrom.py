@@ -50,7 +50,7 @@ class Chrom(Adv):
         del self.slots.c.coabs['Sword']
 
     def prerun(self):
-        self.s2 = Skill_Reservoir('s2', self.conf.s2)
+        self.set_sn('s2', Skill_Reservoir('s2', self.conf.s2))
         self.s2.flames = 0
         self.s2_woke = False
 

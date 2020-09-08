@@ -379,7 +379,7 @@ class FSAltBuff(ModeAltBuff):
 
     def enable_fs(self, enabled):
         for fsn in self.fs_list:
-            self.adv.a_fs_dict[fsn].enabled = enabled
+            self.adv.a_fs_dict[fsn].set_enabled(enabled)
 
     def effect_on(self):
         log('debug', f'fs-{self.group} on', self.uses)
@@ -459,12 +459,12 @@ class SAltBuff(ModeAltBuff):
 
     def l_extend_time(self, e):
         if self.get() and e.base == self.base and e.group == self.group:
-            skill = self.adv._sn(self.base)
+            skill = self.adv.get_sn(self.base)
             self.add_time(skill.ac.getstartup() + skill.ac.getrecovery())
 
     def l_add_ddrive(self, e):
         if self.get() and e.base == self.base and e.group == self.group:
-            skill = self.adv._sn(self.base)
+            skill = self.adv.get_sn(self.base)
             self.dragonform.add_drive_gauge_time(skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True)
 
 
@@ -569,7 +569,7 @@ class Debuff(Teambuff):
 class MultiBuffManager:
     def __init__(self, name, buffs, duration=None):
         self.name = name
-        self.buffs = buffs
+        self.buffs = buffs or []
         self.duration = duration
 
     def on(self):

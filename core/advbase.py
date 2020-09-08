@@ -55,15 +55,11 @@ class Skill(object):
     def owner(self):
         return self.conf['owner']
 
-    def precast(self, *args):
-        pass
-
     def __call__(self, *args):
         if not self.check():
             return False
         if not self.ac():
             return False
-        self.precast(*args)
         return self.cast()
 
     def init(self):
@@ -358,6 +354,11 @@ class Fs_group(object):
         if conf['dodge']:
             self.actions['dodge'] = Fs(name, self.conf+conf['dodge'], act)
 
+    def set_enabled(self, enabled):
+        for fs in self.actions.values():
+            fs.enabled = enabled
+        self.enabled = enabled
+
     def __call__(self, before):
         if not self.enabled:
             return False
@@ -481,18 +482,6 @@ class Adv(object):
     def prerun(self):
         pass
 
-    def s1_cast(self, *args):
-        pass
-
-    def s2_cast(self, *args):
-        pass
-
-    def s3_cast(self, *args):
-        pass
-
-    def s4_cast(self, *args):
-        pass
-
     @staticmethod
     def prerun_skillshare(adv, dst):
         pass
@@ -552,7 +541,9 @@ class Adv(object):
             self.a_x_dict[a_x.group][a_x.index] = a_x
         self.a_x_dict = dict(self.a_x_dict)
         for group, actions in self.a_x_dict.items():
-            self.conf[f'{group}.x_max'] = max(actions.keys())
+            gxmax = f'{group}.x_max'
+            if not self.conf[gxmax]:
+                self.conf[gxmax] = max(actions.keys())
         self.current_x = 'default'
         self.deferred_x = None
 
@@ -794,7 +785,7 @@ class Adv(object):
 
         if scope[0] == 's':
             try:
-                mod = 1 if self._sn(scope).owner is None else self.skill_share_att
+                mod = 1 if self.get_sn(scope).owner is None else self.skill_share_att
             except:
                 pass
             return mod * self.mod('s')
@@ -1038,7 +1029,8 @@ class Adv(object):
             log('x', e.base, 0)
         self.hit_make(
             e, self.conf[e.name],
-            self.x_before, self.x_proc,
+            getattr(self, f'x_{e.group}_before', self.x_before),
+            getattr(self, f'x_{e.group}_proc', self.x_proc),
             pin='x', missile=self.get_missile_iv(e.name)
         )
 
@@ -1056,7 +1048,8 @@ class Adv(object):
             log('x', e.base, 0)
         self.hit_make(
             e, self.conf[e.name],
-            self.x_before, self.x_proc,
+            getattr(self, f'x_{e.group}_before', self.x_before),
+            getattr(self, f'x_{e.group}_proc', self.x_proc),
             pin='x'
         )
 
@@ -1108,28 +1101,34 @@ class Adv(object):
     def skills(self):
         return self.s1, self.s2, self.s3, self.s4
 
-    def _sn(self, name):
+    def get_sn(self, name):
         cur_s = self.current_s[name]
         if self.conf[name].p_max:
             cur_s = (cur_s+1)%self.conf[name].p_max
         result = self.a_s_dict[name][cur_s]
         return result
 
+    def set_sn(self, name, sn, group='default'):
+        self.a_s_dict[name][group] = sn
+
+    def s(self, n, *args):
+        return self.get_sn(f's{n}')
+
     @property
     def s1(self):
-        return self._sn('s1')
+        return self.get_sn('s1')
 
     @property
     def s2(self):
-        return self._sn('s2')
+        return self.get_sn('s2')
 
     @property
     def s3(self):
-        return self._sn('s3')
+        return self.get_sn('s3')
 
     @property
     def s4(self):
-        return self._sn('s4')
+        return self.get_sn('s4')
 
     def config_skills(self):
         self.a_s_dict = defaultdict(lambda: {})
@@ -1190,7 +1189,6 @@ class Adv(object):
 
         for sn, snconf in self.conf.find(f'^s\d(_[A-Za-z0-9]+)?$'):
             s = Skill(sn, snconf)
-            s.precast = getattr(self, f'{s.name}_cast', getattr(self, f'{s.ac.base}_cast'))
             if s.ac.group != 'default':
                 snconf.update(self.conf[s.ac.base], rebase=True)
             self.conf[sn].p_max = 0
