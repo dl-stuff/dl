@@ -7,15 +7,16 @@ def module():
 
 class Karina(Adv):
     conf = {}
-    conf['slots.a'] = Valiant_Crown()+Felyne_Hospitality()
+    conf['slots.a'] = Summer_Paladyns()+Odd_Sparrows()
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
         `dragon(c3-s-end), s=1
         `s4
         `s3
-        `s2
         `s1
+        `s2
+        `fs, x=4 and (s1.charged>=s1.sp-self.sp_val('fs') or s2.charged>=s2.sp-self.sp_val('fs'))
     """
 
     conf['coabs'] = ['Tobias', 'Renee', 'Summer_Estelle']
