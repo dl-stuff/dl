@@ -23,7 +23,7 @@ class Julietta(Adv):
     conf['share'] = ['Summer_Cleo']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff(self, fs_name='divine', uses=1)
+        self.fs_alt = FSAltBuff(self, group='divine', uses=1)
 
     def s2_proc(self, e):
        Selfbuff(f'{e.name}_defense', 0.50, 10, 'defense').on()

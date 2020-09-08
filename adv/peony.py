@@ -47,7 +47,7 @@ class Peony(Adv):
     def prerun(self):
         self.phase['s1'] = 0
         self.fs_alt = FSAltBuff(self, 'dream', uses=1)
-        self.fs_buffs = MultiBuffManager([
+        self.fs_buffs = MultiBuffManager('dream', [
             Teambuff('fs_str', 0.10, 10, 'att', 'buff'),
             Spdbuff('fs_spd', 0.10, 10, wide='team'),
             Teambuff('fs_def', 0.20, 10, 'defense')
