@@ -1,85 +1,85 @@
 agito_buffs = {
     'flame': [
-        {
+        {'s3': {
         'buff'     : [('self',0.10,-1,'att','buff'), ('self',0.03,-1,'regen')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
-        {
+        }},
+        {'s3': {
         'buff'     : [('self',0.20,-1,'att','buff'), ('self',0.05,-1,'regen')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
-        { # combo time
-        'buff'     : [('self',0.20,-1,'att','buff'), ('self',0.05,-1,'regen')],
+        }},
+        {'s3': {
+        'buff'     : [('self',0.20,-1,'att','buff'), ('self',0.05,-1,'regen')], # combo time
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
+        }},
     ],
     'wind': [
-        {
+        {'s3': {
         'buff'     : [('self',0.15,-1,'att','buff'), ('self',0.40,-1,'defense')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
-        {
+        }},
+        {'s3': {
         'buff'     : [('self',0.25,-1,'att','buff'), ('self',0.50,-1,'defense')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
+        }},
     ],
     'shadow': [
-        {
+        {'s3': {
         'buff'     : [('spd',0.20,-1), ('self',0.30,-1,'defense')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
-        {
+        }},
+        {'s3': {
         'buff'     : [('spd',0.30,-1), ('self',0.40,-1,'defense')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
-        {
+        }},
+        {'s3': {
         'buff'     : [[('spd',0.30,-1), ('self',0.05,-1,'crit','chance')], ('self',0.40,-1,'defense')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
+        }},
     ],
     'water': [
-        {
+        {'s3': {
         'buff'     : [('self',0.8,-1,'crit','chance'), ('self',0.25,-1,'defense')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
-        {
+        }},
+        {'s3': {
         'buff'     : [('self',0.12,-1,'crit','chance'), ('self',0.35,-1,'defense')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
+        }},
     ],
     'light': [
-        {
+        {'s3': {
         'buff'     : [('self',0.10,-1,'att','buff'), ('self',0.07,-1,'sp')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        },
-        {
+        }},
+        {'s3': {
         'buff'     : [('self',0.20,-1,'att','buff'), ('self',0.10,-1,'sp')],
         'sp'       : 3000,
         'startup'  : 0.25,
         'recovery' : 0.90,
-        }
+        }},
     ]
 }
 
@@ -87,12 +87,14 @@ from slot import *
 
 class LightAgitoWeaponBase(WeaponBase):
     ele = ['light']
-    s3 = agito_buffs['light'][1]
+    s3_base = agito_buffs['light'][1]
+
+    # FIXME come bacc and fix this shit
     s3a = {}
 
     def setup(self, c, adv):
         super(LightAgitoWeaponBase, self).setup(c, adv)
-        if (self.onele or 'all' in self.ele) and adv is not None and adv.s3.owner is None:
+        if adv is not None and adv.conf.s3.owner is None:
             adv.rebind_function(LightAgitoWeaponBase, 's3_before', 's3_before')
             adv.rebind_function(LightAgitoWeaponBase, 's3_proc', 's3_proc')
             adv.s3a = self.s3a

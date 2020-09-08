@@ -60,7 +60,8 @@ def sim_adv_list(list_file, sanity_test=False):
         sim_adv(adv_file.strip(), special, mass, sanity_test)
     with open(os.path.join(ROOT_DIR, list_file), 'w', encoding='utf8') as f:
         for adv_file in sorted_f:
-            f.write(adv_file)
+            f.write(adv_file.strip())
+            f.write('\n')
 
 
 def download_writeups():

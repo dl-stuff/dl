@@ -18,11 +18,6 @@ class Xania(Adv):
     conf['share'] = ['Kleimann']
     conf['afflict_res.burn'] = 0
 
-    def s1_proc(self, e):
-        self.afflics.burn(e.name,100,0.803)
-
-    def s2_proc(self, e):
-        self.afflics.burn(e.name,100,0.803)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

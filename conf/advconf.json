@@ -456,12 +456,7 @@
     },
     "Bellina": {
         "c": {
-            "a": [
-                [
-                    "crisisattspd",
-                    3
-                ]
-            ],
+            "a": [["crisisattspd", 3]],
             "att": 501,
             "ele": "shadow",
             "lv2_autos": 0,
@@ -469,18 +464,30 @@
             "wt": "dagger"
         },
         "s1": {
-            "dmg": 0.0,
-            "hit": 0,
+            "attr": [{"dmg": 8.65, "crisis": 0.5}],
+            "startup": 0.1,
             "recovery": 1.6,
-            "sp": 2719,
-            "startup": 0.1
+            "sp": 2719
+        },
+        "s1_ddrive": {
+            "attr": [
+                {"dmg": 2.02, "crisis": 0.5},
+                {"dmg": 2.02, "crisis": 0.5},
+                {"dmg": 2.02, "crisis": 0.5},
+                {"dmg": 2.02, "crisis": 0.5},
+                {"dmg": 2.02, "crisis": 0.5, "utp": -750, "sp": [1.00, "%", "s1"]}
+            ],
+            "recovery": 1.1
         },
         "s2": {
-            "dmg": 0.0,
-            "hit": 0,
+            "attr": [{"hp": [30, ">"], "utp": 1200}],
+            "startup": 0.1,
             "recovery": 1.8,
-            "sp": 7338,
-            "startup": 0.1
+            "sp": 7338
+        },
+        "s2_ddrive": {
+            "attr": [{"hp": [30, ">"]}, {"dmg": 12.12, "crisis": 2.00, "utp": -3000}],
+            "recovery": 2.26
         }
     },
     "Berserker": {
@@ -5394,8 +5401,6 @@
                 {"dmg": 3.90, "killer": [0.5, ["poison"]]},
                 {"dmg": 4.14, "killer": [0.5, ["poison"]]}
             ],
-            "dmg": 0,
-            "hit": 4,
             "recovery": 2.15,
             "sp": 2257,
             "startup": 0.1
@@ -5405,8 +5410,6 @@
                 {"dmg": 8.12, "killer": [0.5, ["poison"]], "afflic": ["sleep", 100]},
                 {"dmg": 8.65, "killer": [0.5, ["poison"]]}
             ],
-            "dmg": 0,
-            "hit": 2,
             "recovery": 1.85,
             "sp": 4892,
             "startup": 0.1
@@ -5672,12 +5675,7 @@
     },
     "Xania": {
         "c": {
-            "a": [
-                [
-                    "s",
-                    0.35
-                ]
-            ],
+            "a": [["s", 0.35]],
             "att": 584,
             "ele": "flame",
             "lv2_autos": 1,
@@ -5685,18 +5683,16 @@
             "wt": "wand"
         },
         "s1": {
-            "dmg": 8.95,
-            "hit": 1,
+            "attr": [{"dmg": 8.95, "afflic": ["burn", 100, 0.803]}],
+            "startup": 0.1,
             "recovery": 1.35,
-            "sp": 2759,
-            "startup": 0.1
+            "sp": 2759
         },
         "s2": {
-            "dmg": 8.95,
-            "hit": 1,
+            "attr": [{"dmg": 8.95, "afflic": ["burn", 100, 0.803]}],
+            "startup": 0.1,
             "recovery": 1.35,
-            "sp": 5570,
-            "startup": 0.1
+            "sp": 5570
         }
     },
     "Xiao_Lei": {

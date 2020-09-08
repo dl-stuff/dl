@@ -31,13 +31,13 @@ class Skill(object):
     sp = 0
     silence_duration = 1.9
     name = '_Skill'
-    owner = None # indicates self/weapon skill
 
-    def __init__(self, name=None, conf=None, ac=None):
+    def __init__(self, name=None, conf=None):
         self.charged = 0
         self.name = name
         self.conf = conf
-        self.ac = ac or S(self.name, self.conf)
+        if self.name and self.conf:
+            self.ac = S(self.name, self.conf)
 
         self._static.silence = 0
         self.silence_end_timer = Timer(self.cb_silence_end)
@@ -45,18 +45,24 @@ class Skill(object):
         self.skill_charged = Event('{}_charged'.format(self.name))
         self.init()
 
+        self.enabled = True
+
     @property
     def sp(self):
         return self.conf.sp
+
+    @property
+    def owner(self):
+        return self.conf['owner']
 
     def precast(self, *args):
         pass
 
     def __call__(self, *args):
         if not self.check():
-            return 0
+            return False
         if not self.ac():
-            return 0
+            return False
         self.precast(*args)
         return self.cast()
 
@@ -75,14 +81,9 @@ class Skill(object):
         self.silence_end_event()
 
     def check(self):
-        if self.sp == 0:
-            return 0
-        elif self._static.silence == 1:
-            return 0
-        elif self.charged >= self.sp:
-            return 1
-        else:
-            return 0
+        if not self.enabled or self.sp == 0 or self._static.silence == 1:
+            return False
+        return self.charged >= self.sp
 
     def cast(self):
         self.charged -= self.sp
@@ -168,15 +169,12 @@ class Action(object):
         self.act_event = Event(self.name)
 
         self.enabled = True
-
         # ?????
         # self.rt_name = self.name
         # self.tap, self.o_tap = self.rt_tap, self.tap
 
     def __call__(self):
-        if not self.enabled:
-            raise RuntimeError(f'FS {self.name} is disabled')
-        return self.enabled and self.tap()
+        return self.tap()
 
     def getdoing(self):
         return self._static.doing
@@ -238,13 +236,11 @@ class Action(object):
 
     def _act(self, partidx):
         self.idx = partidx
-        if loglevel >= 2:
+        if loglevel >= 0:
             log('act', self.name)
         self.act(self)
 
     def act(self, action):
-        self.act_event.name = self.name
-        self.act_event.idx = self.idx
         self.act_event()
 
     def tap(self):
@@ -352,7 +348,7 @@ class Fs_group(object):
         self.enabled = True
         self.conf = conf
         self.actions = {'default': Fs(name, self.conf, act)}
-        for xn, xnconf in conf.find(r'x\d'):
+        for xn, xnconf in conf.find(r'^x\d+$'):
             self.actions[xn] = Fs(name, self.conf+xnconf, act)
         if conf['s']:
             fs_s = Fs(name, self.conf+conf['s'], act)
@@ -363,38 +359,31 @@ class Fs_group(object):
             self.actions['dodge'] = Fs(name, self.conf+conf['dodge'], act)
 
     def __call__(self, before):
+        if not self.enabled:
+            return False
         try:
             return self.actions[before]()
         except KeyError:
             return self.actions['default']()
 
 
-class FS_MH(Action):
-    def __init__(self, name, conf, act=None):
-        Action.__init__(self, name, conf, act)
-        self.atype = 'fs'
-        self.interrupt_by = ['s']
-        self.cancel_by = ['s','dodge']
-        self._charge = self.conf.charge
-
-    def act(self, action):
-        self.act_event.name = self.name
-        self.act_event.idx = self.idx
-        self.act_event()
-
-    def getstartup(self):
-        return self._charge + (self._startup / self.speed())
-
-
 class S(Action):
     def __init__(self, name, conf, act=None):
-        Action.__init__(self, name, conf, act)
+        super().__init__(name, conf, act)
         self.atype = 's'
         self.interrupt_by = []
         self.cancel_by = []
 
+        parts = name.split('_')
+        self.base = parts[0]
+        self.group = 'default'
+        if len(parts) >= 2:
+            self.group = parts[1]
+
         self.act_event = Event('s')
         self.act_event.name = self.name
+        self.act_event.base = self.base
+        self.act_event.group = self.group
 
 
 class Dodge(Action):
@@ -559,13 +548,13 @@ class Adv(object):
         for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z]+)?$'):
             a_x = X(xn, self.conf[xn])
             if xn != a_x.base:
-                a_x.conf.update(self.conf[base], rebase=True)
+                a_x.conf.update(self.conf[a_x.base], rebase=True)
             self.a_x_dict[a_x.group][a_x.index] = a_x
         self.a_x_dict = dict(self.a_x_dict)
         for group, actions in self.a_x_dict.items():
             self.conf[f'{group}.x_max'] = max(actions.keys())
         self.current_x = 'default'
-        self.next_x_queued = None
+        self.deferred_x = None
 
         self.a_fs_dict = {}
         for name, fs_conf in self.conf.find(r'^fs\d*(_[A-Za-z]+)?$'):
@@ -585,11 +574,11 @@ class Adv(object):
 
         self.a_dodge = Dodge('dodge', self.conf.dodge)
 
-        # skill init
-        self.s1 = Skill('s1', self.conf.s1)
-        self.s2 = Skill('s2', self.conf.s2)
-        self.s3 = Skill('s3', self.conf.s3)
-        self.s4 = Skill('s4', self.conf.s4)
+        # # skill init
+        # self.s1 = Skill('s1', self.conf.s1)
+        # self.s2 = Skill('s2', self.conf.s2)
+        # self.s3 = Skill('s3', self.conf.s3)
+        # self.s4 = Skill('s4', self.conf.s4)
 
         if self.conf.xtype == 'ranged':
             self.l_x = self.l_range_x
@@ -786,7 +775,7 @@ class Adv(object):
         self.crit_mod = self.solid_crit_mod
         # self.crit_mod = self.rand_crit_mod
 
-        self.skill = Skill()
+        self.Skill = Skill()
 
         # self.classconf = self.conf
         self.init()
@@ -804,7 +793,7 @@ class Adv(object):
 
         if scope[0] == 's':
             try:
-                mod = 1 if self.__getattribute__(scope).owner is None else self.skill_share_att
+                mod = 1 if self._sn(scope).owner is None else self.skill_share_att
             except:
                 pass
             return mod * self.mod('s')
@@ -984,9 +973,9 @@ class Adv(object):
         prev = self.action.getprev()
         if prev.name[0] == 's':
             self.think_pin(prev.name)
-        if self.skill._static.first_x_after_s:
-            self.skill._static.first_x_after_s = 0
-            s_prev = self.skill._static.s_prev
+        if self.Skill._static.first_x_after_s:
+            self.Skill._static.first_x_after_s = 0
+            s_prev = self.Skill._static.s_prev
             self.think_pin('%s-x' % s_prev)
         self.x()
 
@@ -1020,9 +1009,9 @@ class Adv(object):
                 x_next = self.a_x_dict[self.current_x][prev.index+1]
             else:
                 x_next = self.a_x_dict[self.current_x][1]
-            if self.next_x_queued is not None:
-                self.current_x = self.next_x_queued
-                self.next_x_queued = None
+            if self.deferred_x is not None:
+                self.current_x = self.deferred_x
+                self.deferred_x = None
             if x_next.enabled:
                 return x_next()
             else:
@@ -1043,9 +1032,9 @@ class Adv(object):
         # FIXME: race condition?
         x_max = self.conf[self.current_x].x_max
         if e.index == x_max:
-            log('x', e.name, 0, '-'*38 + f'c{x_max}')
+            log('x', e.base, 0, '-'*38 + f'c{x_max}')
         else:
-            log('x', e.name, 0)
+            log('x', e.base, 0)
         self.hit_make(
             e, self.conf[e.name],
             self.x_before, self.x_proc,
@@ -1061,9 +1050,9 @@ class Adv(object):
         # FIXME: race condition?
         x_max = self.conf[self.current_x].x_max
         if e.index == x_max:
-            log('x', e.name, 0, '-'*38 + f'c{x_max}')
+            log('x', e.base, 0, '-'*38 + f'c{x_max}')
         else:
-            log('x', e.name, 0)
+            log('x', e.base, 0)
         self.hit_make(
             e, self.conf[e.name],
             self.x_before, self.x_proc,
@@ -1118,7 +1107,35 @@ class Adv(object):
     def skills(self):
         return self.s1, self.s2, self.s3, self.s4
 
-    def config_skillshare(self):
+    def _sn(self, name):
+        cur_s = self.current_s[name]
+        if self.conf[name].p_max:
+            cur_s = (cur_s+1)%self.conf[name].p_max
+        result = self.a_s_dict[name][cur_s]
+        return result
+
+    @property
+    def s1(self):
+        return self._sn('s1')
+
+    @property
+    def s2(self):
+        return self._sn('s2')
+
+    @property
+    def s3(self):
+        return self._sn('s3')
+
+    @property
+    def s4(self):
+        return self._sn('s4')
+
+    def config_skills(self):
+        self.a_s_dict = defaultdict(lambda: {})
+        self.current_s = {'s1': 'default', 's2': 'default', 's3': 'default', 's4': 'default'}
+        self.conf.s1.owner = None
+        self.conf.s3.owner = None
+
         if not self.conf['flask_env']:
             self.d_skillshare()
         preruns = {}
@@ -1132,32 +1149,20 @@ class Adv(object):
             self.skillshare_list = self.skillshare_list[:2]
         if len(self.skillshare_list) < 2:
             self.skillshare_list.insert(0, 'Weapon')
+
         from conf import advconfs, skillshare
         from core.simulate import load_adv_module
-        share_limit = 10
-        sp_modifier = 1
-        self.skill_share_att = 0.7
-        try:
-            self_data = skillshare[self.__class__.__name__]
-            try:
-                share_limit = self_data['limit']
-            except KeyError:
-                pass
-            try:
-                sp_modifier = self_data['mod_sp']
-            except KeyError:
-                pass
-            try:
-                self.skill_share_att = self_data['mod_att']
-            except KeyError:
-                pass
-        except KeyError:
-            pass
+        self_data = skillshare.get(self.__class__.__name__, {})
+        share_limit = self_data.get('limit', 10)
+        sp_modifier = self_data.get('mod_sp', 1)
+        self.skill_share_att = self_data.get('mod_att', 0.7)
         share_costs = 0
+
         for idx, owner in enumerate(self.skillshare_list):
             dst_key = f's{idx+3}'
-            if owner == 'Weapon':
-                self.conf.s3.update(self.slots.w.s3)
+            if owner == 'Weapon' and (self.slots.w.noele or self.slots.c.ele in self.slots.w.ele):
+                self.conf.update(self.slots.w.s3)
+                self.conf.s3.owner = None
             else:
                 # I am going to spaget hell for this
                 sdata = skillshare[owner]
@@ -1171,22 +1176,33 @@ class Adv(object):
                 src_key = f's{sdata["s"]}'
                 shared_sp = self.sp_convert(sdata['sp'], sp_modifier)
                 try:
-                    owner_conf = Conf(advconfs[owner])
-                    owner_conf[src_key].sp = shared_sp
+                    owner_conf = advconfs[owner]
                     self.conf[dst_key] = Conf(owner_conf[src_key])
-                    s = Skill(dst_key, self.conf[dst_key])
-                    s.owner = owner
-                    setattr(self, dst_key, s)
+                    self.conf[dst_key].owner = owner
                     owner_module = load_adv_module(owner)
                     preruns[dst_key] = owner_module.prerun_skillshare
-                    self.rebind_function(owner_module, f'{src_key}_before', f'{dst_key}_before')
-                    self.rebind_function(owner_module, f'{src_key}_proc', f'{dst_key}_proc')
+                    for sfn in ('before', 'proc', 'cast'):
+                        self.rebind_function(owner_module, f'{src_key}_{sfn}', f'{dst_key}_{sfn}')
                 except:
-                    self.conf[dst_key].sp = shared_sp
-                    getattr(self, dst_key).owner = owner
+                    pass
+                self.conf[dst_key].sp = shared_sp
 
-        for s in self.skills:
-            s.precast = getattr(self, f'{s.name}_cast')
+        for sn, snconf in self.conf.find(f'^s\d(_[A-Za-z0-9]+)?$'):
+            s = Skill(sn, snconf)
+            s.precast = getattr(self, f'{s.name}_cast', getattr(self, f'{s.ac.base}_cast'))
+            if s.ac.group != 'default':
+                snconf.update(self.conf[s.ac.base], rebase=True)
+            self.conf[sn].p_max = 0
+            if s.ac.group.startswith('phase'):
+                s.ac.group = int(parts[1][5:])
+                try:
+                    self.conf[sn].p_max = max(self.conf[sn].p_max, s.ac.group)
+                except ValueError:
+                    self.conf[sn].p_max = s.ac.group
+                    self.current_s[sn] = 1
+                s.ac.group -= 1
+            self.a_s_dict[s.ac.base][s.ac.group] = s
+        self.a_s_dict = dict(self.a_s_dict)
 
         return preruns
 
@@ -1216,12 +1232,8 @@ class Adv(object):
 
         self.ctx.on()
         
-        # for ab in (self.a1, self.a2, self.a3):
-        #     if ab:
-        #         if isinstance(ab, list):
-        #             self.slots.c.a.extend(ab)
-        #         else:
-        #             self.slots.c.a.append(ab)
+        preruns_ss = self.config_skills()
+
         if self.conf.c.a:
             self.slots.c.a = list(self.conf.c.a)
 
@@ -1229,7 +1241,6 @@ class Adv(object):
         self.slot_backdoor()
 
         self.config_coabs()
-        preruns_ss = self.config_skillshare()
 
         self.base_att = 0
 
@@ -1311,9 +1322,9 @@ class Adv(object):
 
     def l_silence_end(self, e):
         doing = self.action.getdoing()
-        sname = self.skill._static.s_prev
+        sname = self.Skill._static.s_prev
         if doing.name[0] == 'x':
-            self.skill._static.first_x_after_s = 1
+            self.Skill._static.first_x_after_s = 1
         else:
             self.think_pin(sname + '-x')  # best choice
         self.think_pin(sname)
@@ -1327,10 +1338,27 @@ class Adv(object):
         sp_int = int(sp_hasted)
         return sp_int if sp_int == sp_hasted else sp_int + 1
 
+    def get_targets(self, target):
+        if isinstance(target, str):
+            try:
+                return [getattr(self, target)]
+            except AttributeError:
+                return None
+        if isinstance(target, list):
+            targets = []
+            for t in target:
+                try:
+                    targets.append(getattr(self, t))
+                except AttributeError:
+                    continue
+        return self.skills
+
     def charge_p(self, name, percent, target=None, no_autocharge=False):
         percent = percent / 100 if percent > 1 else percent
-        target = target or self.skills
-        for s in target:
+        targets = self.get_targets(target)
+        if not targets:
+            return
+        for s in targets:
             if no_autocharge and hasattr(s, 'autocharge_timer'):
                 continue
             s.charge(self.sp_convert(percent, s.sp))
@@ -1342,8 +1370,10 @@ class Adv(object):
     def charge(self, name, sp, target=None):
         # sp should be integer
         sp = self.sp_convert(self.sp_mod(name), sp)
-        target = target or self.skills
-        for s in target:
+        targets = self.get_targets(target)
+        if not targets:
+            return
+        for s in targets:
             s.charge(sp)
         self.think_pin('sp')
         log('sp', name, sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
@@ -1417,18 +1447,40 @@ class Adv(object):
             self.dmg_make(name, attr['dmg'])
             for m in hitmods:
                 m.off()
-            self.add_hits(1)
+
+            # FIXME: rm when real timings
+            if 'hit' in attr:
+                self.add_hits(attr['hit'])
+            else:
+                self.add_hits(1)
 
         if 'sp' in attr:
-            value = attr['sp'][0]
-            mode = None if len(attr['sp']) == 1 else attr['sp'][1]
-            target = None if len(attr['sp']) == 2 else attr['sp'][2]
-            charge_f = self.charge_p
-            if mode == '%':
-                charge_f = self.charge_p
+            if isinstance(attr['sp'], int):
+                value = attr['sp']
+                self.charge(name, value)
             else:
+                value = attr['sp'][0]
+                mode = None if len(attr['sp']) == 1 else attr['sp'][1]
+                target = None if len(attr['sp']) == 2 else attr['sp'][2]
                 charge_f = self.charge
-            charge_f(name, value, target=target)
+                if mode == '%':
+                    charge_f = self.charge_p
+                charge_f(name, value, target=target)
+
+        if 'dp' in attr:
+            self.dragonform.charge_gauge(attr['dp'])
+
+        if 'utp' in attr:
+            self.dragonform.charge_gauge(attr['utp'], utp=True)
+
+        if 'hp' in attr:
+            value = attr['hp'][0]
+            mode = None if len(attr['hp']) == 1 else attr['hp'][1]
+            if mode == '=' or (mode == '>' and self.hp > value):
+                self.set_hp(value)
+            else:
+                self.set_hp(self.hp+value)
+
 
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
@@ -1454,6 +1506,11 @@ class Adv(object):
                 for attr in conf['attr']:
                     self.hitattr_make(e.base, attr)
         else:
+            if e.name.startswith('x') or e.name.startswith('fs'):
+                sp = conf.sp
+            else:
+                sp = 0
+                missile = None
             # old dmg/hit/sp system
             if missile is not None:
                 mt = Timer(self.cb_missile)
@@ -1463,8 +1520,8 @@ class Adv(object):
             else:
                 self.add_hits(conf['hit'])
                 self.dmg_make(e.base, conf.dmg)
-                if e.name.startswith('x') or e.name.startswith('fs'):
-                    self.charge(e.name, conf.sp)
+                if sp > 0:
+                    self.charge(e.name, sp)
         proc(e)
         self.think_pin(pin or e.name)
 
@@ -1485,11 +1542,13 @@ class Adv(object):
             missile=self.get_missile_iv(e.name)
         )
 
+
+    # FIXME redesign this
     def old_s_buff(self, e):
         s_conf = self.conf[e.name]
         if s_conf['buff'] is not None:
             buffarg = s_conf['buff']
-            if e.name == 's3' and self.s3.owner is None:
+            if e.name == 's3' and self.conf.s3.owner is None:
                 if len(self.s3_buff_list) == 0:
                     for ba in buffarg:
                         if ba is not None:
@@ -1512,11 +1571,11 @@ class Adv(object):
 
     def s_before_group(self, e):
         self.s_before(e)
-        getattr(self, f'{e.name}_before')(e)
+        getattr(self, f'{e.name}_before', getattr(self, f'{e.base}_before'))(e)
 
     def s_proc_group(self, e):
         self.old_s_buff(e)
-        getattr(self, f'{e.name}_proc')(e)
+        getattr(self, f'{e.name}_proc', getattr(self, f'{e.base}_proc'))(e)
         self.s_proc(e)
 
     def l_s(self, e):
@@ -1526,9 +1585,8 @@ class Adv(object):
         prev = self.action.getprev().name
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
-        e.base = e.name # FIXME
         self.hit_make(
-            e, self.conf[e.name] or self.conf['fs'],
+            e, self.conf[e.name],
             self.s_before_group,
             self.s_proc_group
         )
@@ -1552,7 +1610,7 @@ class Adv(object):
                 buff = Buff(name, *ba)
             buffs.append(buff)
         if len(buffs) > 1:
-            return MultiBuffManager(buffs)
+            return MultiBuffManager(name, buffs)
         else:
             return buffs[0]
 

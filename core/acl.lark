@@ -82,5 +82,5 @@ NONE: "none"i
 BOOLEAN: "true"i | "false"i
 indice: (function | CNAME) "[" [literal] "]"
 function: CNAME "(" [_args] ")"
-_args: literal ("," literal)*
+_args: literal ("," literal)* [","]
 literal: NONE | SIGNED_INT | SIGNED_FLOAT | BOOLEAN | _QUOTE? STRING _QUOTE?

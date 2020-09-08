@@ -225,10 +225,10 @@ class AclInterpreter(Interpreter):
             return self.visit(fn)[self.visit(idx)]
 
 
-FSN_PATTERN = re.compile(r'^`?fs(\d+)')
+FSN_PATTERN = re.compile(r'^`?fs(\d+)(\(([^)]+)\))?')
 def _pre_parse(acl):
     return '\n'.join(filter(None,(
-        FSN_PATTERN.sub(r'`fs(\1)', l.strip())
+        FSN_PATTERN.sub(r'`fs(\1,\3)', l.strip())
         for l in acl.split('\n')
     )))
 

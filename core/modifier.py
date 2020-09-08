@@ -304,27 +304,28 @@ class Buff(object):
                 self.__stored = 1
             if d >= 0:
                 self.buff_end_timer.on(d)
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff start <{d:.02f}s>')
+            proc_type = 'start'
         else:
             if d >= 0:
                 self.buff_end_timer.on(d)
-                log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff refresh <{d:.02f}s>')
+            proc_type = 'refresh'
+            
+        if self.bufftype != 'misc':
+            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff {proc_type} <{d:.02f}s>')
+            value, stack = self.valuestack()
+            if stack > 1:
+                log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
 
-        value, stack = self.valuestack()
-        if stack > 1:
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
+            if self.mod_type == 'defense':
+                Event('defchain').on()
+                if self.bufftype == 'team':
+                    log('buff', 'team_defense', 'proc team doublebuffs')
 
-
-        if self.mod_type == 'defense':
-            Event('defchain').on()
-            if self.bufftype == 'team':
-                log('buff', 'team_defense', 'proc team doublebuffs')
-
-        if self.mod_type == 'regen':
-            # may need to make this part global since game always regen all stacks at same ticks
-            self.set_hp_event = Event('set_hp')
-            self.set_hp_event.delta = self.get()
-            self.modifier = Timer(self.hp_regen, 3.9, True) # hax
+            if self.mod_type == 'regen':
+                # may need to make this part global since game always regen all stacks at same ticks
+                self.set_hp_event = Event('set_hp')
+                self.set_hp_event.delta = self.get()
+                self.modifier = Timer(self.hp_regen, 3.9, True) # hax
 
         self.effect_on()
         return self
@@ -353,87 +354,110 @@ class EffectBuff(Buff):
         self.effect_off = effect_off
 
 
-class FSAltBuff(Buff):
-    def __init__(self, adv, fs_name=None, duration=-1, uses=-1, hidden=False):
+class ModeAltBuff(Buff):
+    def __init__(self, adv, name, duration=-1, hidden=False):
+        super().__init__(name, 1, duration, 'effect')
         self.adv = adv
-        self.fs_name = fs_name
-        pattern = r'^fs\d+$' if fs_name is None else f'^fs\d*_{fs_name}$'
-        self.prev_fs = self.adv.current_fs
+        self.bufftype = 'misc' if hidden else 'self'
+
+
+class FSAltBuff(ModeAltBuff):
+    def __init__(self, adv, group=None, duration=-1, uses=-1, hidden=False):
+        self.default_fs = adv.current_fs
+        self.group = group
+        pattern = r'^fs\d+$' if group is None else f'^fs\d*_{group}$'
         self.fs_list = [fsn for fsn, _ in adv.conf.find(pattern)]
         if not self.fs_list:
-            if fs_name is None:
+            if group is None:
                 raise ValueError(f'fs[n] not found in conf')
-            raise ValueError(f'{self.fs_name} is not an FS')
-        super().__init__(fs_name or 'alt', 1, duration, 'effect')
+            raise ValueError(f'{self.group} is not an FS')
+        super().__init__(adv, self.group or 'fs[n]', duration=duration, hidden=hidden)
         self.enable_fs(False)
         self.base_uses = uses
         self.uses = 0
-        Listener('fs', self.l_off, after=True).on()
-        self.bufftype = 'misc' if hidden else 'self'
+        self.l_fs = Listener('fs', self.l_off, mode=1).on()
 
     def enable_fs(self, enabled):
         for fsn in self.fs_list:
             self.adv.a_fs_dict[fsn].enabled = enabled
 
     def effect_on(self):
-        log('debug', f'fs {self.fs_name} on', self.uses)
+        log('debug', f'fs-{self.group} on', self.uses)
         self.enable_fs(True)
-        self.adv.current_fs = self.fs_name
+        self.adv.current_fs = self.group
 
     def effect_off(self):
-        log('debug', f'fs {self.fs_name} off', self.uses)
+        log('debug', f'fs-{self.group} off', self.uses)
         self.enable_fs(False)
-        self.adv.current_fs = self.prev_fs
+        self.adv.current_fs = self.default_fs
 
     def on(self, duration=None):
         self.uses = self.base_uses
         return super().on(duration)
 
     def l_off(self, e):
-        self.uses -= 1
-        if self.uses <= 0:
-            self.off()
+        if self.uses > 0:
+            self.uses -= 1
+            if self.uses <= 0:
+                self.off()
 
 
-class XAltBuff(Buff):
-    def __init__(self, adv, fs_name=None, duration=-1, uses=-1, hidden=False):
-        self.adv = adv
-        self.fs_name = fs_name or 'alt'
-        pattern = r'^fs\d+$' if fs_name is None else f'^fs\d*_{fs_name}$'
-        self.prev_fs = self.adv.alt_fs
-        self.fs_list = [fsn for fsn, _ in adv.conf.find(pattern)]
-        if not self.fs_list:
-            raise ValueError(f'{self.fs_name} is not an FS')
-        super().__init__(fs_name, 1, duration, 'effect')
-        self.enable_fs(False)
-        self.base_uses = uses
-        self.uses = 0
-        Listener('fs', self.l_off, after=True).on()
-        self.bufftype = 'misc' if hidden else 'self'
+class XAltBuff(ModeAltBuff):
+    def __init__(self, adv, group, duration=-1, hidden=True, deferred=True):
+        self.default_x = adv.current_x
+        self.group = group
+        self.x_max = adv.conf[f'{group}.x_max']
+        self.deferred = deferred
+        if not self.x_max:
+            raise ValueError(f'{self.group} is not a X group')
+        super().__init__(adv, group, duration=duration, hidden=hidden)
+        self.enable_x(False)
 
-    def enable_fs(self, enabled):
-        for fsn in self.fs_list:
-            self.adv.a_fs_dict[fsn].enabled = enabled
+    def enable_x(self, enabled):
+        for _, xact in self.adv.a_x_dict[self.group].items():
+            xact.enabled = enabled
 
     def effect_on(self):
-        log('debug', f'fs {self.fs_name} on', self.uses)
-        self.enable_fs(True)
-        self.prev_fs = self.adv.alt_fs
-        self.adv.alt_fs = self.fs_name
+        log('debug', f'x-{self.group} on')
+        self.enable_x(True)
+        if self.deferred:
+            self.adv.deferred_x = self.group
+        else:
+            self.adv.current_x = self.group
 
     def effect_off(self):
-        log('debug', f'fs {self.fs_name} off', self.uses)
-        self.enable_fs(False)
-        self.adv.alt_fs = self.prev_fs
+        log('debug', f'x-{self.group} off')
+        self.enable_x(False)
+        if self.deferred:
+            self.adv.deferred_x = self.default_x
+        else:
+            self.adv.current_x = self.default_x
 
-    def on(self, duration=None):
-        self.uses = self.base_uses
-        return super().on(duration)
 
-    def l_off(self, e):
-        self.uses -= 1
-        if self.uses <= 0:
-            self.off()
+class SAltBuff(ModeAltBuff):
+    def __init__(self, adv, group, base, duration=-1, hidden=True):
+        if base not in ('s1', 's2', 's3', 's4'):
+            raise ValueError(f'{base} is not a skill')
+        if group not in adv.a_s_dict[base].keys():
+            raise ValueError(f'{base}-{group} is not a skill')
+        super().__init__(adv, f'{base}-{group}', duration=duration, hidden=hidden)
+        self.base = base
+        self.group = group
+        self.default_s = self.adv.current_s[base]
+        self.l_s = Listener('s', self.l_extend_time).on()
+
+    def effect_on(self):
+        log('debug', f'{self.name} on')
+        self.adv.current_s[self.base] = self.group
+
+    def effect_off(self):
+        log('debug', f'{self.name} off')
+        self.adv.current_s[self.base] = self.default_s
+
+    def l_extend_time(self, e):
+        if self.get() and e.base == self.base and e.group == self.group:
+            skill = self.adv._sn(self.base)
+            self.add_time(skill.ac.getstartup() + skill.ac.getrecovery())
 
 
 class Selfbuff(Buff):
@@ -535,7 +559,8 @@ class Debuff(Teambuff):
 
 
 class MultiBuffManager:
-    def __init__(self, buffs, duration=None):
+    def __init__(self, name, buffs, duration=None):
+        self.name = name
         self.buffs = buffs
         self.duration = duration
 
@@ -559,6 +584,26 @@ class MultiBuffManager:
         for b in self.buffs:
             b.add_time(delta)
         return self
+
+
+class ModeManager(MultiBuffManager):
+    ALT_CLASS = {
+        'x': XAltBuff,
+        'fs': FSAltBuff,
+        's1': SAltBuff,
+        's2': SAltBuff
+    }
+    def __init__(self, adv, name, buffs=None, duration=None, **kwargs):
+        super().__init__(name, buffs, duration)
+        self.adv = adv
+        self.alt = {}
+        for k, buffclass in ModeManager.ALT_CLASS.items():
+            if k in kwargs and bool(kwargs[k]):
+                if k in ('s1', 's2'):
+                    self.alt[k] = buffclass(self.adv, name, k)
+                else:
+                    self.alt[k] = buffclass(self.adv, name)
+        self.buffs.extend(self.alt.values())
 
 
 class ActiveBuffDict(dict):
