@@ -15,15 +15,11 @@ pinon_conf = {
         'hit': 1
     },
     'fs2': {
-        'dmg': 0,
-        'sp': 710,
+        'attr': [{'dmg': 3.00, 'killer': [2.0, ['frostbite']], 'sp': 710, 'hit': -1}],
         'charge': 150 / 60.0,
         'startup': 0.06666667,
         'recovery': 1.0,
-        'hit': -1
     },
-
-    'x_max': 8,
 
     'x6.dmg': 10.6,
     'x6.sp': 325,
@@ -72,19 +68,17 @@ class Pinon(Adv):
 
     def fs_proc(self, e):
         if e.level == 2:
-            with KillerModifier('fs_killer', 'hit', 2.0, ['frostbite']):
-                self.dmg_make(e.name, 3.00)
             self.update_sigil(-13)
 
     def prerun(self):
-        self.conf.x_max = 5
+        self.conf.default.x_max = 5
         self.unlocked = False
         self.sigil = EffectBuff('locked_sigil', 300, lambda: None, self.unlock).no_bufftime()
         self.sigil.on()
         self.s2_buff = Selfbuff('s2_att', 0.20, 20, 'att', 'buff')
 
     def unlock(self):
-        self.conf.x_max = 8
+        self.conf.default.x_max = 8
         self.unlocked = True
         self.unlock_time = now()
 
@@ -99,17 +93,24 @@ class Pinon(Adv):
             self.energy.add(0.4)
 
     def x(self):
-        if self.unlock:
-            prev = self.action.getprev()
-            x_next = 1
-            if prev.name[0] == 'x':
-                if prev.index != self.conf.x_max:
-                    x_next = prev.index + 1
-                else:
-                    x_next = self.conf.x_max
-            return getattr(self, 'x%d' % x_next)()
-        else:
-            return super().x()
+        x_min = 1
+        prev = self.action.getprev()
+        if self.unlocked and isinstance(prev, X) and prev.index >= 5:
+            x_min = 8
+        return super().x(x_min=x_min)
+
+    # def x(self):
+    #     if self.unlock:
+    #         prev = self.action.getprev()
+    #         x_next = 1
+    #         if prev.name[0] == 'x':
+    #             if prev.index != self.conf.x_max:
+    #                 x_next = prev.index + 1
+    #             else:
+    #                 x_next = self.conf.x_max
+    #         return getattr(self, 'x%d' % x_next)()
+    #     else:
+    #         return super().x()
 
     def s1_proc(self, e):
         self.afflics.frostbite(e.name,120,0.41)

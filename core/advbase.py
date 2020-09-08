@@ -994,13 +994,13 @@ class Adv(object):
         except KeyError:
             raise ValueError(f'{fsn} is not an FS')
 
-    def x(self):
+    def x(self, x_min=1):
         prev = self.action.getprev()
         if isinstance(prev, X) and prev.group == self.current_x:
             if prev.index < self.conf[prev.group].x_max:
                 x_next = self.a_x_dict[self.current_x][prev.index+1]
             else:
-                x_next = self.a_x_dict[self.current_x][1]
+                x_next = self.a_x_dict[self.current_x][x_min]
             if self.deferred_x is not None:
                 self.current_x = self.deferred_x
                 self.deferred_x = None
@@ -1008,7 +1008,7 @@ class Adv(object):
                 return x_next()
             else:
                 self.current_x = 'default'
-        return self.a_x_dict[self.current_x][1]()
+        return self.a_x_dict[self.current_x][x_min]()
 
     def get_missile_iv(self, name):
         if self.conf['missile_iv']:
