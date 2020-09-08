@@ -22,6 +22,9 @@ ELE_AFFLICT = {
 
 DOT_AFFLICT = ['poison', 'paralysis', 'burn', 'frostbite']
 
+S_ALT = '†'
+
+
 def run_once(classname, conf, duration, cond):
     adv = classname(conf=conf,cond=cond)
     real_d = adv.run(duration)
@@ -389,6 +392,12 @@ def act_sum(actions, output):
                 p_type == 'd'
                 idx_offset += 1
             else:
+                parts = act.split('_')
+                if len(parts) > 1:
+                    if parts[1][-1].isdigit():
+                        act = parts[0]+'-'+parts[1][-1]
+                    else:
+                        act = parts[0]+S_ALT
                 output.write('['+act+']')
                 p_type = 's'
         if cnt > 1:

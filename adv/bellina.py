@@ -52,11 +52,11 @@ class Bellina(Adv):
     conf['slots.a'] = Twinfold_Bonds()+Howling_to_the_Heavens()
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
-        `s2, duration-now<1.5
+        `s2, duration-now<2
         `s3, not self.s3_buff
         if self.dragondrive.get()
         `s4, self.dragonform.dragon_gauge>1050 and x=3
-        `s1, self.dragonform.dragon_gauge>1100 and x=3
+        `s1, self.dragonform.dragon_gauge>1350 and x=3
         `s1, s=4
         `fsf, x=3
         else
@@ -74,75 +74,13 @@ class Bellina(Adv):
             buffs=[Selfbuff('dragondrive', 0.35, -1, 's', 'passive')],
             x=True, fs=True, s1=True, s2=True
         ))
-
-        # self.dragondrive_x = XAltBuff(self, 'ddrive')
-        # self.fs_alt = Fs_alt(self, dragondrive_fs_conf, self.fs_proc_alt)
-        
-        # self.a_s1 = self.s1.ac
-        # self.a_s1a = S('s1', Conf({'startup': 0.10, 'recovery': 1.10}))
-
-        # self.a_s2 = self.s2.ac
-        # self.a_s2a = S('s2', Conf({'startup': 0.10, 'recovery': 2.26}))
-
-        # self.fsf_a = Fs('fsf', self.conf.fsf)
-        # self.queue_gauge = 0
-
-    # def dragondrive_on(self, e):
-    #     self.s1.ac = self.a_s1a
-    #     self.s2.ac = self.a_s2a
-    #     self.fs_alt.on(-1)
-    #     self.dragondrive_x.on()
-    #     self.a_fsf = Fs('fsf', self.conf.fsf)
-
-    # def dragondrive_off(self, e):
-    #     self.s1.ac = self.a_s1
-    #     self.s2.ac = self.a_s2
-    #     self.fs_alt.off()
-    #     self.dragondrive_x.off()
-
-    # def s1_proc(self, e):
-    #     if self.dragondrive_buff.get():
-    #         with CrisisModifier(e.name, 0.50, self.hp):
-    #             self.dmg_make(e.name, 2.02 * 5)
-    #             self.add_hits(5)
-    #         self.s1.charge(self.conf.s1.sp)
-    #         self.queue_gauge = -750
-    #     else:
-    #         with CrisisModifier(e.name, 0.50, self.hp):
-    #             self.dmg_make(e.name, 8.40)
-    #             self.add_hits(1)
+        self.hp = 100
 
     def s2_before(self, e):
         if self.hp > 30:
             if e.group == 'default':
-                # estimate assuming ~3000 max hp
                 self.dragonform.charge_gauge(3000*(self.hp-30)/100, utp=True, dhaste=False)
 
-        # if self.dragondrive_buff.get():
-        #     pass
-            # with CrisisModifier(e.name, 2.00, self.hp):
-            #     self.dmg_make(e.name, 12.12)
-            #     self.add_hits(1)
-            # self.queue_gauge = -3000
-            # -3000 gauge
-            # 2.7666666507720947 (?)
-            # 1212 mod, 3x crisis
-        # else:
-            # 2% hp loss = 1% gauge gain, cannot dhaste
-            # if self.hp > 30:
-            #     # TODO: but at this time self.hp = 40, should we keep this? or use 100hp->30hp = 1051 utp
-            #     #self.dragonform.charge_gauge(3000 * (self.hp-30)/200, utp=True)
-            #     self.dragonform.charge_gauge(1051, utp=True, dhaste=False)
-            #     self.set_hp(30)
-            # self.dragonform.charge_gauge(1200, utp=True)  # ingame logic, hp2utp before 1200
-            # regular buff duration (?)
-
-    # def s_proc(self, e):
-    #     if self.dragondrive_buff.get():
-    #         s = getattr(self, e.name)
-    #         self.dragonform.add_drive_gauge_time(s.ac.getstartup()+s.ac.getrecovery(), skill_pause=True)
-    #         self.dragonform.charge_gauge(self.queue_gauge, utp=True)
-    #         self.queue_gauge = 0
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

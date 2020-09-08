@@ -6,12 +6,42 @@ class Log:
     def __init__(self):
         self.reset()
 
+    def reset(self):
+        self.record = []
+        self.damage = {'x':{},'s':{},'f':{},'d':{},'o':{}}
+        self.counts = {'x':{},'s':{},'f':{},'d':{},'o':{}}
+        self.p_buff = None
+        self.team_buff = 0
+        self.team_doublebuffs = 0
+        self.team_tension = {}
+        self.act_seq = []
+        self.hitattr_set = set()
+
     @staticmethod
     def update_dict(dict, name: str, value):
         try:
             dict[name] += value
         except KeyError:
             dict[name] = value
+
+    @staticmethod
+    def fmt_hitattr_v(v):
+        if isinstance(v, list):
+            return '['+','.join(map(str, v))+']'
+        if isinstance(v, dict):
+            return Log.fmt_hitattr(v)
+        return str(v)
+
+    @staticmethod
+    def fmt_hitattr(attr):
+        return '{'+'/'.join([f'{k}:{Log.fmt_hitattr_v(v)}' for k, v in attr.items()])+'}'
+
+    def log_hitattr(self, name, attr):
+        attr = Log.fmt_hitattr(attr)
+        if (name, attr) in self.hitattr_set:
+            return
+        self.hitattr_set.add((name, attr))
+        log('hitattr', name, attr)
 
     def log(self, *args):
         time_now = core.timeline.now()
@@ -78,15 +108,6 @@ class Log:
     def get_log_list(self):
         return self.record
 
-    def reset(self):
-        self.record = []
-        self.damage = {'x':{},'s':{},'f':{},'d':{},'o':{}}
-        self.counts = {'x':{},'s':{},'f':{},'d':{},'o':{}}
-        self.p_buff = None
-        self.team_buff = 0
-        self.team_doublebuffs = 0
-        self.team_tension = {}
-        self.act_seq = []
 
 loglevel = 0
 

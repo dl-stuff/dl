@@ -247,7 +247,7 @@ class Buff(object):
                 idx -= 1
                 if idx < 0:
                     break
-                if self == self._static.all_buffs[idx]:
+                if self.bufftype != 'misc' and self == self._static.all_buffs[idx]:
                     self._static.all_buffs.pop(idx)
                     break
             self.__stored = 0
@@ -299,7 +299,7 @@ class Buff(object):
         d = (duration or self.duration) * self.bufftime()
         if self.__active == 0:
             self.__active = 1
-            if self.__stored == 0:
+            if self.bufftype != 'misc' and self.__stored == 0:
                 self._static.all_buffs.append(self)
                 self.__stored = 1
             if d >= 0:
@@ -375,7 +375,7 @@ class FSAltBuff(ModeAltBuff):
         self.enable_fs(False)
         self.base_uses = uses
         self.uses = 0
-        self.l_fs = Listener('fs', self.l_off, mode=1).on()
+        self.l_fs = Listener('fs', self.l_off, order=2).on()
 
     def enable_fs(self, enabled):
         for fsn in self.fs_list:
@@ -403,7 +403,7 @@ class FSAltBuff(ModeAltBuff):
 
 
 class XAltBuff(ModeAltBuff):
-    def __init__(self, adv, group, duration=-1, hidden=True, deferred=True):
+    def __init__(self, adv, group, duration=-1, hidden=True, deferred=False):
         self.default_x = adv.current_x
         self.group = group
         self.x_max = adv.conf[f'{group}.x_max']
@@ -435,7 +435,7 @@ class XAltBuff(ModeAltBuff):
 
 
 class SAltBuff(ModeAltBuff):
-    def __init__(self, adv, group, base, duration=-1, hidden=True):
+    def __init__(self, adv, group, base, duration=-1, hidden=True, ddrive=False):
         if base not in ('s1', 's2', 's3', 's4'):
             raise ValueError(f'{base} is not a skill')
         if group not in adv.a_s_dict[base].keys():
@@ -444,7 +444,10 @@ class SAltBuff(ModeAltBuff):
         self.base = base
         self.group = group
         self.default_s = self.adv.current_s[base]
-        self.l_s = Listener('s', self.l_extend_time).on()
+        if ddrive:
+            self.l_s = Listener('s', self.l_add_ddrive, order=0).on()
+        else:
+            self.l_s = Listener('s', self.l_extend_time, order=0).on()
 
     def effect_on(self):
         log('debug', f'{self.name} on')
@@ -458,6 +461,11 @@ class SAltBuff(ModeAltBuff):
         if self.get() and e.base == self.base and e.group == self.group:
             skill = self.adv._sn(self.base)
             self.add_time(skill.ac.getstartup() + skill.ac.getrecovery())
+
+    def l_add_ddrive(self, e):
+        if self.get() and e.base == self.base and e.group == self.group:
+            skill = self.adv._sn(self.base)
+            self.dragonform.add_drive_gauge_time(skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True)
 
 
 class Selfbuff(Buff):
@@ -598,9 +606,11 @@ class ModeManager(MultiBuffManager):
         self.adv = adv
         self.alt = {}
         for k, buffclass in ModeManager.ALT_CLASS.items():
-            if k in kwargs and bool(kwargs[k]):
+            if kwargs.get(k, False):
                 if k in ('s1', 's2'):
                     self.alt[k] = buffclass(self.adv, name, k)
+                elif k in ('x'):
+                    self.alt[k] = buffclass(self.adv, name, deferred=(kwargs.get('deferred', False)))
                 else:
                     self.alt[k] = buffclass(self.adv, name)
         self.buffs.extend(self.alt.values())

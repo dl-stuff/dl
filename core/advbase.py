@@ -236,7 +236,7 @@ class Action(object):
 
     def _act(self, partidx):
         self.idx = partidx
-        if loglevel >= 0:
+        if loglevel >= 2:
             log('act', self.name)
         self.act(self)
 
@@ -618,6 +618,8 @@ class Adv(object):
             self.set_hp(e.hp)
 
     def set_hp(self, hp):
+        if self.conf['flask_env'] and 'hp' in self.conf:
+            hp = self.conf['hp']
         old_hp = self.hp
         hp = round(hp*10)/10
         self.hp = max(min(hp, 100), 0)
@@ -631,8 +633,7 @@ class Adv(object):
             self.hp_event.hp = self.hp
             self.hp_event.delta = delta
             self.hp_event()
-            if 'hp' in self.conf and self.hp != self.conf['hp']:
-                self.set_hp(self.conf['hp'])
+
 
     def buff_max_hp(self, name='<hp_buff>', value=0, team=False):
         max_hp = self.mod('maxhp')
@@ -1249,13 +1250,13 @@ class Adv(object):
         self.slots.oninit(self)
         self.base_att = int(self.slots.att(globalconf.halidom))
 
-        for dst_key, prerun in preruns_ss.items():
-            prerun(self, dst_key)
-        self.prerun()
-
         self.hp = self.condition.prev_hp
         if 'hp' in self.conf:
             self.set_hp(self.conf['hp'])
+
+        for dst_key, prerun in preruns_ss.items():
+            prerun(self, dst_key)
+        self.prerun()
 
         if 'dragonbattle' in self.conf and self.conf['dragonbattle']:
             self._acl = self._acl_dragonbattle
@@ -1303,7 +1304,7 @@ class Adv(object):
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
         def cb_think(t):
-            if loglevel >= 0:
+            if loglevel >= 2:
                 log('think', t.pin, t.dname, t.dstat, t.didx)
             # self._acl.run(t)
             self._acl(t)
@@ -1436,6 +1437,7 @@ class Adv(object):
         return count
 
     def hitattr_make(self, name, attr):
+        g_logs.log_hitattr(name, attr)
         if 'dmg' in attr:
             hitmods = []
             if 'killer' in attr:
@@ -1476,8 +1478,13 @@ class Adv(object):
         if 'hp' in attr:
             value = attr['hp'][0]
             mode = None if len(attr['hp']) == 1 else attr['hp'][1]
-            if mode == '=' or (mode == '>' and self.hp > value):
+            if mode == '=':
                 self.set_hp(value)
+            elif mode == '>':
+                if self.hp > value:
+                    self.set_hp(value)
+            elif mode == '%':
+                self.set_hp(self.hp*value)
             else:
                 self.set_hp(self.hp+value)
 

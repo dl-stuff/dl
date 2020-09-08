@@ -9,7 +9,7 @@ def set_time(time):
     global _g_now
     _g_now = time
 
-BEFORE = 0
+utp = 0
 NOW = 1
 AFTER = 2
 def add_event_listener(eventname, listener, order=1): #listener should be a function
@@ -164,7 +164,7 @@ class Timer(object):
         return self
 
     def add(self, time=0):
-        core.log.log('timeline', self.timing, self.timing+time, time, self.timing+time-now())
+        # core.log.log('timeline', self.timing, self.timing+time, time, self.timing+time-now())
         self.timeout += time
         self.timing += time
         if self.timing < now():
