@@ -474,7 +474,7 @@ class SingleActionBuff(Buff):
         self.casts = casts
         self.end_event = event if event is not None else mtype
         self.end_proc = end_proc
-        Listener(self.end_event, self.l_off, after=True).on()
+        Listener(self.end_event, self.l_off, order=2).on()
 
     def on(self, casts=1):
         self.casts = casts
