@@ -140,18 +140,12 @@ class AclInterpreter(Interpreter):
             lres = self.visit(left)
             try:
                 if SHORT_CIRCUIT[op.type](lres):
-                    if negate:
-                        return not lres
-                    else:
-                        return lres
+                    return not lres if negate else lres
             except KeyError:
                 pass
             rres = self.visit(right)
             res = BINARY_EXPR[op.type](lres, rres)
-        if negate:
-            return not res
-        else:
-            return res
+        return not res if negate else res
 
     def selfcond(self, t):
         inst = self._adv
@@ -178,7 +172,9 @@ class AclInterpreter(Interpreter):
     # def actcond(self, action, condition):
     def actcond(self, t):
         action, condition = t.children
-        return self.visit(condition) and self.visit(action)
+        if self.visit(condition):
+            return self.visit(action)
+        return False
 
     # @v_args(inline=True)
     # def params(self, p):
@@ -225,10 +221,10 @@ class AclInterpreter(Interpreter):
             return self.visit(fn)[self.visit(idx)]
 
 
-FSN_PATTERN = re.compile(r'^`?fs(\d+)(\(([^)]+)\))?')
+FSN_PATTERN = re.compile(r'^`?(fs|s)(\d+)(\(([^)]+)\))?')
 def _pre_parse(acl):
     return '\n'.join(filter(None,(
-        FSN_PATTERN.sub(r'`fs(\1,\3)', l.strip())
+        FSN_PATTERN.sub(r'`\1(\2,\4)', l.strip())
         for l in acl.split('\n')
     )))
 

@@ -84,12 +84,13 @@ class WeaponBase(Slot):
     stype = 'w'
     wt = 'none'
     s3_base = {}
-    s3_alt = {}
+    # s3_alt = {}
     ele = [] # or ''
 
     def __init__(self):
         super().__init__()
-        self.s3 = Conf({**self.s3_base, **self.s3_alt})
+        # self.s3 = Conf({**self.s3_base, **self.s3_alt})
+        self.s3 = Conf(self.s3_base)
         self.noele = 'all' in self.ele
 
     def on_ele(self, ele):

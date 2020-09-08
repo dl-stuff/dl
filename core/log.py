@@ -19,10 +19,17 @@ class Log:
 
     @staticmethod
     def update_dict(dict, name: str, value):
+        # if fullname:
         try:
             dict[name] += value
         except KeyError:
             dict[name] = value
+        # name1 = name.split('_')[0]
+        # try:
+        #     dict[name1] += value
+        # except KeyError:
+        #     dict[name1] = value
+
 
     @staticmethod
     def fmt_hitattr_v(v):
@@ -61,6 +68,10 @@ class Log:
                     self.update_dict(self.damage['o'], name, float(args[2]))
             elif category == 'x' or category == 'cast':
                 self.update_dict(self.counts[name[0]], name, 1)
+                name1 = name.split('_')[0]
+                if name1 != name:
+                    self.update_dict(self.counts[name[0]], name1, 1)
+
                 self.act_seq.append(name)
             elif category == 'buff' and name == 'team':
                 if self.p_buff is not None:

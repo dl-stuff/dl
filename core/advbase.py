@@ -2,7 +2,7 @@ import operator
 import sys
 import random
 from functools import reduce
-from itertools import product
+from itertools import product, chain
 from collections import OrderedDict
 
 from ability import Ability
@@ -26,18 +26,19 @@ class Skill(object):
         's_prev': '<nop>',
         'first_x_after_s': 0,
         'silence': 0,
+        'current_s': {}
     })
     charged = 0
     sp = 0
     silence_duration = 1.9
     name = '_Skill'
 
-    def __init__(self, name=None, conf=None):
+    def __init__(self, name=None, acts=None):
         self.charged = 0
         self.name = name
-        self.conf = conf
-        if self.name and self.conf:
-            self.ac = S(self.name, self.conf)
+        
+        self.act_dict = acts or {}
+        self.act_base = None
 
         self._static.silence = 0
         self.silence_end_timer = Timer(self.cb_silence_end)
@@ -45,21 +46,43 @@ class Skill(object):
         self.skill_charged = Event('{}_charged'.format(self.name))
         self.init()
 
-        self.enabled = True
+    def add_action(self, group, act):
+        self.act_dict[group] = act
+        if group == 'default':
+            self.act_base = act
+
+    def set_enabled(self, enabled):
+        for ac in self.act_dict.values():
+            ac.enabled = enabled
+
+    @property
+    def ac(self):
+        try:
+            return self.act_dict[self._static.current_s[self.name]]
+        except KeyError:
+            return self.act_base
 
     @property
     def sp(self):
-        return self.conf.sp
+        return self.ac.conf.sp
 
     @property
     def owner(self):
-        return self.conf['owner']
+        return self.act_base.conf['owner'] or None
+
+    def phase_up(self):
+        p_max = self.act_base.conf.p_max
+        if p_max:
+            cur_s = self._static.current_s[self.name]
+            cur_s = (cur_s+1)%p_max
+            self._static.current_s[self.name] = cur_s
 
     def __call__(self, *args):
         if not self.check():
             return False
         if not self.ac():
             return False
+        self.phase_up()
         return self.cast()
 
     def init(self):
@@ -77,7 +100,7 @@ class Skill(object):
         self.silence_end_event()
 
     def check(self):
-        if not self.enabled or self.sp == 0 or self._static.silence == 1:
+        if not self.ac.enabled or self.sp == 0 or self._static.silence == 1:
             return False
         return self.charged >= self.sp
 
@@ -533,10 +556,9 @@ class Adv(object):
         self.modifier._static.g_condition = self.condition
 
         # init actions
-        self.a_x_dict = defaultdict(lambda: {})
         for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z]+)?$'):
             a_x = X(xn, self.conf[xn])
-            if xn != a_x.base:
+            if xn != a_x.base and self.conf[a_x.base]:
                 a_x.conf.update(self.conf[a_x.base], rebase=True)
             self.a_x_dict[a_x.group][a_x.index] = a_x
         self.a_x_dict = dict(self.a_x_dict)
@@ -547,11 +569,10 @@ class Adv(object):
         self.current_x = 'default'
         self.deferred_x = None
 
-        self.a_fs_dict = {}
         for name, fs_conf in self.conf.find(r'^fs\d*(_[A-Za-z]+)?$'):
             try:
                 base = name.split('_')[0]
-                if name != base:
+                if name != base and self.conf[base]:
                     fs_conf.update(self.conf[base], rebase=True)
             except KeyError:
                 pass
@@ -750,6 +771,8 @@ class Adv(object):
         self.s3_buff_list = []
         self.s3_buff = None
 
+        self.hitattr_mod_cache = {}
+
         self.damage_sources = set()
         self.phase = {}
         self.Modifier._static.damage_sources = self.damage_sources
@@ -769,6 +792,10 @@ class Adv(object):
 
         self.Skill = Skill()
 
+        self.a_x_dict = defaultdict(lambda: {})
+        self.a_fs_dict = {}
+        self.a_s_dict = {f's{n}': Skill(f's{n}') for n in range(1, 5)}
+
         # self.classconf = self.conf
         self.init()
 
@@ -785,7 +812,7 @@ class Adv(object):
 
         if scope[0] == 's':
             try:
-                mod = 1 if self.get_sn(scope).owner is None else self.skill_share_att
+                mod = 1 if self.a_s_dict[scope].owner is None else self.skill_share_att
             except:
                 pass
             return mod * self.mod('s')
@@ -1099,40 +1126,33 @@ class Adv(object):
 
     @property
     def skills(self):
-        return self.s1, self.s2, self.s3, self.s4
-
-    def get_sn(self, name):
-        cur_s = self.current_s[name]
-        if self.conf[name].p_max:
-            cur_s = (cur_s+1)%self.conf[name].p_max
-        result = self.a_s_dict[name][cur_s]
-        return result
-
-    def set_sn(self, name, sn, group='default'):
-        self.a_s_dict[name][group] = sn
+        return tuple(self.a_s_dict.values())
 
     def s(self, n, *args):
-        return self.get_sn(f's{n}')
+        return self.a_s_dict[f's{n}'](*args)
 
     @property
     def s1(self):
-        return self.get_sn('s1')
+        return self.a_s_dict['s1']
 
     @property
     def s2(self):
-        return self.get_sn('s2')
+        return self.a_s_dict['s2']
 
     @property
     def s3(self):
-        return self.get_sn('s3')
+        return self.a_s_dict['s3']
 
     @property
     def s4(self):
-        return self.get_sn('s4')
+        return self.a_s_dict['s4']
+
+    def cast_sn(self, name, subclass):
+        self.a_s_dict[name] = subclass(self.a_s_dict[name])
 
     def config_skills(self):
-        self.a_s_dict = defaultdict(lambda: {})
         self.current_s = {'s1': 'default', 's2': 'default', 's3': 'default', 's4': 'default'}
+        self.Skill._static.current_s = self.current_s
         self.conf.s1.owner = None
         self.conf.s3.owner = None
 
@@ -1188,20 +1208,19 @@ class Adv(object):
                 self.conf[dst_key].sp = shared_sp
 
         for sn, snconf in self.conf.find(f'^s\d(_[A-Za-z0-9]+)?$'):
-            s = Skill(sn, snconf)
-            if s.ac.group != 'default':
-                snconf.update(self.conf[s.ac.base], rebase=True)
-            self.conf[sn].p_max = 0
-            if s.ac.group.startswith('phase'):
-                s.ac.group = int(parts[1][5:])
+            s = S(sn, snconf)
+            if s.group != 'default' and self.conf[s.base]:
+                snconf.update(self.conf[s.base], rebase=True)
+            self.conf[s.base].p_max = 0
+            if s.group.startswith('phase'):
+                s.group = int(s.group[5:])
                 try:
-                    self.conf[sn].p_max = max(self.conf[sn].p_max, s.ac.group)
+                    self.conf[s.base].p_max = max(self.conf[s.base].p_max, s.group)
                 except ValueError:
-                    self.conf[sn].p_max = s.ac.group
-                    self.current_s[sn] = 1
-                s.ac.group -= 1
-            self.a_s_dict[s.ac.base][s.ac.group] = s
-        self.a_s_dict = dict(self.a_s_dict)
+                    self.conf[s.base].p_max = s.group
+                self.current_s[s.base] = 0
+                s.group -= 1
+            self.a_s_dict[s.base].add_action(s.group, s)
 
         return preruns
 
@@ -1338,19 +1357,23 @@ class Adv(object):
         return sp_int if sp_int == sp_hasted else sp_int + 1
 
     def get_targets(self, target):
+        # FIXME - make a shared sp skill class
+        if target is None:
+            return self.skills
         if isinstance(target, str):
             try:
-                return [getattr(self, target)]
-            except AttributeError:
+                return [self.a_s_dict[target]]
+            except KeyError:
                 return None
         if isinstance(target, list):
             targets = []
             for t in target:
                 try:
-                    targets.append(getattr(self, t))
-                except AttributeError:
+                    targets.append(self.a_s_dict[target])
+                except KeyError:
                     continue
-        return self.skills
+            return targets
+        return None
 
     def charge_p(self, name, percent, target=None, no_autocharge=False):
         percent = percent / 100 if percent > 1 else percent
@@ -1434,19 +1457,17 @@ class Adv(object):
             count += echo_count
         return count
 
-    def hitattr_make(self, name, attr):
+    def hitattr_make(self, name, base, idx, attr):
         g_logs.log_hitattr(name, attr)
+        hitmods = []
         if 'dmg' in attr:
-            hitmods = []
             if 'killer' in attr:
-                hitmods.append(KillerModifier(f'{name}_killer', 'hit', *attr['killer']))
+                hitmods.append(KillerModifier(name, 'hit', *attr['killer']))
             if 'crisis' in attr:
-                hitmods.append(CrisisModifier(f'{name}_crisis', attr['crisis'], self.hp))
+                hitmods.append(CrisisModifier(name, attr['crisis'], self.hp))
             for m in hitmods:
                 m.on()
             self.dmg_make(name, attr['dmg'])
-            for m in hitmods:
-                m.off()
 
             # FIXME: rm when real timings
             if 'hit' in attr:
@@ -1457,7 +1478,7 @@ class Adv(object):
         if 'sp' in attr:
             if isinstance(attr['sp'], int):
                 value = attr['sp']
-                self.charge(name, value)
+                self.charge(base, value)
             else:
                 value = attr['sp'][0]
                 mode = None if len(attr['sp']) == 1 else attr['sp'][1]
@@ -1465,7 +1486,7 @@ class Adv(object):
                 charge_f = self.charge
                 if mode == '%':
                     charge_f = self.charge_p
-                charge_f(name, value, target=target)
+                charge_f(base, value, target=target)
 
         if 'dp' in attr:
             self.dragonform.charge_gauge(attr['dp'])
@@ -1486,30 +1507,62 @@ class Adv(object):
             else:
                 self.set_hp(self.hp+value)
 
-
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
             getattr(self.afflics, aff_type)(name, *aff_args)
 
         if 'buff' in attr:
-            self.buff[name] = self.make_buff(name, buffarg)
-            self.buff[name].on()
-            
+            # self.active_buff[name] = self.make_buff_old(name, attr['buff'])
+            btype = attr['buff'][0]
+            if attr['buff'][-1][0] == '-':
+                bargs = attr['buff'][1:-1]
+                bctrl = attr['buff'][-1]
+            else:
+                bargs = attr['buff'][1:]
+                bctrl = None
+            buff = bufftype_dict[btype](f'{name}_{idx}', *bargs)
+            if bctrl is None:
+                self.buff[base] = buff.on()
+            elif bctrl == '-refresh':
+                try:
+                    self.buff[base].on()
+                except KeyError:
+                    self.buff[base] = buff.on()
+            elif bctrl == '-replace':
+                try:
+                    self.buff[base].off()
+                except KeyError:
+                    pass
+                self.buff[base] = buff.on()
+
+        for m in hitmods:
+            m.off()
+
     def l_hitattr_make(self, t):
-        self.hitattr_make(t.name, t.attr)
+        self.hitattr_make(t.name, t.base, t.idx, t.attr)
+
+    def do_hitattr_make(self, name, base, idx, attr, missile):
+        if missile is not None:
+            mt = Timer(self.l_hitattr_make)
+            mt.name = name
+            mt.base = base
+            mt.idx = idx
+            mt.attr = attr
+            mt.on(missile)
+        else:
+            self.hitattr_make(name, base, idx, attr)
 
     def hit_make(self, e, conf, before, proc, pin=None, missile=None):
         before(e)
         if conf['attr']:
-            if missile is not None:
-                for attr in conf['attr']:
-                    mt = Timer(self.l_hitattr_make)
-                    mt.name = e.base
-                    mt.attr = conf['attr']
-                    mt.on(missile)
-            else:
-                for attr in conf['attr']:
-                    self.hitattr_make(e.base, attr)
+            prev_attr = None
+            for idx, attr in enumerate(conf['attr']):
+                if prev_attr is not None and isinstance(attr, int):
+                    for repeat in range(1, attr):
+                        self.do_hitattr_make(e.name, e.base, idx+repeat, prev_attr, missile)
+                else:
+                    self.do_hitattr_make(e.name, e.base, idx, attr, missile)
+                    prev_attr = attr
         else:
             if e.name.startswith('x') or e.name.startswith('fs'):
                 sp = conf.sp
@@ -1557,7 +1610,7 @@ class Adv(object):
                 if len(self.s3_buff_list) == 0:
                     for ba in buffarg:
                         if ba is not None:
-                            buff = self.make_buff(e.name, ba)
+                            buff = self.make_buff_old(e.name, ba)
                             self.s3_buff_list.append(buff)
                         else:
                             self.s3_buff_list.append(None)
@@ -1572,7 +1625,7 @@ class Adv(object):
                     except:
                         self.s3_buff = None
             else:
-                self.make_buff(e.name, buffarg).on()
+                self.make_buff_old(e.name, buffarg).on()
 
     def s_before_group(self, e):
         self.s_before(e)
@@ -1596,7 +1649,7 @@ class Adv(object):
             self.s_proc_group
         )
 
-    def make_buff(self, name, buffarg):
+    def make_buff_old(self, name, buffarg):
         if not isinstance(buffarg[0], tuple):
             buffarg = [buffarg]
         buffs = []
@@ -1618,6 +1671,10 @@ class Adv(object):
             return MultiBuffManager(name, buffs)
         else:
             return buffs[0]
+
+    @property
+    def dgauge(self):
+        return self.dragonform.dragon_gauge
 
     def stop(self):
         doing = self.action.getdoing()

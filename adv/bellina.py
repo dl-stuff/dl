@@ -55,8 +55,8 @@ class Bellina(Adv):
         `s2, duration-now<2
         `s3, not self.s3_buff
         if self.dragondrive.get()
-        `s4, self.dragonform.dragon_gauge>1050 and x=3
-        `s1, self.dragonform.dragon_gauge>1350 and x=3
+        `s4, dgauge>1000 and x=3
+        `s1, dgauge>1200 and x=3
         `s1, s=4
         `fsf, x=3
         else
@@ -74,7 +74,6 @@ class Bellina(Adv):
             buffs=[Selfbuff('dragondrive', 0.35, -1, 's', 'passive')],
             x=True, fs=True, s1=True, s2=True
         ))
-        self.hp = 100
 
     def s2_before(self, e):
         if self.hp > 30:

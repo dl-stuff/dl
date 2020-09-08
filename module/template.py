@@ -22,7 +22,7 @@ class StanceAdv:
             if curr_stance is not None:
                 curr_stance.off()
             if next_stance is not None:
-                next_stance.on()
+                next_stance.on_except('x')
             self.stance = self.next_stance
             self.next_stance = None
 
@@ -32,9 +32,15 @@ class StanceAdv:
             self.next_stance = stance
             self.update_stance()
             return True
+        if self.can_change_combo():
+            self.stance_dict[stance].alt['x'].on()
         return False
 
     def can_queue_stance(self, stance):
-        return (stance not in (self.stance, self.next_stance) and 
-            self.hits > self.hit_threshold and 
-            not self.Skill._static.silence)
+        return (
+            stance not in (self.stance, self.next_stance) and 
+            not self.Skill._static.silence == 1
+        )
+    
+    def can_change_combo(self):
+        return self.hits > self.hit_threshold

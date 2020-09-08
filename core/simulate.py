@@ -88,6 +88,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
     if verbose == 2:
         # output.write(adv._acl_str)
         adv = classname()
+        output.write(str(core.acl.build_acl(adv.conf.acl)._acl_str))
         output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
         return
     run_results = []
@@ -397,7 +398,7 @@ def act_sum(actions, output):
                     if parts[1][-1].isdigit():
                         act = parts[0]+'-'+parts[1][-1]
                     else:
-                        act = parts[0]+S_ALT
+                        act = parts[0]+'-'+parts[1][0]
                 output.write('['+act+']')
                 p_type = 's'
         if cnt > 1:
@@ -503,7 +504,7 @@ def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
         else:
             dps_mappings[k] = dmg['f'][k] / real_d
     for k in sorted(dmg['s']):
-        if k in ('s1', 's2', 's3', 's4'):
+        if k[:2] in ('s1', 's2', 's3', 's4'):
             dps_mappings['skill_{}'.format(k[1])] = dmg['s'][k] / real_d
         else:
             dps_mappings[k] = dmg['s'][k] / real_d
