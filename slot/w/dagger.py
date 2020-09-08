@@ -13,37 +13,37 @@ class Agito2_Hrotti(WeaponBase):
     ele = ['flame']
     wt = 'dagger'
     att = 1662
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Hrotti(WeaponBase):
     ele = ['flame']
     wt = 'dagger'
     att = 1513
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Qinghong_Jian(WeaponBase):
     ele = ['shadow']
     wt = 'dagger'
     att = 1513
-    s3 = agito_buffs['shadow'][1]
+    s3_base = agito_buffs['shadow'][1]
 
 class Agito2_Qinghong_Jian(WeaponBase):
     ele = ['shadow']
     wt = 'dagger'
     att = 1662
-    s3 = agito_buffs['shadow'][2]
+    s3_base = agito_buffs['shadow'][2]
 
 class Agito1_Carnwennan(WeaponBase):
     ele = ['wind']
     wt = 'dagger'
     att = 1513
-    s3 = agito_buffs['wind'][1]
+    s3_base = agito_buffs['wind'][1]
 
 class Agito1_Futsu_no_Mitama(WeaponBase):
     ele = ['water']
     wt = 'dagger'
     att = 1513
-    s3 = agito_buffs['water'][1]
+    s3_base = agito_buffs['water'][1]
 
 class Agito1_Claiomh_Solais(LightAgitoWeaponBase):
     wt = 'dagger'

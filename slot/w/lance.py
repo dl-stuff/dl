@@ -13,37 +13,37 @@ class Agito2_Gungnir(WeaponBase):
     ele = ['flame']
     wt = 'lance'
     att = 1730
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Gungnir(WeaponBase):
     ele = ['flame']
     wt = 'lance'
     att = 1575
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Qinglong_Yanyuedao(WeaponBase):
     ele = ['shadow']
     wt = 'lance'
     att = 1575
-    s3 = agito_buffs['shadow'][1]
+    s3_base = agito_buffs['shadow'][1]
 
 class Agito2_Qinglong_Yanyuedao(WeaponBase):
     ele = ['shadow']
     wt = 'lance'
     att = 1730
-    s3 = agito_buffs['shadow'][2]
+    s3_base = agito_buffs['shadow'][2]
 
 class Agito1_Rhongomyniad(WeaponBase):
     ele = ['wind']
     wt = 'lance'
     att = 1575
-    s3 = agito_buffs['wind'][1]
+    s3_base = agito_buffs['wind'][1]
 
 class Agito1_Ame_no_Nuhoko(WeaponBase):
     ele = ['water']
     wt = 'lance'
     att = 1575
-    s3 = agito_buffs['water'][1]
+    s3_base = agito_buffs['water'][1]
 
 class Agito1_Areadbhar(LightAgitoWeaponBase):
     wt = 'lance'

@@ -13,37 +13,37 @@ class Agito1_Brisingr(WeaponBase):
     ele = ['flame']
     wt = 'wand'
     att = 1590
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito2_Brisinga(WeaponBase):
     ele = ['flame']
     wt = 'wand'
     att = 1747
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Jiu_Ci(WeaponBase):
     ele = ['shadow']
     wt = 'wand'
     att = 1590
-    s3 = agito_buffs['shadow'][1]
+    s3_base = agito_buffs['shadow'][1]
 
 class Agito1_Camelot(WeaponBase):
     ele = ['wind']
     wt = 'wand'
     att = 1590
-    s3 = agito_buffs['wind'][1]
+    s3_base = agito_buffs['wind'][1]
 
 class Agito1_Omizununo(WeaponBase):
     ele = ['water']
     wt = 'wand'
     att = 1590
-    s3 = agito_buffs['water'][1]
+    s3_base = agito_buffs['water'][1]
 
 class Agito2_Jiu_Ci(WeaponBase):
     ele = ['shadow']
     wt = 'wand'
     att = 1747
-    s3 = agito_buffs['shadow'][2]
+    s3_base = agito_buffs['shadow'][2]
 
 class Agito1_Brionac(LightAgitoWeaponBase):
     wt = 'wand'

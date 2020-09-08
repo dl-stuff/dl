@@ -13,37 +13,37 @@ class Agito2_Ichaival(WeaponBase):
     ele = ['flame']
     wt = 'bow'
     att = 1629
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Longshe_Gong(WeaponBase):
     ele = ['shadow']
     wt = 'bow'
     att = 1482
-    s3 = agito_buffs['shadow'][1]
+    s3_base = agito_buffs['shadow'][1]
 
 class Agito1_Ydalir(WeaponBase):
     ele = ['flame']
     wt = 'bow'
     att = 1482
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Failnaught(WeaponBase):
     ele = ['wind']
     wt = 'bow'
     att = 1482
-    s3 = agito_buffs['wind'][1]
+    s3_base = agito_buffs['wind'][1]
 
 class Agito1_Ame_no_Hajiyumi(WeaponBase):
     ele = ['water']
     wt = 'bow'
     att = 1482
-    s3 = agito_buffs['water'][1]
+    s3_base = agito_buffs['water'][1]
 
 class Agito2_Longshe_Gong(WeaponBase):
     ele = ['shadow']
     wt = 'bow'
     att = 1629
-    s3 = agito_buffs['shadow'][2]
+    s3_base = agito_buffs['shadow'][2]
 
 class Agito1_Tathlum(LightAgitoWeaponBase):
     wt = 'bow'

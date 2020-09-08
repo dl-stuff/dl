@@ -13,37 +13,37 @@ class Agito2_Tyrfing(WeaponBase):
     ele = ['flame']
     wt = 'blade'
     att = 1798
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Qixing_Baodao(WeaponBase):
     ele = ['shadow']
     wt = 'blade'
     att = 1636
-    s3 = agito_buffs['shadow'][1]
+    s3_base = agito_buffs['shadow'][1]
 
 class Agito2_Qixing_Baodao(WeaponBase):
     ele = ['shadow']
     wt = 'blade'
     att = 1798
-    s3 = agito_buffs['shadow'][2]
+    s3_base = agito_buffs['shadow'][2]
 
 class Agito1_Tyrfing(WeaponBase):
     ele = ['flame']
     wt = 'blade'
     att = 1636
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Arondight(WeaponBase):
     ele = ['wind']
     wt = 'blade'
     att = 1636
-    s3 = agito_buffs['wind'][1]
+    s3_base = agito_buffs['wind'][1]
 
 class Agito1_Ame_no_Habakiri(WeaponBase):
     ele = ['water']
     wt = 'blade'
     att = 1636
-    s3 = agito_buffs['water'][1]
+    s3_base = agito_buffs['water'][1]
 
 class Agito1_Fragarach(LightAgitoWeaponBase):
     wt = 'blade'

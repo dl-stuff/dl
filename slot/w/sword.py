@@ -13,37 +13,37 @@ class Agito2_Nothung(WeaponBase):
     ele = ['flame']
     wt = 'sword'
     att = 1696
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Yitian_Jian(WeaponBase):
     ele = ['shadow']
     wt = 'sword'
     att = 1544
-    s3 = agito_buffs['shadow'][1]
+    s3_base = agito_buffs['shadow'][1]
 
 class Agito1_Nothung(WeaponBase):
     ele = ['flame']
     wt = 'sword'
     att = 1544
-    s3 = agito_buffs['flame'][1]
+    s3_base = agito_buffs['flame'][1]
 
 class Agito1_Excalibur(WeaponBase):
     ele = ['wind']
     wt = 'sword'
     att = 1544
-    s3 = agito_buffs['wind'][1]
+    s3_base = agito_buffs['wind'][1]
 
 class Agito1_Ame_no_Murakumo(WeaponBase):
     ele = ['water']
     wt = 'sword'
     att = 1544
-    s3 = agito_buffs['water'][1]
+    s3_base = agito_buffs['water'][1]
 
 class Agito2_Yitian_Jian(WeaponBase):
     ele = ['shadow']
     wt = 'sword'
     att = 1696
-    s3 = agito_buffs['shadow'][2]
+    s3_base = agito_buffs['shadow'][2]
 
 class Agito1_Caladbolg(LightAgitoWeaponBase):
     wt = 'sword'
