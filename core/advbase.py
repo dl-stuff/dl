@@ -44,12 +44,15 @@ class Skill(object):
         self.silence_end_timer = Timer(self.cb_silence_end)
         self.silence_end_event = Event('silence_end')
         self.skill_charged = Event('{}_charged'.format(self.name))
-        self.init()
+
+        self.enable_phase_up = False
 
     def add_action(self, group, act):
         self.act_dict[group] = act
         if group == 'default':
             self.act_base = act
+        if isinstance(group, int):
+            self.enable_phase_up = True
 
     def set_enabled(self, enabled):
         for ac in self.act_dict.values():
@@ -82,11 +85,8 @@ class Skill(object):
             return False
         if not self.ac():
             return False
-        self.phase_up()
+        self.enable_phase_up and self.phase_up()
         return self.cast()
-
-    def init(self):
-        pass
 
     def charge(self, sp):
         self.charged = max(min(self.sp, self.charged + sp), 0)
@@ -100,7 +100,7 @@ class Skill(object):
         self.silence_end_event()
 
     def check(self):
-        if not self.ac.enabled or self.sp == 0 or self._static.silence == 1:
+        if self._static.silence == 1 or not self.ac.enabled or self.sp == 0:
             return False
         return self.charged >= self.sp
 
@@ -1170,7 +1170,7 @@ class Adv(object):
         if len(self.skillshare_list) < 2:
             self.skillshare_list.insert(0, 'Weapon')
 
-        from conf import advconfs, skillshare
+        from conf import load_adv_json, skillshare
         from core.simulate import load_adv_module
         self_data = skillshare.get(self.__class__.__name__, {})
         share_limit = self_data.get('limit', 10)
@@ -1196,7 +1196,7 @@ class Adv(object):
                 src_key = f's{sdata["s"]}'
                 shared_sp = self.sp_convert(sdata['sp'], sp_modifier)
                 try:
-                    owner_conf = advconfs[owner]
+                    owner_conf = load_adv_json(owner)
                     self.conf[dst_key] = Conf(owner_conf[src_key])
                     self.conf[dst_key].owner = owner
                     owner_module = load_adv_module(owner)
@@ -1514,26 +1514,29 @@ class Adv(object):
         if 'buff' in attr:
             # self.active_buff[name] = self.make_buff_old(name, attr['buff'])
             btype = attr['buff'][0]
-            if attr['buff'][-1][0] == '-':
-                bargs = attr['buff'][1:-1]
-                bctrl = attr['buff'][-1]
+            if btype in ('energy', 'inspiration'):
+                getattr(self, btype).add(attr['buff'][1])
             else:
-                bargs = attr['buff'][1:]
-                bctrl = None
-            buff = bufftype_dict[btype](f'{name}_{idx}', *bargs)
-            if bctrl is None:
-                self.buff[base] = buff.on()
-            elif bctrl == '-refresh':
-                try:
-                    self.buff[base].on()
-                except KeyError:
+                if attr['buff'][-1][0] == '-':
+                    bargs = attr['buff'][1:-1]
+                    bctrl = attr['buff'][-1]
+                else:
+                    bargs = attr['buff'][1:]
+                    bctrl = None
+                buff = bufftype_dict[btype](f'{name}_{idx}', *bargs)
+                if bctrl is None:
                     self.buff[base] = buff.on()
-            elif bctrl == '-replace':
-                try:
-                    self.buff[base].off()
-                except KeyError:
-                    pass
-                self.buff[base] = buff.on()
+                elif bctrl == '-refresh':
+                    try:
+                        self.buff[base].on()
+                    except KeyError:
+                        self.buff[base] = buff.on()
+                elif bctrl == '-replace':
+                    try:
+                        self.buff[base].off()
+                    except KeyError:
+                        pass
+                    self.buff[base] = buff.on()
 
         for m in hitmods:
             m.off()

@@ -15,8 +15,11 @@ def load_json(fn):
     with open(fpath, 'r', encoding='utf8') as f:
         return json.load(f, parse_float=float, parse_int=int)
 
+# advconfs = load_json('advconf.json')
+advconfs = {}
+def load_adv_json(adv):
+    return advconfs.get(adv, load_json(f'adv/{adv}.json'))
 
-advconfs = load_json('advconf.json')
 coability = load_json('chains.json')
 skillshare = load_json('skillshare.json')
 
@@ -29,10 +32,10 @@ def coability_dict(ele):
 
 
 def get(name):
-    conf = Conf(advconfs.get(name))
+    conf = Conf(load_adv_json(name))
     wt = conf.c.wt
     weapon = getattr(wep, wt)
     conf.update(Conf(weapon.conf))
-    if bool(conf.c.lv2_autos):
+    if bool(conf.c.spiral):
         conf.update(Conf(weapon.lv2))
     return conf
