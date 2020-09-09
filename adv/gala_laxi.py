@@ -79,7 +79,7 @@ galaxi_autos = {
     'fsf.recovery': 0,
 }
 
-class Gala_Laxi(Adv, StanceAdv):    
+class Gala_Laxi(StanceAdv):    
     conf = galaxi_autos.copy()
     conf['slots.a'] = Twinfold_Bonds()+Me_and_My_Bestie()
     conf['acl'] = """
@@ -89,7 +89,7 @@ class Gala_Laxi(Adv, StanceAdv):
         queue prep
         `s2;s1;s4
         end
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2
         `s1
         `s4, x=4

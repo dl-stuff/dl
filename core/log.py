@@ -44,11 +44,12 @@ class Log:
         return '{'+'/'.join([f'{k}:{Log.fmt_hitattr_v(v)}' for k, v in attr.items()])+'}'
 
     def log_hitattr(self, name, attr):
-        attr = Log.fmt_hitattr(attr)
-        if (name, attr) in self.hitattr_set:
+        attr_str = Log.fmt_hitattr(attr)
+        if (name, attr_str) in self.hitattr_set:
             return
-        self.hitattr_set.add((name, attr))
-        log('hitattr', name, attr)
+        self.hitattr_set.add((name, attr_str))
+        log('hitattr', name, attr_str)
+        return attr_str
 
     def log(self, *args):
         time_now = core.timeline.now()

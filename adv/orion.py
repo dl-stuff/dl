@@ -10,10 +10,10 @@ class Orion(Adv):
     conf = {}
     conf['acl'] = """
         `dragon(c3-s-end), self.sim_afflict or self.trickery <= 1
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s2, x=4 or x=5
-        `s1, self.s3_buff and cancel
+        `s1, buff(s3) and cancel
         `fs, x=5
     """
     conf['coabs'] = ['Ieyasu','Wand','Axe2']

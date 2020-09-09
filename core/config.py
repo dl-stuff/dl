@@ -34,6 +34,7 @@ class Conf(dict):
                 super().__getitem__(k0)[kn] = v
         except ValueError:
             if isinstance(v, Conf):
+                v._parent=self
                 super().__setitem__(k, v)
             elif isinstance(v, dict):
                 super().__setitem__(k, Conf(conf=v, parent=self))

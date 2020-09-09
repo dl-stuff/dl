@@ -12,7 +12,7 @@ class Summer_Cleo(Adv):
     conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon, s=1
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2, s1.charged<s1.sp/3
         `s1
         `s4, cancel

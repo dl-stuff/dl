@@ -8,11 +8,11 @@ def module():
     return Lily
 
 cp_auto_conf = {
-    'x1_cp.dmg': 1.27075,
-    'x2_cp.dmg': 1.3685,
-    'x3_cp.dmg': 1.38,
-    'x4_cp.dmg': 1.8975,
-    'x5_cp.dmg': 2.599,
+    'x1_cp.attr': [{'dmg': 1.27075, "sp": 130, "killer": [0.3, ["frostbite"]]}],
+    'x2_cp.attr': [{'dmg': 0.68425, "sp": 200, "killer": [0.3, ["frostbite"]]}, 2],
+    'x3_cp.attr': [{'dmg': 0.46, "sp": 240, "killer": [0.3, ["frostbite"]]}, 3],
+    'x4_cp.attr': [{'dmg': 0.94875, "sp": 430, "killer": [0.3, ["frostbite"]]}, 2],
+    'x5_cp.attr': [{'dmg': 0.759, "sp": 600, "killer": [0.3, ["frostbite"]]}, {'dmg': 0.46, "killer": [0.3, ["frostbite"]]}, 4],
 }
 
 # C1: 1x 127.075%
@@ -38,15 +38,7 @@ class Lily(Adv):
     conf['share'] = ['Gala_Elisanne', 'Eugene']
 
     def prerun(self):
-        self.crystalian_princess = X_alt(self, 'crystalian_princess', cp_auto_conf, x_proc=self.l_cp_x)
-
-    def l_cp_x(self, e):
-        with KillerModifier('alt_x_killer', 'hit', 0.3, ['frostbite']):
-            self.crystalian_princess.x_proc_default(e)
-
-    def s1_proc(self, e):
-        self.afflics.freeze(e.name, 200)
-        self.afflics.frostbite(e.name, 120,0.41)
+        self.crystalian_princess = XAltBuff('cp')
 
     def s2_proc(self, e):
         self.crystalian_princess.on()

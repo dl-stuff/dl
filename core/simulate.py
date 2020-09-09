@@ -347,21 +347,21 @@ def act_sum(actions, output):
     p_xseq = 0
     condensed = []
     for act in actions:
+        act1 = act.split('_')[0]
         if act[0] == 'x':
-            xseq = int(act[1:].replace('ex', ''))
+            xseq = int(act1[1:])
             if xseq < p_xseq:
                 condensed = append_condensed(condensed, p_act)
             p_xseq = xseq
         elif act.startswith('fs') and p_act[0] == 'x':
-            act = act.split('_')[0]
             p_xseq = 0
-            condensed = append_condensed(condensed, p_act+act)
+            condensed = append_condensed(condensed, p_act+act1)
         else:
             if p_act[0] == 'x':
                 condensed = append_condensed(condensed, p_act)
             p_xseq = 0
             condensed = append_condensed(condensed, act)
-        p_act = act
+        p_act = act1
     if p_act[0] == 'x':
         condensed = append_condensed(condensed, p_act)
     seq, freq, start = act_repeats(condensed)
@@ -496,18 +496,9 @@ def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
     dps_mappings = {}
     dps_mappings['attack'] = dict_sum(dmg['x'], mod_func) / real_d
     for k in sorted(dmg['f']):
-        if k in ('fs', 'fs1', 'fs2', 'fs3', 'fs4'):
-            try:
-                dps_mappings['force_strike'] += dmg['f'][k] / real_d
-            except:
-                dps_mappings['force_strike'] = dmg['f'][k] / real_d
-        else:
-            dps_mappings[k] = dmg['f'][k] / real_d
+        dps_mappings[k] = dmg['f'][k] / real_d
     for k in sorted(dmg['s']):
-        if k[:2] in ('s1', 's2', 's3', 's4'):
-            dps_mappings['skill_{}'.format(k[1])] = dmg['s'][k] / real_d
-        else:
-            dps_mappings[k] = dmg['s'][k] / real_d
+        dps_mappings[k] = dmg['s'][k] / real_d
     if buff > 0:
         dps_mappings['team_buff'] = buff*team_dps
         report_csv[0] += dps_mappings['team_buff']

@@ -12,7 +12,7 @@ class Yaten(Adv):
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), fsc and self.energy() = 5
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s1
         `s2, fsc and self.energy() < 4

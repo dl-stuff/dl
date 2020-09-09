@@ -12,7 +12,7 @@ class Gala_Sarisse(Adv):
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
         `dragon(c3-s-c3-c3-s-end), s=1
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s4, s=1
         `s2, cancel

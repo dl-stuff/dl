@@ -9,17 +9,40 @@
         "spiral": 0
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.1667,
         "sp": 3456,
         "startup": 0.1
     },
+    "s1_striking": {
+        "recovery": 1.1667,
+        "attr": [
+            {"dmg": 4.29, "buff": ["debuff", 0.05, 20, 1, "-refresh"]},
+            {"dmg": 4.50}
+        ]
+    },
+    "s1_shielding":{
+        "recovery": 1.30,
+        "attr": [
+            {"buff": ["self", 0.60, 15, "defense", "-refresh"]}
+        ]
+    },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.3333,
         "sp": 8640,
         "startup": 0.1
+    },
+    "s2_striking": {
+        "recovery": 1.3333,
+        "attr": [
+            {"dmg": 4.91, "killer": [0.2, ["poison"]], "buff": ["debuff", 0.05, 20, 1, "attack", "-refresh"]},
+            {"dmg": 4.91, "killer": [0.2, ["poison"]]},
+            {"dmg": 5.40, "killer": [0.2, ["poison"]]}
+        ]
+    },
+    "s2_shielding": {
+        "recovery": 3.00,
+        "attr": [
+            {"dmg": 7.02, "killer": [0.2, ["debuff_def"]], "afflic": ["poison", 120, 0.582]},
+            {"dmg": 7.72, "killer": [0.2, ["debuff_def"]]},
+            {"dmg": 8.42, "killer": [0.2, ["debuff_def"]]}
+        ]
     }
 }

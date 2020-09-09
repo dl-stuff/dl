@@ -1,84 +1,100 @@
 agito_buffs = {
     'flame': [
-        {'s3': {
-        'buff'     : [('self',0.10,-1,'att','buff'), ('self',0.03,-1,'regen')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-        {'s3': {
-        'buff'     : [('self',0.20,-1,'att','buff'), ('self',0.05,-1,'regen')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-        {'s3': {
-        'buff'     : [('self',0.20,-1,'att','buff'), ('self',0.05,-1,'regen')], # combo time
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-    ],
-    'wind': [
-        {'s3': {
-        'buff'     : [('self',0.15,-1,'att','buff'), ('self',0.40,-1,'defense')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-        {'s3': {
-        'buff'     : [('self',0.25,-1,'att','buff'), ('self',0.50,-1,'defense')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-    ],
-    'shadow': [
-        {'s3': {
-        'buff'     : [('spd',0.20,-1), ('self',0.30,-1,'defense')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-        {'s3': {
-        'buff'     : [('spd',0.30,-1), ('self',0.40,-1,'defense')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-        {'s3': {
-        'buff'     : [[('spd',0.30,-1), ('self',0.05,-1,'crit','chance')], ('self',0.40,-1,'defense')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-    ],
-    'water': [
-        {'s3': {
-        'buff'     : [('self',0.8,-1,'crit','chance'), ('self',0.25,-1,'defense')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-        {'s3': {
-        'buff'     : [('self',0.12,-1,'crit','chance'), ('self',0.35,-1,'defense')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
-    ],
-    'light': [
-        {'s3': {
-        'buff'     : [('self',0.10,-1,'att','buff'), ('self',0.07,-1,'sp')],
-        'sp'       : 3000,
-        'startup'  : 0.25,
-        'recovery' : 0.90,
-        }},
+        None, # add 0ub again 1day mayb
         {
             's3': {
-                # 'buff'     : [('self',0.20,-1,'att','buff'), ('self',0.10,-1,'sp')],
-                'sp'       : 3000,
-                'startup'  : 0.25,
+                'sp' : 3000,
+                'startup' : 0.25,
+                'recovery' : 0.90,
+            },
+            's3_phase1': {
+                'attr': [{'buff': ['self', 0.20, -1, 'att', 'buff', '-replace']}] # combo time
+            },
+            's3_phase2': {
+                'attr': [{'buff': ['self', 0.05, -1, 'regen', 'buff', '-replace']}]
+            }
+        },
+        {
+            's3': {
+                'sp' : 3000,
+                'startup' : 0.25,
+                'recovery' : 0.90,
+            },
+            's3_phase1': {
+                'attr': [{'buff': ['self', 0.20, -1, 'att', 'buff', '-replace']}] # combo time
+            },
+            's3_phase2': {
+                'attr': [{'buff': ['self', 0.05, -1, 'regen', 'buff', '-replace']}]
+            }
+        },
+    ],
+    'wind': [
+        None,
+        {
+            's3': {
+                'sp' : 3000,
+                'startup' : 0.25,
+                'recovery' : 0.90,
+            },
+            's3_phase1': {
+                'attr': [{'buff': ['self', 0.25, -1, 'att', 'buff', '-replace']}]
+            },
+            's3_phase2': {
+                'attr': [{'buff': ['self', 0.50, -1, 'defense', 'buff', '-replace']}]
+            }
+        },
+    ],
+    'shadow': [
+        None,
+        {
+            's3': {
+                'sp' : 3000,
+                'startup' : 0.25,
+                'recovery' : 0.90,
+            },
+            's3_phase1': {
+                'attr': [{'buff': ['spd', 0.30, -1, '-replace']}]
+            },
+            's3_phase2': {
+                'attr': [{'buff': ['self', 0.40, -1, 'defense', 'buff', '-replace']}]
+            }
+        },
+        {
+            's3': {
+                'sp' : 3000,
+                'startup' : 0.25,
+                'recovery' : 0.90,
+            },
+            's3_phase1': {
+                'attr': [{'buff': [['spd', 0.30, -1], ['self', 0.05, -1, 'crit', 'chance'], '-replace']}]
+            },
+            's3_phase2': {
+                'attr': [{'buff': ['self', 0.40, -1, 'defense', 'buff', '-replace']}]
+            }
+        },
+    ],
+    'water': [
+        None,
+        {
+            's3': {
+                'sp' : 3000,
+                'startup' : 0.25,
+                'recovery' : 0.90,
+            },
+            's3_phase1': {
+                'attr': [{'buff': ['self', 0.20, -1, 'crit', 'chance', '-replace']}]
+            },
+            's3_phase2': {
+                'attr': [{'buff': ['self', 0.35, -1, 'defense', 'buff', '-replace']}]
+            }
+        },
+    ],
+    'light': [
+        None,
+        {
+            's3': {
+                'sp' : 3000,
+                'startup' : 0.25,
                 'recovery' : 0.90,
             },
             's3_phase1': {
@@ -119,7 +135,7 @@ class LightAgitoWeaponBase(WeaponBase):
     #         adv.s3a = self.s3a
 
     # def s3_before(self, e):
-    #     if not self.s3_buff:
+    #     if not buff(s3):
     #         return
     #     if self.s3_buff.mod_type == 'att':
     #         self.dmg_make(e.name, self.s3a['dmg'])
@@ -127,7 +143,7 @@ class LightAgitoWeaponBase(WeaponBase):
     #         self.dragonform.charge_gauge(100)
 
     # def s3_proc(self, e):
-    #     if not self.s3_buff:
+    #     if not buff(s3):
     #         return
     #     if self.s3_buff.mod_type == 'att':
     #         self.a_s3 = self.s3.ac

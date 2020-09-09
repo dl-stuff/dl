@@ -9,17 +9,21 @@
         "spiral": 0
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
+        "attr": [{"buff": ["ele", 0.30, 15, "att", "buff", "wind"]}],
         "recovery": 0.9,
         "sp": 3840,
         "startup": 0.25
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.7,
         "sp": 1,
         "startup": 0.1
+    },
+    "s2_phase1": {
+        "attr": [{"dmg": 1.04, "afflic": ["poison", 120, 0.582]}],
+        "recovery": 1.7
+    },
+    "s2_phase2": {
+        "attr": [{"dmg": 1.04, "afflic": ["poison", 120, 0.582]}, {"dmg": 1.04}, 7],
+        "recovery": 1.53
     }
 }

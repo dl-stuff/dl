@@ -14,11 +14,11 @@ class Ieyasu(Adv):
     conf['acl'] = """
         ##Use Gala Cat Sith only when out of Skillful Trickery
         `dragon(c3-s-end), self.trickery <= 1
-        `s3, not self.s3_buff
-        `s1, self.s3_buff
+        `s3, not buff(s3)
+        `s1, buff(s3)
         `s2, x=5
         `s4, fsc or not self.afflics.poison.get()
-        `fs, x=5 and self.s3_buff
+        `fs, x=5 and buff(s3)
     """
     conf['coabs'] = ['Wand','Delphi','Axe2']
     conf['share'] = ['Kleimann']

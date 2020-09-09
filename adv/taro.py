@@ -11,11 +11,11 @@ class Taro(Adv):
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
         `dragon(c3-s-end),fsc
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s1,x=5
         `s2,x=5
-        `fs,x=5 and self.s3_buff
+        `fs,x=5 and buff(s3)
         """
     conf['coabs'] = ['Wand','Dagger','Axe2']
     conf['share'] = ['Curran']

@@ -12,7 +12,7 @@ class Melsa(Adv):
     conf['slots.a'] = Twinfold_Bonds()+Levins_Champion()
     conf['acl'] = """
         `dragon,s
-        `s3, not self.s3_buff and x=5
+        `s3, not buff(s3) and x=5
         `s4
         `s1, cancel
         `s2,s=1

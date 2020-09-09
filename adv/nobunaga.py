@@ -13,7 +13,7 @@ class Nobunaga(Adv):
     conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s=2
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4, cancel
         `s1
         `s2, self.burning_ambition

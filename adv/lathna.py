@@ -7,17 +7,15 @@ def module():
 
 class Lathna(Adv):
     comment = 'cait sith skill damage does not work on s1 extra hits'
-    a1 = ('k_poison',0.15)
-    a3 = ('dt', 0.25)
     
     conf = {}
     conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), cancel
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2
         `s4
-        `s1, x=5
+        `s1(all), x=5
         """
     conf['coabs'] = ['Ieyasu','Wand','Forte']
     conf['share'] = ['Kleimann']
@@ -59,23 +57,9 @@ class Lathna(Adv):
         self.faceless_god = Selfbuff('faceless_god',2.00,-1,'poison_killer','passive')
         Event('dragon').listener(self.a1_on)
         Event('idle').listener(self.a1_off)
-
-        a_s1 = self.s1.ac
-        a_s1a = S('s1', Conf({'startup': 0.10, 'recovery': 2.00}))
-        def recovery():
-            return a_s1a._recovery + a_s1.getrecovery()
-        a_s1a.getrecovery = recovery
-        self.s1.ac = a_s1a
-
-    @staticmethod
+    
     def prerun_skillshare(adv, dst):
-        s = adv.__getattribute__(dst)
-        a_s1 = s.ac
-        a_s1a = S(dst, Conf({'startup': 0.10, 'recovery': 2.00}))
-        def recovery():
-            return a_s1a._recovery + a_s1.getrecovery()
-        a_s1a.getrecovery = recovery
-        s.ac = a_s1a
+        adv.current_s[dst] = 'all'
 
     def a1_on(self, e):
         if not self.faceless_god.get():
@@ -85,16 +69,19 @@ class Lathna(Adv):
         if self.faceless_god.get():
             self.faceless_god.off()
 
+    def s(self, n, s1_kind=None):
+        if n == 1 and s1_kind == 'all':
+            self.current_s['s1'] = s1_kind
+        else:
+            self.current_s['s1'] = 'default'
+        return super().s(n)
+
     def s1_proc(self, e):
-        with KillerModifier('s1_killer', 'hit', 0.5, ['poison']):
-            self.dmg_make(e.name, 2.37*3)
-            self.dmg_make(e.name, 2.37*4*self.sub_mod('s', 'passive')*self.sub_mod('s', 'ex'), 'hecking_spaget')
-
-            self.hits += 7
-
-    def s2_proc(self, e):
-        with KillerModifier('s2_killer', 'hit', 0.5, ['poison']):
-            self.dmg_make(e.name, 17.26)
+        # reeeeeee fix ur shit cykagames
+        with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
+            for _ in range(4):
+                self.dmg_make(e.name, 2.37/self.sub_mod('s', 'buff'))
+                self.add_hits(1)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

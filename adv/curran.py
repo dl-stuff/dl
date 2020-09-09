@@ -11,7 +11,7 @@ class Curran(Adv):
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = '''
         `dragon(c3-s-end), s
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s2
         `s4

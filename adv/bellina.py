@@ -53,7 +53,7 @@ class Bellina(Adv):
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
         `s2, duration-now<2
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         if self.dragondrive.get()
         `s4, dgauge>1000 and x=3
         `s1, dgauge>1200 and x=3

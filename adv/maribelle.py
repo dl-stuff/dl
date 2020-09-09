@@ -11,7 +11,7 @@ class Maribelle(Adv):
     conf['slots.d'] = AC011_Garland()
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s1
         `s2, cancel

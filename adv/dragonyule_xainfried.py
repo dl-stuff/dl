@@ -15,7 +15,7 @@ class Dragonyule_Xainfried(Adv):
     conf['slots.d'] = Ariel()
     conf['acl'] = """
         `dragon(s-end)
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s4
         """

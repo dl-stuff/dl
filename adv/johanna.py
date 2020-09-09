@@ -10,7 +10,7 @@ class Johanna(Adv):
     conf['slots.poison.a'] = Kung_Fu_Masters()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end)
-        `s3, not self.s3_buff 
+        `s3, not buff(s3) 
         `s4
         `s1 
         `s2

@@ -202,7 +202,7 @@ mitsuba_conf = {
     'fsf.startup': 14 / 60, # 22 - 8
 }
 
-class Mitsuba(Adv, StanceAdv):
+class Mitsuba(StanceAdv):
     conf = mitsuba_conf.copy()
     conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
     conf['slots.d'] = Siren()
@@ -235,53 +235,8 @@ class Mitsuba(Adv, StanceAdv):
         self.config_stances({
             'sashimi': ModeManager(self, 'sashimi', x=True, s1=True, s2=True),
             'tempura': ModeManager(self, 'tempura', x=True, s1=True, s2=True)
-        })
+        }, hit_threshold=20)
 
-        # self.s1_mod = {
-        #     'sashimi': 0.92,
-        #     'tempura': 1.03
-        # }
-        # self.s2_buff = {
-        #     'sashimi': (('s2', 0.10, 15, 'crit', 'chance'), 2),
-        #     'tempura': (('s2', 0.50, 15, 'crit', 'damage'), 3)
-        # }
-
-    #     return self.queue_stance('sashimi')
-
-    # def tempura(self):
-    #     return self.queue_stance('tempura')
-
-    def s(self, n, stance=None):
-        if stance:
-            self.queue_stance(stance)
-
-        # s = self.get_sn(f's{n}')
-        # print(now(), n, stance, s.charged, s.sp, self.Skill._static.silence == 0)
-
-        return super().s(n)
-
-    # def s1_proc(self, e):
-    #     coef = self.s1_mod[self.stance]
-    #     if self.stance == 'sashimi':
-    #         self.add_hits(1)
-    #         self.afflics.frostbite(e.name,120,0.41)
-    #         for _ in range(7):
-    #             self.dmg_make(e.name, coef)
-    #             self.add_hits(1)
-    #     elif self.stance == 'tempura':
-    #         with KillerModifier('s1_killer', 'hit', 0.6, ['frostbite']):
-    #             for _ in range(8):
-    #                 self.dmg_make(e.name, coef)
-    #                 self.add_hits(1)
-
-    def s2_proc(self, e):
-        if e.group == 'sashimi':
-            return self.inspiration.add(2, team=True)
-        if e.group == 'tempura':
-            return self.inspiration.add(3, team=True)
-        # buff, insp = self.s2_buff[self.stance]
-        # Teambuff(*buff).on()
-        # self.inspiration.add(insp, team=True)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -16,7 +16,7 @@ class Yukata_Cassandra(Adv):
     conf['slots.burn.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon, s
-        `s3, not self.s3_buff and x=5
+        `s3, not buff(s3) and x=5
         `s4
         `s1, x>3
     """

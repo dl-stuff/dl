@@ -46,7 +46,7 @@ class Pinon(Adv):
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
         # `dragon(c3-s-end), s
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         if self.unlocked
         if x=8 or fsc
         `s2

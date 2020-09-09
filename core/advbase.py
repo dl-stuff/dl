@@ -59,6 +59,10 @@ class Skill(object):
             ac.enabled = enabled
 
     @property
+    def phase(self):
+        return self._static.current_s[self.name]
+
+    @property
     def ac(self):
         try:
             return self.act_dict[self._static.current_s[self.name]]
@@ -89,6 +93,8 @@ class Skill(object):
         return self.cast()
 
     def charge(self, sp):
+        if not self.ac.enabled:
+            return
         self.charged = max(min(self.sp, self.charged + sp), 0)
         if self.charged >= self.sp:
             self.skill_charged()
@@ -401,6 +407,7 @@ class S(Action):
         parts = name.split('_')
         self.base = parts[0]
         self.group = 'default'
+        self.phase = None
         if len(parts) >= 2:
             self.group = parts[1]
 
@@ -408,6 +415,7 @@ class S(Action):
         self.act_event.name = self.name
         self.act_event.base = self.base
         self.act_event.group = self.group
+        self.act_event.phase = 0
 
 
 class Dodge(Action):
@@ -546,8 +554,7 @@ class Adv(object):
         self.base_buff = Buff()
         self.all_buffs = []
         self.base_buff._static.all_buffs = self.all_buffs
-        self.base_buff._static.bufftime = lambda: self.mod('buff')
-        self.base_buff._static.debufftime = lambda: self.mod('debuff')
+        self.base_buff._static.adv = self
         self.buff = ActiveBuffDict()
         # set modifier
         self.modifier = Modifier(0, 0, 0, 0)
@@ -592,12 +599,12 @@ class Adv(object):
         # self.s3 = Skill('s3', self.conf.s3)
         # self.s4 = Skill('s4', self.conf.s4)
 
-        if self.conf.xtype == 'ranged':
-            self.l_x = self.l_range_x
-            self.l_fs = self.l_range_fs
-        elif self.conf.xtype == 'melee':
-            self.l_x = self.l_melee_x
-            self.l_fs = self.l_melee_fs
+        # if self.conf.xtype == 'ranged':
+        #     self.l_x = self.l_range_x
+        #     self.l_fs = self.l_range_fs
+        # elif self.conf.xtype == 'melee':
+        #     self.l_x = self.l_melee_x
+        #     self.l_fs = self.l_melee_fs
 
         # set cmd
         self.fsf = self.a_fsf
@@ -767,11 +774,6 @@ class Adv(object):
         self.ctx = Ctx().on()
         self.condition = Condition(cond)
         self.duration = 180
-
-        self.s3_buff_list = []
-        self.s3_buff = None
-
-        self.hitattr_mod_cache = {}
 
         self.damage_sources = set()
         self.phase = {}
@@ -1037,28 +1039,18 @@ class Adv(object):
                 self.current_x = 'default'
         return self.a_x_dict[self.current_x][x_min]()
 
-    def get_missile_iv(self, name):
-        if self.conf['missile_iv']:
-            return self.conf.missile_iv
-        else:
-            try:
-                return self.conf[name]['iv']
-            except KeyError:
-                return 0
-
-
-    def l_range_x(self, e):
+    def l_x(self, e):
         # FIXME: race condition?
         x_max = self.conf[self.current_x].x_max
         if e.index == x_max:
-            log('x', e.base, 0, '-'*38 + f'c{x_max}')
+            log('x', e.name, 0, '-'*38 + f'c{x_max}')
         else:
-            log('x', e.base, 0)
+            log('x', e.name, 0)
         self.hit_make(
             e, self.conf[e.name],
             getattr(self, f'x_{e.group}_before', self.x_before),
             getattr(self, f'x_{e.group}_proc', self.x_proc),
-            pin='x', missile=self.get_missile_iv(e.name)
+            pin='x'
         )
 
     def cb_missile(self, t):
@@ -1066,19 +1058,19 @@ class Adv(object):
         self.dmg_make(t.dname, t.conf.dmg)
         self.charge(t.dname, t.conf.sp)
 
-    def l_melee_x(self, e):
-        # FIXME: race condition?
-        x_max = self.conf[self.current_x].x_max
-        if e.index == x_max:
-            log('x', e.base, 0, '-'*38 + f'c{x_max}')
-        else:
-            log('x', e.base, 0)
-        self.hit_make(
-            e, self.conf[e.name],
-            getattr(self, f'x_{e.group}_before', self.x_before),
-            getattr(self, f'x_{e.group}_proc', self.x_proc),
-            pin='x'
-        )
+    # def l_melee_x(self, e):
+    #     # FIXME: race condition?
+    #     x_max = self.conf[self.current_x].x_max
+    #     if e.index == x_max:
+    #         log('x', e.name, 0, '-'*38 + f'c{x_max}')
+    #     else:
+    #         log('x', e.name, 0)
+    #     self.hit_make(
+    #         e, self.conf[e.name],
+    #         getattr(self, f'x_{e.group}_before', self.x_before),
+    #         getattr(self, f'x_{e.group}_proc', self.x_proc),
+    #         pin='x'
+    #     )
 
     def dodge(self):
         return self.a_dodge()
@@ -1128,8 +1120,8 @@ class Adv(object):
     def skills(self):
         return tuple(self.a_s_dict.values())
 
-    def s(self, n, *args):
-        return self.a_s_dict[f's{n}'](*args)
+    def s(self, n):
+        return self.a_s_dict[f's{n}']()
 
     @property
     def s1(self):
@@ -1196,18 +1188,20 @@ class Adv(object):
                 src_key = f's{sdata["s"]}'
                 shared_sp = self.sp_convert(sdata['sp'], sp_modifier)
                 try:
-                    owner_conf = load_adv_json(owner)
-                    self.conf[dst_key] = Conf(owner_conf[src_key])
-                    self.conf[dst_key].owner = owner
+                    owner_conf = Conf(load_adv_json(owner))
+                    for src_sn, src_snconf in owner_conf.find(f'^{src_key}(_[A-Za-z0-9]+)?$'):
+                        dst_sn = src_sn.replace(src_key, dst_key)
+                        self.conf[dst_sn] = src_snconf
+                        self.conf[dst_sn].owner = owner
                     owner_module = load_adv_module(owner)
                     preruns[dst_key] = owner_module.prerun_skillshare
-                    for sfn in ('before', 'proc', 'cast'):
+                    for sfn in ('before', 'proc'):
                         self.rebind_function(owner_module, f'{src_key}_{sfn}', f'{dst_key}_{sfn}')
                 except:
                     pass
                 self.conf[dst_key].sp = shared_sp
 
-        for sn, snconf in self.conf.find(f'^s\d(_[A-Za-z0-9]+)?$'):
+        for sn, snconf in self.conf.find(r'^s\d(_[A-Za-z0-9]+)?$'):
             s = S(sn, snconf)
             if s.group != 'default' and self.conf[s.base]:
                 snconf.update(self.conf[s.base], rebase=True)
@@ -1220,6 +1214,7 @@ class Adv(object):
                     self.conf[s.base].p_max = s.group
                 self.current_s[s.base] = 0
                 s.group -= 1
+                s.act_event.group = s.group
             self.a_s_dict[s.base].add_action(s.group, s)
 
         return preruns
@@ -1384,7 +1379,7 @@ class Adv(object):
             if no_autocharge and hasattr(s, 'autocharge_timer'):
                 continue
             s.charge(self.sp_convert(percent, s.sp))
-        log('sp', name, f'{percent*100:.0f}%', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
+        log('sp', name if not target else f'{name}->{target}', f'{percent*100:.0f}%', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
         if percent == 1:
             self.think_pin('prep')
@@ -1398,7 +1393,7 @@ class Adv(object):
         for s in targets:
             s.charge(sp)
         self.think_pin('sp')
-        log('sp', name, sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
+        log('sp', name if not target else f'{name}_{target}', sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
     def l_dmg_formula(self, e):
         name = e.dname
@@ -1457,7 +1452,7 @@ class Adv(object):
             count += echo_count
         return count
 
-    def hitattr_make(self, name, base, idx, attr):
+    def hitattr_make(self, name, base, group, idx, attr):
         g_logs.log_hitattr(name, attr)
         hitmods = []
         if 'dmg' in attr:
@@ -1513,66 +1508,90 @@ class Adv(object):
 
         if 'buff' in attr:
             # self.active_buff[name] = self.make_buff_old(name, attr['buff'])
-            btype = attr['buff'][0]
-            if btype in ('energy', 'inspiration'):
-                getattr(self, btype).add(attr['buff'][1])
-            else:
-                if attr['buff'][-1][0] == '-':
-                    bargs = attr['buff'][1:-1]
-                    bctrl = attr['buff'][-1]
+            if isinstance(attr['buff'][0], list):
+                bctrl = None
+                blist = attr['buff']
+                buff_objs = []
+                try:
+                    if attr['buff'][-1][0] == '-':
+                        bctrl = attr['buff'][-1]
+                        blist = blist[:-1]
+                except TypeError:
+                    pass
+                if bctrl == '-refresh' and base in self.buff:
+                    self.buff.on(base)
                 else:
-                    bargs = attr['buff'][1:]
-                    bctrl = None
-                buff = bufftype_dict[btype](f'{name}_{idx}', *bargs)
-                if bctrl is None:
-                    self.buff[base] = buff.on()
-                elif bctrl == '-refresh':
-                    try:
-                        self.buff[base].on()
-                    except KeyError:
-                        self.buff[base] = buff.on()
-                elif bctrl == '-replace':
-                    try:
-                        self.buff[base].off()
-                    except KeyError:
-                        pass
-                    self.buff[base] = buff.on()
+                    for attrbuff in blist:
+                        obj = self.hitattr_buff(name, base, group, idx, attrbuff, bctrl=bctrl)
+                        if obj:
+                            buff_objs.append(obj)
+                    self.buff[base][group] = MultiBuffManager(name, buff_objs)
+            else:
+                self.buff[base][group] = self.hitattr_buff(name, base, group, idx, attr['buff'])
 
         for m in hitmods:
             m.off()
 
-    def l_hitattr_make(self, t):
-        self.hitattr_make(t.name, t.base, t.idx, t.attr)
+    def hitattr_buff(self, name, base, group, idx, attrbuff, bctrl=None):
+        btype = attrbuff[0]
+        if btype in ('energy', 'inspiration'):
+            getattr(self, btype).add(attrbuff[1], team=len(attrbuff) > 2 and bool(attrbuff[2]))
+        else:
+            try:
+                if attrbuff[-1][0] == '-':
+                    bargs = attrbuff[1:-1]
+                    bctrl = attrbuff[-1]
+                else:
+                    bargs = attrbuff[1:]
+            except TypeError:
+                bargs = attrbuff[1:]
+            buff = bufftype_dict[btype](f'{name}_{idx}', *bargs)
+            if bctrl == '-refresh':
+                try:
+                    return self.buff[base][group].on()
+                except KeyError:
+                    pass
+            elif bctrl == '-replace':
+                try:
+                    self.buff[base][group].off()
+                except KeyError:
+                    pass
+            return buff.on()
 
-    def do_hitattr_make(self, name, base, idx, attr, missile):
+    def l_hitattr_make(self, t):
+        self.hitattr_make(t.name, t.base, t.group, t.idx, t.attr)
+
+    def do_hitattr_make(self, e, idx, attr, missile):
         if missile is not None:
             mt = Timer(self.l_hitattr_make)
-            mt.name = name
-            mt.base = base
+            mt.name = e.name
+            mt.base = e.base
+            mt.group = e.group
             mt.idx = idx
             mt.attr = attr
             mt.on(missile)
         else:
-            self.hitattr_make(name, base, idx, attr)
+            self.hitattr_make(e.name, e.base, e.group, idx, attr)
 
-    def hit_make(self, e, conf, before, proc, pin=None, missile=None):
+    def hit_make(self, e, conf, before, proc, pin=None):
         before(e)
+        missile = conf['iv']
         if conf['attr']:
             prev_attr = None
             for idx, attr in enumerate(conf['attr']):
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
-                        self.do_hitattr_make(e.name, e.base, idx+repeat, prev_attr, missile)
+                        self.do_hitattr_make(e, idx+repeat, prev_attr, missile)
                 else:
-                    self.do_hitattr_make(e.name, e.base, idx, attr, missile)
+                    self.do_hitattr_make(e, idx, attr, missile)
                     prev_attr = attr
         else:
+            # old dmg/hit/sp system
             if e.name.startswith('x') or e.name.startswith('fs'):
                 sp = conf.sp
             else:
                 sp = 0
                 missile = None
-            # old dmg/hit/sp system
             if missile is not None:
                 mt = Timer(self.cb_missile)
                 mt.dname = e.base
@@ -1586,21 +1605,12 @@ class Adv(object):
         proc(e)
         self.think_pin(pin or e.name)
 
-    def l_melee_fs(self, e):
+    def l_fs(self, e):
         log('cast', e.name)
         self.hit_make(
             e, self.conf[e.name] or self.conf['fs'],
             getattr(self, f'{e.name}_before', self.fs_before),
             getattr(self, f'{e.name}_proc', self.fs_proc)
-        )
-
-    def l_range_fs(self, e):
-        log('cast', e.name)
-        self.hit_make(
-            e, self.conf[e.name] or self.conf['fs'],
-            getattr(self, f'{e.name}_before', self.fs_before),
-            getattr(self, f'{e.name}_proc', self.fs_proc),
-            missile=self.get_missile_iv(e.name)
         )
 
 
@@ -1609,34 +1619,35 @@ class Adv(object):
         s_conf = self.conf[e.name]
         if s_conf['buff'] is not None:
             buffarg = s_conf['buff']
-            if e.name == 's3' and self.conf.s3.owner is None:
-                if len(self.s3_buff_list) == 0:
-                    for ba in buffarg:
-                        if ba is not None:
-                            buff = self.make_buff_old(e.name, ba)
-                            self.s3_buff_list.append(buff)
-                        else:
-                            self.s3_buff_list.append(None)
-                    if self.s3_buff_list[0] is not None:
-                        self.s3_buff_list[0].on()
-                        self.s3_buff = self.s3_buff_list[0]
-                else:
-                    idx = (self.s3_buff_list.index(self.s3_buff) + 1) % len(self.s3_buff_list)
-                    try:
-                        self.s3_buff.off()
-                        self.s3_buff = self.s3_buff_list[idx].on()
-                    except:
-                        self.s3_buff = None
-            else:
-                self.make_buff_old(e.name, buffarg).on()
+            self.make_buff_old(e.name, buffarg).on()
+            # if e.name == 's3' and self.conf.s3.owner is None:
+            #     if len(self.s3_buff_list) == 0:
+            #         for ba in buffarg:
+            #             if ba is not None:
+            #                 buff = self.make_buff_old(e.name, ba)
+            #                 self.s3_buff_list.append(buff)
+            #             else:
+            #                 self.s3_buff_list.append(None)
+            #         if self.s3_buff_list[0] is not None:
+            #             self.s3_buff_list[0].on()
+            #             self.s3_buff = self.s3_buff_list[0]
+            #     else:
+            #         idx = (self.s3_buff_list.index(self.s3_buff) + 1) % len(self.s3_buff_list)
+            #         try:
+            #             self.s3_buff.off()
+            #             self.s3_buff = self.s3_buff_list[idx].on()
+            #         except:
+            #             self.s3_buff = None
+            # else:
+            #     self.make_buff_old(e.name, buffarg).on()
 
     def s_before_group(self, e):
         self.s_before(e)
-        getattr(self, f'{e.name}_before', getattr(self, f'{e.base}_before'))(e)
+        getattr(self, f'{e.base}_before')(e)
 
     def s_proc_group(self, e):
         self.old_s_buff(e)
-        getattr(self, f'{e.name}_proc', getattr(self, f'{e.base}_proc'))(e)
+        getattr(self, f'{e.base}_proc')(e)
         self.s_proc(e)
 
     def l_s(self, e):

@@ -18,14 +18,14 @@ class Zena(Adv):
     conf = conf_fs_alt.copy()
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2
         `s4
         `s1
 
         # If healing FS is needed
         # `fs, s1.check() and self.fs_alt.uses>0
-        # `s3, not self.s3_buff
+        # `s3, not buff(s3)
         # `s2
         # `s4
         # `s1, fsc or self.fs_alt.uses=0
@@ -38,7 +38,7 @@ class Zena(Adv):
             self.conf['share'] = ['Curran']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff(self, 'heal', uses=1)
+        self.fs_alt = FSAltBuff('heal', uses=1)
         self.s2_extra_hit_rate = 8 # number of hits per second
         self.s2_timers = []
         Event('dragon').listener(self.s2_clear)

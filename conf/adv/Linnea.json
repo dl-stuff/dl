@@ -9,17 +9,21 @@
         "spiral": 0
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
         "recovery": 1.133,
         "sp": 3000,
         "startup": 0.1
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
+        "sp": 5259
+    },
+    "s2_phase1": {
+        "attr": [{"buff": ["spd", 0.30, 15, "cspd"]}],
         "recovery": 0.9,
-        "sp": 5259,
         "startup": 0.25
+    },
+    "s2_phase2": {
+        "attr": [{"dmg": 3.55, "dispel": 1}, 4],
+        "recovery": 1.3333,
+        "startup": 0.1
     }
 }

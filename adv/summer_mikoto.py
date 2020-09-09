@@ -27,7 +27,7 @@ class Summer_Mikoto(Adv):
         `s2
         `s1
         `s4, cancel 
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `fs, self.light=self.sun and not self.illuminating_sun.get()
         `fs, self.light=self.wave and not self.celestial_wave.get()
     """

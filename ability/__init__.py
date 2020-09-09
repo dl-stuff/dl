@@ -718,10 +718,13 @@ class Skill_Recharge(Ability):
     def oninit(self, adv, afrom=None):
         if self.all:
             def l_skill_charge(e):
-                adv.charge_p('skill_charge',self.value)
+                adv.charge_p('scharge',self.value)
         else:
             def l_skill_charge(e):
-                adv.charge_p(f'skill_charge_{e.name}',self.value,target=e.name)
+                try:
+                    adv.charge_p('scharge',self.value,target=e.base)
+                except AttributeError:
+                    pass
         adv.Event('s').listener(l_skill_charge)
 
 ability_dict['scharge'] = Skill_Recharge

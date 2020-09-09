@@ -10,28 +10,21 @@ class Ramona(Adv):
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
     conf['acl'] = """
         `dragon(c3-s-s-end),s=1 and not s4.check()
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2, s1.check()
         `s4, s=1
-        `s1
+        `s1(all)
         """
     conf['coabs'] = ['Gala_Sarisse', 'Wand', 'Marth']
     conf['share'] = ['Summer_Cleo']
 
-    def prerun(self):
-        self.a_s1 = self.s1.ac
-        self.a_s1a = S('s1', Conf({'startup': 0.10, 'recovery': 3.10}))
-        def recovery():
-            return self.a_s1a._recovery + self.a_s1.getrecovery()
-        self.a_s1a.getrecovery = recovery
-        self.s1.ac = self.a_s1a
 
-    def s1_proc(self, e):
-        self.dmg_make(e.name, 2.93*6)
-        self.add_hits(6)
-
-    def s2_proc(self, e):
-        Teambuff(e.name+'_defense', 0.25, 15, 'defense').on()
+    def s(self, n, s1_kind=None):
+        if n == 1 and s1_kind == 'all':
+            self.current_s['s1'] = s1_kind
+        else:
+            self.current_s['s1'] = 'default'
+        return super().s(n)
 
 
 if __name__ == '__main__':

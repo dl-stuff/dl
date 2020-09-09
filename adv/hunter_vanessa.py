@@ -30,7 +30,7 @@ class Hunter_Vanessa(Adv):
         `dragon, s
         `s2, not self.s2_att_boost.get()
         `fs2, cancel and (s1.charged>=s1.sp-self.sp_val('fs2') or s4.charged>=s4.sp-self.sp_val('fs2'))
-        `s3, not self.s3_buff and fsc
+        `s3, not buff(s3) and fsc
         `s1, fsc
         `s4, fsc
         `dodge,fsc

@@ -56,7 +56,7 @@ class Albert(Adv):
         self.a1_fs = Selfbuff('a1_fs_passive',0.10, 25,'fs','passive')
         self.a3_att = Selfbuff('a3_att_passive',0.30, 25,'att','passive')
         self.a3_spd = Spdbuff('a3_spd', 0.10, 25)
-        self.fs_alt = FSAltBuff(self, duration=25)
+        self.fs_alt = FSAltBuff(duration=25)
         self.electrified = MultiBuffManager('electrified', [self.a1_fs, self.a3_att, self.a3_spd, self.fs_alt], duration=25)
 
         self.s1_hits = 6 if self.condition('big hitbox') else 4

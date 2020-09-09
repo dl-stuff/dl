@@ -10,7 +10,7 @@ class Eleonora(Adv):
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end)
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1, fsc
         `s2, fsc
         `s4, fsc

@@ -16,7 +16,7 @@ class Yukata_Curran(Adv):
     conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2
         `s4, x=5
         `s1, not self.energy()=5 and cancel

@@ -11,7 +11,7 @@ class Audric(Adv):
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s4, cancel
         `s2, fsc

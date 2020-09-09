@@ -29,7 +29,7 @@ class Gala_Ranzal(Adv):
     conf['slots.d'] = AC011_Garland()
     conf['acl'] = '''
         `dragon(c3-s-end)
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1, fsc
         `s4, fsc
         `fs, seq=2 and self.gauges['x'] <= 500
@@ -47,7 +47,7 @@ class Gala_Ranzal(Adv):
     def prerun(self):
         self.ifs1ins2 = 0
         self.gauges = {'x':0, 'fs':0}
-        self.fs_alt = FSAltBuff(self, 'a', uses=3)
+        self.fs_alt = FSAltBuff('a', uses=3)
 
     def dmg_proc(self, name, amount):
         if name == 'x1':

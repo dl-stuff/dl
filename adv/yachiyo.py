@@ -19,7 +19,7 @@ class Yachiyo(Adv):
     conf['slots.a'] = RR()+SotS()
     conf['acl'] = """
         `dragon, s
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `fs, self.fsa_charge and seq=5
         `s1
         `s4, cancel

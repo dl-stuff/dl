@@ -12,7 +12,7 @@ class Veronica(Adv):
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), ((self.hp>0 and s) or (self.hp=0 and x=5))
-        queue prep and not self.s3_buff
+        queue prep and not buff(s3)
         `s3;s4;s2;s1
         end
         `s1

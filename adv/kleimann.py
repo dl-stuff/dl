@@ -12,7 +12,7 @@ class Kleimann(Adv):
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """
         `dragon(c3-s-end), x=5
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s2
         `s4

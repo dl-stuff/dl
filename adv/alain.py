@@ -11,7 +11,7 @@ class Alain(Adv):
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s=2
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1, cancel
         `s2, cancel
         `s4, cancel

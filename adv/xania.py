@@ -9,13 +9,13 @@ class Xania(Adv):
     conf['slots.a'] = Candy_Couriers()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon(c3-s-s-end),s
-        `s3, not self.s3_buff and x=5
+        `s3, not buff(s3) and x=5
         `s1
         `s4,cancel
         `s2,x=5
         """
     conf['coabs'] = ['Blade', 'Marth', 'Joe']
-    conf['share'] = ['Kleimann']
+    conf['share'] = ['Lathna']
     conf['afflict_res.burn'] = 0
 
 

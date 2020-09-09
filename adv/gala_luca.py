@@ -11,7 +11,7 @@ class Gala_Luca(Adv):
     conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
     conf['acl'] = """
         `dragon
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2
         `s1
         `s4, x=5

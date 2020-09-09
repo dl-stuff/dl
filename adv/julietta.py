@@ -13,7 +13,7 @@ class Julietta(Adv):
     conf['slots.a'] = Valiant_Crown()+Primal_Crisis()
     conf['acl'] = """
         `dragon, self.energy()<4
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2
         `s1
         `s4, s1.charged<s1.sp/2
@@ -23,7 +23,7 @@ class Julietta(Adv):
     conf['share'] = ['Summer_Cleo']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff(self, group='divine', uses=1)
+        self.fs_alt = FSAltBuff(group='divine', uses=1)
 
     def s2_proc(self, e):
        Selfbuff(f'{e.name}_defense', 0.50, 10, 'defense').on()

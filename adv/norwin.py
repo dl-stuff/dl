@@ -13,9 +13,9 @@ class Norwin(Adv):
     conf['slots.poison.a'] = Forest_Bonds()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), fsc
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
-        `s1, cancel and self.s3_buff
+        `s1, cancel and buff(s3)
         `s2
         `fs,x=5
     """

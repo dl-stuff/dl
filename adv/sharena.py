@@ -14,7 +14,7 @@ class Sharena(Adv):
     conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s1, cancel
         `s2, cancel
