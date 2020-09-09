@@ -1519,7 +1519,7 @@ class Adv(object):
                 except TypeError:
                     pass
                 if bctrl == '-refresh' and base in self.buff:
-                    self.buff.on(base)
+                    self.buff.on(base, group)
                 else:
                     for attrbuff in blist:
                         obj = self.hitattr_buff(name, base, group, idx, attrbuff, bctrl=bctrl)
@@ -1547,15 +1547,9 @@ class Adv(object):
                 bargs = attrbuff[1:]
             buff = bufftype_dict[btype](f'{name}_{idx}', *bargs)
             if bctrl == '-refresh':
-                try:
-                    return self.buff[base][group].on()
-                except KeyError:
-                    pass
+                self.buff.on(base, group)
             elif bctrl == '-replace':
-                try:
-                    self.buff[base][group].off()
-                except KeyError:
-                    pass
+                self.buff.off(base, group)
             return buff.on()
 
     def l_hitattr_make(self, t):

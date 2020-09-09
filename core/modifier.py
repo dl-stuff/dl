@@ -721,7 +721,9 @@ class ActiveBuffDict(defaultdict):
         return buff.get()
 
     def on(self, k, group):
-        self[k][group].on()
+        if self.get(k) and self[k].get(group):
+            self[k][group].on()
 
     def off(self, k, group):
-        self[k][group].off()
+        if self.get(k) and self[k].get(group):
+            self[k][group].off()
