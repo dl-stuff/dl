@@ -498,14 +498,12 @@ class Force_Charge(Ability):
             adv.fs_prep_v += self.value
         else:
             def l_fs_charge(e):
-                diff = min(len(adv.conf.fs.attr), self.charge)
-                for _ in range(diff):
-                    adv.charge_p(self.name, adv.fs_prep_v)
-                self.charge -= diff
+                adv.charge_p(self.name, adv.fs_prep_v)
+                self.charge -= 1
                 adv.fs_prep_c = self.charge
                 if self.charge == 0:
                     self.l_fs_charge.off()
-            self.l_fs_charge = adv.Listener('fs', l_fs_charge)
+            self.l_fs_charge = adv.Listener('fs-h', l_fs_charge)
 
             i = 1
             fsi = f'fs{i}'

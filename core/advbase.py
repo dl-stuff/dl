@@ -276,7 +276,6 @@ class Action(object):
     def clear_delayed(self):
         count = 0
         for mt in self.delayed:
-            log('debug', mt.online, str(mt))
             if mt.online:
                 count += 1
             mt.off()
@@ -1374,10 +1373,8 @@ class Adv(object):
         if loglevel >= 2:
             log('think', t.pin, t.dname, t.dstat, t.didx)
         result = self._acl(t)
-        if not result and t.dname == 'x5':
-            doing = self.action.getdoing()
-            if doing.has_delayed == 0:
-                return self.fsf()
+        if not result and t.dname == 'x5' and t.didx == 0:
+            return self.fsf()
         return result
 
     def think_pin(self, pin):
@@ -1620,7 +1617,8 @@ class Adv(object):
     def l_hitattr_make(self, t):
         self.hitattr_make(t.name, t.base, t.group, t.idx, t.attr)
         if t.pin is not None:
-            self.think_pin(t.pin)
+            self.think_pin(t.pin+'-h')
+            Event(t.pin+'-h')()
 
     def do_hitattr_make(self, e, idx, attr, missile, pin=None):
         missile = missile or attr.get('iv')
@@ -1637,6 +1635,8 @@ class Adv(object):
                 self.action.getdoing().add_delayed(mt)
         else:
             self.hitattr_make(e.name, e.base, e.group, idx, attr)
+            if pin is not None:
+                Event(pin+'-h')()
 
     def hit_make(self, e, conf, before, proc, pin=None):
         before(e)
