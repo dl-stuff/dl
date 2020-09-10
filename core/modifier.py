@@ -613,7 +613,7 @@ bufftype_dict['spd'] = Spdbuff
 
 class Debuff(Teambuff):
     def __init__(self, name='<buff_noname>', value=0, duration=0, chance=1.0, mtype='def', morder=None):
-        self.val = 0 - value
+        self.val = value
         self.chance = chance
         if self.chance != 1:
             bd = 1.0 / (1.0 + self.val)

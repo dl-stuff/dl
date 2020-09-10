@@ -194,6 +194,7 @@ class Action(object):
         self.act_event = Event(self.name)
 
         self.enabled = True
+        self.delayed = set()
         # ?????
         # self.rt_name = self.name
         # self.tap, self.o_tap = self.rt_tap, self.tap
@@ -267,6 +268,14 @@ class Action(object):
 
     def act(self, action):
         self.act_event()
+    
+    def add_delayed(self, mt):
+        self.delayed.add(mt)
+
+    def clear_delayed(self):
+        for mt in self.delayed:
+            mt.off()
+        self.delayed = set()
 
     def tap(self):
         doing = self._static.doing
@@ -293,6 +302,7 @@ class Action(object):
             elif doing.status == Action.RECOVERY:  # try to cancel an action
                 if self.atype in doing.cancel_by:  # can interrupt action
                     doing.recovery_timer.off()
+                    doing.clear_delayed()
                     log('cancel', doing.name, f'by {self.name}', f'after {now() - doing.recover_start:.2f}s')
                 else:
                     return 0
@@ -1526,26 +1536,26 @@ class Adv(object):
 
         if 'buff' in attr:
             # self.active_buff[name] = self.make_buff_old(name, attr['buff'])
-            if isinstance(attr['buff'][0], list):
-                bctrl = None
-                blist = attr['buff']
-                buff_objs = []
-                try:
-                    if attr['buff'][-1][0] == '-':
-                        bctrl = attr['buff'][-1]
-                        blist = blist[:-1]
-                except TypeError:
-                    pass
-                if bctrl == '-refresh' and base in self.buff:
-                    self.buff.on(base, group)
-                else:
+            bctrl = None
+            blist = attr['buff']
+            try:
+                if blist[-1][0] == '-':
+                    bctrl = blist[-1]
+                    blist = blist[:-1]
+            except TypeError:
+                pass
+            if bctrl == '-refresh' and base in self.buff:
+                self.buff.on(base, group)
+            else:
+                if isinstance(blist[0], list):
+                    buff_objs = []
                     for attrbuff in blist:
                         obj = self.hitattr_buff(name, base, group, idx, attrbuff, bctrl=bctrl)
                         if obj:
                             buff_objs.append(obj)
                     self.buff[base][group] = MultiBuffManager(name, buff_objs)
-            else:
-                self.buff[base][group] = self.hitattr_buff(name, base, group, idx, attr['buff'])
+                else:
+                    self.buff[base][group] = self.hitattr_buff(name, base, group, idx, attr['buff'])
 
         for m in hitmods:
             m.off()
@@ -1574,6 +1584,7 @@ class Adv(object):
         self.hitattr_make(t.name, t.base, t.group, t.idx, t.attr)
 
     def do_hitattr_make(self, e, idx, attr, missile):
+        missile = missile or attr.get('iv')
         if missile is not None:
             mt = Timer(self.l_hitattr_make)
             mt.name = e.name
@@ -1582,6 +1593,7 @@ class Adv(object):
             mt.idx = idx
             mt.attr = attr
             mt.on(missile)
+            self.action.getdoing().add_delayed(mt)
         else:
             self.hitattr_make(e.name, e.base, e.group, idx, attr)
 
