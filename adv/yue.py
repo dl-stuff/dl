@@ -12,7 +12,7 @@ class Yue(Adv):
     conf['slots.burn.a'] = Kung_Fu_Masters()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s=2
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2,x=5
         `s4,cancel
         `s1,cancel

@@ -14,7 +14,7 @@ class Sazanka(Adv):
     conf['slots.poison.a'] = Summer_Paladyns()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), s1.check()
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4
         `s1
     """

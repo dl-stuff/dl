@@ -51,7 +51,7 @@ class Summer_Patia(Adv):
     conf['acl'] = """
         # use dragon if using Cat Sith
         # `dragon(c3-s-end), fsc
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1, fsc
         `s2, fsc
         `s4, fsc
@@ -62,7 +62,7 @@ class Summer_Patia(Adv):
     conf['share'] = ['Curran']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('a', uses=1)
+        self.fs_alt = FSAltBuff(self, 'a', uses=1)
 
     def d_slots(self):
         if self.duration <= 120:
@@ -79,7 +79,7 @@ class Summer_Patia(Adv):
         self.afflics.poison(e.name,120,0.582)
 
     def fs_proc(self, e):
-        e.group and self.afflics.poison(e.name, 110, 0.436)
+        e.suffix and self.afflics.poison(e.name, 110, 0.436)
 
 
 if __name__ == '__main__':

@@ -5,7 +5,6 @@ from math import ceil
 
 MAX_C = 10
 class DragonForm(Action):
-    has_delayed = 0
     def __init__(self, name, conf, adv, ds_proc):
         self.name = name
         self.conf = conf
@@ -117,7 +116,7 @@ class DragonForm(Action):
             self.d_dragondrive_end('<gauge deplete>')
         else:
             self.dragon_gauge = (duration/max_duration)*self.max_gauge
-            if add_time != 0:
+            if add_time > 0:
                 log('drive_time' if not skill_pause else 'skill_pause', f'{add_time:+2.4}', f'{duration:2.4}', f'{int(self.dragon_gauge)}/{int(self.max_gauge)}')
 
     def charge_gauge(self, value, utp=False, dhaste=True):
@@ -128,10 +127,10 @@ class DragonForm(Action):
         delta = min(self.dragon_gauge+value, self.max_gauge) - self.dragon_gauge
         if self.is_dragondrive and self.dragondrive_buff.get():
             self.add_drive_gauge_time(delta)
-        elif delta != 0:
+        elif delta > 0:
             self.dragon_gauge += delta
             if utp:
-                log('dragon_gauge', '{:+} utp'.format(int(delta)), f'{int(self.dragon_gauge)}/{int(self.max_gauge)}', value)
+                log('dragon_gauge', '{:+} utp'.format(int(delta)), f'{int(self.dragon_gauge)}/{int(self.max_gauge)}')
             else:
                 log('dragon_gauge', '{:+.2f}%'.format(delta/self.max_gauge*100), '{:.2f}%'.format(self.dragon_gauge/self.max_gauge*100))
 

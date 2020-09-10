@@ -44,7 +44,7 @@ class Zhu_Bajie(Adv):
     conf['slots.paralysis.a'] = Mega_Friends()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
-        `s3, fsc and not buff(s3)
+        `s3, fsc and not self.s3_buff
         `s2, fsc
         `s1, fsc
         `s4, fsc

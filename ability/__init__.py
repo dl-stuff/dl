@@ -498,12 +498,14 @@ class Force_Charge(Ability):
             adv.fs_prep_v += self.value
         else:
             def l_fs_charge(e):
-                adv.charge_p(self.name, adv.fs_prep_v)
-                self.charge -= 1
+                diff = min(adv.conf.fs.hit, self.charge)
+                for _ in range(diff):
+                    adv.charge_p(self.name, adv.fs_prep_v)
+                self.charge -= diff
                 adv.fs_prep_c = self.charge
                 if self.charge == 0:
                     self.l_fs_charge.off()
-            self.l_fs_charge = adv.Listener('fs-h', l_fs_charge)
+            self.l_fs_charge = adv.Listener('fs', l_fs_charge)
 
             i = 1
             fsi = f'fs{i}'
@@ -716,13 +718,10 @@ class Skill_Recharge(Ability):
     def oninit(self, adv, afrom=None):
         if self.all:
             def l_skill_charge(e):
-                adv.charge_p('scharge',self.value)
+                adv.charge_p('skill_charge',self.value)
         else:
             def l_skill_charge(e):
-                try:
-                    adv.charge_p('scharge',self.value,target=e.base)
-                except AttributeError:
-                    pass
+                adv.charge_p(f'skill_charge_{e.name}',self.value,target=e.name)
         adv.Event('s').listener(l_skill_charge)
 
 ability_dict['scharge'] = Skill_Recharge

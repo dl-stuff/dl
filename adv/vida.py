@@ -9,7 +9,7 @@ class Vida(Adv):
     conf = conf_fs_alt.copy()
     conf['acl'] = """
         `dragon(c3-s-end), s or fsc
-        `s3, not buff(s3) and x=5
+        `s3, not self.s3_buff and x=5
         `s4
         `s1, cancel
         `fs, x=5
@@ -22,7 +22,7 @@ class Vida(Adv):
             self.conf['share'] = ['Curran']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('a', uses=3)
+        self.fs_alt = FSAltBuff(self, 'a', uses=3)
 
     def s2_proc(self, e):
         self.fs_alt.on()

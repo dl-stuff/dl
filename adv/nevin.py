@@ -23,7 +23,7 @@ class Nevin(Adv):
     conf['slots.a'] = Twinfold_Bonds()+The_Red_Impulse()
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1
         `s2, cancel
         if not self.unlocked

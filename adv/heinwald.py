@@ -12,7 +12,7 @@ class Heinwald(Adv):
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = '''
         `dragon(c3-s-end),x=5
-        queue prep and not buff(s3)
+        queue prep and not self.s3_buff
         `s3;s1;s4;s2
         end
         `s4

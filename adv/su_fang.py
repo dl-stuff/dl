@@ -11,9 +11,9 @@ class Su_Fang(Adv):
     conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end),s4.check()
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4
-        `s1, cancel and buff(s3) 
+        `s1, cancel and self.s3_buff 
         `s2, fsc
         `fs, x=5
         """
@@ -21,11 +21,11 @@ class Su_Fang(Adv):
     conf['share'] = ['Curran']
 
     def fs_proc(self, e):
-        if e.group == 'a':
+        if e.suffix == 'a':
             self.afflics.poison('fs', 120, 0.582)
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('a', uses=1)
+        self.fs_alt = FSAltBuff(self, 'a', uses=1)
         self.s2_buff = Selfbuff('s2', 0.30, 15)
 
     def s1_proc(self, e):

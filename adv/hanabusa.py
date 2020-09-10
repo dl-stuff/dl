@@ -7,7 +7,7 @@ class Hanabusa(Adv):
     conf = {}
     conf['acl'] = """
         `dragon
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1
         `s2
         `s4, x=5

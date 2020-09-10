@@ -23,7 +23,7 @@ class Radiant_Xuan_Zang(Adv):
     conf['slots.a'] = Candy_Couriers()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon, cancel
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1
         `s2
         `s4, x>2
@@ -34,7 +34,7 @@ class Radiant_Xuan_Zang(Adv):
     conf['afflict_res.paralysis'] = 0
 
     def fs_proc(self, e):
-        if e.group == 'xihe':
+        if e.suffix == 'xihe':
             self.afflics.paralysis.res_modifier = 0.20
             Timer(self.paralysis_rate_reset).on(20)
 
@@ -42,7 +42,7 @@ class Radiant_Xuan_Zang(Adv):
         self.afflics.paralysis.res_modifier = 0
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('xihe', uses=1)
+        self.fs_alt = FSAltBuff(self, 'xihe', uses=1)
         self.xihe_gauge = 0
         self.xihe = {'s1': False, 's2': False}
         if self.condition('buff all team'):

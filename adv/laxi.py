@@ -13,7 +13,7 @@ class Laxi(Adv):
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = '''
         `dragon
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2, not self.s2buff.get()
         `s1,cancel
         `s4,cancel

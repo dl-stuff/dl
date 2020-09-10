@@ -15,7 +15,7 @@ class Alex(Adv):
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), self.trickery <= 1
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4
         `s2
         `s1, cancel

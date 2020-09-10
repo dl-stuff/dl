@@ -76,9 +76,8 @@ megaman_conf = {
 }
 
 class Skill_Ammo(Skill):
-    def __init__(self, name=None, conf=None, acts=None):
-        super().__init__(name, acts)
-        self.conf = conf
+    def __init__(self, name=None, conf=None, ac=None):
+        super().__init__(name, conf, ac)
         self.current_ammo = self.conf.ammo
         self.ammo = self.conf.ammo
         self.cost = self.conf.x1.cost
@@ -98,7 +97,7 @@ class Mega_Man(Adv):
     conf['acl'] = """
         # check_s(n) means neither s1 or s2 are active, and s[n] has full ammo
         `dragon, s=4
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4
         `s1, self.check_s(1) and self.bleed._static['stacks']<3
         `s2, self.s1_x.active and self.bleed._static['stacks']>=3
@@ -140,11 +139,18 @@ class Mega_Man(Adv):
     def ds_proc(self):
         return self.dmg_make('ds',self.dragonform.conf.ds.dmg,'s')
 
-    def init(self):
-        self.a_s_dict['s1'] = Skill_Ammo('s1', self.conf.s1)
-        self.a_s_dict['s2'] = Skill_Ammo('s2', self.conf.s1)
+    def prerun(self):
+        self.s1 = Skill_Ammo('s1', self.conf.s1)
+        self.s1_x = X_alt(self, 's1', self.conf.s1, x_proc=self.l_megaman_s1_x, no_fs=True)
+        # self.a_s1x = X('s1x', self.conf.s1.x)
+        # self.l_s1_x = Listener('x',self.l_megaman_s1_x).off()
+        self.s2 = Skill_Ammo('s2', self.conf.s2)
+        self.s2_x = X_alt(self, 's2', self.conf.s2, x_proc=self.l_megaman_s2_x, no_fs=True)
+        # self.a_s2x = X('s1x', self.conf.s2.x)
+        # self.l_s2_x = Listener('x',self.l_megaman_s2_x).off()
 
-    def prerun(self):        
+        # self.fs_normal = self.fs
+        
         random.seed()
         self.bleed = Bleed('g_bleed', 0).reset()
         self.bleed_chance = 0.5

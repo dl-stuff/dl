@@ -52,7 +52,7 @@ class Nadine(Adv):
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon(c3-s-s-end), s=1
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2
         `s4
         `s1

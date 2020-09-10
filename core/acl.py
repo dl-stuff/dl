@@ -51,11 +51,9 @@ BINARY_EXPR['EQQ'] = BINARY_EXPR['EQ']
 
 PIN_CMD = {
     'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
-    'X': lambda e: e.didx if e.pin =='x' and e.dhit == 0 else 0,
-    'XF': lambda e: e.didx if e.pin =='x' else 0,
+    'X': lambda e: e.didx if e.pin =='x' else 0,
     'S': lambda e: int(e.pin[1]) if (e.pin[0] == 's' and e.pin[1].isdigit()) or e.pin[-2:] == '-x' else 0,
-    'FSC': lambda e: e.pin.startswith('fs') and e.dhit == 0,
-    'FSCF': lambda e: e.pin.startswith('fs'),
+    'FSC': lambda e: e.pin.startswith('fs'),
     'SP': lambda e: e.dname if e.pin == 'sp' else None,
     'PREP': lambda e: e.pin == 'prep',
 }
@@ -142,12 +140,18 @@ class AclInterpreter(Interpreter):
             lres = self.visit(left)
             try:
                 if SHORT_CIRCUIT[op.type](lres):
-                    return not lres if negate else lres
+                    if negate:
+                        return not lres
+                    else:
+                        return lres
             except KeyError:
                 pass
             rres = self.visit(right)
             res = BINARY_EXPR[op.type](lres, rres)
-        return not res if negate else res
+        if negate:
+            return not res
+        else:
+            return res
 
     def selfcond(self, t):
         inst = self._adv
@@ -174,9 +178,7 @@ class AclInterpreter(Interpreter):
     # def actcond(self, action, condition):
     def actcond(self, t):
         action, condition = t.children
-        if self.visit(condition):
-            return self.visit(action)
-        return False
+        return self.visit(condition) and self.visit(action)
 
     # @v_args(inline=True)
     # def params(self, p):
@@ -223,10 +225,10 @@ class AclInterpreter(Interpreter):
             return self.visit(fn)[self.visit(idx)]
 
 
-FSN_PATTERN = re.compile(r'^`?(fs|s)(\d+)(\(([^)]+)\))?')
+FSN_PATTERN = re.compile(r'^`?fs(\d+)')
 def _pre_parse(acl):
     return '\n'.join(filter(None,(
-        FSN_PATTERN.sub(r'`\1(\2,\4)', l.strip())
+        FSN_PATTERN.sub(r'`fs(\1)', l.strip())
         for l in acl.split('\n')
     )))
 

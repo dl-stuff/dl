@@ -12,7 +12,7 @@ class Annelie(Adv):
     conf['slots.a'] = RR()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon, self.energy()=3
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4
         `s1
         `s2, self.energy()<5

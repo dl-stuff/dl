@@ -36,7 +36,7 @@ class Bleed(Dot):
         self.true_dmg_event.count = dmg
         self.true_dmg_event.on()
         #log('dmg','o_bleed',dmg,'%d stacks'%stacks)
-        e.add(self.iv)
+        e.timing += self.iv
 
     def dot_end_proc(self, e):
         idx = self._static['all_bleeds'].index(self)
@@ -66,7 +66,7 @@ class Bleed(Dot):
         self.dot_end_timer.on(self.duration)
 
         if self._static['stacks'] == 0:
-            self._static['tick_event'] = Timer(self.tick_proc, self.iv, True).on()
+            self._static['tick_event'] = Timer(self.tick_proc).on(self.iv)
         elif self._static['stacks'] < 3:
             pass
         self._static['stacks'] += 1
@@ -161,8 +161,8 @@ class mBleed(Bleed):
         self.true_dmg_event.comment = '%d active stacks'%stacks
         self.true_dmg_event.count = dmg
         self.true_dmg_event.on()
-        # log('dmg','o_bleed',dmg,'%d stacks'%stacks)
-        # e.timing += self.iv
+        #log('dmg','o_bleed',dmg,'%d stacks'%stacks)
+        e.timing += self.iv
 
     def on(self):
         log('debuff','bleed')
@@ -171,7 +171,7 @@ class mBleed(Bleed):
         self.dot_end_timer.on(self.duration)
 
         if self._static['stacks'] == 0:
-            self._static['tick_event'] = Timer(self.tick_proc, self.iv, True).on()
+            self._static['tick_event'] = Timer(self.tick_proc).on(self.iv)
 
         self._static['stacks'] += 1
 

@@ -14,7 +14,7 @@ class Addis(Adv):
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4, not self.s2buff.get()
         `s2, s1.charged>=s1.sp-260 and self.bleed._static['stacks'] != 3
         `s1, s2.charged<s2.sp and self.bleed._static['stacks'] != 3
@@ -43,8 +43,8 @@ class Addis(Adv):
 
     def s1_proc(self, e):
         if self.s2buff.get():
-            self.s2buff.buff_end_timer.add(2.5)
-            self.s2str.buff_end_timer.add(2.5)
+            self.s2buff.buff_end_timer.timing += 2.5
+            self.s2str.buff_end_timer.timing += 2.5
             if random.random() < 0.8:
                 Bleed(e.name, 1.32).on()
         else:

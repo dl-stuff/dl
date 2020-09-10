@@ -13,7 +13,7 @@ class Fleur(Adv):
     conf['slots.a'] = TB()+SotS()
     conf['acl'] = '''
         `dragon, cancel
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2, s=1
         `s1
         `s4, s=1

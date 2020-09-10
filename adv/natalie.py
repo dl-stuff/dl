@@ -14,7 +14,7 @@ class Natalie(Adv):
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), (x=5 and self.trickery <= 1) or self.hp=0
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2, s=3 or x=5
         `s1
         `s4

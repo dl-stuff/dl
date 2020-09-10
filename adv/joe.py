@@ -13,7 +13,7 @@ class Joe(Adv):
         queue prep
         `s4;s1
         end
-        `s3, x=5 and not buff(s3)
+        `s3, x=5 and not self.s3_buff
         `s4
         `s1, cancel and self.afflics.burn.timeleft()<7
         `s2, fsc

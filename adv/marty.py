@@ -9,7 +9,7 @@ class Marty(Adv):
     conf = {}
     conf['acl'] = """
         `dragon, s=4
-        `s3, fsc and not buff(s3)
+        `s3, fsc and not self.s3_buff
         `s4, fsc
         `s1, fsc
         `fs, x=3

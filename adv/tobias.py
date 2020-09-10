@@ -14,73 +14,66 @@ def module():
 
 # s2,88,,
 # s2,190,102,1.7
-# x1_sacred,210,20,0.333333333
-# x2_sacred,223,13,0.216666667
-# x2_sacred,237,14,0.233333333
-# x3_sacred,253,16,0.266666667
-# x3_sacred,267,14,0.233333333
-# x4_sacred,283,16,0.266666667
-# x4_sacred,298,15,0.25
-# x5_sacred,314,16,0.266666667
-# x5_sacred,328,14,0.233333333
-# x1_sacred,359,31,0.516666667
-# x2_sacred,374,15,0.25
-# x2_sacred,388,14,0.233333333
-# x3_sacred,404,16,0.266666667
-# x3_sacred,418,14,0.233333333
-# x4_sacred,435,17,0.283333333
-# x4_sacred,449,14,0.233333333
-# x5_sacred,464,15,0.25
-# x5_sacred,479,15,0.25
-# x1_sacred,509,30,0.5
+# x1,210,20,0.333333333
+# x2,223,13,0.216666667
+# x2,237,14,0.233333333
+# x3,253,16,0.266666667
+# x3,267,14,0.233333333
+# x4,283,16,0.266666667
+# x4,298,15,0.25
+# x5,314,16,0.266666667
+# x5,328,14,0.233333333
+# x1,359,31,0.516666667
+# x2,374,15,0.25
+# x2,388,14,0.233333333
+# x3,404,16,0.266666667
+# x3,418,14,0.233333333
+# x4,435,17,0.283333333
+# x4,449,14,0.233333333
+# x5,464,15,0.25
+# x5,479,15,0.25
+# x1,509,30,0.5
 
 
 sacred_blade_conf = {
-    'x1_sacred.dmg': 73 / 100.0,
-    'x1_sacred.sp': 80,
-    'x1_sacred.startup': 20 / 60.0,
-    'x1_sacred.recovery': 30 / 60.0,
-    'x1_sacred.hit': 1,
+    'x1.dmg': 73 / 100.0,
+    'x1.sp': 80,
+    'x1.startup': 20 / 60.0,
+    'x1.recovery': 30 / 60.0,
+    'x1.hit': 1,
 
-    'x2_sacred.dmg': 164 / 100.0,
-    'x2_sacred.sp': 80,
-    'x2_sacred.startup': 0,
-    'x2_sacred.recovery': 30 / 60.0,
-    'x2_sacred.hit': 2,
+    'x2.dmg': 164 / 100.0,
+    'x2.sp': 80,
+    'x2.startup': 0,
+    'x2.recovery': 30 / 60.0,
+    'x2.hit': 2,
 
-    'x3_sacred.dmg': 176 / 100.0,
-    'x3_sacred.sp': 138,
-    'x3_sacred.startup': 0,
-    'x3_sacred.recovery': 30 / 60.0,
-    'x3_sacred.hit': 2,
+    'x3.dmg': 176 / 100.0,
+    'x3.sp': 138,
+    'x3.startup': 0,
+    'x3.recovery': 30 / 60.0,
+    'x3.hit': 2,
 
-    'x4_sacred.dmg': 180 / 100.0,
-    'x4_sacred.sp': 226,
-    'x4_sacred.startup': 0,
-    'x4_sacred.recovery': 30 / 60.0,
-    'x4_sacred.hit': 2,
+    'x4.dmg': 180 / 100.0,
+    'x4.sp': 226,
+    'x4.startup': 0,
+    'x4.recovery': 30 / 60.0,
+    'x4.hit': 2,
 
-    'x5_sacred.dmg': 194 / 100.0,
-    'x5_sacred.sp': 415,
-    'x5_sacred.startup': 0,
-    'x5_sacred.recovery': 10 / 60.0,
-    'x5_sacred.hit': 2,
+    'x5.dmg': 194 / 100.0,
+    'x5.sp': 415,
+    'x5.startup': 0,
+    'x5.recovery': 10 / 60.0,
+    'x5.hit': 2,
 }
 
 
-class TobiasXAlt(XAltBuff):
-    def enable_x(self, enabled):
-        super().enable_x(enabled)
-        try:
-            self.adv.a_fs_dict['default'].set_enabled(not enabled)
-            self.adv.a_dodge.enabled = not enabled
-        except (KeyError, AttributeError):
-            pass
-
 class Tobias(Adv):
     comment = 'c5fs, no s2, s!cleo ss after s1'
+    a1 = ('bt',0.25)
+    a3 = ('k_poison',0.3)
 
-    conf = sacred_blade_conf
+    conf = {}
     conf['slots.a'] = A_Dogs_Day()+Castle_Cheer_Corps()
     conf['slots.poison.a'] = conf['slots.a']
     conf['slots.d'] = Freyja()
@@ -93,20 +86,60 @@ class Tobias(Adv):
     conf['coabs'] = ['Bow','Blade','Dagger2']
     conf['share'] = ['Summer_Luca', 'Summer_Cleo']
 
+    def init(self):
+        self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff
+
+    @staticmethod
+    def prerun_skillshare(adv, dst):
+        adv.buff_class = Dummy if adv.slots.c.ele != 'wind' else Teambuff if adv.condition('buff all team') else Selfbuff
+
     def prerun(self):
+        self.s2_mode = 0
         self.s1.autocharge_init(85)
-        self.s2.charge(1) # 1 sp/s regen
-        self.s2_x_alt = TobiasXAlt('sacred')
-        self.s2_sp_buff = EffectBuff('sacred_blade', 10, lambda: self.s1.autocharge_timer.on(), lambda: self.s1.autocharge_timer.off())
+        self.s2.charge(1)
+        self.s2_x_alt = X_alt(self, 'sacred_blade', sacred_blade_conf, x_proc=self.l_sacred_blade_x, no_fs=True, no_dodge=True)
+        self.a_s2 = self.s2.ac
+        self.a_s2a = S('s2', Conf({'startup': 0.10, 'recovery': 1.53}))
+
+    def l_sacred_blade_x(self, e):
+        xseq = e.name
+        dmg_coef = self.s2_x_alt.conf[xseq].dmg
+        sp = self.s2_x_alt.conf[xseq].sp
+        hit = self.s2_x_alt.conf[xseq].hit
+        log('x', xseq, 'sacred_blade')
+        self.add_hits(hit)
+        self.dmg_make(xseq, dmg_coef)
+        self.charge(xseq, sp)
+
+    def s1_autocharge_off(self, t):
+        self.s1.autocharge_timer.off()
+
+    def s2_x_alt_off(self, t):
+        self.s2_mode = 0
+        self.s2.ac = self.a_s2
+        self.s2.charged = 0
+        self.s2_x_alt.off()
+
+    def s1_proc(self, e):
+        self.buff_class(e.name,0.3,15).on()
 
     def s2_proc(self, e):
-        if e.phase == 0:
-            self.s2_x_alt.on(10)
-            self.s2_sp_buff.on(7)
-        else:
+        if self.s2_mode == 0:
+            self.s2.ac = self.a_s2a
             self.s2_x_alt.on()
-            self.s2_sp_buff.off()
-        self.s2.charge(1) # 1 sp/s regen
+            self.s1.autocharge_timer.on()
+            Timer(self.s1_autocharge_off).on(7*self.mod('buff'))
+            Timer(self.s2_x_alt_off).on(10*self.mod('buff'))
+        else:
+            self.dmg_make(e.name,1.04)
+            self.add_hits(8)
+            self.afflics.poison(e.name, 120, 0.582)
+            self.s2.ac = self.a_s2
+            self.s2_x_alt.on()
+            self.s1.autocharge_timer.off()
+        self.s2.charge(1)
+        self.s2_mode = (self.s2_mode + 1) % 2
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

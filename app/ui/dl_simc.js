@@ -219,13 +219,13 @@ function getUrlVars() {
     return vars;
 }
 function updateUrl(urlVars) {
-    if (urlVars && urlVars.conf) {
+    if (urlVars && urlVars.conf){
         history.replaceState(null, '', `${location.pathname}?conf=${urlVars.conf}`);
     } else {
         history.replaceState(null, '', location.pathname);
     }
 }
-function serConf(no_conf) {
+function serConf(no_conf){
     let requestJson = {
         'adv': $('#input-adv').val(),
         'dra': $('#input-dra').val(),
@@ -267,7 +267,7 @@ function serConf(no_conf) {
         requestJson['sim_afflict'] = sim_aff;
     }
     const sim_buff = readSimBuff();
-    if (sim_buff != null) {
+    if (sim_buff != null){
         requestJson['sim_buff'] = sim_buff;
     }
     const condition = readConditionList();
@@ -275,57 +275,57 @@ function serConf(no_conf) {
         requestJson['condition'] = condition;
     }
 
-    if (!no_conf) {
-        const urlVars = { conf: btoa(JSON.stringify(requestJson)) };
+    if (!no_conf){
+        const urlVars = {conf: btoa(JSON.stringify(requestJson))};
         updateUrl(urlVars);
     }
 
     return requestJson;
 }
-function deserConf(confStr) {
+function deserConf(confStr){
     return JSON.parse(atob(confStr));
 }
-function loadConf(conf, slots) {
+function loadConf(conf, slots){
     slots.adv.pref_wep = conf.wep;
     slots.adv.pref_dra = conf.dra;
 
-    if (conf.wp1 && conf.wp2) {
+    if (conf.wp1 && conf.wp2){
         slots.adv.pref_wp.wp1 = conf.wp1;
         slots.adv.pref_wp.wp2 = conf.wp2;
     }
-    if (conf.coab) {
+    if (conf.coab){
         slots.adv.pref_coab = conf.coab;
     }
-    if (conf.share) {
+    if (conf.share){
         slots.adv.pref_share = conf.share;
     }
-    if (conf.acl) {
+    if (conf.acl){
         slots.adv.acl_alt = conf.acl;
     }
-    if (conf.afflict_res) {
+    if (conf.afflict_res){
         slots.adv.afflict_res = conf.afflict_res
     }
-    if (conf.teamdps) {
+    if (conf.teamdps){
         $('#input-teamdps').val(conf.teamdps);
         localStorage.setItem('teamdps', conf.teamdps);
     }
-    for (const key of ['t', 'hp', 'dragonbattle']) {
-        if (conf[key]) {
-            $('#input-' + key).val(conf[key]);
+    for (const key of ['t', 'hp', 'dragonbattle']){
+        if (conf[key]){
+            $('#input-'+key).val(conf[key]);
         }
     }
-    if (conf.sim_afflict) {
-        for (const key of Object.keys(conf.sim_afflict)) {
-            const res = $('#affliction-sim > div > #input-sim-' + key);
-            if (res) {
+    if (conf.sim_afflict){
+        for (const key of Object.keys(conf.sim_afflict)){
+            const res = $('#affliction-sim > div > #input-sim-'+key);
+            if (res){
                 res.val(conf.sim_afflict[key]);
             }
         }
     }
-    if (conf.sim_buff) {
-        for (const key of Object.keys(conf.sim_buff)) {
-            const res = $('#input-sim-buff' + key);
-            if (res) {
+    if (conf.sim_buff){
+        for (const key of Object.keys(conf.sim_buff)){
+            const res = $('#input-sim-buff'+key);
+            if (res){
                 res.val(conf.sim_buff[key]);
             }
         }
@@ -363,7 +363,7 @@ function loadAdvWPList() {
         if (urlVars.conf) {
             const conf = deserConf(urlVars.conf);
             selectedAdv = conf.adv;
-        } else if (urlVars.adv_name) {
+        } else if (urlVars.adv_name){
             selectedAdv = urlVars.adv_name.toLowerCase();
         }
         updateUrl(urlVars);
@@ -441,7 +441,7 @@ function loadAdvSlots(no_conf) {
                 buildCoab(slots.coab, slots.adv.fullname, slots.adv.wt);
 
                 const urlVars = getUrlVars();
-                if (urlVars.conf) { slots = loadConf(conf, slots); }
+                if (urlVars.conf) {slots = loadConf(conf, slots);}
 
                 $('#wep-' + slots.adv.pref_wep).prop('selected', true);
                 $('#dra-' + slots.adv.pref_dra).prop('selected', true);
@@ -464,7 +464,7 @@ function loadAdvSlots(no_conf) {
                 $('#input-acl').blur();
                 $('#input-edit-acl').prop('checked', Boolean(slots.adv.acl_alt));
                 $('#input-acl').prop('disabled', !slots.adv.acl_alt);
-                if (slots.adv.acl_alt) {
+                if (slots.adv.acl_alt){
                     const acl_alt = trimAcl(slots.adv.acl_alt);
                     $('#input-acl').data('alternate_acl', acl_alt);
                     $('#input-acl').val(acl_alt);
@@ -544,7 +544,7 @@ function readResistDict() {
                 resists[parts[parts.length - 1]] = resVal;
             }
         });
-        if ($.isEmptyObject(resists)) {
+        if ($.isEmptyObject(resists)){
             return null;
         }
         return resists;
@@ -652,7 +652,7 @@ function readSimAfflic() {
                 simAff[parts[parts.length - 1]] = resVal;
             }
         });
-        if ($.isEmptyObject(simAff)) {
+        if ($.isEmptyObject(simAff)){
             return null;
         }
         return simAff;
@@ -660,13 +660,13 @@ function readSimAfflic() {
 }
 function readSimBuff() {
     let simBuff = {};
-    for (let key of SIMULATED_BUFFS) {
-        const buff_value = $('#input-sim-buff-' + key).val();
+    for (let key of SIMULATED_BUFFS){
+        const buff_value = $('#input-sim-buff-'+key).val();
         if (!isNaN(parseFloat(buff_value))) {
             simBuff[key] = buff_value;
         }
     }
-    if ($.isEmptyObject(simBuff)) {
+    if ($.isEmptyObject(simBuff)){
         return null;
     }
     return simBuff;
@@ -726,11 +726,11 @@ function runAdvTest(no_conf) {
     });
 }
 function editAcl() {
-    $('#input-acl').prop('disabled', !$(this).prop('checked'));
-    if ($(this).prop('checked')) {
+     $('#input-acl').prop('disabled', !$(this).prop('checked'));
+    if ($(this).prop('checked')){
         $('#input-acl').prop('disabled', false);
         const altAcl = $('#input-acl').data('alternate_acl');
-        if (altAcl) {
+        if (altAcl){
             $('#input-acl').val(altAcl);
         }
     } else {
@@ -787,13 +787,13 @@ function clearResults() {
     const simAff = $('#affliction-sim > div > input[type="text"]');
     simAff.each(function (idx, res) { $(res).val(''); });
     $('input:checked.coab-check').prop('check', false);
-    for (let key of SIMULATED_BUFFS) {
-        $('#input-sim-buff-' + key).val('');
+    for (let key of SIMULATED_BUFFS){
+        $('#input-sim-buff-'+key).val('');
     }
     $('#input-conditions').empty();
     $('#input-dragonbattle').val('');
 }
-function resetTest() {
+function resetTest(){
     updateUrl();
     loadAdvSlots(true);
 }
@@ -803,7 +803,7 @@ function weaponSelectChange() {
         $('#input-edit-acl').prop('checked', true);
         $('#input-acl').prop('disabled', false);
         const acl = $('#input-acl').val().split('\n');
-        let new_acl = '`s3, not buff(s3)\n';
+        let new_acl = '`s3, not self.s3_buff\n';
         for (const line of acl) {
             if (!line.startsWith('`s3')) {
                 new_acl += line + '\n';
@@ -825,12 +825,12 @@ function loadGithubCommits() {
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 const commits = JSON.parse(data);
-                for (const commit of commits) {
-                    const c = commit.commit; var startDate = new Date();
+                for (const commit of commits){
+                    const c = commit.commit;var startDate = new Date();
                     const authorTime = moment(c.author.date);
-                    const entry = $('<a></a>').attr({ class: 'commit-entry', href: commit.html_url });
-                    entry.append($('<span>' + commit.author.login + '</span>').attr({ class: 'commit-author' }));
-                    entry.append($('<span> - ' + authorTime.fromNow() + '</span>').attr({ class: 'commit-time' }));
+                    const entry = $('<a></a>').attr({ class: 'commit-entry',  href: commit.html_url });
+                    entry.append($('<span>'+commit.author.login+'</span>').attr({ class: 'commit-author' }));
+                    entry.append($('<span> - '+authorTime.fromNow()+'</span>').attr({ class: 'commit-time' }));
                     entry.append($('<div>' + c.message + '</div>').attr({ class: 'commit-message' }));
                     $('#changelog').append(entry);
                 }

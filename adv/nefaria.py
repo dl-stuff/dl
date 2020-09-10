@@ -18,9 +18,9 @@ class Nefaria(Adv):
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end)
-        `s3, not buff(s3) and x=4
+        `s3, not self.s3_buff and x=4
         `fs, self.fs_alt.uses > 0 and x=4
-        `s1, fsc or x=1 or not buff(s3)
+        `s1, fsc or x=1 or not self.s3_buff
         `s4
         `s2
         """
@@ -31,11 +31,11 @@ class Nefaria(Adv):
     conf['afflict_res.poison'] = 0
 
     def fs_proc(self, e):
-        if e.group == 'blind':
+        if e.suffix == 'blind':
             self.afflics.blind('s2_fs', 110)
     
     def prerun(self):
-        self.fs_alt = FSAltBuff('blind', uses=1)
+        self.fs_alt = FSAltBuff(self, 'blind', uses=1)
         
     def s1_proc(self, e):
         with KillerModifier('s1killer', 'hit', 0.74, ['blind', 'poison']):

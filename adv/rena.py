@@ -11,7 +11,7 @@ class Rena(Adv):
     conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s=1 and not s2.check()
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1
         `s2, s=1
         `s4, x=5

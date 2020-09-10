@@ -10,7 +10,7 @@ class Naveed(Adv):
     conf = {}
     conf['acl'] = """
         `dragon,s
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2, self.s1level < 5
         `s1, cancel
         `s4, fsc

@@ -27,7 +27,7 @@ class Chrom(Adv):
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon, s
-        `s3, fsc and not buff(s3)
+        `s3, fsc and not self.s3_buff
         if self.sim_afflict
         `s4, fsc and (self.energy() = 0 or self.s2.count=3)
         `s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.burn.get() and (self.energy()=0 or self.s4.charged < self.s4.sp - 1000)
@@ -48,10 +48,10 @@ class Chrom(Adv):
 
     def init(self):
         del self.slots.c.coabs['Sword']
-        self.a_s_dict['s2'] = Skill_Reservoir('s2')
-        self.a_s_dict['s2'].flames = 0
 
     def prerun(self):
+        self.s2 = Skill_Reservoir('s2', self.conf.s2)
+        self.s2.flames = 0
         self.s2_woke = False
 
     def s1_proc(self, e):

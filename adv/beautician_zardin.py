@@ -13,7 +13,7 @@ class Beautician_Zardin(Adv):
     conf['slots.a'] = RR()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1
         `s4, x=5
         """

@@ -38,7 +38,7 @@ class Hunter_Berserker(Adv):
     conf['slots.a'] = The_Lurker_in_the_Woods()+Primal_Crisis()
     conf['slots.d'] = Dreadking_Rathalos()
     conf['acl'] = """
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1, fsc
         `s4, fsc
         queue self.s2.check()

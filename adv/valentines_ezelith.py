@@ -12,7 +12,7 @@ class Valentines_Ezelith(Adv):
     conf['slots.a'] = Forest_Bonds()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s
-        `s3, not buff(s3) and fsc
+        `s3, not self.s3_buff and fsc
         `s2
         `s1
         `s4

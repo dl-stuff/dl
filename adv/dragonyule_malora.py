@@ -11,7 +11,7 @@ class Dragonyule_Malora(Adv):
     conf['slots.a'] = Summer_Paladyns() + Primal_Crisis()
     conf['acl'] = """
         `dragon, s
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2, self.def_mod()!=1
         `s4, cancel
         `s1, cancel

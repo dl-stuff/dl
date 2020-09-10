@@ -34,7 +34,6 @@ class Conf(dict):
                 super().__getitem__(k0)[kn] = v
         except ValueError:
             if isinstance(v, Conf):
-                v._parent=self
                 super().__setitem__(k, v)
             elif isinstance(v, dict):
                 super().__setitem__(k, Conf(conf=v, parent=self))
@@ -113,8 +112,7 @@ if __name__ == '__main__':
     }
     t2 = {
         'x1.sp': 293,
-        'coabs.paralysis': ['Halloween_Mym', 'Dagger2', 'Sharena'],
-        None: 333
+        'coabs.paralysis': ['Halloween_Mym', 'Dagger2', 'Sharena']
     }
     conf1 = Conf(t1)
     conf2 = Conf(t2)

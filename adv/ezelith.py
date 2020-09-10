@@ -12,7 +12,7 @@ class Ezelith(Adv):
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
         `dragon(c3-s-s-end),s=1
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1
         `s4
         `s2

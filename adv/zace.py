@@ -11,7 +11,7 @@ class Zace(Adv):
     conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), fsc
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4
         `s1, cancel
         `s2, x>=3

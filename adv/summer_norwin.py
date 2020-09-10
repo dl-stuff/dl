@@ -13,7 +13,7 @@ class Summer_Norwin(Adv):
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), x=5 and s1.charged<2000
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1
         `s2, x=5
         `s4, x=5

@@ -9,7 +9,7 @@ class Malka(Adv):
     conf = {}
     conf['acl'] = """
         `dragon
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2
         `s4
         `s1, cancel

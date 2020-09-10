@@ -30,7 +30,7 @@ class Ku_Hai(Adv):
     conf['slots.poison.d'] = Pazuzu()
     conf['acl'] = '''
         `dragon(c3-s-end),fsc
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4
         `s2
         `s1, fsc
@@ -47,7 +47,7 @@ class Ku_Hai(Adv):
 
     def prerun(self):
         self.fshit = 2
-        self.fs_alt = FSAltBuff('apsaras', duration=10)
+        self.fs_alt = FSAltBuff(self, 'apsaras', duration=10)
 
     def s2_proc(self, e):
         self.fs_alt.on()

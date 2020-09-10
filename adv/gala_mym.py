@@ -16,7 +16,7 @@ class Gala_Mym(Adv):
         `dragon(c3-s-end), self.dragonform.shift_count<1
         `dragon
         end
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s1
         `s2, cancel
         `s4, cancel

@@ -11,7 +11,7 @@ class Grace(Adv):
     conf['slots.d'] = Ramiel()
     conf['acl'] = """
         `dragon, fsc
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4, fsc
         `dodge, fsc
         `fs, x=2

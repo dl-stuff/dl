@@ -11,7 +11,7 @@ class Sha_Wujing(Adv):
     conf['slots.paralysis.a'] = Resounding_Rendition()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s2, cancel
         `s1
         `s4

@@ -22,9 +22,6 @@ ELE_AFFLICT = {
 
 DOT_AFFLICT = ['poison', 'paralysis', 'burn', 'frostbite']
 
-S_ALT = '†'
-
-
 def run_once(classname, conf, duration, cond):
     adv = classname(conf=conf,cond=cond)
     real_d = adv.run(duration)
@@ -88,7 +85,6 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
     if verbose == 2:
         # output.write(adv._acl_str)
         adv = classname()
-        output.write(str(core.acl.build_acl(adv.conf.acl)._acl_str))
         output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
         return
     run_results = []
@@ -347,21 +343,21 @@ def act_sum(actions, output):
     p_xseq = 0
     condensed = []
     for act in actions:
-        act1 = act.split('_')[0]
         if act[0] == 'x':
-            xseq = int(act1[1:])
+            xseq = int(act[1:].replace('ex', ''))
             if xseq < p_xseq:
                 condensed = append_condensed(condensed, p_act)
             p_xseq = xseq
         elif act.startswith('fs') and p_act[0] == 'x':
+            act = act.split('_')[0]
             p_xseq = 0
-            condensed = append_condensed(condensed, p_act+act1)
+            condensed = append_condensed(condensed, p_act+act)
         else:
             if p_act[0] == 'x':
                 condensed = append_condensed(condensed, p_act)
             p_xseq = 0
             condensed = append_condensed(condensed, act)
-        p_act = act1
+        p_act = act
     if p_act[0] == 'x':
         condensed = append_condensed(condensed, p_act)
     seq, freq, start = act_repeats(condensed)
@@ -393,12 +389,6 @@ def act_sum(actions, output):
                 p_type == 'd'
                 idx_offset += 1
             else:
-                parts = act.split('_')
-                if len(parts) > 1:
-                    if parts[1][-1].isdigit():
-                        act = parts[0]+'-'+parts[1][-1]
-                    else:
-                        act = parts[0]+'-'+parts[1][0]
                 output.write('['+act+']')
                 p_type = 's'
         if cnt > 1:
@@ -485,7 +475,7 @@ def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
     report_csv = [res['dps']]
     report_csv.extend([
         name if cond else '_c_'+name,
-        str(adv.conf['c.stars'])+'*',
+        adv.conf['c.stars']+'*',
         adv.conf['c.ele'],
         adv.conf['c.wt'],
         adv.displayed_att,
@@ -496,9 +486,18 @@ def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
     dps_mappings = {}
     dps_mappings['attack'] = dict_sum(dmg['x'], mod_func) / real_d
     for k in sorted(dmg['f']):
-        dps_mappings[k] = dmg['f'][k] / real_d
+        if k in ('fs', 'fs1', 'fs2', 'fs3', 'fs4'):
+            try:
+                dps_mappings['force_strike'] += dmg['f'][k] / real_d
+            except:
+                dps_mappings['force_strike'] = dmg['f'][k] / real_d
+        else:
+            dps_mappings[k] = dmg['f'][k] / real_d
     for k in sorted(dmg['s']):
-        dps_mappings[k] = dmg['s'][k] / real_d
+        if k in ('s1', 's2', 's3', 's4'):
+            dps_mappings['skill_{}'.format(k[1])] = dmg['s'][k] / real_d
+        else:
+            dps_mappings[k] = dmg['s'][k] / real_d
     if buff > 0:
         dps_mappings['team_buff'] = buff*team_dps
         report_csv[0] += dps_mappings['team_buff']

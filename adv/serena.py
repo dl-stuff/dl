@@ -11,7 +11,7 @@ class Serena(Adv):
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['acl'] = """
         `dragon,s
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4, fsc
         `s1, fsc
         `s2, fsc

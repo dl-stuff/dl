@@ -8,6 +8,7 @@ class Slot(object):
     ele = 'none'
     wt = 'none'
     stype = 'slot'
+    onele = 0
 
     a = None
     mod = None
@@ -21,10 +22,9 @@ class Slot(object):
             self.a = []
         self.name = type(self).__name__
 
-    def on_ele(self, ele):
-        return ele == self.ele
-
     def setup(self, c):
+        if c.ele == self.ele :
+            self.onele = 1
         if self.wt != 'none' and c.wt != self.wt:
             raise ValueError('Wrong weapon type, expected {} but got {}'.format(self.wt, c.wt))
 
@@ -83,24 +83,21 @@ class CharacterBase(Slot):
 class WeaponBase(Slot):
     stype = 'w'
     wt = 'none'
-    s3_base = {}
-    # s3_alt = {}
+    s3 = Conf()
     ele = [] # or ''
-
-    def __init__(self):
-        super().__init__()
-        # self.s3 = Conf({**self.s3_base, **self.s3_alt})
-        self.s3 = Conf(self.s3_base)
-        self.noele = 'all' in self.ele
-
-    def on_ele(self, ele):
-        return 'all' in self.ele or ele in self.ele
 
     def setup(self, c, adv):
         super(WeaponBase, self).setup(c)
+        if type(self.ele) == list:
+            for i in self.ele:
+                if c.ele == i :
+                    self.onele = 1
+                    break
 
-        if self.on_ele(c.ele):
+        if self.onele:
             self.att *= 1.5
+        if (self.onele or 'all' in self.ele) and adv is not None and adv.s3.owner is None:
+            self.conf.s3 = Conf(self.s3)
 
         if self.wt == 'axe':
             self.mod.append(('crit','chance',0.04))
@@ -159,7 +156,7 @@ class DragonBase(Slot):
 
     def setup(self, c):
         Slot.setup(self, c)
-        if self.on_ele(c.ele):
+        if self.onele:
             self.att *= 1.5
         else:
             self.a = []

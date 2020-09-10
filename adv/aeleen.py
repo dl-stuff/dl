@@ -11,9 +11,9 @@ class Aeleen(Adv):
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
-        `s3, not buff(s3)
+        `s3, not self.s3_buff
         `s4
-        `s1, buff(s3)
+        `s1, self.s3_buff
         `fs, seq=5
         """
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
