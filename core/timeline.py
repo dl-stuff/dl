@@ -1,3 +1,5 @@
+import heapq as hq
+import itertools
 from core.ctx import *
 import core.log
 
@@ -153,14 +155,17 @@ class Timer(object):
 
         if self.online == 0:
             self.online = 1
-            self.timeline.add(self)
+        self.timeline.add(self)
         return self
 
 
     def off(self):
         if self.online:
             self.online = 0
-            self.timeline.rm(self)
+            try:
+                self.timeline.rm(self)
+            except:
+                pass
         return self
 
     def add(self, time=0):
@@ -169,6 +174,8 @@ class Timer(object):
         self.timing += time
         if self.timing < now():
             self.off()
+        if self.online:
+            self.timeline.add(self)
         return self.timing - now()
 
     #alias
@@ -182,25 +189,29 @@ class Timer(object):
 
     def callback_repeat(self):
         self.process(self)
-        if self.timing == _g_now :
+        if self.timing == _g_now:
             self.timing += self.timeout
+            self.timeline.add(self)
 
     def callback_once(self):
         self.process(self)
         if self.timing <= _g_now:
             if self.online:
                 self.online = 0
-                self.timeline.rm(self)
+                # self.timeline.rm(self)
 
     def callback(self):
         pass
 
 
-    def __str__(self):
-        return '%f: Timer:%s'%(self.timing,self.process)
+    # def __str__(self):
+        # return '%f: Timer:%s'%(self.timing,self.process)
+        # return f'{self.timing}: {self.process}'
 
     def __repr__(self):
-        return '%f: Timer:%s'%(self.timing,self.process)
+        # return '%f: Timer:%s'%(self.timing,self.process)
+        # return f'{self.timing}: {self.process}'
+        return f'{hex(id(self))}: {self.process}'
 
     def _process(self):
         # sample plain _process
@@ -209,44 +220,71 @@ class Timer(object):
 
 
 class Timeline(object):
+    REMOVED = '<REMOVED>'
     def __init__(self):
         self._tlist = []
-
+        self._tmap = {}
+        self._tseq = itertools.count()
 
     def add(self, t):
-        self._tlist.append(t)
-
+        # self._tlist.append(t)
+        if t in self._tmap:
+            self.rm(t)
+        count = next(self._tseq)
+        entry = [t.timing, count, t]
+        self._tmap[t] = entry
+        hq.heappush(self._tlist, entry)
 
     def rm(self, t):
-        i = self._tlist.index(t)
-        return self._tlist.pop(i)
+        # i = self._tlist.index(t)
+        # return self._tlist.pop(i)
+        entry = self._tmap.pop(t)
+        entry[-1] = Timeline.REMOVED
 
+    def pop(self):
+        from pprint import pprint
+        while self._tlist:
+            timing, _, t = hq.heappop(self._tlist)
+            # print(timing, t)
+            if t is not Timeline.REMOVED:
+                del self._tmap[t]
+                return t
+        # raise RuntimeError('Timeline error', self._tlist)
 
     def process_head(self):
         global _g_now
-        tcount = len(self._tlist)
-        if tcount == 0:
+        tnext = self.pop()
+        if not tnext:
             return -1
-
-        if tcount == 1:
-            headtiming = self._tlist[0].timing  
-            headindex = 0                          
-        else: #if tcount >= 2: 
-            headtiming = self._tlist[0].timing  
-            headindex = 0                          
-            for i in range(1,tcount):
-                timing = self._tlist[i].timing
-                if timing < headtiming:
-                    headtiming = timing
-                    headindex = i
-
-        if headtiming >= _g_now:
-            _g_now = headtiming
-            headt = self._tlist[headindex]
-            headt.callback()
+        if tnext.timing >= _g_now:
+            _g_now = tnext.timing
+            tnext.callback()
         else:
-            raise RuntimeError('Timeline error', headtiming, _g_now)
+            raise RuntimeError('Timeline error', tnext.timing, _g_now)
         return 0
+        # tcount = len(self._tlist)
+        # if tcount == 0:
+        #     return -1
+
+        # if tcount == 1:
+        #     headtiming = self._tlist[0].timing  
+        #     headindex = 0                          
+        # else: #if tcount >= 2: 
+        #     headtiming = self._tlist[0].timing  
+        #     headindex = 0                          
+        #     for i in range(1,tcount):
+        #         timing = self._tlist[i].timing
+        #         if timing < headtiming:
+        #             headtiming = timing
+        #             headindex = i
+
+        # if headtiming >= _g_now:
+        #     _g_now = headtiming
+        #     headt = self._tlist[headindex]
+        #     headt.callback()
+        # else:
+        #     raise RuntimeError('Timeline error', headtiming, _g_now)
+        # return 0
     
     @classmethod
     def run(cls, last = 100):

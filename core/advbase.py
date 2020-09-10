@@ -158,6 +158,7 @@ class Action(object):
         index = 0
         status = -2
         idle = 1
+        has_delayed = 0
 
     nop = Nop()
 
@@ -273,9 +274,17 @@ class Action(object):
         self.delayed.add(mt)
 
     def clear_delayed(self):
+        count = 0
         for mt in self.delayed:
+            if mt.online:
+                count += 1
             mt.off()
         self.delayed = set()
+        return count
+
+    @property
+    def has_delayed(self):
+        return len([mt for mt in self.delayed if mt.online])
 
     def tap(self):
         doing = self._static.doing
@@ -296,14 +305,24 @@ class Action(object):
             if doing.status == Action.STARTUP:  # try to interrupt an action
                 if self.atype in doing.interrupt_by:  # can interrupt action
                     doing.startup_timer.off()
-                    log('interrupt', doing.name, f'by {self.name}', f'after {now() - doing.startup_start:.2f}s')
+                    logargs = ['interrupt', doing.name, f'by {self.name}']
+                    delta = now() - doing.startup_start
+                    if delta > 0:
+                        logargs.append(f'after {delta:.2f}s')
+                    log(*logargs)
                 else:
                     return 0
             elif doing.status == Action.RECOVERY:  # try to cancel an action
                 if self.atype in doing.cancel_by:  # can interrupt action
                     doing.recovery_timer.off()
-                    doing.clear_delayed()
-                    log('cancel', doing.name, f'by {self.name}', f'after {now() - doing.recover_start:.2f}s')
+                    count = doing.clear_delayed()
+                    delta = now() - doing.recover_start
+                    logargs = ['cancel', doing.name, f'by {self.name}']
+                    if delta > 0:
+                        logargs.append(f'after {delta:.2f}s')
+                    if count > 0:
+                        logargs.append(f'lost {count} hit{"s" if count > 1 else ""}')
+                    log(*logargs)
                 else:
                     return 0
             elif doing.status == 0:
@@ -1360,6 +1379,7 @@ class Adv(object):
         t.dname = doing.name
         t.dstat = doing.status
         t.didx = doing.index
+        t.dhit = doing.has_delayed
 
     def l_silence_end(self, e):
         doing = self.action.getdoing()
@@ -1593,7 +1613,8 @@ class Adv(object):
             mt.idx = idx
             mt.attr = attr
             mt.on(missile)
-            self.action.getdoing().add_delayed(mt)
+            if not attr.get('msl'):
+                self.action.getdoing().add_delayed(mt)
         else:
             self.hitattr_make(e.name, e.base, e.group, idx, attr)
 

@@ -5,6 +5,7 @@ from math import ceil
 
 MAX_C = 10
 class DragonForm(Action):
+    has_delayed = 0
     def __init__(self, name, conf, adv, ds_proc):
         self.name = name
         self.conf = conf

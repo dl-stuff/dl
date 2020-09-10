@@ -29,12 +29,12 @@ class Hunter_Vanessa(Adv):
     conf['acl'] = """
         `dragon, s
         `s2, not buff(s2)
-        `fs2, cancel and (s1.charged>=s1.sp-self.sp_val(fs2) or s4.charged>=s4.sp-self.sp_val(fs2))
+        `fs2, (s1.charged>=s1.sp-self.sp_val(fs2) or s4.charged>=s4.sp-self.sp_val(fs2))
         `s3, not buff(s3) and fsc
         `s1, fsc
         `s4, fsc
         `dodge,fsc
-        `fs2,x=5
+        `fs2, x=2
         """
     conf['coabs'] = ['Sharena','Blade','Peony']
     conf['afflict_res.paralysis'] = 0

@@ -43,8 +43,8 @@ class Addis(Adv):
 
     def s1_proc(self, e):
         if self.s2buff.get():
-            self.s2buff.buff_end_timer.timing += 2.5
-            self.s2str.buff_end_timer.timing += 2.5
+            self.s2buff.buff_end_timer.add(2.5)
+            self.s2str.buff_end_timer.add(2.5)
             if random.random() < 0.8:
                 Bleed(e.name, 1.32).on()
         else:
