@@ -17,7 +17,7 @@ class Chelsea(adv.chelsea.Chelsea):
     conf['slots.d'] = Dreadking_Rathalos()
     conf['slots.a'] = The_Lurker_in_the_Woods()+Dear_Diary()
     conf['acl'] = """
-        `s3,not self.s3_buff
+        `s3,not buff(s3)
         `s2,fsc
         `s1,fsc and self.hp < 30 and self.ro_charges > 0
         `dodge, fsc

@@ -10,7 +10,7 @@ class Lucretia(Adv):
     conf['slots.a'] = CC()+Proper_Maintenance()
     conf['acl'] = """
         `dragon, s=2
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s2, self.energy()<=3
         `s4, x=5 and self.energy()<5

@@ -44,12 +44,14 @@ params: DURATION | NOW
 
 SEQ: "seq"i
 X: "x"i
+XF: "xf"i
 S: "s"i
 FSC: "fsc"i
+FSCF: "fscf"i
 CANCEL: "cancel"i
 SP: "sp"i
 PREP: "prep"i
-pincond: SEQ | X | S | FSC | CANCEL | SP | PREP
+pincond: SEQ | X | XF | S | FSC | FSCF | CANCEL | SP | PREP
 
 NOT: "not"i
 AND: "and"i
@@ -82,5 +84,5 @@ NONE: "none"i
 BOOLEAN: "true"i | "false"i
 indice: (function | CNAME) "[" [literal] "]"
 function: CNAME "(" [_args] ")"
-_args: literal ("," literal)*
+_args: literal ("," literal)* [","]
 literal: NONE | SIGNED_INT | SIGNED_FLOAT | BOOLEAN | _QUOTE? STRING _QUOTE?

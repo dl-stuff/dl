@@ -23,7 +23,7 @@ class Gala_Cleo(Adv):
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()  # wand c2*1.08 = 217
     conf['acl'] = """
         `dragon(c3-s-end), x=5 and self.trickery <= 1
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `fs, s1.charged>=s1.sp and self.fs_alt.uses > 0
         if x=5 or x=4 or fsc or s
         `s4
@@ -38,13 +38,13 @@ class Gala_Cleo(Adv):
     conf['share'] = ['Curran']
 
     def fs_proc(self, e):
-        if e.suffix == 'zone' and self.a1_buffed:
+        if e.group == 'zone' and self.a1_buffed:
             Teambuff('a1_str',0.25,10).zone().on()
 
     def prerun(self):
         self.a1_buffed = self.condition('a1 buff for 10s')
         self.phase['s1'] = 0
-        self.fs_alt = FSAltBuff(self, 'zone', uses=1)
+        self.fs_alt = FSAltBuff('zone', uses=1)
 
     @staticmethod
     def prerun_skillshare(adv, dst):

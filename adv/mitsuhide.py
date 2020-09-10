@@ -12,7 +12,7 @@ class Mitsuhide(Adv):
     conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon, s=1
-        `s3, not self.s3_buff and x=4
+        `s3, not buff(s3) and x=4
         `s1
         `s2
         `s4, x>3 or fsc

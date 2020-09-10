@@ -14,7 +14,7 @@ class Marth(Adv):
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['acl'] = """
-        queue not self.s3_buff
+        queue not buff(s3)
         `s3;s1;s2;s4
         end
         `dragon(c3-s-s-end),s=2

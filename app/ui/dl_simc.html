@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <label for="input-acl">ACL</label>
                     &nbsp;
                     <div class="custom-control custom-checkbox custom-control-inline">
@@ -73,7 +73,7 @@
                     </div>
                     <textarea id="input-acl" class="form-control" disabled></textarea>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                     <label class="coab-label">Co-Abilities:</label>
                     <br />
                     <div id="input-coabs">
@@ -231,7 +231,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="damageLogBox" tabindex="-1" role="dialog" aria-labelledby="damageLogTitle" aria-hidden="true">-->
+        <div class="modal fade" id="damageLogBox" tabindex="-1" role="dialog" aria-labelledby="damageLogTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -247,7 +247,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="commitsBox" tabindex="-1" role="dialog" aria-labelledby="commitsTitle" aria-hidden="true">-->
+        <div class="modal fade" id="commitsBox" tabindex="-1" role="dialog" aria-labelledby="commitsTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -262,7 +262,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="aclBox" tabindex="-1" role="dialog" aria-labelledby="aclTitle" aria-hidden="true">-->
+        <div class="modal fade" id="aclBox" tabindex="-1" role="dialog" aria-labelledby="aclTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -297,8 +297,8 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
                             </li>
                             <li>The built in actions include skills (s1, s2, s3), force strike (fs), a dodge roll (dodge), and shapeshift (dragon). Force strike fail (fsf) is an action too, but it is assumed to be performed for c5 hit of blade, wand, and lance.</li>
                             <li>Some adventurers have extra actions implemented, for example Ramona has s1a for using all hits on her s1.</li>
-                            <li>The dragon action assumes you are doing the normal full duration optimal combo, but you can change that by using <code>dragon.act(act string)</code>. The act string syntax is:
-                            <li>Each action is separated by a space, e.g. <code>dragon.act('c3 s c3 end')</code></li>
+                            <li>The dragon action assumes you are doing the normal full duration optimal combo, but you can change that by using <code>dragon(act seq)</code>. The syntax is:
+                            <li>Each action is separated by a hypen (-), e.g. <code>dragon(c3-s-c3-end)</code></li>
                             <li><code>cX</code> (e.g. <code>c3</code>) means do c1 to cX of the dragon combo chain. Most dragons go up to 3 combos, some have 5 combos.</li>
                             <li><code>s</code> means use skill (if they have usage left)</li>
                             <li><code>dodge</code> means do a dodge. Dodge is implicitly added after <code>cX</code> if dodge is faster than recovery or if the <code>cX</code> is not the final combo.</li>
@@ -325,6 +325,9 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
             </div>
         </div>
     </form>
+    <div id="qc-warning">
+        Currently undergoing backend overhauls, sim accuracy not guarenteed. 后端优化中，模拟结果可能不准确 <a href="https://imxtrabored.pythonanywhere.com/ui/dl_simc.html">Alternative <code>master</code> branch mirror</a>
+    </div>
     <div id="test-warning"></div>
     <div id="test-error"></div>
     <div id="test-results"></div>

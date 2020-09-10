@@ -12,7 +12,7 @@ class Victor(Adv):
     conf['slots.a'] = Resounding_Rendition()+Primal_Crisis()
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4, x=5
         `s1, self.bleed._static['stacks'] < 3
         `s2, x=5

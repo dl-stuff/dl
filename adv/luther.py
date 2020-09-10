@@ -23,11 +23,11 @@ class Luther(Adv):
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def fs_proc(self, e):
-        e.suffix == 'a' and self.afflics.frostbite(e.name,120,0.41)
+        e.group == 'a' and self.afflics.frostbite(e.name,120,0.41)
 
     def prerun(self):
         conf_fs_alt = {}
-        self.fs_alt = FSAltBuff(self, 'a', uses=1)
+        self.fs_alt = FSAltBuff('a', uses=1)
         Timer(self.fs_alt_on_crit, 10, True).on()
 
     def fs_alt_on_crit(self, t):

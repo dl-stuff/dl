@@ -46,29 +46,24 @@ tiki_conf = {
     'x5.hit': 1,
 
     'dodge.startup': 40 / 60.0,  # actually dragon dodge but w/e
-}
 
-# divine dragon mods
-divine_dragon_conf = {
-    'x_max': 3,
+    'x1_divine.dmg': 211 / 100.0,
+    'x1_divine.sp': 290,
+    'x1_divine.startup': 20 / 60.0,
+    'x1_divine.recovery': 0,
+    'x1_divine.hit': 1,
 
-    'x1.dmg': 211 / 100.0,
-    'x1.sp': 290,
-    'x1.startup': 20 / 60.0,
-    'x1.recovery': 0,
-    'x1.hit': 1,
+    'x2_divine.dmg': 252 / 100.0,
+    'x2_divine.sp': 350,
+    'x2_divine.startup': 30 / 60.0,
+    'x2_divine.recovery': 0,
+    'x2_divine.hit': 1,
 
-    'x2.dmg': 252 / 100.0,
-    'x2.sp': 350,
-    'x2.startup': 30 / 60.0,
-    'x2.recovery': 0,
-    'x2.hit': 1,
-
-    'x3.dmg': 358 / 100.0,
-    'x3.sp': 520,
-    'x3.startup': 49 / 60.0,
-    'x3.recovery': 67 / 60.0,
-    'x3.hit': 1,
+    'x3_divine.dmg': 358 / 100.0,
+    'x3_divine.sp': 520,
+    'x3_divine.startup': 49 / 60.0,
+    'x3_divine.recovery': 67 / 60.0,
+    'x3_divine.hit': 1,
 }
 
 
@@ -80,13 +75,13 @@ class Tiki(Adv):
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
-        if self.divine_dragon.get()
+        if divine_dragon.get()
         `s1
         `s2
         `dodge, x=3
         else
-        `s3, not self.s3_buff and fsc
-        `dragon, self.dragonform.dragon_gauge>=1800
+        `s3, not buff(s3) and fsc
+        `dragon, dgauge>=1800
         `s4, x=5
         `s2
         `s1, fsc
@@ -102,92 +97,37 @@ class Tiki(Adv):
             self.conf['slots.a'] = Twinfold_Bonds()+The_Chocolatiers()
             self.conf['slots.frostbite.a'] = self.conf['slots.a']
 
+    def prerun(self):
+        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(
+            self, 'divine',
+            x=True, s1=True, s2=True
+        ))
+
     def x_proc(self, e):
-        xseq = e.name
-        utp = self.conf[xseq].utp
-        self.dragonform.charge_gauge(utp, utp=True)
-
-    def l_dragon_x(self, e):
-        xalt = self.dragondrive_x
-        xseq = e.name
-        dmg_coef = xalt.conf[xseq].dmg
-        sp = xalt.conf[xseq].sp
-        hit = xalt.conf[xseq].hit
-        # utp = xalt.conf[xseq].utp
-        log('x', xseq, 'divine_dragon')
-        self.add_hits(hit)
-        self.dmg_make(xseq, dmg_coef)
-        self.charge(xseq, sp)
-
-        # trigger updates on dgauge
-        self.dragonform.charge_gauge(0, utp=True, dhaste=True)
-
-    def init(self):
-        self.shared_crit = False
-        self.buff_icon_count = lambda: False
+        try:
+            self.dragonform.charge_gauge(self.conf[e.name].utp, utp=True)
+        except:
+            self.dragonform.charge_gauge(0, utp=True)
 
     def prerun(self):
-        self.divine_dragon = Selfbuff(
-            'divine_dragon', 1, -1, 'divine', 'dragon')
-        self.divine_dragon.bufftype = 'dd'
-        # self.divine_dragon = Selfbuff('divine_dragon', self.dragonform.ddamage(), -1, 'att', 'dragon') # reeee
-        self.dragonform.set_dragondrive(
-            dd_buff=self.divine_dragon, max_gauge=1800, shift_cost=560, drain=40)
-        Event('dragon_end').listener(self.dragondrive_on)  # cursed
+        self.divine_dragon = self.dragonform.set_dragondrive(ModeManager(
+            self, 'divine',
+            # buffs=[Selfbuff('divine_dragon', self.dragonform.ddamage(), -1, 'att', 'dragon')], # reeee
+            x=True, s1=True, s2=True
+        ), max_gauge=1800, shift_cost=560, drain=40)
+        Event('dragon_end').listener(self.dragondrive_on)
         Event('dragondrive_end').listener(self.dragondrive_off)
 
-        self.dragondrive_x = X_alt(
-            self, 'divine_dragon', divine_dragon_conf, x_proc=self.l_dragon_x, no_fs=True)
-
-        self.o_s1 = self.s1
-        self.d_s1 = Skill('s1', self.conf.s1 +  Conf({'startup': 0.10, 'recovery': 1.8, 'sp': 3480}))
-
-        self.o_s2 = self.s2
-        self.d_s2 = Skill('s2', self.conf.s2 + Conf({'startup': 0.10, 'recovery': 1.91, 'sp': 5800}))
-
-        self.o_s3 = self.s3
-        self.d_s3 = Skill('s3', self.conf.s3+Conf({'sp': 0}))
-        self.d_s3.check = lambda: False
-        self.d_s3.charge = lambda sp: None
-
-        self.o_s4 = self.s4
-        self.d_s4 = Skill('s4', self.conf.s4+Conf({'sp': 0}))
-        self.d_s4.check = lambda: False
-        self.d_s4.charge = lambda sp: None
-
     def dragondrive_on(self, e):
-        self.s1 = self.d_s1
-        self.s2 = self.d_s2
-        self.s3 = self.d_s3
-        self.s4 = self.d_s4
+        self.a_fs_dict['fs'].set_enabled(False)
+        self.s3.set_enabled(False)
+        self.s4.set_enabled(False)
         self.charge_p('divine_dragon', 100)
-        self.dragondrive_x.on()
 
     def dragondrive_off(self, e):
-        self.s1 = self.o_s1
-        self.s2 = self.o_s2
-        self.s3 = self.o_s3
-        self.s4 = self.o_s4
-        self.dragondrive_x.off()
-
-    def s1_proc(self, e):
-        if self.divine_dragon.get():
-            self.dmg_make(e.name, 7.90)
-            self.afflics.frostbite(e.name, 120, 0.41)
-            self.dragonform.add_drive_gauge_time(
-                self.s1.ac.getstartup()+self.s1.ac.getrecovery(), skill_pause=True)
-        else:
-            self.dmg_make(e.name, 3.76)
-            self.dragonform.charge_gauge(260, utp=True, dhaste=True)
-
-    def s2_proc(self, e):
-        if self.divine_dragon.get():
-            with KillerModifier('s2_killer', 'hit', 0.2, ['frostbite']):
-                self.dmg_make(e.name, 12.05)
-            self.dragonform.add_drive_gauge_time(
-                self.s2.ac.getstartup()+self.s2.ac.getrecovery(), skill_pause=True)
-        else:
-            self.dragonform.charge_gauge(1000, utp=True, dhaste=True)
+        self.a_fs_dict['fs'].set_enabled(True)
+        self.s3.set_enabled(True)
+        self.s4.set_enabled(True)
 
 
 if __name__ == '__main__':

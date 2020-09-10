@@ -27,11 +27,11 @@ class Fritz(Adv):
     conf['share'] = ['Kleimann']
 
     def fs_proc(self, e):
-        if e.suffix == 'stun':
+        if e.group == 'stun':
             self.afflics.stun('fs', 100)
 
     def prerun(self):
-        self.fs_alt = FSAltBuff(self, 'stun', uses=3)
+        self.fs_alt = FSAltBuff('stun', uses=3)
 
     def s2_proc(self, e):
         self.fs_alt.on()

@@ -7,7 +7,7 @@ class Nicolas(Adv):
     conf = {}
     conf['acl'] = """
         `dragon(c3-s-end),s4.check()
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s2
         `s1, x>2

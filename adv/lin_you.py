@@ -14,7 +14,7 @@ class Lin_You(Adv):
     conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
     conf['acl'] = """
         `dragon(c3-s-end)
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s2, s1.check()
         `s1
@@ -25,7 +25,7 @@ class Lin_You(Adv):
 
     def prerun(self):
         conf_fs_alt = {'fs.dmg': 2.59, 'fs.hit': 6}
-        self.fs_alt = FSAltBuff(self, 'nados', uses=3)
+        self.fs_alt = FSAltBuff('nados', uses=3)
         self.s2_buff = Spdbuff('s2_spd',0.20, 15)
 
     def s1_proc(self, e):

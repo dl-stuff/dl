@@ -11,7 +11,7 @@ class Melody(Adv):
     conf['slots.a'] = A_Dogs_Day()+From_Whence_He_Comes()
     conf['slots.d'] = Ariel()
     conf['acl'] = """
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s4
         `fs, x=5
@@ -20,7 +20,7 @@ class Melody(Adv):
     conf['share'] = ['Dragonyule_Xainfried']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff(self, 'oops', uses=1)
+        self.fs_alt = FSAltBuff('oops', uses=1)
 
     def s1_proc(self, e):
         self.fs_alt.on()

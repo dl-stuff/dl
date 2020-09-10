@@ -9,7 +9,7 @@ class Chelsea(Adv):
     conf['slots.d'] = Dreadking_Rathalos()
     conf['slots.a'] = Mega_Friends()+Primal_Crisis()
     conf['acl'] = """
-        `s3, fsc and not self.s3_buff
+        `s3, fsc and not buff(s3)
         `s1, fsc
         `s2, fsc
         `s4, fsc

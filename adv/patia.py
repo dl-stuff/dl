@@ -13,7 +13,7 @@ class Patia(Adv):
     conf['slots.d'] = Azazel()
     conf['acl'] = """
         `dragon(c3-s-end), fsc
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s4, x=5
         `fs, x=5

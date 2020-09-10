@@ -1,7 +1,7 @@
 from collections import defaultdict
 import copy
 
-from core.timeline import Timer, Event, Listener
+from core.timeline import Timer, Event, Listener, now
 from core.log import log
 from core.ctx import Static
 
@@ -98,7 +98,7 @@ class Modifier(object):
 class KillerModifier(Modifier):
     def __init__(self, name, order, value, killer_condition):
         self.killer_condition = killer_condition
-        super().__init__(name, f"{killer_condition}_killer", order, value)
+        super().__init__(f'{name}_killer', f"{killer_condition}_killer", order, value)
 
     def on(self, modifier=None):
         if self._mod_active == 1:
@@ -111,6 +111,7 @@ class KillerModifier(Modifier):
 
         for kcondition in self.killer_condition:
             self._static.all_modifiers[f"{kcondition}_killer"][self.mod_order].append(modifier)
+
         self._mod_active = 1
         return self
 
@@ -127,36 +128,38 @@ class KillerModifier(Modifier):
 
 class CrisisModifier(Modifier):
     def __init__(self, name, scale, hp):
-        super().__init__('mod_{}_crisis'.format(name), 'att', 'hit', 0)
         self.hp_scale = scale
         self.hp_lost = 100 - hp
         if hp < 100:
             self.hp_cond = self._static.g_condition.hp_cond_set(hp)
         else:
             self.hp_cond = False
+        super().__init__('mod_{}_crisis'.format(name), 'att', 'hit', self.c_mod_value())
 
-    def get(self):
+    def c_mod_value(self):
+        return self.hp_scale * (self.hp_lost ** 2) / 10000
+
+    def on(self):
         if self.hp_cond:
-            self.mod_value = self.hp_scale * (self.hp_lost ** 2) / 10000
+            self.mod_value = self.c_mod_value()
         else:
             self.mod_value = 0
-        return self.mod_value
+        return super().on()
 
 
 class Buff(object):
     _static = Static({
         'all_buffs': [],
-        'bufftime': lambda: 1,
-        'debufftime': lambda: 1
+        'adv': None
     })
 
-    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, modifier=None):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, modifier=None, hidden=False):
         self.name = name
         self.__value = value
         self.duration = duration
         self.mod_type = mtype
         self.mod_order = morder or ('chance' if self.mod_type == 'crit' else 'buff')
-        self.bufftype = 'self'
+        self.bufftype = 'misc' if hidden else 'self'
 
         self.bufftime = self._bufftime if self.duration > 0 else self._no_bufftime
         self.buff_end_timer = Timer(self.buff_end_proc)
@@ -172,18 +175,24 @@ class Buff(object):
         self.dmg_test_event.dmg_coef = 1
         self.dmg_test_event.dname = 'test'
 
+        self.hidden = hidden
+
         self.__stored = 0
         self.__active = 0
         # self.on()
+
+    def logwrapper(self, *args):
+        if not self.hidden:
+            log('buff', *args)
 
     def _no_bufftime(self):
         return 1
 
     def _bufftime(self):
-        return self._static.bufftime()
+        return self._static.adv.mod('buff')
 
     def _debufftime(self):
-        return self._static.debufftime()
+        return self._static.adv.mod('debuff')
 
     def no_bufftime(self):
         self.bufftime = self._no_bufftime
@@ -237,7 +246,7 @@ class Buff(object):
         return self.modifier and self.modifier.off()
 
     def buff_end_proc(self, e):
-        log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff end <timeout>')
+        self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff end <timeout>')
         self.__active = 0
 
         if self.__stored:
@@ -246,13 +255,13 @@ class Buff(object):
                 idx -= 1
                 if idx < 0:
                     break
-                if self == self._static.all_buffs[idx]:
+                if not self.hidden and self == self._static.all_buffs[idx]:
                     self._static.all_buffs.pop(idx)
                     break
             self.__stored = 0
         value, stack = self.valuestack()
         if stack > 0:
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
+            self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
         self.effect_off()
 
     def count_team_buff(self):
@@ -289,7 +298,7 @@ class Buff(object):
         self.dmg_test_event()
         team_buff_dmg = self.dmg_test_event.dmg * sd_mods
         team_buff_dmg += team_buff_dmg * spd
-        log('buff', 'team', team_buff_dmg / no_team_buff_dmg - 1)
+        self.logwrapper('team', team_buff_dmg / no_team_buff_dmg - 1)
 
         for mod in base_mods:
             mod.off()
@@ -298,32 +307,33 @@ class Buff(object):
         d = (duration or self.duration) * self.bufftime()
         if self.__active == 0:
             self.__active = 1
-            if self.__stored == 0:
+            if not self.hidden and self.__stored == 0:
                 self._static.all_buffs.append(self)
                 self.__stored = 1
             if d >= 0:
                 self.buff_end_timer.on(d)
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff start <{d:.02f}s>')
+            proc_type = 'start'
         else:
             if d >= 0:
                 self.buff_end_timer.on(d)
-                log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff refresh <{d:.02f}s>')
+            proc_type = 'refresh'
+            
+        if not self.hidden:
+            self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff {proc_type} <{d:.02f}s>')
+            value, stack = self.valuestack()
+            if stack > 1:
+                log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
 
-        value, stack = self.valuestack()
-        if stack > 1:
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
+            if self.mod_type == 'defense':
+                Event('defchain').on()
+                if self.bufftype == 'team':
+                    log('buff', 'team_defense', 'proc team doublebuffs')
 
-
-        if self.mod_type == 'defense':
-            Event('defchain').on()
-            if self.bufftype == 'team':
-                log('buff', 'team_defense', 'proc team doublebuffs')
-
-        if self.mod_type == 'regen':
-            # may need to make this part global since game always regen all stacks at same ticks
-            self.set_hp_event = Event('set_hp')
-            self.set_hp_event.delta = self.get()
-            self.modifier = Timer(self.hp_regen, 3.9, True) # hax
+            if self.mod_type == 'regen':
+                # may need to make this part global since game always regen all stacks at same ticks
+                self.set_hp_event = Event('set_hp')
+                self.set_hp_event.delta = self.get()
+                self.modifier = Timer(self.hp_regen, 3.9, True) # hax
 
         self.effect_on()
         return self
@@ -334,11 +344,14 @@ class Buff(object):
     def off(self):
         if self.__active == 0:
             return
-        log('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff end <turn off>')
+        self.logwrapper('buff', self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff end <turn off>')
         self.__active = 0
         self.effect_off()
         self.buff_end_timer.off()
         return self
+
+    def timeleft(self):
+        return self.buff_end_timer.timing-now()
 
     def add_time(self, delta):
         self.buff_end_timer.add(delta)
@@ -352,94 +365,134 @@ class EffectBuff(Buff):
         self.effect_off = effect_off
 
 
-class FSAltBuff(Buff):
-    def __init__(self, adv, fs_name=None, duration=-1, uses=-1, hidden=False):
-        self.adv = adv
-        self.fs_name = fs_name
-        pattern = r'^fs\d+$' if fs_name is None else f'^fs\d*_{fs_name}$'
-        self.prev_fs = self.adv.alt_fs
-        self.fs_list = [fsn for fsn, _ in adv.conf.find(pattern)]
+class ModeAltBuff(Buff):
+    def __init__(self, name, duration=-1, hidden=False):
+        super().__init__(name, 1, duration, 'effect')
+
+    @property
+    def adv(self):
+        return self._static.adv
+
+class FSAltBuff(ModeAltBuff):
+    def __init__(self, group=None, duration=-1, uses=-1, hidden=False):
+        self.default_fs = self.adv.current_fs
+        self.group = group
+        pattern = r'^fs\d+$' if group is None else f'^fs\d*_{group}$'
+        self.fs_list = [fsn for fsn, _ in self.adv.conf.find(pattern)]
         if not self.fs_list:
-            if fs_name is None:
+            if group is None:
                 raise ValueError(f'fs[n] not found in conf')
-            raise ValueError(f'{self.fs_name} is not an FS')
-        super().__init__(fs_name or 'alt', 1, duration, 'effect')
+            raise ValueError(f'{self.group} is not an FS')
+        super().__init__(self.group or 'fs[n]', duration=duration, hidden=hidden)
         self.enable_fs(False)
         self.base_uses = uses
         self.uses = 0
-        Listener('fs', self.l_off, after=True).on()
-        self.bufftype = 'misc' if hidden else 'self'
+        self.l_fs = Listener('fs', self.l_off, order=2).on()
+
+        self.managed = False
 
     def enable_fs(self, enabled):
         for fsn in self.fs_list:
-            self.adv.a_fs_dict[fsn].enabled = enabled
+            self.adv.a_fs_dict[fsn].set_enabled(enabled)
 
     def effect_on(self):
-        log('debug', f'fs {self.fs_name} on', self.uses)
+        self.logwrapper(f'fs-{self.group} on', self.uses)
         self.enable_fs(True)
-        self.prev_fs = self.adv.alt_fs
-        self.adv.alt_fs = self.fs_name
+        self.adv.current_fs = self.group
 
     def effect_off(self):
-        log('debug', f'fs {self.fs_name} off', self.uses)
+        self.logwrapper(f'fs-{self.group} off', self.uses)
         self.enable_fs(False)
-        self.adv.alt_fs = self.prev_fs
+        self.adv.current_fs = self.default_fs
 
     def on(self, duration=None):
         self.uses = self.base_uses
         return super().on(duration)
 
     def l_off(self, e):
-        self.uses -= 1
-        if self.uses <= 0:
-            self.off()
+        if self.uses > 0:
+            self.uses -= 1
+            if self.uses <= 0:
+                self.off()
 
 
-class XAltBuff(Buff):
-    def __init__(self, adv, fs_name=None, duration=-1, uses=-1, hidden=False):
-        self.adv = adv
-        self.fs_name = fs_name or 'alt'
-        pattern = r'^fs\d+$' if fs_name is None else f'^fs\d*_{fs_name}$'
-        self.prev_fs = self.adv.alt_fs
-        self.fs_list = [fsn for fsn, _ in adv.conf.find(pattern)]
-        if not self.fs_list:
-            raise ValueError(f'{self.fs_name} is not an FS')
-        super().__init__(fs_name, 1, duration, 'effect')
-        self.enable_fs(False)
-        self.base_uses = uses
-        self.uses = 0
-        Listener('fs', self.l_off, after=True).on()
-        self.bufftype = 'misc' if hidden else 'self'
+class XAltBuff(ModeAltBuff):
+    def __init__(self, group, duration=-1, hidden=True, deferred=False):
+        self.default_x = self.adv.current_x
+        self.group = group
+        self.x_max = self.adv.conf[f'{group}.x_max']
+        self.deferred = deferred
+        if not self.x_max:
+            raise ValueError(f'{self.group} is not a X group')
+        super().__init__(group, duration=duration, hidden=hidden)
+        self.enable_x(False)
 
-    def enable_fs(self, enabled):
-        for fsn in self.fs_list:
-            self.adv.a_fs_dict[fsn].enabled = enabled
+    def enable_x(self, enabled):
+        for _, xact in self.adv.a_x_dict[self.group].items():
+            xact.enabled = enabled
 
     def effect_on(self):
-        log('debug', f'fs {self.fs_name} on', self.uses)
-        self.enable_fs(True)
-        self.prev_fs = self.adv.alt_fs
-        self.adv.alt_fs = self.fs_name
+        self.logwrapper(f'x-{self.group} on')
+        self.enable_x(True)
+        if self.deferred:
+            self.adv.deferred_x = self.group
+        else:
+            self.adv.current_x = self.group
 
     def effect_off(self):
-        log('debug', f'fs {self.fs_name} off', self.uses)
-        self.enable_fs(False)
-        self.adv.alt_fs = self.prev_fs
-
-    def on(self, duration=None):
-        self.uses = self.base_uses
-        return super().on(duration)
-
-    def l_off(self, e):
-        self.uses -= 1
-        if self.uses <= 0:
-            self.off()
+        self.logwrapper(f'x-{self.group} off')
+        self.enable_x(False)
+        if self.deferred:
+            self.adv.deferred_x = self.default_x
+        else:
+            self.adv.current_x = self.default_x
 
 
+class SAltBuff(ModeAltBuff):
+    def __init__(self, group, base, duration=-1, hidden=True, ddrive=False):
+        if base not in ('s1', 's2', 's3', 's4'):
+            raise ValueError(f'{base} is not a skill')
+        if group not in self.adv.a_s_dict[base].act_dict.keys():
+            raise ValueError(f'{base}-{group} is not a skill')
+        super().__init__(f'{base}_{group}', duration=duration, hidden=hidden)
+        self.base = base
+        self.group = group
+        self.default_s = self.adv.current_s[base]
+        if ddrive:
+            self.l_s = Listener('s', self.l_add_ddrive, order=0).on()
+        elif duration != -1:
+            self.l_s = Listener('s', self.l_extend_time, order=0).on()
+        self.enable_s(True)
+
+    def enable_s(self, enabled):
+        for s in self.adv.a_s_dict.values():
+            s.enabled = enabled
+
+    def effect_on(self):
+        self.logwrapper(f'{self.name} on')
+        self.adv.current_s[self.base] = self.group
+
+    def effect_off(self):
+        self.logwrapper(f'{self.name} off')
+        self.adv.current_s[self.base] = self.default_s
+
+    def l_extend_time(self, e):
+        if self.get() and e.name != 'ds' and e.base == self.base and e.group == self.group:
+            skill = self.adv.a_s_dict[self.base]
+            self.add_time(skill.ac.getstartup() + skill.ac.getrecovery())
+
+    def l_add_ddrive(self, e):
+        if self.get() and e.base == self.base and e.group == self.group:
+            skill = self.adv.a_s_dict[self.base]
+            self.dragonform.add_drive_gauge_time(skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True)
+
+
+bufftype_dict = {}
 class Selfbuff(Buff):
     def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None):
         super().__init__(name, value, duration, mtype, morder)
         self.bufftype = 'self'
+bufftype_dict['self'] = Selfbuff
 
 
 class SingleActionBuff(Buff):
@@ -450,7 +503,10 @@ class SingleActionBuff(Buff):
         self.casts = casts
         self.end_event = event if event is not None else mtype
         self.end_proc = end_proc
-        Listener(self.end_event, self.l_off, after=True).on()
+        Timer(self.delayed_listener).on(0.001) # hax
+
+    def delayed_listener(self, t):
+        Listener(self.end_event, self.l_off, order=2).on()
 
     def on(self, casts=1):
         self.casts = casts
@@ -468,6 +524,7 @@ class SingleActionBuff(Buff):
                 return result
             else:
                 return self
+bufftype_dict['next'] = SingleActionBuff
 
 
 class Teambuff(Buff):
@@ -481,26 +538,59 @@ class Teambuff(Buff):
                 self.base_cc_mod.append(mod)
 
     def on(self, duration=None):
-        Buff.on(self, duration)
+        super().on(duration)
         self.count_team_buff()
         return self
 
     def off(self):
-        Buff.off(self)
+        super().off()
         self.count_team_buff()
         return self
 
     def buff_end_proc(self, e):
-        Buff.buff_end_proc(self, e)
+        super().buff_end_proc(e)
         self.count_team_buff()
+bufftype_dict['team'] = Teambuff
+
+
+class ElementalTeambuff(Teambuff):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, element=None):
+        super().__init__(name, value, duration, mtype, morder)
+        self.element = element
+
+    def on(self, duration=0):
+        if self._static.adv.slots.c.ele == self.element:
+            super().on(duration=duration)
+        return self
+
+    def count_team_buff(self):
+        if self.modifier._static.g_condition('buff all team'):
+            super().count_team_buff()
+bufftype_dict['ele'] = ElementalTeambuff
+
+
+class ZoneTeambuff(Teambuff):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None):
+        super().__init__(name, value, duration, mtype, morder)
+        self.bufftime = self._no_bufftime
+        self.name += '_zone'
+bufftype_dict['zone'] = ZoneTeambuff
 
 
 class Spdbuff(Buff):
-    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='spd', morder=None, wide='self'):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='spd', wide=None):
         mtype = mtype
         morder = 'passive'
         super().__init__(name, value, duration, mtype, morder)
-        self.bufftype = wide
+        if not wide:
+            try:
+                self.bufftype = name.split('_')[1]
+            except:
+                self.bufftype = 'self'
+        else:
+            self.bufftype = wide
+        if self.bufftype not in 'self' or 'team':
+            self.bufftype = 'self'
 
     def on(self, duration=None):
         Buff.on(self, duration)
@@ -518,11 +608,12 @@ class Spdbuff(Buff):
         Buff.buff_end_proc(self, e)
         if self.bufftype == 'team':
             self.count_team_buff()
+bufftype_dict['spd'] = Spdbuff
 
 
 class Debuff(Teambuff):
     def __init__(self, name='<buff_noname>', value=0, duration=0, chance=1.0, mtype='def', morder=None):
-        self.val = 0 - value
+        self.val = value
         self.chance = chance
         if self.chance != 1:
             bd = 1.0 / (1.0 + self.val)
@@ -532,18 +623,21 @@ class Debuff(Teambuff):
         super().__init__(name, self.val, duration, mtype, morder)
         self.bufftype = 'debuff'
         self.bufftime = self._debufftime
+bufftype_dict['debuff'] = Debuff
 
 
 class MultiBuffManager:
-    def __init__(self, buffs, duration=None):
-        self.buffs = buffs
+    def __init__(self, name, buffs, duration=None):
+        self.name = name
+        self.buffs = buffs or []
+        # self.buffs = list(filter(None, self.buffs))
         self.duration = duration
 
     def on(self):
         for b in self.buffs:
             try:
                 b.on(duration=self.duration)
-            except ValueError:
+            except TypeError:
                 b.on()
         return self
 
@@ -559,3 +653,77 @@ class MultiBuffManager:
         for b in self.buffs:
             b.add_time(delta)
         return self
+
+
+class ModeManager(MultiBuffManager):
+    ALT_CLASS = {
+        'x': XAltBuff,
+        'fs': FSAltBuff,
+        's1': SAltBuff,
+        's2': SAltBuff
+    }
+    def __init__(self, adv, name, buffs=None, duration=None, **kwargs):
+        super().__init__(name, buffs, duration)
+        self.alt = {}
+        for k, buffclass in ModeManager.ALT_CLASS.items():
+            if kwargs.get(k, False):
+                if k in ('s1', 's2'):
+                    self.alt[k] = buffclass(name, k)
+                elif k in ('x'):
+                    self.alt[k] = buffclass(name, deferred=(kwargs.get('deferred', False)))
+                else:
+                    self.alt[k] = buffclass(name)
+        self.buffs.extend(self.alt.values())
+        for b in self.buffs:
+            b.hidden = True
+
+    def on_except(self, exclude=None):
+        for b in self.buffs:
+            if exclude and b == self.alt.get(exclude, None):
+                continue
+            try:
+                b.on(duration=self.duration)
+            except TypeError:
+                b.on()
+        return self
+
+    def off_except(self, exclude=None):
+        for b in self.buffs:
+            if exclude and b == self.alt.get(exclude, None):
+                continue
+            try:
+                b.on(duration=self.duration)
+            except TypeError:
+                b.on()
+        return self
+
+class ActiveBuffDict(defaultdict):
+    def __init__(self):
+        super().__init__(lambda: {})
+
+    def __call__(self, k, group=None, *args):
+        if self.get(k, False):
+            subdict = self[k]
+            if group is not None:
+                try:
+                    return self.checkbuff(subdict[group], *args)
+                except KeyError:
+                    return False
+            else:
+                return any(self.checkbuff(b) for b in subdict.values())
+        else:
+            return False
+
+    @staticmethod
+    def checkbuff(buff, *args):
+        if 'timeleft' in args:
+            return buff.timeleft()
+        return buff.get()
+
+    def on(self, k, group):
+        if self.get(k) and self[k].get(group):
+            self[k][group].on()
+
+    def off(self, k, group):
+        if self.get(k) and self[k].get(group):
+            self[k][group].off()

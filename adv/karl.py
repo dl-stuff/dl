@@ -14,7 +14,7 @@ class Karl(Adv):
     conf['slots.d'] = Gala_Mars()
     conf['acl'] = """
         `dragon, s=2
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2, cancel
         `s4, cancel
         `fs, x=2

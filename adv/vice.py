@@ -11,7 +11,7 @@ class Vice(Adv):
     conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), (fsc or self.sim_afflict) and self.trickery=0
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s1
         `s2
@@ -22,20 +22,15 @@ class Vice(Adv):
     conf['share'] = ['Curran']
 
     def fs_proc(self, e):
-        if e.suffix == 'a':
+        if e.group == 'a':
             self.afflics.poison('fs', 120, 0.582)
 
     def prerun(self):
-        self.fs_alt = FSAltBuff(self, 'a', uses=1)
-
-    def s1_proc(self, e):
-        with KillerModifier('s1_killer', 'hit', 0.5, ['poison']):
-            self.dmg_make(e.name, 15.84)
+        self.fs_alt = FSAltBuff('a', uses=1)
 
     def s2_proc(self, e):
         self.fs_alt.on()
-        with KillerModifier('s2_killer', 'hit', 0.5, ['poison']):
-            self.dmg_make(e.name, 16.77)
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

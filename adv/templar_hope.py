@@ -11,7 +11,7 @@ class Templar_Hope(Adv):
     conf['slots.d'] = AC011_Garland()
     conf['acl'] = """
         `dragon(c3-s-c3-c3-end), cancel
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s2, cancel
         `fs, x=2

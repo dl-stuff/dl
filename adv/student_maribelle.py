@@ -10,7 +10,7 @@ class Student_Maribelle(Adv):
     conf = {}
     conf['acl'] = """
         `dragon,s
-        `s3, not self.s3_buff and x=5
+        `s3, not buff(s3) and x=5
         `s4
         `s1
         `s2,cancel

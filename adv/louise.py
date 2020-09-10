@@ -12,7 +12,7 @@ class Louise(Adv):
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), s2.check()
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s2
         `s1
         `s4, fsc

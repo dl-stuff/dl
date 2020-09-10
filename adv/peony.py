@@ -33,7 +33,7 @@ class Peony(Adv):
     conf['afflict_res.paralysis'] = 0
 
     def fs_proc(self, e):
-        if e.suffix == 'dream':
+        if e.group == 'dream':
             self.fs_buffs.on()
             self.a1_is_cd = True
             self.a1_cd_timer.on(20)
@@ -46,8 +46,8 @@ class Peony(Adv):
 
     def prerun(self):
         self.phase['s1'] = 0
-        self.fs_alt = FSAltBuff(self, 'dream', uses=1)
-        self.fs_buffs = MultiBuffManager([
+        self.fs_alt = FSAltBuff('dream', uses=1)
+        self.fs_buffs = MultiBuffManager('dream', [
             Teambuff('fs_str', 0.10, 10, 'att', 'buff'),
             Spdbuff('fs_spd', 0.10, 10, wide='team'),
             Teambuff('fs_def', 0.20, 10, 'defense')

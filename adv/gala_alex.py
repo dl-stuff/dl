@@ -81,7 +81,7 @@ class Gala_Alex(Adv):
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
         `dragon(c3-s-end), s=1
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         if fsc
         # use s4/s2 if no poison or if s1 def down has less than 1/3 time left
         if (not self.afflics.poison.get()) or (self.sr.chain_status=1 and self.s1_debuff.buff_end_timer.timing-now<5)

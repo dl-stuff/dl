@@ -11,7 +11,7 @@ class Wedding_Aoi(Adv):
     conf['slots.a'] = Twinfold_Bonds()+Primal_Crisis()
     conf['acl'] = """
         `dragon(c3-s-end), x=5
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s4
         `s1,cancel
         `fs, x=5

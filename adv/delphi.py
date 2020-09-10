@@ -14,7 +14,7 @@ class Delphi(Adv):
     conf['slots.d'] = Ramiel()
     conf['acl'] = """
         `dragon(c3-s-end), s=1
-        `s3, not self.s3_buff
+        `s3, not buff(s3)
         `s1
         `s4
         `s2, self.s1fscharge = 0 and (s1.charged <= ((s1.sp/13)*9))

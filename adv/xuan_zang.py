@@ -12,7 +12,7 @@ class Xuan_Zang(Adv):
     conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
     conf['acl'] = """
         `dragon, s=2
-        `s3, not self.s3_buff and fsc
+        `s3, not buff(s3) and fsc
         `s4
         `s2
         `s1,fsc

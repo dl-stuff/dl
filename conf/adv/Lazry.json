@@ -1,0 +1,53 @@
+{
+    "c": {
+        "a": [["k_frostbite", 0.3], ["s", 0.35, "hp70"]],
+        "att": 505,
+        "ele": "water",
+        "stars": "5",
+        "wt": "axe",
+        "name": "Lazry",
+        "spiral": 0
+    },
+    "s1": {
+        "sp": 3194,
+        "startup": 0.1
+    },
+    "s1_low": {
+        "attr": [
+            {"dmg": 1.77, "afflic": ["frostbite", 120, 0.41]},
+            {"dmg": 1.77},
+            {"dmg": 3.37}
+        ],
+        "recovery": 1.7
+    },
+    "s1_high": {
+        "attr": [
+            {"dmg": 1.00},
+            {"dmg": 1.00},
+            {"dmg": 1.00},
+            {"dmg": 1.00},
+            {"dmg": 5.73, "buff": ["next", 0.20, 1, "s", "buff", "-refresh"]}
+        ],
+        "recovery": 1.5667
+    },
+    "s2": {
+        "sp": 7475,
+        "startup": 0.1
+    },
+    "s2_low": {
+        "attr": [
+            {"buff": [
+                ["team", 0.15, 15, "att", "buff"],
+                ["team", 0.10, 15, "crit", "chance"]
+            ]}
+        ],
+        "recovery": 1.6667
+    },
+    "s2_high": {
+        "attr": [
+            {"dmg": 2.47},
+            {"dmg": 9.36, "buff": ["next", 0.20, 1, "s", "buff", "-refresh"], "sp": [1.0, "%", "s1"]}
+        ],
+        "recovery": 2.5
+    }
+}

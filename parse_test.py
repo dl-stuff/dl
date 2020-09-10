@@ -5,28 +5,24 @@ from core.acl import build_acl
 
 class FakeAdv:
     duration = 180
-    bolb = {'s1': False}
     def __init__(self):
         self.s3_buff = False
 
-    def s1(self):
-        print('Called s1')
+    def s(self, n):
+        print(f'Called s{n}')
+        if n == 3:
+            self.s3_buff = True
         return True
-
-    def s2(self):
-        print('Called s2')
-        return True
-
-    def s3(self):
-        print('Called s3')
-        return False
 
     def fn(self, *args):
         print('Call with', args)
         return True
 
-    def rd(self):
-        return {'s3': 33333}
+    def fs(self):
+        return True
+
+    def buff(self, *args):
+        return self.s3_buff
 
 
 class FakeE:
@@ -42,12 +38,12 @@ def show(adv, acl, prn=True, run=False):
         fake = FakeAdv()
         interpreter = build_acl(acl)
         interpreter.reset(fake)
-        event = FakeE('x', 'x5_missile', None, 5)
+        event = FakeE('fs', 'fs', None, 5)
         if prn:
             print(interpreter._tree)
             print(interpreter._tree.pretty())
         if run:
-            interpreter.run(event)
+            interpreter(event)
     except Exception as e:
         print(adv)
         raise e
@@ -60,11 +56,10 @@ if __name__ == '__main__':
         show(adv, acl)
     else:
         test = """
-        `s1, not s3_buff or fsc
-        `s2, energy() != 5
-        `s3, not energy() = 5
+        `s3, not buff(s3) and fsc
+        `s2
         """
-        show('test', test, run=False)
+        show('test', test, run=True)
 
         # for adv, acl in acl_map.items():
         #     show(adv, acl, prn=False, run=False)
