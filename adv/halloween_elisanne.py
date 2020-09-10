@@ -37,7 +37,7 @@ class Halloween_Elisanne(Adv):
 
     def prerun(self):
         self.phase['s1'] = 0
-        self.vampire_maiden = XAltBuff('vamp', duration=15, hidden=False)
+        self.vampire_maiden = XAltBuff(group='vamp', duration=15, hidden=False)
 
     def s2_proc(self, e):
         self.charge(e.name, 700)

@@ -47,7 +47,7 @@ class Gala_Ranzal(Adv):
     def prerun(self):
         self.ifs1ins2 = 0
         self.gauges = {'x':0, 'fs':0}
-        self.fs_alt = FSAltBuff('a', uses=3)
+        self.fs_alt = FSAltBuff(group='a', uses=3)
 
     def dmg_proc(self, name, amount):
         if name == 'x1':

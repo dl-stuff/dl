@@ -72,13 +72,10 @@ class Conf(dict):
             if isinstance(v, dict):
                 try:
                     self[k].update(v, rebase=rebase)
-                except AttributeError:
-                    o_val = self[k]
+                except (AttributeError, KeyError):
                     self[k] = Conf(conf=v, parent=self)
-                    if o_val:
-                        self[k]['.'] = o_val
-                except KeyError:
-                    self[k] = Conf(conf=v, parent=self)
+                # except KeyError:
+                #     self[k] = Conf(conf=v, parent=self)
             elif not (rebase and k in self):
                 self[k] = v
 

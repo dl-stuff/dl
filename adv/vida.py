@@ -22,7 +22,7 @@ class Vida(Adv):
             self.conf['share'] = ['Curran']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('a', uses=3)
+        self.fs_alt = FSAltBuff(group='a', uses=3)
 
     def s2_proc(self, e):
         self.fs_alt.on()

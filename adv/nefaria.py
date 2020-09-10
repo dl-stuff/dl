@@ -35,7 +35,7 @@ class Nefaria(Adv):
             self.afflics.blind('s2_fs', 110)
     
     def prerun(self):
-        self.fs_alt = FSAltBuff('blind', uses=1)
+        self.fs_alt = FSAltBuff(group='blind', uses=1)
         
     def s1_proc(self, e):
         with KillerModifier('s1killer', 'hit', 0.74, ['blind', 'poison']):

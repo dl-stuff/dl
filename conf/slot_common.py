@@ -1,5 +1,4 @@
 #unused now
-import slot
 from slot.a import *
 from slot.d import *
 import slot.w
@@ -37,11 +36,17 @@ wt_prints = {
 
 # used in advbase
 ele_punisher = {
-    'flame': ('burn', Me_and_My_Bestie),
-    'water': ('frostbite', His_Clever_Brother),
-    'wind': ('poison', The_Fires_of_Hate),
-    'light': ('paralysis', Spirit_of_the_Season),
-    'shadow': ('poison', The_Fires_of_Hate)
+    'flame': 'burn',
+    'water': 'frostbite',
+    'wind': 'poison',
+    'light': 'paralysis',
+    'shadow': 'poison'
+}
+punisher_print = {
+    'burn': Me_and_My_Bestie,
+    'frostbite': His_Clever_Brother,
+    'poison': The_Fires_of_Hate,
+    'paralysis': Spirit_of_the_Season
 }
 
 def set(slots):

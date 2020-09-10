@@ -147,6 +147,7 @@ class CrisisModifier(Modifier):
         return super().on()
 
 
+bufftype_dict = {}
 class Buff(object):
     _static = Static({
         'all_buffs': [],
@@ -374,7 +375,7 @@ class ModeAltBuff(Buff):
         return self._static.adv
 
 class FSAltBuff(ModeAltBuff):
-    def __init__(self, group=None, duration=-1, uses=-1, hidden=False):
+    def __init__(self, name=None, group=None, duration=-1, uses=-1, hidden=False):
         self.default_fs = self.adv.current_fs
         self.group = group
         pattern = r'^fs\d+$' if group is None else f'^fs\d*_{group}$'
@@ -414,10 +415,11 @@ class FSAltBuff(ModeAltBuff):
             self.uses -= 1
             if self.uses <= 0:
                 self.off()
+bufftype_dict['fsAlt'] = FSAltBuff
 
 
 class XAltBuff(ModeAltBuff):
-    def __init__(self, group, duration=-1, hidden=True, deferred=False):
+    def __init__(self, name=None, group=None, duration=-1, hidden=True, deferred=False):
         self.default_x = self.adv.current_x
         self.group = group
         self.x_max = self.adv.conf[f'{group}.x_max']
@@ -446,10 +448,11 @@ class XAltBuff(ModeAltBuff):
             self.adv.deferred_x = self.default_x
         else:
             self.adv.current_x = self.default_x
+bufftype_dict['xAlt'] = XAltBuff
 
 
 class SAltBuff(ModeAltBuff):
-    def __init__(self, group, base, duration=-1, hidden=True, ddrive=False):
+    def __init__(self, name=None, group=None, base=None, duration=-1, hidden=True, ddrive=False):
         if base not in ('s1', 's2', 's3', 's4'):
             raise ValueError(f'{base} is not a skill')
         if group not in self.adv.a_s_dict[base].act_dict.keys():
@@ -485,9 +488,9 @@ class SAltBuff(ModeAltBuff):
         if self.get() and e.base == self.base and e.group == self.group:
             skill = self.adv.a_s_dict[self.base]
             self.dragonform.add_drive_gauge_time(skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True)
+bufftype_dict['sAlt'] = SAltBuff
 
 
-bufftype_dict = {}
 class Selfbuff(Buff):
     def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None):
         super().__init__(name, value, duration, mtype, morder)
@@ -668,11 +671,11 @@ class ModeManager(MultiBuffManager):
         for k, buffclass in ModeManager.ALT_CLASS.items():
             if kwargs.get(k, False):
                 if k in ('s1', 's2'):
-                    self.alt[k] = buffclass(name, k)
+                    self.alt[k] = buffclass(group=name, base=k)
                 elif k in ('x'):
-                    self.alt[k] = buffclass(name, deferred=(kwargs.get('deferred', False)))
+                    self.alt[k] = buffclass(group=name, deferred=(kwargs.get('deferred', False)))
                 else:
-                    self.alt[k] = buffclass(name)
+                    self.alt[k] = buffclass(group=name)
         self.buffs.extend(self.alt.values())
         for b in self.buffs:
             b.hidden = True

@@ -12,14 +12,13 @@ from core.log import *
 from core.afflic import *
 from core.modifier import *
 from core.dummy import Dummy, dummy_function
+from core.condition import Condition
 import core.acl
 import core.acl_old
 import conf as globalconf
 import slot
 from ctypes import c_float
 from math import ceil
-from core.condition import Condition
-
 
 class Skill(object):
     _static = Static({
@@ -154,7 +153,7 @@ class Action(object):
     idle = 0
 
     class Nop(object):
-        name = '__idle__'
+        name = 'nop'
         index = 0
         status = -2
         idle = 1
@@ -765,8 +764,9 @@ class Adv(object):
                 return
 
         if self.sim_afflict:
-            from conf.slot_common import ele_punisher
-            aff, wpa = ele_punisher[self.slots.c.ele]
+            from conf.slot_common import ele_punisher, punisher_print
+            aff = ele_punisher[self.slots.c.ele]
+            wpa = punisher_print[aff]
             wp1 = self.slots.a.__class__
             wp2 = wpa
             if wp1 != wp2:
@@ -1141,12 +1141,24 @@ class Adv(object):
         return 0
 
     def load_aff_conf(self, key):
-        return self.conf[key] or []
+        confv = self.conf[key]
+        if confv is None:
+            return []
+        if isinstance(confv, list):
+            return confv
+        if self.sim_afflict:
+            from conf.slot_common import ele_punisher
+            aff = ele_punisher[self.slots.c.ele]
+            if confv[aff]:
+                return confv[aff]
+        return confv['base'] or []
 
     def config_coabs(self):
         if not self.conf['flask_env']:
+            self.coab_list = self.load_aff_conf('coabs')
             self.d_coabs()
-        self.coab_list = self.load_aff_conf('coabs')
+        else:
+            self.coab_list = self.conf['coabs']
         from conf import coability_dict
         try:
             self_coab = list(self.slots.c.coabs.keys())[0]
@@ -1201,8 +1213,10 @@ class Adv(object):
 
         if not self.conf['flask_env']:
             self.d_skillshare()
+            self.skillshare_list = self.load_aff_conf('share')
+        else:
+            self.skillshare_list = self.conf['share'] or []
         preruns = {}
-        self.skillshare_list = self.load_aff_conf('share')
         try:
             self.skillshare_list.remove(self.__class__.__name__)
         except ValueError:
@@ -1366,14 +1380,14 @@ class Adv(object):
 
     def _cb_think(self, t):
         if loglevel >= 2:
-            log('think', t.pin, t.dname, t.dstat, t.didx)
+            log('think', '/'.join(map(str,(t.pin, t.dname, t.dstat, t.didx, t.dhit))))
         return self._acl(t)
 
     def _cb_think_fsf(self, t):
         if loglevel >= 2:
-            log('think', t.pin, t.dname, t.dstat, t.didx)
+            log('think', '/'.join(map(str,(t.pin, t.dname, t.dstat, t.didx, t.dhit))))
         result = self._acl(t)
-        if not result and t.dname == 'x5' and t.didx == 0:
+        if not result and self.current_x == 'default' and t.pin[0] == 'x' and t.didx == 5 and t.dhit == 0:
             return self.fsf()
         return result
 

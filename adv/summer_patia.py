@@ -62,7 +62,7 @@ class Summer_Patia(Adv):
     conf['share'] = ['Curran']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('a', uses=1)
+        self.fs_alt = FSAltBuff(group='a', uses=1)
 
     def d_slots(self):
         if self.duration <= 120:

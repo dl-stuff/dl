@@ -27,7 +27,7 @@ class Luther(Adv):
 
     def prerun(self):
         conf_fs_alt = {}
-        self.fs_alt = FSAltBuff('a', uses=1)
+        self.fs_alt = FSAltBuff(group='a', uses=1)
         Timer(self.fs_alt_on_crit, 10, True).on()
 
     def fs_alt_on_crit(self, t):

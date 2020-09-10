@@ -38,7 +38,7 @@ class Lily(Adv):
     conf['share'] = ['Gala_Elisanne', 'Eugene']
 
     def prerun(self):
-        self.crystalian_princess = XAltBuff('cp')
+        self.crystalian_princess = XAltBuff(group='cp')
 
     def s2_proc(self, e):
         self.crystalian_princess.on()
