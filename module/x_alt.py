@@ -7,7 +7,7 @@ import re
 
 class Fs_alt:
     def __init__(self, adv, conf, fs_proc=None, l_fs=None):
-        raise RuntimeError('boop')
+        raise RuntimeError('deprecated')
         # Note: Do not run this in adv init, as it will copy premature conf.
         # TODO add l_fs_alt to better handle before and after when needed; maybe fsnf 
         self.patterns = [
@@ -105,7 +105,6 @@ class Fs_alt:
 
 class X_alt:
     def __init__(self, adv, name, conf, x_proc=None, no_fs=False, no_dodge=False):
-        raise RuntimeError('boop')
         self.conf = Conf(conf)
         self.adv = adv
         self.name = name

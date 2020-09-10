@@ -23,6 +23,9 @@ def load_adv_json(adv):
 coability = load_json('chains.json')
 skillshare = load_json('skillshare.json')
 
+wepconfs = {}
+def load_wep_json(wep):
+    return wepconfs.get(wep, load_json(f'wep/{wep}.json'))
 
 def coability_dict(ele):
     if ele:
@@ -34,8 +37,16 @@ def coability_dict(ele):
 def get(name):
     conf = Conf(load_adv_json(name))
     wt = conf.c.wt
-    weapon = getattr(wep, wt)
-    conf.update(Conf(weapon.conf))
+
+    # weapon = getattr(wep, wt)
+    # conf.update(Conf(weapon.conf))
+    # if bool(conf.c.spiral):
+    #     conf.update(Conf(weapon.lv2))
+
+    wepconf = load_wep_json(wt)
+    conf.update(Conf(wepconf))
     if bool(conf.c.spiral):
-        conf.update(Conf(weapon.lv2))
+        conf.update(conf.lv2)
+    del conf['lv2']
+
     return conf

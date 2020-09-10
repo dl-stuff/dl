@@ -541,6 +541,9 @@ class Adv(object):
         's3': skill_default,
         's4': skill_default,
 
+        'dodge.startup': 0.6,
+        'dodge.recovery': 0,
+
         'acl': '`s1;`s2;`s3'
     }
 
@@ -969,9 +972,22 @@ class Adv(object):
 
     def sp_val(self, param):
         if isinstance(param, str):
-            return self.sp_convert(self.sp_mod(param), self.conf[param].sp)
+            return self.sp_convert(
+                self.sp_mod(param),
+                self.conf[param].attr[0]['sp']
+            )
         elif isinstance(param, int) and 0 < param:
-            return sum([self.sp_convert(self.sp_mod('x{}'.format(x)), self.conf['x{}.sp'.format(x)]) for x in range(1, param + 1)])
+            suffix = '' if self.current_x == 'default' else f'_{self.current_x}'
+            return sum(
+                self.sp_convert(
+                    self.sp_mod('x'),
+                    self.conf[f'x{x}{suffix}'].attr[0]['sp'])
+                for x in range(1, param + 1)
+            )
+        # if isinstance(param, str):
+        #     return self.sp_convert(self.sp_mod(param), self.conf[param].sp)
+        # elif isinstance(param, int) and 0 < param:
+        #     return sum([self.sp_convert(self.sp_mod('x{}'.format(x)), self.conf['x{}.sp'.format(x)]) for x in range(1, param + 1)])
 
     def have_buff(self, name):
         for b in self.all_buffs:
@@ -998,7 +1014,7 @@ class Adv(object):
             self.Skill._static.first_x_after_s = 0
             s_prev = self.Skill._static.s_prev
             self.think_pin('%s-x' % s_prev)
-        self.x()
+        return self.x()
 
     def getprev(self):
         prev = self.action.getprev()
@@ -1313,21 +1329,23 @@ class Adv(object):
     def debug(self):
         pass
 
+    def cb_think(self, t):
+        if loglevel >= 2:
+            log('think', t.pin, t.dname, t.dstat, t.didx)
+        if not self._acl(t) and self.conf['auto_fsf'] and t.dname == 'x5':
+            return self.fsf()
+
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
-        def cb_think(t):
-            if loglevel >= 2:
-                log('think', t.pin, t.dname, t.dstat, t.didx)
-            # self._acl.run(t)
-            self._acl(t)
 
         if pin in self.conf.latency:
             latency = self.conf.latency[pin]
         else:
             latency = self.conf.latency.default
 
-        t = Timer(cb_think).on(latency)
         doing = self.action.getdoing()
+        
+        t = Timer(self.cb_think).on(latency)
         t.pin = pin
         t.dname = doing.name
         t.dstat = doing.status

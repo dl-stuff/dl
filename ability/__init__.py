@@ -498,7 +498,7 @@ class Force_Charge(Ability):
             adv.fs_prep_v += self.value
         else:
             def l_fs_charge(e):
-                diff = min(adv.conf.fs.hit, self.charge)
+                diff = min(len(adv.conf.fs.attr), self.charge)
                 for _ in range(diff):
                     adv.charge_p(self.name, adv.fs_prep_v)
                 self.charge -= diff
