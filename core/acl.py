@@ -54,7 +54,8 @@ PIN_CMD = {
     'X': lambda e: e.didx if e.pin =='x' and e.dhit == 0 else 0,
     'XF': lambda e: e.didx if e.pin =='x' else 0,
     'S': lambda e: int(e.pin[1]) if (e.pin[0] == 's' and e.pin[1].isdigit()) or e.pin[-2:] == '-x' else 0,
-    'FSC': lambda e: e.pin.startswith('fs'),
+    'FSC': lambda e: e.pin.startswith('fs') and e.dhit == 0,
+    'FSCF': lambda e: e.pin.startswith('fs'),
     'SP': lambda e: e.dname if e.pin == 'sp' else None,
     'PREP': lambda e: e.pin == 'prep',
 }

@@ -276,6 +276,7 @@ class Action(object):
     def clear_delayed(self):
         count = 0
         for mt in self.delayed:
+            log('debug', mt.online, str(mt))
             if mt.online:
                 count += 1
             mt.off()
@@ -284,7 +285,7 @@ class Action(object):
 
     @property
     def has_delayed(self):
-        return len([mt for mt in self.delayed if mt.online])
+        return len([mt for mt in self.delayed if mt.online and mt.timing > now()])
 
     def tap(self):
         doing = self._static.doing
@@ -641,6 +642,12 @@ class Adv(object):
         # set cmd
         self.fsf = self.a_fsf
         self.dodge = self.a_dodge
+
+        if self.conf['auto_fsf']:
+            self.cb_think = self._cb_think_fsf
+        else:
+            self.cb_think = self._cb_think
+
         # try:
         #     self.x5ex = X(('x5ex', 5), self.conf.x5ex)
         #     self.x5ex.atype = 'x'
@@ -1358,11 +1365,20 @@ class Adv(object):
     def debug(self):
         pass
 
-    def cb_think(self, t):
+    def _cb_think(self, t):
         if loglevel >= 2:
             log('think', t.pin, t.dname, t.dstat, t.didx)
-        if not self._acl(t) and self.conf['auto_fsf'] and t.dname == 'x5':
-            return self.fsf()
+        return self._acl(t)
+
+    def _cb_think_fsf(self, t):
+        if loglevel >= 2:
+            log('think', t.pin, t.dname, t.dstat, t.didx)
+        result = self._acl(t)
+        if not result and t.dname == 'x5':
+            doing = self.action.getdoing()
+            if doing.has_delayed == 0:
+                return self.fsf()
+        return result
 
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
@@ -1374,12 +1390,13 @@ class Adv(object):
 
         doing = self.action.getdoing()
         
-        t = Timer(self.cb_think).on(latency)
+        t = Timer(self.cb_think)
         t.pin = pin
         t.dname = doing.name
         t.dstat = doing.status
         t.didx = doing.index
-        t.dhit = doing.has_delayed
+        t.dhit = int(doing.has_delayed)
+        t.on(latency)
 
     def l_silence_end(self, e):
         doing = self.action.getdoing()
@@ -1602,11 +1619,14 @@ class Adv(object):
 
     def l_hitattr_make(self, t):
         self.hitattr_make(t.name, t.base, t.group, t.idx, t.attr)
+        if t.pin is not None:
+            self.think_pin(t.pin)
 
-    def do_hitattr_make(self, e, idx, attr, missile):
+    def do_hitattr_make(self, e, idx, attr, missile, pin=None):
         missile = missile or attr.get('iv')
         if missile is not None:
             mt = Timer(self.l_hitattr_make)
+            mt.pin = pin
             mt.name = e.name
             mt.base = e.base
             mt.group = e.group
@@ -1626,9 +1646,9 @@ class Adv(object):
             for idx, attr in enumerate(conf['attr']):
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
-                        self.do_hitattr_make(e, idx+repeat, prev_attr, missile)
+                        self.do_hitattr_make(e, idx+repeat, prev_attr, missile, pin=pin)
                 else:
-                    self.do_hitattr_make(e, idx, attr, missile)
+                    self.do_hitattr_make(e, idx, attr, missile, pin=pin)
                     prev_attr = attr
         else:
             # old dmg/hit/sp system
@@ -1655,7 +1675,8 @@ class Adv(object):
         self.hit_make(
             e, self.conf[e.name] or self.conf['fs'],
             getattr(self, f'{e.name}_before', self.fs_before),
-            getattr(self, f'{e.name}_proc', self.fs_proc)
+            getattr(self, f'{e.name}_proc', self.fs_proc),
+            pin=e.name.split('_')[0]
         )
 
 
