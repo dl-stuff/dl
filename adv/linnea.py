@@ -34,7 +34,7 @@ class Linnea(Adv):
     conf['slots.a'] = The_Lurker_in_the_Woods()+Seaside_Princess()
     conf['slots.d'] = Fatalis()
     conf['acl'] = """
-        `s3, not buff(s3)   
+        `s3, not buff(s3)
         `s4
         `s2
         `s1
