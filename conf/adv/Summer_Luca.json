@@ -1,25 +1,30 @@
 {
     "c": {
-        "a": [["a", 0.1, "hp70"], ["eextra", 0.4]],
+        "name": "Summer Luca",
+        "icon": "100006_03_r04",
         "att": 498,
+        "hp": 724,
         "ele": "light",
-        "stars": "4",
         "wt": "axe",
-        "name": "Summer_Luca",
-        "spiral": 0
+        "spiral": false,
+        "a": [["a", 0.1, "hp70"], ["eextra", 0.4]]
     },
     "s1": {
-        "dmg": 11.4,
-        "hit": 2,
-        "recovery": 2.7,
         "sp": 3072,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 3.0,
+        "attr": [
+            {"dmg": 5.7, "iv": 0.93333},
+            {"dmg": 5.7, "iv": 1.43333}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
-        "sp": 4683,
-        "startup": 0.25
+        "sp": 4638,
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.2, 10.0, "spd", "passive"], "iv": 0.13333},
+            {"buff": ["energy", 1], "iv": 0.16667}
+        ]
     }
 }

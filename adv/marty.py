@@ -7,14 +7,14 @@ def module():
 class Marty(Adv):
     conf = {}
     conf['acl'] = """
-        `dragon, s=4
+        `dragon(c3-s-s-end), s=4
         `s3, fsc and not buff(s3)
-        `s2, fsc
+        `s2, cancel
         `s4, fsc
-        `s1, fsc
+        `s1, fsc 
         `fs, x=2
         """
-    conf['coabs'] = ['Blade', 'Marth', 'Yuya']
+    conf['coabs'] = ['Blade', 'Wand', 'Yuya']
     conf['share'] = ['Summer_Patia']
 
 

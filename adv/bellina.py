@@ -6,74 +6,35 @@ from module.x_alt import X_alt, Fs_alt
 def module():
     return Bellina
 
-# 2x crisis mods on autos and fs
-renegade_queen = {
-    # 'x1.dmg': 189 / 100.0,
-    # 'x1.sp': 290,
-    # 'x1.utp': 180,
-    'x1_ddrive.attr': [{'dmg': 1.89, 'sp': 290, 'utp': 180, 'crisis': 1}],
-    'x1_ddrive.startup': 27 / 60.0,
-    'x1_ddrive.recovery': 0,
-    # 'x1.hit': 1,
-
-    # 'x2.dmg': 227 / 100.0,
-    # 'x2.sp': 350,
-    # 'x2.utp': 180,
-    'x2_ddrive.attr': [{'dmg': 2.27, 'sp': 350, 'utp': 180, 'crisis': 1}],
-    'x2_ddrive.startup': 35 / 60.0,
-    'x2_ddrive.recovery': 0,
-    # 'x2.hit': 1,
-
-    # 'x3.dmg': 340 / 100.0,
-    # 'x3.sp': 520,
-    # 'x3.utp': 240,
-    'x3_ddrive.attr': [{'dmg': 2.27, 'sp': 350, 'utp': 240, 'crisis': 1}],
-    'x3_ddrive.startup': 40 / 60.0,
-    'x3_ddrive.recovery': 40 / 60.0,
-    # 'x3.hit': 1,
-
-    # 'fs.dmg': 0 / 100.0,
-    # 'fs.sp': 360,
-    # 'fs.utp': 900,
-    'fs_ddrive.attr': [{'dmg': 5.65, 'sp': 360, 'utp': 900, 'crisis': 1, 'hit': -1}],
-    'fs_ddrive.charge': 120 / 60.0,
-    'fs_ddrive.startup': 4 / 60.0,
-    'fs_ddrive.recovery': 31 / 60.0,
-    # 'fs.hit': -1,
-    'fs_ddrive.x1.charge': 120 / 60.0,
-
-    'fsf.charge': 5 / 60.0,
-    'fsf.startup': 20 / 60.0, # unsure about this, might be lower
-    'fsf.recovery': 0 / 60.0
-}
 
 class Bellina(Adv):
-    conf = renegade_queen.copy()
+    conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Howling_to_the_Heavens()
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
-        `s2, duration-now<2
+        `s2, duration-now<1.8
         `s3, not buff(s3)
         if self.dragondrive.get()
-        `s4, dgauge>1000 and x=3
-        `s1, dgauge>1200 and x=3
-        `s1, s=4
+        `s4, dgauge>1050 and x=3
+        `s1, dgauge>1500 and x=3
         `fsf, x=3
         else
         `s2
         `dragon
-        `fs, x=4
+        `fs, xf=4
         end
     """
+    conf['slots.d'] = Fatalis()
     conf['coabs'] = ['Ieyasu','Curran','Berserker']
-    conf['share'] = ['Sha_Wujing']
+    conf['share'] = ['Veronica']
 
     def prerun(self):
         self.dragondrive = self.dragonform.set_dragondrive(ModeManager(
-            self, 'ddrive',
+            'ddrive',
             buffs=[Selfbuff('dragondrive', 0.35, -1, 's', 'passive')],
             x=True, fs=True, s1=True, s2=True
         ))
+        self.hp = 100
 
     def s2_before(self, e):
         if self.hp > 30:

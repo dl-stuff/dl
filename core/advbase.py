@@ -327,6 +327,7 @@ class Action(object):
             elif doing.status == 0:
                 raise Exception(f'Illegal action {doing} -> {self}')
             self._setprev()
+        self.delayed = set()
         self.status = Action.STARTUP
         self.startup_start = now()
         self.startup_timer.on(self.getstartup())
@@ -563,7 +564,7 @@ class Adv(object):
         self.modifier._static.g_condition = self.condition
 
         # init actions
-        for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z]+)?$'):
+        for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z0-9]+)?$'):
             a_x = X(xn, self.conf[xn])
             if xn != a_x.base and self.conf[a_x.base]:
                 a_x.conf.update(self.conf[a_x.base], rebase=True)
@@ -576,7 +577,7 @@ class Adv(object):
         self.current_x = 'default'
         self.deferred_x = None
 
-        for name, fs_conf in self.conf.find(r'^fs\d*(_[A-Za-z]+)?$'):
+        for name, fs_conf in self.conf.find(r'^fs\d*(_[A-Za-z0-9]+)?$'):
             try:
                 base = name.split('_')[0]
                 if name != base and self.conf[base]:
@@ -949,7 +950,9 @@ class Adv(object):
         return total
 
     def def_mod(self):
-        return max(self.mod('def'), 0.5)
+        defa = min(1-self.mod('def'), 0.5)
+        defb = min(1-self.mod('defb'), 0.3)
+        return 1 - min(defa+defb, 0.5)
 
     def sp_mod(self, name):
         sp_mod = 1
@@ -1069,7 +1072,7 @@ class Adv(object):
             self.hits += 1
         else:
             self.hits = 0
-            log('combo', f'lost combo after {delta:.02}s')
+            log('combo', f'reset combo after {delta:.02}s')
         self.last_c = now()
 
     def add_hits(self, hit):
@@ -1077,6 +1080,7 @@ class Adv(object):
         if hit is None:
             raise ValueError('none type hit')
         if hit >= 0:
+            self.last_c = now()
             delta = hit*self.echo
             self.hits += hit*self.echo
             return delta
@@ -1478,10 +1482,17 @@ class Adv(object):
                 hitmods.append(KillerModifier(name, 'hit', *attr['killer']))
             if 'crisis' in attr:
                 hitmods.append(CrisisModifier(name, attr['crisis'], self.hp))
+            if 'bufc' in attr:
+                hitmods.append(Modifier(f'{name}_bufc', 'att', 'bufc', attr['bufc']*self.buffcount))
             for m in hitmods:
                 m.on()
-            self.dmg_make(name, attr['dmg'])
-            self.add_combo()
+            if 'extra' in attr:
+                for _ in range(min(attr['extra'], self.buffcount)):
+                    self.dmg_make(name, attr['dmg'])
+                    self.add_combo()
+            else:
+                self.dmg_make(name, attr['dmg'])
+                self.add_combo()
 
         if 'sp' in attr:
             if isinstance(attr['sp'], int):
@@ -1521,6 +1532,12 @@ class Adv(object):
             getattr(self.afflics, aff_type)(name, *aff_args)
 
         if 'buff' in attr:
+            self.hitattr_buff_outer(name, base, group, aseq, attr)
+
+        for m in hitmods:
+            m.off()
+
+    def hitattr_buff_outer(self, name, base, group, aseq, attr):
             bctrl = None
             blist = attr['buff']
             try:
@@ -1529,22 +1546,37 @@ class Adv(object):
                     blist = blist[:-1]
             except TypeError:
                 pass
-            if bctrl == '-refresh' and self.buff.has(base, group, aseq):
-                self.buff.on(base, group, aseq)
+            if bctrl == '-off':
+                try:
+                    self.buff.off(*blist)
+                except:
+                    pass
+                return
+            if bctrl and bctrl.startswith('-refresh'):
+                try:
+                    return self.buff.on(base, group, aseq)
+                except KeyError:
+                    if len(bctrl_parts) > 1:
+                        bctrl = bctrl_parts[0]
+                        bctrl_args = bctrl_parts[1:]
+                        tgroup, tseq = bctrl_args
+                        tgroup = tgroup if not tgroup.isdigit() else int(tgroup)-1
+                        tseq = int(tseq)
+                        try:
+                            return self.buff.on(base, tgroup, tseq)
+                        except:
+                            pass
+            if isinstance(blist[0], list):
+                buff_objs = []
+                for bseq, attrbuff in enumerate(blist):
+                    obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff, bctrl=bctrl)
+                    if obj:
+                        buff_objs.append(obj)
+                self.buff.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
             else:
-                if isinstance(blist[0], list):
-                    buff_objs = []
-                    for bseq, attrbuff in enumerate(blist):
-                        obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff, bctrl=bctrl)
-                        if obj:
-                            buff_objs.append(obj)
-                    self.buff.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
-                else:
-                    buff = self.hitattr_buff(name, base, group, aseq, 0, attr['buff'])
-                    if buff:
-                        self.buff.add(base, group, aseq, buff.on())
-        for m in hitmods:
-            m.off()
+                buff = self.hitattr_buff(name, base, group, aseq, 0, attr['buff'])
+                if buff:
+                    self.buff.add(base, group, aseq, buff.on())
 
     def hitattr_buff(self, name, base, group, aseq, bseq, attrbuff, bctrl=None):
         btype = attrbuff[0]
@@ -1627,10 +1659,10 @@ class Adv(object):
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
                         res_mt = self.do_hitattr_make(e, aseq+repeat, prev_attr, cb_kind, pin=pin)
-                        final_mt = final_mt or res_mt
+                        final_mt = res_mt or final_mt
                 else:
                     res_mt = self.do_hitattr_make(e, aseq, attr, cb_kind, pin=pin)
-                    final_mt = final_mt or res_mt
+                    final_mt = res_mt or final_mt
                     prev_attr = attr
         try:
             proc = getattr(self, f'{cb_kind}_proc')

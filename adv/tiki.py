@@ -99,7 +99,7 @@ class Tiki(Adv):
 
     def prerun(self):
         self.dragondrive = self.dragonform.set_dragondrive(ModeManager(
-            self, 'divine',
+            'divine',
             x=True, s1=True, s2=True
         ))
 
@@ -111,7 +111,7 @@ class Tiki(Adv):
 
     def prerun(self):
         self.divine_dragon = self.dragonform.set_dragondrive(ModeManager(
-            self, 'divine',
+            'divine',
             # buffs=[Selfbuff('divine_dragon', self.dragonform.ddamage(), -1, 'att', 'dragon')], # reeee
             x=True, s1=True, s2=True
         ), max_gauge=1800, shift_cost=560, drain=40)

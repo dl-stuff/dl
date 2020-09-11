@@ -20,14 +20,6 @@ class Amane(Adv):
     conf['coabs'] = ['Blade','Sharena','Peony']
     conf['share'] = ['Summer_Patia']
 
-    def s1_proc(self, e):
-        with KillerModifier('s1_killer', 'hit', 0.1, ['paralysis']):            
-            for _ in range(min(self.buffcount, 2)):
-                self.dmg_make(e.name, 0.35)
-                self.add_combo()
-
-    # def s2_proc(self, e):
-    #     self.buff_max_hp(f'{e.name}_hp', 0.15)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

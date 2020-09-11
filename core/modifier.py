@@ -134,10 +134,14 @@ class CrisisModifier(Modifier):
             self.hp_cond = self._static.g_condition.hp_cond_set(hp)
         else:
             self.hp_cond = False
-        super().__init__('mod_{}_crisis'.format(name), 'att', 'hit', self.c_mod_value())
+        super().__init__('mod_{}_crisis'.format(name), 'att', 'crisis', self.c_mod_value())
 
     def c_mod_value(self):
         return self.hp_scale * (self.hp_lost ** 2) / 10000
+
+    def get(self):
+        self.mod_value = self.c_mod_value()
+        return self.mod_value
 
     def on(self):
         if self.hp_cond:
@@ -359,7 +363,7 @@ class Buff(object):
         return self
 
     def timeleft(self):
-        return self.buff_end_timer.timing-now()
+        return -1 if self.duration == -1 else (self.buff_end_timer.timing-now())
 
     def add_time(self, delta):
         self.buff_end_timer.add(delta)
@@ -635,8 +639,12 @@ class Debuff(Teambuff):
             self.val = 1 - 1.0 / bd
             self.val = 0 - self.val
         super().__init__(name, self.val, duration, mtype, morder)
-        self.bufftype = 'debuff'
-        self.bufftime = self._debufftime
+        if mtype == 'defb':
+            self.bufftime = self._no_bufftime
+            self.name += '_zone'
+        else:
+            self.bufftype = 'debuff'
+            self.bufftime = self._debufftime
 bufftype_dict['debuff'] = Debuff
 
 
@@ -671,6 +679,9 @@ class MultiBuffManager:
             b.add_time(delta)
         return self
 
+    def timeleft(self):
+        return min([b.timeleft for b in self.buffs])
+
 
 class ModeManager(MultiBuffManager):
     ALT_CLASS = {
@@ -679,17 +690,17 @@ class ModeManager(MultiBuffManager):
         's1': SAltBuff,
         's2': SAltBuff
     }
-    def __init__(self, adv, name, buffs=None, duration=None, **kwargs):
+    def __init__(self, name, group, buffs=None, duration=None, **kwargs):
         buffs = buffs or []
         self.alt = {}
         for k, buffclass in ModeManager.ALT_CLASS.items():
             if kwargs.get(k, False):
                 if k in ('s1', 's2'):
-                    self.alt[k] = buffclass(group=name, base=k)
+                    self.alt[k] = buffclass(group=group, base=k)
                 elif k in ('x'):
-                    self.alt[k] = buffclass(group=name, deferred=(kwargs.get('deferred', False)))
+                    self.alt[k] = buffclass(group=group, deferred=(kwargs.get('deferred', False)))
                 else:
-                    self.alt[k] = buffclass(group=name)
+                    self.alt[k] = buffclass(group=group)
         buffs.extend(self.alt.values())
         super().__init__(name, buffs, duration)
 
@@ -712,6 +723,14 @@ class ModeManager(MultiBuffManager):
             except TypeError:
                 b.on()
         return self
+
+def init_mode(*args):
+    kwargs = {}
+    for a in args[2:]:
+        kwargs[a] = True
+    return ModeManager(args[0], args[1], None, **kwargs)
+bufftype_dict['mode'] = init_mode
+
 
 class ActiveBuffDict(defaultdict):
     def __init__(self):
