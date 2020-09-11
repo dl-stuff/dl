@@ -102,8 +102,8 @@ agito_buffs = {
             },
             's3_phase2': {
                 'attr': [
-                    {"dmg": 0, "dp": 100},
-                    {'buff': ['self', 0.10, -1, 'sp', 'passive', '-replace']}
+                    {'buff': ['self', 0.10, -1, 'sp', 'passive', '-replace']},
+                    {"dmg": 0, "dp": 100}
                 ]
             }
         },

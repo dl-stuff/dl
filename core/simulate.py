@@ -485,7 +485,7 @@ def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
     report_csv = [res['dps']]
     report_csv.extend([
         name if cond else '_c_'+name,
-        str(adv.conf['c.stars'])+'*',
+        adv.conf['c.icon'],
         adv.conf['c.ele'],
         adv.conf['c.wt'],
         adv.displayed_att,

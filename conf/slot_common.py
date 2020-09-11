@@ -52,7 +52,6 @@ punisher_print = {
 def set(slots):
     ele = slots.c.ele
     wt = slots.c.wt
-    # stars = slots.c.stars
     name = slots.c.name
 
     slots.d = ele_dragon[ele]()

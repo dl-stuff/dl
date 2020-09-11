@@ -6,7 +6,6 @@ def module():
     return Aeleen
 
 class Aeleen(Adv):
-    a1 = ('bt',0.25)
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
