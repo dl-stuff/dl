@@ -4,12 +4,9 @@ from slot.a import *
 def module():
     return Amane
 
-class Amane(Adv):
-    a1 = [('prep',1.00), ('scharge_all', 0.05)]
-    a3 = ('bk',0.35)
-    
+class Amane(Adv):    
     conf = {}
-    conf['slots.a'] = CC()+Spirit_of_the_Season()
+    conf['slots.a'] = Candy_Couriers()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon, cancel
         queue prep
@@ -24,17 +21,13 @@ class Amane(Adv):
     conf['share'] = ['Summer_Patia']
 
     def s1_proc(self, e):
-        with KillerModifier('s1_killer', 'hit', 0.1, ['paralysis']):
-            self.dmg_make(e.name, 4.92)
-            self.afflics.paralysis(e.name,120,0.97)
-            self.dmg_make(e.name, 4.92)
-            
+        with KillerModifier('s1_killer', 'hit', 0.1, ['paralysis']):            
             for _ in range(min(self.buffcount, 2)):
                 self.dmg_make(e.name, 0.35)
-                self.add_hits(1)
+                self.add_combo()
 
-    def s2_proc(self, e):
-        self.buff_max_hp(f'{e.name}_hp', 0.15)
+    # def s2_proc(self, e):
+    #     self.buff_max_hp(f'{e.name}_hp', 0.15)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

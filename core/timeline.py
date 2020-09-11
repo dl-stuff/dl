@@ -174,7 +174,7 @@ class Timer(object):
         self.timing += time
         if self.timing < now():
             self.off()
-        if self.online:
+        elif self.online:
             self.timeline.add(self)
         return self.timing - now()
 
@@ -245,7 +245,6 @@ class Timeline(object):
         from pprint import pprint
         while self._tlist:
             timing, _, t = hq.heappop(self._tlist)
-            # print(timing, t)
             if t is not Timeline.REMOVED:
                 del self._tmap[t]
                 return t
@@ -260,7 +259,7 @@ class Timeline(object):
             _g_now = tnext.timing
             tnext.callback()
         else:
-            raise RuntimeError('Timeline error', tnext.timing, _g_now)
+            raise RuntimeError(f'Timeline error {tnext.timing:.03f} < {_g_now:.03f} - {tnext}')
         return 0
         # tcount = len(self._tlist)
         # if tcount == 0:

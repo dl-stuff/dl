@@ -1,25 +1,64 @@
 {
     "c": {
-        "a": [["s", 0.35, "hp70"], ["energized_att", 0.2]],
-        "att": 483,
-        "ele": "light",
-        "stars": "5",
-        "wt": "lance",
         "name": "Annelie",
-        "spiral": 0
+        "icon": "110275_01_r05",
+        "att": 483,
+        "hp": 793,
+        "ele": "light",
+        "wt": "lance",
+        "spiral": false,
+        "a": [["s", 0.35, "hp70"], ["energized_att", 0.2]]
     },
-    "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.7,
+    "s1_phase1": {
         "sp": 3051,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 0.1, "iv": 0.33333, "msl": 1},
+            {"dmg": 8.14, "afflic": ["stun", 110], "iv": 0.33333, "msl": 1},
+            {"buff": ["energy", 1], "iv": 1.6}
+        ]
+    },
+    "s1_phase2": {
+        "sp": 3051,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 0.1, "iv": 0.33333, "msl": 1},
+            {"dmg": 4.07, "afflic": ["stun", 110], "iv": 0.33333, "msl": 1},
+            {"dmg": 0.1, "iv": 0.5, "msl": 1},
+            {"dmg": 4.07, "iv": 0.5, "msl": 1},
+            {"buff": ["energy", 2], "iv": 1.73333}
+        ]
+    },
+    "s1_phase3": {
+        "sp": 3051,
+        "startup": 0.1,
+        "recovery": 1.7,
+        "attr": [
+            {"dmg": 0.1, "iv": 0.33333, "msl": 1},
+            {"dmg": 3.54, "afflic": ["stun", 110], "iv": 0.33333, "msl": 1},
+            {"dmg": 0.1, "iv": 0.33333, "msl": 1},
+            {"dmg": 3.54, "iv": 0.33333, "msl": 1},
+            {"dmg": 0.1, "iv": 0.66667, "msl": 1},
+            {"dmg": 3.54, "iv": 0.66667, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 8.2962,
-        "hit": 10,
-        "recovery": 3.6,
         "sp": 10206,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 3.46667,
+        "attr": [
+            {"dmg": 0.82962, "iv": 0.26667},
+            {"dmg": 0.82962, "iv": 0.56667},
+            {"dmg": 0.82962, "iv": 0.86667},
+            {"dmg": 0.82962, "iv": 1.16667},
+            {"dmg": 0.82962, "iv": 1.46667},
+            {"dmg": 0.82962, "iv": 1.76667},
+            {"dmg": 0.82962, "iv": 2.06667},
+            {"dmg": 0.82962, "iv": 2.36667},
+            {"dmg": 0.82962, "iv": 2.66667},
+            {"dmg": 0.82962, "buff": ["energy", 2, "team"], "iv": 3.0}
+        ]
     }
 }

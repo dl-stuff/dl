@@ -4,9 +4,7 @@ from slot.a import *
 def module():
     return Audric
 
-class Audric(Adv):
-    a1 = ('dp', 10)
-    
+class Audric(Adv):    
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
@@ -18,11 +16,8 @@ class Audric(Adv):
         `fs, x=3
     """
     conf['coabs'] = ['Wand','Cleo','Forte']
-    conf['share'] = ['Kleimann']
-
-    def d_skillshare(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Curran']
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
     def prerun(self):
         self.cursed_blood = Selfbuff('cursed_blood',0.30,-1,'crit','chance')
@@ -37,8 +32,6 @@ class Audric(Adv):
         if self.cursed_blood.get():
             self.cursed_blood.off()
 
-    def s1_proc(self, e):
-        self.dragonform.charge_gauge(30)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -662,20 +662,6 @@ class Adv(object):
             self.hp_event.delta = delta
             self.hp_event()
 
-
-    def buff_max_hp(self, name='<hp_buff>', value=0, team=False):
-        max_hp = self.mod('maxhp')
-        mod_val = min(value, max(1.30-max_hp, 0))
-        if mod_val > 0:
-            if team:
-                buff = Teambuff(name, mod_val, -1, 'maxhp', 'buff').on()
-            else:
-                buff = Selfbuff(name, mod_val, -1, 'maxhp', 'buff').on()
-        else:
-            buff = None
-        self.set_hp((self.hp*max_hp+value*100)/(max_hp+mod_val))
-        return buff
-
     def afflic_condition(self):
         if 'afflict_res' in self.conf:
             res_conf = self.conf.afflict_res
@@ -697,7 +683,7 @@ class Adv(object):
     def sim_buffbot(self):
         if 'sim_buffbot' in self.conf:
             if 'def_down' in self.conf.sim_buffbot:
-                value = -self.conf.sim_buffbot.def_down
+                value = self.conf.sim_buffbot.def_down
                 if self.condition('boss def {:+.0%}'.format(value)):
                     buff = self.Selfbuff('simulated_def', value, -1, mtype='def')
                     buff.chance = 1
@@ -785,7 +771,6 @@ class Adv(object):
         self.duration = 180
 
         self.damage_sources = set()
-        self.phase = {}
         self.Modifier._static.damage_sources = self.damage_sources
 
         self.pre_conf()
@@ -1518,17 +1503,18 @@ class Adv(object):
             self.dragonform.charge_gauge(attr['utp'], utp=True)
 
         if 'hp' in attr:
-            value = attr['hp'][0]
-            mode = None if len(attr['hp']) == 1 else attr['hp'][1]
-            if mode == '=':
-                self.set_hp(value)
-            elif mode == '>':
-                if self.hp > value:
-                    self.set_hp(value)
-            elif mode == '%':
-                self.set_hp(self.hp*value)
+            if isinstance(attr['hp'], int):
+                self.set_hp(self.hp+attr['hp'])
             else:
-                self.set_hp(self.hp+value)
+                value = attr['hp'][0]
+                mode = None if len(attr['hp']) == 1 else attr['hp'][1]
+                if mode == '=':
+                    self.set_hp(value)
+                elif mode == '>':
+                    if self.hp > value:
+                        self.set_hp(value)
+                elif mode == '%':
+                    self.set_hp(self.hp*value)
 
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]

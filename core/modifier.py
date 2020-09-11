@@ -149,6 +149,7 @@ class CrisisModifier(Modifier):
 
 bufftype_dict = {}
 class Buff(object):
+    MAXHP_CAP = 1.30
     _static = Static({
         'all_buffs': [],
         'adv': None
@@ -304,6 +305,14 @@ class Buff(object):
             mod.off()
 
     def on(self, duration=None):
+        if self.mod_type == 'maxhp':
+            max_hp = self._static.adv.mod('maxhp')
+            if max_hp >= Buff.MAXHP_CAP:
+                return self
+            value = self.__value
+            mod_val = min(value, max(Buff.MAXHP_CAP-max_hp, 0))
+            self._static.adv.set_hp((self._static.adv.hp*max_hp+value*100)/(max_hp+mod_val))
+
         d = (duration or self.duration) * self.bufftime()
         if self.__active == 0:
             self.__active = 1
