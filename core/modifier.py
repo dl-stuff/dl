@@ -721,6 +721,8 @@ class ActiveBuffDict(defaultdict):
         if self.get(k, False):
             subdict = self[k]
             if group is not None:
+                if isinstance(group, int):
+                    group -= 1
                 try:
                     return any(self.checkbuff(b, *args) for b in subdict[group].values())
                 except KeyError:

@@ -128,7 +128,7 @@ class Gala_Luca(Adv):
         else:
             self.in_s1 = False
 
-    def post_run(self):
+    def post_run(self, end):
         self.comment = f'avg buff icon {self.all_icon_avg[1]:.2f} (s1 {self.s1_icon_avg[1]:.2f})'
 
 if __name__ == '__main__':

@@ -1297,7 +1297,7 @@ class Adv(object):
         end, reason = Timeline.run(d)
         log('sim', 'end', reason)
 
-        self.post_run()
+        self.post_run(end)
 
         for aff, up in self.afflics.get_uptimes().items():
             if up > 0.10:
@@ -1314,7 +1314,7 @@ class Adv(object):
 
         return end
 
-    def post_run(self):
+    def post_run(self, end):
         pass
 
     def debug(self):

@@ -56,3 +56,35 @@ class StanceAdv(Adv):
         if stance:
             self.queue_stance(stance)
         return super().s(n)
+
+
+class RngCritAdv(Adv):
+
+    def config_rngcrit(self, cd=0):
+        self.crit_mod = self.custom_crit_mod
+        self.rngcrit_cd = False
+        self.rngcrit_cd_duration = cd
+        if cd > 0:
+            self.rngcrit_t = self.Timer(self.rngcrit_cd_off, self.rngcrit_cd_duration)
+
+    def rngcrit_skip(self):
+        return False
+
+    def rngcrit_cb(self):
+        raise NotImplementedError('Implement rngcrit_cb')
+
+    def rngcrit_cd_off(self, t=None):
+        self.rngcrit_cd = False
+
+    def custom_crit_mod(self, name):
+        if self.rngcrit_cd or name == 'test' or self.rngcrit_skip():
+            return self.solid_crit_mod(name)
+        else:
+            crit = self.rand_crit_mod(name)
+            if crit > 1 and not self.rngcrit_cd:
+                self.rngcrit_cb()
+                if self.rngcrit_cd_duration > 0:
+                    self.rngcrit_cd = True
+                    self.rngcrit_t.on()
+            return crit
+

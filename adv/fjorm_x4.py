@@ -36,7 +36,7 @@ class Fjorm(adv.fjorm.Fjorm):
     def s2_proc(self, e):
         self.dmg_make(f'{e.name}_reflect', 3792*8, fixed=True)
 
-    def post_run(self):
+    def post_run(self, end):
         self.comment = f'4x Fjorm in {now():.02f}s with sufficient dprep'
 
 if __name__ == '__main__':
