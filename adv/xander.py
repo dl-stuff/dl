@@ -55,7 +55,7 @@ class Xander(Adv):
         self.born_ruler_2.off()
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('a', hidden=True)
+        self.fs_alt = FSAltBuff(group='a', hidden=True)
         self.born_ruler = Selfbuff('born_ruler', 0.05, -1, 'att', 'buff')
         self.born_ruler_1 = Selfbuff('born_ruler_1', 1, -1, 'xunder', 'buff')
         self.born_ruler_2 = Selfbuff('born_ruler_2', 1, -1, 'xunder', 'buff')

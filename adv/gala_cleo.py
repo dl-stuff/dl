@@ -44,7 +44,7 @@ class Gala_Cleo(Adv):
     def prerun(self):
         self.a1_buffed = self.condition('a1 buff for 10s')
         self.phase['s1'] = 0
-        self.fs_alt = FSAltBuff('zone', uses=1)
+        self.fs_alt = FSAltBuff(group='zone', uses=1)
 
     @staticmethod
     def prerun_skillshare(adv, dst):

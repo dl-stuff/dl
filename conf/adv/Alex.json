@@ -1,26 +1,34 @@
 {
     "c": {
-        "a": [["s", 0.35, "hp100"], ["sp", 0.05]],
-        "att": 476,
-        "ele": "shadow",
-        "stars": "4",
-        "wt": "dagger",
         "name": "Alex",
-        "spiral": 0
+        "icon": "100005_01_r04",
+        "att": 476,
+        "hp": 719,
+        "ele": "shadow",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["s", 0.35, "hp100"], ["sp", 0.05]]
     },
     "s1": {
-        "buff": ["debuff", 0.05, 10.0, 0.4],
-        "dmg": 6.64,
-        "hit": 4,
-        "recovery": 2.3,
         "sp": 2243,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 1.66, "buff": ["debuff", -0.05, 10.0, 0.4, "def"], "afflic": ["poison", 100, 0.396], "iv": 0.3},
+            {"dmg": 1.66, "iv": 0.73333},
+            {"dmg": 1.66, "iv": 0.9},
+            {"dmg": 1.66, "iv": 1.46667}
+        ]
     },
     "s2": {
-        "dmg": 6.05,
-        "hit": 5,
-        "recovery": 2.05,
         "sp": 4925,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 1.21, "killer": [1.0, ["break"]], "iv": 0.33333},
+            {"dmg": 1.21, "killer": [1.0, ["break"]], "iv": 0.6},
+            {"dmg": 2.41, "killer": [1.0, ["break"]], "iv": 1.2, "msl": 1},
+            {"dmg": 1.21, "killer": [1.0, ["break"]], "iv": 1.2, "msl": 1}
+        ]
     }
 }

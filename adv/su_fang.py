@@ -25,7 +25,7 @@ class Su_Fang(Adv):
             self.afflics.poison('fs', 120, 0.582)
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('a', uses=1)
+        self.fs_alt = FSAltBuff(group='a', uses=1)
         self.s2_buff = Selfbuff('s2', 0.30, 15)
 
     def s1_proc(self, e):

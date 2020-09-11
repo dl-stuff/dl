@@ -33,7 +33,7 @@ class Hawk(Adv):
     conf['afflict_res.poison'] = 0
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('a', uses=2)
+        self.fs_alt = FSAltBuff(group='a', uses=2)
 
     def s2_proc(self, e):
         if e.group == 0:

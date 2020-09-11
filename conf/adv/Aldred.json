@@ -1,35 +1,98 @@
 {
     "c": {
-        "a": [],
-        "att": 495,
-        "ele": "shadow",
-        "stars": "4",
-        "wt": "blade",
         "name": "Aldred",
-        "spiral": 0
+        "icon": "110262_01_r04",
+        "att": 495,
+        "hp": 701,
+        "ele": "shadow",
+        "wt": "blade",
+        "spiral": false,
+        "a": []
+    },
+    "fs_ddrive": {
+        "charge": 0.15,
+        "startup": 0.13333,
+        "recovery": 0.7,
+        "attr": [
+            {"dmg": 0.92, "sp": 200}
+        ]
+    },
+    "x1_ddrive": {
+        "startup": 0.18333,
+        "recovery": 0.18031,
+        "attr": [
+            {"dmg": 0.97, "sp": 130, "utp": 120}
+        ]
+    },
+    "x2_ddrive": {
+        "startup": 0.2,
+        "recovery": 0.16364,
+        "attr": [
+            {"dmg": 0.97, "sp": 130, "utp": 120}
+        ]
+    },
+    "x3_ddrive": {
+        "startup": 0.5303,
+        "recovery": 0.25758,
+        "attr": [
+            {"dmg": 0.63, "sp": 220, "utp": 120},
+            {"dmg": 0.63, "iv": 0.07576}
+        ]
+    },
+    "x4_ddrive": {
+        "startup": 0.43333,
+        "recovery": 0.56667,
+        "attr": [
+            {"dmg": 1.29, "sp": 360, "utp": 180}
+        ]
+    },
+    "x5_ddrive": {
+        "startup": 0.34921,
+        "recovery": 1.23809,
+        "attr": [
+            {"dmg": 1.94, "sp": 660, "utp": 180}
+        ]
     },
     "s1": {
-        "attr": [{"dmg": 2.42}, 4],
-        "recovery": 2.4,
         "sp": 2537,
-        "startup": 0.1
-    },
-    "s1_ddrive": {
-        "attr": [{"dmg": 2.42}, 3, {"dmg": 2.42, "crisis": 1.0, "sp": [0.5, "%", "s1"], "utp": -750}]
+        "startup": 0.1,
+        "recovery": 2.4,
+        "attr": [
+            {"dmg": 2.42, "iv": 0.2},
+            {"dmg": 2.42, "iv": 0.43333},
+            {"dmg": 2.42, "iv": 0.6},
+            {"dmg": 2.42, "iv": 2.16667}
+        ]
     },
     "s2": {
-        "attr": [{"hp": [30, ">"], "utp": 1200}],
-        "recovery": 1.35,
         "sp": 7338,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [{"hp": [30, ">"], "utp": 1200, "iv": 0.5}]
+    },
+    "s1_ddrive": {
+        "sp": 2537,
+        "startup": 0.1,
+        "recovery": 2.16667,
+        "attr": [
+            {"sp": [0.5, "%", "s1"]},
+            {"utp": -750},
+            {"dmg": 2.42, "iv": 0.2},
+            {"dmg": 2.42, "iv": 0.43333},
+            {"dmg": 2.42, "iv": 0.6},
+            {"dmg": 2.42, "crisis": 1.0, "iv": 1.33333}
+        ]
     },
     "s2_ddrive": {
+        "sp": 7338,
+        "startup": 0.1,
+        "recovery": 1.8,
         "attr": [
             {"utp": 3000, "buff": [
                 ["self", 0.20, 40, "att", "passive"],
                 ["self", 0.20, 40, "att", "buff"],
                 ["self", -6, 40, "regen", "buff"],
-                "-refresh"]
+                "-refresh"], "iv": 0.26667
             }
         ]
     }

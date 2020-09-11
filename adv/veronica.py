@@ -19,11 +19,8 @@ class Veronica(Adv):
         `s4
         """
     conf['coabs'] = ['Berserker','Curran','Summer_Patia']
-    conf['share'] = ['Kleimann']
-
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Curran']
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
     def prerun(self):
         # Teambuff('last',2.28,1).on()
@@ -37,14 +34,9 @@ class Veronica(Adv):
             self.a1_buff.on()
 
     def s1_proc(self, e):
-        with CrisisModifier(e.name, 0.5, self.hp), KillerModifier('s1_killer', 'hit', 0.2, ['poison']):
-            self.dmg_make(e.name, 19.05)
         if self.hp >= 50:
             self.set_hp(self.hp-10)
             self.charge_p(f'{e.name}_hpcut', 0.20, target=e.name)
-
-    def s2_proc(self, e):
-        self.set_hp(self.hp+7.7)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

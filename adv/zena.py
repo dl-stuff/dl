@@ -38,7 +38,7 @@ class Zena(Adv):
             self.conf['share'] = ['Curran']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('heal', uses=1)
+        self.fs_alt = FSAltBuff(group='heal', uses=1)
         self.s2_extra_hit_rate = 8 # number of hits per second
         self.s2_timers = []
         Event('dragon').listener(self.s2_clear)

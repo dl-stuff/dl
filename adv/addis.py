@@ -8,20 +8,19 @@ def module():
 
 class Addis(Adv):
     comment = 's2 c2 s1 c5fsf c4fs s1; hold s2s1 until bleed under 3'
-
-    a3 = ('bk',0.20)
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)
-        `s4, not self.s2buff.get()
-        `s2, s1.charged>=s1.sp-260 and self.bleed._static['stacks'] != 3
-        `s1, s2.charged<s2.sp and self.bleed._static['stacks'] != 3
+        `s2, charged_in(2, s1)
+        `s1, not charged_in(s2, 3) and bleed.get() < 3
+        `s4, xf=5 and not buff(s2)
+        `fsf, xf=5
         """
     conf['coabs'] = ['Akasha','Dragonyule_Xainfried','Lin_You']
-    conf['afflict_res.poison'] = 0
     conf['share'] = ['Curran']
+    conf['afflict_res.poison'] = 0
 
     def getbleedpunisher(self):
         if self.bleed._static['stacks'] > 0:
@@ -30,30 +29,16 @@ class Addis(Adv):
 
     def prerun(self):
         random.seed()
-        self.s2buff = Selfbuff('s2_shapshifts1',1, 10,'ss','ss')
-        self.s2str = Selfbuff('s2_str',0.25,10)
+        # self.s2buff = Selfbuff('s2_shapshifts1',1, 10,'ss','ss')
+        # self.s2str = Selfbuff('s2_str',0.25,10)
         self.bleedpunisher = Modifier('bleed','att','killer',0.08)
         self.bleedpunisher.get = self.getbleedpunisher
         self.bleed = Bleed('g_bleed',0).reset()
-        #self.crit_mod = self.rand_crit_mod
+        # self.crit_mod = self.rand_crit_mod
 
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.s2buff = Dummy()
-
-    def s1_proc(self, e):
-        if self.s2buff.get():
-            self.s2buff.buff_end_timer.add(2.5)
-            self.s2str.buff_end_timer.add(2.5)
-            if random.random() < 0.8:
-                Bleed(e.name, 1.32).on()
-        else:
-            self.afflics.poison(e.name,100,0.53)
-
-
-    def s2_proc(self, e):
-        self.s2buff.on()
-        self.s2str.on()
+    def s1_enhanced_hit1(self, e):
+        if random.random() < 0.8:
+            Bleed(e.name, 1.32).on()
 
 
 if __name__ == '__main__':

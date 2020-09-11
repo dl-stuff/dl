@@ -385,6 +385,10 @@ def act_sum(actions, output):
         if act[0] == 'x' or act.startswith('fs'):
             if act[0] == 'x':
                 act = 'c' + act[1:]
+            if act[:2] == 'fs':
+                parts = act.split('_')
+                if len(parts) > 1:
+                    act = act.split('_')[0] + '-' + parts[1][0]
             output.write(act)
             p_type = 'x'
         else:
@@ -485,7 +489,7 @@ def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
     report_csv = [res['dps']]
     report_csv.extend([
         name if cond else '_c_'+name,
-        str(adv.conf['c.stars'])+'*',
+        adv.conf['c.icon'],
         adv.conf['c.ele'],
         adv.conf['c.wt'],
         adv.displayed_att,

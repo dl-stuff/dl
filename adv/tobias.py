@@ -96,7 +96,7 @@ class Tobias(Adv):
     def prerun(self):
         self.s1.autocharge_init(85)
         self.s2.charge(1) # 1 sp/s regen
-        self.s2_x_alt = TobiasXAlt('sacred')
+        self.s2_x_alt = TobiasXAlt(group='sacred')
         self.s2_sp_buff = EffectBuff('sacred_blade', 10, lambda: self.s1.autocharge_timer.on(), lambda: self.s1.autocharge_timer.off())
 
     def s2_proc(self, e):

@@ -47,7 +47,7 @@ class Ku_Hai(Adv):
 
     def prerun(self):
         self.fshit = 2
-        self.fs_alt = FSAltBuff('apsaras', duration=10)
+        self.fs_alt = FSAltBuff(group='apsaras', duration=10)
 
     def s2_proc(self, e):
         self.fs_alt.on()

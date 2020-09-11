@@ -1,25 +1,31 @@
 {
     "c": {
-        "a": [["lo_defense", 1.0]],
-        "att": 525,
-        "ele": "flame",
-        "stars": "3",
-        "wt": "lance",
         "name": "Alain",
-        "spiral": 1
+        "icon": "110001_01_r03",
+        "att": 525,
+        "hp": 943,
+        "ele": "flame",
+        "wt": "lance",
+        "spiral": true,
+        "a": [["lo_defense", 1.0]]
     },
     "s1": {
-        "dmg": 8.22,
-        "hit": 3,
-        "recovery": 1.9,
         "sp": 2581,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.6,
+        "attr": [
+            {"dmg": 2.74, "afflic": ["burn", 100, 0.803], "iv": 0.23333},
+            {"dmg": 2.74, "iv": 0.56667},
+            {"dmg": 2.74, "iv": 1.13333}
+        ]
     },
     "s2": {
-        "dmg": 8.22,
-        "hit": 2,
-        "recovery": 1.4,
         "sp": 5112,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 4.11, "afflic": ["burn", 100, 0.803], "iv": 0.5},
+            {"dmg": 4.11, "iv": 0.66667}
+        ]
     }
 }

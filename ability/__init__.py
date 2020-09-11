@@ -595,7 +595,7 @@ class Affliction_Teambuff(Affliction_Selfbuff):
         def cd_end(t):
             self.is_cd = False
         def l_afflict(e):
-            if not self.is_cd:
+            if not self.is_cd and e.rate > 0:
                 adv.Teambuff(self.name, self.value * e.rate, self.duration, *self.buff_args).on()
                 self.is_cd = True
                 adv.Timer(cd_end).on(self.cd)
@@ -609,7 +609,7 @@ class AntiAffliction_Selfbuff(Affliction_Selfbuff):
         def cd_end(t):
             self.is_cd = False
         def l_afflict(e):
-            if not self.is_cd:
+            if not self.is_cd and e.rate < 1:
                 adv.Buff(self.name, self.value * (1 - e.rate), self.duration, *self.buff_args).on()
                 self.is_cd = True
                 adv.Timer(cd_end).on(self.cd)

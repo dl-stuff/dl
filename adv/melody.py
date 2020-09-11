@@ -20,7 +20,7 @@ class Melody(Adv):
     conf['share'] = ['Dragonyule_Xainfried']
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('oops', uses=1)
+        self.fs_alt = FSAltBuff(group='oops', uses=1)
 
     def s1_proc(self, e):
         self.fs_alt.on()

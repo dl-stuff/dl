@@ -42,7 +42,7 @@ class Radiant_Xuan_Zang(Adv):
         self.afflics.paralysis.res_modifier = 0
 
     def prerun(self):
-        self.fs_alt = FSAltBuff('xihe', uses=1)
+        self.fs_alt = FSAltBuff(group='xihe', uses=1)
         self.xihe_gauge = 0
         self.xihe = {'s1': False, 's2': False}
         if self.condition('buff all team'):
