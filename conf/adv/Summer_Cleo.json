@@ -1,25 +1,39 @@
 {
     "c": {
-        "a": [["affself_paralysis_sp_passive", 0.12, 20, 5, true], ["k_paralysis", 0.35]],
+        "name": "Summer Cleo",
+        "icon": "100004_04_r05",
         "att": 562,
+        "hp": 968,
         "ele": "light",
-        "stars": "5",
         "wt": "bow",
-        "name": "Summer_Cleo",
-        "spiral": 1
+        "spiral": true,
+        "a": [["affself_paralysis_sp_passive", 0.12, 20, 5, true], ["k_paralysis", 0.35]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.75,
         "sp": 2841,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 1.07, "iv": 0.83333, "msl": 1}, 3,
+            {"dmg": 1.07, "extra": 5, "iv": 0.83333, "msl": 1},
+            {"dmg": 5.4, "iv": 0.83333, "afflic": ["paralysis", 120, 0.97], "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 2.05,
         "sp": 6737,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.2,
+        "attr": [
+            {"buff": [
+                ["team", 0.05, 10.0, "att", "buff"],
+                ["team", 0.03, 10.0, "crit", "chance"],
+                ["team", 0.1, 10.0, "sp", "passive"],
+                ["team", 0.1, 10.0, "s", "buff"]
+            ], "iv": 0.23333},
+            {"buff": [
+                ["self", 0.1, 10.0, "defense", "buff"],
+                ["self", 0.1, 10.0, "crit", "damage"]
+            ], "sp": [1.0, "%", "s1"], "iv": 0.56667, "msl": 1}
+        ]
     }
 }

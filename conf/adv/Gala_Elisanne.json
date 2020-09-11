@@ -1,25 +1,31 @@
 {
     "c": {
-        "a": [["primed_att", 0.1]],
+        "name": "Gala Elisanne",
+        "icon": "100002_13_r05",
         "att": 516,
+        "hp": 745,
         "ele": "water",
-        "stars": "5",
         "wt": "axe",
-        "name": "Gala_Elisanne",
-        "spiral": 0
+        "spiral": false,
+        "a": [["primed_att", 0.1]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 4377,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.23333,
+        "attr": [
+            {"buff": ["ele", 0.3, 15.0, "att", "buff", "water"], "iv": 0.5}
+        ]
     },
     "s2": {
-        "dmg": 10.89,
-        "hit": 3,
-        "recovery": 2.5,
         "sp": 38400,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 3.63, "iv": 0.2},
+            {"dmg": 3.63, "iv": 0.53333},
+            {"dmg": 3.63, "iv": 1.43333},
+            {"buff": ["energy", 3], "iv": 1.43333}
+        ]
     }
 }

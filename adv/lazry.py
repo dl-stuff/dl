@@ -26,8 +26,8 @@ class Lazry(StanceAdv):
 
     def prerun(self):
         self.config_stances({
-            'low': ModeManager(self, 'low', s1=True, s2=True),
-            'high': ModeManager(self, 'high', s1=True, s2=True)
+            'low': ModeManager('low', s1=True, s2=True),
+            'high': ModeManager('high', s1=True, s2=True)
         }, hit_threshold=0)
 
 

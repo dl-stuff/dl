@@ -236,9 +236,9 @@ class Valerio(StanceAdv):
     def prerun(self):
         random.seed()
         self.config_stances({
-            'appetizer': ModeManager(self, 'appetizer', x=True, s1=True, s2=True),
-            'entree': ModeManager(self, 'entree', x=True, s1=True, s2=True),
-            'dessert': ModeManager(self, 'dessert', x=True, s1=True, s2=True),
+            'appetizer': ModeManager('appetizer', x=True, s1=True, s2=True),
+            'entree': ModeManager('entree', x=True, s1=True, s2=True),
+            'dessert': ModeManager('dessert', x=True, s1=True, s2=True),
         }, hit_threshold=20)
         self.crit_mod = self.custom_crit_mod
         self.a1_cd = False

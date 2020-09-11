@@ -56,38 +56,39 @@ class Catherine(Adv):
         `dragon(c3-s-end), s
         `s3
         `s4
-        `s2, self.perfect_escort=3 and self.energy()
-        `s1
+        `s2, s2.phase='escort3' and self.energy()
+        `s1, xf
+        `fs, x=3
     """
     conf['coabs'] = ['Renee', 'Hunter_Sarisse', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
-    def prerun(self):
-        self.update_perfect_escort(reset=True)
+    # def prerun(self):
+    #     self.update_perfect_escort(reset=True)
 
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.perfect_escort = 0
-        adv.update_perfect_escort = dummy_function
+    # @staticmethod
+    # def prerun_skillshare(adv, dst):
+    #     adv.perfect_escort = 0
+    #     adv.update_perfect_escort = dummy_function
     
-    def s1_proc(self, e):
-        self.update_perfect_escort()
+    # def s1_proc(self, e):
+    #     self.update_perfect_escort()
 
-    def s2_proc(self, e):
-        self.update_perfect_escort(reset=True)
+    # def s2_proc(self, e):
+    #     self.update_perfect_escort(reset=True)
 
-    def update_perfect_escort(self, reset=False):
-        if reset:
-            self.perfect_escort = 0
-        elif self.perfect_escort < 3:
-            self.perfect_escort += 1
-        else:
-            return
-        for target, dmg in ohoho_conf_dmg.items():
-            self.conf[target].dmg = dmg[self.perfect_escort]
-            self.conf[target].hit = self.perfect_escort
-        for target, hit in ohoho_conf_hits.items():
-            self.conf[target].hit = hit[self.perfect_escort]
+    # def update_perfect_escort(self, reset=False):
+    #     if reset:
+    #         self.perfect_escort = 0
+    #     elif self.perfect_escort < 3:
+    #         self.perfect_escort += 1
+    #     else:
+    #         return
+    #     for target, dmg in ohoho_conf_dmg.items():
+    #         self.conf[target].dmg = dmg[self.perfect_escort]
+    #         self.conf[target].hit = self.perfect_escort
+    #     for target, hit in ohoho_conf_hits.items():
+    #         self.conf[target].hit = hit[self.perfect_escort]
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -1,25 +1,31 @@
 {
     "c": {
-        "a": [["ro", 0.15, 180]],
-        "att": 616,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "wand",
         "name": "Cassandra",
-        "spiral": 1
+        "icon": "110337_01_r05",
+        "att": 616,
+        "hp": 893,
+        "ele": "shadow",
+        "wt": "wand",
+        "spiral": true,
+        "a": [["ro", 0.15, 180]]
     },
     "s1": {
-        "dmg": 10.82,
-        "hit": 2,
-        "recovery": 2.1,
         "sp": 2919,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 5.41, "afflic": ["poison", 120, 0.582], "iv": 0.83333, "msl": 1},
+            {"dmg": 5.41, "iv": 0.83333, "msl": 1},
+            {"buff": ["self", 0.05, -1, "maxhp", "buff"], "iv": 1.73333}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 5,
-        "recovery": 3.13,
         "sp": 4935,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.7,
+        "attr": [
+            {"dmg": 5.84, "crisis": 1.0, "iv": 2.5},
+            {"dmg": 0.97, "crisis": 1.0, "iv": 2.5}, 4
+        ]
     }
 }
