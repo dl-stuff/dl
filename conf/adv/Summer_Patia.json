@@ -1,26 +1,78 @@
 {
     "c": {
-        "a": [["antiaffself_poison", 0.15, 10, 5], ["edge_poison", 60, "hp50"]],
+        "name": "Summer Patia",
+        "icon": "110335_02_r05",
         "att": 519,
+        "hp": 741,
         "ele": "shadow",
-        "stars": "5",
         "wt": "axe",
-        "name": "Summer_Patia",
-        "spiral": 0
+        "spiral": false,
+        "a": [["antiaffself_poison", 0.15, 10, 5], ["edge_poison", 60, "hp50"]]
+    },
+    "fs1": {
+        "charge": 0.4,
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 2.58, "sp": 600, "msl": 1}
+        ]
+    },
+    "fs2": {
+        "charge": 0.8,
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 3.7, "sp": 900, "msl": 1}
+        ]
+    },
+    "fs3": {
+        "charge": 1.2,
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 4.78, "sp": 1400, "msl": 1}
+        ]
+    },
+    "fs1_enhanced": {
+        "charge": 0.4,
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 2.87, "sp": 600, "afflic": ["poison", 110, 0.436], "msl": 1}
+        ]
+    },
+    "fs2_enhanced": {
+        "charge": 0.8,
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 4.12, "sp": 900, "afflic": ["poison", 110, 0.436], "msl": 1}
+        ]
+    },
+    "fs3_enhanced": {
+        "charge": 1.2,
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 5.32, "sp": 1400, "afflic": ["poison", 110, 0.436], "msl": 1}
+        ]
     },
     "s1": {
-        "buff": ["debuff", 0.05, 10.0, 1],
-        "dmg": 0.0,
-        "hit": 2,
-        "recovery": 1.3333,
         "sp": 2800,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 7.47, "buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 0.33333, "msl": 1},
+            {"dmg": 7.47, "iv": 0.33333, "msl": 1},
+            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.33333}
+        ]
     },
     "s2": {
-        "dmg": 23.1,
-        "hit": 1,
-        "recovery": 1.5,
         "sp": 5600,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 23.1, "afflic": ["poison", 120, 0.582], "iv": 0.83333}
+        ]
     }
 }

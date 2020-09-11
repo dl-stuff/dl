@@ -11,8 +11,9 @@ class Addis(addis.Addis):
         super().prerun()
         self.bleed = mBleed('g_bleed',0).reset()
 
-    def s1_enhanced_proc1(self, e):
+    def s1_enhanced_hit1(self, e):
         mBleed(e.name, 1.32).on()
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

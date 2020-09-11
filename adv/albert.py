@@ -18,7 +18,7 @@ class Albert(Adv):
         end
         else
         `dragon, cancel
-        `s2, sp_in(2, s1)
+        `s2, charged_in(2, s1)
         `s1, cancel
         `s3, cancel
         `s4, cancel

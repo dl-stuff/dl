@@ -386,7 +386,7 @@ class FSAltBuff(ModeAltBuff):
         self.enable_fs(False)
         self.base_uses = uses
         self.uses = 0
-        self.l_fs = Listener('fs', self.l_off, order=2).on()
+        self.l_fs = Listener('fs', self.l_off, order=2)
 
         self.managed = False
 
@@ -395,24 +395,26 @@ class FSAltBuff(ModeAltBuff):
             self.adv.a_fs_dict[fsn].set_enabled(enabled)
 
     def effect_on(self):
-        self.logwrapper(f'fs-{self.group} on', self.uses)
+        self.logwrapper(f'fs-{self.name} on', self.uses)
         self.enable_fs(True)
         self.adv.current_fs = self.group
+        self.l_fs.on()
 
     def effect_off(self):
-        self.logwrapper(f'fs-{self.group} off', self.uses)
+        self.logwrapper(f'fs-{self.name} off', self.uses)
         self.enable_fs(False)
         self.adv.current_fs = self.default_fs
+        self.l_fs.off()
 
     def on(self, duration=None):
         self.uses = self.base_uses
         return super().on(duration)
 
     def l_off(self, e):
-        if self.uses > 0:
+        if e.group == self.group and self.uses > 0:
             self.uses -= 1
             if self.uses <= 0:
-                self.off()
+                super().off()
 bufftype_dict['fsAlt'] = FSAltBuff
 
 
@@ -704,23 +706,23 @@ class ModeManager(MultiBuffManager):
 
 class ActiveBuffDict(defaultdict):
     def __init__(self):
-        super().__init__(lambda: {})
+        super().__init__(lambda: defaultdict(lambda: {}))
 
     def __call__(self, k, group=None, *args):
         if self.get(k, False):
             subdict = self[k]
             if group is not None:
                 try:
-                    return self.checkbuff(subdict[group], *args)
+                    return any(self.checkbuff(b, *args) for b in subdict[group].values())
                 except KeyError:
                     return False
             else:
-                return any(self.checkbuff(b) for b in subdict.values())
+                return any(self.checkbuff(b, *args) for sub in subdict.values() for b in sub.values())
         else:
             return False
     
-    def has(self, base, group):
-        return base in self and group in self[base]
+    def has(self, k, group, seq):
+        return k in self and group in self[k] and seq in self[k][group]
 
     @staticmethod
     def checkbuff(buff, *args):
@@ -728,13 +730,18 @@ class ActiveBuffDict(defaultdict):
             return buff.timeleft()
         return buff.get()
 
-    def on(self, k, group):
-        return self[k][group].on()
+    def add(self, k, group, seq, buff):
+        self[k][group][seq] = buff
 
-    def off(self, k, group, others=False):
-        if others:
-            for g, b in self[k].items():
-                if g != group:
-                    b.off()
-        else:
-            return self[k][group].off()
+    def on(self, k, group, seq):
+        return self[k][group][seq].on()
+
+    def off(self, k, group, seq):
+        return self[k][group][seq].off()
+
+    def off_except(self, k, group):
+        for g, seq in self[k].items():
+            if g == group:
+                continue
+            for b in seq.values():
+                b.off()

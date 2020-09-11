@@ -474,19 +474,26 @@ class Adv(object):
 
     def dmg_proc(self, name, amount):
         pass
+
+    def s1_proc(self, e):
+        pass
+
+    def s2_proc(self, e):
+        pass
     
     """
     New before/proc system:
     x/fs/s events will try to call <name>_before before everything, and <name>_proc at each hitattr
     
     Examples:
-    Albert:
+    Albert FS:
         fs_proc is called when he uses base fs
         fs2_proc is called when he uses alt fs2
 
-    Addis:
-        s1_proc4 is called after the 4th s1 hit when s2 buff is not active
-        s1_enhanced_proc4 after the 4th s1 hit is called when s2 buff is active
+    Addis s1:
+        s1_hit1 is called after the 1st s1 hit when s2 buff is not active
+        s1_enhanced_hit1 after the 1st s1 hit is called when s2 buff is active
+        s1_proc is called after the final (4th) hit
 
     Mitsuba:
         x_proc is called when base dagger combo
@@ -539,7 +546,7 @@ class Adv(object):
 
     def doconfig(self):
 
-        # set buff
+        # set act
         self.action = Action()
         self.action._static.spd_func = self.speed
         self.action._static.c_spd_func = self.c_speed
@@ -618,6 +625,9 @@ class Adv(object):
         #     pass
 
         self.hits = 0
+        self.last_c = 0
+        self.ctime = 2
+
         self.hp = 100
         self.hp_event = Event('hp')
         self.dragonform = None
@@ -981,7 +991,7 @@ class Adv(object):
                 for x in range(1, param + 1)
             )
 
-    def charged_in(self, sn, param):
+    def charged_in(self, param, sn):
         s = getattr(self, sn)
         return self.sp_val(param) + s.charged >= s.sp
 
@@ -1067,7 +1077,18 @@ class Adv(object):
         log('dodge', '-')
         self.think_pin('dodge')
 
+    def add_combo(self):
+        # real combo count
+        delta = now()-self.last_c
+        if delta < self.ctime:
+            self.hits += 1
+        else:
+            self.hits = 0
+            log('combo', f'lost combo after {delta:.02}s')
+        self.last_c = now()
+
     def add_hits(self, hit):
+        # potato combo count
         if hit is None:
             raise ValueError('none type hit')
         if hit >= 0:
@@ -1475,12 +1496,7 @@ class Adv(object):
             for m in hitmods:
                 m.on()
             self.dmg_make(name, attr['dmg'])
-
-            # FIXME: rm when real timings
-            if 'hit' in attr:
-                self.add_hits(attr['hit'])
-            else:
-                self.add_hits(1)
+            self.add_combo()
 
         if 'sp' in attr:
             if isinstance(attr['sp'], int):
@@ -1527,8 +1543,8 @@ class Adv(object):
                     blist = blist[:-1]
             except TypeError:
                 pass
-            if bctrl == '-refresh' and self.buff.has(base, group):
-                self.buff.on(base, group)
+            if bctrl == '-refresh' and self.buff.has(base, group, aseq):
+                self.buff.on(base, group, aseq)
             else:
                 if isinstance(blist[0], list):
                     buff_objs = []
@@ -1536,12 +1552,11 @@ class Adv(object):
                         obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff, bctrl=bctrl)
                         if obj:
                             buff_objs.append(obj)
-                    self.buff[base][group] = MultiBuffManager(name, buff_objs).on()
+                    self.buff.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
                 else:
                     buff = self.hitattr_buff(name, base, group, aseq, 0, attr['buff'])
                     if buff:
-                        self.buff[base][group] = buff.on()
-
+                        self.buff.add(base, group, aseq, buff.on())
         for m in hitmods:
             m.off()
 
@@ -1560,14 +1575,14 @@ class Adv(object):
                 bargs = attrbuff[1:]
             if bctrl == '-refresh':
                 try:
-                    self.buff.on(base, group)
+                    self.buff.on(base, group, aseq)
                     return None
                 except KeyError:
                     pass
             if bctrl == '-replace':
-                self.buff.off(base, group, others=True)
+                self.buff.off_except(base, group)
                 try:
-                    self.buff.on(base, group)
+                    self.buff.on(base, group, aseq)
                     return None
                 except KeyError:
                     pass
@@ -1578,13 +1593,14 @@ class Adv(object):
         if t.pin is not None:
             self.think_pin(t.pin+'-h')
             Event(t.pin+'-h')()
-        if t.post is not None:
-            t.post(t)
+        for cb in (t.post, t.proc):
+            if cb is not None:
+                cb(t)
 
     def do_hitattr_make(self, e, aseq, attr, cb_kind, pin=None):
         iv = attr.get('iv')
         try:
-            post = getattr(self, f'{cb_kind}_proc{aseq+1}')
+            post = getattr(self, f'{e.name}_hit{aseq+1}')
         except AttributeError:
             post = None
         if iv is not None and iv > 0:
@@ -1596,9 +1612,11 @@ class Adv(object):
             mt.aseq = aseq
             mt.attr = attr
             mt.post = post
+            mt.proc = None
             mt.on(iv)
             if not attr.get('msl'):
                 self.action.getdoing().add_delayed(mt)
+            return mt
         else:
             e.pin = pin
             e.aseq = aseq
@@ -1608,6 +1626,7 @@ class Adv(object):
                 Event(pin+'-h')()
             if post is not None:
                 post(e)
+        return None
 
     def hit_make(self, e, conf, cb_kind=None, pin=None):
         cb_kind = cb_kind or e.name
@@ -1615,15 +1634,26 @@ class Adv(object):
             getattr(self, f'{cb_kind}_before')(e)
         except AttributeError:
             pass
+        final_mt = None
         if conf['attr']:
             prev_attr = None
             for aseq, attr in enumerate(conf['attr']):
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
-                        self.do_hitattr_make(e, aseq+repeat, prev_attr, cb_kind, pin=pin)
+                        res_mt = self.do_hitattr_make(e, aseq+repeat, prev_attr, cb_kind, pin=pin)
+                        final_mt = final_mt or res_mt
                 else:
-                    self.do_hitattr_make(e, aseq, attr, cb_kind, pin=pin)
+                    res_mt = self.do_hitattr_make(e, aseq, attr, cb_kind, pin=pin)
+                    final_mt = final_mt or res_mt
                     prev_attr = attr
+        try:
+            proc = getattr(self, f'{cb_kind}_proc')
+            if final_mt is not None:
+                final_mt.proc = proc
+            else:
+                proc(e)
+        except AttributeError:
+            pass
         self.think_pin(pin or e.name)
 
     def l_fs(self, e):
@@ -1635,7 +1665,7 @@ class Adv(object):
             return
         prev = self.action.getprev().name
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
-        self.hit_make(e, self.conf[e.name])
+        self.hit_make(e, self.conf[e.name], cb_kind=e.base)
 
     @property
     def dgauge(self):

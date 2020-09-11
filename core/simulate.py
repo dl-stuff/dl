@@ -385,6 +385,10 @@ def act_sum(actions, output):
         if act[0] == 'x' or act.startswith('fs'):
             if act[0] == 'x':
                 act = 'c' + act[1:]
+            if act[:2] == 'fs':
+                parts = act.split('_')
+                if len(parts) > 1:
+                    act = act.split('_')[0] + '-' + parts[1][0]
             output.write(act)
             p_type = 'x'
         else:
