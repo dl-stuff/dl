@@ -285,6 +285,34 @@ class Gala_Mars(DragonBase):
         Selfbuff('ds',0.20,20,'att','buff').on()
         return dmg
 
+
+class Horus(DragonBase):
+    ele = 'flame'
+    att = 127
+    a = [('spd', 0.2), ('cc', 0.50)]
+    dragonform = {
+        'skill_use': 2,
+        'act': 's-c3-c3-s',
+
+        'dx1.dmg': 0.70*3,
+        'dx1.startup': 0.33333, # c1 frames
+        'dx1.hit': 3,
+
+        'dx2.dmg': 0.61*4,
+        'dx2.startup': 0.56667, # c2 frames
+        'dx2.hit': 4,
+
+        'dx3.dmg': 0.67*5,
+        'dx3.startup': 0.5, # c3 frames
+        'dx3.recovery': 0.9, # recovery
+        'dx3.hit': 5,
+
+        'ds.dmg': 0.44*16,
+        'ds.recovery': 1.5, # skill frames
+        'ds.hit': 16,
+    }
+
+
 class Unreleased_FlameSkillHaste(DragonBase):
     ele = 'flame'
     att = 120
