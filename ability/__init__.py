@@ -214,8 +214,19 @@ class Co_Ability(Ability):
             super().__init__(name, self.EX_MAP[value])
         except KeyError:
             super().__init__(name)
-
 ability_dict['ex'] = Co_Ability
+
+
+class Combo_Time(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name)
+        self.value = value
+        self.cond = cond
+
+    def oninit(self, adv, afrom=None):
+        if not self.cond or adv.condition(self.cond):
+            adv.ctime += self.value
+ability_dict['ctime'] = Combo_Time
 
 
 class BuffingAbility(Ability):

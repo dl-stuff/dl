@@ -1,25 +1,48 @@
 {
     "c": {
-        "a": [],
-        "att": 495,
-        "ele": "flame",
-        "stars": "5",
-        "wt": "bow",
         "name": "Chelsea",
-        "spiral": 0
+        "icon": "110342_01_r05",
+        "att": 495,
+        "hp": 763,
+        "ele": "flame",
+        "wt": "bow",
+        "spiral": false,
+        "a": [["crisisattspd", 3]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 2.0,
         "sp": 2910,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 1.36, "iv": 0.4, "msl": 1},
+            {"dmg": 1.36, "iv": 1.06667, "msl": 1},
+            {"dmg": 1.36, "iv": 1.16667, "msl": 1},
+            {"dmg": 1.36, "iv": 1.26667, "msl": 1},
+            {"dmg": 1.36, "iv": 1.36667, "msl": 1},
+            {"dmg": 1.36, "iv": 1.46667, "msl": 1},
+            {"dmg": 1.36, "iv": 1.56667, "msl": 1}
+        ]
+    },
+    "s1_enhanced": {
+        "sp": 2910,
+        "startup": 0.1,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 1.36, "hp": 7, "iv": 0.4, "msl": 1},
+            {"dmg": 1.36, "hp": 7, "iv": 1.06667, "msl": 1},
+            {"dmg": 1.36, "hp": 7, "iv": 1.16667, "msl": 1},
+            {"dmg": 1.36, "hp": 7, "iv": 1.26667, "msl": 1},
+            {"dmg": 1.36, "hp": 7, "iv": 1.36667, "msl": 1},
+            {"dmg": 1.36, "hp": 7, "iv": 1.46667, "msl": 1},
+            {"dmg": 1.36, "hp": 7, "iv": 1.56667, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 7000,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": [["sAlt", "enhanced", "s1", 60.0], ["self", 0.3, 60.0, "att", "passive", "-refresh"]], "iv": 0.13333}
+        ]
     }
 }
