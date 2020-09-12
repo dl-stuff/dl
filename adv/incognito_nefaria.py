@@ -7,19 +7,24 @@ def module():
     return Incognito_Nefaria
 
 class Incognito_Nefaria(RngCritAdv):
-    # need to confirm s1 hits and s2 frames
+    comment = 'no s2. overall dps is only slightly lower without s2'
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Me_and_My_Bestie()
+    conf['slots.a'] = Candy_Couriers()+Levins_Champion()
     conf['acl'] = """
-        `dragon(c3-s-s-end),s
+        `dragon(c3-s-s-end), s and not self.energy()=5
         `s3, not buff(s3) and x=5
         `s1
-        `s2
-        `s4, cancel
-        `s2, x=5
+        `s4, x>2
+        
+        ## S2 mode
+        #`dragon(c3-s-s-end), (s=1 and self.energy()=3) or s=2
+        #`s3, not buff(s3) and x=5
+        #`s2, self.energy()=5
+        #`s1, not self.energy()=5
+        #`s4, not self.energy()=5 and x>2
         """
     conf['slots.d'] = Gala_Mars()
-    conf['coabs'] = ['Blade', 'Marth', 'Dagger']
+    conf['coabs'] = ['Blade', 'Serena', 'Yuya']
     conf['share'] = ['Kleimann']
     conf['afflict_res.burn'] = 0
 
