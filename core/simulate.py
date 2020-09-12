@@ -1,6 +1,7 @@
 import sys
 import os
 import re
+from collections import defaultdict
 from slot.a import *
 import core.acl
 
@@ -430,20 +431,31 @@ def damage_counts(real_d, damage, counts, output, mod_func=None, res=None):
         mod_func = lambda k, v: round(mod_func(k, v))
     else:
         mod_func = lambda k, v: round(v)
-    for k1, v1 in damage.items():
+    for k1, v1 in (damage.items()):
         found_count = set()
         if len(v1) > 0 or len(counts[k1]) > 0:
             output.write('\n{:>1} {:>3.0f}%| '.format(k1, res[k1] * 100 / res['dps']))
-        for k2, v2 in v1.items():
+        c1 = counts[k1]
+        if k1 == 'x':
+            cdmg = defaultdict(lambda: 0)
+            ccnt = defaultdict(lambda: 0)
+            for k2, v2 in v1.items():
+                ck = k2.split('_')
+                ck = 'x' if len(ck) == 1 else f'x_{ck[1]}'
+                cdmg[ck] += v2
+                ccnt[ck] += c1[k2]
+            v1 = dict(cdmg)
+            c1 = dict(ccnt)
+        for k2, v2 in sorted(v1.items()):
             modded_value = mod_func(k2, v2)
             try:
-                output.write('{}: {:d} [{}], '.format(k2, modded_value, counts[k1][k2]))
+                output.write('{}: {:d} [{}], '.format(k2, modded_value, c1[k2]))
                 found_count.add(k2)
             except:
                 output.write('{}: {:d}, '.format(k2, modded_value))
-        for k2, v2 in counts[k1].items():
+        for k2, v2 in sorted(c1.items()):
             if not k2 in found_count:
-                output.write('{}: 0 [{}], '.format(k2, counts[k1][k2]))
+                output.write('{} [{}], '.format(k2, c1[k2]))
 
 def summation(real_d, adv, output, cond=True, mod_func=None, no_cond_dps=None):
     res = dps_sum(real_d, adv.logs.damage, mod_func)

@@ -10,11 +10,10 @@ class Tension:
         self.modifier = mod
         self.modifier.off()
         self.event = event or Event(name)
-        self.scope = {'s1', 's2', 's3', 's4', 's', 'ds'}
-        self.current_scope = None
         self.stack = 0
         self.queued_stack = 0
         self.has_stack = Selfbuff('has_'+self.name, 1, -1, 'effect')
+        self.active = False
         self.disabled = False
 
     def add(self, n=1, team=False, queue=False):
@@ -46,41 +45,17 @@ class Tension:
             self.stack = self.MAX_STACK
         log('{}_extra'.format(self.name), '+{}'.format(n), 'stack <{}>'.format(int(self.stack)))
 
-    def check(self, name):
-        scope = name.split('_')
-        if scope[0] == 'o':
-            scope = scope[1]
-        else:
-            scope = scope[0]
-        if self.stack >= self.MAX_STACK:
-            if self.current_scope is None and scope in self.scope:
-                # entering a new s1/s2/s3 block
-                if scope in self.scope:
-                    self.current_scope = scope
-                    log(self.name, 'active', 'stack <{}>'.format(int(self.stack)))
-                    self.modifier.on()
-                    return True
-            elif self.current_scope == scope:
-                # staying in the same block
-                return True
-            elif self.current_scope is not None:
-                # leaving the block
-                self.reset()
-        return False
-
-    def reset(self, t=None):
-        self.stack = 0
-        self.current_scope = None
-        self.modifier.off()
-        self.has_stack.off()
-        log(self.name, 'reset', 'stack <{}>'.format(int(self.stack)))
-
-        self.event.stack = self.stack
-        self.event.on()
-
-        if self.queued_stack:
-            self.add(self.queued_stack)
-            self.queued_stack = 0
+    def on(self, e):
+        if self.stack >= self.MAX_STACK and e.name in self.modifier._static.damage_sources:
+            log(self.name, 'active', 'stack <{}>'.format(int(self.stack)))
+            self.active = e.name
+    
+    def off(self, e):
+        if e.name == self.active:
+            self.active = None
+            self.has_stack.off()
+            self.stack = 0
+            log(self.name, 'reset', 'stack <{}>'.format(int(self.stack)))
 
     def __call__(self):
         return self.stack

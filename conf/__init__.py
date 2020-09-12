@@ -44,7 +44,7 @@ def get(name):
     #     conf.update(Conf(weapon.lv2))
 
     wepconf = load_wep_json(wt)
-    conf.update(Conf(wepconf))
+    conf.update(Conf(wepconf), rebase=True)
     if bool(conf.c.spiral):
         conf.update(conf.lv2)
     del conf['lv2']

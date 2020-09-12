@@ -455,7 +455,7 @@ class XAltBuff(ModeAltBuff):
             self.adv.current_x = self.group
 
     def effect_off(self):
-        self.logwrapper(f'x-{self.group} off')
+        self.logwrapper(f'x-{self.group} off', self.default_x)
         self.enable_x(False)
         if self.deferred:
             self.adv.deferred_x = self.default_x
@@ -489,7 +489,7 @@ class SAltBuff(ModeAltBuff):
         self.adv.current_s[self.base] = self.group
 
     def effect_off(self):
-        self.logwrapper(f'{self.name} off')
+        self.logwrapper(f'{self.name} off', self.default_s)
         self.adv.current_s[self.base] = self.default_s
 
     def l_extend_time(self, e):
@@ -531,9 +531,7 @@ class SingleActionBuff(Buff):
         return super().on(-1)
 
     def l_off(self, e):
-        if (e.name in self.modifier._static.damage_sources
-            or (e.name.startswith('fs') and 'fs' in self.modifier._static.damage_sources)
-            or (hasattr(e, 'damage') and e.damage)):
+        if e.name in self.modifier._static.damage_sources:
             self.casts -= 1
             if self.casts <= 0:
                 result = super().off()
@@ -766,7 +764,7 @@ class ActiveBuffDict(defaultdict):
     def on(self, k, group, seq):
         return self[k][group][seq].on()
 
-    def off(self, k, group, seq):
+    def off(self, k, group='default', seq=0):
         return self[k][group][seq].off()
 
     def off_except(self, k, group):

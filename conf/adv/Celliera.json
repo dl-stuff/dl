@@ -1,25 +1,63 @@
 {
     "c": {
-        "a": [["lo", 0.6]],
-        "att": 589,
-        "ele": "water",
-        "stars": "4",
-        "wt": "blade",
         "name": "Celliera",
-        "spiral": 1
+        "icon": "110255_01_r04",
+        "att": 589,
+        "hp": 846,
+        "ele": "water",
+        "wt": "blade",
+        "spiral": true,
+        "a": [["lo", 0.6]]
+    },
+    "fs_enhanced": {
+        "startup": 0.13333,
+        "recovery": 0.7,
+        "attr": [
+            {"dmg": 0.92, "sp": 200, "afflic": ["freeze", 100], "buff": ["s2", "-off"]}
+        ]
     },
     "s1": {
-        "dmg": 10.6,
-        "hit": 4,
-        "recovery": 1.6,
         "sp": 2537,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.6,
+        "attr": [
+            {"dmg": 2.65, "iv": 0.2},
+            {"dmg": 2.65, "iv": 0.43333},
+            {"dmg": 2.65, "iv": 0.6},
+            {"dmg": 2.65, "iv": 1.33333}
+        ]
+    },
+    "s1_enhanced": {
+        "sp": 2537,
+        "startup": 0.1,
+        "recovery": 1.6,
+        "attr": [
+            {"dmg": 2.65, "afflic": ["frostbite", 120, 0.37], "iv": 0.2},
+            {"dmg": 2.65, "iv": 0.43333},
+            {"dmg": 2.65, "iv": 0.6},
+            {"dmg": 2.65, "iv": 1.33333}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 4877,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": [
+                ["sAlt", "enhanced", "s1"],
+                ["sAlt", "enhanced", "s2"],
+                ["fsAlt", "enhanced"],
+                ["self", 0.25, -1, "att", "buff"],
+                ["self", -1, -1, "regen", "buff"],
+            "-refresh"], "iv": 0.16667}
+        ]
+    },
+    "s2_enhanced": {
+        "sp": 4877,
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["s2", "-off"]}
+        ]
     }
 }

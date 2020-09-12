@@ -15,8 +15,8 @@ class Incognito_Nefaria(RngCritAdv):
         `s3, not buff(s3) and x=5
         `s1
         `s2
-        `s4,cancel
-        `s2,x=5
+        `s4, cancel
+        `s2, x=5
         """
     conf['slots.d'] = Gala_Mars()
     conf['coabs'] = ['Blade', 'Marth', 'Dagger']

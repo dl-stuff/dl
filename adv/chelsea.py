@@ -19,58 +19,27 @@ class Chelsea(Adv):
     conf['share'] = ['Summer_Patia']
 
     def prerun(self):
-        self.obsession = 0
-        self.s2_buffs = []
-
-        self.a1atk = Selfbuff('a1atk',0.20,-1,'att','passive')
-        self.a1spd = Spdbuff('a1spd',0.10,-1)
-        self.a3 = Selfbuff('a3_str_passive',0.3,60,'att','passive')
-
         Event('dragon').listener(self.s2_clear)
-
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.a3 = Dummy()
-        adv.a1atk = Dummy()
-        adv.a1spd = Dummy()
+        self.s2_buffs = []
+        Event('s').listener(self.s_hp_check, order=2)
 
     def s2_clear(self, e):
-        for buff in self.s2_buffs:
-            buff.off()
-        self.s2_buffs = []
-        self.a3.off()
-        self.obsession = 0
+        for b in self.s2_buffs:
+            b.off()
+    
+    def x_proc(self, e):
+        if self.obsession:
+            self.add_hp(-3)
 
-    def dmg_before(self, name):
-        new_hp = self.hp
-        if name != 's1' and self.a3.get():
-            new_hp -= 3 * self.obsession
-        self.update_hp(new_hp)
+    def s_hp_check(self, e):
+        if e.name in self.damage_sources:
+            self.add_hp(-3)
 
-    def dmg_proc(self, name, amount):
-        new_hp = self.hp
-        if name == 's1' and self.a3.get():
-            new_hp += 7
-        self.update_hp(new_hp)
-
-    def s1_proc(self, e):
-        for _ in range(7):
-            self.dmg_make(e.name,1.36)
-            self.add_hits(1)
-
-    def update_hp(self, new_hp):
-        if new_hp <= 30:
-            self.a1atk.on()
-            self.a1spd.on()
-        else:
-            self.a1atk.off()
-            self.a1spd.off()
-        self.set_hp(new_hp)
+    def obsession(self):
+        return Selfbuff('s2_obsession').stack()
 
     def s2_proc(self, e):
-        self.s2_buffs.append(Selfbuff(e.name,0.3,60).on())
-        self.obsession = Selfbuff(e.name).stack()
-        self.a3.on()
+        self.s2_buffs.append(Selfbuff('s2_obsession',0.3,60).on())
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -545,6 +545,10 @@ class Adv(object):
         'acl': '`s1;`s2;`s3'
     }
 
+    def damage_sources_check(self, name, conf):
+        if conf['attr'] and any(('dmg' in attr for attr in conf['attr'])):
+            self.damage_sources.add(name)
+
     def doconfig(self):
 
         # set act
@@ -569,6 +573,7 @@ class Adv(object):
             if xn != a_x.base and self.conf[a_x.base]:
                 a_x.conf.update(self.conf[a_x.base], rebase=True)
             self.a_x_dict[a_x.group][a_x.index] = a_x
+            self.damage_sources_check(xn, xconf)
         self.a_x_dict = dict(self.a_x_dict)
         for group, actions in self.a_x_dict.items():
             gxmax = f'{group}.x_max'
@@ -585,6 +590,7 @@ class Adv(object):
             except KeyError:
                 pass
             self.a_fs_dict[name] = Fs_group(name, fs_conf)
+            self.damage_sources_check(name, fs_conf)
         if 'fs1' in self.a_fs_dict:
             self.a_fs_dict['fs'].enabled = False
         self.current_fs = None
@@ -640,11 +646,29 @@ class Adv(object):
 
         self.disable_echo()
 
+    def tension_on(self, e):
+        for t in self.tension:
+            t.on(e)
+
+    def tension_mods(self, name):
+        mods = []
+        for t in self.tension:
+            if t.active == name:
+                mods.append(t.modifier)
+        return mods
+
+    def tension_off(self, e):
+        for t in self.tension:
+            t.off(e)
+
     def l_set_hp(self, e):
         try:
-            self.set_hp(self.hp+e.delta)
+            self.add_hp(e.delta)
         except AttributeError:
             self.set_hp(e.hp)
+
+    def add_hp(self, delta):
+        self.set_hp(self.hp+delta)
 
     def set_hp(self, hp):
         if self.conf['flask_env'] and 'hp' in self.conf:
@@ -1228,6 +1252,7 @@ class Adv(object):
                 s.group -= 1
                 s.act_event.group = s.group
             self.a_s_dict[s.base].add_action(s.group, s)
+            self.damage_sources_check(sn, snconf)
 
         return preruns
 
@@ -1459,9 +1484,6 @@ class Adv(object):
             coef = dmg_coef
             if coef <= 0:
                 return 0
-        self.damage_sources.add(name)
-        for t in self.tension:
-            t.check(name)
         if dtype == None:
             dtype = name
         count = self.dmg_formula(dtype, coef) if not fixed else coef
@@ -1476,7 +1498,7 @@ class Adv(object):
 
     def hitattr_make(self, name, base, group, aseq, attr):
         g_logs.log_hitattr(name, attr)
-        hitmods = []
+        hitmods = self.tension_mods(name)
         if 'dmg' in attr:
             if 'killer' in attr:
                 hitmods.append(KillerModifier(name, 'hit', *attr['killer']))
@@ -1514,8 +1536,8 @@ class Adv(object):
             self.dragonform.charge_gauge(attr['utp'], utp=True)
 
         if 'hp' in attr:
-            if isinstance(attr['hp'], int):
-                self.set_hp(self.hp+attr['hp'])
+            if isinstance(attr['hp'], float):
+                self.add_hp(attr['hp'])
             else:
                 value = attr['hp'][0]
                 mode = None if len(attr['hp']) == 1 else attr['hp'][1]
@@ -1556,6 +1578,7 @@ class Adv(object):
                 try:
                     return self.buff.on(base, group, aseq)
                 except KeyError:
+                    bctrl_parts = bctrl.split('_')
                     if len(bctrl_parts) > 1:
                         bctrl = bctrl_parts[0]
                         bctrl_args = bctrl_parts[1:]
@@ -1611,9 +1634,11 @@ class Adv(object):
         if t.pin is not None:
             self.think_pin(t.pin+'-h')
             Event(t.pin+'-h')()
-        for cb in (t.post, t.proc):
-            if cb is not None:
-                cb(t)
+        if t.post is not None:
+            t.post(t)
+        if t.proc is not None:
+            self.tension_off(t)
+            t.proc(t)
 
     def do_hitattr_make(self, e, aseq, attr, cb_kind, pin=None):
         iv = attr.get('iv')
@@ -1669,6 +1694,7 @@ class Adv(object):
             if final_mt is not None:
                 final_mt.proc = proc
             else:
+                self.tension_off(t)
                 proc(e)
         except AttributeError:
             pass
@@ -1679,6 +1705,7 @@ class Adv(object):
         self.hit_make(e, self.conf[e.name] or self.conf['fs'], pin=e.name.split('_')[0])
 
     def l_s(self, e):
+        self.tension_on(e)
         if e.name == 'ds':
             return
         prev = self.action.getprev().name

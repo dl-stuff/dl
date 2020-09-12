@@ -228,10 +228,7 @@ class DragonForm(Action):
                     if self.skill_spc > self.skill_sp:
                         self.skill_spc = self.skill_sp
                     log(self.c_act_name, 'sp', f'{self.skill_spc}/{self.skill_sp}')
-        if self.c_act_conf.hit > -1:
-            self.adv.hits += self.c_act_conf.hit
-        else:
-            self.adv.hits = -self.c_act_conf.hit
+        self.adv.add_hits(self.c_act_conf.hit)
         self.d_act_next()
 
     def d_act_next(self):
