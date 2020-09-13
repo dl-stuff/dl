@@ -1,25 +1,30 @@
 {
     "c": {
-        "a": [["sp", 0.05]],
+        "name": "Dragonyule Xander",
+        "icon": "110022_02_r04",
         "att": 505,
+        "hp": 742,
         "ele": "water",
-        "stars": "4",
         "wt": "wand",
-        "name": "Dragonyule_Xander",
-        "spiral": 0
+        "spiral": false,
+        "a": [["sp", 0.05]]
     },
     "s1": {
-        "dmg": 8.78,
-        "hit": 2,
-        "recovery": 1.9,
         "sp": 2563,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 4.39, "afflic": ["freeze", 100], "iv": 0.96667},
+            {"dmg": 4.39, "iv": 1.16667}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 9609,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.15, 10.0, "att", "buff"], "iv": 0.13333},
+            {"buff": ["energy", 1, "team"], "iv": 0.13333}
+        ]
     }
 }

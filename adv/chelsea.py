@@ -7,15 +7,15 @@ def module():
 class Chelsea(Adv):
     conf = {}
     conf['slots.d'] = Dreadking_Rathalos()
-    conf['slots.a'] = Mega_Friends()+Primal_Crisis()
+    conf['slots.a'] = Mega_Friends()+Dear_Diary()
     conf['acl'] = """
         `s3,not buff(s3)
         `s2, fsc
         `s1, fsc and self.hp < 30 and buffstack(ro) < 3
         `s4, fsc
-        `fs, x=1
+        `fs, x=2
     """
-    conf['coabs'] = ['Blade', 'Grace', 'Serena']
+    conf['coabs'] = ['Blade', 'Grace', 'Hunter_Berserker']
     conf['share'] = ['Summer_Patia']
 
     def prerun(self):

@@ -539,7 +539,7 @@ class Adv(object):
         's3': skill_default,
         's4': skill_default,
 
-        'dodge.startup': 0.6,
+        'dodge.startup': 0.66667,
         'dodge.recovery': 0,
 
         'acl': '`s1;`s2;`s3'
@@ -593,6 +593,7 @@ class Adv(object):
         if 'fs1' in self.a_fs_dict:
             self.a_fs_dict['fs'].enabled = False
         self.current_fs = None
+        self.alt_fs_buff = None
 
         self.a_fsf = Fs('fsf', self.conf.fsf)
         self.a_fsf.act_event = Event('none')
@@ -1721,6 +1722,17 @@ class Adv(object):
         prev = self.action.getprev().name
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
+
+    def c_fs(self, group):
+        if self.current_fs == group and self.alt_fs_buff is not None:
+            return self.alt_fs_buff.uses
+        return 0
+
+    def c_x(self, group):
+        return self.current_x == group
+
+    def c_s(self, seq, group):
+        return self.current_s[f's{seq}'] == group
 
     @property
     def dgauge(self):

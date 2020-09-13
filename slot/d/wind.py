@@ -56,7 +56,7 @@ class Pazuzu(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         from core.advbase import Debuff
-        self.ds_buff = Debuff('ds',0.05,10)
+        self.ds_buff = Debuff('ds',-0.05,10)
 
     def ds_proc(self):
         dmg = self.adv.dmg_make('ds',0.91,'s')
