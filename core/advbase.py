@@ -550,7 +550,6 @@ class Adv(object):
             self.damage_sources.add(name)
 
     def doconfig(self):
-
         # set act
         self.action = Action()
         self.action._static.spd_func = self.speed
@@ -1012,6 +1011,9 @@ class Adv(object):
             if b.name.startswith(name) and b.get():
                 return True
         return False
+
+    def buffstack(self, name):
+        return reduce(lambda s, b: s+int(b.name == name and b.get()), self.all_buffs, 0)
 
     @property
     def buffcount(self):

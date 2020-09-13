@@ -7,10 +7,6 @@ import adv.chelsea
 def module():
     return Chelsea
 
-class Dear_Diary(Amulet):
-    att = 65
-    a = [('cc',0.14)]
-
 class Chelsea(adv.chelsea.Chelsea):
     comment = 'roll fs; only use s1 3 times to proc RO at'
     conf = adv.chelsea.Chelsea.conf.copy()
@@ -18,8 +14,8 @@ class Chelsea(adv.chelsea.Chelsea):
     conf['slots.a'] = The_Lurker_in_the_Woods()+Dear_Diary()
     conf['acl'] = """
         `s3,not buff(s3)
-        `s2,fsc
-        `s1,fsc and self.hp < 30 and self.ro_charges > 0
+        `s2, fsc
+        `s1, fsc and self.hp < 30 and Buff().stack('ro') < 3
         `dodge, fsc
         `fs
     """

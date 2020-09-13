@@ -9,9 +9,9 @@ class Chelsea(Adv):
     conf['slots.d'] = Dreadking_Rathalos()
     conf['slots.a'] = Mega_Friends()+Primal_Crisis()
     conf['acl'] = """
-        `s3, fsc and not buff(s3)
-        `s1, fsc
+        `s3,not buff(s3)
         `s2, fsc
+        `s1, fsc and self.hp < 30 and buffstack(ro) < 3
         `s4, fsc
         `fs, x=1
     """
@@ -27,6 +27,10 @@ class Chelsea(Adv):
         for b in self.s2_buffs:
             b.off()
         self.s2_buffs = []
+
+    def fs_before(self, e):
+        if self.obsession:
+            self.add_hp(-3)
 
     def x_before(self, e):
         if self.obsession:
