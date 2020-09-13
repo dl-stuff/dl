@@ -12,10 +12,10 @@ class Patia(Adv):
     conf['slots.poison.a'] = conf['slots.a']
     conf['slots.d'] = Azazel()
     conf['acl'] = """
-        `dragon(c3-s-end), fsc
+        `dragon(c3-s-end), fscf
         `s3, not buff(s3)
         `s1
-        `s4, x=5
+        `s4, x=4
         `fs, x=5
     """
     conf['coabs'] = ['Audric','Bow','Tobias']
