@@ -409,56 +409,81 @@ def act_sum(actions, output):
         if cnt > 1:
             output.write('*{}'.format(cnt))
 
-def dps_sum(real_d, damage, mod_func=None):
+def dps_sum(real_d, damage):
     res = {'dps':0}
     for k, v in damage.items():
-        ds = dict_sum(v, mod_func)
+        ds = dict_sum(v)
         res[k] = ds / real_d
         res['dps'] += ds
     res['dps'] = res['dps'] / real_d
     return res
 
-def dict_sum(sub, mod_func=None):
-    if callable(mod_func):
-        return sum([mod_func(k2, v2) for k2, v2 in sub.items()])
-    else:
-        return sum(sub.values())
+def dict_sum(sub):
+    return sum(sub.values())
 
-def damage_counts(real_d, damage, counts, output, mod_func=None, res=None):
+def damage_counts(real_d, damage, counts, output, res=None):
     if res is None:
-        res = dps_sum(real_d, damage, mod_func)
-    if callable(mod_func):
-        mod_func = lambda k, v: round(mod_func(k, v))
-    else:
-        mod_func = lambda k, v: round(v)
-    for k1, v1 in (damage.items()):
-        found_count = set()
-        if len(v1) > 0 or len(counts[k1]) > 0:
+        res = dps_sum(real_d, damage)
+    for k1, v1 in (counts.items()):
+        found_dmg = set()
+        d1 = damage[k1]
+        if v1 or d1.get(k1):
             output.write('\n{:>1} {:>3.0f}%| '.format(k1, res[k1] * 100 / res['dps']))
-        c1 = counts[k1]
         if k1 == 'x':
-            cdmg = defaultdict(lambda: 0)
-            ccnt = defaultdict(lambda: 0)
+            ccnt, cdmg = defaultdict(lambda: 0), defaultdict(lambda: 0)
             for k2, v2 in v1.items():
                 ck = k2.split('_')
                 ck = 'x' if len(ck) == 1 else f'x_{ck[1]}'
-                cdmg[ck] += v2
-                ccnt[ck] += c1[k2]
-            v1 = dict(cdmg)
-            c1 = dict(ccnt)
-        for k2, v2 in sorted(v1.items()):
-            modded_value = mod_func(k2, v2)
-            try:
-                output.write('{}: {:d} [{}], '.format(k2, modded_value, c1[k2]))
-                found_count.add(k2)
-            except:
-                output.write('{}: {:d}, '.format(k2, modded_value))
-        for k2, v2 in sorted(c1.items()):
-            if not k2 in found_count:
-                output.write('{} [{}], '.format(k2, c1[k2]))
+                ccnt[ck] += v2
+                cdmg[ck] += d1[k2]
+            v1 = dict(ccnt)
+            d1 = dict(cdmg)
+        if k1 == 'd':
+            ccnt, cdmg = defaultdict(lambda: 0), defaultdict(lambda: 0)
+            for k2, v2 in d1.items():
+                dk = 'dx' if k2.startswith('dx') else k2
+                cdmg[dk] += v2
+                if k2 in v1:
+                    ccnt[dk] += v1[k2]
+            v1 = dict(ccnt)
+            d1 = dict(cdmg)
+        for k2, v2 in sorted(v1.items(), key=lambda item: item[0]):
+            if d1.get(k2):
+                output.write('{}: {:d} [{}], '.format(k2, int(d1[k2]), v2))
+                found_dmg.add(k2)
+            else:
+                output.write('{}: [{}], '.format(k2, v2))
+        for k2, v2 in sorted(d1.items(), key=lambda item: item[0]):
+            if k2 not in found_dmg:
+                output.write('{}: {:d}, '.format(k2, int(v2)))
+    # for k1, v1 in (damage.items()):
+    #     found_dmg = set()
+    #     if len(v1) > 0 or len(counts[k1]) > 0:
+    #         output.write('\n{:>1} {:>3.0f}%| '.format(k1, res[k1] * 100 / res['dps']))
+    #     c1 = counts[k1]
+    #     if k1 == 'x':
+    #         cdmg = defaultdict(lambda: 0)
+    #         ccnt = defaultdict(lambda: 0)
+    #         for k2, v2 in v1.items():
+    #             ck = k2.split('_')
+    #             ck = 'x' if len(ck) == 1 else f'x_{ck[1]}'
+    #             cdmg[ck] += v2
+    #             ccnt[ck] += c1[k2]
+    #         v1 = dict(cdmg)
+    #         c1 = dict(ccnt)
+    #     for k2, v2 in sorted(v1.items(), key=lambda item: item[0]):
+    #         modded_value = round(v2)
+    #         try:
+    #             output.write('{}: {:d} [{}], '.format(k2, modded_value, c1[k2]))
+    #             found_count.add(k2)
+    #         except:
+    #             output.write('{}: {:d}, '.format(k2, modded_value))
+    #     for k2, v2 in sorted(c1.items(), key=lambda item: item[0]):
+    #         if not k2 in found_count:
+    #             output.write('{} [{}], '.format(k2, c1[k2]))
 
-def summation(real_d, adv, output, cond=True, mod_func=None, no_cond_dps=None):
-    res = dps_sum(real_d, adv.logs.damage, mod_func)
+def summation(real_d, adv, output, cond=True, no_cond_dps=None):
+    res = dps_sum(real_d, adv.logs.damage)
     if cond:
         output.write('='*BR+'\n')
         output.write('DPS - {}'.format(round(res['dps'])))
@@ -489,14 +514,14 @@ def summation(real_d, adv, output, cond=True, mod_func=None, no_cond_dps=None):
             output.write(' '.join(cond_comment))
             output.write('\n')
     output.write('-'*BR)
-    damage_counts(real_d, adv.logs.damage, adv.logs.counts, output, mod_func=mod_func, res=res)
+    damage_counts(real_d, adv.logs.damage, adv.logs.counts, output, res=res)
     output.write('\n')
 
-def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
+def report(real_d, adv, output, team_dps, cond=True):
     name = adv.__class__.__name__
     condition = '<{}>'.format(adv.condition.cond_str())
     dmg = adv.logs.damage
-    res = dps_sum(real_d, dmg, mod_func)
+    res = dps_sum(real_d, dmg)
     buff = adv.logs.team_buff / real_d
     report_csv = [res['dps']]
     report_csv.extend([
@@ -510,7 +535,7 @@ def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
         adv.comment
     ])
     dps_mappings = {}
-    dps_mappings['attack'] = dict_sum(dmg['x'], mod_func) / real_d
+    dps_mappings['attack'] = dict_sum(dmg['x']) / real_d
     for k in sorted(dmg['f']):
         dps_mappings[k] = dmg['f'][k] / real_d
     for k in sorted(dmg['s']):
@@ -538,10 +563,7 @@ def report(real_d, adv, output, team_dps, cond=True, mod_func=None):
                 dps_mappings[k] = dmg_val / real_d
 
     report_csv[0] = round(report_csv[0])
-    if callable(mod_func):
-        report_csv.extend(['{}:{}'.format(k, int(mod_func(k, v))) for k, v in dps_mappings.items()])
-    else:
-        report_csv.extend(['{}:{}'.format(k, int(v)) for k, v in dps_mappings.items()])
+    report_csv.extend(['{}:{}'.format(k, int(v)) for k, v in dps_mappings.items()])
 
     output.write(','.join([str(s) for s in report_csv]))
     output.write('\n')

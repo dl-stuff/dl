@@ -1,11 +1,12 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
+from module.template import RngCritAdv
 
 def module():
     return Eugene
 
-class Eugene(Adv):    
+class Eugene(RngCritAdv):    
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Memory_of_a_Friend()
     conf['slots.d'] = Gaibhne_and_Creidhne()
@@ -17,43 +18,28 @@ class Eugene(Adv):
         `s4, fsc and not self.inspiration()>=5 and not self.energy()>=5
         `fs, x=2
     """
-    conf['coabs'] = ['Hunter_Sarisse', 'Dagger', 'Summer_Estelle']
+    conf['coabs'] = ['Hunter_Sarisse', 'Dragonyule_Cleo', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def prerun(self):
-        self.phase['s1'] = 0
-        self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff
         self.checkmate = 0
-        self.s2.check = lambda: self.checkmate > 0
-        self.a1_cd = False
-        self.crit_mod = self.custom_crit_mod
-
-    def custom_crit_mod(self, name):
-        if self.a1_cd or name == 'test' or self.inspiration()>=5:
-            return self.solid_crit_mod(name)
-        else:
-            crit = self.rand_crit_mod(name)
-            if crit > 1 and not self.a1_cd:
-                self.inspiration.add(1)
-                self.a1_cd = True
-                Timer(self.a1_cd_off).on(10)
-            return crit
-
-    def a1_cd_off(self, t):
-        self.a1_cd = False
+        o_s2_check = self.a_s_dict['s2'].check
+        self.a_s_dict['s2'].check = lambda: not self.a_s_dict['s2']._static.silence and self.checkmate > 0
+        self.config_rngcrit(cd=10)
 
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.checkmate = 0
 
+    def rngcrit_skip(self):
+        return self.inspiration()>=5
+
+    def rngcrit_cb(self):
+        self.inspiration.add(1)
+
     def s1_proc(self, e):
-        self.phase[e.name] += 1
-        if self.condition(f'{e.name} buff for 10s'):
-            self.buff_class(e.name,0.20,10,'att').zone().on()
-            if self.phase[e.name] == 3:
-                self.buff_class(e.name,0.20,10,'crit','damage').zone().on()
-                self.checkmate = min(self.checkmate+1, 2)
-        self.phase[e.name] %= 3
+        if e.group == 2:
+            self.checkmate = min(self.checkmate+1, 2)
 
     def s2_proc(self, e):
         self.checkmate -= 1

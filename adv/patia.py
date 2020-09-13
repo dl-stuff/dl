@@ -8,7 +8,7 @@ def module():
 
 class Patia(Adv):
     conf = {}
-    conf['slots.a'] = Proper_Maintenance()+FWHC()
+    conf['slots.a'] = Proper_Maintenance()+From_Whence_He_Comes()
     conf['slots.poison.a'] = conf['slots.a']
     conf['slots.d'] = Azazel()
     conf['acl'] = """
@@ -18,15 +18,11 @@ class Patia(Adv):
         `s4, x=5
         `fs, x=5
     """
-
     conf['coabs'] = ['Audric','Bow','Tobias']
     conf['share'] = ['Karl']
 
     def prerun(self):
         self.bleed = Bleed('g_bleed',0).reset()
-
-    def s1_proc(self, e):
-        Teambuff(f'{e.name}_defense', 0.25, 15, 'defense').on()
 
     def s2_proc(self, e):
         Bleed(e.name, 1.46).on()

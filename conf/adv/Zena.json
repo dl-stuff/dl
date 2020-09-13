@@ -1,25 +1,36 @@
 {
     "c": {
-        "a": [["a", 0.08], ["prep", 100]],
-        "att": 514,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "wand",
         "name": "Zena",
-        "spiral": 0
+        "icon": "100009_07_r05",
+        "att": 514,
+        "hp": 745,
+        "ele": "shadow",
+        "wt": "wand",
+        "spiral": false,
+        "a": [["a", 0.08], ["prep", 100]]
+    },
+    "fs_zenaheal": {
+        "charge": 0.5,
+        "startup": 0.23333,
+        "recovery": 1.0
     },
     "s1": {
-        "dmg": 7.79,
-        "hit": 4,
-        "recovery": 1.1667,
         "sp": 2759,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 1.9, "iv": 0.26667},
+            {"dmg": 1.9, "iv": 0.53333},
+            {"dmg": 1.9, "iv": 0.7},
+            {"dmg": 2.09, "buff": ["fsAlt", "zenaheal", -1, 1], "iv": 0.83333}
+        ]
     },
     "s2": {
-        "dmg": 4.0,
-        "hit": 1,
-        "recovery": 0.8667,
         "sp": 5570,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 0.86667,
+        "attr": [
+            {"dmg": 4.0, "iv": 0.33333}
+        ]
     }
 }

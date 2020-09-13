@@ -33,10 +33,10 @@ class Veronica(Adv):
             self.set_hp(30)
             self.a1_buff.on()
 
-    def s1_proc(self, e):
-        if self.hp >= 50:
-            self.set_hp(self.hp-10)
-            self.charge_p(f'{e.name}_hpcut', 0.20, target=e.name)
+    # def s1_proc(self, e):
+    #     if self.hp >= 50:
+    #         self.set_hp(self.hp-10)
+    #         self.charge_p(f'{e.name}_hpcut', 0.20, target=e.name)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -782,3 +782,13 @@ class Energy_Extra(Ability):
         adv.Event('energy').listener(l_energy)
 
 ability_dict['eextra'] = Energy_Extra
+
+
+class Damaged_Buff(BuffingAbility):
+    def oninit(self, adv, afrom=None):
+        from core.modifier import SingleActionBuff
+        def l_damaged_buff(e):
+            if e.delta < 0:
+                SingleActionBuff(*self.buff_args).on()
+        adv.Event('hp').listener(l_damaged_buff)
+ability_dict['damaged'] = Damaged_Buff

@@ -1,25 +1,42 @@
 {
     "c": {
-        "a": [["a", -0.55], ["edge_poison", 70, "hit15"]],
-        "att": 572,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "dagger",
         "name": "Delphi",
-        "spiral": 1
+        "icon": "110336_01_r05",
+        "att": 572,
+        "hp": 956,
+        "ele": "shadow",
+        "wt": "dagger",
+        "spiral": true,
+        "a": [["a", -0.55], ["edge_poison", 70, "hit15"]]
+    },
+    "fs_enhanced": {
+        "startup": 0.15152,
+        "recovery": 0.60606,
+        "attr": [
+            {"dmg": 0.57, "sp": 288, "afflic": ["poison", 120, 3.0, 27]},
+            {"dmg": 0.57, "iv": 0.12121},
+            {"dmg": 0.11, "iv": 0.27272, "msl": 1},
+            {"dmg": 0.11, "iv": 0.27272, "msl": 1},
+            {"dmg": 0.11, "iv": 0.27272, "msl": 1},
+            {"dmg": 0.57, "iv": 0.36363}
+        ]
     },
     "s1": {
-        "dmg": 3.66,
-        "hit": 1,
-        "recovery": 1.85,
         "sp": 999999,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 3.66, "buff": ["fsAlt", "enhanced", -1, 1], "iv": 0.36667},
+            {"buff": ["debuff", -0.2, 10.0, 1.0, "defb"], "iv": 0.4}
+        ]
     },
     "s2": {
-        "dmg": 4.99,
-        "hit": 1,
-        "recovery": 3.85,
         "sp": 999999,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 3.0,
+        "attr": [
+            {"dmg": 4.99, "afflic": ["poison", 120, 3.0, 27], "iv": 2.4},
+            {"buff": ["debuff", -0.15, 15.0, 1.0, "attack", "-refresh"], "iv": 2.4}
+        ]
     }
 }

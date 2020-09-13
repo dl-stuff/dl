@@ -6,8 +6,6 @@ def module():
     return Dragonyule_Nefaria
 
 class Dragonyule_Nefaria(Adv):
-    a1 = ('s',0.25)
-    
     conf = {}
     conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
     conf['slots.frostbite.a'] = conf['slots.a']

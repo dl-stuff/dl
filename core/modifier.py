@@ -408,15 +408,17 @@ class FSAltBuff(ModeAltBuff):
             self.adv.a_fs_dict[fsn].set_enabled(enabled)
 
     def effect_on(self):
-        self.logwrapper(f'fs-{self.name} on', self.uses)
+        # self.logwrapper(f'fs-{self.name} on', self.uses)
         self.enable_fs(True)
         self.adv.current_fs = self.group
+        self.adv.alt_fs_buff = self
         self.l_fs.on()
 
     def effect_off(self):
-        self.logwrapper(f'fs-{self.name} off', self.uses)
+        # self.logwrapper(f'fs-{self.name} off', self.uses)
         self.enable_fs(False)
         self.adv.current_fs = self.default_fs
+        self.adv.alt_fs_buff = None
         self.l_fs.off()
 
     def on(self, duration=None):
@@ -447,7 +449,7 @@ class XAltBuff(ModeAltBuff):
             xact.enabled = enabled
 
     def effect_on(self):
-        self.logwrapper(f'x-{self.group} on')
+        # self.logwrapper(f'x-{self.group} on')
         self.enable_x(True)
         if self.deferred:
             self.adv.deferred_x = self.group
@@ -455,7 +457,7 @@ class XAltBuff(ModeAltBuff):
             self.adv.current_x = self.group
 
     def effect_off(self):
-        self.logwrapper(f'x-{self.group} off', self.default_x)
+        # self.logwrapper(f'x-{self.group} off', self.default_x)
         self.enable_x(False)
         if self.deferred:
             self.adv.deferred_x = self.default_x
@@ -485,11 +487,11 @@ class SAltBuff(ModeAltBuff):
             s.enabled = enabled
 
     def effect_on(self):
-        self.logwrapper(f'{self.name} on')
+        # self.logwrapper(f'{self.name} on')
         self.adv.current_s[self.base] = self.group
 
     def effect_off(self):
-        self.logwrapper(f'{self.name} off', self.default_s)
+        # self.logwrapper(f'{self.name} off', self.default_s)
         self.adv.current_s[self.base] = self.default_s
 
     def l_extend_time(self, e):
@@ -590,6 +592,18 @@ class ZoneTeambuff(Teambuff):
         super().__init__(name, value, duration, mtype, morder)
         self.bufftime = self._no_bufftime
         self.name += '_zone'
+    
+    @property
+    def zone_buffs(self):
+        return sorted((b for b in self._static.all_buffs if type(b) == ZoneTeambuff and b.get()), key=lambda b: b.timeleft())
+
+    def on(self, duration=0):
+        zones = self.zone_buffs
+        if len(zones) > 4:
+            zones[0].off()
+        super().on(duration=duration)
+        return self
+
 bufftype_dict['zone'] = ZoneTeambuff
 
 

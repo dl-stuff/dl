@@ -6,9 +6,6 @@ def module():
     return Durant
 
 class Durant(Adv):
-    a1 = ('a',0.13,'hp100')
-    a3 = ('cd',0.17,'hp100')
-
     conf = {}
     conf['slots.a'] = The_Fires_of_Hate()+Howling_to_the_Heavens()
     conf['slots.d'] = Fatalis()
@@ -24,11 +21,8 @@ class Durant(Adv):
         `s4
     """
     conf['coabs'] = ['Dagger2', 'Tobias', 'Axe2']
-    conf['share'] = ['Kleimann']
-
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Curran']
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

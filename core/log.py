@@ -69,10 +69,9 @@ class Log:
                     self.update_dict(self.damage['o'], name, float(args[2]))
             elif category == 'x' or category == 'cast':
                 self.update_dict(self.counts[name[0]], name, 1)
-                name1 = name.split('_')[0]
-                if name1 != name:
-                    self.update_dict(self.counts[name[0]], name1, 1)
-
+                # name1 = name.split('_')[0]
+                # if name1 != name:
+                #     self.update_dict(self.counts[name[0]], name1, 1)
                 self.act_seq.append(name)
             elif category == 'buff' and name == 'team':
                 if self.p_buff is not None:

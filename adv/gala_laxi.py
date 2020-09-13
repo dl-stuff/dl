@@ -118,7 +118,7 @@ class Gala_Laxi(StanceAdv):
 
         self.config_stances({
             'default': None,
-            'ex': ModeManager('ex', x=True)
+            'ex': ModeManager(group='ex', x=True)
         }, deferred=False)
 
     @staticmethod

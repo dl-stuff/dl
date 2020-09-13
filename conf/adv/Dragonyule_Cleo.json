@@ -1,25 +1,60 @@
 {
     "c": {
-        "a": [["a", 0.13, "hp70"], ["ecombo", 30]],
+        "name": "Dragonyule Cleo",
+        "icon": "100004_02_r05",
         "att": 474,
+        "hp": 801,
         "ele": "water",
-        "stars": "5",
         "wt": "dagger",
-        "name": "Dragonyule_Cleo",
-        "spiral": 0
+        "spiral": false,
+        "a": [["a", 0.13, "hp70"], ["ecombo", 30]]
     },
-    "s1": {
-        "dmg": 7.37,
-        "hit": 11,
-        "recovery": 2.5,
+    "s1_phase1": {
         "sp": 3136,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.43333,
+        "attr": [
+            {"buff": ["energy", 1, "team"], "afflic": ["freeze", 120], "iv": 0.5},
+            {"dmg": 0.67, "iv": 0.5, "msl": 1}, 3,
+            {"dmg": 0.67, "iv": 0.93333, "msl": 1}, 3,
+            {"dmg": 0.67, "iv": 1.46667, "msl": 1}, 5
+        ]
+    },
+    "s1_phase2": {
+        "sp": 3136,
+        "startup": 0.1,
+        "recovery": 2.43333,
+        "attr": [
+            {"buff": ["energy", 1, "team"], "afflic": ["freeze", 120], "iv": 0.5},
+            {"buff": ["team", 0.1, 10.0, "att", "buff"], "iv": 0.5},
+            {"dmg": 0.67, "iv": 0.5, "msl": 1}, 3,
+            {"dmg": 0.67, "iv": 0.93333, "msl": 1}, 3,
+            {"dmg": 0.67, "iv": 1.46667, "msl": 1}, 5
+        ]
+    },
+    "s1_phase3": {
+        "sp": 3136,
+        "startup": 0.1,
+        "recovery": 2.43333,
+        "attr": [
+            {"buff": ["energy", 1, "team"], "afflic": ["freeze", 120], "iv": 0.5},
+            {"buff": ["team", 0.1, 10.0, "att", "buff"], "iv": 0.5},
+            {"buff": ["team", 0.08, 10.0, "crit", "chance"], "iv": 0.5},
+            {"dmg": 0.67, "iv": 0.5, "msl": 1}, 3,
+            {"dmg": 0.67, "iv": 0.93333, "msl": 1}, 3,
+            {"dmg": 0.67, "iv": 1.46667, "msl": 1}, 5
+        ]
     },
     "s2": {
-        "dmg": 7.4,
-        "hit": 5,
-        "recovery": 2.55,
         "sp": 4882,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.43333,
+        "attr": [
+            {"dmg": 1.48, "iv": 0.26667},
+            {"dmg": 1.48, "iv": 0.7},
+            {"dmg": 1.48, "iv": 1.1},
+            {"dmg": 1.48, "iv": 1.3},
+            {"dmg": 1.48, "iv": 1.6}
+        ]
     }
 }

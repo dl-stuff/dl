@@ -21,8 +21,6 @@ class Skill_Reservoir(Skill):
         return self.charged // self.sp
 
 class Chrom(Adv):
-    a1 = ('a', 0.15, 'hp100')
-
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
@@ -40,19 +38,14 @@ class Chrom(Adv):
         `fs, x=3
     """
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
-    conf['share'] = ['Kleimann']
+    conf['share.base'] = ['Kleimann']
+    conf['share.burn'] = ['Nadine']
 
-    def d_skillshare(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Nadine']
-
-    def init(self):
+    def __init__(self, conf=None, cond=None):
+        super().__init__(conf=conf, cond=cond)
         del self.slots.c.coabs['Sword']
         self.a_s_dict['s2'] = Skill_Reservoir('s2')
         self.a_s_dict['s2'].flames = 0
-
-    def prerun(self):
-        self.s2_woke = False
 
     def s1_proc(self, e):
         if self.s2.flames < 3:

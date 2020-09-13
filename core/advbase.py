@@ -539,7 +539,7 @@ class Adv(object):
         's3': skill_default,
         's4': skill_default,
 
-        'dodge.startup': 0.6,
+        'dodge.startup': 0.66667,
         'dodge.recovery': 0,
 
         'acl': '`s1;`s2;`s3'
@@ -550,7 +550,6 @@ class Adv(object):
             self.damage_sources.add(name)
 
     def doconfig(self):
-
         # set act
         self.action = Action()
         self.action._static.spd_func = self.speed
@@ -594,6 +593,7 @@ class Adv(object):
         if 'fs1' in self.a_fs_dict:
             self.a_fs_dict['fs'].enabled = False
         self.current_fs = None
+        self.alt_fs_buff = None
 
         self.a_fsf = Fs('fsf', self.conf.fsf)
         self.a_fsf.act_event = Event('none')
@@ -1012,6 +1012,9 @@ class Adv(object):
             if b.name.startswith(name) and b.get():
                 return True
         return False
+
+    def buffstack(self, name):
+        return reduce(lambda s, b: s+int(b.name == name and b.get()), self.all_buffs, 0)
 
     @property
     def buffcount(self):
@@ -1496,7 +1499,15 @@ class Adv(object):
             count += echo_count
         return count
 
+    ATTR_COND = {
+        'hp>=': lambda s, v: s.hp >= v,
+        'hp<=': lambda s, v: s.hp <= v,
+    }
     def hitattr_make(self, name, base, group, aseq, attr):
+        if 'cond' in attr:
+            condtype, condval = attr['cond']
+            if not Adv.ATTR_COND[condtype](self, condval):
+                return
         g_logs.log_hitattr(name, attr)
         hitmods = self.tension_mods(name)
         if 'dmg' in attr:
@@ -1536,9 +1547,9 @@ class Adv(object):
             self.dragonform.charge_gauge(attr['utp'], utp=True)
 
         if 'hp' in attr:
-            if isinstance(attr['hp'], float):
-                self.add_hp(attr['hp'])
-            else:
+            try:
+                self.add_hp(float(attr['hp']))
+            except TypeError:
                 value = attr['hp'][0]
                 mode = None if len(attr['hp']) == 1 else attr['hp'][1]
                 if mode == '=':
@@ -1627,7 +1638,10 @@ class Adv(object):
                     return None
                 except KeyError:
                     pass
-            return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs)
+            try:
+                return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs)
+            except ValueError:
+                return None
 
     def l_hitattr_make(self, t):
         self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr)
@@ -1694,7 +1708,7 @@ class Adv(object):
             if final_mt is not None:
                 final_mt.proc = proc
             else:
-                self.tension_off(t)
+                self.tension_off(e)
                 proc(e)
         except AttributeError:
             pass
@@ -1711,6 +1725,17 @@ class Adv(object):
         prev = self.action.getprev().name
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
+
+    def c_fs(self, group):
+        if self.current_fs == group and self.alt_fs_buff is not None:
+            return self.alt_fs_buff.uses
+        return 0
+
+    def c_x(self, group):
+        return self.current_x == group
+
+    def c_s(self, seq, group):
+        return self.current_s[f's{seq}'] == group
 
     @property
     def dgauge(self):
