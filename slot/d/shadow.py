@@ -320,15 +320,16 @@ class Gala_Cat_Sith(DragonBase):
         self.check_trickery()
 
         if adv.condition('always connect hits'):
-            self.dmg_proc_o = adv.dmg_proc
+            self.add_combo_o = adv.add_combo
             self.thit = 0
-            def dmg_proc(name, amount):
-                n_thit = adv.hits // self.threshold
-                if n_thit > self.thit:
-                    self.add_trickery(n_thit-self.thit)
-                    self.thit = n_thit
-                self.dmg_proc_o(name, amount)
-            adv.dmg_proc = dmg_proc
+            def add_combo():
+                c_before = adv.hits
+                self.add_combo_o()
+                self.thit += (adv.hits - c_before)
+                while self.thit >= 25:
+                    self.thit -= 25
+                    self.add_trickery(1)
+            adv.add_combo = add_combo
 
     def add_trickery(self, t):
         from core.log import log

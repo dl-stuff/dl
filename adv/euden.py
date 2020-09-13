@@ -5,9 +5,7 @@ from slot.d import *
 def module():
     return Euden
 
-class Euden(Adv):
-    a1 = ('dc', 4)
-    
+class Euden(Adv):    
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['slots.d'] = Gala_Mars()
@@ -23,9 +21,6 @@ class Euden(Adv):
     conf['afflict_res.burn'] = 0
     conf['share'] = ['Summer_Patia']
 
-    def s1_proc(self, e):
-        self.afflics.burn(e.name,110,0.883)
-        self.dragonform.charge_gauge(30)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

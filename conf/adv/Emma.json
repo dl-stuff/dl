@@ -1,25 +1,28 @@
 {
     "c": {
-        "a": [["bt", 0.25], ["primed_att", 0.05]],
-        "att": 470,
-        "ele": "flame",
-        "stars": "4",
-        "wt": "lance",
         "name": "Emma",
-        "spiral": 0
+        "icon": "110260_01_r04",
+        "att": 471,
+        "hp": 765,
+        "ele": "flame",
+        "wt": "lance",
+        "spiral": false,
+        "a": [["bt", 0.25], ["primed_att", 0.05]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 2.1,
         "sp": 3817,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.1,
+        "attr": [
+            {"buff": ["ele", 0.25, 15.0, "att", "buff", "flame"], "iv": 0.9}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 2.8,
         "sp": 9154,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.8,
+        "attr": [
+            {"buff": ["ele", 0.15, 15.0, "defense", "buff", "flame"], "iv": 1.5}
+        ]
     }
 }

@@ -755,22 +755,22 @@ class ActiveBuffDict(defaultdict):
                 if isinstance(group, int):
                     group -= 1
                 try:
-                    return any(self.checkbuff(b, *args) for b in subdict[group].values())
+                    return any(b.get() for b in subdict[group].values())
                 except KeyError:
                     return False
             else:
-                return any(self.checkbuff(b, *args) for sub in subdict.values() for b in sub.values())
+                return any(b.get() for sub in subdict.values() for b in sub.values())
         else:
             return False
     
     def has(self, k, group, seq):
         return k in self and group in self[k] and seq in self[k][group]
 
-    @staticmethod
-    def checkbuff(buff, *args):
-        if 'timeleft' in args:
-            return buff.timeleft()
-        return buff.get()
+    def timeleft(self, k, group, seq):
+        try:
+            return self[k][group][seq].timeleft()
+        except KeyError:
+            return 0
 
     def add(self, k, group, seq, buff):
         self[k][group][seq] = buff

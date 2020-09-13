@@ -44,7 +44,7 @@ class Skill(object):
         self.silence_end_event = Event('silence_end')
         self.skill_charged = Event('{}_charged'.format(self.name))
 
-        self.enable_phase_up = False
+        self.enable_phase_up = None
 
     def add_action(self, group, act):
         self.act_dict[group] = act
@@ -790,7 +790,7 @@ class Adv(object):
         self.Modifier = Modifier
         self.Conf = Conf
 
-        self.conf_init = conf
+        self.conf_init = conf or {}
         self.ctx = Ctx().on()
         self.condition = Condition(cond)
         self.duration = 180
@@ -1096,7 +1096,7 @@ class Adv(object):
         # real combo count
         delta = now()-self.last_c
         if delta < self.ctime:
-            self.hits += 1
+            self.hits += self.echo
         else:
             self.hits = 0
             log('combo', f'reset combo after {delta:.02}s')
@@ -1107,10 +1107,11 @@ class Adv(object):
         if hit is None:
             raise ValueError('none type hit')
         if hit >= 0:
+            c_hits = self.hits
             self.last_c = now()
-            delta = hit*self.echo
-            self.hits += hit*self.echo
-            return delta
+            for _ in range(hit):
+                self.add_combo()
+            return self.hits - c_hits
         self.hits = 0
         return 0
 
@@ -1598,7 +1599,8 @@ class Adv(object):
                     obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff, bctrl=bctrl)
                     if obj:
                         buff_objs.append(obj)
-                self.buff.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
+                if buff_objs:
+                    self.buff.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
             else:
                 buff = self.hitattr_buff(name, base, group, aseq, 0, attr['buff'])
                 if buff:

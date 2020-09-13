@@ -1,25 +1,125 @@
 {
     "c": {
-        "a": [["k_debuff_def", 0.3], ["k_poison", 0.3]],
+        "name": "Gala Alex",
+        "icon": "100005_02_r05",
         "att": 506,
+        "hp": 752,
         "ele": "shadow",
-        "stars": "5",
         "wt": "sword",
-        "name": "Gala_Alex",
-        "spiral": 0
+        "spiral": false,
+        "a": [["k_debuff_def", 0.3], ["k_poison", 0.3]]
     },
-    "s1": {
-        "dmg": 0,
-        "hit": 0,
-        "recovery": 1.067,
+    "s1_base1": {
         "sp": 1129,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 2.02, "buff": ["debuff", -0.05, 15.0, 1.0, "def", "-refresh"], "iv": 0.16667},
+            {"dmg": 2.02, "iv": 0.36667},
+            {"dmg": 2.02, "iv": 0.6}
+        ]
     },
-    "s2": {
-        "dmg": 0,
-        "hit": 0,
-        "recovery": 1.333,
+    "s1_chain1": {
+        "sp": 1129,
+        "startup": 0.1,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.16667},
+            {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.36667},
+            {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.6},
+            {"dmg": 4.85, "killer": [0.1, ["debuff_def"]], "iv": 1.33333, "msl": 1}
+        ]
+    },
+    "s1_dispel1": {
+        "sp": 1129,
+        "startup": 0.1,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 2.02, "iv": 0.16667},
+            {"dmg": 2.02, "iv": 0.36667},
+            {"dmg": 2.02, "iv": 0.6},
+            {"dmg": 4.85, "killer": [0.1, ["debuff_def"]], "iv": 1.33333, "msl": 1}
+        ]
+    },
+    "s1_break1": {
+        "sp": 1129,
+        "startup": 0.1,
+        "recovery": 1.06667,
+        "attr": [
+            {"dmg": 2.35, "killer": [0.5, ["break"]], "iv": 0.16667},
+            {"dmg": 2.35, "killer": [0.5, ["break"]], "iv": 0.36667},
+            {"dmg": 2.35, "killer": [0.5, ["break"]], "iv": 0.6},
+            {"dmg": 6.58, "killer": [0.5, ["break"]], "iv": 1.33333, "msl": 1}
+        ]
+    },
+    "s2_base2": {
         "sp": 2120,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 5.53, "afflic": ["poison", 120, 0.582], "iv": 0.53333, "msl": 1}
+        ]
+    },
+    "s2_chain2": {
+        "sp": 2120,
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 5.53, "killer": [0.1, ["poison"]], "iv": 0.53333, "msl": 1},
+            {"dmg": 4.42, "killer": [0.1, ["poison"]], "iv": 1.36667, "msl": 1}
+        ]
+    },
+    "s2_dispel2": {
+        "sp": 2120,
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 5.53, "iv": 0.53333, "msl": 1},
+            {"dmg": 4.42, "killer": [0.1, ["poison"]], "iv": 1.36667, "msl": 1}
+        ]
+    },
+    "s2_break2": {
+        "sp": 2120,
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 6.48, "killer": [0.5, ["break"]], "iv": 0.53333, "msl": 1},
+            {"dmg": 6.48, "killer": [0.5, ["break"]], "iv": 1.36667, "msl": 1}
+        ]
+    },
+    "x1": {
+        "startup": 0.16667,
+        "recovery": 0.23333,
+        "attr": [
+            {"dmg": 0.82, "sp": 150}
+        ]
+    },
+    "x2": {
+        "startup": 0.33333,
+        "recovery": 0.23334,
+        "attr": [
+            {"dmg": 0.88, "sp": 150}
+        ]
+    },
+    "x3": {
+        "startup": 0.23077,
+        "recovery": 0.1282,
+        "attr": [
+            {"dmg": 1.04, "sp": 196}
+        ]
+    },
+    "x4": {
+        "startup": 0.2,
+        "recovery": 0.16667,
+        "attr": [
+            {"dmg": 1.1, "sp": 265}
+        ]
+    },
+    "x5": {
+        "startup": 0.36667,
+        "recovery": 0.81667,
+        "attr": [
+            {"dmg": 1.65, "sp": 391}
+        ]
     }
 }

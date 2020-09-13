@@ -6,44 +6,19 @@ def module():
     return Fleur
 
 class Fleur(Adv):
-    a1 = ('sp',0.08,'hp70')
-    a3 = ('k_paralysis',0.2)
-
     conf = {}
-    conf['slots.a'] = TB()+SotS()
+    conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
     conf['acl'] = '''
         `dragon, cancel
         `s3, not buff(s3)
         `s2, s=1
         `s1
-        `s4, s=1
+        `s4, xf or fscf
         `fs, x=5
     '''
     conf['coabs'] = ['Lucretia','Sharena','Peony']
     conf['afflict_res.paralysis'] = 0
     conf['share'] = ['Kleimann']
-
-    def init(self):
-        self.phase['s1'] = 0
-
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.phase[dst] = 0
-
-    def s1_proc(self, e):
-        with Modifier('s1killer', 'paralysis_killer', 'hit', 0.8):
-            coef = 3.33
-            self.dmg_make(e.name, coef)
-            self.phase[e.name] += 1
-            if self.phase[e.name] == 1:
-                self.afflics.paralysis(e.name,110,0.883)
-            else:
-                self.afflics.paralysis(e.name,160, 0.883)
-            self.dmg_make(e.name, coef)
-            self.phase[e.name] %= 3
-
-    def s2_proc(self, e):
-        self.s1.charge(self.s1.sp)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

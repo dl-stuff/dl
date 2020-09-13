@@ -1,25 +1,94 @@
 {
     "c": {
-        "a": [["prep", 1.0]],
+        "name": "Gala Cleo",
+        "icon": "100004_10_r05",
         "att": 489,
+        "hp": 785,
         "ele": "shadow",
-        "stars": "5",
         "wt": "wand",
-        "name": "Gala_Cleo",
-        "spiral": 0
+        "spiral": false,
+        "a": [["prep", 1.0]]
     },
-    "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.45,
+    "fs_gleozone": {
+        "charge": 0.5,
+        "startup": 0.23333,
+        "recovery": 1.0,
+        "attr": [
+            {"buff": ["zone", 0.25, 10.0, "att", "buff"]}
+        ]
+    },
+    "s1_phase1": {
         "sp": 2814,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 0.88, "buff": ["fsAlt", "gleozone", -1, 1], "msl": 1},
+            {"dmg": 2.65, "msl": 1},
+            {"dmg": 0.88, "msl": 1, "iv": 0.2},
+            {"dmg": 2.65, "msl": 1, "iv": 0.2},
+            {"dmg": 0.88, "msl": 1, "iv": 0.4},
+            {"dmg": 2.65, "msl": 1, "iv": 0.4}
+        ]
     },
-    "s2": {
-        "dmg": 4.6,
-        "hit": 1,
-        "recovery": 1.45,
+    "s1_phase2": {
+        "sp": 2814,
+        "startup": 0.1,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 0.88, "buff": ["fsAlt", "gleozone", -1, 1], "msl": 1},
+            {"dmg": 2.65, "msl": 1},
+            {"dmg": 0.88, "msl": 1, "iv": 0.15},
+            {"dmg": 2.65, "msl": 1, "iv": 0.15},
+            {"dmg": 0.88, "msl": 1, "iv": 0.3},
+            {"dmg": 2.65, "msl": 1, "iv": 0.3},
+            {"dmg": 0.88, "msl": 1, "iv": 0.45},
+            {"dmg": 2.65, "msl": 1, "iv": 0.45}
+        ]
+    },
+    "s1_phase3": {
+        "sp": 2814,
+        "startup": 0.1,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 0.88, "buff": ["fsAlt", "gleozone", -1, 1], "msl": 1},
+            {"dmg": 2.65, "msl": 1},
+            {"dmg": 0.88, "msl": 1, "iv": 0.1},
+            {"dmg": 2.65, "msl": 1, "iv": 0.1},
+            {"dmg": 0.88, "msl": 1, "iv": 0.2},
+            {"dmg": 2.65, "msl": 1, "iv": 0.2},
+            {"dmg": 0.88, "msl": 1, "iv": 0.3},
+            {"dmg": 2.65, "msl": 1, "iv": 0.3},
+            {"dmg": 0.88, "msl": 1, "iv": 0.4},
+            {"dmg": 2.65, "msl": 1, "iv": 0.4}
+        ]
+    },
+    "s2_phase1": {
         "sp": 6000,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 4.6, "iv": 1.0},
+            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "iv": 1.0}
+        ]
+    },
+    "s2_phase2": {
+        "sp": 6000,
+        "startup": 0.1,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 4.6, "iv": 1.0},
+            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "iv": 1.0},
+            {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "iv": 1.0}
+        ]
+    },
+    "s2_phase3": {
+        "sp": 6000,
+        "startup": 0.1,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 4.6, "iv": 1.0},
+            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "iv": 1.0},
+            {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "iv": 1.0}
+        ]
     }
 }

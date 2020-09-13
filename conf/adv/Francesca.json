@@ -1,26 +1,32 @@
 {
     "c": {
-        "a": [["fs", 0.3]],
-        "att": 451,
-        "ele": "wind",
-        "stars": "3",
-        "wt": "dagger",
         "name": "Francesca",
-        "spiral": 0
+        "icon": "110026_01_r03",
+        "att": 451,
+        "hp": 760,
+        "ele": "wind",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["fs", 0.3]]
     },
     "s1": {
-        "dmg": 6.76,
-        "hit": 4,
-        "recovery": 2.25,
         "sp": 2257,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.1,
+        "attr": [
+            {"dmg": 1.69, "iv": 0.26667},
+            {"dmg": 1.69, "iv": 0.43333},
+            {"dmg": 1.69, "iv": 0.86667},
+            {"dmg": 1.69, "iv": 1.4}
+        ]
     },
     "s2": {
-        "buff": ["debuff", 0.05, 10.0, 0.3],
-        "dmg": 5.76,
-        "hit": 2,
-        "recovery": 1.8,
         "sp": 4892,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 2.88, "buff": ["debuff", -0.05, 10.0, 0.3, "def"], "iv": 0.26667},
+            {"dmg": 2.88, "iv": 0.8}
+        ]
     }
 }

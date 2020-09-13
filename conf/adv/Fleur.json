@@ -1,26 +1,48 @@
 {
     "c": {
-        "a": [["sp", 0.08, "hp70"], ["k_paralysis", 0.2]],
-        "att": 481,
-        "ele": "light",
-        "stars": "4",
-        "wt": "dagger",
         "name": "Fleur",
-        "spiral": 0
+        "icon": "110319_01_r04",
+        "att": 481,
+        "hp": 740,
+        "ele": "light",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["sp", 0.08, "hp70"], ["k_paralysis", 0.2]]
     },
-    "s1": {
-        "dmg": 0.0,
-        "hit": 1,
-        "recovery": 1.1,
+    "s1_phase1": {
         "sp": 3478,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 3.33, "killer": [0.8, ["paralysis"]], "afflic": ["paralysis", 110, 0.883], "iv": 0.26667},
+            {"dmg": 3.33, "killer": [0.8, ["paralysis"]], "iv": 0.53333}
+        ]
+    },
+    "s1_phase2": {
+        "sp": 3478,
+        "startup": 0.1,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 3.33, "killer": [0.8, ["paralysis"]], "afflic": ["paralysis", 160, 0.883], "iv": 0.26667},
+            {"dmg": 3.33, "killer": [0.8, ["paralysis"]], "iv": 0.53333}
+        ]
+    },
+    "s1_phase3": {
+        "sp": 3478,
+        "startup": 0.1,
+        "recovery": 0.96667,
+        "attr": [
+            {"dmg": 3.33, "killer": [0.8, ["paralysis"]], "afflic": ["paralysis", 160, 0.883], "iv": 0.26667},
+            {"dmg": 3.33, "killer": [0.8, ["paralysis"]], "iv": 0.53333}
+        ]
     },
     "s2": {
-        "buff": ["self", 0.25, 5.0],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 5934,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"sp": [1.0, "%", "s1"], "iv": 0.13333},
+            {"buff": ["self", 0.25, 5.0, "att", "buff"], "iv": 0.16667}
+        ]
     }
 }

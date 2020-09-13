@@ -5,7 +5,6 @@ def module():
     return Eleonora
 
 class Eleonora(Adv):
-    a3 = ('prep','50%')
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
@@ -19,13 +18,6 @@ class Eleonora(Adv):
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
     conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
-    a1 = ('edge_poison', 50, 'hp100')
-
-    def s1_proc(self, e):
-        self.afflics.poison(e.name,110,0.53)
-
-    def s2_proc(self, e):
-        self.afflics.poison(e.name,100,0.396)
 
 
 if __name__ == '__main__':

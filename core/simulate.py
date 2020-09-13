@@ -400,7 +400,7 @@ def act_sum(actions, output):
             else:
                 parts = act.split('_')
                 if len(parts) > 1:
-                    if parts[1][-1].isdigit():
+                    if parts[1][:5] == 'phase':
                         act = parts[0]+'-'+parts[1][-1]
                     else:
                         act = parts[0]+'-'+parts[1][0]

@@ -1,25 +1,29 @@
 {
     "c": {
-        "a": [["prep", 1.0], ["scharge_all", 0.05]],
-        "att": 608,
-        "ele": "water",
-        "stars": "5",
-        "wt": "lance",
         "name": "Fjorm",
-        "spiral": 1
+        "icon": "110328_01_r05",
+        "att": 608,
+        "hp": 902,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": true,
+        "a": [["prep", 1.0], ["scharge_all", 0.05]]
     },
     "s1": {
-        "dmg": 9.86,
-        "hit": 2,
-        "recovery": 1.9667,
         "sp": 2738,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.96667,
+        "attr": [
+            {"dmg": 4.93, "afflic": ["freeze", 120], "iv": 0.23333},
+            {"dmg": 4.93, "afflic": ["frostbite", 120, 0.41], "iv": 1.26667}
+        ]
     },
     "s2": {
-        "dmg": 15.41,
-        "hit": 1,
-        "recovery": 3.7667,
         "sp": 4548,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 3.76667,
+        "attr": [
+            {"dmg": 15.41, "iv": 3.03333}
+        ]
     }
 }

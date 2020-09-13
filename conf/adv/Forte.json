@@ -1,25 +1,33 @@
 {
     "c": {
-        "a": [["k_poison", 0.3]],
-        "att": 511,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "lance",
         "name": "Forte",
-        "spiral": 0
+        "icon": "110272_01_r05",
+        "att": 511,
+        "hp": 748,
+        "ele": "shadow",
+        "wt": "lance",
+        "spiral": false,
+        "a": [["k_poison", 0.3]]
     },
     "s1": {
-        "dmg": 0,
-        "hit": 2,
-        "recovery": 1.8333,
         "sp": 2352,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 5.67, "killer": [0.3, ["poison"]], "iv": 0.63333},
+            {"dmg": 5.67, "killer": [0.3, ["poison"]], "iv": 1.36667}
+        ]
     },
     "s2": {
-        "dmg": 25.28,
-        "hit": 4,
-        "recovery": 2.5,
         "sp": 5161,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.5,
+        "attr": [
+            {"dmg": 6.32, "iv": 0.83333},
+            {"dmg": 6.32, "iv": 1.0},
+            {"dmg": 6.32, "iv": 1.2},
+            {"dmg": 6.32, "iv": 1.4},
+            {"buff": ["self", 0.2, 15.0, "att", "buff"], "iv": 2.26667}
+        ]
     }
 }

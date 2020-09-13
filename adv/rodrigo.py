@@ -5,7 +5,6 @@ def module():
     return Rodrigo
 
 class Rodrigo(Adv):
-    a1 = ('a',0.15,'hp70')
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
     conf['acl'] = """
@@ -20,11 +19,6 @@ class Rodrigo(Adv):
     conf['coabs'] = ['Ieyasu','Wand','Forte']
     conf['share'] = ['Curran']
 
-    def s1_proc(self, e):
-        self.afflics.poison(e.name,120,0.582)
-
-    def s2_proc(self, e):
-        self.afflics.poison(e.name,120,0.582)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

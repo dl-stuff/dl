@@ -5,7 +5,6 @@ def module():
     return Francesca
 
 class Francesca(Adv):
-    a1 = ('fs',0.30)
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Primal_Crisis()
     conf['acl'] = """

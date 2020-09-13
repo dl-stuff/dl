@@ -5,7 +5,6 @@ def module():
     return Elias
 
 class Elias(Adv):
-    a3 = ('lo',0.4)
     conf = {}
     conf['slots.paralysis.a'] = Forest_Bonds()+The_Red_Impulse()
     conf['acl'] = """
@@ -18,9 +17,6 @@ class Elias(Adv):
         """
     conf['coabs'] = ['Cleo','Raemond','Peony']
     conf['share'] = ['Summer_Patia']
-
-    def s2_proc(self, e):
-        self.energy.add(1, team=True)
 
 
 if __name__ == '__main__':
