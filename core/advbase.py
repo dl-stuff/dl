@@ -1499,15 +1499,7 @@ class Adv(object):
             count += echo_count
         return count
 
-    ATTR_COND = {
-        'hp>=': lambda s, v: s.hp >= v,
-        'hp<=': lambda s, v: s.hp <= v,
-    }
     def hitattr_make(self, name, base, group, aseq, attr):
-        if 'cond' in attr:
-            condtype, condval = attr['cond']
-            if not Adv.ATTR_COND[condtype](self, condval):
-                return
         g_logs.log_hitattr(name, attr)
         hitmods = self.tension_mods(name)
         if 'dmg' in attr:
@@ -1654,8 +1646,18 @@ class Adv(object):
             self.tension_off(t)
             t.proc(t)
 
+    ATTR_COND = {
+        'hp>=': lambda s, v: s.hp >= v,
+        'hp<=': lambda s, v: s.hp <= v,
+    }
     def do_hitattr_make(self, e, aseq, attr, cb_kind, pin=None):
-        iv = attr.get('iv')
+        if 'cond' in attr:
+            condtype, condval = attr['cond']
+            if not Adv.ATTR_COND[condtype](self, condval):
+                return
+        iv = attr.get('iv', 0)
+        if not attr.get('nospd'):
+            iv /= self.speed()
         try:
             post = getattr(self, f'{e.name}_hit{aseq+1}')
         except AttributeError:
@@ -1680,7 +1682,7 @@ class Adv(object):
             e.attr = attr
             self.hitattr_make(e.name, e.base, e.group, aseq, attr)
             if pin is not None:
-                Event(pin+'-h')()
+                Event(f'{pin}-h-{aseq}')()
             if post is not None:
                 post(e)
         return None

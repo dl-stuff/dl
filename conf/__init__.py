@@ -36,13 +36,10 @@ def coability_dict(ele):
 
 def get(name):
     conf = Conf(load_adv_json(name))
+    if not conf['c.icon']:
+        raise Exception('soon')
+
     wt = conf.c.wt
-
-    # weapon = getattr(wep, wt)
-    # conf.update(Conf(weapon.conf))
-    # if bool(conf.c.spiral):
-    #     conf.update(Conf(weapon.lv2))
-
     wepconf = load_wep_json(wt)
     conf.update(Conf(wepconf), rebase=True)
     if bool(conf.c.spiral):

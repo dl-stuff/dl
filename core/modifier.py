@@ -702,7 +702,7 @@ class ModeManager(MultiBuffManager):
         's1': SAltBuff,
         's2': SAltBuff
     }
-    def __init__(self, name, group, buffs=None, duration=None, **kwargs):
+    def __init__(self, name=None, group=None, buffs=None, duration=None, **kwargs):
         buffs = buffs or []
         self.alt = {}
         for k, buffclass in ModeManager.ALT_CLASS.items():

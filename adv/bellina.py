@@ -1,22 +1,20 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
-from module.x_alt import X_alt, Fs_alt
 
 def module():
     return Bellina
-
 
 class Bellina(Adv):
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Howling_to_the_Heavens()
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
-        `s2, duration-now<1.8
+        `s2, duration-now<2.0
         `s3, not buff(s3)
         if self.dragondrive.get()
-        `s4, dgauge>1050 and x=3
-        `s1, dgauge>1500 and x=3
+        `s4, dgauge>1000 and x=3
+        `s1, dgauge>1200 and x=3
         `fsf, x=3
         else
         `s2
