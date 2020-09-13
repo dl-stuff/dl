@@ -1496,12 +1496,14 @@ class Adv(object):
             count += echo_count
         return count
 
+    ATTR_COND = {
+        'hp>=': lambda s, v: s.hp >= v,
+        'hp<=': lambda s, v: s.hp <= v,
+    }
     def hitattr_make(self, name, base, group, aseq, attr):
         if 'cond' in attr:
             condtype, condval = attr['cond']
-            if condtype == 'hp>' and self.hp <= condval:
-                return
-            if condtype == 'hp<' and self.hp >= condval:
+            if not Adv.ATTR_COND[condtype](self, condval):
                 return
         g_logs.log_hitattr(name, attr)
         hitmods = self.tension_mods(name)
