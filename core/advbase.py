@@ -1638,7 +1638,10 @@ class Adv(object):
                     return None
                 except KeyError:
                     pass
-            return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs)
+            try:
+                return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs)
+            except ValueError:
+                return None
 
     def l_hitattr_make(self, t):
         self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr)
