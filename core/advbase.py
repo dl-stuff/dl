@@ -1702,7 +1702,7 @@ class Adv(object):
             if final_mt is not None:
                 final_mt.proc = proc
             else:
-                self.tension_off(t)
+                self.tension_off(e)
                 proc(e)
         except AttributeError:
             pass
