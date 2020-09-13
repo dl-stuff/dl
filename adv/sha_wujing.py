@@ -21,13 +21,6 @@ class Sha_Wujing(Adv):
     conf['share'] = ['Summer_Patia']
 
     def prerun(self):
-        self.s1_p = 0
-        self.s1_defdown = Debuff('s1', 0.05, 10, 1)
-        self.s1_mods = [
-            (3.37, 3.53),
-            (3.87, 3.70),
-            (4.04, 4.21)
-        ]
         self.a1_count = 3
         Timer(self.a3_start).on(self.duration*0.3)
         Event('s').listener(self.a1_check, order=2)
