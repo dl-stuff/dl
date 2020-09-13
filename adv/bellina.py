@@ -30,7 +30,7 @@ class Bellina(Adv):
 
     def prerun(self):
         self.dragondrive = self.dragonform.set_dragondrive(ModeManager(
-            'ddrive',
+            group='ddrive',
             buffs=[Selfbuff('dragondrive', 0.35, -1, 's', 'passive')],
             x=True, fs=True, s1=True, s2=True
         ))

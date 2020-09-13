@@ -233,8 +233,8 @@ class Mitsuba(StanceAdv):
 
     def prerun(self):
         self.config_stances({
-            'sashimi': ModeManager('sashimi', x=True, s1=True, s2=True),
-            'tempura': ModeManager('tempura', x=True, s1=True, s2=True)
+            'sashimi': ModeManager(group='sashimi', x=True, s1=True, s2=True),
+            'tempura': ModeManager(group='tempura', x=True, s1=True, s2=True)
         }, hit_threshold=20)
 
 

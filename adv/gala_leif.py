@@ -65,8 +65,8 @@ class Gala_Leif(StanceAdv):
     
     def prerun(self):
         self.config_stances({
-            'striking': ModeManager('striking', x=True, s1=True, s2=True),
-            'shielding': ModeManager('shielding', x=True, s1=True, s2=True),
+            'striking': ModeManager(group='striking', x=True, s1=True, s2=True),
+            'shielding': ModeManager(group='shielding', x=True, s1=True, s2=True),
         }, hit_threshold=5)
 
 

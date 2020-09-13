@@ -1497,6 +1497,12 @@ class Adv(object):
         return count
 
     def hitattr_make(self, name, base, group, aseq, attr):
+        if 'cond' in attr:
+            condtype, condval = attr['cond']
+            if condtype == 'hp>' and self.hp <= condval:
+                return
+            if condtype == 'hp<' and self.hp >= condval:
+                return
         g_logs.log_hitattr(name, attr)
         hitmods = self.tension_mods(name)
         if 'dmg' in attr:
@@ -1536,9 +1542,9 @@ class Adv(object):
             self.dragonform.charge_gauge(attr['utp'], utp=True)
 
         if 'hp' in attr:
-            if isinstance(attr['hp'], float):
-                self.add_hp(attr['hp'])
-            else:
+            try:
+                self.add_hp(float(attr['hp']))
+            except TypeError:
                 value = attr['hp'][0]
                 mode = None if len(attr['hp']) == 1 else attr['hp'][1]
                 if mode == '=':
