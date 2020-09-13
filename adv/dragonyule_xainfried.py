@@ -9,16 +9,18 @@ class Dragonyule_Xainfried(Adv):
     comment = 'no s2'
 
     conf = {}
-    conf['slots.a'] = A_Dogs_Day()+Primal_Crisis()
-    conf['slots.d'] = Ariel()
+    conf['slots.a'] = A_Dogs_Day()+Castle_Cheer_Corps()
+    conf['slots.poison.a'] = conf['slots.a']
+    conf['slots.d'] = Freyja()
     conf['acl'] = """
-        `dragon(s-end)
-        `s3, not buff(s3)
-        `s1
         `s4
+        `s1
+        `s3, x>2 or fscf
+        `fs,x=5
+        `dodge,fscf
         """
     conf['coabs'] = ['Blade','Bow','Tobias']
-    conf['share'] = ['Tobias']
+    conf['share'] = ['Marty','Tobias']
 
 
 if __name__ == '__main__':
