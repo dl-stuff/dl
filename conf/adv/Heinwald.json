@@ -1,25 +1,39 @@
 {
     "c": {
-        "a": [["s", 0.4, "hp70"], ["prep", 1.0], ["scharge_all", 0.05]],
-        "att": 563,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "staff",
         "name": "Heinwald",
-        "spiral": 1
+        "icon": "110280_01_r05",
+        "att": 563,
+        "hp": 964,
+        "ele": "shadow",
+        "wt": "staff",
+        "spiral": true,
+        "a": [["s", 0.4, "hp70"], ["prep", 1.0], ["scharge_all", 0.05]]
     },
     "s1": {
-        "dmg": 10.82,
-        "hit": 2,
-        "recovery": 1.75,
         "sp": 3352,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 5.41, "hp": 4, "iv": 0.6},
+            {"dmg": 5.41, "hp": 4, "iv": 1.06667}
+        ]
+    },
+    "s1_enhanced": {
+        "sp": 3352,
+        "startup": 0.1,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 5.41, "hp": 8, "iv": 0.6},
+            {"dmg": 5.41, "hp": 8, "iv": 1.2}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 4202,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": [["sAlt", "enhanced", "s1", 10.0], ["self", 0.1, 10.0, "att", "buff"], "-refresh"], "iv": 0.1},
+            {"buff": ["team", 0.15, 10.0, "att", "buff"], "iv": 0.13333}
+        ]
     }
 }

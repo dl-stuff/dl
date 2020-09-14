@@ -542,7 +542,9 @@ class Adv(object):
         'dodge.startup': 0.66667,
         'dodge.recovery': 0,
 
-        'acl': '`s1;`s2;`s3'
+        'acl': '`s1;`s2;`s3',
+
+        'attenuation': 0
     }
 
     def damage_sources_check(self, name, conf):
@@ -643,23 +645,36 @@ class Adv(object):
         self.energy = Energy()
         self.inspiration = Inspiration()
         self.tension = [self.energy, self.inspiration]
+        self.sab = []
 
         self.disable_echo()
 
-    def tension_on(self, e):
-        for t in self.tension:
-            t.on(e)
+    def actmod_on(self, e):
+        do_sab = True
+        do_tension = e.name.startswith('s')
+        if do_tension:
+            for t in self.tension:
+                t.on(e)
+        if do_sab:
+            for b in self.sab:
+                b.act_on(e)
 
-    def tension_mods(self, name):
+    def actmods(self, name):
         mods = []
-        for t in self.tension:
+        for t in chain(self.tension, self.sab):
             if t.active == name:
                 mods.append(t.modifier)
         return mods
 
-    def tension_off(self, e):
-        for t in self.tension:
-            t.off(e)
+    def actmod_off(self, e):
+        do_sab = True
+        do_tension = e.name.startswith('s')
+        if do_tension:
+            for t in self.tension:
+                t.off(e)
+        if do_sab:
+            for b in self.sab:
+                b.act_off(e)
 
     def l_set_hp(self, e):
         try:
@@ -1466,6 +1481,10 @@ class Adv(object):
         att = 1.0 * self.att_mod(name) * self.base_att
         armor = 10 * self.def_mod()
         ele = self.mod(self.slots.c.ele) + 0.5
+
+        # if name == 'fs4':
+        #     print('cyphon', dmg_coef, dmg_mod, att, armor, ele, 5.0 / 3 * dmg_coef * dmg_mod * att / armor * ele)
+
         # return float(dmg_coef) * self.dmg_mod(name) * self.att_mod() / self.def_mod()
         # return float(dmg_coef) * self.dmg_mod(name) * self.def_mod()
         return 5.0 / 3 * dmg_coef * dmg_mod * att / armor * ele  # true formula
@@ -1480,16 +1499,9 @@ class Adv(object):
         else:
             self.dmg_make(e.dname, e.dmg_coef)
 
-    def dmg_make(self, name, dmg_coef, dtype=None, fixed=False, attenuation=None):
-        if attenuation is not None:
-            rate, pierce = attenuation
-            coef = dmg_coef*(rate**pierce)
-            if coef < 0.01:
-                return 0
-        else:
-            coef = dmg_coef
-            if coef <= 0:
-                return 0
+    def dmg_make(self, name, coef, dtype=None, fixed=False, attenuation=None, depth=0):
+        if coef <= 0.01:
+            return 0
         if dtype == None:
             dtype = name
         count = self.dmg_formula(dtype, coef) if not fixed else coef
@@ -1500,11 +1512,21 @@ class Adv(object):
             self.dmg_proc(name, echo_count)
             log('dmg', 'echo', echo_count, f'from {name}')
             count += echo_count
+        if attenuation is not None:
+            rate, pierce = attenuation
+            if pierce > 0:
+                coef *= rate
+                depth += 1
+                if depth == 1:
+                    name = f'{name}_extra{depth}'
+                else:
+                    name = name.split('_')[0] + f'_extra{depth}'
+                self.dmg_make(name, coef, dtype, attenuation=(rate, pierce-1), depth=depth)
         return count
 
     def hitattr_make(self, name, base, group, aseq, attr):
         g_logs.log_hitattr(name, attr)
-        hitmods = self.tension_mods(name)
+        hitmods = self.actmods(name)
         if 'dmg' in attr:
             if 'killer' in attr:
                 hitmods.append(KillerModifier(name, 'hit', *attr['killer']))
@@ -1512,14 +1534,18 @@ class Adv(object):
                 hitmods.append(CrisisModifier(name, attr['crisis'], self.hp))
             if 'bufc' in attr:
                 hitmods.append(Modifier(f'{name}_bufc', 'att', 'bufc', attr['bufc']*self.buffcount))
+            if 'fade' in attr:
+                attenuation = (attr['fade'], self.conf.attenuation)
+            else:
+                attenuation = None
             for m in hitmods:
                 m.on()
             if 'extra' in attr:
                 for _ in range(min(attr['extra'], self.buffcount)):
-                    self.dmg_make(name, attr['dmg'])
+                    self.dmg_make(name, attr['dmg'], attenuation=attenuation)
                     self.add_combo()
             else:
-                self.dmg_make(name, attr['dmg'])
+                self.dmg_make(name, attr['dmg'], attenuation=attenuation)
                 self.add_combo()
 
         if 'sp' in attr:
@@ -1647,8 +1673,9 @@ class Adv(object):
         if t.post is not None:
             t.post(t)
         if t.proc is not None:
-            self.tension_off(t)
             t.proc(t)
+        if t.actmod:
+            self.actmod_off(t)
 
     ATTR_COND = {
         'hp>=': lambda s, v: s.hp >= v,
@@ -1676,6 +1703,7 @@ class Adv(object):
             mt.attr = attr
             mt.post = post
             mt.proc = None
+            mt.actmod = False
             mt.on(iv)
             if not attr.get('msl'):
                 self.action.getdoing().add_delayed(mt)
@@ -1709,25 +1737,25 @@ class Adv(object):
                     res_mt = self.do_hitattr_make(e, aseq, attr, cb_kind, pin=pin)
                     final_mt = res_mt or final_mt
                     prev_attr = attr
-        try:
-            proc = getattr(self, f'{cb_kind}_proc')
-            if final_mt is not None:
-                final_mt.proc = proc
-            else:
-                self.tension_off(e)
+        proc = getattr(self, f'{cb_kind}_proc', None)
+        if final_mt is not None:
+            final_mt.actmod = True
+            final_mt.proc = proc
+        else:
+            if proc:
                 proc(e)
-        except AttributeError:
-            pass
+            self.actmod_off(e)
         self.think_pin(pin or e.name)
 
     def l_fs(self, e):
         log('cast', e.name)
+        self.actmod_on(e)
         self.hit_make(e, self.conf[e.name] or self.conf['fs'], pin=e.name.split('_')[0])
 
     def l_s(self, e):
         if e.name == 'ds':
             return
-        self.tension_on(e)
+        self.actmod_on(e)
         prev = self.action.getprev().name
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)

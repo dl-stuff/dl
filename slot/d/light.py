@@ -58,7 +58,7 @@ class PopStar_Siren(DragonBase):
     def ds_proc(self):
         from core.advbase import Teambuff
         Teambuff('d_att_buff',0.20,20).on()
-        Teambuff('s1', 0.25, 15, 'defense').on()
+        Teambuff('s1', 0.20,20, 'defense').on()
         self.adv.energy.add(3, team=True)
         return 0
 

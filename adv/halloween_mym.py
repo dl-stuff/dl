@@ -16,7 +16,7 @@ class Halloween_Mym(Adv):
         `s4, cancel
         `fsf, x=4 and (s1.charged == self.sp_val(4))
     """
-    conf['coabs'] = ['Blade', 'Dagger2', 'Serena']
+    conf['coabs'] = ['Nobunaga', 'Dagger2', 'Serena']
     conf['share'] = ['Gala_Mym']
 
     conf['dragonform'] = {
@@ -46,22 +46,14 @@ class Halloween_Mym(Adv):
         return self.dmg_make('ds',self.dragonform.conf.ds.dmg,'s')
 
     def prerun(self):
-        if self.condition('s1 defdown for 10s'):
-            self.s1defdown = 1
-        else:
-            self.s1defdown = 0
-        self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff
-
-        self.s2_da = Selfbuff('a3_dreamboost',0.20,15,'da','buff')
-
+        self.a3_da = Selfbuff('a3_dreamboost',0.20,15,'da','buff')
         self.a1_spd = Spdbuff('a1',0.15,-1,wide='self')
         Event('dragon').listener(self.a1_on)
         Event('idle').listener(self.a1_off)
 
     @staticmethod
     def prerun_skillshare(adv, dst):
-        adv.buff_class = Dummy if adv.slots.c.ele != 'flame' else Teambuff if adv.condition('buff all team') else Selfbuff
-        adv.s2_da = Dummy()
+        adv.a3_da = Dummy()
 
     def a1_on(self, e):
         if not self.a1_spd.get():
@@ -71,15 +63,8 @@ class Halloween_Mym(Adv):
         if self.a1_spd.get():
             self.a1_spd.off()
 
-    def s1_proc(self, e):
-        if self.s1defdown:
-            self.s1_debuff = Debuff(e.name,0.15,10,1).no_bufftime().on()
-
     def s2_proc(self, e):
-        self.buff_class(e.name,0.20,15).on()
-        Selfbuff(f'{e.name}_dreamboost',0.05,15,'crit','rate').on()
-        self.s2_da.on()
-
+        self.a3_da.on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

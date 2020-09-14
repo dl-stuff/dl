@@ -6,9 +6,6 @@ def module():
     return Halloween_Odetta
 
 class Halloween_Odetta(Adv):
-    a1 = ('primed_defense', 0.10)
-    a3 = ('bt',0.2)
-
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
@@ -22,16 +19,6 @@ class Halloween_Odetta(Adv):
     """
     conf['coabs'] = ['Summer_Estelle','Blade','Renee']
     conf['share'] = ['Gala_Elisanne', 'Eugene']
-
-    def init(self):
-        self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff
-
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.buff_class = Teambuff if adv.condition('buff all team') else Selfbuff
-
-    def s2_proc(self, e):
-        self.buff_class(e.name,0.2,15).on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

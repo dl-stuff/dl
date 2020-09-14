@@ -34,7 +34,7 @@ hzerk_fs = {
 
 class Hunter_Berserker(Adv):
     comment = 'needs combo time from chain coability to keep combo & do c1 after s2'
-    conf = hzerk_fs.copy()
+    conf = {}
     conf['slots.a'] = The_Lurker_in_the_Woods()+Primal_Crisis()
     conf['slots.d'] = Dreadking_Rathalos()
     conf['acl'] = """
@@ -48,30 +48,16 @@ class Hunter_Berserker(Adv):
         `dodge, fsc
         `fs3
     """
-    conf['coabs'] = ['Blade','Grace','Marth']
+    conf['coabs'] = ['Nobunaga','Grace','Marth']
     conf['share'] = ['Hunter_Sarisse']
 
     def prerun(self):
-        self.s1_debuff = Debuff('s1', 0.05, 10)
-
-        self.s2_fs_boost = SingleActionBuff('s2', 0.80, 1, 'fs', 'buff', 'fs')
-
         self.a3_crit = Modifier('a3', 'crit', 'chance', 0)
         self.a3_crit.get = self.a3_crit_get
         self.a3_crit.on()
 
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.s1_debuff = Debuff(dst, 0.05, 10)
-
     def a3_crit_get(self):
         return (self.mod('def') != 1) * 0.20
-
-    def s1_proc(self, e):
-        self.s1_debuff.on()
-
-    def s2_proc(self, e):
-        self.s2_fs_boost.on(1)
 
 
 if __name__ == '__main__':

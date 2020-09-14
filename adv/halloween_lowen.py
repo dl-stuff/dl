@@ -1,4 +1,3 @@
-import adv.adv_test
 from core.advbase import *
 from slot.a.all import The_Bridal_Dragon, From_Whence_He_Comes
 from slot.d import PopStar_Siren
@@ -15,7 +14,7 @@ class Halloween_Lowen(Adv):
     conf['slots.d'] = PopStar_Siren()
     conf['acl'] = """
         `dragon
-        `s2, prep or x=5 and self.hp_stack < 3
+        `s2, prep or x=5 and mod(maxhp)<1.30
         `s1, x=5
         `s3, x=5
         `s4, x=5
@@ -24,14 +23,8 @@ class Halloween_Lowen(Adv):
     conf['coabs'] = ['Tobias', 'Euden', 'Yuya']
     conf['share'] = ['Patia', 'Summer_Cleo']
 
-    def init(self):
-        self.hp_stack = 0
-    
-    def s1_proc(self, e):
-        self.Teambuff('defchain',0.10,15).on()
-    
-    def s2_proc(self, e):
-        self.buff_max_hp(f'{e.name}_hp', 0.10, True)
+    def prerun(self):
+        self.hp = 100
 
 if __name__ == '__main__':
     import sys

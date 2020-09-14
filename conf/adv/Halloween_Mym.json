@@ -1,25 +1,31 @@
 {
     "c": {
-        "a": [],
+        "name": "Halloween Mym",
+        "icon": "100010_07_r05",
         "att": 493,
+        "hp": 781,
         "ele": "flame",
-        "stars": "5",
         "wt": "axe",
-        "name": "Halloween_Mym",
-        "spiral": 0
+        "spiral": false,
+        "a": []
     },
     "s1": {
-        "dmg": 5.6,
-        "hit": 2,
-        "recovery": 0.9,
         "sp": 3849,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"dmg": 2.8, "iv": 0.36667},
+            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 0.4},
+            {"dmg": 2.8, "iv": 1.1, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 2.6667,
         "sp": 8534,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.66667,
+        "attr": [
+            {"buff": ["ele", 0.2, 15.0, "att", "buff", "flame"], "iv": 0.66667},
+            {"buff": ["self", 0.05, 15.0, "crit", "chance"], "iv": 2.33333}
+        ]
     }
 }

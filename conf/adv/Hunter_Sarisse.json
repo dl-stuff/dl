@@ -1,25 +1,71 @@
 {
     "c": {
-        "a": [["fs", 0.3], ["fs", 0.25], ["cspd", 0.2]],
+        "name": "Hunter Sarisse",
+        "icon": "100029_03_r05",
         "att": 493,
+        "hp": 766,
         "ele": "water",
-        "stars": "5",
         "wt": "bow",
-        "name": "Hunter_Sarisse",
-        "spiral": 0
+        "spiral": false,
+        "a": [["fs", 0.3], ["fs", 0.25], ["cspd", 0.2]]
+    },
+    "fs1": {
+        "charge": 0.5,
+        "startup": 0.06667,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 0.74, "sp": 500, "fade": 0.3, "buff": ["debuff", -0.15, 10.0, 1.0, "attack", "-refresh"], "msl": 1},
+            {"dmg": 0.74, "fade": 0.3, "iv": 0.06666, "msl": 1},
+            {"dmg": 0.74, "fade": 0.3, "iv": 0.13333, "msl": 1}
+        ]
+    },
+    "fs2": {
+        "charge": 1.2,
+        "startup": 0.06667,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 0.84, "sp": 710, "fade": 0.3, "buff": ["debuff", -0.15, 10.0, 1.0, "attack", "-refresh"], "msl": 1},
+            {"dmg": 0.84, "fade": 0.3, "iv": 0.06666, "msl": 1},
+            {"dmg": 0.84, "fade": 0.3, "iv": 0.13333, "msl": 1}
+        ]
+    },
+    "fs3": {
+        "charge": 1.9,
+        "startup": 0.06667,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 0.94, "sp": 920, "fade": 0.3, "buff": ["debuff", -0.15, 10.0, 1.0, "attack", "-refresh"], "msl": 1},
+            {"dmg": 0.94, "fade": 0.3, "iv": 0.06666, "msl": 1},
+            {"dmg": 0.94, "fade": 0.3, "iv": 0.13333, "msl": 1}
+        ]
+    },
+    "fs4": {
+        "charge": 2.6,
+        "startup": 0.06667,
+        "recovery": 0.93333,
+        "attr": [
+            {"dmg": 1.29, "sp": 1140, "fade": 0.3, "buff": ["debuff", -0.15, 10.0, 1.0, "attack", "-refresh"], "msl": 1},
+            {"dmg": 1.29, "fade": 0.3, "iv": 0.06666, "msl": 1},
+            {"dmg": 1.29, "fade": 0.3, "iv": 0.13333, "msl": 1},
+            {"dmg": 1.29, "fade": 0.3, "iv": 0.13333, "msl": 1}
+        ]
     },
     "s1": {
-        "dmg": 10.44,
-        "hit": 2,
-        "recovery": 1.4,
         "sp": 3933,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 0.95, "iv": 0.13333},
+            {"dmg": 9.49, "iv": 1.03333, "msl": 1},
+            {"buff": ["next", 1.0, 1, "fs", "buff", "-refresh"], "iv": 1.33333}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 10000,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.3, 30.0, "cspd", "passive", "-refresh"], "iv": 0.13333}
+        ]
     }
 }

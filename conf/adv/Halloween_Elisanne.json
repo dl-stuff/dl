@@ -1,39 +1,100 @@
 {
     "c": {
-        "a": [["s", 0.35]],
+        "name": "Halloween Elisanne",
+        "icon": "100002_02_r05",
         "att": 578,
+        "hp": 951,
         "ele": "light",
-        "stars": "5",
         "wt": "lance",
-        "name": "Halloween_Elisanne",
-        "spiral": 1
-    },
-    "s1": {
-        "recovery": 2.73,
-        "sp": 4548,
-        "startup": 0.1
+        "spiral": true,
+        "a": [["s", 0.35]]
     },
     "s1_phase1": {
-        "attr": [{"dmg": 1.17},7]
+        "sp": 4548,
+        "startup": 0.1,
+        "recovery": 2.73333,
+        "attr": [
+            {"dmg": 1.17, "iv": 0.33333},
+            {"dmg": 1.17, "iv": 1.93333, "msl": 1},
+            {"dmg": 1.17, "iv": 2.0, "msl": 1},
+            {"dmg": 1.17, "iv": 2.26667, "msl": 1},
+            {"dmg": 1.17, "iv": 2.53333, "msl": 1},
+            {"dmg": 1.17, "iv": 2.8, "msl": 1},
+            {"dmg": 1.17, "iv": 3.0, "msl": 1}
+        ]
     },
     "s1_phase2": {
+        "sp": 4548,
+        "startup": 0.1,
+        "recovery": 2.73333,
         "attr": [
-            {"dmg": 1.17, "afflic": ["paralysis", 120, 0.97]},
-            {"dmg": 1.17}, 5,
-            {"dmg": 1.17, "buff": ["team", 0.13, 15, "att", "buff"]}
+            {"dmg": 1.17, "afflic": ["paralysis", 120, 0.97], "iv": 0.33333},
+            {"dmg": 1.17, "iv": 1.93333, "msl": 1},
+            {"dmg": 1.17, "iv": 2.0, "msl": 1},
+            {"dmg": 1.17, "iv": 2.26667, "msl": 1},
+            {"dmg": 1.17, "iv": 2.53333, "msl": 1},
+            {"dmg": 1.17, "iv": 2.8, "msl": 1},
+            {"dmg": 1.17, "iv": 3.0, "msl": 1},
+            {"buff": ["team", 0.13, 15.0, "att", "buff"], "iv": 2.7, "msl": 1}
         ]
     },
     "s1_phase3": {
+        "sp": 4548,
+        "startup": 0.1,
+        "recovery": 2.73333,
         "attr": [
-            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "afflic": ["paralysis", 120, 0.97]},
-            {"dmg": 1.17, "killer": [0.2, ["paralysis"]]}, 5,
-            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "buff": ["team", 0.13, 15, "att", "buff"]}
+            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "afflic": ["paralysis", 120, 0.97], "iv": 0.33333},
+            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "iv": 1.93333, "msl": 1},
+            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "iv": 2.0, "msl": 1},
+            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "iv": 2.26667, "msl": 1},
+            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "iv": 2.53333, "msl": 1},
+            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "iv": 2.8, "msl": 1},
+            {"dmg": 1.17, "killer": [0.2, ["paralysis"]], "iv": 3.0, "msl": 1},
+            {"buff": ["team", 0.13, 15.0, "att", "buff"], "iv": 2.7, "msl": 1}
         ]
     },
     "s2": {
-        "attr": [{"dmg": 8.50, "sp": 700}],
-        "recovery": 1.466667,
         "sp": 5252,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 8.5, "sp": 700, "buff": ["xAlt", "vamp", 15, "-refresh"], "iv": 0.83333}
+        ]
+    },
+    "x1_vamp": {
+        "startup": 0.15,
+        "recovery": 0.07917,
+        "attr": [
+            {"dmg": 0.546, "sp": 180}
+        ]
+    },
+    "x2_vamp": {
+        "startup": 0.43333,
+        "recovery": 0.25633,
+        "attr": [
+            {"dmg": 0.2925, "sp": 360},
+            {"dmg": 0.2925, "iv": 0.16667}
+        ]
+    },
+    "x3_vamp": {
+        "startup": 0.46667,
+        "recovery": 0.06666,
+        "attr": [
+            {"dmg": 0.702, "sp": 180}
+        ]
+    },
+    "x4_vamp": {
+        "startup": 0.55,
+        "recovery": 0.11667,
+        "attr": [
+            {"dmg": 0.975, "sp": 720}
+        ]
+    },
+    "x5_vamp": {
+        "startup": 0.55,
+        "recovery": 1.11667,
+        "attr": [
+            {"dmg": 0.728, "sp": 900}
+        ]
     }
 }

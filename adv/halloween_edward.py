@@ -5,10 +5,8 @@ def module():
     return Halloween_Edward
 
 class Halloween_Edward(Adv):
-    a1 = ('a',0.1,'hp100')
-
     conf = {}
-    conf['slots.a'] = RR()+The_Red_Impulse()
+    conf['slots.a'] = Resounding_Rendition()+The_Red_Impulse()
     conf['acl'] = """
         `dragon
         `s3

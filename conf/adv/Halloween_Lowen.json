@@ -1,25 +1,28 @@
 {
     "c": {
-        "a": [["fsprep", 3], ["prep", 0.75]],
+        "name": "Halloween Lowen",
+        "icon": "110257_02_r04",
         "att": 454,
+        "hp": 781,
         "ele": "flame",
-        "stars": "4",
         "wt": "staff",
-        "name": "Halloween_Lowen",
-        "spiral": 0
+        "spiral": false,
+        "a": [["fsprep", 3], ["prep", 0.75]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.5,
         "sp": 5916,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"buff": ["team", 0.1, 5.0, "defense", "buff"], "iv": 0.4}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.5,
         "sp": 11832,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.8,
+        "attr": [
+            {"buff": ["self", 0.1, -1, "maxhp", "buff"], "iv": 1.33333}
+        ]
     }
 }

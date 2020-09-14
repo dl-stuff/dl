@@ -1,26 +1,29 @@
 {
     "c": {
-        "a": [["primed_defense", 0.1], ["bt", 0.2]],
-        "att": 486,
+        "name": "Halloween Odetta",
+        "icon": "110301_02_r04",
+        "att": 464,
+        "hp": 773,
         "ele": "water",
-        "stars": "4",
         "wt": "sword",
-        "name": "Halloween_Odetta",
-        "spiral": 0
+        "spiral": false,
+        "a": [["primed_defense", 0.1], ["bt", 0.2]]
     },
     "s1": {
-        "buff": ["debuff", 0.05, 10.0, 0.4],
-        "dmg": 6.04,
-        "hit": 2,
-        "recovery": 1.6,
         "sp": 2503,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 3.02, "buff": ["debuff", -0.05, 10.0, 0.4, "def"], "iv": 0.53333, "msl": 1},
+            {"dmg": 3.02, "iv": 0.9, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 6424,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.2, 15.0, "att", "buff"], "iv": 0.16667}
+        ]
     }
 }

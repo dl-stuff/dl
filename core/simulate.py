@@ -438,15 +438,15 @@ def damage_counts(real_d, damage, counts, output, res=None):
                 cdmg[ck] += d1[k2]
             v1 = dict(ccnt)
             d1 = dict(cdmg)
-        if k1 == 'd':
-            ccnt, cdmg = defaultdict(lambda: 0), defaultdict(lambda: 0)
-            for k2, v2 in d1.items():
-                dk = 'dx' if k2.startswith('dx') else k2
-                cdmg[dk] += v2
-                if k2 in v1:
-                    ccnt[dk] += v1[k2]
-            v1 = dict(ccnt)
-            d1 = dict(cdmg)
+        # if k1 == 'd':
+        #     ccnt, cdmg = defaultdict(lambda: 0), defaultdict(lambda: 0)
+        #     for k2, v2 in d1.items():
+        #         dk = 'dx' if k2.startswith('dx') else k2
+        #         cdmg[dk] += v2
+        #         if k2 in v1:
+        #             ccnt[dk] += v1[k2]
+        #     v1 = dict(ccnt)
+        #     d1 = dict(cdmg)
         for k2, v2 in sorted(v1.items(), key=lambda item: item[0]):
             if d1.get(k2):
                 output.write('{}: {:d} [{}], '.format(k2, int(d1[k2]), v2))

@@ -520,31 +520,41 @@ bufftype_dict['self'] = Selfbuff
 
 class SingleActionBuff(Buff):
     # self buff lasts until the action it is buffing is completed
-    def __init__(self, name='<buff_noname>', value=0, casts=1, mtype='att', morder=None, event=None, end_proc=None):
+    def __init__(self, name='<buff_noname>', value=0, uses=1, mtype='att', morder=None, end_proc=None):
         super().__init__(name, value, -1, mtype, morder)
         self.bufftype = 'self'
-        self.casts = casts
-        self.end_event = event if event is not None else mtype
+        self.uses = uses
         self.end_proc = end_proc
-        Timer(self.delayed_listener).on(0.001) # hax
+        self.active = None
+        self._static.adv.sab.append(self)
 
-    def delayed_listener(self, t):
-        Listener(self.end_event, self.l_off, order=2).on()
-
-    def on(self, casts=1):
-        self.casts = casts
+    def on(self, uses=1):
+        self.uses = uses
         return super().on(-1)
 
-    def l_off(self, e):
-        if e.name in self.modifier._static.damage_sources:
-            self.casts -= 1
-            if self.casts <= 0:
-                result = super().off()
-                if self.end_proc is not None:
-                    self.end_proc(e)
-                return result
-            else:
-                return self
+    def off(self):
+        self.end_proc and self.end_proc()
+        return super().off()
+
+    def effect_on(self):
+        pass
+    
+    def effect_off(self):
+        pass
+
+    def act_on(self, e):
+        if self.get() and e.name.startswith(self.mod_type) and self.uses > 0 and self.active is None:
+            self.logwrapper(e.name, 'act_on')
+            self.active = e.name
+            self.uses -= 1
+
+    def act_off(self, e):
+        if e.name == self.active:
+            self.logwrapper(e.name, 'act_off')
+            self.active = None
+        if self.uses == 0:
+            self.off()
+
 bufftype_dict['next'] = SingleActionBuff
 
 
@@ -670,16 +680,17 @@ class MultiBuffManager:
         # self.buffs = list(filter(None, self.buffs))
         self.duration = duration
         for b in self.buffs:
-            b.hidden = True
-        if not self.buffs[0].mod_type == 'effect':
-            self.buffs[0].hidden = False
+            if self.buffs[0].mod_type == 'effect':
+                b.hidden = True
 
     def on(self):
+        # print([(b.name, b.get()) for b in self.buffs])
         for b in self.buffs:
             try:
                 b.on(duration=self.duration)
             except TypeError:
                 b.on()
+        # print([(b.name, b.get()) for b in self.buffs])
         return self
 
     def off(self):
