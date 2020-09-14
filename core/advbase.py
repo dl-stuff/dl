@@ -1675,6 +1675,7 @@ class Adv(object):
         if t.proc is not None:
             t.proc(t)
         if t.actmod:
+            log('debug', 'yes final_mt')
             self.actmod_off(t)
 
     ATTR_COND = {
@@ -1744,6 +1745,7 @@ class Adv(object):
         else:
             if proc:
                 proc(e)
+            log('debug', e.name, 'no final_mt')
             self.actmod_off(e)
         self.think_pin(pin or e.name)
 

@@ -314,9 +314,10 @@ class Gala_Cat_Sith(DragonBase):
         super().oninit(adv)
         from core.advbase import Event, SingleActionBuff
         Event('dragon_end').listener(self.shift_end_trickery)
-        self.adv.trickery = 15
+        self.max_trickery = 14 # 1 trickery is in the buff at all times
+        self.adv.trickery = self.max_trickery
         self.threshold = 25
-        self.trickery_buff = SingleActionBuff('d_trickery_buff', 1.80, 1,'s', 'buff', end_proc=self.check_trickery)
+        self.trickery_buff = SingleActionBuff('d_trickery_buff', 1.80, 1,'s', 'buff')
         self.check_trickery()
 
         if adv.condition('always connect hits'):
@@ -325,19 +326,19 @@ class Gala_Cat_Sith(DragonBase):
             def add_combo():
                 self.add_combo_o()
                 if adv.hits == 0:
-                    self.thit == 0
+                    self.ehit == 0
                 else:
-                    n_ehit = adv.hits // self.threshold
-                    if n_ehit > self.thit:
+                    n_thit = adv.hits // self.threshold
+                    if n_thit > self.thit:
                         self.add_trickery(1)
-                        self.thit = n_ehit
+                        self.thit = n_thit
+                self.check_trickery()
             adv.add_combo = add_combo
 
     def add_trickery(self, t):
         from core.log import log
         log('debug', 'trickery', f'+{t}', self.adv.trickery, self.adv.hits)
-        self.adv.trickery = min(self.adv.trickery+t, 15)
-        self.check_trickery()
+        self.adv.trickery = min(self.adv.trickery+t, self.max_trickery)
 
     def check_trickery(self, e=None):
         from core.log import log

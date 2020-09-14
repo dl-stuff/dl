@@ -520,11 +520,10 @@ bufftype_dict['self'] = Selfbuff
 
 class SingleActionBuff(Buff):
     # self buff lasts until the action it is buffing is completed
-    def __init__(self, name='<buff_noname>', value=0, uses=1, mtype='att', morder=None, end_proc=None):
+    def __init__(self, name='<buff_noname>', value=0, uses=1, mtype='att', morder=None):
         super().__init__(name, value, -1, mtype, morder)
         self.bufftype = 'self'
         self.uses = uses
-        self.end_proc = end_proc
         self.active = None
         self._static.adv.sab.append(self)
 
@@ -533,7 +532,6 @@ class SingleActionBuff(Buff):
         return super().on(-1)
 
     def off(self):
-        self.end_proc and self.end_proc()
         return super().off()
 
     def effect_on(self):
@@ -552,8 +550,8 @@ class SingleActionBuff(Buff):
         if e.name == self.active:
             self.logwrapper(e.name, 'act_off')
             self.active = None
-        if self.uses == 0:
-            self.off()
+            if self.uses == 0:
+                self.off()
 
 bufftype_dict['next'] = SingleActionBuff
 
