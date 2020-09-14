@@ -705,15 +705,18 @@ class Energy_Combo(Ability):
 
     def oninit(self, adv, afrom=None):
         if adv.condition('always connect hits'):
-            self.dmg_proc_o = adv.dmg_proc
+            self.add_combo_o = adv.add_combo
             self.ehit = 0
-            def dmg_proc(name, amount):
-                n_ehit = adv.hits // self.threshold
-                if n_ehit > self.ehit:
-                    adv.energy.add(n_ehit - self.ehit)
-                    self.ehit = n_ehit
-                self.dmg_proc_o(name, amount)
-            adv.dmg_proc = dmg_proc
+            def add_combo():
+                self.add_combo_o()
+                if adv.hits == 0:
+                    self.ehit == 0
+                else:
+                    n_ehit = adv.hits // self.threshold
+                    if n_ehit > self.ehit:
+                        adv.energy.add(n_ehit - self.ehit)
+                        self.ehit = n_ehit
+            adv.add_combo = add_combo
 
 ability_dict['ecombo'] = Energy_Combo
 

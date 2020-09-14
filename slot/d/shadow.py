@@ -323,12 +323,14 @@ class Gala_Cat_Sith(DragonBase):
             self.add_combo_o = adv.add_combo
             self.thit = 0
             def add_combo():
-                c_before = adv.hits
                 self.add_combo_o()
-                self.thit += (adv.hits - c_before)
-                while self.thit >= 25:
-                    self.thit -= 25
-                    self.add_trickery(1)
+                if adv.hits == 0:
+                    self.thit == 0
+                else:
+                    n_ehit = adv.hits // self.threshold
+                    if n_ehit > self.thit:
+                        self.add_trickery(1)
+                        self.thit = n_ehit
             adv.add_combo = add_combo
 
     def add_trickery(self, t):

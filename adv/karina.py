@@ -17,21 +17,9 @@ class Karina(Adv):
         `s2
         `s1
     """
-
     conf['coabs'] = ['Tobias', 'Renee', 'Summer_Estelle']
     conf['share'] = ['Summer_Cleo', 'Patia']
 
-    def prerun(self):
-        self.set_hp(1)
-
-    def s1_proc(self, e):
-        boost = 0.05*self.buffcount
-        log('debug', 'karina_s1_boost', f'x{self.buffcount} = {self.conf[e.name].dmg*(1+boost):.2%}')
-        self.afflics.frostbite(e.name,120,0.41*(1+boost))
-        self.dmg_make(f'o_{e.name}_boost',self.conf[e.name].dmg*boost)
-
-    def s2_proc(self, e):
-        Selfbuff(f'{e.name}_defense', 0.30, 30, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

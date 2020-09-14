@@ -10,7 +10,7 @@ class Gala_Luca(Adv):
     conf = {}
     conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
     conf['acl'] = """
-        `dragon
+        `dragon, cancel
         `s3, not buff(s3)
         `s2
         `s1
@@ -19,13 +19,12 @@ class Gala_Luca(Adv):
     conf['coabs'] = ['Axe2','Lucretia','Peony']
     conf['share'] = ['Summer_Patia']
 
-    def init(self):
+    def prerun(self):
         self.crit_mod = self.custom_crit_mod
         self.in_s1 = False
         self.a1_buff_types = 3
         self.a1_states = {(None,) * self.a1_buff_types: 1.0}
 
-    def prerun(self):
         self.ds_proc_o = self.dragonform.ds_proc
         self.dragonform.ds_proc = self.ds_crit_proc
         self.shared_crit = False
@@ -58,7 +57,7 @@ class Gala_Luca(Adv):
 
     def buff_icon_count(self):
         # not accurate to game
-        icon_count = len(set([b.name for b in self.all_buffs if b.get() and b.bufftype == 'self' or b.bufftype == 'team']))
+        icon_count = len(set([b.name for b in self.all_buffs if b.get() and not b.hidden and b.bufftype == 'self' or b.bufftype == 'team']))
         if self.conf['sim_buffbot.count'] is not None:
             icon_count += self.conf.sim_buffbot.count
         return min(icon_count, 7)
@@ -113,16 +112,14 @@ class Gala_Luca(Adv):
 
         return 1.0 + mean_rate * crit_dmg
 
-    def s1_proc(self, e):
+    def s1_before(self, e):
         if self.shared_crit:
             crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count())
             crit_mod.on()
         else:
             self.in_s1 = True
-        self.in_s1 = True
-        for _ in range(4):
-            self.dmg_make(e.name, 3.14)
-            self.add_hits(1)
+
+    def s1_proc(self, e):
         if self.shared_crit:
             crit_mod.off()
         else:

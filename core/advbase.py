@@ -546,7 +546,7 @@ class Adv(object):
     }
 
     def damage_sources_check(self, name, conf):
-        if conf['attr'] and any(('dmg' in attr for attr in conf['attr'])):
+        if conf['attr'] and any(('dmg' in attr for attr in conf['attr'] if isinstance(attr, dict))):
             self.damage_sources.add(name)
 
     def doconfig(self):
@@ -795,7 +795,7 @@ class Adv(object):
         self.condition = Condition(cond)
         self.duration = 180
 
-        self.damage_sources = set()
+        self.damage_sources = {'ds'}
         self.Modifier._static.damage_sources = self.damage_sources
 
         self.pre_conf()
@@ -1062,14 +1062,15 @@ class Adv(object):
 
     def x(self, x_min=1):
         prev = self.action.getprev()
+        if self.deferred_x is not None:
+            log('x', 'deferred_x on', self.deferred_x)
+            self.current_x = self.deferred_x
+            self.deferred_x = None
         if isinstance(prev, X) and prev.group == self.current_x:
             if prev.index < self.conf[prev.group].x_max:
                 x_next = self.a_x_dict[self.current_x][prev.index+1]
             else:
                 x_next = self.a_x_dict[self.current_x][x_min]
-            if self.deferred_x is not None:
-                self.current_x = self.deferred_x
-                self.deferred_x = None
             if x_next.enabled:
                 return x_next()
             else:
@@ -1095,7 +1096,7 @@ class Adv(object):
     def add_combo(self):
         # real combo count
         delta = now()-self.last_c
-        if delta < self.ctime:
+        if delta <= self.ctime:
             self.hits += self.echo
         else:
             self.hits = 0
@@ -1106,13 +1107,14 @@ class Adv(object):
         # potato combo count
         if hit is None:
             raise ValueError('none type hit')
-        if hit >= 0:
+        if hit < 0:
+            self.hits = 0
+            log('combo', 'reset combo')
+        else:
             c_hits = self.hits
-            self.last_c = now()
             for _ in range(hit):
                 self.add_combo()
             return self.hits - c_hits
-        self.hits = 0
         return 0
 
     def load_aff_conf(self, key):
@@ -1723,9 +1725,9 @@ class Adv(object):
         self.hit_make(e, self.conf[e.name] or self.conf['fs'], pin=e.name.split('_')[0])
 
     def l_s(self, e):
-        self.tension_on(e)
         if e.name == 'ds':
             return
+        self.tension_on(e)
         prev = self.action.getprev().name
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)

@@ -1,25 +1,37 @@
 {
     "c": {
-        "a": [["fs", 0.3], ["bc_regen", 4, 20]],
-        "att": 470,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "staff",
         "name": "Grace",
-        "spiral": 0
+        "icon": "110059_01_r05",
+        "att": 470,
+        "hp": 804,
+        "ele": "shadow",
+        "wt": "staff",
+        "spiral": false,
+        "a": [["fs", 0.3], ["bc_regen", 4, 20]]
+    },
+    "fs": {
+        "charge": 1.8,
+        "startup": 0.73333,
+        "recovery": 0.6,
+        "attr": [
+            {"dmg": 3.82, "hp": 5, "sp": 800}
+        ]
     },
     "s1": {
-        "dmg": 0,
-        "hit": 1,
-        "recovery": 2.3,
         "sp": 5916,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.3,
+        "attr": [
+            {"cond": ["hp>=", 40], "hp": [30, "="], "iv": 1.0},
+            {"cond": ["hp<=", 40], "buff": ["team", 0.30, 15.0, "defense", "buff"], "iv": 1.0}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.8,
         "sp": 8534,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.8,
+        "attr": [
+            {"buff": ["team", 1.0, 5.0, "defense", "buff"], "iv": 1.0}
+        ]
     }
 }

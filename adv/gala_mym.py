@@ -65,7 +65,10 @@ class Gala_Mym(Adv):
         return self.dmg_make('ds',self.dragonform.conf.ds.dmg,'s')
 
     def prerun(self):
-        self.a1_buff = Selfbuff('flamewyrm', 0.15, -1, 'att', 'passive')
+        self.a1_buff = MultiBuffManager('flamewyrm', buffs=[
+            Selfbuff('flamewyrm', 0.15, -1, 'att', 'buff'),
+            SAltBuff(group='flamewyrm', base='s2')
+        ])
         Event('dragon').listener(self.a1_on)
 
     def a1_on(self, e):
@@ -73,13 +76,6 @@ class Gala_Mym(Adv):
             self.a1_buff.on()
         else:
             self.dragonform.conf.update(self.conf.dragonform2)
-
-    def s1_proc(self, e):
-        self.dragonform.charge_gauge(50)
-
-    def s2_proc(self, e):
-        if self.a1_buff.get():
-            self.dmg_make('o_s2_boost', 4.16)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

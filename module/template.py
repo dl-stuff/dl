@@ -19,15 +19,20 @@ class StanceAdv(Adv):
                 except KeyError:
                     pass
             setattr(self, name, lambda: self.queue_stance(name))
+        self.update_stance()
 
     def update_stance(self):
         if self.next_stance is not None:
+            log('stance', self.next_stance)
             curr_stance = self.stance_dict[self.stance]
             next_stance = self.stance_dict[self.next_stance]
             if curr_stance is not None:
                 curr_stance.off()
             if next_stance is not None:
-                next_stance.on_except('x')
+                if self.can_change_combo():
+                    next_stance.on()
+                else:
+                    next_stance.on_except('x')
             self.stance = self.next_stance
             self.next_stance = None
 
@@ -36,11 +41,10 @@ class StanceAdv(Adv):
             self.next_stance = stance
             self.update_stance()
             return True
-        if self.can_change_combo():
-            try:
-                self.stance_dict[stance].alt['x'].on()
-            except KeyError:
-                pass
+        try:
+            self.stance_dict[stance].alt['x'].on()
+        except KeyError:
+            pass
         return False
 
     def can_queue_stance(self, stance):

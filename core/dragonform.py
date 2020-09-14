@@ -205,12 +205,21 @@ class DragonForm(Action):
 
     def d_act_do(self, t):
         if self.c_act_name == 'ds':
+            self.adv.tension_on(self.ds_event)
+            tension_mods = self.adv.tension_mods('ds')
+            for m in tension_mods:
+                m.on()
+
             self.skill_use -= 1
             self.skill_spc = 0
             self.ds_event()
             self.shift_damage_sum += self.ds_proc() or 0
             self.shift_end_timer.add(self.conf.ds.startup+self.conf.ds.recovery)
             self.act_sum.append('s')
+
+            self.adv.tension_off(self.ds_event)
+            for m in tension_mods:
+                m.off()
         elif self.c_act_name == 'end':
             self.d_shift_end(None)
             self.shift_end_timer.off()

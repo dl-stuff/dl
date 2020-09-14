@@ -1,26 +1,31 @@
 {
     "c": {
-        "a": [["cc", 0.13, "hit15"], ["res_shadow", 0.1, "hit10"]],
+        "name": "Gala Luca",
+        "icon": "100006_09_r05",
         "att": 517,
+        "hp": 745,
         "ele": "light",
-        "stars": "5",
         "wt": "blade",
-        "name": "Gala_Luca",
-        "spiral": 0
+        "spiral": false,
+        "a": [["cc", 0.13, "hit15"], ["res_shadow", 0.1, "hit10"]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 1,
-        "recovery": 2.25,
         "sp": 2870,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.16667,
+        "attr": [
+            {"dmg": 3.14, "iv": 0.3},
+            {"dmg": 3.14, "iv": 2.0},
+            {"dmg": 3.14, "iv": 2.06667},
+            {"dmg": 3.14, "iv": 2.13333}
+        ]
     },
     "s2": {
-        "buff": ["self", 0.8, 10.0, "crit", "damage"],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 3899,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.8, 10.0, "crit", "damage"], "iv": 0.16667}
+        ]
     }
 }

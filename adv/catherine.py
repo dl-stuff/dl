@@ -20,10 +20,10 @@ class Catherine(Adv):
     conf['coabs'] = ['Dragonyule_Cleo', 'Hunter_Sarisse', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
-    def __init__(self, conf=None, cond=None):
-        super().__init__(conf=conf, cond=cond)
-        del self.conf['x4']
-        del self.conf['x5']
+    # def __init__(self, conf=None, cond=None):
+    #     super().__init__(conf=conf, cond=cond)
+    #     del self.conf['x4']
+    #     del self.conf['x5']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

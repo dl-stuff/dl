@@ -60,7 +60,7 @@ class Gala_Alex(Adv):
         `s3, not buff(s3)
         if fsc
         # use s4/s2 if no poison or if s1 def down has less than 1/3 time left
-        if (not self.afflics.poison.get()) or (self.sr.chain_status=1 and buff.timeleft(s1, base1, 0)<5)
+        if (not self.afflics.poison.get()) or (self.sr.chain_status=1 and buff.timeleft(s1, base1)<5)
         `s4
         `s2
         end

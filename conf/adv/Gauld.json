@@ -1,25 +1,48 @@
 {
     "c": {
-        "a": [["a", 0.1, "hp70"], ["k_frostbite", 0.2]],
-        "att": 492,
-        "ele": "water",
-        "stars": "4",
-        "wt": "lance",
         "name": "Gauld",
-        "spiral": 0
+        "icon": "110356_01_r04",
+        "att": 492,
+        "hp": 729,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": false,
+        "a": [["a", 0.1, "hp70"], ["k_frostbite", 0.2]]
     },
-    "s1": {
-        "dmg": 0,
-        "hit": 0,
-        "recovery": 2.667,
+    "s1_phase1": {
         "sp": 3051,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.66667,
+        "attr": [
+            {"dmg": 2.11, "killer": [0.2, ["frostbite"]], "afflic": ["frostbite", 120, 0.37], "iv": 0.66667},
+            {"dmg": 2.11, "killer": [0.2, ["frostbite"]], "iv": 2.23333}
+        ]
+    },
+    "s1_phase2": {
+        "sp": 3051,
+        "startup": 0.1,
+        "recovery": 2.66667,
+        "attr": [
+            {"dmg": 2.11, "killer": [0.2, ["frostbite"]], "afflic": ["frostbite", 160, 0.74], "iv": 0.66667},
+            {"dmg": 2.11, "killer": [0.2, ["frostbite"]], "iv": 2.23333}
+        ]
+    },
+    "s1_phase3": {
+        "sp": 3051,
+        "startup": 0.1,
+        "recovery": 2.66667,
+        "attr": [
+            {"dmg": 2.11, "killer": [0.2, ["frostbite"]], "afflic": ["frostbite", 160, 0.74], "iv": 0.66667},
+            {"dmg": 2.11, "killer": [0.2, ["frostbite"]], "iv": 2.23333},
+            {"buff": ["self", 0.15, 10.0, "att", "buff"], "iv": 2.43333}
+        ]
     },
     "s2": {
-        "dmg": 0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 5158,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"sp": [1.0, "%", "s1"], "buff": ["self", 0.25, 5.0, "att", "buff"], "iv": 0.16667}
+        ]
     }
 }

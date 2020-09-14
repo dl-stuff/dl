@@ -1,25 +1,33 @@
 {
     "c": {
-        "a": [["bc_regen", 4, 25], ["prep", 1.0], ["scharge_all", 0.05]],
-        "att": 542,
-        "ele": "water",
-        "stars": "4",
-        "wt": "axe",
         "name": "Karina",
-        "spiral": 1
+        "icon": "110018_01_r04",
+        "att": 542,
+        "hp": 958,
+        "ele": "water",
+        "wt": "axe",
+        "spiral": true,
+        "a": [["bc_regen", 4, 25], ["prep", 1.0], ["scharge_all", 0.05]]
     },
     "s1": {
-        "dmg": 10.9,
-        "hit": 2,
-        "recovery": 1.5,
         "sp": 3033,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 5.45, "bufc": 0.05, "afflic": ["frostbite", 120, 0.41], "iv": 0.4},
+            {"dmg": 5.45, "bufc": 0.05, "iv": 1.06667}
+        ]
     },
     "s2": {
-        "dmg": 10.4,
-        "hit": 4,
-        "recovery": 2.1,
         "sp": 5610,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.1,
+        "attr": [
+            {"buff": ["self", 0.3, 30.0, "defense", "buff"], "iv": 0.03333},
+            {"dmg": 2.6, "iv": 0.5},
+            {"dmg": 2.6, "iv": 0.9},
+            {"dmg": 2.6, "iv": 1.2},
+            {"dmg": 2.6, "iv": 1.5}
+        ]
     }
 }

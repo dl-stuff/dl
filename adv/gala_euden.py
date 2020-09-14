@@ -6,15 +6,14 @@ def module():
 
 
 class Gala_Euden(Adv):
-    comment = 'c2+fs'
     conf = {}
     conf['acl'] = """
         `dragon, self.energy()=5
         `s2
         `s3
         `s4, cancel
-        `s1, fsc and not self.energy()=5
-        `fs, x=2
+        `s1, fsc and self.energy()<5
+        `fs, x=3
     """
     conf['coabs'] = ['Raemond','Cleo','Peony']
     conf['share'] = ['Gala_Mym']
@@ -36,14 +35,6 @@ class Gala_Euden(Adv):
     def a3_off(self, e):
         if self.dragonlight_spd.get():
             self.dragonlight_spd.off()
-
-    def s1_proc(self, e):
-        if self.condition(f'{e.name} buff for 10s'):
-            Teambuff(e.name,0.20,10,'att').zone().on()
-
-    def s2_proc(self, e):
-        Teambuff(e.name+'_defense', 0.15, 15, 'defense').on()
-        self.afflics.paralysis(e.name, 120, 0.97)
 
 
 if __name__ == '__main__':

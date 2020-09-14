@@ -128,8 +128,8 @@ class DragonBase(Slot):
         'latency': 0, # amount of delay for cancel
         'act': 'end',
 
-        'dshift.startup': 96 / 60, # shift 102 -> 96 + 6
-        'dshift.recovery': 0 / 60, # assumed cancel
+        'dshift.startup': 10 / 60, # shift 102 -> 96 + 6
+        'dshift.recovery': 86 / 60, # assumed cancel
         'dshift.dmg': 2.00,
         'dshift.hit': 1,
 

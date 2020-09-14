@@ -188,7 +188,8 @@ class Buff(object):
         # self.on()
 
     def logwrapper(self, *args):
-        log('buff', *args)
+        if not self.hidden:
+            log('buff', *args)
 
     def _no_bufftime(self):
         return 1
@@ -329,6 +330,8 @@ class Buff(object):
         else:
             if d >= 0:
                 self.buff_end_timer.on(d)
+            else:
+                return self
             proc_type = 'refresh'
             
         self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff {proc_type} <{d:.02f}s>')
@@ -668,7 +671,8 @@ class MultiBuffManager:
         self.duration = duration
         for b in self.buffs:
             b.hidden = True
-        self.buffs[0].hidden = False
+        if not self.buffs[0].mod_type == 'effect':
+            self.buffs[0].hidden = False
 
     def on(self):
         for b in self.buffs:
@@ -766,7 +770,7 @@ class ActiveBuffDict(defaultdict):
     def has(self, k, group, seq):
         return k in self and group in self[k] and seq in self[k][group]
 
-    def timeleft(self, k, group, seq):
+    def timeleft(self, k, group='default', seq=0):
         try:
             return self[k][group][seq].timeleft()
         except KeyError:
