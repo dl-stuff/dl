@@ -1,53 +1,89 @@
 {
     "c": {
-        "a": [["k_frostbite", 0.3], ["s", 0.35, "hp70"]],
-        "att": 505,
-        "ele": "water",
-        "stars": "5",
-        "wt": "axe",
         "name": "Lazry",
-        "spiral": 0
-    },
-    "s1": {
-        "sp": 3194,
-        "startup": 0.1
-    },
-    "s1_low": {
-        "attr": [
-            {"dmg": 1.77, "afflic": ["frostbite", 120, 0.41]},
-            {"dmg": 1.77},
-            {"dmg": 3.37}
-        ],
-        "recovery": 1.7
+        "icon": "110355_01_r05",
+        "att": 516,
+        "hp": 745,
+        "ele": "water",
+        "wt": "axe",
+        "spiral": false,
+        "a": [["k_frostbite", 0.3], ["s", 0.35, "hp70"]]
     },
     "s1_high": {
+        "sp": 3194,
+        "startup": 0.1,
+        "recovery": 1.56667,
         "attr": [
-            {"dmg": 1.00},
-            {"dmg": 1.00},
-            {"dmg": 1.00},
-            {"dmg": 1.00},
-            {"dmg": 5.73, "buff": ["next", 0.20, 1, "s", "buff", "-refresh"]}
-        ],
-        "recovery": 1.5667
+            {"dmg": 1.0, "iv": 0.23333},
+            {"dmg": 1.0, "iv": 0.33333},
+            {"dmg": 1.0, "iv": 0.56667},
+            {"dmg": 1.0, "iv": 0.76667},
+            {"dmg": 5.73, "iv": 1.06667},
+            {"buff": ["next", 0.2, 1, "s", "buff"], "iv": 1.53333}
+        ]
     },
-    "s2": {
-        "sp": 7475,
-        "startup": 0.1
-    },
-    "s2_low": {
+    "s1_low": {
+        "sp": 3194,
+        "startup": 0.1,
+        "recovery": 1.7,
         "attr": [
-            {"buff": [
-                ["team", 0.15, 15, "att", "buff"],
-                ["team", 0.10, 15, "crit", "chance"]
-            ]}
-        ],
-        "recovery": 1.6667
+            {"dmg": 1.77, "afflic": ["frostbite", 120, 0.41], "iv": 0.6},
+            {"dmg": 1.77, "iv": 0.8},
+            {"dmg": 3.37, "iv": 1.43333}
+        ]
     },
     "s2_high": {
+        "sp": 7475,
+        "startup": 0.1,
+        "recovery": 2.5,
         "attr": [
-            {"dmg": 2.47},
-            {"dmg": 9.36, "buff": ["next", 0.20, 1, "s", "buff", "-refresh"], "sp": [1.0, "%", "s1"]}
-        ],
-        "recovery": 2.5
+            {"dmg": 2.47, "iv": 1.66667, "msl": 1},
+            {"dmg": 9.36, "iv": 1.66667, "msl": 1},
+            {"sp": [1.0, "%", "s1"], "iv": 2.4}
+        ]
+    },
+    "s2_low": {
+        "sp": 7475,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"buff": ["team", 0.15, 15.0, "att", "buff"], "iv": 1.33333},
+            {"buff": ["team", 0.1, 15.0, "crit", "chance"], "iv": 1.33333}
+        ]
+    },
+    "x1_high": {
+        "startup": 0.27778,
+        "recovery": 0.13889,
+        "attr": [
+            {"dmg": 1.14, "sp": 200}
+        ]
+    },
+    "x2_high": {
+        "startup": 0.61905,
+        "recovery": 0.15018,
+        "attr": [
+            {"dmg": 1.22, "sp": 240}
+        ]
+    },
+    "x3_high": {
+        "startup": 0.86111,
+        "recovery": 0.25,
+        "attr": [
+            {"dmg": 2.04, "sp": 360}
+        ]
+    },
+    "x4_high": {
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 2.16, "sp": 380}
+        ]
+    },
+    "x5_high": {
+        "startup": 0.53333,
+        "recovery": 0.3,
+        "attr": [
+            {"dmg": 2.28, "sp": 420}
+        ]
     }
 }
