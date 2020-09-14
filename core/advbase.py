@@ -665,6 +665,8 @@ class Adv(object):
         for t in chain(self.tension, self.sab):
             if t.active == name:
                 mods.append(t.modifier)
+        if mods:
+            log('actmods', name, str(mods))
         return mods
 
     def actmod_off(self, e):
@@ -1741,11 +1743,11 @@ class Adv(object):
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
                         res_mt = self.do_hitattr_make(e, aseq+repeat, prev_attr, cb_kind, pin=pin)
-                        final_mt = res_mt or final_mt
                 else:
                     res_mt = self.do_hitattr_make(e, aseq, attr, cb_kind, pin=pin)
-                    final_mt = res_mt or final_mt
                     prev_attr = attr
+                if res_mt is not None and (final_mt is None or res_mt.timing > final_mt.timing):
+                    final_mt = res_mt
         proc = getattr(self, f'{cb_kind}_proc', None)
         if final_mt is not None:
             final_mt.actmod = True

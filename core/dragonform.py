@@ -204,6 +204,7 @@ class DragonForm(Action):
             self.act_timer(self.d_act_do, self.c_act_conf.startup)
 
     def d_act_do(self, t):
+        self.dracolith_mod.on()
         if self.c_act_name == 'ds':
             self.adv.actmod_on(self.ds_event)
             actmods = self.adv.actmods('ds')
@@ -239,6 +240,7 @@ class DragonForm(Action):
                     log(self.c_act_name, 'sp', f'{self.skill_spc}/{self.skill_sp}')
         self.adv.add_hits(self.c_act_conf.hit)
         self.d_act_next()
+        self.dracolith_mod.off()
 
     def d_act_next(self):
         nact = None
@@ -333,7 +335,6 @@ class DragonForm(Action):
                 self.parse_act(self.conf.act)
             self.dragon_gauge -= self.shift_cost
             self.dracolith_mod.mod_value = self.ddamage()
-            self.dracolith_mod.on()
             if self.off_ele_mod is not None:
                 self.off_ele_mod.on()
             self.pause_auto_gauge()
