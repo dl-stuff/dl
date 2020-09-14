@@ -4,8 +4,6 @@ def module():
     return Kirsty
 
 class Kirsty(Adv):
-    a3 = ('k_poison',0.3)
-
     conf = {}
     conf['acl'] = """
         `dragon(c3-s-end),s4.check()

@@ -539,7 +539,7 @@ class Adv(object):
         's3': skill_default,
         's4': skill_default,
 
-        'dodge.startup': 0.66667,
+        'dodge.startup': 0.63333,
         'dodge.recovery': 0,
 
         'acl': '`s1;`s2;`s3',
