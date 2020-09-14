@@ -1344,7 +1344,7 @@ class Adv(object):
         # pprint(self.conf)
 
         Event('idle')()
-        end, reason = Timeline.run(d)
+        end, reason = Timeline.run(self.duration)
         log('sim', 'end', reason)
 
         self.post_run(end)

@@ -7,18 +7,18 @@ def module():
 
 class Skill_Reservoir(Skill):
 
-    def __init__(self, name=None):
+    def __init__(self, name=None, altchain='dispel'):
         super().__init__(name)
         self.chain_timer = Timer(self.chain_off)
         self.chain_status = 0
+        self.altchain = altchain
 
     def chain_on(self, skill, timeout=3):
         log('debug', 'chain on', f's{skill}')
         self.chain_status = skill
         self.chain_timer.on(timeout)
         self._static.current_s[f's{skill}'] = f'chain{skill}'
-        # does not impl dispel or break chain
-        self._static.current_s[f's{3-skill}'] = f'base{3-skill}'
+        self._static.current_s[f's{3-skill}'] = f'{self.altchain}{3-skill}'
 
     def chain_off(self, t=None):
         log('debug', 'chain off')
@@ -76,9 +76,9 @@ class Gala_Alex(Adv):
         if self.duration <= 120:
             self.conf['coabs'] = ['Ieyasu','Wand','Heinwald']
 
-    def __init__(self, conf=None, cond=None):
+    def __init__(self, conf=None, cond=None, altchain='dispel'):
         super().__init__(conf=conf, cond=cond)
-        self.sr = Skill_Reservoir('s1')
+        self.sr = Skill_Reservoir('s1', altchain=altchain)
         self.a_s_dict['s1'] = self.sr
         self.a_s_dict['s2'] = self.sr
 
