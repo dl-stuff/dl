@@ -232,6 +232,9 @@ class Action(object):
         return self.conf.recovery
 
     def getrecovery(self):
+        # Lathna/Ramona spaget
+        if 'recovery_nospd' in self.conf:
+            return self._recovery / self.speed() + self.conf['recovery_nospd']
         return self._recovery / self.speed()
 
     def getstartup(self):
@@ -665,8 +668,8 @@ class Adv(object):
         for t in chain(self.tension, self.sab):
             if t.active == name:
                 mods.append(t.modifier)
-        if mods:
-            log('actmods', name, str(mods))
+        # if mods:
+        #     log('actmods', name, str(mods))
         return mods
 
     def actmod_off(self, e):
@@ -697,9 +700,9 @@ class Adv(object):
         if self.hp != old_hp:
             delta = self.hp-old_hp
             if self.hp == 0:
-                log('hp', f'=1', f'{delta/100:.0%}')
+                log('hp', f'=1', f'{delta/100:.1%}')
             else:
-                log('hp', f'{self.hp/100:.0%}', f'{delta/100:.0%}')
+                log('hp', f'{self.hp/100:.1%}', f'{delta/100:.1%}')
             self.condition.hp_cond_set(self.hp)
             self.hp_event.hp = self.hp
             self.hp_event.delta = delta
@@ -866,6 +869,7 @@ class Adv(object):
         return reduce(operator.mul, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], 1)
 
     def sub_mod(self, mtype, morder):
+        log('debug', str([(modifier.mod_name, modifier.get()) for modifier in self.all_modifiers[mtype][morder]]))
         mod_sum = sum([modifier.get() for modifier in self.all_modifiers[mtype][morder]])
         if morder == 'buff':
             mod_sum = min(mod_sum, 2.00)

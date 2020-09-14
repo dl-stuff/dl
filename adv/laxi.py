@@ -14,61 +14,29 @@ class Laxi(Adv):
     conf['acl'] = '''
         `dragon
         `s3, not buff(s3)
-        `s2, not self.s2buff.get()
+        `s2, not buff(s2)
         `s1,cancel
         `s4,cancel
-        `fs, x=5 and s2.charged > s2.sp-100 and not self.s2buff.get()
+        `fs, x=5 and charged_in(fs, s2) and not buff(s2)
         '''
     conf['coabs'] = ['Dagger', 'Marth', 'Dagger2']
     conf['share'] = ['Kleimann']
 
     def prerun(self):  
         self.healed = 0
-        self.heal = Action('heal', Conf({'startup': 0.1, 'recovery': 5.0}))
+        self.heal = Action('heal', Conf({'startup': 5.0, 'recovery': 0.1}))
 
-        self.set_hp(0)
-        self.heal_initial = Timer(self.heal_proc, 0).on()
-        self.s2buff = Selfbuff('s2',0.15,-1)
-        self.s2tick = Timer(self.s2_tick,2.9,1)
+        Event('hp').listener(self.heal_proc)
 
-        self.a3buff = Selfbuff('a3',0.2,-1,'att','passive')
+    def s1_before(self, e):
+        log('debug', self.sub_mod('att', 'passive'), self.hp, self.condition('hp50'), self.condition('hp≤30'))
 
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.s2buff = Dummy()
-
-    def s1_proc(self, e):
-        if self.s2buff.get():
-            self.dmg_make(e.name,0.87*4)
-
-    def s2_proc(self, e):
-        # self.s2buff.on()
-        if not self.s2buff.get():
-            self.s2buff.on()
-            self.s2tick.on()
-        else:
-            self.s2buff.off()
-            self.s2tick.off()
-
-    def s2_tick(self, t):
-        self.set_hp(self.hp-3.5)
-        if self.hp <= 30.0:
-            self.a3buff.on()
-            if self.healed == 0:
-                self.heal_proc(None)
-        else:
-            self.a3buff.off()
-
-    def heal_proc(self, t):
-        self.healed = 1
-        self.set_hp(100)
-        self.s2buff.off()
-        self.s2tick.off()
-        self.a3buff.off()
-
-        self.heal.getdoing().cancel_by.append('heal')
-        self.heal.getdoing().interrupt_by.append('heal')
-        self.heal()
+    def heal_proc(self, e):
+        if self.healed == 0 and e.delta < 0 and e.hp <= 30:
+            self.healed = 1
+            self.set_hp(100)
+            self.heal.getdoing().cancel_by.append('heal')
+            self.heal()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

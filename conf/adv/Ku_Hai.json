@@ -1,26 +1,40 @@
 {
     "c": {
-        "a": [["cd", 0.15], ["cd", 0.15, "hp70"]],
+        "name": "Ku Hai",
+        "icon": "110315_01_r04",
         "att": 488,
+        "hp": 732,
         "ele": "wind",
-        "stars": "4",
         "wt": "sword",
-        "name": "Ku_Hai",
-        "spiral": 0
+        "spiral": false,
+        "a": [["cd", 0.15], ["cd", 0.15, "hp70"]]
+    },
+    "fs_enhanced": {
+        "startup": 0.0,
+        "recovery": 0.66667,
+        "attr": [
+            {"dmg": 0.83, "sp": 330},
+            {"dmg": 0.83, "iv": 0.13333},
+            {"dmg": 0.83, "iv": 0.26667}
+        ]
     },
     "s1": {
-        "dmg": 7.52,
-        "hit": 4,
-        "recovery": 2.3,
         "sp": 2296,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.2,
+        "attr": [
+            {"dmg": 1.88, "iv": 0.36667},
+            {"dmg": 1.88, "iv": 0.5},
+            {"dmg": 1.88, "iv": 0.8},
+            {"dmg": 1.88, "iv": 1.33333}
+        ]
     },
     "s2": {
-        "buff": ["self", 0.1, 10.0, "crit", "rate"],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 2913,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": [["fsAlt", "enhanced", 10.0], ["self", 0.1, 10.0, "crit", "chance"], "-refresh"], "iv": 0.16667}
+        ]
     }
 }

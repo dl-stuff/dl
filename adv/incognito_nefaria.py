@@ -11,17 +11,17 @@ class Incognito_Nefaria(RngCritAdv):
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Levins_Champion()
     conf['acl'] = """
-        `dragon(c3-s-s-end), s and not self.energy()=5
-        `s3, not buff(s3) and x=5
-        `s1
-        `s4, x>2
+        # `dragon(c3-s-s-end), s and not self.energy()=5
+        # `s3, not buff(s3) and x=5
+        # `s1
+        # `s4, x>2
         
-        ## S2 mode
-        #`dragon(c3-s-s-end), (s=1 and self.energy()=3) or s=2
-        #`s3, not buff(s3) and x=5
-        #`s2, self.energy()=5
-        #`s1, not self.energy()=5
-        #`s4, not self.energy()=5 and x>2
+        # S2 mode
+        `dragon(c3-s-s-end), (s=1 and self.energy()=3) or s=2
+        `s3, not buff(s3) and x=5
+        `s2, self.energy()=5
+        `s1, not self.energy()=5
+        `s4, not self.energy()=5 and x>2
         """
     conf['slots.d'] = Gala_Mars()
     conf['coabs'] = ['Blade', 'Serena', 'Yuya']

@@ -36,6 +36,7 @@ class DragonForm(Action):
         self.c_act_name = None
         self.c_act_conf = None
         self.dracolith_mod = self.adv.Modifier('dracolith', 'att', 'dragon', 0)
+        self.dracolith_mod.get = self.ddamage
         self.dracolith_mod.off()
         self.off_ele_mod = None
         if self.adv.slots.c.ele != self.adv.slots.d.ele:
@@ -205,6 +206,8 @@ class DragonForm(Action):
 
     def d_act_do(self, t):
         self.dracolith_mod.on()
+        o_ctime = self.adv.ctime
+        self.adv.ctime = 10 # FIXME
         if self.c_act_name == 'ds':
             self.adv.actmod_on(self.ds_event)
             actmods = self.adv.actmods('ds')
@@ -241,6 +244,7 @@ class DragonForm(Action):
         self.adv.add_hits(self.c_act_conf.hit)
         self.d_act_next()
         self.dracolith_mod.off()
+        self.adv.ctime = o_ctime # FIXME
 
     def d_act_next(self):
         nact = None
@@ -334,7 +338,6 @@ class DragonForm(Action):
             if len(self.act_list) == 0:
                 self.parse_act(self.conf.act)
             self.dragon_gauge -= self.shift_cost
-            self.dracolith_mod.mod_value = self.ddamage()
             if self.off_ele_mod is not None:
                 self.off_ele_mod.on()
             self.pause_auto_gauge()

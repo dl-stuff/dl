@@ -263,14 +263,14 @@ class Slots(object):
             tmp = self.tmp
         self.abilities = {'c':{}, 'w':{}, 'd':{}, 'a':{}}
         for afrom, alist in [('c', tmp.c.a), ('w', tmp.w.a), ('d', tmp.d.a), ('a', tmp.a.a)]:
-            for ab in alist:
+            for aidx, ab in enumerate(alist):
                 name = ab[0]
                 if '_' in name:
                     acat = name.split('_')[0]
                 else:
                     acat = name
                 self.abilities[afrom][name] = ability_dict[acat](*ab)
-                self.abilities[afrom][name].oninit(adv, afrom)
+                self.abilities[afrom][name].oninit(adv, f'{afrom}_{aidx}')
 
     def att(self, forte=None):
         tmp = self.tmp

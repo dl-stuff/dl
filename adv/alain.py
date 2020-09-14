@@ -19,6 +19,9 @@ class Alain(Adv):
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['share'] = ['Kleimann']
 
+    def s1_before(self, e):
+        log('debug', self.sub_mod('att', 'passive'), self.hp, self.condition('hp50'), self.condition('hp≤30'))
+
 if __name__ == '__main__':
     from core.simulate import test_with_argv
     test_with_argv(None, *sys.argv)

@@ -326,7 +326,7 @@ class Gala_Cat_Sith(DragonBase):
             def add_combo():
                 self.add_combo_o()
                 if adv.hits == 0:
-                    self.ehit == 0
+                    self.thit = 0
                 else:
                     n_thit = adv.hits // self.threshold
                     if n_thit > self.thit:

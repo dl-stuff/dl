@@ -6,7 +6,7 @@ def module():
     return Lathna
 
 class Lathna(Adv):
-    comment = 'cait sith skill damage does not work on s1 extra hits'
+    comment = 'cat sith skill damage does not work on s1 extra hits'
     
     conf = {}
     conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
@@ -18,12 +18,8 @@ class Lathna(Adv):
         `s1(all), x=5
         """
     conf['coabs'] = ['Ieyasu','Wand','Forte']
-    conf['share'] = ['Kleimann']
-
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Curran']
-
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
         
     conf['dragonform'] = {
         'act': 'c3-s-c3-c3-c2-c2-c2',
@@ -58,6 +54,7 @@ class Lathna(Adv):
         Event('dragon').listener(self.a1_on)
         Event('idle').listener(self.a1_off)
     
+    @staticmethod
     def prerun_skillshare(adv, dst):
         adv.current_s[dst] = 'all'
 
@@ -81,7 +78,9 @@ class Lathna(Adv):
         with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
             for _ in range(4):
                 self.dmg_make(e.name, 2.37/self.sub_mod('s', 'buff'))
-                self.add_hits(1)
+                self.add_combo()
+        # spaget
+        self.last_c = now() + 1
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

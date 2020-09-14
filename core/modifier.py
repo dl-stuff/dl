@@ -68,9 +68,9 @@ class Modifier(object):
         # if modifier.mod_condition:
         #     if not m_condition.on(modifier.mod_condition):
         #         return self
-        if modifier.mod_condition is not None:
-            if not self._static.g_condition(modifier.mod_condition):
-                return self
+        # if modifier.mod_condition is not None:
+        #     if not self._static.g_condition(modifier.mod_condition):
+        #         return self
 
         self._static.all_modifiers.append(self)
         self._mod_active = 1
@@ -541,7 +541,8 @@ class SingleActionBuff(Buff):
         pass
 
     def act_on(self, e):
-        if self.get() and e.name.startswith(self.mod_type) and self.uses > 0 and self.active is None:
+        if self.get() and e.name.startswith(self.mod_type) or e.name == 'ds' and self.mod_type == 's' \
+           and self.uses > 0 and self.active is None:
             self.logwrapper(e.name, 'act_on')
             self.active = e.name
             self.uses -= 1
