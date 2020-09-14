@@ -1,25 +1,35 @@
 {
     "c": {
-        "a": [["cc", 0.13, "hp70"], ["cd", 0.3]],
-        "att": 624,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "blade",
         "name": "Ieyasu",
-        "spiral": 1
+        "icon": "110313_01_r05",
+        "att": 624,
+        "hp": 886,
+        "ele": "shadow",
+        "wt": "blade",
+        "spiral": true,
+        "a": [["cc", 0.13, "hp70"], ["cd", 0.3]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 8,
-        "recovery": 4.1,
         "sp": 2467,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 3.96667,
+        "attr": [
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "bleed": [100, 1.46], "iv": 0.73333},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "iv": 1.03333},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "iv": 1.2},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "iv": 1.36667},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "iv": 1.56667},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "iv": 1.8},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "iv": 2.0},
+            {"dmg": 1.55, "killer": [0.2, ["poison"]], "iv": 2.93333}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 7913,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.2, 15.0, "crit", "chance"], "iv": 0.16667}
+        ]
     }
 }

@@ -6,9 +6,6 @@ def module():
     return Ieyasu
 
 class Ieyasu(Adv):
-    a1 = ('cc',0.13,'hp70')
-    a2 = ('cd',0.3)
-
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['acl'] = """
@@ -21,11 +18,8 @@ class Ieyasu(Adv):
         `fs, x=5 and buff(s3)
     """
     conf['coabs'] = ['Wand','Delphi','Axe2']
-    conf['share'] = ['Kleimann']
-
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Curran']
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
     def s2ifbleed(self):
         if self.bleed._static['stacks'] > 0:
@@ -36,19 +30,13 @@ class Ieyasu(Adv):
         self.s2buff = Selfbuff('s2',0.20,15,'crit')
         self.s2buff.modifier.get = self.s2ifbleed
         self.bleed = Bleed('g_bleed',0).reset()
-        self.s2charge = 0
 
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.bleed = Bleed('g_bleed',0).reset()
+    # @staticmethod
+    # def prerun_skillshare(adv, dst):
+    #     adv.bleed = Bleed('g_bleed',0).reset()
 
-    def s1_proc(self, e):
-        with KillerModifier('s1_killer', 'hit', 0.2, ['poison']):
-            self.dmg_make(e.name, 12.40)
-            Bleed(e.name, 1.46).on()
-
-    def s2_proc(self, e):
-        self.s2buff.on()
+    # def s2_proc(self, e):
+    #     self.s2buff.on()
 
 
 if __name__ == '__main__':

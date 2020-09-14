@@ -5,27 +5,9 @@ from slot.d import *
 def module():
     return Hunter_Vanessa
 
-hvan_fs = {
-    'fs1': {
-        'dmg': 143 / 100.0,
-        'sp': 100,
-        'charge': 24 / 60.0,
-        'startup': 17 / 60.0,
-        'recovery': 46 / 60.0,
-        'hit': 1,
-    },
-    'fs2': {
-        'dmg': 370 / 100.0,
-        'sp': 300,
-        'charge': 72 / 60.0,
-        'startup': 17 / 60.0,
-        'recovery': 46 / 60.0,
-        'hit': 1,
-    }
-}
 
 class Hunter_Vanessa(Adv):
-    conf = hvan_fs.copy()
+    conf = {}
     conf['slots.a'] = Mega_Friends()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon, s
@@ -35,7 +17,7 @@ class Hunter_Vanessa(Adv):
         `s1, fsc
         `s4, fsc
         `dodge,fsc
-        `fs2, x=2
+        `fs2, x=5
         """
     conf['coabs'] = ['Sharena','Blade','Peony']
     conf['afflict_res.paralysis'] = 0

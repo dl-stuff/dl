@@ -1,26 +1,28 @@
 {
     "c": {
-        "a": [["bk", 0.2]],
-        "att": 492,
-        "ele": "water",
-        "stars": "3",
-        "wt": "blade",
         "name": "Jurota",
-        "spiral": 0
+        "icon": "110016_01_r03",
+        "att": 492,
+        "hp": 706,
+        "ele": "water",
+        "wt": "blade",
+        "spiral": false,
+        "a": [["bk", 0.2]]
     },
     "s1": {
-        "dmg": 8.78,
-        "hit": 1,
-        "recovery": 1.9,
         "sp": 2640,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.73333,
+        "attr": [
+            {"dmg": 8.78, "iv": 0.26667, "msl": 1}
+        ]
     },
     "s2": {
-        "buff": ["self", 0.25, 5.0],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 4101,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.25, 5.0, "att", "buff"], "iv": 0.16667}
+        ]
     }
 }

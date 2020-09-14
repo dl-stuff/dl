@@ -1,26 +1,48 @@
 {
     "c": {
-        "a": [["a", 0.1, "hp70"], ["k_poison", 0.2]],
-        "att": 478,
-        "ele": "wind",
-        "stars": "4",
-        "wt": "bow",
         "name": "Joachim",
-        "spiral": 0
+        "icon": "110350_01_r04",
+        "att": 478,
+        "hp": 741,
+        "ele": "wind",
+        "wt": "bow",
+        "spiral": false,
+        "a": [["a", 0.1, "hp70"], ["k_poison", 0.2]]
     },
-    "s1": {
-        "dmg": 0.0,
-        "hit": 2,
-        "recovery": 1.17,
+    "s1_phase1": {
         "sp": 2803,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 2.2, "killer": [0.8, ["poison"]], "afflic": ["poison", 110, 0.53], "iv": 0.43333, "msl": 1},
+            {"dmg": 2.2, "killer": [0.8, ["poison"]], "iv": 0.43333, "msl": 1}
+        ]
+    },
+    "s1_phase2": {
+        "sp": 2803,
+        "startup": 0.1,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 2.2, "killer": [0.8, ["poison"]], "afflic": ["poison", 160, 0.53], "iv": 0.43333, "msl": 1},
+            {"dmg": 2.2, "killer": [0.8, ["poison"]], "iv": 0.43333, "msl": 1}
+        ]
+    },
+    "s1_phase3": {
+        "sp": 2803,
+        "startup": 0.1,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 2.2, "killer": [0.8, ["poison"]], "afflic": ["poison", 160, 0.53], "iv": 0.43333, "msl": 1},
+            {"dmg": 2.2, "killer": [0.8, ["poison"]], "iv": 0.43333, "msl": 1},
+            {"buff": ["team", 0.15, 10.0, "att", "buff"], "iv": 1.06667}
+        ]
     },
     "s2": {
-        "buff": ["self", 0.25, 5.0],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 5599,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"sp": [1.0, "%", "s1"], "buff": ["self", 0.25, 5.0, "att", "buff"], "iv": 0.13333}
+        ]
     }
 }

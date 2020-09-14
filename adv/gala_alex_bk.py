@@ -32,7 +32,7 @@ class Gala_Alex(adv.gala_alex.Gala_Alex):
         Selfbuff('agito_s3', 0.05, -1, 'crit', 'chance').on()
 
     def post_run(self, end):
-        self.comment = f'3 charges + bk killer chain for {now():.02f}s; no bk def down'
+        self.comment = f'{now():.02f}s sim; 3 charges into bk + bk killer chain; no bk def down'
 
     def build_rates(self):
         rates = super().build_rates()

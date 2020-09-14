@@ -23,9 +23,6 @@ class Botan(Adv):
     def prerun(self):
         self.bleed = Bleed("g_bleed",0).reset()
 
-    def s1_hit1(self, e):
-        Bleed(e.name, 1.46).on()
-
 if __name__ == '__main__':
     from core.simulate import test_with_argv
     test_with_argv(None, *sys.argv)

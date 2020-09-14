@@ -6,8 +6,6 @@ def module():
     return Jurota
 
 class Jurota(Adv):
-    a1 = ('bk',0.2)
-
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
     conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()

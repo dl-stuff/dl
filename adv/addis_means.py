@@ -7,12 +7,11 @@ def module():
     return Addis
 
 class Addis(addis.Addis):
+    conf = addis.Addis.conf.copy()
+    conf['mbleed'] = True
     def prerun(self):
         super().prerun()
         self.bleed = mBleed('g_bleed',0).reset()
-
-    def s1_enhanced_hit1(self, e):
-        mBleed(e.name, 1.32).on()
 
 
 if __name__ == '__main__':

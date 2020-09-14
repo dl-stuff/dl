@@ -6,9 +6,8 @@ def module():
     return Hunter_Sarisse
 
 class Hunter_Sarisse(adv.hunter_sarisse.Hunter_Sarisse):
-    def prerun(self):
-        super().prerun()
-        self.fs_attenuation = 6
+    conf = adv.hunter_sarisse.Hunter_Sarisse.conf.copy()
+    conf['attenuation'] = -1
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

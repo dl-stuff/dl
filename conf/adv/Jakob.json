@@ -1,26 +1,30 @@
 {
     "c": {
-        "a": [["prep", "50%"]],
-        "att": 437,
-        "ele": "water",
-        "stars": "3",
-        "wt": "lance",
         "name": "Jakob",
-        "spiral": 0
+        "icon": "110058_01_r03",
+        "att": 437,
+        "hp": 790,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": false,
+        "a": [["prep", 50]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 3,
-        "recovery": 1.9,
         "sp": 2581,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.6,
+        "attr": [
+            {"dmg": 2.27, "afflic": ["bog", 90], "iv": 0.23333},
+            {"dmg": 2.27, "iv": 0.56667},
+            {"dmg": 2.27, "iv": 1.13333}
+        ]
     },
     "s2": {
-        "buff": ["team", 0.15, 15.0, "defense"],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 7633,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 0.16667}
+        ]
     }
 }

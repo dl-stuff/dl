@@ -544,7 +544,8 @@ class Adv(object):
 
         'acl': '`s1;`s2;`s3',
 
-        'attenuation': 1
+        'attenuation': 1,
+        'mbleed': False,
     }
 
     def damage_sources_check(self, name, conf):
@@ -1514,7 +1515,7 @@ class Adv(object):
             count += echo_count
         if attenuation is not None:
             rate, pierce = attenuation
-            if pierce > 0:
+            if pierce != 0:
                 coef *= rate
                 depth += 1
                 if depth == 1:
@@ -1524,7 +1525,7 @@ class Adv(object):
                 self.dmg_make(name, coef, dtype, attenuation=(rate, pierce-1), depth=depth)
         return count
 
-    def hitattr_make(self, name, base, group, aseq, attr):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit):
         g_logs.log_hitattr(name, attr)
         hitmods = self.actmods(name)
         if 'dmg' in attr:
@@ -1547,6 +1548,9 @@ class Adv(object):
             else:
                 self.dmg_make(name, attr['dmg'], attenuation=attenuation)
                 self.add_combo()
+
+        if onhit:
+            onhit(name, base, group, aseq)
 
         if 'sp' in attr:
             if isinstance(attr['sp'], int):
@@ -1584,6 +1588,15 @@ class Adv(object):
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
             getattr(self.afflics, aff_type)(name, *aff_args)
+
+        if 'bleed' in attr:
+            rate, mod = attr['bleed']
+            if self.conf.mbleed:
+                from module.bleed import mBleed
+                mBleed(name, mod).on()
+            elif rate == 100 or rate > random.uniform(0, 100):
+                from module.bleed import Bleed
+                Bleed(name, mod).on()
 
         if 'buff' in attr:
             self.hitattr_buff_outer(name, base, group, aseq, attr)
@@ -1666,12 +1679,10 @@ class Adv(object):
                 return None
 
     def l_hitattr_make(self, t):
-        self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr)
+        self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, t.onhit)
         if t.pin is not None:
             self.think_pin(t.pin+'-h')
             Event(t.pin+'-h')()
-        if t.post is not None:
-            t.post(t)
         if t.proc is not None:
             t.proc(t)
         if t.actmod:
@@ -1690,9 +1701,9 @@ class Adv(object):
         if not attr.get('nospd'):
             iv /= self.speed()
         try:
-            post = getattr(self, f'{e.name}_hit{aseq+1}')
+            onhit = getattr(self, f'{e.name}_hit{aseq+1}')
         except AttributeError:
-            post = None
+            onhit = None
         if iv is not None and iv > 0:
             mt = Timer(self.l_hitattr_make)
             mt.pin = pin
@@ -1701,7 +1712,7 @@ class Adv(object):
             mt.group = e.group
             mt.aseq = aseq
             mt.attr = attr
-            mt.post = post
+            mt.onhit = onhit
             mt.proc = None
             mt.actmod = False
             mt.on(iv)
@@ -1712,11 +1723,9 @@ class Adv(object):
             e.pin = pin
             e.aseq = aseq
             e.attr = attr
-            self.hitattr_make(e.name, e.base, e.group, aseq, attr)
+            self.hitattr_make(e.name, e.base, e.group, aseq, attr, onhit)
             if pin is not None:
                 Event(f'{pin}-h-{aseq}')()
-            if post is not None:
-                post(e)
         return None
 
     def hit_make(self, e, conf, cb_kind=None, pin=None):

@@ -14,7 +14,7 @@ class Addis(Adv):
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)
         `s2, charged_in(2, s1)
-        `s1, not charged_in(s2, 3) and bleed.get() < 3
+        `s1, not charged_in(3, s2) and bleed.get() < 3
         `s4, xf=5 and not buff(s2)
         `fsf, xf=5
         """
@@ -35,11 +35,6 @@ class Addis(Adv):
         self.bleedpunisher.get = self.getbleedpunisher
         self.bleed = Bleed('g_bleed',0).reset()
         # self.crit_mod = self.rand_crit_mod
-
-    def s1_enhanced_hit1(self, e):
-        if random.random() < 0.8:
-            Bleed(e.name, 1.32).on()
-
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

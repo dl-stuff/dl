@@ -15,7 +15,6 @@ class Chitose(Adv):
         `s4, s=1
         `s3, x>2
         `fs, x=5
-        `dodge,fscf
         """
     conf['coabs'] = ['Tobias','Dagger2','Bow']
     conf['share'] = ['Summer_Luca','Summer_Cleo']
