@@ -70,7 +70,6 @@ class Gala_Alex(Adv):
     """
     conf['coabs'] = ['Ieyasu','Wand','Delphi']
     conf['share.base'] = ['Rodrigo']
-    conf['share.poison'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
     def d_coabs(self):
