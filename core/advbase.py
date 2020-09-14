@@ -544,7 +544,7 @@ class Adv(object):
 
         'acl': '`s1;`s2;`s3',
 
-        'attenuation': 0
+        'attenuation': 1
     }
 
     def damage_sources_check(self, name, conf):
@@ -651,7 +651,7 @@ class Adv(object):
 
     def actmod_on(self, e):
         do_sab = True
-        do_tension = e.name.startswith('s')
+        do_tension = e.name.startswith('s') or e.name == 'ds'
         if do_tension:
             for t in self.tension:
                 t.on(e)
@@ -668,7 +668,7 @@ class Adv(object):
 
     def actmod_off(self, e):
         do_sab = True
-        do_tension = e.name.startswith('s')
+        do_tension = e.name.startswith('s') or e.name == 'ds'
         if do_tension:
             for t in self.tension:
                 t.off(e)
