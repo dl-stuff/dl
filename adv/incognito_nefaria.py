@@ -7,25 +7,25 @@ def module():
     return Incognito_Nefaria
 
 class Incognito_Nefaria(RngCritAdv):
-    comment = 'no s2. overall dps is only slightly lower without s2'
+    comment = 's2 is a ~400 dps loss'
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Levins_Champion()
+    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """
-        # `dragon(c3-s-s-end), s and not self.energy()=5
-        # `s3, not buff(s3) and x=5
-        # `s1
-        # `s4, x>2
-        
-        # S2 mode
-        `dragon(c3-s-s-end), (s=1 and self.energy()=3) or s=2
+        `dragon(c3-s-s-end), s and energy()<5
         `s3, not buff(s3) and x=5
-        `s2, self.energy()=5
-        `s1, not self.energy()=5
-        `s4, not self.energy()=5 and x>2
+        `s1
+        `s4, x>2
+        
+        ## S2 mode
+        #`dragon(c3-s-s-end), (s=1 and energy()=3) or s=2
+        #`s3, not buff(s3) and x=5
+        #`s2, energy()=5
+        #`s1, not energy()=5
+        #`s4, not energy()=5 and x>2
         """
     conf['slots.d'] = Gala_Mars()
-    conf['coabs'] = ['Blade', 'Serena', 'Yuya']
-    conf['share'] = ['Kleimann']
+    conf['coabs'] = ['Nobunaga', 'Serena', 'Yuya']
+    conf['share'] = ['Summer_Patia']
     conf['afflict_res.burn'] = 0
 
     def prerun(self):

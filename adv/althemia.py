@@ -9,13 +9,13 @@ class Althemia(Adv):
     conf = {}
     conf['slots.a'] = Candy_Couriers()+The_Fires_of_Hate()
     conf['acl'] = """
-        `dragon(c3-s-end), s=4
+        `dragon(c3-s-end), x=5
         `s3, not buff(s3)
         `s2
         `s4
         `s1,buff(s3) and cancel
     """
-    conf['coabs'] = ['Ieyasu','Delphi','Gala_Alex']
+    conf['coabs'] = ['Gala_Alex','Delphi','Bow']
     conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
