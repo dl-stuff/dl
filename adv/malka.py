@@ -4,8 +4,6 @@ def module():
     return Malka
 
 class Malka(Adv):
-    comment = ''
-
     conf = {}
     conf['acl'] = """
         `dragon

@@ -5,8 +5,6 @@ def module():
     return Maribelle
 
 class Maribelle(Adv):
-    a1 = ('s', 0.4, 'hp100')
-    a3 = ('prep','100%')
     conf = {}
     conf['slots.d'] = AC011_Garland()
     conf['acl'] = """
@@ -17,7 +15,8 @@ class Maribelle(Adv):
         `s2, cancel
         """
     conf['coabs'] = ['Blade','Akasha','Lin_You']
-    conf['share'] = ['Curran']
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

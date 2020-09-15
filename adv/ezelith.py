@@ -34,8 +34,8 @@ class Ezelith(Adv):
     def s2_chance(self):
         return 0.35 if self.hits >= 15 else 0.15
 
-    def dmg_proc(self, name, amount):
-        if name[0] == 'x' and self.buff('s2'):
+    def x_proc(self, e):
+        if self.buff('s2'):
             Debuff('s2_ab', -0.05, 5, self.s2_chance()).on()
 
 if __name__ == '__main__':

@@ -286,7 +286,7 @@ ability_dict['bc'] = Doublebuff
 
 
 class Doublebuff_CD(Doublebuff):
-    DB_CD = 14.99 # inaccurate, but avoids a potential unintuitive race condition
+    DB_CD = 14.999 # inaccurate, but avoids a potential unintuitive race condition
     def oninit(self, adv, afrom=None):
         self.is_cd = False
 
@@ -445,7 +445,7 @@ ability_dict['prep'] = Skill_Prep
 
 
 class Primed(BuffingAbility):
-    PRIMED_CD = 15
+    PRIMED_CD = 14.999
     def __init__(self, name, value, duration=None):
         self.is_cd = False
         super().__init__(name, value, duration or 10)
@@ -543,7 +543,7 @@ ability_dict['energized'] = Energized_Buff
 
 
 class Energy_Buff(BuffingAbility):
-    E_CD = 15
+    E_CD = 14.999
     def __init__(self, name, value, duration=None):
         super().__init__(name, value, duration or 15)
         self.is_cd = False
@@ -576,7 +576,7 @@ class Affliction_Selfbuff(Ability):
         self.value = value
         self.duration = duration
         self.buff_args = nameparts[2:]
-        self.cd = cd
+        self.cd = cd - 0.001
         self.is_rng = is_rng
         self.is_cd = False
         super().__init__(name)

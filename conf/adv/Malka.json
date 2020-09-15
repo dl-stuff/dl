@@ -1,26 +1,29 @@
 {
     "c": {
-        "a": [],
-        "att": 459,
-        "ele": "light",
-        "stars": "3",
-        "wt": "lance",
         "name": "Malka",
-        "spiral": 0
+        "icon": "110034_01_r03",
+        "att": 459,
+        "hp": 753,
+        "ele": "light",
+        "wt": "lance",
+        "spiral": false,
+        "a": []
     },
     "s1": {
-        "dmg": 7.62,
-        "hit": 2,
-        "recovery": 1.4,
         "sp": 2556,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 3.81, "iv": 0.5},
+            {"dmg": 3.81, "iv": 0.66667}
+        ]
     },
     "s2": {
-        "buff": ["team", 0.1, 15.0],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 6610,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.1, 15.0, "att", "buff"], "iv": 0.16667}
+        ]
     }
 }

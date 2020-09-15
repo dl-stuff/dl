@@ -1,26 +1,36 @@
 {
     "c": {
-        "a": [["cc", 0.15, "hit15"]],
-        "att": 550,
-        "ele": "water",
-        "stars": "4",
-        "wt": "dagger",
         "name": "Luther",
-        "spiral": 1
+        "icon": "110020_01_r04",
+        "att": 550,
+        "hp": 932,
+        "ele": "water",
+        "wt": "dagger",
+        "spiral": true,
+        "a": [["cc", 0.15, "hit15"]]
     },
     "s1": {
-        "dmg": 10.12,
-        "hit": 4,
-        "recovery": 2.3,
         "sp": 2343,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 2.53, "afflic": ["frostbite", 120, 0.41], "iv": 0.3},
+            {"dmg": 2.53, "iv": 0.73333},
+            {"dmg": 2.53, "iv": 0.9},
+            {"dmg": 2.53, "iv": 1.46667}
+        ]
     },
     "s2": {
-        "buff": ["debuff", 0.05, 10.0, 0.5],
-        "dmg": 10.3,
-        "hit": 4,
-        "recovery": 1.8,
         "sp": 4904,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 2.06, "iv": 0.26667},
+            {"dmg": 2.06, "iv": 0.46667},
+            {"dmg": 2.06, "iv": 0.63333},
+            {"dmg": 2.06, "iv": 1.06667},
+            {"dmg": 2.06, "buff": ["debuff", -0.05, 10.0, 1.0, "attack"], "iv": 1.06667},
+            {"buff": ["debuff", -0.05, 10.0, 0.5, "def"], "iv": 1.06667}
+        ]
     }
 }

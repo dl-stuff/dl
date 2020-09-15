@@ -1,26 +1,73 @@
 {
     "c": {
-        "a": [["a", 0.2, "hp100"], ["prep", 1.0], ["scharge_all", 0.05]],
-        "att": 613,
-        "ele": "water",
-        "stars": "5",
-        "wt": "wand",
         "name": "Lily",
-        "spiral": 1
+        "icon": "110252_01_r05",
+        "att": 613,
+        "hp": 899,
+        "ele": "water",
+        "wt": "wand",
+        "spiral": true,
+        "a": [["a", 0.2, "hp100"], ["prep", 1.0], ["scharge_all", 0.05]]
     },
     "s1": {
-        "attr": [
-            {"dmg": 5.29, "afflics": ["frostbite", 120, 0.41]},
-            {"dmg": 5.29, "afflics": ["freeze", 200]}
-        ],
-        "recovery": 3.1,
         "sp": 2490,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 3.1,
+        "attr": [
+            {"dmg": 5.29, "afflic": ["freeze", 200], "iv": 1.93333},
+            {"dmg": 5.29, "afflic": ["frostbite", 120, 0.41], "iv": 2.93333}
+        ]
     },
     "s2": {
-        "attr": [{"dmg": 10.70}],
-        "recovery": 1.46,
         "sp": 5909,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.46667,
+        "attr": [
+            {"buff": ["xAlt", "cp", 30, "-refresh"], "iv": 0.03333},
+            {"dmg": 10.7, "iv": 0.96667}
+        ]
+    },
+    "x1_cp": {
+        "startup": 0.25,
+        "recovery": 0.08333,
+        "attr": [
+            {"dmg": 1.105, "killer": [0.3, ["frostbite"]], "sp": 130, "iv": 0.36667, "msl": 1}
+        ]
+    },
+    "x2_cp": {
+        "startup": 0.46667,
+        "recovery": 0.02222,
+        "attr": [
+            {"dmg": 0.595, "killer": [0.3, ["frostbite"]], "sp": 200, "iv": 0.66666, "msl": 1},
+            {"dmg": 0.595, "killer": [0.3, ["frostbite"]], "iv": 0.66666, "msl": 1}
+        ]
+    },
+    "x3_cp": {
+        "startup": 0.46667,
+        "recovery": 0.34285,
+        "attr": [
+            {"dmg": 0.4, "killer": [0.3, ["frostbite"]], "sp": 240, "iv": 0.66666, "msl": 1},
+            {"dmg": 0.4, "killer": [0.3, ["frostbite"]], "iv": 0.66666, "msl": 1},
+            {"dmg": 0.4, "killer": [0.3, ["frostbite"]], "iv": 0.66666, "msl": 1}
+        ]
+    },
+    "x4_cp": {
+        "startup": 0.53333,
+        "recovery": 0.41905,
+        "attr": [
+            {"dmg": 0.825, "killer": [0.3, ["frostbite"]], "sp": 430, "iv": 0.66667, "msl": 1},
+            {"dmg": 0.825, "killer": [0.3, ["frostbite"]], "iv": 0.68096, "msl": 1}
+        ]
+    },
+    "x5_cp": {
+        "startup": 0.66667,
+        "recovery": 1.16666,
+        "attr": [
+            {"dmg": 0.66, "killer": [0.3, ["frostbite"]], "sp": 600, "iv": 0.66666, "msl": 1},
+            {"dmg": 0.4, "killer": [0.3, ["frostbite"]], "iv": 0.75, "msl": 1},
+            {"dmg": 0.4, "killer": [0.3, ["frostbite"]], "iv": 0.75, "msl": 1},
+            {"dmg": 0.4, "killer": [0.3, ["frostbite"]], "iv": 0.83333, "msl": 1},
+            {"dmg": 0.4, "killer": [0.3, ["frostbite"]], "iv": 0.83333, "msl": 1}
+        ]
     }
 }

@@ -1,25 +1,54 @@
 {
     "c": {
-        "a": [["prep", 100], ["cc", 0.13, "hit10"]],
-        "att": 605,
-        "ele": "flame",
-        "stars": "5",
-        "wt": "sword",
         "name": "Marth",
-        "spiral": 1
+        "icon": "110291_01_r05",
+        "att": 605,
+        "hp": 904,
+        "ele": "flame",
+        "wt": "sword",
+        "spiral": true,
+        "a": [["prep", 100], ["cc", 0.13, "hit10"]]
     },
     "s1": {
-        "dmg": 10.95,
-        "hit": 7,
-        "recovery": 2.3667,
         "sp": 2875,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.36667,
+        "attr": [
+            {"dmg": 1.38, "afflic": ["burn", 120, 0.97], "iv": 0.33333},
+            {"dmg": 1.38, "iv": 0.53333},
+            {"dmg": 1.38, "iv": 0.6},
+            {"dmg": 1.38, "iv": 0.83333},
+            {"dmg": 1.38, "iv": 1.13333},
+            {"dmg": 1.38, "iv": 1.26667},
+            {"dmg": 2.67, "iv": 1.56667}
+        ]
     },
-    "s2": {
-        "dmg": 0,
-        "hit": 1,
-        "recovery": 1.7667,
+    "s2_phase1": {
         "sp": 5700,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"buff": ["self", 0.1, 10.0, "att", "buff"], "iv": 0.16667},
+            {"dmg": 8.99, "killer": [1.0, ["burn"]], "iv": 1.0, "msl": 1}
+        ]
+    },
+    "s2_phase2": {
+        "sp": 5700,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"buff": ["team", 0.1, 10.0, "att", "buff"], "iv": 0.16667},
+            {"dmg": 8.99, "killer": [1.0, ["burn"]], "iv": 1.0, "msl": 1}
+        ]
+    },
+    "s2_phase3": {
+        "sp": 5700,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"buff": ["team", 0.3, 10.0, "spd", "passive"], "iv": 0.16667},
+            {"buff": ["team", 0.1, 10.0, "att", "buff"], "iv": 0.2},
+            {"dmg": 8.99, "killer": [1.0, ["burn"]], "iv": 1.0, "msl": 1}
+        ]
     }
 }

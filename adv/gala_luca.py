@@ -107,14 +107,14 @@ class Gala_Luca(Adv):
 
     def s1_before(self, e):
         if self.shared_crit:
-            crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count())
-            crit_mod.on()
+            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count())
+            self.gluca_crit_mod.on()
         else:
             self.in_s1 = True
 
     def s1_proc(self, e):
         if self.shared_crit:
-            crit_mod.off()
+            self.gluca_crit_mod.off()
         else:
             self.in_s1 = False
 

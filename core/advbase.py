@@ -700,9 +700,9 @@ class Adv(object):
         if self.hp != old_hp:
             delta = self.hp-old_hp
             if self.hp == 0:
-                log('hp', f'=1', f'{delta/100:.1%}')
+                log('hp', f'=1', f'{delta/100:.2%}')
             else:
-                log('hp', f'{self.hp/100:.1%}', f'{delta/100:.1%}')
+                log('hp', f'{self.hp/100:.2%}', f'{delta/100:.2%}')
             self.condition.hp_cond_set(self.hp)
             self.hp_event.hp = self.hp
             self.hp_event.delta = delta
@@ -1079,7 +1079,7 @@ class Adv(object):
                 return False
             return self.a_fs_dict[fsn](before.name)
         except KeyError:
-            raise ValueError(f'{fsn} is not an FS')
+            return False
 
     def x(self, x_min=1):
         prev = self.action.getprev()
@@ -1120,7 +1120,7 @@ class Adv(object):
         if delta <= self.ctime:
             self.hits += self.echo
         else:
-            self.hits = 0
+            self.hits = self.echo
             log('combo', f'reset combo after {delta:.02}s')
         self.last_c = now()
 
@@ -1764,7 +1764,7 @@ class Adv(object):
     def l_fs(self, e):
         log('cast', e.name)
         self.actmod_on(e)
-        self.hit_make(e, self.conf[e.name] or self.conf['fs'], pin=e.name.split('_')[0])
+        self.hit_make(e, self.conf[e.name], pin=e.name.split('_')[0])
 
     def l_s(self, e):
         if e.name == 'ds':

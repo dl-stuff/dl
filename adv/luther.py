@@ -34,9 +34,6 @@ class Luther(Adv):
         # look i dont wanna mass sim
         self.fs_alt.on()
 
-    def s2_proc(self, e):
-        Debuff(e.name, 0.05, 10, 0.9, 'attack').on()
-
 if __name__ == '__main__':
     from core.simulate import test_with_argv
     test_with_argv(None, *sys.argv)

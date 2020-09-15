@@ -1,29 +1,57 @@
 {
     "c": {
-        "a": [["fs", 0.5]],
-        "att": 521,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "blade",
         "name": "Linnea",
-        "spiral": 0
+        "icon": "110271_01_r05",
+        "att": 521,
+        "hp": 739,
+        "ele": "shadow",
+        "wt": "blade",
+        "spiral": false,
+        "a": [["fs", 0.5]]
+    },
+    "fs1_enhanced": {
+        "attr": [{"dmg": 5.17, "sp": 600}, {"dmg": 5.17}, 2],
+        "charge": 0.5,
+        "startup": 0.26667,
+        "recovery": 0.56666
+    },
+    "fs2_enhanced": {
+        "attr": [{"dmg": 2.87, "sp": 925}, {"dmg": 2.87}, 5],
+        "charge": 1.8,
+        "startup": 0.26667,
+        "recovery": 0.56666
+    },
+    "fs3_enhanced": {
+        "attr": [{"dmg": 2.36, "killer": [0.2, ["poison"]], "sp": 1500}, {"dmg": 2.36, "killer": [0.2, ["poison"]]}, 8],
+        "charge": 3.5,
+        "startup": 0.26667,
+        "recovery": 0.56666
     },
     "s1": {
-        "recovery": 1.133,
         "sp": 3000,
-        "startup": 0.1
-    },
-    "s2": {
-        "sp": 5259
+        "startup": 0.1,
+        "recovery": 1.13333,
+        "attr": [
+            {"buff": ["fsAlt", "enhanced", -1, 1], "iv": 0.16667}
+        ]
     },
     "s2_phase1": {
-        "attr": [{"buff": ["spd", 0.30, 15, "cspd"]}],
-        "recovery": 0.9,
-        "startup": 0.25
+        "sp": 5259,
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.3, 15.0, "cspd", "passive", "-refresh"], "iv": 0.16667}
+        ]
     },
     "s2_phase2": {
-        "attr": [{"dmg": 3.55, "dispel": 1}, 4],
-        "recovery": 1.3333,
-        "startup": 0.1
+        "sp": 5259,
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 3.55, "iv": 0.4},
+            {"dmg": 3.55, "iv": 0.56667},
+            {"dmg": 3.55, "iv": 0.73333},
+            {"dmg": 3.55, "iv": 0.9}
+        ]
     }
 }

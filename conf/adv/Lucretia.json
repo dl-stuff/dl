@@ -1,26 +1,32 @@
 {
     "c": {
-        "a": [["energized_att", 0.25], ["bk", 0.35]],
-        "att": 612,
-        "ele": "light",
-        "stars": "5",
-        "wt": "wand",
         "name": "Lucretia",
-        "spiral": 1
+        "icon": "110305_01_r05",
+        "att": 612,
+        "hp": 900,
+        "ele": "light",
+        "wt": "wand",
+        "spiral": true,
+        "a": [["energized_att", 0.25], ["bk", 0.35]]
     },
     "s1": {
-        "dmg": 18.66,
-        "hit": 3,
-        "recovery": 3.055,
         "sp": 3530,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 3.05556,
+        "attr": [
+            {"dmg": 6.22, "iv": 0.33333},
+            {"dmg": 6.22, "iv": 1.16667},
+            {"dmg": 6.22, "iv": 2.22222},
+            {"buff": ["energy", 2, "team"], "iv": 2.36111}
+        ]
     },
     "s2": {
-        "buff": ["self", 0.15, 15.0],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 4553,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.15, 15.0, "att", "buff"], "iv": 0.16667},
+            {"buff": ["energy", 3], "iv": 0.2}
+        ]
     }
 }

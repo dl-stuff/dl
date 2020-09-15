@@ -1,26 +1,36 @@
 {
     "c": {
-        "a": [["s", 0.4, "hp100"], ["prep", "100%"]],
-        "att": 512,
-        "ele": "wind",
-        "stars": "5",
-        "wt": "wand",
         "name": "Maribelle",
-        "spiral": 0
+        "icon": "110032_01_r05",
+        "att": 512,
+        "hp": 748,
+        "ele": "wind",
+        "wt": "wand",
+        "spiral": false,
+        "a": [["s", 0.4, "hp100"], ["prep", 100]]
     },
     "s1": {
-        "buff": ["debuff", 0.05, 10.0, 0.5],
-        "dmg": 9.66,
-        "hit": 6,
-        "recovery": 2.7,
         "sp": 2648,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.7,
+        "attr": [
+            {"dmg": 1.61, "buff": ["debuff", -0.05, 10.0, 0.5, "def"], "iv": 0.96667},
+            {"dmg": 1.61, "iv": 1.13333},
+            {"dmg": 1.61, "iv": 1.3},
+            {"dmg": 1.61, "iv": 1.46667},
+            {"dmg": 1.61, "iv": 1.63333},
+            {"dmg": 1.61, "iv": 1.8}
+        ]
     },
     "s2": {
-        "dmg": 9.76,
-        "hit": 4,
-        "recovery": 1.8,
         "sp": 5838,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 2.44, "iv": 0.83333},
+            {"dmg": 2.44, "iv": 1.0},
+            {"dmg": 2.44, "iv": 1.16667},
+            {"dmg": 2.44, "iv": 1.33333}
+        ]
     }
 }
