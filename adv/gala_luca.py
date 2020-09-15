@@ -13,7 +13,7 @@ class Gala_Luca(Adv):
         `dragon, cancel
         `s3, not buff(s3)
         `s2
-        `s1, not s2.charged>s2.sp/1.2
+        `s1
         `s4, x=5
         """
     conf['coabs'] = ['Axe2','Lucretia','Peony']
