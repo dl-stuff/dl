@@ -12,18 +12,18 @@ class Marth(Adv):
     conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
     conf['acl'] = """
         queue not buff(s3)
-        `s3;s1;s2;s4
+        `s3;s1;s2;fs,x=2;s4,fsc
         end
         `dragon(c3-s-s-end),s=2
         queue prep and afflics.burn.get()
-        `s2;s4;s1
+        `s2;s4
         end
         queue prep and not afflics.burn.get()
         `s1;s2;s4
         end
         `s2, afflics.burn.get()
         `s4, fsc
-        `s1, fsc
+        `s1, fsc and not energy()=5
         `fs, x=3
         """
     conf['coabs.base'] = ['Blade', 'Wand', 'Joe']

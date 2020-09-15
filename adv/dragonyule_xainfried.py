@@ -15,11 +15,11 @@ class Dragonyule_Xainfried(Adv):
     conf['acl'] = """
         `s4
         `s1
-        `s3, x>2 or fscf
-        `fs,x=5
-        `dodge,fscf
+        `s3, x>2 or fsc
+        `fs, x=5
+        `dodge,fsc
         """
-    conf['coabs'] = ['Blade','Bow','Tobias']
+    conf['coabs'] = ['Dagger2','Bow','Tobias']
     conf['share'] = ['Marty','Tobias']
 
 

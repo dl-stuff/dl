@@ -15,10 +15,10 @@ class Alex(Adv):
         `s3, not buff(s3)
         `s4
         `s2
-        `s1, cancel
+        `s1
         `fs, x=5
         """
-    conf['coabs'] = ['Blade','Wand','Bow']
+    conf['coabs'] = ['Ieyasu','Wand','Heinwald']
     conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
