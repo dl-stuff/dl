@@ -7,21 +7,23 @@ def module():
     return Incognito_Nefaria
 
 class Incognito_Nefaria(RngCritAdv):
-    comment = 's2 is a ~400 dps loss'
+    comment = 'no s2. using s2 is a ~1,300 dps loss'
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """
-        `dragon(c3-s-s-end), s and energy()<5
+        `dragon(c3-s-s-end), s=1 and energy()<5
         `s3, not buff(s3) and x=5
         `s1
-        `s4, x>2
+        `s4, x>2 or fsc
+        `fs, x=5
+        `dodge, fsc
         
         ## S2 mode
         #`dragon(c3-s-s-end), (s=1 and energy()=3) or s=2
         #`s3, not buff(s3) and x=5
         #`s2, energy()=5
         #`s1, not energy()=5
-        #`s4, not energy()=5 and x>2
+        #`s4, not energy()=5 and x>3
         """
     conf['slots.d'] = Gala_Mars()
     conf['coabs'] = ['Nobunaga', 'Serena', 'Yuya']
