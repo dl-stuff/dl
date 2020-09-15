@@ -1,25 +1,36 @@
 {
     "c": {
-        "a": [["affself_paralysis", 0.15, 10, 5], ["k_paralysis", 0.2]],
-        "att": 501,
-        "ele": "light",
-        "stars": "4",
-        "wt": "blade",
         "name": "Yachiyo",
-        "spiral": 0
+        "icon": "110064_01_r04",
+        "att": 501,
+        "hp": 722,
+        "ele": "light",
+        "wt": "blade",
+        "spiral": false
+        "a": [["affself_paralysis", 0.15, 10, 5], ["k_paralysis", 0.2]],
+    },
+    "fs_enhanced": {
+        "startup": 0.13333,
+        "recovery": 0.7,
+        "attr": [
+            {"dmg": 7.82, "sp": 200}
+        ]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 2.0,
         "sp": 2567,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.9,
+        "attr": [
+            {"dmg": 4.32, "afflic": ["paralysis", 100, 0.66], "iv": 0.26667, "msl": 1},
+            {"dmg": 4.32, "iv": 0.56667, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 4139,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.16667}
+        ]
     }
 }

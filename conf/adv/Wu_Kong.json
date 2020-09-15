@@ -1,25 +1,47 @@
 {
     "c": {
-        "a": [["k_paralysis", 0.3]],
+        "name": "Wu Kong",
+        "icon": "110324_01_r05",
         "att": 472,
+        "hp": 724,
         "ele": "light",
-        "stars": "5",
         "wt": "dagger",
-        "name": "Wu_Kong",
-        "spiral": 0
+        "spiral": false,
+        "a": [["k_paralysis", 0.3]]
     },
-    "s1": {
-        "dmg": 0,
-        "hit": 1,
-        "recovery": 1.5,
+    "s1_phase1": {
         "sp": 2256,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 5.46, "iv": 0.66667}
+        ]
+    },
+    "s1_phase2": {
+        "sp": 2256,
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 5.73, "iv": 0.66667}
+        ]
+    },
+    "s1_phase3": {
+        "sp": 2256,
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 6.0, "iv": 0.66667}
+        ]
     },
     "s2": {
-        "dmg": 11.89,
-        "hit": 4,
-        "recovery": 1.8,
         "sp": 4904,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 2.9, "iv": 0.26667},
+            {"dmg": 2.9, "iv": 0.46667},
+            {"dmg": 2.9, "iv": 0.63333},
+            {"dmg": 3.19, "iv": 1.06667}
+        ]
     }
 }

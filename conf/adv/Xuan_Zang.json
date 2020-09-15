@@ -1,25 +1,31 @@
 {
     "c": {
-        "a": [["cc", 0.06, "hp70"]],
+        "name": "Xuan Zang",
+        "icon": "110299_01_r04",
         "att": 461,
+        "hp": 749,
         "ele": "flame",
-        "stars": "4",
         "wt": "lance",
-        "name": "Xuan_Zang",
-        "spiral": 0
+        "spiral": false,
+        "a": [["cc", 0.06, "hp70"]]
     },
     "s1": {
-        "dmg": 0,
-        "hit": 3,
-        "recovery": 1.8,
         "sp": 2707,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.7,
+        "attr": [
+            {"dmg": 2.51, "killer": [0.2, ["debuff"]], "iv": 0.33333},
+            {"dmg": 2.51, "killer": [0.2, ["debuff"]], "iv": 0.73333},
+            {"dmg": 2.51, "killer": [0.2, ["debuff"]], "iv": 1.06667}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.05,
         "sp": 6000,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["debuff", -0.05, 20.0, 0.7, "attack"], "iv": 0.4},
+            {"buff": ["debuff", -0.1, 20.0, 0.7, "def"], "iv": 0.4}
+        ]
     }
 }

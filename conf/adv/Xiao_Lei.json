@@ -1,25 +1,29 @@
 {
     "c": {
-        "a": [["s", 0.2]],
+        "name": "Xiao Lei",
+        "icon": "110316_01_r03",
         "att": 461,
+        "hp": 751,
         "ele": "light",
-        "stars": "3",
         "wt": "wand",
-        "name": "Xiao_Lei",
-        "spiral": 0
+        "spiral": false,
+        "a": [["s", 0.2]]
     },
     "s1": {
-        "dmg": 8.95,
-        "hit": 1,
-        "recovery": 1.4,
         "sp": 2785,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 8.95, "iv": 0.96667}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 3909,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.4, 10.0, "crit", "damage"], "iv": 0.16667},
+            {"buff": ["team", 0.08, 10.0, "crit", "chance"], "iv": 0.16667}
+        ]
     }
 }

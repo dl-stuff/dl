@@ -1,25 +1,50 @@
 {
     "c": {
-        "a": [["estat_att", 3], ["estat_crit", 3], ["energized_att", 0.2]],
-        "att": 506,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "sword",
         "name": "Yaten",
-        "spiral": 0
+        "icon": "110325_01_r05",
+        "att": 506,
+        "hp": 752,
+        "ele": "shadow",
+        "wt": "sword",
+        "spiral": false,
+        "a": [["estat_att", 3], ["estat_crit", 3], ["energized_att", 0.2]],
+        "comment": "todo: s1 energized"
     },
     "s1": {
-        "dmg": 8.24,
-        "hit": 4,
-        "recovery": 2.15,
         "sp": 2818,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.36667,
+        "attr": [
+            {"dmg": 2.06, "iv": 0.33333},
+            {"dmg": 2.06, "iv": 0.63889},
+            {"dmg": 2.06, "iv": 0.83333},
+            {"dmg": 2.06, "iv": 1.0},
+            {"buff": ["energy", 1], "iv": 1.75}
+        ]
+    },
+    "s1_enhanced": {
+        "sp": 2818,
+        "startup": 0.1,
+        "recovery": 1.6,
+        "attr": [
+            {"dmg": 2.06, "iv": 0.33333},
+            {"dmg": 2.06, "iv": 0.63889},
+            {"dmg": 2.06, "iv": 0.83333},
+            {"dmg": 2.06, "iv": 1.0},
+            {"dmg": 0.69, "iv": 1.23333, "msl": 1},
+            {"dmg": 0.69, "iv": 1.3, "msl": 1},
+            {"dmg": 0.69, "iv": 1.36667, "msl": 1},
+            {"dmg": 0.69, "iv": 1.4, "msl": 1},
+            {"dmg": 0.69, "iv": 1.43333, "msl": 1},
+            {"dmg": 0.69, "iv": 1.46667, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 3636,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["energy", 2, "team"], "iv": 0.13333}
+        ]
     }
 }

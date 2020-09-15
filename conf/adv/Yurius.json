@@ -1,25 +1,59 @@
 {
     "c": {
-        "a": [["prep", 100]],
-        "att": 511,
-        "ele": "water",
-        "stars": "5",
-        "wt": "wand",
         "name": "Yurius",
-        "spiral": 0
+        "icon": "110362_01_r05",
+        "att": 511,
+        "hp": 750,
+        "ele": "water",
+        "wt": "wand",
+        "spiral": false,
+        "a": [["prep", 100]],
+        "comment": "todo: ddrive s and haste"
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 4,
-        "recovery": 1.7667,
         "sp": 2711,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 1.89, "iv": 0.96667},
+            {"dmg": 1.89, "iv": 1.16667},
+            {"dmg": 1.89, "iv": 1.33333},
+            {"dmg": 1.89, "iv": 1.5},
+            {"utp": 530, "buff": ["inspiration", 1], "iv": 1.66667}
+        ]
+    },
+    "s1_ddrive": {
+        "sp": 2711,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 1.98, "killer": [0.6, ["frostbite"]], "iv": 0.96667},
+            {"dmg": 1.98, "killer": [0.6, ["frostbite"]], "iv": 1.16667},
+            {"dmg": 1.98, "killer": [0.6, ["frostbite"]], "iv": 1.33333},
+            {"dmg": 1.98, "killer": [0.6, ["frostbite"]], "iv": 1.5}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 4,
-        "recovery": 1.7667,
         "sp": 6400,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 2.08, "afflic": ["frostbite", 120, 0.287], "iv": 0.83333},
+            {"dmg": 2.08, "iv": 1.0},
+            {"dmg": 2.08, "iv": 1.1},
+            {"dmg": 2.08, "iv": 1.23333},
+            {"utp": 530, "buff": ["inspiration", 2], "iv": 1.5}
+        ]
+    },
+    "s2_ddrive": {
+        "sp": 6400,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 2.63, "killer": [0.6, ["frostbite"]], "iv": 0.83333},
+            {"dmg": 2.63, "killer": [0.6, ["frostbite"]], "iv": 1.0},
+            {"dmg": 2.63, "killer": [0.6, ["frostbite"]], "iv": 1.16667},
+            {"dmg": 2.63, "killer": [0.6, ["frostbite"]], "iv": 1.33333}
+        ]
     }
 }

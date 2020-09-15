@@ -1,26 +1,30 @@
 {
     "c": {
-        "a": [["lo_defense", 0.6]],
-        "att": 454,
-        "ele": "flame",
-        "stars": "4",
-        "wt": "axe",
         "name": "Yue",
-        "spiral": 0
+        "icon": "110056_01_r04",
+        "att": 454,
+        "hp": 796,
+        "ele": "flame",
+        "wt": "axe",
+        "spiral": false,
+        "a": [["lo_defense", 0.6]]
     },
     "s1": {
-        "dmg": 10.18,
-        "hit": 2,
-        "recovery": 1.6,
         "sp": 3033,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 5.09, "afflic": ["stun", 110], "iv": 0.4},
+            {"dmg": 5.09, "iv": 1.06667}
+        ]
     },
     "s2": {
-        "buff": ["self", 0.2, 20.0, "crit", "rate"],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 8000,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": [["self", 0.2, 20.0, "crit", "chance"], "-refresh"], "iv": 0.16667}
+        ],
+        "comment": "todo: maybe s2 healing?"
     }
 }

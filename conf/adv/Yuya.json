@@ -1,26 +1,32 @@
 {
     "c": {
-        "a": [["primed_crit_chance", 0.05, 5]],
-        "att": 482,
-        "ele": "flame",
-        "stars": "4",
-        "wt": "dagger",
         "name": "Yuya",
-        "spiral": 0
+        "icon": "110344_01_r04",
+        "att": 461,
+        "hp": 774,
+        "ele": "flame",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["a", 0.2, "hp60"], ["a", -0.2, "hp<60"], ["primed_crit_chance", 0.05, 5]]
     },
     "s1": {
-        "dmg": 7.44,
-        "hit": 4,
-        "recovery": 3.0,
         "sp": 4192,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.46667,
+        "attr": [
+            {"dmg": 1.86, "iv": 0.66667},
+            {"dmg": 1.86, "iv": 1.0},
+            {"dmg": 1.86, "iv": 1.33333},
+            {"dmg": 1.86, "iv": 1.66667},
+            {"buff": ["self", 0.2, 10.0, "spd", "passive"], "iv": 2.4}
+        ]
     },
     "s2": {
-        "buff": ["team", 0.1, 15.0, "defense"],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 10894,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.1, 15.0, "defense", "buff"], "iv": 0.13333}
+        ]
     }
 }

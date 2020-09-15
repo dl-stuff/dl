@@ -1,26 +1,34 @@
 {
     "c": {
-        "a": [["dc", 4], ["dt", 0.25]],
-        "att": 580,
-        "ele": "water",
-        "stars": "5",
-        "wt": "lance",
         "name": "Xainfried",
-        "spiral": 1
+        "icon": "110021_01_r05",
+        "att": 580,
+        "hp": 949,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": true,
+        "a": [["dc", 4], ["dt", 0.25]]
     },
     "s1": {
-        "dmg": 0,
-        "hit": 0,
-        "recovery": 3.0,
         "sp": 2450,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 3.0,
+        "attr": [
+            {"dmg": 2.3, "killer": [0.3, ["frostbite"]], "afflic": ["frostbite", 120, 0.41], "iv": 0.3},
+            {"dmg": 2.3, "killer": [0.3, ["frostbite"]], "iv": 0.7},
+            {"dmg": 2.3, "killer": [0.3, ["frostbite"]], "iv": 2.23333},
+            {"dmg": 2.3, "killer": [0.3, ["frostbite"]], "iv": 2.5}
+        ]
     },
     "s2": {
-        "buff": ["team", 0.2, 20.0],
-        "dmg": 7.62,
-        "hit": 3,
-        "recovery": 1.4,
         "sp": 8534,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.6,
+        "attr": [
+            {"dmg": 2.54, "dp": 100, "iv": 0.23333},
+            {"dmg": 2.54, "iv": 0.56667},
+            {"dmg": 2.54, "iv": 1.13333},
+            {"buff": ["team", 0.2, 20.0, "att", "buff"], "iv": 1.36667}
+        ]
     }
 }
