@@ -6,7 +6,6 @@ def module():
     return Ezelith
 
 class Ezelith(Adv):
-    comment = ''
     a3 = ('bk',0.35)
     conf = {}
     conf['slots.d'] = Gala_Mars()
@@ -21,7 +20,7 @@ class Ezelith(Adv):
     conf['coabs'] = ['Halloween_Mym', 'Blade', 'Wand']
     conf['share'] = ['Summer_Patia']
 
-    def s1_hit(self, e):
+    def s1_hit(self, name, base, group, aseq):
         self.a1_hits += 1
         if self.a1_hits % 2 == 0:
             Selfbuff('a1',0.2,7,'crit','chance').on()

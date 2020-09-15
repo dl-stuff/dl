@@ -43,7 +43,6 @@ class Gala_Laxi(RngCritAdv):
         }
         self.a3_crit_chance = 0
         self.a3_crit_dmg = 0
-        self.crit_mod = self.custom_crit_mod
         self.config_rngcrit(cd=1)
 
         self.current_x = 'norm'
@@ -97,16 +96,15 @@ class Gala_Laxi(RngCritAdv):
     def fig_dmg(self, t):
         if any([self.a_s_dict[sn].ac.status != -2 for sn in ('s1', 's2')]):
             return
-        self.dmg_make('fig', 1.00, 'x')
+        self.dmg_make('x_fig', 1.00, 'x')
         self.add_combo()
 
-    def hitattr_make(self, name, base, group, aseq, attr):
-        if (cp := attr.get('cp')):
-            self.update_a1(cp)
-        super().hitattr_make(name, base, group, aseq, attr)
+    def hitattr_make(self, name, base, group, aseq, attr, onhit):
+        self.update_a1(attr.get('cp', 0))
+        super().hitattr_make(name, base, group, aseq, attr, onhit)
 
     def update_a1(self, delta):
-        if not self.fig.get() and self.a1_cp < 100:
+        if delta != 0 and not self.fig.get() and self.a1_cp < 100:
             next_cp = max(min(self.a1_cp+delta, 100), 0)
             delta = next_cp - self.a1_cp
             if delta == 0:

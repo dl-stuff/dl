@@ -35,11 +35,13 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
         verbose = 255
         mass = None
         durations = [30]
+        output = open(os.devnull, 'w')
 
     try:
         adv_module = core.simulate.load_adv_module(adv_name)
     except Exception:
         print('\033[93m{:.4f}s - sim:{} NOT FOUND\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
+        output.close()
         return
     try:
         for d in durations:
@@ -48,7 +50,9 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
             print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
     except Exception:
         print('\033[91m{:.4f}s - sim:{} FAILED\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
+        output.close()
         return
+    output.close()
 
 
 def sim_adv_list(list_file, sanity_test=False):

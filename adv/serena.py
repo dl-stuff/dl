@@ -21,7 +21,7 @@ class Serena(Adv):
     conf['share'] = ['Kleimann']
 
     def s1_before(self, e):
-        Selfbuff(f'{e.name}buff',0.1,5,'crit','rate').on()
+        Selfbuff(f'{e.name}buff',0.1,5,'crit','chance').on()
 
     def prerun(self):
         self.hits = 0

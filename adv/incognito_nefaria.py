@@ -7,7 +7,7 @@ def module():
     return Incognito_Nefaria
 
 class Incognito_Nefaria(RngCritAdv):
-    comment = 'no s2. using s2 is a ~1,300 dps loss'
+    comment = 'no s2; using s2 is a ~1300 dps loss'
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
     conf['acl'] = """

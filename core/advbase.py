@@ -740,7 +740,7 @@ class Adv(object):
                     self.Selfbuff('simulated_att', self.conf.sim_buffbot.str_buff, -1).on()
             if 'critr' in self.conf.sim_buffbot:
                 if self.condition('team crit rate {:+.0%}'.format(self.conf.sim_buffbot.critr)):
-                    self.Selfbuff('simulated_crit_rate', self.conf.sim_buffbot.critr, -1, 'crit', 'rate').on()
+                    self.Selfbuff('simulated_crit_rate', self.conf.sim_buffbot.critr, -1, 'crit', 'chance').on()
             if 'critd' in self.conf.sim_buffbot:
                 if self.condition('team crit dmg {:+.0%}'.format(self.conf.sim_buffbot.critd)):
                     self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'dmg').on()
@@ -949,7 +949,7 @@ class Adv(object):
         k = self.killer_mod(name)
         return cc * att * k
 
-    def build_rates(self):
+    def build_rates(self, as_list=True):
         rates = {}
         for afflic in AFFLICT_LIST:
             rate = vars(self.afflics)[afflic].get()
@@ -971,8 +971,8 @@ class Adv(object):
         for dkey in debuff_rates.keys():
             debuff_rates[dkey] = 1 - debuff_rates[dkey]
         rates.update(debuff_rates)
-
-        return list(rates.items())
+        
+        return rates if not as_list else list(rates.items())
 
     def killer_mod(self, name=None):
         total = self.mod('killer') - 1
@@ -1351,6 +1351,7 @@ class Adv(object):
 
         Event('idle')()
         end, reason = Timeline.run(self.duration)
+        self.base_buff.count_team_buff()
         log('sim', 'end', reason)
 
         self.post_run(end)

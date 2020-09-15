@@ -27,15 +27,6 @@ class Hunter_Vanessa(Adv):
         if self.duration <= 60:
             self.conf['slots.a'] = Mega_Friends()+The_Chocolatiers()
 
-    def prerun(self):
-        self.a3_crit = Modifier('a3', 'crit', 'chance', 0)
-        self.a3_crit.get = self.a3_crit_get
-        self.a3_crit.on()
-
-    def a3_crit_get(self):
-        return (self.mod('def') != 1) * 0.20
-
-
 if __name__ == '__main__':
     from core.simulate import test_with_argv
     test_with_argv(None, *sys.argv)
