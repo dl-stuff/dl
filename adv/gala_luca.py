@@ -65,15 +65,8 @@ class Gala_Luca(Adv):
     def custom_crit_mod(self, name):
         if name == 'test':
             return self.solid_crit_mod(name)
-        m = {'chance':0, 'dmg':0, 'damage':0, 'passive':0, 'rate':0,}
-        for order, modifiers in self.all_modifiers['crit'].items():
-            for modifier in modifiers:
-                if order in m:
-                    m[order] += modifier.get()
-                else:
-                    raise ValueError(f"Invalid crit mod order {order}")
-        base_rate = m['chance']+m['passive']+m['rate']
-        crit_dmg = m['dmg'] + m['damage'] + 0.7
+        base_rate, crit_dmg = self.combine_crit_mods()
+        crit_dmg -= 1
         new_states = defaultdict(lambda: 0.0)
         t = now()
         base_icon_count = self.buff_icon_count()

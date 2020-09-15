@@ -869,7 +869,6 @@ class Adv(object):
         return reduce(operator.mul, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], 1)
 
     def sub_mod(self, mtype, morder):
-        log('debug', str([(modifier.mod_name, modifier.get()) for modifier in self.all_modifiers[mtype][morder]]))
         mod_sum = sum([modifier.get() for modifier in self.all_modifiers[mtype][morder]])
         if morder == 'buff':
             mod_sum = min(mod_sum, 2.00)
@@ -899,7 +898,7 @@ class Adv(object):
         return 1
 
     def combine_crit_mods(self):
-        m = {'chance': 0, 'dmg': 0, 'damage': 0, 'passive': 0, 'rate': 0 }
+        m = {'chance': 0, 'damage': 0}
         for order, modifiers in self.all_modifiers['crit'].items():
             for modifier in modifiers:
                 if order in m:
@@ -926,8 +925,8 @@ class Adv(object):
             for order, values in modifiers.items():
                 m[order] += p * sum([mod.get() for mod in values])
 
-        chance = min(m['chance'] + m['passive'] + m['rate'], 1)
-        cdmg = m['dmg'] + m['damage'] + 1.7
+        chance = min(m['chance'], 1)
+        cdmg = m['damage'] + 1.7
 
         return chance, cdmg
 

@@ -370,6 +370,8 @@ class Buff(object):
 
     def add_time(self, delta):
         self.buff_end_timer.add(delta)
+    # def __repr__(self):
+    #     return f'{self.modifier}({self.buff_end_timer})'
 
 
 class EffectBuff(Buff):
