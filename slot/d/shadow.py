@@ -317,7 +317,7 @@ class Gala_Cat_Sith(DragonBase):
         self.max_trickery = 14 # 1 trickery is in the buff at all times
         self.adv.trickery = self.max_trickery
         self.threshold = 25
-        self.trickery_buff = SingleActionBuff('d_trickery_buff', 1.80, 1,'s', 'buff')
+        self.trickery_buff = SingleActionBuff('d_trickery_buff', 1.80, 1,'s', 'buff').on()
         self.check_trickery()
 
         if adv.condition('always connect hits'):
