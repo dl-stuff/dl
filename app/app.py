@@ -41,9 +41,6 @@ MASS_SIM_ADV = load_chara_file('chara_slow.txt')
 PRELIM_ADV = load_chara_file('chara_prelim.txt')
 
 SPECIAL_ADV = {
-    'chelsea_rollfs': {
-        'nc': ['wp', 'coab']
-    },
     'fjorm_x4': {
         'nc': ['acl']
     },

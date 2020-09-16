@@ -1,4 +1,3 @@
-import adv.adv_test
 from core.advbase import *
 from slot.a import *
 from slot.d import *
@@ -27,7 +26,7 @@ class Yukata_Cassandra(Adv):
     def setup_fluorescent_fish(adv):
         # actually a teambuff
         adv.fluorescent_fish = EffectBuff(
-            'fluorescent_fish', 15, 
+            'fluorescent_fish', 15,
             lambda: adv.enable_echo(mod=echo_mod),
             lambda: adv.disable_echo()
         )

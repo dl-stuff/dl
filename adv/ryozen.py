@@ -1,4 +1,3 @@
-import adv.adv_test
 from core.advbase import *
 from slot.a import *
 
@@ -18,7 +17,7 @@ class Ryozen(Adv):
         """
     conf['coabs'] = ['Cleo','Raemond','Peony']
     conf['share'] = ['Kleimann']
-    
+
     def s1_proc(self, e):
         Teambuff(e.name, 0.25, 15, 'defense').on()
 
