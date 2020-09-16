@@ -120,8 +120,8 @@ class Gala_Laxi(RngCritAdv):
             self.a1_cp = next_cp
             log('galaxi', 'cp', self.a1_cp)
 
-    def add_combo(self):
-        super().add_combo()
+    def add_combo(self, name=None):
+        super().add_combo(name)
         if self.a3_crit_chance < 3 and self.condition('always connect hits') and self.hits // 15 > self.a3_crit_chance:
             self.a3_crit_chance = self.hits // 15
             Selfbuff('a3_crit_chance',0.04,-1,'crit','chance').on()

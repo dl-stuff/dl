@@ -33,17 +33,13 @@ class StanceAdv(Adv):
             if curr_stance is not None:
                 curr_stance.off()
                 if self.can_change_combo():
-                    log('stance', 'can_change_combo')
                     curr_stance.off()
                 else:
-                    log('stance', 'cant_change_combo')
                     next_stance.off_except('x')
             if next_stance is not None:
                 if self.can_change_combo():
-                    log('stance', 'can_change_combo')
                     next_stance.on()
                 else:
-                    log('stance', 'cant_change_combo')
                     next_stance.on_except('x')
             self.stance = self.next_stance
             self.next_stance = None

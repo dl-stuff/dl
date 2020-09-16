@@ -547,7 +547,8 @@ class Adv(object):
 
         'acl': '`s1;`s2;`s3',
 
-        'attenuation': 1
+        'attenuation.hits': 1,
+        'attenuation.delay': 0.25,
     }
 
     def damage_sources_check(self, name, conf):
@@ -1118,7 +1119,7 @@ class Adv(object):
         log('dodge', '-')
         self.think_pin('dodge')
 
-    def add_combo(self):
+    def add_combo(self, name=None):
         # real combo count
         delta = now()-self.last_c
         if delta <= self.ctime:
@@ -1505,10 +1506,14 @@ class Adv(object):
         log('dmg', e.dname, e.count, e.comment)
 
     def l_dmg_make(self, e):
-        if 'dtype' in vars(e):
-            self.dmg_make(e.dname, e.dmg_coef, e.dtype)
-        else:
-            self.dmg_make(e.dname, e.dmg_coef)
+        try:
+            return self.dmg_make(e.dname, e.dmg_coef, e.dtype)
+        except AttributeError:
+            return self.dmg_make(e.dname, e.dmg_coef)
+
+    def l_attenuation(self, t):
+        self.add_combo(name=t.dname)
+        return self.dmg_make(t.dname, t.dmg_coef, t.dtype, attenuation=t.attenuation, depth=t.depth)
 
     def dmg_make(self, name, coef, dtype=None, fixed=False, attenuation=None, depth=0):
         if coef <= 0.01:
@@ -1531,8 +1536,14 @@ class Adv(object):
                 if depth == 1:
                     name = f'{name}_extra{depth}'
                 else:
-                    name = name.split('_')[0] + f'_extra{depth}'
-                self.dmg_make(name, coef, dtype, attenuation=(rate, pierce-1), depth=depth)
+                    name = '_'.join(name.split('_')[:-1]) + f'_extra{depth}'
+                t = Timer(self.l_attenuation)
+                t.dname = name
+                t.dmg_coef = coef
+                t.dtype = dtype
+                t.attenuation = (rate, pierce-1)
+                t.depth = depth
+                t.on(self.conf.attenuation.delay)
         return count
 
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
@@ -1546,7 +1557,7 @@ class Adv(object):
             if 'bufc' in attr:
                 hitmods.append(Modifier(f'{name}_bufc', 'att', 'bufc', attr['bufc']*self.buffcount))
             if 'fade' in attr:
-                attenuation = (attr['fade'], self.conf.attenuation)
+                attenuation = (attr['fade'], self.conf.attenuation.hits)
             else:
                 attenuation = None
             for m in hitmods:
@@ -1601,7 +1612,7 @@ class Adv(object):
 
         if 'bleed' in attr:
             rate, mod = attr['bleed']
-            if self.conf.mbleed or (rate < 100 and self.a_s_dict[base].owner is not None):
+            if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
                 mBleed(name, mod).on()
             else:

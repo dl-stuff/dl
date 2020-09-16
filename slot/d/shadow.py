@@ -323,8 +323,8 @@ class Gala_Cat_Sith(DragonBase):
         if adv.condition('always connect hits'):
             self.add_combo_o = adv.add_combo
             self.thit = 0
-            def add_combo():
-                self.add_combo_o()
+            def add_combo(name=None):
+                self.add_combo_o(name)
                 if adv.hits == 0:
                     self.thit = 0
                 else:

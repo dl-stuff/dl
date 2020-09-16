@@ -1,26 +1,30 @@
 {
     "c": {
-        "a": [["ecombo", 35], ["bk", 0.2]],
+        "name": "Valentine's Ezelith",
+        "icon": "110011_02_r04",
         "att": 462,
+        "hp": 787,
         "ele": "flame",
-        "stars": "4",
         "wt": "bow",
-        "name": "Valentines_Ezelith",
-        "spiral": 0
+        "spiral": false,
+        "a": [["ecombo", 35], ["bk", 0.2]]
     },
     "s1": {
-        "dmg": 7.68,
-        "hit": 8,
-        "recovery": 2.2,
         "sp": 2708,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.13333,
+        "attr": [
+            {"dmg": 0.96, "afflic": ["burn", 110, 0.883], "iv": 0.9, "msl": 1},
+            {"dmg": 0.96, "iv": 0.9, "msl": 1},
+            {"dmg": 0.96, "iv": 2.16667, "msl": 1}, 6
+        ]
     },
     "s2": {
-        "buff": ["debuff", 0.1, 10.0, 0.9],
-        "dmg": 7.16,
-        "hit": 1,
-        "recovery": 1.9,
         "sp": 5115,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 7.16, "buff": ["debuff", -0.1, 10.0, 0.9, "def"], "iv": 1.33333, "msl": 1}
+        ]
     }
 }

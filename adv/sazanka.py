@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.bleed import Bleed, mBleed
+from module.bleed import Bleed
 from slot.d import *
 from slot.a import *
 
@@ -22,7 +22,7 @@ class Sazanka(Adv):
     conf['share.poison'] = ['Curran']
 
     def prerun(self):
-        self.bleed = self.bleed_class('g_bleed',0).reset()
+        self.bleed = Bleed('g_bleed',0).reset()
 
 
 if __name__ == '__main__':

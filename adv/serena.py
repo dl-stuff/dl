@@ -24,8 +24,8 @@ class Serena(Adv):
         self.a1_count = 0
         self.a3_count = 0
 
-    def add_combo(self):
-        super().add_combo()
+    def add_combo(self, name=None):
+        super().add_combo(name)
         if self.a1_count < 3 and self.a1_count != self.hits // 20:
             self.a1_count = self.hits // 20
             Selfbuff('a1_cd',0.06,-1,'crit','damage').on()

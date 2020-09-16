@@ -18,11 +18,6 @@ class Valentines_Orion(Adv):
     conf['afflict_res.burn'] = 0
     conf['share'] = ['Kleimann']
 
-    def s1_proc(self, e):
-        self.afflics.burn(e.name,100,0.803)
-
-    def s2_proc(self, e):
-        Teambuff(e.name+'_defense', 0.15, 15, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

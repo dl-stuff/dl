@@ -9,25 +9,25 @@
         "spiral": false,
         "a": [["ro", 0.1]]
     },
-    "fs1_mode1": {
+    "fs1": {
         "charge": 0.4,
-        "startup": 0.0,
+        "startup": 0.33333,
         "recovery": 0.66667,
         "attr": [
             {"dmg": 2.07, "killer": [0.2, ["paralysis"]], "sp": 600}
         ]
     },
-    "fs2_mode1": {
+    "fs2": {
         "charge": 0.8,
-        "startup": 0.0,
+        "startup": 0.33333,
         "recovery": 0.66667,
         "attr": [
             {"dmg": 2.97, "killer": [0.2, ["paralysis"]], "sp": 960}
         ]
     },
-    "fs3_mode1": {
+    "fs3": {
         "charge": 1.2,
-        "startup": 0.0,
+        "startup": 0.33333,
         "recovery": 0.66667,
         "attr": [
             {"dmg": 3.84, "killer": [0.2, ["paralysis"]], "sp": 1400}
@@ -44,10 +44,10 @@
     "s2": {
         "sp": 5600,
         "startup": 0.1,
-        "recovery": 1.05
+        "recovery": 1.05,
         "attr": [
-            {"cond": ["hp>=", 30], "hp": [20, "="], "iv": 0.0}
-            {"cond": ["hp<=", 30], ["self", 0.20, 10, "att", "buff"], "iv": 0.0}
+            {"cond": ["hp>=", 30], "hp": [20, "="]},
+            {"cond": ["hp<=", 30], "buff": ["self", 0.20, 10, "att", "buff"]}
         ],
         "comment": "todo: s2 iv"
     }

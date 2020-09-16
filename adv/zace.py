@@ -6,7 +6,6 @@ def module():
     return Zace
 
 class Zace(Adv):
-    a1 = ('s',0.2)
     conf = {}
     conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
     conf['acl'] = """
@@ -18,11 +17,9 @@ class Zace(Adv):
         `fs, x=5
     """
     conf['coabs'] = ['Ieyasu','Wand','Bow']
-    conf['share'] = ['Kleimann']
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Curran']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

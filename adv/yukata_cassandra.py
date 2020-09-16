@@ -40,7 +40,7 @@ class Yukata_Cassandra(Adv):
         Yukata_Cassandra.setup_fluorescent_fish(adv)
 
     def a3_get(self):
-        return self.s2.sp==self.s2.charged
+        return self.s2.sp == self.s2.charged
 
     def s1_proc(self, e):
         self.fluorescent_fish.on()

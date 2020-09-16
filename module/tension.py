@@ -2,14 +2,15 @@ from core.advbase import *
 
 class Tension:
     MAX_STACK = 5
-    def __init__(self, name, mod, event=None):
+    def __init__(self, name, mod):
         # self.adv = adv
         # self.o_dmg_make = adv.dmg_make
         # self.adv.dmg_make = self.dmg_make
         self.name = name
         self.modifier = mod
         self.modifier.off()
-        self.event = event or Event(name)
+        self.add_event = Event(name)
+        self.end_event = Event(f'{name}_end')
         self.stack = 0
         self.queued_stack = 0
         self.has_stack = Selfbuff('has_'+self.name, 1, -1, 'effect')
@@ -32,8 +33,8 @@ class Tension:
             self.stack = self.MAX_STACK
         log(self.name, '+{}'.format(n), 'stack <{}>'.format(int(self.stack)))
 
-        self.event.stack = self.stack
-        self.event.on()
+        self.add_event.stack = self.stack
+        self.add_event.on()
 
     def add_extra(self, n, team=False):
         if team:
@@ -56,6 +57,7 @@ class Tension:
             self.has_stack.off()
             self.stack = 0
             log(self.name, 'reset', 'stack <{}>'.format(int(self.stack)))
+            self.end_event.on()
 
     def __call__(self):
         return self.stack

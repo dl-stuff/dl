@@ -5,9 +5,7 @@ from slot.d import *
 def module():
     return Zardin
 
-class Zardin(Adv):
-    a1 = ('a',0.20,'hp100')
-    
+class Zardin(Adv):    
     conf = {}
     conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
     conf['slots.d'] = Gaibhne_and_Creidhne()
@@ -21,12 +19,6 @@ class Zardin(Adv):
         """
     conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
-
-    def s1_proc(self, e):
-        self.afflics.frostbite(e.name,120,0.41)
-
-    def s2_proc(self, e):
-        self.afflics.frostbite(e.name,120,0.41)
 
 
 if __name__ == '__main__':

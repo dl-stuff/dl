@@ -1,25 +1,29 @@
 {
     "c": {
-        "a": [],
+        "name": "Valentine's Orion",
+        "icon": "110052_03_r03",
         "att": 471,
+        "hp": 778,
         "ele": "flame",
-        "stars": "3",
         "wt": "sword",
-        "name": "Valentines_Orion",
-        "spiral": 0
+        "spiral": false,
+        "a": []
     },
     "s1": {
-        "dmg": 6.08,
-        "hit": 2,
-        "recovery": 1.45,
         "sp": 2409,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 3.04, "afflic": ["burn", 100, 0.803], "iv": 0.66667},
+            {"dmg": 3.04, "iv": 0.83333}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 7633,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 0.16667}
+        ]
     }
 }

@@ -26,8 +26,8 @@ class Laranoa(Adv):
     def prerun(self):
         self.ahits = 0
 
-    def add_combo(self):
-        super().add_combo()
+    def add_combo(self, name=None):
+        super().add_combo(name)
         if self.hits // 20 > self.ahits:
             self.ahits = self.hits // 20
             Selfbuff('sylvan critdmg',0.10,20,'crit','damage').on()

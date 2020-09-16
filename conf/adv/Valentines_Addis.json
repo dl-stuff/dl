@@ -1,25 +1,29 @@
 {
     "c": {
-        "a": [["k_poison", 0.3], ["crisisattspd", 3]],
+        "name": "Valentine's Addis",
+        "icon": "110310_02_r05",
         "att": 496,
+        "hp": 761,
         "ele": "shadow",
-        "stars": "5",
         "wt": "bow",
-        "name": "Valentines_Addis",
-        "spiral": 0
+        "spiral": false,
+        "a": [["k_poison", 0.3], ["crisisattspd", 3]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 2,
-        "recovery": 1.66,
         "sp": 2603,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 2.58, "crisis": 1.25, "afflic": ["poison", 120, 0.582], "iv": 0.8, "msl": 1},
+            {"dmg": 6.02, "crisis": 1.25, "iv": 0.8, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 6200,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"cond": ["hp>=", 30], "hp": [20, "="], "iv": 1.0}
+        ]
     }
 }

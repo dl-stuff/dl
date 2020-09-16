@@ -7,9 +7,6 @@ def module():
 
 class Valentines_Melody(Adv):
     comment = 'c4fsf c5 c4 s1'
-    a1 = ('affteam_poison', 0.10, 10, 5)
-    a3 = ('k_poison',0.3)
-
     conf = {}
     conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
     conf['slots.d'] = Ariel()
@@ -24,15 +21,9 @@ class Valentines_Melody(Adv):
     conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
-    def init(self):
+    def __init__(self, conf=None, cond=None):
+        super().__init__(conf=conf, cond=cond)
         self.slots.c.coabs['Axe2'] = [None, 'axe2']
-
-    def s1_proc(self, e):
-        if self.condition(f'{e.name} defdown for 10s'):
-            Debuff(e.name,0.15,10,1).no_bufftime().on()
-
-    def s2_proc(self, e):
-        self.afflics.poison(e.name, 120, 0.582)
 
 
 if __name__ == '__main__':

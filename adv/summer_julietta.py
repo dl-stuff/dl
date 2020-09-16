@@ -18,7 +18,7 @@ class Summer_Julietta(Adv):
         `s2, cancel
         `fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')
     """
-    conf['coabs'] = ['Blade', 'Hunter_Sarisse', 'Summer_Estelle']
+    conf['coabs.base'] = ['Blade', 'Hunter_Sarisse', 'Summer_Estelle']
     conf['coabs.frostbite'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['afflict_res.bog'] = 100
     conf['share'] = ['Gala_Elisanne', 'Ranzal']

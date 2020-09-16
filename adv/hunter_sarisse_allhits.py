@@ -7,7 +7,7 @@ def module():
 
 class Hunter_Sarisse(adv.hunter_sarisse.Hunter_Sarisse):
     conf = adv.hunter_sarisse.Hunter_Sarisse.conf.copy()
-    conf['attenuation'] = -1
+    conf['attenuation.hits'] = -1
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
