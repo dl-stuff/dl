@@ -10,19 +10,19 @@ class Bellina(Adv):
     conf['slots.a'] = Twinfold_Bonds()+Howling_to_the_Heavens()
     conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
     conf['acl'] = """
-        `s2, duration-now<2.0
+        `s2, duration-now<1.5
         `s3, not buff(s3)
-        if self.dragondrive.get()
-        `s4, dgauge>1000 and x=3
-        `s1, dgauge>1200 and x=3
+        if dragondrive.get()
+        `s4, dgauge>500 and x=3
+        `s1, dgauge>1000 and x=3
         `fsf, x=3
         else
         `s2
         `dragon
-        `fs, xf=4
+        `fs, x=4
         end
     """
-    conf['slots.d'] = Fatalis()
+    # conf['slots.d'] = Fatalis()
     conf['coabs'] = ['Ieyasu','Curran','Berserker']
     conf['share'] = ['Veronica']
 

@@ -468,7 +468,7 @@ bufftype_dict['xAlt'] = XAltBuff
 
 
 class SAltBuff(ModeAltBuff):
-    def __init__(self, name=None, group=None, base=None, duration=-1, hidden=False, ddrive=False):
+    def __init__(self, name=None, group=None, base=None, duration=-1, hidden=False):
         if base not in ('s1', 's2', 's3', 's4'):
             raise ValueError(f'{base} is not a skill')
         if group not in self.adv.a_s_dict[base].act_dict.keys():
@@ -477,7 +477,7 @@ class SAltBuff(ModeAltBuff):
         self.base = base
         self.group = group
         self.default_s = self.adv.current_s[base]
-        if ddrive:
+        if group == 'ddrive':
             self.l_s = Listener('s', self.l_add_ddrive, order=0).on()
         elif duration != -1:
             self.l_s = Listener('s', self.l_extend_time, order=0).on()
@@ -505,7 +505,7 @@ class SAltBuff(ModeAltBuff):
     def l_add_ddrive(self, e):
         if self.get() and e.base == self.base and e.group == self.group:
             skill = self.adv.a_s_dict[self.base]
-            self.dragonform.add_drive_gauge_time(skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True)
+            self.adv.dragonform.add_drive_gauge_time(skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True)
 bufftype_dict['sAlt'] = SAltBuff
 
 

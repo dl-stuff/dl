@@ -1,25 +1,29 @@
 {
     "c": {
-        "a": [],
+        "name": "Templar Hope",
+        "icon": "110038_02_r04",
         "att": 442,
+        "hp": 810,
         "ele": "wind",
-        "stars": "4",
         "wt": "sword",
-        "name": "Templar_Hope",
-        "spiral": 0
+        "spiral": false,
+        "a": []
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 3756,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667}
+        ]
     },
     "s2": {
-        "dmg": 6.76,
-        "hit": 2,
-        "recovery": 1.53,
         "sp": 4608,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.53333,
+        "attr": [
+            {"dmg": 3.38, "iv": 0.8},
+            {"dmg": 3.38, "iv": 0.96667}
+        ]
     }
 }

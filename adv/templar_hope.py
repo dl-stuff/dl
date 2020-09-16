@@ -19,8 +19,6 @@ class Templar_Hope(Adv):
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
     conf['share'] = ['Curran']
     
-    def s1_proc(self, e):
-        Teambuff(e.name, 0.25, 15, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

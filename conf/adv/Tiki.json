@@ -1,35 +1,103 @@
 {
     "c": {
-        "a": [["k_frostbite", 0.3]],
-        "att": 498,
-        "ele": "water",
-        "stars": "5",
-        "wt": "dagger",
         "name": "Tiki",
-        "spiral": 0
+        "icon": "110360_01_r05",
+        "att": 498,
+        "hp": 761,
+        "ele": "water",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["k_frostbite", 0.3]]
     },
     "s1": {
-        "attr": [{"dmg": 3.76, "utp": 260}],
-        "recovery": 1.3333,
         "sp": 2248,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 3.76, "utp": 260, "iv": 0.56667}
+        ]
     },
-    "s1_divine": {
-        "attr": [{"dmg": 7.90, "afflic": ["frostbite", 120, 0.41]}],
-        "recovery": 1.833,
+    "s1_ddrive": {
         "sp": 3480,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.833,
+        "attr": [
+            {"dmg": 7.90, "afflic": ["frostbite", 120, 0.41]}
+        ]
     },
     "s2": {
-        "attr": [{"utp": 1000}],
-        "recovery": 1.3333,
         "sp": 7868,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"utp": 1000, "iv": 0.4}
+        ]
     },
-    "s2_divine": {
-        "attr": [{"dmg": 12.05, "killer": [0.2, ["frostbite"]]}],
-        "recovery": 1.3333,
+    "s2_ddrive": {
         "sp": 5800,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.0,
+        "attr": [
+            {"dmg": 12.05, "killer": [0.2, ["frostbite"]]}
+        ]
+    },
+    "x1": {
+        "startup": 0.2,
+        "recovery": 0.16667,
+        "attr": [
+            {"dmg": 0.07, "sp": 88, "utp": 2}
+        ]
+    },
+    "x2": {
+        "startup": 0.2,
+        "recovery": 0.2,
+        "attr": [
+            {"dmg": 0.15, "sp": 141, "utp": 3}
+        ]
+    },
+    "x3": {
+        "startup": 0.4,
+        "recovery": 0.16667,
+        "attr": [
+            {"dmg": 0.11, "sp": 178, "utp": 4}
+        ]
+    },
+    "x4": {
+        "startup": 0.26667,
+        "recovery": 0.2,
+        "attr": [
+            {"dmg": 0.31, "sp": 350, "utp": 5}
+        ]
+    },
+    "x5": {
+        "startup": 0.13333,
+        "recovery": 0.86667,
+        "attr": [
+            {"dmg": 0.33, "sp": 367, "utp": 6}
+        ]
+    },
+    "x1_ddrive": {
+        "startup": 0.33333,
+        "recovery": 0,
+        "attr": [
+            {"dmg": 2.11, "sp": 290}
+        ]
+    },
+    "x2_ddrive": {
+        "startup": 0.5,
+        "recovery": 0,
+        "attr": [
+            {"dmg": 2.52, "sp": 350}
+        ]
+    },
+    "x3_ddrive": {
+        "startup": 0.81667,
+        "recovery": 1.11667,
+        "attr": [
+            {"dmg": 3.58, "sp": 520}
+        ]
+    },
+    "dodge": {
+        "startup": 0.66667
     }
 }
