@@ -25,10 +25,6 @@ class Sha_Wujing(Adv):
         Timer(self.a3_start).on(self.duration*0.3)
         Event('s').listener(self.a1_check, order=2)
 
-    # @staticmethod
-    # def prerun_skillshare(adv, dst):
-    #     adv.a1_check = lambda: False
-
     def a3_start(self, t):
         Selfbuff('a3', 0.08, -1, 'att', 'assailant').on()
 
@@ -36,23 +32,6 @@ class Sha_Wujing(Adv):
         if self.a1_count > 0:
             self.a1_count -= 1
             Selfbuff('a1', 0.06, -1, 's', 'buff').on()
-
-    # def s1_proc(self, e):
-    #     hit1, hit2 = self.s1_mods[self.s1_p]
-    #     self.s1_p += 1
-    #     self.dmg_make(e.name, hit1)
-    #     self.add_hits(1)
-    #     if self.s1_p > 1:
-    #         self.s1_defdown.on()
-    #     if self.s1_p > 2:
-    #         self.charge_p(e.name, 0.30, target='s2')
-    #     self.dmg_make(e.name, hit2)
-    #     self.add_hits(1)
-    #     self.s1_p %= 3
-
-    # def s2_proc(self, e):
-    #     if self.condition(f'{e.name} defdown for 10s'):
-    #         self.s2_debuff = Debuff(e.name,0.15,10,1).no_bufftime().on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -5,22 +5,8 @@ from slot.d import *
 def module():
     return Summer_Mikoto
 
-fs_my_dude = {
-    'fs.dmg': 0.0,
-    'fs.sp': 0,
-    'fs.charge': 0.5,
-    'fs.startup': 0.2333, 
-    'fs.recovery': 0.033367, 
-    'fs.hit': 0,
-
-    'fs.x1.charge': 32 / 60.0, # 2 delay + fs
-    'fs.x2.charge': 37 / 60.0, # 7 delay + fs
-
-    'fsf.charge': 0.5
-}
-
 class Summer_Mikoto(Adv):
-    conf = fs_my_dude.copy()
+    conf = {}
     conf['slots.a'] = Forest_Bonds()+Spirit_of_the_Season()
     conf['acl'] = """
         `dragon,s=1
@@ -28,8 +14,8 @@ class Summer_Mikoto(Adv):
         `s1
         `s4, cancel 
         `s3, not buff(s3)
-        `fs, self.light=self.sun and not self.illuminating_sun.get()
-        `fs, self.light=self.wave and not self.celestial_wave.get()
+        `fs, light=sun and not illuminating_sun.get()
+        `fs, light=wave and not celestial_wave.get()
     """
     conf['coabs'] = ['Lucretia', 'Sharena', 'Peony']
     conf['share'] = ['Summer_Patia']
@@ -42,10 +28,6 @@ class Summer_Mikoto(Adv):
         self.illuminating_sun = Selfbuff('illuminating_sun', 1, -1, 'sunlight')
         self.celestial_wave = Selfbuff('celestial_wave', 1, -1, 'wavelight')
         Timer(self.light_switch, 12, True).on()
-
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.sun_and_wave = dummy_function
 
     def light_switch(self, t):
         if self.light == self.sun:
@@ -60,35 +42,28 @@ class Summer_Mikoto(Adv):
     def sun_and_wave(self):
         return self.illuminating_sun.get() and self.celestial_wave.get()
 
+    def reset_sun_and_wave(self):
+        self.current_s['s1'] = 'default'
+        self.current_s['s2'] = 'default'
+        self.illuminating_sun.off()
+        self.celestial_wave.off()
+
+    def s1_proc(self, e):
+        if e.group == 'light':
+            self.reset_sun_and_wave()
+
+    def s2_proc(self, e):
+        if e.group == 'light':
+            self.reset_sun_and_wave()
+
     def fs_proc(self, e):
         if self.light == self.sun:
             self.illuminating_sun.on()
         else:
             self.celestial_wave.on()
-
-    def s1_proc(self, e):
         if self.sun_and_wave():
-            # 7.690000057220459 + 17.940000534057617 * 1.3
-            with KillerModifier('s1_killer', 'hit', 0.3, ['paralysis']):
-                self.dmg_make(e.name, 7.60)
-                self.afflics.paralysis(e.name,120, 0.97)
-                self.dmg_make(e.name, 17.94)
-                self.illuminating_sun.off()
-                self.celestial_wave.off()
-            pass
-        else:
-            self.dmg_make(e.name, 4.27)
-            self.afflics.paralysis(e.name,120, 0.97)
-            self.dmg_make(e.name, 9.97)
-
-    def s2_proc(self, e):
-        Selfbuff(e.name, 0.20, 30).on()
-        if self.sun_and_wave():
-            Selfbuff(f'{e.name}_crit_chance', 0.20, 30, 'crit', 'chance').on()
-            Selfbuff(f'{e.name}_crit_damage', 0.15, 30, 'crit', 'damage').on()
-            self.illuminating_sun.off()
-            self.celestial_wave.off()
-
+            self.current_s['s1'] = 'light'
+            self.current_s['s2'] = 'light'
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

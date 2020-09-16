@@ -19,8 +19,6 @@ class Summer_Cleo(Adv):
     conf['share'] = ['Althemia']
     conf['afflict_res.paralysis'] = 0
 
-    def init(self):
-        random.seed()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -4,9 +4,6 @@ def module():
     return Student_Maribelle
 
 class Student_Maribelle(Adv):
-    a1 = ('s', 0.4, 'hp100')
-    a3 = ('bk',0.3)
-    
     conf = {}
     conf['acl'] = """
         `dragon,s

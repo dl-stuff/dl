@@ -20,39 +20,18 @@ class Serena(Adv):
     conf['coabs'] = ['Blade', 'Yuya', 'Halloween_Mym']
     conf['share'] = ['Kleimann']
 
-    def s1_before(self, e):
-        Selfbuff(f'{e.name}buff',0.1,5,'crit','chance').on()
-
     def prerun(self):
-        self.hits = 0
-        self.a1count = 0
-        self.a3count = 0
+        self.a1_count = 0
+        self.a3_count = 0
 
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.hits = 0
-
-    def dmg_proc(self, name, amount):
-        if self.condition('always connect hits'):
-            a1old = self.a1count
-            if self.hits > 60:
-                self.a1count = 3
-            elif self.hits > 40:
-                self.a1count = 2
-            elif self.hits > 20:
-                self.a1count = 1
-            if a1old != self.a1count:
-                Selfbuff('a1buff',0.06,-1,'crit','damage').on()
-
-            a3old = self.a3count
-            if self.hits > 90:
-                self.a3count = 3
-            elif self.hits > 60:
-                self.a3count = 2
-            elif self.hits > 30:
-                self.a3count = 1
-            if a3old != self.a3count:
-                Selfbuff('a3buff',0.03,-1,'crit','chance').on()
+    def add_combo(self):
+        super().add_combo()
+        if self.a1_count < 3 and self.a1_count != self.hits // 20:
+            self.a1_count = self.hits // 20
+            Selfbuff('a1_cd',0.06,-1,'crit','damage').on()
+        if self.a3_count < 3 and self.a3_count != self.hits // 30:
+            self.a3_count = self.hits // 30
+            Selfbuff('a3_cc',0.03,-1,'crit','chance').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

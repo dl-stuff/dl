@@ -1,25 +1,41 @@
 {
     "c": {
-        "a": [["lo_crit_chance", 1.0, 10], ["k_paralysis", 0.3]],
-        "att": 459,
-        "ele": "light",
-        "stars": "5",
-        "wt": "lance",
         "name": "Sharena",
-        "spiral": 0
+        "icon": "110358_01_r05",
+        "att": 459,
+        "hp": 833,
+        "ele": "light",
+        "wt": "lance",
+        "spiral": false,
+        "a": [["lo_crit_chance", 1.0, 10], ["k_paralysis", 0.3]]
+    },
+    "fs_mode1": {
+        "charge": 0.15,
+        "startup": 0.13333,
+        "recovery": 0.86667,
+        "attr": [
+            {"dmg": 0.3, "sp": 400},
+            {"dmg": 0.3, "iv": 0.06667},
+            {"dmg": 0.3, "iv": 0.13334},
+            {"dmg": 0.3, "iv": 0.2},
+            {"dmg": 0.3, "iv": 0.26667}
+        ]
     },
     "s1": {
-        "dmg": 4.39,
-        "hit": 1,
-        "recovery": 1.5,
         "sp": 2412,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 4.39, "afflic": ["paralysis", 120, 0.97], "iv": 0.73333}
+        ]
     },
     "s2": {
-        "dmg": 11.05,
-        "hit": 2,
-        "recovery": 1.6667,
-        "sp": 4593,
-        "startup": 0.1
+        "sp": 4850,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 5.04, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-refresh"], "iv": 0.4},
+            {"dmg": 6.01, "iv": 0.7}
+        ]
     }
 }

@@ -27,27 +27,28 @@ class Summer_Sinoa(Adv):
     def prerun_skillshare(adv, dst):
         self.overload = -1
 
-    def charge(self, name, sp):
-        # sp should be integer
-        sp_overload = self.sp_convert(self.sp_mod(name)-self.overload*0.30, sp)
+    def charge(self, name, sp, target=None):
+        sp_s1 = self.sp_convert(self.sp_mod(name) - 0.3*self.overload, sp)
         sp = self.sp_convert(self.sp_mod(name), sp)
-        for s in self.skills:
+        targets = self.get_targets(target)
+        if not targets:
+            return
+        for s in targets:
             if s == self.s1:
-                s.charge(sp_overload)
+                s.charge(sp_s1)
             else:
                 s.charge(sp)
         self.think_pin('sp')
-        log('sp', name, sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
+        log('sp', name if not target else f'{name}_{target}', sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
     def s1_before(self, e):
         if self.overload == -1:
             return
         if self.overload < 3:
             self.overload += 1
-        self.determination = Selfbuff('determination', 0.15+0.05*self.overload, -1, 's', 'passive').on()
+        self.determination = Modifier('determination', 's', 'passive', 0.15+0.05*self.overload).on()
 
     def s1_proc(self, e):
-        self.afflics.poison(e.name, 120, 0.582)
         if self.overload == -1:
             return
         self.determination.off()

@@ -1,25 +1,28 @@
 {
     "c": {
-        "a": [],
-        "att": 454,
-        "ele": "light",
-        "stars": "4",
-        "wt": "bow",
         "name": "Rawn",
-        "spiral": 0
+        "icon": "110040_01_r04",
+        "att": 454,
+        "hp": 783,
+        "ele": "light",
+        "wt": "bow",
+        "spiral": false,
+        "a": []
     },
     "s1": {
-        "dmg": 7.71,
-        "hit": 1,
-        "recovery": 1.9,
         "sp": 2558,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 7.71, "buff": ["debuff", -0.05, 10.0, 0.4, "attack"], "iv": 1.33333, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 7.34,
-        "hit": 1,
-        "recovery": 2.15,
         "sp": 5008,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 7.34, "afflic": ["stun", 100], "iv": 1.46667, "msl": 1}
+        ]
     }
 }

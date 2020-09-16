@@ -1,25 +1,37 @@
 {
     "c": {
-        "a": [["primed_crit_chance", 0.6, 5]],
-        "att": 459,
-        "ele": "water",
-        "stars": "4",
-        "wt": "dagger",
         "name": "Renee",
-        "spiral": 0
+        "icon": "110265_01_r04",
+        "att": 459,
+        "hp": 777,
+        "ele": "water",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["primed_crit_chance", 0.6, 5]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 6,
-        "recovery": 2.6,
         "sp": 2311,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 1.11, "afflic": ["bog", 100], "iv": 0.26667},
+            {"dmg": 1.11, "iv": 0.43333},
+            {"dmg": 1.11, "iv": 0.56667},
+            {"dmg": 1.11, "iv": 0.76667},
+            {"dmg": 1.11, "iv": 1.1},
+            {"dmg": 1.11, "iv": 1.6}
+        ]
     },
     "s2": {
-        "dmg": 6.68,
-        "hit": 4,
-        "recovery": 2.35,
         "sp": 5846,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.3,
+        "attr": [
+            {"dmg": 1.67, "iv": 0.3},
+            {"dmg": 1.67, "iv": 0.73333},
+            {"dmg": 1.67, "iv": 0.9},
+            {"dmg": 1.67, "iv": 1.46667},
+            {"buff": ["self", 0.1, 5.0, "defense", "buff"], "iv": 2.26667}
+        ]
     }
 }

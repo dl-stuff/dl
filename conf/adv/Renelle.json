@@ -1,26 +1,32 @@
 {
     "c": {
-        "a": [["cc", 0.15, "hit15"]],
-        "att": 542,
-        "ele": "flame",
-        "stars": "3",
-        "wt": "dagger",
         "name": "Renelle",
-        "spiral": 1
+        "icon": "110005_01_r03",
+        "att": 542,
+        "hp": 908,
+        "ele": "flame",
+        "wt": "dagger",
+        "spiral": true,
+        "a": [["cc", 0.15, "hit15"]]
     },
     "s1": {
-        "dmg": 7.11,
-        "hit": 3,
-        "recovery": 1.95,
         "sp": 2318,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.86667,
+        "attr": [
+            {"dmg": 2.37, "afflic": ["burn", 100, 0.803], "iv": 0.4},
+            {"dmg": 2.37, "iv": 0.56667},
+            {"dmg": 2.37, "iv": 1.13333}
+        ]
     },
     "s2": {
-        "buff": ["debuff", 0.05, 10.0, 0.3],
-        "dmg": 6.64,
-        "hit": 2,
-        "recovery": 1.9,
         "sp": 4892,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 3.32, "buff": ["debuff", -0.05, 10.0, 0.3, "def"], "iv": 0.26667},
+            {"afflic": ["burn", 100, 0.803], "iv": 0.26667},
+            {"dmg": 3.32, "iv": 0.8}
+        ]
     }
 }

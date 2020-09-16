@@ -1,25 +1,51 @@
 {
     "c": {
-        "a": [["bc", 0.15], ["bt", 0.35]],
+        "name": "Summer Celliera",
+        "icon": "110255_02_r05",
         "att": 574,
+        "hp": 956,
         "ele": "water",
-        "stars": "5",
         "wt": "sword",
-        "name": "Summer_Celliera",
-        "spiral": 1
+        "spiral": true,
+        "a": [["bc", 0.15], ["bt", 0.35]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 4,
-        "recovery": 1.4,
         "sp": 2649,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.4,
+        "attr": [
+            {"dmg": 1.84, "afflic": ["bog", 120], "iv": 0.7},
+            {"dmg": 1.84, "iv": 0.8, "msl": 1}, 5
+        ]
     },
-    "s2": {
-        "dmg": 6.6,
-        "hit": 1,
-        "recovery": 2.06,
+    "s2_phase1": {
         "sp": 7641,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 6.6, "iv": 0.36667},
+            {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 0.9}
+        ]
+    },
+    "s2_phase2": {
+        "sp": 7641,
+        "startup": 0.1,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 6.6, "iv": 0.36667},
+            {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 0.9},
+            {"buff": ["team", 0.13, 10.0, "att", "buff"], "iv": 0.9}
+        ]
+    },
+    "s2_phase3": {
+        "sp": 7641,
+        "startup": 0.1,
+        "recovery": 2.06667,
+        "attr": [
+            {"dmg": 6.6, "iv": 0.36667},
+            {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 0.9},
+            {"buff": ["team", 0.13, 10.0, "att", "buff"], "iv": 0.9},
+            {"buff": ["team", 0.25, 10.0, "spd", "passive"], "iv": 0.9}
+        ]
     }
 }

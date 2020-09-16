@@ -1,26 +1,59 @@
 {
     "c": {
-        "a": [["primed_defense", 0.08], ["bc_regen", 4, 20]],
-        "att": 471,
-        "ele": "flame",
-        "stars": "5",
-        "wt": "blade",
         "name": "Rena",
-        "spiral": 0
+        "icon": "110264_01_r05",
+        "att": 471,
+        "hp": 818,
+        "ele": "flame",
+        "wt": "blade",
+        "spiral": false,
+        "a": [["primed_defense", 0.08], ["bc_regen", 4, 20]]
     },
-    "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 2.45,
+    "s1_phase1": {
         "sp": 3303,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.5,
+        "attr": [
+            {"dmg": 0.72, "afflic": ["burn", 120, 0.97], "iv": 0.33333},
+            {"dmg": 0.72, "iv": 0.66667},
+            {"dmg": 0.72, "iv": 1.0},
+            {"dmg": 0.72, "iv": 1.16667},
+            {"dmg": 6.65, "iv": 1.43333}
+        ]
+    },
+    "s1_phase2": {
+        "sp": 3303,
+        "startup": 0.1,
+        "recovery": 2.53333,
+        "attr": [
+            {"dmg": 0.72, "afflic": ["burn", 120, 0.97], "iv": 0.33333},
+            {"dmg": 0.72, "iv": 0.5},
+            {"dmg": 0.72, "iv": 0.83333},
+            {"dmg": 0.72, "iv": 1.16667},
+            {"dmg": 6.65, "iv": 1.43333},
+            {"buff": ["self", 0.1, 15.0, "crit", "chance"], "iv": 2.5}
+        ]
+    },
+    "s1_phase3": {
+        "sp": 3303,
+        "startup": 0.1,
+        "recovery": 2.53333,
+        "attr": [
+            {"dmg": 0.72, "killer": [0.8, ["burn"]], "afflic": ["burn", 120, 0.97], "iv": 0.33333},
+            {"dmg": 0.72, "killer": [0.8, ["burn"]], "iv": 0.66667},
+            {"dmg": 0.72, "killer": [0.8, ["burn"]], "iv": 1.0},
+            {"dmg": 0.72, "killer": [0.8, ["burn"]], "iv": 1.16667},
+            {"dmg": 6.65, "killer": [0.8, ["burn"]], "iv": 1.43333},
+            {"buff": ["self", 0.1, 15.0, "crit", "chance"], "iv": 2.5}
+        ]
     },
     "s2": {
-        "buff": ["self", 0.5, 20.0, "crit", "damage"],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 6582,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"sp": [1.0, "%", "s1"], "iv": 0.13333},
+            {"buff": ["self", 0.5, 20, "crit", "damage"], "iv": 0.16667}
+        ]
     }
 }

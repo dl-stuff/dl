@@ -16,7 +16,7 @@ class Rex(Adv):
         `s4
         `s1
         `s2, cancel
-        `fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')
+        `fs, cancel and charged_in(fs, s1)
     """
     conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']

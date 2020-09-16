@@ -1,25 +1,52 @@
 {
     "c": {
-        "a": [["cc_paralysis", 0.2], ["cd_paralysis", 0.15]],
+        "name": "Summer Mikoto",
+        "icon": "110010_02_r05",
         "att": 492,
+        "hp": 767,
         "ele": "light",
-        "stars": "5",
         "wt": "bow",
-        "name": "Summer_Mikoto",
-        "spiral": 0
+        "spiral": false,
+        "a": [["cc_paralysis", 0.2], ["cd_paralysis", 0.15]]
+    },
+    "fs": {
+        "charge": 0.5,
+        "startup": 0.23333,
+        "recovery": 1.0,
+        "attr": []
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 2,
-        "recovery": 1.3333,
         "sp": 2600,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 4.27, "afflic": ["paralysis", 120, 0.97], "iv": 0.5, "msl": 1},
+            {"dmg": 9.97, "iv": 0.5, "msl": 1}
+        ]
+    },
+    "s1_light": {
+        "sp": 2600,
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"dmg": 7.69, "killer": [0.3, ["paralysis"]], "afflic": ["paralysis", 120, 0.97], "iv": 0.5, "msl": 1},
+            {"dmg": 17.94, "killer": [0.3, ["paralysis"]], "iv": 0.5, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.1667,
         "sp": 8600,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.16667,
+        "attr": [
+            {"buff": ["self", 0.2, 30.0, "att", "buff"], "iv": 0.5}
+        ]
+    },
+    "s2_light": {
+        "sp": 8600,
+        "startup": 0.1,
+        "recovery": 1.16667,
+        "attr": [
+            {"buff": [["self", 0.2, 30.0, "att", "buff"], ["self", 0.2, 30.0, "crit", "chance"], ["self", 0.15, 30.0, "crit", "damage"]], "iv": 0.5}
+        ]
     }
 }

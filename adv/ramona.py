@@ -16,7 +16,7 @@ class Ramona(Adv):
         `s1(all)
         """
     conf['coabs'] = ['Gala_Sarisse', 'Wand', 'Marth']
-    conf['share'] = ['Summer_Cleo']
+    conf['share'] = ['Summer_Patia']
 
 
     def s(self, n, s1_kind=None):

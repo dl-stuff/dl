@@ -1,25 +1,39 @@
 {
     "c": {
-        "a": [["k_sleep", 0.2]],
-        "att": 460,
-        "ele": "shadow",
-        "stars": "4",
-        "wt": "axe",
         "name": "Sazanka",
-        "spiral": 0
+        "icon": "110311_01_r04",
+        "att": 460,
+        "hp": 802,
+        "ele": "shadow",
+        "wt": "axe",
+        "spiral": false,
+        "a": [["k_sleep", 0.2]]
+    },
+    "fs_enhanced": {
+        "charge": 0.5,
+        "startup": 0.46667,
+        "recovery": 0.55897,
+        "attr": [
+            {"dmg": 2.3, "sp": 300, "afflic": ["sleep", 100]}
+        ]
     },
     "s1": {
-        "dmg": 10.2,
-        "hit": 4,
-        "recovery": 2.15,
         "sp": 2805,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.1,
+        "attr": [
+            {"dmg": 2.55, "bleed": [80, 1.32], "iv": 0.5},
+            {"dmg": 2.55, "iv": 0.9},
+            {"dmg": 2.55, "iv": 1.2},
+            {"dmg": 2.55, "iv": 1.5}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 6400,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["fsAlt", "enhanced", -1, 3], "iv": 0.16667}
+        ]
     }
 }

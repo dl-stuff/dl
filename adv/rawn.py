@@ -18,8 +18,6 @@ class Rawn(Adv):
     conf['coabs'] = ['Cleo','Raemond','Peony']
     conf['share'] = ['Gala_Mym']
 
-    def s1_proc(self, e):
-        Debuff(e.name, 0.05, 10, 0.4, 'attack').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

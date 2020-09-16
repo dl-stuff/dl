@@ -1,25 +1,34 @@
 {
     "c": {
-        "a": [["a", 0.13, "hp100"], ["bt", 0.2]],
-        "att": 473,
-        "ele": "flame",
-        "stars": "4",
-        "wt": "wand",
         "name": "Sinoa",
-        "spiral": 0
+        "icon": "110009_01_r04",
+        "att": 473,
+        "hp": 762,
+        "ele": "flame",
+        "wt": "wand",
+        "spiral": false,
+        "a": [["a", 0.13, "hp100"], ["bt", 0.2]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 3817,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": [
+                ["team", 0.0625, 15.0, "att", "buff"],
+                ["team", 0.0625, 15.0, "defense", "buff"],
+                ["team", 0.0625, 10.0, "crit", "chance"],
+                ["team", 0.0375, -1, "maxhp", "buff"]
+            ], "iv": 0.16667}
+        ]
     },
     "s2": {
-        "dmg": 8.86,
-        "hit": 2,
-        "recovery": 1.85,
         "sp": 5422,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 4.43, "iv": 0.96667},
+            {"dmg": 4.43, "iv": 1.16667}
+        ]
     }
 }

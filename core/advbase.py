@@ -547,8 +547,7 @@ class Adv(object):
 
         'acl': '`s1;`s2;`s3',
 
-        'attenuation': 1,
-        'mbleed': False,
+        'attenuation': 1
     }
 
     def damage_sources_check(self, name, conf):
@@ -1602,12 +1601,13 @@ class Adv(object):
 
         if 'bleed' in attr:
             rate, mod = attr['bleed']
-            if self.conf.mbleed:
+            if self.conf.mbleed or (rate < 100 and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
                 mBleed(name, mod).on()
-            elif rate == 100 or rate > random.uniform(0, 100):
+            else:
                 from module.bleed import Bleed
-                Bleed(name, mod).on()
+                if rate == 100 or rate > random.uniform(0, 100):
+                    Bleed(name, mod).on()
 
         if 'buff' in attr:
             self.hitattr_buff_outer(name, base, group, aseq, attr)

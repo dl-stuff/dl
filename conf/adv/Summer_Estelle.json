@@ -1,26 +1,29 @@
 {
     "c": {
-        "a": [["bt", 0.2]],
+        "name": "Summer Estelle",
+        "icon": "110063_02_r04",
         "att": 471,
+        "hp": 766,
         "ele": "water",
-        "stars": "4",
         "wt": "wand",
-        "name": "Summer_Estelle",
-        "spiral": 0
+        "spiral": false,
+        "a": [["bt", 0.2]]
     },
     "s1": {
-        "buff": ["debuff", 0.05, 10.0, 0.4],
-        "dmg": 8.8,
-        "hit": 2,
-        "recovery": 1.65,
         "sp": 2711,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 4.4, "buff": ["debuff", -0.05, 10.0, 0.4, "def"], "iv": 0.96667},
+            {"dmg": 4.4, "iv": 1.16667}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 7634,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.63333,
+        "attr": [
+            {"buff": ["ele", 0.15, 15.0, "att", "buff", "water"], "iv": 0.63333}
+        ]
     }
 }

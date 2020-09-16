@@ -1,26 +1,40 @@
 {
     "c": {
-        "a": [["s", 0.4, "hp100"], ["bk", 0.3]],
+        "name": "Student Maribelle",
+        "icon": "110032_02_r05",
         "att": 513,
+        "hp": 747,
         "ele": "flame",
-        "stars": "5",
         "wt": "wand",
-        "name": "Student_Maribelle",
-        "spiral": 0
+        "spiral": false,
+        "a": [["s", 0.4, "hp100"], ["bk", 0.3]]
     },
     "s1": {
-        "buff": ["debuff", 0.05, 10.0, 0.5],
-        "dmg": 9.6,
-        "hit": 12,
-        "recovery": 1.1667,
         "sp": 2649,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 0.8, "buff": ["debuff", -0.05, 10.0, 0.5, "def"], "iv": 0.2, "msl": 1},
+            {"dmg": 0.8, "iv": 0.3, "msl": 1},
+            {"dmg": 0.8, "iv": 0.36667, "msl": 1},
+            {"dmg": 0.8, "iv": 0.46667, "msl": 1},
+            {"dmg": 0.8, "iv": 0.53333, "msl": 1},
+            {"dmg": 0.8, "iv": 0.63333, "msl": 1},
+            {"dmg": 0.8, "iv": 0.7, "msl": 1},
+            {"dmg": 0.8, "iv": 0.8, "msl": 1},
+            {"dmg": 0.8, "iv": 0.86667, "msl": 1},
+            {"dmg": 0.8, "iv": 0.96667, "msl": 1},
+            {"dmg": 0.8, "iv": 1.03333, "msl": 1},
+            {"dmg": 0.8, "iv": 1.13333, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 12.88,
-        "hit": 2,
-        "recovery": 1.46,
         "sp": 8300,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"dmg": 6.44, "iv": 0.4},
+            {"dmg": 6.44, "iv": 0.66667}
+        ]
     }
 }

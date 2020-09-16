@@ -6,7 +6,6 @@ def module():
     return Summer_Estelle
 
 class Summer_Estelle(Adv):
-    a3 = ('bt',0.2)
     conf = {}
     conf['slots.a'] = Candy_Couriers()+Proper_Maintenance()
     conf['slots.frostbite.a'] = conf['slots.a']
@@ -20,12 +19,6 @@ class Summer_Estelle(Adv):
         """
     conf['coabs'] = ['Hunter_Sarisse', 'Renee', 'Tobias']
     conf['share'] = ['Patia', 'Summer_Luca']
-
-    def init(self):
-        self.buff_class = Teambuff if self.condition('buff all team') else Selfbuff
-    
-    def s2_proc(self, e):
-        self.buff_class(e.name,0.15,15).on()
 
 
 if __name__ == '__main__':

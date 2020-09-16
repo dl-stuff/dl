@@ -5,8 +5,6 @@ def module():
     return Renee
 
 class Renee(Adv):
-    a1 = ('primed_crit_chance', 0.6,5)
-
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
     conf['acl'] = """
@@ -28,13 +26,6 @@ class Renee(Adv):
     conf['afflict_res.bog'] = 100
     conf['share'] = ['Gala_Elisanne', 'Eugene']
 
-    def s1_proc(self, e):
-        self.dmg_make(e.name,1.11)
-        self.afflics.bog.on(e.name, 100)
-        self.dmg_make(e.name,5.55)
-
-    def s2_proc(self, e):
-        Selfbuff(f'{e.name}_defense', 0.10, 5, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

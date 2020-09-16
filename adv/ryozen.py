@@ -5,7 +5,6 @@ def module():
     return Ryozen
 
 class Ryozen(Adv):
-    a3 = ('od',0.08)
     conf = {}
     conf['slots.a'] = RR()+The_Red_Impulse()
     conf['acl'] = """
@@ -18,8 +17,6 @@ class Ryozen(Adv):
     conf['coabs'] = ['Cleo','Raemond','Peony']
     conf['share'] = ['Kleimann']
 
-    def s1_proc(self, e):
-        Teambuff(e.name, 0.25, 15, 'defense').on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

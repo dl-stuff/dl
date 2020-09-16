@@ -1,25 +1,65 @@
 {
     "c": {
-        "a": [["prep", 100], ["dbt", 0.2]],
+        "name": "Radiant Xuan Zang",
+        "icon": "110299_02_r05",
         "att": 485,
+        "hp": 791,
         "ele": "light",
-        "stars": "5",
         "wt": "wand",
-        "name": "Radiant_Xuan_Zang",
-        "spiral": 0
+        "spiral": false,
+        "a": [["prep", 100], ["dbt", 0.2]]
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.7,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 0.61, "sp": 580},
+            {"dmg": 0.61, "iv": 0.36667},
+            {"dmg": 0.61, "iv": 0.73333},
+            {"dmg": 0.61, "iv": 0.96667}
+        ]
+    },
+    "fs_xihe": {
+        "charge": 0.4,
+        "startup": 0.7,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 2.22, "sp": 580},
+            {"dmg": 2.22, "iv": 0.36667},
+            {"dmg": 2.22, "iv": 0.73333},
+            {"dmg": 2.22, "iv": 0.96667}
+        ]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.6667,
         "sp": 3000,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 16.1, "buff": ["debuff", -0.1, 10.0, 0.7, "attack"], "iv": 0.63333},
+            {"afflic": ["paralysis", 120, 0.97], "iv": 0.63333}
+        ]
+    },
+    "s1_xihe": {
+        "sp": 3000,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 18.8, "killer": [0.5, ["paralysis"]], "buff": ["debuff", -0.25, 10.0, 1.0, "attack"], "iv": 0.63333}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.3333,
         "sp": 4500,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.33333
+    },
+    "s2_xihe": {
+        "sp": 4500,
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"buff": ["team", 0.2, 15.0, "att", "buff"], "iv": 0.83333},
+            {"buff": ["inspiration", 5, "team"], "iv": 0.83333}
+        ]
     }
 }

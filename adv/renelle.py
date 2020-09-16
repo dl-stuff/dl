@@ -4,9 +4,7 @@ from slot.a import *
 def module():
     return Renelle
 
-class Renelle(Adv):
-    a1 = ('cc',0.15,'hit15')
-    
+class Renelle(Adv):    
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Me_and_My_Bestie()
     conf['acl'] = """
