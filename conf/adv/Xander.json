@@ -1,25 +1,69 @@
 {
     "c": {
-        "a": [["fs", 0.55]],
-        "att": 603,
-        "ele": "water",
-        "stars": "5",
-        "wt": "sword",
         "name": "Xander",
-        "spiral": 6
+        "icon": "110022_01_r05",
+        "att": 603,
+        "hp": 907,
+        "ele": "water",
+        "wt": "sword",
+        "spiral": true,
+        "a": [["fs", 0.55]],
+        "comment": "todo: buffcount, buff ivs?"
+    },
+    "fs_enhanced": {
+        "startup": 0.03333,
+        "recovery": 0.88334,
+        "attr": [
+            {"dmg": 1.0878, "sp": 330, "iv": 0.21667, "msl": 1},
+            {"dmg": 1.0878, "iv": 0.425, "msl": 1},
+            {"dmg": 1.0878, "iv": 0.71667, "msl": 1},
+            {"buff": ["s1", "default", 0, "-off"], "iv": 0.0}
+        ]
+    },
+    "fs_enhanced2": {
+        "startup": 0.03333,
+        "recovery": 0.88334,
+        "attr": [
+            {"dmg": 2.22, "killer": [0.3, ["frostbite"]], "sp": 330, "iv": 0.21667, "msl": 1},
+            {"dmg": 2.22, "killer": [0.3, ["frostbite"]], "iv": 0.425, "msl": 1},
+            {"dmg": 2.22, "killer": [0.3, ["frostbite"]], "iv": 0.71667, "msl": 1},
+            {"buff": ["s1", "enhanced", 0, "-off"], "iv": 0.0}
+        ]
     },
     "s1": {
-        "dmg": 8.32,
-        "hit": 1,
-        "recovery": 1.9,
         "sp": 2714,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 8.32, "afflic": ["frostbite", 120, 0.41], "iv": 0.8, "msl": 1},
+            {"buff": [["sAlt", "enhanced", "s1"], ["fsAlt", "enhanced"], ["self", 0.05, -1, "att", "passive"], "-replace"], "iv": 1.63333}
+        ]
+    },
+    "s1_enhanced": {
+        "sp": 2714,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 8.37, "afflic": ["frostbite", 120, 0.41], "iv": 0.8, "msl": 1},
+            {"buff": [["sAlt", "enhanced2", "s1"], ["fsAlt", "enhanced2"], ["self", 0.05, -1, "att", "passive"],  "-replace"], "iv": 1.63333}
+        ]
+    },
+    "s1_enhanced2": {
+        "sp": 2714,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 8.4, "afflic": ["frostbite", 120, 0.41], "buff": ["s1", "enhanced", 0, "-off"],  "iv": 0.8, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 7.59,
-        "hit": 3,
-        "recovery": 1.77,
         "sp": 4817,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 2.53, "iv": 0.8},
+            {"dmg": 2.53, "iv": 0.93333},
+            {"dmg": 2.53, "iv": 1.06667}
+        ]
     }
 }

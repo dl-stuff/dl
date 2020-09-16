@@ -1,25 +1,29 @@
 {
     "c": {
-        "a": [["sp", 0.08], ["bc", 0.13]],
+        "name": "Wedding Elisanne",
+        "icon": "100002_06_r05",
         "att": 480,
+        "hp": 795,
         "ele": "wind",
-        "stars": "5",
         "wt": "sword",
-        "name": "Wedding_Elisanne",
-        "spiral": 0
+        "spiral": false,
+        "a": [["sp", 0.08], ["bc", 0.13]]
     },
     "s1": {
-        "dmg": 9.9,
-        "hit": 1,
-        "recovery": 1.95,
         "sp": 2902,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.8,
+        "attr": [
+            {"dmg": 9.9, "iv": 0.26667}
+        ]
     },
     "s2": {
-        "dmg": 7.01,
-        "hit": 1,
-        "recovery": 1.1,
         "sp": 6243,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"dmg": 7.01, "buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 0.4},
+            
+        ]
     }
 }
