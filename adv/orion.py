@@ -5,8 +5,6 @@ def module():
     return Orion
 
 class Orion(Adv):
-    a1 = ('cc',0.10,'hit15')
-    a3 = ('prep', 0.50)
     conf = {}
     conf['acl'] = """
         `dragon(c3-s-end), self.sim_afflict or self.trickery <= 1
@@ -16,16 +14,11 @@ class Orion(Adv):
         `s1, buff(s3) and cancel
         `fs, x=5
     """
-    conf['coabs'] = ['Ieyasu','Wand','Axe2']
-    conf['share'] = ['Kleimann']
+    conf['coabs.base'] = ['Ieyasu','Wand','Axe2']
+    conf['coabs.poison'] = ['Ieyasu','Wand','Forte']
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['share'] = ['Curran']
-
-    def d_coabs(self):
-        if self.sim_afflict:
-            self.conf['coabs'] = ['Ieyasu','Wand','Forte']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

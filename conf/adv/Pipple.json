@@ -1,25 +1,88 @@
 {
     "c": {
-        "a": [["estat_att", 7], ["estat_crit", 7]],
-        "att": 471,
-        "ele": "water",
-        "stars": "4",
-        "wt": "wand",
         "name": "Pipple",
-        "spiral": 0
+        "icon": "110300_01_r04",
+        "att": 471,
+        "hp": 766,
+        "ele": "water",
+        "wt": "wand",
+        "spiral": false,
+        "a": [["estat_att", 7], ["estat_crit", 7]]
     },
-    "s1": {
-        "dmg": 0,
-        "hit": 0,
-        "recovery": 0.9,
+    "s1_phase1": {
         "sp": 4800,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667}
+        ]
+    },
+    "s1_phase2": {
+        "sp": 4800,
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667}
+        ]
+    },
+    "s1_phase3": {
+        "sp": 4800,
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667},
+            {"buff": ["energy", 1, "team"], "iv": 0.16667}
+        ]
     },
     "s2": {
-        "dmg": 0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 4900,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["energy", 2, "team"], "iv": 0.16667}
+        ]
+    },
+    "x1": {
+        "startup": 0.25,
+        "recovery": 0.08333,
+        "attr": [
+            {"dmg": 2.21, "sp": 130, "msl": 1}
+        ]
+    },
+    "x2": {
+        "startup": 0.46667,
+        "recovery": 0.02222,
+        "attr": [
+            {"dmg": 1.19, "sp": 200, "msl": 1},
+            {"dmg": 1.19, "msl": 1}
+        ]
+    },
+    "x3": {
+        "startup": 0.47619,
+        "recovery": 0.33333,
+        "attr": [
+            {"dmg": 0.8, "sp": 240, "msl": 1},
+            {"dmg": 0.8, "msl": 1},
+            {"dmg": 0.8, "msl": 1}
+        ]
+    },
+    "x4": {
+        "startup": 0.54762,
+        "recovery": 0.40476,
+        "attr": [
+            {"dmg": 1.65, "sp": 430, "msl": 1},
+            {"dmg": 1.65, "msl": 1}
+        ]
+    },
+    "x5": {
+        "startup": 0.66667,
+        "recovery": 1.16666,
+        "attr": [
+            {"dmg": 1.32, "sp": 600, "msl": 1},
+            {"dmg": 0.8, "iv": 0.08333, "msl": 1},
+            {"dmg": 0.8, "iv": 0.08333, "msl": 1},
+            {"dmg": 0.8, "iv": 0.16666, "msl": 1},
+            {"dmg": 0.8, "iv": 0.16666, "msl": 1}
+        ]
     }
 }

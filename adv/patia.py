@@ -21,11 +21,6 @@ class Patia(Adv):
     conf['coabs'] = ['Audric','Bow','Tobias']
     conf['share'] = ['Karl']
 
-    def prerun(self):
-        self.bleed = Bleed('g_bleed',0).reset()
-
-    def s2_proc(self, e):
-        Bleed(e.name, 1.46).on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

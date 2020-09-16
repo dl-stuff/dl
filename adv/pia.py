@@ -21,9 +21,6 @@ class Pia(Adv):
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
     conf['share'] = ['Curran']
 
-    def s2_proc(self, e):
-        self.energy.add(1, team=True)
-
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

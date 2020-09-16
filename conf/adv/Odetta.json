@@ -1,26 +1,29 @@
 {
     "c": {
-        "a": [["a", 0.1, "hp70"], ["bt", 0.2]],
-        "att": 486,
-        "ele": "light",
-        "stars": "4",
-        "wt": "sword",
         "name": "Odetta",
-        "spiral": 0
+        "icon": "110301_01_r04",
+        "att": 486,
+        "hp": 735,
+        "ele": "light",
+        "wt": "sword",
+        "spiral": false,
+        "a": [["a", 0.1, "hp70"], ["bt", 0.2]]
     },
     "s1": {
-        "buff": ["debuff", 0.05, 10.0, 0.4],
-        "dmg": 6.04,
-        "hit": 2,
-        "recovery": 1.6,
         "sp": 2503,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 3.02, "buff": ["debuff", -0.05, 10.0, 0.4, "def"], "iv": 0.63333, "msl": 1},
+            {"dmg": 3.02, "iv": 1.03333, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 6424,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.15, 15.0, "att", "buff"], "iv": 0.16667}
+        ]
     }
 }

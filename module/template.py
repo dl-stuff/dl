@@ -146,7 +146,7 @@ class SigilAdv(Adv):
         self.sigil_mode = ModeManager(group='sigil', **kwargs)
 
     def sigil_unlock(self):
-        self.unlocked = True
+        self.unlocked = now()
         self.sigil_mode.on()
 
     def update_sigil(self, time):

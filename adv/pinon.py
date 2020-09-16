@@ -1,47 +1,14 @@
 from core.advbase import *
 from slot.a import *
 from slot.d import *
+from module.template import SigilAdv
 
 def module():
     return Pinon
 
-pinon_conf = {
-    'fs1': {
-        'dmg': 110 / 100.0,
-        'sp': 500,
-        'charge': 30 / 60.0,
-        'startup': 0.06666667,
-        'recovery': 1.0,
-        'hit': 1
-    },
-    'fs2': {
-        'attr': [{'dmg': 3.00, 'killer': [2.0, ['frostbite']], 'sp': 710, 'hit': -1}],
-        'charge': 150 / 60.0,
-        'startup': 0.06666667,
-        'recovery': 1.0,
-    },
 
-    'x6.dmg': 10.6,
-    'x6.sp': 325,
-    'x6.startup': 1.3333,
-    'x6.recovery': 0.4333,
-    'x6.hit': 1,
-
-    'x7.dmg': 10.6,
-    'x7.sp': 325,
-    'x7.startup': 1.3333,
-    'x7.recovery': 0.4333,
-    'x7.hit': 1,
-
-    'x8.dmg': 10.6,
-    'x8.sp': 325,
-    'x8.startup': 1.3333,
-    'x8.recovery': 0.4333,
-    'x8.hit': 1,
-} # get real frames 1 day, maybe
-
-class Pinon(Adv):    
-    conf = pinon_conf.copy()
+class Pinon(SigilAdv):    
+    conf = {}
     conf['slots.a'] = Primal_Crisis()+His_Clever_Brother()
     conf['slots.d'] = Dragonyule_Jeanne()
     conf['acl'] = """
@@ -66,31 +33,11 @@ class Pinon(Adv):
     conf['coabs'] = ['Dagger2', 'Axe2', 'Xander']
     conf['share'] = ['Gala_Elisanne']
 
-    def fs_proc(self, e):
-        if e.level == 2:
-            self.update_sigil(-13)
+    def fs2_proc(self, e):
+        self.update_sigil(-13)
 
     def prerun(self):
-        self.conf.default.x_max = 5
-        self.unlocked = False
-        self.sigil = EffectBuff('locked_sigil', 300, lambda: None, self.unlock).no_bufftime()
-        self.sigil.on()
-        self.s2_buff = Selfbuff('s2_att', 0.20, 20, 'att', 'buff')
-
-    def unlock(self):
-        self.conf.default.x_max = 8
-        self.unlocked = True
-        self.unlock_time = now()
-
-    def update_sigil(self, time):
-        duration = self.sigil.buff_end_timer.add(time)
-        if duration <= 0:
-            self.sigil.off()
-            self.unlock()
-
-    def x_proc(self, e):
-        if self.unlocked and int(e.name[1]) > 5:
-            self.energy.add(0.4)
+        self.config_sigil(duration=300, x=True)
 
     def x(self):
         x_min = 1
@@ -99,31 +46,10 @@ class Pinon(Adv):
             x_min = 8
         return super().x(x_min=x_min)
 
-    # def x(self):
-    #     if self.unlock:
-    #         prev = self.action.getprev()
-    #         x_next = 1
-    #         if prev.name[0] == 'x':
-    #             if prev.index != self.conf.x_max:
-    #                 x_next = prev.index + 1
-    #             else:
-    #                 x_next = self.conf.x_max
-    #         return getattr(self, 'x%d' % x_next)()
-    #     else:
-    #         return super().x()
-
-    def s1_proc(self, e):
-        self.afflics.frostbite(e.name,120,0.41)
-
-    def s2_proc(self, e):
-        self.s2_buff.on()
-        # only counts as 1 buff
-        Event('defchain')()
-
     def post_run(self, end):
-        try:
-            self.comment += f'unlock at {self.unlock_time:.02f}s; only s1 if energized after unlock'
-        except AttributeError:
+        if self.unlocked:
+            self.comment += f'unlock at {self.unlocked:.02f}s; only s1 if energized after unlock'
+        else:
             self.comment += f'not unlocked'
 
 if __name__ == '__main__':

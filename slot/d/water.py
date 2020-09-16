@@ -240,6 +240,11 @@ class Gaibhne_and_Creidhne(DragonBase):
         'dodge.startup': 40 / 60, # dodge frames
     }
 
+    def oninit(self, adv):
+        # FIXME
+        super().oninit(adv)
+        adv.damage_sources.remove('ds')
+
     def ds_proc(self):
         from core.timeline import Timer
         def autocharge(t):

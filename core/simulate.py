@@ -451,7 +451,7 @@ def damage_counts(real_d, damage, counts, output, res=None):
     for k1 in damage.keys():
         dmg = damage.get(k1)
         cnt = counts.get(k1)
-        if dmg:
+        if dmg or cnt:
             output.write('\n{:>1} {:>3.0f}%| '.format(k1, res[k1] * 100 / res['dps']))
         if k1 == 'x':
             dmg, cnt = condense_damage_counts(dmg, cnt, x_rule)

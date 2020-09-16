@@ -6,8 +6,6 @@ def module():
 
 class Orsem(Adv):
     comment = 'no s2'
-    a1 = ('cc',0.10,'hit15')
-    a3 = ('cc',0.06,'hp70')
     
     conf = {}
     conf['slots.d'] = Gaibhne_and_Creidhne()
@@ -20,6 +18,7 @@ class Orsem(Adv):
     """
     conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

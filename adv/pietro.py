@@ -6,10 +6,6 @@ def module():
     return Pietro
 
 class Pietro(Adv):
-#    comment = 'no s2'
-    
-    a1 = ('cd',0.13)
-
     conf = {}
     conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
     conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
