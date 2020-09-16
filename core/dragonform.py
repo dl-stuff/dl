@@ -206,8 +206,7 @@ class DragonForm(Action):
 
     def d_act_do(self, t):
         self.dracolith_mod.on()
-        o_ctime = self.adv.ctime
-        self.adv.ctime = 10 # FIXME
+        self.adv.ctime_override = 100 # FIXME
         if self.c_act_name == 'ds':
             self.adv.actmod_on(self.ds_event)
             actmods = self.adv.actmods('ds')
@@ -244,7 +243,7 @@ class DragonForm(Action):
         self.adv.add_hits(self.c_act_conf.hit)
         self.d_act_next()
         self.dracolith_mod.off()
-        self.adv.ctime = o_ctime # FIXME
+        self.adv.ctime_override = 0 # FIXME
 
     def d_act_next(self):
         nact = None

@@ -639,7 +639,7 @@ class Adv(object):
 
         self.hits = 0
         self.last_c = 0
-        self.ctime = 2
+        self.ctime_override = 0
 
         self.hp = 100
         self.hp_event = Event('hp')
@@ -652,6 +652,11 @@ class Adv(object):
         self.sab = []
 
         self.disable_echo()
+
+    @property
+    def ctime(self):
+        # base ctime is 2
+        return self.ctime_override or self.mod('ctime') + 1
 
     def actmod_on(self, e):
         do_sab = True
@@ -1084,7 +1089,7 @@ class Adv(object):
     def x(self, x_min=1):
         prev = self.action.getprev()
         if self.deferred_x is not None:
-            log('x', 'deferred_x on', self.deferred_x)
+            log('deferred_x', self.deferred_x)
             self.current_x = self.deferred_x
             self.deferred_x = None
         if isinstance(prev, X) and prev.group == self.current_x:
@@ -1531,7 +1536,7 @@ class Adv(object):
                 self.dmg_make(name, coef, dtype, attenuation=(rate, pierce-1), depth=depth)
         return count
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
         g_logs.log_hitattr(name, attr)
         hitmods = self.actmods(name)
         if 'dmg' in attr:
@@ -1619,66 +1624,53 @@ class Adv(object):
                     blist = blist[:-1]
             except TypeError:
                 pass
-            if bctrl == '-off':
-                try:
-                    self.buff.off(*blist)
-                except:
-                    pass
-                return
-            if bctrl and bctrl.startswith('-refresh'):
-                try:
-                    return self.buff.on(base, group, aseq)
-                except KeyError:
-                    bctrl_parts = bctrl.split('_')
-                    if len(bctrl_parts) > 1:
-                        bctrl = bctrl_parts[0]
-                        bctrl_args = bctrl_parts[1:]
-                        tgroup, tseq = bctrl_args
-                        tgroup = tgroup if not tgroup.isdigit() else int(tgroup)-1
-                        tseq = int(tseq)
-                        try:
-                            return self.buff.on(base, tgroup, tseq)
-                        except:
-                            pass
+            if bctrl:
+                if bctrl == '-off':
+                    try:
+                        self.buff.off(*blist)
+                    except:
+                        pass
+                    return
+                if bctrl.startswith('-refresh'):
+                    try:
+                        return self.buff.on(base, group, aseq)
+                    except KeyError:
+                        bctrl_parts = bctrl.split('_')
+                        if len(bctrl_parts) > 1:
+                            bctrl = bctrl_parts[0]
+                            bctrl_args = bctrl_parts[1:]
+                            tgroup, tseq = bctrl_args
+                            tgroup = tgroup if not tgroup.isdigit() else int(tgroup)-1
+                            tseq = int(tseq)
+                            try:
+                                return self.buff.on(base, tgroup, tseq)
+                            except:
+                                pass
+                if bctrl == '-replace':
+                    self.buff.off_all(base)
+                    try:
+                        return self.buff.on(base, group, aseq)
+                    except KeyError:
+                        pass
             if isinstance(blist[0], list):
                 buff_objs = []
                 for bseq, attrbuff in enumerate(blist):
-                    obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff, bctrl=bctrl)
+                    obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff)
                     if obj:
                         buff_objs.append(obj)
                 if buff_objs:
                     self.buff.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
             else:
-                buff = self.hitattr_buff(name, base, group, aseq, 0, attr['buff'])
+                buff = self.hitattr_buff(name, base, group, aseq, 0, blist)
                 if buff:
                     self.buff.add(base, group, aseq, buff.on())
 
-    def hitattr_buff(self, name, base, group, aseq, bseq, attrbuff, bctrl=None):
+    def hitattr_buff(self, name, base, group, aseq, bseq, attrbuff):
         btype = attrbuff[0]
         if btype in ('energy', 'inspiration'):
             getattr(self, btype).add(attrbuff[1], team=len(attrbuff) > 2 and bool(attrbuff[2]))
         else:
-            try:
-                if attrbuff[-1][0] == '-':
-                    bargs = attrbuff[1:-1]
-                    bctrl = attrbuff[-1]
-                else:
-                    bargs = attrbuff[1:]
-            except TypeError:
-                bargs = attrbuff[1:]
-            if bctrl == '-refresh':
-                try:
-                    self.buff.on(base, group, aseq)
-                    return None
-                except KeyError:
-                    pass
-            if bctrl == '-replace':
-                self.buff.off_except(base, group)
-                try:
-                    self.buff.on(base, group, aseq)
-                    return None
-                except KeyError:
-                    pass
+            bargs = attrbuff[1:]
             try:
                 return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs)
             except ValueError:
@@ -1697,6 +1689,7 @@ class Adv(object):
     ATTR_COND = {
         'hp>=': lambda s, v: s.hp >= v,
         'hp<=': lambda s, v: s.hp <= v,
+        'rng': lambda s, v: random.random() <= v
     }
     def do_hitattr_make(self, e, aseq, attr, cb_kind, pin=None):
         if 'cond' in attr:
@@ -1716,6 +1709,14 @@ class Adv(object):
             mt.name = e.name
             mt.base = e.base
             mt.group = e.group
+            try:
+                mt.index = e.index
+            except AttributeError:
+                pass
+            try:
+                mt.level = e.level
+            except AttributeError:
+                pass
             mt.aseq = aseq
             mt.attr = attr
             mt.onhit = onhit
@@ -1744,13 +1745,15 @@ class Adv(object):
         if conf['attr']:
             prev_attr = None
             for aseq, attr in enumerate(conf['attr']):
+                if isinstance(attr, str):
+                    attr = getattr(self, attr, 0)
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
                         res_mt = self.do_hitattr_make(e, aseq+repeat, prev_attr, cb_kind, pin=pin)
                 else:
                     res_mt = self.do_hitattr_make(e, aseq, attr, cb_kind, pin=pin)
                     prev_attr = attr
-                if res_mt is not None and (final_mt is None or res_mt.timing > final_mt.timing):
+                if res_mt is not None and (final_mt is None or res_mt.timing >= final_mt.timing):
                     final_mt = res_mt
         proc = getattr(self, f'{cb_kind}_proc', None)
         if final_mt is not None:

@@ -4,7 +4,7 @@ from functools import reduce
 from core.log import log
 from core.timeline import now
 from core.advbase import Adv
-from core.modifier import Selfbuff
+from core.modifier import Selfbuff, ModeManager, EffectBuff
 
 class StanceAdv(Adv):
     def config_stances(self, stance_dict, default_stance=None, hit_threshold=0, deferred=True):
@@ -28,28 +28,34 @@ class StanceAdv(Adv):
 
     def update_stance(self):
         if self.next_stance is not None:
-            log('stance', self.next_stance)
             curr_stance = self.stance_dict[self.stance]
             next_stance = self.stance_dict[self.next_stance]
             if curr_stance is not None:
                 curr_stance.off()
+                if self.can_change_combo():
+                    log('stance', 'can_change_combo')
+                    curr_stance.off()
+                else:
+                    log('stance', 'cant_change_combo')
+                    next_stance.off_except('x')
             if next_stance is not None:
                 if self.can_change_combo():
+                    log('stance', 'can_change_combo')
                     next_stance.on()
                 else:
+                    log('stance', 'cant_change_combo')
                     next_stance.on_except('x')
             self.stance = self.next_stance
             self.next_stance = None
+            log('stance', self.stance, str(self.deferred_x))
 
     def queue_stance(self, stance):
         if self.can_queue_stance(stance):
             self.next_stance = stance
             self.update_stance()
             return True
-        try:
+        if self.can_change_combo():
             self.stance_dict[stance].alt['x'].on()
-        except KeyError:
-            pass
         return False
 
     def can_queue_stance(self, stance):
@@ -68,7 +74,6 @@ class StanceAdv(Adv):
 
 
 class RngCritAdv(Adv):
-
     def config_rngcrit(self, cd=0, ev=None, ev_len=None):
         self.rngcrit_cd = False
         self.rngcrit_cd_duration = cd
@@ -132,3 +137,20 @@ class RngCritAdv(Adv):
                     self.rngcrit_t.on()
             return crit
 
+
+class SigilAdv(Adv):
+    def config_sigil(self, duration=300, **kwargs):
+        self.unlocked = False
+        self.locked_sigil = EffectBuff('locked_sigil', 300, lambda: None, self.sigil_unlock).no_bufftime()
+        self.locked_sigil.on()
+        self.sigil_mode = ModeManager(group='sigil', **kwargs)
+
+    def sigil_unlock(self):
+        self.unlocked = True
+        self.sigil_mode.on()
+
+    def update_sigil(self, time):
+        duration = self.locked_sigil.buff_end_timer.add(time)
+        if duration <= 0:
+            self.locked_sigil.off()
+            self.sigil_unlock()

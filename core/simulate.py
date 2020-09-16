@@ -421,66 +421,86 @@ def dps_sum(real_d, damage):
 def dict_sum(sub):
     return sum(sub.values())
 
+def condense_damage_counts(dmg, cnt, rule):
+    found_keys = set()
+    cdmg, ccnt = defaultdict(lambda: 0), defaultdict(lambda: 0)
+    for k in dmg.keys():
+        found_keys.add(k)
+        adj_k = rule(k)
+        cdmg[adj_k] += dmg[k]
+        if k in cnt:
+            ccnt[adj_k] += cnt[k]
+    for k in filter(lambda k: k not in found_keys, cnt.keys()):
+        adj_k = rule(k)
+        ccnt[adj_k] += cnt[k]
+        if k in dmg:
+            cdmg[adj_k] += dmg[k]
+    return dict(cdmg), dict(ccnt)
+
+def x_rule(k):
+    ck = k.split('_')
+    return 'x' if len(ck) == 1 else f'x_{ck[1]}'
+
+def d_rule(k):
+    return 'dx' if k.startswith('dx') else k
+
 def damage_counts(real_d, damage, counts, output, res=None):
     if res is None:
         res = dps_sum(real_d, damage)
-    for k1, v1 in (counts.items()):
-        found_dmg = set()
-        d1 = damage[k1]
-        if v1 or d1.get(k1):
+    found_dmg = set()
+    for k1 in damage.keys():
+        dmg = damage.get(k1)
+        cnt = counts.get(k1)
+        if dmg:
             output.write('\n{:>1} {:>3.0f}%| '.format(k1, res[k1] * 100 / res['dps']))
         if k1 == 'x':
-            ccnt, cdmg = defaultdict(lambda: 0), defaultdict(lambda: 0)
-            for k2, v2 in v1.items():
-                ck = k2.split('_')
-                ck = 'x' if len(ck) == 1 else f'x_{ck[1]}'
-                ccnt[ck] += v2
-                cdmg[ck] += d1[k2]
-            v1 = dict(ccnt)
-            d1 = dict(cdmg)
-        # if k1 == 'd':
-        #     ccnt, cdmg = defaultdict(lambda: 0), defaultdict(lambda: 0)
-        #     for k2, v2 in d1.items():
-        #         dk = 'dx' if k2.startswith('dx') else k2
-        #         cdmg[dk] += v2
-        #         if k2 in v1:
-        #             ccnt[dk] += v1[k2]
-        #     v1 = dict(ccnt)
-        #     d1 = dict(cdmg)
-        for k2, v2 in sorted(v1.items(), key=lambda item: item[0]):
-            if d1.get(k2):
-                output.write('{}: {:d} [{}], '.format(k2, int(d1[k2]), v2))
+            dmg, cnt = condense_damage_counts(dmg, cnt, x_rule)
+        if k1 == 'd':
+            dmg, cnt = condense_damage_counts(dmg, cnt, d_rule)
+        for k2, v2 in sorted(cnt.items(), key=lambda item: item[0]):
+            if dmg.get(k2):
+                output.write('{}: {:d} [{}], '.format(k2, int(dmg[k2]), v2))
                 found_dmg.add(k2)
             else:
                 output.write('{}: [{}], '.format(k2, v2))
-        for k2, v2 in sorted(d1.items(), key=lambda item: item[0]):
+        for k2, v2 in sorted(dmg.items(), key=lambda item: item[0]):
             if k2 not in found_dmg:
                 output.write('{}: {:d}, '.format(k2, int(v2)))
-    # for k1, v1 in (damage.items()):
-    #     found_dmg = set()
-    #     if len(v1) > 0 or len(counts[k1]) > 0:
+
+    # found_dmg = set()
+    # for k1, v1 in (counts.items()):
+    #     d1 = damage[k1]
+    #     if v1 or damage.get(k1):
     #         output.write('\n{:>1} {:>3.0f}%| '.format(k1, res[k1] * 100 / res['dps']))
-    #     c1 = counts[k1]
     #     if k1 == 'x':
-    #         cdmg = defaultdict(lambda: 0)
-    #         ccnt = defaultdict(lambda: 0)
+    #         ccnt, cdmg = defaultdict(lambda: 0), defaultdict(lambda: 0)
     #         for k2, v2 in v1.items():
     #             ck = k2.split('_')
     #             ck = 'x' if len(ck) == 1 else f'x_{ck[1]}'
-    #             cdmg[ck] += v2
-    #             ccnt[ck] += c1[k2]
-    #         v1 = dict(cdmg)
-    #         c1 = dict(ccnt)
+    #             ccnt[ck] += v2
+    #             if d1.get(k2):
+    #                 cdmg[ck] += d1.get(k2)
+    #         v1 = dict(ccnt)
+    #         d1 = dict(cdmg)
+    #     elif k1 == 'd':
+    #         ccnt, cdmg = defaultdict(lambda: 0), defaultdict(lambda: 0)
+    #         for k2, v2 in d1.items():
+    #             dk = 'dx' if k2.startswith('dx') else k2
+    #             if v1.get(dk):
+    #                 ccnt[dk] += v1.get(dk)
+    #             cdmg[dk] += v2
+    #         v1 = dict(ccnt)
+    #         d1 = dict(cdmg)
     #     for k2, v2 in sorted(v1.items(), key=lambda item: item[0]):
-    #         modded_value = round(v2)
-    #         try:
-    #             output.write('{}: {:d} [{}], '.format(k2, modded_value, c1[k2]))
-    #             found_count.add(k2)
-    #         except:
-    #             output.write('{}: {:d}, '.format(k2, modded_value))
-    #     for k2, v2 in sorted(c1.items(), key=lambda item: item[0]):
-    #         if not k2 in found_count:
-    #             output.write('{} [{}], '.format(k2, c1[k2]))
+    #         if d1.get(k2):
+    #             output.write('{}: {:d} [{}], '.format(k2, int(d1[k2]), v2))
+    #             found_dmg.add(k2)
+    #         else:
+    #             output.write('{}: [{}], '.format(k2, v2))
+    #     for k2, v2 in sorted(d1.items(), key=lambda item: item[0]):
+    #         if k2 not in found_dmg:
+    #             output.write('{}: {:d}, '.format(k2, int(v2)))
+
 
 def summation(real_d, adv, output, cond=True, no_cond_dps=None):
     res = dps_sum(real_d, adv.logs.damage)

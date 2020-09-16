@@ -58,14 +58,14 @@ class Log:
             category = args[0]
             name = args[1]
             if category == 'dmg':
-                if name[0] == '#':
-                    name = name[1:]
-                    n_rec[2] = name
                 if name[0:2] == 'o_' and name[2] in self.damage:
                     name = name[2:]
                 if name[0] in self.damage:
                     self.update_dict(self.damage[name[0]], name, float(args[2]))
                 else:
+                    if name[0] == '#':
+                        name = name[1:]
+                        n_rec[2] = name
                     self.update_dict(self.damage['o'], name, float(args[2]))
             elif category == 'x' or category == 'cast':
                 self.update_dict(self.counts[name[0]], name, 1)

@@ -1,25 +1,34 @@
 {
     "c": {
-        "a": [["a", 0.08, "hit15"], ["prep", "100%"]],
-        "att": 605,
-        "ele": "flame",
-        "stars": "5",
-        "wt": "sword",
         "name": "Naveed",
-        "spiral": 1
+        "icon": "110266_01_r05",
+        "att": 605,
+        "hp": 904,
+        "ele": "flame",
+        "wt": "sword",
+        "spiral": true,
+        "a": [["a", 0.08, "hit15"], ["prep", "100%"]]
     },
     "s1": {
-        "dmg": 8.32,
-        "hit": 4,
-        "recovery": 2.2,
         "sp": 2590,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.2,
+        "attr": [
+            {"dmg": 2.04, "iv": 0.38889},
+            {"dmg": 0.7, "iv": 1.01667, "msl": 1}, "naveed_bauble",
+            {"dmg": 2.04, "iv": 0.77778},
+            {"dmg": 0.7, "iv": 1.29444, "msl": 1}, "naveed_bauble",
+            {"dmg": 2.04, "iv": 1.11111},
+            {"dmg": 2.04, "iv": 1.66667},
+            {"dmg": 0.7, "iv": 2.38889, "msl": 1}, "naveed_bauble"
+        ]
     },
     "s2": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 3544,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["self", 0.2, 10.0, "defense", "buff"], "iv": 0.03333}
+        ]
     }
 }

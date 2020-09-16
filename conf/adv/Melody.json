@@ -1,26 +1,38 @@
 {
     "c": {
-        "a": [["cc", 0.15, "hp100"]],
-        "att": 563,
-        "ele": "wind",
-        "stars": "3",
-        "wt": "blade",
         "name": "Melody",
-        "spiral": 1
+        "icon": "110027_01_r03",
+        "att": 563,
+        "hp": 888,
+        "ele": "wind",
+        "wt": "blade",
+        "spiral": true,
+        "a": [["cc", 0.15, "hp100"]]
+    },
+    "fs_oops": {
+        "startup": 0.13333,
+        "recovery": 1.2,
+        "attr": [
+            {"dmg": 3.4, "sp": 200}
+        ]
     },
     "s1": {
-        "buff": ["team", 0.2, 15.0],
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 0.9,
         "sp": 2987,
-        "startup": 0.25
+        "startup": 0.1,
+        "recovery": 1.05,
+        "attr": [
+            {"buff": ["team", 0.2, 15.0, "att", "buff"], "iv": 0.16667},
+            {"buff": ["fsAlt", "oops", -1, 1], "iv": 0.16667}
+        ]
     },
     "s2": {
-        "dmg": 8.1,
-        "hit": 3,
-        "recovery": 2.75,
         "sp": 4784,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 2.73333,
+        "attr": [
+            {"dmg": 2.7, "afflic": ["poison", 120, 0.582], "iv": 0.23333},
+            {"dmg": 2.7, "iv": 0.5},
+            {"dmg": 2.7, "iv": 1.03333}
+        ]
     }
 }

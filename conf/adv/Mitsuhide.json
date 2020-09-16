@@ -1,25 +1,40 @@
 {
     "c": {
-        "a": [["a", 0.2, "hit15"], ["k_paralysis", 0.3]],
-        "att": 497,
-        "ele": "light",
-        "stars": "5",
-        "wt": "dagger",
         "name": "Mitsuhide",
-        "spiral": 0
+        "icon": "110345_01_r05",
+        "att": 497,
+        "hp": 763,
+        "ele": "light",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["a", 0.2, "hit15"], ["k_paralysis", 0.3]]
     },
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.55,
         "sp": 2641,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 0.61, "afflic": ["paralysis", 120, 0.97], "iv": 0.4, "msl": 1},
+            {"dmg": 0.61, "iv": 0.53333, "msl": 1},
+            {"dmg": 0.61, "iv": 0.66667, "msl": 1},
+            {"dmg": 0.61, "iv": 0.8, "msl": 1},
+            {"dmg": 0.61, "iv": 0.93333, "msl": 1},
+            {"dmg": 0.61, "iv": 1.06667, "msl": 1},
+            {"dmg": 0.61, "iv": 1.2, "msl": 1},
+            {"dmg": 0.61, "iv": 1.4, "msl": 1},
+            {"dmg": 0.61, "iv": 1.6, "msl": 1},
+            {"dmg": 0.61, "iv": 1.73333, "msl": 1},
+            {"dmg": 0.61, "iv": 1.93333, "msl": 1},
+            {"dmg": 0.61, "iv": 2.06667, "msl": 1}
+        ]
     },
     "s2": {
-        "dmg": 9.45,
-        "hit": 1,
-        "recovery": 1.87,
         "sp": 5280,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.83333,
+        "attr": [
+            {"dmg": 9.35, "iv": 0.43333},
+            {"buff": ["self", 0.1, 10.0, "spd", "passive"], "iv": 1.0}
+        ]
     }
 }

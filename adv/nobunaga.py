@@ -6,8 +6,6 @@ def module():
     return Nobunaga
 
 class Nobunaga(Adv):
-    a1 = ('a',0.2,'hit15')
-
     conf = {}
     conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
     conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
@@ -21,6 +19,12 @@ class Nobunaga(Adv):
         """
     conf['coabs'] = ['Wand','Marth','Yuya']
     conf['share'] = ['Summer_Patia']
+
+    def build_rates(self, as_list=True):
+        rates = super().build_rates(as_list=False)
+        if self.burning_ambition > 0:
+            rates['buffed'] = 1.00
+        return rates if not as_list else list(rates.items())
 
     def prerun(self):
         self.burning_ambition = 0
@@ -44,10 +48,6 @@ class Nobunaga(Adv):
             self.ba_t.off()
             return True
         return False
-
-    def s2_proc(self, e):
-        if self.ba_proc(e):
-            self.dmg_make(f'{e.name}_boost',self.conf[e.name].dmg*0.3)
 
     def fs_proc(self, e):
         self.ba_proc(e)

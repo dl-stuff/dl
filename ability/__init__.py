@@ -192,6 +192,12 @@ class Charge_Speed(Ability):
 ability_dict['cspd'] = Charge_Speed
 
 
+class Combo_Time(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('ctime','passive',value, cond)])
+ability_dict['ctime'] = Combo_Time
+
+
 class Co_Ability(Ability):
     EX_MAP = {
         'blade': [('att','ex',0.10)],
@@ -215,18 +221,6 @@ class Co_Ability(Ability):
         except KeyError:
             super().__init__(name)
 ability_dict['ex'] = Co_Ability
-
-
-class Combo_Time(Ability):
-    def __init__(self, name, value, cond=None):
-        super().__init__(name)
-        self.value = value
-        self.cond = cond
-
-    def oninit(self, adv, afrom=None):
-        if not self.cond or adv.condition(self.cond):
-            adv.ctime += self.value
-ability_dict['ctime'] = Combo_Time
 
 
 class BuffingAbility(Ability):
@@ -767,8 +761,8 @@ class Crisis_Att_Spd(Ability):
 ability_dict['crisisattspd'] = Crisis_Att_Spd
 
 class Energy_Extra(Ability):
-    def __init__(self, name, value):
-        self.use_rng = name == 'eextra_rng'
+    def __init__(self, name, value, rng=False):
+        self.use_rng = rng
         self.value = value
         super().__init__(name)
 

@@ -6,8 +6,6 @@ def module():
     return Melsa
 
 class Melsa(Adv):
-    a3 = ('cc',0.08,'hit15')
-
     conf = {}
     conf['slots.a'] = Twinfold_Bonds()+Levins_Champion()
     conf['acl'] = """

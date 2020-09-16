@@ -8,7 +8,7 @@ agito_buffs = {
                 'recovery' : 0.90,
             },
             's3_phase1': {
-                'attr': [{'buff': ['self', 0.20, -1, 'att', 'buff', '-replace']}] # combo time
+                'attr': [{'buff': ['self', 0.20, -1, 'att', 'buff', '-replace']}]
             },
             's3_phase2': {
                 'attr': [{'buff': ['self', 0.05, -1, 'regen', 'buff', '-replace']}]
@@ -21,7 +21,7 @@ agito_buffs = {
                 'recovery' : 0.90,
             },
             's3_phase1': {
-                'attr': [{'buff': ['self', 0.20, -1, 'att', 'buff', '-replace']}] # combo time
+                'attr': [{'buff': [['self', 0.20, -1, 'att', 'buff'], ['self', 1.00, -1, 'ctime', 'passive'], '-replace']}]
             },
             's3_phase2': {
                 'attr': [{'buff': ['self', 0.05, -1, 'regen', 'buff', '-replace']}]

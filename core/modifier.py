@@ -275,7 +275,7 @@ class Buff(object):
 
         base_mods = [
             Modifier('base_cc', 'crit', 'chance', 0.12),
-            Modifier('base_killer', 'killer','passive', 0.50)
+            Modifier('base_killer', 'killer','passive', 0.30)
         ]
 
         for mod in base_mods:
@@ -294,13 +294,12 @@ class Buff(object):
                     sd_mods += i.get() * 1 / 2
                 elif i.modifier.mod_type == 'spd':
                     spd += i.get()
+                elif i.modifier.mod_type.endswith('_killer'):
+                    mod_copy = copy.copy(i.modifier)
+                    mod_copy.mod_type = 'killer'
+                    self.dmg_test_event.modifiers.append(mod_copy)
                 else:
-                    if i.modifier.mod_type.endswith('_killer'):
-                        mod_copy = copy.copy(i.modifier)
-                        mod_copy.mod_type = 'killer'
-                        self.dmg_test_event.modifiers.append(mod_copy)
-                    else:
-                        self.dmg_test_event.modifiers.append(i.modifier)
+                    self.dmg_test_event.modifiers.append(i.modifier)
         self.dmg_test_event()
         team_buff_dmg = self.dmg_test_event.dmg * sd_mods
         team_buff_dmg += team_buff_dmg * spd
@@ -464,10 +463,7 @@ class XAltBuff(ModeAltBuff):
     def effect_off(self):
         # self.logwrapper(f'x-{self.group} off', self.default_x)
         self.enable_x(False)
-        if self.deferred:
-            self.adv.deferred_x = self.default_x
-        else:
-            self.adv.current_x = self.default_x
+        self.adv.current_x = self.default_x
 bufftype_dict['xAlt'] = XAltBuff
 
 
@@ -545,13 +541,13 @@ class SingleActionBuff(Buff):
     def act_on(self, e):
         if self.get() and e.name.startswith(self.mod_type) or e.name == 'ds' and self.mod_type == 's' \
            and self.uses > 0 and self.active is None:
-            self.logwrapper(e.name, 'act_on')
+            self.logwrapper(self.name, e.name, 'act_on')
             self.active = e.name
             self.uses -= 1
 
     def act_off(self, e):
         if e.name == self.active:
-            self.logwrapper(e.name, 'act_off')
+            self.logwrapper(self.name, e.name, 'act_off')
             self.active = None
             if self.uses == 0:
                 self.off()
@@ -681,7 +677,7 @@ class MultiBuffManager:
         # self.buffs = list(filter(None, self.buffs))
         self.duration = duration
         for b in self.buffs:
-            if self.buffs[0].mod_type == 'effect':
+            if b.mod_type == 'effect':
                 b.hidden = True
 
     def on(self):
@@ -746,10 +742,7 @@ class ModeManager(MultiBuffManager):
         for b in self.buffs:
             if exclude and b == self.alt.get(exclude, None):
                 continue
-            try:
-                b.on(duration=self.duration)
-            except TypeError:
-                b.on()
+            b.off()
         return self
 
 def init_mode(*args):
@@ -797,9 +790,7 @@ class ActiveBuffDict(defaultdict):
     def off(self, k, group='default', seq=0):
         return self[k][group][seq].off()
 
-    def off_except(self, k, group):
+    def off_all(self, k):
         for g, seq in self[k].items():
-            if g == group:
-                continue
             for b in seq.values():
                 b.off()

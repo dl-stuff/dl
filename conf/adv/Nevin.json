@@ -1,25 +1,83 @@
 {
     "c": {
-        "a": [["cd", 0.2]],
-        "att": 477,
-        "ele": "shadow",
-        "stars": "5",
-        "wt": "dagger",
         "name": "Nevin",
-        "spiral": 0
+        "icon": "110365_01_r05",
+        "att": 477,
+        "hp": 797,
+        "ele": "shadow",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["cd", 0.2]]
     },
+    "fs": {"attr": []},
     "s1": {
-        "dmg": 0.0,
-        "hit": 0,
-        "recovery": 1.667,
         "sp": 3000,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"buff": ["zone", 0.25, 10.0, "att", "buff"], "iv": 0.33333}
+        ]
     },
     "s2": {
-        "dmg": 10.0,
-        "hit": 1,
-        "recovery": 1.633,
         "sp": 7500,
-        "startup": 0.1
+        "startup": 0.1,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 10.0, "iv": 1.5, "msl": 1}
+        ]
+    },
+    "s2_sigil": {
+        "sp": 7500,
+        "startup": 0.1,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 10.0, "iv": 1.5, "msl": 1}
+        ],
+        "extra_self": {"dmg": 3.0, "iv": 1.6},
+        "extra_team": {"dmg": 1.0, "iv": 1.6}
+    },
+    "x1_sigil": {
+        "startup": 0.19444,
+        "recovery": 0.08334,
+        "attr": [
+            {"dmg": 0.75, "sp": 144}
+        ]
+    },
+    "x2_sigil": {
+        "startup": 0.15,
+        "recovery": 0.29444,
+        "attr": [
+            {"dmg": 0.38, "sp": 144},
+            {"dmg": 0.38, "iv": 0.15}
+        ]
+    },
+    "x3_sigil": {
+        "startup": 0.25,
+        "recovery": 0.41667,
+        "attr": [
+            {"dmg": 0.54, "sp": 264},
+            {"dmg": 0.54, "iv": 0.28333}
+        ]
+    },
+    "x4_sigil": {
+        "startup": 0.26667,
+        "recovery": 0.4,
+        "attr": [
+            {"dmg": 1.19, "sp": 288}
+        ]
+    },
+    "x5_sigil": {
+        "startup": 0.2,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 1.5, "sp": 480}
+        ]
+    },
+    "x6_sigil": {
+        "startup": 0.5,
+        "recovery": 1.0,
+        "attr": [
+            {"hp": -10}
+        ]
     }
 }

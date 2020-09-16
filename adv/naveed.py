@@ -5,13 +5,11 @@ def module():
     return Naveed
 
 class Naveed(Adv):
-    a1 = ('a',0.08,'hit15')
-    a3 = ('prep','100%')
     conf = {}
     conf['acl'] = """
         `dragon,s
         `s3, not buff(s3)
-        `s2, self.s1level < 5
+        `s2, naveed_bauble < 5
         `s1, cancel
         `s4, fsc
         `fs, x=3 and cancel
@@ -21,23 +19,11 @@ class Naveed(Adv):
     conf['share'] = ['Summer_Patia']
 
     def prerun(self):
-        self.s1level = 0
-
-    @staticmethod
-    def prerun_skillshare(adv, dst):
-        adv.s1level = 0
-
-    def s1_proc(self, e):
-        for _ in range(self.s1level):
-            for _ in range(3):
-                self.dmg_make(e.name,0.7)
-                self.add_hits(1)
+        self.naveed_bauble = 0
 
     def s2_proc(self, e):
-        self.s1level += 1
-        if self.s1level >= 5:
-            self.s1level = 5
-        Selfbuff(e.name+'_defense', 0.20, 10, 'defense').on()
+        if self.naveed_bauble < 5:
+            self.naveed_bauble += 1
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
