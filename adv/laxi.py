@@ -28,8 +28,6 @@ class Laxi(Adv):
 
         Event('hp').listener(self.heal_proc)
 
-    def s1_before(self, e):
-        log('debug', self.sub_mod('att', 'passive'), self.hp, self.condition('hp50'), self.condition('hp≤30'))
 
     def heal_proc(self, e):
         if self.healed == 0 and e.delta < 0 and e.hp <= 30:

@@ -134,7 +134,7 @@ ability_dict['k'] = Killer
 class Skill_Haste(Ability):
     def __init__(self, name, value, cond=None):
         if cond == 'fs':
-            super().__init__(name, [('sp','fs',value)])
+            super().__init__(name, [('spf','passive',value)])
         else:
             super().__init__(name, [('sp','passive',value, cond)])
 
@@ -209,7 +209,7 @@ class Co_Ability(Ability):
         'dagger2': [('x','ex',0.20)],
         'geuden': [('da','passive',0.10),('dt','passive',0.20)],
         'megaman': [('killer','passive',0.15*Overdrive_Punisher.EFFICIENCY)],
-        'tobias': [('buff','time',0.20)],
+        'tobias': [('buff','ex',0.20)],
         'grace': [('fs','ex',0.20)],
         'sharena': [('paralysis_killer', 'passive', 0.08)],
         'peony': [('light','ele',0.20)],

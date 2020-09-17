@@ -864,14 +864,19 @@ class Adv(object):
         else:
             return mod
 
-    def mod(self, mtype):
-        return reduce(operator.mul, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], 1)
+    @staticmethod
+    def mod_mult(a, b):
+        return a * (1 + b)
+
+    def mod(self, mtype, operator=None, initial=1):
+        operator = operator or Adv.mod_mult
+        return reduce(operator, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], initial)
 
     def sub_mod(self, mtype, morder):
         mod_sum = sum([modifier.get() for modifier in self.all_modifiers[mtype][morder]])
         if morder == 'buff':
             mod_sum = min(mod_sum, 2.00)
-        return 1 + mod_sum
+        return mod_sum
 
     def speed(self):
         return min(self.mod('spd'), 1.50)
@@ -994,18 +999,14 @@ class Adv(object):
         return total
 
     def def_mod(self):
-        defa = min(1-self.mod('def'), 0.5)
-        defb = min(1-self.mod('defb'), 0.3)
+        defa = min(1-self.mod('def', operator=operator.add), 0.5)
+        defb = min(1-self.mod('defb', operator=operator.add), 0.3)
         return 1 - min(defa+defb, 0.5)
 
     def sp_mod(self, name):
-        sp_mod = 1
-        for order, modifiers in self.all_modifiers['sp'].items():
-            if order == 'fs':
-                if name.startswith('fs'):
-                    sp_mod += sum([modifier.get() for modifier in modifiers])
-            else:
-                sp_mod += sum([modifier.get() for modifier in modifiers])
+        sp_mod = self.mod('sp', operator=operator.add)
+        if name.startswith('fs'):
+            sp_mod += self.mod('spf', operator=operator.add, initial=0)
         return sp_mod
 
     def sp_val(self, param):

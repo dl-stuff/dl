@@ -1,4 +1,5 @@
 from collections import defaultdict
+import operator
 import copy
 
 from core.timeline import Timer, Event, Listener, now
@@ -194,19 +195,21 @@ class Buff(object):
     def _no_bufftime(self):
         return 1
 
+    def _ex_bufftime(self):
+        return 1 + self._static.adv.sub_mod('buff', 'ex')
+
     def _bufftime(self):
-        return self._static.adv.mod('buff')
+        return self._static.adv.mod('buff', operator=operator.add)
 
     def _debufftime(self):
-        return self._static.adv.mod('debuff')
+        return self._static.adv.mod('debuff', operator=operator.add)
 
     def no_bufftime(self):
         self.bufftime = self._no_bufftime
         return self
 
-    def zone(self):
-        self.bufftime = self._no_bufftime
-        self.name += '_zone'
+    def ex_bufftime(self):
+        self.bufftime = self._ex_bufftime
         return self
 
     def value(self, newvalue=None):

@@ -29,8 +29,8 @@ class Gala_Sarisse(Adv):
         if self.condition('always connect hits'):
             if self.hits // 20 > self.ahits:
                 self.ahits = self.hits // 20
-                Selfbuff('sylvan strength',0.02,15).no_bufftime().on()
-                Selfbuff('sylvan crit',0.01,15,'crit','chance').no_bufftime().on()
+                Selfbuff('sylvan strength',0.02,15).ex_bufftime().on()
+                Selfbuff('sylvan crit',0.01,15,'crit','chance').ex_bufftime().on()
 
     # def s1_proc(self, e):
     #     buffcount = min(self.buffcount, 7)
