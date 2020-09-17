@@ -21,27 +21,27 @@ class Lathna(Adv):
     conf['share.base'] = ['Kleimann']
     conf['share.poison'] = ['Curran']
         
-    conf['dragonform'] = {
-        'act': 'c3-s-c3-c3-c2-c2-c2',
+    # conf['dragonform'] = {
+    #     'act': 'c3-s-c3-c3-c2-c2-c2',
 
-        'dx1.dmg': 2.31,
-        'dx1.startup': 19 / 60.0, # c1 frames
-        'dx1.hit': 1,
+    #     'dx1.dmg': 2.31,
+    #     'dx1.startup': 19 / 60.0, # c1 frames
+    #     'dx1.hit': 1,
 
-        'dx2.dmg': 2.54,
-        'dx2.startup': 42 / 60.0, # c2 frames
-        'dx2.hit': 1,
+    #     'dx2.dmg': 2.54,
+    #     'dx2.startup': 42 / 60.0, # c2 frames
+    #     'dx2.hit': 1,
 
-        'dx3.dmg': 3.34,
-        'dx3.startup': 68 / 60.0, # c3 frames
-        'dx3.recovery': 72 / 60.0, # recovery
-        'dx3.hit': 2,
+    #     'dx3.dmg': 3.34,
+    #     'dx3.startup': 68 / 60.0, # c3 frames
+    #     'dx3.recovery': 72 / 60.0, # recovery
+    #     'dx3.hit': 2,
 
-        'ds.recovery': 124 / 60, # skill frames
-        'ds.hit': 2,
+    #     'ds.recovery': 124 / 60, # skill frames
+    #     'ds.hit': 2,
 
-        'dodge.startup': 41 / 60.0, # dodge frames
-    }
+    #     'dodge.startup': 41 / 60.0, # dodge frames
+    # }
 
     def ds_proc(self):
         dmg = self.dmg_make('ds', 3.64, 's')

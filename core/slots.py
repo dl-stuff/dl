@@ -3,6 +3,7 @@ from collections import defaultdict
 
 from conf import wyrmprints, weapons, load_drg_json, coability_dict
 from core.config import Conf
+from core.ability import ability_dict
 
 
 def all_subclasses(c):
@@ -13,6 +14,7 @@ def subclass_dict(c):
 
 
 class SlotBase:
+    KIND = 's'
     AUGMENTS = 0
     def __init__(self, conf):
         self.conf = conf
@@ -38,7 +40,9 @@ class SlotBase:
 
     @property
     def ab(self):
-        return self.conf.a
+        if self.conf['a']:
+            return self.conf.a
+        return []
 
     def oninit(self, adv):
         pass
@@ -120,18 +124,52 @@ class EquipBase(SlotBase):
 
 class DragonBase(EquipBase):
     FAFNIR = 0.115
+    DEFAULT_DCONF = {
+        'duration': 10, # 10s dragon time
+        'dracolith': 0.70, # base dragon damage
+        'exhilaration': 0, # psiren aura
+        'gauge_val': 100, # gauge regen value
+        'latency': 0, # amount of delay for cancel
+        'act': 'end',
+
+        'end.startup': 0, # amount of time needed to kys, 0 default
+        'end.recovery': 0
+    }
     def __init__(self, conf, c):
         super().__init__(conf.d, c)
         self.dragonform = conf
+
+    def oninit(self, adv):
+        from core.dragonform import DragonForm
+        for dn, dconf in self.dragonform.items():
+            adv.damage_sources_check(dn, dconf)
+        if adv.conf['dragonform']:
+            name = type(adv).__name__
+            self.dragonform.update(adv.conf['dragonform'])
+        else:
+            name = self.name
+        self.dragonform.update(DragonBase.DEFAULT_DCONF, rebase=True)
+        adv.dragonform = DragonForm(name, self.dragonform, adv)
 
     @property
     def att(self):
         return super().att * (1 + DragonBase.FAFNIR)
 
+    @property
+    def ele(self):
+        return self.conf.ele
+
     # @property
     # def hp(self):
     #     # FIXME - halidom calcs
     #     return self.conf.hp + self.AUGMENTS
+
+class Gala_Mars(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        def shift_end_prep(e):
+            adv.charge_p('shift_end',100)
+        adv.Event('dragon_end').listener(shift_end_prep)
 
 class WeaponBase(EquipBase):
     AGITO_S3 = {
@@ -253,15 +291,18 @@ class WeaponBase(EquipBase):
     def __init__(self, conf, c):
         super().__init__(conf, c)
 
-    def oninit(self, adv):
-        pass
-
     @property
     def s3(self):
+        if not self.on_ele:
+            return None
         if self.c.ele == 'light':
             return {**WeaponBase.AGITO_S3[self.c.ele], 's3_phase2': WeaponBase.LIGHT_S3P2[self.c.wt]}
         else:
             return WeaponBase.AGITO_S3[self.c.ele]
+
+    @property
+    def ele(self):
+        return self.conf.ele
 
 
 class AmuletPair:
@@ -333,6 +374,7 @@ class AmuletPair:
 
 
 class AmuletBase(EquipBase):
+    KIND = 'a'
     AUGMENTS = 100
     def __init__(self, conf, c):
         super().__init__(conf, c)
@@ -378,6 +420,7 @@ class Slots:
         self.d = None
         self.w = None
         self.a = None
+        self.abilities = {}
 
     def __str__(self):
         return ','.join([
@@ -412,8 +455,8 @@ class Slots:
                 keys[1] = keys[1]['all']
             except TypeError:
                 pass
-            if self.sim_afflict:
-                keys[1] = Slots.AFFLICT_WYRMPRINT[self.c.ele]
+        if self.sim_afflict:
+            keys[1] = Slots.AFFLICT_WYRMPRINT[self.c.ele]
         confs = [Conf(wyrmprints[k]) for k in keys]
         self.a = AmuletPair(confs, self.c)
 
@@ -430,14 +473,30 @@ class Slots:
         return self.c.hp + self.d.hp + self.w.hp + self.a.hp
 
     def oninit(self, adv=None):
-        pass
+        # self.c.oninit(adv)
+        self.d.oninit(adv)
+        # self.w.oninit(adv)
+        # self.a.oninit(adv)
+        for kind, slot in (('c', self.c), ('d', self.d), ('a', self.a), ('w', self.w)):
+            for aidx, ab in enumerate(slot.ab):
+                name = ab[0]
+                if '_' in name:
+                    acat = name.split('_')[0]
+                else:
+                    acat = name
+                self.abilities[f'{kind}_{aidx}_{name}'] = (kind, ability_dict[acat](*ab))
+
+        for name, val in self.abilities.items():
+            kind, abi = val
+            abi.oninit(adv, kind)
+            self.abilities[name] = abi
 
 
 if __name__ == '__main__':
     from conf import load_adv_json
-    conf = Conf(load_adv_json('Gala_Luca'))
+    conf = Conf(load_adv_json('Xania'))
     # conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
-    # conf['slots.d'] = 'Gala_Mars'
+    conf['slots.d'] = 'Gala_Mars'
     slots = Slots(conf.c, True)
     slots.set_slots(conf.slots)
-    print(slots.w.s3)
+    print(type(slots.d))

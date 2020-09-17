@@ -6,15 +6,16 @@ from itertools import product, chain
 from collections import OrderedDict
 
 from ability import Ability
-from core import *
+# from core import *
+from core.config import Conf
 from core.timeline import *
 from core.log import *
 from core.afflic import *
 from core.modifier import *
 from core.dummy import Dummy, dummy_function
 from core.condition import Condition
+from core.slots import Slots
 import core.acl
-import core.acl_old
 import conf as globalconf
 import slot
 from ctypes import c_float
@@ -667,8 +668,8 @@ class Adv(object):
         for t in chain(self.tension, self.sab):
             if t.active == name:
                 mods.append(t.modifier)
-        # if mods:
-        #     log('actmods', name, str(mods))
+        if name[0] == 'd':
+            mods.append(self.dragonform.dracolith_mod)
         return mods
 
     def actmod_off(self, e):
@@ -753,50 +754,63 @@ class Adv(object):
                     Timer(lambda t: Event('defchain').on(), interval, True).on()
 
     def config_slots(self):
-        for s in ('c', 'd', 'w', 'a'):
-            self.slots.__dict__[s] = self.cmnslots.__dict__[s]
-
-        if self.conf['slots']:
-            if not self.conf['flask_env']:
-                self.d_slots()
-            for s in ('c', 'd', 'w', 'a'):
-                if self.conf.slots[s]:
-                    # TODO: make this bit support string names
-                    self.slots.__dict__[s] = self.conf.slots[s]
-            if self.conf['flask_env']:
-                return
-
+        if not self.conf['flask_env']:
+            self.d_slots()
         if self.sim_afflict:
-            from conf.slot_common import ele_punisher, punisher_print
-            aff = ele_punisher[self.slots.c.ele]
-            wpa = punisher_print[aff]
-            wp1 = self.slots.a.__class__
-            wp2 = wpa
-            if wp1 != wp2:
-                self.slots.a = wp1()+wp2()
-            if self.conf[f'slots.{aff}']:
-                afflic_slots = self.conf[f'slots.{aff}']
-                for s in ('d', 'w', 'a'):
-                    if afflic_slots[s]:
-                        self.slots.__dict__[s] = afflic_slots[s]
+            for aff in self.sim_afflict:
+                try:
+                    affconf = self.conf.slots + self.conf.slots[aff]
+                    self.slots.set_slots(affconf)
+                    break
+                except KeyError:
+                    pass
+        else:
+            self.slots.set_slots(self.conf.slots)
+        # for s in ('c', 'd', 'w', 'a'):
+        #     self.slots.__dict__[s] = self.cmnslots.__dict__[s]
+
+        # if self.conf['slots']:
+        #     if not self.conf['flask_env']:
+        #         self.d_slots()
+        #     for s in ('c', 'd', 'w', 'a'):
+        #         if self.conf.slots[s]:
+        #             # TODO: make this bit support string names
+        #             self.slots.__dict__[s] = self.conf.slots[s]
+        #     if self.conf['flask_env']:
+        #         return
+
+        # if self.sim_afflict:
+        #     from conf.slot_common import ele_punisher, punisher_print
+        #     aff = ele_punisher[self.slots.c.ele]
+        #     wpa = punisher_print[aff]
+        #     wp1 = self.slots.a.__class__
+        #     wp2 = wpa
+        #     if wp1 != wp2:
+        #         self.slots.a = wp1()+wp2()
+        #     if self.conf[f'slots.{aff}']:
+        #         afflic_slots = self.conf[f'slots.{aff}']
+        #         for s in ('d', 'w', 'a'):
+        #             if afflic_slots[s]:
+        #                 self.slots.__dict__[s] = afflic_slots[s]
 
     def pre_conf(self):
         tmpconf = Conf(self.conf_default)
-        tmpconf.update(globalconf.get(self.name))
+        tmpconf.update(globalconf.get_adv(self.name))
         tmpconf.update(self.conf)
         tmpconf.update(self.conf_init)
         self.conf = tmpconf
 
     def default_slot(self):
-        from conf import slot_common
-        self.cmnslots = slot.Slots()
-        self.cmnslots.c.att = self.conf.c.att
-        self.cmnslots.c.wt = self.conf.c.wt
-        self.cmnslots.c.ele = self.conf.c.ele
-        self.cmnslots.c.name = self.name
-        self.slot_common = slot_common.set
-        self.slot_common(self.cmnslots)
-        self.slots = self.cmnslots
+        self.slots = Slots(self.conf.c, self.sim_afflict)
+        # from conf import slot_common
+        # self.cmnslots = slot.Slots()
+        # self.cmnslots.c.att = self.conf.c.att
+        # self.cmnslots.c.wt = self.conf.c.wt
+        # self.cmnslots.c.ele = self.conf.c.ele
+        # self.cmnslots.c.name = self.name
+        # self.slot_common = slot_common.set
+        # self.slot_common(self.cmnslots)
+        # self.slots = self.cmnslots
 
     def __init__(self, conf={}, cond=None):
         if not self.name:
@@ -815,7 +829,7 @@ class Adv(object):
         self.condition = Condition(cond)
         self.duration = 180
 
-        self.damage_sources = {'ds'}
+        self.damage_sources = set()
         self.Modifier._static.damage_sources = self.damage_sources
 
         self.pre_conf()
@@ -850,6 +864,10 @@ class Adv(object):
             scope = scope[1]
         else:
             scope = scope[0]
+        if scope.startswith('dx') or scope == 'dshift':
+            scope = 'x'
+        elif scope.startswith('ds'):
+            scope = 's'
 
         if scope[0] == 's':
             try:
@@ -1238,9 +1256,12 @@ class Adv(object):
 
         for idx, owner in enumerate(self.skillshare_list):
             dst_key = f's{idx+3}'
-            if owner == 'Weapon' and (self.slots.w.noele or self.slots.c.ele in self.slots.w.ele):
-                self.conf.update(self.slots.w.s3)
-                self.conf.s3.owner = None
+            # if owner == 'Weapon' and (self.slots.w.noele or self.slots.c.ele in self.slots.w.ele):
+            if owner == 'Weapon':
+                s3 = self.slots.w.s3
+                if s3:
+                    self.conf.update(s3)
+                    self.conf.s3.owner = None
             else:
                 # I am going to spaget hell for this
                 sdata = skillshare[owner]
@@ -1312,12 +1333,12 @@ class Adv(object):
 
         self.ctx.on()
         
+        self.config_slots()
+        
         preruns_ss = self.config_skills()
 
-        if self.conf.c.a:
-            self.slots.c.a = list(self.conf.c.a)
-
-        self.config_slots()
+        # if self.conf.c.a:
+        #     self.slots.c.a = list(self.conf.c.a)
 
         self.config_coabs()
 
@@ -1326,7 +1347,7 @@ class Adv(object):
         self.sim_buffbot()
 
         self.slots.oninit(self)
-        self.base_att = int(self.slots.att(globalconf.halidom))
+        self.base_att = self.slots.att
 
         self.hp = self.condition.prev_hp
         if 'hp' in self.conf:
@@ -1573,8 +1594,11 @@ class Adv(object):
 
         if 'sp' in attr:
             if isinstance(attr['sp'], int):
-                value = attr['sp']
-                self.charge(base, value)
+                if name.startswith('dx'):
+                    self.dragonform.ds_charge(attr['sp'])
+                else:
+                    value = attr['sp']
+                    self.charge(base, value)
             else:
                 value = attr['sp'][0]
                 mode = None if len(attr['sp']) == 1 else attr['sp'][1]
@@ -1700,7 +1724,7 @@ class Adv(object):
         'hp<=': lambda s, v: s.hp <= v,
         'rng': lambda s, v: random.random() <= v
     }
-    def do_hitattr_make(self, e, aseq, attr, cb_kind, pin=None):
+    def do_hitattr_make(self, e, aseq, attr, pin=None):
         if 'cond' in attr:
             condtype, condval = attr['cond']
             if not Adv.ATTR_COND[condtype](self, condval):
@@ -1744,12 +1768,7 @@ class Adv(object):
                 Event(f'{pin}-h-{aseq}')()
         return None
 
-    def hit_make(self, e, conf, cb_kind=None, pin=None):
-        cb_kind = cb_kind or e.name
-        try:
-            getattr(self, f'{cb_kind}_before')(e)
-        except AttributeError:
-            pass
+    def schedule_hits(self, e, conf, pin=None):
         final_mt = None
         if conf['attr']:
             prev_attr = None
@@ -1758,12 +1777,21 @@ class Adv(object):
                     attr = getattr(self, attr, 0)
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
-                        res_mt = self.do_hitattr_make(e, aseq+repeat, prev_attr, cb_kind, pin=pin)
+                        res_mt = self.do_hitattr_make(e, aseq+repeat, prev_attr, pin=pin)
                 else:
-                    res_mt = self.do_hitattr_make(e, aseq, attr, cb_kind, pin=pin)
+                    res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin)
                     prev_attr = attr
                 if res_mt is not None and (final_mt is None or res_mt.timing >= final_mt.timing):
                     final_mt = res_mt
+        return final_mt
+
+    def hit_make(self, e, conf, cb_kind=None, pin=None):
+        cb_kind = cb_kind or e.name
+        try:
+            getattr(self, f'{cb_kind}_before')(e)
+        except AttributeError:
+            pass
+        final_mt = self.schedule_hits(e, conf, pin=pin)
         proc = getattr(self, f'{cb_kind}_proc', None)
         if final_mt is not None:
             final_mt.actmod = True

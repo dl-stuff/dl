@@ -206,7 +206,7 @@ def brute_force_slots(classname, conf, output, team_dps, duration):
     else:
         amulets_1 = amulets[:-1]
     for dra in dragon:
-        conf['slots.forced'] = True
+        conf['flask_env'] = True
         if dra is not None:
             conf['slots.d'] = dra()
         for idx, a1 in enumerate(amulets_1):
@@ -284,11 +284,7 @@ def brute_force_coabs(classname, conf, output, team_dps, duration):
     output.write('attempts: {}'.format(len(results)))
 
 def slots(adv):
-    slots = '['+adv.slots.a.__class__.__name__ + '+' + adv.slots.a.a2.__class__.__name__+']'
-    slots += '['+adv.slots.d.__class__.__name__+']'
-    slots += '['+adv.slots.w.__class__.__name__.split('_')[0]+']'
-    slots += '['+'|'.join(adv.coab_list)+']'
-    slots += f'[S3:{adv.skillshare_list[0]}'
+    slots = f'[{adv.slots.a}][{adv.slots.d}][{adv.slots.w}][{"|".join(adv.coab_list)}][S3:{adv.skillshare_list[0]}'
     try:
         slots += f'|S4:{adv.skillshare_list[1]}]'
     except:
@@ -303,10 +299,7 @@ def slots_csv(adv):
     if len(padded_share) < 2:
         padded_share.extend(['']*(2-len(padded_share)))
     return (
-        adv.slots.a.__class__.__name__,
-        adv.slots.a.a2.__class__.__name__,
-        adv.slots.d.__class__.__name__,
-        adv.slots.w.__class__.__name__.split('_')[0],
+        str(adv.slots),
         *padded_coab,
         *padded_share
     )

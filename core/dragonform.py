@@ -1,12 +1,11 @@
 from core.advbase import Action, S
 from core.timeline import Event, Timer, now
-from core.log import log
+from core.log import log, g_logs
 from math import ceil
 
 MAX_C = 10
 class DragonForm(Action):
-    has_delayed = 0
-    def __init__(self, name, conf, adv, ds_proc):
+    def __init__(self, name, conf, adv):
         self.name = name
         self.conf = conf
         self.adv = adv
@@ -14,22 +13,22 @@ class DragonForm(Action):
         self.interrupt_by = []
         self.disabled = False
         self.shift_event = Event('dragon')
+        self.act_event = Event('dact')
         self.end_event = Event('dragon_end')
+        self.delayed = set()
 
-        self.ds_proc = ds_proc
         self.ds_reset()
         self.act_list = []
         self.act_sum = []
 
-        self.dx_list = ['dx{}'.format(i) for i in range(1, MAX_C) if 'dmg' in self.conf['dx{}'.format(i)]]
+        self.dx_list = [dx for dx, _ in self.conf.find(r'^dx\d+$')]
 
-        self.ds_event = Event('s')
+        self.ds_event = Event('ds')
         self.ds_event.name = 'ds'
 
         self.action_timer = None
 
         self.shift_start_time = 0
-        self.shift_damage_sum = 0
         self.shift_end_timer = Timer(self.d_shift_end)
         self.idle_event = Event('idle')
 
@@ -45,6 +44,7 @@ class DragonForm(Action):
 
         self.dragon_gauge = 0
         self.dragon_gauge_val = self.conf.gauge_val
+        self.conf.gauge_iv = min(int(self.adv.duration/12), 15)
         self.dragon_gauge_timer = Timer(self.auto_gauge, timeout=max(1, self.conf.gauge_iv), repeat=1).on()
         self.dragon_gauge_pause_timer = None
         self.dragon_gauge_timer_diff = 0
@@ -77,7 +77,10 @@ class DragonForm(Action):
         self.dragon_gauge = self.max_gauge
         self.conf.duration = duration
         self.can_end = False
-        self.skill_sp = self.conf.skill_sp_db
+        try:
+            self.skill_sp = self.conf.ds.sp_db
+        except KeyError:
+            self.skill_sp = self.conf.ds.sp+15
         self.skill_use = -1
 
     def end_silence(self, t):
@@ -145,9 +148,16 @@ class DragonForm(Action):
     def ds_check(self):
         return self.skill_use != 0 and self.skill_spc >= self.skill_sp
 
+    def ds_charge(self, value):
+        if self.skill_use != 0 and self.skill_spc < self.skill_sp:
+            self.skill_spc += self.adv.sp_convert(self.adv.sp_mod('x'), value)
+            if self.skill_spc > self.skill_sp:
+                self.skill_spc = self.skill_sp
+            log(self.c_act_name, 'sp', f'{self.skill_spc}/{self.skill_sp}')
+
     def ds_reset(self):
-        self.skill_use = self.conf.skill_use
-        self.skill_sp = self.conf.skill_sp
+        self.skill_use = self.conf.ds.uses
+        self.skill_sp = self.conf.ds.sp
         self.skill_spc = self.skill_sp
 
     def d_shift_end(self, t):
@@ -155,10 +165,11 @@ class DragonForm(Action):
             self.action_timer.off()
             self.action_timer = None
         duration = now()-self.shift_start_time
-        log(self.name, '{:.2f}dmg / {:.2f}s, {:.2f} dps'.format(self.shift_damage_sum, duration, self.shift_damage_sum/duration), ' '.join(self.act_sum))
+        shift_dmg = g_logs.shift_dmg
+        g_logs.log_shift_dmg(False)
+        log(self.name, '{:.2f}dmg / {:.2f}s, {:.2f} dps'.format(shift_dmg, duration, shift_dmg/duration), ' '.join(self.act_sum))
         self.act_sum = []
         self.act_list = []
-        self.dracolith_mod.off()
         if self.off_ele_mod is not None:
             self.off_ele_mod.off()
         self.ds_reset()
@@ -205,45 +216,77 @@ class DragonForm(Action):
             self.act_timer(self.d_act_do, self.c_act_conf.startup)
 
     def d_act_do(self, t):
-        self.dracolith_mod.on()
-        self.adv.ctime_override = 100 # FIXME
-        if self.c_act_name == 'ds':
-            self.adv.actmod_on(self.ds_event)
-            actmods = self.adv.actmods('ds')
-            for m in actmods:
-                m.on()
-
-            self.skill_use -= 1
-            self.skill_spc = 0
-            self.ds_event()
-            self.shift_damage_sum += self.ds_proc() or 0
-            self.shift_end_timer.add(self.conf.ds.startup+self.conf.ds.recovery)
-            self.act_sum.append('s')
-
-            self.adv.actmod_off(self.ds_event)
-            for m in actmods:
-                m.off()
-        elif self.c_act_name == 'end':
+        if self.c_act_name == 'end':
             self.d_shift_end(None)
             self.shift_end_timer.off()
             return
-        elif self.c_act_name != 'dodge':
-            # dname = self.c_act_name[:-1] if self.c_act_name != 'dshift' else self.c_act_name
-            self.shift_damage_sum += self.adv.dmg_make(self.c_act_name, self.c_act_conf.dmg, 'x' if self.c_act_name != 'dshift' else self.c_act_name)
-            if self.c_act_name.startswith('dx'):
-                if len(self.act_sum) > 0 and self.act_sum[-1][0] == 'c' and int(self.act_sum[-1][1]) < int(self.c_act_name[-1]):
-                    self.act_sum[-1] = 'c'+self.c_act_name[-1]
-                else:
-                    self.act_sum.append('c'+self.c_act_name[-1])
-                if self.skill_use != 0 and self.skill_spc < self.skill_sp:
-                    self.skill_spc += self.adv.sp_convert(self.adv.sp_mod('x'), 5)
-                    if self.skill_spc > self.skill_sp:
-                        self.skill_spc = self.skill_sp
-                    log(self.c_act_name, 'sp', f'{self.skill_spc}/{self.skill_sp}')
-        self.adv.add_hits(self.c_act_conf.hit)
+        
+        actconf = self.conf[self.c_act_name]
+        e = self.act_event
+        e.name = self.c_act_name 
+        e.base = self.c_act_name
+        e.group = 'dragon'
+        self.adv.actmod_on(e)
+        final_mt = self.adv.schedule_hits(e, self.conf[self.c_act_name])
+        if final_mt:
+            final_mt.actmod = True
+        else:
+            self.adv.actmod_off(e)
+        if self.c_act_name == 'ds':
+            # self.ds_proc()
+            log('cast', 'ds')
+            self.skill_use -= 1
+            self.skill_spc = 0
+            self.act_sum.append('s')
+            self.ds_event()
+            self.shift_end_timer.add(actconf.startup+actconf.recovery)
+        elif self.c_act_name.startswith('dx'):
+            if len(self.act_sum) > 0 and self.act_sum[-1][0] == 'c' and int(self.act_sum[-1][1]) < int(self.c_act_name[-1]):
+                self.act_sum[-1] = 'c'+self.c_act_name[-1]
+            else:
+                self.act_sum.append('c'+self.c_act_name[-1])
+
+        # self.dracolith_mod.on()
+
+        # if self.c_act_name == 'ds':
+        #     self.adv.actmod_on(self.ds_event)
+        #     actmods = self.adv.actmods('ds')
+        #     for m in actmods:
+        #         m.on()
+
+        #     self.skill_use -= 1
+        #     self.skill_spc = 0
+        #     self.ds_event()
+        #     self.shift_damage_sum += self.ds_proc() or 0
+        #     self.shift_end_timer.add(self.conf.ds.startup+self.conf.ds.recovery)
+        #     self.act_sum.append('s')
+
+        #     self.adv.actmod_off(self.ds_event)
+        #     for m in actmods:
+        #         m.off()
+        # elif self.c_act_name == 'end':
+        #     self.d_shift_end(None)
+        #     self.shift_end_timer.off()
+        #     return
+        # elif self.c_act_name != 'dodge':
+        #     # dname = self.c_act_name[:-1] if self.c_act_name != 'dshift' else self.c_act_name
+        #     self.shift_damage_sum += self.adv.dmg_make(self.c_act_name, self.c_act_conf.dmg, 'x' if self.c_act_name != 'dshift' else self.c_act_name)
+        #     if self.c_act_name.startswith('dx'):
+        #         if len(self.act_sum) > 0 and self.act_sum[-1][0] == 'c' and int(self.act_sum[-1][1]) < int(self.c_act_name[-1]):
+        #             self.act_sum[-1] = 'c'+self.c_act_name[-1]
+        #         else:
+        #             self.act_sum.append('c'+self.c_act_name[-1])
+        #         if self.skill_use != 0 and self.skill_spc < self.skill_sp:
+        #             self.skill_spc += self.adv.sp_convert(self.adv.sp_mod('x'), 5)
+        #             if self.skill_spc > self.skill_sp:
+        #                 self.skill_spc = self.skill_sp
+        #             log(self.c_act_name, 'sp', f'{self.skill_spc}/{self.skill_sp}')
+    
+        # self.adv.add_hits(self.c_act_conf.hit)
+        # self.d_act_next()
+        # self.dracolith_mod.off()
+
         self.d_act_next()
-        self.dracolith_mod.off()
-        self.adv.ctime_override = 0 # FIXME
 
     def d_act_next(self):
         nact = None
@@ -296,7 +339,6 @@ class DragonForm(Action):
                     self.act_list.append('end')
                 elif a == 'dodge':
                     self.act_list.append('dodge')
-                    
 
     def act(self, act_str):
         self.parse_act(act_str)
@@ -341,9 +383,9 @@ class DragonForm(Action):
                 self.off_ele_mod.on()
             self.pause_auto_gauge()
         self.shift_count += 1
-        self.shift_damage_sum = 0
         self.status = Action.STARTUP
         self._setdoing()
+        g_logs.log_shift_dmg(True)
         self.shift_start_time = now()
         self.shift_end_timer.on(self.dtime())
         self.shift_event()

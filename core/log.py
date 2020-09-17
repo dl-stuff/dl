@@ -16,6 +16,7 @@ class Log:
         self.team_tension = {}
         self.act_seq = []
         self.hitattr_set = set()
+        self.shift_dmg = None
 
     @staticmethod
     def update_dict(dict, name: str, value):
@@ -24,11 +25,6 @@ class Log:
             dict[name] += value
         except KeyError:
             dict[name] = value
-        # name1 = name.split('_')[0]
-        # try:
-        #     dict[name1] += value
-        # except KeyError:
-        #     dict[name1] = value
 
 
     @staticmethod
@@ -42,6 +38,12 @@ class Log:
     @staticmethod
     def fmt_hitattr(attr):
         return '{'+'/'.join([f'{k}:{Log.fmt_hitattr_v(v)}' for k, v in attr.items()])+'}'
+
+    def log_shift_dmg(self, enable):
+        if enable:
+            self.shift_dmg = 0
+        else:
+            self.shift_dmg = None
 
     def log_hitattr(self, name, attr):
         attr_str = Log.fmt_hitattr(attr)
@@ -58,15 +60,18 @@ class Log:
             category = args[0]
             name = args[1]
             if category == 'dmg':
+                dmg_amount = float(args[2])
                 if name[0:2] == 'o_' and name[2] in self.damage:
                     name = name[2:]
                 if name[0] in self.damage:
-                    self.update_dict(self.damage[name[0]], name, float(args[2]))
+                    self.update_dict(self.damage[name[0]], name, dmg_amount)
                 else:
                     if name[0] == '#':
                         name = name[1:]
                         n_rec[2] = name
-                    self.update_dict(self.damage['o'], name, float(args[2]))
+                    self.update_dict(self.damage['o'], name, dmg_amount)
+                if name[0] == 'd' and self.shift_dmg is not None:
+                    self.shift_dmg += dmg_amount
             elif category == 'x' or category == 'cast':
                 self.update_dict(self.counts[name[0]], name, 1)
                 # name1 = name.split('_')[0]
