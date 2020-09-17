@@ -133,12 +133,14 @@ ability_dict['k'] = Killer
 
 class Skill_Haste(Ability):
     def __init__(self, name, value, cond=None):
-        if cond == 'fs':
-            super().__init__(name, [('spf','passive',value)])
-        else:
-            super().__init__(name, [('sp','passive',value, cond)])
-
+        super().__init__(name, [('sp', 'passive', value, cond)])
 ability_dict['sp'] = Skill_Haste
+
+
+class Striking_Haste(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('sp', 'fs', value, cond)])
+ability_dict['spf'] = Skill_Haste
 
 
 class Broken_Punisher(Ability):

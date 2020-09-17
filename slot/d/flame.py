@@ -218,7 +218,7 @@ class Kagutsuchi(DragonBase):
 class Dreadking_Rathalos(DragonBase):
     ele = 'flame'
     att = 127
-    a = [('a', 0.55), ('fs', 0.60), ('sp',0.30,'fs')]
+    a = [('a', 0.55), ('fs', 0.60), ('spf',0.30)]
     dragonform = {
         'act': 'c1-c1-c3-s',
 

@@ -1,12 +1,13 @@
 from core.advbase import *
-from slot.a import *
+# from slot.a import *
 
 def module():
     return Xania
 
 class Xania(Adv):
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Me_and_My_Bestie()
+    # conf['slots.a'] = Candy_Couriers()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon(c3-s-s-end),s
         `s3, not buff(s3) and x=5

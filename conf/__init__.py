@@ -18,30 +18,54 @@ def load_json(fn):
 # advconfs = load_json('advconf.json')
 advconfs = {}
 def load_adv_json(adv):
-    return advconfs.get(adv, load_json(f'adv/{adv}.json'))
+    try:
+        return advconfs[adv]
+    except KeyError:
+        aconf = load_json(f'adv/{adv}.json')
+        advconfs[adv] = aconf
+        return aconf
 
 coability = load_json('chains.json')
 skillshare = load_json('skillshare.json')
+wyrmprints = load_json('wyrmprints.json')
+weapons = load_json('weapons.json')
 
-wepconfs = {}
-def load_wep_json(wep):
-    return wepconfs.get(wep, load_json(f'wep/{wep}.json'))
+baseconfs = {}
+def load_base_json(wep):
+    try:
+        return baseconfs[wep]
+    except KeyError:
+        aconf = load_json(f'base/{wep}.json')
+        baseconfs[wep] = aconf
+        return aconf
 
+drgconfs = {}
+def load_drg_json(ele):
+    try:
+        return drgconfs[ele]
+    except KeyError:
+        aconf = load_json(f'drg/{ele}.json')
+        drgconfs[ele] = aconf
+        return aconf
+
+elecoabs = {}
 def coability_dict(ele):
     if ele:
-        return {**coability['all'], **coability[ele]}
+        try:
+            return elecoabs[ele]
+        except:
+            cdict = {**coability['all'], **coability[ele]}
+            elecoabs[ele] = cdict
+            return cdict
     else:
         return coability['all'].copy()
 
-
-def get(name):
+def get_adv(name):
     conf = Conf(load_adv_json(name))
-    if not conf['c.icon']:
-        raise Exception('soon')
 
     wt = conf.c.wt
-    wepconf = load_wep_json(wt)
-    conf.update(Conf(wepconf), rebase=True)
+    base = load_base_json(wt)
+    conf.update(Conf(base), rebase=True)
     if bool(conf.c.spiral):
         conf.update(conf.lv2)
     del conf['lv2']
