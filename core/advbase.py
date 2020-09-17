@@ -478,12 +478,6 @@ class Adv(object):
 
     def dmg_proc(self, name, amount):
         pass
-
-    def s1_proc(self, e):
-        pass
-
-    def s2_proc(self, e):
-        pass
     
     """
     New before/proc system:
@@ -1180,7 +1174,10 @@ class Adv(object):
 
     def rebind_function(self, owner, src, dst=None):
         dst = dst or src
-        self.__setattr__(dst, getattr(owner, src).__get__(self, self.__class__))
+        try:
+            self.__setattr__(dst, getattr(owner, src).__get__(self, self.__class__))
+        except AttributeError:
+            pass
 
     @property
     def skills(self):
