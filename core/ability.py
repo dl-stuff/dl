@@ -140,7 +140,7 @@ ability_dict['sp'] = Skill_Haste
 class Striking_Haste(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('sp', 'fs', value, cond)])
-ability_dict['spf'] = Skill_Haste
+ability_dict['spf'] = Striking_Haste
 
 
 class Broken_Punisher(Ability):

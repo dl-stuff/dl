@@ -26,6 +26,8 @@ class DragonForm(Action):
         self.ds_event = Event('ds')
         self.ds_event.name = 'ds'
 
+        self.dx_event = Event('dx')
+
         self.action_timer = None
 
         self.shift_start_time = 0
@@ -90,7 +92,7 @@ class DragonForm(Action):
         if len(self.dx_list) <= 0:
             return False
         combo = self.conf[self.dx_list[-1]].recovery / self.speed()
-        dodge = self.conf.dodge.startup
+        dodge = self.conf.dodge.startup + self.conf.dodge.recovery
         return combo > dodge
 
     def auto_gauge(self, t):
@@ -234,7 +236,7 @@ class DragonForm(Action):
             self.adv.actmod_off(e)
         if self.c_act_name == 'ds':
             # self.ds_proc()
-            log('cast', 'ds')
+            # log('cast', 'ds')
             self.skill_use -= 1
             self.skill_spc = 0
             self.act_sum.append('s')
@@ -245,6 +247,8 @@ class DragonForm(Action):
                 self.act_sum[-1] = 'c'+self.c_act_name[-1]
             else:
                 self.act_sum.append('c'+self.c_act_name[-1])
+            self.dx_event.index = int(self.c_act_name[-1])
+            self.dx_event()
 
         # self.dracolith_mod.on()
 
@@ -293,6 +297,7 @@ class DragonForm(Action):
         if len(self.act_list) > 0:
             if self.act_list[0] != 'ds' or self.ds_check():
                 nact = self.act_list.pop(0)
+                # print('CHOSE BY LIST', nact, self.c_act_name)
         if nact is None:
             if self.c_act_name[0:2] == 'dx':
                 nact = 'dx{}'.format(int(self.c_act_name[2])+1)
@@ -305,12 +310,15 @@ class DragonForm(Action):
                         nact = 'dx1'
             else:
                 nact = 'dx1'
+            # print('CHOSE BY DEFAULT', nact, self.c_act_name)
         if nact == 'ds' or nact == 'dodge' or (nact == 'end' and self.c_act_name != 'ds'): # cancel
             self.act_timer(self.d_act_start_t, self.conf.latency, nact)
         else: # regular recovery
             self.act_timer(self.d_act_start_t, self.c_act_conf.recovery, nact)
 
     def parse_act(self, act_str):
+        if self.status != Action.OFF:
+            return
         act_str = act_str.strip()
         self.act_list = []
         skill_usage = 0

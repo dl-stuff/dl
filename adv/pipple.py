@@ -5,12 +5,11 @@ from slot.d import *
 def module():
     return Pipple
 
-
 class Pipple(Adv):
     conf = {}
-    conf['slots.a'] = Proper_Maintenance()+Brothers_in_Arms()
+    conf['slots.a'] = ['Proper_Maintenance', 'Brothers_in_Arms']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end),x=5
         `s2, (x=5 or s) and self.energy()<5

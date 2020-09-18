@@ -756,16 +756,7 @@ class Adv(object):
     def config_slots(self):
         if not self.conf['flask_env']:
             self.d_slots()
-        if self.sim_afflict:
-            for aff in self.sim_afflict:
-                try:
-                    affconf = self.conf.slots + self.conf.slots[aff]
-                    self.slots.set_slots(affconf)
-                    break
-                except KeyError:
-                    pass
-        else:
-            self.slots.set_slots(self.conf.slots)
+        self.slots.set_slots(self.conf.slots)
         # for s in ('c', 'd', 'w', 'a'):
         #     self.slots.__dict__[s] = self.cmnslots.__dict__[s]
 
@@ -864,14 +855,14 @@ class Adv(object):
             scope = scope[1]
         else:
             scope = scope[0]
-        if scope.startswith('dx') or scope == 'dshift':
+        if name.startswith('dx') or name == 'dshift':
             scope = 'x'
-        elif scope.startswith('ds'):
+        elif name == 'ds':
             scope = 's'
 
         if scope[0] == 's':
             try:
-                mod = 1 if self.a_s_dict[scope].owner is None else self.skill_share_att
+                mod = 1 if name == 'ds' or self.a_s_dict[scope].owner is None else self.skill_share_att
             except:
                 pass
             return mod * self.mod('s')
@@ -1347,7 +1338,7 @@ class Adv(object):
         self.sim_buffbot()
 
         self.slots.oninit(self)
-        self.base_att = self.slots.att
+        self.base_att = int(self.slots.att)
 
         self.hp = self.condition.prev_hp
         if 'hp' in self.conf:
@@ -1512,14 +1503,7 @@ class Adv(object):
         att = 1.0 * self.att_mod(name) * self.base_att
         armor = 10 * self.def_mod()
         ele = self.mod(self.slots.c.ele) + 0.5
-
-        # if name == 'fs4':
-        #     print('cyphon', dmg_coef, dmg_mod, att, armor, ele, 5.0 / 3 * dmg_coef * dmg_mod * att / armor * ele)
-
-        # return float(dmg_coef) * self.dmg_mod(name) * self.att_mod() / self.def_mod()
-        # return float(dmg_coef) * self.dmg_mod(name) * self.def_mod()
         return 5.0 / 3 * dmg_coef * dmg_mod * att / armor * ele  # true formula
-        # return att/armor * dmg_coef * self.dmg_mod(name)
 
     def l_true_dmg(self, e):
         log('dmg', e.dname, e.count, e.comment)

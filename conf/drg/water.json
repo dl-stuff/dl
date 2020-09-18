@@ -1,5 +1,6 @@
 {
     "Dragonyule_Jeanne": {
+        "act": "c2-s",
         "d": {
             "name": "Dragonyule Jeanne",
             "icon": "210076_01",
@@ -7,17 +8,6 @@
             "hp": 370,
             "ele": "water",
             "a": [["a", 0.45], ["cc", 0.2]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.3,
@@ -59,19 +49,7 @@
             "att": 125,
             "hp": 370,
             "ele": "water",
-            "a": [["a", 0.45]],
-            "skipped": [[330000187, "(Water) Skill Recharge II"]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
+            "a": [["a", 0.45], ["scharge", 0.35]]
         },
         "dx1": {
             "startup": 0.33333,
@@ -97,15 +75,13 @@
         },
         "ds": {
             "sp": 30,
-            "startup": 0.1,
-            "recovery": 2.5,
-            "uses": 1,
-            "attr": [
-                {"buff": ["zone", 0.091, 10.5, "regen", "buff"], "iv": 0.43333}
-            ]
+            "startup": 0.53333,
+            "recovery": 2.06667,
+            "uses": 1
         }
     },
     "Halloween_Maritimus": {
+        "act": "c3-c3-c3-s",
         "d": {
             "name": "Halloween Maritimus",
             "icon": "210097_01",
@@ -114,17 +90,6 @@
             "ele": "water",
             "a": [["sp", 0.35]],
             "skipped": [[330000294, "(Water) HP +{ability_val0}%"]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.66667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 0.69444,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.30303,
@@ -165,19 +130,7 @@
             "att": 125,
             "hp": 370,
             "ele": "water",
-            "a": [["a", 0.45]],
-            "skipped": [[330000219, "(Water) Primed Strength +15%"]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
+            "a": [["a", 0.45], ["primed_att", 0.15]]
         },
         "dx1": {
             "startup": 0.46667,
@@ -214,6 +167,7 @@
         }
     },
     "Leviathan": {
+        "act": "c2-s-c2-c2-c2-c2-c2-c2-c2-c2",
         "d": {
             "name": "Leviathan",
             "icon": "210017_01",
@@ -221,17 +175,6 @@
             "hp": 370,
             "ele": "water",
             "a": [["a", 0.6]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.46667,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.23333,
@@ -241,8 +184,8 @@
             ]
         },
         "dx2": {
-            "startup": 0.43333,
-            "recovery": 0.76667,
+            "startup": 0.76667,
+            "recovery": 0.43333,
             "attr": [
                 {"dmg": 3.22, "sp": 5, "msl": 1},
                 {"dmg": 1.22, "msl": 1}
@@ -273,17 +216,6 @@
             "hp": 370,
             "ele": "water",
             "a": [["a", 0.45], ["cd", 0.55]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.08333,
@@ -324,17 +256,6 @@
             "hp": 376,
             "ele": "water",
             "a": [["a", 0.35]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 1.0
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.3,
@@ -377,17 +298,6 @@
             "ele": "water",
             "a": [["od", 0.6]],
             "skipped": [[330000299, "(Water) HP +{ability_val0}%"]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.66667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 0.69444,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.33333,
@@ -441,17 +351,6 @@
             "ele": "water",
             "a": [["a", 0.2], ["s", 0.9]]
         },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
-        },
         "dx1": {
             "startup": 0.43333,
             "recovery": 0.2,
@@ -485,6 +384,7 @@
         }
     },
     "Styx": {
+        "act": "c3-c3-c3-s",
         "d": {
             "name": "Styx",
             "icon": "210130_01",
@@ -493,17 +393,6 @@
             "ele": "water",
             "a": [],
             "skipped": [[1092, null], [330000203, "(Water) Compounding Skill Damage V"]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.25641,
@@ -533,13 +422,10 @@
             "recovery": 2.5,
             "uses": 1,
             "attr": [
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1},
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1},
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1},
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1},
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1},
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1},
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1}
+                {"dmg": 0.9, "iv": 0.43333, "msl": 1}, 7,
+                {"dmg": 0.9, "iv": 0.43333, "msl": 1}, "styx_spirit",
+                {"dmg": 0.9, "iv": 0.43333, "msl": 1}, "styx_spirit",
+                {"dmg": 0.9, "iv": 0.43333, "msl": 1}, "styx_spirit"
             ]
         }
     }

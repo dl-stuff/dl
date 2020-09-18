@@ -1,12 +1,12 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Hawk
 
 class Hawk(Adv):    
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Resounding_Rendition','The_Fires_of_Hate']
+    conf['slots.d'] = 'Vayu'
     conf['acl'] = """
         # queue self.duration<=60 and prep and self.afflics.stun.resist
         # s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel

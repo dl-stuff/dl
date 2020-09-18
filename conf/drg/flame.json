@@ -1,5 +1,6 @@
 {
     "Agni": {
+        "act": "c2-c2-c2-c2-c2-s-c2",
         "d": {
             "name": "Agni",
             "icon": "210016_01",
@@ -7,17 +8,6 @@
             "hp": 369,
             "ele": "flame",
             "a": [["a", 0.6]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.26667,
@@ -61,17 +51,6 @@
             "ele": "flame",
             "a": [["a", 0.5], ["k_burn", 0.2]]
         },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
-        },
         "dx1": {
             "startup": 0.33333,
             "recovery": 0.3,
@@ -99,7 +78,7 @@
             "recovery": 1.8,
             "uses": 1,
             "attr": [
-                {"dmg": 1.8, "afflic": ["burn", 120, 0.415], "iv": 0.73333, "msl": 1},
+                {"dmg": 1.8, "afflic": ["burn", 120, 0.415, 30], "buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 0.73333, "msl": 1},
                 {"dmg": 4.2, "iv": 0.73333, "msl": 1}
             ]
         }
@@ -112,17 +91,6 @@
             "hp": 374,
             "ele": "flame",
             "a": [["a", 0.45], ["cd", 0.55]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.30303,
@@ -166,17 +134,6 @@
             "ele": "flame",
             "a": [["a", 0.6]]
         },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
-        },
         "dx1": {
             "startup": 0.17778,
             "recovery": 0.78889,
@@ -218,24 +175,15 @@
         }
     },
     "Dreadking_Rathalos": {
+        "act": "c1-c1-c3-s",
         "d": {
             "name": "Dreadking Rathalos",
             "icon": "210122_01",
             "att": 127,
             "hp": 369,
             "ele": "flame",
-            "a": [["a", 0.55], ["fs", 0.6], ["spf", 0.3]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.66667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 0.69444,
-            "attr": [
-                {"dmg": 2.0}
-            ]
+            "a": [["a", 0.55], ["fs", 0.6], ["spf", 0.3]],
+            "skipped": [[793, null]]
         },
         "dx1": {
             "startup": 0.08889,
@@ -271,6 +219,7 @@
         }
     },
     "Gala_Mars": {
+        "act": "c1-s-c3-c3-s",
         "d": {
             "name": "Gala Mars",
             "icon": "200009_01",
@@ -278,17 +227,6 @@
             "hp": 369,
             "ele": "flame",
             "a": [["a", 0.7], ["a", 0.2, "hp50"]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.26667,
@@ -327,6 +265,7 @@
         }
     },
     "Horus": {
+        "act": "s-c3-c3-s",
         "d": {
             "name": "Horus",
             "icon": "210124_01",
@@ -334,17 +273,6 @@
             "hp": 369,
             "ele": "flame",
             "a": [["spd", 0.2, "flame"], ["cc", 0.5, "flame"]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.46667,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.33333,
@@ -386,17 +314,6 @@
             "hp": 369,
             "ele": "flame",
             "a": [["a", 0.45], ["primed_att", 0.15]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.66667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 0.69444,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.46667,
@@ -441,17 +358,6 @@
             "ele": "flame",
             "a": [["a", 0.2], ["s", 0.9]]
         },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
-        },
         "dx1": {
             "startup": 0.4,
             "recovery": 0.4,
@@ -494,17 +400,6 @@
             "hp": 374,
             "ele": "flame",
             "a": [["a", 0.5]]
-        },
-        "dodge": {
-            "startup": 0.16667,
-            "recovery": 0.96667
-        },
-        "dshift": {
-            "startup": 0.0,
-            "recovery": 1.63333,
-            "attr": [
-                {"dmg": 2.0}
-            ]
         },
         "dx1": {
             "startup": 0.22222,

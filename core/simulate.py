@@ -95,6 +95,10 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
     run_results = []
     adv, real_d = run_once(classname, conf, duration, cond)
     if verbose == 255:
+        output.write(str(adv.slots))
+        output.write('\n')
+        act_sum(adv.logs.act_seq, output)
+        output.write('\n\n')
         return
     if verbose == 1:
         adv.logs.write_logs(output=output)

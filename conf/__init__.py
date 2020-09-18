@@ -15,7 +15,11 @@ def load_json(fn):
     with open(fpath, 'r', encoding='utf8') as f:
         return json.load(f, parse_float=float, parse_int=int)
 
-# advconfs = load_json('advconf.json')
+coability = load_json('chains.json')
+skillshare = load_json('skillshare.json')
+wyrmprints = load_json('wyrmprints.json')
+weapons = load_json('weapons.json')
+
 advconfs = {}
 def load_adv_json(adv):
     try:
@@ -24,11 +28,6 @@ def load_adv_json(adv):
         aconf = load_json(f'adv/{adv}.json')
         advconfs[adv] = aconf
         return aconf
-
-coability = load_json('chains.json')
-skillshare = load_json('skillshare.json')
-wyrmprints = load_json('wyrmprints.json')
-weapons = load_json('weapons.json')
 
 baseconfs = {}
 def load_base_json(wep):
@@ -47,6 +46,11 @@ def load_drg_json(ele):
         aconf = load_json(f'drg/{ele}.json')
         drgconfs[ele] = aconf
         return aconf
+
+alias = {}
+for target, alst in load_json('alias.json').items():
+    for a in alst:
+        alias[a] = target
 
 elecoabs = {}
 def coability_dict(ele):

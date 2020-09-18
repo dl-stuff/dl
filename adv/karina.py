@@ -1,15 +1,13 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Karina
 
 class Karina(Adv):
     conf = {}
-    conf['slots.a'] = Valiant_Crown()+Felyne_Hospitality()
+    conf['slots.a'] = ['Valiant_Crown', 'Felyne_Hospitality']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'chungus'
     conf['acl'] = """
         `dragon(c3-s-end), s=1
         `s4

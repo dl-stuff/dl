@@ -32,7 +32,6 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
     if special:
         durations = [180]
     if sanity_test:
-        verbose = 255
         mass = None
         durations = [30]
         output = open(os.devnull, 'w')

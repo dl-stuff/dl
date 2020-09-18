@@ -1,10 +1,9 @@
-from itertools import chain
+from itertools import chain, islice
 from collections import defaultdict
 
-from conf import wyrmprints, weapons, load_drg_json, coability_dict
+from conf import wyrmprints, weapons, load_drg_json, coability_dict, alias
 from core.config import Conf
 from core.ability import ability_dict
-
 
 def all_subclasses(c):
     return set(c.__subclasses__()).union([s for c in c.__subclasses__() for s in all_subclasses(c)])
@@ -67,7 +66,7 @@ class CharaBase(SlotBase):
         super().__init__(conf)
         self.coabs = {}
         self.valid_coabs = coability_dict(self.ele)
-
+        self.max_coab = 4
         try:
             coab = self.valid_coabs[self.name]
             chain = coab[0]
@@ -75,10 +74,32 @@ class CharaBase(SlotBase):
                 self.coabs[self.name] = coab
         except:
             try:
-                upper_wt = self.wt[0].upper() + wt[1:].lower()
+                wt = self.wt
+                upper_wt = wt[0].upper() + wt[1:].lower()
                 self.coabs[upper_wt] = self.valid_coabs[upper_wt]
             except:
                 pass
+
+    @property
+    def ab(self):
+        full_ab = list(super().ab)
+        ex_set = set()
+        coabs = list(islice(self.coabs.items(), self.max_coab))
+        self.coabs = {}
+        for key, coab in coabs:
+            self.coabs[key] = coab
+            chain, ex = coab
+            if ex:
+                ex_set.add(('ex', ex))
+            if chain:
+                full_ab.append(tuple(chain))
+        full_ab.extend(ex_set)
+        if self.wt == 'axe':
+            full_ab.append(('cc', 0.04))
+        else:
+            full_ab.append(('cc', 0.02))
+        return full_ab
+
 
     @property
     def att(self):
@@ -130,7 +151,14 @@ class DragonBase(EquipBase):
         'exhilaration': 0, # psiren aura
         'gauge_val': 100, # gauge regen value
         'latency': 0, # amount of delay for cancel
-        'act': 'end',
+        'act': 'c3-s',
+
+        'dshift.startup': 1.0,
+        'dshift.recovery': 0.63333,
+        'dshift.attr': [{'dmg': 2.0}],
+
+        'dodge.startup': 0.66667,
+        'dodge.recovery': 0,
 
         'end.startup': 0, # amount of time needed to kys, 0 default
         'end.recovery': 0
@@ -142,7 +170,8 @@ class DragonBase(EquipBase):
     def oninit(self, adv):
         from core.dragonform import DragonForm
         for dn, dconf in self.dragonform.items():
-            adv.damage_sources_check(dn, dconf)
+            if isinstance(dconf, dict):
+                adv.damage_sources_check(dn, dconf)
         if adv.conf['dragonform']:
             name = type(adv).__name__
             self.dragonform.update(adv.conf['dragonform'])
@@ -159,17 +188,67 @@ class DragonBase(EquipBase):
     def ele(self):
         return self.conf.ele
 
+    @property
+    def ab(self):
+        return super().ab if self.on_ele else []
+
     # @property
     # def hp(self):
     #     # FIXME - halidom calcs
     #     return self.conf.hp + self.AUGMENTS
 
+from core.modifier import EffectBuff, SingleActionBuff
+from core.timeline import Timer, now
+from core.log import log
+### FLAME DRAGONS ###
 class Gala_Mars(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         def shift_end_prep(e):
             adv.charge_p('shift_end',100)
         adv.Event('dragon_end').listener(shift_end_prep)
+### FLAME DRAGONS ###
+
+### WATER DRAGONS ###
+class Gaibhne_and_Creidhne(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        from core.timeline import Timer
+        charge_timer = Timer(lambda _: adv.charge_p('ds', 0.091, no_autocharge=True), 0.9, True)
+        ds_buff = EffectBuff('ds_sp_regen_zone', 10, lambda: charge_timer.on(), lambda: charge_timer.off())
+        adv.Event('ds').listener(lambda _: ds_buff.on())
+
+class Nimis(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        def add_gauge_and_time(t):
+            adv.dragonform.dragon_gauge += 200
+            max_time = adv.dragonform.dtime() - adv.dragonform.conf.dshift.startup
+            cur_time = adv.dragonform.shift_end_timer.timing - now()
+            add_time = min(abs(max_time - cur_time), 5)
+            adv.dragonform.shift_end_timer.add(add_time)
+        adv.Event('ds').listener(add_gauge_and_time)
+
+class Styx(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        adv.styx_spirit = 0
+        csd_buff = SingleActionBuff('d_compounding_sd',0.0,-1,'s','buff')
+        def add_csd(e):
+            csd_buff.set(min(2.00, csd_buff.get()+0.50))
+            csd_buff.on()
+        csd_timer = Timer(add_csd, 15, True).on()
+        def add_spirit(e):
+            if e.index == 3:
+                adv.styx_spirit = min(3, adv.styx_spirit+1)
+                log('dx_spirit', adv.styx_spirit)
+        adv.Event('dx').listener(add_spirit)
+        def reset_spirit(e):
+            adv.styx_spirit = 0
+        adv.Event('ds').listener(reset_spirit)
+        adv.Event('dragon_end').listener(reset_spirit)
+### WATER DRAGONS ###
+
 
 class WeaponBase(EquipBase):
     AGITO_S3 = {
@@ -432,21 +511,31 @@ class Slots:
             self.w.name, self.w.icon,
         ])
 
-    def set_d(self, key=None):
+    @staticmethod
+    def get_with_alias(source, k):
+        try:
+            return Conf(source[k]), k
+        except KeyError:
+            k = alias[k.lower()]
+            return Conf(source[k]), k
+
+    def set_d(self, key=None, affkey=None):
         drg = load_drg_json(self.c.ele)
         if not key:
             key = Slots.DEFAULT_DRAGON[self.c.ele]
-        conf = Conf(drg[key])
+        if self.sim_afflict and affkey:
+            key = affkey
+        conf, key = Slots.get_with_alias(drg, key)
         try:
             self.d = Slots.DRAGON_DICTS[key](conf, self.c)
         except KeyError:
             self.d = DragonBase(conf, self.c)
 
-    def set_w(self, key=None):
+    def set_w(self, key=None, affkey=None):
         conf = Conf(weapons[self.c.ele][self.c.wt])
         self.w = WeaponBase(conf, self.c)
 
-    def set_a(self, keys=None):
+    def set_a(self, keys=None, affkeys=None):
         if not keys:
             keys = list(Slots.DEFAULT_WYRMPRINT[self.c.wt])
             try:
@@ -455,14 +544,30 @@ class Slots:
                 keys[1] = keys[1]['all']
             except TypeError:
                 pass
+        else:
+            keys = list(keys)
         if self.sim_afflict:
-            keys[1] = Slots.AFFLICT_WYRMPRINT[self.c.ele]
-        confs = [Conf(wyrmprints[k]) for k in keys]
+            if affkeys:
+                keys = affkeys
+            else:
+                affwp = Slots.AFFLICT_WYRMPRINT[self.c.ele]
+                if affwp not in keys:
+                    keys[1] = affwp
+        if keys[0] == keys[1]:
+            raise ValueError('Cannot equip 2 of the same wyrmprint')
+        confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
         self.a = AmuletPair(confs, self.c)
 
     def set_slots(self, confslots):
+        affslots = None
+        if self.sim_afflict:
+            aff = next(iter(self.sim_afflict))
+            affslots = confslots[aff]
         for t in ('d', 'w', 'a'):
-            getattr(self, f'set_{t}')(confslots[t])
+            if affslots:
+                getattr(self, f'set_{t}')(confslots[t], affslots[t])
+            else:
+                getattr(self, f'set_{t}')(confslots[t])
 
     @property
     def att(self):

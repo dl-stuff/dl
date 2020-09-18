@@ -350,9 +350,9 @@ class Buff(object):
             # may need to make this part global since game always regen all stacks at same ticks
             self.set_hp_event = Event('set_hp')
             self.set_hp_event.delta = self.get()
-            self.modifier = Timer(self.hp_regen, 3.9, True) # hax
-
-        self.effect_on()
+            self.regen_timer = Timer(self.hp_regen, 3.9, True)
+        else:
+            self.effect_on()
         return self
 
     def hp_regen(self, t):
