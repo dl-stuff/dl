@@ -20,6 +20,7 @@ class DragonForm(Action):
         self.ds_reset()
         self.act_list = []
         self.act_sum = []
+        self.repeat_act = False
 
         self.dx_list = [dx for dx, _ in self.conf.find(r'^dx\d+$')]
 
@@ -79,10 +80,12 @@ class DragonForm(Action):
         self.dragon_gauge = self.max_gauge
         self.conf.duration = duration
         self.can_end = False
-        try:
-            self.skill_sp = self.conf.ds.sp_db
-        except KeyError:
+        self.repeat_act = True
+        if self.conf.ds['sp_db']:
+            self.skill_sp = self.conf.ds['sp_db']
+        else:
             self.skill_sp = self.conf.ds.sp+15
+        self.skill_spc = self.skill_sp
         self.skill_use = -1
 
     def end_silence(self, t):
@@ -294,10 +297,12 @@ class DragonForm(Action):
 
     def d_act_next(self):
         nact = None
-        if len(self.act_list) > 0:
+        if self.repeat_act and not self.act_list:
+            self.parse_act(self.conf.act)
+        if self.act_list:
             if self.act_list[0] != 'ds' or self.ds_check():
                 nact = self.act_list.pop(0)
-                # print('CHOSE BY LIST', nact, self.c_act_name)
+            # print('CHOSE BY LIST', nact, self.c_act_name)
         if nact is None:
             if self.c_act_name[0:2] == 'dx':
                 nact = 'dx{}'.format(int(self.c_act_name[2])+1)
@@ -317,7 +322,7 @@ class DragonForm(Action):
             self.act_timer(self.d_act_start_t, self.c_act_conf.recovery, nact)
 
     def parse_act(self, act_str):
-        if self.status != Action.OFF:
+        if self.status != Action.OFF and not self.repeat_act:
             return
         act_str = act_str.strip()
         self.act_list = []
@@ -340,7 +345,7 @@ class DragonForm(Action):
                         self.act_list.pop()
                 except IndexError:
                     pass
-                if (a == 's' or a == 'ds') and skill_usage < self.skill_use:
+                if (a == 's' or a == 'ds') and (self.skill_use <= -1 or skill_usage < self.skill_use):
                     self.act_list.append('ds')
                     skill_usage += 1
                 elif a == 'end' and self.can_end:

@@ -213,7 +213,6 @@ class Gala_Mars(DragonBase):
 class Gaibhne_and_Creidhne(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        from core.timeline import Timer
         charge_timer = Timer(lambda _: adv.charge_p('ds', 0.091, no_autocharge=True), 0.9, True)
         ds_buff = EffectBuff('ds_sp_regen_zone', 10, lambda: charge_timer.on(), lambda: charge_timer.off())
         adv.Event('ds').listener(lambda _: ds_buff.on())
@@ -249,6 +248,38 @@ class Styx(DragonBase):
         adv.Event('dragon_end').listener(reset_spirit)
 ### WATER DRAGONS ###
 
+### WIND DRAGONS ###
+class AC011_Garland(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        if adv.condition('maintain shield'):
+            Timer(lambda _: adv.Modifier('d_1_dauntless','att','passive',0.30).on(), 15).on()
+
+class Summer_Konohana_Sakuya(DragonBase):
+    FLOWER_BUFFS = {
+        1: (0.40, -1, 'att', 'buff'),
+        2: (0.20, -1, 'defense', 'buff'),
+        3: (0.50, -1, 's', 'buff'),
+        4: (0.05, -1, 'res', 'water'),
+        6: (0.20, -1, 'regen', 'buff')
+    }
+    def oninit(self, adv):
+        super().oninit(adv)
+        adv.summer_sakuya_flowers = 0
+        def add_flower(t=None):
+            if adv.summer_sakuya_flowers < 6:
+                adv.summer_sakuya_flowers += 1
+                try:
+                    adv.Selfbuff(
+                        f'd_sakuya_flower_{adv.summer_sakuya_flowers}', 
+                        *self.FLOWER_BUFFS[adv.summer_sakuya_flowers]
+                    ).on()
+                except KeyError:
+                    pass
+        add_flower()
+        Timer(add_flower, 60, True).on()
+        adv.Event('ds').listener(add_flower)
+### WIND DRAGONS ###
 
 class WeaponBase(EquipBase):
     AGITO_S3 = {

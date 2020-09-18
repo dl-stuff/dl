@@ -6,7 +6,7 @@ def module():
 
 class Luca(Adv):
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Forest_Bonds', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, energy()>3
         `s3, not buff(s3) and fsc
