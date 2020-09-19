@@ -248,8 +248,17 @@ class DragonForm(Action):
         final_mt = self.adv.schedule_hits(e, self.conf[self.c_act_name])
         if final_mt:
             final_mt.actmod = True
+            final_mt.actmod = True
+            try:
+                final_mt.proc = getattr(self.adv, f'{self.c_act_name}_proc')
+            except AttributeError:
+                pass
         else:
             self.adv.actmod_off(e)
+            try:
+                getattr(self.adv, f'{self.c_act_name}_proc')(e)
+            except AttributeError:
+                pass
         if self.c_act_name == 'ds':
             self.skill_use -= 1
             self.skill_spc = 0
@@ -263,11 +272,6 @@ class DragonForm(Action):
                 self.act_sum.append('c'+self.c_act_name[-1])
             self.dx_event.index = int(self.c_act_name[-1])
             self.dx_event()
-
-        try:
-            getattr(self.adv, f'{self.c_act_name}_proc')(e)
-        except AttributeError:
-            pass
 
         self.d_act_next()
 
