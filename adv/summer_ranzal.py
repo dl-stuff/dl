@@ -1,15 +1,13 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import*
 
 def module():
     return Summer_Ranzal
 
 class Summer_Ranzal(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition() + Breakfast_at_Valerios()
-    conf['slots.frostbite.a'] = Primal_Crisis() + His_Clever_Brother()
-    conf['slots.d'] = Leviathan()
+    conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
+    conf['slots.frostbite.a'] = ['Primal_Crisis', 'His_Clever_Brother']
+    conf['slots.d'] = 'Leviathan'
     conf['acl'] = """
         `dragon
         `s3

@@ -93,7 +93,7 @@ class Modifier(object):
         self.off()
 
     def __repr__(self):
-        return '<%s %s %s %s>' % (self.mod_name, self.mod_type, self.mod_order, self.mod_value)
+        return '<%s %s %s %s>' % (self.mod_name, self.mod_type, self.mod_order, self.get())
 
 
 class KillerModifier(Modifier):
@@ -525,7 +525,7 @@ class SingleActionBuff(Buff):
         super().__init__(name, value, -1, mtype, morder)
         self.bufftype = 'self'
         self.uses = uses
-        self.active = None
+        self.active = set()
         self._static.adv.sab.append(self)
 
     def on(self, uses=1):
@@ -543,15 +543,15 @@ class SingleActionBuff(Buff):
 
     def act_on(self, e):
         if self.get() and e.name.startswith(self.mod_type) or e.name == 'ds' and self.mod_type == 's' \
-           and self.uses > 0 and self.active is None:
-            self.logwrapper(self.name, e.name, 'act_on')
-            self.active = e.name
+           and self.uses > 0 and not e.name in self.active:
+            self.active.add(e.name)
+            self.logwrapper(self.name, e.name, str(self.active), 'act_on')
             self.uses -= 1
 
     def act_off(self, e):
-        if e.name == self.active:
-            self.logwrapper(self.name, e.name, 'act_off')
-            self.active = None
+        if e.name in self.active:
+            self.active.discard(e.name)
+            self.logwrapper(self.name, e.name, str(self.active), 'act_off')
             if self.uses == 0:
                 self.off()
 

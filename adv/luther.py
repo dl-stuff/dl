@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.x_alt import *
 
 def module():
@@ -9,8 +7,8 @@ def module():
 luther_fs = {'fs_a':{}}
 class Luther(Adv):
     conf = luther_fs.copy()
-    conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
-    conf ['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Twinfold_Bonds', 'His_Clever_Brother']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end)
         `s1

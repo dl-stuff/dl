@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Laxi
@@ -9,8 +7,8 @@ class Laxi(Adv):
     comment = 'a1 proc at 0s'
     
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+The_Wyrmclan_Duo()
-    conf['slots.d'] = Gala_Mars()
+    conf['slots.a'] = ['Primal_Crisis', 'The_Wyrmclan_Duo']
+    conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = '''
         `dragon
         `s3, not buff(s3)

@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Summer_Cleo
 
 class Summer_Cleo(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Resounding_Rendition', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, s=1
         `s3, not buff(s3)

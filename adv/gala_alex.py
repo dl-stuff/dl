@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Gala_Alex
@@ -54,7 +53,7 @@ class Gala_Alex(Adv):
     comment = 'no bk bonus in sim; s2 c4fs [s1 c4fs]*5 & use s1/s2 only when charge>=2'
 
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
+    conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end), s=2 or s=4
         `s3, not buff(s3)

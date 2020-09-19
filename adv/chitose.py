@@ -1,15 +1,13 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Chitose
 
 class Chitose(Adv):
     conf = {}
-    conf['slots.a'] = Proper_Maintenance()+From_Whence_He_Comes()
+    conf['slots.a'] = ['Proper_Maintenance', 'From_Whence_He_Comes']
     conf['slots.paralysis.a'] = conf['slots.a']
-    conf['slots.d'] = Tie_Shan_Gongzhu()
+    conf['slots.d'] = 'Tie_Shan_Gongzhu'
     conf['acl'] = """
         `s1
         `s4, s=1

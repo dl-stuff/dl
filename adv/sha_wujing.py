@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Sha_Wujing
 
 class Sha_Wujing(Adv):
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer()+Primal_Crisis()
-    conf['slots.paralysis.a'] = Resounding_Rendition()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Dragon_and_Tamer', 'Primal_Crisis']
+    conf['slots.paralysis.a'] = ['Resounding_Rendition', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon
         `s3, not buff(s3)

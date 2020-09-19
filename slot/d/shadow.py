@@ -321,17 +321,16 @@ class Gala_Cat_Sith(DragonBase):
         self.check_trickery()
 
         if adv.condition('always connect hits'):
-            self.add_combo_o = adv.add_combo
-            self.thit = 0
-            def add_combo(name=None):
+            add_combo_o = adv.add_combo
+            thit = 0
+            def add_combo(name='#'):
                 self.add_combo_o(name)
-                if adv.hits == 0:
-                    self.thit = 0
+                n_thit = adv.hits // self.threshold
+                if n_thit > self.thit:
+                    add_trickery(1)
+                    thit = n_thit
                 else:
-                    n_thit = adv.hits // self.threshold
-                    if n_thit > self.thit:
-                        self.add_trickery(1)
-                        self.thit = n_thit
+                    n_thit = 0
                 self.check_trickery()
             adv.add_combo = add_combo
 

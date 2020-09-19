@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Peony
@@ -9,7 +7,7 @@ class Peony(Adv):
     comment = 'team skill prep not considered'
 
     conf = {}
-    conf['slots.a'] = Valiant_Crown()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Valiant_Crown', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, self.energy()=5
         `fs, c_fs(peonydreams)>0 and s2.check()

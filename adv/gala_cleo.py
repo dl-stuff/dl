@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 import random
 random.seed()
@@ -12,7 +10,7 @@ def module():
 class Gala_Cleo(Adv):
     comment = '(the true cleo is here)'
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()  # wand c2*1.08 = 217
+    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']  # wand c2*1.08 = 217
     conf['acl'] = """
         `dragon(c3-s-end), x=5 and self.trickery <= 1
         `s3, not buff(s3)

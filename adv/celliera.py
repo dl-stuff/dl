@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 from module.x_alt import *
 
 def module():
@@ -8,8 +6,8 @@ def module():
 
 class Celliera(Adv):
     conf = {}
-    conf['slots.d'] = Siren()
-    conf['slots.a'] = Primal_Crisis()+His_Clever_Brother()
+    conf['slots.d'] = 'Siren'
+    conf['slots.a'] = ['Primal_Crisis', 'His_Clever_Brother']
     conf['slots.frostbite.a'] = conf['slots.a']
     conf['acl'] = """
         `s2, not buff(s2)

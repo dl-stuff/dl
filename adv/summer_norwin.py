@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Summer_Norwin
 
 class Summer_Norwin(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+The_Plaguebringer()
+    conf['slots.a'] = ['Twinfold_Bonds', 'The_Plaguebringer']
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), x=5 and s1.charged<2000

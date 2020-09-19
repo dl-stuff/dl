@@ -1,13 +1,12 @@
 from core.advbase import *
 from module.bleed import Bleed
-from slot.a import *
 
 def module():
     return Botan
 
 class Botan(Adv):
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer() + The_Fires_of_Hate()
+    conf['slots.a'] = ['Dragon_and_Tamer', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end),cancel
         `s3, not buff(s3) and prep

@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Su_Fang
 
 class Su_Fang(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Twinfold_Bonds', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end),s4.check()
         `s3, not buff(s3)

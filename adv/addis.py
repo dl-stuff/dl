@@ -1,7 +1,5 @@
 from core.advbase import *
 from module.bleed import Bleed
-from slot.a import *
-from slot.d import *
 
 def module():
     return Addis
@@ -9,7 +7,7 @@ def module():
 class Addis(Adv):
     comment = 's2 c2 s1 c5fsf c4fs s1; hold s2s1 until bleed under 3'
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)

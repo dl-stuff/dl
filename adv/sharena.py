@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Sharena
@@ -9,7 +7,7 @@ class Sharena(Adv):
     comment = 'fs guard not considered'
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Resounding_Rendition', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon
         `s3, not buff(s3)

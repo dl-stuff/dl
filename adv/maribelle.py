@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.d import *
 
 def module():
     return Maribelle
 
 class Maribelle(Adv):
     conf = {}
-    conf['slots.d'] = AC011_Garland()
+    conf['slots.d'] = 'AC011_Garland'
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)

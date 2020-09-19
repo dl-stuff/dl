@@ -1,15 +1,13 @@
 from core.advbase import *
 from module.bleed import Bleed
-from slot.d import *
-from slot.a import *
 
 def module():
     return Sazanka
 
 class Sazanka(Adv):
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+The_Fires_of_Hate()
-    conf['slots.poison.a'] = Summer_Paladyns()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Summer_Paladyns', 'The_Fires_of_Hate']
+    conf['slots.poison.a'] = ['Summer_Paladyns', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end), s1.check()
         `s3, not buff(s3)

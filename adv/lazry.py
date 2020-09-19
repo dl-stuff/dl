@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.template import StanceAdv
 
 
@@ -10,8 +8,8 @@ def module():
 
 class Lazry(StanceAdv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+His_Clever_Brother()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Resounding_Rendition', 'His_Clever_Brother']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3

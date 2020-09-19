@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.bleed import Bleed, mBleed
 from module.x_alt import X_alt
 
@@ -38,8 +36,8 @@ class Mega_Man(Adv):
     comment = '16 hits leaf shield (max 32 hits)'
 
     conf = {}
-    conf['slots.d'] = Gala_Mars()
-    conf['slots.a'] = Primal_Crisis()+Levins_Champion()
+    conf['slots.d'] = 'Gala_Mars'
+    conf['slots.a'] = ['Primal_Crisis', 'Levins_Champion']
     conf['acl'] = """
         `dragon, s=4
         `s3, not buff(s3)

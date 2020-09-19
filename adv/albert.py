@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Albert
 
 class Albert(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Spirit_of_the_Season()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Spirit_of_the_Season']
     conf['acl'] = """
         if electrified
         `s1

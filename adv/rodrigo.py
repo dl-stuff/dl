@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Rodrigo
 
 class Rodrigo(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
+    conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end),fsc
         `s3, fsc and not buff(s3)

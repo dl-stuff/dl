@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Lathna
@@ -9,7 +7,7 @@ class Lathna(Adv):
     comment = 'cat sith skill damage does not work on s1 extra hits'
     
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Dragon_and_Tamer', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end), cancel
         `s3, not buff(s3)
@@ -43,28 +41,12 @@ class Lathna(Adv):
     #     'dodge.startup': 41 / 60.0, # dodge frames
     # }
 
-    def ds_proc(self):
-        dmg = self.dmg_make('ds', 3.64, 's')
-        self.afflics.poison('ds',120,0.291,30,dtype='s')
-        # self.afflics.poison('ds',120,3.00,30,dtype='s')
-        return dmg + self.dmg_make('ds',3.64,'s')
-
     def prerun(self):
-        self.faceless_god = Selfbuff('faceless_god',2.00,-1,'poison_killer','passive')
-        Event('dragon').listener(self.a1_on)
-        Event('idle').listener(self.a1_off)
+        self.dragonform.shift_mods.append(Modifier('faceless_god', 'poison_killer', 'passive', 2.00))
     
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.current_s[dst] = 'all'
-
-    def a1_on(self, e):
-        if not self.faceless_god.get():
-            self.faceless_god.on()
-
-    def a1_off(self, e):
-        if self.faceless_god.get():
-            self.faceless_god.off()
 
     def s(self, n, s1_kind=None):
         if n == 1 and s1_kind == 'all':
@@ -78,7 +60,7 @@ class Lathna(Adv):
         with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
             for _ in range(4):
                 self.dmg_make(e.name, 2.37/(1 + self.sub_mod('s', 'buff')))
-                self.add_combo()
+                self.add_combo(e.name)
         # spaget
         self.last_c = now() + 1
 

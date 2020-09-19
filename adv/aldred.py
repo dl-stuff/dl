@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Aldred
@@ -8,7 +6,7 @@ def module():
 class Aldred(Adv):
     comment = 'maintain dragondrive'
     conf = {}
-    conf['slots.a'] = Heralds_of_Hinomoto()+Primal_Crisis()
+    conf['slots.a'] = ['Heralds_of_Hinomoto', 'Primal_Crisis']
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `s3, not buff(s3)
@@ -22,8 +20,8 @@ class Aldred(Adv):
 
     def d_slots(self):
         if self.duration <= 60:
-            self.conf['slots.a'] = The_Chocolatiers()+Primal_Crisis()
-            self.conf['slots.poison.a'] = The_Chocolatiers()+Primal_Crisis()
+            self.conf['slots.a'] = ['The_Chocolatiers', 'Primal_Crisis']
+            self.conf['slots.poison.a'] = ['The_Chocolatiers', 'Primal_Crisis']
 
     def prerun(self):
         self.dragondrive = self.dragonform.set_dragondrive(ModeManager(

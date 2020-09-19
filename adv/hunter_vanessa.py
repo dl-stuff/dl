@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Hunter_Vanessa
@@ -8,7 +6,7 @@ def module():
 
 class Hunter_Vanessa(Adv):
     conf = {}
-    conf['slots.a'] = Mega_Friends()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Mega_Friends', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, s
         `s2, not buff(s2)
@@ -25,7 +23,7 @@ class Hunter_Vanessa(Adv):
 
     def d_slots(self):
         if self.duration <= 60:
-            self.conf['slots.a'] = Mega_Friends()+The_Chocolatiers()
+            self.conf['slots.a'] = ['Mega_Friends', 'The_Chocolatiers']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

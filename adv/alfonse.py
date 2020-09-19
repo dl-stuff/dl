@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Alfonse
 
 class Alfonse(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Spirit_of_the_Season()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon
         `s3, cancel

@@ -1,13 +1,12 @@
 from core.advbase import *
 from module.bleed import Bleed
-from slot.a import *
 
 def module():
     return Ieyasu
 
 class Ieyasu(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
     conf['acl'] = """
         ##Use Gala Cat Sith only when out of Skillful Trickery
         `dragon(c3-s-end), self.trickery <= 1

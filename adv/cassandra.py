@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Cassandra
 
 class Cassandra(Adv):
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
+    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), x=5

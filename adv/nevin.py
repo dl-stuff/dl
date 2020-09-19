@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.template import SigilAdv
 
 def module():
@@ -8,9 +6,9 @@ def module():
 
 class Nevin(SigilAdv):
     conf = {}
-    conf['slots.d'] = Ramiel()
-    conf['slots.a'] = Twinfold_Bonds()+The_Red_Impulse()
-    conf['slots.poison.a'] = Twinfold_Bonds()+The_Plaguebringer()
+    conf['slots.d'] = 'Ramiel'
+    conf['slots.a'] = ['Twinfold_Bonds', 'The_Red_Impulse']
+    conf['slots.poison.a'] = ['Twinfold_Bonds', 'The_Plaguebringer']
     conf['acl'] = """
         `s3, not buff(s3)
         `s1

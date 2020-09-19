@@ -26,7 +26,6 @@ class DragonForm(Action):
 
         self.ds_event = Event('ds')
         self.ds_event.name = 'ds'
-
         self.dx_event = Event('dx')
 
         self.action_timer = None
@@ -40,6 +39,9 @@ class DragonForm(Action):
         self.dracolith_mod = self.adv.Modifier('dracolith', 'att', 'dragon', 0)
         self.dracolith_mod.get = self.ddamage
         self.dracolith_mod.off()
+        self.shift_mods = [self.dracolith_mod]
+        self.shift_spd_mod = None
+
         self.off_ele_mod = None
         if self.adv.slots.c.ele != self.adv.slots.d.ele:
             self.off_ele_mod = self.adv.Modifier('off_ele', 'att', 'dragon', -1/3)
@@ -172,11 +174,16 @@ class DragonForm(Action):
         duration = now()-self.shift_start_time
         shift_dmg = g_logs.shift_dmg
         g_logs.log_shift_dmg(False)
+        count = self.clear_delayed()
+        if count > 0:
+            log('cancel', self.c_act_name, f'by shift end', f'lost {count} hit{"s" if count > 1 else ""}')
         log(self.name, '{:.2f}dmg / {:.2f}s, {:.2f} dps'.format(shift_dmg, duration, shift_dmg/duration), ' '.join(self.act_sum))
         self.act_sum = []
         self.act_list = []
         if self.off_ele_mod is not None:
             self.off_ele_mod.off()
+        if self.shift_spd_mod is not None:
+            self.shift_spd_mod.off()
         self.ds_reset()
         if not self.is_dragondrive:
             self.shift_silence = True
@@ -232,14 +239,18 @@ class DragonForm(Action):
         e.base = self.c_act_name
         e.group = 'dragon'
         self.adv.actmod_on(e)
+        
+        try:
+            getattr(self.adv, f'{self.c_act_name}_before')(e)
+        except AttributeError:
+            pass
+
         final_mt = self.adv.schedule_hits(e, self.conf[self.c_act_name])
         if final_mt:
             final_mt.actmod = True
         else:
             self.adv.actmod_off(e)
         if self.c_act_name == 'ds':
-            # self.ds_proc()
-            # log('cast', 'ds')
             self.skill_use -= 1
             self.skill_spc = 0
             self.act_sum.append('s')
@@ -253,45 +264,10 @@ class DragonForm(Action):
             self.dx_event.index = int(self.c_act_name[-1])
             self.dx_event()
 
-        # self.dracolith_mod.on()
-
-        # if self.c_act_name == 'ds':
-        #     self.adv.actmod_on(self.ds_event)
-        #     actmods = self.adv.actmods('ds')
-        #     for m in actmods:
-        #         m.on()
-
-        #     self.skill_use -= 1
-        #     self.skill_spc = 0
-        #     self.ds_event()
-        #     self.shift_damage_sum += self.ds_proc() or 0
-        #     self.shift_end_timer.add(self.conf.ds.startup+self.conf.ds.recovery)
-        #     self.act_sum.append('s')
-
-        #     self.adv.actmod_off(self.ds_event)
-        #     for m in actmods:
-        #         m.off()
-        # elif self.c_act_name == 'end':
-        #     self.d_shift_end(None)
-        #     self.shift_end_timer.off()
-        #     return
-        # elif self.c_act_name != 'dodge':
-        #     # dname = self.c_act_name[:-1] if self.c_act_name != 'dshift' else self.c_act_name
-        #     self.shift_damage_sum += self.adv.dmg_make(self.c_act_name, self.c_act_conf.dmg, 'x' if self.c_act_name != 'dshift' else self.c_act_name)
-        #     if self.c_act_name.startswith('dx'):
-        #         if len(self.act_sum) > 0 and self.act_sum[-1][0] == 'c' and int(self.act_sum[-1][1]) < int(self.c_act_name[-1]):
-        #             self.act_sum[-1] = 'c'+self.c_act_name[-1]
-        #         else:
-        #             self.act_sum.append('c'+self.c_act_name[-1])
-        #         if self.skill_use != 0 and self.skill_spc < self.skill_sp:
-        #             self.skill_spc += self.adv.sp_convert(self.adv.sp_mod('x'), 5)
-        #             if self.skill_spc > self.skill_sp:
-        #                 self.skill_spc = self.skill_sp
-        #             log(self.c_act_name, 'sp', f'{self.skill_spc}/{self.skill_sp}')
-    
-        # self.adv.add_hits(self.c_act_conf.hit)
-        # self.d_act_next()
-        # self.dracolith_mod.off()
+        try:
+            getattr(self.adv, f'{self.c_act_name}_proc')(e)
+        except AttributeError:
+            pass
 
         self.d_act_next()
 
@@ -317,6 +293,9 @@ class DragonForm(Action):
                 nact = 'dx1'
             # print('CHOSE BY DEFAULT', nact, self.c_act_name)
         if nact == 'ds' or nact == 'dodge' or (nact == 'end' and self.c_act_name != 'ds'): # cancel
+            count = self.clear_delayed()
+            if count > 0:
+                log('cancel', self.c_act_name, f'by {nact}', f'lost {count} hit{"s" if count > 1 else ""}')
             self.act_timer(self.d_act_start_t, self.conf.latency, nact)
         else: # regular recovery
             self.act_timer(self.d_act_start_t, self.c_act_conf.recovery, nact)
@@ -394,6 +373,8 @@ class DragonForm(Action):
             self.dragon_gauge -= self.shift_cost
             if self.off_ele_mod is not None:
                 self.off_ele_mod.on()
+            if self.shift_spd_mod is not None:
+                self.shift_spd_mod.on()
             self.pause_auto_gauge()
         self.shift_count += 1
         self.status = Action.STARTUP

@@ -1,15 +1,13 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Rex
 
 class Rex(Adv):
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
+    conf['slots.a'] = ['Summer_Paladyns', 'Primal_Crisis']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end), cancel
         `s3

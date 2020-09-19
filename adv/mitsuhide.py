@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Mitsuhide
 
 class Mitsuhide(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Twinfold_Bonds', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, s=1
         `s3, not buff(s3) and x=4

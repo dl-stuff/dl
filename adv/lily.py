@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.x_alt import X_alt
 import wep.wand
 
@@ -9,8 +7,8 @@ def module():
 
 class Lily(Adv):
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+His_Clever_Brother()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Candy_Couriers', 'His_Clever_Brother']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end), s
         `s3

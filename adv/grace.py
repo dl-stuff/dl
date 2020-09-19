@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Grace
 
 class Grace(Adv):
     conf = {}
-    conf['slots.a'] = The_Lurker_in_the_Woods()+The_Plaguebringer()
-    conf['slots.d'] = Ramiel()
+    conf['slots.a'] = ['The_Lurker_in_the_Woods', 'The_Plaguebringer']
+    conf['slots.d'] = 'Ramiel'
     conf['acl'] = """
         `dragon, fsc
         `s3, not buff(s3)

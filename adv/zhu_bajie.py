@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Zhu_Bajie
 
 class Zhu_Bajie(Adv):
     conf = {}
-    conf['slots.a'] = Mega_Friends()+The_Plaguebringer()
-    conf['slots.paralysis.a'] = Mega_Friends()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Mega_Friends', 'The_Plaguebringer']
+    conf['slots.paralysis.a'] = ['Mega_Friends', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon
         `s3, fsc and not buff(s3)

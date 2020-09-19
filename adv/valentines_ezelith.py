@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Valentines_Ezelith
 
 class Valentines_Ezelith(Adv):
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Forest_Bonds', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon, s
         `s3, not buff(s3) and fsc

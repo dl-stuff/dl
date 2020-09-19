@@ -1,7 +1,4 @@
 from core.advbase import *
-import slot
-from slot.a import *
-from slot.d import *
 
 def module():
     return Ku_Hai
@@ -11,10 +8,10 @@ class Ku_Hai(Adv):
     conf = {}
     # c1+fs_alt has higher dps and sp rate than c2+fs_alt with or without stellar show  (x)
     # c2+fs_alt fs can init quicker than c1+fs_alt
-    conf['slots.a'] = Mega_Friends()+Primal_Crisis()
-    conf['slots.poison.a'] = Mega_Friends()+The_Fires_of_Hate()
-    conf['slots.d'] = AC011_Garland()
-    conf['slots.poison.d'] = Pazuzu()
+    conf['slots.a'] = ['Mega_Friends', 'Primal_Crisis']
+    conf['slots.poison.a'] = ['Mega_Friends', 'The_Fires_of_Hate']
+    conf['slots.d'] = 'AC011_Garland'
+    conf['slots.poison.d'] = 'Pazuzu'
     conf['acl'] = '''
         `dragon(c3-s-end),fsc
         `s3, not buff(s3)

@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Fritz
 
 class Fritz(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+The_Red_Impulse()
+    conf['slots.a'] = ['Twinfold_Bonds', 'The_Red_Impulse']
     conf['acl'] = """
         `dragon
         `s3

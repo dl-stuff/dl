@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Annelie
 
 class Annelie(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon, self.energy()=3
         `s3, not buff(s3)

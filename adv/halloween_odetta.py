@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Halloween_Odetta
 
 class Halloween_Odetta(Adv):
     conf = {}
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end), s=2
         `s3, cancel

@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Summer_Mikoto
 
 class Summer_Mikoto(Adv):
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Forest_Bonds', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon,s=1
         `s2

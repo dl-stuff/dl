@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Nadine
 
 class Nadine(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon(c3-s-s-end), s=1
         `s3, not buff(s3)

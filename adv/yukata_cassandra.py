@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Yukata_Cassandra
@@ -11,7 +9,7 @@ class Yukata_Cassandra(Adv):
     comment = 's1 team buff not considered'
 
     conf = {}
-    conf['slots.a'] = Proper_Maintenance()+Jewels_of_the_Sun()
+    conf['slots.a'] = ['Proper_Maintenance', 'Jewels_of_the_Sun']
     conf['slots.burn.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon, s

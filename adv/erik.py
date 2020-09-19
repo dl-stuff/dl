@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Erik
@@ -7,7 +6,7 @@ def module():
 class Erik(Adv):
     conf = {}
     
-    conf['slots.a'] = Summer_Paladyns()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Summer_Paladyns', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end), self.trickery <= 1
         `s3, not buff(s3)

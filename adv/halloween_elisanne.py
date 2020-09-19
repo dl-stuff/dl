@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 from module.x_alt import X_alt
 import wep.lance
 
@@ -8,7 +7,7 @@ def module():
 
 class Halloween_Elisanne(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Resounding_Rendition', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon
         `s3, not buff(s3)

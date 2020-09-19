@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Nefaria
@@ -8,7 +7,7 @@ class Nefaria(Adv):
     comment = 's2 fs(precharge) s1 s1'
     
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Forest_Bonds', 'The_Fires_of_Hate']
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end)

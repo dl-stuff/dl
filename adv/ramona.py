@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Ramona
 
 class Ramona(Adv):
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
+    conf['slots.a'] = ['Summer_Paladyns', 'Primal_Crisis']
     conf['acl'] = """
         `dragon(c3-s-s-end),s=1 and not s4.check()
         `s3, not buff(s3)

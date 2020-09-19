@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Lea
 
 class Lea(Adv):        
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon
         `s3, not buff(s3) and fsc

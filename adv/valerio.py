@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.template import StanceAdv, RngCritAdv
 import random
 
@@ -10,9 +8,9 @@ def module():
 
 class Valerio(StanceAdv, RngCritAdv):
     conf = {}
-    conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
+    conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Siren()
+    conf['slots.d'] = 'Siren'
     conf['acl'] = """
         `s3, not buff(s3) 
         `s2(entree), self.inspiration()=0

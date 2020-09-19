@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Xander
 
 class Xander(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+His_Clever_Brother()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['The_Shining_Overlord', 'His_Clever_Brother']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         if c_s(1, enhanced)
         `s3

@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Gala_Sarisse
 
 class Gala_Sarisse(Adv):
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
-    conf['slots.d'] = Gala_Mars()
+    conf['slots.a'] = ['Forest_Bonds', 'Primal_Crisis']
+    conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
         `dragon(c3-s-c3-c3-s-end), s=1
         `s3, not buff(s3)
@@ -24,7 +22,7 @@ class Gala_Sarisse(Adv):
         self.ahits = 0
         self.s2stance = 0
 
-    def add_combo(self, name=None):
+    def add_combo(self, name='#'):
         super().add_combo(name)
         if self.condition('always connect hits'):
             if self.hits // 20 > self.ahits:

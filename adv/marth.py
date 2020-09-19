@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Marth
@@ -9,7 +7,7 @@ class Marth(Adv):
     comment = 'last boost once at start (team DPS not considered)'
 
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Me_and_My_Bestie']
     conf['acl'] = """
         queue not buff(s3)
         `s3;s1;s2;fs,x=2;s4,fsc

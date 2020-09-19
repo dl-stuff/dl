@@ -1,15 +1,13 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Dragonyule_Nefaria
 
 class Dragonyule_Nefaria(Adv):
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
+    conf['slots.a'] = ['Forest_Bonds', 'Primal_Crisis']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end),s 
         `s3

@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Aeleen
 
 class Aeleen(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)

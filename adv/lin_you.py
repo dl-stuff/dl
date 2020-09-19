@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Lin_You
@@ -7,7 +6,7 @@ def module():
 
 class Lin_You(Adv):
     conf = {}
-    conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
+    conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3, not buff(s3)

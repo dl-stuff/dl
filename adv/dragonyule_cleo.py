@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.d import *
 
 def module():
     return Dragonyule_Cleo
 
 class Dragonyule_Cleo(Adv):
     conf = {}
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end)
         `s1

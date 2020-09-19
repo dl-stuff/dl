@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Yaten
 
 class Yaten(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
+    conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end), fsc and self.energy() < 5
         `s3, not buff(s3)

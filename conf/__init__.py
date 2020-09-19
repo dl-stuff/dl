@@ -1,11 +1,7 @@
 import json
 import os
 
-from slot import Slots
 from core import Conf
-
-import wep
-import conf.halidom
 
 def load_json(fn):
     froot = os.path.dirname(os.path.realpath('__file__'))

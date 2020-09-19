@@ -1,14 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Gala_Luca
 
 class Gala_Luca(Adv):
-    a3 = ('cc',0.13,'hit15')
-
     conf = {}
-    conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
+    conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
     conf['acl'] = """
         `dragon, cancel
         `s3, not buff(s3)
@@ -25,8 +22,6 @@ class Gala_Luca(Adv):
         self.a1_buff_types = 3
         self.a1_states = {(None,) * self.a1_buff_types: 1.0}
 
-        self.ds_proc_o = self.dragonform.ds_proc
-        self.dragonform.ds_proc = self.ds_crit_proc
         self.shared_crit = False
         self.all_icon_avg = (0, 0)
         self.s1_icon_avg = (0, 0)
@@ -36,24 +31,11 @@ class Gala_Luca(Adv):
 
     @staticmethod
     def prerun_skillshare(adv, dst):
-        adv.rebind_function(Gala_Luca, 'ds_crit_proc')
         adv.rebind_function(Gala_Luca, 'buff_icon_count')
-        adv.ds_proc_o = adv.dragonform.ds_proc
-        adv.dragonform.ds_proc = adv.ds_crit_proc
+        # mayb need to do some check for existing ds_before/ds_proc
+        adv.rebind_function(Gala_Luca, 'ds_before')
+        adv.rebind_function(Gala_Luca, 'ds_proc')
         adv.shared_crit = True
-
-    def ds_crit_proc(self):
-        if self.shared_crit:
-            crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count())
-            crit_mod.on()
-            dmg = self.ds_proc_o()
-            crit_mod.off()
-            self.in_s1 = False
-        else:
-            self.in_s1 = True
-            dmg = self.ds_proc_o()
-            self.in_s1 = False
-        return dmg
 
     def buff_icon_count(self):
         # not accurate to game
@@ -108,13 +90,26 @@ class Gala_Luca(Adv):
     def s1_before(self, e):
         if self.shared_crit:
             self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count())
-            self.gluca_crit_mod.on()
+            self.extra_actmods.append(self.gluca_crit_mod)
         else:
             self.in_s1 = True
 
     def s1_proc(self, e):
         if self.shared_crit:
-            self.gluca_crit_mod.off()
+            self.extra_actmods.remove(self.gluca_crit_mod)
+        else:
+            self.in_s1 = False
+
+    def ds_before(self, e):
+        if self.shared_crit:
+            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count())
+            self.extra_actmods.append(self.gluca_crit_mod)
+        else:
+            self.in_s1 = True
+
+    def ds_proc(self, e):
+        if self.shared_crit:
+            self.extra_actmods.remove(self.gluca_crit_mod)
         else:
             self.in_s1 = False
 

@@ -1,17 +1,15 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Durant
 
 class Durant(Adv):
     conf = {}
-    conf['slots.a'] = The_Fires_of_Hate()+Howling_to_the_Heavens()
-    conf['slots.d'] = Fatalis()
+    conf['slots.a'] = ['The_Fires_of_Hate', 'Howling_to_the_Heavens']
+    conf['slots.d'] = 'Fatalis'
 
-    conf['slots.poison.a'] = Proper_Maintenance()+The_Plaguebringer()
-    conf['slots.poison.d'] = Epimetheus()
+    conf['slots.poison.a'] = ['Proper_Maintenance', 'The_Plaguebringer']
+    conf['slots.poison.d'] = 'Epimetheus'
     
     conf['acl'] = """
         `dragon, s=1

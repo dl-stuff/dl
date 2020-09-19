@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.x_alt import X_alt
 from module.template import StanceAdv
 
@@ -9,8 +7,8 @@ def module():
 
 class Mitsuba(StanceAdv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+His_Clever_Brother()
-    conf['slots.d'] = Siren()
+    conf['slots.a'] = ['Twinfold_Bonds', 'His_Clever_Brother']
+    conf['slots.d'] = 'Siren'
     # tc2afsf tc2a- s1
     conf['acl'] = """
         `tempura

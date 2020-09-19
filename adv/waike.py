@@ -1,15 +1,13 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Waike
 
 class Waike(Adv):
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
-    conf['slots.frostbite.a'] = Forest_Bonds()+His_Clever_Brother()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Forest_Bonds', 'Primal_Crisis']
+    conf['slots.frostbite.a'] = ['Forest_Bonds', 'His_Clever_Brother']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3

@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Wu_Kong
 
 class Wu_Kong(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
-    conf['slots.paralysis.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Twinfold_Bonds', 'The_Fires_of_Hate']
+    conf['slots.paralysis.a'] = ['Twinfold_Bonds', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, s
         `s3, not buff(s3)

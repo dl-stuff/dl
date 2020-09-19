@@ -1,14 +1,12 @@
 from core.advbase import *
 from core.log import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Serena
 
 class Serena(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
     conf['acl'] = """
         `dragon,s
         `s3, not buff(s3)
@@ -24,7 +22,7 @@ class Serena(Adv):
         self.a1_count = 0
         self.a3_count = 0
 
-    def add_combo(self, name=None):
+    def add_combo(self, name='#'):
         super().add_combo(name)
         if self.a1_count < 3 and self.a1_count != self.hits // 20:
             self.a1_count = self.hits // 20

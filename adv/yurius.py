@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Yurius
 
 class Yurius(Adv):
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+Candy_Couriers()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Primal_Crisis', 'Candy_Couriers']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         if self.afflics.frostbite.get()
         `dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)

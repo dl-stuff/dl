@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Taro
 
 class Taro(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
+    conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
     conf['acl'] = """
         `dragon(c3-s-end),fsc
         `s3, not buff(s3)

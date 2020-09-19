@@ -1,13 +1,12 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Malora
 
 class Malora(Adv):    
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+The_Red_Impulse()
-    conf['slots.paralysis.a'] = Resounding_Rendition()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Forest_Bonds', 'The_Red_Impulse']
+    conf['slots.paralysis.a'] = ['Resounding_Rendition', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon
         `s4

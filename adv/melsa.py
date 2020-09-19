@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Melsa
 
 class Melsa(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Levins_Champion()
+    conf['slots.a'] = ['Twinfold_Bonds', 'Levins_Champion']
     conf['acl'] = """
         `dragon,s
         `s3, not buff(s3) and x=5

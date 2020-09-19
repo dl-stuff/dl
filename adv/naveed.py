@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Naveed
@@ -14,7 +13,7 @@ class Naveed(Adv):
         `s4, fsc
         `fs, x=3 and cancel
         """
-    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['share'] = ['Summer_Patia']
 

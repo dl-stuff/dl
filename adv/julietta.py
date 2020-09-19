@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Julietta
@@ -7,7 +6,8 @@ def module():
 
 class Julietta(Adv):
     conf = {}
-    conf['slots.a'] = Valiant_Crown()+Primal_Crisis()
+    conf['slots.a'] = ['Valiant_Crown','Primal_Crisis']
+    conf['slots.d'] = 'Gala_Thor'
     conf['acl'] = """
         `dragon, self.energy()<4
         `s3, not buff(s3)

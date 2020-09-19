@@ -1,8 +1,6 @@
 from core.advbase import *
 from adv import sazanka
 from module.bleed import mBleed
-from slot.d import *
-from slot.a import *
 
 def module():
     return Sazanka

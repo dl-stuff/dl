@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Halloween_Edward
 
 class Halloween_Edward(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Red_Impulse()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Red_Impulse']
     conf['acl'] = """
         `dragon
         `s3

@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Radiant_Xuan_Zang
 
 class Radiant_Xuan_Zang(Adv):
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Candy_Couriers', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, cancel
         `s3, not buff(s3)

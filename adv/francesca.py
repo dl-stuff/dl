@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Francesca
 
 class Francesca(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Primal_Crisis()
+    conf['slots.a'] = ['Twinfold_Bonds', 'Primal_Crisis']
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)

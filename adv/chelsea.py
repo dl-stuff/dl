@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 def module():
     return Chelsea
 
 class Chelsea(Adv):
     conf = {}
-    conf['slots.d'] = Dreadking_Rathalos()
-    conf['slots.a'] = Mega_Friends()+Dear_Diary()
+    conf['slots.d'] = 'Dreadking_Rathalos'
+    conf['slots.a'] = ['Mega_Friends', 'Dear_Diary']
     conf['acl'] = """
         `s3,not buff(s3)
         `s2, fsc

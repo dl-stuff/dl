@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Heinwald
 
 class Heinwald(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end),x=5
         queue prep and not buff(s3)

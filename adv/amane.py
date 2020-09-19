@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Amane
 
 class Amane(Adv):    
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Candy_Couriers', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, cancel
         queue prep

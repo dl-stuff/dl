@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Kleimann
@@ -9,7 +7,7 @@ class Kleimann(Adv):
     a3 = ('s',0.35)
  
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
+    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
     conf['acl'] = """
         `dragon(c3-s-end), x=5
         `s3, not buff(s3)

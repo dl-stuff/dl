@@ -1,15 +1,15 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Vice
 
 class Vice(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Twinfold_Bonds', 'The_Fires_of_Hate']
+    conf['slots.d'] = 'Gala_Cat_Sith'
     conf['acl'] = """
-        `dragon(c3-s-end), (fsc or self.sim_afflict) and self.trickery=0
+        # `dragon(c3-s-end), (fsc or self.sim_afflict) and self.trickery=0
+        `dragon
         `s3, not buff(s3)
         `s4
         `s1
@@ -17,9 +17,8 @@ class Vice(Adv):
         `fs, x=5
         """
     conf['coabs'] = ['Wand','Gala_Alex','Ieyasu']
-    conf['afflict_res.poison'] = 0
     conf['share'] = ['Curran']
-
+    conf['afflict_res.poison'] = 0
 
 
 if __name__ == '__main__':

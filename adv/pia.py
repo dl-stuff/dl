@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Pia
 
 class Pia(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
-    conf['slots.d'] = Vayu()
+    conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
+    conf['slots.d'] = 'Vayu'
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)

@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Summer_Amane
@@ -8,9 +6,9 @@ def module():
 class Summer_Amane(Adv):
     comment = 'no s1'
     conf = {}
-    conf['slots.a'] = A_Dogs_Day()+CCC()
+    conf['slots.a'] = ['A_Dogs_Day', 'Castle_Cheer_Corps']
     conf['slots.poison.a'] = conf['slots.a'] 
-    conf['slots.d'] = Freyja()
+    conf['slots.d'] = 'Freyja'
     conf['acl'] = """
         `s3
         `s2

@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Curran
 
 class Curran(Adv):
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+The_Plaguebringer()
+    conf['slots.a'] = ['Summer_Paladyns', 'The_Plaguebringer']
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = '''
         `dragon(c3-s-end), s

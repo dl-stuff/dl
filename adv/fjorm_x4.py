@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import Leviathan
 import adv.fjorm
 
 def module():
@@ -9,9 +7,9 @@ def module():
 class Fjorm(adv.fjorm.Fjorm):
     a3 = [('prep',1.00), ('scharge_all', 0.05)]
     conf = {}
-    conf['slots.a'] = Unexpected_Requests()+Valiant_Crown()
+    conf['slots.a'] = ['Unexpected_Requests', 'Valiant_Crown']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Leviathan()
+    conf['slots.d'] = 'Leviathan'
     conf['acl'] = """
         queue
         `s4

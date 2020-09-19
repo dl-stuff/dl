@@ -1,13 +1,12 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Norwin
 
 class Norwin(Adv):    
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
-    conf['slots.poison.a'] = Forest_Bonds()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Forest_Bonds', 'Primal_Crisis']
+    conf['slots.poison.a'] = ['Forest_Bonds', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end), fsc
         `s3, not buff(s3)

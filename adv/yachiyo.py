@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.w import *
 
 def module():
     return Yachiyo
 
 class Yachiyo(Adv):
     conf = {}
-    conf['slots.a'] = RR()+SotS()
+    conf['slots.a'] = ['Resounding_Rendition', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon, s
         `s3, not buff(s3)

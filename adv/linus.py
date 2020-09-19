@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Linus
@@ -7,8 +6,8 @@ def module():
 class Linus(Adv):
     # comment = 'do not use weapon skill'
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+The_Red_Impulse()
-    conf['slots.paralysis.a'] = RR()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Summer_Paladyns', 'The_Red_Impulse']
+    conf['slots.paralysis.a'] = ['Resounding_Rendition', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon
         `s3
@@ -22,7 +21,7 @@ class Linus(Adv):
 
     def d_slots(self):
         if self.duration <= 120:
-            self.conf['slots.a'] = Resounding_Rendition() + Breakfast_at_Valerios()
+            self.conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Valentines_Melody
@@ -8,8 +6,8 @@ def module():
 class Valentines_Melody(Adv):
     comment = 'c4fsf c5 c4 s1'
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
-    conf['slots.d'] = Ariel()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.d'] = 'Ariel'
     conf['acl'] = """
         `dragon(c3-s-end),s=1
         `s3, not buff(s3)

@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Summer_Sinoa
@@ -9,8 +7,8 @@ class Summer_Sinoa(Adv):
     comment = 's!cleo ss after s1 at 2 overload'
     a1 = ('s', 0.30)
     conf = {}
-    conf['slots.d'] = Ariel()
-    conf['slots.a'] = Candy_Couriers()+The_Fires_of_Hate()
+    conf['slots.d'] = 'Ariel'
+    conf['slots.a'] = ['Candy_Couriers', 'The_Fires_of_Hate']
     conf['acl'] = """
         `s3, not buff(s3) and x=5
         `s4, s=1 and self.overload=2

@@ -5,7 +5,6 @@ from functools import reduce
 from itertools import product, chain
 from collections import OrderedDict
 
-from ability import Ability
 # from core import *
 from core.config import Conf
 from core.timeline import *
@@ -17,7 +16,6 @@ from core.condition import Condition
 from core.slots import Slots
 import core.acl
 import conf as globalconf
-import slot
 from ctypes import c_float
 from math import ceil
 
@@ -645,6 +643,7 @@ class Adv(object):
         self.inspiration = Inspiration()
         self.tension = [self.energy, self.inspiration]
         self.sab = []
+        self.extra_actmods = []
 
         self.disable_echo()
 
@@ -664,12 +663,13 @@ class Adv(object):
                 b.act_on(e)
 
     def actmods(self, name):
-        mods = []
+        mods = list(self.extra_actmods)
         for t in chain(self.tension, self.sab):
-            if t.active == name:
+            if name in t.active:
                 mods.append(t.modifier)
         if name[0] == 'd':
-            mods.append(self.dragonform.dracolith_mod)
+            mods.extend(self.dragonform.shift_mods)
+        log('actmods', name, str(mods))
         return mods
 
     def actmod_off(self, e):
@@ -1123,7 +1123,7 @@ class Adv(object):
         log('dodge', '-')
         self.think_pin('dodge')
 
-    def add_combo(self, name=None):
+    def add_combo(self, name='#'):
         # real combo count
         delta = now()-self.last_c
         if delta <= self.ctime:
@@ -1133,19 +1133,19 @@ class Adv(object):
             log('combo', f'reset combo after {delta:.02}s')
         self.last_c = now()
 
-    def add_hits(self, hit):
-        # potato combo count
-        if hit is None:
-            raise ValueError('none type hit')
-        if hit < 0:
-            self.hits = 0
-            log('combo', 'reset combo')
-        else:
-            c_hits = self.hits
-            for _ in range(hit):
-                self.add_combo()
-            return self.hits - c_hits
-        return 0
+    # def add_hits(self, hit):
+    #     # potato combo count
+    #     if hit is None:
+    #         raise ValueError('none type hit')
+    #     if hit < 0:
+    #         self.hits = 0
+    #         log('combo', 'reset combo')
+    #     else:
+    #         c_hits = self.hits
+    #         for _ in range(hit):
+    #             self.add_combo()
+    #         return self.hits - c_hits
+    #     return 0
 
     def load_aff_conf(self, key):
         confv = self.conf[key]
@@ -1154,8 +1154,7 @@ class Adv(object):
         if isinstance(confv, list):
             return confv
         if self.sim_afflict:
-            from conf.slot_common import ele_punisher
-            aff = ele_punisher[self.slots.c.ele]
+            aff = next(iter(self.sim_afflict))
             if confv[aff]:
                 return confv[aff]
         return confv['base'] or []
@@ -1454,7 +1453,7 @@ class Adv(object):
             targets = []
             for t in target:
                 try:
-                    targets.append(self.a_s_dict[target])
+                    targets.append(self.a_s_dict[t])
                 except KeyError:
                     continue
             return targets
@@ -1568,10 +1567,10 @@ class Adv(object):
             if 'extra' in attr:
                 for _ in range(min(attr['extra'], self.buffcount)):
                     self.dmg_make(name, attr['dmg'], attenuation=attenuation)
-                    self.add_combo()
+                    self.add_combo(name)
             else:
                 self.dmg_make(name, attr['dmg'], attenuation=attenuation)
-                self.add_combo()
+                self.add_combo(name)
 
         if onhit:
             onhit(name, base, group, aseq)

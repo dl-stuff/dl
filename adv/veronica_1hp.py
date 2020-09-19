@@ -1,5 +1,4 @@
 import adv.veronica
-import slot
 from slot import *
 
 

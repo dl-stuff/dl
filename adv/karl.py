@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Karl
 
 class Karl(Adv):
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+The_Lurker_in_the_Woods()
-    conf['slots.d'] = Gala_Mars()
+    conf['slots.a'] = ['Primal_Crisis', 'The_Lurker_in_the_Woods']
+    conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
         `dragon, s=2
         `s3, not buff(s3)

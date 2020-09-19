@@ -1,15 +1,13 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Summer_Julietta
 
 class Summer_Julietta(Adv):
     conf = {}
-    conf['slots.a'] = Summer_Paladyns()+Primal_Crisis()
-    conf['slots.frostbite.a'] = Summer_Paladyns()+His_Clever_Brother()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Summer_Paladyns', 'Primal_Crisis']
+    conf['slots.frostbite.a'] = ['Summer_Paladyns', 'His_Clever_Brother']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3

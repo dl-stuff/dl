@@ -1,15 +1,13 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Dragonyule_Xander
 
 class Dragonyule_Xander(Adv):
     conf = {}
-    conf['slots.a'] = CC()+PC()
-    conf['slots.frostbite.a'] = CC()+His_Clever_Brother()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
+    conf['slots.frostbite.a'] = ['Candy_Couriers', 'His_Clever_Brother']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3

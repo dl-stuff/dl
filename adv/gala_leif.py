@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 from module.template import StanceAdv
 
 def module():
@@ -8,8 +6,8 @@ def module():
 
 class Gala_Leif(StanceAdv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
-    conf['slots.d'] = Vayu()
+    conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
+    conf['slots.d'] = 'Vayu'
     conf['acl'] = """
         `dragon(c3-s-end),fsc
         `s3, not buff(s3)

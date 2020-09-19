@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.d import *
 
 def module():
     return Orsem
@@ -8,7 +7,7 @@ class Orsem(Adv):
     comment = 'no s2'
     
     conf = {}
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end), self.afflics.frostbite.get() or (not self.afflics.frostbite.get() and fsc)
         `s3

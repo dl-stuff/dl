@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 
 def module():
@@ -8,8 +6,8 @@ def module():
 
 class Emma(Adv):
     conf = {}
-    conf['slots.d'] = Horus()
-    conf['slots.a'] = Castle_Cheer_Corps()+From_Whence_He_Comes()
+    conf['slots.d'] = 'Horus'
+    conf['slots.a'] = ['Castle_Cheer_Corps', 'From_Whence_He_Comes']
     conf['slots.burn.a'] = conf['slots.a']
     conf['acl'] = """
         `s4, s=1

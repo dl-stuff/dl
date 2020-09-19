@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Wedding_Elisanne
@@ -7,7 +6,7 @@ def module():
 
 class Wedding_Elisanne(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)

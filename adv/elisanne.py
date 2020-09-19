@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Elisanne
@@ -9,9 +7,9 @@ class Elisanne(Adv):
     comment = 'no s2, s!cleo ss after s1'
 
     conf = {}
-    conf['slots.a'] = Beach_Battle()+From_Whence_He_Comes()
+    conf['slots.a'] = ['Beach_Battle', 'From_Whence_He_Comes']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `s1
         `s4, s=1

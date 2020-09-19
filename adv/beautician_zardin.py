@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Beautician_Zardin
@@ -8,7 +7,7 @@ class Beautician_Zardin(Adv):
     comment = 'no s2'
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon
         `s3, not buff(s3)

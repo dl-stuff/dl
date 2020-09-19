@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Valentines_Orion
 
 class Valentines_Orion(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Me_and_My_Bestie()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon,s
         `s3, fsc and not buff(s3)

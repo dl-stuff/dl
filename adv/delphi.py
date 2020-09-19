@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Delphi
 
 class Delphi(Adv):
     conf = {}
-    conf['slots.a'] = Mega_Friends()+The_Fires_of_Hate()
-    conf['slots.d'] = Ramiel()
+    conf['slots.a'] = ['Mega_Friends', 'The_Fires_of_Hate']
+    conf['slots.d'] = 'Ramiel'
     conf['acl'] = """
         `dragon(c3-s-end), s=1
         `s3, not buff(s3)

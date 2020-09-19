@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Xainfried
 
 class Xainfried(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+His_Clever_Brother() # no more poison lol
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Resounding_Rendition', 'His_Clever_Brother'] # no more poison lol
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3

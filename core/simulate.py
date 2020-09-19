@@ -2,7 +2,6 @@ import sys
 import os
 import re
 from collections import defaultdict
-from slot.a import *
 import core.acl
 
 BR = 64

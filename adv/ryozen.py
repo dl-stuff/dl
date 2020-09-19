@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Ryozen
 
 class Ryozen(Adv):
     conf = {}
-    conf['slots.a'] = RR()+The_Red_Impulse()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Red_Impulse']
     conf['acl'] = """
         `dragon
         `s3

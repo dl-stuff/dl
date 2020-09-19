@@ -1,6 +1,4 @@
 #unused now
-from slot.a import *
-from slot.d import *
 import slot.w
 from conf import coability_dict
 

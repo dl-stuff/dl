@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Sylas
@@ -8,7 +6,7 @@ def module():
 class Sylas(Adv):
     comment = 'no skill haste for team'
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3, not buff(s3)

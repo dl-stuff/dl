@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.d import *
 
 def module():
     return Renee
 
 class Renee(Adv):
     conf = {}
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end), x=2
         if self.afflics.frostbite.get()

@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 from module.template import RngCritAdv
 
 def module():
@@ -7,7 +6,7 @@ def module():
 
 class Gala_Laxi(RngCritAdv):    
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Twinfold_Bonds', 'Me_and_My_Bestie']
     conf['acl'] = """
         # `norm
         `ex
@@ -97,7 +96,7 @@ class Gala_Laxi(RngCritAdv):
         if any([self.a_s_dict[sn].ac.status != -2 for sn in ('s1', 's2')]):
             return
         self.dmg_make('x_fig', 1.00, 'x')
-        self.add_combo()
+        self.add_combo('x_fig')
 
     def hitattr_make(self, name, base, group, aseq, attr, onhit):
         self.update_a1(attr.get('cp', 0))
@@ -120,7 +119,7 @@ class Gala_Laxi(RngCritAdv):
             self.a1_cp = next_cp
             log('galaxi', 'cp', self.a1_cp)
 
-    def add_combo(self, name=None):
+    def add_combo(self, name='#'):
         super().add_combo(name)
         if self.a3_crit_chance < 3 and self.condition('always connect hits') and self.hits // 15 > self.a3_crit_chance:
             self.a3_crit_chance = self.hits // 15

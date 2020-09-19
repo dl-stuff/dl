@@ -1,13 +1,12 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Xuan_Zang
 
 class Xuan_Zang(Adv):    
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
-    conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.burn.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon, s=2
         `s3, not buff(s3) and fsc

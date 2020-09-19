@@ -1,13 +1,12 @@
 from core.advbase import *
 from module.bleed import Bleed
-from slot.a import *
 
 def module():
     return Victor
 
 class Victor(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Primal_Crisis()
+    conf['slots.a'] = ['Resounding_Rendition', 'Primal_Crisis']
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)

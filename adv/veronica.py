@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Veronica
@@ -8,7 +6,7 @@ def module():
 class Veronica(Adv):
     comment = 'last destruction team DPS not considered'
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
+    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), ((self.hp>0 and s) or (self.hp=0 and x=5))

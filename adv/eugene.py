@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.template import RngCritAdv
 
 def module():
@@ -8,8 +6,8 @@ def module():
 
 class Eugene(RngCritAdv):    
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Memory_of_a_Friend()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Memory_of_a_Friend']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end), s
         `s3

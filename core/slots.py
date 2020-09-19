@@ -11,6 +11,7 @@ def all_subclasses(c):
 def subclass_dict(c):
     return {sub_class.__name__: sub_class for sub_class in all_subclasses(c)}
 
+ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
 
 class SlotBase:
     KIND = 's'
@@ -267,19 +268,97 @@ class Summer_Konohana_Sakuya(DragonBase):
         super().oninit(adv)
         adv.summer_sakuya_flowers = 0
         def add_flower(t=None):
-            if adv.summer_sakuya_flowers < 6:
-                adv.summer_sakuya_flowers += 1
-                try:
-                    adv.Selfbuff(
-                        f'd_sakuya_flower_{adv.summer_sakuya_flowers}', 
-                        *self.FLOWER_BUFFS[adv.summer_sakuya_flowers]
-                    ).on()
-                except KeyError:
-                    pass
+            if adv.summer_sakuya_flowers >= 6:
+                return
+            adv.summer_sakuya_flowers += 1
+            try:
+                adv.Selfbuff(
+                    f'd_sakuya_flower_{adv.summer_sakuya_flowers}', 
+                    *self.FLOWER_BUFFS[adv.summer_sakuya_flowers]
+                ).on()
+            except KeyError:
+                pass
         add_flower()
         Timer(add_flower, 60, True).on()
         adv.Event('ds').listener(add_flower)
 ### WIND DRAGONS ###
+
+### LIGHT DRAGONS ###
+class Gala_Thor(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        def chariot_energy(t):
+            adv.energy.add(1)
+        Timer(chariot_energy, 5, True).on()
+        def shift_end_energy(e):
+            adv.energy.add(5, team=True)
+        adv.Event('dragon_end').listener(shift_end_energy)
+### LIGHT DRAGONS ###
+
+### SHADOW DRAGONS ###
+class Gala_Cat_Sith(DragonBase):
+    MAX_TRICKERY = 14
+    def oninit(self, adv):
+        super().oninit(adv)
+        adv.trickery = Gala_Cat_Sith.MAX_TRICKERY
+        threshold = 25
+        self.trickery_buff = SingleActionBuff('d_trickery_buff', 1.80, 1, 's', 'buff').on()
+        def add_trickery(t):
+            adv.trickery = min(adv.trickery+t, Gala_Cat_Sith.MAX_TRICKERY)
+            log('debug', 'trickery', f'+{t}', adv.trickery, adv.hits)
+        def check_trickery(e=None):
+            if adv.trickery > 0 and not self.trickery_buff.get():
+                adv.trickery -= 1
+                log('debug', 'trickery', '-1', adv.trickery)
+                self.trickery_buff.on()
+        def shift_end_trickery(e=None):
+            if not adv.dragonform.is_dragondrive:
+                add_trickery(8)
+        adv.Event('dragon_end').listener(shift_end_trickery)
+        if adv.condition('always connect hits'):
+            add_combo_o = adv.add_combo
+            self.thit = 0
+            def add_combo(name='#'):
+                add_combo_o(name)
+                n_thit = adv.hits // threshold
+                if n_thit > self.thit:
+                    add_trickery(1)
+                    self.thit = n_thit
+                else:
+                    n_thit = 0
+                check_trickery()
+            adv.add_combo = add_combo
+
+class Fatalis(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        adv.dragonform.disabled = True
+
+    @property
+    def ab(self):
+        return super().ab if self.on_ele else [['a', 0.5]]
+
+class Nyarlathotep(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        def bloody_tongue(t=None):
+            adv.Buff('bloody_tongue',0.30, 20).on()
+        bloody_tongue(0)
+        buff_rate = 90
+        if adv.condition(f'hp=30% every {buff_rate}s'):
+            buff_times = adv.duration // buff_rate
+            for i in range(1, buff_times):
+                adv.Timer(bloody_tongue).on(buff_rate*i)
+
+class Ramiel(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        sp_regen_timer = Timer(lambda _: adv.charge_p('ds_sp', 0.03, target=['s1', 's2']), 1.99, True)
+        sp_regen_buff = EffectBuff('ds_sp', 90, lambda: sp_regen_timer.on(), lambda: sp_regen_timer.off())
+        adv.Event('ds').listener(lambda _: sp_regen_buff.on())
+
+### SHADOW DRAGONS ###
+
 
 class WeaponBase(EquipBase):
     AGITO_S3 = {
@@ -304,7 +383,7 @@ class WeaponBase(EquipBase):
         },
         'shadow': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.30, 'spd', 'passive', -1], ['self', 0.05, -1, 'crit', 'chance'], '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.30, -1, 'spd', 'passive'], ['self', 0.05, -1, 'crit', 'chance'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.40, -1, 'defense', 'buff', '-replace']}]}
         }
     }
@@ -556,7 +635,17 @@ class Slots:
             key = Slots.DEFAULT_DRAGON[self.c.ele]
         if self.sim_afflict and affkey:
             key = affkey
-        conf, key = Slots.get_with_alias(drg, key)
+        try:
+            conf, key = Slots.get_with_alias(drg, key)
+        except KeyError:
+            for ele in ELEMENTS:
+                if ele == self.c.ele:
+                    continue
+                try:
+                    conf, key = Slots.get_with_alias(load_drg_json(ele), key)
+                    break
+                except KeyError:
+                    pass
         try:
             self.d = Slots.DRAGON_DICTS[key](conf, self.c)
         except KeyError:

@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Summer_Patia
@@ -8,9 +6,9 @@ def module():
 class Summer_Patia(Adv):
     comment = 'cannot build combo for Cat Sith; uses up 15 stacks by 46.94s'
     conf = {}
-    conf['slots.a'] = Kung_Fu_Masters()+The_Plaguebringer()
+    conf['slots.a'] = ['Kung_Fu_Masters', 'The_Plaguebringer']
     conf['slots.poison.a'] = conf['slots.a']
-    conf['slots.d'] = Shinobi()
+    conf['slots.d'] = 'Shinobi'
     conf['acl'] = """
         # use dragon if using Cat Sith
         # `dragon(c3-s-end), fsc
@@ -26,7 +24,7 @@ class Summer_Patia(Adv):
 
     def d_slots(self):
         if self.duration <= 120:
-            self.conf['slots.d'] = Gala_Cat_Sith()
+            self.conf['slots.d'] = 'Gala_Cat_Sith'
 
 
 if __name__ == '__main__':

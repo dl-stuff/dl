@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.template import RngCritAdv
 
 def module():
@@ -9,7 +7,7 @@ def module():
 class Incognito_Nefaria(RngCritAdv):
     comment = 'no s2; using s2 is a ~1300 dps loss'
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
+    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
     conf['acl'] = """
         `dragon(c3-s-s-end), s=1 and energy()<5
         `s3, not buff(s3) and x=5
@@ -25,7 +23,7 @@ class Incognito_Nefaria(RngCritAdv):
         #`s1, not energy()=5
         #`s4, not energy()=5 and x>3
         """
-    conf['slots.d'] = Gala_Mars()
+    conf['slots.d'] = 'Gala_Mars'
     conf['coabs'] = ['Nobunaga', 'Serena', 'Yuya']
     conf['share'] = ['Summer_Patia']
     conf['afflict_res.burn'] = 0

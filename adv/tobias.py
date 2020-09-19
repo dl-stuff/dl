@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.x_alt import X_alt
 
 def module():
@@ -20,9 +18,9 @@ class Tobias(Adv):
     comment = 'c5fs, no s2, s!cleo ss after s1'
 
     conf = {}
-    conf['slots.a'] = A_Dogs_Day()+Castle_Cheer_Corps()
+    conf['slots.a'] = ['A_Dogs_Day', 'Castle_Cheer_Corps']
     conf['slots.poison.a'] = conf['slots.a']
-    conf['slots.d'] = Freyja()
+    conf['slots.d'] = 'Freyja'
     conf['acl'] = """
         `s1
         `s3

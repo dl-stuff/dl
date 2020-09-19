@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Wedding_Aoi
 
 class Wedding_Aoi(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Primal_Crisis()
+    conf['slots.a'] = ['Twinfold_Bonds', 'Primal_Crisis']
     conf['acl'] = """
         `dragon(c3-s-end), x=5
         `s3, not buff(s3)

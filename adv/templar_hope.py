@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Templar_Hope
 
 class Templar_Hope(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
-    conf['slots.d'] = AC011_Garland()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
+    conf['slots.d'] = 'AC011_Garland'
     conf['acl'] = """
         `dragon(c3-s-c3-c3-end), cancel
         `s3, not buff(s3)

@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Dragonyule_Malora
 
 class Dragonyule_Malora(Adv):
     conf = {}
-    conf['slots.a'] = Summer_Paladyns() + Primal_Crisis()
+    conf['slots.a'] = ['Summer_Paladyns', 'Primal_Crisis']
     conf['acl'] = """
         `dragon, s
         `s3, not buff(s3)

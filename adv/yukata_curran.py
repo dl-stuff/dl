@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Yukata_Curran
 
 class Yukata_Curran(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Twinfold_Bonds', 'Spirit_of_the_Season']
     conf['acl'] = """
         `dragon
         `s3, not buff(s3)
@@ -26,9 +24,9 @@ class Yukata_Curran(Adv):
         self.s1_ehits = 0
         comment = f'assume {self.conf.attenuation} hits per s1 bullet'
 
-    def add_combo(self, name=None):
+    def add_combo(self, name='#'):
         super().add_combo(name)
-        if name is not None and name.startswith('s1'):
+        if name.startswith('s1'):
             self.s1_ehits += 1
         if self.s1_ehits >= 10:
             self.s1_ehits -= 10

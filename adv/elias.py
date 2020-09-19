@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Elias
 
 class Elias(Adv):
     conf = {}
-    conf['slots.paralysis.a'] = Forest_Bonds()+The_Red_Impulse()
+    conf['slots.paralysis.a'] = ['Forest_Bonds', 'The_Red_Impulse']
     conf['acl'] = """
         `dragon
         `s3

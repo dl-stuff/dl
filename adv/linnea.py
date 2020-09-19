@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Linnea
@@ -8,8 +6,8 @@ def module():
 
 class Linnea(Adv):
     conf = {}
-    conf['slots.a'] = The_Lurker_in_the_Woods()+Levins_Champion()
-    conf['slots.d'] = Fatalis()
+    conf['slots.a'] = ['The_Lurker_in_the_Woods', 'Levins_Champion']
+    conf['slots.d'] = 'Fatalis'
     conf['acl'] = """
         `s4
         `s3

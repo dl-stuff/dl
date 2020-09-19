@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from module.template import SigilAdv
 
 def module():
@@ -9,8 +7,8 @@ def module():
 
 class Pinon(SigilAdv):    
     conf = {}
-    conf['slots.a'] = Primal_Crisis()+His_Clever_Brother()
-    conf['slots.d'] = Dragonyule_Jeanne()
+    conf['slots.a'] = ['Primal_Crisis', 'His_Clever_Brother']
+    conf['slots.d'] = 'Dragonyule_Jeanne'
     conf['acl'] = """
         # `dragon(c3-s-end), s
         `s3, not buff(s3)

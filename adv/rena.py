@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Rena
 
 class Rena(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon, s=1 and not s2.check()
         `s3, not buff(s3)

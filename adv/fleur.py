@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Fleur
 
 class Fleur(Adv):
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Spirit_of_the_Season()
+    conf['slots.a'] = ['Twinfold_Bonds', 'Spirit_of_the_Season']
     conf['acl'] = '''
         `dragon, cancel
         `s3, not buff(s3)

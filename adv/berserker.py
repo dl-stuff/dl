@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Berserker
 
 class Berserker(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+Primal_Crisis()
+    conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end),fsc

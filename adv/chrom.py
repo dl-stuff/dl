@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 from core.afflic import AFFLICT_LIST
 
 def module():
@@ -22,7 +20,7 @@ class Skill_Reservoir(Skill):
 
 class Chrom(Adv):
     conf = {}
-    conf['slots.a'] = The_Shining_Overlord()+The_Fires_of_Hate()
+    conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon, s
         `s3, fsc and not buff(s3)

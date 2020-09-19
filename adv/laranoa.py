@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Laranoa
@@ -9,9 +7,9 @@ class Laranoa(Adv):
     comment = 'no haste buff for teammates'
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+Breakfast_at_Valerios()
-    conf['slots.frostbite.a'] = Resounding_Rendition()+His_Clever_Brother()
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
+    conf['slots.frostbite.a'] = ['Resounding_Rendition', 'His_Clever_Brother']
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `dragon(c3-s-end),s
         `s3
@@ -26,7 +24,7 @@ class Laranoa(Adv):
     def prerun(self):
         self.ahits = 0
 
-    def add_combo(self, name=None):
+    def add_combo(self, name='#'):
         super().add_combo(name)
         if self.hits // 20 > self.ahits:
             self.ahits = self.hits // 20

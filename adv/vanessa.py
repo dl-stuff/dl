@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Vanessa
 
 class Vanessa(Adv):
     conf = {}
-    conf['slots.a'] = Mega_Friends()+Primal_Crisis()
-    conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Mega_Friends', 'Primal_Crisis']
+    conf['slots.burn.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon, s
         `s3, not buff(s3)

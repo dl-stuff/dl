@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Zena
@@ -8,7 +6,7 @@ def module():
 class Zena(Adv):
     comment = '40 extra hits s2 on Agito size enemy (max 100 without roll & 120 with roll)'
     conf = {}
-    conf['slots.a'] = Candy_Couriers()+Primal_Crisis()
+    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
     conf['acl'] = """
         `s3, not buff(s3)
         `s2
@@ -32,8 +30,9 @@ class Zena(Adv):
         Event('dragon').listener(self.s2_clear)
 
     def s2_extra_hits(self, t):
-        self.dmg_make(f'{t.name}_extra', self.s2_extra_hit_rate*0.50)
-        self.add_hits(self.s2_extra_hit_rate)
+        for _ in range(self.s2_extra_hit_rate):
+            self.dmg_make(f'{t.name}_extra', 0.50)
+            self.add_combo()
 
     def s2_clear(self, e):
         for t in self.s2_timers:

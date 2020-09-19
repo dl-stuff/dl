@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Ranzal
 
 class Ranzal(Adv):
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end), s or x=5
         `s3, not buff(s3)

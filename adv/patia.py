@@ -1,16 +1,14 @@
 from core.advbase import *
 from module.bleed import Bleed
-from slot.a import *
-from slot.d import *
 
 def module():
     return Patia
 
 class Patia(Adv):
     conf = {}
-    conf['slots.a'] = Proper_Maintenance()+From_Whence_He_Comes()
+    conf['slots.a'] = ['Proper_Maintenance', 'From_Whence_He_Comes']
     conf['slots.poison.a'] = conf['slots.a']
-    conf['slots.d'] = Azazel()
+    conf['slots.d'] = 'Azazel'
     conf['acl'] = """
         `dragon(c3-s-end), fscf
         `s3, not buff(s3)

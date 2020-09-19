@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Ezelith
@@ -8,7 +6,7 @@ def module():
 class Ezelith(Adv):
     a3 = ('bk',0.35)
     conf = {}
-    conf['slots.d'] = Gala_Mars()
+    conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
         `dragon(c3-s-s-end),s=1
         `s3, not buff(s3)

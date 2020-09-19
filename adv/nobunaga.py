@@ -1,14 +1,12 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Nobunaga
 
 class Nobunaga(Adv):
     conf = {}
-    conf['slots.a'] = The_Wyrmclan_Duo()+Primal_Crisis()
-    conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
+    conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
+    conf['slots.burn.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon, s=2
         `s3, not buff(s3)

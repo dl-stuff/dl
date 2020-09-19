@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Tiki
@@ -9,9 +7,9 @@ class Tiki(Adv):
     comment = 'dragon damage does not work on divine dragon'
 
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+The_Prince_of_Dragonyule()
+    conf['slots.a'] = ['Twinfold_Bonds', 'The_Prince_of_Dragonyule']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Dragonyule_Jeanne()
+    conf['slots.d'] = 'Dragonyule_Jeanne'
     conf['acl'] = """
         if divine_dragon.get()
         `s1
@@ -32,7 +30,7 @@ class Tiki(Adv):
 
     def d_slots(self):
         if self.duration <= 60:
-            self.conf['slots.a'] = Twinfold_Bonds()+The_Chocolatiers()
+            self.conf['slots.a'] = ['Twinfold_Bonds', 'The_Chocolatiers']
             self.conf['slots.frostbite.a'] = self.conf['slots.a']
 
     def prerun(self):

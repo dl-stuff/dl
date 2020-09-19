@@ -388,10 +388,10 @@ class Resilient_Offense(BuffingAbility):
     def __init__(self, name, value, interval=None):
         super().__init__(name, value, -1)
         self.interval = interval
-        if name == 'ro':
+        if name[0:2] == 'ro':
             self.proc_chances = 3
             self.hp_threshold = 30
-        elif name == 'uo':
+        elif name[0:2] == 'uo':
             self.proc_chances = 5
             self.hp_threshold = 70
 
@@ -657,6 +657,7 @@ class Energy_Stat(Ability):
             stat_mod.mod_value = self.stat_values[round(adv.energy.stack)]
             log(self.name, stat_mod.mod_value, adv.energy.stack)
         adv.Event('energy').listener(l_energy)
+        adv.Event('energy_end').listener(l_energy)
 
 ability_dict['estat'] = Energy_Stat
 
@@ -703,7 +704,7 @@ class Energy_Combo(Ability):
         if adv.condition('always connect hits'):
             self.add_combo_o = adv.add_combo
             self.ehit = 0
-            def add_combo(name=None):
+            def add_combo(name='#'):
                 self.add_combo_o(name)
                 if adv.hits == 0:
                     self.ehit == 0

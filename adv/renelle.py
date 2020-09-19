@@ -1,12 +1,11 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Renelle
 
 class Renelle(Adv):    
     conf = {}
-    conf['slots.a'] = Twinfold_Bonds()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Twinfold_Bonds', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon
         `s3, not buff(s3)

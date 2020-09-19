@@ -1,5 +1,4 @@
 from core.advbase import *
-from slot.a import *
 
 def module():
     return Valentines_Addis
@@ -8,7 +7,7 @@ class Valentines_Addis(Adv):
     comment = 'use s2 once'
     
     conf = {}
-    conf['slots.a'] = Forest_Bonds()+Primal_Crisis()
+    conf['slots.a'] = ['Forest_Bonds', 'Primal_Crisis']
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), (self.hp>0 and (self.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)

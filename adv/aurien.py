@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a.all import *
-from slot.d.flame import *
 
 def module():
     return Aurien
@@ -9,8 +7,8 @@ class Aurien(Adv):
     comment = 'no s1'
 
     conf = {}
-    conf['slots.a'] = Resounding_Rendition()+The_Fires_of_Hate()
-    conf['slots.burn.a'] = Resounding_Rendition()+Me_and_My_Bestie()
+    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.burn.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
     conf['acl'] = """
         `dragon(c3-s-s-end), s
         `s3, not buff(s3)

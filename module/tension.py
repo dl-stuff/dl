@@ -14,7 +14,7 @@ class Tension:
         self.stack = 0
         self.queued_stack = 0
         self.has_stack = Selfbuff('has_'+self.name, 1, -1, 'effect')
-        self.active = False
+        self.active = set()
         self.disabled = False
 
     def add(self, n=1, team=False, queue=False):
@@ -49,11 +49,11 @@ class Tension:
     def on(self, e):
         if self.stack >= self.MAX_STACK and e.name in self.modifier._static.damage_sources:
             log(self.name, 'active', 'stack <{}>'.format(int(self.stack)))
-            self.active = e.name
+            self.active.add(e.name)
     
     def off(self, e):
-        if e.name == self.active:
-            self.active = None
+        if e.name in self.active:
+            self.active.discard(e.name)
             self.has_stack.off()
             self.stack = 0
             log(self.name, 'reset', 'stack <{}>'.format(int(self.stack)))

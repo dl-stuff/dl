@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Hunter_Sarisse
@@ -9,9 +7,9 @@ class Hunter_Sarisse(Adv):
     comment = '8hit FS on A&O sized enemy (see special for 20hit); needs combo time to keep combo'
 
     conf = {}
-    conf['slots.a'] = The_Lurker_in_the_Woods()+Primal_Crisis()
+    conf['slots.a'] = ['The_Lurker_in_the_Woods', 'Primal_Crisis']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         `s3, fsc
         `s1, fsc

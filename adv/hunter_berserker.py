@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.a import *
-from slot.d import *
 
 def module():
     return Hunter_Berserker
@@ -9,8 +7,8 @@ def module():
 class Hunter_Berserker(Adv):
     comment = 'needs combo time from chain coability to keep combo & do c1 after s2'
     conf = {}
-    conf['slots.a'] = The_Lurker_in_the_Woods()+Primal_Crisis()
-    conf['slots.d'] = Dreadking_Rathalos()
+    conf['slots.a'] = ['The_Lurker_in_the_Woods', 'Primal_Crisis']
+    conf['slots.d'] = 'Dreadking_Rathalos'
     conf['acl'] = """
         `s3, not buff(s3)
         `s1, fsc

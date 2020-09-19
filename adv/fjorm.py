@@ -1,6 +1,4 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Fjorm
@@ -8,9 +6,9 @@ def module():
 class Fjorm(Adv):
     comment = 'last bravery once at start'
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer()+His_Clever_Brother()
+    conf['slots.a'] = ['Dragon_and_Tamer', 'His_Clever_Brother']
     conf['slots.frostbite.a'] = conf['slots.a']
-    conf['slots.d'] = Gaibhne_and_Creidhne()
+    conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
         queue prep
         `s3;s1;s4;s2

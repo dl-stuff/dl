@@ -1,13 +1,11 @@
 from core.advbase import *
-from slot.d import *
-from slot.a import *
 
 def module():
     return Zace
 
 class Zace(Adv):
     conf = {}
-    conf['slots.a'] = Dragon_and_Tamer()+The_Fires_of_Hate()
+    conf['slots.a'] = ['Dragon_and_Tamer', 'The_Fires_of_Hate']
     conf['acl'] = """
         `dragon(c3-s-end), fsc
         `s3, not buff(s3)

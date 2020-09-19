@@ -25,7 +25,6 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
         adv_file += '.py'
     if special is None and adv_file.count('.py') > 1:
         special == True
-    output = open(os.path.join(ROOT_DIR, OUTPUT_DIR, 'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
 
     verbose = -5
     durations = DURATION_LIST
@@ -35,11 +34,13 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
         mass = None
         durations = [30]
         output = open(os.devnull, 'w')
+    else:
+        output = open(os.path.join(ROOT_DIR, OUTPUT_DIR, 'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
 
     try:
         adv_module = core.simulate.load_adv_module(adv_name)
-    except Exception:
-        print('\033[93m{:.4f}s - sim:{} NOT FOUND\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
+    except Exception as e:
+        print(f'\033[93m{monotonic()-t_start:.4f}s - sim:{adv_file} {e}\033[0m', flush=True)
         output.close()
         return
     try:
@@ -47,8 +48,8 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
             core.simulate.test(adv_module, {}, duration=d, verbose=verbose, mass=1000 if mass else None, special=special, output=output)
         if not sanity_test:
             print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
-    except Exception:
-        print('\033[91m{:.4f}s - sim:{} FAILED\033[0m'.format(monotonic() - t_start, adv_file), flush=True)
+    except Exception as e:
+        print(f'\033[91m{monotonic()-t_start:.4f}s - sim:{adv_file} {e}\033[0m', flush=True)
         output.close()
         return
     output.close()

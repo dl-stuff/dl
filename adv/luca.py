@@ -1,5 +1,5 @@
 from core.advbase import *
-from slot.a import *
+from adv.gala_luca import Gala_Luca
 
 def module():
     return Luca
