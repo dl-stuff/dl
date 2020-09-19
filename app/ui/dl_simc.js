@@ -1,3 +1,4 @@
+// const APP_URL = 'http://127.0.0.1:5000/';
 const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 20000;
@@ -60,7 +61,7 @@ function slots_text_format(data) {
     //     '][' + data.slice(10, 13).join('|') +
     //     '][S3:' + data[13] + '|S4:' + data[14] + ']';
 }
-function populateSelect(id, data) {
+function populate_select(id, data) {
     const t = id.split('-')[1];
     let options = [];
     for (let d of Object.keys(data)) {
@@ -77,29 +78,25 @@ function populateSelect(id, data) {
     $(id).empty();
     $(id).append(options);
 }
-colorMap = {
-    'attack': 'FireBrick',
-    'force_strike': 'Maroon',
-    'team_buff': 'IndianRed',
-    'dx': 'mediumpurple',
-    'ds': 'blueviolet'
+function stats_icon_fmt(stat_str) {
+    const stats = [];
+    let team = 0;
+    for (const part of stat_str.split(';')) {
+        const subparts = part.split(':');
+        const name = subparts[0];
+        let value = subparts[1];
+        if (name === 'team') {
+            team = parseFloat(value);
+            value = Math.round(team) + '%';
+        }
+        stats.push('<img src="/dl-sim/pic/icons/' + name + '.png" class="stat-icon"/>');
+        stats.push(value);
+    }
+    return [stats, parseFloat(team)];
 }
-nameMap = {
-    'ds': 'dragon_skill',
-    'dx': 'dragon_attack'
-}
-colorList = ['MediumSlateBlue', 'CornflowerBlue', 'CadetBlue', 'LightSeaGreen']
-// charList = ['&#9636', '&#9637', '&#9639', '&#9640']
-// charMap = {
-//     'attack': '&#9670;',
-//     'force_strike': '&#9671;',
-//     'team_buff': '&#9672;'
-// }
-function createDpsBar(resDiv, arr, extra, total_dps = undefined) {
-    let copyTxt = '';
-    const total = parseInt(arr[0])
-    total_dps = (total_dps == undefined) ? total : parseInt(total_dps);
-    const adv = arr[1];
+function create_dps_bar(res_div, arr) {
+    let copy_txt = '';
+    const total = arr[0];
     let slots = ' ' + slots_text_format(arr);
     const cond = (arr[24] != undefined && arr[24] != '<>' && arr[24].includes('<')) ? arr[24].replace('<', '&lt;').replace('>', '&gt;') : '';
     const comment = (arr[25] != undefined) ? arr[25] : '';
@@ -115,76 +112,67 @@ function createDpsBar(resDiv, arr, extra, total_dps = undefined) {
         }
         if (cond_comment.length > 0) {
             cond_comment_str = '<br/>' + cond_comment.join(' ');
-            cond_cpy_str = ' ' + cond_comment.join(' ');
+            cond_cpy_str = '\n' + cond_comment.join(' ');
         }
     } else {
         slots = '';
     }
-    resDiv.append($('<h6>DPS:' + total + slots + cond_comment_str + '</h6>'));
-    copyTxt += slots + '```DPS: ' + total + cond_cpy_str + '\n';
-    let resBar = $('<div></div>').attr({ class: 'result-bar' });
-    let colorIdx = 0;
-    let damageTxtArr = [];
-    let damageTxtBar = [];
-    for (let i = 26; i < arr.length; i++) {
+    let stat_str = (arr[26] != undefined) ? arr[26] : '';
+    const stats = stats_icon_fmt(stat_str);
+    const stats_display = stats[0].join('');
+    const team = stats[1];
+    if (stat_str) { stat_str = ' (' + stat_str.replace(';', ', ') + ')'; }
+
+    let total_dps = parseInt(arr[0]);
+
+    res_div.data("team", team);
+    const dpsnum = $('<span class="dps-num">' + total_dps + '</span>').data('total', total_dps);
+    const dpshead = $('<h6>DPS:</h6>');
+    dpshead.append(dpsnum);
+    dpshead.append(slots + cond_comment_str + stats_display);
+    res_div.append(dpshead);
+    copy_txt += slots + '```DPS: ' + total + stat_str + cond_cpy_str + '\n';
+
+    let res_bar = $('<div></div>').attr({ class: 'result-bar' });
+    let damage_txt_arr = [];
+    for (let i = 27; i < arr.length; i++) {
         const dmg = arr[i].split(':')
         if (dmg.length == 2) {
             const dmg_val = parseInt(dmg[1]);
             if (dmg_val > 0) {
-                let color = undefined;
-                // let char = undefined;
-                if (colorMap.hasOwnProperty(dmg[0])) {
-                    color = colorMap[dmg[0]]
-                    // char = charMap[dmg[0]]
-                } else {
-                    color = colorList[colorIdx % colorList.length]
-                    // char = charList[colorIdx % colorList.length]
-                    colorIdx += 1
-                }
-                // data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-                const portion = 100 * (parseInt(dmg[1]) / total_dps);
-                let damageTxt = dmg[0] + ': ' + dmg[1];
-                if (nameMap.hasOwnProperty(dmg[0])) {
-                    damageTxt = nameMap[dmg[0]] + ': ' + dmg[1];
-                }
-                if (dmg[0] in extra) {
-                    damageTxt += ' (' + extra[dmg[0]] + ')'
-                }
-                damageTxtArr.push(damageTxt);
-                // damageTxtBar.push(char.repeat(portion))
-                const damageSlice = $('<a>' + name_fmt(damageTxt) + '</a>')
-                    .css('width', portion + '%')
-                    .css('background-color', color)
+                // const portion = 100 * (dmg_val / total_dps);
+                let damage_txt = dmg[0] + ': ' + dmg[1];
+                damage_txt_arr.push(damage_txt);
+                const damage_slice = $('<a>' + damage_txt + '</a>')
+                    .data('dmg', dmg_val)
+                    .addClass('result-slice')
+                    .addClass('c-' + dmg[0].split('_')[0])
+                    .css('width', 0)
                     .attr({
                         'data-toggle': 'tooltip',
                         'data-placement': 'top',
-                        'title': damageTxt
+                        'title': damage_txt
                     }).tooltip();
-                resBar.append(damageSlice)
+                res_bar.append(damage_slice);
             }
         }
     }
-    copyTxt += damageTxtArr.join('|') + '```';
-    // copyTxt += damageTxtBar.join('') + '```';
-    resDiv.append(resBar);
-    return copyTxt;
-}
-function sumDps(data) {
-    let summed = [];
-    let display = [];
-    for (let p of data) {
-        let y = 0;
-        if (summed.length > 1) {
-            y = p.y + summed[summed.length - 1].y;
-        } else {
-            y = p.y;
-        }
-        summed.push({ x: p.x, y: y })
-        if (p.x > 1 && (display.length == 0 || display[display.length - 1].x + 1 < p.x)) {
-            display.push({ x: p.x, y: y / p.x })
-        }
-    }
-    return display;
+    const team_slice = $('<a>team</a>')
+        .data('dmg', 0)
+        .addClass('team-result-slice')
+        .addClass('c-team')
+        .css('width', 0)
+        .attr({
+            'data-toggle': 'tooltip',
+            'data-placement': 'top',
+            'title': 'team'
+        }).tooltip();
+    res_bar.append(team_slice);
+
+    copy_txt += damage_txt_arr.join('|') + '```';
+    // copy_txt += damage_txtBar.join('') + '```';
+    res_div.append(res_bar);
+    return copy_txt;
 }
 function trimAcl(acl_str) {
     return $.trim(acl_str.replace(new RegExp(/[\n] +/, 'g'), '\n'));
@@ -207,7 +195,7 @@ function serConf(no_conf) {
     let requestJson = {
         'adv': $('#input-adv').val(),
         'dra': $('#input-dra').val(),
-        'wep': $('#input-wep').val()
+        // 'wep': $('#input-wep').val()
     }
     if ($('#input-wp1').val() != '' && $('#input-wp2').val() != '') {
         requestJson['wp1'] = $('#input-wp1').val();
@@ -223,11 +211,11 @@ function serConf(no_conf) {
     if (afflict_res != null) {
         requestJson['afflict_res'] = afflict_res;
     }
-    if (!isNaN(parseInt($('#input-teamdps').val()))) {
-        const dps = $('#input-teamdps').val();
-        requestJson['teamdps'] = dps;
-        localStorage.setItem('teamdps', dps);
-    }
+    // if (!isNaN(parseInt($('#input-teamdps').val()))) {
+    //     const dps = $('#input-teamdps').val();
+    //     requestJson['teamdps'] = dps;
+    //     localStorage.setItem('teamdps', dps);
+    // }
     // if (!isNaN(parseInt($('#input-missile').val()))) {
     //     requestJson['missile'] = $('#input-missile').val();
     // }
@@ -264,7 +252,7 @@ function deserConf(confStr) {
     return JSON.parse(atob(confStr));
 }
 function loadConf(conf, slots) {
-    slots.adv.pref_wep = conf.wep;
+    // slots.adv.pref_wep = conf.wep;
     slots.adv.pref_dra = conf.dra;
 
     if (conf.wp1 && conf.wp2) {
@@ -354,10 +342,10 @@ function loadAdvWPList() {
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 const advwp = JSON.parse(data);
-                populateSelect('#input-adv', advwp.adv);
+                populate_select('#input-adv', advwp.adv);
                 $('#adv-' + selectedAdv).prop('selected', true);
-                populateSelect('#input-wp1', advwp.wyrmprints);
-                populateSelect('#input-wp2', advwp.wyrmprints);
+                populate_select('#input-wp1', advwp.wyrmprints);
+                populate_select('#input-wp2', advwp.wyrmprints);
                 populateSkillShare(advwp.skillshare);
                 loadAdvSlots(true);
             }
@@ -413,9 +401,8 @@ function loadAdvSlots(no_conf) {
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 let slots = JSON.parse(data);
-                console.log(slots)
-                populateSelect('#input-wep', slots.weapons);
-                populateSelect('#input-dra', slots.dragons);
+                populate_select('#input-wep', slots.weapons);
+                populate_select('#input-dra', slots.dragons);
                 buildCoab(slots.coabilities, slots.adv.basename, slots.adv.wt);
 
                 const urlVars = getUrlVars();
@@ -673,18 +660,12 @@ function runAdvTest(no_conf) {
                     const cond_true = result[1].split(',');
                     const name = cond_true[1];
                     const icon_urls = slots_icon_fmt(cond_true);
-                    let copyTxt = '**' + name + ' ' + requestJson['t'] + 's** ';
-                    let newResultItem = $('<div></div>').attr({ class: 'test-result-item' });
-                    newResultItem.append($(
+                    let copy_txt = '**' + name + ' ' + requestJson['t'] + 's** ';
+                    let new_result_item = $('<div></div>').attr({ class: 'test-result-item' });
+                    new_result_item.append($(
                         '<h4 class="test-result-slot-grid"><div>' +
                         icon_urls[0] + '</div><div>' + name + '</div><div>' + icon_urls.slice(1).join('') + '</div></h4>'));
-                    copyTxt += createDpsBar(newResultItem, cond_true, res.extra, undefined);
-                    if (result.length > 2 && result[2].includes(',')) {
-                        cond_false = result[2].split(',');
-                        extra = Object.keys(res.extra_no_cond).length > 0 ? res.extra_no_cond : res.extra
-                        copyTxt += createDpsBar(newResultItem, cond_false, extra, cond_true[0]);
-                    }
-                    // createChart(res.log.dmg, name);
+                    copy_txt += create_dps_bar(new_result_item, cond_true, undefined);
                     const logs = ['dragon', 'summation', 'action', 'timeline'].map(key => {
                         if (res.logs[key] !== undefined && res.logs[key] !== "") {
                             return res.logs[key];
@@ -693,8 +674,9 @@ function runAdvTest(no_conf) {
                         }
                     }).filter(l => (l));
                     $('#damage-log').html(logs.join('<hr class="log-divider">'));
-                    $('#test-results').prepend(newResultItem);
-                    $('#copy-results').prepend($('<textarea>' + copyTxt + '</textarea>').attr({ class: 'copy-txt', rows: (copyTxt.match(/\n/g) || [0]).length + 1 }));
+                    $('#test-results').prepend(new_result_item);
+                    $('#copy-results').prepend($('<textarea>' + copy_txt + '</textarea>').attr({ class: 'copy-txt', rows: (copy_txt.match(/\n/g) || [0]).length + 1 }));
+                    update_teamdps();
                 }
             }
         },
@@ -818,7 +800,27 @@ function loadGithubCommits() {
             // $('#changelog').html('Failed to load github commits');
         }
     });
-
+}
+function update_teamdps() {
+    const tdps = $('#input-teamdps').val();
+    localStorage.setItem('teamdps', tdps);
+    $('.test-result-item').each((_, ri) => {
+        const team_p = $(ri).data('team') / 100;
+        const team_v = tdps * team_p;
+        const dps_num = $(ri).find('.dps-num')[0];
+        const new_total = $(dps_num).data('total') + team_v;
+        $(dps_num).html(Math.ceil(new_total));
+        let others = 0;
+        $(ri).find('.result-slice').each((_, rs) => {
+            const portion = (team_v > 0) ? Math.ceil(1000 * ($(rs).data('dmg') / new_total)) / 10 : Math.floor(1000 * ($(rs).data('dmg') / new_total)) / 10;
+            others += portion;
+            $(rs).css('width', portion + '%')
+        });
+        const trs = $(ri).find('.team-result-slice')[0];
+        const portion = 100 - others;
+        $(trs).css('width', portion + '%')
+        $(trs).html('team: ' + Math.ceil(team_v));
+    });
 }
 window.onload = function () {
     $('#input-adv').change(debounce(resetTest, 200));
@@ -831,6 +833,7 @@ window.onload = function () {
     $('#clear-results').click(clearResults);
     $('#reset-test').click(resetTest);
     $('#input-edit-acl').change(editAcl);
+    $('#input-teamdps').change(update_teamdps);
     // $('#input-wep').change(weaponSelectChange);
     clearResults();
     loadAdvWPList();

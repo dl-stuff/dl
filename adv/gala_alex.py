@@ -6,7 +6,7 @@ def module():
 
 class Skill_Reservoir(Skill):
 
-    def __init__(self, name=None, altchain='dispel'):
+    def __init__(self, name=None, altchain=None):
         super().__init__(name)
         self.chain_timer = Timer(self.chain_off)
         self.chain_status = 0
@@ -17,7 +17,8 @@ class Skill_Reservoir(Skill):
         self.chain_status = skill
         self.chain_timer.on(timeout)
         self._static.current_s[f's{skill}'] = f'chain{skill}'
-        self._static.current_s[f's{3-skill}'] = f'{self.altchain}{3-skill}'
+        if self.altchain is not None:
+            self._static.current_s[f's{3-skill}'] = f'{self.altchain}{3-skill}'
 
     def chain_off(self, t=None):
         log('debug', 'chain off')
@@ -50,12 +51,12 @@ class Skill_Reservoir(Skill):
         return casted
 
 class Gala_Alex(Adv):
-    comment = 'no bk bonus in sim; s2 c4fs [s1 c4fs]*5 & use s1/s2 only when charge>=2'
+    comment = 'see special for bk chain; s2 c4fs [s1 c4fs]*5 & use s1/s2 only when charge>=2'
 
     conf = {}
     conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
     conf['acl'] = """
-        `dragon(c3-s-end), s=2 or s=4
+        `dragon(c3-s-end), s=1
         `s3, not buff(s3)
         if fsc
         # use s4/s2 if no poison or if s1 def down has less than 1/3 time left
@@ -67,7 +68,8 @@ class Gala_Alex(Adv):
         end
         `fs, x=4
     """
-    conf['coabs'] = ['Ieyasu','Wand','Delphi']
+    conf['coabs.base'] = ['Ieyasu','Wand','Delphi']
+    conf['coabs.poison'] = ['Ieyasu','Wand','Forte']
     conf['share.base'] = ['Rodrigo']
     conf['afflict_res.poison'] = 0
 
@@ -75,7 +77,7 @@ class Gala_Alex(Adv):
         if self.duration <= 120:
             self.conf['coabs'] = ['Ieyasu','Wand','Heinwald']
 
-    def __init__(self, conf=None, cond=None, altchain='dispel'):
+    def __init__(self, conf=None, cond=None, altchain=None):
         super().__init__(conf=conf, cond=cond)
         self.sr = Skill_Reservoir('s1', altchain=altchain)
         self.a_s_dict['s1'] = self.sr

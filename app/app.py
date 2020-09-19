@@ -104,7 +104,7 @@ def set_teamdps_res(result, logs, real_d, suffix=''):
             result['extra' + suffix]['team_{}'.format(tension)] = '{} stacks'.format(round(count))
     return result
 
-def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=-2, mass=0):
+def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=5, mass=0):
     adv_module = ADV_MODULES[adv_name]
 
     if conf is None:
@@ -142,11 +142,11 @@ def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, con
     fn = io.StringIO()
     adv.logs.write_logs(output=fn)
     result['logs']['timeline'] = fn.getvalue()
-    result = set_teamdps_res(result, adv.logs, run_res[0][1])
-    if adv.condition.exist():
-        result['condition'] = dict(adv.condition)
-        adv_2 = run_res[1][0]
-        result = set_teamdps_res(result, adv_2.logs, run_res[0][1], '_no_cond')
+    # result = set_teamdps_res(result, adv.logs, run_res[0][1])
+    # if adv.condition.exist():
+    #     result['condition'] = dict(adv.condition)
+    #     adv_2 = run_res[1][0]
+    #     result = set_teamdps_res(result, adv_2.logs, run_res[0][1], '_no_cond')
     return result
 
 # API
@@ -165,7 +165,7 @@ def simc_adv_test():
     cond = params['condition'] if 'condition' in params and params['condition'] != {} else None
     teamdps = None if not 'teamdps' in params else abs(float(params['teamdps']))
     t   = 180 if not 't' in params else min(abs(float(params['t'])), 600.0)
-    log = -2
+    log = 5
     mass = 25 if adv_name in MASS_SIM_ADV and adv_name not in MEANS_ADV else 0
     coab = None if 'coab' not in params else params['coab']
     share = None if 'share' not in params else params['share']
@@ -239,8 +239,14 @@ def get_adv_slotlist():
             'wp1': adv.slots.a.a1.qual,
             'wp2': adv.slots.a.a2.qual
         }
-        result['adv']['pref_coab'] = adv.conf.coabs
-        result['adv']['pref_share'] = adv.conf.share
+        try:
+            result['adv']['pref_coab'] = list(adv.conf.coabs['base'])
+        except:
+            result['adv']['pref_coab'] = list(adv.conf.coabs)
+        try:
+            result['adv']['pref_share'] = list(adv.conf.share['base'])
+        except:
+            result['adv']['pref_share'] = list(adv.conf.share)
         result['adv']['acl'] = adv.conf.acl
         if 'afflict_res' in adv.conf:
             res_conf = adv.conf.afflict_res

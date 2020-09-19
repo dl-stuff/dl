@@ -5,7 +5,7 @@ from core import Conf
 
 ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
 WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff')
-ROOT_DIR = os.getenv('ROOT_DIR', '..')
+ROOT_DIR = os.getenv('ROOT_DIR', os.path.realpath(os.path.join(__file__, '../..')))
 
 def load_json(fn):
     froot = os.path.join(ROOT_DIR, 'conf')

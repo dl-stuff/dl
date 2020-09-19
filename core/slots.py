@@ -612,6 +612,16 @@ class Slots:
 
     def __str__(self):
         return ','.join([
+            self.c.name,
+            self.c.ele, self.c.wt, str(round(self.att)),
+            self.a.a1.name,
+            self.a.a2.name,
+            self.d.name,
+            self.w.name
+        ])
+
+    def full_slot_icons(self):
+        return ','.join([
             self.c.name, self.c.icon,
             self.c.ele, self.c.wt, str(round(self.att)),
             self.a.a1.name, self.a.a1.icon,

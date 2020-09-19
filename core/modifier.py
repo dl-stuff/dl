@@ -1,4 +1,6 @@
 from collections import defaultdict
+from itertools import chain
+from functools import reduce
 import operator
 import copy
 
@@ -20,6 +22,19 @@ class ModifierDict(defaultdict):
     def remove(self, modifier):
         self[modifier.mod_type][modifier.mod_order].remove(modifier)
 
+    @staticmethod
+    def mod_mult(a, b):
+        return a * (1 + b)
+
+    def mod(self, mtype, operator=None, initial=1):
+        operator = operator or ModifierDict.mod_mult
+        return reduce(operator, [self.sub_mod(mtype, order) for order in self[mtype].keys()], initial)
+
+    def sub_mod(self, mtype, morder):
+        mod_sum = sum([modifier.get() for modifier in self[mtype][morder]])
+        if morder == 'buff':
+            mod_sum = min(mod_sum, 2.00)
+        return mod_sum
 
 class Modifier(object):
     _static = Static({
@@ -40,19 +55,19 @@ class Modifier(object):
         # self._static.all_modifiers.append(self)
         # self.__active = 1
 
-    @classmethod
-    def mod(cls, mtype, all_modifiers=None, morder=None):
-        if not all_modifiers:
-            all_modifiers = cls._static.all_modifiers
-        if morder:
-            return 1 + sum([modifier.get() for modifier in all_modifiers[mtype][morder]])
-        m = defaultdict(lambda: 1)
-        for order, modifiers in all_modifiers[mtype].items():
-            m[order] += sum([modifier.get() for modifier in modifiers])
-        ret = 1.0
-        for i in m:
-            ret *= m[i]
-        return ret
+    # @classmethod
+    # def mod(cls, mtype, all_modifiers=None, morder=None):
+    #     if not all_modifiers:
+    #         all_modifiers = cls._static.all_modifiers
+    #     if morder:
+    #         return 1 + sum([modifier.get() for modifier in all_modifiers[mtype][morder]])
+    #     m = defaultdict(lambda: 1)
+    #     for order, modifiers in all_modifiers[mtype].items():
+    #         m[order] += sum([modifier.get() for modifier in modifiers])
+    #     ret = 1.0
+    #     for i in m:
+    #         ret *= m[i]
+    #     return ret
 
     def get(self):
         if callable(self.mod_get) and not self.mod_get():
@@ -274,42 +289,41 @@ class Buff(object):
         self.effect_off()
 
     def count_team_buff(self):
-        self.dmg_test_event.modifiers = ModifierDict()
-
         base_mods = [
             Modifier('base_cc', 'crit', 'chance', 0.12),
             Modifier('base_killer', 'killer','passive', 0.30)
         ]
-
+        self.dmg_test_event.modifiers = ModifierDict()
         for mod in base_mods:
             self.dmg_test_event.modifiers.append(mod)
+        for b in filter(lambda b: b.get() and b.bufftype == 'simulated_def', self._static.all_buffs):
+            self.dmg_test_event.modifiers.append(b.modifier)
 
-        for i in self._static.all_buffs:
-            if i.name == 'simulated_def':
-                self.dmg_test_event.modifiers.append(i.modifier)
         self.dmg_test_event()
         no_team_buff_dmg = self.dmg_test_event.dmg
-        sd_mods = 1
-        spd = 0
-        for i in self._static.all_buffs:
-            if i.bufftype == 'team' or i.bufftype == 'debuff':
-                if i.modifier.mod_type == 's':
-                    sd_mods += i.get() * 1 / 2
-                elif i.modifier.mod_type == 'spd':
-                    spd += i.get()
-                elif i.modifier.mod_type.endswith('_killer'):
-                    mod_copy = copy.copy(i.modifier)
-                    mod_copy.mod_type = 'killer'
-                    self.dmg_test_event.modifiers.append(mod_copy)
-                else:
-                    self.dmg_test_event.modifiers.append(i.modifier)
-        self.dmg_test_event()
-        team_buff_dmg = self.dmg_test_event.dmg * sd_mods
-        team_buff_dmg += team_buff_dmg * spd
-        self.logwrapper('team', team_buff_dmg / no_team_buff_dmg - 1)
 
-        for mod in base_mods:
+        placeholders = []
+        for b in filter(lambda b: b.get() and b.bufftype in ('team', 'debuff'), self._static.all_buffs):
+            placehold = None
+            if b.modifier.mod_type == 's':
+                placehold = Modifier('placehold_sd', 'att', 'sd', b.modifier.get() / 2)
+            elif b.modifier.mod_type == 'spd':
+                placehold = Modifier('placehold_spd', 'att', 'spd', b.modifier.get())
+            elif b.modifier.mod_type.endswith('_killer'):
+                placehold = Modifier('placehold_k', 'killer', 'passive', b.modifier.get())
+            if placehold:
+                self.dmg_test_event.modifiers.append(placehold)
+                placeholders.append(placehold)
+            else:
+                self.dmg_test_event.modifiers.append(b.modifier)
+
+        self.dmg_test_event()
+        team_buff_dmg = self.dmg_test_event.dmg
+        log('buff', 'team', team_buff_dmg / no_team_buff_dmg - 1)
+
+        for mod in chain(base_mods, placeholders):
             mod.off()
+
 
     def on(self, duration=None):
         if self.mod_type == 'maxhp':
@@ -596,7 +610,10 @@ class ElementalTeambuff(Teambuff):
 
     def count_team_buff(self):
         if self.modifier._static.g_condition('buff all team'):
+            self.bufftype = 'team'
             super().count_team_buff()
+        else:
+            self.bufftype = 'self'
 bufftype_dict['ele'] = ElementalTeambuff
 
 
@@ -664,11 +681,11 @@ class Debuff(Teambuff):
             self.val = 1 - 1.0 / bd
             self.val = 0 - self.val
         super().__init__(name, self.val, duration, mtype, morder)
+        self.bufftype = 'debuff'
         if mtype == 'defb':
             self.bufftime = self._no_bufftime
             self.name += '_zone'
         else:
-            self.bufftype = 'debuff'
             self.bufftime = self._debufftime
 bufftype_dict['debuff'] = Debuff
 

@@ -873,19 +873,22 @@ class Adv(object):
         else:
             return mod
 
-    @staticmethod
-    def mod_mult(a, b):
-        return a * (1 + b)
+    # @staticmethod
+    # def mod_mult(a, b):
+    #     return a * (1 + b)
 
     def mod(self, mtype, operator=None, initial=1):
-        operator = operator or Adv.mod_mult
-        return reduce(operator, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], initial)
+        return self.all_modifiers.mod(mtype, operator=operator, initial=initial)
+        # operator = operator or Adv.mod_mult
+        # return reduce(operator, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], initial)
 
     def sub_mod(self, mtype, morder):
-        mod_sum = sum([modifier.get() for modifier in self.all_modifiers[mtype][morder]])
-        if morder == 'buff':
-            mod_sum = min(mod_sum, 2.00)
-        return mod_sum
+        return self.all_modifiers.sub_mod(mtype, mtype, morder)
+    # def sub_mod(self, mtype, morder):
+    #     mod_sum = sum([modifier.get() for modifier in self.all_modifiers[mtype][morder]])
+    #     if morder == 'buff':
+    #         mod_sum = min(mod_sum, 2.00)
+    #     return mod_sum
 
     def speed(self):
         return min(self.mod('spd'), 1.50)
@@ -1369,16 +1372,16 @@ class Adv(object):
 
         self.post_run(end)
 
-        for aff, up in self.afflics.get_uptimes().items():
-            if up > 0.10:
-                if len(self.comment) > 0:
-                    self.comment += '; '
-                self.comment += '{:.0%} {} uptime'.format(up, aff)
+        # for aff, up in self.afflics.get_uptimes().items():
+        #     if up > 0.10:
+        #         if len(self.comment) > 0:
+        #             self.comment += '; '
+        #         self.comment += '{:.0%} {} uptime'.format(up, aff)
 
-        if g_logs.team_doublebuffs > 0:
-            if len(self.comment) > 0:
-                self.comment += '; '
-            self.comment += f'{d/g_logs.team_doublebuffs:.2f}s team doublebuff interval'
+        # if g_logs.team_doublebuffs > 0:
+        #     if len(self.comment) > 0:
+        #         self.comment += '; '
+        #     self.comment += f'{d/g_logs.team_doublebuffs:.2f}s team doublebuff interval'
 
         self.logs = copy.deepcopy(g_logs)
 

@@ -111,16 +111,16 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
 
     run_results.append((adv, real_d, True))
     no_cond_dps = None
-    if adv.condition.exist():
-        adv_2, real_d_2 = run_once(classname, conf, duration, False)
-        # if mass:
-        #     adv_2.logs, real_d_2 = run_mass(mass, adv_2.logs, real_d, classname, conf, duration, False)
-        run_results.append((adv_2, real_d_2, False))
-        no_cond_dps = {
-            'dps': round(dps_sum(real_d_2, adv_2.logs.damage)['dps']),
-            'team_buff': adv_2.logs.team_buff / real_d,
-            'team_tension': adv_2.logs.team_tension
-        }
+    # if adv.condition.exist():
+    #     adv_2, real_d_2 = run_once(classname, conf, duration, False)
+    #     # if mass:
+    #     #     adv_2.logs, real_d_2 = run_mass(mass, adv_2.logs, real_d, classname, conf, duration, False)
+    #     run_results.append((adv_2, real_d_2, False))
+    #     no_cond_dps = {
+    #         'dps': round(dps_sum(real_d_2, adv_2.logs.damage)['dps']),
+    #         'team_buff': adv_2.logs.team_buff / real_d,
+    #         'team_tension': adv_2.logs.team_tension
+    #     }
 
     if -10 <= verbose <= -5:
         aff_name = ELE_AFFLICT[adv.slots.c.ele]
@@ -132,16 +132,18 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
         if mass:
             adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
         run_results.append((adv, real_d, 'affliction'))
-        if adv.condition.exist():
-            adv, real_d = run_once(classname, conf, duration, False)
-            run_results.append((adv, real_d, False))
+        # if adv.condition.exist():
+        #     adv, real_d = run_once(classname, conf, duration, False)
+        #     run_results.append((adv, real_d, False))
 
     for a, d, c in run_results:
-        if verbose == -2 or verbose == -5:
+        if verbose == -2:
+            report(d, a, output, team_dps, cond=c, web=False)
+        elif abs(verbose) == 5:
             page = 'sp' if special else duration
             if c:
                 output.write('-,{},{}\n'.format(page, c if isinstance(c, str) else '_'))
-            report(d, a, output, team_dps, cond=c)
+            report(d, a, output, team_dps, cond=c, web=True)
         else:
             if c == 'affliction':
                 output.write('-'*BR+'\n')
@@ -296,13 +298,15 @@ def slots(adv):
         slots += ']'
     return slots
 
-def slots_csv(adv):
+def slots_csv(adv, web):
     padded_coab = adv.coab_list.copy()
     if len(padded_coab) < 3:
         padded_coab.extend(['']*(3-len(padded_coab)))
     padded_share = adv.skillshare_list.copy()
     if len(padded_share) < 2:
         padded_share.extend(['']*(2-len(padded_share)))
+    if not web:
+        return (str(adv.slots), *padded_coab, *padded_share)
     icon_lst = []
     for name in chain(padded_coab, padded_share):
         if not name:
@@ -313,7 +317,7 @@ def slots_csv(adv):
             except:
                 icon_lst.extend((name, ''))
     return (
-        str(adv.slots),
+        adv.slots.full_slot_icons(),
         *icon_lst
     )
 
@@ -507,6 +511,20 @@ def damage_counts(real_d, damage, counts, output, res=None):
     #         if k2 not in found_dmg:
     #             output.write('{}: {:d}, '.format(k2, int(v2)))
 
+def compile_stats(real_d, adv, do_buffs=True):
+    # aff uptimes
+    stat_str = []
+    for aff, up in adv.afflics.get_uptimes().items():
+        stat_str.append(f'{aff}:{up:.1%}')
+    if not do_buffs:
+        return ';'.join(stat_str)
+    if adv.logs.team_buff > 0:
+        stat_str.append(f'team:{adv.logs.team_buff/real_d:.5%}')
+    if adv.logs.team_doublebuffs > 0:
+        stat_str.append(f'doublebuff:every {real_d/adv.logs.team_doublebuffs:.2f}s')
+    for k, v in adv.logs.team_tension.items():
+        stat_str.append(f'{k}:{int(v)}')
+    return ';'.join(stat_str)
 
 def summation(real_d, adv, output, cond=True, no_cond_dps=None):
     res = dps_sum(real_d, adv.logs.damage)
@@ -536,6 +554,9 @@ def summation(real_d, adv, output, cond=True, no_cond_dps=None):
             cond_comment.append('<{}>'.format(adv.condition.cond_str()))
         if len(adv.comment) > 0:
             cond_comment.append(adv.comment)
+        affstr = compile_stats(real_d, adv, do_buffs=False)
+        if affstr:
+            cond_comment.append(affstr)
         if len(cond_comment) > 0:
             output.write(' '.join(cond_comment))
             output.write('\n')
@@ -543,32 +564,33 @@ def summation(real_d, adv, output, cond=True, no_cond_dps=None):
     damage_counts(real_d, adv.logs.damage, adv.logs.counts, output, res=res)
     output.write('\n')
 
-def report(real_d, adv, output, team_dps, cond=True):
+def report(real_d, adv, output, team_dps, cond=True, web=False):
     name = adv.__class__.__name__
     condition = '<{}>'.format(adv.condition.cond_str())
     dmg = adv.logs.damage
     res = dps_sum(real_d, dmg)
-    buff = adv.logs.team_buff / real_d
     report_csv = [res['dps']]
     report_csv.extend([
-        *slots_csv(adv),
-        condition if cond else '!' + condition,
-        adv.comment
+        *slots_csv(adv, web),
+        condition,
+        adv.comment if not web else adv.comment.replace(',', '&comma;'),
+        compile_stats(real_d, adv)
     ])
+
     dps_mappings = {}
     dps_mappings['attack'] = dict_sum(dmg['x']) / real_d
     for k in sorted(dmg['f']):
         dps_mappings[k] = dmg['f'][k] / real_d
     for k in sorted(dmg['s']):
         dps_mappings[k] = dmg['s'][k] / real_d
-    if buff > 0:
-        dps_mappings['team_buff'] = buff*team_dps
-        report_csv[0] += dps_mappings['team_buff']
-    for tension, count in adv.logs.team_tension.items():
-        dmg_val = count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
-        if dmg_val > 0:
-            dps_mappings['team_{}'.format(tension)] = dmg_val
-            report_csv[0] += dmg_val
+    # if buff > 0:
+    #     dps_mappings['team_buff'] = buff*team_dps
+    #     report_csv[0] += dps_mappings['team_buff']
+    # for tension, count in adv.logs.team_tension.items():
+    #     dmg_val = count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
+    #     if dmg_val > 0:
+    #         dps_mappings['team_{}'.format(tension)] = dmg_val
+    #         report_csv[0] += dmg_val
     for k in sorted(dmg['o']):
         dmg_val = dmg['o'][k]
         if dmg_val > 0:
