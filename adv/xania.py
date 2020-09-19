@@ -6,7 +6,6 @@ def module():
 class Xania(Adv):
     conf = {}
     conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
-    conf['slots.d'] = 'Arctos'
     conf['acl'] = """
         `dragon(c3-s-s-end),s
         `s3, not buff(s3) and x=5

@@ -10,15 +10,11 @@ from flask import request
 from flask import jsonify
 
 import core.simulate
-import slot.a
-import slot.d
-import slot.w
 from core.afflic import AFFLICT_LIST
-from conf import coability_dict, skillshare
+from conf import ROOT_DIR, skillshare, wyrmprints, weapons, dragons, load_adv_json
 app = Flask(__name__)
 
 # Helpers
-ROOT_DIR = os.getenv('ROOT_DIR', '..')
 ADV_DIR = 'adv'
 MEANS_ADV = {
     'addis': 'addis_means.py',
@@ -42,9 +38,15 @@ PRELIM_ADV = load_chara_file('chara_prelim.txt')
 
 SPECIAL_ADV = {
     'fjorm_x4': {
+        'fullname': 'Fjorm X4',
         'nc': ['acl']
     },
     'hunter_sarisse_allhits': {
+        'fullname': 'Hunter Sarisse All Hits',
+        'nc': []
+    },
+    'gala_alex_bk': {
+        'fullname': 'Gala Alex Break Chain',
         'nc': []
     }
 }
@@ -64,34 +66,34 @@ ADV_MODULES = {}
 for adv in NORMAL_ADV+MASS_SIM_ADV+PRELIM_ADV:
     module = core.simulate.load_adv_module(adv)
     name = module.__name__
-    ADV_MODULES[name.lower()] = module
-for name, info in SPECIAL_ADV.items():
+    ADV_MODULES[name] = module
+for name, _ in SPECIAL_ADV.items():
     module = core.simulate.load_adv_module(name)
-    ADV_MODULES[name.lower()] = module
+    ADV_MODULES[name] = module
 
-def is_amulet(obj):
-    return (inspect.isclass(obj) and issubclass(obj, slot.a.Amulet)
-            and obj.__module__ != 'slot.a'
-            and obj.__module__ != 'slot')
-def is_dragon(obj):
-    return (inspect.isclass(obj) and issubclass(obj, slot.d.DragonBase)
-            and obj.__module__ != 'slot.d'
-            and obj.__module__ != 'slot')
-def is_weapon(obj):
-    return (inspect.isclass(obj) and issubclass(obj, slot.d.WeaponBase)
-            and obj.__module__ != 'slot.w'
-            and obj.__module__ != 'slot')
-def list_members(module, predicate, element=None):
-    members = inspect.getmembers(module, predicate)
-    member_list = []
-    for m in members:
-        _, c = m
-        if element is not None:
-            if issubclass(c, slot.d.WeaponBase)  and element not in getattr(c, 'ele'):
-                continue
-        if c.__qualname__ not in member_list:
-            member_list.append(c.__qualname__)
-    return member_list
+# def is_amulet(obj):
+#     return (inspect.isclass(obj) and issubclass(obj, slot.a.Amulet)
+#             and obj.__module__ != 'slot.a'
+#             and obj.__module__ != 'slot')
+# def is_dragon(obj):
+#     return (inspect.isclass(obj) and issubclass(obj, slot.d.DragonBase)
+#             and obj.__module__ != 'slot.d'
+#             and obj.__module__ != 'slot')
+# def is_weapon(obj):
+#     return (inspect.isclass(obj) and issubclass(obj, slot.d.WeaponBase)
+#             and obj.__module__ != 'slot.w'
+#             and obj.__module__ != 'slot')
+# def list_members(module, predicate, element=None):
+#     members = inspect.getmembers(module, predicate)
+#     member_list = []
+#     for m in members:
+#         _, c = m
+#         if element is not None:
+#             if issubclass(c, slot.d.WeaponBase)  and element not in getattr(c, 'ele'):
+#                 continue
+#         if c.__qualname__ not in member_list:
+#             member_list.append(c.__qualname__)
+#     return member_list
 
 def set_teamdps_res(result, logs, real_d, suffix=''):
     result['extra' + suffix] = {}
@@ -103,18 +105,18 @@ def set_teamdps_res(result, logs, real_d, suffix=''):
     return result
 
 def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=-2, mass=0):
-    adv_module = ADV_MODULES[adv_name.lower()]
+    adv_module = ADV_MODULES[adv_name]
 
     if conf is None:
         conf = {}
 
     conf['flask_env'] = True
     if wp1 is not None and wp2 is not None:
-        conf['slots.a'] = getattr(slot.a, wp1)() + getattr(slot.a, wp2)()
+        conf['slots.a'] = [wp1, wp2]
     if dra is not None:
-        conf['slots.d'] = getattr(slot.d, dra)()
-    if wep is not None:
-        conf['slots.w'] = getattr(slot.w, wep)()
+        conf['slots.d'] = dra
+    # if wep is not None:
+    #     conf['slots.w'] = wep
     if acl:
         conf['acl'] = acl
 
@@ -153,7 +155,7 @@ def simc_adv_test():
     if not request.method == 'POST':
         return 'Wrong request method.'
     params = request.get_json(silent=True)
-    adv_name = 'euden' if not 'adv' in params or params['adv'] is None else params['adv'].lower()
+    adv_name = 'Euden' if not 'adv' in params or params['adv'] is None else params['adv']
     wp1 = params['wp1'] if 'wp1' in params else None
     wp2 = params['wp2'] if 'wp2' in params else None
     dra = params['dra'] if 'dra' in params else None
@@ -221,27 +223,21 @@ def get_adv_slotlist():
         result['adv']['name'] = request.args.get('adv', default=None)
     elif request.method == 'POST':
         params = request.get_json(silent=True)
-        result['adv']['name'] = params['adv'].lower() if 'adv' in params else None
+        result['adv']['name'] = params['adv'] if 'adv' in params else None
     else:
         return 'Wrong request method.'
-    adv_ele = None
-    dragon_module = slot.d
-    weap_module = slot.w
     if result['adv']['name'] is not None:
-        adv = ADV_MODULES[result['adv']['name'].lower()]()
+        adv = ADV_MODULES[result['adv']['name']]()
         adv.config_slots()
-        adv_ele = adv.slots.c.ele.lower()
-        result['adv']['fullname'] = adv.__class__.__name__
-        result['adv']['ele'] = adv_ele
-        dragon_module = getattr(slot.d, adv_ele)
-        result['adv']['wt'] = adv.slots.c.wt.lower()
-        weap_module = getattr(slot.w, result['adv']['wt'])
-        result['coab'] = coability_dict(adv_ele)
-        result['adv']['pref_dra'] = type(adv.slots.d).__qualname__
-        result['adv']['pref_wep'] = type(adv.slots.w).__qualname__
+        
+        result['adv']['basename'] = adv.__class__.__name__
+        result['adv']['ele'] = adv.slots.c.ele
+        result['adv']['wt'] = adv.slots.c.wt
+        result['adv']['pref_dra'] = adv.slots.d.qual
+        result['adv']['pref_wep'] = f'{adv.slots.c.ele}-{adv.slots.c.wt}'
         result['adv']['pref_wp'] = {
-            'wp1': type(adv.slots.a).__qualname__,
-            'wp2': type(adv.slots.a.a2).__qualname__
+            'wp1': adv.slots.a.a1.qual,
+            'wp2': adv.slots.a.a2.qual
         }
         result['adv']['pref_coab'] = adv.conf.coabs
         result['adv']['pref_share'] = adv.conf.share
@@ -257,9 +253,11 @@ def get_adv_slotlist():
         if result['adv']['name'] in SPECIAL_ADV:
             result['adv']['no_config'] = SPECIAL_ADV[result['adv']['name']]['nc']
         result['adv']['prelim'] = result['adv']['name'] in PRELIM_ADV
-    # result['amulets'] = list_members(slot.a, is_amulet)
-    result['dragons'] = list_members(dragon_module, is_dragon, element=adv_ele)
-    result['weapons'] = list_members(weap_module, is_weapon, element=adv_ele)
+
+        weapon = weapons[adv.slots.c.ele][adv.slots.c.wt]
+        result['weapons'] = {f'{adv.slots.c.ele}-{adv.slots.c.wt}': f'T{weapon["tier"]} {weapon["name"]}'}
+        result['dragons'] = {drg: data['d']['name'] for drg, data in dragons[adv.slots.c.ele].items()}
+        result['coabilities'] = adv.slots.c.valid_coabs
     return jsonify(result)
 
 
@@ -268,7 +266,12 @@ def get_adv_wp_list():
     if not (request.method == 'GET' or request.method == 'POST'):
         return 'Wrong request method.'
     result = {}
-    result['amulets'] = list_members(slot.a, is_amulet)
-    result['adv'] = list(ADV_MODULES.keys())
+    result['adv'] = {}
+    for name in ADV_MODULES.keys():
+        try:
+            result['adv'][name] = load_adv_json(name)['c']['name'] 
+        except FileNotFoundError:
+            result['adv'][name] = SPECIAL_ADV[name]['fullname']
+    result['wyrmprints'] = {wp: data['name'] for wp, data in wyrmprints.items()}
     result['skillshare'] = dict(sorted(skillshare.items()))
     return jsonify(result)

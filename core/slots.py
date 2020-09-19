@@ -1,7 +1,7 @@
 from itertools import chain, islice
 from collections import defaultdict
 
-from conf import wyrmprints, weapons, load_drg_json, coability_dict, alias
+from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS
 from core.config import Conf
 from core.ability import ability_dict
 
@@ -10,8 +10,6 @@ def all_subclasses(c):
 
 def subclass_dict(c):
     return {sub_class.__name__: sub_class for sub_class in all_subclasses(c)}
-
-ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
 
 class SlotBase:
     KIND = 's'
@@ -66,8 +64,8 @@ class CharaBase(SlotBase):
     def __init__(self, conf):
         super().__init__(conf)
         self.coabs = {}
-        self.valid_coabs = coability_dict(self.ele)
         self.max_coab = 4
+        self.valid_coabs = elecoabs[self.ele]
         try:
             coab = self.valid_coabs[self.name]
             chain = coab[0]
@@ -124,9 +122,10 @@ class CharaBase(SlotBase):
 
 
 class EquipBase(SlotBase):
-    def __init__(self, conf, c):
+    def __init__(self, conf, c, qual=None):
         super().__init__(conf)
         self.c = c
+        self.qual = qual
 
     @property
     def on_ele(self):
@@ -164,8 +163,8 @@ class DragonBase(EquipBase):
         'end.startup': 0, # amount of time needed to kys, 0 default
         'end.recovery': 0
     }
-    def __init__(self, conf, c):
-        super().__init__(conf.d, c)
+    def __init__(self, conf, c, qual=None):
+        super().__init__(conf.d, c, qual)
         self.dragonform = conf
 
     def oninit(self, adv):
@@ -356,7 +355,6 @@ class Ramiel(DragonBase):
         sp_regen_timer = Timer(lambda _: adv.charge_p('ds_sp', 0.03, target=['s1', 's2']), 1.99, True)
         sp_regen_buff = EffectBuff('ds_sp', 90, lambda: sp_regen_timer.on(), lambda: sp_regen_timer.off())
         adv.Event('ds').listener(lambda _: sp_regen_buff.on())
-
 ### SHADOW DRAGONS ###
 
 
@@ -477,8 +475,9 @@ class WeaponBase(EquipBase):
             ]
         }
     }
-    def __init__(self, conf, c):
-        super().__init__(conf, c)
+    def __init__(self, conf, c, qual=None):
+        qual = (c.ele, c.wt)
+        super().__init__(conf, c, qual)
 
     @property
     def s3(self):
@@ -504,9 +503,9 @@ class AmuletPair:
         'k_burn': 0.30, 'k_poison': 0.25, 'k_paralysis': 0.25,
         'k_frostbite': 0.25, 'k_stun': 0.25, 'k_sleep': 0.25
     }
-    def __init__(self, confs, c):
-        self.a1 = AmuletBase(confs[0], c)
-        self.a2 = AmuletBase(confs[1], c)
+    def __init__(self, confs, c, quals):
+        self.a1 = AmuletBase(confs[0], c, quals[0])
+        self.a2 = AmuletBase(confs[1], c, quals[1])
         self.c = c
 
     def __str__(self):
@@ -565,8 +564,8 @@ class AmuletPair:
 class AmuletBase(EquipBase):
     KIND = 'a'
     AUGMENTS = 100
-    def __init__(self, conf, c):
-        super().__init__(conf, c)
+    def __init__(self, conf, c, qual=None):
+        super().__init__(conf, c, qual)
 
 
 class Slots:
@@ -630,26 +629,25 @@ class Slots:
             return Conf(source[k]), k
 
     def set_d(self, key=None, affkey=None):
-        drg = load_drg_json(self.c.ele)
         if not key:
             key = Slots.DEFAULT_DRAGON[self.c.ele]
         if self.sim_afflict and affkey:
             key = affkey
         try:
-            conf, key = Slots.get_with_alias(drg, key)
+            conf, key = Slots.get_with_alias(dragons[self.c.ele], key)
         except KeyError:
             for ele in ELEMENTS:
                 if ele == self.c.ele:
                     continue
                 try:
-                    conf, key = Slots.get_with_alias(load_drg_json(ele), key)
+                    conf, key = Slots.get_with_alias(dragons[ele], key)
                     break
                 except KeyError:
                     pass
         try:
-            self.d = Slots.DRAGON_DICTS[key](conf, self.c)
+            self.d = Slots.DRAGON_DICTS[key](conf, self.c, key)
         except KeyError:
-            self.d = DragonBase(conf, self.c)
+            self.d = DragonBase(conf, self.c, key)
 
     def set_w(self, key=None, affkey=None):
         conf = Conf(weapons[self.c.ele][self.c.wt])
@@ -676,7 +674,7 @@ class Slots:
         if keys[0] == keys[1]:
             raise ValueError('Cannot equip 2 of the same wyrmprint')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
-        self.a = AmuletPair(confs, self.c)
+        self.a = AmuletPair(confs, self.c, keys)
 
     def set_slots(self, confslots):
         affslots = None

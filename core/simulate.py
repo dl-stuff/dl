@@ -1,7 +1,9 @@
 import sys
 import os
 import re
+from itertools import chain
 from collections import defaultdict
+from conf import get_icon
 import core.acl
 
 BR = 64
@@ -301,10 +303,18 @@ def slots_csv(adv):
     padded_share = adv.skillshare_list.copy()
     if len(padded_share) < 2:
         padded_share.extend(['']*(2-len(padded_share)))
+    icon_lst = []
+    for name in chain(padded_coab, padded_share):
+        if not name:
+            icon_lst.extend(('', ''))
+        else:
+            try:
+                icon_lst.extend((name, get_icon(name)))
+            except:
+                icon_lst.extend((name, ''))
     return (
         str(adv.slots),
-        *padded_coab,
-        *padded_share
+        *icon_lst
     )
 
 def append_condensed(condensed, act):
@@ -541,11 +551,6 @@ def report(real_d, adv, output, team_dps, cond=True):
     buff = adv.logs.team_buff / real_d
     report_csv = [res['dps']]
     report_csv.extend([
-        name if cond else '_c_'+name,
-        adv.conf['c.icon'],
-        adv.conf['c.ele'],
-        adv.conf['c.wt'],
-        adv.displayed_att,
         *slots_csv(adv),
         condition if cond else '!' + condition,
         adv.comment

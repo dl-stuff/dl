@@ -1,95 +1,73 @@
-APP_URL = 'https://wildshinobu.pythonanywhere.com/';
-BASE_SIM_T = 180;
-BASE_TEAM_DPS = 20000;
-WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
-RANGED = ['wand', 'bow', 'staff'];
-SECONDARY_COABS = {
-    'Axe2': 'Valentines_Melody',
-    'Dagger2': 'Gala_Laxi'
+const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const BASE_SIM_T = 180;
+const BASE_TEAM_DPS = 20000;
+const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
+const RANGED = ['wand', 'bow', 'staff'];
+const SECONDARY_COABS = {
+    'Axe2': '110027_02_r05',
+    'Dagger2': '100032_04_r05'
 }
-DEFAULT_SHARE = 'Ranzal';
-DEFAULT_SHARE_ALT = 'Curran';
-SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
-GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
+const DEFAULT_SHARE = 'Ranzal';
+const DEFAULT_SHARE_ALT = 'Curran';
+const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
+const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
 function name_fmt(name) {
     return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
 }
 const speshul = {
     Lily: 'https://cdn.discordapp.com/emojis/664261164208750592.png'
 }
-const amulet_name_override = {
-    Dear_Diary_Fast_RO: 'Dear_Diary',
-    Dear_Diary_Slow_RO: 'Dear_Diary',
-    Spirit_of_the_Season_No_HP100: 'Spirit_of_the_Season',
-    The_Fires_of_Hate_No_HP100: 'The_Fires_of_Hate',
-}
+
 function slots_icon_fmt(data) {
-    const adv = data[1];
-    const ele = data[3];
-    const wt = data[4];
+    const adv = data[2];
     const img_urls = [];
-    if (speshul.hasOwnProperty(adv) && Math.random() < 0.1) {
-        img_urls.push('<img src="' + speshul[adv] + '" class="slot-icon character"/>');
+    if (speshul.hasOwnProperty(data[1]) && Math.random() < 0.1) {
+        img_urls.push('<img src="' + speshul[data[1]] + '" class="slot-icon character"/>');
     } else {
         img_urls.push('<img src="/dl-sim/pic/character/' + adv + '.png" class="slot-icon character"/>');
     }
-    const amulets = data.slice(6, 8);
-    for (const a of amulets) {
-        if (amulet_name_override.hasOwnProperty(a)) {
-            img_urls.push('<img src="/dl-sim/pic/amulet/' + amulet_name_override[a] + '.png" class="slot-icon amulet"/>');
-        } else {
-            img_urls.push('<img src="/dl-sim/pic/amulet/' + a + '.png" class="slot-icon"/>');
-        }
-    }
-    const dragon = data[8];
-    if (!dragon.startsWith('Unreleased')) {
-        img_urls.push('<img src="/dl-sim/pic/dragon/' + dragon + '.png" class="slot-icon dragon"/>');
-    }
-    const weapon = data[9];
-    if (weapon === 'HDT2' || (weapon === 'Agito1') || (weapon === 'Agito2')) {
-        img_urls.push('<img src="/dl-sim/pic/weapon/' + weapon + '_' + ele + '_' + wt + '.png" class="slot-icon weapon"/>');
-    }
-    let placehold = 5 - img_urls.length;
-    while (placehold > 0) {
-        img_urls.push('<img src="/dl-sim/pic/CleoDX.png" class="slot-icon placehold"/>');
-        placehold -= 1;
-    }
+    img_urls.push('<img src="/dl-sim/pic/amulet/' + data[7] + '.png" class="slot-icon"/>');
+    img_urls.push('<img src="/dl-sim/pic/amulet/' + data[9] + '.png" class="slot-icon"/>');
+    img_urls.push('<img src="/dl-sim/pic/dragon/' + data[11] + '.png" class="slot-icon dragon"/>');
+    img_urls.push('<img src="/dl-sim/pic/weapon/' + data[13] + '.png" class="slot-icon weapon"/>');
     img_urls.push(' | ');
-    const coabs = data.slice(10, 13);
-    for (const c of coabs) {
-        if (c) {
-            if (WEAPON_TYPES.includes(c.toLowerCase())) {
-                img_urls.push('<img src="/dl-sim/pic/icons/' + c.toLowerCase() + '.png" class="slot-icon coab generic"/>');
+    for (const c of Array(3).keys()) {
+        const c_name = data[14 + c * 2];
+        const c_icon = data[15 + c * 2];
+        if (c_icon) {
+            img_urls.push('<img src="/dl-sim/pic/character/' + c_icon + '.png" class="slot-icon coab unique"/>');
+        } else {
+            if (SECONDARY_COABS[c_name]) {
+                img_urls.push('<img src="/dl-sim/pic/character/' + SECONDARY_COABS[c_name] + '.png" class="slot-icon coab unique"/>');
             } else {
-                if (SECONDARY_COABS[c]) {
-                    img_urls.push('<img src="/dl-sim/pic/character/' + SECONDARY_COABS[c] + '.png" class="slot-icon coab unique"/>');
-                } else {
-                    img_urls.push('<img src="/dl-sim/pic/character/' + c + '.png" class="slot-icon coab unique"/>');
-                }
+                img_urls.push('<img src="/dl-sim/pic/icons/' + c_name.toLowerCase() + '.png" class="slot-icon coab generic"/>');
             }
         }
     }
     img_urls.push(' | ');
-    const share = data.slice(13, 15);
-    for (const s of share) {
-        if (s != '' && s != 'Weapon') {
-            img_urls.push('<img src="/dl-sim/pic/character/' + s + '.png" class="slot-icon skillshare"/>');
-        }
+    if (data[21]) {
+        img_urls.push('<img src="/dl-sim/pic/character/' + data[21] + '.png" class="slot-icon skillshare"/>');
+    } else {
+        img_urls.push('<img src="/dl-sim/pic/icons/weaponskill.png" class="slot-icon skillshare"/>');
     }
+    img_urls.push('<img src="/dl-sim/pic/character/' + data[23] + '.png" class="slot-icon skillshare"/>');
     return img_urls;
 }
 function slots_text_format(data) {
-    return '[' + data.slice(6, 8).join('+') +
-        '][' + data[8] + '][' + data[9] +
-        '][' + data.slice(10, 13).join('|') +
-        '][S3:' + data[13] + '|S4:' + data[14] + ']';
+    return `[${data[6]}+${data[8]}][${data[10]}][${data[12]}][${data[14]}|${data[16]}|${data[18]}][S3:${data[20]}|S4:${data[22]}]`
+    // return '[' + data.slice(6, 8).join('+') +
+    //     '][' + data[8] + '][' + data[9] +
+    //     '][' + data.slice(10, 13).join('|') +
+    //     '][S3:' + data[13] + '|S4:' + data[14] + ']';
 }
 function populateSelect(id, data) {
     const t = id.split('-')[1];
     let options = [];
-    for (let d of data) {
-        options.push($('<option>' + name_fmt(d) + '</option>')
-            .attr({ id: t + '-' + d, value: d }))
+    for (let d of Object.keys(data)) {
+        options.push(
+            $('<option>' + data[d] + '</option>')
+                .attr({ id: t + '-' + d, value: d })
+        );
     }
     options.sort((a, b) => {
         if (a[0].innerText < b[0].innerText) return -1;
@@ -123,8 +101,8 @@ function createDpsBar(resDiv, arr, extra, total_dps = undefined) {
     total_dps = (total_dps == undefined) ? total : parseInt(total_dps);
     const adv = arr[1];
     let slots = ' ' + slots_text_format(arr);
-    const cond = (arr[15] != undefined && arr[15] != '<>' && arr[15].includes('<')) ? arr[15].replace('<', '&lt;').replace('>', '&gt;') : '';
-    const comment = (arr[16] != undefined) ? arr[16] : '';
+    const cond = (arr[24] != undefined && arr[24] != '<>' && arr[24].includes('<')) ? arr[24].replace('<', '&lt;').replace('>', '&gt;') : '';
+    const comment = (arr[25] != undefined) ? arr[25] : '';
     let cond_comment = [];
     let cond_comment_str = '';
     let cond_cpy_str = '';
@@ -148,7 +126,7 @@ function createDpsBar(resDiv, arr, extra, total_dps = undefined) {
     let colorIdx = 0;
     let damageTxtArr = [];
     let damageTxtBar = [];
-    for (let i = 17; i < arr.length; i++) {
+    for (let i = 26; i < arr.length; i++) {
         const dmg = arr[i].split(':')
         if (dmg.length == 2) {
             const dmg_val = parseInt(dmg[1]);
@@ -354,7 +332,7 @@ function populateSkillShare(skillshare) {
     }
 }
 function loadAdvWPList() {
-    let selectedAdv = 'euden';
+    let selectedAdv = 'Euden';
     if (localStorage.getItem('selectedAdv')) {
         selectedAdv = localStorage.getItem('selectedAdv');
     }
@@ -376,11 +354,10 @@ function loadAdvWPList() {
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 const advwp = JSON.parse(data);
-                advwp.adv.sort();
                 populateSelect('#input-adv', advwp.adv);
                 $('#adv-' + selectedAdv).prop('selected', true);
-                populateSelect('#input-wp1', advwp.amulets);
-                populateSelect('#input-wp2', advwp.amulets);
+                populateSelect('#input-wp1', advwp.wyrmprints);
+                populateSelect('#input-wp2', advwp.wyrmprints);
                 populateSkillShare(advwp.skillshare);
                 loadAdvSlots(true);
             }
@@ -390,10 +367,10 @@ function loadAdvWPList() {
         }
     });
 }
-function selectSkillShare(fullname, pref_share) {
+function selectSkillShare(basename, pref_share) {
     for (const t of ['ss3', 'ss4']) {
         $('#input-' + t + ' > option').prop('disabled', false);
-        $('#' + t + '-' + fullname).prop('disabled', true);
+        $('#' + t + '-' + basename).prop('disabled', true);
     }
 
     switch (pref_share.length) {
@@ -407,7 +384,7 @@ function selectSkillShare(fullname, pref_share) {
             break;
         default:
             $('#ss3-weapon').prop('selected', true);
-            if (fullname === DEFAULT_SHARE) {
+            if (basename === DEFAULT_SHARE) {
                 $('#ss4-' + DEFAULT_SHARE_ALT).prop('selected', true);
             } else {
                 $('#ss4-' + DEFAULT_SHARE).prop('selected', true);
@@ -436,9 +413,10 @@ function loadAdvSlots(no_conf) {
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 let slots = JSON.parse(data);
+                console.log(slots)
                 populateSelect('#input-wep', slots.weapons);
                 populateSelect('#input-dra', slots.dragons);
-                buildCoab(slots.coab, slots.adv.fullname, slots.adv.wt);
+                buildCoab(slots.coabilities, slots.adv.basename, slots.adv.wt);
 
                 const urlVars = getUrlVars();
                 if (urlVars.conf) { slots = loadConf(conf, slots); }
@@ -452,7 +430,7 @@ function loadAdvSlots(no_conf) {
                     check.prop('checked', true);
                     coabSelection(1);
                 }
-                selectSkillShare(slots.adv.fullname, slots.adv.pref_share);
+                selectSkillShare(slots.adv.basename, slots.adv.pref_share);
                 if (slots.adv.prelim) {
                     $('#test-warning').html('Warning: preliminary sim, need QC and optimization.');
                 } else {
@@ -565,10 +543,10 @@ function coabSelection(add) {
     $('#input-coabs').data('selected', count);
 }
 
-function buildCoab(coab, fullname, weapontype) {
+function buildCoab(coab, basename, weapontype) {
     $('#input-coabs > div').empty();
     $('#input-coabs').data('max', 3);
-    let found_fullname = null;
+    let found_basename = null;
     $('#input-coabs').data('selected', 0);
     for (const k in coab) {
         const cid = 'coab-' + k.toLowerCase();
@@ -579,11 +557,11 @@ function buildCoab(coab, fullname, weapontype) {
         check.data('chain', kcoab[0]);
         check.data('ex', kcoab[1]);
         check.change(checkCoabSelection);
-        if (k == fullname) {
+        if (k == basename) {
             if (!kcoab[0] || kcoab[0][2] != 'hp' + String.fromCharCode(8804) + '40') {
                 check.prop('disabled', true);
                 check.prop('checked', true);
-                found_fullname = kcoab[1];
+                found_basename = kcoab[1];
             } else {
                 $('#input-coabs').data('max', 4);
                 check.addClass('coab-check');
@@ -606,8 +584,8 @@ function buildCoab(coab, fullname, weapontype) {
         }
     }
     let check = $('#coab-all-' + weapontype);
-    if (found_fullname) {
-        check = $('#coab-all-' + found_fullname);
+    if (found_basename) {
+        check = $('#coab-all-' + found_basename);
     }
     check.prop('disabled', true);
     check.prop('checked', true);
@@ -693,7 +671,7 @@ function runAdvTest(no_conf) {
                     buildConditionList(res.condition);
                     const result = res.test_output.split('\n');
                     const cond_true = result[1].split(',');
-                    const name = name_fmt(cond_true[1]);
+                    const name = cond_true[1];
                     const icon_urls = slots_icon_fmt(cond_true);
                     let copyTxt = '**' + name + ' ' + requestJson['t'] + 's** ';
                     let newResultItem = $('<div></div>').attr({ class: 'test-result-item' });

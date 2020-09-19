@@ -669,7 +669,7 @@ class Adv(object):
                 mods.append(t.modifier)
         if name[0] == 'd':
             mods.extend(self.dragonform.shift_mods)
-        log('actmods', name, str(mods))
+        # log('actmods', name, str(mods))
         return mods
 
     def actmod_off(self, e):
@@ -1165,14 +1165,13 @@ class Adv(object):
             self.d_coabs()
         else:
             self.coab_list = self.conf['coabs']
-        from conf import coability_dict
         try:
             self_coab = list(self.slots.c.coabs.keys())[0]
         except:
             self_coab = self.__class__.__name__
         for name in self.coab_list:
             try:
-                self.slots.c.coabs[name] = coability_dict(self.slots.c.ele)[name]
+                self.slots.c.coabs[name] = self.slots.c.valid_coabs[name]
             except KeyError:
                 raise ValueError(f'No such coability: {name}')
         self.coab_list = list(self.slots.c.coabs.keys())

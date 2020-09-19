@@ -14,11 +14,10 @@ from lark.visitors import Visitor, Interpreter, v_args
 
 from core.timeline import now
 from core.log import log
+from conf import ROOT_DIR
 
-froot = os.path.dirname(os.path.realpath('__file__'))
+froot = os.path.join(ROOT_DIR, 'core')
 lark_file = os.path.join(froot, 'acl.lark')
-if not os.path.exists(lark_file):
-    lark_file = os.path.join(froot, 'core', 'acl.lark')
 with open(lark_file) as f:
     PARSER = Lark(f.read(), parser='lalr')
 
