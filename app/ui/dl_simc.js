@@ -1,5 +1,5 @@
-// const APP_URL = 'http://127.0.0.1:5000/';
-const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 20000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
@@ -84,13 +84,13 @@ function stats_icon_fmt(stat_str) {
     for (const part of stat_str.split(';')) {
         const subparts = part.split(':');
         const name = subparts[0];
-        let value = subparts[1];
         if (name === 'team') {
-            team = parseFloat(value);
-            value = Math.round(team) + '%';
+            team = parseFloat(subparts[1]);
+        } else {
+            const value = subparts[1];
+            stats.push('<img src="/dl-sim/pic/icons/' + name + '.png" class="stat-icon"/>');
+            stats.push(value);
         }
-        stats.push('<img src="/dl-sim/pic/icons/' + name + '.png" class="stat-icon"/>');
-        stats.push(value);
     }
     return [stats, parseFloat(team)];
 }
@@ -98,8 +98,8 @@ function create_dps_bar(res_div, arr) {
     let copy_txt = '';
     const total = arr[0];
     let slots = ' ' + slots_text_format(arr);
-    const cond = (arr[24] != undefined && arr[24] != '<>' && arr[24].includes('<')) ? arr[24].replace('<', '&lt;').replace('>', '&gt;') : '';
-    const comment = (arr[25] != undefined) ? arr[25] : '';
+    const cond = arr[24] || '';
+    const comment = arr[25] || '';
     let cond_comment = [];
     let cond_comment_str = '';
     let cond_cpy_str = '';
@@ -117,7 +117,7 @@ function create_dps_bar(res_div, arr) {
     } else {
         slots = '';
     }
-    let stat_str = (arr[26] != undefined) ? arr[26] : '';
+    let stat_str = arr[26] || '';
     const stats = stats_icon_fmt(stat_str);
     const stats_display = stats[0].join('');
     const team = stats[1];
@@ -814,12 +814,12 @@ function update_teamdps() {
         $(ri).find('.result-slice').each((_, rs) => {
             const portion = (team_v > 0) ? Math.ceil(1000 * ($(rs).data('dmg') / new_total)) / 10 : Math.floor(1000 * ($(rs).data('dmg') / new_total)) / 10;
             others += portion;
-            $(rs).css('width', portion + '%')
+            $(rs).css('width', portion + '%');
         });
         const trs = $(ri).find('.team-result-slice')[0];
         const portion = 100 - others;
-        $(trs).css('width', portion + '%')
-        $(trs).html('team: ' + Math.ceil(team_v));
+        $(trs).css('width', portion + '%');
+        $(trs).html('team: ' + Math.ceil(team_v) + ' (+' + Math.round(team_p * 100) + '%)');
     });
 }
 window.onload = function () {

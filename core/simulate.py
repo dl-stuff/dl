@@ -566,13 +566,12 @@ def summation(real_d, adv, output, cond=True, no_cond_dps=None):
 
 def report(real_d, adv, output, team_dps, cond=True, web=False):
     name = adv.__class__.__name__
-    condition = '<{}>'.format(adv.condition.cond_str())
     dmg = adv.logs.damage
     res = dps_sum(real_d, dmg)
     report_csv = [res['dps']]
     report_csv.extend([
         *slots_csv(adv, web),
-        condition,
+        adv.condition.cond_str(),
         adv.comment if not web else adv.comment.replace(',', '&comma;'),
         compile_stats(real_d, adv)
     ])

@@ -883,7 +883,7 @@ class Adv(object):
         # return reduce(operator, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], initial)
 
     def sub_mod(self, mtype, morder):
-        return self.all_modifiers.sub_mod(mtype, mtype, morder)
+        return self.all_modifiers.sub_mod(mtype, morder)
     # def sub_mod(self, mtype, morder):
     #     mod_sum = sum([modifier.get() for modifier in self.all_modifiers[mtype][morder]])
     #     if morder == 'buff':
@@ -898,7 +898,7 @@ class Adv(object):
 
     def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2
-        self.echo_att = fixed_att or (mod * self.base_att * self.modifier.mod('att'))
+        self.echo_att = fixed_att or (mod * self.base_att * self.mod('att'))
         log('debug', 'echo_att', self.echo_att)
 
     def disable_echo(self):
