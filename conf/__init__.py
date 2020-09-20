@@ -47,7 +47,16 @@ def load_adv_json(adv):
         return aconf
 
 def get_icon(adv):
-    return load_adv_json(adv)['c']['icon']
+    try:
+        return load_adv_json(adv)['c']['icon']
+    except (FileNotFoundError, KeyError):
+        return ''
+
+def get_fullname(adv):
+    try:
+        return load_adv_json(adv)['c']['name']
+    except (FileNotFoundError, KeyError):
+        return adv
 
 def get_adv(name):
     conf = Conf(load_adv_json(name))

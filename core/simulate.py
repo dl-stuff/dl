@@ -3,7 +3,7 @@ import os
 import re
 from itertools import chain
 from collections import defaultdict
-from conf import get_icon
+from conf import get_icon, get_fullname
 import core.acl
 
 BR = 64
@@ -291,9 +291,9 @@ def brute_force_coabs(classname, conf, output, team_dps, duration):
     output.write('attempts: {}'.format(len(results)))
 
 def slots(adv):
-    slots = f'[{adv.slots.a}][{adv.slots.d}][{adv.slots.w}][{"|".join(adv.coab_list)}][S3:{adv.skillshare_list[0]}'
+    slots = f'[{adv.slots.a}][{adv.slots.d}][{adv.slots.w}][{"|".join((map(get_fullname, adv.coab_list)))}][S3:{get_fullname(adv.skillshare_list[0])}'
     try:
-        slots += f'|S4:{adv.skillshare_list[1]}]'
+        slots += f'|S4:{get_fullname(adv.skillshare_list[1])}]'
     except:
         slots += ']'
     return slots
@@ -312,10 +312,7 @@ def slots_csv(adv, web):
         if not name:
             icon_lst.extend(('', ''))
         else:
-            try:
-                icon_lst.extend((name, get_icon(name)))
-            except:
-                icon_lst.extend((name, ''))
+            icon_lst.extend((get_fullname(name), get_icon(name)))
     return (
         adv.slots.full_slot_icons(),
         *icon_lst
