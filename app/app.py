@@ -16,11 +16,6 @@ app = Flask(__name__)
 
 # Helpers
 ADV_DIR = 'adv'
-MEANS_ADV = {
-    'addis': 'addis_means.py',
-    'sazanka': 'sazanka_means.py',
-    'victor': 'victor_means.py'
-}
 
 def load_chara_file(fn, extra=None):
     if extra:
@@ -162,7 +157,7 @@ def simc_adv_test():
     teamdps = None if not 'teamdps' in params else abs(float(params['teamdps']))
     t   = 180 if not 't' in params else min(abs(float(params['t'])), 600.0)
     log = 5
-    mass = 25 if adv_name in MASS_SIM_ADV and adv_name not in MEANS_ADV else 0
+    mass = 0
     coab = None if 'coab' not in params else params['coab']
     share = None if 'share' not in params else params['share']
     # latency = 0 if 'latency' not in params else abs(float(params['latency']))

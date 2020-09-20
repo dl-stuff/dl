@@ -17,6 +17,8 @@ class Victor(Adv):
     conf['coabs'] = ['Akasha','Dragonyule_Xainfried','Lin_You']
     conf['share'] = ['Curran']
 
+    conf['mbleed'] = True
+    
     def prerun(self):
         self.bleed = Bleed('g_bleed',0).reset()
 

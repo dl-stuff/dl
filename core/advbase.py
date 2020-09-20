@@ -1623,14 +1623,21 @@ class Adv(object):
             getattr(self.afflics, aff_type)(name, *aff_args)
 
         if 'bleed' in attr:
-            rate, mod = attr['bleed']
-            if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
-                from module.bleed import mBleed
-                mBleed(name, mod).on()
-            else:
-                from module.bleed import Bleed
-                if rate == 100 or rate > random.uniform(0, 100):
-                    Bleed(name, mod).on()
+            rate, coef = attr['bleed']
+            # if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
+            #     from module.bleed import mBleed
+            #     mBleed(name, mod).on()
+            # else:
+            #     from module.bleed import Bleed
+            #     if rate == 100 or rate > random.uniform(0, 100):
+            #         Bleed(name, mod).on()
+            bleed = getattr(self, 'bleed', None)
+            if not bleed:
+                from module.bleed import Bleed, mBleed
+                bleed = Bleed()
+                setattr(self, 'bleed', bleed)
+            bleed.on(name, coef, 80)
+
 
         if 'buff' in attr:
             self.hitattr_buff_outer(name, base, group, aseq, attr)

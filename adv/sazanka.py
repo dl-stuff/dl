@@ -19,6 +19,8 @@ class Sazanka(Adv):
     conf['share.base'] = ['Kleimann']
     conf['share.poison'] = ['Curran']
 
+    conf['mbleed'] = True
+
     def prerun(self):
         self.bleed = Bleed('g_bleed',0).reset()
 

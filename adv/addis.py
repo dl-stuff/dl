@@ -20,6 +20,8 @@ class Addis(Adv):
     conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
+    conf['mbleed'] = True
+
     def getbleedpunisher(self):
         if self.bleed._static['stacks'] > 0:
             return 0.08

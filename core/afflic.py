@@ -478,14 +478,13 @@ class Afflics(object):
         # for atype in ['poison', 'burn', 'paralysis', 'blind', 'freeze', 'stun', 'sleep', 'bog']:
         for atype in AFFLICT_LIST:
             aff = self.__dict__[atype]
-            if aff.get_override == 0:
-                aff.uptime()
-                rate, t = aff.c_uptime
-                # last = aff.last_afflict
-                if rate > 0:
-                    # print('{}_uptime'.format(atype), '{:.2f}/{:.2f}'.format(rate, t), '{:.2%}'.format(rate/t))
-                    # print('last_{}: {:.2f}s'.format(atype, last))
-                    uptimes[atype] = rate/t
+            aff.uptime()
+            rate, t = aff.c_uptime
+            # last = aff.last_afflict
+            if rate > 0:
+                # print('{}_uptime'.format(atype), '{:.2f}/{:.2f}'.format(rate, t), '{:.2%}'.format(rate/t))
+                # print('last_{}: {:.2f}s'.format(atype, last))
+                uptimes[atype] = rate/t
         return uptimes
 
     def rinit(self):

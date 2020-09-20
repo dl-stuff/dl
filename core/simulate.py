@@ -554,6 +554,7 @@ def summation(real_d, adv, output, cond=True, no_cond_dps=None):
             cond_comment.append(adv.comment)
         affstr = compile_stats(real_d, adv, do_buffs=False)
         if affstr:
+            cond_comment.append('|')
             cond_comment.append(affstr)
         if len(cond_comment) > 0:
             output.write(' '.join(cond_comment))
@@ -630,14 +631,10 @@ def test_with_argv(*argv, conf={}):
     except:
         duration = 180
     try:
-        team_dps = int(argv[4])
-    except:
-        team_dps = 20000
-    try:
-        mass = int(argv[5])
+        mass = int(argv[4])
     except:
         mass = 0
-    test(module, conf=conf, verbose=verbose, duration=duration, mass=mass, team_dps=team_dps)
+    test(module, conf=conf, verbose=verbose, duration=duration, mass=mass)
 
 if __name__ == '__main__':
     test_with_argv(*sys.argv)
