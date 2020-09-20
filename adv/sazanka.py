@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.bleed import Bleed
+from module.bleed import Bleed, mBleed
 
 def module():
     return Sazanka
@@ -22,7 +22,7 @@ class Sazanka(Adv):
     conf['mbleed'] = True
 
     def prerun(self):
-        self.bleed = Bleed('g_bleed',0).reset()
+        self.bleed = mBleed('g_bleed',0).reset()
 
 
 if __name__ == '__main__':

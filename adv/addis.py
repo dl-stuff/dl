@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.bleed import Bleed
+from module.bleed import Bleed, mBleed
 
 def module():
     return Addis
@@ -33,7 +33,7 @@ class Addis(Adv):
         # self.s2str = Selfbuff('s2_str',0.25,10)
         self.bleedpunisher = Modifier('bleed','att','killer',0.08)
         self.bleedpunisher.get = self.getbleedpunisher
-        self.bleed = Bleed('g_bleed',0).reset()
+        self.bleed = mBleed('g_bleed',0).reset()
         # self.crit_mod = self.rand_crit_mod
 
 if __name__ == '__main__':
