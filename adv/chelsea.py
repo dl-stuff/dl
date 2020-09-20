@@ -11,7 +11,8 @@ class Chelsea(Adv):
         `s2, fsc
         `s1, fsc and self.hp < 30 and buffstack(ro) < 3
         `s4, fsc
-        `fs, x=2
+        `dodge, fsc
+        `fs
     """
     conf['coabs'] = ['Blade', 'Grace', 'Hunter_Berserker']
     conf['share'] = ['Summer_Patia']

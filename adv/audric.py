@@ -19,7 +19,7 @@ class Audric(Adv):
     conf['share.poison'] = ['Curran']
 
     def prerun(self):
-        self.dragonform.shift_mods.append(Modifier('cursed_blood', 'crit', 'chance', 0.30))
+        self.dragonform.shift_mods.append(Modifier('cursed_blood', 'crit', 'chance', 0.30).off())
 
 
 if __name__ == '__main__':

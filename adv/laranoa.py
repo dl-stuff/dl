@@ -16,7 +16,7 @@ class Laranoa(Adv):
         `s2
         `s4
         `s1
-        `fs, seq=4
+        `fs, x=4
     """
     conf['coabs'] = ['Renee', 'Xander', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
@@ -28,7 +28,11 @@ class Laranoa(Adv):
         super().add_combo(name)
         if self.hits // 20 > self.ahits:
             self.ahits = self.hits // 20
-            Selfbuff('sylvan critdmg',0.10,20,'crit','damage').on()
+            if name[0] == 's' or name == 'ds':
+                Selfbuff('sylvan critdmg',0.10,20,'crit','damage').on()
+            else:
+                Selfbuff('sylvan critdmg',0.10,20,'crit','damage').ex_bufftime().on()
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

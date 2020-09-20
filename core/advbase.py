@@ -963,6 +963,9 @@ class Adv(object):
         att = self.mod('att')
         cc = self.crit_mod(name)
         k = self.killer_mod(name)
+        # if name == 's1_ddrive':
+        #     print(dict(self.all_modifiers['att']))
+        #     exit()
         return cc * att * k
 
     def build_rates(self, as_list=True):
@@ -1588,6 +1591,8 @@ class Adv(object):
                 value = attr['sp'][0]
                 mode = None if len(attr['sp']) == 1 else attr['sp'][1]
                 target = None if len(attr['sp']) == 2 else attr['sp'][2]
+                if target == 'sn':
+                    target = base
                 charge_f = self.charge
                 if mode == '%':
                     charge_f = self.charge_p

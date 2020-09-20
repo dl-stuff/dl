@@ -13,11 +13,11 @@ class Tiki(Adv):
     conf['acl'] = """
         if divine_dragon.get()
         `s1
-        `s2
+        `s2, cancel
         `dodge, x=3
         else
         `s3, not buff(s3) and fsc
-        `dragon, dgauge>=1800
+        `dragon, cancel and dgauge>=1800
         `s4, x=5
         `s2
         `s1, fsc
@@ -26,7 +26,6 @@ class Tiki(Adv):
     """
     conf['coabs'] = ['Blade', 'Xander', 'Catherine']
     conf['share'] = ['Kleimann']
-    
 
     def d_slots(self):
         if self.duration <= 60:

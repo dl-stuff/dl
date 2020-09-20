@@ -25,7 +25,7 @@ class Tobias(Adv):
         `s1
         `s3
         `s4, s
-        `fs, x=5
+        `fs, xf=5
     """
     conf['coabs'] = ['Bow','Blade','Dagger2']
     conf['share'] = ['Summer_Luca', 'Summer_Cleo']

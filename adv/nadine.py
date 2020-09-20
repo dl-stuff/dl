@@ -31,12 +31,9 @@ class Nadine(Adv):
         if adv.condition(f'{teammates} teammates in s1'):
             adv.team_s1_hits += teammates
 
-    def s1_before(self, e):
-        self.s1_hits_before = self.hits
-
     def s1_proc(self, e):
-        aseq = (self.hits - self.s1_hits_before) + 1
-        s1_hits = (self.hits - self.s1_hits_before) + self.team_s1_hits
+        aseq = 1 if e.group == 'default' else 3 + 1
+        s1_hits = 1 if e.group == 'default' else 3 + self.team_s1_hits
         log('debug', 's1_hits', s1_hits, self.team_s1_hits)
         if s1_hits <= 3:
             self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_3)
@@ -48,6 +45,7 @@ class Nadine(Adv):
             return
         if s1_hits >= 6:
             self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_6)
+
             self.energy.add(5)
             return
 

@@ -20,7 +20,7 @@ class Bellina(Adv):
         `fs, x=4
         end
     """
-    # conf['slots.d'] = 'Fatalis'
+    conf['slots.d'] = 'Fatalis'
     conf['coabs'] = ['Ieyasu','Curran','Berserker']
     conf['share'] = ['Veronica']
 
@@ -33,9 +33,8 @@ class Bellina(Adv):
         self.hp = 100
 
     def s2_before(self, e):
-        if self.hp > 30:
-            if e.group == 'default':
-                self.dragonform.charge_gauge(3000*(self.hp-30)/100, utp=True, dhaste=False)
+        if self.hp > 30 and e.group == 'default':
+            self.dragonform.charge_gauge(3000*(self.hp-30)/100, utp=True, dhaste=False)
 
 
 if __name__ == '__main__':

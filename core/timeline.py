@@ -169,7 +169,7 @@ class Timer(object):
         return self
 
     def add(self, time=0):
-        core.log.log('timeline', self.timing, self.timing+time, time, self.timing+time-now())
+        # core.log.log('timeline', self.timing, self.timing+time, time, self.timing+time-now())
         self.timeout += time
         self.timing += time
         if self.timing < now():

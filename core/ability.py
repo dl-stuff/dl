@@ -139,7 +139,7 @@ ability_dict['sp'] = Skill_Haste
 
 class Striking_Haste(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('sp', 'fs', value, cond)])
+        super().__init__(name, [('spf', 'passive', value, cond)])
 ability_dict['spf'] = Striking_Haste
 
 
@@ -787,8 +787,9 @@ ability_dict['eextra'] = Energy_Extra
 class Damaged_Buff(BuffingAbility):
     def oninit(self, adv, afrom=None):
         from core.modifier import SingleActionBuff
+        self.damaged_buff = SingleActionBuff(*self.buff_args)
         def l_damaged_buff(e):
             if e.delta < 0:
-                SingleActionBuff(*self.buff_args).on()
+                self.damaged_buff.on()
         adv.Event('hp').listener(l_damaged_buff)
 ability_dict['damaged'] = Damaged_Buff

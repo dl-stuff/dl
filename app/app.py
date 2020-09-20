@@ -37,10 +37,6 @@ MASS_SIM_ADV = load_chara_file('chara_slow.txt')
 PRELIM_ADV = load_chara_file('chara_prelim.txt')
 
 SPECIAL_ADV = {
-    'fjorm_x4': {
-        'fullname': 'Fjorm X4',
-        'nc': ['acl']
-    },
     'hunter_sarisse_allhits': {
         'fullname': 'Hunter Sarisse All Hits',
         'nc': []
@@ -261,7 +257,10 @@ def get_adv_slotlist():
         result['adv']['prelim'] = result['adv']['name'] in PRELIM_ADV
 
         weapon = weapons[adv.slots.c.ele][adv.slots.c.wt]
-        result['weapons'] = {f'{adv.slots.c.ele}-{adv.slots.c.wt}': f'T{weapon["tier"]} {weapon["name"]}'}
+        weapon_name = weapon['name']
+        if weapon['tier'] ==2:
+            weapon_name += ' (Tier II)'
+        result['weapons'] = {f'{adv.slots.c.ele}-{adv.slots.c.wt}': weapon_name}
         result['dragons'] = {drg: data['d']['name'] for drg, data in dragons[adv.slots.c.ele].items()}
         result['coabilities'] = adv.slots.c.valid_coabs
     return jsonify(result)

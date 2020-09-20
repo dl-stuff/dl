@@ -98,9 +98,9 @@ class Gala_Laxi(RngCritAdv):
         self.dmg_make('x_fig', 1.00, 'x')
         self.add_combo('x_fig')
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
         self.update_a1(attr.get('cp', 0))
-        super().hitattr_make(name, base, group, aseq, attr, onhit)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=None)
 
     def update_a1(self, delta):
         if delta != 0 and not self.fig.get() and self.a1_cp < 100:

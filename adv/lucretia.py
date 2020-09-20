@@ -23,7 +23,7 @@ class Lucretia(Adv):
             self.conf['coabs'] = ['Blade','Bow','Peony']
         
     def s1_proc(self, e):
-        if self.energy.active:
+        if e.name in self.energy.active:
             Teambuff(f'{e.name}_cc',0.1,30,'crit','chance').on()
 
 

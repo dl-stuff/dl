@@ -531,21 +531,22 @@ def summation(real_d, adv, output, cond=True, no_cond_dps=None):
     if cond:
         output.write('='*BR+'\n')
         output.write('DPS - {}'.format(round(res['dps'])))
-        t_buff = adv.logs.team_buff / real_d
-        if t_buff > 0:
-            output.write(' (team: {:.2f})'.format(t_buff))
+        if adv.logs.team_buff > 0:
+            output.write(' (team: {:.2f})'.format(adv.logs.team_buff / real_d))
+        if adv.logs.team_doublebuffs > 0:
+            output.write(' (dbiv: {:.1f}s)'.format(real_d/adv.logs.team_doublebuffs))
         for k, v in adv.logs.team_tension.items():
             output.write(' ({}: {})'.format(k, int(v)))
-        if no_cond_dps:
-            output.write(' | {}'.format(no_cond_dps['dps']))
-            if no_cond_dps['team_buff'] > 0:
-                output.write(' (team: {:.2f})'.format(no_cond_dps['team_buff']))
-            for k, v in no_cond_dps['team_tension'].items():
-                output.write(' ({}: {})'.format(k, int(v)))
+        # if no_cond_dps:
+        #     output.write(' | {}'.format(no_cond_dps['dps']))
+        #     if no_cond_dps['team_buff'] > 0:
+        #         output.write(' (team: {:.2f})'.format(no_cond_dps['team_buff']))
+        #     for k, v in no_cond_dps['team_tension'].items():
+        #         output.write(' ({}: {})'.format(k, int(v)))
         output.write(', duration {:.2f}s'.format(real_d))
 
         output.write('\n')
-        output.write(adv.__class__.__name__)
+        output.write(adv.slots.c.name)
         output.write(' ')
         output.write(slots(adv))
         output.write('\n')

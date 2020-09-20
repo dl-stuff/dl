@@ -13,7 +13,7 @@ class Aldred(Adv):
         `s2
         `dragon, not dragondrive.get()
         `s4
-        `s1, x=5 or s=2
+        `s1, x=5 or s
     """
     conf['coabs'] = ['Wand','Summer_Patia','Curran']
     conf['share'] = ['Veronica']

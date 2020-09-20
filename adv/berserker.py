@@ -16,7 +16,7 @@ class Berserker(Adv):
         """
     conf['coabs'] = ['Berserker','Ieyasu','Wand','Curran']
     conf['share.base'] = ['Kleimann']
-    conf['share.poison'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
 
 if __name__ == '__main__':

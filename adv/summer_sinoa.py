@@ -5,11 +5,11 @@ def module():
 
 class Summer_Sinoa(Adv):
     comment = 's!cleo ss after s1 at 2 overload'
-    a1 = ('s', 0.30)
     conf = {}
     conf['slots.d'] = 'Ariel'
     conf['slots.a'] = ['Candy_Couriers', 'The_Fires_of_Hate']
     conf['acl'] = """
+        `dragon
         `s3, not buff(s3) and x=5
         `s4, s=1 and self.overload=2
         `s2, self.overload=3

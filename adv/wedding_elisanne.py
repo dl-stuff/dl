@@ -8,7 +8,7 @@ class Wedding_Elisanne(Adv):
     conf = {}
     conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
     conf['acl'] = """
-        `dragon(c3-s-end), s4.check()
+        `dragon(c3-s-end)
         `s3, not buff(s3)
         `s2
         `s4

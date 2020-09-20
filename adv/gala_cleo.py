@@ -20,12 +20,10 @@ class Gala_Cleo(Adv):
         `s2
         end
         `s1, s or fsc
-
-        # Buffbot Gleo
-        # https://wildshinobu.pythonanywhere.com/ui/dl_simc.html?conf=eyJhZHYiOiJnYWxhX2NsZW8iLCJkcmEiOiJSYW1pZWwiLCJ3ZXAiOiJBZ2l0bzJfSml1X0NpIiwid3AxIjoiQ2FuZHlfQ291cmllcnMiLCJ3cDIiOiJNZW1vcnlfb2ZfYV9GcmllbmQiLCJzaGFyZSI6WyJTdW1tZXJfQ2xlbyJdLCJjb2FiIjpbIklleWFzdSIsIkJvdyIsIkF1ZHJpYyJdLCJ0IjoiMTIwIiwidGVhbWRwcyI6IjMwMDAwIiwiYWNsIjoiYGRyYWdvbi5hY3QoJ3MgZW5kJyksIHM9MlxuYHMzLCBub3Qgc2VsZi5zM19idWZmXG5gZnMsIChzMS5jaGVjaygpIG9yIHMyLmNoZWNrKCkpIGFuZCBzZWxmLmZzX2FsdC51c2VzID4gMFxuYHMyLCBjYW5jZWxcbmBzMSwgY2FuY2VsXG5gczQsIHM9MSIsImNvbmRpdGlvbiI6eyJhMSBidWZmIGZvciAxMHMiOnRydWUsImJ1ZmYgYWxsIHRlYW0iOnRydWUsImhpdDE1Ijp0cnVlfX0=
-        """
+    """
     conf['coabs'] = ['Blade','Bow','Dagger']
-    conf['share'] = ['Curran']
+    conf['share.base'] = ['Kleimann']
+    conf['share.poison'] = ['Curran']
 
 
 if __name__ == '__main__':

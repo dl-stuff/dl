@@ -12,7 +12,7 @@ class Nefaria(Adv):
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3, not buff(s3) and x=4
-        `fs, c_fs(enhanced) > 0 and x=4
+        `fs, c_fs(enhanced) > 0 and x=4 and s1.check()
         `s1, fsc or x=1 or s=4 or not buff(s3)
         `s4
         `s2

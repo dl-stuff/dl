@@ -10,8 +10,8 @@ class Summer_Norwin(Adv):
     conf['acl'] = """
         `dragon(c3-s-end), x=5 and s1.charged<2000
         `s3, not buff(s3)
-        `s1
-        `s2, x=5
+        `s1, c_s(1, a) or c_s(1, c)
+        `s2, x=5 and (c_s(2, b) or c_s(2, d))
         `s4, x=5
         """
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Eleonora']
@@ -19,14 +19,16 @@ class Summer_Norwin(Adv):
 
     def prerun(self):
         self.doleful = 0
+        self.current_s['s1'] = 'a'
+        self.current_s['s2'] = 'a'
 
     def s1_before(self, e):
-        if e.group == 'c':
+        if e.group == 'd':
             self.doleful = 0
             self.energy.disabled = False
 
     def s2_proc(self, e):
-        if e.group == 'c':
+        if e.group == 'd':
             self.set_hp(self.hp*(1-self.doleful*0.20))
             self.doleful = min(self.doleful+1, 4)
             self.energy.disabled = True

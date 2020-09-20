@@ -210,7 +210,9 @@ class AclInterpreter(Interpreter):
     def function(self, t):
         fn = t.children[0]
         args = t.children[1:]
-        return getattr(self._inst, fn.value)(*map(self.visit, args))
+        result = getattr(self._inst, fn.value)(*map(self.visit, args))
+        # log('acl', str(t), str(result))
+        return result
 
     # @v_args(inline=True)
     # def indice(self, fn, idx):

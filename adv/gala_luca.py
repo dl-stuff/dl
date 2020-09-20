@@ -88,7 +88,7 @@ class Gala_Luca(Adv):
 
     def s1_before(self, e):
         if self.shared_crit:
-            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count())
+            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
             self.extra_actmods.append(self.gluca_crit_mod)
         else:
             self.in_s1 = True
@@ -101,7 +101,7 @@ class Gala_Luca(Adv):
 
     def ds_before(self, e):
         if self.shared_crit:
-            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count())
+            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
             self.extra_actmods.append(self.gluca_crit_mod)
         else:
             self.in_s1 = True

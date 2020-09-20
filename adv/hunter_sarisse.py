@@ -19,7 +19,7 @@ class Hunter_Sarisse(Adv):
         `fs4
     """
     conf['coabs'] = ['Dragonyule_Cleo', 'Xander', 'Grace']
-    conf['share'] = ['Gala_Elisanne', 'Eugene']
+    conf['share'] = ['Gala_Elisanne', 'Marty']
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

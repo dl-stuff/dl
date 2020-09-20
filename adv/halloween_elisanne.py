@@ -11,7 +11,7 @@ class Halloween_Elisanne(Adv):
     conf['acl'] = """
         `dragon
         `s3, not buff(s3)
-        `s2, s1.charged<=s1.sp-700 and s4.charged<=s4.sp-700 
+        `s2, not charged_in(s2, s1) or not charged_in(s2, s4)
         `s4
         `s1, cancel
         `fs, x=5

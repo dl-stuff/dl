@@ -35,7 +35,7 @@ class Gala_Mym(Adv):
             self.a1_buff.on()
         else:
             self.dragonform.conf.update(self.conf.dragonform2)
-            self.dragonform.shift_spd_mod = Modifier('flamewyrm_spd', 'spd', 'passive', 0.15)
+            self.dragonform.shift_spd_mod = Modifier('flamewyrm_spd', 'spd', 'passive', 0.15).off()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

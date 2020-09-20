@@ -8,9 +8,9 @@ class Hunter_Vanessa(Adv):
     conf = {}
     conf['slots.a'] = ['Mega_Friends', 'Spirit_of_the_Season']
     conf['acl'] = """
-        `dragon, s
+        `dragon, cancel
         `s2, not buff(s2)
-        `fs2, (s1.charged>=s1.sp-self.sp_val(fs2) or s4.charged>=s4.sp-self.sp_val(fs2))
+        `fs2, charged_in(fs2, s1) or charged_in(fs2, s4)
         `s3, not buff(s3) and fsc
         `s1, fsc
         `s4, fsc

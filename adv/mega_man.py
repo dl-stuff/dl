@@ -52,38 +52,38 @@ class Mega_Man(Adv):
     conf['coabs'] = ['Blade', 'Marth', 'Dagger2']
     conf['share'] = ['Karl']
 
-    conf['dragonform'] = {
-        'act': 'c5-s',
+    # conf['dragonform'] = {
+    #     'act': 'c5-s',
 
-        'dx1.dmg': 1.20,
-        'dx1.startup': 10 / 60.0, # c1 frames
-        'dx1.hit': 3,
+    #     'dx1.dmg': 1.20,
+    #     'dx1.startup': 10 / 60.0, # c1 frames
+    #     'dx1.hit': 3,
 
-        'dx2.dmg': 1.20,
-        'dx2.startup': 13 / 60.0, # c2 frames
-        'dx2.hit': 3,
+    #     'dx2.dmg': 1.20,
+    #     'dx2.startup': 13 / 60.0 - 0.03333 = 0.18333666666666666667, # c2 frames
+    #     'dx2.hit': 3,
 
-        'dx3.dmg': 1.20,
-        'dx3.startup': 14 / 60.0, # c3 frames
-        'dx3.hit': 3,
+    #     'dx3.dmg': 1.20,
+    #     'dx3.startup': 14 / 60.0 - 0.03333 = 0.20000333333333333333, # c3 frames
+    #     'dx3.hit': 3,
 
-        'dx4.dmg': 1.20,
-        'dx4.startup': 14 / 60.0, # c4 frames
-        'dx4.hit': 3,
+    #     'dx4.dmg': 1.20,
+    #     'dx4.startup': 14 / 60.0, # c4 frames
+    #     'dx4.hit': 3,
 
-        'dx5.dmg': 1.20,
-        'dx5.startup': 14 / 60.0, # c5 frames
-        'dx5.recovery': 23 / 60.0, # recovery
-        'dx5.hit': 3,
+    #     'dx5.dmg': 1.20,
+    #     'dx5.startup': 14 / 60.0, # c5 frames
+    #     'dx5.recovery': 23 / 60.0, # recovery
+    #     'dx5.hit': 3,
 
-        'ds.dmg': 6.00,
-        'ds.recovery': 113 / 60, # skill frames
-        'ds.hit': 5,
+    #     'ds.dmg': 6.00,
+    #     'ds.recovery': 113 / 60, # skill frames
+    #     'ds.hit': 5,
 
-        'dodge.startup': 45 / 60.0, # dodge frames
-    }
-    def ds_proc(self):
-        return self.dmg_make('ds',self.dragonform.conf.ds.dmg,'s')
+    #     'dodge.startup': 45 / 60.0, # dodge frames
+    # }
+    # def ds_proc(self):
+    #     return self.dmg_make('ds',self.dragonform.conf.ds.dmg,'s')
 
     def __init__(self, conf=None, cond=None):
         super().__init__(conf=conf, cond=cond)
@@ -92,6 +92,7 @@ class Mega_Man(Adv):
         self.bleed = Bleed('g_bleed',0).reset()
 
     def prerun(self):
+        self.leaf = 2 # number of hits per leaf rotation
         self.s1.charge_ammo(2000)
         self.s2.charge_ammo(4000)
 
@@ -99,7 +100,7 @@ class Mega_Man(Adv):
     def skills(self):
         return self.s3, self.s4
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
         ammo = attr.get('ammo', 0)
         if ammo > 0:
             for s in (self.s1, self.s2):
@@ -111,7 +112,7 @@ class Mega_Man(Adv):
                 self.current_x = 'default'
         if ammo != 0:
             log('ammo', name, ammo, ' '.join(f'{s.c_ammo}/{s.ammo}' for s in (self.s1, self.s2)))
-        super().hitattr_make(name, base, group, aseq, attr, onhit)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=None)
 
     def s1_proc(self, e):
         if self.current_x != 'metalblade':

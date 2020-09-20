@@ -173,7 +173,7 @@ class DragonBase(EquipBase):
             if isinstance(dconf, dict):
                 adv.damage_sources_check(dn, dconf)
         if adv.conf['dragonform']:
-            name = type(adv).__name__
+            name = self.c.name
             self.dragonform.update(adv.conf['dragonform'])
         else:
             name = self.name
@@ -367,7 +367,7 @@ class WeaponBase(EquipBase):
         },
         'water': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': ['self', 0.20, -1, 'crit', 'chance', '-replace']}]},
+            's3_phase1': {'attr': [{'buff': ['self', 0.12, -1, 'crit', 'chance', '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.35, -1, 'defense', 'buff', '-replace']}]}
         },
         'wind': {
@@ -674,6 +674,8 @@ class Slots:
                 pass
         else:
             keys = list(keys)
+        if len(keys) < 2:
+            raise ValueError('Only one wyrmprint equipped')
         if self.sim_afflict:
             if affkeys:
                 keys = affkeys

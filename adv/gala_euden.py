@@ -26,7 +26,7 @@ class Gala_Euden(Adv):
         # self.dragonlight_spd = Spdbuff('dragonlight',0.1,-1,wide='self')
         # Event('dragon').listener(self.a3_on)
         # Event('idle').listener(self.a3_off)
-        self.dragonform.shift_spd_mod = Modifier('dragonlight_spd', 'spd', 'passive', 0.10)
+        self.dragonform.shift_spd_mod = Modifier('dragonlight_spd', 'spd', 'passive', 0.10).off()
 
     # def a3_on(self, e):
     #     if not self.dragonlight_spd.get():
