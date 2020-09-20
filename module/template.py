@@ -1,5 +1,6 @@
 from collections import defaultdict
 from functools import reduce
+import operator
 
 from core.log import log
 from core.timeline import now
@@ -43,7 +44,6 @@ class StanceAdv(Adv):
                     next_stance.on_except('x')
             self.stance = self.next_stance
             self.next_stance = None
-            log('stance', self.stance, str(self.deferred_x))
 
     def queue_stance(self, stance):
         if self.can_queue_stance(stance):
@@ -75,9 +75,11 @@ class RngCritAdv(Adv):
         self.rngcrit_cd_duration = cd
         if ev:
             self.effect_duration = ev
+            self.s_bt = self.mod('buff', operator=operator.add)
+            self.x_bt = 1 + self.sub_mod('buff', 'ex')
             self.crit_mod = self.ev_custom_crit_mod
-            self.rngcrit_state_len = ev_len or (self.effect_duration // self.rngcrit_cd_duration) + 1
-            self.rngcrit_states = {(None,)*self.rngcrit_state_len: 1.0}
+            # self.rngcrit_state_len = ev_len or int(((self.effect_duration*self.s_bt) // self.rngcrit_cd_duration) + 1)
+            self.rngcrit_states = {(None,): 1.0}
             self.prev_log_time = 0
         else:
             self.crit_mod = self.rand_custom_crit_mod
@@ -99,19 +101,28 @@ class RngCritAdv(Adv):
         else:
             chance, cdmg = self.combine_crit_mods()
             t = now()
+
+            bt = self.x_bt if not name[0] == 's' or name == 'ds' else self.s_bt
             
             new_states = defaultdict(lambda: 0.0)
             for state, state_p in self.rngcrit_states.items():
-                if self.effect_duration > 0:
-                    state = tuple([b if b is not None and t - b <= self.effect_duration else None for b in state])
-                if state[0] is not None and t - state[0] < self.rngcrit_cd_duration:
+                state = tuple([b for b in state if b is not None and sum(b) > t])
+                if not state:
+                    state = (None,)
+                if state[0] is not None and t - state[0][0] < self.rngcrit_cd_duration:
                     new_states[state] += state_p
                 else:
                     miss_rate = 1.0 - chance
                     new_states[state] += miss_rate * state_p
-                    for i in range(self.rngcrit_state_len):
-                        # t is the newest buff timing so it's in the front; the rest remain in order
-                        new_states[(t,) + state[0:i] + state[i + 1:]] += chance * state_p / self.rngcrit_state_len
+                    newest = (t, self.effect_duration*bt)
+                    new_states[(newest,)+state] = chance * state_p
+            # print('sanity', sum(new_states.values()))
+            new_states[(None,)] += 1 - sum(new_states.values())
+            # print('TIME', t)
+            # for s, p in new_states.items():
+            #     print(s, p)
+            # print('SUM', sum(new_states.values()))
+            # print('\n')
             mrate = reduce(lambda mv, s: mv + (sum(int(b is not None) for b in s[0]) * s[1]), new_states.items(), 0)
             if self.prev_log_time == 0 or self.prev_log_time < t - self.rngcrit_cd_duration:
                 log('rngcrit', mrate)
