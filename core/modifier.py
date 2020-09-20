@@ -556,8 +556,8 @@ class SingleActionBuff(Buff):
         pass
 
     def act_on(self, e):
-        if self.get() and e.name.startswith(self.mod_type) or e.name == 'ds' and self.mod_type == 's' \
-           and self.uses > 0 and not e.name in self.active:
+        if self.get() and (e.name.startswith(self.mod_type) or (e.name == 'ds' and self.mod_type == 's')) \
+           and self.uses > 0 and not e.name in self.active and e.name in self._static.adv.damage_sources:
             self.active.add(e.name)
             self.logwrapper(self.name, e.name, str(self.active), 'act_on')
             self.uses -= 1

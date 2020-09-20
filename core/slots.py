@@ -232,10 +232,10 @@ class Styx(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         adv.styx_spirit = 0
-        csd_buff = SingleActionBuff('d_compounding_sd',0.0,-1,'s','buff')
+        adv.csd_buff = SingleActionBuff('d_compounding_sd',0.0,-1,'s','buff')
         def add_csd(e):
-            csd_buff.set(min(2.00, csd_buff.get()+0.50))
-            csd_buff.on()
+            adv.csd_buff.set(min(2.00, adv.csd_buff.get()+0.50))
+            adv.csd_buff.on()
         csd_timer = Timer(add_csd, 15, True).on()
         def add_spirit(e):
             if e.index == 3:
