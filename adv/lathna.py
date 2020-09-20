@@ -42,7 +42,7 @@ class Lathna(Adv):
     # }
 
     def prerun(self):
-        self.dragonform.shift_mods.append(Modifier('faceless_god', 'poison_killer', 'passive', 2.00))
+        self.dragonform.shift_mods.append(Modifier('faceless_god', 'poison_killer', 'passive', 2.00).off())
     
     @staticmethod
     def prerun_skillshare(adv, dst):

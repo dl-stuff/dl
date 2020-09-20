@@ -47,6 +47,7 @@ class Gala_Luca(Adv):
     def custom_crit_mod(self, name):
         if name == 'test':
             return self.solid_crit_mod(name)
+
         base_rate, crit_dmg = self.combine_crit_mods()
         crit_dmg -= 1
         new_states = defaultdict(lambda: 0.0)
@@ -57,15 +58,14 @@ class Gala_Luca(Adv):
         icon_avg = 0
         state_p_sum = 0
         for start_state, state_p in self.a1_states.items():
-            state = tuple([b if b is not None and t - b <= 20.0 else None for b in start_state])  # expire old stacks
-            current_rate = base_rate
-            a1_buff_count = len([b for b in state if b is not None])  # active a1buff count
+            state = tuple([b if b is not None and t - b <= 20.0 else None for b in start_state]) # expire old stacks
+            a1_buff_count = sum(b is not None for b in state) # active a1buff count
             icon_count = min(base_icon_count+a1_buff_count, 7)
-            current_rate += 0.03 * a1_buff_count  # a1buff crit
-            current_rate += min(0.28, 0.04 * icon_count)  # a1 icon crit
-            if self.in_s1:
-                current_rate += 0.1 * icon_count  # s1 icon crit
-            current_rate = min(1.0, current_rate)
+            current_rate = min(1.0, base_rate + 0.03 * a1_buff_count + min(0.28, 0.04 * icon_count) + 0.1 * icon_count * int(self.in_s1))
+            # current_rate += 0.03 * a1_buff_count # a1buff crit
+            # current_rate += min(0.28, 0.04 * icon_count) # a1 icon crit
+            # current_rate += 0.1 * icon_count * int(self.in_s1) # s1 icon crit
+            # current_rate = min(1.0, current_rate)
             mean_rate += current_rate * state_p
             icon_avg += icon_count * state_p
             
@@ -74,7 +74,6 @@ class Gala_Luca(Adv):
             else:
                 miss_rate = 1.0 - current_rate
                 new_states[state] += miss_rate * state_p
-
                 for i in range(self.a1_buff_types):
                     # t is the newest buff timing so it's in the front; the rest remain in order
                     new_states[(t,) + state[0:i] + state[i + 1:]] += current_rate * state_p / self.a1_buff_types
