@@ -792,7 +792,7 @@ class Adv(object):
         self.conf = tmpconf
 
     def default_slot(self):
-        self.slots = Slots(self.conf.c, self.sim_afflict)
+        self.slots = Slots(self.name, self.conf.c, self.sim_afflict)
         # from conf import slot_common
         # self.cmnslots = slot.Slots()
         # self.cmnslots.c.att = self.conf.c.att

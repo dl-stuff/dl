@@ -14,8 +14,9 @@ def subclass_dict(c):
 class SlotBase:
     KIND = 's'
     AUGMENTS = 0
-    def __init__(self, conf):
+    def __init__(self, conf, qual=None):
         self.conf = conf
+        self.qual = qual
 
     def __str__(self):
         return self.name
@@ -61,16 +62,16 @@ class CharaBase(SlotBase):
         'dagger': 0.05, 'bow': 0.05, 'blade': 0.05, 'wand': 0.05,
         'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05
     }
-    def __init__(self, conf):
-        super().__init__(conf)
+    def __init__(self, conf, qual=None):
+        super().__init__(conf, qual)
         self.coabs = {}
         self.max_coab = 4
         self.valid_coabs = elecoabs[self.ele]
         try:
-            coab = self.valid_coabs[self.name]
+            coab = self.valid_coabs[self.qual]
             chain = coab[0]
             if chain is None or len(chain)<3 or chain[2] != 'hp≤40':
-                self.coabs[self.name] = coab
+                self.coabs[self.qual] = coab
         except:
             try:
                 wt = self.wt
@@ -123,9 +124,8 @@ class CharaBase(SlotBase):
 
 class EquipBase(SlotBase):
     def __init__(self, conf, c, qual=None):
-        super().__init__(conf)
+        super().__init__(conf, qual)
         self.c = c
-        self.qual = qual
 
     @property
     def on_ele(self):
@@ -602,8 +602,8 @@ class Slots:
         'shadow': 'The_Fires_of_Hate'
     }
 
-    def __init__(self, conf, sim_afflict=None):
-        self.c = CharaBase(conf)
+    def __init__(self, name, conf, sim_afflict=None):
+        self.c = CharaBase(conf, name)
         self.sim_afflict = sim_afflict
         self.d = None
         self.w = None

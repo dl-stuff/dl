@@ -291,7 +291,9 @@ def brute_force_coabs(classname, conf, output, team_dps, duration):
     output.write('attempts: {}'.format(len(results)))
 
 def slots(adv):
-    slots = f'[{adv.slots.a}][{adv.slots.d}][{adv.slots.w}][{"|".join((map(get_fullname, adv.coab_list)))}][S3:{get_fullname(adv.skillshare_list[0])}'
+    slots = f'[{adv.slots.a}][{adv.slots.d}][{adv.slots.w}]\n'
+    slots += '-'*(len(adv.name)) + ' '
+    slots += f'[{"|".join((map(get_fullname, adv.coab_list)))}][S3:{get_fullname(adv.skillshare_list[0])}'
     try:
         slots += f'|S4:{get_fullname(adv.skillshare_list[1])}]'
     except:

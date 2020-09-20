@@ -18,7 +18,6 @@ class Gala_Luca(Adv):
 
     def prerun(self):
         self.crit_mod = self.custom_crit_mod
-        self.in_s1 = False
         self.a1_buff_types = 3
         self.a1_states = {(None,) * self.a1_buff_types: 1.0}
 
@@ -55,16 +54,17 @@ class Gala_Luca(Adv):
         base_icon_count = self.buff_icon_count()
         mean_rate = 0.0
 
+        in_s1 = name[0] == 's' or name == 'ds'
+
         icon_avg = 0
-        state_p_sum = 0
         for start_state, state_p in self.a1_states.items():
             state = tuple([b if b is not None and t - b <= 20.0 else None for b in start_state]) # expire old stacks
             a1_buff_count = sum(b is not None for b in state) # active a1buff count
             icon_count = min(base_icon_count+a1_buff_count, 7)
-            current_rate = min(1.0, base_rate + 0.03 * a1_buff_count + min(0.28, 0.04 * icon_count) + 0.1 * icon_count * int(self.in_s1))
+            current_rate = min(1.0, base_rate + 0.03 * a1_buff_count + min(0.28, 0.04 * icon_count) + 0.1 * icon_count * int(in_s1))
             # current_rate += 0.03 * a1_buff_count # a1buff crit
             # current_rate += min(0.28, 0.04 * icon_count) # a1 icon crit
-            # current_rate += 0.1 * icon_count * int(self.in_s1) # s1 icon crit
+            # current_rate += 0.1 * icon_count * int(in_s1) # s1 icon crit
             # current_rate = min(1.0, current_rate)
             mean_rate += current_rate * state_p
             icon_avg += icon_count * state_p
@@ -79,7 +79,7 @@ class Gala_Luca(Adv):
                     new_states[(t,) + state[0:i] + state[i + 1:]] += current_rate * state_p / self.a1_buff_types
 
         self.all_icon_avg = self.update_icon_avg(icon_avg, *self.all_icon_avg)
-        if self.in_s1:
+        if in_s1:
             self.s1_icon_avg = self.update_icon_avg(icon_avg, *self.s1_icon_avg)
         
         self.a1_states = new_states
@@ -90,27 +90,19 @@ class Gala_Luca(Adv):
         if self.shared_crit:
             self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
             self.extra_actmods.append(self.gluca_crit_mod)
-        else:
-            self.in_s1 = True
 
     def s1_proc(self, e):
         if self.shared_crit:
             self.extra_actmods.remove(self.gluca_crit_mod)
-        else:
-            self.in_s1 = False
 
     def ds_before(self, e):
         if self.shared_crit:
             self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
             self.extra_actmods.append(self.gluca_crit_mod)
-        else:
-            self.in_s1 = True
 
     def ds_proc(self, e):
         if self.shared_crit:
             self.extra_actmods.remove(self.gluca_crit_mod)
-        else:
-            self.in_s1 = False
 
     def post_run(self, end):
         self.comment = f'avg buff icon {self.all_icon_avg[1]:.2f} (s1 {self.s1_icon_avg[1]:.2f})'
