@@ -8,8 +8,7 @@ class Vice(Adv):
     conf['slots.a'] = ['Twinfold_Bonds', 'The_Fires_of_Hate']
     conf['slots.d'] = 'Gala_Cat_Sith'
     conf['acl'] = """
-        # `dragon(c3-s-end), (fsc or self.sim_afflict) and self.trickery=0
-        `dragon
+        `dragon(c3-s-end), (fsc or self.sim_afflict) and self.trickery=0
         `s3, not buff(s3)
         `s4
         `s1

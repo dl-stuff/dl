@@ -65,7 +65,7 @@ def avg_logs(log, mass):
 
 def run_mass(mass, base_log, base_d, classname, conf, duration, cond):
     mass = 1000 if mass == 1 else mass
-    with multiprocessing.Pool(processes=8) as pool:
+    with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
         for log, real_d in pool.starmap(run_once_mass, [(classname, conf, duration, cond, idx) for idx in range(mass-1)]):
             base_log = sum_logs(base_log, log)
             base_d += real_d

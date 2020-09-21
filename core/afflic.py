@@ -485,7 +485,7 @@ class Afflics(object):
                 # print('{}_uptime'.format(atype), '{:.2f}/{:.2f}'.format(rate, t), '{:.2%}'.format(rate/t))
                 # print('last_{}: {:.2f}s'.format(atype, last))
                 uptimes[atype] = rate/t
-        return uptimes
+        return dict(sorted(uptimes.items(), key=lambda u: u[1], reverse=True))
 
     def rinit(self):
         self.resist = {}
