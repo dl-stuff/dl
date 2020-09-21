@@ -235,12 +235,10 @@ def get_adv_slotlist():
             result['adv']['pref_coab'] = adv.conf.coabs['base']
         except:
             result['adv']['pref_coab'] = adv.conf.coabs
-        result['adv']['pref_coab'] = list(map(get_fullname, result['adv']['pref_coab']))
         try:
             result['adv']['pref_share'] = adv.conf.share['base']
         except:
             result['adv']['pref_share'] = adv.conf.share
-        result['adv']['pref_share'] = list(map(get_fullname, result['adv']['pref_share']))
         result['adv']['acl'] = adv.conf.acl
         if 'afflict_res' in adv.conf:
             res_conf = adv.conf.afflict_res
