@@ -1,5 +1,5 @@
-const APP_URL = 'http://127.0.0.1:5000/';
-// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+// const APP_URL = 'http://127.0.0.1:5000/';
+const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 20000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
@@ -413,7 +413,6 @@ function loadAdvSlots(no_conf) {
                 $('#wp1-' + slots.adv.pref_wp.wp1).prop('selected', true);
                 $('#wp2-' + slots.adv.pref_wp.wp2).prop('selected', true);
                 for (const c of slots.adv.pref_coab) {
-                    console.log(slots.adv.pref_coab);
                     const check = $("input[id$='-" + c + "']");
                     check.prop('checked', true);
                     coabSelection(1);
