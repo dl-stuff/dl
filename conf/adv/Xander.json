@@ -7,27 +7,26 @@
         "ele": "water",
         "wt": "sword",
         "spiral": true,
-        "a": [["fs", 0.55]],
-        "comment": "todo: buffcount, buff ivs?"
+        "a": [["fs", 0.55]]
     },
     "fs_enhanced": {
         "startup": 0.03333,
         "recovery": 0.88334,
         "attr": [
+            {"buff": ["s1", "default", 1, "-off"], "iv": 0.0}
             {"dmg": 1.0878, "sp": 330, "iv": 0.21667, "msl": 1},
             {"dmg": 1.0878, "iv": 0.425, "msl": 1},
             {"dmg": 1.0878, "iv": 0.71667, "msl": 1},
-            {"buff": ["s1", "default", 1, "-off"], "iv": 0.0}
         ]
     },
     "fs_enhanced2": {
         "startup": 0.03333,
         "recovery": 0.88334,
         "attr": [
+            {"buff": ["s1", "enhanced", 1, "-off"], "iv": 0.0}
             {"dmg": 2.22, "killer": [0.3, ["frostbite"]], "sp": 330, "iv": 0.21667, "msl": 1},
             {"dmg": 2.22, "killer": [0.3, ["frostbite"]], "iv": 0.425, "msl": 1},
             {"dmg": 2.22, "killer": [0.3, ["frostbite"]], "iv": 0.71667, "msl": 1},
-            {"buff": ["s1", "enhanced", 1, "-off"], "iv": 0.0}
         ]
     },
     "s1": {
