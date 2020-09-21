@@ -12,9 +12,9 @@ const DEFAULT_SHARE = 'Ranzal';
 const DEFAULT_SHARE_ALT = 'Curran';
 const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
-function name_fmt(name) {
-    return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
-}
+// function name_fmt(name) {
+//     return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
+// }
 const speshul = {
     Lily: 'https://cdn.discordapp.com/emojis/664261164208750592.png'
 }
@@ -41,7 +41,7 @@ function slots_icon_fmt(data) {
             if (SECONDARY_COABS[c_name]) {
                 img_urls.push('<img src="/dl-sim/pic/character/' + SECONDARY_COABS[c_name] + '.png" class="slot-icon coab unique"/>');
             } else {
-                img_urls.push('<img src="/dl-sim/pic/icons/' + c_name.toLowerCase() + '.png" class="slot-icon coab generic"/>');
+                img_urls.push('<img src="/dl-sim/pic/coabs/' + c_name.toLowerCase() + '.png" class="slot-icon coab generic"/>');
             }
         }
     }
@@ -307,7 +307,7 @@ function populateSkillShare(skillshare) {
         let options = [];
         for (const ss in skillshare) {
             const ss_data = skillshare[ss];
-            const ss_repr = name_fmt(ss) + '\t(S' + ss_data['s'] + ': ' + ss_data['sp'] + ' SP, ' + ss_data['cost'] + ' Cost)';
+            const ss_repr = ss + '\t(S' + ss_data['s'] + ': ' + ss_data['sp'] + ' SP, ' + ss_data['cost'] + ' Cost)';
             options.push($('<option>' + ss_repr + '</option>')
                 .attr({ id: t + '-' + ss, value: ss }))
         }

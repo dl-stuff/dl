@@ -1,6 +1,7 @@
 import io
 import inspect
 from importlib.util import spec_from_file_location, module_from_spec
+from conf import get_fullname
 import os
 import sys
 
@@ -257,7 +258,7 @@ def get_adv_slotlist():
             weapon_name += ' (Tier II)'
         result['weapons'] = {f'{adv.slots.c.ele}-{adv.slots.c.wt}': weapon_name}
         result['dragons'] = {drg: data['d']['name'] for drg, data in dragons[adv.slots.c.ele].items()}
-        result['coabilities'] = adv.slots.c.valid_coabs
+        result['coabilities'] = {get_fullname(k): v for k, v in adv.slots.c.valid_coabs.items()}
     return jsonify(result)
 
 
@@ -273,5 +274,5 @@ def get_adv_wp_list():
         except FileNotFoundError:
             result['adv'][name] = SPECIAL_ADV[name]['fullname']
     result['wyrmprints'] = {wp: data['name'] for wp, data in wyrmprints.items()}
-    result['skillshare'] = dict(sorted(skillshare.items()))
+    result['skillshare'] = dict(sorted([(get_fullname(k), v) for k, v in skillshare.items()]))
     return jsonify(result)
