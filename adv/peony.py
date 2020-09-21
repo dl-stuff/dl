@@ -9,10 +9,10 @@ class Peony(Adv):
     conf = {}
     conf['slots.a'] = ['Valiant_Crown', 'Spirit_of_the_Season']
     conf['acl'] = """
-        `dragon, self.energy()=5
-        `fs, c_fs(peonydreams)>0 and s2.check()
-        `s2, c_fs(peonydreams)=0 or fsc
-        `s1, cancel and self.energy()<5
+        `dragon, energy()>2
+        `fs, c_fs(peonydreams) and s2.check()
+        `s2, not c_fs(peonydreams) or fsc
+        `s1, cancel and energy()<5
         `s4, cancel
         `s3, cancel
     """

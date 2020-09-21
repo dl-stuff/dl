@@ -16,13 +16,12 @@ class Yukata_Curran(Adv):
         """
     conf['coabs'] = ['Sharena','Lucretia','Peony']
     conf['share'] = ['Summer_Patia']
-    # conf['afflict_res.stun'] = 80
     conf['afflict_res.paralysis'] = 0
-    conf['attenuation.hits'] = 2
+    conf['attenuation.hits'] = 1
 
     def prerun(self):
         self.s1_ehits = 0
-        comment = f'assume {self.conf.attenuation} hits per s1 bullet'
+        self.comment = f'assume {self.conf.attenuation.hits+1} hits per s1 bullet'
 
     def add_combo(self, name='#'):
         super().add_combo(name)
@@ -31,29 +30,6 @@ class Yukata_Curran(Adv):
         if self.s1_ehits >= 10:
             self.s1_ehits -= 10
             self.energy.add(5, queue=True)
-
-
-    # def s1_proc(self, e):
-        # bullet = self.s1_bullet[self.maskable_faith]
-        # old_hits = self.hits
-        # self.dmg_make(e.name, bullet*1.10)
-        # self.s1_ehits += self.add_hits(bullet)
-        # if self.maskable_faith:
-        #     self.afflics.paralysis(e.name, 120, 0.97)
-        # for p in range(1, self.s1_rebound):
-        #     self.dmg_make(f'{e.name}_rebound_{p}', bullet*1.10, attenuation=(0.55, p))
-        #     self.s1_ehits += self.add_hits(bullet)
-        # if self.s1_ehits > 10:
-        #     self.s1_ehits -= 10
-        #     # can gain energy during skill
-        #     self.energy.add(5, queue=True)
-
-    # def s2_proc(self, e):
-    #     if self.maskable_faith:
-    #         self.afflics.stun(e.name, 100)
-    #         self.dmg_make(e.name, 0.9*self.s2_hits)
-    #     elif self.condition('hp50'):
-    #         self.maskable_faith = True
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

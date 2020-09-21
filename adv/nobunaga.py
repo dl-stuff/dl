@@ -10,10 +10,10 @@ class Nobunaga(Adv):
     conf['acl'] = """
         `dragon, s=2
         `s3, not buff(s3)
-        `s4, cancel
+        `s4, fsc
         `s1
-        `s2, self.burning_ambition
-        `fs, x=5 and s2.charged<s2.sp-self.sp_val(2)
+        `s2, burning_ambition
+        `fs, xf=5 or charged_in(fs, s4)
         """
     conf['coabs'] = ['Wand','Marth','Yuya']
     conf['share'] = ['Summer_Patia']
@@ -48,6 +48,9 @@ class Nobunaga(Adv):
         return False
 
     def fs_proc(self, e):
+        self.ba_proc(e)
+
+    def s2_proc(self, e):
         self.ba_proc(e)
 
 if __name__ == '__main__':
