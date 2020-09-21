@@ -12,9 +12,9 @@ const DEFAULT_SHARE = 'Ranzal';
 const DEFAULT_SHARE_ALT = 'Curran';
 const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
-// function name_fmt(name) {
-//     return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
-// }
+function name_fmt(name) {
+    return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
+}
 const speshul = {
     Lily: 'https://cdn.discordapp.com/emojis/664261164208750592.png'
 }
@@ -41,7 +41,7 @@ function slots_icon_fmt(data) {
             if (SECONDARY_COABS[c_name]) {
                 img_urls.push('<img src="/dl-sim/pic/character/' + SECONDARY_COABS[c_name] + '.png" class="slot-icon coab unique"/>');
             } else {
-                img_urls.push('<img src="/dl-sim/pic/coabs/' + c_name.toLowerCase() + '.png" class="slot-icon coab generic"/>');
+                img_urls.push('<img src="/dl-sim/pic/coabs/' + c_name + '.png" class="slot-icon coab generic"/>');
             }
         }
     }
@@ -307,7 +307,7 @@ function populateSkillShare(skillshare) {
         let options = [];
         for (const ss in skillshare) {
             const ss_data = skillshare[ss];
-            const ss_repr = ss + '\t(S' + ss_data['s'] + ': ' + ss_data['sp'] + ' SP, ' + ss_data['cost'] + ' Cost)';
+            const ss_repr = ss_data.fullname + '\t(S' + ss_data['s'] + ': ' + ss_data['sp'] + ' SP, ' + ss_data['cost'] + ' Cost)';
             options.push($('<option>' + ss_repr + '</option>')
                 .attr({ id: t + '-' + ss, value: ss }))
         }
@@ -413,7 +413,8 @@ function loadAdvSlots(no_conf) {
                 $('#wp1-' + slots.adv.pref_wp.wp1).prop('selected', true);
                 $('#wp2-' + slots.adv.pref_wp.wp2).prop('selected', true);
                 for (const c of slots.adv.pref_coab) {
-                    const check = $("input[id$='-" + c.toLowerCase() + "']");
+                    console.log(slots.adv.pref_coab);
+                    const check = $("input[id$='-" + c + "']");
                     check.prop('checked', true);
                     coabSelection(1);
                 }
@@ -536,19 +537,22 @@ function buildCoab(coab, basename, weapontype) {
     let found_basename = null;
     $('#input-coabs').data('selected', 0);
     for (const k in coab) {
-        const cid = 'coab-' + k.toLowerCase();
-        const kcoab = coab[k];
+        const cid = 'coab-' + k;
         const wrap = $('<div></div>').addClass('custom-control custom-checkbox custom-control-inline');
         const check = $('<input>').addClass('custom-control-input').prop('type', 'checkbox').prop('id', cid);
+        const kcoab = coab[k];
+        const fullname = kcoab[0];
+        const chain = kcoab[1];
+        const ex = kcoab[2];
         check.data('name', k);
-        check.data('chain', kcoab[0]);
-        check.data('ex', kcoab[1]);
+        check.data('chain', chain);
+        check.data('ex', ex);
         check.change(checkCoabSelection);
         if (k == basename) {
-            if (!kcoab[0] || kcoab[0][2] != 'hp' + String.fromCharCode(8804) + '40') {
+            if (!chain || chain[2] != 'hp' + String.fromCharCode(8804) + '40') {
                 check.prop('disabled', true);
                 check.prop('checked', true);
-                found_basename = kcoab[1];
+                found_basename = ex;
             } else {
                 $('#input-coabs').data('max', 4);
                 check.addClass('coab-check');
@@ -556,16 +560,16 @@ function buildCoab(coab, basename, weapontype) {
         } else {
             check.addClass('coab-check');
         }
-        const label = $(`<label>${k}</label>`).addClass('custom-control-label').prop('for', cid);
+        const label = $(`<label>${fullname}</label>`).addClass('custom-control-label').prop('for', cid);
         wrap.append(check);
         wrap.append(label);
-        if (kcoab[0]) {
-            wrap.prop('title', kcoab[0].join('|') + ' - ' + kcoab[1]);
+        if (chain) {
+            wrap.prop('title', chain.join('|') + ' - ' + ex);
         } else {
-            wrap.prop('title', kcoab[1]);
+            wrap.prop('title', ex);
         }
-        if (WEAPON_TYPES.includes(kcoab[1])) {
-            $('#input-coabs-' + kcoab[1]).append(wrap);
+        if (WEAPON_TYPES.includes(ex)) {
+            $('#input-coabs-' + ex).append(wrap);
         } else {
             $('#input-coabs-other').append(wrap);
         }

@@ -232,13 +232,15 @@ def get_adv_slotlist():
             'wp2': adv.slots.a.a2.qual
         }
         try:
-            result['adv']['pref_coab'] = list(adv.conf.coabs['base'])
+            result['adv']['pref_coab'] = adv.conf.coabs['base']
         except:
-            result['adv']['pref_coab'] = list(adv.conf.coabs)
+            result['adv']['pref_coab'] = adv.conf.coabs
+        result['adv']['pref_coab'] = list(map(get_fullname, result['adv']['pref_coab']))
         try:
-            result['adv']['pref_share'] = list(adv.conf.share['base'])
+            result['adv']['pref_share'] = adv.conf.share['base']
         except:
-            result['adv']['pref_share'] = list(adv.conf.share)
+            result['adv']['pref_share'] = adv.conf.share
+        result['adv']['pref_share'] = list(map(get_fullname, result['adv']['pref_share']))
         result['adv']['acl'] = adv.conf.acl
         if 'afflict_res' in adv.conf:
             res_conf = adv.conf.afflict_res
@@ -258,7 +260,7 @@ def get_adv_slotlist():
             weapon_name += ' (Tier II)'
         result['weapons'] = {f'{adv.slots.c.ele}-{adv.slots.c.wt}': weapon_name}
         result['dragons'] = {drg: data['d']['name'] for drg, data in dragons[adv.slots.c.ele].items()}
-        result['coabilities'] = {get_fullname(k): v for k, v in adv.slots.c.valid_coabs.items()}
+        result['coabilities'] = {k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()}
     return jsonify(result)
 
 
@@ -274,5 +276,5 @@ def get_adv_wp_list():
         except FileNotFoundError:
             result['adv'][name] = SPECIAL_ADV[name]['fullname']
     result['wyrmprints'] = {wp: data['name'] for wp, data in wyrmprints.items()}
-    result['skillshare'] = dict(sorted([(get_fullname(k), v) for k, v in skillshare.items()]))
+    result['skillshare'] = {k: {'fullname': get_fullname(k), **v} for k, v in skillshare.items()}
     return jsonify(result)
