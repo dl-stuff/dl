@@ -234,8 +234,11 @@ class Styx(DragonBase):
         adv.styx_spirit = 0
         adv.csd_buff = SingleActionBuff('d_compounding_sd',0.0,-1,'s','buff')
         def add_csd(e):
-            adv.csd_buff.set(min(2.00, adv.csd_buff.get()+0.50))
-            adv.csd_buff.on()
+            if not adv.csd_buff.get():
+                adv.csd_buff.set(min(2.00, adv.csd_buff.get()+0.50))
+                adv.csd_buff.on()
+            else:
+                adv.csd_buff.value(min(2.00, adv.csd_buff.get()+0.50))
         csd_timer = Timer(add_csd, 15, True).on()
         def add_spirit(e):
             if e.index == 3:

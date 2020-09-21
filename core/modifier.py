@@ -229,6 +229,7 @@ class Buff(object):
 
     def value(self, newvalue=None):
         if newvalue:
+            self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {newvalue:.02f}', 'buff value change')
             return self.set(newvalue)
         else:
             return self.get()
@@ -244,6 +245,7 @@ class Buff(object):
         if d != None:
             self.duration = d
         return self
+        
 
     def stack(self):
         stack = 0
@@ -270,7 +272,7 @@ class Buff(object):
         return self.modifier and self.modifier.off()
 
     def buff_end_proc(self, e):
-        self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff end <timeout>')
+        self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', 'buff end <timeout>')
         self.__active = 0
 
         if self.__stored:
@@ -285,7 +287,7 @@ class Buff(object):
             self.__stored = 0
         value, stack = self.valuestack()
         if stack > 0:
-            self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
+            self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'buff stack <{stack}>')
         self.effect_off()
 
     def count_team_buff(self):
@@ -346,14 +348,12 @@ class Buff(object):
         else:
             if d >= 0:
                 self.buff_end_timer.on(d)
-            else:
-                return self
             proc_type = 'refresh'
             
-        self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff {proc_type} <{d:.02f}s>')
+        self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'buff {proc_type} <{d:.02f}s>')
         value, stack = self.valuestack()
         if stack > 1:
-            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'{self.name} buff stack <{stack}>')
+            log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'buff stack <{stack}>')
 
         if self.mod_type == 'defense':
             Event('defchain').on()
@@ -375,7 +375,7 @@ class Buff(object):
     def off(self):
         if self.__active == 0:
             return
-        self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'{self.name} buff end <turn off>')
+        self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'buff end <turn off>')
         self.__active = 0
         self.effect_off()
         self.buff_end_timer.off()
