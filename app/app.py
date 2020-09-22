@@ -253,9 +253,7 @@ def get_adv_slotlist():
         result['adv']['prelim'] = result['adv']['name'] in PRELIM_ADV
 
         weapon = weapons[adv.slots.c.ele][adv.slots.c.wt]
-        weapon_name = weapon['name']
-        if weapon['tier'] ==2:
-            weapon_name += ' (Tier II)'
+        weapon_name = f'Agito T{weapon["tier"]} {weapon["name"]}'
         result['weapons'] = {f'{adv.slots.c.ele}-{adv.slots.c.wt}': weapon_name}
         result['dragons'] = {drg: data['d']['name'] for drg, data in dragons[adv.slots.c.ele].items()}
         result['coabilities'] = {k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()}
