@@ -330,7 +330,7 @@ function loadAdvWPList() {
             const conf = deserConf(urlVars.conf);
             selectedAdv = conf.adv;
         } else if (urlVars.adv_name) {
-            selectedAdv = urlVars.adv_name.toLowerCase();
+            selectedAdv = urlVars.adv_name;
         }
         updateUrl(urlVars);
     }
