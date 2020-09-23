@@ -506,21 +506,27 @@ class AmuletPair:
         'k_burn': 0.30, 'k_poison': 0.25, 'k_paralysis': 0.25,
         'k_frostbite': 0.25, 'k_stun': 0.25, 'k_sleep': 0.25
     }
+    RARITY_LIMITS = {5: 2, 4: 3}
     def __init__(self, confs, c, quals):
-        self.a1 = AmuletBase(confs[0], c, quals[0])
-        self.a2 = AmuletBase(confs[1], c, quals[1])
+        limits = AmuletPair.RARITY_LIMITS.copy()
+        self.an = []
+        for conf, qual in zip(confs, quals):
+            if limits[conf['rarity']] == 0:
+                continue
+            limits[conf['rarity']] -= 1
+            self.an.append(AmuletBase(conf, c, qual))
         self.c = c
 
     def __str__(self):
-        return f'{self.a1}+{self.a2}'
+        return '+'.join(map(str, self.an))
 
     @property
     def att(self):
-        return self.a1.att + self.a2.att
+        return sum(a.att for a in self.an)
 
     @property
     def hp(self):
-        return self.a1.hp + self.a2.hp
+        return sum(a.hp for a in self.an)
 
     @staticmethod
     def sort_ab(a):
@@ -537,7 +543,7 @@ class AmuletPair:
         limits = AmuletPair.AB_LIMITS.copy()
         sorted_ab = defaultdict(lambda: [])
         spf_ab = []
-        for a in chain(self.a1.ab, self.a2.ab):
+        for a in chain(*(a.ab for a in self.an)):
             if a[0] in limits:
                 sorted_ab[a[0]].append(a)
             elif a[0] == 'spf':
@@ -566,7 +572,7 @@ class AmuletPair:
 
 class AmuletBase(EquipBase):
     KIND = 'a'
-    AUGMENTS = 100
+    AUGMENTS = 50
     def __init__(self, conf, c, qual=None):
         super().__init__(conf, c, qual)
 

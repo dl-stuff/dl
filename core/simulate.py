@@ -291,7 +291,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
 #     output.write('attempts: {}'.format(len(results)))
 
 def slots(adv):
-    slots = f'[{adv.slots.a}][{adv.slots.d}][{adv.slots.w}]\n'
+    slots = f'[{adv.slots.d}][{adv.slots.w}][{adv.slots.a}]\n'
     slots += '-'*(len(adv.name)) + ' '
     slots += f'[{"|".join((map(get_fullname, adv.coab_list)))}][S3:{get_fullname(adv.skillshare_list[0])}'
     try:
