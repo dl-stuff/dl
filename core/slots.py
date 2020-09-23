@@ -496,7 +496,7 @@ class WeaponBase(EquipBase):
         return self.conf.ele
 
 
-class AmuletPair:
+class AmuletQuint:
     AB_LIMITS = {
         'a': 0.20, 's': 0.40, 'cc': 0.15, 'cd': 0.25,
         'fs': 0.50, 'bt': 0.30, 'sp': 0.15, 'bk': 0.30,
@@ -508,7 +508,7 @@ class AmuletPair:
     }
     RARITY_LIMITS = {5: 2, 4: 3}
     def __init__(self, confs, c, quals):
-        limits = AmuletPair.RARITY_LIMITS.copy()
+        limits = AmuletQuint.RARITY_LIMITS.copy()
         self.an = []
         for conf, qual in zip(confs, quals):
             if limits[conf['rarity']] == 0:
@@ -528,6 +528,14 @@ class AmuletPair:
     def hp(self):
         return sum(a.hp for a in self.an)
 
+    @property
+    def name_lst(self):
+        return (a.name for a in self.an)
+
+    @property
+    def name_icon_lst(self):
+        return chain(*((a.name, a.icon) for a in self.an))
+
     @staticmethod
     def sort_ab(a):
         if len(a) <= 2:
@@ -540,7 +548,7 @@ class AmuletPair:
     def ab(self):
         merged_ab = []
 
-        limits = AmuletPair.AB_LIMITS.copy()
+        limits = AmuletQuint.AB_LIMITS.copy()
         sorted_ab = defaultdict(lambda: [])
         spf_ab = []
         for a in chain(*(a.ab for a in self.an)):
@@ -552,7 +560,7 @@ class AmuletPair:
                 merged_ab.append(a)
 
         for cat, lst in sorted_ab.items():
-            for a in sorted(lst, key=AmuletPair.sort_ab):
+            for a in sorted(lst, key=AmuletQuint.sort_ab):
                 delta = min(limits[cat], a[1])
                 limits[cat] -= delta
                 merged_ab.append((cat, delta, *a[2:]))
@@ -560,7 +568,7 @@ class AmuletPair:
                     break
 
         if spf_ab and limits['sp'] > 0:
-            for ab in sorted(spf_ab, key=AmuletPair.sort_ab):
+            for ab in sorted(spf_ab, key=AmuletQuint.sort_ab):
                 delta = min(limits['sp'], a[1])
                 limits['sp'] -= delta
                 merged_ab.append(('spf', delta, *a[2:]))
@@ -623,20 +631,18 @@ class Slots:
         return ','.join([
             self.c.name,
             self.c.ele, self.c.wt, str(round(self.att)),
-            self.a.a1.name,
-            self.a.a2.name,
             self.d.name,
-            self.w.name
+            self.w.name,
+            *self.a.name_lst
         ])
 
     def full_slot_icons(self):
         return ','.join([
             self.c.name, self.c.icon,
             self.c.ele, self.c.wt, str(round(self.att)),
-            self.a.a1.name, self.a.a1.icon,
-            self.a.a2.name, self.a.a2.icon,
             self.d.name, self.d.icon,
             self.w.name, self.w.icon,
+            *self.a.name_icon_lst
         ])
 
     @staticmethod
@@ -695,7 +701,7 @@ class Slots:
         if keys[0] == keys[1]:
             raise ValueError('Cannot equip 2 of the same wyrmprint')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
-        self.a = AmuletPair(confs, self.c, keys)
+        self.a = AmuletQuint(confs, self.c, keys)
 
     def set_slots(self, confslots):
         affslots = None
