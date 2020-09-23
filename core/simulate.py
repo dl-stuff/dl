@@ -81,12 +81,12 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
     #     conf['coabs'] = ex_set
     # else:
     #     ex = '_'
-    if verbose == -3:
-        brute_force_slots(classname, conf, output, team_dps, duration)
-        return
-    if verbose == -4:
-        brute_force_coabs(classname, conf, output, team_dps, duration)
-        return
+    # if verbose == -3:
+    #     brute_force_slots(classname, conf, output, team_dps, duration)
+    #     return
+    # if verbose == -4:
+    #     brute_force_coabs(classname, conf, output, team_dps, duration)
+    #     return
     if verbose == 2:
         # output.write(adv._acl_str)
         adv = classname()
@@ -153,142 +153,142 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
 
     return run_results
 
-def brute_force_slots(classname, conf, output, team_dps, duration):
-    #from app.app import is_amulet, is_dragon
-    import inspect
-    import io
-    import slot.d
-    def is_dragon(obj):
-        return (inspect.isclass(obj) and issubclass(obj, slot.d.DragonBase)
-                and obj.__module__ != 'slot.d'
-                and obj.__module__ != 'slot')
-    adv = classname(conf)
-    exclude = ('Dear_Diary_RO_30', 'Dear_Diary_RO_60', 'Dear_Diary_RO_90')
-    # amulets = list(set(c for _, c in inspect.getmembers(slot.a, is_amulet) if c.__qualname__ not in exclude))
-    amulets = [
-        Resounding_Rendition,
-        Valiant_Crown,
-        FirstRate_Hospitality,
-        Jewels_of_the_Sun,
-        Heralds_of_Hinomoto,
-        The_Prince_of_Dragonyule,
-        Howling_to_the_Heavens,
-        Kung_Fu_Masters,
-        Forest_Bonds,
-        Dragon_and_Tamer,
-        The_Shining_Overlord,
-        Summer_Paladyns,
-        Sisters_Day_Out,
-        Me_and_My_Bestie,
-        Beautiful_Nothingness,
-        Dear_Diary,
-        Mega_Friends,
-        An_Ancient_Oath,
-        The_Fires_of_Hate,
-        Breakfast_at_Valerios,
-        Primal_Crisis,
-        The_Red_Impulse,
-        Proper_Maintenance,
-        Spirit_of_the_Season,
-        His_Clever_Brother,
-        The_Lurker_in_the_Woods,
-        Stellar_Show,
-        Candy_Couriers,
-        Twinfold_Bonds
-    ]
-    adv_ele = adv.slots.c.ele.lower()
-    results = []
-    all_dragons = input('Try all dragons? (y/n)\n') == 'y'
-    if all_dragons:
-        dragon = list(set(c for _, c in inspect.getmembers(getattr(slot.d, adv_ele), is_dragon) if not c.__qualname__.startswith('Unreleased')))
-    else:
-        dragon = [None]
-    fixed_a1 = input('Specific WP? (name/n)\n')
-    if fixed_a1 and fixed_a1 != 'n':
-        try:
-            fixed_a1 = fixed_a1.replace(' ', '_').strip()
-            amulets_1 = [getattr(slot.a, fixed_a1)]
-        except:
-            raise ValueError(fixed_a1+' is not a WP')
-    else:
-        amulets_1 = amulets[:-1]
-    for dra in dragon:
-        conf['flask_env'] = True
-        if dra is not None:
-            conf['slots.d'] = dra()
-        for idx, a1 in enumerate(amulets_1):
-            for a2 in amulets[idx+1:]:
-                if a1 == a2:
-                    continue
-                aname = '+'.join([a1.__qualname__, a2.__qualname__])
-                conf['slots.a'] = a1()+a2()
-                adv = classname(conf=conf)
-                real_d = adv.run(duration)
-                res = dps_sum(real_d, adv.logs.damage)
-                dps = res['dps']
-                dps += adv.logs.team_buff / real_d * team_dps
-                for tension, count in adv.logs.team_tension.items():
-                    dps += count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
-                results.append((dps, adv.slots.d.__class__.__name__, aname))
-    results.sort(key=lambda x: x[0])
-    for dps, dname, aname in results:
-        output.write('{},{},{}\n'.format(round(dps), dname, aname))
+# def brute_force_slots(classname, conf, output, team_dps, duration):
+#     #from app.app import is_amulet, is_dragon
+#     import inspect
+#     import io
+#     import slot.d
+#     def is_dragon(obj):
+#         return (inspect.isclass(obj) and issubclass(obj, slot.d.DragonBase)
+#                 and obj.__module__ != 'slot.d'
+#                 and obj.__module__ != 'slot')
+#     adv = classname(conf)
+#     exclude = ('Dear_Diary_RO_30', 'Dear_Diary_RO_60', 'Dear_Diary_RO_90')
+#     # amulets = list(set(c for _, c in inspect.getmembers(slot.a, is_amulet) if c.__qualname__ not in exclude))
+#     amulets = [
+#         Resounding_Rendition,
+#         Valiant_Crown,
+#         FirstRate_Hospitality,
+#         Jewels_of_the_Sun,
+#         Heralds_of_Hinomoto,
+#         The_Prince_of_Dragonyule,
+#         Howling_to_the_Heavens,
+#         Kung_Fu_Masters,
+#         Forest_Bonds,
+#         Dragon_and_Tamer,
+#         The_Shining_Overlord,
+#         Summer_Paladyns,
+#         Sisters_Day_Out,
+#         Me_and_My_Bestie,
+#         Beautiful_Nothingness,
+#         Dear_Diary,
+#         Mega_Friends,
+#         An_Ancient_Oath,
+#         The_Fires_of_Hate,
+#         Breakfast_at_Valerios,
+#         Primal_Crisis,
+#         The_Red_Impulse,
+#         Proper_Maintenance,
+#         Spirit_of_the_Season,
+#         His_Clever_Brother,
+#         The_Lurker_in_the_Woods,
+#         Stellar_Show,
+#         Candy_Couriers,
+#         Twinfold_Bonds
+#     ]
+#     adv_ele = adv.slots.c.ele.lower()
+#     results = []
+#     all_dragons = input('Try all dragons? (y/n)\n') == 'y'
+#     if all_dragons:
+#         dragon = list(set(c for _, c in inspect.getmembers(getattr(slot.d, adv_ele), is_dragon) if not c.__qualname__.startswith('Unreleased')))
+#     else:
+#         dragon = [None]
+#     fixed_a1 = input('Specific WP? (name/n)\n')
+#     if fixed_a1 and fixed_a1 != 'n':
+#         try:
+#             fixed_a1 = fixed_a1.replace(' ', '_').strip()
+#             amulets_1 = [getattr(slot.a, fixed_a1)]
+#         except:
+#             raise ValueError(fixed_a1+' is not a WP')
+#     else:
+#         amulets_1 = amulets[:-1]
+#     for dra in dragon:
+#         conf['flask_env'] = True
+#         if dra is not None:
+#             conf['slots.d'] = dra()
+#         for idx, a1 in enumerate(amulets_1):
+#             for a2 in amulets[idx+1:]:
+#                 if a1 == a2:
+#                     continue
+#                 aname = '+'.join([a1.__qualname__, a2.__qualname__])
+#                 conf['slots.a'] = a1()+a2()
+#                 adv = classname(conf=conf)
+#                 real_d = adv.run(duration)
+#                 res = dps_sum(real_d, adv.logs.damage)
+#                 dps = res['dps']
+#                 dps += adv.logs.team_buff / real_d * team_dps
+#                 for tension, count in adv.logs.team_tension.items():
+#                     dps += count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
+#                 results.append((dps, adv.slots.d.__class__.__name__, aname))
+#     results.sort(key=lambda x: x[0])
+#     for dps, dname, aname in results:
+#         output.write('{},{},{}\n'.format(round(dps), dname, aname))
 
-def brute_force_coabs(classname, conf, output, team_dps, duration):
-    from conf import coability
-    adv = classname(conf)
-    seen_coab = set()
-    seen_chain = {}
-    null_coabs = ['lance', 'axe', 'staff']
-    flat_coab = set()
-    adv_ele = adv.slots.c.ele.lower()
-    for t in [adv_ele, 'all']:
-        for k, v in coability[t].items():
-            chain, coab = v
-            if chain is not None:
-                chain_key = (chain[0]) if len(chain) < 3 else (chain[0], *chain[2:])
-                if coab in null_coabs:
-                    if chain_key in seen_chain:
-                        if seen_chain[chain_key][0] < chain[1]:
-                            seen_chain[chain_key] = (chain[1], k)
-                            seen_coab.add(coab)
-                    else:
-                        seen_chain[chain_key] = (chain[1], k)
-                        seen_coab.add(coab)
-                else:
-                    if chain_key not in seen_chain or seen_chain[chain_key][0] < chain[1]:
-                        seen_chain[chain_key] = (chain[1], k)
-                    seen_coab.add(coab)
-                    flat_coab.add(k)
-            elif coab not in seen_coab:
-                seen_coab.add(coab)
-                flat_coab.add(k)
+# def brute_force_coabs(classname, conf, output, team_dps, duration):
+#     from conf import coability
+#     adv = classname(conf)
+#     seen_coab = set()
+#     seen_chain = {}
+#     null_coabs = ['lance', 'axe', 'staff']
+#     flat_coab = set()
+#     adv_ele = adv.slots.c.ele.lower()
+#     for t in [adv_ele, 'all']:
+#         for k, v in coability[t].items():
+#             chain, coab = v
+#             if chain is not None:
+#                 chain_key = (chain[0]) if len(chain) < 3 else (chain[0], *chain[2:])
+#                 if coab in null_coabs:
+#                     if chain_key in seen_chain:
+#                         if seen_chain[chain_key][0] < chain[1]:
+#                             seen_chain[chain_key] = (chain[1], k)
+#                             seen_coab.add(coab)
+#                     else:
+#                         seen_chain[chain_key] = (chain[1], k)
+#                         seen_coab.add(coab)
+#                 else:
+#                     if chain_key not in seen_chain or seen_chain[chain_key][0] < chain[1]:
+#                         seen_chain[chain_key] = (chain[1], k)
+#                     seen_coab.add(coab)
+#                     flat_coab.add(k)
+#             elif coab not in seen_coab:
+#                 seen_coab.add(coab)
+#                 flat_coab.add(k)
 
-    for k, v in seen_chain.items():
-        flat_coab.add(v[1])
-    flat_coab = sorted(list(flat_coab))
+#     for k, v in seen_chain.items():
+#         flat_coab.add(v[1])
+#     flat_coab = sorted(list(flat_coab))
 
-    results = []
-    flat_len = len(flat_coab)
-    for idx1 in range(0, flat_len-2):
-        for idx2 in range(idx1+1, flat_len-1):
-            for idx3 in range(idx2+1, flat_len):
-                backline1, backline2, backline3 = flat_coab[idx1], flat_coab[idx2], flat_coab[idx3]
-                adv = classname(conf)
-                adv.conf['coabs'] = sorted([backline1, backline2, backline3])
-                # if 'dragon' not in adv.conf['acl']:
-                #     adv.conf['acl'] = 'dragon\n' + adv.conf['acl']
-                real_d = adv.run(duration)
-                res = dps_sum(real_d, adv.logs.damage)
-                dps = res['dps']
-                dps += adv.logs.team_buff / real_d * team_dps
-                for tension, count in adv.logs.team_tension.items():
-                    dps += count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
-                results.append((dps, adv.conf['coabs']))
-    results.sort(key=lambda x: x[0])
-    for dps, coab in results:
-        output.write('{},{},{},{}\n'.format(round(dps), *coab))
-    output.write('attempts: {}'.format(len(results)))
+#     results = []
+#     flat_len = len(flat_coab)
+#     for idx1 in range(0, flat_len-2):
+#         for idx2 in range(idx1+1, flat_len-1):
+#             for idx3 in range(idx2+1, flat_len):
+#                 backline1, backline2, backline3 = flat_coab[idx1], flat_coab[idx2], flat_coab[idx3]
+#                 adv = classname(conf)
+#                 adv.conf['coabs'] = sorted([backline1, backline2, backline3])
+#                 # if 'dragon' not in adv.conf['acl']:
+#                 #     adv.conf['acl'] = 'dragon\n' + adv.conf['acl']
+#                 real_d = adv.run(duration)
+#                 res = dps_sum(real_d, adv.logs.damage)
+#                 dps = res['dps']
+#                 dps += adv.logs.team_buff / real_d * team_dps
+#                 for tension, count in adv.logs.team_tension.items():
+#                     dps += count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
+#                 results.append((dps, adv.conf['coabs']))
+#     results.sort(key=lambda x: x[0])
+#     for dps, coab in results:
+#         output.write('{},{},{},{}\n'.format(round(dps), *coab))
+#     output.write('attempts: {}'.format(len(results)))
 
 def slots(adv):
     slots = f'[{adv.slots.a}][{adv.slots.d}][{adv.slots.w}]\n'

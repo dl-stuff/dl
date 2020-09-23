@@ -50,8 +50,8 @@ class Valerio(StanceAdv, RngCritAdv):
         buffcount = super().buffcount
         return buffcount + self.a1_stack
 
-        self.crit_mod = self.custom_crit_mod
-        self.a1_cd = False
+        # self.crit_mod = self.custom_crit_mod
+        # self.a1_cd = False
 
     def custom_crit_mod(self, name):
         if self.a1_cd or name == 'test':

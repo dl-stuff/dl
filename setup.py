@@ -5,6 +5,7 @@ from Cython.Build import cythonize
 
 def run():
     CORE = [
+        'core/ability.py',
         'core/acl.py',
         'core/advbase.py',
         'core/afflic.py',
@@ -14,17 +15,26 @@ def run():
         'core/dragonform.py',
         'core/dummy.py',
         'core/log.py',
+        'core/modifier.py',
         'core/simulate.py',
         'core/timeline.py',
         'module/bleed.py',
-        'module/tension.py',
-        'module/x_alt.py'
+        'module/tension.py'
     ]
+
+    ADV = [
+        'adv/gala_luca.py',
+        'adv/incognito_nefaria.py',
+        'adv/valerio.py'
+    ]
+    with open('chara_slow.txt', 'r') as f:
+        for line in f:
+            ADV.append(f'adv/{line.strip()}')
 
     setup(
         name='core',
         ext_modules=cythonize(
-            CORE,
+            CORE+ADV,
             compiler_directives={'language_level' : '3'},
         ),
         zip_safe=False,
