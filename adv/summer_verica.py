@@ -1,9 +1,9 @@
 from core.advbase import *
 
 def module():
-    return Lowen
+    return Summer_Verica
 
-class Lowen(Adv):
+class Summer_Verica(Adv):
     conf = {}
     conf['slots.a'] = [
         'Study_Rabbits',
@@ -12,7 +12,7 @@ class Lowen(Adv):
         'From_Whence_He_Comes',
         'Bellathorna'
     ]
-    conf['slots.d'] = 'Ariel'
+    conf['slots.d'] = 'Ramiel'
     conf['acl'] = """
         `dragon
         `s3

@@ -1,9 +1,9 @@
 from core.advbase import *
 
 def module():
-    return Lowen
+    return Wedding_Xania
 
-class Lowen(Adv):
+class Wedding_Xania(Adv):
     conf = {}
     conf['slots.a'] = [
         'Study_Rabbits',
