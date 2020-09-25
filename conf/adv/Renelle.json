@@ -1,32 +1,38 @@
 {
     "c": {
-        "name": "Renelle",
-        "icon": "110005_01_r03",
-        "att": 542,
-        "hp": 908,
-        "ele": "flame",
+        "name": "Renee",
+        "icon": "110265_01_r04",
+        "att": 459,
+        "hp": 777,
+        "ele": "water",
         "wt": "dagger",
-        "spiral": true,
-        "a": [["cc", 0.15, "hit15"]]
+        "spiral": false,
+        "a": [["primed_crit_chance", 0.6, 5]]
     },
     "s1": {
-        "sp": 2318,
+        "sp": 2311,
         "startup": 0.1,
-        "recovery": 1.86667,
+        "recovery": 2.3,
         "attr": [
-            {"dmg": 2.37, "afflic": ["burn", 100, 0.803], "iv": 0.4},
-            {"dmg": 2.37, "iv": 0.56667},
-            {"dmg": 2.37, "iv": 1.13333}
+            {"dmg": 3.11, "afflic": ["bog", 100], "iv": 0.26667},
+            {"buff": ["debuff", -0.05, 10.0, 1.0, "def", "-refresh"], "iv": 0.26667},
+            {"dmg": 3.11, "iv": 0.43333},
+            {"dmg": 3.11, "iv": 0.56667},
+            {"dmg": 3.11, "iv": 0.76667},
+            {"dmg": 3.11, "iv": 1.1},
+            {"dmg": 3.11, "iv": 1.6}
         ]
     },
     "s2": {
-        "sp": 4892,
+        "sp": 5846,
         "startup": 0.1,
-        "recovery": 1.5,
+        "recovery": 2.3,
         "attr": [
-            {"dmg": 3.32, "buff": ["debuff", -0.05, 10.0, 0.3, "def"], "iv": 0.26667},
-            {"afflic": ["burn", 100, 0.803], "iv": 0.26667},
-            {"dmg": 3.32, "iv": 0.8}
+            {"dmg": 3.67, "iv": 0.3},
+            {"dmg": 3.67, "iv": 0.73333},
+            {"dmg": 3.67, "iv": 0.9},
+            {"dmg": 3.67, "iv": 1.46667},
+            {"buff": ["self", 0.1, 5.0, "defense", "buff"], "iv": 2.26667}
         ]
     }
 }
