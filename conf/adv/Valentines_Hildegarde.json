@@ -6,14 +6,16 @@
         "hp": 805,
         "ele": "flame",
         "wt": "staff",
-        "spiral": false
+        "spiral": false,
+        "a": []
     },
     "s1": {
         "sp": 7734,
         "startup": 0.1,
         "recovery": 1.36667,
         "attr": [
-            {"buff": ["energy", 1], "iv": 0.7}
+            {"buff": ["energy", 2, "team"], "iv": 0.7},
+            {"buff": ["team", 0.08, 60.0, "att", "buff", "-refresh"], "iv": 0.7}
         ]
     },
     "s2": {
@@ -21,7 +23,7 @@
         "startup": 0.1,
         "recovery": 1.05,
         "attr": [
-            {"buff": ["energy", 2], "iv": 0.16667}
+            {"buff": ["energy", 3, "team"], "iv": 0.16667}
         ]
     }
 }
