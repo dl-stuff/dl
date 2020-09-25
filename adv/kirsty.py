@@ -5,15 +5,23 @@ def module():
 
 class Kirsty(Adv):
     conf = {}
+    conf['slots.a'] = [
+    'Dragon_and_Tamer',
+    'Flash_of_Genius',
+    'Moonlight_Party',
+    'The_Plaguebringer',
+    'Dueling_Dancers'
+    ]
     conf['acl'] = """
-        `dragon(c3-s-end),s4.check()
+        `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)
         `s4
-        `s1,cancel
+        `s1
         `s2,x=5
         """
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
-    conf['share'] = ['Curran']
+    conf['share.base'] = ['Rodrigo']
+    conf['share.poison'] = ['Curran']
 
     def prerun(self):
         if self.condition('maintain Dauntless Strength'):

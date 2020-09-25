@@ -5,15 +5,23 @@ def module():
 
 class Musashi(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Resounding_Rendition',
+    'Flash_of_Genius',
+    'Levins_Champion',
+    'The_Plaguebringer',
+    'A_Small_Courage'
+    ]
     conf['acl'] = """
-        `dragon(c3-s-end), s4.check()
+        `dragon(c3-s-end), s1.check()
         `s3, not buff(s3)
-        `s2, s4.check()
-        `s4
+        `s2, s4.check() or s1
         `s1, buff(s3)
+        `s4
+        `fs, xf=5
+        `dodge, fsc
         """
-    conf['coabs'] = ['Eleonora','Dragonyule_Xainfried','Lin_You']
+    conf['coabs'] = ['Eleonora','Dragonyule_Xainfried','Akasha']
     conf['afflict_res.poison'] = 0
     conf['share'] = ['Curran']
 

@@ -5,19 +5,24 @@ def module():
 
 class Pia(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
+    conf['slots.a'] = [
+    'Dragon_and_Tamer',
+    'Flash_of_Genius',
+    'Astounding_Trick',
+    'The_Plaguebringer',
+    'Dueling_Dancers'
+    ]
     conf['slots.d'] = 'Vayu'
     conf['acl'] = """
-        `dragon(c3-s-end), s4.check()
+        `dragon(c3-s-end), not energy()=5 and s1.check()
         `s3, not buff(s3)
-        `s2, self.energy() = 4 and s4.check()
+        `s2
         `s4
-        `s2,fsc and self.energy()<4
         `s1, buff(s3)
         `fs, x=5
         """
-    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
-    conf['share'] = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Bow']
+    conf['share'] = ['Tobias']
 
 
 if __name__ == '__main__':

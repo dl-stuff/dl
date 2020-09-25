@@ -8,9 +8,9 @@ class Eleonora(Adv):
     conf['slots.a'] = [
     'Forest_Bonds',
     'Flash_of_Genius',
-    'Moonlight_Party',
+    'Dear_Diary',
     'The_Plaguebringer',
-    'Dueling_Dancers'
+    'Chariot_Drift'
     ]
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()

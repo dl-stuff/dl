@@ -16,15 +16,15 @@ class Gala_Ranzal(Adv):
     ]
     conf['slots.d'] = 'Vayu'
     conf['acl'] = '''
-        `dragon(c3-s-end)
+        `dragon(c3-s-end), s1.check()
         `s3, not buff(s3)
-        `s4, fsc
         `s1
-        `fs, x=2 and self.gauges['x'] <= 500
-        `fs, x=3
+        `s4, fsc
+        `fs, x=2
     '''
-    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
-    conf['share'] = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
+    conf['share.base'] = ['Rodrigo']
+    conf['share.poison'] = ['Curran']
 
     def prerun(self):
         self.gauges = {'x':0, 'fs':0}
