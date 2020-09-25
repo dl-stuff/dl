@@ -9,14 +9,29 @@
         "spiral": false,
         "a": [["dt", 0.2]]
     },
+    "dragonform": {
+        "act": "c3-s",
+        "dx1": {"startup": 0.3, "recovery": 0.23333, "attr": [{"dmg": 4.32, "sp": 5}]},
+        "dx2": {"startup": 0.46667, "recovery": 0.23333, "attr": [{"dmg": 4.76, "sp": 5}]},
+        "dx3": {"startup": 0.33333, "recovery": 1.4, "attr": [{"dmg": 6.06, "sp": 5, "msl": 1}]},
+        "ds": {"sp": 30, "startup": 0.1, "recovery": 2.33333, "uses": 1, "attr": [{"dmg": 15.12, "iv": 0.93333}]}
+    },
+    "dragonform2": {
+        "act": "c3-s",
+        "dx1": {"startup": 0.3, "recovery": 0.23333, "attr": [{"dmg": 6.06, "sp": 5}]},
+        "dx2": {"startup": 0.46667, "recovery": 0.23333, "attr": [{"dmg": 5.12, "sp": 5}]},
+        "dx3": {"startup": 0.33333, "recovery": 1.4, "attr": [{"dmg": 6.50, "sp": 5, "msl": 1}]},
+        "ds": {"sp": 30, "startup": 0.1, "recovery": 2.33333, "uses": 1, "attr": [{"dmg": 15.12, "iv": 0.93333}, {"dmg": 8.12, "iv": 1.7, "msl": 1}]}
+    },
     "s1": {
         "sp": 2914,
         "startup": 0.1,
         "recovery": 1.68116,
         "attr": [
-            {"dmg": 3.07, "dp": 50, "iv": 0.26087},
-            {"dmg": 3.07, "iv": 0.49275},
-            {"dmg": 3.07, "iv": 0.98551}
+            {"dmg": 7.675, "dp": 50, "iv": 0.26087},
+            {"dmg": 7.675, "iv": 0.49275},
+            {"dmg": 7.675, "iv": 0.98551},
+            {"buff": ["self", 0.2, 10.0, "att", "buff"], "iv": 1.5}
         ]
     },
     "s2": {
@@ -24,32 +39,18 @@
         "startup": 0.1,
         "recovery": 1.7,
         "attr": [
-            {"dmg": 2.07, "iv": 0.73333},
-            {"dmg": 2.07, "iv": 0.8},
-            {"dmg": 2.07, "iv": 0.9},
-            {"dmg": 2.07, "iv": 1.0}
+            {"dmg": 5.175, "iv": 0.73333},
+            {"dmg": 5.175, "iv": 0.8},
+            {"dmg": 5.175, "iv": 0.9},
+            {"dmg": 5.175, "iv": 1.0}
         ]
     },
     "s2_flamewyrm": {
         "attr": [
-            {"dmg": 3.11, "iv": 0.73333},
-            {"dmg": 3.11, "iv": 0.8},
-            {"dmg": 3.11, "iv": 0.9},
-            {"dmg": 3.11, "iv": 1.0}
+            {"dmg": 6.22, "iv": 0.73333},
+            {"dmg": 6.22, "iv": 0.8},
+            {"dmg": 6.22, "iv": 0.9},
+            {"dmg": 6.22, "iv": 1.0}
         ]
-    },
-    "dragonform": {
-        "act": "c3-s",
-        "dx1": {"startup": 0.3, "recovery": 0.23333, "attr": [{"dmg": 2.16, "sp": 5}]},
-        "dx2": {"startup": 0.46667, "recovery": 0.23333, "attr": [{"dmg": 2.38, "sp": 5}]},
-        "dx3": {"startup": 0.33333, "recovery": 1.4, "attr": [{"dmg": 3.03, "sp": 5, "msl": 1}]},
-        "ds": {"sp": 30, "startup": 0.1, "recovery": 2.33333, "uses": 1, "attr": [{"dmg": 7.56, "iv": 0.93333}]}
-    },
-    "dragonform2": {
-        "act": "c3-s",
-        "dx1": {"startup": 0.3, "recovery": 0.23333, "attr": [{"dmg": 2.32, "sp": 5}]},
-        "dx2": {"startup": 0.46667, "recovery": 0.23333, "attr": [{"dmg": 2.56, "sp": 5}]},
-        "dx3": {"startup": 0.33333, "recovery": 1.4, "attr": [{"dmg": 3.25, "sp": 5, "msl": 1}]},
-        "ds": {"sp": 30, "startup": 0.1, "recovery": 2.33333, "uses": 1, "attr": [{"dmg": 7.56, "iv": 0.93333}, {"dmg": 4.06, "iv": 1.7, "msl": 1}]}
     }
 }

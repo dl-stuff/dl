@@ -35,7 +35,7 @@ class Nobunaga(Adv):
         adv.ba_t = Timer(adv.ba_proc)
 
     def s1_proc(self, e):
-        self.burning_ambition = self.dmg_formula('s', 11.18)
+        self.burning_ambition = self.dmg_formula('s', 15.65)
         self.ba_t.name = e.name
         self.ba_t.on(30)
 

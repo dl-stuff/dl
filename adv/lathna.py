@@ -59,7 +59,7 @@ class Lathna(Adv):
         # reeeeeee fix ur shit cykagames
         with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
             for _ in range(4):
-                self.dmg_make(e.name, 2.37/(1 + self.sub_mod('s', 'buff')))
+                self.dmg_make(e.name, 2.61/(1 + self.sub_mod('s', 'buff')))
                 self.add_combo(e.name)
         # spaget
         self.last_c = now() + 1

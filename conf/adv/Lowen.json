@@ -6,18 +6,23 @@
         "hp": 938,
         "ele": "wind",
         "wt": "staff",
-        "spiral": true
+        "spiral": true,
+        "a": []
     },
     "s1": {
         "sp": 5916,
         "startup": 0.1,
-        "recovery": 1.8
+        "recovery": 1.8,
+        "attr": [
+            {"buff": ["team", 0.15, 60.0, "att", "buff", "-refresh"], "iv": 0.96667}
+        ]
     },
     "s2": {
         "sp": 11449,
         "startup": 0.1,
         "recovery": 1.05,
         "attr": [
+            {"buff": ["team", 0.15, -1, "maxhp", "buff"], "iv": 0.16667},
             {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667}
         ]
     }
