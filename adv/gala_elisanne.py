@@ -20,7 +20,7 @@ class Gala_Elisanne(Adv):
     conf['share'] = ['Summer_Luca', 'Summer_Cleo']
     
     def prerun(self):
-        self.s2.autocharge_init(900).on()
+        self.s2.autocharge_init(960).on()
 
 
 if __name__ == '__main__':
