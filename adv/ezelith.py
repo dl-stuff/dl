@@ -29,11 +29,11 @@ class Ezelith(Adv):
             setattr(self, f's1_hit{h}', self.s1_hit)
 
     def s2_chance(self):
-        return 0.35 if self.hits >= 15 else 0.15
+        return 0.55 if self.hits >= 15 else 0.35
 
     def x_proc(self, e):
         if self.buff('s2'):
-            Debuff('s2_ab', -0.05, 5, self.s2_chance()).on()
+            Debuff('s2_ab', -0.10, 5, self.s2_chance()).on()
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
