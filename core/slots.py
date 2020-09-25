@@ -698,7 +698,9 @@ class Slots:
         self.w = WeaponBase(conf, self.c)
 
     def set_a(self, keys=None, affkeys=None):
-        # need to think about defaults        
+        # need to think about defaults
+        if self.sim_afflict:
+            keys = affkeys or keys
         keys = list(set(keys))
         if len(keys) < 5:
             raise ValueError('Less than 5 wyrmprints equipped')
