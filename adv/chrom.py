@@ -49,16 +49,22 @@ class Chrom(Adv):
         if self.s2.flames < 3:
             self.s2.flames += 1
 
+    # 101501052: 1.4299999475479126 + 1.4900000095367432
+    # 101501053: 2.930000066757202 + 3.5799999237060547
+    # 101501054: 7.199999809265137 + 8.010000228881836
+    # 101501055: 25.549999237060547 + 26.309999465942383
     def s2_proc(self, e):
         with KillerModifier('s2_killer', 'hit', 0.2, AFFLICT_LIST):
-            if self.s2.flames == 3 and self.s2.count == 2:
-                self.dmg_make(e.name, 51.86)
+            hit1, hit2 = 2.93, 3.58
+            if self.s2.flames == 3 and self.s2.count == 3:
+                hit1, hit2 = 25.55, 26.31
                 self.s2.charged = 0
-            else:
-                if self.s2.flames == 1:
-                    self.dmg_make(e.name, 6.51)
-                else:
-                    self.dmg_make(e.name, 15.21)
+            elif self.s2.flames == 2:
+                hit1, hit2 = 7.20, 8.01
+            self.dmg_make(e.name, hit1)
+            self.add_combo()
+            self.dmg_make(e.name, hit2)
+            self.add_combo()
         self.s2.flames = 0
 
 if __name__ == '__main__':
