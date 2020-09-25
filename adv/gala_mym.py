@@ -7,7 +7,20 @@ class Gala_Mym(Adv):
     a3 = ('dt', 0.20)
 
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Red_Impulse']
+    conf['slots.a'] = [
+    'The_Bridal_Dragon',
+    'An_Ancient_Oath',
+    'The_Red_Impulse',
+    'The_Plaguebringer',
+    'Mana_Fount'
+    ]
+    conf['slots.burn.a'] = [
+    'Me_and_My_Bestie',
+    'An_Ancient_Oath',
+    'The_Red_Impulse',
+    'Entwined_Flames',
+    'Mana_Fount'
+    ]
     conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
         if s

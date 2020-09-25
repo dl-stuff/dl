@@ -7,8 +7,14 @@ class Gala_Ranzal(Adv):
     comment = 'no s2'
 
     conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
-    conf['slots.d'] = 'AC011_Garland'
+    conf['slots.a'] = [
+    'The_Shining_Overlord',
+    'Flash_of_Genius',
+    'Moonlight_Party',
+    'The_Plaguebringer',
+    'Dueling_Dancers'
+    ]
+    conf['slots.d'] = 'Vayu'
     conf['acl'] = '''
         `dragon(c3-s-end)
         `s3, not buff(s3)
