@@ -59,7 +59,7 @@ class Summer_Sinoa(Adv):
         else:
             buffs = [
                 lambda: self.inspiration.add(2),
-                lambda: Selfbuff('s2_crit_rate', 0.15, 30, 'crit', 'chance').on(),
+                lambda: Selfbuff('s2_crit_rate', 0.20, 30, 'crit', 'chance').on(),
                 lambda: Selfbuff('s2_crit_dmg', 0.15, 30, 'crit', 'damage').on(),
             ]
             log('debug', 'overload', self.overload)
