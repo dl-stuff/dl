@@ -23,6 +23,9 @@ class Summer_Verica(Adv):
     conf['coabs'] = ['Dagger2','Tobias','Blade']
     conf['share'] = ['Summer_Luca', 'Patia']
 
+    def prerun(self):
+        self.s2.autocharge_init(1578).on()
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
