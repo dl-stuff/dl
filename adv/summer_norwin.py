@@ -5,7 +5,13 @@ def module():
 
 class Summer_Norwin(Adv):
     conf = {}
-    conf['slots.a'] = ['Twinfold_Bonds', 'The_Plaguebringer']
+    conf['slots.a'] = [
+    'Twinfold_Bonds',
+    'Flash_of_Genius',
+    'Moonlight_Party',
+    'The_Plaguebringer',
+    'A_Passion_for_Produce'
+    ]
     conf['slots.poison.a'] = conf['slots.a']
     conf['acl'] = """
         `dragon(c3-s-end), x=5 and s1.charged<2000
