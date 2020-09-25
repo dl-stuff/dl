@@ -51,11 +51,11 @@ class CharaBase(SlotBase):
     AUGMENTS = 100
     FAC_ELEMENT = {
         'all': {'altar1': 0.115, 'altar2': 0.115, 'slime': 0.04},
-        'flame': {'tree': 0.26, 'arctos': 0.085},
+        'flame': {'tree': 0.26, 'arctos': 0.085, 't2': 0.015},
         'water': {'tree': 0.16, 'yuletree': 0.085, 'dragonata': 0.085},
         'wind': {'tree': 0.16, 'shrine': 0.085},
         'light': {'tree': 0.16, 'retreat': 0.085, 'circus': 0.085},
-        'shadow': {'tree': 0.26, 'library': 0.07}
+        'shadow': {'tree': 0.26, 'library': 0.07, 't2': 0.015}
     }
     FAC_WEAPON = {
         'all': {'dojo1': 0.15, 'dojo2': 0.15},

@@ -848,6 +848,8 @@ class Adv(object):
         # self.ctx.off()
         self._acl = None
 
+        self.stats = []
+
     def dmg_mod(self, name):
         mod = 1
         scope = name.split('_')

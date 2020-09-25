@@ -512,7 +512,7 @@ def damage_counts(real_d, damage, counts, output, res=None):
 
 def compile_stats(real_d, adv, do_buffs=True):
     # aff uptimes
-    stat_str = []
+    stat_str = adv.stats or []
     for aff, up in adv.afflics.get_uptimes().items():
         stat_str.append(f'{aff}:{up:.1%}')
     if not do_buffs:
