@@ -6,7 +6,13 @@ def module():
 
 class Botan(Adv):
     conf = {}
-    conf['slots.a'] = ['Dragon_and_Tamer', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'Dragon_and_Tamer',
+        'The_Fires_of_Hate',
+        'Howling_to_the_Heavens',
+        'The_Plaguebringer',
+        'Catch_Me_in_the_Sunflowers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end),cancel
         `s3, not buff(s3) and prep

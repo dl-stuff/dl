@@ -738,7 +738,10 @@ class Slots:
                     acat = name.split('_')[0]
                 else:
                     acat = name
-                self.abilities[f'{kind}_{aidx}_{name}'] = (kind, ability_dict[acat](*ab))
+                try:
+                    self.abilities[f'{kind}_{aidx}_{name}'] = (kind, ability_dict[acat](*ab))
+                except:
+                    pass
 
         for name, val in self.abilities.items():
             kind, abi = val

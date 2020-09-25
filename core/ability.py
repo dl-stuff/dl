@@ -127,7 +127,6 @@ ability_dict['cd'] = Critical_Damage
 class Killer(ConditionalModifierAbility):
     def __init__(self, name, value, cond=None):
         super().__init__(name, 'killer','passive',value, cond)
-
 ability_dict['k'] = Killer
 
 
@@ -147,7 +146,6 @@ class Broken_Punisher(Ability):
     EFFICIENCY = 0.15
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('att','bk',value*self.EFFICIENCY, cond)])
-
 ability_dict['bk'] = Broken_Punisher
 
 
@@ -155,42 +153,36 @@ class Overdrive_Punisher(Ability):
     EFFICIENCY = 0.35
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('killer','passive',value*self.EFFICIENCY, cond)])
-
 ability_dict['od'] = Overdrive_Punisher
 
 
 class Dragon_Damage(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('da','passive',value,cond)])
-
 ability_dict['da'] = Dragon_Damage
 
 
 class Dragon_Time(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('dt','passive',value,cond)])
-
 ability_dict['dt'] = Dragon_Time
 
 
 class Dragon_Haste(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('dh','passive',value,cond)])
-
 ability_dict['dh'] = Dragon_Haste
 
 
 class Attack_Speed(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('spd','passive',value, cond)])
-
 ability_dict['spd'] = Attack_Speed
 
 
 class Charge_Speed(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('cspd','passive',value, cond)])
-
 ability_dict['cspd'] = Charge_Speed
 
 
@@ -198,6 +190,22 @@ class Combo_Time(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('ctime','passive',value, cond)])
 ability_dict['ctime'] = Combo_Time
+
+
+class Bleed_Killer(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('killer','passive',value, cond)])
+
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom=afrom)
+        value = self.mod_object.get()
+        def get_bleed():
+            try:
+                return value if adv.bleed.get() > 0 else 0
+            except AttributeError:
+                return 0
+        self.mod_object.get = get_bleed
+ability_dict['bleed'] = Bleed_Killer
 
 
 class Co_Ability(Ability):
@@ -218,10 +226,7 @@ class Co_Ability(Ability):
         'gleif': [('debuff_killer', 'passive', 0.08)]
     }
     def __init__(self, name, value):
-        try:
-            super().__init__(name, self.EX_MAP[value])
-        except KeyError:
-            super().__init__(name)
+        super().__init__(name, self.EX_MAP[value])
 ability_dict['ex'] = Co_Ability
 
 
@@ -237,10 +242,7 @@ class Union_Ability(Ability):
         11: {2: [('buff','passive', 0.05)], 3: [('buff','passive', 0.08)], 4: [('buff','passive', 0.15)]},
     }
     def __init__(self, name, value, level):
-        try:
-            super().__init__(name, self.UNION_MAP[value][level].copy())
-        except KeyError:
-            super().__init__(name)
+        super().__init__(name, self.UNION_MAP[value][level].copy())
 ability_dict['union'] = Union_Ability
 
 
