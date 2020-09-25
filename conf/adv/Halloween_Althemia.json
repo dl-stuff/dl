@@ -6,19 +6,23 @@
         "hp": 786,
         "ele": "light",
         "wt": "staff",
-        "spiral": false
+        "spiral": false,
+        "a": [["prep", 75], ["a", 0.1, "hp100"]]
     },
     "s1": {
         "sp": 5916,
         "startup": 0.1,
-        "recovery": 1.8
+        "recovery": 1.8,
+        "attr": [
+            {"buff": ["team", 0.15, 60.0, "att", "buff", "-refresh"], "iv": 0.96667}
+        ]
     },
     "s2": {
         "sp": 9662,
         "startup": 0.1,
         "recovery": 1.4,
         "attr": [
-            {"dmg": 6.17, "iv": 0.96667}
+            {"dmg": 6.17, "hp": 5, "iv": 0.96667}
         ]
     }
 }

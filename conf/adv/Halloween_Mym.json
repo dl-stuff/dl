@@ -9,6 +9,13 @@
         "spiral": false,
         "a": []
     },
+    "dragonform": {
+        "act": "c3-s",
+        "dx1": {"startup": 0.3, "recovery": 0.233333, "attr": [{"dmg": 4.4, "sp": 5}]},
+        "dx2": {"startup": 0.46667, "recovery": 0.23333, "attr": [{"dmg": 6.6, "sp": 5}]},
+        "dx3": {"startup": 0.66667, "recovery": 1.0, "attr": [{"dmg": 7.48, "sp": 5}, {"dmg": 7.48}]},
+        "ds": {"sp": 30, "startup": 0.1, "recovery": 2.63333, "uses": 1, "attr": [{"dmg": 3.08, "iv": 0.86667}, 2, {"dmg": 3.08, "iv": 1.06667}, 2, {"dmg": 3.08, "iv": 1.26667}, 2, {"dmg": 3.08, "iv": 1.46667}, 2]}
+    },
     "s1": {
         "sp": 3849,
         "startup": 0.1,
@@ -27,12 +34,5 @@
             {"buff": ["ele", 0.2, 15.0, "att", "buff", "flame"], "iv": 0.66667},
             {"buff": ["self", 0.05, 15.0, "crit", "chance"], "iv": 2.33333}
         ]
-    },
-    "dragonform": {
-        "act": "c3-s",
-        "dx1": {"startup": 0.3, "recovery": 0.233333, "attr": [{"dmg": 2.2, "sp": 5}]},
-        "dx2": {"startup": 0.46667, "recovery": 0.23333, "attr": [{"dmg": 3.3, "sp": 5}]},
-        "dx3": {"startup": 0.66667, "recovery": 1.0, "attr": [{"dmg": 3.74, "sp": 5}, {"dmg": 3.74}]},
-        "ds": {"sp": 30, "startup": 0.1, "recovery": 2.63333, "uses": 1, "attr": [{"dmg": 1.54, "iv": 0.86667}, 2, {"dmg": 1.54, "iv": 1.06667}, 2, {"dmg": 1.54, "iv": 1.26667}, 2, {"dmg": 1.54, "iv": 1.46667}, 2]}
     }
 }
