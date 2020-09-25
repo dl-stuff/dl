@@ -506,15 +506,20 @@ class AmuletQuint:
         'k_burn': 0.30, 'k_poison': 0.25, 'k_paralysis': 0.25,
         'k_frostbite': 0.25, 'k_stun': 0.25, 'k_sleep': 0.25
     }
-    RARITY_LIMITS = {5: 2, 4: 3}
+    # actually depends on weapons kms
+    RARITY_LIMITS = {5: 3, None: 2}
     def __init__(self, confs, c, quals):
         limits = AmuletQuint.RARITY_LIMITS.copy()
         self.an = []
         for conf, qual in zip(confs, quals):
-            if limits[conf['rarity']] == 0:
+            rk = 5 if conf['rarity'] == 5 else None
+            if limits[rk] == 0:
                 continue
-            limits[conf['rarity']] -= 1
+            limits[rk] -= 1
             self.an.append(AmuletBase(conf, c, qual))
+        if any(limits.values()):
+            raise ValueError('Unfilled wyrmprint slot')
+        self.an.sort(key=lambda a: a.rarity, reverse=True)
         self.c = c
 
     def __str__(self):
@@ -575,6 +580,12 @@ class AmuletQuint:
                 if limits['sp'] == 0:
                     break
 
+        union_level = defaultdict(lambda: 0)
+        for a in self.an:
+            if a.union:
+                union_level[a.union] += 1
+        merged_ab.extend((('union', u, l) for u, l in union_level.items()))
+
         return merged_ab
 
 
@@ -583,6 +594,14 @@ class AmuletBase(EquipBase):
     AUGMENTS = 50
     def __init__(self, conf, c, qual=None):
         super().__init__(conf, c, qual)
+
+    @property
+    def union(self):
+        return self.conf.union
+
+    @property
+    def rarity(self):
+        return self.conf.rarity
 
 
 class Slots:
@@ -679,27 +698,10 @@ class Slots:
         self.w = WeaponBase(conf, self.c)
 
     def set_a(self, keys=None, affkeys=None):
-        if not keys:
-            keys = list(Slots.DEFAULT_WYRMPRINT[self.c.wt])
-            try:
-                keys[1] = keys[1][self.c.ele]
-            except KeyError:
-                keys[1] = keys[1]['all']
-            except TypeError:
-                pass
-        else:
-            keys = list(keys)
-        if len(keys) < 2:
-            raise ValueError('Only one wyrmprint equipped')
-        if self.sim_afflict:
-            if affkeys:
-                keys = affkeys
-            else:
-                affwp = Slots.AFFLICT_WYRMPRINT[self.c.ele]
-                if affwp not in keys:
-                    keys[1] = affwp
-        if keys[0] == keys[1]:
-            raise ValueError('Cannot equip 2 of the same wyrmprint')
+        # need to think about defaults        
+        keys = list(set(keys))
+        if len(keys) < 5:
+            raise ValueError('Less than 5 wyrmprints equipped')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
         self.a = AmuletQuint(confs, self.c, keys)
 

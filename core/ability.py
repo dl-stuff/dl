@@ -91,14 +91,14 @@ ability_dict['fs'] = Force_Strike
 
 class Buff_Time(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('buff','time',value, cond)])
+        super().__init__(name, [('buff','passive',value, cond)])
 
 ability_dict['bt'] = Buff_Time
 
 
 class Debuff_Time(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('debuff','time',value, cond)])
+        super().__init__(name, [('debuff','passive',value, cond)])
 
 ability_dict['dbt'] = Debuff_Time
 
@@ -217,12 +217,31 @@ class Co_Ability(Ability):
         'peony': [('light','ele',0.20)],
         'gleif': [('debuff_killer', 'passive', 0.08)]
     }
-    def __init__(self, name, value, cond=None):
+    def __init__(self, name, value):
         try:
             super().__init__(name, self.EX_MAP[value])
         except KeyError:
             super().__init__(name)
 ability_dict['ex'] = Co_Ability
+
+
+class Union_Ability(Ability):
+    UNION_MAP = {
+        1: {4: [('s', 'passive', 0.10)]},
+        2: {4: [('att','bk', 0.10*Broken_Punisher.EFFICIENCY)]},
+        3: {4: [('att','passive', 0.08)]},
+        4: {3: [('sp','passive', 0.06)], 4: [('sp','passive', 0.10)]},
+        5: {2: [('da','passive', 0.10)], 3: [('da','passive', 0.18)], 4: [('da','passive', 0.30)]},
+        6: {2: [('fs','passive', 0.05)], 3: [('fs','passive', 0.08)], 4: [('fs','passive', 0.15)]},
+        # 7: burn res, 8: stun res, 9: para res, 10: curse res
+        11: {2: [('buff','passive', 0.05)], 3: [('buff','passive', 0.08)], 4: [('buff','passive', 0.15)]},
+    }
+    def __init__(self, name, value, level):
+        try:
+            super().__init__(name, self.UNION_MAP[value][level].copy())
+        except KeyError:
+            super().__init__(name)
+ability_dict['union'] = Union_Ability
 
 
 class BuffingAbility(Ability):
@@ -307,16 +326,17 @@ class Doublebuff_CD(Doublebuff):
 ability_dict['bcc'] = Doublebuff_CD
 
 
-# class Slayer_Strength(BuffingAbility):
-#     def __init__(self, name, value):
-#         super().__init__(name, value, -1)
+class Slayer_Strength(BuffingAbility):
+    def __init__(self, name, value):
+        super().__init__(name, value, -1)
 
-#     def oninit(self, adv, afrom=None):
-#         for _ in range(5):
-#             adv.Buff(*self.buff_args).on()
+    def oninit(self, adv, afrom=None):
+        pass
+        # for _ in range(5):
+        #     adv.Buff(*self.buff_args).on()
 
-# ability_dict['sts'] = Slayer_Strength
-# ability_dict['sls'] = Slayer_Strength
+ability_dict['sts'] = Slayer_Strength
+ability_dict['sls'] = Slayer_Strength
 
 class Slayers(BuffingAbility):
     def __init__(self, name, value):
