@@ -14,10 +14,10 @@
         "startup": 0.1,
         "recovery": 2.1,
         "attr": [
-            {"dmg": 1.69, "iv": 0.26667},
-            {"dmg": 1.69, "iv": 0.43333},
-            {"dmg": 1.69, "iv": 0.86667},
-            {"dmg": 1.69, "iv": 1.4}
+            {"dmg": 2.67, "killer": [0.2, ["poison"]], "afflic": ["poison", 100, 0.482], "iv": 0.26667},
+            {"dmg": 2.67, "killer": [0.2, ["poison"]], "iv": 0.43333},
+            {"dmg": 2.67, "killer": [0.2, ["poison"]], "iv": 0.86667},
+            {"dmg": 2.67, "killer": [0.2, ["poison"]], "iv": 1.4}
         ]
     },
     "s2": {
@@ -25,7 +25,8 @@
         "startup": 0.1,
         "recovery": 1.5,
         "attr": [
-            {"dmg": 2.88, "buff": ["debuff", -0.05, 10.0, 0.3, "def"], "iv": 0.26667},
+            {"dmg": 2.88, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-refresh"], "iv": 0.26667},
+            {"afflic": ["poison", 100, 0.482], "iv": 0.26667},
             {"dmg": 2.88, "iv": 0.8}
         ]
     }
