@@ -548,9 +548,9 @@ class AmuletQuint:
     @staticmethod
     def sort_ab(a):
         if len(a) <= 2:
-            return -10 * a[1]
+            return -100 * a[1]
         if 'hp' not in a[2]:
-            return -5 * a[1]
+            return -1 * a[1]
         return a[1]
 
     @property
@@ -590,6 +590,7 @@ class AmuletQuint:
                 union_level[a.union] += 1
         merged_ab.extend((('union', u, l) for u, l in union_level.items()))
 
+        print(merged_ab)
         return merged_ab
 
 
