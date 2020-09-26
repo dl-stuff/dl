@@ -4,7 +4,6 @@ def module():
     return Gala_Luca
 
 class Gala_Luca(Adv):
-
     # conf = {}
     # conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
     # conf['acl'] = """
