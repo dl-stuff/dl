@@ -5,14 +5,27 @@ def module():
     return Incognito_Nefaria
 
 class Incognito_Nefaria(RngCritAdv):
-    comment = 'no s2; using s2 is a ~1300 dps loss'
+    comment = 'no s2; using s2 is dps loss'
     conf = {}
-    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
+    conf['slots.a'] = [
+    'Candy_Couriers',
+    'Flash_of_Genius',
+    'The_Red_Impulse',
+    'His_Clever_Brother',
+    'Dueling_Dancers'
+    ]
+    conf['slots.burn.a'] = [
+    'Candy_Couriers',
+    'Flash_of_Genius',
+    'Me_and_My_Bestie',
+    'His_Clever_Brother',
+    'Dueling_Dancers'
+    ]
     conf['acl'] = """
-        `dragon(c3-s-s-end), s=1 and energy()<5
+        `dragon, s=1 and energy()<5
         `s3, not buff(s3) and x=5
+        `s4, energy()=5 and fsc
         `s1
-        `s4, x>2 or fsc
         `fs, x=5
         `dodge, fsc
         
@@ -24,8 +37,8 @@ class Incognito_Nefaria(RngCritAdv):
         #`s4, not energy()=5 and x>3
         """
     conf['slots.d'] = 'Gala_Mars'
-    conf['coabs'] = ['Nobunaga', 'Serena', 'Yuya']
-    conf['share'] = ['Summer_Patia']
+    conf['coabs'] = ['Blade', 'Serena', 'Yuya']
+    conf['share'] = ['Xander']
     conf['afflict_res.burn'] = 0
 
     def prerun(self):

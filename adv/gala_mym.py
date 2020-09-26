@@ -4,24 +4,35 @@ def module():
     return Gala_Mym
 
 class Gala_Mym(Adv):
-    a3 = ('dt', 0.20)
-
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Red_Impulse']
+    conf['slots.a'] = [
+    'Dragon_and_Tamer',
+    'An_Ancient_Oath',
+    'The_Red_Impulse',
+    'His_Clever_Brother',
+    'Dueling_Dancers'
+    ]
+    conf['slots.burn.a'] = [
+    'Me_and_My_Bestie',
+    'Dragon_and_Tamer',
+    'The_Red_Impulse',
+    'His_Clever_Brother',
+    'Dueling_Dancers'
+    ]
     conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
-        if s
+        if s=1
         `dragon(c3-s-end), self.dragonform.shift_count<1
         `dragon
         end
-        `s3, not buff(s3)
+        `s3, not buff(s3) and x=5
         `s1
-        `s2, cancel
-        `s4, cancel
+        `s4
+        `s2, x=5
         `fs, x=5
     """
-    conf['share'] = ['Kleimann']
-    conf['coabs'] = ['Verica', 'Marth', 'Yuya']
+    conf['share'] = ['Fjorm']
+    conf['coabs'] = ['Verica', 'Serena', 'Yuya']
     
     def prerun(self):
         self.a1_buff = MultiBuffManager('flamewyrm', buffs=[

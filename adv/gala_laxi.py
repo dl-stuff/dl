@@ -6,22 +6,28 @@ def module():
 
 class Gala_Laxi(RngCritAdv):    
     conf = {}
-    conf['slots.a'] = ['Twinfold_Bonds', 'Me_and_My_Bestie']
+    conf['slots.a'] = [
+    'Twinfold_Bonds',
+    'Flash_of_Genius',
+    'Me_and_My_Bestie',
+    'His_Clever_Brother',
+    'A_Passion_for_Produce'
+    ]
     conf['acl'] = """
         # `norm
         `ex
-        `dragon(c3-s-s-end),s=2
+        `dragon,s=2
         queue prep
         `s2;s1;s4
         end
-        `s3, not buff(s3)
+        `s3, not buff(s3) and x=4
         `s2
         `s1
-        `s4, x=4
+        `s4
         """
     conf['afflict_res.burn'] = 0
-    conf['coabs'] = ['Blade', 'Marth', 'Dagger']
-    conf['share'] = ['Summer_Patia']
+    conf['coabs'] = ['Halloween_Mym', 'Serena', 'Yuya']
+    conf['share'] = ['Xander']
 
     def __init__(self, conf=None, cond=None):
         super().__init__(conf=conf, cond=cond)

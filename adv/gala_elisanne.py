@@ -7,17 +7,31 @@ class Gala_Elisanne(Adv):
     comment = 'no s2, s!cleo ss after s1'
 
     conf = {}
-    conf['slots.a'] = ['Beach_Battle', 'The_Chocolatiers']
-    conf['slots.frostbite.a'] = conf['slots.a']
+    conf['slots.a'] = [
+        'Kung_Fu_Masters',
+        'Summer_Paladyns',
+        'The_Red_Impulse',
+        'From_Whence_He_Comes',
+        'Bellathorna'
+    ]
+    conf['slots.frostbite.a'] = [
+        'Kung_Fu_Masters',
+        'Summer_Paladyns',
+        'The_Red_Impulse',
+        'From_Whence_He_Comes',
+        'His_Clever_Brother'
+    ]
     conf['slots.d'] = 'Gaibhne_and_Creidhne'
     conf['acl'] = """
+        `dragon(c3-s-end)
+        `s3, not buff(s3)
         `s1
-        `s3
-        `s4, s=1
-        `fsf, x=4
+        `s2
+        `s4
+        `fs, x=5
     """
-    conf['coabs'] = ['Bow','Tobias', 'Renee']
-    conf['share'] = ['Summer_Luca', 'Summer_Cleo']
+    conf['coabs'] = ['Hunter_Sarisse','Summer_Estelle', 'Renee']
+    conf['share'] = ['Gala_Mym']
     
     def prerun(self):
         self.s2.autocharge_init(960).on()

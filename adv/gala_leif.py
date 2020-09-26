@@ -6,12 +6,17 @@ def module():
 
 class Gala_Leif(StanceAdv):
     conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
-    conf['slots.d'] = 'Vayu'
+    conf['slots.a'] = [
+    'The_Shining_Overlord',
+    'Flash_of_Genius',
+    'Moonlight_Party',
+    'The_Plaguebringer',
+    'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end),fsc
         `s3, not buff(s3)
-        `s4, afflics.poison.get()
+        `s4, afflics.poison.get() and cancel
         `s2(shielding), s2.check()
         `s1(striking), s1.check()
         `fs, xf=3

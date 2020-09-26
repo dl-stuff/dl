@@ -6,15 +6,29 @@ def module():
 
 class Gala_Euden(Adv):
     conf = {}
+    conf['slots.a'] = [
+    'The_Shining_Overlord',
+    'The_Red_Impulse',
+    'An_Ancient_Oath',
+    'Entwined_Flames',
+    'Dueling_Dancers'
+    ]
+    conf['slots.paralysis.a'] = [
+    'The_Shining_Overlord',
+    'Spirit_of_the_Season',
+    'An_Ancient_Oath',
+    'Entwined_Flames',
+    'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon, self.energy()=5
         `s2
-        `s3
-        `s4, cancel
-        `s1, fsc and self.energy()<5
+        `s1
+        `s4, cancel 
+        `s3, fsc
         `fs, x=3
     """
-    conf['coabs'] = ['Raemond','Cleo','Peony']
+    conf['coabs'] = ['Lucretia','Cleo','Peony']
     conf['share'] = ['Gala_Mym']
     conf['afflict_res.paralysis'] = 0
 

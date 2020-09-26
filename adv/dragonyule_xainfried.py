@@ -5,15 +5,19 @@ def module():
 
 class Dragonyule_Xainfried(Adv):
     comment = 'no s2'
-
     conf = {}
-    conf['slots.a'] = ['A_Dogs_Day', 'Castle_Cheer_Corps']
-    conf['slots.poison.a'] = conf['slots.a']
+    conf['slots.a'] = [
+        'Study_Rabbits',
+        'Jewels_of_the_Sun',
+        'Castle_Cheer_Corps',
+        'From_Whence_He_Comes',
+        'Bellathorna'
+    ]
     conf['slots.d'] = 'Freyja'
     conf['acl'] = """
         `s4
         `s1
-        `s3, x>2 or fsc
+        `s3, xf>2 or fsc
         `fs, x=5
         `dodge,fsc
         """
