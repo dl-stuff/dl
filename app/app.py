@@ -96,15 +96,15 @@ def set_teamdps_res(result, logs, real_d, suffix=''):
             result['extra' + suffix]['team_{}'.format(tension)] = '{} stacks'.format(round(count))
     return result
 
-def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=5, mass=0):
+def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=5, mass=0):
     adv_module = ADV_MODULES[adv_name]
 
     if conf is None:
         conf = {}
 
     conf['flask_env'] = True
-    if wp1 is not None and wp2 is not None:
-        conf['slots.a'] = [wp1, wp2]
+    if wp is not None:
+        conf['slots.a'] = list(wp)
     if dra is not None:
         conf['slots.d'] = dra
     # if wep is not None:
@@ -148,8 +148,7 @@ def simc_adv_test():
         return 'Wrong request method.'
     params = request.get_json(silent=True)
     adv_name = 'Euden' if not 'adv' in params or params['adv'] is None else params['adv']
-    wp1 = params['wp1'] if 'wp1' in params else None
-    wp2 = params['wp2'] if 'wp2' in params else None
+    wp = params['wp'] if 'wp1' in params else None
     dra = params['dra'] if 'dra' in params else None
     wep = params['wep'] if 'wep' in params else None
     # ex  = params['ex'] if 'ex' in params else ''
@@ -167,8 +166,7 @@ def simc_adv_test():
     if adv_name in SPECIAL_ADV:
         not_customizable = SPECIAL_ADV[adv_name]['nc']
         if 'wp' in not_customizable:
-            wp1 = None
-            wp2 = None
+            wp = None
         if 'acl' in not_customizable:
             acl = None
         if 'coab' in not_customizable:
@@ -204,7 +202,7 @@ def simc_adv_test():
         except KeyError:
             pass
 
-    result = run_adv_test(adv_name, wp1, wp2, dra, wep, acl, conf, cond, teamdps, t=t, log=log, mass=mass)
+    result = run_adv_test(adv_name, wp, dra, wep, acl, conf, cond, teamdps, t=t, log=log, mass=mass)
     return jsonify(result)
 
 @app.route('/simc_adv_slotlist', methods=['GET', 'POST'])
@@ -221,16 +219,12 @@ def get_adv_slotlist():
     if result['adv']['name'] is not None:
         adv = ADV_MODULES[result['adv']['name']]()
         adv.config_slots()
-        
         result['adv']['basename'] = adv.__class__.__name__
         result['adv']['ele'] = adv.slots.c.ele
         result['adv']['wt'] = adv.slots.c.wt
         result['adv']['pref_dra'] = adv.slots.d.qual
         result['adv']['pref_wep'] = f'{adv.slots.c.ele}-{adv.slots.c.wt}'
-        result['adv']['pref_wp'] = {
-            'wp1': adv.slots.a.a1.qual,
-            'wp2': adv.slots.a.a2.qual
-        }
+        result['adv']['pref_wp'] = [a.qual for a in adv.slots.a.an]
         try:
             result['adv']['pref_coab'] = adv.conf.coabs['base']
         except:
@@ -271,6 +265,12 @@ def get_adv_wp_list():
             result['adv'][name] = load_adv_json(name)['c']['name'] 
         except FileNotFoundError:
             result['adv'][name] = SPECIAL_ADV[name]['fullname']
-    result['wyrmprints'] = {wp: data['name'] for wp, data in wyrmprints.items()}
+    wplists = {'gold':{}, 'silver':{}}
+    for wp, data in wyrmprints.items():
+        if data['rarity'] == 5:
+            wplists['gold'][wp] = data['name']
+        else:
+            wplists['silver'][wp] = data['name']
+    result['wyrmprints'] = wplists
     result['skillshare'] = {k: {'fullname': get_fullname(k), **v} for k, v in skillshare.items()}
     return jsonify(result)

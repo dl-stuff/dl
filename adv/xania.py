@@ -18,9 +18,10 @@ class Xania(Adv):
         `s1
         `s4,cancel
         `s2,x=5
+        `fs, x=5
         """
     conf['coabs'] = ['Blade', 'Marth', 'Joe']
-    conf['share'] = ['Xander']
+    conf['share'] = ['Vanessa']
     conf['afflict_res.burn'] = 0
 
 

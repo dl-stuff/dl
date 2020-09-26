@@ -5,11 +5,11 @@ from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS
 from core.config import Conf
 from core.ability import ability_dict
 
-def all_subclasses(c):
-    return set(c.__subclasses__()).union([s for c in c.__subclasses__() for s in all_subclasses(c)])
+def all_subclasses(cl):
+    return set(cl.__subclasses__()).union([s for c in cl.__subclasses__() for s in all_subclasses(c)])
 
-def subclass_dict(c):
-    return {sub_class.__name__: sub_class for sub_class in all_subclasses(c)}
+def subclass_dict(cl):
+    return {sub_class.__name__: sub_class for sub_class in all_subclasses(cl)}
 
 class SlotBase:
     KIND = 's'
@@ -519,7 +519,7 @@ class AmuletQuint:
             self.an.append(AmuletBase(conf, c, qual))
         if any(limits.values()):
             raise ValueError('Unfilled wyrmprint slot')
-        self.an.sort(key=lambda a: a.rarity, reverse=True)
+        self.an.sort(key=lambda a: (-a.rarity, a.name))
         self.c = c
 
     def __str__(self):
@@ -615,20 +615,27 @@ class Slots:
         'shadow': 'Gala_Cat_Sith'
     }
 
-    DEFAULT_WYRMPRINT = {
-        'sword': ('The_Shining_Overlord', 'Primal_Crisis'),
-        'blade': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
-        'dagger': ('Twinfold_Bonds', {
-            'water': 'The_Prince_of_Dragonyule',
-            'shadow': 'Howling_to_the_Heavens',
-            'all': 'Levins_Champion'
-        }),
-        'axe': ('Kung_Fu_Masters', 'Breakfast_at_Valerios'),
-        'lance': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
-        'wand': ('Candy_Couriers', 'Primal_Crisis'),
-        'bow': ('Forest_Bonds', 'Primal_Crisis'),
-        'staff': ('Resounding_Rendition', 'Breakfast_at_Valerios')
-    }
+    # DEFAULT_WYRMPRINT = {
+    #     'sword': ('The_Shining_Overlord', 'Primal_Crisis'),
+    #     'blade': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
+    #     'dagger': ('Twinfold_Bonds', {
+    #         'water': 'The_Prince_of_Dragonyule',
+    #         'shadow': 'Howling_to_the_Heavens',
+    #         'all': 'Levins_Champion'
+    #     }),
+    #     'axe': ('Kung_Fu_Masters', 'Breakfast_at_Valerios'),
+    #     'lance': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
+    #     'wand': ('Candy_Couriers', 'Primal_Crisis'),
+    #     'bow': ('Forest_Bonds', 'Primal_Crisis'),
+    #     'staff': ('Resounding_Rendition', 'Breakfast_at_Valerios')
+    # }
+    DEFAULT_WYRMPRINT = [
+        'Resounding_Rendition',
+        'The_Red_Impulse',
+        'Breakfast_at_Valerios',
+        'Dueling_Dancers',
+        'A_Small_Courage'
+    ]
 
     AFFLICT_WYRMPRINT = {
         'flame': 'Me_and_My_Bestie',
@@ -701,9 +708,12 @@ class Slots:
         # need to think about defaults
         if self.sim_afflict:
             keys = affkeys or keys
-        keys = list(set(keys))
-        if len(keys) < 5:
-            raise ValueError('Less than 5 wyrmprints equipped')
+        if keys is None or len(keys) < 5:
+            keys = list(set(Slots.DEFAULT_WYRMPRINT))
+        else:
+            keys = list(set(keys))
+        # if len(keys) < 5:
+        #     raise ValueError('Less than 5 wyrmprints equipped')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
         self.a = AmuletQuint(confs, self.c, keys)
 
@@ -750,10 +760,11 @@ class Slots:
 
 
 if __name__ == '__main__':
-    from conf import load_adv_json
-    conf = Conf(load_adv_json('Xania'))
-    # conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
-    conf['slots.d'] = 'Gala_Mars'
-    slots = Slots(conf.c, True)
-    slots.set_slots(conf.slots)
-    print(type(slots.d))
+    # from conf import load_adv_json
+    # conf = Conf(load_adv_json('Xania'))
+    # # conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
+    # conf['slots.d'] = 'Gala_Mars'
+    # slots = Slots(conf.c, True)
+    # slots.set_slots(conf.slots)
+    # print(type(slots.d))
+    print(Slots.DRAGON_DICTS)
