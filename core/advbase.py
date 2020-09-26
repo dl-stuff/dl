@@ -795,7 +795,7 @@ class Adv(object):
         return equip
 
     def default_slot(self):
-        self.slots = Slots(self.name, self.conf.c, self.sim_afflict)
+        self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf['flask_env']))
         # from conf import slot_common
         # self.cmnslots = slot.Slots()
         # self.cmnslots.c.att = self.conf.c.att

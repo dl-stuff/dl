@@ -197,7 +197,7 @@ def simc_adv_test():
     coab = None if 'coab' not in params else params['coab']
     share = None if 'share' not in params else params['share']
     # latency = 0 if 'latency' not in params else abs(float(params['latency']))
-    # print(params, flush=True)
+    print(params, flush=True)
 
     if adv_name in SPECIAL_ADV:
         not_customizable = SPECIAL_ADV[adv_name]['nc']

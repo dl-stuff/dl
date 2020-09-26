@@ -649,9 +649,10 @@ class Slots:
         'shadow': 'The_Fires_of_Hate'
     }
 
-    def __init__(self, name, conf, sim_afflict=None):
+    def __init__(self, name, conf, sim_afflict=None, flask_env=False):
         self.c = CharaBase(conf, name)
         self.sim_afflict = sim_afflict
+        self.flask_env = flask_env
         self.d = None
         self.w = None
         self.a = None
@@ -709,13 +710,13 @@ class Slots:
         self.w = WeaponBase(conf, self.c)
 
     def set_a(self, keys=None, affkeys=None):
-        # need to think about defaults
-        if self.sim_afflict:
-            keys = affkeys or keys
+        if self.sim_afflict and not self.flask_env:
+            keys = affkeys
         if keys is None or len(keys) < 5:
             keys = list(set(Slots.DEFAULT_WYRMPRINT))
         else:
             keys = list(set(keys))
+        print(keys, flush=True)
         # if len(keys) < 5:
         #     raise ValueError('Less than 5 wyrmprints equipped')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
