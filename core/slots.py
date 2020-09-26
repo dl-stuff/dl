@@ -69,9 +69,9 @@ class CharaBase(SlotBase):
         self.valid_coabs = elecoabs[self.ele]
         try:
             coab = self.valid_coabs[self.qual]
-            chain = coab[0]
-            if chain is None or len(chain)<3 or chain[2] != 'hp≤40':
-                self.coabs[self.qual] = coab
+            # chain = coab[0]
+            # if chain is None or len(chain)<3 or chain[2] != 'hp≤40':
+            self.coabs[self.qual] = coab
         except:
             try:
                 wt = self.wt
@@ -716,7 +716,6 @@ class Slots:
             keys = list(set(Slots.DEFAULT_WYRMPRINT))
         else:
             keys = list(set(keys))
-        print(keys, flush=True)
         # if len(keys) < 5:
         #     raise ValueError('Less than 5 wyrmprints equipped')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]

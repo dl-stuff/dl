@@ -790,6 +790,7 @@ class Adv(object):
         self.conf.update(self.conf_base)
         equip = globalconf.load_equip_json(self.name).get(str(self.duration))
         if equip and 'base' in equip:
+            print(equip)
             self.conf.update(equip['base'])
         self.conf.update(self.conf_init)
         return equip
