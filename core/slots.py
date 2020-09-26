@@ -534,6 +534,10 @@ class AmuletQuint:
         return sum(a.hp for a in self.an)
 
     @property
+    def qual_lst(self):
+        return [a.qual for a in self.an]
+
+    @property
     def name_lst(self):
         return (a.name for a in self.an)
 

@@ -175,7 +175,11 @@ function create_dps_bar(res_div, arr) {
     return copy_txt;
 }
 function trimAcl(acl_str) {
-    return $.trim(acl_str.replace(new RegExp(/[\n] +/, 'g'), '\n'));
+    if (typeof acl_str === 'string' || acl_str instanceof String) {
+        return $.trim(acl_str.replace(new RegExp(/[\n] +/, 'g'), '\n'));
+    } else {
+        return acl_str.join('\n');
+    }
 }
 function getUrlVars() {
     let vars = {};

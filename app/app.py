@@ -12,7 +12,7 @@ from flask import jsonify
 
 import core.simulate
 from core.afflic import AFFLICT_LIST
-from conf import ROOT_DIR, skillshare, wyrmprints, weapons, dragons, load_adv_json
+from conf import ROOT_DIR, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json, save_equip_json
 app = Flask(__name__)
 
 # Helpers
@@ -96,7 +96,7 @@ def set_teamdps_res(result, logs, real_d, suffix=''):
             result['extra' + suffix]['team_{}'.format(tension)] = '{} stacks'.format(round(count))
     return result
 
-def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=5, mass=0):
+def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, cond=None, t=180, log=5, mass=0):
     adv_module = ADV_MODULES[adv_name]
 
     if conf is None:
@@ -116,11 +116,13 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
 
     fn = io.StringIO()
     try:
-        run_res = core.simulate.test(adv_module, conf, t, log, mass, output=fn, team_dps=teamdps, cond=cond)
+        run_res, adv = core.simulate.test(adv_module, conf, t, log, mass, output=fn, cond=cond)
         result['test_output'] = fn.getvalue()
     except Exception as e:
         result['error'] = str(e)
         return result
+
+    save_userconf(adv)
 
     result['logs'] = {}
     adv = run_res[0][0]
@@ -134,12 +136,33 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
     fn = io.StringIO()
     adv.logs.write_logs(output=fn)
     result['logs']['timeline'] = fn.getvalue()
-    # result = set_teamdps_res(result, adv.logs, run_res[0][1])
-    # if adv.condition.exist():
-    #     result['condition'] = dict(adv.condition)
-    #     adv_2 = run_res[1][0]
-    #     result = set_teamdps_res(result, adv_2.logs, run_res[0][1], '_no_cond')
     return result
+
+def save_userconf(adv):
+    adv.duration = int(adv.duration)
+    if adv.duration not in (60, 120, 180):
+        return
+    dkey = str(adv.duration)
+    adv_qual = adv.__class__.__name__
+    try:
+        equip = load_equip_json(adv_qual)
+        cdps = equip[dkey]['dps']
+    except (FileNotFoundError, KeyError):
+        equip = {}
+        cdps = 0
+    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
+    ndps += 50000 * (1 + adv.logs.team_buff / adv.real_duration)
+    if ndps < cdps:
+        return
+    equip[dkey] = {
+        'dps': ndps,
+        'slots.a': adv.slots.a.qual_lst,
+        'slots.d': adv.slots.d.qual,
+        'acl': [line.strip() for line in adv.conf.acl.split('\n') if line.strip()],
+        'coabs': adv.coab_list,
+        'share': adv.skillshare_list
+    }
+    save_equip_json(adv_qual, equip)
 
 # API
 @app.route('/simc_adv_test', methods=['POST'])
@@ -154,7 +177,6 @@ def simc_adv_test():
     # ex  = params['ex'] if 'ex' in params else ''
     acl = params['acl'] if 'acl' in params else None
     cond = params['condition'] if 'condition' in params and params['condition'] != {} else None
-    teamdps = None if not 'teamdps' in params else abs(float(params['teamdps']))
     t   = 180 if not 't' in params else min(abs(float(params['t'])), 600.0)
     log = 5
     mass = 0
@@ -202,7 +224,7 @@ def simc_adv_test():
         except KeyError:
             pass
 
-    result = run_adv_test(adv_name, wp, dra, wep, acl, conf, cond, teamdps, t=t, log=log, mass=mass)
+    result = run_adv_test(adv_name, wp, dra, wep, acl, conf, cond, t=t, log=log, mass=mass)
     return jsonify(result)
 
 @app.route('/simc_adv_slotlist', methods=['GET', 'POST'])
@@ -224,7 +246,7 @@ def get_adv_slotlist():
         result['adv']['wt'] = adv.slots.c.wt
         result['adv']['pref_dra'] = adv.slots.d.qual
         result['adv']['pref_wep'] = f'{adv.slots.c.ele}-{adv.slots.c.wt}'
-        result['adv']['pref_wp'] = [a.qual for a in adv.slots.a.an]
+        result['adv']['pref_wp'] = adv.slots.a.qual_lst
         try:
             result['adv']['pref_coab'] = adv.conf.coabs['base']
         except:

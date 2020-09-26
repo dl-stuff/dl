@@ -788,6 +788,9 @@ class Adv(object):
         tmpconf = Conf(self.conf_default)
         tmpconf.update(globalconf.get_adv(self.name))
         tmpconf.update(self.conf)
+        equip = globalconf.load_equip_json(self.name).get(str(self.duration))
+        if equip:
+            tmpconf.update(equip)
         tmpconf.update(self.conf_init)
         self.conf = tmpconf
 
@@ -803,7 +806,7 @@ class Adv(object):
         # self.slot_common(self.cmnslots)
         # self.slots = self.cmnslots
 
-    def __init__(self, conf={}, cond=None):
+    def __init__(self, conf=None, duration=180, cond=None):
         if not self.name:
             self.name = self.__class__.__name__
 
@@ -818,7 +821,7 @@ class Adv(object):
         self.conf_init = conf or {}
         self.ctx = Ctx().on()
         self.condition = Condition(cond)
-        self.duration = 180
+        self.duration = duration
 
         self.damage_sources = set()
         self.Modifier._static.damage_sources = self.damage_sources
@@ -1304,8 +1307,7 @@ class Adv(object):
 
         return preruns
 
-    def run(self, d=300):
-        self.duration = d
+    def run(self):
         global loglevel
         if not loglevel:
             loglevel = 0
