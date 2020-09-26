@@ -42,7 +42,7 @@ class Mega_Man(Adv):
         `dragon, s=4
         `s3, not buff(s3)
         `s4
-        if bleed.get() >= 3
+        if bleed_stack >= 3
         `s2, c_x(metalblade) or c_x(default)
         `s1, c_x(metalblade)
         else
@@ -89,7 +89,6 @@ class Mega_Man(Adv):
         super().__init__(conf=conf, cond=cond)
         self.a_s_dict['s1'] = Skill_Ammo('s1')
         self.a_s_dict['s2'] = Skill_Ammo('s2')
-        self.bleed = Bleed('g_bleed',0).reset()
 
     def prerun(self):
         self.leaf = 2 # number of hits per leaf rotation

@@ -1637,11 +1637,13 @@ class Adv(object):
             rate, mod = attr['bleed']
             if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
-                mBleed(name, mod).on()
+                self.bleed = mBleed(name, mod)
+                self.bleed.on()
             else:
                 from module.bleed import Bleed
                 if rate == 100 or rate > random.uniform(0, 100):
-                    Bleed(name, mod).on()
+                    self.bleed = Bleed(name, mod)
+                    self.bleed.on()
 
 
         if 'buff' in attr:
@@ -1832,10 +1834,17 @@ class Adv(object):
     def dgauge(self):
         return self.dragonform.dragon_gauge
 
+    @property
+    def bleed_stack(self):
+        try:
+            return self.bleed._static['stacks']
+        except AttributeError:
+            return 0
+
+
     def stop(self):
         doing = self.action.getdoing()
         if doing.status == Action.RECOVERY or doing.status == Action.OFF:
             Timeline.stop()
             return True
         return False
-

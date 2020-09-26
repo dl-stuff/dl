@@ -21,9 +21,6 @@ class Sazanka(Adv):
 
     conf['mbleed'] = True
 
-    def prerun(self):
-        self.bleed = mBleed('g_bleed',0).reset()
-
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -14,9 +14,9 @@ class Victor(Adv):
     'A_Small_Courage'
     ]
     conf['acl'] = """
-        `dragon(c3-s-end), s1.check() and bleed.get()<3
+        `dragon(c3-s-end), s1.check() and bleed_stack<3
         `s3, not buff(s3)
-        `s1, bleed.get() < 3
+        `s1, bleed_stack < 3
         `s4, x=5
         `s2, x=5
         """
@@ -25,9 +25,7 @@ class Victor(Adv):
     conf['share.poison'] = ['Curran']
 
     conf['mbleed'] = True
-    
-    def prerun(self):
-        self.bleed = mBleed('g_bleed',0).reset()
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
