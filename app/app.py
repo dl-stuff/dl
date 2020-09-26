@@ -1,4 +1,5 @@
 import io
+import json
 import inspect
 from importlib.util import spec_from_file_location, module_from_spec
 from conf import get_fullname
@@ -296,3 +297,7 @@ def get_adv_wp_list():
     result['wyrmprints'] = wplists
     result['skillshare'] = {k: {'fullname': get_fullname(k), **v} for k, v in skillshare.items()}
     return jsonify(result)
+
+@app.route('/simc_adv_equip', methods=['GET'])
+def get_adv_equip():
+    return '<pre>' + json.dumps(load_equip_json(request.args.get('adv', default=None)), ensure_ascii=False, indent=4) + '</pre>'
