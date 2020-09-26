@@ -1,7 +1,7 @@
-// const APP_URL = 'http://127.0.0.1:5000/';
-const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
-const BASE_TEAM_DPS = 20000;
+const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
 const RANGED = ['wand', 'bow', 'staff'];
 const SECONDARY_COABS = {
@@ -537,8 +537,8 @@ function coabSelection(add, debounce) {
     const count = $('#input-coabs').data('selected') + add;
     const max = $('#input-coabs').data('max');
     if (count >= max) {
-        if (debounce){
-            setTimeout(function () {$('input:not(:checked).coab-check').prop('disabled', true);}, 50);
+        if (debounce) {
+            setTimeout(function () { $('input:not(:checked).coab-check').prop('disabled', true); }, 50);
         } else {
             $('input:not(:checked).coab-check').prop('disabled', true);
         }
