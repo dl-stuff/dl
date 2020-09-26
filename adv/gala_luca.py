@@ -4,30 +4,18 @@ def module():
     return Gala_Luca
 
 class Gala_Luca(Adv):
-    conf = {}
-    conf['slots.a'] = [
-    'Resounding_Rendition',
-    'Flash_of_Genius',
-    'The_Red_Impulse',
-    'Chariot_Drift',
-    'A_Small_Courage'
-    ]
-    conf['slots.paralysis.a'] = [
-    'Resounding_Rendition',
-    'Flash_of_Genius',
-    'Spirit_of_the_Season',
-    'Chariot_Drift',
-    'A_Small_Courage'
-    ]
-    conf['acl'] = """
-        `dragon, cancel and energy()>3
-        `s3, not buff(s3)
-        `s2
-        `s1
-        `s4, xf=5 and not energy()=5
-        """
-    conf['coabs'] = ['Axe2','Lucretia','Peony']
-    conf['share'] = ['Gala_Mym']
+
+    # conf = {}
+    # conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
+    # conf['acl'] = """
+    #     `dragon, cancel
+    #     `s3, not buff(s3)
+    #     `s2
+    #     `s1
+    #     `s4, x=5
+    #     """
+    # conf['coabs'] = ['Axe2','Lucretia','Peony']
+    # conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.crit_mod = self.custom_crit_mod
