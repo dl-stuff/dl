@@ -425,7 +425,7 @@ function loadAdvSlots(no_conf) {
                     for (const c of slots.adv.pref_coab) {
                         const check = $("input[id$='-" + c + "']");
                         check.prop('checked', true);
-                        coabSelection(1);
+                        coabSelection(1, true);
                     }
                     selectSkillShare(slots.adv.basename, slots.adv.pref_share);
                     if (slots.adv.prelim) {
@@ -529,11 +529,15 @@ function checkCoabSelection(e) {
     const add = $(e.target).prop('checked') ? 1 : -1
     coabSelection(add);
 }
-function coabSelection(add) {
+function coabSelection(add, debounce) {
     const count = $('#input-coabs').data('selected') + add;
     const max = $('#input-coabs').data('max');
     if (count >= max) {
-        $('input:not(:checked).coab-check').prop('disabled', true);
+        if (debounce){
+            setTimeout(function () {$('input:not(:checked).coab-check').prop('disabled', true);}, 50);
+        } else {
+            $('input:not(:checked).coab-check').prop('disabled', true);
+        }
     } else {
         $('.coab-check').prop('disabled', false);
     }
