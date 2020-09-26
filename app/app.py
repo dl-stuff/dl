@@ -163,11 +163,11 @@ def save_userconf(adv):
     except KeyError:
         cdps = 0
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
-    ndps += 50000 * (adv.logs.team_buff / adv.real_duration)
+    ndps += 100000 * (adv.logs.team_buff / adv.real_duration)
     if ndps < cdps:
         return
     if dkey not in equip:
-        equip[dkey] = {}        
+        equip[dkey] = {}
     equip[dkey][aff] = {
         'dps': ndps,
         'slots.a': adv.slots.a.qual_lst,
@@ -298,7 +298,7 @@ def get_adv_wp_list():
     result['adv'] = {}
     for name in ADV_MODULES.keys():
         try:
-            result['adv'][name] = load_adv_json(name)['c']['name'] 
+            result['adv'][name] = load_adv_json(name)['c']['name']
         except FileNotFoundError:
             result['adv'][name] = SPECIAL_ADV[name]['fullname']
     wplists = {'gold':{}, 'silver':{}}
