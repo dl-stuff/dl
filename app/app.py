@@ -152,7 +152,7 @@ def save_userconf(adv):
         equip = {}
         cdps = 0
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
-    ndps += 50000 * (1 + adv.logs.team_buff / adv.real_duration)
+    ndps += 50000 * (adv.logs.team_buff / adv.real_duration)
     if ndps < cdps:
         return
     equip[dkey] = {
