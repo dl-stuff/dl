@@ -168,11 +168,14 @@ def save_userconf(adv):
         return
     if dkey not in equip:
         equip[dkey] = {}
+    acl_list = adv.conf.acl
+    if not isinstance(acl_list, list):
+        acl_list = [line.strip() for line in adv.conf.acl.split('\n') if line.strip()]
     equip[dkey][aff] = {
         'dps': ndps,
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
-        'acl': [line.strip() for line in adv.conf.acl.split('\n') if line.strip()],
+        'acl': acl_list,
         'coabs': adv.coab_list,
         'share': adv.skillshare_list
     }
