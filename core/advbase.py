@@ -646,6 +646,7 @@ class Adv(object):
         self.extra_actmods = []
 
         self.disable_echo()
+        self.bleed = None
 
     @property
     def ctime(self):
@@ -790,7 +791,6 @@ class Adv(object):
         self.conf.update(self.conf_base)
         equip = globalconf.load_equip_json(self.name).get(str(self.duration))
         if equip and 'base' in equip:
-            print(equip)
             self.conf.update(equip['base'])
         self.conf.update(self.conf_init)
         return equip
@@ -1637,10 +1637,18 @@ class Adv(object):
             rate, mod = attr['bleed']
             if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
+                bleed = mBleed(name, mod)
+                if self.bleed is None:
+                    self.bleed = bleed
+                    self.bleed.reset()
                 self.bleed = mBleed(name, mod)
                 self.bleed.on()
             else:
                 from module.bleed import Bleed
+                bleed = Bleed(name, mod)
+                if self.bleed is None:
+                    self.bleed = bleed
+                    self.bleed.reset()
                 if rate == 100 or rate > random.uniform(0, 100):
                     self.bleed = Bleed(name, mod)
                     self.bleed.on()
