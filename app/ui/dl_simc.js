@@ -1,5 +1,5 @@
-const APP_URL = 'http://127.0.0.1:5000/';
-// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+// const APP_URL = 'http://127.0.0.1:5000/';
+const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 20000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
@@ -76,6 +76,9 @@ function populate_select(id, data) {
     $(id).append(options);
 }
 function stats_icon_fmt(stat_str) {
+    if (!stat_str){
+        return [[], 0];
+    }
     const stats = [];
     let team = 0;
     for (const part of stat_str.split(';')) {
