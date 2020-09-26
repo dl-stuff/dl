@@ -148,7 +148,7 @@ def simc_adv_test():
         return 'Wrong request method.'
     params = request.get_json(silent=True)
     adv_name = 'Euden' if not 'adv' in params or params['adv'] is None else params['adv']
-    wp = params['wp'] if 'wp1' in params else None
+    wp = params['wp'] if 'wp' in params else None
     dra = params['dra'] if 'dra' in params else None
     wep = params['wep'] if 'wep' in params else None
     # ex  = params['ex'] if 'ex' in params else ''

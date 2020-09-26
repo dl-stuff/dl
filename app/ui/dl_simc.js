@@ -76,7 +76,7 @@ function populate_select(id, data) {
     $(id).append(options);
 }
 function stats_icon_fmt(stat_str) {
-    if (!stat_str){
+    if (!stat_str) {
         return [[], 0];
     }
     const stats = [];
@@ -192,7 +192,7 @@ function updateUrl(urlVars) {
     }
 }
 function readWpList() {
-    return $('.input-wp > div > select').val();
+    return [...$('.input-wp > div > select').map((_, v) => $(v).val())];
 }
 function serConf(no_conf) {
     let requestJson = {
@@ -421,7 +421,7 @@ function loadAdvSlots(no_conf) {
                     $('#dra-' + slots.adv.pref_dra).prop('selected', true);
                     slots.adv.pref_wp.forEach((wp, i) => {
                         $(`#wp${i + 1}-` + wp).prop('selected', true);
-                    })
+                    });
                     for (const c of slots.adv.pref_coab) {
                         const check = $("input[id$='-" + c + "']");
                         check.prop('checked', true);
