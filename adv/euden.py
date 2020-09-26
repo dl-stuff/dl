@@ -5,19 +5,25 @@ def module():
 
 class Euden(Adv):    
     conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'Me_and_My_Bestie']
+    conf['slots.a'] = [
+    'The_Shining_Overlord',
+    'The_Red_Impulse',
+    'Me_and_My_Bestie',
+    'Entwined_Flames',
+    'Dueling_Dancers'
+    ]
     conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
-        `dragon(c3-s-s-end)
+        `dragon, s=2 or s=4
         `s3, not buff(s3)
         `s1
         `s2, fsc
         `s4, fsc
         `fs, x=2
         """
-    conf['coabs'] = ['Blade', 'Wand', 'Yuya']
+    conf['coabs'] = ['Verica', 'Blade', 'Yuya']
     conf['afflict_res.burn'] = 0
-    conf['share'] = ['Summer_Patia']
+    conf['share'] = ['Gala_Mym']
 
 
 if __name__ == '__main__':

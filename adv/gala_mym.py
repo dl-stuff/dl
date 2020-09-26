@@ -9,29 +9,29 @@ class Gala_Mym(Adv):
     'Dragon_and_Tamer',
     'An_Ancient_Oath',
     'The_Red_Impulse',
-    'Entwined_Flames',
+    'His_Clever_Brother',
     'Dueling_Dancers'
     ]
     conf['slots.burn.a'] = [
     'Me_and_My_Bestie',
     'Dragon_and_Tamer',
     'The_Red_Impulse',
-    'Entwined_Flames',
+    'His_Clever_Brother',
     'Dueling_Dancers'
     ]
     conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
-        if s=1 and not s4.check()
+        if s=1
         `dragon(c3-s-end), self.dragonform.shift_count<1
         `dragon
         end
         `s3, not buff(s3) and x=5
         `s1
-        `s4, s=1
+        `s4
         `s2, x=5
         `fs, x=5
     """
-    conf['share'] = ['Summer_Cleo']
+    conf['share'] = ['Fjorm']
     conf['coabs'] = ['Verica', 'Serena', 'Yuya']
     
     def prerun(self):

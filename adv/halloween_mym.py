@@ -5,17 +5,30 @@ def module():
 
 class Halloween_Mym(Adv):
     conf = {}
-    conf['slots.a'] = ['Primal_Crisis', 'An_Ancient_Oath']
+    conf['slots.a'] = [
+    'Kung_Fu_Masters',
+    'An_Ancient_Oath',
+    'The_Red_Impulse',
+    'Entwined_Flames',
+    'Dueling_Dancers'
+    ]
+    conf['slots.burn.a'] = [
+    'Kung_Fu_Masters',
+    'Dragon_and_Tamer',
+    'Me_and_My_Bestie',
+    'Entwined_Flames',
+    'Dueling_Dancers'
+    ]
     conf['acl'] = """
-        `dragon, s=1
+        `dragon, s
         `s3, not buff(s3)
+        `s4
         `s1
         `s2, cancel
-        `s4, cancel
         `fsf, x=4 and (s1.charged=self.sp_val(4))
     """
-    conf['coabs'] = ['Nobunaga', 'Dagger2', 'Serena']
-    conf['share'] = ['Summer_Cleo']
+    conf['coabs'] = ['Yuya', 'Dagger2', 'Serena']
+    conf['share'] = ['Gala_Mym']
 
     # conf['dragonform'] = {
     #     'act': 'c3-s',
