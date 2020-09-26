@@ -143,19 +143,32 @@ def save_userconf(adv):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
         return
+    if 'sim_buffbot' in adv.conf_init:
+        return
+    if 'afflict_res' in adv.conf_init:
+        return
+    aff = 'base'
+    eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
+    if adv.sim_afflict:
+        if adv.sim_afflict != {eleaff} or \
+           adv.conf_init.sim_afflict[eleaff] != 1:
+            return
+        else:
+            aff = eleaff
     dkey = str(adv.duration)
     adv_qual = adv.__class__.__name__
+    equip = load_equip_json(adv_qual)
     try:
-        equip = load_equip_json(adv_qual)
-        cdps = equip[dkey]['dps']
-    except (FileNotFoundError, KeyError):
-        equip = {}
+        cdps = equip[dkey][aff]['dps']
+    except KeyError:
         cdps = 0
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
     ndps += 50000 * (adv.logs.team_buff / adv.real_duration)
     if ndps < cdps:
         return
-    equip[dkey] = {
+    if dkey not in equip:
+        equip[dkey] = {}        
+    equip[dkey][aff] = {
         'dps': ndps,
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
@@ -184,7 +197,7 @@ def simc_adv_test():
     coab = None if 'coab' not in params else params['coab']
     share = None if 'share' not in params else params['share']
     # latency = 0 if 'latency' not in params else abs(float(params['latency']))
-    print(params, flush=True)
+    # print(params, flush=True)
 
     if adv_name in SPECIAL_ADV:
         not_customizable = SPECIAL_ADV[adv_name]['nc']

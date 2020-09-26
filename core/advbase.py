@@ -785,14 +785,14 @@ class Adv(object):
         #                 self.slots.__dict__[s] = afflic_slots[s]
 
     def pre_conf(self):
-        tmpconf = Conf(self.conf_default)
-        tmpconf.update(globalconf.get_adv(self.name))
-        tmpconf.update(self.conf)
+        self.conf = Conf(self.conf_default)
+        self.conf.update(globalconf.get_adv(self.name))
+        self.conf.update(self.conf_base)
         equip = globalconf.load_equip_json(self.name).get(str(self.duration))
-        if equip:
-            tmpconf.update(equip)
-        tmpconf.update(self.conf_init)
-        self.conf = tmpconf
+        if equip and 'base' in equip:
+            self.conf.update(equip['base'])
+        self.conf.update(self.conf_init)
+        return equip
 
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict)
@@ -818,7 +818,8 @@ class Adv(object):
         self.Modifier = Modifier
         self.Conf = Conf
 
-        self.conf_init = conf or {}
+        self.conf_base = Conf(self.conf or {})
+        self.conf_init = Conf(conf or {})
         self.ctx = Ctx().on()
         self.condition = Condition(cond)
         self.duration = duration
@@ -826,13 +827,18 @@ class Adv(object):
         self.damage_sources = set()
         self.Modifier._static.damage_sources = self.damage_sources
 
-        self.pre_conf()
+        equip = self.pre_conf()
 
         # set afflic
         self.afflics = Afflics()
         self.sim_afflict = set()
         self.afflic_condition()
         self.sim_affliction()
+
+        if not self.conf['flask_env'] and self.sim_afflict:
+            aff_equip = equip.get(next(iter(self.sim_afflict)))
+            if aff_equip:
+                self.conf.update(aff_equip)
 
         self.default_slot()
 
