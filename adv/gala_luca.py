@@ -4,17 +4,17 @@ def module():
     return Gala_Luca
 
 class Gala_Luca(Adv):
-    conf = {}
-    conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
-    conf['acl'] = """
-        `dragon, cancel
-        `s3, not buff(s3)
-        `s2
-        `s1
-        `s4, x=5
-        """
-    conf['coabs'] = ['Axe2','Lucretia','Peony']
-    conf['share'] = ['Summer_Patia']
+    # conf = {}
+    # conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
+    # conf['acl'] = """
+    #     `dragon, cancel
+    #     `s3, not buff(s3)
+    #     `s2
+    #     `s1
+    #     `s4, x=5
+    #     """
+    # conf['coabs'] = ['Axe2','Lucretia','Peony']
+    # conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.crit_mod = self.custom_crit_mod
