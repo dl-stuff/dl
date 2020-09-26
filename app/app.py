@@ -145,7 +145,7 @@ def save_userconf(adv):
         return
     if 'sim_buffbot' in adv.conf_init:
         return
-    if 'afflict_res' in adv.conf_init:
+    if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
         return
     aff = 'base'
     eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]

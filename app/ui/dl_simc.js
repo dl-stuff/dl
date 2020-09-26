@@ -1,5 +1,5 @@
-// const APP_URL = 'http://127.0.0.1:5000/';
-const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 100000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
