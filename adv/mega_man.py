@@ -85,8 +85,8 @@ class Mega_Man(Adv):
     # def ds_proc(self):
     #     return self.dmg_make('ds',self.dragonform.conf.ds.dmg,'s')
 
-    def __init__(self, conf=None, cond=None):
-        super().__init__(conf=conf, cond=cond)
+    def __init__(self, conf=None, duration=180, cond=None, altchain=None):
+        super().__init__(conf=conf, duration=duration, cond=cond)
         self.a_s_dict['s1'] = Skill_Ammo('s1')
         self.a_s_dict['s2'] = Skill_Ammo('s2')
 

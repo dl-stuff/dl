@@ -29,8 +29,8 @@ class Gala_Laxi(RngCritAdv):
     conf['coabs'] = ['Halloween_Mym', 'Serena', 'Yuya']
     conf['share'] = ['Xander']
 
-    def __init__(self, conf=None, cond=None):
-        super().__init__(conf=conf, cond=cond)
+    def __init__(self, conf=None, duration=180, cond=None, altchain=None):
+        super().__init__(conf=conf, duration=duration, cond=cond)
         self.slots.c.coabs = {'Dagger2': [None, 'dagger2']}
         # human latency penalty on ex combo
         for xn, xnconf in self.conf.find(r'^x\d+_ex$'):
