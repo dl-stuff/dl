@@ -687,7 +687,7 @@ class Slots:
     def set_d(self, key=None, affkey=None):
         if not key:
             key = Slots.DEFAULT_DRAGON[self.c.ele]
-        if self.sim_afflict and affkey:
+        if not self.flask_env and self.sim_afflict and affkey:
             key = affkey
         try:
             conf, key = Slots.get_with_alias(dragons[self.c.ele], key)
@@ -710,7 +710,7 @@ class Slots:
         self.w = WeaponBase(conf, self.c)
 
     def set_a(self, keys=None, affkeys=None):
-        if self.sim_afflict and not self.flask_env:
+        if not self.flask_env and self.sim_afflict and affkeys:
             keys = affkeys
         if keys is None or len(keys) < 5:
             keys = list(set(Slots.DEFAULT_WYRMPRINT))
