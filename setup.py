@@ -18,6 +18,7 @@ def run():
         'core/modifier.py',
         'core/simulate.py',
         'core/timeline.py',
+        'module/template.py',
         'module/bleed.py',
         'module/tension.py'
     ]

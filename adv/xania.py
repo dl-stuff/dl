@@ -20,7 +20,7 @@ class Xania(Adv):
         `s2,x=5
         """
     conf['coabs'] = ['Blade', 'Marth', 'Joe']
-    conf['share'] = ['Kleimann']
+    conf['share'] = ['Xander']
     conf['afflict_res.burn'] = 0
 
 
