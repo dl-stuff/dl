@@ -1,5 +1,5 @@
-const APP_URL = 'http://127.0.0.1:5000/';
-// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+// const APP_URL = 'http://127.0.0.1:5000/';
+const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 100000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
@@ -307,7 +307,7 @@ function loadConf(conf, slots) {
 function populateSkillShare(skillshare) {
     $('#input-ss3').empty();
     $('#input-ss3').append($('<option>Weapon</option>')
-        .attr({ id: 'ss3-weapon', value: '' }));
+        .attr({ id: 'ss3-Weapon', value: '' }));
     $('#input-ss4').empty();
     for (const t of ['ss3', 'ss4']) {
         let options = [];
@@ -369,10 +369,10 @@ function selectSkillShare(basename, pref_share) {
         $('#input-' + t + ' > option').prop('disabled', false);
         $('#' + t + '-' + basename).prop('disabled', true);
     }
-
+    console.log(pref_share);
     switch (pref_share.length) {
         case 1:
-            $('#ss3-weapon').prop('selected', true);
+            $('#ss3-Weapon').prop('selected', true);
             $('#ss4-' + pref_share[0]).prop('selected', true);
             break;
         case 2:
@@ -380,7 +380,7 @@ function selectSkillShare(basename, pref_share) {
             $('#ss4-' + pref_share[1]).prop('selected', true);
             break;
         default:
-            $('#ss3-weapon').prop('selected', true);
+            $('#ss3-Weapon').prop('selected', true);
             if (basename === DEFAULT_SHARE) {
                 $('#ss4-' + DEFAULT_SHARE_ALT).prop('selected', true);
             } else {
