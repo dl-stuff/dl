@@ -840,10 +840,12 @@ function update_teamdps() {
             $(rs).css('width', portion + '%');
         });
         if (team_p == 0) { return; }
+        const tdps_txt = 'team: ' + Math.ceil(team_v) + ' (+' + Math.round(team_p * 100) + '%)';
         const trs = $(ri).find('.team-result-slice')[0];
         const portion = 100 - others;
         $(trs).css('width', portion + '%');
-        $(trs).html('team: ' + Math.ceil(team_v) + ' (+' + Math.round(team_p * 100) + '%)');
+        $(trs).html(tdps_txt)
+        $(trs).attr('data-original-title', tdps_txt);
     });
 }
 window.onload = function () {
