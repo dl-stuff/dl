@@ -234,7 +234,7 @@ def _pre_parse(acl):
 
 def build_acl(acl):
     if isinstance(acl, list):
-        acl = ';'.join(acl)
+        acl = '\n'.join(acl)
     acl = _pre_parse(acl)
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()
