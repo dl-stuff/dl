@@ -8,7 +8,7 @@ class Sharpshooter_Joe(Adv):
         Event('dodge').listener(self.dodge_crit)
         self.a1_cd = False
 
-    def a1_cd_end(self):
+    def a1_cd_end(self, _):
         self.a1_cd = False
 
     def dodge_crit(self, e):
