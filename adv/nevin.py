@@ -37,6 +37,7 @@ class Nevin(SigilAdv):
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.unlocked = True
+        adv.zone = ZoneTeambuff()
 
     def sword_dmg(self, e):
         for _ in range(4):

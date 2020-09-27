@@ -5,7 +5,13 @@ def module():
 
 class Hawk(Adv):    
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition','The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Forest_Bonds',
+    'Flash_of_Genius',
+    'Dear_Diary',
+    'The_Plaguebringer',
+    'Chariot_Drift'
+    ]
     conf['slots.d'] = 'Vayu'
     conf['acl'] = """
         # queue self.duration<=60 and prep and self.afflics.stun.resist

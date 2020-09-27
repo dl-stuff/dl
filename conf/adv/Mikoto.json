@@ -2,20 +2,20 @@
     "c": {
         "name": "Mikoto",
         "icon": "110010_01_r05",
-        "att": 520,
-        "hp": 740,
+        "att": 623,
+        "hp": 887,
         "ele": "flame",
         "wt": "blade",
-        "spiral": false,
-        "a": [["cc", 0.1, "hp70"], ["cc", 0.08]]
+        "spiral": true,
+        "a": [["cc", 0.1, "hp70"], ["cc", 0.1]]
     },
     "s1": {
         "sp": 4500,
         "startup": 0.1,
         "recovery": 1.4,
         "attr": [
-            {"dmg": 7.28, "iv": 0.23333},
-            {"dmg": 7.28, "iv": 0.43333},
+            {"dmg": 9.1, "iv": 0.23333},
+            {"dmg": 9.1, "iv": 0.43333},
             {"buff": [["self", 0.10, 20.0, "att", "buff"], ["sAlt", "flare", "s1", 20.0], "-replace"], "iv": 1.4}
         ]
     },
@@ -24,10 +24,10 @@
         "startup": 0.1,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 5.48, "iv": 0.23333},
-            {"dmg": 5.48, "iv": 0.43333},
-            {"dmg": 5.48, "iv": 0.66667},
-            {"buff": [["self", 0.15, 15.0, "att", "buff"], ["sAlt", "ruin", "s1", 15.0], "-replace"], "iv": 1.63333}
+            {"dmg": 6.85, "iv": 0.23333},
+            {"dmg": 6.85, "iv": 0.43333},
+            {"dmg": 6.85, "iv": 0.66667},
+            {"buff": [["self", 0.15, 15.0, "att", "buff"], ["self", 0.30, 15.0, "crit", "damage"], ["sAlt", "ruin", "s1", 15.0], "-replace"], "iv": 1.63333}
         ]
     },
     "s1_ruin": {
@@ -35,19 +35,20 @@
         "startup": 0.1,
         "recovery": 2.8,
         "attr": [
-            {"dmg": 4.14, "iv": 0.23333},
-            {"dmg": 4.14, "iv": 0.43333},
-            {"dmg": 4.14, "iv": 0.66667},
-            {"dmg": 6.21, "iv": 1.16667},
-            {"buff": ["s1", "flare", 3, "-off"], "iv": 2.8}
+            {"dmg": 5.17, "iv": 0.23333},
+            {"dmg": 5.17, "iv": 0.43333},
+            {"dmg": 5.17, "iv": 0.66667},
+            {"dmg": 7.76, "iv": 1.16667},
+            {"buff": ["s1", "flare", 3, "-off"], "iv": 2.8},
+            {"buff": [["self", 0.15, 15.0, "att", "buff"], ["self", 0.30, 15.0, "crit", "damage"], ["sAlt", "ruin", "s1", 15.0], "-refresh"], "iv": 2.8}
         ]
     },
     "s2": {
         "sp": 4500,
         "startup": 0.1,
-        "recovery": 1.05,
+        "recovery": 1.0,
         "attr": [
-            {"buff": ["self", 0.2, 10.0, "spd", "passive"], "iv": 0.16667}
+            {"buff": ["self", 0.2, 15.0, "spd", "passive"], "iv": 0.16667}
         ]
     }
 }

@@ -5,11 +5,11 @@ from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS
 from core.config import Conf
 from core.ability import ability_dict
 
-def all_subclasses(c):
-    return set(c.__subclasses__()).union([s for c in c.__subclasses__() for s in all_subclasses(c)])
+def all_subclasses(cl):
+    return set(cl.__subclasses__()).union([s for c in cl.__subclasses__() for s in all_subclasses(c)])
 
-def subclass_dict(c):
-    return {sub_class.__name__: sub_class for sub_class in all_subclasses(c)}
+def subclass_dict(cl):
+    return {sub_class.__name__: sub_class for sub_class in all_subclasses(cl)}
 
 class SlotBase:
     KIND = 's'
@@ -60,7 +60,8 @@ class CharaBase(SlotBase):
     FAC_WEAPON = {
         'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.225},
         'dagger': 0.05, 'bow': 0.05, 'blade': 0.05, 'wand': 0.05,
-        'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05
+        'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
+        'gun': 0.0
     }
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
@@ -69,9 +70,9 @@ class CharaBase(SlotBase):
         self.valid_coabs = elecoabs[self.ele]
         try:
             coab = self.valid_coabs[self.qual]
-            chain = coab[0]
-            if chain is None or len(chain)<3 or chain[2] != 'hp≤40':
-                self.coabs[self.qual] = coab
+            # chain = coab[0]
+            # if chain is None or len(chain)<3 or chain[2] != 'hp≤40':
+            self.coabs[self.qual] = coab
         except:
             try:
                 wt = self.wt
@@ -348,7 +349,7 @@ class Nyarlathotep(DragonBase):
         bloody_tongue(0)
         buff_rate = 90
         if adv.condition(f'hp=30% every {buff_rate}s'):
-            buff_times = adv.duration // buff_rate
+            buff_times = int(adv.duration // buff_rate)
             for i in range(1, buff_times):
                 adv.Timer(bloody_tongue).on(buff_rate*i)
 
@@ -476,6 +477,17 @@ class WeaponBase(EquipBase):
                 {'dmg': 1.51, 'iv': 1.36667},
                 {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667}
             ]
+        },
+        'gun': {
+            "startup": 0.1, "recovery": 1.93333,
+            "attr": [
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "dp": 100, "iv": 0.66667, "msl": 1}, 5,
+                {"buff": ["self", 0.1, -1, "sp", "passive"], "iv": 0.7},
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.86667, "msl": 1}, 5,
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.06667, "msl": 1}, 5,
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.26667, "msl": 1}, 5,
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.46667, "msl": 1}, 5
+            ]
         }
     }
     def __init__(self, conf, c, qual=None):
@@ -519,7 +531,7 @@ class AmuletQuint:
             self.an.append(AmuletBase(conf, c, qual))
         if any(limits.values()):
             raise ValueError('Unfilled wyrmprint slot')
-        self.an.sort(key=lambda a: a.rarity, reverse=True)
+        self.an.sort(key=lambda a: (-a.rarity, a.name))
         self.c = c
 
     def __str__(self):
@@ -534,6 +546,10 @@ class AmuletQuint:
         return sum(a.hp for a in self.an)
 
     @property
+    def qual_lst(self):
+        return [a.qual for a in self.an]
+
+    @property
     def name_lst(self):
         return (a.name for a in self.an)
 
@@ -544,9 +560,9 @@ class AmuletQuint:
     @staticmethod
     def sort_ab(a):
         if len(a) <= 2:
-            return -10 * a[1]
+            return -100 * a[1]
         if 'hp' not in a[2]:
-            return -5 * a[1]
+            return -1 * a[1]
         return a[1]
 
     @property
@@ -615,20 +631,27 @@ class Slots:
         'shadow': 'Gala_Cat_Sith'
     }
 
-    DEFAULT_WYRMPRINT = {
-        'sword': ('The_Shining_Overlord', 'Primal_Crisis'),
-        'blade': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
-        'dagger': ('Twinfold_Bonds', {
-            'water': 'The_Prince_of_Dragonyule',
-            'shadow': 'Howling_to_the_Heavens',
-            'all': 'Levins_Champion'
-        }),
-        'axe': ('Kung_Fu_Masters', 'Breakfast_at_Valerios'),
-        'lance': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
-        'wand': ('Candy_Couriers', 'Primal_Crisis'),
-        'bow': ('Forest_Bonds', 'Primal_Crisis'),
-        'staff': ('Resounding_Rendition', 'Breakfast_at_Valerios')
-    }
+    # DEFAULT_WYRMPRINT = {
+    #     'sword': ('The_Shining_Overlord', 'Primal_Crisis'),
+    #     'blade': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
+    #     'dagger': ('Twinfold_Bonds', {
+    #         'water': 'The_Prince_of_Dragonyule',
+    #         'shadow': 'Howling_to_the_Heavens',
+    #         'all': 'Levins_Champion'
+    #     }),
+    #     'axe': ('Kung_Fu_Masters', 'Breakfast_at_Valerios'),
+    #     'lance': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
+    #     'wand': ('Candy_Couriers', 'Primal_Crisis'),
+    #     'bow': ('Forest_Bonds', 'Primal_Crisis'),
+    #     'staff': ('Resounding_Rendition', 'Breakfast_at_Valerios')
+    # }
+    DEFAULT_WYRMPRINT = [
+        'Resounding_Rendition',
+        'The_Red_Impulse',
+        'Breakfast_at_Valerios',
+        'Dueling_Dancers',
+        'A_Small_Courage'
+    ]
 
     AFFLICT_WYRMPRINT = {
         'flame': 'Me_and_My_Bestie',
@@ -638,9 +661,10 @@ class Slots:
         'shadow': 'The_Fires_of_Hate'
     }
 
-    def __init__(self, name, conf, sim_afflict=None):
+    def __init__(self, name, conf, sim_afflict=None, flask_env=False):
         self.c = CharaBase(conf, name)
         self.sim_afflict = sim_afflict
+        self.flask_env = flask_env
         self.d = None
         self.w = None
         self.a = None
@@ -675,7 +699,7 @@ class Slots:
     def set_d(self, key=None, affkey=None):
         if not key:
             key = Slots.DEFAULT_DRAGON[self.c.ele]
-        if self.sim_afflict and affkey:
+        if not self.flask_env and self.sim_afflict and affkey:
             key = affkey
         try:
             conf, key = Slots.get_with_alias(dragons[self.c.ele], key)
@@ -698,12 +722,14 @@ class Slots:
         self.w = WeaponBase(conf, self.c)
 
     def set_a(self, keys=None, affkeys=None):
-        # need to think about defaults
-        if self.sim_afflict:
-            keys = affkeys or keys
-        keys = list(set(keys))
-        if len(keys) < 5:
-            raise ValueError('Less than 5 wyrmprints equipped')
+        if not self.flask_env and self.sim_afflict and affkeys:
+            keys = affkeys
+        if keys is None or len(keys) < 5:
+            keys = list(set(Slots.DEFAULT_WYRMPRINT))
+        else:
+            keys = list(set(keys))
+        # if len(keys) < 5:
+        #     raise ValueError('Less than 5 wyrmprints equipped')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
         self.a = AmuletQuint(confs, self.c, keys)
 
@@ -750,10 +776,11 @@ class Slots:
 
 
 if __name__ == '__main__':
-    from conf import load_adv_json
-    conf = Conf(load_adv_json('Xania'))
-    # conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
-    conf['slots.d'] = 'Gala_Mars'
-    slots = Slots(conf.c, True)
-    slots.set_slots(conf.slots)
-    print(type(slots.d))
+    # from conf import load_adv_json
+    # conf = Conf(load_adv_json('Xania'))
+    # # conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
+    # conf['slots.d'] = 'Gala_Mars'
+    # slots = Slots(conf.c, True)
+    # slots.set_slots(conf.slots)
+    # print(type(slots.d))
+    print(Slots.DRAGON_DICTS)

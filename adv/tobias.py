@@ -18,17 +18,22 @@ class Tobias(Adv):
     comment = 'c5fs, no s2, s!cleo ss after s1'
 
     conf = {}
-    conf['slots.a'] = ['A_Dogs_Day', 'Castle_Cheer_Corps']
-    conf['slots.poison.a'] = conf['slots.a']
+    conf['slots.a'] = [
+        'A_Dogs_Day',
+        'Study_Rabbits',
+        'Castle_Cheer_Corps',
+        'From_Whence_He_Comes',
+        'Bellathorna'
+    ]
     conf['slots.d'] = 'Freyja'
     conf['acl'] = """
         `s1
         `s3
-        `s4, s
+        `s4, fsc
         `fs, xf=5
     """
     conf['coabs'] = ['Bow','Blade','Dagger2']
-    conf['share'] = ['Summer_Luca', 'Summer_Cleo']
+    conf['share'] = ['Dragonyule_Xainfried', 'Templar_Hope']
 
     def prerun(self):
         self.s1.autocharge_init(85)

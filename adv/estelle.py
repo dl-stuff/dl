@@ -1,28 +1,28 @@
-
 from core.advbase import *
 
 def module():
-    return Noelle
+    return Estelle
 
-class Noelle(Adv):
+class Estelle(Adv):
     conf = {}
     conf['slots.a'] = [
-        'A_Dogs_Day',
         'Study_Rabbits',
+        'Give_Me_Your_Wounded',
         'Castle_Cheer_Corps',
         'From_Whence_He_Comes',
         'Bellathorna'
     ]
-    conf['slots.d'] = 'Freyja'
+    conf['slots.d'] = 'PopStar_Siren'
     conf['acl'] = """
-        `fs, self.fs_prep_c>0 and x=5
-        `s1
+        `dragon
         `s3
         `s4
-        `dodge, fsc
+        `s2
+        `s1, not buff(s1)
         """
-    conf['coabs'] = ['Dagger2','Tobias','Bow']
-    conf['share'] = ['Tobias', 'Templar_Hope']
+    conf['coabs'] = ['Dagger2','Tobias','Blade']
+    conf['share'] = ['Summer_Luca', 'Patia']
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -646,6 +646,7 @@ class Adv(object):
         self.extra_actmods = []
 
         self.disable_echo()
+        self.bleed = None
 
     @property
     def ctime(self):
@@ -785,14 +786,20 @@ class Adv(object):
         #                 self.slots.__dict__[s] = afflic_slots[s]
 
     def pre_conf(self):
-        tmpconf = Conf(self.conf_default)
-        tmpconf.update(globalconf.get_adv(self.name))
-        tmpconf.update(self.conf)
-        tmpconf.update(self.conf_init)
-        self.conf = tmpconf
+        self.conf = Conf(self.conf_default)
+        self.conf.update(globalconf.get_adv(self.name))
+        self.conf.update(self.conf_base)
+        equip = globalconf.load_equip_json(self.name)
+        equip_d = equip.get(str(int(self.duration)))
+        if not equip_d:
+            equip_d = equip.get('180')
+        if equip_d and 'base' in equip_d:
+            self.conf.update(equip_d['base'])
+        self.conf.update(self.conf_init)
+        return equip_d
 
     def default_slot(self):
-        self.slots = Slots(self.name, self.conf.c, self.sim_afflict)
+        self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf['flask_env']))
         # from conf import slot_common
         # self.cmnslots = slot.Slots()
         # self.cmnslots.c.att = self.conf.c.att
@@ -803,7 +810,7 @@ class Adv(object):
         # self.slot_common(self.cmnslots)
         # self.slots = self.cmnslots
 
-    def __init__(self, conf={}, cond=None):
+    def __init__(self, conf=None, duration=180, cond=None):
         if not self.name:
             self.name = self.__class__.__name__
 
@@ -815,21 +822,27 @@ class Adv(object):
         self.Modifier = Modifier
         self.Conf = Conf
 
-        self.conf_init = conf or {}
+        self.conf_base = Conf(self.conf or {})
+        self.conf_init = Conf(conf or {})
         self.ctx = Ctx().on()
         self.condition = Condition(cond)
-        self.duration = 180
+        self.duration = duration
 
         self.damage_sources = set()
         self.Modifier._static.damage_sources = self.damage_sources
 
-        self.pre_conf()
+        equip = self.pre_conf()
 
         # set afflic
         self.afflics = Afflics()
         self.sim_afflict = set()
         self.afflic_condition()
         self.sim_affliction()
+
+        if equip and not self.conf['flask_env'] and self.sim_afflict:
+            aff_equip = equip.get(next(iter(self.sim_afflict)))
+            if aff_equip:
+                self.conf.update(aff_equip)
 
         self.default_slot()
 
@@ -1277,13 +1290,14 @@ class Adv(object):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
                         self.conf[dst_sn].owner = owner
+                        self.conf[dst_sn].sp = shared_sp
                     owner_module = load_adv_module(owner)
                     preruns[dst_key] = owner_module.prerun_skillshare
                     for sfn in ('before', 'proc'):
                         self.rebind_function(owner_module, f'{src_key}_{sfn}', f'{dst_key}_{sfn}')
                 except:
                     pass
-                self.conf[dst_key].sp = shared_sp
+                # self.conf[dst_key].sp = shared_sp
 
         for sn, snconf in self.conf.find(r'^s\d(_[A-Za-z0-9]+)?$'):
             s = S(sn, snconf)
@@ -1304,8 +1318,7 @@ class Adv(object):
 
         return preruns
 
-    def run(self, d=300):
-        self.duration = d
+    def run(self):
         global loglevel
         if not loglevel:
             loglevel = 0
@@ -1628,11 +1641,21 @@ class Adv(object):
             rate, mod = attr['bleed']
             if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
-                mBleed(name, mod).on()
+                bleed = mBleed(name, mod)
+                if self.bleed is None:
+                    self.bleed = bleed
+                    self.bleed.reset()
+                self.bleed = mBleed(name, mod)
+                self.bleed.on()
             else:
                 from module.bleed import Bleed
+                bleed = Bleed(name, mod)
+                if self.bleed is None:
+                    self.bleed = bleed
+                    self.bleed.reset()
                 if rate == 100 or rate > random.uniform(0, 100):
-                    Bleed(name, mod).on()
+                    self.bleed = Bleed(name, mod)
+                    self.bleed.on()
 
 
         if 'buff' in attr:
@@ -1715,7 +1738,8 @@ class Adv(object):
     ATTR_COND = {
         'hp>=': lambda s, v: s.hp >= v,
         'hp<=': lambda s, v: s.hp <= v,
-        'rng': lambda s, v: random.random() <= v
+        'rng': lambda s, v: random.random() <= v,
+        'hits': lambda s, v: s.hits >= v
     }
     def do_hitattr_make(self, e, aseq, attr, pin=None):
         if 'cond' in attr:
@@ -1823,10 +1847,17 @@ class Adv(object):
     def dgauge(self):
         return self.dragonform.dragon_gauge
 
+    @property
+    def bleed_stack(self):
+        try:
+            return self.bleed._static['stacks']
+        except AttributeError:
+            return 0
+
+
     def stop(self):
         doing = self.action.getdoing()
         if doing.status == Action.RECOVERY or doing.status == Action.OFF:
             Timeline.stop()
             return True
         return False
-

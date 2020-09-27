@@ -4,12 +4,17 @@ def module():
     return Valentines_Melody
 
 class Valentines_Melody(Adv):
-    comment = 'c4fsf c5 c4 s1'
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Summer_Paladyns',
+    'Flash_of_Genius',
+    'Kung_Fu_Masters',
+    'The_Plaguebringer',
+    'Chariot_Drift'
+    ]
     conf['slots.d'] = 'Ariel'
     conf['acl'] = """
-        `dragon(c3-s-end),s=1
+        `dragon(c3-s-end), s=1
         `s3, not buff(s3)
         `s1
         `s4
@@ -19,8 +24,8 @@ class Valentines_Melody(Adv):
     conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
-    def __init__(self, conf=None, cond=None):
-        super().__init__(conf=conf, cond=cond)
+    def __init__(self, conf=None, duration=180, cond=None, altchain=None):
+        super().__init__(conf=conf, duration=duration, cond=cond)
         self.slots.c.coabs['Axe2'] = [None, 'axe2']
 
 

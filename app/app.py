@@ -1,4 +1,5 @@
 import io
+import json
 import inspect
 from importlib.util import spec_from_file_location, module_from_spec
 from conf import get_fullname
@@ -12,7 +13,7 @@ from flask import jsonify
 
 import core.simulate
 from core.afflic import AFFLICT_LIST
-from conf import ROOT_DIR, skillshare, wyrmprints, weapons, dragons, load_adv_json
+from conf import ROOT_DIR, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json, save_equip_json
 app = Flask(__name__)
 
 # Helpers
@@ -28,7 +29,7 @@ def load_chara_file(fn, extra=None):
             chara.append(l.strip().replace('.py', ''))
     return chara
 
-NORMAL_ADV = load_chara_file('chara_quick.txt', extra=('halloween_lowen',))
+NORMAL_ADV = load_chara_file('chara_quick.txt')
 MASS_SIM_ADV = load_chara_file('chara_slow.txt')
 PRELIM_ADV = load_chara_file('chara_prelim.txt')
 
@@ -96,15 +97,15 @@ def set_teamdps_res(result, logs, real_d, suffix=''):
             result['extra' + suffix]['team_{}'.format(tension)] = '{} stacks'.format(round(count))
     return result
 
-def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, conf=None, cond=None, teamdps=None, t=180, log=5, mass=0):
+def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, cond=None, t=180, log=5, mass=0):
     adv_module = ADV_MODULES[adv_name]
 
     if conf is None:
         conf = {}
 
     conf['flask_env'] = True
-    if wp1 is not None and wp2 is not None:
-        conf['slots.a'] = [wp1, wp2]
+    if wp is not None:
+        conf['slots.a'] = list(wp)
     if dra is not None:
         conf['slots.d'] = dra
     # if wep is not None:
@@ -116,11 +117,13 @@ def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, con
 
     fn = io.StringIO()
     try:
-        run_res = core.simulate.test(adv_module, conf, t, log, mass, output=fn, team_dps=teamdps, cond=cond)
+        run_res, adv = core.simulate.test(adv_module, conf, t, log, mass, output=fn, cond=cond)
         result['test_output'] = fn.getvalue()
     except Exception as e:
         result['error'] = str(e)
         return result
+
+    save_userconf(adv)
 
     result['logs'] = {}
     adv = run_res[0][0]
@@ -134,12 +137,54 @@ def run_adv_test(adv_name, wp1=None, wp2=None, dra=None, wep=None, acl=None, con
     fn = io.StringIO()
     adv.logs.write_logs(output=fn)
     result['logs']['timeline'] = fn.getvalue()
-    # result = set_teamdps_res(result, adv.logs, run_res[0][1])
-    # if adv.condition.exist():
-    #     result['condition'] = dict(adv.condition)
-    #     adv_2 = run_res[1][0]
-    #     result = set_teamdps_res(result, adv_2.logs, run_res[0][1], '_no_cond')
     return result
+
+def save_userconf(adv):
+    adv.duration = int(adv.duration)
+    if adv.duration not in (60, 120, 180):
+        return
+    if 'sim_buffbot' in adv.conf_init:
+        return
+    if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
+        return
+    aff = 'base'
+    eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
+    if adv.sim_afflict:
+        if adv.sim_afflict != {eleaff} or \
+           adv.conf_init.sim_afflict[eleaff] != 1:
+            return
+        else:
+            aff = eleaff
+    dkey = str(adv.duration)
+    adv_qual = adv.__class__.__name__
+    equip = load_equip_json(adv_qual)
+    try:
+        cdps = equip[dkey][aff]['dps']
+    except KeyError:
+        cdps = 0
+    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
+    ndps += 100000 * (adv.logs.team_buff / adv.real_duration)
+    if ndps < cdps:
+        return
+    if dkey not in equip:
+        equip[dkey] = {}
+    acl_list = adv.conf.acl
+    if not isinstance(acl_list, list):
+        acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
+    equip[dkey][aff] = {
+        'dps': ndps,
+        'slots.a': adv.slots.a.qual_lst,
+        'slots.d': adv.slots.d.qual,
+        'acl': acl_list,
+        'coabs': adv.coab_list,
+        'share': adv.skillshare_list
+    }
+    if aff == 'base':
+        for aff, v in list(filter(lambda i: i[0] != 'base', equip[dkey].items())):
+            cdps = v['dps']
+            if cdps < ndps:
+                del equip[dkey][aff]
+    save_equip_json(adv_qual, equip)
 
 # API
 @app.route('/simc_adv_test', methods=['POST'])
@@ -148,14 +193,12 @@ def simc_adv_test():
         return 'Wrong request method.'
     params = request.get_json(silent=True)
     adv_name = 'Euden' if not 'adv' in params or params['adv'] is None else params['adv']
-    wp1 = params['wp1'] if 'wp1' in params else None
-    wp2 = params['wp2'] if 'wp2' in params else None
+    wp = params['wp'] if 'wp' in params else None
     dra = params['dra'] if 'dra' in params else None
     wep = params['wep'] if 'wep' in params else None
     # ex  = params['ex'] if 'ex' in params else ''
     acl = params['acl'] if 'acl' in params else None
     cond = params['condition'] if 'condition' in params and params['condition'] != {} else None
-    teamdps = None if not 'teamdps' in params else abs(float(params['teamdps']))
     t   = 180 if not 't' in params else min(abs(float(params['t'])), 600.0)
     log = 5
     mass = 0
@@ -167,8 +210,7 @@ def simc_adv_test():
     if adv_name in SPECIAL_ADV:
         not_customizable = SPECIAL_ADV[adv_name]['nc']
         if 'wp' in not_customizable:
-            wp1 = None
-            wp2 = None
+            wp = None
         if 'acl' in not_customizable:
             acl = None
         if 'coab' in not_customizable:
@@ -204,7 +246,7 @@ def simc_adv_test():
         except KeyError:
             pass
 
-    result = run_adv_test(adv_name, wp1, wp2, dra, wep, acl, conf, cond, teamdps, t=t, log=log, mass=mass)
+    result = run_adv_test(adv_name, wp, dra, wep, acl, conf, cond, t=t, log=log, mass=mass)
     return jsonify(result)
 
 @app.route('/simc_adv_slotlist', methods=['GET', 'POST'])
@@ -221,16 +263,12 @@ def get_adv_slotlist():
     if result['adv']['name'] is not None:
         adv = ADV_MODULES[result['adv']['name']]()
         adv.config_slots()
-        
         result['adv']['basename'] = adv.__class__.__name__
         result['adv']['ele'] = adv.slots.c.ele
         result['adv']['wt'] = adv.slots.c.wt
         result['adv']['pref_dra'] = adv.slots.d.qual
         result['adv']['pref_wep'] = f'{adv.slots.c.ele}-{adv.slots.c.wt}'
-        result['adv']['pref_wp'] = {
-            'wp1': adv.slots.a.a1.qual,
-            'wp2': adv.slots.a.a2.qual
-        }
+        result['adv']['pref_wp'] = adv.slots.a.qual_lst
         try:
             result['adv']['pref_coab'] = adv.conf.coabs['base']
         except:
@@ -268,9 +306,19 @@ def get_adv_wp_list():
     result['adv'] = {}
     for name in ADV_MODULES.keys():
         try:
-            result['adv'][name] = load_adv_json(name)['c']['name'] 
+            result['adv'][name] = load_adv_json(name)['c']['name']
         except FileNotFoundError:
             result['adv'][name] = SPECIAL_ADV[name]['fullname']
-    result['wyrmprints'] = {wp: data['name'] for wp, data in wyrmprints.items()}
+    wplists = {'gold':{}, 'silver':{}}
+    for wp, data in wyrmprints.items():
+        if data['rarity'] == 5:
+            wplists['gold'][wp] = data['name']
+        else:
+            wplists['silver'][wp] = data['name']
+    result['wyrmprints'] = wplists
     result['skillshare'] = {k: {'fullname': get_fullname(k), **v} for k, v in skillshare.items()}
     return jsonify(result)
+
+@app.route('/simc_adv_equip', methods=['GET'])
+def get_adv_equip():
+    return '<pre>' + json.dumps(load_equip_json(request.args.get('adv', default=None)), ensure_ascii=False, indent=4) + '</pre>'

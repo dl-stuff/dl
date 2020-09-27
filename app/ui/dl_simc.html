@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8" />
     <title>Dragalia Lost Damage Simulator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" type="image/png" href="/ui/favicon.png" />
@@ -59,18 +60,27 @@
                     <label for="input-dra">Dragon</label><select id="input-dra" class="form-control"></select>
                 </div>
                 <div class="col-sm-3">
-                    <label for="input-wp1">Wyrmprint 1</label><select id="input-wp1" class="form-control"></select>
-                </div>
-                <div class="col-sm-3">
-                    <label for="input-wp2">Wyrmprint 2</label><select id="input-wp2" class="form-control"></select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-sm-6">
                     <label for="input-ss3">Skill 3</label><select id="input-ss3" class="form-control"></select>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <label for="input-ss4">Skill 4</label><select id="input-ss4" class="form-control"></select>
+                </div>
+            </div>
+            <div class="form-row input-wp">
+                <div class="col-sm">
+                    <label for="input-wp1">Wyrmprint 1</label><select id="input-wp1" class="form-control"></select>
+                </div>
+                <div class="col-sm">
+                    <label for="input-wp2">Wyrmprint 2</label><select id="input-wp2" class="form-control"></select>
+                </div>
+                <div class="col-sm">
+                    <label for="input-wp3">Wyrmprint 3</label><select id="input-wp3" class="form-control"></select>
+                </div>
+                <div class="col-sm">
+                    <label for="input-wp4">Wyrmprint 4</label><select id="input-wp4" class="form-control"></select>
+                </div>
+                <div class="col-sm">
+                    <label for="input-wp5">Wyrmprint 5</label><select id="input-wp5" class="form-control"></select>
                 </div>
             </div>
             <div class="form-row">
@@ -89,12 +99,13 @@
                     <div id="input-coabs">
                         <div id="input-coabs-blade"></div>
                         <div id="input-coabs-wand"></div>
-                        <div id="input-coabs-bow"></div>
                         <div id="input-coabs-dagger"></div>
-                        <div id="input-coabs-sword"></div>
+                        <div id="input-coabs-bow"></div>
                         <div id="input-coabs-axe"></div>
                         <div id="input-coabs-lance"></div>
                         <div id="input-coabs-staff"></div>
+                        <div id="input-coabs-gun"></div>
+                        <div id="input-coabs-sword"></div>
                         <div id="input-coabs-other"></div>
                     </div>
                 </div>
@@ -147,7 +158,7 @@
                         <label for="input-sim-buff-echo">Bonus Attack</label>
                         <select id="input-sim-buff-echo" class="form-control">
                             <option value="">Off</option>
-                            <option value="4000">Yukata Cassandra</option>
+                            <option value="8000">Yukata Cassandra</option>
                         </select>
                     </div>
                     <div class="col-sm col-4">
@@ -401,9 +412,7 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
         </div>
     </form>
     <div id="qc-warning">
-        Currently undergoing backend overhauls, sim accuracy not guaranteed. 后端优化中，模拟结果可能不准确 <a
-            href="https://imxtrabored.pythonanywhere.com/ui/dl_simc.html">Alternative <code>master</code> branch
-            mirror</a>
+        2.0 update in progress, setups generally not optimal; 2.0更新正在做, 角色配置非最佳; 2.0更新中　ほぼ最適な編成ではない
     </div>
     <div id="test-warning"></div>
     <div id="test-error"></div>

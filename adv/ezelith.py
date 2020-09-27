@@ -4,19 +4,32 @@ def module():
     return Ezelith
 
 class Ezelith(Adv):
-    a3 = ('bk',0.35)
     conf = {}
+    conf['slots.a'] = [
+    'Twinfold_Bonds',
+    'Flash_of_Genius',
+    'Moonlight_Party',
+    'A_Passion_for_Produce',
+    'His_Clever_Brother'
+    ]
+    conf['slots.burn.a'] = [
+    'Twinfold_Bonds',
+    'Me_and_My_Bestie',
+    'Flash_of_Genius',
+    'Chariot_Drift',
+    'His_Clever_Brother'
+    ]
     conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
-        `dragon(c3-s-s-end),s=1
+        `dragon, (s=1 and not s4.check())
         `s3, not buff(s3)
-        `s1
-        `s4
         `s2
+        `s1
+        `s4, s=1
         `fs, x=5
         """
     conf['coabs'] = ['Halloween_Mym', 'Blade', 'Wand']
-    conf['share'] = ['Summer_Patia']
+    conf['share'] = ['Xander']
 
     def s1_hit(self, name, base, group, aseq):
         self.a1_hits += 1

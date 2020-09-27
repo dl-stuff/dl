@@ -10,15 +10,14 @@ class Skill_Reservoir(Skill):
         super().__init__(name)
         self.chain_timer = Timer(self.chain_off)
         self.chain_status = 0
-        self.altchain = altchain
+        self.altchain = altchain or 'base'
 
     def chain_on(self, skill, timeout=3):
         log('debug', 'chain on', f's{skill}')
         self.chain_status = skill
         self.chain_timer.on(timeout)
         self._static.current_s[f's{skill}'] = f'chain{skill}'
-        if self.altchain is not None:
-            self._static.current_s[f's{3-skill}'] = f'{self.altchain}{3-skill}'
+        self._static.current_s[f's{3-skill}'] = f'{self.altchain}{3-skill}'
 
     def chain_off(self, t=None):
         log('debug', 'chain off')
@@ -66,25 +65,26 @@ class Gala_Alex(Adv):
         `s3, not buff(s3)
         if fsc
         # use s4/s2 if no poison or if s1 def down has less than 1/3 time left
-        if (not self.afflics.poison.get()) or (self.sr.chain_status=1 and buff.timeleft(s1, base1)<5)
+        if (self.sr.chain_status=1 and buff.timeleft(s1, base1)<5)
         `s4
         `s2
         end
+        `s2, not afflics.poison.get()
         `s1, not buff(s1) or self.sr.count > 1
         end
         `fs, x=4
     """
     conf['coabs.base'] = ['Ieyasu','Wand','Delphi']
     conf['coabs.poison'] = ['Ieyasu','Wand','Forte']
-    conf['share.base'] = ['Rodrigo']
+    conf['share.base'] = ['Xander']
     conf['afflict_res.poison'] = 0
 
     def d_coabs(self):
         if self.duration <= 120:
             self.conf['coabs'] = ['Ieyasu','Wand','Heinwald']
 
-    def __init__(self, conf=None, cond=None, altchain=None):
-        super().__init__(conf=conf, cond=cond)
+    def __init__(self, conf=None, duration=180, cond=None, altchain=None):
+        super().__init__(conf=conf, duration=duration, cond=cond)
         self.sr = Skill_Reservoir('s1', altchain=altchain)
         self.a_s_dict['s1'] = self.sr
         self.a_s_dict['s2'] = self.sr

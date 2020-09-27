@@ -28,15 +28,15 @@ S_ALT = '†'
 
 
 def run_once(classname, conf, duration, cond):
-    adv = classname(conf=conf,cond=cond)
-    real_d = adv.run(duration)
+    adv = classname(conf=conf, duration=duration, cond=cond)
+    real_d = adv.run()
     return adv, real_d
 
 # Using starmap
 import multiprocessing
 def run_once_mass(classname, conf, duration, cond, idx):
-    adv = classname(conf=conf,cond=cond)
-    real_d = adv.run(duration)
+    adv = classname(conf=conf, duration=duration, cond=cond)
+    real_d = adv.run()
     return adv.logs, real_d
 
 def sum_logs(log, other):
@@ -73,8 +73,7 @@ def run_mass(mass, base_log, base_d, classname, conf, duration, cond):
     base_d /= mass
     return base_log, base_d
 
-def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, team_dps=None, cond=True, special=False):
-    team_dps = team_dps if team_dps is not None else 20000
+def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, cond=True, special=False):
     output = output or sys.stdout
     # ex_set = parse_ex(ex)
     # if len(ex_set) > 0:
@@ -138,12 +137,12 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
 
     for a, d, c in run_results:
         if verbose == -2:
-            report(d, a, output, team_dps, cond=c, web=False)
+            report(d, a, output, cond=c, web=False)
         elif abs(verbose) == 5:
             page = 'sp' if special else duration
             if c:
                 output.write('-,{},{}\n'.format(page, c if isinstance(c, str) else '_'))
-            report(d, a, output, team_dps, cond=c, web=True)
+            report(d, a, output, cond=c, web=True)
         else:
             if c == 'affliction':
                 output.write('-'*BR+'\n')
@@ -151,7 +150,8 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
                 output.write('\n')
             summation(d, a, output, cond=c, no_cond_dps=no_cond_dps)
 
-    return run_results
+    adv.real_duration = real_d
+    return run_results, adv
 
 # def brute_force_slots(classname, conf, output, team_dps, duration):
 #     #from app.app import is_amulet, is_dragon
@@ -565,7 +565,7 @@ def summation(real_d, adv, output, cond=True, no_cond_dps=None):
     damage_counts(real_d, adv.logs.damage, adv.logs.counts, output, res=res)
     output.write('\n')
 
-def report(real_d, adv, output, team_dps, cond=True, web=False):
+def report(real_d, adv, output, cond=True, web=False):
     name = adv.__class__.__name__
     dmg = adv.logs.damage
     res = dps_sum(real_d, dmg)

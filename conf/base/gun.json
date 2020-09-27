@@ -1,12 +1,34 @@
 {
-    "fs": {
-        "charge": 1.4,
+    "fs_gun1": {
+        "charge": 0.4,
         "startup": 0.06667,
         "recovery": 0.83333,
         "attr": [
             {"dmg": 1.8, "sp": 400, "msl": 1}
-        ],
-        "x1": {"startup": 0.23334}
+        ]
+    },
+    "fs_gun2": {
+        "charge": 0.4,
+        "startup": 0.06667,
+        "recovery": 0.76666,
+        "attr": [
+            {"dmg": 0.9, "sp": 400, "msl": 1},
+            {"dmg": 0.9, "msl": 1},
+            {"dmg": 0.9, "msl": 1},
+            {"dmg": 0.9, "msl": 1},
+            {"dmg": 0.9, "msl": 1},
+            {"dmg": 0.9, "msl": 1},
+            {"dmg": 0.9, "msl": 1}
+        ]
+    },
+    "fs_gun3": {
+        "charge": 0.4,
+        "startup": 0.1,
+        "recovery": null,
+        "attr": [
+            {"dmg": 0.9, "sp": 400, "msl": 1},
+            {"buff": ["self", 0.1, 10.0, "crit", "chance", "-refresh"], "iv": 0.1}
+        ]
     },
     "fsf": {
         "charge": 0.43333,
@@ -14,13 +36,79 @@
         "recovery": 0
     },
     "lv2": {
-        "x1": {"attr": [{"dmg": 0.67, "sp": 545, "msl": 1}]}
+        "x1_gun1": {"attr": [{"dmg": 0.67, "sp": 545, "msl": 1}, {"dmg": 0.67, "iv": 0.13333, "msl": 1}, {"dmg": 0.67, "iv": 0.26667, "msl": 1}, {"dmg": 0.67, "iv": 0.4, "msl": 1}, {"dmg": 0.67, "iv": 0.53333, "msl": 1}]},
+        "x2_gun1": {"attr": [{"dmg": 0.67, "sp": 545, "msl": 1}, {"dmg": 0.67, "iv": 0.13333, "msl": 1}, {"dmg": 0.67, "iv": 0.26667, "msl": 1}, {"dmg": 0.67, "iv": 0.4, "msl": 1}, {"dmg": 0.67, "iv": 0.53333, "msl": 1}]},
+        "x1_gun2": {"attr": [{"dmg": 1.5, "sp": 464, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}]},
+        "x2_gun2": {"attr": [{"dmg": 1.5, "sp": 464, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}]},
+        "x1_gun3": {"attr": [{"dmg": 0.45, "sp": 348, "msl": 1}, {"dmg": 0.45, "iv": 1.2, "msl": 1}, {"dmg": 0.45, "iv": 2.4, "msl": 1}]},
+        "x2_gun3": {"attr": [{"dmg": 1.5, "sp": 464, "msl": 1}]},
+        "x3_gun3": {"attr": [{"dmg": 1.5, "sp": 464, "msl": 1}]}
     },
-    "x1": {
+    "x1_gun1": {
         "startup": 0.2,
         "recovery": 1.26667,
         "attr": [
-            {"dmg": 0.67, "sp": 545, "msl": 1}
+            {"dmg": 0.67, "sp": 545},
+            {"dmg": 0.67, "iv": 0.13333},
+            {"dmg": 0.67, "iv": 0.26667},
+            {"dmg": 0.67, "iv": 0.4},
+            {"dmg": 0.67, "iv": 0.53333}
+        ]
+    },
+    "x2_gun1": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.67, "sp": 545},
+            {"dmg": 0.67, "iv": 0.13333},
+            {"dmg": 0.67, "iv": 0.26667},
+            {"dmg": 0.67, "iv": 0.4},
+            {"dmg": 0.67, "iv": 0.53333}
+        ]
+    },
+    "x1_gun2": {
+        "startup": 0.1,
+        "recovery": 0.36667,
+        "attr": [
+            {"dmg": 1.5, "sp": 464, "msl": 1},
+            {"dmg": 1.5, "msl": 1},
+            {"dmg": 1.5, "msl": 1},
+            {"dmg": 1.5, "msl": 1},
+            {"dmg": 1.5, "msl": 1}
+        ]
+    },
+    "x2_gun2": {
+        "startup": 0.1,
+        "recovery": 0.73333,
+        "attr": [
+            {"dmg": 1.5, "sp": 464, "msl": 1},
+            {"dmg": 1.5, "msl": 1},
+            {"dmg": 1.5, "msl": 1},
+            {"dmg": 1.5, "msl": 1},
+            {"dmg": 1.5, "msl": 1}
+        ]
+    },
+    "x1_gun3": {
+        "startup": 0.3,
+        "recovery": 0.4,
+        "attr": [
+            {"dmg": 0.45, "sp": 348, "msl": 1},
+            {"dmg": 0.45, "iv": 1.2, "msl": 1},
+            {"dmg": 0.45, "iv": 2.4, "msl": 1}
+        ]
+    },
+    "x2_gun3": {
+        "startup": 0.1,
+        "recovery": 0.5,
+        "attr": [
+            {"dmg": 1.5, "sp": 464, "msl": 1}
+        ]
+    },
+    "x3_gun3": {
+        "startup": 0.1,
+        "recovery": 1.0,
+        "attr": [
+            {"dmg": 1.5, "sp": 464, "msl": 1}
         ]
     }
 }

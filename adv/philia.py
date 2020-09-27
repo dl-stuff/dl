@@ -5,8 +5,13 @@ def module():
 
 class Philia(Adv):
     conf = {}
-    conf['slots.a'] = ['Forest_Bonds', 'Primal_Crisis']
-    conf['slots.poison.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Forest_Bonds',
+    'Flash_of_Genius',
+    'Dear_Diary',
+    'The_Plaguebringer',
+    'Chariot_Drift'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), s4.check()
         `s3, not buff(s3)

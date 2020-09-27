@@ -27,14 +27,13 @@ class Ieyasu(Adv):
     conf['share.poison'] = ['Curran']
 
     def s2ifbleed(self):
-        if self.bleed._static['stacks'] > 0:
+        if self.bleed_stack > 0:
             return self.s2buff.get()
         return 0
 
     def prerun(self):
         self.s2buff = Selfbuff('s2',0.20,15,'crit')
         self.s2buff.modifier.get = self.s2ifbleed
-        self.bleed = Bleed('g_bleed',0).reset()
 
     # @staticmethod
     # def prerun_skillshare(adv, dst):

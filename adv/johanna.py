@@ -5,17 +5,21 @@ def module():
 
 class Johanna(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'Breakfast_at_Valerios']
-    conf['slots.poison.a'] = ['Kung_Fu_Masters', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Summer_Paladyns',
+    'Flash_of_Genius',
+    'Kung_Fu_Masters',
+    'The_Plaguebringer',
+    'Chariot_Drift'
+    ]
     conf['acl'] = """
-        `dragon(c3-s-end)
+        `dragon(c3-s-end), s1.check()
         `s3, not buff(s3) 
         `s4
-        `s1 
+        `s1
         `s2
-        `fs, x=5
         """
-    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
     conf['share'] = ['Curran']
 
 if __name__ == '__main__':

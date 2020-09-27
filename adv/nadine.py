@@ -5,18 +5,24 @@ def module():
 
 class Nadine(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
+    conf['slots.a'] = [
+    'Dragon_and_Tamer',
+    'Flash_of_Genius',
+    'Me_and_My_Bestie',
+    'Chariot_Drift',
+    'Dueling_Dancers'
+    ]
     conf['acl'] = """
-        `dragon(c3-s-s-end), s=1
+        `dragon, s=1
         `s3, not buff(s3)
         `s2
-        `s4
         `s1
+        `s4
         `fs, x=5
         """
-    conf['coabs'] = ['Blade', 'Wand', 'Marth']
+    conf['coabs'] = ['Blade', 'Wand', 'Serena']
     conf['afflict_res.burn'] = 0
-    conf['share'] = ['Summer_Patia']
+    conf['share'] = ['Gala_Mym']
 
     def prerun(self):
         self.team_s1_hits = 1
