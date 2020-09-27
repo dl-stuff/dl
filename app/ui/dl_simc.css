@@ -124,12 +124,18 @@ body {
 
 #input-coabs {
     display: inline-grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
+}
+
+#input-coabs-sword {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 
 #input-coabs-other {
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 3;
+    border-left: initial !important;
 }
 
 #input-coabs>div {
@@ -138,7 +144,7 @@ body {
     border-top: 1px solid #ced4da;
 }
 
-#input-coabs>div:nth-child(3n+2), #input-coabs>div:nth-child(3n+3) {
+#input-coabs>div:nth-child(even) {
     border-left: 1px solid #ced4da;
     padding-left: 0.2em;
 }
