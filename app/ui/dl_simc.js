@@ -1,5 +1,5 @@
-const APP_URL = 'http://127.0.0.1:5000/';
-// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+// const APP_URL = 'http://127.0.0.1:5000/';
+const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 100000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
@@ -38,7 +38,7 @@ function slots_icon_fmt(data) {
         const c_icon = data[21 + c * 2];
         if (c_icon) {
             img_urls.push('<img src="/dl-sim/pic/character/' + c_icon + '.png" class="slot-icon coab unique"/>');
-        } else {
+        } else if (c_name) {
             if (SECONDARY_COABS[c_name]) {
                 img_urls.push('<img src="/dl-sim/pic/character/' + SECONDARY_COABS[c_name] + '.png" class="slot-icon coab unique"/>');
             } else {
@@ -369,7 +369,6 @@ function selectSkillShare(basename, pref_share) {
         $('#input-' + t + ' > option').prop('disabled', false);
         $('#' + t + '-' + basename).prop('disabled', true);
     }
-    console.log(pref_share);
     switch (pref_share.length) {
         case 1:
             $('#ss3-Weapon').prop('selected', true);
