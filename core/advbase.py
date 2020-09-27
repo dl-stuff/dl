@@ -1287,13 +1287,14 @@ class Adv(object):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
                         self.conf[dst_sn].owner = owner
+                        self.conf[dst_sn].sp = shared_sp
                     owner_module = load_adv_module(owner)
                     preruns[dst_key] = owner_module.prerun_skillshare
                     for sfn in ('before', 'proc'):
                         self.rebind_function(owner_module, f'{src_key}_{sfn}', f'{dst_key}_{sfn}')
                 except:
                     pass
-                self.conf[dst_key].sp = shared_sp
+                # self.conf[dst_key].sp = shared_sp
 
         for sn, snconf in self.conf.find(r'^s\d(_[A-Za-z0-9]+)?$'):
             s = S(sn, snconf)
