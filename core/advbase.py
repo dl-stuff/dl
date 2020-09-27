@@ -789,11 +789,14 @@ class Adv(object):
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
         self.conf.update(self.conf_base)
-        equip = globalconf.load_equip_json(self.name).get(str(int(self.duration)))
-        if equip and 'base' in equip:
-            self.conf.update(equip['base'])
+        equip = globalconf.load_equip_json(self.name)
+        equip_d = equip.get(str(int(self.duration)))
+        if not equip_d:
+            equip_d = equip.get('180')
+        if equip_d and 'base' in equip_d:
+            self.conf.update(equip_d['base'])
         self.conf.update(self.conf_init)
-        return equip
+        return equip_d
 
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf['flask_env']))

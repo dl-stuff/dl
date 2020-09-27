@@ -836,7 +836,7 @@ function update_teamdps() {
             others += portion;
             $(rs).css('width', portion + '%');
         });
-        if (team_p == 0){return;}
+        if (team_p == 0) { return; }
         const trs = $(ri).find('.team-result-slice')[0];
         const portion = 100 - others;
         $(trs).css('width', portion + '%');

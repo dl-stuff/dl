@@ -179,6 +179,11 @@ def save_userconf(adv):
         'coabs': adv.coab_list,
         'share': adv.skillshare_list
     }
+    if aff == 'base':
+        for aff, v in list(filter(lambda i: i[0] != 'base', equip[dkey].items())):
+            cdps = v['dps']
+            if cdps < ndps:
+                del equip[dkey][aff]
     save_equip_json(adv_qual, equip)
 
 # API
