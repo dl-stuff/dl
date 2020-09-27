@@ -2,12 +2,8 @@
 const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 100000;
-const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff'];
-const RANGED = ['wand', 'bow', 'staff'];
-const SECONDARY_COABS = {
-    'Axe2': '110027_02_r05',
-    'Dagger2': '100032_04_r05'
-}
+const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
+const RANGED = ['wand', 'bow', 'staff', 'gun'];
 const DEFAULT_SHARE = 'Ranzal';
 const DEFAULT_SHARE_ALT = 'Curran';
 const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
@@ -39,11 +35,7 @@ function slots_icon_fmt(data) {
         if (c_icon) {
             img_urls.push('<img src="/dl-sim/pic/character/' + c_icon + '.png" class="slot-icon coab unique"/>');
         } else if (c_name) {
-            if (SECONDARY_COABS[c_name]) {
-                img_urls.push('<img src="/dl-sim/pic/character/' + SECONDARY_COABS[c_name] + '.png" class="slot-icon coab unique"/>');
-            } else {
-                img_urls.push('<img src="/dl-sim/pic/coabs/' + c_name + '.png" class="slot-icon coab generic"/>');
-            }
+            img_urls.push('<img src="/dl-sim/pic/coabs/' + c_name + '.png" class="slot-icon coab generic"/>');
         }
     }
     img_urls.push(' | ');
