@@ -29,7 +29,7 @@ def load_chara_file(fn, extra=None):
             chara.append(l.strip().replace('.py', ''))
     return chara
 
-NORMAL_ADV = load_chara_file('chara_quick.txt', extra=('halloween_lowen',))
+NORMAL_ADV = load_chara_file('chara_quick.txt')
 MASS_SIM_ADV = load_chara_file('chara_slow.txt')
 PRELIM_ADV = load_chara_file('chara_prelim.txt')
 
