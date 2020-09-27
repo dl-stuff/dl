@@ -836,7 +836,7 @@ class Adv(object):
         self.afflic_condition()
         self.sim_affliction()
 
-        if not self.conf['flask_env'] and self.sim_afflict:
+        if equip and not self.conf['flask_env'] and self.sim_afflict:
             aff_equip = equip.get(next(iter(self.sim_afflict)))
             if aff_equip:
                 self.conf.update(aff_equip)
