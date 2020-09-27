@@ -349,7 +349,7 @@ class Nyarlathotep(DragonBase):
         bloody_tongue(0)
         buff_rate = 90
         if adv.condition(f'hp=30% every {buff_rate}s'):
-            buff_times = adv.duration // buff_rate
+            buff_times = int(adv.duration // buff_rate)
             for i in range(1, buff_times):
                 adv.Timer(bloody_tongue).on(buff_rate*i)
 
