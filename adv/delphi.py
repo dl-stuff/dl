@@ -5,7 +5,13 @@ def module():
 
 class Delphi(Adv):
     conf = {}
-    conf['slots.a'] = ['Mega_Friends', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'Twinfold_Bonds',
+        'Flash_of_Genius',
+        'The_Lurker_in_the_Woods',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['slots.d'] = 'Ramiel'
     conf['acl'] = """
         `dragon(c3-s-end), s=1

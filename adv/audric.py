@@ -5,7 +5,13 @@ def module():
 
 class Audric(Adv):    
     conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'The_Shining_Overlord',
+        'Flash_of_Genius',
+        'The_Red_Impulse',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))
         `s3, not buff(s3)
@@ -15,7 +21,7 @@ class Audric(Adv):
         `fs, x=3
     """
     conf['coabs'] = ['Wand','Cleo','Forte']
-    conf['share.base'] = ['Kleimann']
+    conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
 
     def prerun(self):

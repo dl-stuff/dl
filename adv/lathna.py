@@ -7,7 +7,13 @@ class Lathna(Adv):
     comment = 'cat sith skill damage does not work on s1 extra hits'
     
     conf = {}
-    conf['slots.a'] = ['Dragon_and_Tamer', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'Dragon_and_Tamer',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), cancel
         `s3, not buff(s3)
@@ -16,7 +22,7 @@ class Lathna(Adv):
         `s1(all), x=5
         """
     conf['coabs'] = ['Ieyasu','Wand','Forte']
-    conf['share.base'] = ['Kleimann']
+    conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
         
     # conf['dragonform'] = {

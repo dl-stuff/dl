@@ -5,8 +5,13 @@ def module():
 
 class Cassandra(Adv):
     conf = {}
-    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
-    conf['slots.poison.a'] = conf['slots.a']
+    conf['slots.a'] = [
+        'Candy_Couriers',
+        'Flash_of_Genius',
+        'Seaside_Princess',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), x=5
         `s3, not buff(s3)

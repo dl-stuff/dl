@@ -5,8 +5,13 @@ def module():
 
 class Curran(Adv):
     conf = {}
-    conf['slots.a'] = ['Summer_Paladyns', 'The_Plaguebringer']
-    conf['slots.poison.a'] = conf['slots.a']
+    conf['slots.a'] = [
+        'Summer_Paladyns',
+        'Flash_of_Genius',
+        'Kung_Fu_Masters',
+        'The_Plaguebringer',
+        'Chariot_Drift',
+    ]
     conf['acl'] = '''
         `dragon(c3-s-end), s
         `s3, not buff(s3)

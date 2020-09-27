@@ -54,7 +54,13 @@ class Gala_Alex(Adv):
     comment = 'see special for bk chain; s2 c4fs [s1 c4fs]*5 & use s1/s2 only when charge>=2'
 
     conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'The_Shining_Overlord',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), s=1
         `s3, not buff(s3)

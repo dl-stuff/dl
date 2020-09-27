@@ -5,7 +5,13 @@ def module():
 
 class Heinwald(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'Resounding_Rendition',
+        'Flash_of_Genius',
+        'Howling_to_the_Heavens',
+        'The_Plaguebringer',
+        'A_Small_Courage'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end),x=5
         queue prep and not buff(s3)

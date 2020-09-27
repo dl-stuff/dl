@@ -6,8 +6,13 @@ def module():
 class Aldred(Adv):
     comment = 'maintain dragondrive'
     conf = {}
-    conf['slots.a'] = ['Heralds_of_Hinomoto', 'Primal_Crisis']
-    conf['slots.poison.a'] = conf['slots.a']
+    conf['slots.a'] = [
+        'Resounding_Rendition',
+        'Flash_of_Genius',
+        'Howling_to_the_Heavens',
+        'The_Plaguebringer',
+        'A_Small_Courage'
+    ]
     conf['acl'] = """
         `s3, not buff(s3)
         `s2
@@ -16,7 +21,8 @@ class Aldred(Adv):
         `s1, x=5 or s
     """
     conf['coabs'] = ['Wand','Summer_Patia','Curran']
-    conf['share'] = ['Veronica']
+    conf['share.base'] = ['Rodrigo']
+    conf['share.poison'] = ['Curran']
 
     def d_slots(self):
         if self.duration <= 60:

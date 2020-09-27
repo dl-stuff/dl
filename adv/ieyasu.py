@@ -6,7 +6,13 @@ def module():
 
 class Ieyasu(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'Resounding_Rendition',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         ##Use Gala Cat Sith only when out of Skillful Trickery
         `dragon(c3-s-end), self.trickery <= 1
@@ -17,7 +23,7 @@ class Ieyasu(Adv):
         `fs, x=5 and buff(s3)
     """
     conf['coabs'] = ['Wand','Delphi','Axe2']
-    conf['share.base'] = ['Kleimann']
+    conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
 
     def s2ifbleed(self):

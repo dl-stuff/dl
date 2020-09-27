@@ -8,10 +8,10 @@ class Botan(Adv):
     conf = {}
     conf['slots.a'] = [
         'Dragon_and_Tamer',
-        'The_Fires_of_Hate',
-        'Howling_to_the_Heavens',
+        'Flash_of_Genius',
+        'Moonlight_Party',
         'The_Plaguebringer',
-        'Catch_Me_in_the_Sunflowers'
+        'Dueling_Dancers'
     ]
     conf['acl'] = """
         `dragon(c3-s-end),cancel

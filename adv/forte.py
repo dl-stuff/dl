@@ -5,9 +5,13 @@ def module():
 
 class Forte(Adv):
     conf = {}
-    conf['slots.a'] = ['Dragon_and_Tamer', 'The_Red_Impulse']
-    conf['slots.d'] = 'Ramiel'
-    conf['slots.poison.d'] = 'Gala_Cat_Sith'
+    conf['slots.a'] = [
+        'Dragon_and_Tamer',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         if self.sim_afflict
         `dragon(c3-s-end), x=5
