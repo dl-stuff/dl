@@ -60,7 +60,8 @@ class CharaBase(SlotBase):
     FAC_WEAPON = {
         'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.225},
         'dagger': 0.05, 'bow': 0.05, 'blade': 0.05, 'wand': 0.05,
-        'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05
+        'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
+        'gun': 0.0
     }
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
@@ -476,6 +477,17 @@ class WeaponBase(EquipBase):
                 {'dmg': 1.51, 'iv': 1.36667},
                 {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667}
             ]
+        },
+        'gun': {
+            "startup": 0.1, "recovery": 1.93333,
+            "attr": [
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "dp": 100, "iv": 0.66667, "msl": 1}, 5,
+                {"buff": ["self", 0.1, -1, "sp", "passive"], "iv": 0.7},
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.86667, "msl": 1}, 5,
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.06667, "msl": 1}, 5,
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.26667, "msl": 1}, 5,
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.46667, "msl": 1}, 5
+            ]
         }
     }
     def __init__(self, conf, c, qual=None):
@@ -590,7 +602,6 @@ class AmuletQuint:
                 union_level[a.union] += 1
         merged_ab.extend((('union', u, l) for u, l in union_level.items()))
 
-        print(merged_ab)
         return merged_ab
 
 

@@ -4,7 +4,7 @@ import os
 from core import Conf
 
 ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
-WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff')
+WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun')
 ROOT_DIR = os.getenv('ROOT_DIR', os.path.realpath(os.path.join(__file__, '../..')))
 
 def save_json(fn, data, indent=2):
@@ -87,5 +87,13 @@ def get_adv(name):
     if bool(conf.c.spiral):
         conf.update(conf.lv2)
     del conf['lv2']
+
+    if wt == 'gun' and len(conf.c.gun) == 1:
+        # move gun[n] to base combo
+        target = conf.c.gun[0]
+        for xn, xconf in list(conf.find(r'^(x|fs)\d_gun\d$')):
+            if int(xn[-1]) == target:
+                conf[xn.split('_')[0]] = xconf
+            del conf[xn]
 
     return conf
