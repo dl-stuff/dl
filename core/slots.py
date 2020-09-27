@@ -95,7 +95,7 @@ class CharaBase(SlotBase):
             if any([ckey in base_key or base_key in ckey for ckey in self.coabs.keys()]):
                 continue
             self.coabs[key] = coab
-            if key != self.qual:
+            if key != self.qual and key != self.wt:
                 self.coab_list.append(key)
             chain, ex = coab
             if ex:
