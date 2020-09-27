@@ -1182,24 +1182,19 @@ class Adv(object):
 
     def config_coabs(self):
         if not self.conf['flask_env']:
-            self.coab_list = self.load_aff_conf('coabs')
             self.d_coabs()
+            coab_list = self.load_aff_conf('coabs')
         else:
-            self.coab_list = self.conf['coabs']
+            coab_list = self.conf['coabs']
         try:
             self_coab = list(self.slots.c.coabs.keys())[0]
         except:
             self_coab = self.__class__.__name__
-        for name in self.coab_list:
+        for name in coab_list:
             try:
                 self.slots.c.coabs[name] = self.slots.c.valid_coabs[name]
             except KeyError:
                 raise ValueError(f'No such coability: {name}')
-        self.coab_list = list(self.slots.c.coabs.keys())
-        try:
-            self.coab_list.remove(self_coab)
-        except:
-            pass
 
     def rebind_function(self, owner, src, dst=None):
         dst = dst or src

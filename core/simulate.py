@@ -293,7 +293,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
 def slots(adv):
     slots = f'[{adv.slots.d}][{adv.slots.w}][{adv.slots.a}]\n'
     slots += '-'*(len(adv.name)) + ' '
-    slots += f'[{"|".join((map(get_fullname, adv.coab_list)))}][S3:{get_fullname(adv.skillshare_list[0])}'
+    slots += f'[{"|".join((map(get_fullname, adv.slots.c.coab_list)))}][S3:{get_fullname(adv.skillshare_list[0])}'
     try:
         slots += f'|S4:{get_fullname(adv.skillshare_list[1])}]'
     except:
@@ -301,7 +301,7 @@ def slots(adv):
     return slots
 
 def slots_csv(adv, web):
-    padded_coab = adv.coab_list.copy()
+    padded_coab = adv.slots.c.coab_list.copy()
     if len(padded_coab) < 3:
         padded_coab.extend(['']*(3-len(padded_coab)))
     padded_share = adv.skillshare_list.copy()

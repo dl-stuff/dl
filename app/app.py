@@ -176,7 +176,7 @@ def save_userconf(adv):
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
         'acl': acl_list,
-        'coabs': adv.coab_list,
+        'coabs': adv.slots.c.coab_list,
         'share': adv.skillshare_list
     }
     if aff == 'base':

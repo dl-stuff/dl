@@ -66,6 +66,7 @@ class CharaBase(SlotBase):
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
         self.coabs = {}
+        self.coab_list = []
         self.max_coab = 4
         self.valid_coabs = elecoabs[self.ele]
         try:
@@ -87,8 +88,15 @@ class CharaBase(SlotBase):
         ex_set = set()
         coabs = list(islice(self.coabs.items(), self.max_coab))
         self.coabs = {}
+        self.coab_list = []
         for key, coab in coabs:
+            # alt check
+            base_key = key.split('_')[-1]
+            if any([ckey in base_key or base_key in ckey for ckey in self.coabs.keys()]):
+                continue
             self.coabs[key] = coab
+            if key != self.qual:
+                self.coab_list.append(key)
             chain, ex = coab
             if ex:
                 ex_set.add(('ex', ex))
