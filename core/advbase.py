@@ -1735,7 +1735,8 @@ class Adv(object):
     ATTR_COND = {
         'hp>=': lambda s, v: s.hp >= v,
         'hp<=': lambda s, v: s.hp <= v,
-        'rng': lambda s, v: random.random() <= v
+        'rng': lambda s, v: random.random() <= v,
+        'hits': lambda s, v: s.hits >= v
     }
     def do_hitattr_make(self, e, aseq, attr, pin=None):
         if 'cond' in attr:

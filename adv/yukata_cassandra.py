@@ -3,7 +3,7 @@ from core.advbase import *
 def module():
     return Yukata_Cassandra
 
-echo_mod = 0.20
+echo_mod = 0.40
 
 class Yukata_Cassandra(Adv):
     comment = 's1 team buff not considered'
