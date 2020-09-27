@@ -23,7 +23,6 @@ class Mikoto(RngCritAdv):
 
     def prerun(self):
         self.config_rngcrit(cd=15, ev=20)
-        self.a1_buff = Selfbuff('a1', 0, 20, 'crit', 'damage')
         self.a1_stack = 0
 
     def charge(self, name, sp, target=None):
