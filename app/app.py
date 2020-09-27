@@ -159,11 +159,17 @@ def save_userconf(adv):
     adv_qual = adv.__class__.__name__
     equip = load_equip_json(adv_qual)
     try:
-        cdps = equip[dkey][aff]['dps']
+        cdps = equip[dkey][aff].get('dps', 0)
+        cteam = equip[dkey][aff].get('team', 0)
     except KeyError:
         cdps = 0
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
-    ndps += 100000 * (adv.logs.team_buff / adv.real_duration)
+    nteam = adv.logs.team_buff / adv.real_duration
+    # buffbot check
+    if max(cdps, ndps) <= 25000 and max(cteam, nteam) >= 1.0) and cteam > nteam:
+        return
+    # standard check
+    ndps += nteam * 50000
     if ndps < cdps:
         return
     if dkey not in equip:
@@ -173,6 +179,7 @@ def save_userconf(adv):
         acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
     equip[dkey][aff] = {
         'dps': ndps,
+        'dps': nteam,
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
         'acl': acl_list,
