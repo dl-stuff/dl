@@ -166,7 +166,7 @@ def save_userconf(adv):
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
     nteam = adv.logs.team_buff / adv.real_duration
     # buffbot check
-    if max(cdps, ndps) <= 25000 and max(cteam, nteam) >= 1.0) and cteam > nteam:
+    if (max(cdps, ndps) <= 25000 and max(cteam, nteam) >= 1.0) and cteam > nteam:
         return
     # standard check
     ndps += nteam * 50000
@@ -179,7 +179,7 @@ def save_userconf(adv):
         acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
     equip[dkey][aff] = {
         'dps': ndps,
-        'dps': nteam,
+        'team': nteam,
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
         'acl': acl_list,

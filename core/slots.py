@@ -95,7 +95,7 @@ class CharaBase(SlotBase):
             if any([ckey in base_key or base_key in ckey for ckey in self.coabs.keys()]):
                 continue
             self.coabs[key] = coab
-            if key != self.qual and key != self.wt:
+            if key != self.qual and key.lower() != self.wt:
                 self.coab_list.append(key)
             chain, ex = coab
             if ex:
@@ -284,7 +284,7 @@ class Summer_Konohana_Sakuya(DragonBase):
             adv.summer_sakuya_flowers += 1
             try:
                 adv.Selfbuff(
-                    f'd_sakuya_flower_{adv.summer_sakuya_flowers}', 
+                    f'd_sakuya_flower_{adv.summer_sakuya_flowers}',
                     *self.FLOWER_BUFFS[adv.summer_sakuya_flowers]
                 ).on()
             except KeyError:

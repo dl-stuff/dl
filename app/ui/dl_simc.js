@@ -1,7 +1,7 @@
 // const APP_URL = 'http://127.0.0.1:5000/';
 const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
-const BASE_TEAM_DPS = 100000;
+const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
 const RANGED = ['wand', 'bow', 'staff', 'gun'];
 const DEFAULT_SHARE = 'Ranzal';
@@ -509,7 +509,7 @@ function readResistDict() {
     } else {
         resistList.each(function (idx, res) {
             const resVal = parseInt($(res).val());
-            if (!isNaN(resVal)) {
+            if (!isNaN(resVal) && resVal > 0) {
                 const parts = $(res).attr('id').split('-');
                 resists[parts[parts.length - 1]] = resVal;
             }
@@ -533,14 +533,14 @@ function coabSelection(add, debounce) {
         } else {
             $('input:not(:checked).coab-check').prop('disabled', true);
         }
-        const self = $('#input-coabs').data('self');
-        if (self) {
-            if (debounce) {
-                setTimeout(function () { $("input[id$='-" + self + "']").prop('disabled', false); }, 55);
-            } else {
-                $("input[id$='-" + self + "']").prop('disabled', false);
-            }
-        }
+        // const self = $('#input-coabs').data('self');
+        // if (self) {
+        //     if (debounce) {
+        //         setTimeout(function () { $("input[id$='-" + self + "']").prop('disabled', false); }, 55);
+        //     } else {
+        //         $("input[id$='-" + self + "']").prop('disabled', false);
+        //     }
+        // }
     } else {
         $('.coab-check').prop('disabled', false);
     }
@@ -565,14 +565,17 @@ function buildCoab(coab, basename, weapontype) {
         check.data('ex', ex);
         check.change(checkCoabSelection);
         if (k == basename) {
-            if (!chain || chain[2] != 'hp' + String.fromCharCode(8804) + '40') {
-                check.prop('disabled', true);
-                check.prop('checked', true);
-                found_basename = ex;
-            } else {
-                $('#input-coabs').data('self', basename);
-                check.addClass('coab-check');
-            }
+            check.prop('disabled', true);
+            check.prop('checked', true);
+            found_basename = ex;
+            // if (!chain || chain[2] != 'hp' + String.fromCharCode(8804) + '40') {
+            //     check.prop('disabled', true);
+            //     check.prop('checked', true);
+            //     found_basename = ex;
+            // } else {
+            //     $('#input-coabs').data('self', basename);
+            //     check.addClass('coab-check');
+            // }
         } else {
             check.addClass('coab-check');
         }
@@ -632,7 +635,7 @@ function readSimAfflic() {
     } else {
         affList.each(function (idx, res) {
             const resVal = parseInt($(res).val());
-            if (!isNaN(resVal)) {
+            if (!isNaN(resVal) && resVal > 0) {
                 const parts = $(res).attr('id').split('-');
                 simAff[parts[parts.length - 1]] = resVal;
             }
