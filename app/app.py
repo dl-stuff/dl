@@ -332,7 +332,7 @@ def get_adv_slotlist():
             result['adv']['no_config'] = SPECIAL_ADV[advname]['nc']
         result['adv']['prelim'] = advname in PRELIM_ADV
 
-        if adv.conf['tdps']:
+        if adv.conf['tdps'] and adv.conf['tdps'] <= 200000:
             result['adv']['tdps'] = int(adv.conf.tdps) + 1
 
         weapon = weapons[adv.slots.c.ele][adv.slots.c.wt]

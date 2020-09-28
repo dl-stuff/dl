@@ -579,6 +579,13 @@ function coabSelection(add, debounce) {
     } else {
         $('.coab-check').prop('disabled', false);
     }
+
+    if (add == 0){
+        const basename = $('#input-coabs').data('basename');
+        $('#coab-'+basename).prop('disabled', true);
+        $('#coab-'+basename).prop('checked', true);
+    }
+
     $('#input-coabs').data('selected', count);
 }
 
@@ -603,6 +610,7 @@ function buildCoab(coab, basename, weapontype) {
             check.prop('disabled', true);
             check.prop('checked', true);
             found_basename = ex;
+            $('#input-coabs').data('basename', basename);
             // if (!chain || chain[2] != 'hp' + String.fromCharCode(8804) + '40') {
             //     check.prop('disabled', true);
             //     check.prop('checked', true);
