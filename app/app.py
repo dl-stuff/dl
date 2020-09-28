@@ -173,7 +173,7 @@ def save_equip(adv, test_output):
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
     nteam = adv.logs.team_buff / adv.real_duration
     threshold = None
-    is_buffbot = nteam > 1.00 or max(ndps, cdps) < 40000
+    is_buffbot = nteam > 1.10
     if ndps < cdps or is_buffbot:
         if (etype == 'base' or is_buffbot) and nteam > cteam:
             etype = 'buffer' if not is_buffbot else 'base'

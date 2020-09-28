@@ -18,6 +18,10 @@ class Alain(Adv):
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['share'] = ['Kleimann']
 
+    def prerun(self):
+        from core.ability import Last_Buff
+        Last_Buff.HEAL_TO = 50
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

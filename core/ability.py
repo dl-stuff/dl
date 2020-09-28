@@ -254,10 +254,12 @@ class BuffingAbility(Ability):
         super().__init__(name)
 
 class Last_Buff(BuffingAbility):
+    HEAL_TO = 30
     def __init__(self, name, value, duration=15, chances=1):
         super().__init__(name, value, duration)
         self.proc_chances = chances
         self.auto_proc = 'regen' not in self.buff_args
+        Last_Buff.HEAL_TO = 30
 
     def oninit(self, adv, afrom=None):
         def l_lo_buff(e):
@@ -275,7 +277,7 @@ class Last_Buff(BuffingAbility):
                         adv.set_hp(30)
                     adv.Timer(lo_healed).on(10)
             def lo_healed(t):
-                next_hp = adv.condition.hp_threshold_list(30)
+                next_hp = adv.condition.hp_threshold_list(Last_Buff.HEAL_TO)
                 try:
                     adv.set_hp(next_hp[0])
                 except:
