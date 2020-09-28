@@ -3,7 +3,7 @@ import re
 from itertools import islice
 from collections import deque
 
-CHAR_LIMIT = 500
+CHAR_LIMIT = 1000
 
 def pairs(iterator):
     "s -> (s0,s1), (s2,s3), (s4, s5), ..."

@@ -1,10 +1,10 @@
 from core.advbase import *
 
 def module():
-    return Gala_Euden
+    return Gala_Prince
 
 
-class Gala_Euden(Adv):
+class Gala_Prince(Adv):
     conf = {}
     conf['slots.a'] = [
     'The_Shining_Overlord',

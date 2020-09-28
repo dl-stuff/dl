@@ -547,6 +547,8 @@ class Adv(object):
     def damage_sources_check(self, name, conf):
         if conf['attr'] and any(('dmg' in attr for attr in conf['attr'] if isinstance(attr, dict))):
             self.damage_sources.add(name)
+        if conf.get('energizable'):
+            self.energy.extra_tensionable.add(name)
 
     def doconfig(self):
         # set act
@@ -1681,27 +1683,30 @@ class Adv(object):
                     except:
                         pass
                     return
-                if bctrl.startswith('-refresh'):
+                if bctrl == '-refresh':
                     try:
                         return self.buff.on(base, group, aseq)
                     except KeyError:
-                        bctrl_parts = bctrl.split('_')
-                        if len(bctrl_parts) > 1:
-                            bctrl = bctrl_parts[0]
-                            bctrl_args = bctrl_parts[1:]
-                            tgroup, tseq = bctrl_args
-                            tgroup = tgroup if not tgroup.isdigit() else int(tgroup)-1
-                            tseq = int(tseq)
-                            try:
-                                return self.buff.on(base, tgroup, tseq)
-                            except:
-                                pass
+                        pass
                 if bctrl == '-replace':
                     self.buff.off_all(base)
                     try:
                         return self.buff.on(base, group, aseq)
                     except KeyError:
                         pass
+                if bctrl.startswith('-overwrite'):
+                    # does not support multi buffs
+                    try:
+                        ow_buff = self.buff.get_overwrite(bctrl)
+                        if ow_buff.value() >= blist[1]:
+                            ow_buff.on()
+                            return
+                    except:
+                        pass
+                    buff = self.hitattr_buff(name, base, group, aseq, 0, blist)
+                    if buff:
+                        self.buff.add_overwrite(base, group, aseq, buff.on(), bctrl)
+                    return
             if isinstance(blist[0], list):
                 buff_objs = []
                 for bseq, attrbuff in enumerate(blist):

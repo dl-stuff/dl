@@ -18,10 +18,10 @@ class Cleo(Adv):
         `s3
         `s4
         `s2
-        `s1, not buff(s1)
+        `s1
         """
     conf['coabs'] = ['Dagger2','Tobias','Blade']
-    conf['share'] = ['Summer_Luca', 'Patia']
+    conf['share'] = ['Akasha']
 
 
 if __name__ == '__main__':

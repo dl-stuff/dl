@@ -232,7 +232,7 @@ class Buff(object):
             self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {newvalue:.02f}', 'buff value change')
             return self.set(newvalue)
         else:
-            return self.get()
+            return self.__value
 
     def get(self):
         if self.__active:
@@ -776,6 +776,7 @@ bufftype_dict['mode'] = init_mode
 class ActiveBuffDict(defaultdict):
     def __init__(self):
         super().__init__(lambda: defaultdict(lambda: {}))
+        self.overwrite_buffs = {}
 
     def __call__(self, k, group=None, *args):
         if self.get(k, False):
@@ -814,3 +815,11 @@ class ActiveBuffDict(defaultdict):
         for g, seq in self[k].items():
             for b in seq.values():
                 b.off()
+
+    def get_overwrite(self, overwrite_group):
+        # print(self.overwrite_buffs[overwrite_group], overwrite_group)
+        return self.overwrite_buffs[overwrite_group]
+
+    def add_overwrite(self, k, group, seq, buff, overwrite_group):
+        self[k][group][seq] = buff
+        self.overwrite_buffs[overwrite_group] = buff

@@ -489,7 +489,8 @@ class WeaponBase(EquipBase):
         'gun': {
             "startup": 0.1, "recovery": 1.93333,
             "attr": [
-                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "dp": 100, "iv": 0.66667, "msl": 1}, 5,
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "dp": 100, "iv": 0.66667, "msl": 1},
+                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.66667, "msl": 1}, 5,
                 {"buff": ["self", 0.1, -1, "sp", "passive"], "iv": 0.7},
                 {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.86667, "msl": 1}, 5,
                 {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.06667, "msl": 1}, 5,

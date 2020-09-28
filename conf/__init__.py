@@ -91,7 +91,7 @@ def get_adv(name):
     if wt == 'gun' and len(conf.c.gun) == 1:
         # move gun[n] to base combo
         target = conf.c.gun[0]
-        for xn, xconf in list(conf.find(r'^(x|fs)\d_gun\d$')):
+        for xn, xconf in list(conf.find(r'^(x\d|fs)_gun\d$')):
             if int(xn[-1]) == target:
                 conf[xn.split('_')[0]] = xconf
             del conf[xn]

@@ -1,9 +1,9 @@
 from core.advbase import *
 
 def module():
-    return Euden
+    return The_Prince
 
-class Euden(Adv):    
+class The_Prince(Adv):    
     conf = {}
     conf['slots.a'] = [
     'The_Shining_Overlord',
