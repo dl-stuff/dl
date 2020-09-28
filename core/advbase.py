@@ -785,7 +785,7 @@ class Adv(object):
         #             if afflic_slots[s]:
         #                 self.slots.__dict__[s] = afflic_slots[s]
 
-    def pre_conf(self):
+    def pre_conf(self, equip_key='base'):
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
         self.conf.update(self.conf_base)
@@ -793,8 +793,11 @@ class Adv(object):
         equip_d = equip.get(str(int(self.duration)))
         if not equip_d:
             equip_d = equip.get('180')
-        if equip_d and 'base' in equip_d:
-            self.conf.update(equip_d['base'])
+        if equip_key == 'affliction':
+            from core.simulate import ELE_AFFLICT
+            equip_key = ELE_AFFLICT[self.conf.c.ele]
+        if equip_d and equip_key in equip_d:
+            self.conf.update(equip_d[equip_key])
         self.conf.update(self.conf_init)
         return equip_d
 
@@ -810,7 +813,7 @@ class Adv(object):
         # self.slot_common(self.cmnslots)
         # self.slots = self.cmnslots
 
-    def __init__(self, conf=None, duration=180, cond=None):
+    def __init__(self, conf=None, duration=180, cond=None, equip_key=None):
         if not self.name:
             self.name = self.__class__.__name__
 
@@ -831,7 +834,7 @@ class Adv(object):
         self.damage_sources = set()
         self.Modifier._static.damage_sources = self.damage_sources
 
-        equip = self.pre_conf()
+        equip = self.pre_conf(equip_key=equip_key)
 
         # set afflic
         self.afflics = Afflics()

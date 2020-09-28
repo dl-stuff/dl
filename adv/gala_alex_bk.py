@@ -15,8 +15,8 @@ class Gala_Alex(adv.gala_alex.Gala_Alex):
         end
     """
 
-    def __init__(self, conf=None, duration=180, cond=None):
-        super().__init__(conf=conf, duration=duration, cond=cond, altchain='break')
+    def __init__(self, **kwargs):
+        super().__init__(altchain='break', **kwargs)
 
     def prerun(self):
         super().prerun()

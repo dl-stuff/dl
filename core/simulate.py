@@ -108,21 +108,13 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
     if mass:
         adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
 
-    run_results.append((adv, real_d, True))
-    no_cond_dps = None
-    # if adv.condition.exist():
-    #     adv_2, real_d_2 = run_once(classname, conf, duration, False)
-    #     # if mass:
-    #     #     adv_2.logs, real_d_2 = run_mass(mass, adv_2.logs, real_d, classname, conf, duration, False)
-    #     run_results.append((adv_2, real_d_2, False))
-    #     no_cond_dps = {
-    #         'dps': round(dps_sum(real_d_2, adv_2.logs.damage)['dps']),
-    #         'team_buff': adv_2.logs.team_buff / real_d,
-    #         'team_tension': adv_2.logs.team_tension
-    #     }
+    aff_name = ELE_AFFLICT[adv.slots.c.ele]
+    if aff_name in adv.sim_afflict and not -10 <= verbose <= -5:
+        run_results.append((adv, real_d, 'affliction'))
+    else:
+        run_results.append((adv, real_d, True))
 
     if -10 <= verbose <= -5:
-        aff_name = ELE_AFFLICT[adv.slots.c.ele]
         conf[f'sim_afflict.{aff_name}'] = 1
         if verbose < -5:
             for aff_name in DOT_AFFLICT[:(-verbose-6)]:
@@ -131,15 +123,12 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
         if mass:
             adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
         run_results.append((adv, real_d, 'affliction'))
-        # if adv.condition.exist():
-        #     adv, real_d = run_once(classname, conf, duration, False)
-        #     run_results.append((adv, real_d, False))
 
     for a, d, c in run_results:
         if verbose == -2:
             report(d, a, output, cond=c, web=False)
         elif abs(verbose) == 5:
-            page = 'sp' if special else duration
+            page = 'sp' if special else int(duration)
             if c:
                 output.write('-,{},{}\n'.format(page, c if isinstance(c, str) else '_'))
             report(d, a, output, cond=c, web=True)
@@ -148,7 +137,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
                 output.write('-'*BR+'\n')
                 output.write(' & '.join(adv.sim_afflict))
                 output.write('\n')
-            summation(d, a, output, cond=c, no_cond_dps=no_cond_dps)
+            summation(d, a, output, cond=c)
 
     adv.real_duration = real_d
     return run_results, adv
@@ -525,7 +514,7 @@ def compile_stats(real_d, adv, do_buffs=True):
         stat_str.append(f'{k}:{int(v)}')
     return ';'.join(stat_str)
 
-def summation(real_d, adv, output, cond=True, no_cond_dps=None):
+def summation(real_d, adv, output, cond=True):
     res = dps_sum(real_d, adv.logs.damage)
     if cond:
         output.write('='*BR+'\n')

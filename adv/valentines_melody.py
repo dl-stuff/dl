@@ -24,9 +24,9 @@ class Valentines_Melody(Adv):
     conf['share'] = ['Curran']
     conf['afflict_res.poison'] = 0
 
-    def __init__(self, conf=None, duration=180, cond=None, altchain=None):
-        super().__init__(conf=conf, duration=duration, cond=cond)
-        self.slots.c.coabs['Axe2'] = [None, 'axe2']
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.slots.c.coabs['Valentines_Melody'] = [None, 'axe2']
 
 
 if __name__ == '__main__':

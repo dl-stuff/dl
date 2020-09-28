@@ -1,5 +1,5 @@
-// const APP_URL = 'http://127.0.0.1:5000/';
-const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
@@ -7,6 +7,13 @@ const RANGED = ['wand', 'bow', 'staff', 'gun'];
 const DEFAULT_SHARE = 'Ranzal';
 const DEFAULT_SHARE_ALT = 'Curran';
 const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
+const ELE_AFFLICT = {
+    'flame': 'burn',
+    'water': 'frostbite',
+    'wind': 'poison',
+    'light': 'paralysis',
+    'shadow': 'poison'
+}
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
 function name_fmt(name) {
     return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
@@ -117,7 +124,7 @@ function create_dps_bar(res_div, arr) {
 
     let total_dps = parseInt(arr[0]);
 
-    res_div.data("team", team);
+    res_div.data('team', team);
     const dpsnum = $('<span class="dps-num">' + total_dps + '</span>').data('total', total_dps);
     const dpshead = $('<h6>DPS:</h6>');
     dpshead.append(dpsnum);
@@ -226,6 +233,8 @@ function serConf(no_conf) {
     }
     if ($('#input-edit-acl').prop('checked')) {
         requestJson['acl'] = $('#input-acl').val();
+    } else {
+        requestJson['acl'] = $('#input-acl').data('default_acl');
     }
     const sim_aff = readSimAfflic();
     if (sim_aff != null) {
@@ -348,6 +357,7 @@ function loadAdvWPList() {
                 populate_select('#input-wp4', advwp.wyrmprints.silver);
                 populate_select('#input-wp5', advwp.wyrmprints.silver);
                 populateSkillShare(advwp.skillshare);
+                clearResults();
                 loadAdvSlots(true);
             }
         },
@@ -381,7 +391,6 @@ function selectSkillShare(basename, pref_share) {
     }
 }
 function loadAdvSlots(no_conf) {
-    clearResults();
     if ($('#input-adv').val() == '') {
         return false;
     }
@@ -391,13 +400,22 @@ function loadAdvSlots(no_conf) {
         conf = deserConf(urlVars.conf);
     }
     const adv_name = $('#input-adv').val();
-    localStorage.setItem('selectedAdv', $('#input-adv').val());
+    const equip = $('#input-setup').val();
+    localStorage.setItem('selectedAdv', adv_name);
+    const requestJson = {
+        'adv': $('#input-adv').val(),
+        'equip': equip
+    };
+    const t = $('#input-t').val();
+    if (!isNaN(parseInt(t))) {
+        requestJson['t'] = t;
+    };
     $.ajax({
         url: APP_URL + 'simc_adv_slotlist',
         dataType: 'text',
         type: 'post',
         contentType: 'application/json',
-        data: JSON.stringify({ 'adv': adv_name }),
+        data: JSON.stringify(requestJson),
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 let slots = JSON.parse(data);
@@ -465,6 +483,21 @@ function loadAdvSlots(no_conf) {
                         $('#input-edit-acl').prop('disabled', false);
                         $('input.coab-check').prop('disabled', false);
                     }
+
+                    if (equip === 'affliction') {
+                        $('#input-sim-' + ELE_AFFLICT[slots.adv.ele]).val(100);
+                    } else {
+                        const simAff = $('#affliction-sim > div > input[type="text"]');
+                        simAff.each(function (idx, res) { $(res).val(''); });
+                    }
+
+                    if (slots.adv.tdps) {
+                        $('#input-teamdps').data('original', $('#input-teamdps').val());
+                        $('#input-teamdps').val(slots.adv.tdps);
+                    } else if ($('#input-teamdps').data('original')) {
+                        $('#input-teamdps').val($('#input-teamdps').data('original'));
+                    }
+
                     runAdvTest(no_conf);
                 }
             }
@@ -775,9 +808,11 @@ function clearResults() {
     }
     $('#input-conditions').empty();
     $('#input-dragonbattle').val('');
+    $('#input-setup').val('base');
 }
 function resetTest() {
     updateUrl();
+    clearResults();
     loadAdvSlots(true);
 }
 function weaponSelectChange() {
@@ -850,6 +885,7 @@ function update_teamdps() {
 }
 window.onload = function () {
     $('#input-adv').change(debounce(resetTest, 200));
+    $('#input-setup').change(debounce(() => loadAdvSlots(true), 200));
     $('#run-test').click(debounce(runAdvTest, 200));
     if (!localStorage.getItem('displayMode')) {
         localStorage.setItem('displayMode', 'Markdown');

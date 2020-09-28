@@ -83,8 +83,8 @@ class Gala_Alex(Adv):
         if self.duration <= 120:
             self.conf['coabs'] = ['Ieyasu','Wand','Heinwald']
 
-    def __init__(self, conf=None, duration=180, cond=None, altchain=None):
-        super().__init__(conf=conf, duration=duration, cond=cond)
+    def __init__(self, altchain=None, **kwargs):
+        super().__init__(**kwargs)
         self.sr = Skill_Reservoir('s1', altchain=altchain)
         self.a_s_dict['s1'] = self.sr
         self.a_s_dict['s2'] = self.sr

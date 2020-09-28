@@ -7,7 +7,7 @@ ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
 WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun')
 ROOT_DIR = os.getenv('ROOT_DIR', os.path.realpath(os.path.join(__file__, '../..')))
 
-def save_json(fn, data, indent=2):
+def save_json(fn, data, indent=None):
     froot = os.path.join(ROOT_DIR, 'conf')
     fpath = os.path.join(froot, fn)
     with open(fpath, 'w', encoding='utf8') as f:

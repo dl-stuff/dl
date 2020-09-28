@@ -123,7 +123,7 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
         result['error'] = str(e)
         return result
 
-    save_userconf(adv)
+    save_equip(adv, result['test_output'])
 
     result['logs'] = {}
     adv = run_res[0][0]
@@ -139,7 +139,7 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
     result['logs']['timeline'] = fn.getvalue()
     return result
 
-def save_userconf(adv):
+def save_equip(adv, test_output):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
         return
@@ -147,50 +147,69 @@ def save_userconf(adv):
         return
     if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
         return
-    aff = 'base'
+    etype = 'base'
     eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
     if adv.sim_afflict:
         if adv.sim_afflict != {eleaff} or \
            adv.conf_init.sim_afflict[eleaff] != 1:
             return
         else:
-            aff = eleaff
+            etype = eleaff
     dkey = str(adv.duration)
     adv_qual = adv.__class__.__name__
     equip = load_equip_json(adv_qual)
     try:
-        cdps = equip[dkey][aff].get('dps', 0)
-        cteam = equip[dkey][aff].get('team', 0)
+        cached = equip[dkey][etype]
+        cdps = cached.get('dps', 0)
+        cteam = cached.get('team', 0)
     except KeyError:
-        cdps = 0
+        try:
+            cached = equip[dkey]['base']
+            cdps = cached.get('dps', 0)
+            cteam = cached.get('team', 0)
+        except KeyError:
+            cdps = 0
+            cteam = 0
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
     nteam = adv.logs.team_buff / adv.real_duration
-    # buffbot check
-    if (max(cdps, ndps) <= 25000 and max(cteam, nteam) >= 1.0) and cteam > nteam:
-        return
-    # standard check
-    ndps += nteam * 50000
-    if ndps < cdps:
-        return
+    threshold = None
+    is_buffbot = nteam > 1.00 or max(ndps, cdps) < 40000
+    if ndps < cdps or is_buffbot:
+        if (etype == 'base' or is_buffbot) and nteam > cteam:
+            etype = 'buffer' if not is_buffbot else 'base'
+            try:
+                cteam = equip[dkey][etype]['team']
+            except KeyError:
+                pass
+            if nteam <= cteam:
+                return
+            if not is_buffbot:
+                threshold = (cdps - ndps) / (nteam - cteam)
+        else:
+            return
     if dkey not in equip:
         equip[dkey] = {}
     acl_list = adv.conf.acl
     if not isinstance(acl_list, list):
         acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
-    equip[dkey][aff] = {
+    equip[dkey][etype] = {
         'dps': ndps,
         'team': nteam,
+        'tdps': threshold,
+        'output': test_output,
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
         'acl': acl_list,
         'coabs': adv.slots.c.coab_list,
         'share': adv.skillshare_list
     }
-    if aff == 'base':
-        for aff, v in list(filter(lambda i: i[0] != 'base', equip[dkey].items())):
-            cdps = v['dps']
+    if etype == 'base':
+        try:
+            cdps = equip[dkey][eleaff]['dps']
             if cdps < ndps:
-                del equip[dkey][aff]
+                del equip[dkey][eleaff]
+        except KeyError:
+            pass
     save_equip_json(adv_qual, equip)
 
 # API
@@ -212,7 +231,7 @@ def simc_adv_test():
     coab = None if 'coab' not in params else params['coab']
     share = None if 'share' not in params else params['share']
     # latency = 0 if 'latency' not in params else abs(float(params['latency']))
-    print(params, flush=True)
+    # print(params, flush=True)
 
     if adv_name in SPECIAL_ADV:
         not_customizable = SPECIAL_ADV[adv_name]['nc']
@@ -261,14 +280,19 @@ def get_adv_slotlist():
     result = {}
     result['adv'] = {}
     if request.method == 'GET':
-        result['adv']['name'] = request.args.get('adv', default=None)
+        advname = request.args.get('adv', default=None)
+        equip_key = request.args.get('equip', default='base')
+        duration = request.args.get('t', default=180)
     elif request.method == 'POST':
         params = request.get_json(silent=True)
-        result['adv']['name'] = params['adv'] if 'adv' in params else None
+        advname = params['adv'] if 'adv' in params else None
+        equip_key = params['equip'] if 'equip' in params else 'base'
+        duration = params['t'] if 't' in params else 180
     else:
         return 'Wrong request method.'
-    if result['adv']['name'] is not None:
-        adv = ADV_MODULES[result['adv']['name']]()
+    duration = max(min(((int(duration) // 60)*60), 180), 60)
+    if advname is not None:
+        adv = ADV_MODULES[advname](duration=duration, equip_key=equip_key)
         adv.config_slots()
         result['adv']['basename'] = adv.__class__.__name__
         result['adv']['ele'] = adv.slots.c.ele
@@ -293,9 +317,12 @@ def get_adv_slotlist():
                     res_dict[afflic] = res_conf[afflic]
             if len(res_dict.keys()) > 0:
                 result['adv']['afflict_res'] = res_dict
-        if result['adv']['name'] in SPECIAL_ADV:
-            result['adv']['no_config'] = SPECIAL_ADV[result['adv']['name']]['nc']
-        result['adv']['prelim'] = result['adv']['name'] in PRELIM_ADV
+        if advname in SPECIAL_ADV:
+            result['adv']['no_config'] = SPECIAL_ADV[advname]['nc']
+        result['adv']['prelim'] = advname in PRELIM_ADV
+
+        if adv.conf['tdps']:
+            result['adv']['tdps'] = int(adv.conf.tdps) + 1
 
         weapon = weapons[adv.slots.c.ele][adv.slots.c.wt]
         weapon_name = f'Agito T{weapon["tier"]} {weapon["name"]}'
