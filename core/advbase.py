@@ -1783,7 +1783,7 @@ class Adv(object):
             e.attr = attr
             self.hitattr_make(e.name, e.base, e.group, aseq, attr, onhit)
             if pin is not None:
-                Event(f'{pin}-h-{aseq}')()
+                Event(f'{pin}-h')()
         return None
 
     def schedule_hits(self, e, conf, pin=None):

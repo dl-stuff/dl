@@ -143,9 +143,11 @@ def save_equip(adv, test_output):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
         return
-    if 'sim_buffbot' in adv.conf_init:
+    if 'sim_buffbot' in adv.conf:
         return
     if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
+        return
+    if 'dragonbattle' in adv.conf:
         return
     etype = 'base'
     eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
