@@ -356,10 +356,15 @@ def get_adv_wp_list():
             result['adv'][name] = SPECIAL_ADV[name]['fullname']
     wplists = {'gold':{}, 'silver':{}}
     for wp, data in wyrmprints.items():
-        if data['rarity'] == 5:
-            wplists['gold'][wp] = data['name']
+        ab_str = f'-{data["union"]}'
+        if data['a']:
+            ab_str = '[' + '|'.join(map(str, data['a'][0])) + ']' + ab_str
         else:
-            wplists['silver'][wp] = data['name']
+            ab_str = '[]' + ab_str
+        if data['rarity'] == 5:
+            wplists['gold'][wp] = data['name'] + ' ' + ab_str
+        else:
+            wplists['silver'][wp] = data['name'] + ' ' + ab_str
     result['wyrmprints'] = wplists
     result['skillshare'] = {k: {'fullname': get_fullname(k), **v} for k, v in skillshare.items()}
     return jsonify(result)
