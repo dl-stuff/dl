@@ -1729,8 +1729,10 @@ class Adv(object):
     def l_hitattr_make(self, t):
         self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, t.onhit)
         if t.pin is not None:
-            self.think_pin(t.pin+'-h')
-            Event(t.pin+'-h')()
+            self.think_pin(f'{t.pin}-h')
+            p = Event(f'{pin}-h')
+            p.is_hit = t.name in self.damage_sources
+            p()
         if t.proc is not None:
             t.proc(t)
         if t.actmod:
@@ -1783,7 +1785,9 @@ class Adv(object):
             e.attr = attr
             self.hitattr_make(e.name, e.base, e.group, aseq, attr, onhit)
             if pin is not None:
-                Event(f'{pin}-h')()
+                p = Event(f'{pin}-h')
+                p.is_hit = t.name in self.damage_sources
+                p()
         return None
 
     def schedule_hits(self, e, conf, pin=None):

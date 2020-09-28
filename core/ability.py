@@ -529,6 +529,8 @@ class Force_Charge(Ability):
             adv.fs_prep_v += self.value
         else:
             def l_fs_charge(e):
+                if not e.is_hit:
+                    return
                 adv.charge_p(self.name, adv.fs_prep_v)
                 self.charge -= 1
                 adv.fs_prep_c = self.charge
