@@ -1786,7 +1786,7 @@ class Adv(object):
             self.hitattr_make(e.name, e.base, e.group, aseq, attr, onhit)
             if pin is not None:
                 p = Event(f'{pin}-h')
-                p.is_hit = t.name in self.damage_sources
+                p.is_hit = e.name in self.damage_sources
                 p()
         return None
 
