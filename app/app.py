@@ -210,6 +210,15 @@ def save_equip(adv, test_output):
                 del equip[dkey][eleaff]
         except KeyError:
             pass
+        try:
+            cdps = equip[dkey]['buffer']['dps']
+            cteam = equip[dkey]['buffer']['team']
+            if cteam <= nteam:
+                del equip[dkey]['buffer']
+            else:
+                equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
+        except KeyError:
+            pass
     save_equip_json(adv_qual, equip)
 
 # API
