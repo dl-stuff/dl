@@ -793,11 +793,14 @@ class Adv(object):
         equip_d = equip.get(str(int(self.duration)))
         if not equip_d:
             equip_d = equip.get('180')
-        if equip_key == 'affliction':
-            from core.simulate import ELE_AFFLICT
-            equip_key = ELE_AFFLICT[self.conf.c.ele]
-        if equip_d and equip_key in equip_d:
-            self.conf.update(equip_d[equip_key])
+        if equip_d:
+            if equip_key == 'affliction':
+                from core.simulate import ELE_AFFLICT
+                equip_key = ELE_AFFLICT[self.conf.c.ele]
+            if equip_key in equip_d:
+                self.conf.update(equip_d[equip_key])
+            elif 'base' in equip_d:
+                self.conf.update(equip_d['base'])
         self.conf.update(self.conf_init)
         return equip_d
 
