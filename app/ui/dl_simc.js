@@ -1,5 +1,5 @@
-const APP_URL = 'http://127.0.0.1:5000/';
-// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+// const APP_URL = 'http://127.0.0.1:5000/';
+const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
@@ -450,8 +450,9 @@ function loadAdvSlots(no_conf) {
                     $('#input-acl').data('default_acl', acl);
                     $('#input-acl').removeData('alternate_acl');
                     $('#input-acl').blur();
-                    $('#input-edit-acl').prop('checked', Boolean(slots.adv.acl_alt));
-                    $('#input-acl').prop('disabled', !slots.adv.acl_alt);
+                    const acl_check = Boolean(slots.adv.acl_alt && slots.adv.acl_alt != acl);
+                    $('#input-edit-acl').prop('checked', acl_check);
+                    $('#input-acl').prop('disabled', !acl_check);
                     if (slots.adv.acl_alt) {
                         const acl_alt = trimAcl(slots.adv.acl_alt);
                         $('#input-acl').data('alternate_acl', acl_alt);
@@ -496,6 +497,7 @@ function loadAdvSlots(no_conf) {
                         $('#input-teamdps').val(slots.adv.tdps);
                     } else if ($('#input-teamdps').data('original')) {
                         $('#input-teamdps').val($('#input-teamdps').data('original'));
+                        $('#input-teamdps').data('original', '');
                     }
 
                     runAdvTest(no_conf);
@@ -861,7 +863,9 @@ function loadGithubCommits() {
 }
 function update_teamdps() {
     const tdps = $('#input-teamdps').val();
-    localStorage.setItem('teamdps', tdps);
+    if (!$('#input-teamdps').data('original')){
+        localStorage.setItem('teamdps', tdps);
+    }
     $('.test-result-item').each((_, ri) => {
         const team_p = $(ri).data('team') / 100;
         const team_v = tdps * team_p;
