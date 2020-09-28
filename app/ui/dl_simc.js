@@ -694,10 +694,18 @@ function readSimBuff() {
     }
     return simBuff;
 }
+function toggleInput(state){
+    $('input').prop('disabled', state);
+    $('select').prop('disabled', state);
+    if (!state){
+        coabSelection(0);
+    }
+}
 function runAdvTest(no_conf) {
     if ($('#input-adv').val() == '') {
         return false;
     }
+    toggleInput(true);
     $('#test-error').empty();
     $('div[role="tooltip"]').remove();
     const requestJson = serConf(no_conf);
@@ -737,9 +745,11 @@ function runAdvTest(no_conf) {
                     update_teamdps();
                 }
             }
+            toggleInput(false);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             $('#test-error').html('Failed to run damage simulation');
+            toggleInput(false);
         }
     });
 }
