@@ -1698,7 +1698,7 @@ class Adv(object):
                     # does not support multi buffs
                     try:
                         ow_buff = self.buff.get_overwrite(bctrl)
-                        if ow_buff.value() >= blist[1]:
+                        if abs(ow_buff.value()) >= abs(blist[1]):
                             ow_buff.on()
                             return
                     except:
