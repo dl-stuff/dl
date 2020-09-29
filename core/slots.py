@@ -75,12 +75,12 @@ class CharaBase(SlotBase):
     FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
 
     NON_UNIQUE_COABS = ('Sword', 'Blade', 'Dagger', 'Bow', 'Wand', 'Axe2', 'Dagger2')
+    MAX_COAB = 3 # max allowed coab, excluding self
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
         self.coabs = {}
         self.coab_list = []
         self.coab_qual = None
-        self.max_coab = 4
         self.valid_coabs = elecoabs[self.ele]
         if self.conf['ex']:
             self.coabs[self.qual] = self.conf['ex']
@@ -102,7 +102,8 @@ class CharaBase(SlotBase):
     def ab(self):
         full_ab = list(super().ab)
         ex_set = set()
-        coabs = list(islice(self.coabs.items(), self.max_coab))
+        max_coabs = CharaBase.MAX_COAB
+        coabs = list(self.coabs.items())
         self.coabs = {}
         self.coab_list = []
         for key, coab in coabs:
@@ -114,11 +115,14 @@ class CharaBase(SlotBase):
             self.coabs[key] = coab
             if key != self.coab_qual:
                 self.coab_list.append(key)
+                max_coabs -= 1
             chain, ex = coab
             if ex:
                 ex_set.add(('ex', ex))
             if chain:
                 full_ab.append(tuple(chain))
+            if max_coabs == 0:
+                break
         full_ab.extend(ex_set)
         if self.wt == 'axe':
             full_ab.append(('cc', 0.04))

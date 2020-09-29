@@ -57,7 +57,7 @@ def load_equip_json(adv):
     except KeyError:
         try:
             equip = load_json(f'equip/{adv}.json')
-        except FileNotFoundError:
+        except:
             equip = {}
         advequip[adv] = equip
         return equip

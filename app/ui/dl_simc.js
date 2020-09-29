@@ -914,9 +914,13 @@ function update_teamdps() {
         $(trs).attr('data-original-title', tdps_txt);
     });
 }
+function changeEquip(){
+    updateUrl();
+    loadAdvSlots(true, true);
+}
 window.onload = function () {
     $('#input-adv').change(debounce(resetTest, 100));
-    $('#input-equip').change(debounce(() => loadAdvSlots(true, true), 100));
+    $('#input-equip').change(debounce(changeEquip, 100));
     $('#run-test').click(debounce(runAdvTest, 100));
     if (!localStorage.getItem('displayMode')) {
         localStorage.setItem('displayMode', 'Markdown');

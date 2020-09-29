@@ -200,6 +200,7 @@ def save_equip(adv, test_output):
     acl_list = adv.conf.acl
     if not isinstance(acl_list, list):
         acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
+    # do some san checks
     equip[dkey][etype] = {
         'dps': ndps,
         'team': nteam,
