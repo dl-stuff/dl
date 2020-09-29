@@ -16,7 +16,7 @@ class Catherine(Adv):
         `s1, xf
     """
     conf['coabs'] = ['Dragonyule_Cleo', 'Hunter_Sarisse', 'Summer_Estelle']
-    conf['share'] = ['Gala_Elisanne', 'Ranzal']
+    conf['share'] = ['Ranzal']
 
     # def __init__(self, conf=None, cond=None):
     #     super().__init__(conf=conf, cond=cond)

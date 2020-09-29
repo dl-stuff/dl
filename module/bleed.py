@@ -12,11 +12,11 @@ class Bleed(Dot):
         Dot.__init__(self, name, dmg_coef, duration, 4.99)
         self.quickshot_event = Event('dmg_formula')
         self.quickshot_event.dmg_coef = dmg_coef
-        self.quickshot_event.dname = f'o_{name}_bleed'.format(name)
+        self.quickshot_event.dname = f'o_{name}_bleed'
         self.quickshot_event.dtype = name
         self.dot_end_timer = Timer(self.dot_end_proc)
         self.true_dmg_event = Event('true_dmg')
-        self.true_dmg_event.dname = 'o_{}_bleed'.format(name)
+        self.true_dmg_event.dname = f'o_{name}_bleed'
         self.true_dmg_event.dtype = name
 
     def reset(self):

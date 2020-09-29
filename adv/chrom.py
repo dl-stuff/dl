@@ -47,7 +47,6 @@ class Chrom(Adv):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        del self.slots.c.coabs['Sword']
         self.a_s_dict['s2'] = Skill_Reservoir('s2')
         self.a_s_dict['s2'].flames = 0
 

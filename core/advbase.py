@@ -919,11 +919,14 @@ class Adv(object):
     #         mod_sum = min(mod_sum, 2.00)
     #     return mod_sum
 
-    def speed(self):
-        return min(self.mod('spd'), 1.50)
+    def speed(self, target=None):
+        if target is None:
+            return min(1+self.sub_mod('spd', 'passive'), 1.50)
+        else:
+            return min(1+self.sub_mod('spd', 'passive')+self.sub_mod('spd', target), 1.50)
 
     def c_speed(self):
-        return min(self.mod('cspd'), 1.50)
+        return min(1+self.sub_mod('cspd', 'passive'), 1.50)
 
     def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2
@@ -1705,7 +1708,7 @@ class Adv(object):
                     except KeyError:
                         pass
                 if bctrl == '-replace':
-                    self.buff.off_all(base)
+                    self.buff.off_all(base, aseq)
                     try:
                         return self.buff.on(base, group, aseq)
                     except KeyError:
