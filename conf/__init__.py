@@ -62,6 +62,13 @@ def load_equip_json(adv):
         advequip[adv] = equip
         return equip
 
+def load_all_equip_json():
+    froot = os.path.join(ROOT_DIR, 'conf', 'equip')
+    for root, _, files in os.walk(froot):
+        for fn in files:
+            load_equip_json(os.path.splitext(fn)[0])
+    return advequip
+
 def save_equip_json(adv, equip):
     advequip[adv] = equip
     save_json(f'equip/{adv}.json', equip)
