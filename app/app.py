@@ -175,17 +175,22 @@ def save_equip(adv, test_output):
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
     nteam = adv.logs.team_buff / adv.real_duration
     threshold = None
-    is_buffbot = max(cteam, nteam) > 1.10
-    if ndps < cdps or is_buffbot:
-        if (etype == 'base' or is_buffbot) and nteam > cteam:
-            etype = 'buffer' if not is_buffbot else 'base'
+    if ndps < cdps:
+        if etype == 'base' and nteam > cteam:
+            etype = 'buffer'
             try:
-                cteam = equip[dkey][etype]['team']
+                cached = equip[dkey][etype]
+                cdps = cached.get('dps', 0)
+                cteam = cached.get('team', 0)
+                threshold = cached.get('tdps')
             except KeyError:
                 pass
-            if nteam <= cteam:
+            if nteam < cteam:
                 return
-            if not is_buffbot:
+            if nteam == cteam:
+                if cdps > ndps:
+                    return
+            else:
                 threshold = (cdps - ndps) / (nteam - cteam)
         else:
             return
@@ -221,6 +226,12 @@ def save_equip(adv, test_output):
                 equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
         except KeyError:
             pass
+    # if 'buffer' in equip[dkey] and equip[dkey]['buffer']['team'] > 1.1:
+    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < 40000:
+        equip[dkey]['pref'] = 'buffer'
+        equip[dkey]['base']['tdps'] = equip[dkey]['buffer']['tdps']
+    else:
+        equip[dkey]['pref'] = 'base'
     save_equip_json(adv_qual, equip)
 
 # API
@@ -230,17 +241,16 @@ def simc_adv_test():
         return 'Wrong request method.'
     params = request.get_json(silent=True)
     adv_name = 'Euden' if not 'adv' in params or params['adv'] is None else params['adv']
-    wp = params['wp'] if 'wp' in params else None
-    dra = params['dra'] if 'dra' in params else None
-    wep = params['wep'] if 'wep' in params else None
-    # ex  = params['ex'] if 'ex' in params else ''
-    acl = params['acl'] if 'acl' in params else None
-    cond = params['condition'] if 'condition' in params and params['condition'] != {} else None
+    wp = params.get('wp')
+    dra = params.get('dra')
+    wep = params.get('wep')
+    acl = params.get('acl')
+    cond = params.get('condition') or None
     t   = 180 if not 't' in params else min(abs(float(params['t'])), 600.0)
     log = 5
     mass = 0
-    coab = None if 'coab' not in params else params['coab']
-    share = None if 'share' not in params else params['share']
+    coab = params.get('coab')
+    share = params.get('share')
     # latency = 0 if 'latency' not in params else abs(float(params['latency']))
     # print(params, flush=True)
 
@@ -292,13 +302,13 @@ def get_adv_slotlist():
     result['adv'] = {}
     if request.method == 'GET':
         advname = request.args.get('adv', default=None)
-        equip_key = request.args.get('equip', default='base')
+        equip_key = request.args.get('equip', default=None)
         duration = request.args.get('t', default=180)
     elif request.method == 'POST':
         params = request.get_json(silent=True)
-        advname = params['adv'] if 'adv' in params else None
-        equip_key = params['equip'] if 'equip' in params else 'base'
-        duration = params['t'] if 't' in params else 180
+        advname = params.get('adv')
+        equip_key = params.get('equip')
+        duration = params.get('t', 180)
     else:
         return 'Wrong request method.'
     duration = max(min(((int(duration) // 60)*60), 180), 60)
@@ -334,6 +344,8 @@ def get_adv_slotlist():
 
         if adv.conf['tdps'] and adv.conf['tdps'] <= 200000:
             result['adv']['tdps'] = int(adv.conf.tdps) + 1
+        if adv.equip_key:
+            result['adv']['equip'] = adv.equip_key
 
         weapon = weapons[adv.slots.c.ele][adv.slots.c.wt]
         weapon_name = f'Agito T{weapon["tier"]} {weapon["name"]}'

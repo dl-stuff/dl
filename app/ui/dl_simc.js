@@ -390,7 +390,7 @@ function selectSkillShare(basename, pref_share) {
             break;
     }
 }
-function loadAdvSlots(no_conf) {
+function loadAdvSlots(no_conf, set_equip) {
     if ($('#input-adv').val() == '') {
         return false;
     }
@@ -400,12 +400,13 @@ function loadAdvSlots(no_conf) {
         conf = deserConf(urlVars.conf);
     }
     const adv_name = $('#input-adv').val();
-    const equip = $('#input-setup').val();
     localStorage.setItem('selectedAdv', adv_name);
     const requestJson = {
-        'adv': $('#input-adv').val(),
-        'equip': equip
+        'adv': adv_name
     };
+    if (set_equip) {
+        requestJson['equip'] = $('#input-equip').val();
+    }
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {
         requestJson['t'] = t;
@@ -485,20 +486,25 @@ function loadAdvSlots(no_conf) {
                         $('input.coab-check').prop('disabled', false);
                     }
 
-                    if (equip === 'affliction') {
+                    if (slots.adv.equip === 'affliction') {
                         $('#input-sim-' + ELE_AFFLICT[slots.adv.ele]).val(100);
                     } else {
                         const simAff = $('#affliction-sim > div > input[type="text"]');
                         simAff.each(function (idx, res) { $(res).val(''); });
                     }
 
-                    if (slots.adv.tdps) {
+                    if (!set_equip) {
+                        $('#input-equip').data('pref', slots.adv.equip);
+                    }
+                    if (slots.adv.tdps && slots.adv.equip != $('#input-equip').data('pref')) {
                         $('#input-teamdps').data('original', $('#input-teamdps').val());
                         $('#input-teamdps').val(slots.adv.tdps);
                     } else if ($('#input-teamdps').data('original')) {
                         $('#input-teamdps').val($('#input-teamdps').data('original'));
                         $('#input-teamdps').data('original', '');
                     }
+
+                    $('#equip-' + slots.adv.equip).prop('selected', true);
 
                     runAdvTest(no_conf);
                 }
@@ -580,10 +586,10 @@ function coabSelection(add, debounce) {
         $('.coab-check').prop('disabled', false);
     }
 
-    if (add == 0){
+    if (add == 0) {
         const basename = $('#input-coabs').data('basename');
-        $('#coab-'+basename).prop('disabled', true);
-        $('#coab-'+basename).prop('checked', true);
+        $('#coab-' + basename).prop('disabled', true);
+        $('#coab-' + basename).prop('checked', true);
     }
 
     $('#input-coabs').data('selected', count);
@@ -702,10 +708,10 @@ function readSimBuff() {
     }
     return simBuff;
 }
-function toggleInput(state){
+function toggleInput(state) {
     $('input').prop('disabled', state);
     $('select').prop('disabled', state);
-    if (!state){
+    if (!state) {
         coabSelection(0);
     }
 }
@@ -828,7 +834,7 @@ function clearResults() {
     }
     $('#input-conditions').empty();
     $('#input-dragonbattle').val('');
-    $('#input-setup').val('base');
+    $('#input-equip').val('base');
 }
 function resetTest() {
     updateUrl();
@@ -881,7 +887,7 @@ function loadGithubCommits() {
 }
 function update_teamdps() {
     const tdps = $('#input-teamdps').val();
-    if (!$('#input-teamdps').data('original')){
+    if (!$('#input-teamdps').data('original')) {
         localStorage.setItem('teamdps', tdps);
     }
     $('.test-result-item').each((_, ri) => {
@@ -906,9 +912,9 @@ function update_teamdps() {
     });
 }
 window.onload = function () {
-    $('#input-adv').change(debounce(resetTest, 200));
-    $('#input-setup').change(debounce(() => loadAdvSlots(true), 200));
-    $('#run-test').click(debounce(runAdvTest, 200));
+    $('#input-adv').change(debounce(resetTest, 100));
+    $('#input-equip').change(debounce(() => loadAdvSlots(true, true), 100));
+    $('#run-test').click(debounce(runAdvTest, 100));
     if (!localStorage.getItem('displayMode')) {
         localStorage.setItem('displayMode', 'Markdown');
     }
