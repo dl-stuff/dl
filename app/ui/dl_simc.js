@@ -587,9 +587,9 @@ function coabSelection(add, debounce) {
     }
 
     if (add == 0) {
-        const basename = $('#input-coabs').data('basename');
-        $('#coab-' + basename).prop('disabled', true);
-        $('#coab-' + basename).prop('checked', true);
+        const selfcoab = $('#input-coabs').data('selfcoab');
+        $('#coab-' + selfcoab).prop('disabled', true);
+        $('#coab-' + selfcoab).prop('checked', true);
     }
 
     $('#input-coabs').data('selected', count);
@@ -612,11 +612,12 @@ function buildCoab(coab, basename, weapontype) {
         check.data('chain', chain);
         check.data('ex', ex);
         check.change(checkCoabSelection);
+        console.log(k, basename, found_basename);
         if (k == basename) {
             check.prop('disabled', true);
             check.prop('checked', true);
             found_basename = ex;
-            $('#input-coabs').data('basename', basename);
+            $('#input-coabs').data('selfcoab', basename);
             // if (!chain || chain[2] != 'hp' + String.fromCharCode(8804) + '40') {
             //     check.prop('disabled', true);
             //     check.prop('checked', true);
@@ -637,14 +638,17 @@ function buildCoab(coab, basename, weapontype) {
             wrap.prop('title', ex);
         }
         if (WEAPON_TYPES.includes(ex)) {
-            $('#input-coabs-' + ex).append(wrap);
+            $('#input-coabs-'+ex).append(wrap);
         } else {
             $('#input-coabs-other').append(wrap);
         }
     }
-    let check = $('#coab-all-' + weapontype);
+    const wt = weapontype.charAt(0).toUpperCase() + weapontype.slice(1);
+    let check = $('#coab-' + wt);
     if (found_basename) {
-        check = $('#coab-all-' + found_basename);
+        check = $('#coab-' + found_basename);
+    } else {
+        $('#input-coabs').data('selfcoab', wt);
     }
     check.prop('disabled', true);
     check.prop('checked', true);
