@@ -27,7 +27,10 @@ class Tobias(Adv):
     ]
     conf['slots.d'] = 'Freyja'
     conf['acl'] = """
-        `s2, not buff(s2)
+        `s1
+        `s3
+        `s4, fsc
+        `fs, xf=5
     """
     conf['coabs'] = ['Bow','Blade','Dagger2']
     conf['share'] = ['Dragonyule_Xainfried', 'Templar_Hope']
@@ -40,11 +43,11 @@ class Tobias(Adv):
 
     def s2_proc(self, e):
         if e.group == 'enhanced':
-            self.s2_x_alt.off()
-            self.s2_sp_buff.off()
-        else:
             self.s2_x_alt.on(10)
             self.s2_sp_buff.on(7)
+        else:
+            self.s2_x_alt.off()
+            self.s2_sp_buff.off()
         self.s2.charge(1) # 1 sp/s regen
 
 if __name__ == '__main__':
