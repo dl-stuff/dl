@@ -49,7 +49,7 @@ class SlotBase:
 
 class CharaBase(SlotBase):
     AUGMENTS = 100
-    FAC_ELEMENT = {
+    FAC_ELEMENT_ATT = {
         'all': {'altar1': 0.115, 'altar2': 0.115, 'slime': 0.04},
         'flame': {'tree': 0.26, 'arctos': 0.085},
         'water': {'tree': 0.16, 'yuletree': 0.085, 'dragonata': 0.085},
@@ -57,12 +57,23 @@ class CharaBase(SlotBase):
         'light': {'tree': 0.16, 'retreat': 0.085, 'circus': 0.085},
         'shadow': {'tree': 0.26, 'library': 0.07}
     }
-    FAC_WEAPON = {
+    FAC_ELEMENT_HP = FAC_ELEMENT_ATT.copy()
+    FAC_ELEMENT_HP['flame']['arctos'] = 0.095
+    FAC_ELEMENT_HP['water']['yuletree'] = 0.095
+    FAC_ELEMENT_HP['water']['dragonata'] = 0.095
+    FAC_ELEMENT_HP['wind']['shrine'] = 0.095
+    FAC_ELEMENT_HP['light']['retreat'] = 0.095
+    FAC_ELEMENT_HP['light']['circus'] = 0.095
+    FAC_ELEMENT_HP['shadow']['library'] = 0.085
+
+    FAC_WEAPON_ATT = {
         'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.225},
         'dagger': 0.05, 'bow': 0.05, 'blade': 0.05, 'wand': 0.05,
         'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
         'gun': 0.0
     }
+    FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
+
     NON_UNIQUE_COABS = ('Sword', 'Blade', 'Dagger', 'Bow', 'Wand', 'Axe2', 'Dagger2')
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
@@ -118,15 +129,17 @@ class CharaBase(SlotBase):
 
     @property
     def att(self):
-        FE = CharaBase.FAC_ELEMENT
-        FW = CharaBase.FAC_WEAPON
+        FE = CharaBase.FAC_ELEMENT_ATT
+        FW = CharaBase.FAC_WEAPON_ATT
         halidom_mods = 1 + sum(FE['all'].values()) + sum(FE[self.ele].values()) + sum(FW['all'].values()) + FW[self.wt]
         return super().att * halidom_mods
 
-    # @property
-    # def hp(self):
-    #     # FIXME - halidom calcs
-    #     return self.conf.hp + self.AUGMENTS
+    @property
+    def hp(self):
+        FE = CharaBase.FAC_ELEMENT_HP
+        FW = CharaBase.FAC_WEAPON_HP
+        halidom_mods = 1 + sum(FE['all'].values()) + sum(FE[self.ele].values()) + sum(FW['all'].values()) + FW[self.wt]
+        return super().hp * halidom_mods
 
     @property
     def ele(self):
@@ -200,6 +213,10 @@ class DragonBase(EquipBase):
         return super().att * (1 + DragonBase.FAFNIR)
 
     @property
+    def hp(self):
+        return super().hp * (1 + DragonBase.FAFNIR)
+
+    @property
     def ele(self):
         return self.conf.ele
 
@@ -207,10 +224,6 @@ class DragonBase(EquipBase):
     def ab(self):
         return super().ab if self.on_ele else []
 
-    # @property
-    # def hp(self):
-    #     # FIXME - halidom calcs
-    #     return self.conf.hp + self.AUGMENTS
 
 from core.modifier import EffectBuff, SingleActionBuff
 from core.timeline import Timer, now

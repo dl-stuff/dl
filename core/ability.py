@@ -53,10 +53,8 @@ ability_dict = {}
 class Strength(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('att', 'passive', value, cond)])
-
 ability_dict['a'] = Strength
 ability_dict['att'] = Strength
-
 
 class Strength_Chain(Ability):
     def __init__(self, name, value, cond=None):
@@ -77,7 +75,6 @@ ability_dict['res'] = Resist
 class Skill_Damage(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('s','passive',value, cond)])
-
 ability_dict['s'] = Skill_Damage
 ability_dict['sd'] = Skill_Damage
 
@@ -85,21 +82,24 @@ ability_dict['sd'] = Skill_Damage
 class Force_Strike(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('fs','passive',value, cond)])
-
 ability_dict['fs'] = Force_Strike
+
+
+class Health_Points(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('maxhp','passive',value, cond)])
+ability_dict['hp'] = Health_Points
 
 
 class Buff_Time(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('buff','passive',value, cond)])
-
 ability_dict['bt'] = Buff_Time
 
 
 class Debuff_Time(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('debuff','passive',value, cond)])
-
 ability_dict['dbt'] = Debuff_Time
 
 class ConditionalModifierAbility(Ability):

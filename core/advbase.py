@@ -1367,6 +1367,7 @@ class Adv(object):
 
         self.slots.oninit(self)
         self.base_att = int(self.slots.att)
+        self.base_hp = int(self.slots.hp)
 
         self.hp = self.condition.prev_hp
         if 'hp' in self.conf:
