@@ -1497,7 +1497,11 @@ class Adv(object):
             if no_autocharge and hasattr(s, 'autocharge_timer'):
                 continue
             s.charge(self.sp_convert(percent, s.sp))
-        log('sp', name if not target else f'{name}->{target}', f'{percent*100:.0f}%', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
+        if isinstance(target, list):
+            t_str = ','.join(target)
+        else:
+            t_str = target
+        log('sp', name if not target else f'{name}->{t_str}', f'{percent*100:.0f}%', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
         if percent == 1:
             self.think_pin('prep')
@@ -1510,8 +1514,13 @@ class Adv(object):
             return
         for s in targets:
             s.charge(sp)
+        if isinstance(target, list):
+            t_str = ','.join(target)
+        else:
+            t_str = target
+        log('sp', name if not target else f'{name}_{t_str}', sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
+
         self.think_pin('sp')
-        log('sp', name if not target else f'{name}_{target}', sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
     def l_dmg_formula(self, e):
         name = e.dname

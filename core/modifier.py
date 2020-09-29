@@ -183,7 +183,7 @@ class Buff(object):
         self.mod_order = morder or ('chance' if self.mod_type == 'crit' else 'buff')
         self.bufftype = 'misc' if hidden else 'self'
 
-        self.bufftime = self._bufftime if self.duration > 0 else self._no_bufftime
+        self.bufftime = self._bufftime
         self.buff_end_timer = Timer(self.buff_end_proc)
         if modifier:
             self.modifier = modifier
