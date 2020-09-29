@@ -56,9 +56,9 @@ class Gala_Ranzal(Adv):
         if boost == 0:
             return
         if boost == 1:
-            self.s1_boosted_mod = Modifier(f'{e.name}_boost', 'att', 'granzal', 0.20)
+            self.s1_boosted_mod = Modifier(f'{e.name}_boost', 'att', 'granzal', 0.15)
         if boost == 2:
-            self.s1_boosted_mod = Modifier(f'{e.name}_boost', 'att', 'granzal', 0.80)
+            self.s1_boosted_mod = Modifier(f'{e.name}_boost', 'att', 'granzal', 1.0)
         self.s1_boosted_mod.on()
 
     def s1_proc(self, e):
