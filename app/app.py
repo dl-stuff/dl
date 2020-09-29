@@ -123,7 +123,8 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
         result['error'] = str(e)
         return result
 
-    save_equip(adv, result['test_output'])
+    if not adv_name in SPECIAL_ADV:
+        save_equip(adv, result['test_output'])
 
     result['logs'] = {}
     adv = run_res[0][0]
@@ -175,7 +176,6 @@ def save_equip(adv, test_output):
             cteam = 0
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
     nteam = adv.logs.team_buff / adv.real_duration
-    threshold = None
     if ndps < cdps:
         if etype == 'base' and nteam > cteam:
             etype = 'buffer'
@@ -183,7 +183,6 @@ def save_equip(adv, test_output):
                 cached = equip[dkey][etype]
                 cdps = cached.get('dps', 0)
                 cteam = cached.get('team', 0)
-                threshold = cached.get('tdps')
             except KeyError:
                 pass
             if nteam < cteam:
@@ -191,8 +190,6 @@ def save_equip(adv, test_output):
             if nteam == cteam:
                 if cdps > ndps:
                     return
-            else:
-                threshold = (cdps - ndps) / (nteam - cteam)
         else:
             return
     if etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]:
@@ -206,7 +203,7 @@ def save_equip(adv, test_output):
     equip[dkey][etype] = {
         'dps': ndps,
         'team': nteam,
-        'tdps': threshold,
+        'tdps': None,
         'output': test_output,
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
@@ -226,14 +223,16 @@ def save_equip(adv, test_output):
             cteam = equip[dkey]['buffer']['team']
             if cteam <= nteam:
                 del equip[dkey]['buffer']
-            else:
-                equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
         except KeyError:
             pass
+    try:
+        dps_delta = equip[dkey]['base']['dps'] - equip[dkey]['buffer']['dps']
+        team_delta = equip[dkey]['buffer']['team'] - equip[dkey]['base']['team']
+        equip[dkey]['buffer']['tdps'] = dps_delta / team_delta
+    except KeyError:
+        pass
     # if 'buffer' in equip[dkey] and equip[dkey]['buffer']['team'] > 1.1:
-    if 'buffer' in equip[dkey] and \
-        (equip[dkey]['buffer']['tdps'] < 40000 or \
-         (equip[dkey]['buffer']['team'] > 1.5 and abs(equip[dkey]['base']['dps'] - equip[dkey]['buffer']['dps']) < 5000)): # tobias check lul
+    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < 40000:
         equip[dkey]['pref'] = 'buffer'
         equip[dkey]['base']['tdps'] = equip[dkey]['buffer']['tdps']
     else:

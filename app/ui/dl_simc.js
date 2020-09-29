@@ -612,7 +612,6 @@ function buildCoab(coab, basename, weapontype) {
         check.data('chain', chain);
         check.data('ex', ex);
         check.change(checkCoabSelection);
-        console.log(k, basename, found_basename);
         if (k == basename) {
             check.prop('disabled', true);
             check.prop('checked', true);
@@ -843,7 +842,7 @@ function clearResults() {
 function resetTest() {
     updateUrl();
     clearResults();
-    loadAdvSlots(true);
+    loadAdvSlots(true, true);
 }
 function weaponSelectChange() {
     const weapon = $('#input-wep').val();

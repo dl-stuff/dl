@@ -16,7 +16,32 @@ class Gala_Alex(adv.gala_alex.Gala_Alex):
     """
 
     def __init__(self, **kwargs):
+        kwargs['equip_key'] = None
         super().__init__(altchain='break', **kwargs)
+
+    def pre_conf(self, equip_key=None):
+        self.conf = Conf(self.conf_default)
+        self.conf.update(globalconf.get_adv(self.name))
+        self.conf.update(self.conf_base)
+        # equip = globalconf.load_equip_json(self.name)
+        # equip_d = equip.get(str(int(self.duration)))
+        # if not equip_d:
+        #     equip_d = equip.get('180')
+        # if equip_d:
+        #     if equip_key is None:
+        #         equip_key = equip_d.get('pref', 'base')
+        #         self.equip_key = equip_key
+        #     elif equip_key == 'affliction':
+        #         from core.simulate import ELE_AFFLICT
+        #         self.equip_key = 'affliction'
+        #         equip_key = ELE_AFFLICT[self.conf.c.ele]
+        #     if equip_key in equip_d:
+        #         self.conf.update(equip_d[equip_key])
+        #         self.equip_key = self.equip_key or equip_key
+        #     elif 'base' in equip_d:
+        #         self.conf.update(equip_d['base'])
+        self.conf.update(self.conf_init)
+        return None
 
     def prerun(self):
         super().prerun()

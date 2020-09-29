@@ -63,6 +63,7 @@ class CharaBase(SlotBase):
         'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
         'gun': 0.0
     }
+    NON_UNIQUE_COABS = ('Sword', 'Blade', 'Dagger', 'Bow', 'Wand', 'Axe2', 'Dagger2')
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
         self.coabs = {}
@@ -94,9 +95,10 @@ class CharaBase(SlotBase):
         self.coab_list = []
         for key, coab in coabs:
             # alt check
-            base_key = key.split('_')[-1]
-            if coab[0] and any([ckey in base_key or base_key in ckey for ckey in self.coabs.keys()]):
-                continue
+            if key not in CharaBase.NON_UNIQUE_COABS:
+                base_key = key.split('_')[-1]
+                if any([ckey in base_key or base_key in ckey for ckey in self.coabs.keys()]):
+                    continue
             self.coabs[key] = coab
             if key != self.coab_qual:
                 self.coab_list.append(key)
