@@ -195,7 +195,7 @@ def save_equip(adv, test_output):
                 threshold = (cdps - ndps) / (nteam - cteam)
         else:
             return
-    if nteam < cteam:
+    if etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]:
         equip[dkey]['buffer'] = cached
         equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
     if dkey not in equip:
@@ -231,7 +231,9 @@ def save_equip(adv, test_output):
         except KeyError:
             pass
     # if 'buffer' in equip[dkey] and equip[dkey]['buffer']['team'] > 1.1:
-    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < 40000:
+    if 'buffer' in equip[dkey] and \
+        (equip[dkey]['buffer']['tdps'] < 40000 or \
+         (equip[dkey]['buffer']['team'] > 1.5 and abs(equip[dkey]['base']['dps'] - equip[dkey]['buffer']['dps']) < 5000)): # tobias check lul
         equip[dkey]['pref'] = 'buffer'
         equip[dkey]['base']['tdps'] = equip[dkey]['buffer']['tdps']
     else:
@@ -346,7 +348,7 @@ def get_adv_slotlist():
             result['adv']['no_config'] = SPECIAL_ADV[advname]['nc']
         result['adv']['prelim'] = advname in PRELIM_ADV
 
-        if adv.conf['tdps'] and adv.conf['tdps'] <= 200000:
+        if adv.conf['tdps'] and 0 <= adv.conf['tdps'] <= 200000:
             result['adv']['tdps'] = int(adv.conf.tdps) + 1
         if adv.equip_key:
             result['adv']['equip'] = adv.equip_key

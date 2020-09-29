@@ -34,7 +34,7 @@ class Skill(object):
     def __init__(self, name=None, acts=None):
         self.charged = 0
         self.name = name
-        
+
         self.act_dict = acts or {}
         self.act_base = None
 
@@ -270,7 +270,7 @@ class Action(object):
 
     def act(self, action):
         self.act_event()
-    
+
     def add_delayed(self, mt):
         self.delayed.add(mt)
 
@@ -477,11 +477,11 @@ class Adv(object):
 
     def dmg_proc(self, name, amount):
         pass
-    
+
     """
     New before/proc system:
     x/fs/s events will try to call <name>_before before everything, and <name>_proc at each hitattr
-    
+
     Examples:
     Albert FS:
         fs_proc is called when he uses base fs
@@ -805,6 +805,7 @@ class Adv(object):
                 equip_key = ELE_AFFLICT[self.conf.c.ele]
             if equip_key in equip_d:
                 self.conf.update(equip_d[equip_key])
+                self.equip_key = self.equip_key or equip_key
             elif 'base' in equip_d:
                 self.conf.update(equip_d['base'])
         self.conf.update(self.conf_init)
@@ -1018,7 +1019,7 @@ class Adv(object):
         for dkey in debuff_rates.keys():
             debuff_rates[dkey] = 1 - debuff_rates[dkey]
         rates.update(debuff_rates)
-        
+
         return rates if not as_list else list(rates.items())
 
     def killer_mod(self, name=None):
@@ -1350,9 +1351,9 @@ class Adv(object):
         self.l_set_hp = Listener('set_hp', self.l_set_hp)
 
         self.ctx.on()
-        
+
         self.config_slots()
-        
+
         preruns_ss = self.config_skills()
 
         # if self.conf.c.a:
@@ -1441,7 +1442,7 @@ class Adv(object):
             latency = self.conf.latency.default
 
         doing = self.action.getdoing()
-        
+
         t = Timer(self.cb_think)
         t.pin = pin
         t.dname = doing.name

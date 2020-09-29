@@ -504,7 +504,7 @@ function loadAdvSlots(no_conf, set_equip) {
                         $('#input-teamdps').data('original', '');
                     }
 
-                    $('#equip-' + slots.adv.equip).prop('selected', true);
+                    $('#equip-' + (slots.adv.equip || 'base')).prop('selected', true);
 
                     runAdvTest(no_conf);
                 }
@@ -834,7 +834,7 @@ function clearResults() {
     }
     $('#input-conditions').empty();
     $('#input-dragonbattle').val('');
-    $('#input-equip').val('base');
+    $('#input-equip').val($('#input-equip').data('pref') || 'base');
 }
 function resetTest() {
     updateUrl();
