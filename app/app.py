@@ -160,6 +160,7 @@ def save_equip(adv, test_output):
     dkey = str(adv.duration)
     adv_qual = adv.__class__.__name__
     equip = load_equip_json(adv_qual)
+    cached = None
     try:
         cached = equip[dkey][etype]
         cdps = cached.get('dps', 0)
@@ -194,6 +195,9 @@ def save_equip(adv, test_output):
                 threshold = (cdps - ndps) / (nteam - cteam)
         else:
             return
+    if nteam < cteam:
+        equip[dkey]['buffer'] = cached
+        equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
     if dkey not in equip:
         equip[dkey] = {}
     acl_list = adv.conf.acl
