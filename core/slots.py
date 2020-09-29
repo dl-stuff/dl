@@ -71,20 +71,21 @@ class CharaBase(SlotBase):
         self.coab_qual = None
         self.max_coab = 4
         self.valid_coabs = elecoabs[self.ele]
-        try:
-            coab = self.valid_coabs[self.qual]
-            # chain = coab[0]
-            # if chain is None or len(chain)<3 or chain[2] != 'hp≤40':
-            self.coabs[self.qual] = coab
+        if self.conf['ex']:
+            self.coabs[self.qual] = self.conf['ex']
             self.coab_qual = self.qual
-        except:
+        else:
             try:
-                wt = self.wt
-                upper_wt = wt[0].upper() + wt[1:].lower()
-                self.coabs[upper_wt] = self.valid_coabs[upper_wt]
-                self.coab_qual = upper_wt
-            except:
-                pass
+                self.coabs[self.qual] = self.valid_coabs[self.qual]
+                self.coab_qual = self.qual
+            except KeyError:
+                try:
+                    wt = self.wt
+                    upper_wt = wt[0].upper() + wt[1:].lower()
+                    self.coabs[upper_wt] = self.valid_coabs[upper_wt]
+                    self.coab_qual = upper_wt
+                except KeyError:
+                    pass
 
     @property
     def ab(self):

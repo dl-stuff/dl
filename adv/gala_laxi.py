@@ -31,7 +31,7 @@ class Gala_Laxi(RngCritAdv):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.slots.c.coabs = {'Gala_Laxi': [None, 'dagger2']}
+        # self.slots.c.coabs = {'Gala_Laxi': [None, 'dagger2']}
         # human latency penalty on ex combo
         for xn, xnconf in self.conf.find(r'^x\d+_ex$'):
             xnconf['startup'] += 0.05
