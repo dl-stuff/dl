@@ -141,7 +141,7 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
     return result
 
 
-BANNED_PRINTS = ('Witchs_Kitchen',)
+BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
 def save_equip(adv, test_output):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
