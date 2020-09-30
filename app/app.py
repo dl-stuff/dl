@@ -140,6 +140,8 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
     result['logs']['timeline'] = fn.getvalue()
     return result
 
+
+BANNED_PRINTS = ('Witchs_Kitchen',)
 def save_equip(adv, test_output):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
@@ -149,6 +151,8 @@ def save_equip(adv, test_output):
     if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
         return
     if 'dragonbattle' in adv.conf:
+        return
+    if any([wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]):
         return
     etype = 'base'
     eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
