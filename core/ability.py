@@ -483,9 +483,10 @@ class Primed(BuffingAbility):
         def pm_cd_end(t):
             self.is_cd = False
 
+        primed_buff = adv.Buff(*self.buff_args).no_bufftime()
         def l_primed(e):
             if not self.is_cd:
-                adv.Buff(*self.buff_args).no_bufftime().on()
+                primed_buff.on()
                 self.is_cd = True
                 adv.Timer(pm_cd_end).on(self.PRIMED_CD)
 

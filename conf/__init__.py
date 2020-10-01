@@ -71,7 +71,7 @@ def load_all_equip_json():
 
 def save_equip_json(adv, equip):
     advequip[adv] = equip
-    save_json(f'equip/{adv}.json', equip)
+    save_json(f'equip/{adv}.json', equip, indent=2)
 
 def get_icon(adv):
     try:
