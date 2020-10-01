@@ -680,13 +680,31 @@ class Debuff(Teambuff):
             bd = (bd - 1) * self.chance + 1
             self.val = 1 - 1.0 / bd
             self.val = 0 - self.val
-        super().__init__(name, self.val, duration, mtype, morder)
+        super().__init__(name, self.ev_val(), duration, mtype, morder)
         self.bufftype = 'debuff'
         if mtype == 'defb':
             self.bufftime = self._no_bufftime
             self.name += '_zone'
         else:
             self.bufftime = self._debufftime
+
+    def ev_val(self):
+        ev_val = self.val
+        if self.chance != 1:
+            bd = 1.0 / (1.0 + ev_val)
+            bd = (bd - 1) * self.chance + 1
+            ev_val = 1 - 1.0 / bd
+            ev_val = 0 - ev_val
+        return ev_val
+
+    def value(self, newvalue=None, newchance=None):
+        if newvalue or newchance:
+            self.val = newvalue or self.val
+            self.chance = newchance or self.chance
+            return super().value(self.ev_val())
+        else:
+            return super().value()
+        
 bufftype_dict['debuff'] = Debuff
 
 

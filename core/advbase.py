@@ -1717,7 +1717,9 @@ class Adv(object):
                     # does not support multi buffs
                     try:
                         ow_buff = self.buff.get_overwrite(bctrl)
-                        if abs(ow_buff.value()) >= abs(blist[1]):
+                        v_current = abs(ow_buff.value())
+                        v_new = abs(blist[1])
+                        if v_current == v_new or (v_current > v_new and not ow_buff.get()):
                             ow_buff.on()
                             return
                     except:
