@@ -152,6 +152,8 @@ def save_equip(adv, test_output):
         return
     if 'dragonbattle' in adv.conf:
         return
+    if 'hp' in adv.conf:
+        return
     if any([wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]):
         return
     etype = 'base'
