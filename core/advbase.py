@@ -1159,7 +1159,7 @@ class Adv(object):
 
     def l_dodge(self, e):
         log('dodge', '-')
-        self.think_pin('dodge')
+        self.think_pin('dodge')        
 
     def add_combo(self, name='#'):
         # real combo count
@@ -1608,11 +1608,11 @@ class Adv(object):
                 m.on()
             if 'extra' in attr:
                 for _ in range(min(attr['extra'], self.buffcount)):
-                    self.dmg_make(name, attr['dmg'], attenuation=attenuation)
                     self.add_combo(name)
+                    self.dmg_make(name, attr['dmg'], attenuation=attenuation)
             else:
-                self.dmg_make(name, attr['dmg'], attenuation=attenuation)
                 self.add_combo(name)
+                self.dmg_make(name, attr['dmg'], attenuation=attenuation)
 
         if onhit:
             onhit(name, base, group, aseq)

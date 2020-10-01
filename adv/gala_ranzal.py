@@ -19,6 +19,7 @@ class Gala_Ranzal(Adv):
         `dragon(c3-s-end), s1.check()
         `s3, not buff(s3)
         `s1
+        `s2
         `s4, fsc
         `fs, x=2
     '''
@@ -42,6 +43,8 @@ class Gala_Ranzal(Adv):
             self.gauges['x'] += 200
         elif name == 'fs':
             self.gauges['fs'] += 150
+        elif name == 'fs_enhanced':
+            self.gauges['fs'] += 1000
         log('gauges', name, self.gauges['x'], self.gauges['fs'])
 
     def s1_before(self, e):

@@ -315,6 +315,14 @@ class Summer_Konohana_Sakuya(DragonBase):
         add_flower()
         Timer(add_flower, 60, True).on()
         adv.Event('ds').listener(add_flower)
+
+class Midgardsormr_Zero(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        ele_res_down = adv.Selfbuff('d_middy_zero', 0.10, -1, 'wind', 'resdown')
+        def ds_buff(e=None):
+            ele_res_down.on()
+        adv.Event('ds').listener(ds_buff)
 ### WIND DRAGONS ###
 
 ### LIGHT DRAGONS ###
@@ -510,15 +518,15 @@ class WeaponBase(EquipBase):
             ]
         },
         'gun': {
-            "startup": 0.1, "recovery": 1.93333,
-            "attr": [
-                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "dp": 100, "iv": 0.66667, "msl": 1},
-                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.66667, "msl": 1}, 5,
-                {"buff": ["self", 0.1, -1, "sp", "passive"], "iv": 0.7},
-                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.86667, "msl": 1}, 5,
-                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.06667, "msl": 1}, 5,
-                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.26667, "msl": 1}, 5,
-                {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.46667, "msl": 1}, 5
+            'startup': 0.1, 'recovery': 1.93333,
+            'attr': [
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'dp': 100, 'iv': 0.66667, 'msl': 1},
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 0.66667, 'msl': 1}, 4,
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 0.86667, 'msl': 1}, 5,
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.06667, 'msl': 1}, 5,
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.26667, 'msl': 1}, 5,
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.46667, 'msl': 1}, 5,
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.5}
             ]
         }
     }
@@ -658,7 +666,7 @@ class Slots:
     DEFAULT_DRAGON = {
         'flame': 'Gala_Mars',
         'water': 'Gaibhne_and_Creidhne',
-        'wind': 'Vayu',
+        'wind': 'Midgardsormr_Zero',
         'light': 'Gala_Thor',
         'shadow': 'Gala_Cat_Sith'
     }
