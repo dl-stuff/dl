@@ -1433,7 +1433,7 @@ class Adv(object):
         if loglevel >= 2:
             log('think', '/'.join(map(str,(t.pin, t.dname, t.dstat, t.didx, t.dhit))))
         result = self._acl(t)
-        if not result and self.current_x == 'default' and t.pin[0] == 'x' and t.didx == 5 and t.dhit == 0:
+        if not result and self.current_x == 'default' and t.dstat >= 0 and t.pin[0] == 'x' and t.didx == 5 and t.dhit == 0:
             return self.fsf()
         return result
 
