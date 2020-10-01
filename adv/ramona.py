@@ -24,6 +24,16 @@ class Ramona(Adv):
             self.current_s['s1'] = 'default'
         return super().s(n)
 
+    def s1_proc(self, e):
+        if e.group != 'all':
+            return
+        # reeeeeee fix ur shit cykagames
+        with KillerModifier('s1_killer', 'hit', 0.3, ['burn']):
+            for _ in range(6):
+                self.dmg_make(e.name, 2.93/(1 + self.sub_mod('s', 'buff')))
+                self.add_combo(e.name)
+        # spaget
+        self.last_c = now() + 1.5
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -62,6 +62,8 @@ class Lathna(Adv):
         return super().s(n)
 
     def s1_proc(self, e):
+        if e.group != 'all':
+            return
         # reeeeeee fix ur shit cykagames
         with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
             for _ in range(4):

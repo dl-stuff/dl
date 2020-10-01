@@ -27,7 +27,7 @@ class Ability:
         if cond.startswith('hit'):
             flurry_hits = int(cond[3:])
             def flurry_get():
-                return adv.hits >= flurry_hits
+                return adv.hits > flurry_hits
             return (m[0], m[1], m[2], cond, flurry_get)
         return m
 
