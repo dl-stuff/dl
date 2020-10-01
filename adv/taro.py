@@ -18,6 +18,8 @@ class Taro(Adv):
     conf['coabs.poison'] = ['Wand','Dagger','Forte']
     conf['share'] = ['Curran']
 
+    conf['mbleed'] = True
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

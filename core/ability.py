@@ -408,6 +408,15 @@ class Dragon_Skill(Dragon_Buff):
 
 ability_dict['dcs'] = Dragon_Skill
 
+class Dragon_Scale(Dragon_Buff):
+    DD_LEVELS = {
+        3: (0.10, 0.11, 0.12)
+    }
+    def __init__(self, name, value):
+        super().__init__(name, self.DD_LEVELS[value], buff_args=('defense','buff'))
+
+ability_dict['dcd'] = Dragon_Scale
+
 class Resilient_Offense(BuffingAbility):
     def __init__(self, name, value, interval=None):
         super().__init__(name, value, -1)
