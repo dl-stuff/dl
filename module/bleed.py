@@ -8,7 +8,7 @@ class Bleed(Dot):
     _static['all_bleeds'] = []
     _static['stacks'] = 0
 
-    def __init__(self, name, dmg_coef, duration=30):
+    def __init__(self, name, dmg_coef, duration=30, debufftime=1):
         Dot.__init__(self, name, dmg_coef, duration, 4.99)
         self.quickshot_event = Event('dmg_formula')
         self.quickshot_event.dmg_coef = dmg_coef
@@ -18,6 +18,7 @@ class Bleed(Dot):
         self.true_dmg_event = Event('true_dmg')
         self.true_dmg_event.dname = f'o_{name}_bleed'
         self.true_dmg_event.dtype = name
+        self.debufftime = debufftime
 
     def reset(self):
         self._static['all_bleeds'] = []
@@ -60,10 +61,11 @@ class Bleed(Dot):
             print('err in bleed on')
             exit()
 
-        log('debuff','bleed')
+        duration = self.duration*self.debufftime
+        log('debuff','bleed', f'<{duration:.02f}>')
         self.quickshot_event()
         self._static['all_bleeds'].append(self)
-        self.dot_end_timer.on(self.duration)
+        self.dot_end_timer.on(duration)
 
         if self._static['stacks'] == 0:
             self._static['tick_event'] = Timer(self.tick_proc, self.iv, True).on()
@@ -165,10 +167,11 @@ class mBleed(Bleed):
         # e.timing += self.iv
 
     def on(self):
-        log('debuff','bleed')
+        duration = self.duration*self.debufftime
+        log('debuff','bleed', f'<{duration:.02f}>')
         self.quickshot_event()
         self._static['all_bleeds'].append(self)
-        self.dot_end_timer.on(self.duration)
+        self.dot_end_timer.on(duration)
 
         if self._static['stacks'] == 0:
             self._static['tick_event'] = Timer(self.tick_proc, self.iv, True).on()

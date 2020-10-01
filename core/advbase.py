@@ -1667,7 +1667,7 @@ class Adv(object):
                 if self.bleed is None:
                     self.bleed = bleed
                     self.bleed.reset()
-                self.bleed = mBleed(name, mod)
+                self.bleed = mBleed(name, mod, debufftime=self.mod('debuff', operator=operator.add))
                 self.bleed.on()
             else:
                 from module.bleed import Bleed
@@ -1676,7 +1676,7 @@ class Adv(object):
                     self.bleed = bleed
                     self.bleed.reset()
                 if rate == 100 or rate > random.uniform(0, 100):
-                    self.bleed = Bleed(name, mod)
+                    self.bleed = Bleed(name, mod, debufftime=self.mod('debuff', operator=operator.add))
                     self.bleed.on()
 
 
