@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 50010.076698508805,
-      "team": 0.4615360951284297,
+      "dps": 50815.78017354427,
+      "team": 0.4456743118119005,
       "tdps": null,
       "slots.a": [
         "Breakfast_at_Valerios",
@@ -13,7 +13,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), x=5 and self.trickery <= 1",
+        "`dragon(c3-s-end), x=5",
         "`s3, not buff(s3)",
         "`fs, s1.charged>=s1.sp and c_fs(gleozone) > 0",
         "if x=5 or x=4 or fsc or s",
@@ -34,10 +34,9 @@
     },
     "pref": "base",
     "poison": {
-      "dps": 56155.58862808959,
-      "team": 0.5342964493030606,
+      "dps": 56351.932588294294,
+      "team": 0.5338881390217687,
       "tdps": null,
-      "output": "-,180,affliction\n56156,Gala Cleo,100004_10_r05,shadow,wand,4517,Gala Cat Sìth,200017_01,Jiu Ci,307139_01_60501,Breakfast at Valerio's,400285_02,Candy Couriers,400135_02,Moonlight Party,400448_02,Dueling Dancers,400050_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Dagger,,Bow,,Weapon,,Curran,110281_01_r05,always connect hits & hp70 & hit15,(the true cleo is here),poison:100.0%;sleep:1.7%;team:53.42964%,attack:6452,s1_phase1:8126,s1_phase2:10209,s1_phase3:12120,s2_phase1:1377,s2_phase2:1584,s2_phase3:1212,s4:12965,dx:781,ds:1325\n",
       "slots.a": [
         "Breakfast_at_Valerios",
         "Candy_Couriers",
@@ -69,7 +68,7 @@
     "buffer": {
       "dps": 12605.839154277011,
       "team": 1.0400397523224936,
-      "tdps": 64656.87308815791,
+      "tdps": 64286.949433740265,
       "slots.a": [
         "Castle_Cheer_Corps",
         "Jewels_of_the_Sun",
@@ -100,5 +99,40 @@
         "Karl"
       ]
     }
+  },
+  "60": {
+    "base": {
+      "dps": 31961.02003104429,
+      "team": 0.5289650858672271,
+      "tdps": null,
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Candy_Couriers",
+        "Moonlight_Party",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "#`dragon(c3-s-end), x=5",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(gleozone) > 0",
+        "if x=5 or x=4 or fsc or s",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Delphi",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "pref": "base"
   }
 }

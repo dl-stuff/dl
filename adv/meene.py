@@ -71,11 +71,11 @@ class Meene(Adv):
 
     @property
     def butterflies(self):
-        return self.butterfly_timers.keys()
+        return len(self.butterfly_timers.keys())
 
     @property
     def butterflies_s1(self):
-        return min(10, self.butterflies_s1)
+        return min(10, self.butterflies)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

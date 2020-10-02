@@ -120,7 +120,7 @@ function create_dps_bar(res_div, arr) {
     const stats = stats_icon_fmt(stat_str);
     const stats_display = stats[0].join('');
     const team = stats[1];
-    if (stat_str) { stat_str = ' (' + stat_str.replace(';', ', ') + ')'; }
+    if (stat_str) { stat_str = ' (' + stat_str.replace(/;/g, ', ') + ')'; }
 
     let total_dps = parseInt(arr[0]);
 

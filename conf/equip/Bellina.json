@@ -11,7 +11,7 @@
         "A_Passion_for_Produce",
         "The_Plaguebringer"
       ],
-      "slots.d": "Andromeda",
+      "slots.d": "Fatalis",
       "acl": [
         "`s2, duration-now<1.5",
         "`s3, not buff(s3)",
@@ -37,14 +37,14 @@
     },
     "pref": "base",
     "poison": {
-      "dps": 74624.83926168706,
+      "dps": 83605.00872076306,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Breakfast_at_Valerios",
-        "Seaside_Princess",
+        "Howling_to_the_Heavens",
         "Twinfold_Bonds",
-        "A_Passion_for_Produce",
+        "His_Clever_Brother",
         "The_Plaguebringer"
       ],
       "slots.d": "Andromeda",
@@ -68,7 +68,42 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Fjorm"
+      ]
+    },
+    "buffer": {
+      "dps": 54616.34103908776,
+      "team": 0.0800567307842071,
+      "tdps": 225894.55230984435,
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Brothers_in_Arms",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Chariot_Drift"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s2, duration-now<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1000 and x=3",
+        "`fsf, x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Delphi",
+        "Curran"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
       ]
     }
   },
