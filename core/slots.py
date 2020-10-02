@@ -194,7 +194,7 @@ class DragonBase(EquipBase):
 
         'end.startup': 0,
         'end.recovery': 0,
-        'allow_end_cd': 5.0 # time before force end is allowed
+        'allow_end_cd': 4.0 # time before force end is allowed
     }
     def __init__(self, conf, c, qual=None):
         super().__init__(conf.d, c, qual)

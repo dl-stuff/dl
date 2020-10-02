@@ -42,7 +42,7 @@ class Meene(Adv):
         if self.butterflies >= 6:
             self.current_s['s1'] = 'sixplus'
             self.current_s['s2'] = 'sixplus'
-    
+
     def s1_before(self, e):
         log('debug', 'butterflies', self.butterflies)
 
@@ -55,7 +55,7 @@ class Meene(Adv):
     def s2_proc(self, e):
         self.clear_all_butterflies()
 
-    def clear_all_butterflies(self)
+    def clear_all_butterflies(self):
         for chasers in self.butterfly_timers.values():
             for t in chasers:
                 t.off()
@@ -65,13 +65,13 @@ class Meene(Adv):
 
     def clear_butterflies(self, t):
         del self.butterfly_timers[(t.name, t.chaser, t.start)]
-        if self.butterflies < 6: 
+        if self.butterflies < 6:
             self.current_s['s1'] = 'default'
             self.current_s['s2'] = 'default'
 
     @property
     def butterflies(self):
-        return min(10, len(self.butterfly_timers.keys())
+        return min(10, len(self.butterfly_timers.keys()))
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

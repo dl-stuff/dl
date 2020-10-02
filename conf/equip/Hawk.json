@@ -1,1 +1,176 @@
-{"180": {"base": {"dps": 67365.01309873193, "team": 0.0, "tdps": null, "output": "-,180,_\n67365,Hawk,110267_01_r05,wind,bow,4283,Midgardsormr Zero,210131_01,Failnaught,306129_01_60301,Breakfast at Valerio's,400285_02,Dear Diary,400391_02,Forest Bonds,400172_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Blade,,Dragonyule Xainfried,110021_03_r04,Sylas,110318_01_r05,Weapon,,Karina,110018_01_r04,0 poison res & 80 stun res & hit15,,poison:84.3%;frostbite:48.2%;stun:3.6%,attack:5635,fs_enhanced:1961,fs_enhanced_poison:947,s1:39196,s2_phase2:6322,s4:5441,s4_frostbite:1036,dx:2428,ds:4395\n", "slots.a": ["Breakfast_at_Valerios", "Dear_Diary", "Forest_Bonds", "His_Clever_Brother", "The_Plaguebringer"], "slots.d": "Midgardsormr_Zero", "acl": ["# queue self.duration<=60 and prep and self.afflics.stun.resist", "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel", "# end", "`s3, not buff(s3)", "`dragon(c3-s-end), s and self.duration >= 120", "`s2, c_fs(enhanced)=0 or self.s2.phase=1", "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)", "`s4, s or x=5", "`s1, fsc or s=1 or s=4"], "coabs": ["Blade", "Dragonyule_Xainfried", "Sylas"], "share": ["Weapon", "Karina"]}, "pref": "base", "poison": {"dps": 69909.2303581738, "team": 0.0, "tdps": null, "output": "-,180,affliction\n69909,Hawk,110267_01_r05,wind,bow,4283,Midgardsormr Zero,210131_01,Failnaught,306129_01_60301,Breakfast at Valerio's,400285_02,Dear Diary,400391_02,Forest Bonds,400172_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Blade,,Dragonyule Xainfried,110021_03_r04,Sylas,110318_01_r05,Weapon,,Karina,110018_01_r04,0 poison res & 80 stun res & hit15,,poison:100.0%;frostbite:48.2%;stun:3.6%,attack:5977,fs_enhanced:1969,fs_enhanced_poison:1008,s1:39196,s2_phase2:6322,s4:5441,s4_frostbite:1036,dx:2428,ds:6528\n", "slots.a": ["Breakfast_at_Valerios", "Dear_Diary", "Forest_Bonds", "His_Clever_Brother", "The_Plaguebringer"], "slots.d": "Midgardsormr_Zero", "acl": ["# queue self.duration<=60 and prep and self.afflics.stun.resist", "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel", "# end", "`s3, not buff(s3)", "`dragon(c3-s-end), s and self.duration >= 120", "`s2, c_fs(enhanced)=0 or self.s2.phase=1", "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)", "`s4, s or x=5", "`s1, fsc or s=1 or s=4"], "coabs": ["Blade", "Dragonyule_Xainfried", "Sylas"], "share": ["Weapon", "Karina"]}, "buffer": {"dps": 7656.06289329662, "team": 0.03709999285015961, "tdps": 1609405.9760763117, "output": "-,180,_\n7656,Hawk,110267_01_r05,wind,bow,4268,AC-011 Garland,210117_01,Failnaught,306129_01_60301,A Dog's Day,400409_02,Castle Cheer Corps,400380_02,Jewels of the Sun,400099_02,From Whence He Comes,400390_02,Bellathorna,400009_02,Blade,,Dragonyule Xainfried,110021_03_r04,Sylas,110318_01_r05,Summer Cleo,100004_04_r05,Mikoto,110010_01_r05,0 poison res & 80 stun res & maintain shield,,team:3.71000%,attack:3197,fs:506,s1:3952\n", "slots.a": ["A_Dogs_Day", "Castle_Cheer_Corps", "Jewels_of_the_Sun", "From_Whence_He_Comes", "Bellathorna"], "slots.d": "AC011_Garland", "acl": ["`s3, s=1", "`s4", "`s1", "`fs, xf=5"], "coabs": ["Blade", "Dragonyule_Xainfried", "Sylas"], "share": ["Summer_Cleo", "Mikoto"]}}}
+{
+  "180": {
+    "base": {
+      "dps": 67365.01309873193,
+      "team": 0.0,
+      "tdps": null,
+      "output": "-,180,_\n67365,Hawk,110267_01_r05,wind,bow,4283,Midgardsormr Zero,210131_01,Failnaught,306129_01_60301,Breakfast at Valerio's,400285_02,Dear Diary,400391_02,Forest Bonds,400172_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Blade,,Dragonyule Xainfried,110021_03_r04,Sylas,110318_01_r05,Weapon,,Karina,110018_01_r04,0 poison res & 80 stun res & hit15,,poison:84.3%;frostbite:48.2%;stun:3.6%,attack:5635,fs_enhanced:1961,fs_enhanced_poison:947,s1:39196,s2_phase2:6322,s4:5441,s4_frostbite:1036,dx:2428,ds:4395\n",
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Dear_Diary",
+        "Forest_Bonds",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and self.duration >= 120",
+        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
+        "`s4, s or x=5",
+        "`s1, fsc or s=1 or s=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Sylas"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "pref": "base",
+    "poison": {
+      "dps": 69909.2303581738,
+      "team": 0.0,
+      "tdps": null,
+      "output": "-,180,affliction\n69909,Hawk,110267_01_r05,wind,bow,4283,Midgardsormr Zero,210131_01,Failnaught,306129_01_60301,Breakfast at Valerio's,400285_02,Dear Diary,400391_02,Forest Bonds,400172_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Blade,,Dragonyule Xainfried,110021_03_r04,Sylas,110318_01_r05,Weapon,,Karina,110018_01_r04,0 poison res & 80 stun res & hit15,,poison:100.0%;frostbite:48.2%;stun:3.6%,attack:5977,fs_enhanced:1969,fs_enhanced_poison:1008,s1:39196,s2_phase2:6322,s4:5441,s4_frostbite:1036,dx:2428,ds:6528\n",
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Dear_Diary",
+        "Forest_Bonds",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and self.duration >= 120",
+        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
+        "`s4, s or x=5",
+        "`s1, fsc or s=1 or s=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Sylas"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "buffer": {
+      "dps": 40592.13827960025,
+      "team": 0.11995641960249516,
+      "tdps": 223188.34546621286,
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Chariot_Drift",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Pazuzu",
+      "acl": [
+        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and self.duration >= 120",
+        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
+        "`s4, s or x=5",
+        "`s1, fsc or s=1 or s=4"
+      ],
+      "coabs": [
+        "Wand",
+        "Gala_Leif",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Verica"
+      ]
+    }
+  },
+  "60": {
+    "poison": {
+      "dps": 59840.10877330914,
+      "team": 0.0,
+      "tdps": null,
+      "output": "-,60,affliction\n59840,Hawk,110267_01_r05,wind,bow,4283,Midgardsormr Zero,210131_01,Failnaught,306129_01_60301,Breakfast at Valerio's,400285_02,Dear Diary,400391_02,Forest Bonds,400172_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Blade,,Dragonyule Xainfried,110021_03_r04,Sylas,110318_01_r05,Weapon,,Karina,110018_01_r04,0 poison res & 80 stun res & hit15,,poison:100.0%;frostbite:35.0%;stun:10.8%,attack:6246,fs_enhanced:1824,fs_enhanced_poison:812,s1:41758,s2_phase2:5863,s4:2697,s4_frostbite:636\n",
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Dear_Diary",
+        "Forest_Bonds",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and self.duration >= 120",
+        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
+        "`s4, s or x=5",
+        "`s1, fsc or s=1 or s=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Sylas"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "pref": "base",
+    "base": {
+      "dps": 59121.19407962629,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Dear_Diary",
+        "Forest_Bonds",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and self.duration >= 120",
+        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
+        "`s4, s or x=5",
+        "`s1, fsc or s=1 or s=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Sylas"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    }
+  }
+}

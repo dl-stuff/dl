@@ -1,1 +1,138 @@
-{"180": {"base": {"dps": 31459.184822204275, "team": 0.0, "tdps": null, "output": "-,180,_\n31459,Chrom,110359_01_r05,flame,sword,4472,Gala Mars,200009_01,Nothung,301138_01_60101,Flash of Genius,400063_02,Me and My Bestie!,400435_02,The Shining Overlord,400167_02,Chariot Drift,400392_02,Dueling Dancers,400050_02,Blade,,Wand,,Serena,110054_01_r04,Weapon,,Kleimann,110051_01_r04,hp100 & hp50 & hit10 & hit15,,poison:68.4%,attack:4544,fs:1884,s1:4775,s2:2445,s4:4972,s4_poison:1046,dx:7233,ds:4556\n", "slots.a": ["Flash_of_Genius", "Me_and_My_Bestie", "The_Shining_Overlord", "Chariot_Drift", "Dueling_Dancers"], "slots.d": "Gala_Mars", "acl": ["`dragon, s and not energy()=5", "`s3, fsc and not buff(s3)", "if self.sim_afflict", "`s4, fsc and (self.energy() = 0 or self.s2.count=3)", "`s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.burn.get() and (self.energy()=0 or self.s4.charged < self.s4.sp - 1000)", "else", "`s4, fsc and not energy()=5", "`s2, self.s2.flames=3 and self.s2.count=3 and (self.afflics.burn.get() or self.afflics.poison.get())", "end", "`s1, fsc", "`fs, x=2 and self.s1.charged >=1682", "`fs, x=3"], "coabs": ["Blade", "Wand", "Serena"], "share": ["Weapon", "Kleimann"]}, "pref": "base", "burn": {"dps": 42300.773896169776, "team": 0.0, "tdps": null, "output": "-,180,affliction\n42301,Chrom,110359_01_r05,flame,sword,4477,Gala Mars,200009_01,Nothung,301138_01_60101,Flash of Genius,400063_02,Me and My Bestie!,400435_02,The Shining Overlord,400167_02,Dueling Dancers,400050_02,His Clever Brother,400169_02,Blade,,Wand,,Serena,110054_01_r04,Weapon,,Xander,110022_01_r05,hp100 & hp50 & hit10 & hit15,,burn:100.0%;frostbite:73.5%,attack:6314,fs:2749,s1:7344,s2:3364,s4:4724,s4_frostbite:1019,dx:10171,ds:6611\n", "slots.a": ["Flash_of_Genius", "Me_and_My_Bestie", "The_Shining_Overlord", "Dueling_Dancers", "His_Clever_Brother"], "slots.d": "Gala_Mars", "acl": ["`dragon, s and not energy()=5", "`s3, fsc and not buff(s3)", "if self.sim_afflict", "`s4, fsc and (self.energy() = 0 or self.s2.count=3)", "`s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.burn.get() and (self.energy()=0 or self.s4.charged < self.s4.sp - 1000)", "else", "`s4, fsc and not energy()=5", "`s2, self.s2.flames=3 and self.s2.count=3 and (self.afflics.burn.get() or self.afflics.poison.get())", "end", "`s1, fsc", "`fs, x=2 and self.s1.charged >=1682", "`fs, x=3"], "coabs": ["Blade", "Wand", "Serena"], "share": ["Weapon", "Xander"]}, "buffer": {"dps": 14406.734130292121, "team": 0.11643498691714371, "tdps": 146454.69668018984, "output": "-,180,_\n14407,Chrom,110359_01_r05,flame,sword,4471,Dreadking Rathalos,210122_01,Nothung,301138_01_60101,Flash of Genius,400063_02,The Lurker in the Woods,400418_02,The Synthetic Dragon,400239_02,Dueling Dancers,400050_02,Hanetsuki Rally,400126_02,Blade,,Hunter Berserker,110050_02_r05,Grace,110059_01_r05,Weapon,,Karl,110008_01_r04,last offense & hp100 & hit15,,team:11.64350%,attack:0,fs:14406\n", "slots.a": ["Flash_of_Genius", "The_Lurker_in_the_Woods", "The_Synthetic_Dragon", "Dueling_Dancers", "Hanetsuki_Rally"], "slots.d": "Dreadking_Rathalos", "acl": ["`s3,not buff(s3)", "`s2, fsc", "`s1, fsc and self.hp < 30 and buffstack(ro) < 3", "`s4, fsc", "`dodge, fsc", "`fs"], "coabs": ["Blade", "Hunter_Berserker", "Grace"], "share": ["Weapon", "Karl"]}}, "60": {"base": {"dps": 33788.456552970725, "team": 0.0, "tdps": null, "output": "-,60,_\n33788,Chrom,110359_01_r05,flame,sword,4472,Gala Mars,200009_01,Nothung,301138_01_60101,Flash of Genius,400063_02,Me and My Bestie!,400435_02,The Shining Overlord,400167_02,Chariot Drift,400392_02,Dueling Dancers,400050_02,Blade,,Wand,,Serena,110054_01_r04,Weapon,,Kleimann,110051_01_r04,hp100 & hp50 & hit10 & hit15,,poison:49.7%,attack:4169,fs:1763,s1:4113,s2:2083,s4:3544,s4_poison:827,dx:10647,ds:6638\n", "slots.a": ["Flash_of_Genius", "Me_and_My_Bestie", "The_Shining_Overlord", "Chariot_Drift", "Dueling_Dancers"], "slots.d": "Gala_Mars", "acl": ["`dragon, s and not energy()=5", "`s3, fsc and not buff(s3)", "if self.sim_afflict", "`s4, fsc and (self.energy() = 0 or self.s2.count=3)", "`s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.burn.get() and (self.energy()=0 or self.s4.charged < self.s4.sp - 1000)", "else", "`s4, fsc and not energy()=5", "`s2, self.s2.flames=3 and self.s2.count=3 and (self.afflics.burn.get() or self.afflics.poison.get())", "end", "`s1, fsc", "`fs, x=2 and self.s1.charged >=1682", "`fs, x=3"], "coabs": ["Blade", "Wand", "Serena"], "share": ["Weapon", "Kleimann"]}, "pref": "base"}}
+{
+  "180": {
+    "base": {
+      "dps": 36553.21454217712,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s",
+        "`s3, fsc and not buff(s3)",
+        "`s4, fsc",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.frostbite.get()",
+        "`s1, fsc",
+        "`fs, x=2 and self.s1.charged >=1682",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "pref": "base",
+    "burn": {
+      "dps": 44183.02924582121,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s",
+        "`s3, fsc and not buff(s3)",
+        "`s4, fsc",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.frostbite.get()",
+        "`s1, fsc",
+        "`fs, x=2 and self.s1.charged >=1682",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "buffer": {
+      "dps": 14406.734130292121,
+      "team": 0.11643498691714371,
+      "tdps": 190204.6884554095,
+      "output": "-,180,_\n14407,Chrom,110359_01_r05,flame,sword,4471,Dreadking Rathalos,210122_01,Nothung,301138_01_60101,Flash of Genius,400063_02,The Lurker in the Woods,400418_02,The Synthetic Dragon,400239_02,Dueling Dancers,400050_02,Hanetsuki Rally,400126_02,Blade,,Hunter Berserker,110050_02_r05,Grace,110059_01_r05,Weapon,,Karl,110008_01_r04,last offense & hp100 & hit15,,team:11.64350%,attack:0,fs:14406\n",
+      "slots.a": [
+        "Flash_of_Genius",
+        "The_Lurker_in_the_Woods",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "Hanetsuki_Rally"
+      ],
+      "slots.d": "Dreadking_Rathalos",
+      "acl": [
+        "`s3,not buff(s3)",
+        "`s2, fsc",
+        "`s1, fsc and self.hp < 30 and buffstack(ro) < 3",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Berserker",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 33788.456552970725,
+      "team": 0.0,
+      "tdps": null,
+      "output": "-,60,_\n33788,Chrom,110359_01_r05,flame,sword,4472,Gala Mars,200009_01,Nothung,301138_01_60101,Flash of Genius,400063_02,Me and My Bestie!,400435_02,The Shining Overlord,400167_02,Chariot Drift,400392_02,Dueling Dancers,400050_02,Blade,,Wand,,Serena,110054_01_r04,Weapon,,Kleimann,110051_01_r04,hp100 & hp50 & hit10 & hit15,,poison:49.7%,attack:4169,fs:1763,s1:4113,s2:2083,s4:3544,s4_poison:827,dx:10647,ds:6638\n",
+      "slots.a": [
+        "Flash_of_Genius",
+        "Me_and_My_Bestie",
+        "The_Shining_Overlord",
+        "Chariot_Drift",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s and not energy()=5",
+        "`s3, fsc and not buff(s3)",
+        "if self.sim_afflict",
+        "`s4, fsc and (self.energy() = 0 or self.s2.count=3)",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and self.afflics.burn.get() and (self.energy()=0 or self.s4.charged < self.s4.sp - 1000)",
+        "else",
+        "`s4, fsc and not energy()=5",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and (self.afflics.burn.get() or self.afflics.poison.get())",
+        "end",
+        "`s1, fsc",
+        "`fs, x=2 and self.s1.charged >=1682",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    },
+    "pref": "base"
+  }
+}

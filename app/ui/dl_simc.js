@@ -394,6 +394,7 @@ function loadAdvSlots(no_conf, set_equip) {
     if ($('#input-adv').val() == '') {
         return false;
     }
+    toggleInputDisabled(true);
     const urlVars = getUrlVars();
     let conf = undefined;
     if (urlVars.conf) {
@@ -512,6 +513,7 @@ function loadAdvSlots(no_conf, set_equip) {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             $('#test-error').html('Failed to load adventurer');
+            toggleInputDisabled(false);
         }
     });
 }
@@ -711,7 +713,7 @@ function readSimBuff() {
     }
     return simBuff;
 }
-function toggleInput(state) {
+function toggleInputDisabled(state) {
     $('input').prop('disabled', state);
     $('select').prop('disabled', state);
     if (!state) {
@@ -722,7 +724,7 @@ function runAdvTest(no_conf) {
     if ($('#input-adv').val() == '') {
         return false;
     }
-    toggleInput(true);
+    toggleInputDisabled(true);
     $('#test-error').empty();
     $('div[role="tooltip"]').remove();
     const requestJson = serConf(no_conf);
@@ -762,11 +764,11 @@ function runAdvTest(no_conf) {
                     update_teamdps();
                 }
             }
-            toggleInput(false);
+            toggleInputDisabled(false);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             $('#test-error').html('Failed to run damage simulation');
-            toggleInput(false);
+            toggleInputDisabled(false);
         }
     });
 }
