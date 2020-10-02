@@ -16,7 +16,7 @@
         "attr": [
             {"dmg": 9.1, "iv": 0.23333},
             {"dmg": 9.1, "iv": 0.43333},
-            {"buff": [["self", 0.10, 20.0, "att", "buff"], ["sAlt", "flare", "s1", 20.0], "-replace"], "iv": 1.4}
+            {"buff": [["self", 0.10, 20.0, "att", "buff"], ["sAlt", "flare", "s1", 20.0]], "iv": 1.4}
         ]
     },
     "s1_flare": {
@@ -27,7 +27,8 @@
             {"dmg": 6.85, "iv": 0.23333},
             {"dmg": 6.85, "iv": 0.43333},
             {"dmg": 6.85, "iv": 0.66667},
-            {"buff": [["self", 0.15, 15.0, "att", "buff"], ["self", 0.30, 15.0, "crit", "damage"], ["sAlt", "ruin", "s1", 15.0], "-replace"], "iv": 1.63333}
+            {"buff": ["s1", "default", 2, "-off"], "iv": 1.63333},
+            {"buff": [["self", 0.15, 15.0, "att", "buff"], ["self", 0.30, 15.0, "crit", "damage"], ["sAlt", "ruin", "s1", 15.0]], "iv": 1.63333}
         ]
     },
     "s1_ruin": {
@@ -39,7 +40,7 @@
             {"dmg": 5.17, "iv": 0.43333},
             {"dmg": 5.17, "iv": 0.66667},
             {"dmg": 7.76, "iv": 1.16667},
-            {"buff": ["s1", "flare", 3, "-off"], "iv": 2.8},
+            {"buff": ["s1", "flare", 4, "-off"], "iv": 2.8},
             {"buff": [["self", 0.15, 15.0, "att", "buff"], ["self", 0.30, 15.0, "crit", "damage"], ["sAlt", "ruin", "s1", 15.0], "-refresh"], "iv": 2.8}
         ]
     },
