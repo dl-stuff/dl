@@ -66,8 +66,11 @@ class DragonForm(Action):
         self.allow_end = False
 
     def reset_allow_end(self):
-        self.allow_end = False
-        self.allow_force_end_timer.on()
+        if self.is_dragondrive:
+            self.allow_end = True
+        else:
+            self.allow_end = False
+            self.allow_force_end_timer.on()
 
     def set_allow_end(self, _):
         self.allow_end = True
