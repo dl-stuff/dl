@@ -192,8 +192,9 @@ class DragonBase(EquipBase):
         'dodge.startup': 0.66667,
         'dodge.recovery': 0,
 
-        'end.startup': 0, # amount of time needed to kys, 0 default
-        'end.recovery': 0
+        'end.startup': 0,
+        'end.recovery': 0,
+        'allow_end_cd': 5.0 # time before force end is allowed
     }
     def __init__(self, conf, c, qual=None):
         super().__init__(conf.d, c, qual)

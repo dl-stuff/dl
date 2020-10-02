@@ -62,6 +62,16 @@ class DragonForm(Action):
         self.is_dragondrive = False
         self.can_end = True
 
+        self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.conf.allow_end_cd)
+        self.allow_end = False
+
+    def reset_allow_end(self):
+        self.allow_end = False
+        self.allow_force_end_timer.on()
+
+    def set_allow_end(self, _):
+        self.allow_end = True
+
     def set_dragondrive(self, dd_buff, max_gauge=3000, shift_cost=1200, drain=150):
         self.disabled = False
         self.is_dragondrive = True
@@ -281,7 +291,10 @@ class DragonForm(Action):
             self.parse_act(self.conf.act)
         if self.act_list:
             if self.act_list[0] != 'ds' or self.ds_check():
-                nact = self.act_list.pop(0)
+                if self.act_list[0] == 'end' and not self.allow_end:
+                    nact = None
+                else:
+                    nact = self.act_list.pop(0)
             # print('CHOSE BY LIST', nact, self.c_act_name)
         if nact is None:
             if self.c_act_name[0:2] == 'dx':
@@ -386,6 +399,7 @@ class DragonForm(Action):
         g_logs.log_shift_dmg(True)
         self.shift_start_time = now()
         self.shift_end_timer.on(self.dtime())
+        self.reset_allow_end()
         self.shift_event()
         self.d_act_start('dshift')
         return True

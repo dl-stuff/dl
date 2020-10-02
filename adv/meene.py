@@ -50,6 +50,12 @@ class Meene(Adv):
         log('debug', 'butterflies', self.butterflies)
 
     def s1_proc(self, e):
+        self.clear_all_butterflies()
+
+    def s2_proc(self, e):
+        self.clear_all_butterflies()
+
+    def clear_all_butterflies(self)
         for chasers in self.butterfly_timers.values():
             for t in chasers:
                 t.off()
@@ -65,7 +71,7 @@ class Meene(Adv):
 
     @property
     def butterflies(self):
-        return len(self.butterfly_timers.keys())
+        return min(10, len(self.butterfly_timers.keys())
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

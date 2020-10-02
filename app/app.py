@@ -211,7 +211,6 @@ def save_equip(adv, test_output):
         'dps': ndps,
         'team': nteam,
         'tdps': None,
-        'output': test_output,
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
         'acl': acl_list,

@@ -853,11 +853,6 @@ class Adv(object):
         self.afflic_condition()
         self.sim_affliction()
 
-        if equip and not self.conf['flask_env'] and self.sim_afflict:
-            aff_equip = equip.get(next(iter(self.sim_afflict)))
-            if aff_equip:
-                self.conf.update(aff_equip)
-
         self.default_slot()
 
         self.crit_mod = self.solid_crit_mod

@@ -3,7 +3,7 @@ import os
 import re
 from itertools import chain
 from collections import defaultdict
-from conf import get_icon, get_fullname
+from conf import get_icon, get_fullname, load_equip_json, save_equip_json
 import core.acl
 
 BR = 64
@@ -26,15 +26,14 @@ DOT_AFFLICT = ['poison', 'paralysis', 'burn', 'frostbite']
 
 S_ALT = '†'
 
-
-def run_once(classname, conf, duration, cond):
-    adv = classname(conf=conf, duration=duration, cond=cond)
+def run_once(classname, conf, duration, cond, equip_key=None):
+    adv = classname(conf=conf, duration=duration, cond=cond, equip_key=equip_key)
     real_d = adv.run()
     return adv, real_d
 
 # Using starmap
 import multiprocessing
-def run_once_mass(classname, conf, duration, cond, idx):
+def run_once_mass(classname, conf, duration, cond, equip_key, idx):
     adv = classname(conf=conf, duration=duration, cond=cond)
     real_d = adv.run()
     return adv.logs, real_d
@@ -63,10 +62,10 @@ def avg_logs(log, mass):
         log.team_tension[k] /= mass
     return log
 
-def run_mass(mass, base_log, base_d, classname, conf, duration, cond):
+def run_mass(mass, base_log, base_d, classname, conf, duration, cond, equip_key=None):
     mass = 1000 if mass == 1 else mass
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
-        for log, real_d in pool.starmap(run_once_mass, [(classname, conf, duration, cond, idx) for idx in range(mass-1)]):
+        for log, real_d in pool.starmap(run_once_mass, [(classname, conf, duration, cond, equip_key, idx) for idx in range(mass-1)]):
             base_log = sum_logs(base_log, log)
             base_d += real_d
     base_log = avg_logs(base_log, mass)
@@ -93,7 +92,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
         output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
         return
     run_results = []
-    adv, real_d = run_once(classname, conf, duration, cond)
+    adv, real_d = run_once(classname, conf, duration, cond, equip_key=None)
     if verbose == 255:
         output.write(str(adv.slots))
         output.write('\n')
@@ -119,9 +118,10 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
         if verbose < -5:
             for aff_name in DOT_AFFLICT[:(-verbose-6)]:
                 conf[f'sim_afflict.{aff_name}'] = 1
-        adv, real_d = run_once(classname, conf, duration, cond)
+        equip_key = 'affliction' if adv.equip_key != 'buffer' else 'buffer'
+        adv, real_d = run_once(classname, conf, duration, cond, equip_key=equip_key)
         if mass:
-            adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
+            adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond, equip_key=equip_key)
         run_results.append((adv, real_d, 'affliction'))
 
     for a, d, c in run_results:
