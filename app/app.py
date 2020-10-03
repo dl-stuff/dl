@@ -223,11 +223,11 @@ def save_equip(adv, adv_module, test_output):
         equip[dkey]['pref'] = 'base'
     save_equip_json(adv_qual, equip)
 
-    output = open(os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.py.csv'.format(adv_qual.lower())), 'w', encoding='utf8')
-    for d in (60, 120, 180):
-        core.simulate.test(adv_module, {}, duration=d, verbose=-5, output=output)
-    output.close()
-    core.simulate.combine()
+    # output = open(os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.py.csv'.format(adv_qual.lower())), 'w', encoding='utf8')
+    # for d in (60, 120, 180):
+    #     core.simulate.test(adv_module, {}, duration=d, verbose=-5, output=output)
+    # output.close()
+    # core.simulate.combine()
 
 # API
 @app.route('/simc_adv_test', methods=['POST'])
