@@ -32,24 +32,34 @@ class Meene(Adv):
         Event('x').listener(self.push_to_act_history, order=0)
         Event('fs').listener(self.push_to_act_history, order=0)
         Event('dodge').listener(self.push_to_act_history, order=0)
+        self.hecking_delayed = set()
 
     def push_to_act_history(self, e):
+        self.check_delayed()
         self.act_history.append(e.name)
         log('act_history', str(self.act_history))
         if len(self.act_history) > 5:
             oldest = self.act_history.popleft()
             self.clear_oldest_butterflies(oldest)
 
+    def check_delayed(self):
+        for mt, k in self.hecking_delayed.copy():
+            if not mt.online and mt.timing > now():
+                self.clear_butterflies(*k, reason='canceled')
+                self.hecking_delayed.remove((mt, k))
+
     def do_hitattr_make(self, e, aseq, attr, pin=None):
-        mt = super().do_hitattr_make(e, aseq, attr, pin=None)
+        mt = super().do_hitattr_make(e, aseq, attr, pin=pin)
         if attr.get('butterfly'):
-            t = Timer(self.clear_butterflies)
+            t = Timer(self.l_clear_butterflies)
             t.name = e.name
             t.chaser = attr.get('butterfly')
             t.start = now()
             t.on(9.001+attr.get('iv', 0))
             self.butterfly_timers[(e.name, t.chaser, now())].add(t)
             log('butterflies', 'spawn', self.butterflies)
+            if mt:
+                self.hecking_delayed.add((mt, (e.name, t.chaser, now())))
         elif mt and attr.get('chaser'):
             self.butterfly_timers[(e.name, attr.get('chaser'), now())].add(mt)
         if self.butterflies >= 6:
@@ -57,9 +67,11 @@ class Meene(Adv):
             self.current_s['s2'] = 'sixplus'
 
     def s1_before(self, e):
+        self.check_delayed()
         log('butterflies', self.butterflies)
 
     def s2_before(self, e):
+        self.check_delayed()
         log('butterflies', self.butterflies)
 
     def s1_proc(self, e):
@@ -85,21 +97,29 @@ class Meene(Adv):
         oldest = min(seq)
         matching = tuple(filter(lambda k: k[0] == name and k[2] == oldest, self.butterfly_timers.keys()))
         for m in matching:
+            for mt in self.butterfly_timers[m]:
+                mt.off()
             del self.butterfly_timers[m]
         if self.butterflies < 6:
             self.current_s['s1'] = 'default'
             self.current_s['s2'] = 'default'
         log('butterflies', f'remove {name}', self.butterflies)
 
-    def clear_butterflies(self, t):
+    def clear_butterflies(self, name, chaser, start, reason='timeout'):
         try:
-            del self.butterfly_timers[(t.name, t.chaser, t.start)]
+            key = (name, chaser, start)
+            for mt in self.butterfly_timers[key]:
+                mt.off()
+            del self.butterfly_timers[key]
             if self.butterflies < 6:
                 self.current_s['s1'] = 'default'
                 self.current_s['s2'] = 'default'
-            log('butterflies', f'timeout {t.name, t.chaser}', self.butterflies)
+            log('butterflies', f'{reason} {name, chaser}', self.butterflies)
         except KeyError:
             pass
+
+    def l_clear_butterflies(self, t):
+        self.clear_butterflies(t.name, t.chaser, t.start)
 
     @property
     def butterflies(self):
