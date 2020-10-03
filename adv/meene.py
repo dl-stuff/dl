@@ -44,7 +44,7 @@ class Meene(Adv):
 
     def check_delayed(self):
         for mt, k in self.hecking_delayed.copy():
-            if not mt.online and mt.timing > now():
+            if not mt.online:
                 self.clear_butterflies(*k, reason='canceled')
                 self.hecking_delayed.remove((mt, k))
 
@@ -114,7 +114,7 @@ class Meene(Adv):
             if self.butterflies < 6:
                 self.current_s['s1'] = 'default'
                 self.current_s['s2'] = 'default'
-            log('butterflies', f'{reason} {name, chaser}', self.butterflies)
+            log('butterflies', f'{reason} {name}-{chaser}', self.butterflies)
         except KeyError:
             pass
 

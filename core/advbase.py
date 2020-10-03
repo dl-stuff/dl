@@ -746,7 +746,7 @@ class Adv(object):
                     self.Selfbuff('simulated_crit_rate', self.conf.sim_buffbot.critr, -1, 'crit', 'chance').on()
             if 'critd' in self.conf.sim_buffbot:
                 if self.condition('team crit dmg {:+.0%}'.format(self.conf.sim_buffbot.critd)):
-                    self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'dmg').on()
+                    self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'damage').on()
             if 'echo' in self.conf.sim_buffbot:
                 if self.condition('echo att {:g}'.format(self.conf.sim_buffbot.echo)):
                     self.enable_echo(fixed_att=self.conf.sim_buffbot.echo)
