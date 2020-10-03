@@ -1,39 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 93129.37352528506,
+      "dps": 98166.8919798025,
       "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), self.trickery <= 1",
-        "queue prep and not buff(s3)",
-        "`s3;s4;s2;s1",
-        "end",
-        "`s1",
-        "`s4, x=5"
-      ],
-      "coabs": [
-        "Delphi",
-        "Curran",
-        "Summer_Patia"
-      ],
-      "share": [
-        "Weapon",
-        "Rodrigo"
-      ]
-    },
-    "pref": "base",
-    "poison": {
-      "dps": 115325.14260403905,
-      "team": 0.04971139982850653,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -44,9 +13,36 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "queue prep and not buff(s3)",
-        "`s3;s4;s2;s1",
-        "end",
+        "`dragon(c3-s-end), self.trickery <2",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1"
+      ],
+      "coabs": [
+        "Delphi",
+        "Heinwald",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Rodrigo"
+      ]
+    },
+    "pref": "base",
+    "poison": {
+      "dps": 115469.91986855451,
+      "team": 0.04949373545079024,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
         "`s4",
         "`s2, hp < 50",
         "`s1"
@@ -64,7 +60,7 @@
     "buffer": {
       "dps": 72880.56690763141,
       "team": 0.05328134658614226,
-      "tdps": 380035.56432111806,
+      "tdps": 474581.1938384402,
       "slots.a": [
         "Candy_Couriers",
         "Howling_to_the_Heavens",
@@ -94,65 +90,35 @@
     }
   },
   "60": {
-    "poison": {
-      "dps": 0.0,
-      "team": 0.0,
-      "tdps": null,
-      "output": "-,60,affliction\n100811,Veronica,110333_01_r05,shadow,wand,4796,Gala Cat Sìth,200017_01,Jiu Ci,307139_01_60501,Candy Couriers,400135_02,Flash of Genius,400063_02,Howling to the Heavens,400395_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Delphi,110336_01_r05,Bow,,Weapon,,Fjorm,110328_01_r05,always connect hits & hp=50.0% & hit15,last destruction team DPS not considered,poison:100.0%;frostbite:95.1%;freeze:6.5%,attack:6451,s1:75035,s2:2118,s4:14771,s4_frostbite:2434\n",
-      "slots.a": [
-        "Candy_Couriers",
-        "Flash_of_Genius",
-        "Howling_to_the_Heavens",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "queue prep and not buff(s3)",
-        "`s3;s4;s2;s1",
-        "end",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Delphi",
-        "Bow"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
     "pref": "base",
     "base": {
-      "dps": 0.0,
+      "dps": 83313.84878314486,
       "team": 0.0,
       "tdps": null,
-      "output": "-,60,_\n73014,Veronica,110333_01_r05,shadow,wand,4796,Gala Cat Sìth,200017_01,Jiu Ci,307139_01_60501,Candy Couriers,400135_02,Flash of Genius,400063_02,Howling to the Heavens,400395_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Delphi,110336_01_r05,Bow,,Weapon,,Fjorm,110328_01_r05,always connect hits & hp=50.0% & hit15,last destruction team DPS not considered,frostbite:95.1%;freeze:6.5%,attack:5336,s1:51748,s2:1753,s4:12172,s4_frostbite:2003\n",
       "slots.a": [
         "Candy_Couriers",
-        "Flash_of_Genius",
         "Howling_to_the_Heavens",
-        "His_Clever_Brother",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), self.trickery <= 1",
         "queue prep and not buff(s3)",
         "`s3;s4;s2;s1",
         "end",
         "`s1",
-        "`s4"
+        "`s4, x=5"
       ],
       "coabs": [
-        "Ieyasu",
         "Delphi",
-        "Bow"
+        "Curran",
+        "Summer_Patia"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Rodrigo"
       ]
     }
   }

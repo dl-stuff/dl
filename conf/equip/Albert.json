@@ -120,5 +120,47 @@
         "Summer_Cleo"
       ]
     }
+  },
+  "60": {
+    "base": {
+      "dps": 54601.8529914045,
+      "team": 0.033295109034747354,
+      "tdps": null,
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Spirit_of_the_Season",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "if electrified",
+        "`s1",
+        "`s3, fsc",
+        "`s4",
+        "if x=3",
+        "`fs2, not afflics.paralysis.get()",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(s), cancel",
+        "`s2, charged_in(2, s1)",
+        "`s1, cancel",
+        "`s3, cancel",
+        "`s4, cancel",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    },
+    "pref": "base"
   }
 }

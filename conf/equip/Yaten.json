@@ -5,8 +5,8 @@
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Breakfast_at_Valerios",
         "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "From_Whence_He_Comes",
         "Bellathorna"
@@ -21,7 +21,7 @@
         "`fs, x=2"
       ],
       "coabs": [
-        "Ieyasu",
+        "Blade",
         "Wand",
         "Bow"
       ],
@@ -32,34 +32,33 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 62381.41664266692,
-      "team": 0.024922077647240054,
-      "tdps": 738510.372613343,
-      "output": "-,180,_\n62381,Yaten,110325_01_r05,shadow,sword,4481,Gala Cat Sìth,200017_01,Yitian Jian,301142_01_60501,Breakfast at Valerio's,400285_02,Howling to the Heavens,400395_02,The Shining Overlord,400167_02,Taiko Tandem,400335_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Wand,,Bow,,Weapon,,Curran,110281_01_r05,always connect hits & hp60 & hit15,,sleep:2.9%;team:2.49221%;energy:36,attack:3021,fs:1812,s1:17807,s1_energized:30597,s4:5001,dx:987,ds:3152\n",
+      "dps": 57984.69550723817,
+      "team": 0.05326279575798999,
+      "tdps": 428102.4617745518,
       "slots.a": [
-        "Breakfast_at_Valerios",
         "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Taiko_Tandem",
-        "The_Plaguebringer"
+        "From_Whence_He_Comes",
+        "Bellathorna"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and self.energy() < 5",
+        "`dragon(c3-s-end), fsc and self.energy() < 5 and self.trickery <= 1",
         "`s3, not buff(s3)",
-        "`s4, fsc and self.energy() < 5",
-        "`s2, fsc and self.energy() < 5",
+        "`s2, self.energy() < 5",
+        "`s4",
         "`s1",
         "`fs, x=2"
       ],
       "coabs": [
-        "Ieyasu",
+        "Blade",
         "Wand",
         "Bow"
       ],
       "share": [
         "Weapon",
-        "Curran"
+        "Summer_Cleo"
       ]
     },
     "poison": {
@@ -117,6 +116,39 @@
         "Blade",
         "Wand",
         "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "pref": "base"
+  },
+  "60": {
+    "base": {
+      "dps": 72199.94452414973,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Howling_to_the_Heavens",
+        "The_Shining_Overlord",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), fsc and self.energy() < 5 and self.trickery <= 1",
+        "`s3, not buff(s3)",
+        "`s2, self.energy() < 5",
+        "`s1",
+        "`s4, fsc and self.energy() < 5",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
       ],
       "share": [
         "Weapon",

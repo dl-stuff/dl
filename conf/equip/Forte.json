@@ -42,14 +42,14 @@
     },
     "pref": "base",
     "poison": {
-      "dps": 107782.90379166098,
+      "dps": 107863.3225558129,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "Dueling_Dancers",
+        "His_Clever_Brother",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -161,6 +161,126 @@
         "Kleimann"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "base": {
+      "dps": 63857.352662603524,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "if self.sim_afflict",
+        "`dragon(c3-s-end), x=5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel or s=2",
+        "`s1",
+        "`fs, x=5",
+        "else",
+        "`dragon(c3-s-end), s2.charged<s2.sp/3 and cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, cancel or self.afflics.poison.get()",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    }
+  },
+  "120": {
+    "poison": {
+      "dps": 89527.25498063155,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "if self.sim_afflict",
+        "`dragon(s-end), x=5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel or s=2",
+        "`s1",
+        "`fs, x=5",
+        "else",
+        "`dragon(s-end), s2.charged<s2.sp/3 and cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, cancel or self.afflics.poison.get()",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "pref": "base",
+    "base": {
+      "dps": 75790.92586160499,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "if self.sim_afflict",
+        "`dragon(c3-s-end), x=5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel or s=2",
+        "`s1",
+        "`fs, x=5",
+        "else",
+        "`dragon(c3-s-end), s2.charged<s2.sp/3 and cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, cancel or self.afflics.poison.get()",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    }
   }
 }

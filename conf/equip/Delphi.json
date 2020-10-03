@@ -3,7 +3,7 @@
     "base": {
       "dps": 37992.83588294936,
       "team": 0.1805062850536811,
-      "tdps": 15944.343215302102,
+      "tdps": 33046.746225401424,
       "output": "-,180,_\n37993,Delphi,110336_01_r05,shadow,dagger,4575,Fatalis,210123_01,Qinghong Jian,303132_01_60501,Memory of a Friend,400429_02,The Lurker in the Woods,400418_02,Twinfold Bonds,400097_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Heinwald,110280_01_r05,Gala Alex,100005_02_r05,Grace,110059_01_r05,Weapon,,Xander,110022_01_r05,0 poison res & hit15,,poison:91.6%;frostbite:79.9%;team:18.05063%,attack:5781,fs:5489,fs_enhanced:871,fs_enhanced_poison:13638,s1:1207,s2:1293,s2_poison:6054,s4:2946,s4_frostbite:708\n",
       "slots.a": [
         "Memory_of_a_Friend",
@@ -32,26 +32,27 @@
     },
     "pref": "buffer",
     "buffer": {
-      "dps": 35841.008926214956,
-      "team": 0.3154649301152884,
-      "tdps": 15944.343215302102,
+      "dps": 30907.72291183126,
+      "team": 0.39490297399826824,
+      "tdps": 33046.746225401424,
       "slots.a": [
-        "Memory_of_a_Friend",
+        "An_Ancient_Oath",
+        "Castle_Cheer_Corps",
         "The_Lurker_in_the_Woods",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
+        "Blessed_Days",
         "The_Plaguebringer"
       ],
-      "slots.d": "Fatalis",
+      "slots.d": "Ramiel",
       "acl": [
         "`s3, not buff(s3)",
         "`s1",
+        "`dragon",
         "`s4",
         "`s2, not c_fs(enhanced) and (s1.charged <= ((s1.sp/13)*9))",
         "`fs, x=2"
       ],
       "coabs": [
-        "Heinwald",
+        "Forte",
         "Gala_Alex",
         "Grace"
       ],
@@ -123,18 +124,48 @@
   },
   "60": {
     "base": {
-      "dps": 17747.308803909196,
-      "team": 0.1564820746813648,
+      "dps": 31674.876932306062,
+      "team": 0.38492225492377385,
       "tdps": null,
-      "output": "-,60,_\n17747,Delphi,110336_01_r05,shadow,dagger,4575,Gala Cat Sìth,200017_01,Qinghong Jian,303132_01_60501,Howling to the Heavens,400395_02,Memory of a Friend,400429_02,The Lurker in the Woods,400418_02,His Clever Brother,400169_02,The Plaguebringer,400410_02,Heinwald,110280_01_r05,Gala Alex,100005_02_r05,Grace,110059_01_r05,Weapon,,Xander,110022_01_r05,0 poison res & always connect hits & hit15,,poison:74.8%;frostbite:56.9%;team:15.64821%,attack:2475,fs:2371,fs_enhanced:457,fs_enhanced_poison:3972,s1:989,s2:983,s2_poison:3940,s4:2152,s4_frostbite:404\n",
       "slots.a": [
-        "Howling_to_the_Heavens",
+        "Castle_Cheer_Corps",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "His_Clever_Brother",
+        "A_Passion_for_Produce",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Ramiel",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`dragon",
+        "`s4",
+        "`s2, not c_fs(enhanced) and (s1.charged <= ((s1.sp/13)*9))",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Cleo",
+        "Gala_Alex",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Verica"
+      ]
+    },
+    "pref": "base",
+    "buffer": {
+      "dps": 24265.12049089967,
+      "team": 0.5365373265983742,
+      "tdps": 48872.16263901111,
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "The_Chocolatiers",
+        "The_Lurker_in_the_Woods",
+        "Rogues_Banquet",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
       "acl": [
         "`s3, not buff(s3)",
         "`s1",
@@ -148,10 +179,9 @@
         "Grace"
       ],
       "share": [
-        "Weapon",
-        "Xander"
+        "Cleo",
+        "Elisanne"
       ]
-    },
-    "pref": "base"
+    }
   }
 }

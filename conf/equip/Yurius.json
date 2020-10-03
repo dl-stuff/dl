@@ -110,5 +110,44 @@
       ]
     },
     "pref": "base"
+  },
+  "60": {
+    "base": {
+      "dps": 48990.99938950677,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Candy_Couriers",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if self.afflics.frostbite.get()",
+        "`dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "queue prep and self.duration>120",
+        "`s2; s1; s4",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "pref": "base"
   }
 }

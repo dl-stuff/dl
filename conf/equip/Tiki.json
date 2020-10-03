@@ -76,7 +76,7 @@
   },
   "60": {
     "base": {
-      "dps": 0.0,
+      "dps": 49002.27537100196,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -111,44 +111,7 @@
         "Kleimann"
       ]
     },
-    "pref": "base",
-    "frostbite": {
-      "dps": 0.0,
-      "team": 0.0,
-      "tdps": null,
-      "output": "-,60,affliction\n51956,Tiki,110360_01_r05,water,dagger,4188,Siren,210054_01,Futsu no Mitama,303129_01_60201,Memory of a Friend,400429_02,Moonlight Party,400448_02,Twinfold Bonds,400097_02,A Passion for Produce,400446_02,His Clever Brother,400169_02,Blade,,Yurius,110362_01_r05,Xander,110022_01_r05,Weapon,,Kleimann,110051_01_r04,hp70 & hit10 & hit15,dragon damage does not work on divine dragon,frostbite:100.0%,attack:13643,fs:286,s1:1172,s1_ddrive:19850,s1_ddrive_frostbite:2435,s2_ddrive:14296,dx:271\n",
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Siren",
-      "acl": [
-        "if divine_dragon.get()",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5",
-        "`s2",
-        "`s1, fsc",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Yurius",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Kleimann"
-      ]
-    }
+    "pref": "base"
   },
   "120": {
     "frostbite": {

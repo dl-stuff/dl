@@ -3,7 +3,7 @@
     "base": {
       "dps": 67835.29546810575,
       "team": 0.2747759091214603,
-      "tdps": 38958.05449243121,
+      "tdps": 32992.55310294808,
       "output": "-,180,_\n67835,Summer Celliera,110255_02_r05,water,sword,4387,Gaibhne & Creidhne,210120_01,Ame no Murakumo,301139_01_60201,Brothers in Arms,400402_02,Memory of a Friend,400429_02,The Shining Overlord,400167_02,From Whence He Comes,400390_02,His Clever Brother,400169_02,Summer Estelle,110063_02_r04,Renee,110265_01_r04,Hunter Sarisse,100029_03_r05,Weapon,,Xander,110022_01_r05,2 bog res & always connect hits & hit15,,frostbite:83.1%;bog:22.2%;team:27.47759%;doublebuff:every 10.60s,attack:6435,fs:3276,s1:31283,s2_phase1:3682,s2_phase2:3782,s2_phase3:3022,s4:12184,s4_frostbite:2505,dx:1662\n",
       "slots.a": [
         "Brothers_in_Arms",
@@ -31,11 +31,11 @@
         "Xander"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "buffer": {
-      "dps": 47468.49578343738,
-      "team": 0.7975638139596046,
-      "tdps": 38958.05449243121,
+      "dps": 24519.785669088116,
+      "team": 1.3305592253260943,
+      "tdps": 41026.89361935526,
       "slots.a": [
         "Brothers_in_Arms",
         "Castle_Cheer_Corps",
@@ -45,14 +45,11 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`fs, self.fs_prep_c > 0",
         "`dragon(c3-s-end)",
         "`s2, fsc",
-        "`s3, not buff(s3)",
+        "`s3, fsc",
         "`s4, fsc",
-        "`s1, fsc",
-        "`fs, x=2",
-        "`fs, self.fs_prep_c > 0"
+        "`fs, x=2"
       ],
       "coabs": [
         "Summer_Estelle",
@@ -60,43 +57,42 @@
         "Tobias"
       ],
       "share": [
-        "Mikoto",
-        "Patia"
+        "Gala_Elisanne",
+        "Templar_Hope"
       ]
     }
   },
   "60": {
     "base": {
-      "dps": 0.0,
-      "team": 0.0,
+      "dps": 46240.404187892724,
+      "team": 0.19113744159858928,
       "tdps": null,
-      "output": "-,60,_\n37328,Summer Celliera,110255_02_r05,water,sword,4373,Gaibhne & Creidhne,210120_01,Ame no Murakumo,301139_01_60201,Brothers in Arms,400402_02,Castle Cheer Corps,400380_02,The Shining Overlord,400167_02,From Whence He Comes,400390_02,Bellathorna,400009_02,Blade,,Summer Estelle,110063_02_r04,Renee,110265_01_r04,Weapon,,Mikoto,110010_01_r05,100 bog res,,team:23.96521%;doublebuff:every 10.03s,attack:0,fs:5134,s1:17013,s2_phase1:4621,s2_phase2:3085,s2_phase3:3360,dx:4111\n",
       "slots.a": [
         "Brothers_in_Arms",
-        "Castle_Cheer_Corps",
+        "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "From_Whence_He_Comes",
-        "Bellathorna"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`fs, self.fs_prep_c>0",
         "`dragon(c3-s-end)",
-        "`s2",
+        "`s2, fsc",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, fsc",
         "`fs, x=2"
       ],
       "coabs": [
-        "Blade",
         "Summer_Estelle",
-        "Renee"
+        "Renee",
+        "Hunter_Sarisse"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Xander"
       ]
-    }
+    },
+    "pref": "base"
   }
 }

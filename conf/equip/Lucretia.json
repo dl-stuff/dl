@@ -1,1 +1,164 @@
-{"180": {"base": {"dps": 52293.017428436586, "team": 0.1439213610925727, "tdps": null, "output": "-,180,_\n52293,Lucretia,110305_01_r05,light,wand,4537,Gala Thor,200018_01,Brionac,307138_01_60401,Candy Couriers,400135_02,Flash of Genius,400063_02,Moonlight Party,400448_02,A Game of Cat and Boar,400406_02,Dueling Dancers,400050_02,Blade,,Peony,110361_01_r05,Tobias,110352_01_r05,Weapon,,Mikoto,110010_01_r05,hp70 & hit15,,paralysis:17.3%;team:14.39214%;energy:31,attack:11315,fs:815,s1:23367,dx:8862,ds_paralysis:285,ds:7646\n", "slots.a": ["Candy_Couriers", "Flash_of_Genius", "Moonlight_Party", "A_Game_of_Cat_and_Boar", "Dueling_Dancers"], "slots.d": "Gala_Thor", "acl": ["`dragon, energy()>3", "`s3, not buff(s3)", "`s4, x=5", "`s1", "`s2, energy()<3", "`fs, x=5"], "coabs": ["Blade", "Peony", "Tobias"], "share": ["Weapon", "Mikoto"]}, "pref": "base", "paralysis": {"dps": 59380.78086604423, "team": 0.11395011858451326, "tdps": null, "output": "-,180,affliction\n59381,Lucretia,110305_01_r05,light,wand,4540,Gala Thor,200018_01,Brionac,307138_01_60401,Candy Couriers,400135_02,Flash of Genius,400063_02,Spirit of the Season,400393_02,A Game of Cat and Boar,400406_02,The Plaguebringer,400410_02,Blade,,Peony,110361_01_r05,Sharena,110358_01_r05,Weapon,,Kleimann,110051_01_r04,hit15,,paralysis:100.0%;poison:49.6%;team:11.39501%;energy:29,attack:10845,fs:960,s1:23610,s4:4810,s4_poison:1115,dx:8451,ds_paralysis:378,ds:9208\n", "slots.a": ["Candy_Couriers", "Flash_of_Genius", "Spirit_of_the_Season", "A_Game_of_Cat_and_Boar", "The_Plaguebringer"], "slots.d": "Gala_Thor", "acl": ["`dragon, energy()>3", "`s3, not buff(s3)", "`s4, energy()<5", "`s1", "`s2, energy()<3", "`fs, x=5"], "coabs": ["Blade", "Peony", "Sharena"], "share": ["Weapon", "Kleimann"]}, "buffer": {"dps": 14511.525591351843, "team": 0.28695482101805225, "tdps": 264144.4306581754, "output": "-,180,_\n14512,Lucretia,110305_01_r05,light,wand,4539,Tie Shan Gongzhu,210085_01,Brionac,307138_01_60401,Castle Cheer Corps,400380_02,Flash of Genius,400063_02,Jewels of the Sun,400099_02,A Game of Cat and Boar,400406_02,Taiko Tandem,400335_02,Blade,,Bow,,Tobias,110352_01_r05,Patia,110335_01_r04,Mikoto,110010_01_r05,always connect hits & hit15,,team:28.69548%;doublebuff:every 25.72s;energy:32,attack:5552,fs:353,s1:8605\n", "slots.a": ["Castle_Cheer_Corps", "Flash_of_Genius", "Jewels_of_the_Sun", "A_Game_of_Cat_and_Boar", "Taiko_Tandem"], "slots.d": "Tie_Shan_Gongzhu", "acl": ["`s3, not buff(s3)", "`s4, x=5", "`s1, energy()<2 or energy()=5", "`s2, energy()<4", "`fs, x=5"], "coabs": ["Blade", "Bow", "Tobias"], "share": ["Patia", "Mikoto"]}}, "120": {"base": {"dps": 46056.28360913119, "team": 0.12445420710699263, "tdps": null, "output": "-,120,_\n46056,Lucretia,110305_01_r05,light,wand,4537,Gala Thor,200018_01,Brionac,307138_01_60401,Candy Couriers,400135_02,Flash of Genius,400063_02,Moonlight Party,400448_02,A Game of Cat and Boar,400406_02,Dueling Dancers,400050_02,Blade,,Peony,110361_01_r05,Tobias,110352_01_r05,Weapon,,Mikoto,110010_01_r05,hp70 & hit15,,paralysis:21.6%;team:12.44542%;energy:23,attack:10473,fs:802,s1:22976,dx:7294,ds_paralysis:287,ds:4222\n", "slots.a": ["Candy_Couriers", "Flash_of_Genius", "Moonlight_Party", "A_Game_of_Cat_and_Boar", "Dueling_Dancers"], "slots.d": "Gala_Thor", "acl": ["`dragon, energy()>3", "`s3, not buff(s3)", "`s4, x=5", "`s1", "`s2, energy()<3", "`fs, x=5"], "coabs": ["Blade", "Peony", "Tobias"], "share": ["Weapon", "Mikoto"]}, "pref": "base"}}
+{
+  "180": {
+    "base": {
+      "dps": 52293.017428436586,
+      "team": 0.1439213610925727,
+      "tdps": null,
+      "output": "-,180,_\n52293,Lucretia,110305_01_r05,light,wand,4537,Gala Thor,200018_01,Brionac,307138_01_60401,Candy Couriers,400135_02,Flash of Genius,400063_02,Moonlight Party,400448_02,A Game of Cat and Boar,400406_02,Dueling Dancers,400050_02,Blade,,Peony,110361_01_r05,Tobias,110352_01_r05,Weapon,,Mikoto,110010_01_r05,hp70 & hit15,,paralysis:17.3%;team:14.39214%;energy:31,attack:11315,fs:815,s1:23367,dx:8862,ds_paralysis:285,ds:7646\n",
+      "slots.a": [
+        "Candy_Couriers",
+        "Flash_of_Genius",
+        "Moonlight_Party",
+        "A_Game_of_Cat_and_Boar",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon, energy()>3",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1",
+        "`s2, energy()<3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "pref": "base",
+    "paralysis": {
+      "dps": 59380.78086604423,
+      "team": 0.11395011858451326,
+      "tdps": null,
+      "output": "-,180,affliction\n59381,Lucretia,110305_01_r05,light,wand,4540,Gala Thor,200018_01,Brionac,307138_01_60401,Candy Couriers,400135_02,Flash of Genius,400063_02,Spirit of the Season,400393_02,A Game of Cat and Boar,400406_02,The Plaguebringer,400410_02,Blade,,Peony,110361_01_r05,Sharena,110358_01_r05,Weapon,,Kleimann,110051_01_r04,hit15,,paralysis:100.0%;poison:49.6%;team:11.39501%;energy:29,attack:10845,fs:960,s1:23610,s4:4810,s4_poison:1115,dx:8451,ds_paralysis:378,ds:9208\n",
+      "slots.a": [
+        "Candy_Couriers",
+        "Flash_of_Genius",
+        "Spirit_of_the_Season",
+        "A_Game_of_Cat_and_Boar",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon, energy()>3",
+        "`s3, not buff(s3)",
+        "`s4, energy()<5",
+        "`s1",
+        "`s2, energy()<3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    },
+    "buffer": {
+      "dps": 14511.525591351843,
+      "team": 0.28695482101805225,
+      "tdps": 264144.4306581754,
+      "output": "-,180,_\n14512,Lucretia,110305_01_r05,light,wand,4539,Tie Shan Gongzhu,210085_01,Brionac,307138_01_60401,Castle Cheer Corps,400380_02,Flash of Genius,400063_02,Jewels of the Sun,400099_02,A Game of Cat and Boar,400406_02,Taiko Tandem,400335_02,Blade,,Bow,,Tobias,110352_01_r05,Patia,110335_01_r04,Mikoto,110010_01_r05,always connect hits & hit15,,team:28.69548%;doublebuff:every 25.72s;energy:32,attack:5552,fs:353,s1:8605\n",
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Flash_of_Genius",
+        "Jewels_of_the_Sun",
+        "A_Game_of_Cat_and_Boar",
+        "Taiko_Tandem"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1, energy()<2 or energy()=5",
+        "`s2, energy()<4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Patia",
+        "Mikoto"
+      ]
+    }
+  },
+  "120": {
+    "base": {
+      "dps": 46056.28360913119,
+      "team": 0.12445420710699263,
+      "tdps": null,
+      "output": "-,120,_\n46056,Lucretia,110305_01_r05,light,wand,4537,Gala Thor,200018_01,Brionac,307138_01_60401,Candy Couriers,400135_02,Flash of Genius,400063_02,Moonlight Party,400448_02,A Game of Cat and Boar,400406_02,Dueling Dancers,400050_02,Blade,,Peony,110361_01_r05,Tobias,110352_01_r05,Weapon,,Mikoto,110010_01_r05,hp70 & hit15,,paralysis:21.6%;team:12.44542%;energy:23,attack:10473,fs:802,s1:22976,dx:7294,ds_paralysis:287,ds:4222\n",
+      "slots.a": [
+        "Candy_Couriers",
+        "Flash_of_Genius",
+        "Moonlight_Party",
+        "A_Game_of_Cat_and_Boar",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon, energy()>3",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1",
+        "`s2, energy()<3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "pref": "base"
+  },
+  "60": {
+    "base": {
+      "dps": 35921.31647560175,
+      "team": 0.05099093932598539,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Flash_of_Genius",
+        "Moonlight_Party",
+        "A_Game_of_Cat_and_Boar",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon, energy()>3",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1",
+        "`s2, energy()<3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "pref": "base"
+  }
+}

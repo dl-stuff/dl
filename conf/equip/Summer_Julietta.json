@@ -3,7 +3,7 @@
     "base": {
       "dps": 41258.21579672275,
       "team": 0.19585783635718831,
-      "tdps": null,
+      "tdps": 25000.920711112318,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -30,36 +30,35 @@
         "Xander"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "buffer": {
-      "dps": 23664.921844382352,
-      "team": 0.26322143483745325,
-      "tdps": 261169.15291416008,
-      "output": "-,180,_\n23665,Summer Julietta,110042_02_r05,water,axe,4607,Gaibhne & Creidhne,210120_01,Ohohagari,304128_01_60201,Dragon and Tamer,400128_02,Flash of Genius,400063_02,The Red Impulse,400088_02,From Whence He Comes,400390_02,His Clever Brother,400169_02,Blade,,Summer Estelle,110063_02_r04,Summer Celliera,110255_02_r05,Weapon,,Xander,110022_01_r05,100 bog res & hp60 & hit15,,frostbite:79.1%;team:26.32214%,attack:7356,fs:803,s1:7533,s4:5420,s4_frostbite:1141,dx:1409\n",
+      "dps": 36096.54214252565,
+      "team": 0.40231717894863356,
+      "tdps": 25000.920711112318,
       "slots.a": [
-        "Dragon_and_Tamer",
-        "Flash_of_Genius",
-        "The_Red_Impulse",
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
         "From_Whence_He_Comes",
-        "His_Clever_Brother"
+        "Bellathorna"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon(c3-s-end), s=4",
         "`s3, not buff(s3)",
-        "`s1, fscf",
         "`s2",
         "`s4",
-        "`fs, x=5"
+        "`s1",
+        "`fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')"
       ],
       "coabs": [
-        "Blade",
         "Summer_Estelle",
-        "Summer_Celliera"
+        "Hunter_Sarisse",
+        "Tobias"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Mikoto"
       ]
     },
     "frostbite": {
