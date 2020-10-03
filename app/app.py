@@ -18,6 +18,8 @@ app = Flask(__name__)
 
 # Helpers
 ADV_DIR = 'adv'
+CHART_DIR = 'www/dl-sim'
+DURATION_LIST = (60, 120, 180)
 
 def load_chara_file(fn, extra=None):
     if extra:
@@ -64,30 +66,6 @@ for name, _ in SPECIAL_ADV.items():
     module = core.simulate.load_adv_module(name)
     ADV_MODULES[name] = module
 
-# def is_amulet(obj):
-#     return (inspect.isclass(obj) and issubclass(obj, slot.a.Amulet)
-#             and obj.__module__ != 'slot.a'
-#             and obj.__module__ != 'slot')
-# def is_dragon(obj):
-#     return (inspect.isclass(obj) and issubclass(obj, slot.d.DragonBase)
-#             and obj.__module__ != 'slot.d'
-#             and obj.__module__ != 'slot')
-# def is_weapon(obj):
-#     return (inspect.isclass(obj) and issubclass(obj, slot.d.WeaponBase)
-#             and obj.__module__ != 'slot.w'
-#             and obj.__module__ != 'slot')
-# def list_members(module, predicate, element=None):
-#     members = inspect.getmembers(module, predicate)
-#     member_list = []
-#     for m in members:
-#         _, c = m
-#         if element is not None:
-#             if issubclass(c, slot.d.WeaponBase)  and element not in getattr(c, 'ele'):
-#                 continue
-#         if c.__qualname__ not in member_list:
-#             member_list.append(c.__qualname__)
-#     return member_list
-
 def set_teamdps_res(result, logs, real_d, suffix=''):
     result['extra' + suffix] = {}
     if logs.team_buff > 0:
@@ -124,7 +102,7 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
         return result
 
     if not adv_name in SPECIAL_ADV:
-        save_equip(adv, result['test_output'])
+        save_equip(adv, adv_module, result['test_output'])
 
     result['logs'] = {}
     adv = run_res[0][0]
@@ -142,7 +120,7 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
 
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
-def save_equip(adv, test_output):
+def save_equip(adv, adv_module, test_output):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
         return
@@ -245,6 +223,12 @@ def save_equip(adv, test_output):
         equip[dkey]['pref'] = 'base'
     save_equip_json(adv_qual, equip)
 
+    output = open(os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.py.csv'.format(adv_qual.lower())), 'w', encoding='utf8')
+    for d in (60, 120, 180):
+        core.simulate.test(adv_module, {}, duration=d, verbose=-5, output=output)
+    output.close()
+    core.simulate.combine()
+
 # API
 @app.route('/simc_adv_test', methods=['POST'])
 def simc_adv_test():
@@ -257,7 +241,7 @@ def simc_adv_test():
     wep = params.get('wep')
     acl = params.get('acl')
     cond = params.get('condition') or None
-    t   = 180 if not 't' in params else min(abs(float(params['t'])), 600.0)
+    t = 180 if not 't' in params else min(abs(float(params['t'])), 600.0)
     log = 5
     mass = 0
     coab = params.get('coab')

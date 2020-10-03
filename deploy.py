@@ -4,15 +4,10 @@ from importlib import import_module
 from importlib.util import spec_from_file_location, module_from_spec
 from time import monotonic
 import core.simulate
+from conf import ROOT_DIR
+from core.simulate import CHART_DIR, DURATION_LIST, QUICK_LIST_FILES, SLOW_LIST_FILES, ADV_LIST_FILES
 
-ROOT_DIR = '.'
 ADV_DIR = 'adv'
-OUTPUT_DIR = 'www/dl-sim'
-DURATION_LIST = [60, 120, 180]
-QUICK_LIST_FILES = ['chara_quick.txt', 'chara_sp_quick.txt']
-SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
-ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
-
 
 def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
     t_start = monotonic()
@@ -35,7 +30,7 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
         durations = [30]
         output = open(os.devnull, 'w')
     else:
-        output = open(os.path.join(ROOT_DIR, OUTPUT_DIR, 'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
+        output = open(os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.csv'.format(adv_file)), 'w', encoding='utf8')
 
     try:
         adv_module = core.simulate.load_adv_module(adv_name)
@@ -66,41 +61,6 @@ def sim_adv_list(list_file, sanity_test=False):
         for adv_file in sorted_f:
             f.write(adv_file.strip())
             f.write('\n')
-
-
-def combine():
-    dst_dict = {}
-    pages = [str(d) for d in DURATION_LIST] + ['sp']
-    aff = ['_', 'affliction']
-    for p in pages:
-        dst_dict[p] = {}
-        for a in aff:
-            dst_dict[p][a] = open(os.path.join(
-                ROOT_DIR, OUTPUT_DIR, 'page/{}_{}.csv'.format(p, a)), 'w')
-
-    for list_file in ADV_LIST_FILES:
-        with open(os.path.join(ROOT_DIR, list_file), encoding='utf8') as src:
-            c_page, c_aff = '60', '_'
-            for adv_file in src:
-                adv_file = adv_file.strip()
-                src = os.path.join(ROOT_DIR, OUTPUT_DIR,
-                                   'chara', '{}.csv'.format(adv_file))
-                if not os.path.exists(src):
-                    continue
-                with open(src, 'r', encoding='utf8') as chara:
-                    for line in chara:
-                        if line[0] == '-':
-                            _, c_page, c_aff = line.strip().split(',')
-                        else:
-                            dst_dict[c_page][c_aff].write(line.strip())
-                            dst_dict[c_page][c_aff].write('\n')
-            print('cmb:{}'.format(list_file), flush=True)
-
-    for p in pages:
-        for a in aff:
-            dst_dict[p][a].close()
-            dst_dict[p][a].close()
-
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
@@ -146,6 +106,6 @@ if __name__ == '__main__':
             sim_adv(adv_file, special=is_special, mass=is_mass, sanity_test=sanity_test)
 
     if do_combine and not sanity_test:
-        combine()
+        core.simulate.combine()
 
     print('total: {:.4f}s'.format(monotonic() - t_start))
