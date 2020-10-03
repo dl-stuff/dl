@@ -1,7 +1,8 @@
 from itertools import chain, islice
 from collections import defaultdict
+from collections import namedtuple
 
-from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS
+from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS, WEAPON_TYPES
 from core.config import Conf
 from core.ability import ability_dict
 
@@ -548,6 +549,73 @@ class WeaponBase(EquipBase):
     def ele(self):
         return self.conf.ele
 
+APGroup = namedtuple('APGroup', ['value', 'att', 'restrict', 'condition', 'union', 'qual'])
+class AmuletPicker:
+    UNION_THRESHOLD = {1: 4, 2: 4, 3: 4, 4: 3, 5: 2, 6: 2, 11: 2}
+    def __init__(self):
+        self._grouped = {5: {}, 4: {}}
+        self._grouped_lookup = {}
+        for qual, wp in wyrmprints.items():
+            try:
+                wpa_lst = next(iter(wp['a']))
+                wpa = wpa_lst[0]
+                wpv = wpa_lst[1]
+                try:
+                    parts = wpa_lst[2].split('_')
+                    wpc = tuple(c for c in parts if c not in ELEMENTS and c not in WEAPON_TYPES)
+                    wpr = tuple(c for c in parts if c in ELEMENTS or c in WEAPON_TYPES)
+                except (IndexError, AttributeError):
+                    wpc = tuple()
+                    wpr = tuple()
+            except StopIteration:
+                wpv = 0
+                wpa = (None,)
+                wpc = None
+                wpr = None
+            grouped_value = APGroup(value=wpv, att=wp['att'], restrict=wpr, condition=wpc, union=wp['union'], qual=qual)
+            group_key = 5 if wp['rarity'] == 5 else 4
+            self._grouped_lookup[qual] = (group_key, wpa, grouped_value)
+            try:
+                from bisect import bisect
+                idx = bisect(self._grouped[group_key][wpa], grouped_value)
+                self._grouped[group_key][wpa].insert(idx, grouped_value)
+            except KeyError:
+                self._grouped[group_key][wpa] = [grouped_value]
+
+    def get_group(self, qual):
+        rare, gkey, gval = self._grouped_lookup[qual]
+        return self._grouped[rare][gkey], gval
+
+    def pick(self, amulets, c):
+        retain_union = {}
+        for u, thresh in AmuletPicker.UNION_THRESHOLD.items():
+            u_sum = sum(a.union == u for a in amulets)
+            if u_sum >= thresh:
+                retain_union[u] = u_sum
+
+        new_amulet_quals = set()
+        for a_i, a in enumerate(amulets):
+            group, gval = self.get_group(a.qual)
+            if len(group) == 1:
+                new_amulet_quals.add(a.qual)
+                continue
+            bis_i = len(group) - 1
+            while bis_i >= 0 and group[bis_i].restrict and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict):
+                bis_i -= 1
+            if group[bis_i].condition:
+                while bis_i >= 0 and group[bis_i].condition and gval.condition != group[bis_i].condition:
+                    bis_i -= 1
+            if gval.union in retain_union:
+                while gval.union != group[bis_i].union:
+                    bis_i -= 1
+            while group[bis_i].qual in new_amulet_quals:
+                bis_i -= 1
+            bis_qual = group[bis_i].qual
+            amulets[a_i] = AmuletBase(Conf(wyrmprints[bis_qual]), c, bis_qual)
+            new_amulet_quals.add(bis_qual)
+
+        return amulets
+
 
 class AmuletQuint:
     AB_LIMITS = {
@@ -561,6 +629,7 @@ class AmuletQuint:
     }
     # actually depends on weapons kms
     RARITY_LIMITS = {5: 3, None: 2}
+    PICKER = AmuletPicker()
     def __init__(self, confs, c, quals):
         limits = AmuletQuint.RARITY_LIMITS.copy()
         self.an = []
@@ -573,6 +642,7 @@ class AmuletQuint:
         if any(limits.values()):
             raise ValueError('Unfilled wyrmprint slot')
         self.an.sort(key=lambda a: (-a.rarity, a.name))
+        self.an = AmuletQuint.PICKER.pick(self.an, c)
         self.c = c
 
     def __str__(self):
@@ -817,11 +887,17 @@ class Slots:
 
 
 if __name__ == '__main__':
-    # from conf import load_adv_json
-    # conf = Conf(load_adv_json('Xania'))
-    # # conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
-    # conf['slots.d'] = 'Gala_Mars'
-    # slots = Slots(conf.c, True)
-    # slots.set_slots(conf.slots)
-    # print(type(slots.d))
-    print(Slots.DRAGON_DICTS)
+    from conf import get_adv, load_all_equip_json
+    # amulet_qual = [
+    #     'The_Wyrmclan_Duo',
+    #     'Flash_of_Genius',
+    #     'Moonlight_Party',
+    #     'The_Plaguebringer',
+    #     'His_Clever_Brother'
+    # ]
+    for adv, equip in load_all_equip_json().items():
+        conf = get_adv(adv)
+        pref = equip['180']['pref']
+        a_qual = equip['180'][pref]['slots.a']
+        slots = Slots(adv, conf.c)
+        slots.set_a(keys=a_qual)
