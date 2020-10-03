@@ -763,7 +763,7 @@ class Slots:
         self.w = WeaponBase(conf, self.c)
 
     def set_a(self, keys=None, affkeys=None):
-        if not self.flask_env and self.sim_afflict and affkeys:
+        if not self.flask_env and self.sim_afflict and affkeys and len(affkeys) == 5:
             keys = affkeys
         if keys is None or len(keys) < 5:
             keys = list(set(Slots.DEFAULT_WYRMPRINT))
