@@ -52,11 +52,11 @@ BINARY_EXPR['EQQ'] = BINARY_EXPR['EQ']
 
 PIN_CMD = {
     'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
-    'X': lambda e: e.didx if e.pin[0] =='x' and e.dhit == 0 else 0,
-    'XF': lambda e: e.didx if e.pin[0] == 'x' else 0,
+    'X': lambda e: e.didx if e.pin[0] =='x' and e.dstat != -1 and e.dhit == 0 else 0,
+    'XF': lambda e: e.didx if e.pin[0] == 'x' and e.dstat != -1 else 0,
     'S': lambda e: int(e.pin[1]) if (e.pin[0] == 's' and e.pin[1].isdigit()) or e.pin[-2:] == '-x' else 0,
-    'FSC': lambda e: e.pin.startswith('fs') and e.dhit == 0,
-    'FSCF': lambda e: e.pin.startswith('fs'),
+    'FSC': lambda e: e.pin.startswith('fs') and e.dstat != -1 and e.dhit == 0,
+    'FSCF': lambda e: e.pin.startswith('fs') and e.dstat != -1,
     'SP': lambda e: e.dname if e.pin == 'sp' else None,
     'PREP': lambda e: e.pin == 'prep',
 }

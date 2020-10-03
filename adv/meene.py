@@ -32,7 +32,7 @@ class Meene(Adv):
         Event('x').listener(self.push_to_act_history, order=0)
         Event('fs').listener(self.push_to_act_history, order=0)
         Event('dodge').listener(self.push_to_act_history, order=0)
-        self.hecking_delayed = set()
+        self.cancelable = set()
 
     def push_to_act_history(self, e):
         self.check_delayed()
@@ -43,10 +43,10 @@ class Meene(Adv):
             self.clear_oldest_butterflies(oldest)
 
     def check_delayed(self):
-        for mt, k in self.hecking_delayed.copy():
-            if not mt.online:
+        for mt, k in self.cancelable.copy():
+            if not mt.online and mt.canceled:
                 self.clear_butterflies(*k, reason='canceled')
-                self.hecking_delayed.remove((mt, k))
+                self.cancelable.remove((mt, k))
 
     def do_hitattr_make(self, e, aseq, attr, pin=None):
         mt = super().do_hitattr_make(e, aseq, attr, pin=pin)
@@ -59,7 +59,7 @@ class Meene(Adv):
             self.butterfly_timers[(e.name, t.chaser, now())].add(t)
             log('butterflies', 'spawn', self.butterflies)
             if mt:
-                self.hecking_delayed.add((mt, (e.name, t.chaser, now())))
+                self.cancelable.add((mt, (e.name, t.chaser, now())))
         elif mt and attr.get('chaser'):
             self.butterfly_timers[(e.name, attr.get('chaser'), now())].add(mt)
         if self.butterflies >= 6:

@@ -142,7 +142,7 @@ class Timer(object):
 
         self.timing = 0
         self.online = 0
-        self.pause_diff = 0
+        self.canceled = False
         #self.on()
 
 
@@ -152,7 +152,7 @@ class Timer(object):
             self.timing = _g_now + timeout
         else:
             self.timing = _g_now + self.timeout
-
+        self.canceled = False
         if self.online == 0:
             self.online = 1
         self.timeline.add(self)
@@ -162,6 +162,7 @@ class Timer(object):
     def off(self):
         if self.online:
             self.online = 0
+            self.canceled = True
             try:
                 self.timeline.rm(self)
             except:
