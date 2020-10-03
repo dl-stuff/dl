@@ -61,16 +61,19 @@ class Lathna(Adv):
             self.current_s['s1'] = 'default'
         return super().s(n)
 
+    def do_s1_hit(self, t):
+        # reeeeeee fix ur shit cykagames
+        with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
+            self.dmg_make(t.name, 2.61/(1 + self.sub_mod('s', 'buff')))
+            self.add_combo(t.name)
+
     def s1_proc(self, e):
         if e.group != 'all':
             return
-        # reeeeeee fix ur shit cykagames
-        with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
-            for _ in range(4):
-                self.dmg_make(e.name, 2.61/(1 + self.sub_mod('s', 'buff')))
-                self.add_combo(e.name)
-        # spaget
-        self.last_c = now() + 1
+        for i in range(4):
+            t = Timer(self.do_s1_hit)
+            t.name = e.name
+            t.on(i*0.4+0.4)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
