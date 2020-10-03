@@ -68,27 +68,6 @@ def sim_adv_list(list_file, sanity_test=False):
             f.write('\n')
 
 
-def download_writeups():
-    import gspread
-    from oauth2client.service_account import ServiceAccountCredentials
-
-    KEYFILE = './adv-haste-d888baf004e9.json'
-    scope = ['https://spreadsheets.google.com/feeds',
-             'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name(KEYFILE, scope)
-    client = gspread.authorize(creds)
-    sheet = client.open('dl-adv-writeups').sheet1
-
-    with open(os.path.join(ROOT_DIR, OUTPUT_DIR, 'chara', '_writeups.csv'), 'w', encoding='utf8') as f:
-        for line in sheet.get_all_values()[1:]:
-            f.write(line[0])
-            f.write(',')
-            f.write('"')
-            f.write(line[1])
-            f.write('"')
-            f.write('\n')
-
-
 def combine():
     dst_dict = {}
     pages = [str(d) for d in DURATION_LIST] + ['sp']
@@ -143,8 +122,6 @@ if __name__ == '__main__':
     if '-m' in arguments:
         is_mass = True
         arguments.remove('-m')
-    if '-dw' in arguments:
-        download_writeups()
     if '-san' in arguments:
         sanity_test = True
 

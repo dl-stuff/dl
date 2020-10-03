@@ -1,9 +1,9 @@
 from core.advbase import *
 
 def module():
-    return Jiang_Ziya
+    return Ricardt
 
-class Jiang_Ziya(Adv):
+class Ricardt(Adv):
     conf = {}
     conf['slots.a'] = [
         'Study_Rabbits',
