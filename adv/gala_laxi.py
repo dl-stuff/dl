@@ -74,7 +74,7 @@ class Gala_Laxi(RngCritAdv):
         prev = self.action.getprev()
         if isinstance(prev, X) and (prev.group == self.current_x or 'ex' in (prev.group, self.current_x)):
             if self.deferred_x is not None:
-                log('x', 'deferred_x on', self.deferred_x)
+                log('deferred_x', self.deferred_x)
                 self.current_x = self.deferred_x
                 self.deferred_x = None
             if prev.index < self.conf[prev.group].x_max:
