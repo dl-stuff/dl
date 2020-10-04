@@ -586,6 +586,19 @@ class AmuletPicker:
         rare, gkey, gval = self._grouped_lookup[qual]
         return self._grouped[rare][gkey], gval
 
+    @staticmethod
+    def find_next_matching(bis_i, group, gval, c, retain_union):
+        
+        while bis_i >= 0 and group[bis_i].restrict and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict):
+                bis_i -= 1
+        if group[bis_i].condition:
+            while bis_i >= 0 and group[bis_i].condition and gval.condition != group[bis_i].condition:
+                bis_i -= 1
+        if gval.union in retain_union:
+            while gval.union != group[bis_i].union:
+                bis_i -= 1
+        return bis_i
+
     def pick(self, amulets, c):
         retain_union = {}
         for u, thresh in AmuletPicker.UNION_THRESHOLD.items():
@@ -600,16 +613,10 @@ class AmuletPicker:
                 new_amulet_quals.add(a.qual)
                 continue
             bis_i = len(group) - 1
-            while bis_i >= 0 and group[bis_i].restrict and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict):
-                bis_i -= 1
-            if group[bis_i].condition:
-                while bis_i >= 0 and group[bis_i].condition and gval.condition != group[bis_i].condition:
-                    bis_i -= 1
-            if gval.union in retain_union:
-                while gval.union != group[bis_i].union:
-                    bis_i -= 1
+            bis_i = self.find_next_matching(bis_i, group, gval, c, retain_union)
             while group[bis_i].qual in new_amulet_quals:
                 bis_i -= 1
+                bis_i = self.find_next_matching(bis_i, group, gval, c, retain_union)
             bis_qual = group[bis_i].qual
             amulets[a_i] = AmuletBase(Conf(wyrmprints[bis_qual]), c, bis_qual)
             new_amulet_quals.add(bis_qual)
