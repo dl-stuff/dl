@@ -715,6 +715,9 @@ function readSimBuff() {
 }
 function toggleInputDisabled(state) {
     $('input').prop('disabled', state);
+    if ($('#input-edit-acl').prop('checked')){
+        $('#input-acl').prop('disabled', state);
+    }
     $('select').prop('disabled', state);
     if (!state) {
         coabSelection(0);

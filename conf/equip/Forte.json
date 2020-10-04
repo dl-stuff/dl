@@ -1,10 +1,9 @@
 {
   "180": {
     "base": {
-      "dps": 87534.12168399445,
+      "dps": 87693.93422334282,
       "team": 0.0,
       "tdps": null,
-      "output": "-,180,_\n87534,Forte,110272_01_r05,shadow,lance,4537,Gala Cat Sìth,200017_01,Qinglong Yanyuedao,305139_01_60501,An Ancient Oath,400084_02,Dragon and Tamer,400128_02,Memory of a Friend,400429_02,Dueling Dancers,400050_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Wand,,Cleo,100004_01_r04,Weapon,,Kleimann,110051_01_r04,always connect hits & hit15,,poison:62.7%;sleep:3.5%,attack:5504,fs:422,s1:26834,s2:26937,s4:6242,s4_poison:1338,dx:5553,ds:14700\n",
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -32,7 +31,7 @@
       ],
       "coabs": [
         "Ieyasu",
-        "Wand",
+        "Bow",
         "Cleo"
       ],
       "share": [
@@ -83,7 +82,7 @@
     "buffer": {
       "dps": 39907.45628247293,
       "team": 0.11581549219926664,
-      "tdps": 411228.7958814469,
+      "tdps": 412608.68501642894,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -122,28 +121,27 @@
   },
   "60": {
     "poison": {
-      "dps": 72597.30817042709,
+      "dps": 75821.31268092661,
       "team": 0.0,
       "tdps": null,
-      "output": "-,60,affliction\n72597,Forte,110272_01_r05,shadow,lance,4537,Gala Cat Sìth,200017_01,Qinglong Yanyuedao,305139_01_60501,An Ancient Oath,400084_02,Dragon and Tamer,400128_02,Memory of a Friend,400429_02,Dueling Dancers,400050_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Wand,,Cleo,100004_01_r04,Weapon,,Kleimann,110051_01_r04,always connect hits & hit15,,poison:100.0%;sleep:8.6%,attack:4860,fs:141,s1:21719,s2:18433,s4:2727,s4_poison:567,dx:7265,ds:16881\n",
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "Dueling_Dancers",
+        "His_Clever_Brother",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "if self.sim_afflict",
-        "`dragon(c3-s-end), x=5",
+        "`dragon(s-end), x=5",
         "`s3, not buff(s3)",
         "`s2",
         "`s4, cancel or s=2",
         "`s1",
         "`fs, x=5",
         "else",
-        "`dragon(c3-s-end), s2.charged<s2.sp/3 and cancel",
+        "`dragon(s-end), s2.charged<s2.sp/3 and cancel",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
@@ -158,12 +156,12 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Karina"
       ]
     },
     "pref": "base",
     "base": {
-      "dps": 63857.352662603524,
+      "dps": 64519.489558739384,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -193,7 +191,7 @@
       ],
       "coabs": [
         "Ieyasu",
-        "Wand",
+        "Bow",
         "Cleo"
       ],
       "share": [
