@@ -1154,7 +1154,7 @@ class Adv(object):
 
     def l_dodge(self, e):
         log('dodge', '-')
-        self.think_pin('dodge')        
+        self.think_pin('dodge')
 
     def add_combo(self, name='#'):
         # real combo count

@@ -56,12 +56,18 @@ class Meene(Adv):
             t.chaser = attr.get('butterfly')
             t.start = now()
             t.on(9.001+attr.get('iv', 0))
-            self.butterfly_timers[(e.name, t.chaser, now())].add(t)
+            self.butterfly_timers[(now(), e.name, t.chaser)].add(t)
             log('butterflies', 'spawn', self.butterflies)
             if mt:
-                self.cancelable.add((mt, (e.name, t.chaser, now())))
+                self.cancelable.add((mt, (now(), e.name, t.chaser)))
         elif mt and attr.get('chaser'):
-            self.butterfly_timers[(e.name, attr.get('chaser'), now())].add(mt)
+            self.butterfly_timers[(now(), e.name, attr.get('chaser'))].add(mt)
+        while self.butterflies > 9:
+            oldest = next(iter(sorted(self.butterfly_timers.keys())))
+            for t in self.butterfly_timers[oldest]:
+                t.off()
+            del self.butterfly_timers[oldest]
+            log('butterflies', 'cap', self.butterflies)
         if self.butterflies >= 6:
             self.current_s['s1'] = 'sixplus'
             self.current_s['s2'] = 'sixplus'
@@ -91,11 +97,11 @@ class Meene(Adv):
         log('butterflies', 'remove all', self.butterflies)
 
     def clear_oldest_butterflies(self, name):
-        seq = [k[2] for k in self.butterfly_timers.keys() if k[0] == name]
+        seq = [k[0] for k in self.butterfly_timers.keys() if k[1] == name]
         if not seq:
             return
         oldest = min(seq)
-        matching = tuple(filter(lambda k: k[0] == name and k[2] == oldest, self.butterfly_timers.keys()))
+        matching = tuple(filter(lambda k: k[1] == name and k[0] == oldest, self.butterfly_timers.keys()))
         for m in matching:
             for mt in self.butterfly_timers[m]:
                 mt.off()
