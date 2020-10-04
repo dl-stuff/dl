@@ -1685,6 +1685,12 @@ class Adv(object):
             bctrl = None
             blist = attr['buff']
             try:
+                if blist[-1][:5] == 'name=':
+                    name = blist[-1][5:]
+                    blist = blist[:-1]
+            except TypeError:
+                pass
+            try:
                 if blist[-1][0] == '-':
                     bctrl = blist[-1]
                     blist = blist[:-1]
