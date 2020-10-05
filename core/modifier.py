@@ -796,16 +796,22 @@ class ActiveBuffDict(defaultdict):
         super().__init__(lambda: defaultdict(lambda: {}))
         self.overwrite_buffs = {}
 
-    def __call__(self, k, group=None, *args):
+    def __call__(self, k, group=None, seq=None, *args):
         if self.get(k, False):
             subdict = self[k]
             if group is not None:
                 if isinstance(group, int):
                     group -= 1
-                try:
-                    return any(b.get() for b in subdict[group].values())
-                except KeyError:
-                    return False
+                if seq is not None:
+                    try:
+                        subdict[group][seq].get()
+                    except KeyError:
+                        return False
+                else:
+                    try:
+                        return any(b.get() for b in subdict[group].values())
+                    except KeyError:
+                        return False
             else:
                 return any(b.get() for sub in subdict.values() for b in sub.values())
         else:
