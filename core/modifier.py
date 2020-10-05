@@ -804,7 +804,7 @@ class ActiveBuffDict(defaultdict):
                     group -= 1
                 if seq is not None:
                     try:
-                        subdict[group][seq].get()
+                        return subdict[group][seq].get()
                     except KeyError:
                         return False
                 else:
