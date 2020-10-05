@@ -317,14 +317,6 @@ class Summer_Konohana_Sakuya(DragonBase):
         add_flower()
         Timer(add_flower, 60, True).on()
         adv.Event('ds').listener(add_flower)
-
-# class Midgardsormr_Zero(DragonBase):
-#     def oninit(self, adv):
-#         super().oninit(adv)
-#         ele_res_down = adv.Selfbuff('d_middy_zero', 0.10, -1, 'wind_resist', 'down')
-#         def ds_buff(e=None):
-#             ele_res_down.on()
-#         adv.Event('ds').listener(ds_buff)
 ### WIND DRAGONS ###
 
 ### LIGHT DRAGONS ###

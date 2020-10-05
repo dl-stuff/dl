@@ -79,7 +79,7 @@ EQ: "="
 _op3: GT | LT | EQ
 
 _QUOTE: "'" | "\""
-STRING: /[A-Za-z0-9\-]+/
+STRING: /[A-Za-z0-9-_]+/
 NONE: "none"i
 BOOLEAN: "true"i | "false"i
 indice: (function | CNAME) "[" [literal] "]"
