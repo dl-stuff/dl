@@ -1760,7 +1760,9 @@ class Adv(object):
             self.actmod_off(t)
 
     ATTR_COND = {
+        'hp>': lambda s, v: s.hp > v,
         'hp>=': lambda s, v: s.hp >= v,
+        'hp<': lambda s, v: s.hp < v,
         'hp<=': lambda s, v: s.hp <= v,
         'rng': lambda s, v: random.random() <= v,
         'hits': lambda s, v: s.hits >= v
