@@ -1077,7 +1077,7 @@ class Adv(object):
         return False
 
     def buffstack(self, name):
-        return reduce(lambda s, b: s+int(b.name == name and b.get()), self.all_buffs, 0)
+        return reduce(lambda s, b: s+int(b.get() and b.name == name), self.all_buffs, 0)
 
     @property
     def buffcount(self):
