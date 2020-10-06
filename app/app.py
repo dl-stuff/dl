@@ -33,7 +33,6 @@ def load_chara_file(fn, extra=None):
 
 NORMAL_ADV = load_chara_file('chara_quick.txt')
 MASS_SIM_ADV = load_chara_file('chara_slow.txt')
-PRELIM_ADV = load_chara_file('chara_prelim.txt')
 
 SPECIAL_ADV = {
     'hunter_sarisse_allhits': {
@@ -58,7 +57,7 @@ SIMULATED_BUFFS = {
 
 
 ADV_MODULES = {}
-for adv in NORMAL_ADV+MASS_SIM_ADV+PRELIM_ADV:
+for adv in NORMAL_ADV+MASS_SIM_ADV:
     module = core.simulate.load_adv_module(adv)
     name = module.__name__
     ADV_MODULES[name] = module
