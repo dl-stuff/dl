@@ -5,6 +5,8 @@ from core import Conf
 
 ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
 WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun')
+TRIBE_TYPES = ('thaumian', 'physian', 'demihuman', 'therion', 'undead', 'demon', 'human', 'dragon')
+
 ROOT_DIR = os.getenv('ROOT_DIR', os.path.realpath(os.path.join(__file__, '../..')))
 
 def save_json(fn, data, indent=None):

@@ -177,6 +177,21 @@
                             <option value="1">On</option>
                         </select>
                     </div>
+                    <div class="col-sm col-4">
+                        <label for="input-classbane">Class Bane</label>
+                        <select id="input-classbane" class="form-control">
+                            <option value="">None</option>
+                            <option value="HDT">HDT</option>
+                            <option value="therion">Therion</option>
+                            <option value="thaumian">Thaumian</option>
+                            <option value="physian">Physian</option>
+                            <option value="demihuman">Demihuman</option>
+                            <option value="demon">Demon</option>
+                            <!-- <option value="undead">Undead</option>
+                            <option value="human">Human</option>
+                            <option value="dragon">Dragon</option> -->
+                        </select>
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
@@ -272,22 +287,29 @@
                     </div>
                     <div class="modal-body">
                         <h5>What is this?</h5>
-                        <p>This is an elaborate napkin math machine, designed to estimate highest possible damage per second for a given adventurer.
-                        The source code can be found here: <a href="https://github.com/dl-stuff/dl">https://github.com/dl-stuff/dl</a></p>
+                        <p>This is an elaborate napkin math machine, designed to estimate highest possible damage per
+                            second for a given adventurer.
+                            The source code can be found here: <a
+                                href="https://github.com/dl-stuff/dl">https://github.com/dl-stuff/dl</a></p>
                         <h5>How does simulated afflictions work?</h5>
                         <p>The affliction is considered [uptime]% effective for the entire duration of the simulation.
                         </p>
                         <h5>How does simulated buff/debuff work?</h5>
                         <p>1 stack of the entered buff/debuff is active for the entire duration of the simulation.</p>
                         <h5>Why does the result show a different wyrmprint than my inputs?</h5>
-                        <p>Wyrmprints with the same ability are automatically swapped for the best option in terms of stats and value, as long as any affinities are preserved.</p>
+                        <p>Wyrmprints with the same ability are automatically swapped for the best option in terms of
+                            stats and value, as long as any affinities are preserved.</p>
                         <h5>How are the setups (Personal/Team/Affliction) created?</h5>
-                        <p>Whenever a simulation is ran, the server will compare the result with the highest recorded DPS/Team DPS, and store the setup if it is better.
-                        For personal/affliction, team DPS is not considered. Likewise for team DPS, only the team buff % is considered.
-                        Since these setups are crowdsourced, no guarentee is made on any one of them being optimal and you are encouraged to try for bigger numbers.
+                        <p>Whenever a simulation is ran, the server will compare the result with the highest recorded
+                            DPS/Team DPS, and store the setup if it is better.
+                            For personal/affliction, team DPS is not considered. Likewise for team DPS, only the team
+                            buff % is considered.
+                            Since these setups are crowdsourced, no guarentee is made on any one of them being optimal
+                            and you are encouraged to try for bigger numbers.
                         </p>
                         <h5>I need to speak to the manager.</h5>
-                        <p><a href="https://github.com/dl-stuff/dl/issues">Open an issue here</a>, or ask me on discord I'm chu2.718281828459045235360287471#0110</p>
+                        <p><a href="https://github.com/dl-stuff/dl/issues">Open an issue here</a>, or ask me on discord
+                            I'm chu2.718281828459045235360287471#0110</p>
                     </div>
                 </div>
             </div>

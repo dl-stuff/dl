@@ -757,35 +757,11 @@ class Adv(object):
                     Timer(lambda t: Event('defchain').on(), interval, True).on()
 
     def config_slots(self):
+        if self.conf['classbane'] == 'HDT':
+            self.conf.c.a.append(['k_HDT', 0.3])
         if not self.conf['flask_env']:
             self.d_slots()
         self.slots.set_slots(self.conf.slots)
-        # for s in ('c', 'd', 'w', 'a'):
-        #     self.slots.__dict__[s] = self.cmnslots.__dict__[s]
-
-        # if self.conf['slots']:
-        #     if not self.conf['flask_env']:
-        #         self.d_slots()
-        #     for s in ('c', 'd', 'w', 'a'):
-        #         if self.conf.slots[s]:
-        #             # TODO: make this bit support string names
-        #             self.slots.__dict__[s] = self.conf.slots[s]
-        #     if self.conf['flask_env']:
-        #         return
-
-        # if self.sim_afflict:
-        #     from conf.slot_common import ele_punisher, punisher_print
-        #     aff = ele_punisher[self.slots.c.ele]
-        #     wpa = punisher_print[aff]
-        #     wp1 = self.slots.a.__class__
-        #     wp2 = wpa
-        #     if wp1 != wp2:
-        #         self.slots.a = wp1()+wp2()
-        #     if self.conf[f'slots.{aff}']:
-        #         afflic_slots = self.conf[f'slots.{aff}']
-        #         for s in ('d', 'w', 'a'):
-        #             if afflic_slots[s]:
-        #                 self.slots.__dict__[s] = afflic_slots[s]
 
     def pre_conf(self, equip_key=None):
         self.conf = Conf(self.conf_default)
@@ -994,7 +970,7 @@ class Adv(object):
         #     print(dict(self.all_modifiers['att']))
         #     exit()
         return cc * att * k
-
+    
     def build_rates(self, as_list=True):
         rates = {}
         for afflic in AFFLICT_LIST:
@@ -1017,6 +993,11 @@ class Adv(object):
         for dkey in debuff_rates.keys():
             debuff_rates[dkey] = 1 - debuff_rates[dkey]
         rates.update(debuff_rates)
+
+        if self.conf['classbane']:
+            enemy_class = self.conf['classbane']
+            if self.condition(f'vs {enemy_class} enemy'):
+                rates[enemy_class] = 1
 
         return rates if not as_list else list(rates.items())
 
@@ -1366,7 +1347,7 @@ class Adv(object):
 
         self.hp = self.condition.prev_hp
         if 'hp' in self.conf:
-            self.set_hp(self.conf['hp'])
+            self.set_hp(self.conf['hp'])            
 
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)

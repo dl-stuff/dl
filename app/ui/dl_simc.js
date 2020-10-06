@@ -228,6 +228,9 @@ function serConf(no_conf) {
     if (!isNaN(parseInt($('#input-dragonbattle').val()))) {
         requestJson['dragonbattle'] = $('#input-dragonbattle').val();
     }
+    if (!isNaN(parseInt($('#input-classbane').val()))) {
+        requestJson['classbane'] = $('#input-classbane').val();
+    }
     if (!isNaN(parseInt($('#input-hp').val()))) {
         requestJson['hp'] = $('#input-hp').val();
     }
@@ -282,7 +285,7 @@ function loadConf(conf, slots) {
         $('#input-teamdps').val(conf.teamdps);
         localStorage.setItem('teamdps', conf.teamdps);
     }
-    for (const key of ['t', 'hp', 'dragonbattle']) {
+    for (const key of ['t', 'hp', 'dragonbattle', 'classbane']) {
         if (conf[key]) {
             $('#input-' + key).val(conf[key]);
         }
@@ -837,6 +840,7 @@ function clearResults() {
     }
     $('#input-conditions').empty();
     $('#input-dragonbattle').val('');
+    $('#input-classbane').val('');
     $('#input-equip').val($('#input-equip').data('pref') || 'base');
 }
 function resetTest() {

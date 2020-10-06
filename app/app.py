@@ -13,7 +13,7 @@ from flask import jsonify
 
 import core.simulate
 from core.afflic import AFFLICT_LIST
-from conf import ROOT_DIR, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json, save_equip_json
+from conf import ROOT_DIR, TRIBE_TYPES, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json, save_equip_json
 app = Flask(__name__)
 
 # Helpers
@@ -128,6 +128,8 @@ def save_equip(adv, adv_module, test_output):
     if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
         return
     if 'dragonbattle' in adv.conf:
+        return
+    if 'classbane' in adv.conf:
         return
     if 'hp' in adv.conf:
         return
@@ -266,6 +268,8 @@ def simc_adv_test():
         conf['hp'] = min(abs(int(params['hp'])), 100)
     if 'dragonbattle' in params:
         conf['dragonbattle'] = bool(params['dragonbattle'])
+    if 'classbane' in params and params['classbane'] in TRIBE_TYPES:
+        conf['classbane'] = params['classbane']
     if coab is not None:
         conf['coabs'] = coab
     if share is not None:
