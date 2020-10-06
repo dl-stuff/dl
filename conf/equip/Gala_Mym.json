@@ -30,7 +30,7 @@
       "Euden"
     ],
     "base": {
-      "dps": 98370.1189614217,
+      "dps": 99110.0339911877,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -42,7 +42,11 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-s-c3-end), s1",
+        "if dragonform.shift_count<2",
+        "`dragon(c3-s-end)",
+        "else",
+        "`dragon(c3-s-c2-end)",
+        "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
         "`s4, fsc",
@@ -51,8 +55,8 @@
         "`dodge, fsc"
       ],
       "coabs": [
+        "Wand",
         "Yuya",
-        "Verica",
         "Serena"
       ],
       "share": [
@@ -62,7 +66,7 @@
     },
     "pref": "base",
     "burn": {
-      "dps": 111679.61328981062,
+      "dps": 112309.3826227408,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -74,7 +78,11 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-s-c3-end), s1",
+        "if dragonform.shift_count<2",
+        "`dragon(c3-s-end)",
+        "else",
+        "`dragon(c3-s-c2-end)",
+        "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
         "`s4, fsc",
@@ -95,7 +103,7 @@
     "buffer": {
       "dps": 15571.576388323303,
       "team": 0.1642311846273827,
-      "tdps": 504158.46881307324,
+      "tdps": 508663.794835319,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
@@ -203,7 +211,7 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-s-c3-end), s1",
+        "`dragon(c3-s-c3-end)",
         "`s3, not buff(s3) and x=5",
         "`s1",
         "`s4, fsc",

@@ -1,45 +1,32 @@
 {
   "180": {
     "base": {
-      "dps": 41036.80348807151,
+      "dps": 46355.20637053154,
       "team": 0.0,
       "tdps": null,
-      "output": "-,180,_\n41037,Pinon,110366_01_r05,water,bow,4125,Nimis,210053_01,Ame no Hajiyumi,306128_01_60201,Dear Diary,400391_02,Memory of a Friend,400429_02,The Lurker in the Woods,400418_02,Chariot Drift,400392_02,His Clever Brother,400169_02,Blade,,Dragonyule Cleo,100004_02_r05,Tiki,110360_01_r05,Weapon,,Yue,110056_01_r04,hp70 & hit15,unlock at 63.36s; only s1 if energized after unlock,frostbite:64.9%,attack:25595,fs2:11334,s1:3551,s1_frostbite:555\n",
       "slots.a": [
         "Dear_Diary",
+        "Forest_Bonds",
         "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Siren",
       "acl": [
-        "# `dragon(c3-s-end), s",
+        "`dragon, s",
         "`s3, not buff(s3)",
-        "if self.unlocked",
-        "if x=8 or fsc",
-        "`s2",
-        "`s4",
-        "`s1, energy()=5",
-        "end",
-        "else",
-        "if fsc",
-        "`s2",
-        "`s4",
+        "`s2, not buff(s2)",
         "`s1",
-        "`dodge",
-        "end",
-        "`fs2",
-        "end"
+        "`s4"
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Cleo",
-        "Tiki"
+        "Summer_Estelle",
+        "Dragonyule_Cleo"
       ],
       "share": [
         "Weapon",
-        "Yue"
+        "Kleimann"
       ]
     },
     "pref": "base",
@@ -87,7 +74,7 @@
     "buffer": {
       "dps": 23487.051025063938,
       "team": 0.3067046840407232,
-      "tdps": 57220.36009295958,
+      "tdps": 74560.82849530672,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -158,10 +145,9 @@
       ]
     },
     "frostbite": {
-      "dps": 41293.37176786303,
+      "dps": 42345.86774010299,
       "team": 0.0,
       "tdps": null,
-      "output": "-,60,affliction\n41293,Pinon,110366_01_r05,water,bow,4125,Nimis,210053_01,Ame no Hajiyumi,306128_01_60201,Dear Diary,400391_02,Memory of a Friend,400429_02,The Lurker in the Woods,400418_02,Chariot Drift,400392_02,His Clever Brother,400169_02,Blade,,Dragonyule Cleo,100004_02_r05,Tiki,110360_01_r05,Weapon,,Yue,110056_01_r04,hp70 & hit15,not unlocked,frostbite:100.0%,attack:0,fs2:36359,s1:4435,s1_frostbite:498\n",
       "slots.a": [
         "Dear_Diary",
         "Memory_of_a_Friend",
@@ -171,7 +157,7 @@
       ],
       "slots.d": "Nimis",
       "acl": [
-        "# `dragon(c3-s-end), s",
+        "`dragon, s",
         "`s3, not buff(s3)",
         "if self.unlocked",
         "if x=8 or fsc",

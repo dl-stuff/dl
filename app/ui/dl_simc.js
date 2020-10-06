@@ -842,7 +842,7 @@ function clearResults() {
 function resetTest() {
     updateUrl();
     clearResults();
-    loadAdvSlots(true, true);
+    loadAdvSlots(true, false);
 }
 function weaponSelectChange() {
     const weapon = $('#input-wep').val();

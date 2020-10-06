@@ -1,29 +1,25 @@
 {
   "180": {
     "base": {
-      "dps": 70119.90902444426,
-      "team": 0.032715691539992875,
+      "dps": 60847.1374543918,
+      "team": 0.033325147381158486,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
+        "Moonlight_Party",
         "Entwined_Flames",
         "Such_High_Spirits"
       ],
       "slots.d": "Daikokuten",
       "acl": [
+        "`s4, (dragonform.dragon_gauge >= 500) or dragonform.dragon_gauge <= 100",
         "`fs, c_fs(cartridge3) and s2.charged>1090",
-        "`dragon, cartridge=0 and combine_crit_mods()[0] >= 0.9",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s4, cancel",
-        "If cartridge=0",
-        "`s2, cancel",
-        "Else",
-        "`s2",
-        "End",
-        "`dodge, x=1 and cancel"
+        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
+        "`s1, x=1",
+        "`s3, x=1",
+        "`s2, x=1 and cartridge=0",
+        "`dodge, x=1"
       ],
       "coabs": [
         "Axe2",
@@ -32,44 +28,13 @@
       ],
       "share": [
         "Weapon",
-        "Hunter_Sarisse"
+        "Summer_Luca"
       ]
     },
     "pref": "base",
-    "buffer": {
-      "dps": 35922.62462137816,
-      "team": 0.1312842208386819,
-      "tdps": 346939.17669644003,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Valiant_Crown",
-        "Snipers_Allure",
-        "The_Warrioresses"
-      ],
-      "slots.d": "PopStar_Siren",
-      "acl": [
-        "`fs, c_fs(cartridge3) and s2.charged>1090",
-        "`dragon, cartridge=0",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s4, cancel and not buff(s4)",
-        "`s2, cancel",
-        "`dodge, x=1 and cancel"
-      ],
-      "coabs": [
-        "Mitsuhide",
-        "Axe2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Hunter_Sarisse"
-      ]
-    },
     "paralysis": {
-      "dps": 80387.86243242504,
-      "team": 0.033325150774553246,
+      "dps": 67804.00747581695,
+      "team": 0.033325147381158486,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -80,13 +45,13 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
+        "`s4, (dragonform.dragon_gauge >= 500) or dragonform.dragon_gauge <= 100",
         "`fs, c_fs(cartridge3) and s2.charged>1090",
-        "`dragon, cartridge=0",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s4, cancel and not buff(s4)",
-        "`s2, cancel",
-        "`dodge, x=1 and cancel"
+        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
+        "`s1, x=1",
+        "`s3, x=1",
+        "`s2, x=1 and cartridge=0",
+        "`dodge, x=1"
       ],
       "coabs": [
         "Axe2",
@@ -95,14 +60,45 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Luca"
+      ]
+    },
+    "buffer": {
+      "dps": 24153.36156324286,
+      "team": 0.1330870864869848,
+      "tdps": 367813.37872978393,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Entwined_Flames",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "PopStar_Siren",
+      "acl": [
+        "`s4, (dragonform.dragon_gauge >= 500) or dragonform.dragon_gauge <= 100",
+        "`fs, c_fs(cartridge3) and s2.charged>1090",
+        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
+        "`s1, x=1",
+        "`s3, x=1",
+        "`s2, x=1 and cartridge=0",
+        "`dodge, x=1"
+      ],
+      "coabs": [
+        "Axe2",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
       ]
     }
   },
   "60": {
     "paralysis": {
-      "dps": 54029.35135694704,
-      "team": 0.033859149269447254,
+      "dps": 0.0,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -132,5 +128,76 @@
       ]
     },
     "pref": "base"
+  },
+  "120": {
+    "base": {
+      "dps": 0.0,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`fs, c_fs(cartridge3) and s2.charged>1090",
+        "`s1, cancel",
+        "`s3, cancel",
+        "`s4, cancel",
+        "If cartridge=0",
+        "`s2, cancel",
+        "Else",
+        "`s2",
+        "End",
+        "`dodge, x=1 and cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Axe2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
+      ]
+    },
+    "pref": "base",
+    "paralysis": {
+      "dps": 0.0,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`fs, c_fs(cartridge3) and s2.charged>1090",
+        "`s1, cancel",
+        "`s3, cancel",
+        "`s4, cancel",
+        "If cartridge=0",
+        "`s2, cancel",
+        "Else",
+        "`s2",
+        "End",
+        "`dodge, x=1 and cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Axe2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
+      ]
+    }
   }
 }

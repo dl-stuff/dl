@@ -18,6 +18,7 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
     else:
         adv_name = adv_file
         adv_file += '.py'
+    adv_file = adv_file.lower()
     if special is None and adv_file.count('.py') > 1:
         special == True
 

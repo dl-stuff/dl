@@ -38,9 +38,11 @@ class Gala_Luca(Adv):
 
     def buff_icon_count(self):
         # not accurate to game
-        icon_count = len(set([b.name for b in self.all_buffs if b.get() and not b.hidden and b.bufftype == 'self' or b.bufftype == 'team']))
+        icons = [b.name for b in self.all_buffs if b.get() and not b.hidden and b.bufftype == 'self' or b.bufftype == 'team']
+        icon_count = len(set(icons))
         if self.conf['sim_buffbot.count'] is not None:
             icon_count += self.conf.sim_buffbot.count
+        log('debug', 'buff_icon_count', icon_count, str(icons))
         return min(icon_count, 7)
 
     def custom_crit_mod(self, name):
@@ -68,7 +70,7 @@ class Gala_Luca(Adv):
             # current_rate = min(1.0, current_rate)
             mean_rate += current_rate * state_p
             icon_avg += icon_count * state_p
-            
+
             if state[0] is not None and t - state[0] < 3.0:  # proc in last 3 seconds
                 new_states[state] += state_p  # state won't change
             else:
@@ -81,7 +83,7 @@ class Gala_Luca(Adv):
         self.all_icon_avg = self.update_icon_avg(icon_avg, *self.all_icon_avg)
         if in_s1:
             self.s1_icon_avg = self.update_icon_avg(icon_avg, *self.s1_icon_avg)
-        
+
         self.a1_states = new_states
 
         return 1.0 + mean_rate * crit_dmg
