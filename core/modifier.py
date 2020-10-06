@@ -809,6 +809,7 @@ class ActiveBuffDict(defaultdict):
                         return False
                 else:
                     try:
+                        log('debug', str([(b.name, b.get()) for b in subdict[group].values()]))
                         return any(b.get() for b in subdict[group].values())
                     except KeyError:
                         return False

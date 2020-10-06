@@ -426,101 +426,101 @@ class WeaponBase(EquipBase):
         'sword': {
             'startup': 0.1, 'recovery': 1.76667,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333},
                 {'dmg': 1.984, 'dp': 100, 'iv': 0.63333},
                 {'dmg': 1.984, 'iv': 0.8},
                 {'dmg': 1.984, 'iv': 0.93333},
                 {'dmg': 1.984, 'iv': 1.06667},
-                {'dmg': 1.984, 'iv': 1.23333},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333}
+                {'dmg': 1.984, 'iv': 1.23333}
             ]
         },
         'blade': {
             'startup': 0.1, 'recovery': 2.2,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333},
                 {'dmg': 1.704, 'dp': 100, 'iv': 0.33333},
                 {'dmg': 1.704, 'iv': 0.63333},
                 {'dmg': 1.704, 'iv': 0.8},
                 {'dmg': 1.704, 'iv': 0.93333},
-                {'dmg': 1.704, 'iv': 1.06667},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333}
+                {'dmg': 1.704, 'iv': 1.06667}
             ]
         },
         'dagger': {
             'startup': 0.1, 'recovery': 2.43333,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.2},
                 {'dmg': 1.312, 'dp': 100, 'iv': 0.26667},
                 {'dmg': 1.312, 'iv': 0.7},
                 {'dmg': 1.312, 'iv': 1.1},
                 {'dmg': 1.312, 'iv': 1.3},
-                {'dmg': 1.312, 'iv': 1.6},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.2}
+                {'dmg': 1.312, 'iv': 1.6}
             ]
         },
         'axe': {
             'startup': 0.1, 'recovery': 2.1,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.56667},
                 {'dmg': 2.26, 'dp': 100, 'iv': 0.66667},
                 {'dmg': 2.26, 'iv': 0.9},
                 {'dmg': 2.26, 'iv': 1.2},
                 {'dmg': 2.26, 'iv': 1.43333},
-                {'dmg': 2.26, 'iv': 1.5},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.56667}
+                {'dmg': 2.26, 'iv': 1.5}
             ]
         },
         'lance': {
             'startup': 0.1, 'recovery': 3.23333,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.5},
                 {'dmg': 1.656, 'dp': 100, 'iv': 0.86667},
                 {'dmg': 1.656, 'iv': 0.96667},
                 {'dmg': 1.656, 'iv': 1.9},
                 {'dmg': 1.656, 'iv': 2.0},
-                {'dmg': 1.656, 'iv': 2.1},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.5}
+                {'dmg': 1.656, 'iv': 2.1}
             ]
         },
         'bow': {
             'startup': 0.1, 'recovery': 2.0,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.53333},
                 {'dmg': 1.898, 'dp': 100, 'iv': 0.66667, 'msl': 1},
                 {'dmg': 1.898, 'iv': 0.8, 'msl': 1},
                 {'dmg': 1.898, 'iv': 0.9, 'msl': 1},
                 {'dmg': 1.898, 'iv': 1.5, 'msl': 1},
-                {'dmg': 1.898, 'iv': 1.53333, 'msl': 1},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.53333}
+                {'dmg': 1.898, 'iv': 1.53333, 'msl': 1}
             ]
         },
         'wand': {
             'startup': 0.1, 'recovery': 1.66667,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667},
                 {'dmg': 2.168, 'dp': 100, 'iv': 0.96667},
                 {'dmg': 2.168, 'iv': 1.06667},
                 {'dmg': 2.168, 'iv': 1.13333},
                 {'dmg': 2.168, 'iv': 1.26667},
-                {'dmg': 2.168, 'iv': 1.26667},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667}
+                {'dmg': 2.168, 'iv': 1.26667}
             ]
         },
         'staff': {
             'startup': 0.1, 'recovery': 1.4,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667},
                 {'dmg': 1.51, 'dp': 100, 'iv': 0.83333},
                 {'dmg': 1.51, 'iv': 1.0},
                 {'dmg': 1.51, 'iv': 1.16667},
                 {'dmg': 1.51, 'iv': 1.33333},
-                {'dmg': 1.51, 'iv': 1.36667},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667}
+                {'dmg': 1.51, 'iv': 1.36667}
             ]
         },
         'gun': {
             'startup': 0.1, 'recovery': 1.93333,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.5},
                 {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'dp': 100, 'iv': 0.66667, 'msl': 1},
                 {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 0.66667, 'msl': 1}, 4,
                 {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 0.86667, 'msl': 1}, 5,
                 {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.06667, 'msl': 1}, 5,
                 {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.26667, 'msl': 1}, 5,
-                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.46667, 'msl': 1}, 5,
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.5}
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.46667, 'msl': 1}, 5
             ]
         }
     }
