@@ -20,9 +20,9 @@ class Radiant_Xuan_Zang(Adv):
 
     def fs_xihe_proc(self, e):
         self.afflics.paralysis.res_modifier = 0.20
-        Timer(self.paralysis_rate_reset).on(20)
+        Timer(self.fs_paralysis_rate_reset).on(20)
 
-    def paralysis_rate_reset(self, t):
+    def fs_paralysis_rate_reset(self, t):
         self.afflics.paralysis.res_modifier = 0
 
     def prerun(self):

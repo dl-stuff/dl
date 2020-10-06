@@ -24,7 +24,7 @@ class Ramona(Adv):
             self.current_s['s1'] = 'default'
         return super().s(n)
 
-    def do_s1_hit(self, t):
+    def s1_do_hit(self, t):
         # reeeeeee fix ur shit cykagames
         with KillerModifier('s1_killer', 'hit', 0.3, ['burn']):
             Selfbuff(f'{t.name}_crit', 0.10, 10, 'crit', 'chance').on()
@@ -35,7 +35,7 @@ class Ramona(Adv):
         if e.group != 'all':
             return
         for i in range(6):
-            t = Timer(self.do_s1_hit)
+            t = Timer(self.s1_do_hit)
             t.name = e.name
             t.on(i*0.5+0.5)
 

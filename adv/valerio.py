@@ -50,20 +50,6 @@ class Valerio(StanceAdv, RngCritAdv):
         buffcount = super().buffcount
         return buffcount + self.a1_stack
 
-        # self.crit_mod = self.custom_crit_mod
-        # self.a1_cd = False
-
-    def custom_crit_mod(self, name):
-        if self.a1_cd or name == 'test':
-            return self.solid_crit_mod(name)
-        else:
-            crit = self.rand_crit_mod(name)
-            if crit > 1 and not self.a1_cd:
-                Spdbuff('a1', 0.10, 20).on()
-                self.a1_cd = True
-                Timer(self.a1_cd_off).on(10)
-            return crit
-
     def a1_cd_off(self, t):
         self.a1_cd = False
 

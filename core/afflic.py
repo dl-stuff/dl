@@ -43,8 +43,8 @@ class Dot(object):
         self.true_dmg_event.count = self.tick_dmg
         self.true_dmg_event.on()
 
-    def __call__(self):
-        return self.on()
+    # def __call__(self):
+    #     return self.on()
 
     def get(self):
         return self.active
@@ -127,8 +127,8 @@ class AfflicUncapped(object):
             self.update()
         return end_callback
 
-    def __call__(self, *args, **argv):
-        return self.on(*args, **argv)
+    # def __call__(self, *args, **argv):
+    #     return self.on(*args, **argv)
 
     def set_res_mod(self, delta):
         self.res_modifier = min(self.res_modifier + delta, 1)
@@ -238,8 +238,8 @@ class AfflicCapped(object):
     def stack_end(self, t):
         self.update()
 
-    def __call__(self, *args, **argv):
-        return self.on(*args, **argv)
+    # def __call__(self, *args, **argv):
+    #     return self.on(*args, **argv)
 
     def set_res_mod(self, delta):
         self.res_modifier = min(self.res_modifier + delta, 1)
@@ -364,6 +364,7 @@ class Afflics(object):
         self.burn = Afflic_dot('burn', duration=12, iv=3.99)
         self.paralysis = Afflic_dot('paralysis', duration=13, iv=3.99)
         self.frostbite = Afflic_dot('frostbite', duration=21, iv=2.99)
+        self.flashburn = Afflic_dot('flashburn', duration=21, iv=2.99)
 
         self.blind = Afflic_scc('blind', duration=8)
         self.bog = Afflic_bog('bog', duration=8)

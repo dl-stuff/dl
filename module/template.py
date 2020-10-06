@@ -148,16 +148,16 @@ class RngCritAdv(Adv):
 class SigilAdv(Adv):
     def config_sigil(self, duration=300, **kwargs):
         self.unlocked = False
-        self.locked_sigil = EffectBuff('locked_sigil', 300, lambda: None, self.sigil_unlock).no_bufftime()
+        self.locked_sigil = EffectBuff('locked_sigil', 300, lambda: None, self.a_sigil_unlock).no_bufftime()
         self.locked_sigil.on()
         self.sigil_mode = ModeManager(group='sigil', **kwargs)
 
-    def sigil_unlock(self):
+    def a_sigil_unlock(self):
         self.unlocked = now()
         self.sigil_mode.on()
 
-    def update_sigil(self, time):
+    def a_update_sigil(self, time):
         duration = self.locked_sigil.buff_end_timer.add(time)
         if duration <= 0:
             self.locked_sigil.off()
-            self.sigil_unlock()
+            self.a_sigil_unlock()

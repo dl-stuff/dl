@@ -37,8 +37,8 @@ class Gala_Laxi(RngCritAdv):
             xnconf['startup'] += 0.05
 
     def prerun(self):
-        self.fig_t = Timer(self.fig_dmg, 0.33, True).off()
-        self.fig = EffectBuff('fig', 20, self.fig_on, self.fig_off)
+        self.x_fig_t = Timer(self.x_fig_dmg, 0.33, True).off()
+        self.fig = EffectBuff('fig', 20, self.x_fig_on, self.x_fig_off)
         
         self.a1_cp = 0
         self.a1_buffs = {
@@ -87,18 +87,18 @@ class Gala_Laxi(RngCritAdv):
                 self.current_x = 'default'
         return self.a_x_dict[self.current_x][x_min]()
 
-    def fig_on(self):
-        self.fig_t.on()
+    def x_fig_on(self):
+        self.x_fig_t.on()
         self.current_s['s1'] = 'eden'
         self.current_s['s2'] = 'eden'
 
-    def fig_off(self):
-        self.fig_t.off()
+    def x_fig_off(self):
+        self.x_fig_t.off()
         self.current_s['s1'] = 'default'
         self.current_s['s2'] = 'default'
         self.update_a1(-100)
 
-    def fig_dmg(self, t):
+    def x_fig_dmg(self, t):
         if any([self.a_s_dict[sn].ac.status != -2 for sn in ('s1', 's2')]):
             return
         self.dmg_make('x_fig', 1.00, 'x')

@@ -61,7 +61,7 @@ class Lathna(Adv):
             self.current_s['s1'] = 'default'
         return super().s(n)
 
-    def do_s1_hit(self, t):
+    def s1_do_hit(self, t):
         # reeeeeee fix ur shit cykagames
         with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
             self.dmg_make(t.name, 2.61/(1 + self.sub_mod('s', 'buff')))
@@ -71,7 +71,7 @@ class Lathna(Adv):
         if e.group != 'all':
             return
         for i in range(4):
-            t = Timer(self.do_s1_hit)
+            t = Timer(self.s1_do_hit)
             t.name = e.name
             t.on(i*0.4+0.4)
 

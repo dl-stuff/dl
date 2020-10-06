@@ -29,29 +29,29 @@ class Meene(Adv):
     def prerun(self):
         self.butterfly_timers = defaultdict(lambda: set())
         self.act_history = deque(maxlen=6)
-        Event('x').listener(self.push_to_act_history, order=0)
-        Event('fs').listener(self.push_to_act_history, order=0)
-        Event('dodge').listener(self.push_to_act_history, order=0)
+        Event('x').listener(self.a1_push_to_act_history, order=0)
+        Event('fs').listener(self.a1_push_to_act_history, order=0)
+        Event('dodge').listener(self.a1_push_to_act_history, order=0)
         self.cancelable = set()
 
-    def push_to_act_history(self, e):
-        self.check_delayed()
+    def a1_push_to_act_history(self, e):
+        self.a1_check_delayed()
         self.act_history.append(e.name)
         log('act_history', str(self.act_history))
         if len(self.act_history) > 5:
             oldest = self.act_history.popleft()
-            self.clear_oldest_butterflies(oldest)
+            self.a1_clear_oldest_butterflies(oldest)
 
-    def check_delayed(self):
+    def a1_check_delayed(self):
         for mt, k in self.cancelable.copy():
             if not mt.online and mt.canceled:
-                self.clear_butterflies(*k, reason='canceled')
+                self.a1_clear_butterflies(*k, reason='canceled')
                 self.cancelable.remove((mt, k))
 
     def do_hitattr_make(self, e, aseq, attr, pin=None):
         mt = super().do_hitattr_make(e, aseq, attr, pin=pin)
         if attr.get('butterfly'):
-            t = Timer(self.l_clear_butterflies)
+            t = Timer(self.l_a1_clear_butterflies)
             t.name = e.name
             t.chaser = attr.get('butterfly')
             t.start = now()
@@ -73,20 +73,20 @@ class Meene(Adv):
             self.current_s['s2'] = 'sixplus'
 
     def s1_before(self, e):
-        self.check_delayed()
+        self.a1_check_delayed()
         log('butterflies', self.butterflies)
 
     def s2_before(self, e):
-        self.check_delayed()
+        self.a1_check_delayed()
         log('butterflies', self.butterflies)
 
     def s1_proc(self, e):
-        self.clear_all_butterflies()
+        self.a1_clear_all_butterflies()
 
     def s2_proc(self, e):
-        self.clear_all_butterflies()
+        self.a1_clear_all_butterflies()
 
-    def clear_all_butterflies(self):
+    def a1_clear_all_butterflies(self):
         for chasers in self.butterfly_timers.values():
             for t in chasers:
                 t.off()
@@ -96,7 +96,7 @@ class Meene(Adv):
         self.act_history.clear()
         log('butterflies', 'remove all', self.butterflies)
 
-    def clear_oldest_butterflies(self, name):
+    def a1_clear_oldest_butterflies(self, name):
         seq = [k[0] for k in self.butterfly_timers.keys() if k[1] == name]
         if not seq:
             return
@@ -111,7 +111,7 @@ class Meene(Adv):
             self.current_s['s2'] = 'default'
         log('butterflies', f'remove {name}', self.butterflies)
 
-    def clear_butterflies(self, name, chaser, start, reason='timeout'):
+    def a1_clear_butterflies(self, name, chaser, start, reason='timeout'):
         try:
             key = (name, chaser, start)
             for mt in self.butterfly_timers[key]:
@@ -124,8 +124,8 @@ class Meene(Adv):
         except KeyError:
             pass
 
-    def l_clear_butterflies(self, t):
-        self.clear_butterflies(t.name, t.chaser, t.start)
+    def l_a1_clear_butterflies(self, t):
+        self.a1_clear_butterflies(t.name, t.chaser, t.start)
 
     @property
     def butterflies(self):

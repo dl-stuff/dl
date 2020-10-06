@@ -29,7 +29,7 @@ class Kleimann(Adv):
         if self.duration <= 60:
             self.conf['coabs'] = ['Ieyasu','Gala_Alex','Bow']
 
-    def madness_autocharge(self, t):
+    def a1_madness_autocharge(self, t):
         for s in self.skills:
             if s.charged < s.sp:
                 sp = self.madness_status * 100
@@ -40,7 +40,7 @@ class Kleimann(Adv):
     def prerun(self):
         self.madness = 0
         self.madness_status = 0
-        self.madness_timer = Timer(self.madness_autocharge, 2.9, 1)
+        self.madness_timer = Timer(self.a1_madness_autocharge, 2.9, 1)
 
     def fs_proc(self, e):
         if self.madness_status < 5:

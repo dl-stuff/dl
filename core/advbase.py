@@ -1238,9 +1238,6 @@ class Adv(object):
     def s4(self):
         return self.a_s_dict['s4']
 
-    def cast_sn(self, name, subclass):
-        self.a_s_dict[name] = subclass(self.a_s_dict[name])
-
     def config_skills(self):
         self.current_s = {'s1': 'default', 's2': 'default', 's3': 'default', 's4': 'default'}
         self.Skill._static.current_s = self.current_s
@@ -1652,7 +1649,7 @@ class Adv(object):
 
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
-            getattr(self.afflics, aff_type)(name, *aff_args)
+            getattr(self.afflics, aff_type).on(name, *aff_args)
 
         if 'bleed' in attr:
             rate, mod = attr['bleed']
@@ -1881,7 +1878,6 @@ class Adv(object):
             return self.bleed._static['stacks']
         except AttributeError:
             return 0
-
 
     def stop(self):
         doing = self.action.getdoing()

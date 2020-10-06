@@ -77,6 +77,27 @@ LITERAL_EVAL = {
     'NONE': lambda: None,
 }
 
+BANNED_FN = {
+    'post_run', 'dmg_make', 'prerun', 'rngcrit_cb', 'charge', 'charge_p', 'add_combo', 'd_coabs', 'd_slots', 'd_skillshare', 'prerun_skillshare', 'enable_echo', 'disable_echo', 'bleed', 'on', 'off', 'set_hp', 'add_hp', 'afflic_condition', 'sim_buffbot', 'sim_affliction', 'actmod_on', 'actmods', 'actmod_off', 'a_shift_sigil', 'custom_crit_mod', 'solid_crit_mod', 'rand_crit_mod', 'crit_mod', '_acl', 'cb_think', '_cb_think_fsf', '_cb_think', 'think_pin', 'pre_conf', 'Modifier', 'modifer', 'ctx', 'default_slot', 'build_rates', 'killer_mod', 'rebind_function', 'run'
+}
+BANNED_FN_PATTERNS = {
+    re.compile(r'.*_proc'),
+    re.compile(r'.*_before'),
+    re.compile(r'.*_hit\d'),
+    re.compile(r's\d?_.*'),
+    re.compile(r'fs\d?_.*'),
+    re.compile(r'x\d?_.*'),
+    re.compile(r'a\d?_.*'),
+    re.compile(r'config_.*'),
+    re.compile(r'l_.*'),
+}
+def check_banned(fn):
+    if fn in BANNED_FN:
+        return True
+    if any([pattern.match(fn) for pattern in BANNED_FN_PATTERNS]):
+        return True
+    return False
+
 
 class AclInterpreter(Interpreter):
     def bind(self, tree, acl):
@@ -211,6 +232,8 @@ class AclInterpreter(Interpreter):
     # def function(self, fn, *args):
     def function(self, t):
         fn = t.children[0]
+        if check_banned(fn):
+            return True
         args = t.children[1:]
         result = getattr(self._inst, fn.value)(*map(self.visit, args))
         # log('acl', str(t), str(result))
