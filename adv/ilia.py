@@ -41,6 +41,7 @@ class Ilia(Adv):
             else:
                 self.current_s['s1'] = 'default'
                 self.current_s['s2'] = 'default'
+                self.cartrige_t.off()
             log('cartrige', self.cartrige)
 
     def l_cartrige_timeout(self, t):
