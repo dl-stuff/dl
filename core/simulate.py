@@ -107,14 +107,12 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
 
     if mass:
         adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
+    run_results.append((adv, real_d, True))
 
     aff_name = ELE_AFFLICT[adv.slots.c.ele]
-    if aff_name in adv.sim_afflict and not -10 <= verbose <= -5:
-        run_results.append((adv, real_d, 'affliction'))
-    else:
-        run_results.append((adv, real_d, True))
 
     if -10 <= verbose <= -5:
+        aff_name = ELE_AFFLICT[adv.slots.c.ele]
         conf[f'sim_afflict.{aff_name}'] = 1
         if verbose < -5:
             for aff_name in DOT_AFFLICT[:(-verbose-6)]:
