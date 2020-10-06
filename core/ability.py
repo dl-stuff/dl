@@ -823,9 +823,19 @@ ability_dict['eextra'] = Energy_Extra
 class Damaged_Buff(BuffingAbility):
     def oninit(self, adv, afrom=None):
         from core.modifier import SingleActionBuff
-        self.damaged_buff = SingleActionBuff(*self.buff_args)
-        def l_damaged_buff(e):
-            if e.delta < 0:
-                self.damaged_buff.on()
+        if self.buff_args[1] == 'fs':
+            self.damaged_buff = SingleActionBuff(*self.buff_args)
+            def l_damaged_buff(e):
+                if e.delta < 0:
+                    self.damaged_buff.on()
+        else:
+            self.is_cd = False
+            def cd_end(t):
+                self.is_cd = False
+            def l_damaged_buff(e):
+                if not self.is_cd and e.delta < 0:
+                    adv.Buff(*self.buff_args).on()
+                    self.is_cd = True
+                    adv.Timer(cd_end).on(5) # ycass
         adv.Event('hp').listener(l_damaged_buff)
 ability_dict['damaged'] = Damaged_Buff
