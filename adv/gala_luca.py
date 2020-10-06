@@ -35,6 +35,7 @@ class Gala_Luca(Adv):
         adv.rebind_function(Gala_Luca, 'ds_before')
         adv.rebind_function(Gala_Luca, 'ds_proc')
         adv.shared_crit = True
+        adv.gluca_crit_mods = {}
 
     def buff_icon_count(self):
         # not accurate to game
@@ -42,7 +43,8 @@ class Gala_Luca(Adv):
         icon_count = len(set(icons))
         if self.conf['sim_buffbot.count'] is not None:
             icon_count += self.conf.sim_buffbot.count
-        log('debug', 'buff_icon_count', icon_count, str(icons))
+        if self.shared_crit:
+            log('debug', 'buff_icon_count', icon_count, str(icons))
         return min(icon_count, 7)
 
     def custom_crit_mod(self, name):
@@ -90,21 +92,23 @@ class Gala_Luca(Adv):
 
     def s1_before(self, e):
         if self.shared_crit:
-            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
-            self.extra_actmods.append(self.gluca_crit_mod)
+            self.gluca_crit_mods[e.name] = Modifier(e.name, 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
+            self.extra_actmods.append(self.gluca_crit_mods[e.name])
 
     def s1_proc(self, e):
         if self.shared_crit:
-            self.extra_actmods.remove(self.gluca_crit_mod)
+            self.extra_actmods.remove(self.gluca_crit_mods[e.name])
+            del self.gluca_crit_mods[e.name]
 
     def ds_before(self, e):
         if self.shared_crit:
-            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
-            self.extra_actmods.append(self.gluca_crit_mod)
+            self.gluca_crit_mods[e.name] = Modifier(e.name, 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
+            self.extra_actmods.append(self.gluca_crit_mods[e.name])
 
     def ds_proc(self, e):
         if self.shared_crit:
-            self.extra_actmods.remove(self.gluca_crit_mod)
+            self.extra_actmods.remove(self.gluca_crit_mods[e.name])
+            del self.gluca_crit_mods[e.name]
 
     def post_run(self, end):
         self.comment = f'avg buff icon {self.all_icon_avg[1]:.2f} (s1 {self.s1_icon_avg[1]:.2f})'

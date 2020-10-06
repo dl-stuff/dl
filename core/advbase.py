@@ -666,7 +666,7 @@ class Adv(object):
                 b.act_on(e)
 
     def actmods(self, name):
-        mods = list(self.extra_actmods)
+        mods = [m for m in self.extra_actmods if name == m.mod_name]
         for t in chain(self.tension, self.sab):
             if name in t.active:
                 mods.append(t.modifier)
