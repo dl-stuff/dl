@@ -5,6 +5,7 @@ def module():
     return Victor
 
 class Victor(Adv):
+    comment = 's1p3 bugged with 1.8x burn killer'
     conf = {}
     conf['slots.a'] = [
     'Resounding_Rendition',
