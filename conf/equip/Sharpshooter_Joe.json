@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 53027.50651065337,
-      "team": 0.02221948120233284,
+      "dps": 57303.20072195261,
+      "team": 0.033188900768671585,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -13,16 +13,17 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
+        "`dragon, buff(s3, 1)",
+        "`s3, (xf or fsc) and buff(s3, 2)",
+        "`s4, xf or fsc",
         "`s1, xf or fsc",
         "`s2, xf or fsc",
-        "`s4, xf or fsc",
         "`fs, xf and self.a1_cd",
-        "`dodge, xf"
+        "`s3, (xf or fsc) and (buff(s3, 1) or not buff(s3))",
+        "`dodge, xf or fsc"
       ],
       "coabs": [
-        "Lucretia",
+        "Blade",
         "Peony",
         "Sharena"
       ],
@@ -33,8 +34,8 @@
     },
     "pref": "base",
     "paralysis": {
-      "dps": 58851.87076178621,
-      "team": 0.02221948120233284,
+      "dps": 63854.24911252402,
+      "team": 0.033188900768671585,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -45,8 +46,40 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
+        "`dragon, buff(s3, 1)",
+        "`s3, (xf or fsc) and buff(s3, 2)",
+        "`s4, xf or fsc",
+        "`s1, xf or fsc",
+        "`s2, xf or fsc",
+        "`fs, xf and self.a1_cd",
+        "`s3, (xf or fsc) and (buff(s3, 1) or not buff(s3))",
+        "`dodge, xf or fsc"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "buffer": {
+      "dps": 48232.37479600073,
+      "team": 0.0333312828421926,
+      "tdps": 63707640.306370795,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Valiant_Crown",
+        "A_Game_of_Cat_and_Boar",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon,  buff(s3, 1)",
+        "`s3, xf or fsc",
         "`s1, xf or fsc",
         "`s2, xf or fsc",
         "`s4, xf or fsc",

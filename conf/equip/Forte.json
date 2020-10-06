@@ -32,8 +32,8 @@
     },
     "pref": "base",
     "poison": {
-      "dps": 106975.78927970697,
-      "team": 0.11568130412379246,
+      "dps": 107107.84906635813,
+      "team": 0.11789989565843209,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -48,7 +48,7 @@
         "`s3, not buff(s3)",
         "`s2, cancel",
         "`s4, cancel",
-        "`s1, cancel",
+        "`s1",
         "`fs, x=5"
       ],
       "coabs": [
@@ -144,83 +144,35 @@
     }
   },
   "120": {
-    "poison": {
-      "dps": 0.0,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "if self.sim_afflict",
-        "`dragon(s-end), x=5",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4, cancel or s=2",
-        "`s1",
-        "`fs, x=5",
-        "else",
-        "`dragon(s-end), s2.charged<s2.sp/3 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, cancel or self.afflics.poison.get()",
-        "`fs, x=5",
-        "end"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Cleo"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
     "pref": "base",
     "base": {
-      "dps": 0.0,
-      "team": 0.0,
+      "dps": 88285.97977945101,
+      "team": 0.1370944695628462,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
+        "The_Red_Impulse",
+        "His_Clever_Brother",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Ramiel",
       "acl": [
-        "if self.sim_afflict",
-        "`dragon(c3-s-end), x=5",
+        "`dragon(s-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s2",
-        "`s4, cancel or s=2",
-        "`s1",
-        "`fs, x=5",
-        "else",
-        "`dragon(c3-s-end), s2.charged<s2.sp/3 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, cancel or self.afflics.poison.get()",
-        "`fs, x=5",
-        "end"
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Ieyasu",
         "Wand",
+        "Bow",
         "Cleo"
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Xander"
       ]
     }
   }

@@ -1,30 +1,29 @@
 {
   "180": {
     "base": {
-      "dps": 70444.76706103777,
+      "dps": 78707.0906980993,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Levins_Champion",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "Seaside_Memory"
+        "The_Queen_of_the_Knife",
+        "His_Clever_Brother"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-end), s1.check()",
+        "`dragon(s-end)",
         "`s3, not buff(s3)",
-        "`s2, not c_fs('enhanced')",
+        "`s2, (x=5 or fsc) and not c_fs('enhanced')",
         "`s4, fsc",
-        "#`fs, x=2 and not c_fs('enhanced')",
-        "`fs, x=5",
-        "`s1, gauges['x'] >= 1000 and cancel"
+        "`s1, gauges['x'] >= 1000 and cancel",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Lin_You"
+        "Akasha"
       ],
       "share": [
         "Weapon",
@@ -33,17 +32,17 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 30725.439894410974,
-      "team": 0.08329060525283895,
-      "tdps": 476876.4381775575,
+      "dps": 57700.54926468825,
+      "team": 0.09287252928907032,
+      "tdps": 226186.81319668985,
       "slots.a": [
         "Levins_Champion",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "Seaside_Memory"
+        "Seaside_Memory",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Freyja",
+      "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(c3-s-end), s1.check()",
         "`s3, not buff(s3)",
@@ -60,15 +59,15 @@
       ],
       "share": [
         "Weapon",
-        "Elisanne"
+        "Tobias"
       ]
     },
     "poison": {
-      "dps": 80522.50920120689,
+      "dps": 91675.27281176412,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Levins_Champion",
+        "Brothers_in_Arms",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "His_Clever_Brother",
@@ -76,17 +75,17 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-end), s1.check()",
+        "`dragon(s-end)",
         "`s3, not buff(s3)",
-        "`s2",
+        "`s2, (x=5 or fsc) and not c_fs('enhanced')",
         "`s4, fsc",
-        "`fs, x=5",
-        "`s1"
+        "`s1, gauges['x'] >= 1000 and cancel",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Lin_You"
+        "Akasha"
       ],
       "share": [
         "Weapon",
