@@ -268,7 +268,7 @@ def simc_adv_test():
         conf['hp'] = min(abs(int(params['hp'])), 100)
     if 'dragonbattle' in params:
         conf['dragonbattle'] = bool(params['dragonbattle'])
-    if 'classbane' in params and params['classbane'] in TRIBE_TYPES:
+    if 'classbane' in params and (params['classbane'] in TRIBE_TYPES or params['classbane'] == 'HDT'):
         conf['classbane'] = params['classbane']
     if coab is not None:
         conf['coabs'] = coab

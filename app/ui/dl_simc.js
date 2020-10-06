@@ -228,7 +228,7 @@ function serConf(no_conf) {
     if (!isNaN(parseInt($('#input-dragonbattle').val()))) {
         requestJson['dragonbattle'] = $('#input-dragonbattle').val();
     }
-    if (!isNaN(parseInt($('#input-classbane').val()))) {
+    if ($('#input-classbane').val()) {
         requestJson['classbane'] = $('#input-classbane').val();
     }
     if (!isNaN(parseInt($('#input-hp').val()))) {
