@@ -15,15 +15,11 @@
       "acl": [
         "`s3, not buff(s3)",
         "`fs, c_fs(cartridge3)",
-        "if cartridge=0",
-        "`dragon",
-        "end",
-        "if x=1",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`dodge",
-        "end"
+        "`dragon, cartridge=0",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`dodge, x=1 and cancel"
       ],
       "coabs": [
         "Mitsuhide",
@@ -72,29 +68,25 @@
       ]
     },
     "paralysis": {
-      "dps": 63529.09465720615,
-      "team": 0.02220443256540192,
+      "dps": 63661.752117548174,
+      "team": 0.022204432565401905,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
+        "Valiant_Crown",
+        "Chariot_Drift",
         "His_Clever_Brother"
       ],
       "slots.d": "Daikokuten",
       "acl": [
         "`s3, not buff(s3)",
         "`fs, c_fs(cartridge3)",
-        "if cartridge=0",
-        "`dragon",
-        "`s2, x=1",
-        "end",
-        "if x=1",
-        "`s1",
-        "`s4",
-        "`dodge",
-        "end"
+        "`dragon, cartridge=0",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`dodge, x=1 and cancel"
       ],
       "coabs": [
         "Mitsuhide",
