@@ -806,11 +806,9 @@ class Slots:
             k = alias[k.lower()]
             return Conf(source[k]), k
 
-    def set_d(self, key=None, affkey=None):
+    def set_d(self, key=None):
         if not key:
             key = Slots.DEFAULT_DRAGON[self.c.ele]
-        if not self.flask_env and self.sim_afflict and affkey:
-            key = affkey
         try:
             conf, key = Slots.get_with_alias(dragons[self.c.ele], key)
         except KeyError:
@@ -827,13 +825,11 @@ class Slots:
         except KeyError:
             self.d = DragonBase(conf, self.c, key)
 
-    def set_w(self, key=None, affkey=None):
+    def set_w(self, key=None):
         conf = Conf(weapons[self.c.ele][self.c.wt])
         self.w = WeaponBase(conf, self.c)
 
-    def set_a(self, keys=None, affkeys=None):
-        if not self.flask_env and self.sim_afflict and affkeys and len(affkeys) == 5:
-            keys = affkeys
+    def set_a(self, keys=None):
         if keys is None or len(keys) < 5:
             keys = list(set(Slots.DEFAULT_WYRMPRINT))
         else:
@@ -844,15 +840,8 @@ class Slots:
         self.a = AmuletQuint(confs, self.c, keys)
 
     def set_slots(self, confslots):
-        affslots = None
-        if self.sim_afflict:
-            aff = next(iter(self.sim_afflict))
-            affslots = confslots[aff]
         for t in ('d', 'w', 'a'):
-            if affslots:
-                getattr(self, f'set_{t}')(confslots[t], affslots[t])
-            else:
-                getattr(self, f'set_{t}')(confslots[t])
+            getattr(self, f'set_{t}')(confslots[t])
 
     @property
     def att(self):
