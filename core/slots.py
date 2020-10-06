@@ -737,7 +737,7 @@ class Slots:
         'flame': 'Gala_Mars',
         'water': 'Gaibhne_and_Creidhne',
         'wind': 'Midgardsormr_Zero',
-        'light': 'Gala_Thor',
+        'light': 'Daikokuten',
         'shadow': 'Gala_Cat_Sith'
     }
 
@@ -756,9 +756,9 @@ class Slots:
     #     'staff': ('Resounding_Rendition', 'Breakfast_at_Valerios')
     # }
     DEFAULT_WYRMPRINT = [
-        'Resounding_Rendition',
+        'Valiant_Crown',
         'The_Red_Impulse',
-        'Breakfast_at_Valerios',
+        'Memory_of_a_Friend',
         'Dueling_Dancers',
         'A_Small_Courage'
     ]

@@ -78,7 +78,7 @@ LITERAL_EVAL = {
 }
 
 BANNED_FN = {
-    'post_run', 'dmg_make', 'prerun', 'rngcrit_cb', 'charge', 'charge_p', 'add_combo', 'd_coabs', 'd_slots', 'd_skillshare', 'prerun_skillshare', 'enable_echo', 'disable_echo', 'bleed', 'on', 'off', 'set_hp', 'add_hp', 'afflic_condition', 'sim_buffbot', 'sim_affliction', 'actmod_on', 'actmods', 'actmod_off', 'a_shift_sigil', 'custom_crit_mod', 'solid_crit_mod', 'rand_crit_mod', 'crit_mod', '_acl', 'cb_think', '_cb_think_fsf', '_cb_think', 'think_pin', 'pre_conf', 'Modifier', 'modifer', 'ctx', 'default_slot', 'build_rates', 'killer_mod', 'rebind_function', 'run'
+    'post_run', 'dmg_make', 'prerun', 'rngcrit_cb', 'charge', 'charge_p', 'add_combo', 'd_coabs', 'd_slots', 'd_skillshare', 'prerun_skillshare', 'enable_echo', 'disable_echo', 'bleed', 'on', 'off', 'set_hp', 'add_hp', 'afflic_condition', 'sim_buffbot', 'sim_affliction', 'actmod_on', 'actmods', 'actmod_off', 'a_shift_sigil', 'custom_crit_mod', 'solid_crit_mod', 'rand_crit_mod', 'crit_mod', '_acl', 'cb_think', '_cb_think_fsf', '_cb_think', 'think_pin', 'pre_conf', 'Modifier', 'modifer', 'ctx', 'default_slot', 'build_rates', 'killer_mod', 'rebind_function', 'run', 'Event', 'Timer', 'Listener'
 }
 BANNED_FN_PATTERNS = {
     re.compile(r'.*_proc'),
