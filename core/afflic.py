@@ -4,7 +4,7 @@ from core.timeline import *
 from core.log import *
 import random
 
-AFFLICT_LIST = ['poison', 'paralysis', 'burn', 'blind', 'bog', 'stun', 'freeze', 'sleep', 'frostbite']
+AFFLICT_LIST = ['poison', 'paralysis', 'burn', 'blind', 'bog', 'stun', 'freeze', 'sleep', 'frostbite', 'flashburn']
 
 class Dot(object):
     """

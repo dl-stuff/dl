@@ -4,17 +4,6 @@ def module():
     return Ilia
 
 class Ilia(Adv):
-    conf = {}
-    conf['acl'] = """
-        if cartrige=0
-        `dragon
-        `s2
-        `s1
-        end
-        `fs, c_fs(cartrige3)
-        `dodge, x=1
-    """
-
     def prerun(self):
         Event('dodge').listener(self.l_dodge_attack, order=0)
         self.alchemy = 0
@@ -62,6 +51,7 @@ class Ilia(Adv):
             buff.off()
 
     def l_dodge_attack(self, e):
+        log('cast', 'd')
         for _ in range(7):
             self.dmg_make('dodge', 0.10)
         self.a_update(1)
@@ -82,6 +72,8 @@ class Ilia(Adv):
             self.cartrige = self.alchemy // 33
             self.cartrige_fs[self.cartrige-1].on()
             self.cartrige_t.on(20)
+            self.current_s['s1'] = 'cartrige'
+            self.current_s['s2'] = 'cartrige'
 
     def fs_cartrige1_before(self, e):
         self.a_deplete_cartrige(e.name, consume=1)

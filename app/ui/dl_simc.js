@@ -1,5 +1,5 @@
-// const APP_URL = 'http://127.0.0.1:5000/';
-const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
@@ -443,11 +443,6 @@ function loadAdvSlots(no_conf, set_equip) {
                         coabSelection(1, true);
                     }
                     selectSkillShare(slots.adv.basename, slots.adv.pref_share);
-                    if (slots.adv.prelim) {
-                        $('#test-warning').html('Warning: preliminary sim, need QC and optimization.');
-                    } else {
-                        $('#test-warning').empty();
-                    }
                     const acl = trimAcl(slots.adv.acl);
                     $('#input-acl').data('default_acl', acl);
                     $('#input-acl').removeData('alternate_acl');
@@ -639,7 +634,7 @@ function buildCoab(coab, basename, weapontype) {
             wrap.prop('title', ex);
         }
         if (WEAPON_TYPES.includes(ex)) {
-            $('#input-coabs-'+ex).append(wrap);
+            $('#input-coabs-' + ex).append(wrap);
         } else {
             $('#input-coabs-other').append(wrap);
         }
@@ -715,7 +710,7 @@ function readSimBuff() {
 }
 function toggleInputDisabled(state) {
     $('input').prop('disabled', state);
-    if ($('#input-edit-acl').prop('checked')){
+    if ($('#input-edit-acl').prop('checked')) {
         $('#input-acl').prop('disabled', state);
     }
     $('select').prop('disabled', state);
@@ -919,7 +914,7 @@ function update_teamdps() {
         $(trs).attr('data-original-title', tdps_txt);
     });
 }
-function changeEquip(){
+function changeEquip() {
     updateUrl();
     loadAdvSlots(true, true);
 }

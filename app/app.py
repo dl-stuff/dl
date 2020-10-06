@@ -317,13 +317,13 @@ def get_adv_slotlist():
         result['adv']['pref_wep'] = f'{adv.slots.c.ele}-{adv.slots.c.wt}'
         result['adv']['pref_wp'] = adv.slots.a.qual_lst
         try:
-            result['adv']['pref_coab'] = adv.conf.coabs['base']
+            result['adv']['pref_coab'] = adv.conf.coabs['base'] or []
         except:
-            result['adv']['pref_coab'] = adv.conf.coabs
+            result['adv']['pref_coab'] = adv.conf['coabs'] or []
         try:
-            result['adv']['pref_share'] = adv.conf.share['base']
+            result['adv']['pref_share'] = adv.conf.share['base'] or []
         except:
-            result['adv']['pref_share'] = adv.conf.share
+            result['adv']['pref_share'] = adv.conf['share'] or []
         result['adv']['acl'] = adv.conf.acl
         if 'afflict_res' in adv.conf:
             res_conf = adv.conf.afflict_res
@@ -335,7 +335,6 @@ def get_adv_slotlist():
                 result['adv']['afflict_res'] = res_dict
         if advname in SPECIAL_ADV:
             result['adv']['no_config'] = SPECIAL_ADV[advname]['nc']
-        result['adv']['prelim'] = advname in PRELIM_ADV
 
         if adv.conf['tdps'] and 0 <= adv.conf['tdps'] <= 200000:
             result['adv']['tdps'] = int(adv.conf.tdps) + 1

@@ -1197,7 +1197,7 @@ class Adv(object):
             self.d_coabs()
             coab_list = self.load_aff_conf('coabs')
         else:
-            coab_list = self.conf['coabs']
+            coab_list = self.conf['coabs'] or []
         try:
             self_coab = list(self.slots.c.coabs.keys())[0]
         except:

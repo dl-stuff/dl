@@ -1,6 +1,7 @@
 import sys
 import os
 import re
+import time
 from itertools import chain
 from collections import defaultdict
 from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json
@@ -215,7 +216,7 @@ def act_sum(actions, output):
             if xseq < p_xseq:
                 condensed = append_condensed(condensed, p_act)
             p_xseq = xseq
-        elif act.startswith('fs') and p_act[0] == 'x':
+        elif (act.startswith('fs') or act == 'd') and p_act[0] == 'x':
             p_xseq = 0
             condensed = append_condensed(condensed, p_act+act1)
         else:
@@ -500,6 +501,9 @@ def combine():
         for a in aff:
             dst_dict[p][a].close()
             dst_dict[p][a].close()
+
+    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified'), 'w') as f:
+        f.write(str(time.time_ns() // 1000000))
 
 def load_adv_module(adv_name):
     return getattr(
