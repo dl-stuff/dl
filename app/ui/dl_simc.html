@@ -281,6 +281,11 @@
                         <p>1 stack of the entered buff/debuff is active for the entire duration of the simulation.</p>
                         <h5>Why does the result show a different wyrmprint than my inputs?</h5>
                         <p>Wyrmprints with the same ability are automatically swapped for the best option in terms of stats and value, as long as any affinities are preserved.</p>
+                        <h5>How are the setups (Personal/Team/Affliction) created?</h5>
+                        <p>Whenever a simulation is ran, the server will compare the result with the highest recorded DPS/Team DPS, and store the setup if it is better.
+                        For personal/affliction, team DPS is not considered. Likewise for team DPS, only the team buff % is considered.
+                        Since these setups are crowdsourced, no guarentee is made on any one of them being optimal and you are encouraged to try for bigger numbers.
+                        </p>
                         <h5>I need to speak to the manager.</h5>
                         <p><a href="https://github.com/dl-stuff/dl/issues">Open an issue here</a>, or ask me on discord I'm chu2.718281828459045235360287471#0110</p>
                     </div>
@@ -414,9 +419,7 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
             </div>
         </div>
     </form>
-    <div id="qc-warning">
-        2.0 update in progress, setups generally not optimal; 2.0更新正在做, 角色配置非最佳; 2.0更新中　ほぼ最適な編成ではない
-    </div>
+    <div id="qc-warning"></div>
     <div id="test-warning"></div>
     <div id="test-error"></div>
     <div id="test-results"></div>

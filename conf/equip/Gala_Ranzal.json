@@ -33,30 +33,34 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 16047.427448740806,
-      "team": 0.04347863584400699,
-      "tdps": 1231832.7117045897,
+      "dps": 30725.439894410974,
+      "team": 0.08329060525283895,
+      "tdps": 466804.06906929164,
       "slots.a": [
-        "Gentle_Winds",
-        "Study_Rabbits",
+        "Levins_Champion",
+        "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "His_Clever_Brother",
+        "Seaside_Memory"
       ],
-      "slots.d": "AC011_Garland",
+      "slots.d": "Freyja",
       "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, cancel",
-        "`s1",
-        "`s2",
-        "`s4"
+        "`dragon(c3-s-end), s1.check()",
+        "`s3, not buff(s3)",
+        "`s2, not c_fs('enhanced')",
+        "`s4, fsc",
+        "#`fs, x=2 and not c_fs('enhanced')",
+        "`fs, x=5",
+        "`s1, gauges['x'] >= 1000 and cancel"
       ],
       "coabs": [
-        "Tobias"
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Lin_You"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Weapon",
+        "Elisanne"
       ]
     },
     "poison": {

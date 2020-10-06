@@ -63,15 +63,14 @@
       ]
     },
     "buffer": {
-      "dps": 50293.75116883783,
-      "team": 0.060246928069129166,
-      "tdps": 255224.12041730812,
-      "output": "-,180,_\n50294,Julietta,110042_01_r05,light,axe,4474,Daikokuten,210110_01,Rog Mol,304130_01_60401,Flash of Genius,400063_02,Kung Fu Masters,400163_02,Summer Paladyns,400098_02,Sisters of the Anvil,400049_02,The Plaguebringer,400410_02,Blade,,Lucretia,110305_01_r05,Ranzal,100003_01_r04,Peony,110361_01_r05,Weapon,,Patia,110335_01_r04,hp60 & hit15,,team:6.02469%;doublebuff:every 60.01s,attack:9338,fs_enhanced:3377,s1:21561,dx:13202,ds:2814\n",
+      "dps": 44426.433409744786,
+      "team": 0.06024692806912917,
+      "tdps": 409401.8133662548,
       "slots.a": [
-        "Flash_of_Genius",
         "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Sisters_of_the_Anvil",
+        "FirstRate_Hospitality",
         "The_Plaguebringer"
       ],
       "slots.d": "Daikokuten",
@@ -86,8 +85,7 @@
       "coabs": [
         "Blade",
         "Lucretia",
-        "Ranzal",
-        "Peony"
+        "Ranzal"
       ],
       "share": [
         "Weapon",
@@ -127,6 +125,36 @@
         "Kleimann"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "buffer": {
+      "dps": 44729.87687461702,
+      "team": 0.03326149312782908,
+      "tdps": 302872849.88526,
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "FirstRate_Hospitality",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, self.energy()<4 and s4.charged<s4.sp/1.5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, s1.charged<s1.sp/2",
+        "`fs, x=3 and c_fs(enhanced)>0"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Ranzal"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    }
   }
 }

@@ -37,7 +37,7 @@
     },
     "pref": "base",
     "poison": {
-      "dps": 83605.00872076306,
+      "dps": 83884.07133774072,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -47,7 +47,7 @@
         "His_Clever_Brother",
         "The_Plaguebringer"
       ],
-      "slots.d": "Fatalis",
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s2, duration-now<1.5",
         "`s3, not buff(s3)",
@@ -76,8 +76,8 @@
       "team": 0.0800567307842071,
       "tdps": 225894.55230984435,
       "slots.a": [
-        "Breakfast_at_Valerios",
         "Brothers_in_Arms",
+        "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Chariot_Drift"
@@ -109,12 +109,11 @@
   },
   "60": {
     "base": {
-      "dps": 0.0,
+      "dps": 80983.99496666725,
       "team": 0.0,
       "tdps": null,
-      "output": "-,60,_\n111024,Bellina,110306_01_r05,shadow,dagger,4420,Gala Cat Sìth,200017_01,Qinghong Jian,303132_01_60501,Breakfast at Valerio's,400285_02,Seaside Princess,400338_02,Twinfold Bonds,400097_02,A Passion for Produce,400446_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Curran,110281_01_r05,Summer Patia,110335_02_r05,Weapon,,Kleimann,110051_01_r04,always connect hits & hp=1.0% & hp≤40 & hit15,,poison:70.1%,attack:21082,fs:332,s1_ddrive:63677,s2_ddrive:10120,s4:13355,s4_poison:2298,dx:156\n",
       "slots.a": [
-        "Breakfast_at_Valerios",
+        "Memory_of_a_Friend",
         "Seaside_Princess",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
@@ -144,15 +143,13 @@
         "Kleimann"
       ]
     },
-    "pref": "base"
-  },
-  "120": {
-    "base": {
-      "dps": 0.0,
-      "team": 0.0,
+    "pref": "base",
+    "poison": {
+      "dps": 91521.94872845637,
+      "team": 0.016661240961011316,
       "tdps": null,
       "slots.a": [
-        "Breakfast_at_Valerios",
+        "Memory_of_a_Friend",
         "Seaside_Princess",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
@@ -179,7 +176,44 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Durant"
+      ]
+    }
+  },
+  "120": {
+    "base": {
+      "dps": 56721.47539065676,
+      "team": 0.05877312290125173,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s2, duration-now<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1000 and x=3",
+        "`fsf, x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
       ]
     },
     "pref": "base"
