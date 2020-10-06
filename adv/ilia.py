@@ -38,9 +38,13 @@ class Ilia(Adv):
             if self.cartridge > 0:
                 self.current_s['s1'] = 'cartridge'
                 self.current_s['s2'] = 'cartridge'
+                self.cartridge_fs[self.cartridge].off()
+                self.cartridge_fs[self.cartridge-1].on()
             else:
                 self.current_s['s1'] = 'default'
                 self.current_s['s2'] = 'default'
+                for buff in self.cartridge_fs:
+                    buff.off()
                 self.cartridge_t.off()
             log('cartridge', self.cartridge)
 
