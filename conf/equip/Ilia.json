@@ -131,73 +131,36 @@
   },
   "120": {
     "base": {
-      "dps": 0.0,
+      "dps": 35294.898498345145,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "An_Ancient_Oath",
         "Valiant_Crown",
-        "Chariot_Drift",
-        "Snipers_Allure"
+        "Memory_of_a_Friend",
+        "Entwined_Flames",
+        "Such_High_Spirits"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
+        "`s4, dgauge >= 500 or dgauge <= 100",
         "`fs, c_fs(cartridge3) and s2.charged>1090",
+        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
         "`s1, cancel",
         "`s3, cancel",
-        "`s4, cancel",
-        "If cartridge=0",
-        "`s2, cancel",
-        "Else",
-        "`s2",
-        "End",
+        "`s2, cancel and cartridge = 0",
         "`dodge, x=1 and cancel"
       ],
       "coabs": [
         "Blade",
-        "Axe2",
-        "Peony"
+        "Mitsuhide",
+        "Axe2"
       ],
       "share": [
         "Weapon",
-        "Hunter_Sarisse"
+        "Summer_Luca"
       ]
     },
-    "pref": "base",
-    "paralysis": {
-      "dps": 0.0,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Valiant_Crown",
-        "Chariot_Drift",
-        "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "`fs, c_fs(cartridge3) and s2.charged>1090",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s4, cancel",
-        "If cartridge=0",
-        "`s2, cancel",
-        "Else",
-        "`s2",
-        "End",
-        "`dodge, x=1 and cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Axe2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Hunter_Sarisse"
-      ]
-    }
+    "pref": "base"
   }
 }
