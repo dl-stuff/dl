@@ -2,6 +2,7 @@ import sys
 import os
 import re
 import time
+import json
 from itertools import chain
 from collections import defaultdict
 from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json
@@ -467,7 +468,7 @@ DURATION_LIST = (60, 120, 180)
 QUICK_LIST_FILES = ['chara_quick.txt', 'chara_sp_quick.txt']
 SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
 ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
-def combine():
+def combine(message=None):
     dst_dict = {}
     pages = [str(d) for d in DURATION_LIST] + ['sp']
     aff = ['_', 'affliction']
@@ -499,8 +500,20 @@ def combine():
             dst_dict[p][a].close()
             dst_dict[p][a].close()
 
-    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified'), 'w') as f:
-        f.write(str(time.time_ns() // 1000000))
+    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
+        try:
+            lastmod = json.load(f)
+        except:
+            lastmod = {}
+        f.truncate(0)
+        f.seek(0)
+        lastmod['timestamp'] = str(time.time_ns() // 1000000)
+        try:
+            lastmod['message'] = lastmod['changed']
+            del lastmod['changed']
+        except KeyError:
+            lastmod['message'] = []
+        json.dump(lastmod, f)
 
 def same_build_different_dps(a, b):
     return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])
