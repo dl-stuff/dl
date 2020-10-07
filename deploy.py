@@ -65,32 +65,32 @@ def run_and_save(adv_module, ele, dkey, ekey, conf):
 EQUIP_KEYS = ['base', 'buffer', 'affliction']
 def repair_equips(adv_file):
     t_start = monotonic()
-    # try:
-    adv_file = os.path.basename(adv_file)
-    adv_name = adv_file
-    if adv_file.endswith('.py'):
-        adv_name = adv_file.split('.')[0]
-    adv_module = core.simulate.load_adv_module(adv_name)
-    adv_name = adv_module.__name__
-    adv_ele = load_adv_json(adv_name)['c']['ele']
-    adv_equip = deepcopy(load_equip_json(adv_name))
+    try:
+        adv_file = os.path.basename(adv_file)
+        adv_name = adv_file
+        if adv_file.endswith('.py'):
+            adv_name = adv_file.split('.')[0]
+        adv_module = core.simulate.load_adv_module(adv_name)
+        adv_name = adv_module.__name__
+        adv_ele = load_adv_json(adv_name)['c']['ele']
+        adv_equip = deepcopy(load_equip_json(adv_name))
 
-    eleaff = None
-    for dkey, equip_d in adv_equip.items():
-        for ekey, conf in equip_d.items():
-            if ekey == 'pref':
-                continue
-            run_and_save(adv_module, adv_ele, dkey, ekey, conf)
-            # check if 180 equip is actually better for 120/60
-            if dkey == '180':
-                continue
-            try:
-                run_and_save(adv_module, adv_ele, dkey, ekey, equip_d['180'][ekey])
-            except KeyError:
-                pass
-    # except Exception as e:
-    #     print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{adv_file} {e}\033[0m', flush=True)
-    #     return
+        eleaff = None
+        for dkey, equip_d in adv_equip.items():
+            for ekey, conf in equip_d.items():
+                if ekey == 'pref':
+                    continue
+                run_and_save(adv_module, adv_ele, dkey, ekey, conf)
+                # check if 180 equip is actually better for 120/60
+                if dkey == '180':
+                    continue
+                try:
+                    run_and_save(adv_module, adv_ele, dkey, ekey, equip_d['180'][ekey])
+                except KeyError:
+                    pass
+    except Exception as e:
+        print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{adv_file} {e}\033[0m', flush=True)
+        return
     print('{:.4f}s - repair:{}'.format(monotonic() - t_start, adv_file), flush=True)
 
 
