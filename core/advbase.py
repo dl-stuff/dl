@@ -15,6 +15,7 @@ from core.dummy import Dummy, dummy_function
 from core.condition import Condition
 from core.slots import Slots
 import core.acl
+from core.acl import allow_acl
 import conf as globalconf
 from ctypes import c_float
 from math import ceil
@@ -103,6 +104,7 @@ class Skill(object):
         self._static.silence = 0
         self.silence_end_event()
 
+    @allow_acl
     def check(self):
         if self._static.silence == 1 or not self.ac.enabled or self.sp == 0:
             return False
@@ -560,7 +562,7 @@ class Adv(object):
         self.all_buffs = []
         self.base_buff._static.all_buffs = self.all_buffs
         self.base_buff._static.adv = self
-        self.buff = ActiveBuffDict()
+        self.active_buff_dict = ActiveBuffDict()
         # set modifier
         self.modifier = Modifier(0, 0, 0, 0)
         self.all_modifiers = ModifierDict()
@@ -615,8 +617,8 @@ class Adv(object):
         #     self.l_fs = self.l_melee_fs
 
         # set cmd
-        self.fsf = self.a_fsf
-        self.dodge = self.a_dodge
+        # self.fsf = self.a_fsf
+        # self.dodge = self.a_dodge
 
         if self.conf['auto_fsf']:
             self.cb_think = self._cb_think_fsf
@@ -789,15 +791,6 @@ class Adv(object):
 
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf['flask_env']))
-        # from conf import slot_common
-        # self.cmnslots = slot.Slots()
-        # self.cmnslots.c.att = self.conf.c.att
-        # self.cmnslots.c.wt = self.conf.c.wt
-        # self.cmnslots.c.ele = self.conf.c.ele
-        # self.cmnslots.c.name = self.name
-        # self.slot_common = slot_common.set
-        # self.slot_common(self.cmnslots)
-        # self.slots = self.cmnslots
 
     def __init__(self, conf=None, duration=180, cond=None, equip_key=None):
         if not self.name:
@@ -873,29 +866,22 @@ class Adv(object):
         else:
             return mod
 
-    # @staticmethod
-    # def mod_mult(a, b):
-    #     return a * (1 + b)
-
+    @allow_acl
     def mod(self, mtype, operator=None, initial=1):
         return self.all_modifiers.mod(mtype, operator=operator, initial=initial)
-        # operator = operator or Adv.mod_mult
-        # return reduce(operator, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], initial)
 
+    @allow_acl
     def sub_mod(self, mtype, morder):
         return self.all_modifiers.sub_mod(mtype, morder)
-    # def sub_mod(self, mtype, morder):
-    #     mod_sum = sum([modifier.get() for modifier in self.all_modifiers[mtype][morder]])
-    #     if morder == 'buff':
-    #         mod_sum = min(mod_sum, 2.00)
-    #     return mod_sum
 
+    @allow_acl
     def speed(self, target=None):
         if target is None:
             return min(1+self.sub_mod('spd', 'passive'), 1.50)
         else:
             return min(1+self.sub_mod('spd', 'passive')+self.sub_mod('spd', target), 1.50)
 
+    @allow_acl
     def c_speed(self):
         return min(1+self.sub_mod('cspd', 'passive'), 1.50)
 
@@ -962,6 +948,7 @@ class Adv(object):
         else:
             return 1
 
+    @allow_acl
     def att_mod(self, name=None):
         att = self.mod('att')
         cc = self.crit_mod(name)
@@ -1021,17 +1008,20 @@ class Adv(object):
             total += p * reduce(operator.mul, [1 + sum([mod.get() for mod in order]) for order in modifiers.values()], 1.0)
         return total
 
+    @allow_acl
     def def_mod(self):
         defa = min(1-self.mod('def', operator=operator.add), 0.5)
         defb = min(1-self.mod('defb', operator=operator.add), 0.3)
         return 1 - min(defa+defb, 0.5)
 
+    @allow_acl
     def sp_mod(self, name):
         sp_mod = self.mod('sp', operator=operator.add)
         if name.startswith('fs'):
             sp_mod += self.mod('spf', operator=operator.add, initial=0)
         return sp_mod
 
+    @allow_acl
     def sp_val(self, param):
         if isinstance(param, str):
             return self.sp_convert(
@@ -1047,16 +1037,19 @@ class Adv(object):
                 for x in range(1, param + 1)
             )
 
+    @allow_acl
     def charged_in(self, param, sn):
         s = getattr(self, sn)
         return self.sp_val(param) + s.charged >= s.sp
 
+    @allow_acl
     def have_buff(self, name):
         for b in self.all_buffs:
             if b.name.startswith(name) and b.get():
                 return True
         return False
 
+    @allow_acl
     def buffstack(self, name):
         return reduce(lambda s, b: s+int(b.get() and b.name == name), self.all_buffs, 0)
 
@@ -1085,11 +1078,13 @@ class Adv(object):
         prev = self.action.getprev()
         return prev.name, prev.index, prev.status
 
+    @allow_acl
     def dragon(self, act_str=None):
         if act_str:
             return self.dragonform.act(act_str)
         return self.dragonform()
 
+    @allow_acl
     def fs(self, n=None):
         fsn = 'fs' if n is None else f'fs{n}'
         if self.current_fs is not None:
@@ -1130,8 +1125,13 @@ class Adv(object):
             log('x', e.name, 0)
         self.hit_make(e, self.conf[e.name], cb_kind=f'x_{e.group}' if e.group != 'default' else 'x', pin='x')
 
+    @allow_acl
     def dodge(self):
         return self.a_dodge()
+
+    @allow_acl
+    def fsf(self):
+        return self.a_fsf()
 
     def l_dodge(self, e):
         log('dodge', '-')
@@ -1146,20 +1146,6 @@ class Adv(object):
             self.hits = self.echo
             log('combo', f'reset combo after {delta:.02}s')
         self.last_c = now()
-
-    # def add_hits(self, hit):
-    #     # potato combo count
-    #     if hit is None:
-    #         raise ValueError('none type hit')
-    #     if hit < 0:
-    #         self.hits = 0
-    #         log('combo', 'reset combo')
-    #     else:
-    #         c_hits = self.hits
-    #         for _ in range(hit):
-    #             self.add_combo()
-    #         return self.hits - c_hits
-    #     return 0
 
     def load_aff_conf(self, key):
         confv = self.conf[key]
@@ -1200,6 +1186,7 @@ class Adv(object):
     def skills(self):
         return tuple(self.a_s_dict.values())
 
+    @allow_acl
     def s(self, n):
         return self.a_s_dict[f's{n}']()
 
@@ -1671,25 +1658,25 @@ class Adv(object):
             if bctrl:
                 if bctrl == '-off':
                     try:
-                        self.buff.off(*blist)
+                        self.active_buff_dict.off(*blist)
                     except:
                         pass
                     return
                 if bctrl == '-refresh':
                     try:
-                        return self.buff.on(base, group, aseq)
+                        return self.active_buff_dict.on(base, group, aseq)
                     except KeyError:
                         pass
                 if bctrl == '-replace':
-                    self.buff.off_all(base, aseq)
+                    self.active_buff_dict.off_all(base, aseq)
                     try:
-                        return self.buff.on(base, group, aseq)
+                        return self.active_buff_dict.on(base, group, aseq)
                     except KeyError:
                         pass
                 if bctrl.startswith('-overwrite'):
                     # does not support multi buffs
                     try:
-                        ow_buff = self.buff.get_overwrite(bctrl)
+                        ow_buff = self.active_buff_dict.get_overwrite(bctrl)
                         v_current = abs(ow_buff.value())
                         v_new = abs(blist[1])
                         if v_current == v_new or (v_current > v_new and not ow_buff.get()):
@@ -1699,7 +1686,7 @@ class Adv(object):
                         pass
                     buff = self.hitattr_buff(name, base, group, aseq, 0, blist)
                     if buff:
-                        self.buff.add_overwrite(base, group, aseq, buff.on(), bctrl)
+                        self.active_buff_dict.add_overwrite(base, group, aseq, buff.on(), bctrl)
                     return
             if isinstance(blist[0], list):
                 buff_objs = []
@@ -1708,11 +1695,11 @@ class Adv(object):
                     if obj:
                         buff_objs.append(obj)
                 if buff_objs:
-                    self.buff.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
+                    self.active_buff_dict.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
             else:
                 buff = self.hitattr_buff(name, base, group, aseq, 0, blist)
                 if buff:
-                    self.buff.add(base, group, aseq, buff.on())
+                    self.active_buff_dict.add(base, group, aseq, buff.on())
 
     def hitattr_buff(self, name, base, group, aseq, bseq, attrbuff):
         btype = attrbuff[0]
@@ -1825,11 +1812,13 @@ class Adv(object):
             self.actmod_off(e)
         self.think_pin(pin or e.name)
 
+    @allow_acl
     def l_fs(self, e):
         log('cast', e.name)
         self.actmod_on(e)
         self.hit_make(e, self.conf[e.name], pin=e.name.split('_')[0])
 
+    @allow_acl
     def l_s(self, e):
         if e.name == 'ds':
             return
@@ -1838,14 +1827,17 @@ class Adv(object):
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
 
+    @allow_acl
     def c_fs(self, group):
         if self.current_fs == group and self.alt_fs_buff is not None:
             return self.alt_fs_buff.uses
         return 0
 
+    @allow_acl
     def c_x(self, group):
         return self.current_x == group
 
+    @allow_acl
     def c_s(self, seq, group):
         return self.current_s[f's{seq}'] == group
 
@@ -1859,6 +1851,22 @@ class Adv(object):
             return self.bleed._static['stacks']
         except AttributeError:
             return 0
+
+    @allow_acl
+    def aff(self, afflictname):
+        return getattr(self.afflics, afflictname).get()
+
+    @allow_acl
+    def aff_timeleft(self, afflictname):
+        return getattr(self.afflics, afflictname).timeleft()
+
+    @allow_acl
+    def buff(self, *args):
+        return self.active_buff_dict.check(*args)
+
+    @allow_acl
+    def timeleft(self, *args):
+        return self.active_buff_dict.timeleft(*args)
 
     def stop(self):
         doing = self.action.getdoing()

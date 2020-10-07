@@ -2,6 +2,7 @@ from collections import defaultdict, namedtuple
 
 from core.timeline import *
 from core.log import *
+from core.acl import allow_acl
 import random
 
 AFFLICT_LIST = ['poison', 'paralysis', 'burn', 'blind', 'bog', 'stun', 'freeze', 'sleep', 'frostbite', 'flashburn']

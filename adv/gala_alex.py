@@ -94,6 +94,7 @@ class Gala_Alex(Adv):
         self.current_s['s2'] = 'base2'
         self.sr.enable_phase_up = False
 
+    @allow_acl
     def s(self, n):
         sn = f's{n}'
         if n == 1 or n == 2:

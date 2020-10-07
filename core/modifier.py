@@ -7,6 +7,7 @@ import copy
 from core.timeline import Timer, Event, Listener, now
 from core.log import log
 from core.ctx import Static
+from core.acl import allow_acl
 
 
 class ModifierDict(defaultdict):
@@ -234,6 +235,7 @@ class Buff(object):
         else:
             return self.__value
 
+    @allow_acl
     def get(self):
         if self.__active:
             return self.__value
@@ -246,7 +248,6 @@ class Buff(object):
             self.duration = d
         return self
         
-
     def stack(self):
         stack = 0
         for i in self._static.all_buffs:
@@ -733,6 +734,7 @@ class MultiBuffManager:
             b.off()
         return self
 
+    @allow_acl
     def get(self):
         return all(map(lambda b: b.get(), self.buffs))
 
@@ -796,7 +798,7 @@ class ActiveBuffDict(defaultdict):
         super().__init__(lambda: defaultdict(lambda: {}))
         self.overwrite_buffs = {}
 
-    def __call__(self, k, group=None, seq=None, *args):
+    def check(self, k, group=None, seq=None, *args):
         if self.get(k, False):
             subdict = self[k]
             if group is not None:
@@ -817,7 +819,7 @@ class ActiveBuffDict(defaultdict):
                 return any(b.get() for sub in subdict.values() for b in sub.values())
         else:
             return False
-    
+
     def has(self, k, group, seq):
         return k in self and group in self[k] and seq in self[k][group]
 

@@ -54,6 +54,7 @@ class Lathna(Adv):
     def prerun_skillshare(adv, dst):
         adv.current_s[dst] = 'all'
 
+    @allow_acl
     def s(self, n, s1_kind=None):
         if n == 1 and s1_kind == 'all':
             self.current_s['s1'] = s1_kind

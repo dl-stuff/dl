@@ -60,6 +60,7 @@ class Tension:
             log(self.name, 'reset', 'stack <{}>'.format(int(self.stack)))
             self.end_event.on()
 
+    allow_acl = True
     def __call__(self):
         return self.stack
 

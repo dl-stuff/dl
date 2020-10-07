@@ -6,6 +6,7 @@ from core.log import log
 from core.timeline import now
 from core.advbase import Adv
 from core.modifier import Selfbuff, ModeManager, EffectBuff
+from core.acl import allow_acl
 
 class StanceAdv(Adv):
     def config_stances(self, stance_dict, default_stance=None, hit_threshold=0, deferred=True):
@@ -24,7 +25,9 @@ class StanceAdv(Adv):
                     mode.alt['x'].deferred = deferred
                 except KeyError:
                     pass
-            setattr(self, name, lambda: self.queue_stance(name))
+            queue_stance_fn = lambda: self.queue_stance(name)
+            queue_stance_fn.allow_acl = True
+            setattr(self, name, queue_stance_fn)
         self.update_stance()
 
     def update_stance(self):
@@ -63,6 +66,7 @@ class StanceAdv(Adv):
     def can_change_combo(self):
         return self.has_alt_x and self.hits >= self.hit_threshold
 
+    @allow_acl
     def s(self, n, stance=None):
         if stance:
             self.queue_stance(stance)

@@ -1,9 +1,9 @@
 from core.advbase import Action, S
 from core.timeline import Event, Timer, now
 from core.log import log, g_logs
+from core.acl import allow_acl
 from math import ceil
 
-MAX_C = 10
 class DragonForm(Action):
     def __init__(self, name, conf, adv):
         self.name = name
@@ -159,9 +159,11 @@ class DragonForm(Action):
             else:
                 log('dragon_gauge', '{:+.2f}%'.format(delta/self.max_gauge*100), '{:.2f}%'.format(self.dragon_gauge/self.max_gauge*100))
 
+    @allow_acl
     def dtime(self):
         return self.conf.dshift.startup + self.conf.duration * self.adv.mod('dt') + self.conf.exhilaration * (self.off_ele_mod is None)
 
+    @allow_acl
     def ddamage(self):
         return self.conf.dracolith + self.adv.mod('da') - 1
 
@@ -356,6 +358,7 @@ class DragonForm(Action):
         self.parse_act(act_str)
         return self()
 
+    @allow_acl
     def check(self, dryrun=True):
         if self.disabled or self.shift_silence:
             return False
@@ -365,7 +368,7 @@ class DragonForm(Action):
         if not doing.idle:
             if isinstance(doing, S) or isinstance(doing, DragonForm):
                 return False
-            if not dryrun:
+            if dryrun == False:
                 if doing.status == Action.STARTUP:
                     doing.startup_timer.off()
                     log('interrupt', doing.name , 'by '+self.name, 'after {:.2f}s'.format(now()-doing.startup_start))

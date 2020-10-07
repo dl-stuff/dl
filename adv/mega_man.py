@@ -24,6 +24,7 @@ class Skill_Ammo(Skill):
             return False
         return self.c_ammo >= self.cost
 
+    @allow_acl
     def check_full(self):
         if self._static.silence == 1:
             return False
