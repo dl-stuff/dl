@@ -5,6 +5,7 @@ from importlib.util import spec_from_file_location, module_from_spec
 from conf import get_fullname
 import os
 import sys
+import subprocess
 
 from contextlib import redirect_stdout
 from flask import Flask
@@ -270,3 +271,7 @@ def get_adv_wp_list():
 @app.route('/simc_adv_equip', methods=['GET'])
 def get_adv_equip():
     return '<pre>' + json.dumps(load_equip_json(request.args.get('adv', default=None)), ensure_ascii=False, indent=4) + '</pre>'
+
+@app.route('/simc_git_diff', methods=['GET'])
+def get_git_diff():
+    return '<pre>' + subprocess.check_output(['git', 'diff'], cwd=ROOT_DIR, encoding='UTF-8') + '</pre>'

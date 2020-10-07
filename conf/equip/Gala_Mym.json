@@ -30,15 +30,15 @@
       "Euden"
     ],
     "base": {
-      "dps": 99110.0339911877,
+      "dps": 99135.18437956816,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -103,7 +103,7 @@
     "buffer": {
       "dps": 15571.576388323303,
       "team": 0.1642311846273827,
-      "tdps": 508663.794835319,
+      "tdps": 508816.9349861225,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
@@ -130,26 +130,29 @@
   },
   "60": {
     "base": {
-      "dps": 67497.94137370732,
+      "dps": 68712.46586040875,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if s=1",
-        "`dragon(c3-s-c3-end)",
+        "if dragonform.shift_count<2",
+        "`dragon(c3-s-end)",
+        "else",
+        "`dragon(c3-s-c2-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
         "`s4, fsc",
         "`s2, x=5",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Wand",

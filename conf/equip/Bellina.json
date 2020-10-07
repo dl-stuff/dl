@@ -182,9 +182,45 @@
   },
   "120": {
     "base": {
+      "dps": 74985.51985031104,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s2, duration-now<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1000 and x=3",
+        "`fsf, x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    },
+    "pref": "base",
+    "buffer": {
       "dps": 56721.47539065676,
       "team": 0.05877312290125173,
-      "tdps": null,
+      "tdps": 310755.04513076175,
       "slots.a": [
         "Memory_of_a_Friend",
         "Seaside_Princess",
@@ -215,7 +251,6 @@
         "Weapon",
         "Sha_Wujing"
       ]
-    },
-    "pref": "base"
+    }
   }
 }

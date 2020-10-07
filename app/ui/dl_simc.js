@@ -232,7 +232,7 @@ function serConf(no_conf) {
         requestJson['classbane'] = $('#input-classbane').val();
     }
     if (!isNaN(parseInt($('#input-hp').val()))) {
-        requestJson['hp'] = $('#input-hp').val();
+        requestJson['hp'] = parseInt($('#input-hp').val());
     }
     if ($('#input-edit-acl').prop('checked')) {
         requestJson['acl'] = $('#input-acl').val();

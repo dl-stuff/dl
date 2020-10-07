@@ -1,20 +1,20 @@
 {
   "180": {
     "base": {
-      "dps": 60847.1374543918,
-      "team": 0.033325147381158486,
+      "dps": 61366.914946659985,
+      "team": 0.03331897964030786,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Entwined_Flames",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
         "Such_High_Spirits"
       ],
       "slots.d": "Daikokuten",
       "acl": [
         "`s4, dgauge >= 500 or dgauge <= 100",
-        "`fs, c_fs(cartridge3) and s2.charged>1090",
+        "`fs, c_fs(cartridge3) and cancel",
         "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
         "`s1, cancel",
         "`s3, cancel",
@@ -64,34 +64,33 @@
       ]
     },
     "buffer": {
-      "dps": 24153.36156324286,
-      "team": 0.1330870864869848,
-      "tdps": 367813.37872978393,
+      "dps": 35104.0284138572,
+      "team": 0.1416176352922838,
+      "tdps": 242504.27094127654,
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Entwined_Flames",
-        "Such_High_Spirits"
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
-      "slots.d": "PopStar_Siren",
+      "slots.d": "Daikokuten",
       "acl": [
-        "`s4, dgauge >= 500 or dgauge <= 100",
-        "`fs, c_fs(cartridge3) and s2.charged>1090",
-        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
+        "`dragon, cartridge=0",
         "`s1, cancel",
         "`s3, cancel",
         "`s2, cancel and cartridge = 0",
+        "`s4",
         "`dodge, x=1 and cancel"
       ],
       "coabs": [
-        "Axe2",
-        "Dagger2",
+        "Mitsuhide",
+        "Malora",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Verica"
       ]
     }
   },
@@ -127,7 +126,38 @@
         "Mikoto"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "base": {
+      "dps": 46340.40036584379,
+      "team": 0.03277797697986285,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`s4, dgauge >= 500 or dgauge <= 100",
+        "`fs, c_fs(cartridge3) and s2.charged>1090",
+        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
+        "`s1, cancel",
+        "`s3, cancel",
+        "`s2, cancel and cartridge = 0",
+        "`dodge, x=1 and cancel"
+      ],
+      "coabs": [
+        "Axe2",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    }
   },
   "120": {
     "base": {
