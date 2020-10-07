@@ -66,30 +66,29 @@
       ]
     },
     "buffer": {
-      "dps": 53072.31914325269,
-      "team": 0.03330147769479519,
-      "tdps": 37582138.04891602,
+      "dps": 38510.0138705752,
+      "team": 0.03332613211161958,
+      "tdps": 136945295.78784963,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Valiant_Crown",
         "A_Game_of_Cat_and_Boar",
-        "His_Clever_Brother"
+        "Dragons_Nest"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon,  buff(s3, 1)",
+        "`dragon, buff(s3, 1)",
+        "`s3, (xf or fsc) and buff(s3, 2)",
+        "`s4, xf or fsc",
         "`s1, xf or fsc",
         "`s2, xf or fsc",
-        "`s4, xf or fsc",
-        "`s3, xf or fsc",
         "`fs, xf and self.a1_cd",
-        "`dodge, xf"
+        "`s3, (xf or fsc) and (buff(s3, 1) or not buff(s3))",
+        "`dodge, xf or fsc"
       ],
       "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
+        "Blade"
       ],
       "share": [
         "Weapon",

@@ -93,24 +93,23 @@
   },
   "120": {
     "poison": {
-      "dps": 0.0,
+      "dps": 71196.00042266188,
       "team": 0.0,
       "tdps": null,
-      "output": "-,120,affliction\n63659,Lin You,110268_01_r05,wind,axe,4536,AC-011 Garland,210117_01,Marmyadose,304129_01_60301,Kung Fu Masters,400163_02,Memory of a Friend,400429_02,Summer Paladyns,400098_02,Chariot Drift,400392_02,The Plaguebringer,400410_02,Blade,,Dragonyule Xainfried,110021_03_r04,Axe2,,Weapon,,Xander,110022_01_r05,maintain shield & hp70 & hit10 & hit15 & hit25 & hit50,,poison:100.0%;frostbite:54.0%;sleep:5.4%,attack:15665,fs_enhanced:163,s1:4966,s1_enhanced:24378,s4:7969,s4_frostbite:1320,dx:4544,ds:4652\n",
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Chariot_Drift",
+        "His_Clever_Brother",
         "The_Plaguebringer"
       ],
-      "slots.d": "AC011_Garland",
+      "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon(c3-s-c3-end)",
         "`s3, not buff(s3)",
-        "`s4",
         "`s2, s1.check()",
         "`s1",
+        "`s4, x>2",
         "`fs, self.hits <= 44 and c_fs(enhanced) > 0 and x=4"
       ],
       "coabs": [
@@ -122,7 +121,8 @@
         "Weapon",
         "Xander"
       ]
-    }
+    },
+    "pref": "base"
   },
   "60": {
     "base": {
@@ -155,6 +155,36 @@
         "Karina"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "poison": {
+      "dps": 59656.55308711383,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Vayu",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, s1.check()",
+        "`s1",
+        "`s4, x>2",
+        "`fs, self.hits <= 44 and c_fs(enhanced) > 0 and x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Axe2"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    }
   }
 }
