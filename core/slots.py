@@ -640,8 +640,8 @@ class AmuletQuint:
             self.an.append(AmuletBase(conf, c, qual))
         if any(limits.values()):
             raise ValueError('Unfilled wyrmprint slot')
-        self.an.sort(key=lambda a: (-a.rarity, a.name))
         self.an = AmuletQuint.PICKER.pick(self.an, c)
+        self.an.sort(key=lambda a: (-a.rarity, a.name))
         self.c = c
 
     def __str__(self):

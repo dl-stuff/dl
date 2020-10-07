@@ -506,7 +506,7 @@ def same_build_different_dps(a, b):
     return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
-def save_equip(adv, real_d):
+def save_equip(adv, real_d, repair=False):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
         return
@@ -534,7 +534,6 @@ def save_equip(adv, real_d):
     adv_qual = adv.__class__.__name__
     equip = load_equip_json(adv_qual)
     cached = None
-    repair = False
     acl_list = adv.conf.acl
     if not isinstance(acl_list, list):
         acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
@@ -603,7 +602,10 @@ def save_equip(adv, real_d):
     try:
         dps_delta = equip[dkey]['base']['dps'] - equip[dkey]['buffer']['dps']
         team_delta = equip[dkey]['buffer']['team'] - equip[dkey]['base']['team']
-        equip[dkey]['buffer']['tdps'] = dps_delta / team_delta
+        try:
+            equip[dkey]['buffer']['tdps'] = dps_delta / team_delta
+        except ZeroDivisionError:
+            equip[dkey]['buffer']['tdps'] = 99999999
     except KeyError:
         pass
     # if 'buffer' in equip[dkey] and equip[dkey]['buffer']['team'] > 1.1:
