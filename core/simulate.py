@@ -553,13 +553,13 @@ def save_equip(adv, real_d, repair=False):
         cached = equip[dkey][etype]
         cdps = cached.get('dps', 0)
         cteam = cached.get('team', 0)
-        repair = same_build_different_dps(cached, new_equip)
+        repair = repair or same_build_different_dps(cached, new_equip)
     except KeyError:
         try:
             cached = equip[dkey]['base']
             cdps = cached.get('dps', 0)
             cteam = cached.get('team', 0)
-            repair = same_build_different_dps(cached, new_equip)
+            repair = repair or same_build_different_dps(cached, new_equip)
         except KeyError:
             cdps = 0
             cteam = 0
