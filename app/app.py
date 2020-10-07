@@ -238,6 +238,8 @@ def get_adv_slotlist():
         weapon_name = f'Agito T{weapon["tier"]} {weapon["name"]}'
         result['weapons'] = {f'{adv.slots.c.ele}-{adv.slots.c.wt}': weapon_name}
         result['dragons'] = {drg: data['d']['name'] for drg, data in dragons[adv.slots.c.ele].items()}
+        # gold fafu lul
+        result['dragons']['Gold_Fafnir'] = 'Gold Fafnir'
         result['coabilities'] = {k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()}
     return jsonify(result)
 
