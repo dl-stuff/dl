@@ -777,10 +777,6 @@ class Adv(object):
             if equip_key is None:
                 equip_key = equip_d.get('pref', 'base')
                 self.equip_key = equip_key
-            elif equip_key == 'affliction':
-                from core.simulate import ELE_AFFLICT
-                self.equip_key = 'affliction'
-                equip_key = ELE_AFFLICT[self.conf.c.ele]
             if equip_key in equip_d:
                 self.conf.update(equip_d[equip_key])
                 self.equip_key = self.equip_key or equip_key
