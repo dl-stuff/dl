@@ -4,10 +4,11 @@ from importlib import import_module
 from importlib.util import spec_from_file_location, module_from_spec
 from time import monotonic
 import core.simulate
-from conf import ROOT_DIR
+from conf import ROOT_DIR, load_equip_json
 from core.simulate import CHART_DIR, DURATION_LIST, QUICK_LIST_FILES, SLOW_LIST_FILES, ADV_LIST_FILES
 
 ADV_DIR = 'adv'
+
 
 def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
     t_start = monotonic()
@@ -51,17 +52,52 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
     output.close()
 
 
-def sim_adv_list(list_file, sanity_test=False):
+EQUIP_KEYS = ['base', 'buffer', 'affliction']
+def repair_equips(adv_file):
+    t_start = monotonic()
+    try:
+        adv_file = os.path.basename(adv_file)
+        adv_name = adv_file
+        if adv_file.endswith('.py'):
+            adv_name = adv_file.split('.')[0]
+        adv_module = core.simulate.load_adv_module(adv_name)
+        adv_name = adv_module.__name__
+        adv_equip = load_equip_json(adv_name)
+    
+        for dkey, equip_d in adv_equip.items():
+            for ekey, conf in equip_d.items():
+                # first do repair if needed
+                run_res = core.simulate.test(adv_module, conf, duration=int(dkey), verbose=0)
+                core.simulate.save_equip(run_res[0][0], run_res[0][1])
+                # check if 180 equip is actually better for 120/60
+                if dkey == '180':
+                    continue
+                try:
+                    run_res = core.simulate.test(adv_module, equip_d['180'][ekey], duration=int(dkey), verbose=0)
+                    core.simulate.save_equip(run_res[0][0], run_res[0][1])
+                except KeyError:
+                    pass
+    except Exception as e:
+        print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{adv_file} {e}\033[0m', flush=True)
+        return
+    print('{:.4f}s - repair:{}'.format(monotonic() - t_start, adv_file), flush=True)
+
+
+def sim_adv_list(list_file, sanity_test=False, repair=False):
     special = list_file.startswith('chara_sp')
     mass = list_file.endswith('slow.txt') and not special
     with open(os.path.join(ROOT_DIR, list_file), encoding='utf8') as f:
         sorted_f = list(sorted(f))
     for adv_file in sorted_f:
-        sim_adv(adv_file.strip(), special, mass, sanity_test)
+        if repair:
+            repair_equips(adv_file.strip())
+        else:
+            sim_adv(adv_file.strip(), special, mass, sanity_test, repair)
     with open(os.path.join(ROOT_DIR, list_file), 'w', encoding='utf8') as f:
         for adv_file in sorted_f:
             f.write(adv_file.strip())
             f.write('\n')
+
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
@@ -85,6 +121,9 @@ if __name__ == '__main__':
         arguments.remove('-m')
     if '-san' in arguments:
         sanity_test = True
+    if '-rp' in arguments:
+        arguments.remove('-rp')
+        is_repair = True
 
     sim_targets = arguments
 
@@ -101,10 +140,13 @@ if __name__ == '__main__':
     if list_files is not None:
         do_combine = True
         for list_file in list_files:
-            sim_adv_list(list_file, sanity_test=sanity_test)
+            sim_adv_list(list_file, sanity_test=sanity_test, repair=is_repair)
     else:
         for adv_file in sim_targets:
-            sim_adv(adv_file, special=is_special, mass=is_mass, sanity_test=sanity_test)
+            if is_repair:
+                repair_equips(adv_file)
+            else:
+                sim_adv(adv_file, special=is_special, mass=is_mass, sanity_test=sanity_test)
 
     if do_combine and not sanity_test:
         core.simulate.combine()

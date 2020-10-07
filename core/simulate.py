@@ -138,8 +138,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
                 output.write('\n')
             summation(d, a, output, cond=c)
 
-    adv.real_duration = real_d
-    return run_results, adv
+    return run_results
 
 def slots(adv):
     slots = f'[{adv.slots.d}][{adv.slots.w}][{adv.slots.a}]\n'
@@ -502,6 +501,119 @@ def combine():
 
     with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified'), 'w') as f:
         f.write(str(time.time_ns() // 1000000))
+
+def same_build_different_dps(a, b):
+    return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])
+
+BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
+def save_equip(adv, real_d):
+    adv.duration = int(adv.duration)
+    if adv.duration not in (60, 120, 180):
+        return
+    if 'sim_buffbot' in adv.conf:
+        return
+    if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
+        return
+    if 'dragonbattle' in adv.conf:
+        return
+    if 'classbane' in adv.conf:
+        return
+    if 'hp' in adv.conf:
+        return
+    if any([wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]):
+        return
+    etype = 'base'
+    eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
+    if adv.sim_afflict:
+        if adv.sim_afflict != {eleaff} or \
+           adv.conf_init.sim_afflict[eleaff] != 1:
+            return
+        else:
+            etype = 'affliction'
+    dkey = str(adv.duration)
+    adv_qual = adv.__class__.__name__
+    equip = load_equip_json(adv_qual)
+    cached = None
+    repair = False
+    acl_list = adv.conf.acl
+    if not isinstance(acl_list, list):
+        acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
+    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
+    nteam = adv.logs.team_buff / real_d
+    new_equip = {
+        'dps': ndps,
+        'team': nteam,
+        'tdps': None,
+        'slots.a': adv.slots.a.qual_lst,
+        'slots.d': adv.slots.d.qual,
+        'acl': acl_list,
+        'coabs': adv.slots.c.coab_list,
+        'share': adv.skillshare_list
+    }
+    try:
+        cached = equip[dkey][etype]
+        cdps = cached.get('dps', 0)
+        cteam = cached.get('team', 0)
+        repair = same_build_different_dps(cached, new_equip)
+    except KeyError:
+        try:
+            cached = equip[dkey]['base']
+            cdps = cached.get('dps', 0)
+            cteam = cached.get('team', 0)
+            repair = same_build_different_dps(cached, new_equip)
+        except KeyError:
+            cdps = 0
+            cteam = 0
+    if not repair and ndps < cdps:
+        if etype == 'base' and nteam > cteam:
+            etype = 'buffer'
+            try:
+                cached = equip[dkey][etype]
+                cdps = cached.get('dps', 0)
+                cteam = cached.get('team', 0)
+            except KeyError:
+                pass
+            if nteam < cteam:
+                return
+            if nteam == cteam:
+                if cdps > ndps:
+                    return
+        else:
+            return
+    if etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]:
+        equip[dkey]['buffer'] = cached
+        equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
+    if dkey not in equip:
+        equip[dkey] = {}
+    equip[dkey][etype] = new_equip
+    if etype == 'base':
+        try:
+            cdps = equip[dkey][eleaff]['dps']
+            if cdps < ndps:
+                del equip[dkey][eleaff]
+        except KeyError:
+            pass
+        try:
+            cdps = equip[dkey]['buffer']['dps']
+            cteam = equip[dkey]['buffer']['team']
+            if cteam <= nteam:
+                del equip[dkey]['buffer']
+        except KeyError:
+            pass
+    try:
+        dps_delta = equip[dkey]['base']['dps'] - equip[dkey]['buffer']['dps']
+        team_delta = equip[dkey]['buffer']['team'] - equip[dkey]['base']['team']
+        equip[dkey]['buffer']['tdps'] = dps_delta / team_delta
+    except KeyError:
+        pass
+    # if 'buffer' in equip[dkey] and equip[dkey]['buffer']['team'] > 1.1:
+    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < 40000:
+        equip[dkey]['pref'] = 'buffer'
+        equip[dkey]['base']['tdps'] = equip[dkey]['buffer']['tdps']
+    else:
+        equip[dkey]['pref'] = 'base'
+    save_equip_json(adv_qual, equip)
+
 
 def load_adv_module(adv_name):
     return getattr(

@@ -13,7 +13,7 @@ from flask import jsonify
 
 import core.simulate
 from core.afflic import AFFLICT_LIST
-from conf import ROOT_DIR, TRIBE_TYPES, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json, save_equip_json
+from conf import ROOT_DIR, TRIBE_TYPES, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json
 app = Flask(__name__)
 
 # Helpers
@@ -94,17 +94,18 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
 
     fn = io.StringIO()
     try:
-        run_res, adv = core.simulate.test(adv_module, conf, t, log, mass, output=fn, cond=cond)
+        run_res = core.simulate.test(adv_module, conf, t, log, mass, output=fn, cond=cond)
         result['test_output'] = fn.getvalue()
     except Exception as e:
         result['error'] = str(e)
         return result
 
+    adv = run_res[0][0]
+    real_d = run_res[0][1]
     if not adv_name in SPECIAL_ADV:
-        save_equip(adv, adv_module, result['test_output'])
+        core.simulate.save_equip(adv, real_d)
 
     result['logs'] = {}
-    adv = run_res[0][0]
     fn = io.StringIO()
     adv.logs.write_logs(output=fn, log_filter=[str(type(adv.slots.d).__name__), str(type(adv).__name__)])
     result['logs']['dragon'] = fn.getvalue()
@@ -117,118 +118,6 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
     result['logs']['timeline'] = fn.getvalue()
     return result
 
-
-BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
-def save_equip(adv, adv_module, test_output):
-    adv.duration = int(adv.duration)
-    if adv.duration not in (60, 120, 180):
-        return
-    if 'sim_buffbot' in adv.conf:
-        return
-    if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
-        return
-    if 'dragonbattle' in adv.conf:
-        return
-    if 'classbane' in adv.conf:
-        return
-    if 'hp' in adv.conf:
-        return
-    if any([wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]):
-        return
-    etype = 'base'
-    eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
-    if adv.sim_afflict:
-        if adv.sim_afflict != {eleaff} or \
-           adv.conf_init.sim_afflict[eleaff] != 1:
-            return
-        else:
-            etype = eleaff
-    dkey = str(adv.duration)
-    adv_qual = adv.__class__.__name__
-    equip = load_equip_json(adv_qual)
-    cached = None
-    try:
-        cached = equip[dkey][etype]
-        cdps = cached.get('dps', 0)
-        cteam = cached.get('team', 0)
-    except KeyError:
-        try:
-            cached = equip[dkey]['base']
-            cdps = cached.get('dps', 0)
-            cteam = cached.get('team', 0)
-        except KeyError:
-            cdps = 0
-            cteam = 0
-    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / adv.real_duration
-    nteam = adv.logs.team_buff / adv.real_duration
-    if ndps < cdps:
-        if etype == 'base' and nteam > cteam:
-            etype = 'buffer'
-            try:
-                cached = equip[dkey][etype]
-                cdps = cached.get('dps', 0)
-                cteam = cached.get('team', 0)
-            except KeyError:
-                pass
-            if nteam < cteam:
-                return
-            if nteam == cteam:
-                if cdps > ndps:
-                    return
-        else:
-            return
-    if etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]:
-        equip[dkey]['buffer'] = cached
-        equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
-    if dkey not in equip:
-        equip[dkey] = {}
-    acl_list = adv.conf.acl
-    if not isinstance(acl_list, list):
-        acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
-    # do some san checks
-    equip[dkey][etype] = {
-        'dps': ndps,
-        'team': nteam,
-        'tdps': None,
-        'slots.a': adv.slots.a.qual_lst,
-        'slots.d': adv.slots.d.qual,
-        'acl': acl_list,
-        'coabs': adv.slots.c.coab_list,
-        'share': adv.skillshare_list
-    }
-    if etype == 'base':
-        try:
-            cdps = equip[dkey][eleaff]['dps']
-            if cdps < ndps:
-                del equip[dkey][eleaff]
-        except KeyError:
-            pass
-        try:
-            cdps = equip[dkey]['buffer']['dps']
-            cteam = equip[dkey]['buffer']['team']
-            if cteam <= nteam:
-                del equip[dkey]['buffer']
-        except KeyError:
-            pass
-    try:
-        dps_delta = equip[dkey]['base']['dps'] - equip[dkey]['buffer']['dps']
-        team_delta = equip[dkey]['buffer']['team'] - equip[dkey]['base']['team']
-        equip[dkey]['buffer']['tdps'] = dps_delta / team_delta
-    except KeyError:
-        pass
-    # if 'buffer' in equip[dkey] and equip[dkey]['buffer']['team'] > 1.1:
-    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < 40000:
-        equip[dkey]['pref'] = 'buffer'
-        equip[dkey]['base']['tdps'] = equip[dkey]['buffer']['tdps']
-    else:
-        equip[dkey]['pref'] = 'base'
-    save_equip_json(adv_qual, equip)
-
-    # output = open(os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.py.csv'.format(adv_qual.lower())), 'w', encoding='utf8')
-    # for d in (60, 120, 180):
-    #     core.simulate.test(adv_module, {}, duration=d, verbose=-5, output=output)
-    # output.close()
-    # core.simulate.combine()
 
 # API
 @app.route('/simc_adv_test', methods=['POST'])
