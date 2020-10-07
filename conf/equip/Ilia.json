@@ -47,11 +47,11 @@
       "acl": [
         "`s4, (dragonform.dragon_gauge >= 500) or dragonform.dragon_gauge <= 100",
         "`fs, c_fs(cartridge3) and s2.charged>1090",
-        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
-        "`s1, x=1",
-        "`s3, x=1",
-        "`s2, x=1 and cartridge=0",
-        "`dodge, x=1"
+        "`dragon, cartridge=0 and combine_crit_mods()[0] >= 0.9",
+        "`s1, cancel",
+        "`s3, cancel",
+        "`s2, cancel and cartridge = 0",
+        "`dodge, x=1 and cancel"
       ],
       "coabs": [
         "Axe2",
