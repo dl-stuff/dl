@@ -103,7 +103,7 @@ def sim_adv_list(list_file, sanity_test=False, repair=False):
         if repair:
             repair_equips(adv_file.strip())
         else:
-            sim_adv(adv_file.strip(), special, mass, sanity_test, repair)
+            sim_adv(adv_file.strip(), special, mass, sanity_test)
     with open(os.path.join(ROOT_DIR, list_file), 'w', encoding='utf8') as f:
         for adv_file in sorted_f:
             f.write(adv_file.strip())
@@ -120,6 +120,7 @@ if __name__ == '__main__':
     do_combine = False
     is_special = None
     is_mass = None
+    is_repair = False
     sanity_test = False
     if '-c' in arguments:
         do_combine = True
