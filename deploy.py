@@ -73,13 +73,13 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
         return None
 
 
-def run_and_save(adv_module, ele, dkey, ekey, conf):
+def run_and_save(adv_module, ele, dkey, ekey, conf, repair=False):
     if ekey == 'affliction':
         aff_name = core.simulate.ELE_AFFLICT[ele]
         conf[f'sim_afflict.{aff_name}'] = 1
     with open(os.devnull, 'w') as output:
         run_res = core.simulate.test(adv_module, conf, duration=int(dkey), verbose=0, output=output)
-        core.simulate.save_equip(run_res[0][0], run_res[0][1], repair=True)
+        core.simulate.save_equip(run_res[0][0], run_res[0][1], repair=repair, etype=ekey)
 
 
 EQUIP_KEYS = ['base', 'buffer', 'affliction']
@@ -97,17 +97,24 @@ def repair_equips(adv_file):
 
         eleaff = None
         for dkey, equip_d in adv_equip.items():
+            pref = equip_d.get('pref', 'base')
             for ekey, conf in equip_d.items():
                 if ekey == 'pref':
                     continue
-                run_and_save(adv_module, adv_ele, dkey, ekey, conf)
-                # check if 180 equip is actually better for 120/60
-                if dkey == '180':
-                    continue
-                try:
-                    run_and_save(adv_module, adv_ele, dkey, ekey, equip_d['180'][ekey])
-                except KeyError:
-                    pass
+                run_and_save(adv_module, adv_ele, dkey, ekey, conf, repair=True)
+                # if affliction, check if base equip actually better
+                # if ekey == 'affliction':
+                #     try:
+                #         run_and_save(adv_module, adv_ele, dkey, ekey, equip_d['base'])
+                #     except KeyError:
+                #         pass
+                # # check if 180 equip is actually better for 120/60
+                # if dkey == '180':
+                #     continue
+                # try:
+                #     run_and_save(adv_module, adv_ele, dkey, ekey, adv_equip['180'][ekey])
+                # except KeyError:
+                #     pass
     except Exception as e:
         print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{adv_file} {e}\033[0m', flush=True)
         return
@@ -166,9 +173,9 @@ if __name__ == '__main__':
     if sanity_test or 'all' in sim_targets:
         list_files = ADV_LIST_FILES
     elif 'quick' in sim_targets:
-        list_files = QUICK_LIST_FILES
+        list_files = QUICK_LIST_FILES if not is_repair else ['chara_quick.txt']
     elif 'slow' in sim_targets:
-        list_files = SLOW_LIST_FILES
+        list_files = SLOW_LIST_FILES if not is_repair else ['chara_slow.txt']
     else:
         list_files = None
         sim_targets = [a for a in sim_targets if not a.startswith('-')]

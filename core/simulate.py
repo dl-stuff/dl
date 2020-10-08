@@ -519,7 +519,7 @@ def same_build_different_dps(a, b):
     return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
-def save_equip(adv, real_d, repair=False):
+def save_equip(adv, real_d, repair=False, etype=None):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
         return
@@ -535,14 +535,14 @@ def save_equip(adv, real_d, repair=False):
         return
     if any([wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]):
         return
-    etype = 'base'
+    etype = etype or 'base'
     eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
     if adv.sim_afflict:
         if adv.sim_afflict != {eleaff} or \
            adv.conf_init.sim_afflict[eleaff] != 1:
             return
         else:
-            etype = 'affliction'
+            etype = etype or 'affliction'
     dkey = str(adv.duration)
     adv_qual = adv.__class__.__name__
     equip = load_equip_json(adv_qual)
@@ -592,7 +592,7 @@ def save_equip(adv, real_d, repair=False):
                     return
         else:
             return
-    if etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]:
+    if not repair and (etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]):
         equip[dkey]['buffer'] = cached
         equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
     if dkey not in equip:
