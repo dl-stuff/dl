@@ -54,7 +54,7 @@ class Gala_Luca(Adv):
         base_rate, crit_dmg = self.combine_crit_mods()
         crit_dmg -= 1
         new_states = defaultdict(lambda: 0.0)
-        t = now()
+        t = round(now()*4) / 4
         base_icon_count = self.buff_icon_count()
         mean_rate = 0.0
 

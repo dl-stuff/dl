@@ -100,7 +100,7 @@ class RngCritAdv(Adv):
         self.rngcrit_cd = False
 
     def ev_custom_crit_mod(self, name):
-        if name == 'test':
+        if name == 'test' or self.rngcrit_skip():
             return self.solid_crit_mod(name)
         else:
             chance, cdmg = self.combine_crit_mods()
@@ -120,16 +120,9 @@ class RngCritAdv(Adv):
                     new_states[state] += miss_rate * state_p
                     newest = (t, self.effect_duration*bt)
                     new_states[(newest,)+state] = chance * state_p
-            # print('sanity', sum(new_states.values()))
             new_states[(None,)] += 1 - sum(new_states.values())
-            # print('TIME', t)
-            # for s, p in new_states.items():
-            #     print(s, p)
-            # print('SUM', sum(new_states.values()))
-            # print('\n')
             mrate = reduce(lambda mv, s: mv + (sum(int(b is not None) for b in s[0]) * s[1]), new_states.items(), 0)
             if self.prev_log_time == 0 or self.prev_log_time < t - self.rngcrit_cd_duration:
-                log('rngcrit', mrate)
                 self.prev_log_time = t
             self.rngcrit_cb(mrate)
             self.rngcrit_states = new_states

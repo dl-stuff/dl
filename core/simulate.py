@@ -468,7 +468,7 @@ DURATION_LIST = (60, 120, 180)
 QUICK_LIST_FILES = ['chara_quick.txt', 'chara_sp_quick.txt']
 SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
 ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
-def combine(message=None):
+def combine():
     dst_dict = {}
     pages = [str(d) for d in DURATION_LIST] + ['sp']
     aff = ['_', 'affliction']
@@ -507,7 +507,7 @@ def combine(message=None):
             lastmod = {}
         f.truncate(0)
         f.seek(0)
-        lastmod['timestamp'] = str(time.time_ns() // 1000000)
+        lastmod['timestamp'] = time.time_ns() // 1000000
         try:
             lastmod['message'] = lastmod['changed']
             del lastmod['changed']

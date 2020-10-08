@@ -4,34 +4,13 @@ from module.template import RngCritAdv
 def module():
     return Gala_Laxi
 
-class Gala_Laxi(RngCritAdv):    
+a3_stack_cap = 10
+class Gala_Laxi(RngCritAdv):
     conf = {}
-    conf['slots.a'] = [
-    'Twinfold_Bonds',
-    'Flash_of_Genius',
-    'Me_and_My_Bestie',
-    'His_Clever_Brother',
-    'A_Passion_for_Produce'
-    ]
-    conf['acl'] = """
-        # `norm
-        `ex
-        `dragon,s=2
-        queue prep
-        `s2;s1;s4
-        end
-        `s3, not buff(s3) and x=4
-        `s2
-        `s1
-        `s4
-        """
     conf['afflict_res.burn'] = 0
-    conf['coabs'] = ['Halloween_Mym', 'Serena', 'Yuya']
-    conf['share'] = ['Xander']
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # self.slots.c.coabs = {'Gala_Laxi': [None, 'dagger2']}
         # human latency penalty on ex combo
         for xn, xnconf in self.conf.find(r'^x\d+_ex$'):
             xnconf['startup'] += 0.05
@@ -47,12 +26,62 @@ class Gala_Laxi(RngCritAdv):
             100: Selfbuff('a1_str', 0.15, -1, 'att', 'buff'),
         }
         self.a3_crit_chance = 0
-        self.a3_crit_dmg = 0
-        self.config_rngcrit(cd=1)
+        self.a3_crit_dmg_stack = 0
+        self.a3_crit_dmg_buff = Selfbuff('a3_crit_dmg',0.00,-1,'crit','damage')
+        self.config_rngcrit(cd=1, ev=-1)
 
         self.current_x = 'norm'
         self.deferred_x = 'ex'
         Event('s').listener(self.reset_to_norm, order=0)
+
+    @property
+    def buffcount(self):
+        buffcount = super().buffcount
+        return buffcount + self.a3_crit_dmg_stack
+
+    def rngcrit_cb(self, mrate=None):
+        mrate = round(mrate, 2)
+        self.a3_crit_dmg_stack = mrate - 1
+        new_value = 0.04*mrate
+        log('rngcrit_cb', mrate)
+        if not self.a3_crit_dmg_buff.get():
+            self.a3_crit_dmg_buff.set(new_value)
+            self.a3_crit_dmg_buff.on()
+        else:
+            self.a3_crit_dmg_buff.value(new_value)
+
+    def ev_custom_crit_mod(self, name):
+        # print(f'{now():.02f}', self.a3_crit_dmg_stack+1, flush=True)
+        if name == 'test' or self.a3_crit_dmg_stack >= 9:
+            return self.solid_crit_mod(name)
+        else:
+            chance, cdmg = self.combine_crit_mods()
+            t = round(now())
+
+            new_states = defaultdict(lambda: 0.0)
+            for state, state_p in self.rngcrit_states.items():
+                if len(state) == a3_stack_cap:
+                    new_states[(-1,)*a3_stack_cap] += state_p
+                elif state[0] is not None and t - state[0] < self.rngcrit_cd_duration:
+                    new_states[state] += state_p
+                else:
+                    miss_rate = 1.0 - chance
+                    new_states[state] += miss_rate * state_p
+                    if state == (None,):
+                        new_states[(t,)] = chance * state_p
+                    else:
+                        new_states[(t,)+state] = chance * state_p
+
+            new_states[(None,)] += 1 - sum(new_states.values())
+
+            mrate = reduce(lambda mv, s: mv + (sum(int(b is not None) for b in s[0]) * s[1]), new_states.items(), 0)
+            if self.prev_log_time == 0 or self.prev_log_time < t - self.rngcrit_cd_duration:
+                log('rngcrit', mrate)
+                self.prev_log_time = t
+            self.rngcrit_cb(mrate)
+            self.rngcrit_states = new_states
+
+            return chance * (cdmg - 1) + 1
 
     def norm(self):
         self.deferred_x = 'norm'
@@ -62,13 +91,6 @@ class Gala_Laxi(RngCritAdv):
     
     def reset_to_norm(self, e):
         self.current_x = 'norm'
-
-    def rngcrit_skip(self):
-        return self.a3_crit_dmg > 9
-
-    def rngcrit_cb(self):
-        self.a3_crit_dmg += 1
-        return Selfbuff('a3_crit_dmg',0.04,-1,'crit','damage').on()
 
     def x(self, x_min=1):
         prev = self.action.getprev()
@@ -127,6 +149,8 @@ class Gala_Laxi(RngCritAdv):
 
     def add_combo(self, name='#'):
         super().add_combo(name)
+        if self.hits == self.echo:
+            self.rngcrit_states = {(None,): 1.0}
         if self.a3_crit_chance < 3 and self.condition('always connect hits') and self.hits // 15 > self.a3_crit_chance:
             self.a3_crit_chance = self.hits // 15
             Selfbuff('a3_crit_chance',0.04,-1,'crit','chance').on()

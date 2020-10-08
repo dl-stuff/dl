@@ -1563,7 +1563,7 @@ class Adv(object):
             for m in hitmods:
                 m.on()
             if 'extra' in attr:
-                for _ in range(min(attr['extra'], self.buffcount)):
+                for _ in range(min(attr['extra'], round(self.buffcount))):
                     self.add_combo(name)
                     self.dmg_make(name, attr['dmg'], attenuation=attenuation)
             else:
