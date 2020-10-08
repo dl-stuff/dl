@@ -76,15 +76,15 @@
   },
   "120": {
     "affliction": {
-      "dps": 53617.57597870664,
+      "dps": 54593.96872673173,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "Chariot_Drift",
-        "His_Clever_Brother"
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
@@ -94,10 +94,12 @@
         "else",
         "`dragon, dragondrive.get()",
         "end",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, x=5"
+        "queue prep and self.duration>120",
+        "`s2; s1; s4",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
       ],
       "coabs": [
         "Blade",
@@ -106,7 +108,7 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Mikoto"
       ]
     },
     "pref": "base"
@@ -148,6 +150,42 @@
         "Fjorm"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "affliction": {
+      "dps": 49078.683539502796,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "queue prep and self.duration>120",
+        "`s2; s1; s4",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    }
   }
 }

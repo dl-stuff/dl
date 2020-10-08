@@ -48,7 +48,7 @@
         "`s3, not buff(s3)",
         "`s2, self.hp > 30",
         "`s1",
-        "`s4",
+        "`s4, s1.charged<s1.sp/3",
         "`fs, x=5"
       ],
       "coabs": [
@@ -121,7 +121,37 @@
         "Xander"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "affliction": {
+      "dps": 79852.39725609715,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), (self.hp>0 and (self.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)",
+        "`s3, not buff(s3)",
+        "`s2, self.hp > 30",
+        "`s1",
+        "`s4, s1.charged<s1.sp/3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    }
   },
   "60": {
     "base": {

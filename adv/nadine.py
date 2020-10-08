@@ -38,6 +38,8 @@ class Nadine(Adv):
             adv.team_s1_hits += teammates
 
     def s1_proc(self, e):
+        for _ in range(self.team_s1_hits):
+            self.add_combo(e.name)
         aseq = 1 if e.group == 'default' else 3 + 1
         s1_hits = 1 if e.group == 'default' else 3 + self.team_s1_hits
         log('debug', 's1_hits', s1_hits, self.team_s1_hits)
@@ -51,7 +53,6 @@ class Nadine(Adv):
             return
         if s1_hits >= 6:
             self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_6)
-
             self.energy.add(5)
             return
 

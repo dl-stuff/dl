@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 72542.84712301989,
+      "dps": 72094.01816380706,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -34,7 +34,7 @@
     "buffer": {
       "dps": 53132.27122146524,
       "team": 0.0250335697845203,
-      "tdps": 775381.8599837618,
+      "tdps": 757452.7766338368,
       "output": "-,180,_\n53132,Summer Norwin,110066_02_r05,wind,dagger,4132,Pazuzu,210026_01,Carnwennan,303130_01_60301,Flash of Genius,400063_02,The Red Impulse,400088_02,Twinfold Bonds,400097_02,A Passion for Produce,400446_02,The Plaguebringer,400410_02,Blade,,Dragonyule Xainfried,110021_03_r04,Eleonora,110031_01_r04,Weapon,,Curran,110281_01_r05,hit15 & hp=0.2%,,poison:87.2%;team:2.50336%,attack:9150,s1_a:5334,s1_c:6000,s2_b:9149,s2_d:11427,s2_d_poison:1891,s4:6597,dx:1366,ds_poison:247,ds:1965\n",
       "slots.a": [
         "Flash_of_Genius",
@@ -62,7 +62,7 @@
       ]
     },
     "affliction": {
-      "dps": 74865.06200956405,
+      "dps": 75420.1536148381,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -94,11 +94,11 @@
   },
   "60": {
     "base": {
-      "dps": 51186.249309876584,
+      "dps": 51912.47909518955,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Flash_of_Genius",
+        "Memory_of_a_Friend",
         "The_Synthetic_Dragon",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
@@ -122,6 +122,36 @@
         "Veronica"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "affliction": {
+      "dps": 59978.94946519605,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Synthetic_Dragon",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon(s-end), x=5",
+        "`s3, not buff(s3)",
+        "`s1, c_s(1, a) or c_s(1, c)",
+        "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
+        "`s4, x=5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Eleonora"
+      ],
+      "share": [
+        "Weapon",
+        "Veronica"
+      ]
+    }
   }
 }

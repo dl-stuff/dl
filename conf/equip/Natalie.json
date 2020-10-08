@@ -91,15 +91,15 @@
   },
   "60": {
     "base": {
-      "dps": 64392.37991528731,
+      "dps": 54619.47336378987,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "Valiant_Crown",
         "A_Small_Courage",
-        "His_Clever_Brother"
+        "Dueling_Dancers"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -119,6 +119,35 @@
         "Xander"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "affliction": {
+      "dps": 54619.47336378987,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Valiant_Crown",
+        "A_Small_Courage",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), (x=5 and self.trickery <= 1) or self.hp=0",
+        "`s3, not buff(s3)",
+        "`s2, s=3 or x=5",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    }
   }
 }

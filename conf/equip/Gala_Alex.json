@@ -105,10 +105,9 @@
   },
   "60": {
     "base": {
-      "dps": 79176.99899076304,
-      "team": 0.057789902058809885,
+      "dps": 78682.0871200438,
+      "team": 0.05756718980740047,
       "tdps": null,
-      "output": "-,60,_\n79177,Gala Alex,100005_02_r05,shadow,sword,4478,Gala Cat Sìth,200017_01,Yitian Jian,301142_01_60501,An Ancient Oath,400084_02,Memory of a Friend,400429_02,The Shining Overlord,400167_02,Dueling Dancers,400050_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Wand,,Curran,110281_01_r05,Weapon,,Durant,110343_01_r04,0 poison res & always connect hits & hp≤40 & hit15,see special for bk chain; s2 c4fs [s1 c4fs]*5 & use s1/s2 only when charge>=2,poison:79.1%;sleep:8.7%;team:5.77899%,attack:7214,fs:1667,s1_base1:7832,s1_chain1:31709,s2_base2:4003,s2_base2_poison:1266,dx:6263,ds:19220\n",
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -130,7 +129,7 @@
       "coabs": [
         "Ieyasu",
         "Wand",
-        "Curran"
+        "Heinwald"
       ],
       "share": [
         "Weapon",
@@ -141,7 +140,7 @@
     "buffer": {
       "dps": 71548.5163274363,
       "team": 0.22567061294832463,
-      "tdps": 45439.89969370081,
+      "tdps": 42435.606957434145,
       "slots.a": [
         "Levins_Champion",
         "Memory_of_a_Friend",
@@ -242,10 +241,9 @@
       ]
     },
     "affliction": {
-      "dps": 91008.62008807524,
-      "team": 0.058413981458822414,
+      "dps": 87890.92924246611,
+      "team": 0.06839812345884248,
       "tdps": null,
-      "output": "-,120,affliction\n91009,Gala Alex,100005_02_r05,shadow,sword,4478,Gala Cat Sìth,200017_01,Yitian Jian,301142_01_60501,An Ancient Oath,400084_02,Memory of a Friend,400429_02,The Shining Overlord,400167_02,Dueling Dancers,400050_02,The Plaguebringer,400410_02,Ieyasu,110313_01_r05,Wand,,Curran,110281_01_r05,Weapon,,Durant,110343_01_r04,0 poison res & always connect hits & hp≤40 & hit15,see special for bk chain; s2 c4fs [s1 c4fs]*5 & use s1/s2 only when charge>=2,poison:100.0%;sleep:4.3%;team:5.84140%,attack:7758,fs:1874,s1_base1:5589,s1_chain1:61616,dx:3866,ds:10304\n",
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -258,7 +256,11 @@
         "`dragon(c3-s-end), s=1",
         "`s3, not buff(s3)",
         "if fsc",
+        "# use s4/s2 if no poison or if s1 def down has less than 1/3 time left",
+        "if (self.sr.chain_status=1 and timeleft(s1, base1)<5)",
         "`s4",
+        "`s2",
+        "end",
         "`s2, not aff(poison)",
         "`s1, not buff(s1) or self.sr.count > 1",
         "end",
@@ -267,7 +269,7 @@
       "coabs": [
         "Ieyasu",
         "Wand",
-        "Curran"
+        "Heinwald"
       ],
       "share": [
         "Weapon",
