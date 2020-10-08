@@ -158,7 +158,7 @@ class AfflicUncapped(object):
         self.stacks.append(total_success_p)
         Timer(self.stack_end_fun(total_success_p), self.duration).on()
         self.update()
-        
+
         self.event.rate = total_success_p
         self.event()
 
@@ -382,6 +382,7 @@ class Afflics(object):
         self.stun.resist = 80
         self.sleep.resist = 80
         self.frostbite.resist = 0
+        self.flashburn.resist = 0
 
         self.poison.tolerance = 5
         self.burn.tolerance = 5
@@ -392,6 +393,7 @@ class Afflics(object):
         self.stun.tolerance = 20
         self.sleep.tolerance = 20
         self.frostbite.tolerance = 5
+        self.flashburn.tolerance = 5
 
     def add(self, name, atype, rate, duration, coef=0, iv=0):
         if atype == 'burning':

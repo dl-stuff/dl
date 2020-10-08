@@ -30,8 +30,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 58314.52505561154,
-      "team": 0.15080126039751304,
+      "dps": 58313.00963692119,
+      "team": 0.15104404196427648,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -43,8 +43,8 @@
       "slots.d": "Daikokuten",
       "acl": [
         "`s1, dgauge >= 500 and not buff(s1)",
-        "`dragon, cancel",
-        "`s3",
+        "`dragon",
+        "`s3, cancel",
         "`s4, cancel"
       ],
       "coabs": [
@@ -88,9 +88,9 @@
   },
   "60": {
     "base": {
-      "dps": 64906.638843310735,
-      "team": 0.06375875021103308,
-      "tdps": 32063.212731553063,
+      "dps": 57285.027583541254,
+      "team": 0.30146453857294403,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -100,22 +100,22 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`s1, dgauge >= 500 and not buff(s1)",
         "`dragon",
         "`s3",
-        "`s4, cancel"
+        "`s4",
+        "`s1, not buff(s1)"
       ],
       "coabs": [
+        "Cleo",
         "Raemond",
-        "Dagger2",
-        "Peony"
+        "Dagger2"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Karl"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "affliction": {
       "dps": 65497.90835603344,
       "team": 0.2093475441704098,
@@ -142,34 +142,6 @@
       "share": [
         "Weapon",
         "Gala_Mym"
-      ]
-    },
-    "buffer": {
-      "dps": 57285.027583541254,
-      "team": 0.30146453857294403,
-      "tdps": 32063.212731553063,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4",
-        "`s1, not buff(s1)"
-      ],
-      "coabs": [
-        "Cleo",
-        "Raemond",
-        "Dagger2"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
       ]
     }
   },

@@ -62,24 +62,24 @@
       ]
     },
     "buffer": {
-      "dps": 21947.32124933805,
-      "team": 0.09649248297686136,
-      "tdps": 609044.1172670416,
+      "dps": 19814.921195361905,
+      "team": 0.12202393703936154,
+      "tdps": 499087.1516617175,
       "slots.a": [
-        "Levins_Champion",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "A_Small_Courage",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "High_Zodiark",
+      "slots.d": "Gold_Fafnir",
       "acl": [
-        "`dragon(c3-s-c3-end), s",
+        "`dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))",
         "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, not charged_in(3, s2) and bleed_stack < 3 and buff(s2)",
-        "`s4, cancel",
-        "`fsf, xf=5"
+        "`s2",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=3"
       ],
       "coabs": [
         "Delphi",
@@ -88,7 +88,7 @@
       ],
       "share": [
         "Weapon",
-        "Elisanne"
+        "Vixel"
       ]
     }
   },

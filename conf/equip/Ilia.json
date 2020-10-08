@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 61366.914946659985,
+      "dps": 61839.38549748048,
       "team": 0.03331897964030786,
       "tdps": null,
       "slots.a": [
@@ -33,7 +33,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 67804.00747581695,
+      "dps": 68306.32438415496,
       "team": 0.033325147381158486,
       "tdps": null,
       "slots.a": [
@@ -66,7 +66,7 @@
     "buffer": {
       "dps": 35104.0284138572,
       "team": 0.1416176352922838,
-      "tdps": 242504.27094127654,
+      "tdps": 246866.93406000265,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -96,24 +96,24 @@
   },
   "60": {
     "affliction": {
-      "dps": 43821.623420452015,
-      "team": 0.033859149269447254,
+      "dps": 50855.23251810246,
+      "team": 0.032777976979862816,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Valiant_Crown",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife"
+        "Entwined_Flames",
+        "Such_High_Spirits"
       ],
       "slots.d": "Daikokuten",
       "acl": [
+        "`s4, dgauge >= 500 or dgauge <= 100",
         "`fs, c_fs(cartridge3) and s2.charged>1090",
-        "`dragon, cartridge=0",
+        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
         "`s1, cancel",
         "`s3, cancel",
-        "`s4, cancel and not buff(s4)",
-        "`s2, cancel",
+        "`s2, cancel and cartridge = 0",
         "`dodge, x=1 and cancel"
       ],
       "coabs": [
@@ -123,7 +123,7 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Luca"
       ]
     },
     "pref": "base",
@@ -161,39 +161,7 @@
   },
   "120": {
     "base": {
-      "dps": 44184.90299492318,
-      "team": 0.0331763983710222,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Entwined_Flames",
-        "Such_High_Spirits"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`s4, dgauge >= 500 or dgauge <= 100",
-        "`fs, c_fs(cartridge3) and cancel",
-        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s2, cancel and cartridge = 0",
-        "`dodge, x=1 and cancel"
-      ],
-      "coabs": [
-        "Axe2",
-        "Dagger2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Luca"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 54059.83675821342,
+      "dps": 44394.15588885924,
       "team": 0.0679165215364401,
       "tdps": null,
       "slots.a": [
@@ -222,6 +190,7 @@
         "Weapon",
         "Elisanne"
       ]
-    }
+    },
+    "pref": "base"
   }
 }
