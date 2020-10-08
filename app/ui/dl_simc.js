@@ -67,6 +67,7 @@ function populate_select(id, data) {
         );
     }
     options.sort((a, b) => {
+        if (a[0].innerText === 'Gold Fafnir') return -2;
         if (a[0].innerText < b[0].innerText) return -1;
         if (a[0].innerText > b[0].innerText) return 1;
         return 0;

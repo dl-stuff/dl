@@ -94,33 +94,24 @@
   },
   "60": {
     "affliction": {
-      "dps": 75821.31268092661,
-      "team": 0.0,
+      "dps": 78932.21080637429,
+      "team": 0.12686012430762897,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Ramiel",
       "acl": [
-        "if self.sim_afflict",
-        "`dragon(s-end), x=5",
+        "`dragon(s-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s2",
-        "`s4, cancel or s=2",
+        "`s2, cancel",
+        "`s4, cancel",
         "`s1",
-        "`fs, x=5",
-        "else",
-        "`dragon(s-end), s2.charged<s2.sp/3 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, cancel or aff(poison)",
-        "`fs, x=5",
-        "end"
+        "`fs, x=5"
       ],
       "coabs": [
         "Ieyasu",
@@ -129,7 +120,7 @@
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Kleimann"
       ]
     },
     "pref": "base",

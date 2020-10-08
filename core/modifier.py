@@ -247,7 +247,7 @@ class Buff(object):
         if d != None:
             self.duration = d
         return self
-        
+
     def stack(self):
         stack = 0
         for i in self._static.all_buffs:
@@ -350,7 +350,7 @@ class Buff(object):
             if d >= 0:
                 self.buff_end_timer.on(d)
             proc_type = 'refresh'
-            
+
         self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'buff {proc_type} <{d:.02f}s>')
         value, stack = self.valuestack()
         if stack > 1:
@@ -552,7 +552,7 @@ class SingleActionBuff(Buff):
 
     def effect_on(self):
         pass
-    
+
     def effect_off(self):
         pass
 
@@ -623,7 +623,7 @@ class ZoneTeambuff(Teambuff):
         super().__init__(name, value, duration, mtype, morder)
         self.bufftime = self._no_bufftime
         self.name += '_zone'
-    
+
     @property
     def zone_buffs(self):
         return sorted((b for b in self._static.all_buffs if type(b) == ZoneTeambuff and b.get()), key=lambda b: b.timeleft())
@@ -705,7 +705,7 @@ class Debuff(Teambuff):
             return super().value(self.ev_val())
         else:
             return super().value()
-        
+
 bufftype_dict['debuff'] = Debuff
 
 
@@ -811,7 +811,6 @@ class ActiveBuffDict(defaultdict):
                         return False
                 else:
                     try:
-                        log('debug', str([(b.name, b.get()) for b in subdict[group].values()]))
                         return any(b.get() for b in subdict[group].values())
                     except KeyError:
                         return False
