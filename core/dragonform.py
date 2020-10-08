@@ -62,7 +62,7 @@ class DragonForm(Action):
         self.is_dragondrive = False
         self.can_end = True
 
-        self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.conf.allow_end_cd)
+        self.allow_force_end_timer = None
         self.allow_end = False
 
     def reset_allow_end(self):
@@ -70,6 +70,7 @@ class DragonForm(Action):
             self.allow_end = True
         else:
             self.allow_end = False
+            self.allow_force_end_timer = Timer(self.set_allow_end, timeout=(self.conf.allow_end_cd+self.ds_time()))
             self.allow_force_end_timer.on()
 
     def set_allow_end(self, _):
@@ -161,11 +162,14 @@ class DragonForm(Action):
 
     @allow_acl
     def dtime(self):
-        return self.conf.dshift.startup + self.conf.duration * self.adv.mod('dt') + self.conf.exhilaration * (self.off_ele_mod is None)
+        return self.conf.dshift.startup + self.conf.dshift.recovery + self.conf.duration * self.adv.mod('dt') + self.conf.exhilaration * (self.off_ele_mod is None)
 
     @allow_acl
     def ddamage(self):
         return self.conf.dracolith + self.adv.mod('da') - 1
+
+    def ds_time(self):
+        return (self.conf.ds.startup + self.conf.ds.recovery) / self.speed()
 
     def ds_check(self):
         return self.skill_use != 0 and self.skill_spc >= self.skill_sp
@@ -279,7 +283,7 @@ class DragonForm(Action):
             self.skill_spc = 0
             self.act_sum.append('s')
             self.ds_event()
-            self.shift_end_timer.add(actconf.startup+actconf.recovery)
+            self.shift_end_timer.add(self.ds_time())
         elif self.c_act_name.startswith('dx'):
             if len(self.act_sum) > 0 and self.act_sum[-1][0] == 'c' and int(self.act_sum[-1][1]) < int(self.c_act_name[-1]):
                 self.act_sum[-1] = 'c'+self.c_act_name[-1]
