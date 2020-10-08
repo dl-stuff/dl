@@ -30,7 +30,7 @@
       "Euden"
     ],
     "base": {
-      "dps": 99407.25496496343,
+      "dps": 99135.18437956816,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -66,7 +66,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 112680.77572085398,
+      "dps": 112309.3826227408,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -103,7 +103,7 @@
     "buffer": {
       "dps": 15571.576388323303,
       "team": 0.1642311846273827,
-      "tdps": 510473.5666788948,
+      "tdps": 508816.9349861225,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
@@ -166,7 +166,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 79582.57568973799,
+      "dps": 77723.44718518683,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -178,17 +178,14 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<2",
-        "`dragon(c3-s-end)",
-        "else",
-        "`dragon(c3-s-c2-end)",
+        "if s=1",
+        "`dragon(c3-s-c3-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
         "`s4, fsc",
         "`s2, x=5",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`fs, x=5"
       ],
       "coabs": [
         "Yuya",
@@ -239,7 +236,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 100351.86025885881,
+      "dps": 100235.46411071732,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -251,11 +248,7 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<2",
-        "`dragon(c3-s-end)",
-        "else",
-        "`dragon(c3-s-c2-end)",
-        "end",
+        "`dragon(c3-s-c3-end), s1",
         "`s3, not buff(s3) and x=5",
         "`s1",
         "`s4, fsc",
@@ -274,30 +267,38 @@
       ]
     },
     "buffer": {
-      "dps": 15476.536010115706,
-      "team": 0.15628424120158899,
-      "tdps": 467945.2352369779,
+      "dps": 68366.85830585803,
+      "team": 0.030946993603811066,
+      "tdps": 654090.797197019,
       "slots.a": [
-        "Honest_Repose",
-        "Jewels_of_the_Sun",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "His_Clever_Brother",
+        "To_the_Extreme"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`s3, not buff(s3)",
+        "if dragonform.shift_count<2",
+        "`dragon(c3-s-end)",
+        "else",
+        "`dragon(c3-s-c2-end)",
+        "end",
+        "`s3, not buff(s3) and x=5",
         "`s1",
-        "`s4"
+        "`s4, fsc",
+        "`s2, x=5",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Bow",
-        "Sword",
-        "Dagger2"
+        "Wand",
+        "Yuya",
+        "Serena"
       ],
       "share": [
-        "Summer_Cleo",
-        "Patia"
+        "Weapon",
+        "Summer_Cleo"
       ]
     }
   }

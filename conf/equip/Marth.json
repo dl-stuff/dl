@@ -1,12 +1,13 @@
 {
   "180": {
     "base": {
-      "dps": 68653.44712441665,
-      "team": 0.09907831833301625,
+      "dps": 68855.09275707186,
+      "team": 0.09922483218693735,
       "tdps": null,
+      "output": "-,180,_\n68855,Marth,110291_01_r05,flame,sword,4703,Gala Mars,200009_01,Nothung,301138_01_60101,Breakfast at Valerio's,400285_02,Me and My Bestie!,400435_02,The Shining Overlord,400167_02,His Clever Brother,400169_02,To the Extreme!,400095_02,Blade,,Wand,,Joe,110003_01_r03,Weapon,,Xander,110022_01_r05,hp50 & hit10 & hit15,last boost once at start (team DPS not considered),burn:85.6%;frostbite:79.6%;team:9.92248%,attack:8387,fs:2641,s1:14079,s1_burn:3372,s2_phase1:4807,s2_phase2:4883,s2_phase3:4901,s4:7195,s4_frostbite:1464,dx:10803,ds:6318\n",
       "slots.a": [
+        "Breakfast_at_Valerios",
         "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "His_Clever_Brother",
         "To_the_Extreme"
@@ -42,7 +43,7 @@
     "buffer": {
       "dps": 14944.55604026934,
       "team": 0.890140490442035,
-      "tdps": 67894.65225085434,
+      "tdps": 68162.18158550416,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
@@ -68,8 +69,8 @@
       ]
     },
     "affliction": {
-      "dps": 74048.54640675556,
-      "team": 0.11037725191644335,
+      "dps": 74042.03635734283,
+      "team": 0.1110866498815598,
       "tdps": null,
       "slots.a": [
         "Me_and_My_Bestie",
@@ -108,8 +109,47 @@
   },
   "60": {
     "base": {
-      "dps": 73706.82539943844,
-      "team": 0.08823274654828625,
+      "dps": 74599.06050246042,
+      "team": 0.08821981767682711,
+      "tdps": null,
+      "output": "-,60,_\n74599,Marth,110291_01_r05,flame,sword,4703,Gala Mars,200009_01,Nothung,301138_01_60101,Breakfast at Valerio's,400285_02,Me and My Bestie!,400435_02,The Shining Overlord,400167_02,His Clever Brother,400169_02,To the Extreme!,400095_02,Blade,,Wand,,Joe,110003_01_r03,Weapon,,Xander,110022_01_r05,hp50 & hit10 & hit15,last boost once at start (team DPS not considered),burn:81.4%;frostbite:74.8%;team:8.82198%,attack:6484,fs:1924,s1:10411,s1_burn:2243,s2_phase1:6880,s2_phase2:3805,s2_phase3:3805,s4:7920,s4_frostbite:1099,dx:19957,ds:10067\n",
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Me_and_My_Bestie",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue not buff(s3)",
+        "`s3;s1;s2;fs,x=2;s4,fsc",
+        "end",
+        "`dragon,s=2",
+        "queue prep and aff(burn)",
+        "`s2;s4",
+        "end",
+        "queue prep and not aff(burn)",
+        "`s1;s2;s4",
+        "end",
+        "`s2, aff(burn)",
+        "`s4, cancel",
+        "`s1, fsc and not energy()=5",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Joe"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "affliction": {
+      "dps": 78856.70326994498,
+      "team": 0.08816499515333787,
       "tdps": null,
       "slots.a": [
         "Me_and_My_Bestie",
@@ -145,16 +185,18 @@
         "Xander"
       ]
     },
-    "affliction": {
-      "dps": 79195.97758266621,
-      "team": 0.08794051967207442,
-      "tdps": null,
+    "pref": "base",
+    "buffer": {
+      "dps": 23210.120847152182,
+      "team": 0.10989993610817334,
+      "tdps": 2370325.596607788,
+      "output": "-,60,_\n23210,Marth,110291_01_r05,flame,sword,4702,Gala Mars,200009_01,Nothung,301138_01_60101,Me and My Bestie!,400435_02,The Chocolatiers,400092_02,The Shining Overlord,400167_02,From Whence He Comes,400390_02,Rogues' Banquet,400132_02,Nobunaga,110346_01_r05,Wand,,Halloween Mym,100010_07_r05,Patia,110335_01_r04,Yue,110056_01_r04,hp50 & hit10,last boost once at start (team DPS not considered),burn:72.3%;team:10.98999%;doublebuff:every 30.03s,attack:9425,fs:1400,s1:6159,s1_burn:1337,s2_phase1:2443,s2_phase2:2443\n",
       "slots.a": [
         "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
+        "The_Chocolatiers",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "To_the_Extreme"
+        "From_Whence_He_Comes",
+        "Rogues_Banquet"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -174,53 +216,25 @@
         "`fs, x=3"
       ],
       "coabs": [
-        "Blade",
-        "Wand",
-        "Gala_Sarisse"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 13979.865108920298,
-      "team": 0.7790291186788045,
-      "tdps": 86461.02194531127,
-      "slots.a": [
-        "Honest_Repose",
-        "Jewels_of_the_Sun",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s2",
-        "`s3",
-        "`s4, cancel",
-        "`fs, x=2"
-      ],
-      "coabs": [
         "Nobunaga",
-        "Gala_Sarisse",
-        "Tobias"
+        "Wand",
+        "Halloween_Mym"
       ],
       "share": [
-        "Karl",
-        "Templar_Hope"
+        "Patia",
+        "Yue"
       ]
     }
   },
   "120": {
     "base": {
-      "dps": 69191.49670432165,
-      "team": 0.09542177633238255,
+      "dps": 69243.12106468083,
+      "team": 0.09596154295919372,
       "tdps": null,
+      "output": "-,120,_\n69243,Marth,110291_01_r05,flame,sword,4703,Gala Mars,200009_01,Nothung,301138_01_60101,Breakfast at Valerio's,400285_02,Me and My Bestie!,400435_02,The Shining Overlord,400167_02,His Clever Brother,400169_02,To the Extreme!,400095_02,Blade,,Wand,,Joe,110003_01_r03,Weapon,,Xander,110022_01_r05,hp50 & hit10 & hit15,last boost once at start (team DPS not considered),burn:88.6%;frostbite:81.6%;team:9.59615%,attack:8581,fs:2707,s1:13281,s1_burn:3430,s2_phase1:5411,s2_phase2:5692,s2_phase3:3945,s4:6770,s4_frostbite:1564,dx:10569,ds:7286\n",
       "slots.a": [
+        "Breakfast_at_Valerios",
         "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "His_Clever_Brother",
         "To_the_Extreme"
@@ -254,36 +268,46 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 14776.146457866324,
-      "team": 0.869509098276886,
-      "tdps": 70296.13934221819,
+      "dps": 58010.40685172779,
+      "team": 0.0963972856774308,
+      "tdps": 25778317.669651613,
       "slots.a": [
-        "Honest_Repose",
-        "Jewels_of_the_Sun",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "To_the_Extreme"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`s2",
-        "`s3",
+        "queue not buff(s3)",
+        "`s3;s1;s2;fs,x=2;s4,fsc",
+        "end",
+        "`dragon,s=2",
+        "queue prep and aff(burn)",
+        "`s2;s4",
+        "end",
+        "queue prep and not aff(burn)",
+        "`s1;s2;s4",
+        "end",
+        "`s2, aff(burn)",
         "`s4, cancel",
-        "`fs, x=2"
+        "`s1, fsc and not energy()=5",
+        "`fs, x=3"
       ],
       "coabs": [
-        "Nobunaga",
-        "Gala_Sarisse",
-        "Tobias"
+        "Blade",
+        "Wand",
+        "Joe"
       ],
       "share": [
-        "Karl",
-        "Templar_Hope"
+        "Weapon",
+        "Zhu_Bajie"
       ]
     },
     "affliction": {
-      "dps": 72278.66367281823,
-      "team": 0.09590333112383898,
+      "dps": 71765.32992398566,
+      "team": 0.09642191377536342,
       "tdps": null,
       "slots.a": [
         "Me_and_My_Bestie",

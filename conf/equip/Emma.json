@@ -1,38 +1,47 @@
 {
   "180": {
     "base": {
-      "dps": 8824.504653245218,
-      "team": 1.2520230694694996,
-      "tdps": -749.8028928677903,
+      "dps": 32717.731598586364,
+      "team": 0.38980345922097775,
+      "tdps": 27515.522062498283,
       "slots.a": [
-        "Honest_Repose",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`s3",
-        "`s4, s=1",
+        "`dragon, s=1 and energy()<5",
+        "`s3, not buff(s3) and x=5",
+        "`s4, energy()<4",
         "`s1",
-        "`fs, xf=5"
+        "`s2, energy()=5 and fsc",
+        "`fs, x=5",
+        "`dodge, fsc",
+        "## S2 mode",
+        "#`dragon(c3-s-s-end), (s=1 and energy()=3) or s=2",
+        "#`s3, not buff(s3) and x=5",
+        "#`s2, energy()=5",
+        "#`s1, not energy()=5",
+        "#`s4, not energy()=5 and x>3"
       ],
       "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
+        "Nobunaga",
+        "Yuya",
+        "Serena"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Weapon",
+        "Xander"
       ]
     },
     "pref": "buffer",
     "buffer": {
       "dps": 8828.982574702084,
       "team": 1.2579952009449322,
-      "tdps": -749.8028928677903,
+      "tdps": 27515.522062498283,
       "slots.a": [
         "Give_Me_Your_Wounded",
         "Jewels_of_the_Sun",
@@ -58,8 +67,8 @@
       ]
     },
     "affliction": {
-      "dps": 32664.608121063862,
-      "team": 0.3859789042906517,
+      "dps": 32717.731598586364,
+      "team": 0.38980345922097775,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -151,43 +160,6 @@
       "share": [
         "Mikoto",
         "Summer_Cleo"
-      ]
-    },
-    "affliction": {
-      "dps": 34988.95776318732,
-      "team": 0.35519191324325755,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s=1 and energy()<5",
-        "`s3, not buff(s3) and x=5",
-        "`s4, energy()<4",
-        "`s1",
-        "`s2, energy()=5 and fsc",
-        "`fs, x=5",
-        "`dodge, fsc",
-        "## S2 mode",
-        "#`dragon(c3-s-s-end), (s=1 and energy()=3) or s=2",
-        "#`s3, not buff(s3) and x=5",
-        "#`s2, energy()=5",
-        "#`s1, not energy()=5",
-        "#`s4, not energy()=5 and x>3"
-      ],
-      "coabs": [
-        "Nobunaga",
-        "Yuya",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
       ]
     }
   }

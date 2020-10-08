@@ -1,37 +1,41 @@
 {
   "180": {
     "base": {
-      "dps": 8928.657575382564,
-      "team": 1.877091349472938,
-      "tdps": null,
+      "dps": 36783.28011356242,
+      "team": 0.5258553057755412,
+      "tdps": 20623.434218481485,
       "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Freyja",
+      "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`s3, s=1",
-        "`s4",
+        "`dragon(s), s=1",
+        "`s3, not buff(s3)",
         "`s1",
+        "`s4",
+        "queue s=4 and not aff(poison)",
+        "`s2;s2,x=5",
+        "end",
         "`fs, xf=5"
       ],
       "coabs": [
         "Blade",
-        "Bow",
+        "Akasha",
         "Dagger2"
       ],
       "share": [
-        "Summer_Cleo",
+        "Weapon",
         "Mikoto"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "affliction": {
-      "dps": 46838.62121130262,
-      "team": 0.7120908958288782,
+      "dps": 46154.25732878183,
+      "team": 0.7117412088005584,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -61,7 +65,7 @@
     "buffer": {
       "dps": 8916.152452727967,
       "team": 1.8770913494729387,
-      "tdps": 1.877268857582114e+16,
+      "tdps": 20623.434218481485,
       "slots.a": [
         "A_Dogs_Day",
         "Castle_Cheer_Corps",
@@ -142,35 +146,6 @@
       ],
       "share": [
         "Summer_Cleo",
-        "Mikoto"
-      ]
-    },
-    "affliction": {
-      "dps": 38203.83140382736,
-      "team": 0.799187827603541,
-      "tdps": null,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Astounding_Trick",
-        "Memory_of_a_Friend",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon(s), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`fs, xf=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Akasha",
-        "Dagger2"
-      ],
-      "share": [
-        "Weapon",
         "Mikoto"
       ]
     }
