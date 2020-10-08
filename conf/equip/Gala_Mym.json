@@ -200,19 +200,23 @@
   },
   "120": {
     "base": {
-      "dps": 88381.62841986057,
+      "dps": 88609.00202302585,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-s-c3-end)",
+        "if dragonform.shift_count<2",
+        "`dragon(c3-s-end)",
+        "else",
+        "`dragon(c3-s-c2-end)",
+        "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
         "`s4, fsc",

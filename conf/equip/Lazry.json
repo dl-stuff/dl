@@ -1,9 +1,9 @@
 {
   "180": {
     "base": {
-      "dps": 48607.38597076994,
-      "team": 0.0,
-      "tdps": 25921.524885217863,
+      "dps": 52081.64235391623,
+      "team": 0.07893706155396703,
+      "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -16,25 +16,26 @@
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
         "`s1(low), aff_timeleft(frostbite)<7",
-        "`s2(high)",
         "`s1(high)",
+        "`s2(high), s1.charged <= ((s1.sp/3)*2)",
+        "`s2(low), cancel",
         "`s4"
       ],
       "coabs": [
+        "Blade",
         "Summer_Estelle",
-        "Renee",
-        "Axe2"
+        "Renee"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Summer_Luca"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "buffer": {
-      "dps": 41860.16517989759,
-      "team": 0.2602941308719092,
-      "tdps": 25921.524885217863,
+      "dps": 6822.083696360648,
+      "team": 0.7832650074251579,
+      "tdps": 64259.21181016542,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -44,50 +45,48 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon(s-end)",
         "`s3, not buff(s3)",
         "`s2(low)",
-        "`s1(low), aff_timeleft(frostbite)<7",
-        "`s1(high)",
         "`s4, cancel"
       ],
       "coabs": [
-        "Summer_Estelle",
         "Renee",
-        "Xander"
+        "Hunter_Sarisse",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Summer_Julietta"
+        "Templar_Hope",
+        "Gala_Elisanne"
       ]
     },
     "affliction": {
-      "dps": 51270.29027153669,
+      "dps": 53427.68349605034,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Chariot_Drift",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "The_Plaguebringer"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
-        "`s2(high)",
-        "`s1(high)",
-        "`s4"
+        "`s4",
+        "`s1(high), cancel",
+        "`s2(high), s1.charged <= ((s1.sp/3)*2) and cancel"
       ],
       "coabs": [
         "Blade",
-        "Summer_Estelle",
-        "Xander"
+        "Yurius",
+        "Hunter_Sarisse"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Kleimann"
       ]
     }
   }
