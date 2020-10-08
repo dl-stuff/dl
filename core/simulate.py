@@ -592,7 +592,7 @@ def save_equip(adv, real_d, repair=False):
                     return
         else:
             return
-    if etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]:
+    if not repair and etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]:
         equip[dkey]['buffer'] = cached
         equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
     if dkey not in equip:
