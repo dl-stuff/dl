@@ -103,18 +103,18 @@ def repair_equips(adv_file):
                     continue
                 run_and_save(adv_module, adv_ele, dkey, ekey, conf, repair=True)
                 # if affliction, check if base equip actually better
-                # if ekey == 'affliction':
-                #     try:
-                #         run_and_save(adv_module, adv_ele, dkey, ekey, equip_d['base'])
-                #     except KeyError:
-                #         pass
-                # # check if 180 equip is actually better for 120/60
-                # if dkey == '180':
-                #     continue
-                # try:
-                #     run_and_save(adv_module, adv_ele, dkey, ekey, adv_equip['180'][ekey])
-                # except KeyError:
-                #     pass
+                if ekey == 'affliction':
+                    try:
+                        run_and_save(adv_module, adv_ele, dkey, ekey, equip_d['base'])
+                    except KeyError:
+                        pass
+                # check if 180 equip is actually better for 120/60
+                if dkey == '180':
+                    continue
+                try:
+                    run_and_save(adv_module, adv_ele, dkey, ekey, adv_equip['180'][ekey])
+                except KeyError:
+                    pass
     except Exception as e:
         print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{adv_file} {e}\033[0m', flush=True)
         return

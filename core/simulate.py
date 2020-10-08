@@ -542,7 +542,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
            adv.conf_init.sim_afflict[eleaff] != 1:
             return
         else:
-            etype = etype or 'affliction'
+            etype = etype if repair else 'affliction'
     dkey = str(adv.duration)
     adv_qual = adv.__class__.__name__
     equip = load_equip_json(adv_qual)

@@ -14,10 +14,11 @@ const ELE_AFFLICT = {
     'light': 'paralysis',
     'shadow': 'poison'
 }
-const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
-function name_fmt(name) {
-    return name.replace(/_/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
+const SECONDARY_COAB = {
+    'Gala_Laxi': 'Dagger2',
+    'Valentines_Melody': 'Axe2'
 }
+const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
 const speshul = {
     Lily: 'https://cdn.discordapp.com/emojis/664261164208750592.png'
 }
@@ -597,6 +598,9 @@ function coabSelection(add, debounce) {
 }
 
 function buildCoab(coab, basename, weapontype) {
+    if (SECONDARY_COAB[basename]) {
+        weapontype = SECONDARY_COAB[basename];
+    }
     $('#input-coabs > div').empty();
     $('#input-coabs').data('max', 3);
     let found_basename = null;
@@ -618,14 +622,6 @@ function buildCoab(coab, basename, weapontype) {
             check.prop('checked', true);
             found_basename = ex;
             $('#input-coabs').data('selfcoab', basename);
-            // if (!chain || chain[2] != 'hp' + String.fromCharCode(8804) + '40') {
-            //     check.prop('disabled', true);
-            //     check.prop('checked', true);
-            //     found_basename = ex;
-            // } else {
-            //     $('#input-coabs').data('self', basename);
-            //     check.addClass('coab-check');
-            // }
         } else {
             check.addClass('coab-check');
         }

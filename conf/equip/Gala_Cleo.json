@@ -135,15 +135,15 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 31961.02003104429,
-      "team": 0.5289650858672271,
-      "tdps": 2.5492962214238618e+17,
+      "dps": 31989.322904660436,
+      "team": 0.528965085867227,
+      "tdps": 99999999,
       "slots.a": [
-        "Breakfast_at_Valerios",
         "Candy_Couriers",
+        "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -164,6 +164,38 @@
       "share": [
         "Weapon",
         "Patia"
+      ]
+    },
+    "affliction": {
+      "dps": 54893.52219278011,
+      "team": 0.3509280787483256,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), x=5",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(gleozone) > 0",
+        "if x=5 or x=4 or fsc or s",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Delphi",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
       ]
     }
   }

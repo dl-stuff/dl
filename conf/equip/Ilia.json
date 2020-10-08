@@ -96,14 +96,14 @@
   },
   "60": {
     "affliction": {
-      "dps": 50897.492782612775,
-      "team": 0.032777976979862816,
+      "dps": 51236.79507356773,
+      "team": 0.03277797697986285,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Entwined_Flames",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
         "Such_High_Spirits"
       ],
       "slots.d": "Daikokuten",
@@ -113,7 +113,7 @@
         "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
         "`s1, cancel",
         "`s3, cancel",
-        "`s2, cancel and cartridge = 0",
+        "`s2, cancel and self.alchemy = 100",
         "`dodge, x=1 and cancel"
       ],
       "coabs": [
@@ -128,7 +128,7 @@
     },
     "pref": "base",
     "base": {
-      "dps": 46379.04248316816,
+      "dps": 47071.139423925815,
       "team": 0.03277797697986285,
       "tdps": null,
       "slots.a": [
@@ -191,6 +191,37 @@
         "Elisanne"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "affliction": {
+      "dps": 50232.750235338666,
+      "team": 0.03317639837102224,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`s4, dgauge >= 500 or dgauge <= 100",
+        "`fs, c_fs(cartridge3) and cancel",
+        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
+        "`s1, cancel",
+        "`s3, cancel",
+        "`s2, cancel and cartridge = 0",
+        "`dodge, x=1 and cancel"
+      ],
+      "coabs": [
+        "Axe2",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    }
   }
 }
