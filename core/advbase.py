@@ -1849,7 +1849,9 @@ class Adv(object):
             return 0
 
     @allow_acl
-    def aff(self, afflictname):
+    def aff(self, afflictname=None):
+        if not afflictname:
+            return any([getattr(self.afflics, afflictname).get() for afflictname in AFFLICT_LIST])
         return getattr(self.afflics, afflictname).get()
 
     @allow_acl

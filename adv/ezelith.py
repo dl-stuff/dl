@@ -35,7 +35,7 @@ class Ezelith(Adv):
         self.a1_hits = 0
         for h in range(0, 12):
             setattr(self, f's1_hit{h}', self.s1_hit)
-        self.s2_debuff = Debuff('s2_ab', 0.0, 5).on()
+        self.s2_debuff = Debuff('s2_ab', 0.0, 20).on()
         self.s2_states = {None: 1.0}
 
     def s1_hit(self, name, base, group, aseq):
