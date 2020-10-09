@@ -61,7 +61,7 @@ class Chrom(Adv):
     def s2_proc(self, e):
         with KillerModifier('s2_killer', 'hit', 0.2, AFFLICT_LIST):
             hit1, hit2 = 2.93, 3.58
-            if self.s2.flames == 3 and self.s2.count == 3:
+            if self.s2.flames == 3 and self.s2.count == 2:
                 hit1, hit2 = 25.55, 26.31
                 self.s2.charged = 0
             elif self.s2.flames == 2:
