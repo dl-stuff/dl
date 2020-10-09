@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 48176.9185046022,
+      "dps": 47966.895609692336,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -37,7 +37,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 51118.39570893616,
+      "dps": 50895.549711658154,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -72,9 +72,9 @@
       ]
     },
     "buffer": {
-      "dps": 23487.051025063938,
-      "team": 0.3067046840407232,
-      "tdps": 80500.45781583182,
+      "dps": 23384.66136208231,
+      "team": 0.3067046840407231,
+      "tdps": 80149.52339086575,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -103,7 +103,7 @@
   },
   "60": {
     "base": {
-      "dps": 24900.80358099892,
+      "dps": 24792.277076287544,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -144,7 +144,7 @@
       ]
     },
     "affliction": {
-      "dps": 42345.86774010299,
+      "dps": 42161.040965291686,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -188,7 +188,7 @@
   },
   "120": {
     "base": {
-      "dps": 39297.23402132306,
+      "dps": 39125.71360124938,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -230,32 +230,38 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 48669.014089650016,
+      "dps": 49936.805337579746,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Dear_Diary",
-        "Forest_Bonds",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Lurker_in_the_Woods",
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Nimis",
       "acl": [
-        "`dragon, s",
         "`s3, not buff(s3)",
         "`s2, not buff(s2)",
+        "`s4, not buff(s4)",
+        "`dragon, s",
+        "if self.unlocked",
+        "`s1, energy()=5",
+        "else",
         "`s1",
-        "`s4"
+        "`dodge, fsc",
+        "`fs2",
+        "end"
       ],
       "coabs": [
         "Blade",
-        "Summer_Estelle",
-        "Dragonyule_Cleo"
+        "Dragonyule_Cleo",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Yue"
       ]
     }
   }
