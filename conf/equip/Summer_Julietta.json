@@ -13,7 +13,7 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon(c3-s-end), not s2.check()",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
@@ -60,24 +60,24 @@
       ]
     },
     "affliction": {
-      "dps": 46568.470816183544,
-      "team": 0.28512000166556695,
+      "dps": 46205.41495217469,
+      "team": 0.19281580676893956,
       "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "From_Whence_He_Comes",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "The_Plaguebringer"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon(c3-s-end), not s2.check()",
         "`s3, not buff(s3)",
         "`s2",
+        "`s4",
         "`s1",
-        "`s4, cancel",
-        "`fs, x>2 and s1.charged>=s1.sp-self.sp_val('fs')"
+        "`fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')"
       ],
       "coabs": [
         "Blade",
@@ -86,7 +86,7 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Kleimann"
       ]
     }
   }

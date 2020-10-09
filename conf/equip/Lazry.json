@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 52081.64235391623,
-      "team": 0.07893706155396703,
+      "dps": 52832.576638810235,
+      "team": 0.05155275981500828,
       "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
@@ -13,13 +13,13 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon(c3-s-end), not s2.check()",
         "`s3, not buff(s3)",
+        "`s2(low), cancel",
+        "`s4",
         "`s1(low), aff_timeleft(frostbite)<7",
         "`s1(high)",
-        "`s2(high), s1.charged <= ((s1.sp/3)*2)",
-        "`s2(low), cancel",
-        "`s4"
+        "`s2(high), s1.charged <= ((s1.sp/3)*2)"
       ],
       "coabs": [
         "Blade",
@@ -35,7 +35,7 @@
     "buffer": {
       "dps": 6822.083696360648,
       "team": 0.7832650074251579,
-      "tdps": 64259.21181016542,
+      "tdps": 62880.58330679139,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -61,7 +61,7 @@
       ]
     },
     "affliction": {
-      "dps": 53621.80445561921,
+      "dps": 53649.50389481813,
       "team": 0.10475445744922407,
       "tdps": null,
       "slots.a": [
@@ -75,9 +75,10 @@
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
+        "`s2(low), cancel",
+        "`s1(low), s2.check()",
         "`s1(high)",
         "`s2(high), s1.charged <= ((s1.sp/3)*2)",
-        "`s2(low), cancel",
         "`s4"
       ],
       "coabs": [
