@@ -1,76 +1,9 @@
 {
   "180": {
     "base": {
-      "dps": 73478.25613138755,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and self.duration >= 120",
-        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
-        "`s4, s or x=5",
-        "`s1, fsc or s=1 or s=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 75860.62426133876,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and self.duration >= 120",
-        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
-        "`s4, s or x=5",
-        "`s1, fsc or s=1 or s=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "buffer": {
       "dps": 43567.25783802635,
       "team": 0.11992865110163703,
-      "tdps": 249406.60983514483,
+      "tdps": null,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -98,6 +31,40 @@
       "share": [
         "Weapon",
         "Verica"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 72319.90790810168,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and self.duration >= 120",
+        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
+        "`s4, s or x=5",
+        "`s1, fsc or s=1 or s=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Sylas"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
       ]
     }
   },

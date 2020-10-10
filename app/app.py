@@ -160,6 +160,8 @@ def simc_adv_test():
         conf['dragonbattle'] = bool(params['dragonbattle'])
     if 'classbane' in params and (params['classbane'] in TRIBE_TYPES or params['classbane'] == 'HDT'):
         conf['classbane'] = params['classbane']
+    if 'dumb' in params:
+        conf['dumb'] = params['dumb']
     if coab is not None:
         conf['coabs'] = coab
     if share is not None:
