@@ -606,7 +606,7 @@ class Adv(object):
 
         self.a_dodge = Dodge('dodge', self.conf.dodge)
         self.a_dooodge = Dodge('dooodge', self.conf.dooodge)
-
+        
         if self.conf['dumb']:
             self.cb_think = self._cb_think_dumb
             self.dumb_cd = int(self.conf['dumb'])
@@ -1377,6 +1377,7 @@ class Adv(object):
     def _cb_think_dumb(self, t):
         if now() // self.dumb_cd > self.dumb_count:
             self.dumb_count = now() // self.dumb_cd
+            self.hits = 0
             return self.a_dooodge()
         return self._cb_think(t)
 
