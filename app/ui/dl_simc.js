@@ -841,6 +841,7 @@ function clearResults() {
     $('#input-conditions').empty();
     $('#input-dragonbattle').val('');
     $('#input-classbane').val('');
+    $('#input-dumb').val('');
     $('#input-equip').val($('#input-equip').data('pref') || 'base');
 }
 function resetTest() {
