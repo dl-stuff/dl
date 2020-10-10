@@ -540,6 +540,9 @@ class Adv(object):
         'dodge.startup': 0.63333,
         'dodge.recovery': 0,
 
+        'dooodge.startup': 3.0,
+        'dooodge.recovery': 0,
+
         'acl': '`s1;`s2;`s3',
 
         'attenuation.hits': 1,
@@ -602,37 +605,17 @@ class Adv(object):
         self.a_fsf.act_event = Event('none')
 
         self.a_dodge = Dodge('dodge', self.conf.dodge)
+        self.a_dooodge = Dodge('dooodge', self.conf.dooodge)
 
-        # # skill init
-        # self.s1 = Skill('s1', self.conf.s1)
-        # self.s2 = Skill('s2', self.conf.s2)
-        # self.s3 = Skill('s3', self.conf.s3)
-        # self.s4 = Skill('s4', self.conf.s4)
-
-        # if self.conf.xtype == 'ranged':
-        #     self.l_x = self.l_range_x
-        #     self.l_fs = self.l_range_fs
-        # elif self.conf.xtype == 'melee':
-        #     self.l_x = self.l_melee_x
-        #     self.l_fs = self.l_melee_fs
-
-        # set cmd
-        # self.fsf = self.a_fsf
-        # self.dodge = self.a_dodge
-
-        if self.conf['auto_fsf']:
+        if self.conf['dumb']:
+            self.cb_think = self._cb_think_dumb
+            self.dumb_cd = int(self.conf['dumb'])
+            self.dumb_count = 0
+            self.condition(f'be a dumb every {self.dumb_cd}s')
+        elif self.conf['auto_fsf']:
             self.cb_think = self._cb_think_fsf
         else:
             self.cb_think = self._cb_think
-
-        # try:
-        #     self.x5ex = X(('x5ex', 5), self.conf.x5ex)
-        #     self.x5ex.atype = 'x'
-        #     self.x5ex.interrupt_by = ['fs', 's', 'dodge']
-        #     self.x5ex.cancel_by = ['fs', 's', 'dodge']
-        #     self.x4.cancel_by.append('x')
-        # except:
-        #     pass
 
         self.hits = 0
         self.last_c = 0
@@ -1386,12 +1369,17 @@ class Adv(object):
         return self._acl(t)
 
     def _cb_think_fsf(self, t):
-        if loglevel >= 2:
-            log('think', '/'.join(map(str,(t.pin, t.dname, t.dstat, t.didx, t.dhit))))
-        result = self._acl(t)
+        result = self._cb_think(t)
         if not result and self.current_x == 'default' and t.dstat >= 0 and t.pin[0] == 'x' and t.didx == 5 and t.dhit == 0:
             return self.fsf()
         return result
+
+    def _cb_think_dumb(self, t):
+        if now() // self.dumb_cd > self.dumb_count:
+            self.dumb_count = now() // self.dumb_cd
+            return self.a_dooodge()
+        return self._cb_think(t)
+
 
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened

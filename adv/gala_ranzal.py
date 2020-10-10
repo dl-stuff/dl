@@ -4,8 +4,6 @@ def module():
     return Gala_Ranzal
 
 class Gala_Ranzal(Adv):
-    comment = 'no s2'
-
     conf = {}
     conf['slots.a'] = [
     'The_Shining_Overlord',
@@ -59,14 +57,16 @@ class Gala_Ranzal(Adv):
         if boost == 0:
             return
         if boost == 1:
-            self.s1_boosted_mod = Modifier(f'{e.name}_boost', 'att', 'granzal', 0.15)
-        if boost == 2:
-            self.s1_boosted_mod = Modifier(f'{e.name}_boost', 'att', 'granzal', 1.0)
-        self.s1_boosted_mod.on()
+            self.s1_boosted_mod = Modifier(e.name, 'att', 'granzal', 0.15).off()
+        elif boost == 2:
+            self.s1_boosted_mod = Modifier(e.name, 'att', 'granzal', 1.0).off()
+        if self.s1_boosted_mod:
+            self.extra_actmods.append(self.s1_boosted_mod)
 
     def s1_proc(self, e):
         if self.s1_boosted_mod:
-            self.s1_boosted_mod.off()
+            self.extra_actmods.remove(self.s1_boosted_mod)
+            self.s1_boosted_mod = None
 
 
 if __name__ == '__main__':
