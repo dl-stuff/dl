@@ -1663,9 +1663,18 @@ class Adv(object):
                     try:
                         ow_buff = self.active_buff_dict.get_overwrite(bctrl)
                         v_current = abs(ow_buff.value())
+                        d_current = ow_buff.duration
                         v_new = abs(blist[1])
-                        if v_current == v_new or (v_current > v_new and not ow_buff.get()):
-                            ow_buff.on()
+                        d_new = blist[2]
+                        if v_new > v_current:
+                            ow_buff.off()
+                        elif v_new == v_current:
+                            if d_new == d_current:
+                                ow_buff.on()
+                                return
+                            else:
+                                ow_buff.off()
+                        else:
                             return
                     except:
                         pass
