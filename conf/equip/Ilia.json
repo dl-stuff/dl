@@ -16,9 +16,9 @@
         "`s4, dgauge >= 500 or dgauge <= 100",
         "`fs, c_fs(cartridge3) and cancel",
         "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
-        "`s1, cancel",
+        "`s1, cancel and cartridge=0",
         "`s3, cancel",
-        "`s2, cancel and cartridge = 0",
+        "`s2, cancel and (cartridge = 0 or  cartridge = 3)",
         "`dodge, x=1 and cancel"
       ],
       "coabs": [
