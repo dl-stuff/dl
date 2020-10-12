@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 95273.40735513535,
-      "team": 0.12489335175224893,
+      "dps": 95352.42181433116,
+      "team": 0.12499316490368331,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -15,7 +15,7 @@
       "acl": [
         "`dragon(s-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s2, cancel",
+        "`s2, cancel or s",
         "`s4, cancel",
         "`s1",
         "`fs, x=5"
@@ -44,7 +44,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-c3-end), ((self.dragonform.shift_count<3) or (self.trickery <1))",
+        "`dragon(s-end), ((self.dragonform.shift_count<3) or (self.trickery <1))",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
@@ -62,9 +62,9 @@
       ]
     },
     "buffer": {
-      "dps": 56090.349576675595,
+      "dps": 56977.29762688033,
       "team": 0.21959477591671223,
-      "tdps": 413753.62751052686,
+      "tdps": 405649.7957753135,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -82,7 +82,7 @@
         "`fs, x=5"
       ],
       "coabs": [
-        "Dagger2"
+        "Dagger"
       ],
       "share": [
         "Weapon",
@@ -123,37 +123,28 @@
     },
     "pref": "base",
     "base": {
-      "dps": 68477.05473397256,
-      "team": 0.0,
+      "dps": 75097.39371577224,
+      "team": 0.12686012430762908,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Ramiel",
       "acl": [
-        "if self.sim_afflict",
-        "`dragon(c3-s-end), x=5",
+        "`dragon(s-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s2",
-        "`s4, cancel or s=2",
+        "`s2, cancel",
+        "`s4, cancel",
         "`s1",
-        "`fs, x=5",
-        "else",
-        "`dragon(c3-s-end), s2.charged<s2.sp/3 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, cancel or aff(poison)",
-        "`fs, x=5",
-        "end"
+        "`fs, x=5"
       ],
       "coabs": [
         "Ieyasu",
-        "Bow",
+        "Wand",
         "Cleo"
       ],
       "share": [
