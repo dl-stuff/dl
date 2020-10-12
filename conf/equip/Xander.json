@@ -33,9 +33,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 50064.090448311246,
-      "team": 0.14993434541607953,
-      "tdps": 87056.63401186668,
+      "dps": 50075.91942944991,
+      "team": 0.14995102432933147,
+      "tdps": 86968.0651525024,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -85,7 +85,8 @@
         "`s2",
         "`s1",
         "`s4",
-        "`fs, x=2"
+        "`fs, x=2 and not buff(s1)",
+        "`fs, x=2 and buff(s1)"
       ],
       "coabs": [
         "Yurius",
@@ -100,7 +101,7 @@
   },
   "60": {
     "base": {
-      "dps": 48170.78049268807,
+      "dps": 51121.25534819549,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -136,39 +137,44 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 50218.50355876641,
+      "dps": 51505.525484949554,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "The_Red_Impulse",
+        "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "Dragons_Nest"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Siren",
       "acl": [
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and fsc",
+        "`s3, not buff(s3)",
+        "if c_s(1, enhanced)",
         "`s4",
         "`s2",
         "`s1",
-        "`fs, x=2"
+        "else",
+        "`dragon(c3-s-end), fsc",
+        "`s2, fsc or s",
+        "`s1, fsc or s",
+        "`fs, x=2",
+        "end"
       ],
       "coabs": [
+        "Blade",
         "Yurius",
-        "Eugene",
-        "Summer_Celliera"
+        "Hunter_Sarisse"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Hunter_Sarisse"
       ]
     }
   },
   "120": {
     "base": {
-      "dps": 55459.05046250014,
+      "dps": 55518.02292700165,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -204,7 +210,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 57388.21030102817,
+      "dps": 61406.56405470461,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -216,11 +222,11 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-end), cancel",
+        "`dragon(c1-s-end), cancel",
         "`s3, not buff(s3) and fsc",
-        "`s4",
         "`s2",
         "`s1",
+        "`s4",
         "`fs, x=2"
       ],
       "coabs": [
