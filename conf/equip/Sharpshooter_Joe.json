@@ -132,8 +132,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 52556.16859985696,
-      "team": 0.0330943206339945,
+      "dps": 61887.6274268769,
+      "team": 0.03318766713101741,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -144,13 +144,14 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3, (xf or fsc) and buff(s3, 2)",
-        "`s4, xf or fsc",
-        "`s1, xf or fsc",
-        "`s2, xf or fsc",
+        "if xf or fsc",
+        "`dragon(s)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "end",
         "`fs, xf and self.a1_cd",
-        "`s3, (xf or fsc) and (buff(s3, 1) or not buff(s3))",
         "`dodge, xf or fsc"
       ],
       "coabs": [
