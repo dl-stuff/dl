@@ -17,14 +17,23 @@ class Ilia(Adv):
         ]
         self.cartridge_t = Timer(self.l_cartridge_timeout)
 
+    def alchemy_bars(self):
+        if self.alchemy < 33:
+            return 0
+        if self.alchemy < 66:
+            return 1
+        if self.alchemy < 100:
+            return 2
+        return 3
+
     def a_update(self, add):
         if self.cartridge == 0:
             if add > 0 and self.hits >= 30:
                 add *= 3
-            prev_charge = self.alchemy // 33
+            prev_charge = self.alchemy_bars()
             self.alchemy = min(self.alchemy+add, 100)
-            if prev_charge < self.alchemy // 33:
-                log('alchemy', self.alchemy // 33, self.alchemy)
+            if prev_charge < self.alchemy_bars():
+                log('alchemy', self.alchemy_bars(), self.alchemy)
 
     def a_deplete_cartridge(self, name, consume=1):
         if self.cartridge > 0:
@@ -71,7 +80,7 @@ class Ilia(Adv):
         if e.group == 'cartridge':
             self.a_deplete_cartridge(e.name)
         else:
-            self.cartridge = self.alchemy // 33
+            self.cartridge = self.alchemy_bars()
             self.alchemy = 0
             self.cartridge_fs[self.cartridge-1].on()
             self.cartridge_t.on(20)
