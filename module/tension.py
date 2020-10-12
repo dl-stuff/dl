@@ -56,10 +56,12 @@ class Tension:
         if e.name in self.active:
             self.active.discard(e.name)
             self.has_stack.off()
-            self.stack = self.queued_stack
-            self.queued_stack = 0
+            self.stack = 0
             log(self.name, 'reset', 'stack <{}>'.format(int(self.stack)))
             self.end_event.on()
+            if self.queued_stack:
+                self.add(n=self.queued_stack)
+                self.queued_stack = 0
 
     allow_acl = True
     def __call__(self):
