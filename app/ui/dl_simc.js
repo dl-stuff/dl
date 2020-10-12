@@ -656,7 +656,7 @@ function buildCoab(coab, basename, weapontype) {
 function readCoabList() {
     const coabList = $('input:checked.coab-check');
     if (coabList.length === 0) {
-        return null;
+        return [];
     } else {
         const coabilities = [];
         coabList.each(function (idx, res) {
