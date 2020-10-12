@@ -72,6 +72,7 @@ class Ilia(Adv):
             self.a_deplete_cartridge(e.name)
         else:
             self.cartridge = self.alchemy // 33
+            self.alchemy = 0
             self.cartridge_fs[self.cartridge-1].on()
             self.cartridge_t.on(20)
             self.current_s['s1'] = 'cartridge'
