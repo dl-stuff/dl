@@ -9,7 +9,7 @@ class Ilia(Adv):
         self.alchemy = 0
         self.cartridge = 0
         o_s2_check = self.a_s_dict['s2'].check
-        self.a_s_dict['s2'].check = lambda: o_s2_check() and self.alchemy > 33
+        self.a_s_dict['s2'].check = lambda: o_s2_check() and (self.alchemy > 33 or self.cartridge>0)
         self.cartridge_fs = [
             FSAltBuff('s2_cartridge', 'cartridge1', uses=1),
             FSAltBuff('s2_cartridge', 'cartridge2', uses=1),
