@@ -617,7 +617,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
     except KeyError:
         pass
     # if 'buffer' in equip[dkey] and equip[dkey]['buffer']['team'] > 1.1:
-    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < 40000:
+    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < 30000:
         equip[dkey]['pref'] = 'buffer'
         equip[dkey]['base']['tdps'] = equip[dkey]['buffer']['tdps']
     else:
