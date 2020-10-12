@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 53236.118480796715,
-      "team": 0.03329633925062932,
+      "dps": 58284.479369834946,
+      "team": 0.022170891681115672,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -13,13 +13,14 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3, (xf or fsc) and buff(s3, 2)",
-        "`s4, xf or fsc",
-        "`s1, xf or fsc",
-        "`s2, xf or fsc",
+        "`dragon(s)",
+        "`s3, not buff(s3, 1)",
+        "if xf or fsc",
+        "`s4",
+        "`s1",
+        "`s2",
+        "end",
         "`fs, xf and self.a1_cd",
-        "`s3, (xf or fsc) and (buff(s3, 1) or not buff(s3))",
         "`dodge, xf or fsc"
       ],
       "coabs": [
@@ -34,8 +35,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 59426.55370427079,
-      "team": 0.03329633925062932,
+      "dps": 63776.94697111413,
+      "team": 0.022170891681115672,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -46,13 +47,14 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3, (xf or fsc) and buff(s3, 2)",
-        "`s4, xf or fsc",
-        "`s1, xf or fsc",
-        "`s2, xf or fsc",
+        "if xf or fsc",
+        "`dragon(s)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "end",
         "`fs, xf and self.a1_cd",
-        "`s3, (xf or fsc) and (buff(s3, 1) or not buff(s3))",
         "`dodge, xf or fsc"
       ],
       "coabs": [
@@ -68,7 +70,7 @@
     "buffer": {
       "dps": 34268.47724856291,
       "team": 0.0624710550778138,
-      "tdps": 650139.7081153434,
+      "tdps": 595928.157532972,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",

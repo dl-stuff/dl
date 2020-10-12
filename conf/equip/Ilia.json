@@ -1,72 +1,76 @@
 {
   "180": {
     "base": {
-      "dps": 54013.17160109517,
-      "team": 0.0333189796403079,
+      "dps": 38645.142899468774,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "The_Warrioresses"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "`s4, dgauge >= 500 or dgauge <= 100",
-        "`fs, c_fs(cartridge3) and cancel",
-        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s2, cancel and cartridge = 0",
-        "`dodge, x=1 and cancel"
+        "`s3, not buff(s3)",
+        "`fs, c_fs(cartridge3)",
+        "`dragon(s-end), energy()=5",
+        "if (hits>30 and xf=1) or x=1",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`dodge",
+        "end"
       ],
       "coabs": [
+        "Mitsuhide",
         "Axe2",
-        "Dagger2",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Xander"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 59799.111106505436,
-      "team": 0.033325147381158556,
+      "dps": 40316.317753493444,
+      "team": 0.022211944673155445,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "The_Warrioresses"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`s4, dgauge >= 500 or dgauge <= 100",
-        "`fs, c_fs(cartridge3) and s2.charged>1090",
-        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s2, cancel and self.alchemy = 100",
-        "`dodge, x=1 and cancel"
+        "`s3, not buff(s3)",
+        "`dragon, cartridge=0",
+        "if (hits>30 and xf=1) or x=1",
+        "`fs, c_fs(cartridge3) and s2.charged=1090",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`dodge",
+        "end"
       ],
       "coabs": [
+        "Mitsuhide",
         "Axe2",
-        "Dagger2",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Hunter_Sarisse"
       ]
     },
     "buffer": {
-      "dps": 32979.72870826419,
+      "dps": 33047.527102879896,
       "team": 0.1416176336265142,
-      "tdps": 194217.02965495724,
+      "tdps": 39526.26274882813,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",

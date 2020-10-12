@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 61384.35346325784,
+      "dps": 65075.72313102165,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -21,7 +21,7 @@
         "`fs1",
         "end",
         "else",
-        "`dragon(s), cancel",
+        "`dragon(s-end), cancel",
         "`s3, not buff(s3)",
         "`s2, charged_in(2, s1)",
         "`s1, cancel",
@@ -42,7 +42,7 @@
     "buffer": {
       "dps": 8233.195740165846,
       "team": 0.4661362398095633,
-      "tdps": 114024.94203155396,
+      "tdps": 121944.0209456326,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -68,8 +68,8 @@
       ]
     },
     "affliction": {
-      "dps": 65052.78923390682,
-      "team": 0.02220634950491728,
+      "dps": 66971.77124960738,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -78,17 +78,17 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
         "if electrified",
         "`s1",
-        "`s4",
+        "`s4, not aff(poison)",
         "if x=3",
         "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
-        "`dragon(s), cancel",
+        "`dragon(c4-s-end), cancel",
         "`s3, not buff(s3)",
         "`s2, charged_in(2, s1)",
         "`s1, cancel",
@@ -102,7 +102,7 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Rodrigo"
       ]
     }
   },
