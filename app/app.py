@@ -117,6 +117,10 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
     fn = io.StringIO()
     adv.logs.write_logs(output=fn)
     result['logs']['timeline'] = fn.getvalue()
+    
+    result['chart'] = {}
+    result['chart'] = adv.logs.convert_dataset()
+
     return result
 
 
