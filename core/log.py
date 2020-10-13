@@ -10,6 +10,8 @@ class Log:
         self.record = []
         self.damage = {'x':{},'s':{},'f':{},'d':{},'o':{}}
         self.counts = {'x':{},'s':{},'f':{},'d':{},'o':{}}
+        self.damage_dataset = {}
+        self.teambuff_dataset = {}
         self.p_buff = None
         self.team_buff = 0
         self.team_doublebuffs = 0
@@ -18,6 +20,12 @@ class Log:
         self.hitattr_set = set()
         self.shift_dmg = None
 
+    def convert_dataset(self):
+        return {
+            'dmg': [{'x': t, 'y': d} for t, d in sorted(self.damage_dataset.items())],
+            'team': [{'x': t, 'y': d} for t, d in sorted(self.teambuff_dataset.items())],
+        }
+
     @staticmethod
     def update_dict(dict, name: str, value):
         # if fullname:
@@ -25,7 +33,6 @@ class Log:
             dict[name] += value
         except KeyError:
             dict[name] = value
-
 
     @staticmethod
     def fmt_hitattr_v(v):
@@ -72,6 +79,7 @@ class Log:
                     self.update_dict(self.damage['o'], name, dmg_amount)
                 if name[0] == 'd' and self.shift_dmg is not None:
                     self.shift_dmg += dmg_amount
+                self.update_dict(self.damage_dataset, time_now, dmg_amount)
             elif category == 'x' or category == 'cast':
                 self.update_dict(self.counts[name[0]], name, 1)
                 # name1 = name.split('_')[0]
@@ -79,10 +87,12 @@ class Log:
                 #     self.update_dict(self.counts[name[0]], name1, 1)
                 self.act_seq.append(name)
             elif category == 'buff' and name == 'team':
+                buff_amount = float(args[2])
                 if self.p_buff is not None:
                     pt, pb = self.p_buff
                     self.team_buff += (time_now - pt) * pb
-                self.p_buff = (time_now, float(args[2]))
+                self.p_buff = (time_now, buff_amount)
+                self.update_dict(self.teambuff_dataset, time_now, buff_amount)
             elif category == 'buff' and name == 'team_defense':
                 self.team_doublebuffs += 1
             elif category in ('energy', 'inspiration') and name == 'team':

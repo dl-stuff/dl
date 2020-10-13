@@ -233,7 +233,7 @@ function serConf(no_conf) {
     if ($('#input-classbane').val()) {
         requestJson['classbane'] = $('#input-classbane').val();
     }
-    if (!isNaN(parseInt($('#input-dumb').val()))){
+    if (!isNaN(parseInt($('#input-dumb').val()))) {
         requestJson['dumb'] = parseInt($('#input-dumb').val());
     }
     if (!isNaN(parseInt($('#input-hp').val()))) {
@@ -335,7 +335,7 @@ function populateSkillShare(skillshare) {
     }
 }
 function loadAdvWPList() {
-    let selectedAdv = 'Euden';
+    let selectedAdv = 'Xania';
     if (localStorage.getItem('selectedAdv')) {
         selectedAdv = localStorage.getItem('selectedAdv');
     }
@@ -721,6 +721,76 @@ function toggleInputDisabled(state) {
         coabSelection(0);
     }
 }
+let damageChart = null;
+let chartData = null;
+function windows(data) {
+    const result = [{ x: 0, y: 0 }];
+    const thresh = 5;
+    for (let obj of data) {
+        let sum = 0;
+        for (let sobj of data) {
+            if (sobj.x > obj.x + thresh) { break; }
+            if (sobj.x < obj.x - thresh) { continue; }
+            sum += sobj.y;
+        }
+        result.push({ x: Math.round(obj.x * 1000) / 1000, y: Math.round(sum / (thresh * 2)) });
+    }
+    return result;
+}
+function scaled(data, scale) {
+    const result = [{ x: 0, y: 0 }];
+    let prev = 0;
+    for (let obj of data) {
+        result.push({ x: Math.round(obj.x * 1000) / 1000, y: prev });
+        prev = Math.round(obj.y * scale);
+        result.push({ x: Math.round(obj.x * 1000) / 1000, y: prev });
+    }
+    return result;
+}
+function makeDataset(label, data, color) {
+    return {
+        label: label,
+        data: data,
+        borderColor: color,
+        backgroundColor: 'rgb(192,192,192, 0.3)',
+        showLine: true,
+        // fill: false,
+        pointRadius: 0.5,
+        lineTension: 0,
+    }
+}
+function populateChart(tdps) {
+    if (damageChart != null) { damageChart.destroy(); }
+    damageChart = new Chart('damage-chart', {
+        type: 'line',
+        data: {
+            datasets: [
+                makeDataset('Damage', windows(chartData.dmg), 'mediumslateblue'),
+                makeDataset('Team', scaled(chartData.team, tdps), 'seagreen')
+            ]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    type: 'linear',
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1,
+                    },
+                }],
+                yAxes: [{
+                    type: 'linear',
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 5000,
+                    },
+                }]
+            },
+            // tooltips: { enabled: false }
+        }
+    });
+
+}
 function runAdvTest(no_conf) {
     if ($('#input-adv').val() == '') {
         return false;
@@ -762,6 +832,7 @@ function runAdvTest(no_conf) {
                     $('#damage-log').html(logs.join('<hr class="log-divider">'));
                     $('#test-results').prepend(new_result_item);
                     $('#copy-results').prepend($('<textarea>' + copy_txt + '</textarea>').attr({ class: 'copy-txt', rows: (copy_txt.match(/\n/g) || [0]).length + 1 }));
+                    chartData = res.chart;
                     update_teamdps();
                 }
             }
@@ -898,6 +969,7 @@ function update_teamdps() {
     if (!$('#input-teamdps').data('original')) {
         localStorage.setItem('teamdps', tdps);
     }
+    populateChart(tdps);
     $('.test-result-item').each((_, ri) => {
         const team_p = $(ri).data('team') / 100;
         const team_v = tdps * team_p;
