@@ -23,8 +23,7 @@ class Xainfried(Adv):
         """
     conf['coabs'] = ['Summer_Celliera', 'Yurius', 'Tiki']
     conf['share'] = ['Gala_Mym']
-    conf['afflict_res.frostbite'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

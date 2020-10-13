@@ -23,8 +23,7 @@ class Delphi(Adv):
     """
     conf['coabs'] = ['Ieyasu','Gala_Alex','Forte']
     conf['share'] = ['Karl']
-    conf['afflict_res.poison'] = 0
-
+    
     def prerun(self):        
         self.s1.autocharge_init(80000).on()
         self.s2.autocharge_init(50000).on()

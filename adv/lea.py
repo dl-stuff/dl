@@ -13,7 +13,6 @@ class Lea(Adv):
         `s1, fsc
         `fs, x=2
         """
-    conf['afflict_res.burn'] = 0
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['share'] = ['Kleimann']
 

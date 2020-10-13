@@ -14,7 +14,6 @@ class Alain(Adv):
         `s4, cancel
         `fs, x=5
         """
-    conf['afflict_res.burn'] = 0
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['share'] = ['Kleimann']
 

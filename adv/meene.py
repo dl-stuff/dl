@@ -24,8 +24,7 @@ class Meene(Adv):
         """
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
     conf['share'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-
+    
     def prerun(self):
         self.butterfly_timers = defaultdict(lambda: set())
         self.act_history = deque(maxlen=6)

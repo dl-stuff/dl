@@ -21,8 +21,7 @@ class Althemia(Adv):
     """
     conf['coabs'] = ['Gala_Alex','Delphi','Bow']
     conf['share'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

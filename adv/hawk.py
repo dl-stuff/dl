@@ -27,9 +27,7 @@ class Hawk(Adv):
 
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Sylas']
     conf['share'] = ['Curran']
-    conf['afflict_res.stun'] = 80
-    conf['afflict_res.poison'] = 0
-
+        
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

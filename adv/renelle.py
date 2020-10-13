@@ -14,7 +14,6 @@ class Renelle(Adv):
         `s1,cancel
         `fs, x=5
         """
-    conf['afflict_res.burn'] = 0
     conf['coabs'] = ['Blade', 'Marth', 'Wand']
     conf['share'] = ['Kleimann']
 

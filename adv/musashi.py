@@ -22,7 +22,6 @@ class Musashi(Adv):
         `dodge, fsc
         """
     conf['coabs'] = ['Eleonora','Dragonyule_Xainfried','Akasha']
-    conf['afflict_res.poison'] = 0
     conf['share'] = ['Curran']
 
 

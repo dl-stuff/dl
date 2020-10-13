@@ -21,7 +21,6 @@ class Nadine(Adv):
         `fs, x=5
         """
     conf['coabs'] = ['Blade', 'Wand', 'Serena']
-    conf['afflict_res.burn'] = 0
     conf['share'] = ['Gala_Mym']
 
     def prerun(self):

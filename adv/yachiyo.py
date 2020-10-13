@@ -17,8 +17,7 @@ class Yachiyo(Adv):
     conf['coabs.base'] = ['Lucretia','Malora','Peony']
     conf['coabs.paralysis'] = ['Lucretia','Malora','Peony']
     conf['share'] = ['Ranzal']
-    conf['afflict_res.paralysis'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

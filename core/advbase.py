@@ -549,9 +549,17 @@ class Adv(object):
         'attenuation.delay': 0.25,
     }
 
-    def damage_sources_check(self, name, conf):
-        if conf['attr'] and any(('dmg' in attr for attr in conf['attr'] if isinstance(attr, dict))):
-            self.damage_sources.add(name)
+    def hitattr_check(self, name, conf):
+        if conf['attr']:
+            for attr in conf['attr']:
+                if not isinstance(attr, dict):
+                    continue
+                if 'dmg' in attr:
+                    self.damage_sources.add(name)
+                aff = attr.get('afflic')
+                if aff is not None:
+                    aff = aff[0]
+                    self.condition('{} {} res'.format(int(getattr(self.afflics, aff).resist*100), aff))
         if conf.get('energizable'):
             self.energy.extra_tensionable.add(name)
 
@@ -578,7 +586,7 @@ class Adv(object):
             if xn != a_x.base and self.conf[a_x.base]:
                 a_x.conf.update(self.conf[a_x.base], rebase=True)
             self.a_x_dict[a_x.group][a_x.index] = a_x
-            self.damage_sources_check(xn, xconf)
+            self.hitattr_check(xn, xconf)
         self.a_x_dict = dict(self.a_x_dict)
         for group, actions in self.a_x_dict.items():
             gxmax = f'{group}.x_max'
@@ -595,7 +603,7 @@ class Adv(object):
             except KeyError:
                 pass
             self.a_fs_dict[name] = Fs_group(name, fs_conf)
-            self.damage_sources_check(name, fs_conf)
+            self.hitattr_check(name, fs_conf)
         if 'fs1' in self.a_fs_dict:
             self.a_fs_dict['fs'].enabled = False
         self.current_fs = None
@@ -1265,7 +1273,7 @@ class Adv(object):
                 s.group -= 1
                 s.act_event.group = s.group
             self.a_s_dict[s.base].add_action(s.group, s)
-            self.damage_sources_check(sn, snconf)
+            self.hitattr_check(sn, snconf)
 
         return preruns
 

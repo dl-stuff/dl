@@ -30,8 +30,7 @@ class Gala_Prince(Adv):
     """
     conf['coabs'] = ['Lucretia','Cleo','Peony']
     conf['share'] = ['Gala_Mym']
-    conf['afflict_res.paralysis'] = 0
-
+    
     def prerun(self):
         self.s2.autocharge_init(32000).on()
         if self.condition('draconic charge'):

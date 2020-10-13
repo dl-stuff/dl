@@ -15,7 +15,6 @@ class Valentines_Ezelith(Adv):
         `fs, seq=4
     """
     conf['coabs'] = ['Blade', 'Marth', 'Wand']
-    conf['afflict_res.burn'] = 0
     conf['share'] = ['Summer_Patia']
 
 if __name__ == '__main__':

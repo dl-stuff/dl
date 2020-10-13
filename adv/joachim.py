@@ -20,7 +20,6 @@ class Joachim(Adv):
         `s4
     '''
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
-    conf['afflict_res.poison'] = 0
     conf['share'] = ['Curran']
 
 

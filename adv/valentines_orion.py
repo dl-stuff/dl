@@ -14,7 +14,6 @@ class Valentines_Orion(Adv):
         `fs, x=2
     """
     conf['coabs'] = ['Blade', 'Marth', 'Wand']
-    conf['afflict_res.burn'] = 0
     conf['share'] = ['Kleimann']
 
 

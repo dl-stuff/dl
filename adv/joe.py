@@ -19,8 +19,7 @@ class Joe(Adv):
     """
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['share'] = ['Kleimann']
-    conf['afflict_res.burn'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

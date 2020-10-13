@@ -20,7 +20,6 @@ class Sophie(Adv):
         `s1, not buff(s1) and x=5
         """
     conf['coabs'] = ['Blade', 'Dragonyule_Xainfried', 'Akasha']
-    conf['afflict_res.poison'] = 0
     conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
 

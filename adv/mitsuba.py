@@ -32,8 +32,7 @@ class Mitsuba(StanceAdv):
     """
     conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
     conf['share'] = ['Gala_Elisanne', 'Eugene']
-    conf['afflict_res.frostbite'] = 0
-
+    
     def prerun(self):
         self.config_stances({
             'sashimi': ModeManager(group='sashimi', x=True, s1=True, s2=True),

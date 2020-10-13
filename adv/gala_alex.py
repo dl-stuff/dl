@@ -77,8 +77,7 @@ class Gala_Alex(Adv):
     conf['coabs.base'] = ['Ieyasu','Wand','Delphi']
     conf['coabs.poison'] = ['Ieyasu','Wand','Forte']
     conf['share.base'] = ['Xander']
-    conf['afflict_res.poison'] = 0
-
+    
     def d_coabs(self):
         if self.duration <= 120:
             self.conf['coabs'] = ['Ieyasu','Wand','Heinwald']

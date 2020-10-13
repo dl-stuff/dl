@@ -220,14 +220,14 @@ def get_adv_slotlist():
         except:
             result['adv']['pref_share'] = adv.conf['share'] or []
         result['adv']['acl'] = adv.conf.acl
-        if 'afflict_res' in adv.conf:
-            res_conf = adv.conf.afflict_res
-            res_dict = {}
-            for afflic in AFFLICT_LIST:
-                if afflic in res_conf:
-                    res_dict[afflic] = res_conf[afflic]
-            if len(res_dict.keys()) > 0:
-                result['adv']['afflict_res'] = res_dict
+        # if 'afflict_res' in adv.conf:
+        #     res_conf = adv.conf.afflict_res
+        #     res_dict = {}
+        #     for afflic in AFFLICT_LIST:
+        #         if afflic in res_conf:
+        #             res_dict[afflic] = res_conf[afflic]
+        #     if len(res_dict.keys()) > 0:
+        #         result['adv']['afflict_res'] = res_dict
         if advname in SPECIAL_ADV:
             result['adv']['no_config'] = SPECIAL_ADV[advname]['nc']
 

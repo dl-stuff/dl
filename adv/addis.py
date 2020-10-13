@@ -25,8 +25,7 @@ class Addis(Adv):
     conf['coabs'] = ['Akasha','Dragonyule_Xainfried','Lin_You']
     conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-
+    
     conf['mbleed'] = True
 
     def getbleedpunisher(self):

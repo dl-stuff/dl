@@ -17,8 +17,7 @@ class Summer_Mikoto(Adv):
     """
     conf['coabs'] = ['Lucretia', 'Sharena', 'Peony']
     conf['share'] = ['Summer_Patia']
-    conf['afflict_res.paralysis'] = 0
-
+    
     def prerun(self):
         self.sun = Selfbuff('sun', 1, -1, 'sunlight')
         self.wave = Selfbuff('wave', 1, -1, 'wavelight')

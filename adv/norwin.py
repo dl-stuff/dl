@@ -17,8 +17,7 @@ class Norwin(Adv):
     """
     conf['coabs'] = ['Ieyasu','Wand','Forte']
     conf['share'] = ['Curran']
-    conf['afflict_res.blind'] = 80
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

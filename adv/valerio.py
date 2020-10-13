@@ -20,7 +20,6 @@ class Valerio(StanceAdv, RngCritAdv):
         `s1(dessert)
     """
     conf['coabs'] = ['Summer_Estelle', 'Renee', 'Xander']
-    conf['afflict_res.frostbite'] = 0
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def prerun(self):

@@ -17,8 +17,7 @@ class Luca(Adv):
         """
     conf['coabs'] = ['Sharena','Lucretia','Peony']
     conf['share'] = ['Summer_Patia']
-    conf['afflict_res.paralysis'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -17,7 +17,6 @@ class Sharena(Adv):
         `fs, x=5
     """
     conf['coabs'] = ['Malora','Lucretia','Peony']
-    conf['afflict_res.paralysis'] = 0
     conf['share'] = ['Ranzal']
 
     def d_coabs(self):

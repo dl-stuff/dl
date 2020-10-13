@@ -519,14 +519,12 @@ def same_build_different_dps(a, b):
     return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
-ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'classbane', 'hp', 'dumb')
+ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'classbane', 'hp', 'dumb', 'afflict_res')
 def save_equip(adv, real_d, repair=False, etype=None):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
         return
     if any([k in adv.conf for k in ABNORMAL_COND]):
-        return
-    if 'afflict_res' in adv.conf and 'afflict_res' not in adv.conf_base:
         return
     if any([wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]):
         return

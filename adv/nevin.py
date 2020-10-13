@@ -22,7 +22,6 @@ class Nevin(SigilAdv):
         end
         """
     conf['coabs'] = ['Berserker','Ieyasu','Forte']
-    conf['afflict_res.poison'] = 0
     conf['share'] = ['Veronica']
 
     def prerun(self):

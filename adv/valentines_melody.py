@@ -22,8 +22,7 @@ class Valentines_Melody(Adv):
         """
     conf['coabs'] = ['Blade','Eleonora','Dragonyule_Xainfried']
     conf['share'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-
+    
     # def __init__(self, **kwargs):
     #     super().__init__(**kwargs)
     #     self.slots.c.coabs['Valentines_Melody'] = [None, 'axe2']

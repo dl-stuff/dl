@@ -7,8 +7,7 @@ def module():
 a3_stack_cap = 10
 class Gala_Laxi(RngCritAdv):
     conf = {}
-    conf['afflict_res.burn'] = 0
-
+    
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # human latency penalty on ex combo

@@ -21,8 +21,7 @@ class Philia(Adv):
         """
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
     conf['share'] = ['Curran']
-    conf['afflict_res.paralysis'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

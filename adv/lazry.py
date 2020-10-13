@@ -19,7 +19,6 @@ class Lazry(StanceAdv):
         `s1(high)
     """
     conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
-    conf['afflict_res.frostbite'] = 0
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def prerun(self):

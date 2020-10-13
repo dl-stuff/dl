@@ -24,7 +24,6 @@ class Luther(Adv):
         e.group == 'a' and self.afflics.frostbite(e.name,120,0.41)
 
     def prerun(self):
-        conf_fs_alt = {}
         self.fs_alt = FSAltBuff(group='a', uses=1)
         Timer(self.fs_alt_on_crit, 10, True).on()
 

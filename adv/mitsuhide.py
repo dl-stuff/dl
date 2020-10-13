@@ -16,8 +16,7 @@ class Mitsuhide(Adv):
     """
     conf['coabs'] = ['Lucretia','Sharena','Peony']
     conf['share'] = ['Summer_Patia']
-    conf['afflict_res.paralysis'] = 0
-
+    
     def s2_before(self, e):
         # 5: 5
         # 10: 10

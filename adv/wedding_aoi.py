@@ -23,8 +23,7 @@ class Wedding_Aoi(Adv):
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
     conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
-    conf['afflict_res.sleep'] = 80
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

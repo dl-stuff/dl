@@ -39,8 +39,7 @@ class Incognito_Nefaria(RngCritAdv):
     conf['slots.d'] = 'Gala_Mars'
     conf['coabs'] = ['Blade', 'Serena', 'Yuya']
     conf['share'] = ['Xander']
-    conf['afflict_res.burn'] = 0
-
+    
     def prerun(self):
         self.config_rngcrit(cd=7, ev=20)
         self.a1_buff = Selfbuff('a1', 0, 20, 'crit', 'damage')

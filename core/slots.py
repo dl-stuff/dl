@@ -205,7 +205,7 @@ class DragonBase(EquipBase):
         from core.dragonform import DragonForm
         for dn, dconf in self.dragonform.items():
             if isinstance(dconf, dict):
-                adv.damage_sources_check(dn, dconf)
+                adv.hitattr_check(dn, dconf)
         if adv.conf['dragonform']:
             name = self.c.name
             self.dragonform.update(adv.conf['dragonform'])

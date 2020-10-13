@@ -17,7 +17,6 @@ class Halloween_Elisanne(Adv):
         `fs, x=5
         """
     conf['coabs'] = ['Lucretia','Sharena','Peony']
-    conf['afflict_res.paralysis'] = 0
     conf['share'] = ['Kleimann']
 
 if __name__ == '__main__':

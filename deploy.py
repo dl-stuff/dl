@@ -67,7 +67,7 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
         output.close()
         return
     output.close()
-    if sha_before != sha256sum(output_path):
+    if sha_before is not None and sha_before != sha256sum(output_path):
         return run_results[0][0].slots.c.icon
     else:
         return None

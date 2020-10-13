@@ -18,7 +18,6 @@ class Valentines_Addis(Adv):
         `fs, x=5
     """
     conf['coabs'] = ['Wand','Curran','Summer_Patia']
-    conf['afflict_res.poison'] = 0
     conf['share'] = ['Veronica']
 
 

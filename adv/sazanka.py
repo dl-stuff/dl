@@ -15,7 +15,6 @@ class Sazanka(Adv):
         `s1
     """
     conf['coabs'] = ['Ieyasu', 'Wand', 'Bow']
-    conf['afflict_res.sleep'] = 80
     conf['share.base'] = ['Kleimann']
     conf['share.poison'] = ['Curran']
 

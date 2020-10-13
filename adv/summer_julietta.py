@@ -18,7 +18,6 @@ class Summer_Julietta(Adv):
     """
     conf['coabs.base'] = ['Blade', 'Hunter_Sarisse', 'Summer_Estelle']
     conf['coabs.frostbite'] = ['Blade', 'Xander', 'Summer_Estelle']
-    conf['afflict_res.bog'] = 100
     conf['share'] = ['Gala_Elisanne', 'Eugene']
 
 

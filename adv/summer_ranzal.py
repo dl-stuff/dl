@@ -15,7 +15,6 @@ class Summer_Ranzal(Adv):
         `s2
         """
     conf['coabs'] = ['Xander', 'Dagger', 'Tiki']
-    conf['afflict_res.bog'] = 100
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
 

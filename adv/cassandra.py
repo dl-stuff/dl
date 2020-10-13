@@ -21,8 +21,7 @@ class Cassandra(Adv):
         """
     conf['coabs'] = ['Curran','Summer_Patia','Ieyasu']
     conf['share'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-
+    
     def prerun(self):
         self.set_hp(80)
 

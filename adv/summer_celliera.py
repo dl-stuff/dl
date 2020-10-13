@@ -18,7 +18,6 @@ class Summer_Celliera(Adv):
         `fs, x=2
         """
     conf['coabs'] = ['Tobias', 'Hunter_Sarisse', 'Summer_Estelle']
-    conf['afflict_res.bog'] = 100
     conf['share'] = ['Patia', 'Summer_Luca']
 
 

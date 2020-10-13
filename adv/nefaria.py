@@ -20,9 +20,7 @@ class Nefaria(Adv):
     conf['coabs'] = ['Wand','Gala_Alex','Heinwald']
     conf['share'] = ['Curran']
 
-    conf['afflict_res.blind'] = 80
-    conf['afflict_res.poison'] = 0
-
+        
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

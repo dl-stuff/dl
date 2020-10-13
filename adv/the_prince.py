@@ -22,7 +22,6 @@ class The_Prince(Adv):
         `fs, x=2
         """
     conf['coabs'] = ['Verica', 'Blade', 'Yuya']
-    conf['afflict_res.burn'] = 0
     conf['share'] = ['Gala_Mym']
 
 

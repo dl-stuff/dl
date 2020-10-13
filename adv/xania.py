@@ -22,8 +22,7 @@ class Xania(Adv):
         """
     conf['coabs'] = ['Blade', 'Marth', 'Joe']
     conf['share'] = ['Vanessa']
-    conf['afflict_res.burn'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

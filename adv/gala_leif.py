@@ -23,8 +23,7 @@ class Gala_Leif(StanceAdv):
         """
     conf['coabs'] = ['Dragonyule_Xainfried', 'Blade', 'Lin_You']
     conf['share'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-    
+        
     def prerun(self):
         self.config_stances({
             'striking': ModeManager(group='striking', x=True, s1=True, s2=True),

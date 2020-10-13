@@ -17,8 +17,7 @@ class Jakob(Adv):
     """
     conf['coabs'] = ['Summer_Estelle', 'Xander', 'Blade']
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
-    conf['afflict_res.bog'] = 100
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -24,8 +24,7 @@ class Albert(Adv):
         """
     conf['coabs'] = ['Blade','Lucretia','Peony']
     conf['share'] = ['Summer_Patia']
-    conf['afflict_res.paralysis'] = 0
-
+    
     def prerun(self):
         self.s2.autocharge_init(self.s2_autocharge).on()
 

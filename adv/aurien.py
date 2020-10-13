@@ -17,7 +17,6 @@ class Aurien(Adv):
         `dodge, fscf
         `fs, x=5
         """
-    conf['afflict_res.burn'] = 0
     conf['coabs'] = ['Blade', 'Marth', 'Wand']
     conf['share'] = ['Summer_Patia']
 
