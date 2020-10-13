@@ -490,14 +490,14 @@ function loadAdvSlots(no_conf, set_equip) {
                         $('input.coab-check').prop('disabled', false);
                     }
 
-                    if (slots.adv.equip === 'affliction') {
+                    if (requestJson['equip'] === 'affliction') {
                         $('#input-sim-' + ELE_AFFLICT[slots.adv.ele]).val(100);
                     } else {
                         const simAff = $('#affliction-sim > div > input[type="text"]');
                         simAff.each(function (idx, res) { $(res).val(''); });
                     }
 
-                    if (!set_equip) {
+                    if (!set_equip && slots.adv.equip) {
                         $('#input-equip').data('pref', slots.adv.equip);
                     }
                     if (slots.adv.tdps && slots.adv.equip != $('#input-equip').data('pref')) {
