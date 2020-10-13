@@ -54,14 +54,13 @@ class Strength(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('att', 'passive', value, cond)])
 ability_dict['a'] = Strength
-ability_dict['att'] = Strength
+ability_dict['au'] = Strength # united strength
 
 class Strength_Chain(Ability):
     def __init__(self, name, value, cond=None):
         # is buff bracket for some hecking reason
         super().__init__(name, [('att','buff',value, cond)])
 ability_dict['achain'] = Strength_Chain
-
 
 class Resist(Ability):
     def __init__(self, name, value, cond=None):
@@ -134,6 +133,7 @@ class Skill_Haste(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('sp', 'passive', value, cond)])
 ability_dict['sp'] = Skill_Haste
+ability_dict['spu'] = Skill_Haste # united haste
 
 
 class Striking_Haste(Ability):

@@ -520,6 +520,7 @@ def same_build_different_dps(a, b):
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
 ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'classbane', 'hp', 'dumb', 'afflict_res')
+BUFFER_THRESHOLD = 30000
 def save_equip(adv, real_d, repair=False, etype=None):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
@@ -569,7 +570,9 @@ def save_equip(adv, real_d, repair=False, etype=None):
         except KeyError:
             cdps = 0
             cteam = 0
-    if not repair and ndps < cdps:
+    ncomp = ndps + nteam * BUFFER_THRESHOLD / 2
+    ccomp = cdps + cteam * BUFFER_THRESHOLD / 2
+    if not repair and ncomp < ccomp:
         if etype == 'base' and nteam > cteam:
             etype = 'buffer'
             try:
@@ -614,8 +617,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
             equip[dkey]['buffer']['tdps'] = 99999999
     except KeyError:
         pass
-    # if 'buffer' in equip[dkey] and equip[dkey]['buffer']['team'] > 1.1:
-    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < 30000:
+    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < BUFFER_THRESHOLD:
         equip[dkey]['pref'] = 'buffer'
         equip[dkey]['base']['tdps'] = equip[dkey]['buffer']['tdps']
     else:
