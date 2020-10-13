@@ -213,7 +213,7 @@ function serConf(no_conf) {
     requestJson['coab'] = readCoabList();
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {
-        requestJson['t'] = t;
+        requestJson['t'] = parseInt(t);
     }
     const afflict_res = readResistDict();
     if (afflict_res != null) {
@@ -703,7 +703,7 @@ function readSimBuff() {
     for (let key of SIMULATED_BUFFS) {
         const buff_value = $('#input-sim-buff-' + key).val();
         if (!isNaN(parseFloat(buff_value))) {
-            simBuff[key] = buff_value;
+            simBuff[key] = parseFloat(buff_value);
         }
     }
     if ($.isEmptyObject(simBuff)) {
