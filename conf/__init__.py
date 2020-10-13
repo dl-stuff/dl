@@ -92,17 +92,20 @@ def get_adv(name):
 
     wt = conf.c.wt
     base = baseconfs[wt]
-    conf.update(Conf(base), rebase=True)
+    baseconf = Conf(base)
+
     if bool(conf.c.spiral):
-        conf.update(conf.lv2)
-    del conf['lv2']
+        baseconf.update(baseconf.lv2)
+    del baseconf['lv2']
 
     if wt == 'gun' and len(conf.c.gun) == 1:
         # move gun[n] to base combo
         target = conf.c.gun[0]
-        for xn, xconf in list(conf.find(r'^(x\d|fs)_gun\d$')):
+        for xn, xconf in list(baseconf.find(r'^(x\d|fs)_gun\d$')):
             if int(xn[-1]) == target:
-                conf[xn.split('_')[0]] = xconf
-            del conf[xn]
+                baseconf[xn.split('_')[0]] = xconf
+            del baseconf[xn]
+
+    conf.update(baseconf, rebase=True)
 
     return conf
