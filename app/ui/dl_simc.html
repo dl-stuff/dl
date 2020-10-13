@@ -315,6 +315,8 @@
                         <h5>Why does the result show a different wyrmprint than my inputs?</h5>
                         <p>Wyrmprints with the same ability are automatically swapped for the best option in terms of
                             stats and value, as long as any affinities are preserved.</p>
+                        <h5>What does the damage graph display?</h5>
+                        <p>For personal damage, the average DPS of a ±5s window is calculated around each time point. Team DPS is not averaged, and based purely on where the estimated team DPS % changes.</p>
                         <h5>How are the setups (Personal/Team/Affliction) created?</h5>
                         <p>Whenever a simulation is ran, the server will compare the result with the highest recorded
                             DPS/Team DPS, and store the setup if it is better.
@@ -353,7 +355,7 @@
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="damageChartTitle">Damage Chart</h5>
+                        <h5 class="modal-title" id="damageChartTitle">Damage Graph</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -447,7 +449,7 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
                                         equivalent to <code>x=1 or x=2 or x=3 or x=4 or x=5 or fsc</code>.</li>
                                     <li><code>s=n</code>: the previous action was skill #n</li>
                                     <li><code>s</code>: the previous action was a skill</li>
-                                    <li><code>pin='prep'</code>: at the start of the fight if the adventurer has skill
+                                    <li><code>prep</code>: at the start of the fight if the adventurer has skill
                                         prep</li>
                                     <li><code>s1.charged</code> is the amount of sp charged on s1, you can combine it
                                         with <code>s1.sp</code> and <code>this.sp_val</code> to make conditions like
