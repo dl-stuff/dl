@@ -62,7 +62,7 @@ class Dot(object):
         self.quickshot_event.dtype = self.dtype if self.dtype else self.name
         self.quickshot_event()
         self.tick_dmg = self.quickshot_event.dmg
-        log('dot', self.name, 'start\t', '%f/%d' % (self.iv, self.duration))
+        log('dot', self.name, 'start', '%f/%d' % (self.iv, self.duration))
         return 1
 
     def off(self):
@@ -243,6 +243,8 @@ class AfflicCapped(object):
 
     def stack_end(self, t):
         self.update()
+        if self.get() != self.start_rate:
+            log('cc', self.name, self.get() or 'end')
 
     # def __call__(self, *args, **argv):
     #     return self.on(*args, **argv)
@@ -276,6 +278,9 @@ class AfflicCapped(object):
 
         self.event.rate = total_p
         self.event()
+        
+        self.start_rate = round(self.get(), 3)
+        log('cc', self.name, self.start_rate or 'fail')
 
         return total_p
 
