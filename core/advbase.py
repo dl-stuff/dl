@@ -394,11 +394,22 @@ class Fs(Action):
     def _charge(self):
         return self.conf.charge
 
+    @property
+    def _buffer(self):
+        # human input buffer time
+        return self.conf.get('buffer', 0.46667)
+
     def charge_speed(self):
         return self._static.c_spd_func()
 
     def getstartup(self):
-        return (self._charge / self.charge_speed()) + (self._startup / self.speed())
+        prev = self.getprev()
+        buffer = max(0, self._buffer - prev.getrecovery() - prev.getstartup())
+        charge = self._charge / self.charge_speed()
+        startup = self._startup / self.speed()
+        # log('bufferable', prev.getrecovery() + prev.getstartup())
+        # log('fs_startup', buffer, charge, startup)
+        return buffer + charge + startup
 
 
 class Fs_group(object):
