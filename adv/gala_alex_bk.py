@@ -6,14 +6,25 @@ def module():
 
 class Gala_Alex(adv.gala_alex.Gala_Alex):
     conf = adv.gala_alex.Gala_Alex.conf.copy()
+    conf['slots.a'] = [
+        'Howling_to_the_Heavens',
+        'Memory_of_a_Friend',
+        'The_Shining_Overlord',
+        'His_Clever_Brother',
+        'The_Plaguebringer'
+    ]
     conf['acl'] = """
         queue
         `s1; fs, x=4
         `s2; fs, x=4
         `s1; fs, x=4
-        `s2; s1
+        `s2;
+        `s1;
         end
     """
+    conf['coabs.base'] = ['Ieyasu','Wand','Summer_Patia']
+    conf['share.base'] = ['Fjorm']
+    conf['sim_afflict.frostbite'] = 1
 
     def __init__(self, **kwargs):
         kwargs['equip_key'] = None
