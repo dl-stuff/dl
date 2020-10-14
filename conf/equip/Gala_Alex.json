@@ -34,74 +34,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 92225.47073438266,
-      "team": 0.07958562443774289,
-      "tdps": null,
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), s=1",
-        "`s3, not buff(s3)",
-        "if fsc",
-        "# use s4/s2 if no poison or if s1 def down has less than 1/3 time left",
-        "if (self.sr.chain_status=1 and timeleft(s1, base1)<5)",
-        "`s4",
-        "`s2",
-        "end",
-        "`s2, not aff(poison)",
-        "`s1, not buff(s1) or self.sr.count > 1",
-        "end",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Summer_Patia"
-      ],
-      "share": [
-        "Weapon",
-        "Durant"
-      ]
-    },
-    "buffer": {
-      "dps": 8721.180076055363,
-      "team": 0.3348967582325638,
-      "tdps": 279495.7732706068,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not buff(s1)",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Wand",
-        "Bow",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 82426.7832682364,
-      "team": 0.03882960733627876,
+      "dps": 92393.25372757537,
+      "team": 0.046233475383494836,
       "tdps": null,
       "slots.a": [
         "Howling_to_the_Heavens",
@@ -112,10 +46,11 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c2-s-end), s=4",
         "`s3, not buff(s3)",
         "if fsc",
+        "`s2, aff_timeleft(poison)<4",
         "`s4",
-        "`s2, not aff(poison)",
         "`s1, self.sr.count > 1",
         "end",
         "`fs, x=4"
@@ -123,7 +58,73 @@
       "coabs": [
         "Ieyasu",
         "Wand",
-        "Delphi"
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "buffer": {
+      "dps": 85326.30970295175,
+      "team": 0.048338419514532924,
+      "tdps": 13165995.908917833,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c2-s-end)",
+        "`s3, not buff(s3)",
+        "if fsc",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, self.sr.count > 1",
+        "end",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 85764.58286035265,
+      "team": 0.03744561515157796,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c2-s-end)",
+        "`s3, not buff(s3)",
+        "if fsc",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, self.sr.count > 1",
+        "end",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Heinwald"
       ],
       "share": [
         "Weapon",
@@ -131,10 +132,42 @@
       ]
     },
     "pref": "base",
+    "affliction": {
+      "dps": 86327.95057700254,
+      "team": 0.03744561515157796,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c2-s-end)",
+        "`s3, not buff(s3)",
+        "if fsc",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, self.sr.count > 1",
+        "end",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Heinwald"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
     "buffer": {
       "dps": 71687.52130157656,
       "team": 0.19318353499243107,
-      "tdps": 69575.56655495823,
+      "tdps": 90389.42842668811,
       "slots.a": [
         "Levins_Champion",
         "Memory_of_a_Friend",
@@ -202,6 +235,38 @@
       ]
     },
     "pref": "base",
+    "affliction": {
+      "dps": 96482.35694609422,
+      "team": 0.04310729281603112,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c2-s-end), s=4",
+        "`s3, not buff(s3)",
+        "if fsc",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, self.sr.count > 1",
+        "end",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
     "buffer": {
       "dps": 61619.63270113841,
       "team": 0.16793913769954807,
@@ -231,42 +296,6 @@
       ],
       "share": [
         "Aurien",
-        "Durant"
-      ]
-    },
-    "affliction": {
-      "dps": 88808.79941241995,
-      "team": 0.0683877689990461,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), s=1",
-        "`s3, not buff(s3)",
-        "if fsc",
-        "# use s4/s2 if no poison or if s1 def down has less than 1/3 time left",
-        "if (self.sr.chain_status=1 and timeleft(s1, base1)<5)",
-        "`s4",
-        "`s2",
-        "end",
-        "`s2, not aff(poison)",
-        "`s1, not buff(s1) or self.sr.count > 1",
-        "end",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Heinwald"
-      ],
-      "share": [
-        "Weapon",
         "Durant"
       ]
     }
