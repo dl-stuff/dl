@@ -288,7 +288,7 @@ function loadConf(conf, slots) {
     }
     if (conf.teamdps) {
         $('#input-teamdps').val(conf.teamdps);
-        localStorage.setItem('teamdps', conf.teamdps);
+        localStorage.setItem('simc-teamdps', conf.teamdps);
     }
     for (const key of ['t', 'hp', 'dragonbattle', 'classbane']) {
         if (conf[key]) {
@@ -892,12 +892,11 @@ function clearResults() {
     $('#copy-results').empty();
     $('#test-error').empty();
     $('#input-t').val(BASE_SIM_T);
-    if (localStorage.getItem('teamdps')) {
-        selectedAdv = localStorage.getItem('teamdps');
-        $('#input-teamdps').val(localStorage.getItem('teamdps'));
+    if (localStorage.getItem('simc-teamdps')) {
+        $('#input-teamdps').val(localStorage.getItem('simc-teamdps'));
     } else {
         $('#input-teamdps').val(BASE_TEAM_DPS);
-        localStorage.setItem('teamdps', BASE_TEAM_DPS);
+        localStorage.setItem('simc-teamdps', BASE_TEAM_DPS);
     }
     // $('#input-missile').val('');
     $('#input-hp').val('');
@@ -967,7 +966,7 @@ function loadGithubCommits() {
 function update_teamdps() {
     const tdps = $('#input-teamdps').val();
     if (!$('#input-teamdps').data('original')) {
-        localStorage.setItem('teamdps', tdps);
+        localStorage.setItem('simc-teamdps', tdps);
     }
     populateChart(tdps);
     $('.test-result-item').each((_, ri) => {
