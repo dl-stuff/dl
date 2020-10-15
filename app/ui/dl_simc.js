@@ -807,11 +807,9 @@ function populateDamageGraph(tdps) {
     simcDamageGraph = makeGraph('damage-graph', datasets, 5000);
 }
 let simcDoublebuffGraph = null;
-let simcTensionGraph = null;
 let simcUptimeGraph = null;
 function populateExtraGraphs() {
     if (simcDoublebuffGraph != null) { simcDoublebuffGraph.destroy(); }
-    if (simcTensionGraph != null) { simcTensionGraph.destroy(); }
     if (simcUptimeGraph != null) { simcUptimeGraph.destroy(); }
 
     if (graphData.doublebuff) {
@@ -819,20 +817,6 @@ function populateExtraGraphs() {
         simcDoublebuffGraph = makeGraph('doublebuff-graph', [makeDataset('Doublebuff', scaled(graphData.doublebuff), 'steelblue')], 1);
     } else {
         $('#doublebuff-graph').hide();
-    }
-
-    const tensionDatasets = [];
-    if (graphData.energy) {
-        tensionDatasets.push(makeDataset('Energy', scaled(graphData.energy), 'gold'));
-    }
-    if (graphData.inspiration) {
-        tensionDatasets.push(makeDataset('Inspiration', scaled(graphData.inspiration), 'darkorange'));
-    }
-    if (tensionDatasets.length > 0) {
-        $('#tension-graph').show();
-        simcTensionGraph = makeGraph('tension-graph', tensionDatasets, 1);
-    } else {
-        $('#tension-graph').hide();
     }
 
     const affUptimeDatasets = [];
@@ -851,7 +835,6 @@ function populateExtraGraphs() {
 function clearAllGraphs() {
     if (simcDamageGraph != null) { simcDamageGraph.destroy(); }
     if (simcDoublebuffGraph != null) { simcDoublebuffGraph.destroy(); }
-    if (simcTensionGraph != null) { simcTensionGraph.destroy(); }
     if (simcUptimeGraph != null) { simcUptimeGraph.destroy(); }
 }
 function runAdvTest(no_conf) {

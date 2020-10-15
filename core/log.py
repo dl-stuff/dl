@@ -106,7 +106,6 @@ class Log:
                 self.update_dict(self.datasets['doublebuff'], time_now + float(args[2]), -1)
             elif category in ('energy', 'inspiration') and name == 'team':
                 self.update_dict(self.team_tension, category, float(args[2]))
-                self.update_dict(self.datasets[category], time_now, self.team_tension[category])
             elif category == 'affliction':
                 self.update_dict(self.datasets[name], time_now, float(args[2])*100)
         if self.DEBUG:
