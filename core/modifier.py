@@ -175,7 +175,7 @@ class Buff(object):
         'all_buffs': [],
         'adv': None
     })
-
+    DB_DURATION = 15 # usual doublebuff effect duration for offensive buffs, note that regen lasts 20s
     def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, modifier=None, hidden=False):
         self.name = name
         self.__value = value
@@ -359,7 +359,7 @@ class Buff(object):
         if self.mod_type == 'defense':
             Event('defchain').on()
             if self.bufftype == 'team':
-                log('buff', 'team_defense', 'proc team doublebuffs')
+                log('buff', 'doublebuff', 15 * self.bufftime())
 
         if self.mod_type == 'regen':
             # may need to make this part global since game always regen all stacks at same ticks

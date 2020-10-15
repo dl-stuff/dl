@@ -18,6 +18,19 @@ const SECONDARY_COAB = {
     'Gala_Laxi': 'Dagger2',
     'Valentines_Melody': 'Axe2'
 }
+const AFFLICT_COLORS = {
+    poison: 'darkslateblue',
+    paralysis: 'goldenrod',
+    burn: 'orangered',
+    blind: 'darkslategray',
+    bog: 'dodgerblue',
+    stun: 'gold',
+    freeze: 'dodgerblue',
+    sleep: 'slategray',
+    frostbite: 'deepskyblue',
+    flashburn: 'sandybrown'
+};
+
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
 const speshul = {
     Lily: 'https://cdn.discordapp.com/emojis/664261164208750592.png'
@@ -721,8 +734,7 @@ function toggleInputDisabled(state) {
         coabSelection(0);
     }
 }
-let damageChart = null;
-let chartData = null;
+let graphData = null;
 function windows(data) {
     const result = [{ x: 0, y: 0 }];
     const thresh = 5;
@@ -738,6 +750,7 @@ function windows(data) {
     return result;
 }
 function scaled(data, scale) {
+    scale = scale || 1;
     const result = [{ x: 0, y: 0 }];
     let prev = 0;
     for (let obj of data) {
@@ -759,16 +772,10 @@ function makeDataset(label, data, color) {
         lineTension: 0,
     }
 }
-function populateChart(tdps) {
-    if (damageChart != null) { damageChart.destroy(); }
-    damageChart = new Chart('damage-chart', {
+function makeGraph(ctx, datasets, ystep) {
+    new Chart(ctx, {
         type: 'line',
-        data: {
-            datasets: [
-                makeDataset('Damage', windows(chartData.dmg), 'mediumslateblue'),
-                makeDataset('Team', scaled(chartData.team, tdps), 'seagreen')
-            ]
-        },
+        data: { datasets: datasets },
         options: {
             scales: {
                 xAxes: [{
@@ -782,14 +789,70 @@ function populateChart(tdps) {
                     type: 'linear',
                     ticks: {
                         beginAtZero: true,
-                        stepSize: 5000,
+                        stepSize: ystep,
                     },
                 }]
             },
             // tooltips: { enabled: false }
         }
-    });
+    })
+}
+let simcDamageGraph = null;
+function populateDamageGraph(tdps) {
+    if (simcDamageGraph != null) { simcDamageGraph.destroy(); }
+    const datasets = [makeDataset('Damage', windows(graphData.dmg), 'mediumslateblue')];
+    if (Object.keys(graphData.team).length > 1) {
+        datasets.push(makeDataset('Team', scaled(graphData.team, tdps), 'seagreen'));
+    }
+    simcDamageGraph = makeGraph('damage-graph', datasets, 5000);
+}
+let simcDoublebuffGraph = null;
+let simcTensionGraph = null;
+let simcUptimeGraph = null;
+function populateExtraGraphs() {
+    if (simcDoublebuffGraph != null) { simcDoublebuffGraph.destroy(); }
+    if (simcTensionGraph != null) { simcTensionGraph.destroy(); }
+    if (simcUptimeGraph != null) { simcUptimeGraph.destroy(); }
 
+    if (graphData.doublebuff) {
+        $('#doublebuff-graph').show();
+        simcDoublebuffGraph = makeGraph('doublebuff-graph', [makeDataset('Doublebuff', scaled(graphData.doublebuff), 'steelblue')], 1);
+    } else {
+        $('#doublebuff-graph').hide();
+    }
+
+    const tensionDatasets = [];
+    if (graphData.energy) {
+        tensionDatasets.push(makeDataset('Energy', scaled(graphData.energy), 'gold'));
+    }
+    if (graphData.inspiration) {
+        tensionDatasets.push(makeDataset('Inspiration', scaled(graphData.inspiration), 'darkorange'));
+    }
+    if (tensionDatasets.length > 0) {
+        $('#tension-graph').show();
+        simcTensionGraph = makeGraph('tension-graph', tensionDatasets, 1);
+    } else {
+        $('#tension-graph').hide();
+    }
+
+    const affUptimeDatasets = [];
+    for (const aff of Object.keys(AFFLICT_COLORS)) {
+        if (graphData[aff]) {
+            affUptimeDatasets.push(makeDataset(aff.slice(0, 1).toUpperCase() + aff.slice(1), scaled(graphData[aff]), AFFLICT_COLORS[aff]));
+        }
+    }
+    if (affUptimeDatasets.length > 0) {
+        $('#uptime-graph').show();
+        simcUptimeGraph = makeGraph('uptime-graph', affUptimeDatasets, 1);
+    } else {
+        $('#uptime-graph').hide();
+    }
+}
+function clearAllGraphs() {
+    if (simcDamageGraph != null) { simcDamageGraph.destroy(); }
+    if (simcDoublebuffGraph != null) { simcDoublebuffGraph.destroy(); }
+    if (simcTensionGraph != null) { simcTensionGraph.destroy(); }
+    if (simcUptimeGraph != null) { simcUptimeGraph.destroy(); }
 }
 function runAdvTest(no_conf) {
     if ($('#input-adv').val() == '') {
@@ -832,8 +895,9 @@ function runAdvTest(no_conf) {
                     $('#damage-log').html(logs.join('<hr class="log-divider">'));
                     $('#test-results').prepend(new_result_item);
                     $('#copy-results').prepend($('<textarea>' + copy_txt + '</textarea>').attr({ class: 'copy-txt', rows: (copy_txt.match(/\n/g) || [0]).length + 1 }));
-                    chartData = res.chart;
+                    graphData = res.chart;
                     update_teamdps();
+                    populateExtraGraphs();
                 }
             }
             toggleInputDisabled(false);
@@ -913,6 +977,7 @@ function clearResults() {
     $('#input-classbane').val('');
     $('#input-dumb').val('');
     $('#input-equip').val($('#input-equip').data('pref') || 'base');
+    clearAllGraphs();
 }
 function resetTest() {
     updateUrl();
@@ -968,7 +1033,7 @@ function update_teamdps() {
     if (!$('#input-teamdps').data('original')) {
         localStorage.setItem('simc-teamdps', tdps);
     }
-    populateChart(tdps);
+    populateDamageGraph(tdps);
     $('.test-result-item').each((_, ri) => {
         const team_p = $(ri).data('team') / 100;
         const team_v = tdps * team_p;

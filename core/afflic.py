@@ -71,16 +71,16 @@ class Dot(object):
         log('dot', self.name, 'end by other reason')
 
 
-class AfflicUncapped(object):
-    def __init__(self, name=None, tolerance=0.05):
+class AfflicBase:
+    def __init__(self, name, duration, tolerance):
         self.name = name
         self._resist = 0
         self._rate = 1
         self.tolerance = tolerance
         self.res_modifier = 0
-        self.duration = 12
+        self.duration = duration
+        self.default_duration = duration
         self.states = None
-        self.stacks = []
         self._get = 0.0
 
         self.c_uptime = (0, 0)
@@ -119,24 +119,39 @@ class AfflicUncapped(object):
     def get(self):
         return self.get_override or self._get
 
+    def set_res_mod(self, delta):
+        self.res_modifier = min(self.res_modifier + delta, 1)
+
+    def uptime(self):
+        next_r = self.get()
+        next_t = now()
+        if next_r == 0:
+            self.last_afflict = next_t
+        prev_r, prev_t = self.c_uptime
+        rate = prev_r + next_r*(next_t-prev_t)
+        self.c_uptime = (rate, next_t)
+        if next_t > 0 and rate > 0:
+            log('{}_uptime'.format(self.name), '{:.2f}/{:.2f}'.format(rate, next_t), '{:.2%}'.format(rate/next_t))
+        # if next_t > 0 and rate > 0:
+        #     log('uptime', self.name, rate / next_t)
+
+
+class AfflicUncapped(AfflicBase):
+    def __init__(self, name=None, duration=12, tolerance=0.05):
+        super().__init__(name, duration, tolerance)
+        self.stacks = []
+
     def update(self):
         self.uptime()
         nostack_p = 1.0
         for stack_p in self.stacks:
             nostack_p *= 1.0 - stack_p
         self._get = 1.0 - nostack_p
+        log('affliction', self.name, self._get)
 
-    def stack_end_fun(self, p):
-        def end_callback(t):
-            self.stacks.remove(p)
-            self.update()
-        return end_callback
-
-    # def __call__(self, *args, **argv):
-    #     return self.on(*args, **argv)
-
-    def set_res_mod(self, delta):
-        self.res_modifier = min(self.res_modifier + delta, 1)
+    def stack_end(self, e):
+        self.stacks.remove(e.total_success_p)
+        self.update()
 
     def on(self):
         if self.states is None:
@@ -157,7 +172,9 @@ class AfflicUncapped(object):
                 states[res] += fail_p
         self.states = states
         self.stacks.append(total_success_p)
-        Timer(self.stack_end_fun(total_success_p), self.duration).on()
+        t = Timer(self.stack_end, self.duration)
+        t.total_success_p = total_success_p
+        t.on()
         self.update()
 
         self.event.rate = total_success_p
@@ -165,68 +182,13 @@ class AfflicUncapped(object):
 
         return total_success_p
 
-    def uptime(self):
-        next_r = self.get()
-        next_t = now()
-        if next_r == 0:
-            self.last_afflict = next_t
-        prev_r, prev_t = self.c_uptime
-        rate = prev_r + next_r*(next_t-prev_t)
-        self.c_uptime = (rate, next_t)
-        if next_t > 0 and rate > 0:
-            log('{}_uptime'.format(self.name), '{:.2f}/{:.2f}'.format(rate, next_t), '{:.2%}'.format(rate/next_t))
 
-
-class AfflicCapped(object):
+class AfflicCapped(AfflicBase):
     State = namedtuple('State', ('timers', 'resist'))
 
     def __init__(self, name=None, duration=12, tolerance=0.2):
-        self.name = name
-        self._resist = 0
-        self._rate = 1
-        self.res_modifier = 0
-        self.tolerance = tolerance
-        self.default_duration = duration
-        self.duration = duration
+        super().__init__(name, duration, tolerance)
         self.stack_cap = 1
-        self.states = None
-        self._get = 0.0
-
-        self.c_uptime = (0, 0)
-        self.last_afflict = 0
-        self.event = Event(self.name)
-
-        self.get_override = 0
-        self.aff_edge_mods = []
-
-    @property
-    def rate(self):
-        return self._rate
-
-    @rate.setter
-    def rate(self, rate):
-        if rate > 2:
-            self._rate = float(rate) / 100.0
-        else:
-            self._rate = rate
-
-    @property
-    def resist(self):
-        return self._resist
-
-    @resist.setter
-    def resist(self, resist):
-        if resist > 1:
-            self._resist = float(resist) / 100.0
-        else:
-            self._resist = resist
-
-    @property
-    def edge(self):
-        return sum([m.get() for m in self.aff_edge_mods])
-
-    def get(self):
-        return self.get_override or self._get
 
     def update(self):
         self.uptime()
@@ -239,18 +201,13 @@ class AfflicCapped(object):
                 total_p += state_p
         self.states = states
         self._get = total_p
+        log('affliction', self.name, self.get())
         return total_p
 
     def stack_end(self, t):
         self.update()
         if self.get() != self.start_rate:
             log('cc', self.name, self.get() or 'end')
-
-    # def __call__(self, *args, **argv):
-    #     return self.on(*args, **argv)
-
-    def set_res_mod(self, delta):
-        self.res_modifier = min(self.res_modifier + delta, 1)
 
     def on(self):
         timer = Timer(self.stack_end, self.duration).on()
@@ -284,23 +241,10 @@ class AfflicCapped(object):
 
         return total_p
 
-    def uptime(self):
-        next_r = self.get()
-        next_t = now()
-        if next_r == 0:
-            self.last_afflict = next_t
-        prev_r, prev_t = self.c_uptime
-        rate = prev_r + next_r*(next_t-prev_t)
-        self.c_uptime = (rate, next_t)
-        if next_t > 0 and rate > 0 and next_t % 60 == 0:
-            log('{}_uptime'.format(self.name), '{:.2f}/{:.2f}'.format(rate, next_t), '{:.2%}'.format(rate/next_t))
-
 class Afflic_dot(AfflicUncapped):
     def __init__(self, name=None, duration=12, iv=3.99, tolerance=0.05):
-        super().__init__(name, tolerance=tolerance)
+        super().__init__(name, duration=duration, tolerance=tolerance)
         self.coef = 0.97
-        self.default_duration = duration
-        self.duration = duration
         self.default_iv = iv
         self.iv = iv
         self.dot = None

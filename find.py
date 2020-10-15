@@ -84,4 +84,4 @@ def get_acl():
     return acl_map
 
 if __name__ == '__main__':
-    stat_conf(lambda d: d['c']['ele'] == 'light')
+    stat_conf(lambda d: d['c']['wt'] == 'sword')
