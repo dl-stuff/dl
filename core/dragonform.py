@@ -9,8 +9,6 @@ class DragonForm(Action):
         self.name = name
         self.conf = conf
         self.adv = adv
-        self.cancel_by = []
-        self.interrupt_by = []
         self.disabled = False
         self.shift_event = Event('dragon')
         self.act_event = Event('dact')
@@ -65,6 +63,18 @@ class DragonForm(Action):
         self.allow_end_cd = self.conf.allow_end + (self.conf.ds.startup + self.conf.ds.startup) / self.speed()
         self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
         self.allow_end = False
+
+    def can_interrupt(self, target):
+        return None
+
+    def can_cancel(self, target):
+        return None
+
+    def getstartup(self):
+        return 0
+
+    def getrecovery(self):
+        return 0
 
     def reset_allow_end(self):
         if self.is_dragondrive:

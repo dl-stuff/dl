@@ -176,7 +176,7 @@ class Buff(object):
         'adv': None
     })
     DB_DURATION = 15 # usual doublebuff effect duration for offensive buffs, note that regen lasts 20s
-    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, modifier=None, hidden=False):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, modifier=None, hidden=False, source=None):
         self.name = name
         self.__value = value
         self.duration = duration
@@ -184,7 +184,11 @@ class Buff(object):
         self.mod_order = morder or ('chance' if self.mod_type == 'crit' else 'buff')
         self.bufftype = 'misc' if hidden else 'self'
 
-        self.bufftime = self._bufftime
+        self.source = source
+        if self.source is not None and source[0] != 's' and source[0:2] != 'ds':
+            self.bufftime = self._ex_bufftime
+        else:
+            self.bufftime = self._bufftime
         self.buff_end_timer = Timer(self.buff_end_proc)
         if modifier:
             self.modifier = modifier
@@ -219,6 +223,10 @@ class Buff(object):
 
     def _debufftime(self):
         return self._static.adv.mod('debuff', operator=operator.add)
+
+    def any_bufftime(self):
+        self.bufftime = self._bufftime
+        return self
 
     def no_bufftime(self):
         self.bufftime = self._no_bufftime
@@ -357,7 +365,9 @@ class Buff(object):
             log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'buff stack <{stack}>')
 
         if self.mod_type == 'defense':
-            Event('defchain').on()
+            db = Event('defchain')
+            db.source = self.source
+            db.on()
             if self.bufftype == 'team':
                 log('buff', 'doublebuff', 15 * self.bufftime())
 
@@ -392,23 +402,23 @@ class Buff(object):
 
 
 class EffectBuff(Buff):
-    def __init__(self, name, duration, effect_on, effect_off):
-        super().__init__(name, 1, duration, 'effect')
+    def __init__(self, name, duration, effect_on, effect_off, source=None):
+        super().__init__(name, 1, duration, 'effect', source=source)
         self.bufftype = 'self'
         self.effect_on = effect_on
         self.effect_off = effect_off
 
 
 class ModeAltBuff(Buff):
-    def __init__(self, name, duration=-1, hidden=False):
-        super().__init__(name, 1, duration, 'effect', hidden=hidden)
+    def __init__(self, name, duration=-1, hidden=False, source=None):
+        super().__init__(name, 1, duration, 'effect', hidden=hidden, source=source)
 
     @property
     def adv(self):
         return self._static.adv
 
 class FSAltBuff(ModeAltBuff):
-    def __init__(self, name=None, group=None, duration=-1, uses=-1, hidden=False):
+    def __init__(self, name=None, group=None, duration=-1, uses=-1, hidden=False, source=None):
         self.default_fs = self.adv.current_fs
         self.group = group
         pattern = r'^fs\d+$' if group is None else f'^fs\d*_{group}$'
@@ -417,7 +427,7 @@ class FSAltBuff(ModeAltBuff):
             if group is None:
                 raise ValueError(f'fs[n] not found in conf')
             raise ValueError(f'{self.group} is not an FS')
-        super().__init__(self.group or 'fs[n]', duration=duration, hidden=hidden)
+        super().__init__(self.group or 'fs[n]', duration=duration, hidden=hidden, source=source)
         self.enable_fs(False)
         self.base_uses = uses
         self.uses = 0
@@ -456,14 +466,14 @@ bufftype_dict['fsAlt'] = FSAltBuff
 
 
 class XAltBuff(ModeAltBuff):
-    def __init__(self, name=None, group=None, duration=-1, hidden=False, deferred=False):
+    def __init__(self, name=None, group=None, duration=-1, hidden=False, deferred=False, source=None):
         self.default_x = self.adv.current_x
         self.group = group
         self.x_max = self.adv.conf[f'{group}.x_max']
         self.deferred = deferred
         if not self.x_max:
             raise ValueError(f'{self.group} is not a X group')
-        super().__init__(group, duration=duration, hidden=hidden)
+        super().__init__(group, duration=duration, hidden=hidden, source=source)
         self.enable_x(False)
 
     def enable_x(self, enabled):
@@ -486,12 +496,12 @@ bufftype_dict['xAlt'] = XAltBuff
 
 
 class SAltBuff(ModeAltBuff):
-    def __init__(self, name=None, group=None, base=None, duration=-1, hidden=False):
+    def __init__(self, name=None, group=None, base=None, duration=-1, hidden=False, source=None):
         if base not in ('s1', 's2', 's3', 's4'):
             raise ValueError(f'{base} is not a skill')
         if group not in self.adv.a_s_dict[base].act_dict.keys():
             raise ValueError(f'{base}-{group} is not a skill')
-        super().__init__(f'{base}_{group}', duration=duration, hidden=hidden)
+        super().__init__(f'{base}_{group}', duration=duration, hidden=hidden, source=source)
         self.base = base
         self.group = group
         self.default_s = self.adv.current_s[base]
@@ -528,8 +538,8 @@ bufftype_dict['sAlt'] = SAltBuff
 
 
 class Selfbuff(Buff):
-    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None):
-        super().__init__(name, value, duration, mtype, morder)
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, source=None):
+        super().__init__(name, value, duration, mtype, morder, source=source)
         self.bufftype = 'self'
 bufftype_dict['self'] = Selfbuff
 
@@ -574,8 +584,8 @@ bufftype_dict['next'] = SingleActionBuff
 
 
 class Teambuff(Buff):
-    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None):
-        super().__init__(name, value, duration, mtype, morder)
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, source=None):
+        super().__init__(name, value, duration, mtype, morder, source=source)
         self.bufftype = 'team'
 
         self.base_cc_mod = []
@@ -600,8 +610,8 @@ bufftype_dict['team'] = Teambuff
 
 
 class ElementalTeambuff(Teambuff):
-    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, element=None):
-        super().__init__(name, value, duration, mtype, morder)
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, element=None, source=None):
+        super().__init__(name, value, duration, mtype, morder, source=source)
         self.element = element
 
     def on(self, duration=0):
@@ -619,7 +629,7 @@ bufftype_dict['ele'] = ElementalTeambuff
 
 
 class ZoneTeambuff(Teambuff):
-    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, source=None):
         super().__init__(name, value, duration, mtype, morder)
         self.bufftime = self._no_bufftime
         self.name += '_zone'
@@ -639,10 +649,10 @@ bufftype_dict['zone'] = ZoneTeambuff
 
 
 class Spdbuff(Buff):
-    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='spd', wide=None):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='spd', wide=None, source=None):
         mtype = mtype
         morder = 'passive'
-        super().__init__(name, value, duration, mtype, morder)
+        super().__init__(name, value, duration, mtype, morder, source=source)
         if not wide:
             try:
                 self.bufftype = name.split('_')[1]
@@ -673,7 +683,7 @@ bufftype_dict['spd'] = Spdbuff
 
 
 class Debuff(Teambuff):
-    def __init__(self, name='<buff_noname>', value=0, duration=0, chance=1.0, mtype='def', morder=None):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, chance=1.0, mtype='def', morder=None, source=None):
         self.val = value
         self.chance = chance
         if self.chance != 1:

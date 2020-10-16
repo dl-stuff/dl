@@ -133,6 +133,13 @@ class Skill(object):
             self.autocharge_timer = Timer(autocharge, iv, 1)
         return self.autocharge_timer
 
+class Nop(object):
+    name = 'nop'
+    index = 0
+    status = -2
+    idle = 1
+    has_delayed = 0
+
 
 class Action(object):
     _static = Static({
@@ -152,13 +159,6 @@ class Action(object):
     startup_start = 0
     status = -2
     idle = 0
-
-    class Nop(object):
-        name = 'nop'
-        index = 0
-        status = -2
-        idle = 1
-        has_delayed = 0
 
     nop = Nop()
 
@@ -185,9 +185,6 @@ class Action(object):
             self._static.doing = self.nop
         if not self._static.prev:
             self._static.prev = self.nop
-
-        self.cancel_by = []
-        self.interrupt_by = []
 
         self.startup_timer = Timer(self._cb_acting)
         self.recovery_timer = Timer(self._cb_act_end)
@@ -223,6 +220,17 @@ class Action(object):
             self.act_event = Event(self.name)
         return self.o_tap()
 
+    def can_follow(self, target, timing, elapsed):
+        try:
+            return max(0, round(timing - elapsed, 5))
+        except (KeyError, TypeError):
+            return None
+
+    def can_interrupt(self, target):
+        return self.can_follow(target, self.conf.interrupt[target], self.startup_timer.elapsed())
+
+    def can_cancel(self, target):
+        return self.can_follow(target, self.conf.cancel[target], self.recovery_timer.elapsed())
 
     @property
     def _startup(self):
@@ -289,7 +297,7 @@ class Action(object):
     def has_delayed(self):
         return len([mt for mt in self.delayed if mt.online and mt.timing > now()])
 
-    def tap(self):
+    def tap(self, t=None):
         doing = self._static.doing
 
         if doing.idle:
@@ -306,7 +314,11 @@ class Action(object):
         #    pass
         if not doing.idle:  # doing != self
             if doing.status == Action.STARTUP:  # try to interrupt an action
-                if self.atype in doing.interrupt_by:  # can interrupt action
+                timing = doing.can_interrupt(self.atype)
+                if timing is not None: # can interrupt action
+                    if timing > 0:
+                        Timer(self.tap).on(timing)
+                        return 0
                     doing.startup_timer.off()
                     logargs = ['interrupt', doing.name, f'by {self.name}']
                     delta = now() - doing.startup_start
@@ -316,7 +328,11 @@ class Action(object):
                 else:
                     return 0
             elif doing.status == Action.RECOVERY:  # try to cancel an action
-                if self.atype in doing.cancel_by:  # can interrupt action
+                timing = doing.can_cancel(self.atype)
+                if timing is not None: # can cancel action
+                    if timing > 0:
+                        Timer(self.tap).on(timing) # wait for allowed cancel timing
+                        return 0
                     doing.recovery_timer.off()
                     count = doing.clear_delayed()
                     delta = now() - doing.recover_start
@@ -349,8 +365,6 @@ class X(Action):
         self.base = parts[0]
         self.group = 'default' if len(parts) == 1 else parts[1]
         self.atype = 'x'
-        self.interrupt_by = ['fs', 's', 'dodge']
-        self.cancel_by = ['fs', 's', 'dodge']
 
         self.act_event = Event('x')
         self.act_event.name = self.name
@@ -387,8 +401,6 @@ class Fs(Action):
             except ValueError:
                 pass
         self.atype = 'fs'
-        self.interrupt_by = ['s']
-        self.cancel_by = ['s', 'dodge']
 
     @property
     def _charge(self):
@@ -399,12 +411,20 @@ class Fs(Action):
         # human input buffer time
         return self.conf.get('buffer', 0.46667)
 
+    def set_enabled(self, enabled):
+        self.enabled = enabled
+
     def charge_speed(self):
         return self._static.c_spd_func()
 
     def getstartup(self):
         prev = self.getprev()
-        buffer = max(0, self._buffer - prev.getrecovery() - prev.getstartup())
+        if prev == self:
+            buffer = self._buffer
+        elif prev == self.nop:
+            buffer = 0
+        else:
+            buffer = max(0, self._buffer - prev.getrecovery() - prev.getstartup())
         charge = self._charge / self.charge_speed()
         startup = self._startup / self.speed()
         # log('bufferable', prev.getrecovery() + prev.getstartup())
@@ -445,8 +465,6 @@ class S(Action):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
         self.atype = 's'
-        self.interrupt_by = []
-        self.cancel_by = []
 
         parts = name.split('_')
         self.base = parts[0]
@@ -609,11 +627,14 @@ class Adv(object):
         for name, fs_conf in self.conf.find(r'^fs\d*(_[A-Za-z0-9]+)?$'):
             try:
                 base = name.split('_')[0]
+                if base != 'fs':
+                    fs_conf.update(self.conf.fs, rebase=True)
                 if name != base and self.conf[base]:
                     fs_conf.update(self.conf[base], rebase=True)
             except KeyError:
                 pass
-            self.a_fs_dict[name] = Fs_group(name, fs_conf)
+            # self.a_fs_dict[name] = Fs_group(name, fs_conf)
+            self.a_fs_dict[name] = Fs(name, fs_conf)
             self.hitattr_check(name, fs_conf)
         if 'fs1' in self.a_fs_dict:
             self.a_fs_dict['fs'].enabled = False
@@ -1070,7 +1091,7 @@ class Adv(object):
             self.Skill._static.first_x_after_s = 0
             s_prev = self.Skill._static.s_prev
             self.think_pin('%s-x' % s_prev)
-        return self.x()
+        # return self.x()
 
     def getprev(self):
         prev = self.action.getprev()
@@ -1085,6 +1106,7 @@ class Adv(object):
     @allow_acl
     def fs(self, n=None):
         fsn = 'fs' if n is None else f'fs{n}'
+        self.check_deferred_x()
         if self.current_fs is not None:
             fsn += '_' + self.current_fs
         try:
@@ -1093,16 +1115,19 @@ class Adv(object):
                 before = self.action.getprev()
             if not self.a_fs_dict[fsn].enabled:
                 return False
-            return self.a_fs_dict[fsn](before.name)
+            return self.a_fs_dict[fsn]()
         except KeyError:
             return False
 
-    def x(self, x_min=1):
-        prev = self.action.getprev()
+    def check_deferred_x(self):
         if self.deferred_x is not None:
             log('deferred_x', self.deferred_x)
             self.current_x = self.deferred_x
             self.deferred_x = None
+
+    def x(self, x_min=1):
+        prev = self.action.getprev()
+        self.check_deferred_x()
         if isinstance(prev, X) and prev.group == self.current_x:
             if prev.index < self.conf[prev.group].x_max:
                 x_next = self.a_x_dict[self.current_x][prev.index+1]
@@ -1186,6 +1211,7 @@ class Adv(object):
 
     @allow_acl
     def s(self, n):
+        self.check_deferred_x()
         return self.a_s_dict[f's{n}']()
 
     @property
@@ -1382,16 +1408,20 @@ class Adv(object):
     def debug(self):
         pass
 
-    def _cb_think(self, t):
+    def _cb_think(self, t, default_to_x=True):
         if loglevel >= 2:
             log('think', '/'.join(map(str,(t.pin, t.dname, t.dstat, t.didx, t.dhit))))
-        return self._acl(t)
+        result = self._acl(t)
+        if default_to_x:
+            return result or self.x() 
+        else:
+            return result
 
     def _cb_think_fsf(self, t):
-        result = self._cb_think(t)
+        result = self._cb_think(t, default_to_x=False)
         if not result and self.current_x == 'default' and t.dstat >= 0 and t.pin[0] == 'x' and t.didx == 5 and t.dhit == 0:
             return self.fsf()
-        return result
+        return result or self.x()
 
     def _cb_think_dumb(self, t):
         if now() // self.dumb_cd > self.dumb_count:
@@ -1721,7 +1751,7 @@ class Adv(object):
         else:
             bargs = attrbuff[1:]
             try:
-                return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs)
+                return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs, source=name)
             except ValueError:
                 return None
 

@@ -298,7 +298,7 @@ class Doublebuff(BuffingAbility):
             adv.Event('defchain').listener(defchain)
         else:
             def defchain(e):
-                adv.Buff(*self.buff_args).on()
+                adv.Buff(*self.buff_args, source=e.source).on()
             adv.Event('defchain').listener(defchain)
 
 ability_dict['bc'] = Doublebuff
@@ -322,7 +322,7 @@ class Doublebuff_CD(Doublebuff):
         else:
             def defchain(e):
                 if not self.is_cd:
-                    adv.Buff(*self.buff_args).on()
+                    adv.Buff(*self.buff_args, source=e.source).on()
                     self.is_cd = True
                     adv.Timer(cd_end).on(self.DB_CD)
             adv.Event('defchain').listener(defchain)
@@ -341,16 +341,6 @@ class Slayer_Strength(BuffingAbility):
 
 ability_dict['sts'] = Slayer_Strength
 ability_dict['sls'] = Slayer_Strength
-
-class Slayers(BuffingAbility):
-    def __init__(self, name, value):
-        super().__init__(name, value, -1)
-
-    def oninit(self, adv, afrom=None):
-        for _ in range(5):
-            adv.Buff(*self.buff_args).on()
-
-ability_dict['slayers'] = Slayers
 
 
 class Dragon_Buff(Ability):
@@ -621,11 +611,11 @@ class Affliction_Selfbuff(Ability):
                 if self.is_rng:
                     import random
                     if random.random() < e.rate:
-                        adv.Buff(self.name, self.value, self.duration, *self.buff_args).on()
+                        adv.Buff(self.name, self.value, self.duration, *self.buff_args, source=e.source).on()
                         self.is_cd = True
                         adv.Timer(cd_end).on(self.cd)
                 else:
-                    adv.Buff(self.name, self.value * e.rate, self.duration, *self.buff_args).on()
+                    adv.Buff(self.name, self.value * e.rate, self.duration, *self.buff_args, source=e.source).on()
                     self.is_cd = True
                     adv.Timer(cd_end).on(self.cd)
         adv.Event(self.atype).listener(l_afflict)
@@ -639,7 +629,7 @@ class Affliction_Teambuff(Affliction_Selfbuff):
             self.is_cd = False
         def l_afflict(e):
             if not self.is_cd and e.rate > 0:
-                adv.Teambuff(self.name, self.value * e.rate, self.duration, *self.buff_args).on()
+                adv.Teambuff(self.name, self.value * e.rate, self.duration, *self.buff_args, source=e.source).on()
                 self.is_cd = True
                 adv.Timer(cd_end).on(self.cd)
         adv.Event(self.atype).listener(l_afflict)
@@ -653,7 +643,7 @@ class AntiAffliction_Selfbuff(Affliction_Selfbuff):
             self.is_cd = False
         def l_afflict(e):
             if not self.is_cd and e.rate < 1:
-                adv.Buff(self.name, self.value * (1 - e.rate), self.duration, *self.buff_args).on()
+                adv.Buff(self.name, self.value * (1 - e.rate), self.duration, *self.buff_args, source=e.source).on()
                 self.is_cd = True
                 adv.Timer(cd_end).on(self.cd)
         adv.Event(self.atype).listener(l_afflict)

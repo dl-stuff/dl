@@ -252,6 +252,7 @@ class Afflic_dot(AfflicUncapped):
     def on(self, name, rate, coef, duration=None, iv=None, dtype=None):
         self.rate = rate + self.edge
         self.coef = coef
+        self.event.source = name
         if dtype is None and name[0] == 's':
             self.dtype = 's'
         else:
@@ -277,6 +278,7 @@ class Afflic_cc(AfflicCapped):
         self.stack_cap = 1
 
     def on(self, name, rate, duration=None):
+        self.event.source = name
         self.rate = rate + self.edge
         self.duration = duration or self.default_duration
         return super().on()
@@ -291,6 +293,7 @@ class Afflic_scc(AfflicCapped):
         self.stack_cap = 1
 
     def on(self, name, rate, duration=None):
+        self.event.source = name
         self.rate = rate + self.edge
         self.duration = duration or self.default_duration
         return super().on()
@@ -303,6 +306,7 @@ class Afflic_bog(Afflic_scc):
         super().__init__(name, duration, tolerance)
         
     def on(self, name, rate, duration=None):
+        self.event.source = name
         p = super().on(name, rate, duration)
         if p:
             # from core.advbase import Debuff
@@ -341,11 +345,11 @@ class Afflics(object):
         # }
     }
     def __init__(self):
-        self.poison = Afflic_dot('poison', duration=15, iv=2.99)
-        self.burn = Afflic_dot('burn', duration=12, iv=3.99)
-        self.paralysis = Afflic_dot('paralysis', duration=13, iv=3.99)
-        self.frostbite = Afflic_dot('frostbite', duration=21, iv=2.99)
-        self.flashburn = Afflic_dot('flashburn', duration=21, iv=2.99)
+        self.poison = Afflic_dot('poison', duration=15, iv=2.9)
+        self.burn = Afflic_dot('burn', duration=12, iv=3.9)
+        self.paralysis = Afflic_dot('paralysis', duration=13, iv=3.9)
+        self.frostbite = Afflic_dot('frostbite', duration=21, iv=2.9)
+        self.flashburn = Afflic_dot('flashburn', duration=21, iv=2.9)
 
         self.blind = Afflic_scc('blind', duration=8)
         self.bog = Afflic_bog('bog', duration=8)

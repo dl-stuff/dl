@@ -25,10 +25,13 @@ class StanceAdv(Adv):
                     mode.alt['x'].deferred = deferred
                 except KeyError:
                     pass
-            queue_stance_fn = lambda: self.queue_stance(name)
+            queue_stance_fn = self.make_queue_stance_fn(name)
             queue_stance_fn.allow_acl = True
             setattr(self, name, queue_stance_fn)
         self.update_stance()
+
+    def make_queue_stance_fn(self, name):
+        return lambda: self.queue_stance(name) and False
 
     def update_stance(self):
         if self.next_stance is not None:
@@ -48,6 +51,11 @@ class StanceAdv(Adv):
             self.stance = self.next_stance
             self.next_stance = None
 
+    def x(self, x_min=1):
+        if self.can_change_combo():
+            self.stance_dict[self.stance].alt['x'].on()
+        super().x(x_min=x_min)
+
     def queue_stance(self, stance):
         if self.can_queue_stance(stance):
             self.next_stance = stance
@@ -64,7 +72,12 @@ class StanceAdv(Adv):
         )
     
     def can_change_combo(self):
-        return self.has_alt_x and self.hits >= self.hit_threshold
+        return (
+            self.has_alt_x and
+            self.hits >= self.hit_threshold and
+            not self.stance_dict[self.stance].alt['x'].get() and
+            not self.Skill._static.silence == 1
+        )
 
     @allow_acl
     def s(self, n, stance=None):
