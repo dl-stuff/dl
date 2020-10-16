@@ -783,13 +783,15 @@ function makeGraph(ctx, datasets, ystep) {
                     ticks: {
                         beginAtZero: true,
                         stepSize: 1,
+                        suggestedMin: 0,
+                        suggestedMax: graphData.duration
                     },
                 }],
                 yAxes: [{
                     type: 'linear',
                     ticks: {
                         beginAtZero: true,
-                        stepSize: ystep,
+                        stepSize: ystep
                     },
                 }]
             },
@@ -883,6 +885,7 @@ function runAdvTest(no_conf) {
                     $('#test-results').prepend(new_result_item);
                     $('#copy-results').prepend($('<textarea>' + copy_txt + '</textarea>').attr({ class: 'copy-txt', rows: (copy_txt.match(/\n/g) || [0]).length + 1 }));
                     graphData = res.chart;
+                    graphData.duration = requestJson['t'];
                     update_teamdps();
                 }
             }
