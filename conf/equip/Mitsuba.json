@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 51899.53645043421,
-      "team": 0.030161316333852033,
+      "dps": 52041.61286141741,
+      "team": 0.030130975856733022,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -14,14 +14,16 @@
       "slots.d": "Siren",
       "acl": [
         "`dragon(c3-s-end)",
-        "`tempura",
-        "if xf=2",
         "`s3, not buff(s3)",
+        "`tempura",
+        "if xf=2 and hits > 15",
         "`s2",
         "`s4",
         "`s1(sashimi), aff_timeleft(frostbite)<6",
         "`s1(tempura)",
         "`fsf",
+        "else",
+        "`fs, x=5",
         "end"
       ],
       "coabs": [
@@ -71,7 +73,7 @@
     "buffer": {
       "dps": 8775.7519683855,
       "team": 1.0267487078205473,
-      "tdps": 43271.453010977035,
+      "tdps": 43412.69426119626,
       "slots.a": [
         "Brothers_in_Arms",
         "Felyne_Hospitality",

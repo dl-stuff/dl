@@ -793,22 +793,26 @@ function makeGraph(ctx, datasets, ystep) {
                     },
                 }]
             },
+            animation: { duration: 0 },
             // tooltips: { enabled: false }
         }
     })
 }
 let simcDamageGraph = null;
-function populateDamageGraph(tdps) {
+let simcDoublebuffGraph = null;
+let simcUptimeGraph = null;
+function populateAllGraphs() {
+    if (!graphData){
+        return;
+    }
+    const tdps = $('#input-teamdps').val();
     if (simcDamageGraph != null) { simcDamageGraph.destroy(); }
     const datasets = [makeDataset('Damage', windows(graphData.dmg), 'mediumslateblue')];
     if (Object.keys(graphData.team).length > 1) {
         datasets.push(makeDataset('Team', scaled(graphData.team, tdps), 'seagreen'));
     }
     simcDamageGraph = makeGraph('damage-graph', datasets, 5000);
-}
-let simcDoublebuffGraph = null;
-let simcUptimeGraph = null;
-function populateExtraGraphs() {
+
     if (simcDoublebuffGraph != null) { simcDoublebuffGraph.destroy(); }
     if (simcUptimeGraph != null) { simcUptimeGraph.destroy(); }
 
@@ -880,7 +884,6 @@ function runAdvTest(no_conf) {
                     $('#copy-results').prepend($('<textarea>' + copy_txt + '</textarea>').attr({ class: 'copy-txt', rows: (copy_txt.match(/\n/g) || [0]).length + 1 }));
                     graphData = res.chart;
                     update_teamdps();
-                    populateExtraGraphs();
                 }
             }
             toggleInputDisabled(false);
@@ -1016,7 +1019,6 @@ function update_teamdps() {
     if (!$('#input-teamdps').data('original')) {
         localStorage.setItem('simc-teamdps', tdps);
     }
-    populateDamageGraph(tdps);
     $('.test-result-item').each((_, ri) => {
         const team_p = $(ri).data('team') / 100;
         const team_v = tdps * team_p;
@@ -1059,4 +1061,6 @@ window.onload = function () {
     clearResults();
     loadAdvWPList();
     loadGithubCommits();
+    populateAllGraphs
+    $('#simulationGraphBox').on('shown.bs.modal', populateAllGraphs);
 }

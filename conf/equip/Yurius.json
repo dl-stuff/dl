@@ -38,7 +38,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 54576.36775511203,
+      "dps": 55050.24712906738,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -70,7 +70,43 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Luca"
+      ]
+    },
+    "buffer": {
+      "dps": 13691.337518627313,
+      "team": 0.03825448787698748,
+      "tdps": 926166.9377419171,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Siren",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "queue prep and self.duration>120",
+        "`s2; s1; s4",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Cleo"
       ]
     }
   },
