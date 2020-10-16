@@ -194,18 +194,19 @@ if __name__ == '__main__':
                 if msg:
                     message.append(msg)
 
-    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
-        try:
-            lastmod = json.load(f)
-        except:
-            lastmod = {}
-        f.truncate(0)
-        f.seek(0)
-        try:
-            lastmod['changed'].extend(message)
-        except KeyError:
-            lastmod['changed'] = message
-        json.dump(lastmod, f)
+    if not sanity_test:
+        with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
+            try:
+                lastmod = json.load(f)
+            except:
+                lastmod = {}
+            f.truncate(0)
+            f.seek(0)
+            try:
+                lastmod['changed'].extend(message)
+            except KeyError:
+                lastmod['changed'] = message
+            json.dump(lastmod, f)
 
     if do_combine and not sanity_test:
         core.simulate.combine()

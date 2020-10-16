@@ -546,7 +546,7 @@ bufftype_dict['self'] = Selfbuff
 
 class SingleActionBuff(Buff):
     # self buff lasts until the action it is buffing is completed
-    def __init__(self, name='<buff_noname>', value=0, uses=1, mtype='att', morder=None):
+    def __init__(self, name='<buff_noname>', value=0, uses=1, mtype='att', morder=None, source=None):
         super().__init__(name, value, -1, mtype, morder)
         self.bufftype = 'self'
         self.uses = uses
@@ -795,7 +795,7 @@ class ModeManager(MultiBuffManager):
             b.off()
         return self
 
-def init_mode(*args):
+def init_mode(*args, source=None):
     kwargs = {}
     for a in args[2:]:
         kwargs[a] = True
