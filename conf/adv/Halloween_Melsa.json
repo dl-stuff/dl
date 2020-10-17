@@ -1,0 +1,32 @@
+{
+    "c": {
+        "name": "Halloween Melsa",
+        "icon": "110270_02_r05",
+        "att": 485,
+        "hp": 790,
+        "ele": "wind",
+        "wt": "lance",
+        "spiral": false,
+        "a": [["affteam_att", 0.1, 10.0, 5.0]]
+    },
+    "s1": {
+        "sp": 4770,
+        "startup": 0.1,
+        "recovery": 1.33333,
+        "attr": [
+            {"buff": ["team", 0.25, 15.0, "att", "buff"], "iv": 0.33333}
+        ]
+    },
+    "s2": {
+        "sp": 6800,
+        "startup": 0.1,
+        "recovery": 2.5,
+        "DEBUG_CHECK_NEXTACT": true,
+        "attr": [
+            {"dmg": 1.4, "buff": ["affres", -0.1, 30.0, "poison", "-overwrite_25"], "iv": 1.02223},
+            {"afflic": ["poison", 120, 0.582], "iv": 1.02223},
+            {"dmg": 1.4, "iv": 1.27223},
+            {"dmg": 1.4, "iv": 1.68889}
+        ]
+    }
+}

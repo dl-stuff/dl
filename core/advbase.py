@@ -572,7 +572,7 @@ class Adv(object):
         'dooodge.startup': 3.0,
         'dooodge.recovery': 0,
 
-        'acl': '`s1;`s2;`s3',
+        'acl': 's1;s2;s3;s4',
 
         'attenuation.hits': 1,
         'attenuation.delay': 0.25,
@@ -1655,6 +1655,7 @@ class Adv(object):
 
         if 'bleed' in attr:
             rate, mod = attr['bleed']
+            rate = max(min(100, rate + self.sub_mod('debuff', 'rate') * 100), 0)
             if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
                 bleed = mBleed(name, mod)

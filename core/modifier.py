@@ -206,6 +206,8 @@ class Buff(object):
 
         self.__stored = 0
         self.__active = 0
+
+        self.buffevent = Event('buff')
         # self.on()
 
     def logwrapper(self, *args):
@@ -378,6 +380,10 @@ class Buff(object):
             self.regen_timer = Timer(self.hp_regen, 3.9, True)
         else:
             self.effect_on()
+
+        self.buffevent.buff = self
+        self.buffevent.on()
+        
         return self
 
     def hp_regen(self, t):
@@ -685,19 +691,21 @@ bufftype_dict['spd'] = Spdbuff
 class Debuff(Teambuff):
     def __init__(self, name='<buff_noname>', value=0, duration=0, chance=1.0, mtype='def', morder=None, source=None):
         self.val = value
-        self.chance = chance
-        if self.chance != 1:
-            bd = 1.0 / (1.0 + self.val)
-            bd = (bd - 1) * self.chance + 1
-            self.val = 1 - 1.0 / bd
-            self.val = 0 - self.val
+        self._chance = chance
         super().__init__(name, self.ev_val(), duration, mtype, morder)
         self.bufftype = 'debuff'
         if mtype == 'defb':
             self.bufftime = self._no_bufftime
             self.name += '_zone'
         else:
-            self.bufftime = self._debufftime
+            if self.bufftime == self._ex_bufftime:
+                self.bufftime = self._no_bufftime
+            else:
+                self.bufftime = self._debufftime
+
+    @property
+    def chance(self):
+        return max(min(1, self._chance + self._static.adv.sub_mod('debuff', 'rate')), 0)
 
     def ev_val(self):
         ev_val = self.val
@@ -711,12 +719,28 @@ class Debuff(Teambuff):
     def value(self, newvalue=None, newchance=None):
         if newvalue or newchance:
             self.val = newvalue or self.val
-            self.chance = newchance or self.chance
+            self._chance = newchance or self._chance
             return super().value(self.ev_val())
         else:
             return super().value()
-
 bufftype_dict['debuff'] = Debuff
+
+
+class AffResDebuff(Buff):
+    def __init__(self, name, value=0, duration=0, affname=None, source=None):
+        super().__init__(name, value, duration, 'effect', source=source)
+        self.afflic = getattr(self._static.adv.afflics, affname)
+        if self.bufftime == self._ex_bufftime:
+            self.bufftime = self._no_bufftime
+        else:
+            self.bufftime = self._debufftime
+
+    def effect_on(self):
+        self.afflic.set_res_mod(self.value())
+
+    def effect_off(self):
+        self.afflic.set_res_mod(-self.value())
+bufftype_dict['affres'] = AffResDebuff
 
 
 class MultiBuffManager:

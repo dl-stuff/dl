@@ -120,7 +120,7 @@ class AfflicBase:
         return self.get_override or self._get
 
     def set_res_mod(self, delta):
-        self.res_modifier = min(self.res_modifier + delta, 1)
+        self.res_modifier = max(min(self.res_modifier + delta, 0), -1)
 
     def uptime(self):
         next_r = self.get()
@@ -160,7 +160,7 @@ class AfflicUncapped(AfflicBase):
         states = defaultdict(lambda: 0.0)
         total_success_p = 0.0
         for res, state_p in self.states.items():
-            res -= self.res_modifier
+            res = max(0, res + self.res_modifier)
             if res >= self.rate or res >= 1:
                 states[res] += state_p
             else:

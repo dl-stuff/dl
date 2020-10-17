@@ -261,10 +261,10 @@ class AclInterpreter(Interpreter):
             return self.visit(fn)[self.visit(idx)]
 
 
-FSN_PATTERN = re.compile(r'^`?(fs|s)(\d+)(\(([^)]+)\))?')
+FSN_PATTERN = re.compile(r'(^|;)`?(fs|s)(\d+)(\(([^)]+)\))?')
 def _pre_parse(acl):
     return '\n'.join(filter(None,(
-        FSN_PATTERN.sub(r'`\1(\2,\4)', l.strip())
+        FSN_PATTERN.sub(r'\1`\2(\3,\5)', l.strip())
         for l in acl.split('\n')
     )))
 
