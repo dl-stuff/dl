@@ -144,7 +144,7 @@
       ]
     },
     "affliction": {
-      "dps": 46087.2576838754,
+      "dps": 47152.279678504805,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -230,7 +230,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 63959.29095331837,
+      "dps": 64501.26549126212,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -247,9 +247,9 @@
         "`s4, not buff(s4)",
         "`dragon, s",
         "if self.unlocked",
-        "`s1, energy()=5",
+        "`s1, energy()=5 or aff_timeleft(frostbite) < 5",
         "else",
-        "`s1",
+        "`s1, fsc",
         "`dodge, fsc",
         "`fs2",
         "end"

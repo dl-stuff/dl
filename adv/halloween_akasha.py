@@ -13,7 +13,7 @@ class Halloween_Akasha(Adv):
         self.debuffing_actions = set()
 
     def prerun(self):
-        self.a1_debuff_rate = Selfbuff('a1_debuff_rate', 0.5, 5.0, 'debuff', 'chance')
+        self.a1_debuff_rate = Selfbuff('a1_debuff_rate', 0.5, 5.0, 'debuff_rate', 'passive')
         self.a1_cd = False
         # make this less potato maybe
         Event('s').listener(self.a1_proc)
@@ -22,6 +22,8 @@ class Halloween_Akasha(Adv):
         super().hitattr_check(name, conf)
         if conf['attr']:
             for attr in conf['attr']:
+                if isinstance(attr, int):
+                    continue
                 if not 'buff' in attr:
                     continue
                 if is_defdown(attr['buff']):

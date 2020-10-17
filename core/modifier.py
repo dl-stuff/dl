@@ -224,7 +224,7 @@ class Buff(object):
         return self._static.adv.mod('buff', operator=operator.add)
 
     def _debufftime(self):
-        return 1 + self._static.adv.sub_mod('debuff', 'time')
+        return self._static.adv.mod('debuff', operator=operator.add)
 
     def any_bufftime(self):
         self.bufftime = self._bufftime
@@ -383,7 +383,7 @@ class Buff(object):
 
         self.buffevent.buff = self
         self.buffevent.on()
-        
+
         return self
 
     def hp_regen(self, t):
@@ -705,7 +705,7 @@ class Debuff(Teambuff):
 
     @property
     def chance(self):
-        return max(min(1, self._chance + self._static.adv.sub_mod('debuff', 'chance')), 0)
+        return max(min(1, self._chance + self._static.adv.sub_mod('debuff_rate', 'passive')), 0)
 
     def ev_val(self):
         ev_val = self.val

@@ -424,10 +424,13 @@ class Fs(Action):
         elif prev == self.nop:
             buffer = 0
         else:
-            buffer = max(0, self._buffer - prev.startup_timer.elapsed() - prev.recovery_timer.elapsed())
+            try:
+                buffer = max(0, self._buffer - prev.startup_timer.elapsed() - prev.recovery_timer.elapsed())
+                log('bufferable', prev.startup_timer.elapsed() + prev.recovery_timer.elapsed())
+            except AttributeError:
+                buffer = 0
         charge = self._charge / self.charge_speed()
         startup = self._startup / self.speed()
-        log('bufferable', prev.startup_timer.elapsed() - prev.startup_timer.elapsed())
         # log('fs_startup', buffer, charge, startup)
         return buffer + charge + startup
 
@@ -646,7 +649,7 @@ class Adv(object):
 
         self.a_dodge = Dodge('dodge', self.conf.dodge)
         self.a_dooodge = Dodge('dooodge', self.conf.dooodge)
-        
+
         if self.conf['dumb']:
             self.cb_think = self._cb_think_dumb
             self.dumb_cd = int(self.conf['dumb'])
@@ -976,7 +979,7 @@ class Adv(object):
         #     print(dict(self.all_modifiers['att']))
         #     exit()
         return cc * att * k
-    
+
     def build_rates(self, as_list=True):
         rates = {}
         for afflic in AFFLICT_LIST:
@@ -1358,7 +1361,7 @@ class Adv(object):
 
         self.hp = self.condition.prev_hp
         if 'hp' in self.conf:
-            self.set_hp(self.conf['hp'])            
+            self.set_hp(self.conf['hp'])
 
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)
@@ -1413,7 +1416,7 @@ class Adv(object):
             log('think', '/'.join(map(str,(t.pin, t.dname, t.dstat, t.didx, t.dhit))))
         result = self._acl(t)
         if default_to_x:
-            return result or self.x() 
+            return result or self.x()
         else:
             return result
 
@@ -1655,8 +1658,8 @@ class Adv(object):
 
         if 'bleed' in attr:
             rate, mod = attr['bleed']
-            rate = max(min(100, rate + self.sub_mod('debuff', 'rate') * 100), 0)
-            debufftime = 1 + self.sub_mod('debuff', 'time')
+            rate = max(min(100, rate + self.sub_mod('debuff_rate', 'passive') * 100), 0)
+            debufftime = self.mod('debuff', operator=operator.add)
             if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
                 bleed = mBleed(name, mod)
