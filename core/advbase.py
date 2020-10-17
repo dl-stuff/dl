@@ -424,10 +424,10 @@ class Fs(Action):
         elif prev == self.nop:
             buffer = 0
         else:
-            buffer = max(0, self._buffer - prev.getrecovery() - prev.getstartup())
+            buffer = max(0, self._buffer - prev.startup_timer.elapsed() - prev.recovery_timer.elapsed())
         charge = self._charge / self.charge_speed()
         startup = self._startup / self.speed()
-        # log('bufferable', prev.getrecovery() + prev.getstartup())
+        log('bufferable', prev.startup_timer.elapsed() - prev.startup_timer.elapsed())
         # log('fs_startup', buffer, charge, startup)
         return buffer + charge + startup
 
