@@ -124,8 +124,8 @@ class Gala_Laxi(RngCritAdv):
             return
         if self.dragonform.status != -2:
             return
-        self.dmg_make('x_fig', 1.00, 'x')
-        self.add_combo('x_fig')
+        self.dmg_make('#fig', 0.333)
+        self.add_combo('#fig')
 
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
         self.a1_update(attr.get('cp', 0))
