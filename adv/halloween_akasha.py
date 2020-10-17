@@ -7,6 +7,7 @@ def is_defdown(attr):
     return 'debuff' in attr and 'def' in attr
 
 class Halloween_Akasha(Adv):
+    conf = {'mbleed': True}
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.debuffing_actions = set()
