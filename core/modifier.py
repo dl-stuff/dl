@@ -224,7 +224,7 @@ class Buff(object):
         return self._static.adv.mod('buff', operator=operator.add)
 
     def _debufftime(self):
-        return self._static.adv.mod('debuff', operator=operator.add)
+        return 1 + self._static.adv.sub_mod('debuff', 'time')
 
     def any_bufftime(self):
         self.bufftime = self._bufftime
