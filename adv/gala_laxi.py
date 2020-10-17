@@ -122,6 +122,8 @@ class Gala_Laxi(RngCritAdv):
     def x_fig_dmg(self, t):
         if any([self.a_s_dict[sn].ac.status != -2 for sn in ('s1', 's2')]):
             return
+        if self.dragonform.status != -2:
+            return
         self.dmg_make('x_fig', 1.00, 'x')
         self.add_combo('x_fig')
 
