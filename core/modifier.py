@@ -705,7 +705,7 @@ class Debuff(Teambuff):
 
     @property
     def chance(self):
-        return max(min(1, self._chance + self._static.adv.sub_mod('debuff', 'rate')), 0)
+        return max(min(1, self._chance + self._static.adv.sub_mod('debuff', 'chance')), 0)
 
     def ev_val(self):
         ev_val = self.val

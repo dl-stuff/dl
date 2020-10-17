@@ -12,7 +12,7 @@ class Halloween_Akasha(Adv):
         self.debuffing_actions = set()
 
     def prerun(self):
-        self.a1_debuff_rate = Selfbuff('a1_debuff_rate', 0.5, 5.0, 'debuff', 'rate')
+        self.a1_debuff_rate = Selfbuff('a1_debuff_rate', 0.5, 5.0, 'debuff', 'chance')
         self.a1_cd = False
         # make this less potato maybe
         Event('s').listener(self.a1_proc)

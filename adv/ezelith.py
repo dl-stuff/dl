@@ -37,7 +37,7 @@ class Ezelith(Adv):
             setattr(self, f's1_hit{h}', self.s1_hit)
         self.s2_debuff = Debuff('s2_ab', 0.0, 20, 0).on()
         self.s2_states = {None: 1.0}
-        self.a1_debuff_rate_mod = Modifier('a1_debuff_rate', 'debuff', 'rate', 0.2)
+        self.a1_debuff_rate_mod = Modifier('a1_debuff_rate', 'debuff', 'chance', 0.2)
 
     def s1_hit(self, name, base, group, aseq):
         self.a1_hits += 1
