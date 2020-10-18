@@ -38,7 +38,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 110273.91662588654,
+      "dps": 111794.64475416101,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -50,17 +50,18 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<2",
-        "`dragon(c3-s-end)",
-        "else",
-        "`dragon(c3-s-end)",
+        "if self.dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
-        "`s2, x=5",
+        "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`dodge, fsc",
+        "`fs, x=5"
       ],
       "coabs": [
         "Yuya",
@@ -138,7 +139,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 78796.8882887688,
+      "dps": 83171.49168884273,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -150,17 +151,18 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<2",
-        "`dragon(c3-s-end)",
-        "else",
-        "`dragon(c3-s-end)",
+        "if self.dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
-        "`s2, x=5",
+        "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`dodge, fsc",
+        "`fs, x=5"
       ],
       "coabs": [
         "Yuya",
@@ -211,7 +213,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 101565.73361479808,
+      "dps": 101694.51361513023,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -223,17 +225,18 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<2",
-        "`dragon(c3-s-end)",
-        "else",
-        "`dragon(c3-s-end)",
+        "if self.dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
-        "`s2, x=5",
+        "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`dodge, fsc",
+        "`fs, x=5"
       ],
       "coabs": [
         "Yuya",

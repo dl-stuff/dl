@@ -1564,6 +1564,8 @@ class Adv(object):
         count = self.dmg_formula(dtype, coef) if not fixed else coef
         log('dmg', name, count)
         self.dmg_proc(name, count)
+        if fixed:
+            return count
         if self.echo > 1:
             echo_count = self.dmg_formula_echo(coef)
             self.dmg_proc(name, echo_count)

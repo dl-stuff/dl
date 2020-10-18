@@ -1,14 +1,14 @@
 {
   "180": {
     "base": {
-      "dps": 75302.56265356134,
-      "team": 0.047948985840907406,
+      "dps": 77633.27499173745,
+      "team": 0.04497632664324439,
       "tdps": null,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "Chariot_Drift",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -25,23 +25,23 @@
       "coabs": [
         "Ieyasu",
         "Wand",
-        "Curran"
+        "Delphi"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Gala_Mym"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 78413.44014743617,
-      "team": 0.04794898584090741,
+      "dps": 78502.51524817449,
+      "team": 0.04497632664324439,
       "tdps": null,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "Chariot_Drift",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -58,25 +58,25 @@
       "coabs": [
         "Ieyasu",
         "Wand",
-        "Curran"
+        "Delphi"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Gala_Mym"
       ]
     },
     "buffer": {
-      "dps": 53467.35070884444,
-      "team": 0.10855033359961981,
-      "tdps": 360309.0154307293,
+      "dps": 49202.2409113201,
+      "team": 0.17280902615715563,
+      "tdps": 222408.14899886685,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "Chariot_Drift",
         "The_Plaguebringer"
       ],
-      "slots.d": "Ramiel",
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c2-s-end)",
         "`s3, not buff(s3)",
@@ -87,14 +87,10 @@
         "end",
         "`fs, x=4"
       ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Summer_Patia"
-      ],
+      "coabs": [],
       "share": [
         "Weapon",
-        "Althemia"
+        "Akasha"
       ]
     }
   },
@@ -199,42 +195,38 @@
   },
   "120": {
     "base": {
-      "dps": 73815.66570163528,
-      "team": 0.051927568956247436,
-      "tdps": null,
+      "dps": 75992.5583403943,
+      "team": 0.04417488783626501,
+      "tdps": -2406004.468357829,
       "slots.a": [
-        "An_Ancient_Oath",
+        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Dueling_Dancers",
+        "Chariot_Drift",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), s=1",
+        "`dragon(c2-s-end)",
         "`s3, not buff(s3)",
         "if fsc",
-        "# use s4/s2 if no poison or if s1 def down has less than 1/3 time left",
-        "if (self.sr.chain_status=1 and timeleft(s1, base1)<5)",
+        "`s2, aff_timeleft(poison)<4",
         "`s4",
-        "`s2",
-        "end",
-        "`s2, not aff(poison)",
-        "`s1, not buff(s1) or self.sr.count > 1",
+        "`s1, self.sr.count > 1",
         "end",
         "`fs, x=4"
       ],
       "coabs": [
         "Ieyasu",
         "Wand",
-        "Heinwald"
+        "Delphi"
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Gala_Mym"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "affliction": {
       "dps": 81070.54153276757,
       "team": 0.04406030060437587,
@@ -270,7 +262,7 @@
     "buffer": {
       "dps": 79220.72135353101,
       "team": 0.04551659898252071,
-      "tdps": 843094.8318345885,
+      "tdps": -2406004.468357829,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
