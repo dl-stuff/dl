@@ -16,15 +16,7 @@ class Radiant_Xuan_Zang(Adv):
     """
     conf['coabs'] = ['Sharena', 'Blade', 'Peony']
     conf['share'] = ['Summer_Patia']
-    conf['afflict_res.paralysis'] = 0
-
-    def fs_xihe_proc(self, e):
-        self.afflics.paralysis.res_modifier = 0.20
-        Timer(self.paralysis_rate_reset).on(20)
-
-    def paralysis_rate_reset(self, t):
-        self.afflics.paralysis.res_modifier = 0
-
+    
     def prerun(self):
         self.fs_alt = FSAltBuff(group='xihe', uses=1)
         self.xihe_gauge = 0

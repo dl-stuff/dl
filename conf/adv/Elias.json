@@ -7,22 +7,23 @@
         "ele": "light",
         "wt": "bow",
         "spiral": false,
-        "a": [["lo", 0.4]]
+        "a": [["lo", 0.4], ["k_elias", 0.25]]
     },
     "s1": {
         "sp": 2558,
         "startup": 0.1,
         "recovery": 1.66667,
         "attr": [
-            {"dmg": 8.63, "iv": 1.33333, "msl": 1}
+            {"dmg": 17.26, "iv": 1.33333, "msl": 1}
         ]
     },
     "s2": {
         "sp": 3636,
         "startup": 0.1,
-        "recovery": 1.05,
+        "recovery": 1.0,
         "attr": [
-            {"buff": ["energy", 1, "team"], "iv": 0.16667}
+            {"buff": ["energy", 2, "team"], "iv": 0.16667},
+            {"buff": ["team", 0.1, 10.0, "att", "buff"], "iv": 0.2}
         ]
     }
 }

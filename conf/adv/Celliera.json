@@ -7,13 +7,13 @@
         "ele": "water",
         "wt": "blade",
         "spiral": true,
-        "a": [["lo", 0.6]]
+        "a": [["lo", 0.6], ["k_thaumian", 0.35]]
     },
     "fs_enhanced": {
-        "startup": 0.13333,
-        "recovery": 0.7,
+        "startup": 0.03333,
+        "recovery": 0.8,
         "attr": [
-            {"dmg": 0.92, "sp": 200, "afflic": ["freeze", 100], "buff": ["s2", "-off"]}
+            {"dmg": 0.92, "sp": 200, "afflic": ["freeze", 100], "iv": 0.1, "buff": ["s2", "-off"]}
         ]
     },
     "s1": {
@@ -32,16 +32,16 @@
         "startup": 0.1,
         "recovery": 1.6,
         "attr": [
-            {"dmg": 2.65, "afflic": ["frostbite", 120, 0.37], "iv": 0.2},
-            {"dmg": 2.65, "iv": 0.43333},
-            {"dmg": 2.65, "iv": 0.6},
-            {"dmg": 2.65, "iv": 1.33333}
+            {"dmg": 3.45, "killer": [0.6, ["frostbite"]], "afflic": ["frostbite", 120, 0.37], "iv": 0.2},
+            {"dmg": 3.45, "killer": [0.6, ["frostbite"]], "iv": 0.43333},
+            {"dmg": 3.45, "killer": [0.6, ["frostbite"]], "iv": 0.6},
+            {"dmg": 3.45, "killer": [0.6, ["frostbite"]], "iv": 1.33333}
         ]
     },
     "s2": {
         "sp": 4877,
         "startup": 0.1,
-        "recovery": 1.05,
+        "recovery": 1.0,
         "attr": [
             {"buff": [
                 ["sAlt", "enhanced", "s1"],
@@ -55,7 +55,7 @@
     "s2_enhanced": {
         "sp": 4877,
         "startup": 0.1,
-        "recovery": 1.05,
+        "recovery": 1.0,
         "attr": [
             {"buff": ["s2", "-off"]}
         ]

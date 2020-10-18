@@ -5,18 +5,23 @@ def module():
 
 class Nadine(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
+    conf['slots.a'] = [
+    'Dragon_and_Tamer',
+    'Flash_of_Genius',
+    'Me_and_My_Bestie',
+    'Chariot_Drift',
+    'Dueling_Dancers'
+    ]
     conf['acl'] = """
-        `dragon(c3-s-s-end), s=1
+        `dragon, s=1
         `s3, not buff(s3)
         `s2
-        `s4
         `s1
+        `s4
         `fs, x=5
         """
-    conf['coabs'] = ['Blade', 'Wand', 'Marth']
-    conf['afflict_res.burn'] = 0
-    conf['share'] = ['Summer_Patia']
+    conf['coabs'] = ['Blade', 'Wand', 'Serena']
+    conf['share'] = ['Gala_Mym']
 
     def prerun(self):
         self.team_s1_hits = 1
@@ -32,6 +37,8 @@ class Nadine(Adv):
             adv.team_s1_hits += teammates
 
     def s1_proc(self, e):
+        for _ in range(self.team_s1_hits):
+            self.add_combo(e.name)
         aseq = 1 if e.group == 'default' else 3 + 1
         s1_hits = 1 if e.group == 'default' else 3 + self.team_s1_hits
         log('debug', 's1_hits', s1_hits, self.team_s1_hits)

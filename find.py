@@ -3,10 +3,9 @@ import json
 from core.simulate import load_adv_module
 from deploy import ROOT_DIR
 import random
+from conf import load_adv_json
 
 ADV_LISTS = ['chara_quick.txt', 'chara_slow.txt']
-
-ADV_CONF = 'conf/advconf.json'
 
 def stat_shared():
     has_shared = {}
@@ -34,12 +33,16 @@ def stat_shared():
     print('\n'.join(random.sample(no_shared, 10)))
 
 def stat_conf(cond):
-    with open(ADV_CONF) as f:
-        data = json.load(f)
-    deploy = 'python deploy.py -c '
-    for adv, d in data.items():
-        if cond(d):
-            deploy += adv.lower()+'.py '
+    deploy = './python deploy.py '
+    for root, dirs, files in os.walk('./conf/adv'):
+        for fn in files:
+            name, ext = os.path.splitext(fn)
+            if ext != '.json':
+                continue
+            with open(os.path.join(root, fn)) as f:
+                data = json.load(f)
+                if cond(data):
+                    deploy += name + ' '
     print(deploy)
 
 def get_all_adv():
@@ -80,5 +83,5 @@ def get_acl():
         acl_map[adv] = module.conf['acl']
     return acl_map
 
-# if __name__ == '__main__':
-#     get_acl()
+if __name__ == '__main__':
+    stat_conf(lambda d: d['c']['wt'] == 'sword')

@@ -5,7 +5,13 @@ def module():
 
 class Hawk(Adv):    
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition','The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Forest_Bonds',
+    'Flash_of_Genius',
+    'Dear_Diary',
+    'The_Plaguebringer',
+    'Chariot_Drift'
+    ]
     conf['slots.d'] = 'Vayu'
     conf['acl'] = """
         # queue self.duration<=60 and prep and self.afflics.stun.resist
@@ -21,9 +27,7 @@ class Hawk(Adv):
 
     conf['coabs'] = ['Blade','Dragonyule_Xainfried','Sylas']
     conf['share'] = ['Curran']
-    conf['afflict_res.stun'] = 80
-    conf['afflict_res.poison'] = 0
-
+        
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

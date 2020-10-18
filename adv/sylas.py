@@ -6,7 +6,13 @@ def module():
 class Sylas(Adv):
     comment = 'no skill haste for team'
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Dragon_and_Tamer',
+    'Flash_of_Genius',
+    'Moonlight_Party',
+    'The_Plaguebringer',
+    'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end)
         `s3, not buff(s3)
@@ -17,12 +23,7 @@ class Sylas(Adv):
         """
     conf['coabs'] = ['Eleonora','Dragonyule_Xainfried','Blade']
     conf['share'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-
-    def d_coabs(self):
-        if self.duration <= 60:
-            self.conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
-
+    
 if __name__ == '__main__':
     from core.simulate import test_with_argv
     test_with_argv(None, *sys.argv)

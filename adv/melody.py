@@ -5,7 +5,13 @@ def module():
 
 class Melody(Adv):
     conf = {}
-    conf['slots.a'] = ['A_Dogs_Day', 'From_Whence_He_Comes']
+    conf['slots.a'] = [
+        'A_Dogs_Day',
+        'Study_Rabbits',
+        'Castle_Cheer_Corps',
+        'From_Whence_He_Comes',
+        'Bellathorna'
+    ]
     conf['slots.d'] = 'Ariel'
     conf['acl'] = """
         `s3, not buff(s3)
@@ -13,7 +19,7 @@ class Melody(Adv):
         `s4
         `fs, xf=5
     """
-    conf['coabs'] = ['Bow','Tobias','Dagger2']
+    conf['coabs'] = ['Bow','Tobias','Blade']
     conf['share'] = ['Dragonyule_Xainfried']
 
 

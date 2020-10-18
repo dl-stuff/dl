@@ -5,17 +5,23 @@ def module():
 
 class Berserker(Adv):
     conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
-    conf['slots.poison.a'] = conf['slots.a']
+    conf['slots.a'] = [
+        'The_Shining_Overlord',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end),fsc
         `s3, not buff(s3) and fsc
+        `s2, cancel
         `s4
         `s1, cancel
         `fs, x=2
         """
     conf['coabs'] = ['Berserker','Ieyasu','Wand','Curran']
-    conf['share.base'] = ['Kleimann']
+    conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
 
 

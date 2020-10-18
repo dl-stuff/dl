@@ -6,16 +6,23 @@
         "hp": 922,
         "ele": "light",
         "wt": "staff",
-        "spiral": true
+        "spiral": true,
+        "a": [["fs", 0.40]]
     },
     "s1": {
         "sp": 4930,
         "startup": 0.1,
-        "recovery": 1.93333
+        "recovery": 1.93333,
+        "attr": [
+            {"buff": ["self", 0.15, -1, "maxhp", "buff"], "iv": 1.0},
+            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 1.0}
+        ],
+        "energizable": true
     },
     "s2": {
         "sp": 11832,
         "startup": 0.1,
-        "recovery": 1.8
+        "recovery": 1.8,
+        "energizable": true
     }
 }

@@ -9,6 +9,10 @@
         "spiral": false,
         "a": [["ro", 0.1]]
     },
+    "fs":{
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
+    },
     "fs1": {
         "charge": 0.4,
         "startup": 0.33333,
@@ -38,13 +42,13 @@
         "startup": 0.1,
         "recovery": 1.16667,
         "attr": [
-            {"dmg": 8.52, "crisis": 1.25, "afflic": ["stun", 110], "iv": 0.66667}
+            {"dmg": 11.076, "crisis": 1.25, "afflic": ["stun", 110], "iv": 0.66667}
         ]
     },
     "s2": {
         "sp": 5600,
         "startup": 0.1,
-        "recovery": 1.05,
+        "recovery": 1.0,
         "attr": [
             {"cond": ["hp>=", 30], "hp": [20, "="]},
             {"cond": ["hp<=", 30], "buff": ["self", 0.20, 10, "att", "buff"], "iv": 0.13333}

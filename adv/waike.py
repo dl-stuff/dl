@@ -17,7 +17,6 @@ class Waike(Adv):
         `fs, seq=4
         """
     conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
-    conf['afflict_res.bog'] = 100
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
 

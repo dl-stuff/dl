@@ -1,5 +1,6 @@
-import core.timeline
 import sys
+from collections import defaultdict
+import core.timeline
 
 class Log:
     DEBUG = False
@@ -10,6 +11,7 @@ class Log:
         self.record = []
         self.damage = {'x':{},'s':{},'f':{},'d':{},'o':{}}
         self.counts = {'x':{},'s':{},'f':{},'d':{},'o':{}}
+        self.datasets = defaultdict(lambda: {})
         self.p_buff = None
         self.team_buff = 0
         self.team_doublebuffs = 0
@@ -18,14 +20,26 @@ class Log:
         self.hitattr_set = set()
         self.shift_dmg = None
 
-    @staticmethod
-    def update_dict(dict, name: str, value):
-        # if fullname:
-        try:
-            dict[name] += value
-        except KeyError:
-            dict[name] = value
+    def convert_dataset(self):
+        if 'doublebuff' in self.datasets:
+            converted_doublebuff = {}
+            stacks = 0
+            for t, v in sorted(self.datasets['doublebuff'].items()):
+                stacks += v
+                converted_doublebuff[t] = stacks
+            self.datasets['doublebuff'] = converted_doublebuff
+        return {cat: [{'x': t, 'y': d} for t, d in sorted(data.items())] for cat, data in self.datasets.items()}
 
+    @staticmethod
+    def update_dict(dict, name: str, value, replace=False):
+        # if fullname:
+        if replace:
+            dict[name] = value
+        else:
+            try:
+                dict[name] += value
+            except KeyError:
+                dict[name] = value
 
     @staticmethod
     def fmt_hitattr_v(v):
@@ -72,6 +86,7 @@ class Log:
                     self.update_dict(self.damage['o'], name, dmg_amount)
                 if name[0] == 'd' and self.shift_dmg is not None:
                     self.shift_dmg += dmg_amount
+                self.update_dict(self.datasets['dmg'], time_now, dmg_amount)
             elif category == 'x' or category == 'cast':
                 self.update_dict(self.counts[name[0]], name, 1)
                 # name1 = name.split('_')[0]
@@ -79,14 +94,20 @@ class Log:
                 #     self.update_dict(self.counts[name[0]], name1, 1)
                 self.act_seq.append(name)
             elif category == 'buff' and name == 'team':
+                buff_amount = float(args[2])
                 if self.p_buff is not None:
                     pt, pb = self.p_buff
                     self.team_buff += (time_now - pt) * pb
-                self.p_buff = (time_now, float(args[2]))
-            elif category == 'buff' and name == 'team_defense':
+                self.p_buff = (time_now, buff_amount)
+                self.update_dict(self.datasets['team'], time_now, buff_amount, replace=True)
+            elif category == 'buff' and name == 'doublebuff':
                 self.team_doublebuffs += 1
+                self.update_dict(self.datasets['doublebuff'], time_now, 1)
+                self.update_dict(self.datasets['doublebuff'], time_now + float(args[2]), -1)
             elif category in ('energy', 'inspiration') and name == 'team':
                 self.update_dict(self.team_tension, category, float(args[2]))
+            elif category == 'affliction':
+                self.update_dict(self.datasets[name], time_now, float(args[2])*100)
         if self.DEBUG:
             self.write_log_entry(n_rec, sys.stdout, flush=True)
         self.record.append(n_rec)

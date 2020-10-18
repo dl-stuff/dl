@@ -4,17 +4,17 @@ def module():
     return Gala_Luca
 
 class Gala_Luca(Adv):
-    conf = {}
-    conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
-    conf['acl'] = """
-        `dragon, cancel
-        `s3, not buff(s3)
-        `s2
-        `s1
-        `s4, x=5
-        """
-    conf['coabs'] = ['Axe2','Lucretia','Peony']
-    conf['share'] = ['Summer_Patia']
+    # conf = {}
+    # conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
+    # conf['acl'] = """
+    #     `dragon, cancel
+    #     `s3, not buff(s3)
+    #     `s2
+    #     `s1
+    #     `s4, x=5
+    #     """
+    # conf['coabs'] = ['Axe2','Lucretia','Peony']
+    # conf['share'] = ['Summer_Patia']
 
     def prerun(self):
         self.crit_mod = self.custom_crit_mod
@@ -35,12 +35,16 @@ class Gala_Luca(Adv):
         adv.rebind_function(Gala_Luca, 'ds_before')
         adv.rebind_function(Gala_Luca, 'ds_proc')
         adv.shared_crit = True
+        adv.gluca_crit_mods = {}
 
     def buff_icon_count(self):
         # not accurate to game
-        icon_count = len(set([b.name for b in self.all_buffs if b.get() and not b.hidden and b.bufftype == 'self' or b.bufftype == 'team']))
+        icons = [b.name for b in self.all_buffs if b.get() and not b.hidden and b.bufftype == 'self' or b.bufftype == 'team']
+        icon_count = len(set(icons))
         if self.conf['sim_buffbot.count'] is not None:
             icon_count += self.conf.sim_buffbot.count
+        if self.shared_crit:
+            log('debug', 'buff_icon_count', icon_count, str(icons))
         return min(icon_count, 7)
 
     def custom_crit_mod(self, name):
@@ -50,7 +54,7 @@ class Gala_Luca(Adv):
         base_rate, crit_dmg = self.combine_crit_mods()
         crit_dmg -= 1
         new_states = defaultdict(lambda: 0.0)
-        t = now()
+        t = round(now()*4) / 4
         base_icon_count = self.buff_icon_count()
         mean_rate = 0.0
 
@@ -68,7 +72,7 @@ class Gala_Luca(Adv):
             # current_rate = min(1.0, current_rate)
             mean_rate += current_rate * state_p
             icon_avg += icon_count * state_p
-            
+
             if state[0] is not None and t - state[0] < 3.0:  # proc in last 3 seconds
                 new_states[state] += state_p  # state won't change
             else:
@@ -81,28 +85,30 @@ class Gala_Luca(Adv):
         self.all_icon_avg = self.update_icon_avg(icon_avg, *self.all_icon_avg)
         if in_s1:
             self.s1_icon_avg = self.update_icon_avg(icon_avg, *self.s1_icon_avg)
-        
+
         self.a1_states = new_states
 
         return 1.0 + mean_rate * crit_dmg
 
     def s1_before(self, e):
         if self.shared_crit:
-            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
-            self.extra_actmods.append(self.gluca_crit_mod)
+            self.gluca_crit_mods[e.name] = Modifier(e.name, 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
+            self.extra_actmods.append(self.gluca_crit_mods[e.name])
 
     def s1_proc(self, e):
         if self.shared_crit:
-            self.extra_actmods.remove(self.gluca_crit_mod)
+            self.extra_actmods.remove(self.gluca_crit_mods[e.name])
+            del self.gluca_crit_mods[e.name]
 
     def ds_before(self, e):
         if self.shared_crit:
-            self.gluca_crit_mod = Modifier('gala_luca_share', 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
-            self.extra_actmods.append(self.gluca_crit_mod)
+            self.gluca_crit_mods[e.name] = Modifier(e.name, 'crit', 'chance', 0.1 * self.buff_icon_count()).off()
+            self.extra_actmods.append(self.gluca_crit_mods[e.name])
 
     def ds_proc(self, e):
         if self.shared_crit:
-            self.extra_actmods.remove(self.gluca_crit_mod)
+            self.extra_actmods.remove(self.gluca_crit_mods[e.name])
+            del self.gluca_crit_mods[e.name]
 
     def post_run(self, end):
         self.comment = f'avg buff icon {self.all_icon_avg[1]:.2f} (s1 {self.s1_icon_avg[1]:.2f})'

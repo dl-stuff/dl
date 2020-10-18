@@ -15,8 +15,7 @@ class Aoi(Adv):
     """
     conf['coabs'] = ['Wand', 'Marth', 'Yuya']
     conf['share'] = ['Kleimann']
-    conf['afflict_res.burn'] = 0
-
+    
 if __name__ == '__main__':
     from core.simulate import test_with_argv
     test_with_argv(None, *sys.argv)

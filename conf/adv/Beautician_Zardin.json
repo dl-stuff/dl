@@ -14,9 +14,9 @@
         "startup": 0.1,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 3.16, "buff": ["debuff", -0.05, 10.0, 0.3, "attack"], "iv": 0.2},
-            {"dmg": 3.16, "buff": ["debuff", -0.05, 10.0, 0.3, "def"], "iv": 0.66667},
-            {"dmg": 3.16, "buff": ["energy", 1], "iv": 1.1}
+            {"dmg": 4.424, "buff": ["debuff", -0.05, 10.0, 0.3, "attack"], "iv": 0.2},
+            {"dmg": 4.424, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_6"], "iv": 0.66667},
+            {"dmg": 4.424, "iv": 1.1, "buff": ["energy", 1]}
         ]
     },
     "s2": {
@@ -24,6 +24,7 @@
         "startup": 0.1,
         "recovery": 1.63333,
         "attr": [
+            {"buff": ["self", 0.5, 15.0, "att", "buff", "-refresh"], "iv": 1.33333},
             {"buff": ["energy", 2], "iv": 1.5}
         ]
     }

@@ -14,9 +14,9 @@
         "startup": 0.1,
         "recovery": 1.8,
         "attr": [
-            {"dmg": 1.07, "iv": 0.83333, "msl": 1}, 3,
-            {"dmg": 1.07, "extra": 5, "iv": 0.83333, "msl": 1},
-            {"dmg": 5.4, "iv": 0.83333, "afflic": ["paralysis", 120, 0.97], "msl": 1}
+            {"dmg": 1.07, "killer": [0.1, ["paralysis"]], "iv": 0.83333, "msl": 1}, 3,
+            {"dmg": 1.07, "killer": [0.1, ["paralysis"]], "extra": 5, "iv": 0.83333, "msl": 1},
+            {"dmg": 5.4, "killer": [0.1, ["paralysis"]], "iv": 0.83333, "afflic": ["paralysis", 120, 0.97], "msl": 1}
         ]
     },
     "s2": {
@@ -33,7 +33,8 @@
             {"buff": [
                 ["self", 0.1, 10.0, "defense", "buff"],
                 ["self", 0.1, 10.0, "crit", "damage"]
-            ], "sp": [1.0, "%", "s1"], "iv": 0.56667, "msl": 1}
+            ], "sp": [1.0, "%", "s1"], "iv": 0.56667, "msl": 1},
+            {"dmg": 0.0, "iv": 2.0, "msl": 1}, 3
         ]
     }
 }

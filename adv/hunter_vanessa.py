@@ -18,7 +18,6 @@ class Hunter_Vanessa(Adv):
         `fs2, x=5
         """
     conf['coabs'] = ['Sharena','Blade','Peony']
-    conf['afflict_res.paralysis'] = 0
     conf['share'] = ['Kleimann']
 
     def d_slots(self):

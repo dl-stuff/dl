@@ -5,22 +5,28 @@ def module():
     return Victor
 
 class Victor(Adv):
+    comment = 's1p3 bugged with 1.8x burn killer'
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'Primal_Crisis']
+    conf['slots.a'] = [
+    'Resounding_Rendition',
+    'Flash_of_Genius',
+    'Levins_Champion',
+    'The_Plaguebringer',
+    'A_Small_Courage'
+    ]
     conf['acl'] = """
-        `dragon(c3-s-end), s4.check()
+        `dragon(c3-s-end), s1.check() and bleed_stack<3
         `s3, not buff(s3)
+        `s1, bleed_stack < 3
         `s4, x=5
-        `s1, self.bleed._static['stacks'] < 3
         `s2, x=5
         """
     conf['coabs'] = ['Akasha','Dragonyule_Xainfried','Lin_You']
-    conf['share'] = ['Curran']
+    conf['share.base'] = ['Rodrigo']
+    conf['share.poison'] = ['Curran']
 
     conf['mbleed'] = True
-    
-    def prerun(self):
-        self.bleed = mBleed('g_bleed',0).reset()
+
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

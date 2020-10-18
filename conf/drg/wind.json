@@ -10,23 +10,23 @@
         },
         "dx1": {
             "startup": 0.3,
-            "recovery": 0.66667,
+            "recovery": 0.23333,
             "attr": [
-                {"dmg": 1.8, "sp": 5}
+                {"dmg": 3.6, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.46667,
-            "recovery": 0.63333,
+            "recovery": 0.2,
             "attr": [
-                {"dmg": 2.88, "sp": 5}
+                {"dmg": 5.76, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.33333,
-            "recovery": 0.83334,
+            "recovery": 1.0,
             "attr": [
-                {"dmg": 2.97, "sp": 5}
+                {"dmg": 5.94, "sp": 5}
             ]
         },
         "ds": {
@@ -35,7 +35,7 @@
             "recovery": 1.33333,
             "uses": 1,
             "attr": [
-                {"dmg": 5.5, "iv": 0.73333}
+                {"dmg": 11.0, "iv": 0.73333}
             ]
         }
     },
@@ -50,25 +50,25 @@
         },
         "dx1": {
             "startup": 0.33333,
-            "recovery": 0.63334,
+            "recovery": 0.1,
             "attr": [
-                {"dmg": 1.9, "sp": 5}
+                {"dmg": 3.8, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.39394,
-            "recovery": 0.67273,
+            "recovery": 0.12121,
             "attr": [
-                {"dmg": 2.09, "sp": 5}
+                {"dmg": 4.18, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.2,
-            "recovery": 0.66667,
+            "recovery": 0.86667,
             "attr": [
-                {"dmg": 0.82, "sp": 5, "iv": 0.2, "msl": 1},
-                {"dmg": 0.82, "iv": 0.4, "msl": 1},
-                {"dmg": 0.82, "iv": 0.53333, "msl": 1}
+                {"dmg": 1.64, "sp": 5, "iv": 0.2, "msl": 1},
+                {"dmg": 1.64, "iv": 0.4, "msl": 1},
+                {"dmg": 1.64, "iv": 0.53333, "msl": 1}
             ]
         },
         "ds": {
@@ -77,7 +77,7 @@
             "recovery": 2.13333,
             "uses": 1,
             "attr": [
-                {"dmg": 12.0, "afflic": ["stun", 180], "iv": 1.06667}
+                {"dmg": 24.0, "afflic": ["stun", 180], "iv": 1.06667}
             ]
         }
     },
@@ -88,29 +88,30 @@
             "att": 120,
             "hp": 375,
             "ele": "wind",
-            "a": [["sp", 0.35]],
-            "skipped": [[330000360, "(Wind) HP +{ability_val0}%"]]
+            "a": [["hp", 0.3], ["sp", 0.35]]
         },
         "dx1": {
             "startup": 0.23333,
-            "recovery": 0.56667,
+            "recovery": 0.26667,
             "attr": [
-                {"dmg": 1.6, "sp": 5, "iv": 0.06667, "msl": 1}
+                {"dmg": 3.2, "sp": 5, "iv": 0.06667, "msl": 1}
             ]
         },
         "dx2": {
             "startup": 0.125,
-            "recovery": 0.84167,
+            "recovery": 0.5,
             "attr": [
-                {"dmg": 0.88, "sp": 5, "iv": 0.06667, "msl": 1},
-                {"dmg": 0.88, "iv": 0.19167, "msl": 1}
+                {"dmg": 1.76, "sp": 5, "iv": 0.06667, "msl": 1},
+                {"dmg": 1.76, "iv": 0.19167, "msl": 1}
             ]
         },
         "dx3": {
             "startup": 0.5,
-            "recovery": 0.3,
+            "recovery": 0.56667,
             "attr": [
-                {"dmg": 1.33, "sp": 5, "msl": 1}
+                {"dmg": 2.66, "sp": 5, "msl": 1},
+                {"dmg": 2.66, "iv": 0.2, "msl": 1},
+                {"dmg": 2.66, "iv": 0.4, "msl": 1}
             ]
         },
         "ds": {
@@ -120,7 +121,8 @@
             "uses": 1,
             "attr": [
                 {"buff": ["energy", 5, "team"], "iv": 1.0}
-            ]
+            ],
+            "energizable": true
         }
     },
     "Garuda": {
@@ -130,29 +132,28 @@
             "att": 114,
             "hp": 383,
             "ele": "wind",
-            "a": [],
-            "skipped": [[330000369, "(Wind) HP +{ability_val0}%"]]
+            "a": [["hp", 0.6]]
         },
         "dx1": {
             "startup": 0.27273,
-            "recovery": 0.69394,
+            "recovery": 0.12121,
             "attr": [
-                {"dmg": 1.9, "sp": 5}
+                {"dmg": 3.8, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.5,
-            "recovery": 0.46667,
+            "recovery": 0.16667,
             "attr": [
-                {"dmg": 0.63, "sp": 5, "msl": 1},
-                {"dmg": 1.46, "msl": 1}
+                {"dmg": 1.26, "sp": 5, "msl": 1},
+                {"dmg": 2.92, "msl": 1}
             ]
         },
         "dx3": {
             "startup": 0.63889,
-            "recovery": 0.89444,
+            "recovery": 0.72222,
             "attr": [
-                {"dmg": 2.86, "sp": 5}
+                {"dmg": 5.72, "sp": 5}
             ]
         },
         "ds": {
@@ -161,9 +162,9 @@
             "recovery": 2.0,
             "uses": 1,
             "attr": [
-                {"dmg": 2.1, "iv": 0.9},
-                {"dmg": 2.1, "iv": 1.23333},
-                {"dmg": 2.1, "iv": 1.3}
+                {"dmg": 4.2, "iv": 0.9},
+                {"dmg": 4.2, "iv": 1.23333},
+                {"dmg": 4.2, "iv": 1.3}
             ]
         }
     },
@@ -181,21 +182,21 @@
             "startup": 0.3,
             "recovery": 0.23333,
             "attr": [
-                {"dmg": 1.9, "sp": 5}
+                {"dmg": 3.8, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.23333,
             "recovery": 0.23334,
             "attr": [
-                {"dmg": 2.28, "sp": 5}
+                {"dmg": 4.56, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.46667,
             "recovery": 0.86666,
             "attr": [
-                {"dmg": 3.42, "sp": 5}
+                {"dmg": 6.84, "sp": 5}
             ]
         },
         "ds": {
@@ -204,9 +205,49 @@
             "recovery": 2.0,
             "uses": 1,
             "attr": [
-                {"dmg": 0.41, "iv": 0.33333, "msl": 1}, 4,
-                {"dmg": 0.41, "iv": 1.0, "msl": 1},
-                {"dmg": 3.85, "afflic": ["sleep", 120], "iv": 1.0, "msl": 1}
+                {"dmg": 0.82, "iv": 0.33333, "msl": 1}, 4,
+                {"dmg": 0.82, "iv": 1.0, "msl": 1},
+                {"dmg": 7.7, "afflic": ["sleep", 120], "iv": 1.0, "msl": 1}
+            ]
+        }
+    },
+    "High_Midgardsormr": {
+        "d": {
+            "name": "High Midgardsormr",
+            "icon": "210038_01",
+            "att": 114,
+            "hp": 356,
+            "ele": "wind",
+            "a": [["hp", 0.35], ["a", 0.35], ["dt", 0.2]]
+        },
+        "dx1": {
+            "startup": 0.3,
+            "recovery": 0.23333,
+            "attr": [
+                {"dmg": 4.16, "sp": 5}
+            ]
+        },
+        "dx2": {
+            "startup": 0.46667,
+            "recovery": 0.23333,
+            "attr": [
+                {"dmg": 4.58, "sp": 5}
+            ]
+        },
+        "dx3": {
+            "startup": 0.33333,
+            "recovery": 1.4,
+            "attr": [
+                {"dmg": 5.82, "sp": 5}
+            ]
+        },
+        "ds": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 3.13333,
+            "uses": 1,
+            "attr": [
+                {"dmg": 13.006, "afflic": ["stun", 180], "iv": 1.43333, "msl": 1}
             ]
         }
     },
@@ -222,38 +263,38 @@
         },
         "dx1": {
             "startup": 0.2,
-            "recovery": 0.26667,
+            "recovery": 0.1,
             "attr": [
-                {"dmg": 1.6, "sp": 5}
+                {"dmg": 3.2, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.13333,
-            "recovery": 0.1,
+            "recovery": 0.13334,
             "attr": [
-                {"dmg": 1.68, "sp": 5}
+                {"dmg": 3.36, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.2,
-            "recovery": 0.33333,
+            "recovery": 0.16667,
             "attr": [
-                {"dmg": 1.76, "sp": 5}
+                {"dmg": 3.52, "sp": 5}
             ]
         },
         "dx4": {
             "startup": 0.13333,
-            "recovery": 0.6,
+            "recovery": 0.33334,
             "attr": [
-                {"dmg": 0.93, "sp": 5},
-                {"dmg": 0.93, "iv": 0.16667}
+                {"dmg": 1.86, "sp": 5},
+                {"dmg": 1.86, "iv": 0.16667}
             ]
         },
         "dx5": {
             "startup": 0.23333,
-            "recovery": 0.63334,
+            "recovery": 1.13334,
             "attr": [
-                {"dmg": 2.40786, "sp": 5}
+                {"dmg": 4.81572, "sp": 5}
             ]
         },
         "ds": {
@@ -262,12 +303,73 @@
             "recovery": 2.83333,
             "uses": 1,
             "attr": [
-                {"dmg": 0.93, "iv": 0.90476},
-                {"dmg": 0.93, "iv": 1.09524},
-                {"dmg": 0.93, "iv": 1.2381},
-                {"dmg": 0.93, "iv": 1.47619},
-                {"dmg": 0.93, "iv": 1.66667},
-                {"dmg": 0.93, "iv": 1.85714}
+                {"dmg": 1.86, "iv": 0.90476},
+                {"dmg": 1.86, "iv": 1.09524},
+                {"dmg": 1.86, "iv": 1.2381},
+                {"dmg": 1.86, "iv": 1.47619},
+                {"dmg": 1.86, "iv": 1.66667},
+                {"dmg": 1.86, "iv": 1.85714}
+            ]
+        }
+    },
+    "Midgardsormr_Zero": {
+        "d": {
+            "name": "Midgardsormr Zero",
+            "icon": "210131_01",
+            "att": 126,
+            "hp": 369,
+            "ele": "wind",
+            "a": [["hp", 0.35], ["a", 0.35], ["s", 0.7, "wind_hit15"]]
+        },
+        "dx1": {
+            "startup": 0.56667,
+            "recovery": 0.13333,
+            "attr": [
+                {"dmg": 2.1, "sp": 5},
+                {"dmg": 2.1, "iv": 0.13333, "msl": 1}
+            ]
+        },
+        "dx2": {
+            "startup": 0.6,
+            "recovery": 0.06667,
+            "attr": [
+                {"dmg": 3.3, "sp": 5},
+                {"dmg": 3.3, "iv": 0.13333, "msl": 1}
+            ]
+        },
+        "dx3": {
+            "startup": 0.73333,
+            "recovery": 0.6,
+            "attr": [
+                {"dmg": 4.5, "sp": 5},
+                {"dmg": 4.5, "iv": 0.13334, "msl": 1}
+            ]
+        },
+        "ds": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 3.33333,
+            "uses": 1,
+            "attr": [
+                {"dmg": 0.698, "buff": ["self", 0.10, -1, "wind_resist", "down", "-refresh"], "iv": 0.73333},
+                {"dmg": 0.698, "iv": 0.83333},
+                {"dmg": 0.698, "iv": 0.93333},
+                {"dmg": 0.698, "iv": 1.03333},
+                {"dmg": 0.698, "iv": 1.13333},
+                {"dmg": 0.698, "iv": 1.23333},
+                {"dmg": 0.698, "iv": 1.33333},
+                {"dmg": 0.698, "iv": 1.4},
+                {"dmg": 0.698, "iv": 1.5},
+                {"dmg": 0.698, "iv": 1.6},
+                {"dmg": 0.698, "iv": 1.7},
+                {"dmg": 0.698, "iv": 1.8},
+                {"dmg": 0.698, "iv": 1.9},
+                {"dmg": 0.698, "iv": 2.0},
+                {"dmg": 0.698, "iv": 2.1},
+                {"dmg": 3.93, "iv": 2.4},
+                {"dmg": 3.93, "iv": 2.56667},
+                {"dmg": 3.93, "iv": 2.66667},
+                {"dmg": 3.93, "iv": 2.76667}
             ]
         }
     },
@@ -282,25 +384,25 @@
         },
         "dx1": {
             "startup": 0.33333,
-            "recovery": 0.53334,
+            "recovery": 0.1,
             "attr": [
-                {"dmg": 1.4, "sp": 5}
+                {"dmg": 2.8, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.39394,
-            "recovery": 0.73939,
+            "recovery": 0.12121,
             "attr": [
-                {"dmg": 1.54, "sp": 5}
+                {"dmg": 3.08, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.2,
-            "recovery": 0.66667,
+            "recovery": 0.86667,
             "attr": [
-                {"dmg": 0.65, "sp": 5, "iv": 0.2, "msl": 1},
-                {"dmg": 0.65, "iv": 0.4, "msl": 1},
-                {"dmg": 0.65, "iv": 0.53333, "msl": 1}
+                {"dmg": 1.3, "sp": 5, "iv": 0.2, "msl": 1},
+                {"dmg": 1.3, "iv": 0.4, "msl": 1},
+                {"dmg": 1.3, "iv": 0.53333, "msl": 1}
             ]
         },
         "ds": {
@@ -309,12 +411,12 @@
             "recovery": 2.43333,
             "uses": 1,
             "attr": [
-                {"dmg": 0.91, "afflic": ["poison", 120, 0.291], "iv": 1.0},
+                {"dmg": 1.82, "afflic": ["poison", 120, 0.291, 30], "iv": 1.0},
                 {"buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 1.0},
-                {"dmg": 0.91, "iv": 1.33333},
-                {"dmg": 0.91, "iv": 1.4},
-                {"dmg": 0.91, "iv": 1.46667},
-                {"dmg": 0.91, "iv": 1.6}
+                {"dmg": 1.82, "iv": 1.33333},
+                {"dmg": 1.82, "iv": 1.4},
+                {"dmg": 1.82, "iv": 1.46667},
+                {"dmg": 1.82, "iv": 1.6}
             ]
         }
     },
@@ -330,30 +432,32 @@
         },
         "dx1": {
             "startup": 0.4,
-            "recovery": 0.73333,
+            "recovery": 0.2,
             "attr": [
-                {"dmg": 2.9, "sp": 5}
+                {"dmg": 5.8, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.26667,
-            "recovery": 1.26666,
+            "recovery": 0.5,
             "attr": [
-                {"dmg": 3.48, "sp": 5}
+                {"dmg": 6.96, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.5,
-            "recovery": 0.73333,
+            "recovery": 0.83333,
             "attr": [
-                {"dmg": 4.06, "sp": 5, "msl": 1}
+                {"dmg": 8.12, "sp": 5, "msl": 1},
+                {"dmg": 8.12, "iv": 0.5, "msl": 1}
             ]
         },
         "ds": {
             "sp": 30,
             "startup": 1.1,
             "recovery": 0.83333,
-            "uses": 1
+            "uses": 1,
+            "energizable": true
         }
     },
     "Vayu": {
@@ -369,22 +473,22 @@
             "startup": 0.26667,
             "recovery": 0.43333,
             "attr": [
-                {"dmg": 1.04, "sp": 5},
-                {"dmg": 1.04, "iv": 0.2}
+                {"dmg": 2.08, "sp": 5},
+                {"dmg": 2.08, "iv": 0.2}
             ]
         },
         "dx2": {
             "startup": 0.23333,
             "recovery": 0.23334,
             "attr": [
-                {"dmg": 2.26, "sp": 5}
+                {"dmg": 4.52, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.96667,
             "recovery": 1.06666,
             "attr": [
-                {"dmg": 3.69, "sp": 5}
+                {"dmg": 7.38, "sp": 5}
             ]
         },
         "ds": {
@@ -393,7 +497,7 @@
             "recovery": 1.66667,
             "uses": 1,
             "attr": [
-                {"dmg": 8.96, "iv": 0.93333, "msl": 1},
+                {"dmg": 17.92, "iv": 0.93333, "msl": 1},
                 {"buff": ["next", 0.4, 1, "s", "buff"], "iv": 1.5}
             ]
         }
@@ -409,24 +513,24 @@
         },
         "dx1": {
             "startup": 0.36667,
-            "recovery": 0.6,
+            "recovery": 0.23333,
             "attr": [
-                {"dmg": 2.56, "sp": 5}
+                {"dmg": 5.12, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.46667,
             "recovery": 0.46666,
             "attr": [
-                {"dmg": 1.41, "sp": 5},
-                {"dmg": 1.41, "iv": 0.23333}
+                {"dmg": 2.82, "sp": 5},
+                {"dmg": 2.82, "iv": 0.23333}
             ]
         },
         "dx3": {
             "startup": 0.6,
-            "recovery": 0.6,
+            "recovery": 0.7,
             "attr": [
-                {"dmg": 3.58, "sp": 5}
+                {"dmg": 7.16, "sp": 5}
             ]
         },
         "ds": {
@@ -435,9 +539,9 @@
             "recovery": 2.93333,
             "uses": 1,
             "attr": [
-                {"dmg": 2.674, "afflic": ["stun", 180], "iv": 1.83333},
-                {"dmg": 2.674, "iv": 2.16667},
-                {"dmg": 2.674, "iv": 2.33333}
+                {"dmg": 5.348, "afflic": ["stun", 180], "iv": 1.83333},
+                {"dmg": 5.348, "iv": 2.16667},
+                {"dmg": 5.348, "iv": 2.33333}
             ]
         }
     }

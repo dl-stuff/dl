@@ -4,21 +4,26 @@ def module():
     return Gala_Ranzal
 
 class Gala_Ranzal(Adv):
-    comment = 'no s2'
-
     conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'Primal_Crisis']
-    conf['slots.d'] = 'AC011_Garland'
+    conf['slots.a'] = [
+    'The_Shining_Overlord',
+    'Flash_of_Genius',
+    'Moonlight_Party',
+    'The_Plaguebringer',
+    'Dueling_Dancers'
+    ]
+    conf['slots.d'] = 'Vayu'
     conf['acl'] = '''
-        `dragon(c3-s-end)
+        `dragon(c3-s-end), s1.check()
         `s3, not buff(s3)
-        `s4, fsc
         `s1
-        `fs, x=2 and self.gauges['x'] <= 500
-        `fs, x=3
+        `s2
+        `s4, fsc
+        `fs, x=2
     '''
-    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
-    conf['share'] = ['Curran']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
+    conf['share.base'] = ['Rodrigo']
+    conf['share.poison'] = ['Curran']
 
     def prerun(self):
         self.gauges = {'x':0, 'fs':0}
@@ -36,6 +41,8 @@ class Gala_Ranzal(Adv):
             self.gauges['x'] += 200
         elif name == 'fs':
             self.gauges['fs'] += 150
+        elif name == 'fs_enhanced':
+            self.gauges['fs'] += 1000
         log('gauges', name, self.gauges['x'], self.gauges['fs'])
 
     def s1_before(self, e):
@@ -50,14 +57,16 @@ class Gala_Ranzal(Adv):
         if boost == 0:
             return
         if boost == 1:
-            self.s1_boosted_mod = Modifier(f'{e.name}_boost', 'att', 'granzal', 0.20)
-        if boost == 2:
-            self.s1_boosted_mod = Modifier(f'{e.name}_boost', 'att', 'granzal', 0.80)
-        self.s1_boosted_mod.on()
+            self.s1_boosted_mod = Modifier(e.name, 'att', 'granzal', 0.15).off()
+        elif boost == 2:
+            self.s1_boosted_mod = Modifier(e.name, 'att', 'granzal', 1.0).off()
+        if self.s1_boosted_mod:
+            self.extra_actmods.append(self.s1_boosted_mod)
 
     def s1_proc(self, e):
         if self.s1_boosted_mod:
-            self.s1_boosted_mod.off()
+            self.extra_actmods.remove(self.s1_boosted_mod)
+            self.s1_boosted_mod = None
 
 
 if __name__ == '__main__':

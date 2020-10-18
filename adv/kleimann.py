@@ -7,7 +7,13 @@ class Kleimann(Adv):
     a3 = ('s',0.35)
  
     conf = {}
-    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
+    conf['slots.a'] = [
+        'Candy_Couriers',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), x=5
         `s3, not buff(s3)
@@ -23,7 +29,7 @@ class Kleimann(Adv):
         if self.duration <= 60:
             self.conf['coabs'] = ['Ieyasu','Gala_Alex','Bow']
 
-    def madness_autocharge(self, t):
+    def a1_madness_autocharge(self, t):
         for s in self.skills:
             if s.charged < s.sp:
                 sp = self.madness_status * 100
@@ -34,7 +40,7 @@ class Kleimann(Adv):
     def prerun(self):
         self.madness = 0
         self.madness_status = 0
-        self.madness_timer = Timer(self.madness_autocharge, 2.9, 1)
+        self.madness_timer = Timer(self.a1_madness_autocharge, 2.9, 1)
 
     def fs_proc(self, e):
         if self.madness_status < 5:

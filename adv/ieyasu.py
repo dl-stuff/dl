@@ -6,7 +6,13 @@ def module():
 
 class Ieyasu(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'Resounding_Rendition',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         ##Use Gala Cat Sith only when out of Skillful Trickery
         `dragon(c3-s-end), self.trickery <= 1
@@ -17,18 +23,17 @@ class Ieyasu(Adv):
         `fs, x=5 and buff(s3)
     """
     conf['coabs'] = ['Wand','Delphi','Axe2']
-    conf['share.base'] = ['Kleimann']
+    conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
 
     def s2ifbleed(self):
-        if self.bleed._static['stacks'] > 0:
+        if self.bleed_stack > 0:
             return self.s2buff.get()
         return 0
 
     def prerun(self):
         self.s2buff = Selfbuff('s2',0.20,15,'crit')
         self.s2buff.modifier.get = self.s2ifbleed
-        self.bleed = Bleed('g_bleed',0).reset()
 
     # @staticmethod
     # def prerun_skillshare(adv, dst):

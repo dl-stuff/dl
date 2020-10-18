@@ -18,8 +18,7 @@ class Peony(Adv):
     """
     conf['coabs'] = ['Blade','Sharena','Lucretia']
     conf['share'] = ['Kleimann']
-    conf['afflict_res.paralysis'] = 0
-
+    
     def fs_peonydreams_proc(self, e):
         self.a1_cd_timer.on(20)
 

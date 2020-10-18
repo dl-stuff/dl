@@ -1,9 +1,11 @@
 import sys
 import os
 import re
+import time
+import json
 from itertools import chain
 from collections import defaultdict
-from conf import get_icon, get_fullname
+from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json
 import core.acl
 
 BR = 64
@@ -26,17 +28,16 @@ DOT_AFFLICT = ['poison', 'paralysis', 'burn', 'frostbite']
 
 S_ALT = '†'
 
-
-def run_once(classname, conf, duration, cond):
-    adv = classname(conf=conf,cond=cond)
-    real_d = adv.run(duration)
+def run_once(classname, conf, duration, cond, equip_key=None):
+    adv = classname(conf=conf, duration=duration, cond=cond, equip_key=equip_key)
+    real_d = adv.run()
     return adv, real_d
 
 # Using starmap
 import multiprocessing
-def run_once_mass(classname, conf, duration, cond, idx):
-    adv = classname(conf=conf,cond=cond)
-    real_d = adv.run(duration)
+def run_once_mass(classname, conf, duration, cond, equip_key, idx):
+    adv = classname(conf=conf, duration=duration, cond=cond)
+    real_d = adv.run()
     return adv.logs, real_d
 
 def sum_logs(log, other):
@@ -63,18 +64,17 @@ def avg_logs(log, mass):
         log.team_tension[k] /= mass
     return log
 
-def run_mass(mass, base_log, base_d, classname, conf, duration, cond):
+def run_mass(mass, base_log, base_d, classname, conf, duration, cond, equip_key=None):
     mass = 1000 if mass == 1 else mass
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
-        for log, real_d in pool.starmap(run_once_mass, [(classname, conf, duration, cond, idx) for idx in range(mass-1)]):
+        for log, real_d in pool.starmap(run_once_mass, [(classname, conf, duration, cond, equip_key, idx) for idx in range(mass-1)]):
             base_log = sum_logs(base_log, log)
             base_d += real_d
     base_log = avg_logs(base_log, mass)
     base_d /= mass
     return base_log, base_d
 
-def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, team_dps=None, cond=True, special=False):
-    team_dps = team_dps if team_dps is not None else 20000
+def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, cond=True, special=False):
     output = output or sys.stdout
     # ex_set = parse_ex(ex)
     # if len(ex_set) > 0:
@@ -94,7 +94,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
         output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
         return
     run_results = []
-    adv, real_d = run_once(classname, conf, duration, cond)
+    adv, real_d = run_once(classname, conf, duration, cond, equip_key=None)
     if verbose == 255:
         output.write(str(adv.slots))
         output.write('\n')
@@ -108,19 +108,9 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
 
     if mass:
         adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
-
     run_results.append((adv, real_d, True))
-    no_cond_dps = None
-    # if adv.condition.exist():
-    #     adv_2, real_d_2 = run_once(classname, conf, duration, False)
-    #     # if mass:
-    #     #     adv_2.logs, real_d_2 = run_mass(mass, adv_2.logs, real_d, classname, conf, duration, False)
-    #     run_results.append((adv_2, real_d_2, False))
-    #     no_cond_dps = {
-    #         'dps': round(dps_sum(real_d_2, adv_2.logs.damage)['dps']),
-    #         'team_buff': adv_2.logs.team_buff / real_d,
-    #         'team_tension': adv_2.logs.team_tension
-    #     }
+
+    aff_name = ELE_AFFLICT[adv.slots.c.ele]
 
     if -10 <= verbose <= -5:
         aff_name = ELE_AFFLICT[adv.slots.c.ele]
@@ -128,172 +118,33 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, te
         if verbose < -5:
             for aff_name in DOT_AFFLICT[:(-verbose-6)]:
                 conf[f'sim_afflict.{aff_name}'] = 1
-        adv, real_d = run_once(classname, conf, duration, cond)
+        equip_key = 'affliction' if adv.equip_key != 'buffer' else 'buffer'
+        adv, real_d = run_once(classname, conf, duration, cond, equip_key=equip_key)
         if mass:
-            adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
+            adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond, equip_key=equip_key)
         run_results.append((adv, real_d, 'affliction'))
-        # if adv.condition.exist():
-        #     adv, real_d = run_once(classname, conf, duration, False)
-        #     run_results.append((adv, real_d, False))
 
     for a, d, c in run_results:
         if verbose == -2:
-            report(d, a, output, team_dps, cond=c, web=False)
+            report(d, a, output, cond=c, web=False)
         elif abs(verbose) == 5:
-            page = 'sp' if special else duration
+            page = 'sp' if special else int(duration)
             if c:
                 output.write('-,{},{}\n'.format(page, c if isinstance(c, str) else '_'))
-            report(d, a, output, team_dps, cond=c, web=True)
+            report(d, a, output, cond=c, web=True)
         else:
             if c == 'affliction':
                 output.write('-'*BR+'\n')
                 output.write(' & '.join(adv.sim_afflict))
                 output.write('\n')
-            summation(d, a, output, cond=c, no_cond_dps=no_cond_dps)
+            summation(d, a, output, cond=c)
 
     return run_results
 
-# def brute_force_slots(classname, conf, output, team_dps, duration):
-#     #from app.app import is_amulet, is_dragon
-#     import inspect
-#     import io
-#     import slot.d
-#     def is_dragon(obj):
-#         return (inspect.isclass(obj) and issubclass(obj, slot.d.DragonBase)
-#                 and obj.__module__ != 'slot.d'
-#                 and obj.__module__ != 'slot')
-#     adv = classname(conf)
-#     exclude = ('Dear_Diary_RO_30', 'Dear_Diary_RO_60', 'Dear_Diary_RO_90')
-#     # amulets = list(set(c for _, c in inspect.getmembers(slot.a, is_amulet) if c.__qualname__ not in exclude))
-#     amulets = [
-#         Resounding_Rendition,
-#         Valiant_Crown,
-#         FirstRate_Hospitality,
-#         Jewels_of_the_Sun,
-#         Heralds_of_Hinomoto,
-#         The_Prince_of_Dragonyule,
-#         Howling_to_the_Heavens,
-#         Kung_Fu_Masters,
-#         Forest_Bonds,
-#         Dragon_and_Tamer,
-#         The_Shining_Overlord,
-#         Summer_Paladyns,
-#         Sisters_Day_Out,
-#         Me_and_My_Bestie,
-#         Beautiful_Nothingness,
-#         Dear_Diary,
-#         Mega_Friends,
-#         An_Ancient_Oath,
-#         The_Fires_of_Hate,
-#         Breakfast_at_Valerios,
-#         Primal_Crisis,
-#         The_Red_Impulse,
-#         Proper_Maintenance,
-#         Spirit_of_the_Season,
-#         His_Clever_Brother,
-#         The_Lurker_in_the_Woods,
-#         Stellar_Show,
-#         Candy_Couriers,
-#         Twinfold_Bonds
-#     ]
-#     adv_ele = adv.slots.c.ele.lower()
-#     results = []
-#     all_dragons = input('Try all dragons? (y/n)\n') == 'y'
-#     if all_dragons:
-#         dragon = list(set(c for _, c in inspect.getmembers(getattr(slot.d, adv_ele), is_dragon) if not c.__qualname__.startswith('Unreleased')))
-#     else:
-#         dragon = [None]
-#     fixed_a1 = input('Specific WP? (name/n)\n')
-#     if fixed_a1 and fixed_a1 != 'n':
-#         try:
-#             fixed_a1 = fixed_a1.replace(' ', '_').strip()
-#             amulets_1 = [getattr(slot.a, fixed_a1)]
-#         except:
-#             raise ValueError(fixed_a1+' is not a WP')
-#     else:
-#         amulets_1 = amulets[:-1]
-#     for dra in dragon:
-#         conf['flask_env'] = True
-#         if dra is not None:
-#             conf['slots.d'] = dra()
-#         for idx, a1 in enumerate(amulets_1):
-#             for a2 in amulets[idx+1:]:
-#                 if a1 == a2:
-#                     continue
-#                 aname = '+'.join([a1.__qualname__, a2.__qualname__])
-#                 conf['slots.a'] = a1()+a2()
-#                 adv = classname(conf=conf)
-#                 real_d = adv.run(duration)
-#                 res = dps_sum(real_d, adv.logs.damage)
-#                 dps = res['dps']
-#                 dps += adv.logs.team_buff / real_d * team_dps
-#                 for tension, count in adv.logs.team_tension.items():
-#                     dps += count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
-#                 results.append((dps, adv.slots.d.__class__.__name__, aname))
-#     results.sort(key=lambda x: x[0])
-#     for dps, dname, aname in results:
-#         output.write('{},{},{}\n'.format(round(dps), dname, aname))
-
-# def brute_force_coabs(classname, conf, output, team_dps, duration):
-#     from conf import coability
-#     adv = classname(conf)
-#     seen_coab = set()
-#     seen_chain = {}
-#     null_coabs = ['lance', 'axe', 'staff']
-#     flat_coab = set()
-#     adv_ele = adv.slots.c.ele.lower()
-#     for t in [adv_ele, 'all']:
-#         for k, v in coability[t].items():
-#             chain, coab = v
-#             if chain is not None:
-#                 chain_key = (chain[0]) if len(chain) < 3 else (chain[0], *chain[2:])
-#                 if coab in null_coabs:
-#                     if chain_key in seen_chain:
-#                         if seen_chain[chain_key][0] < chain[1]:
-#                             seen_chain[chain_key] = (chain[1], k)
-#                             seen_coab.add(coab)
-#                     else:
-#                         seen_chain[chain_key] = (chain[1], k)
-#                         seen_coab.add(coab)
-#                 else:
-#                     if chain_key not in seen_chain or seen_chain[chain_key][0] < chain[1]:
-#                         seen_chain[chain_key] = (chain[1], k)
-#                     seen_coab.add(coab)
-#                     flat_coab.add(k)
-#             elif coab not in seen_coab:
-#                 seen_coab.add(coab)
-#                 flat_coab.add(k)
-
-#     for k, v in seen_chain.items():
-#         flat_coab.add(v[1])
-#     flat_coab = sorted(list(flat_coab))
-
-#     results = []
-#     flat_len = len(flat_coab)
-#     for idx1 in range(0, flat_len-2):
-#         for idx2 in range(idx1+1, flat_len-1):
-#             for idx3 in range(idx2+1, flat_len):
-#                 backline1, backline2, backline3 = flat_coab[idx1], flat_coab[idx2], flat_coab[idx3]
-#                 adv = classname(conf)
-#                 adv.conf['coabs'] = sorted([backline1, backline2, backline3])
-#                 # if 'dragon' not in adv.conf['acl']:
-#                 #     adv.conf['acl'] = 'dragon\n' + adv.conf['acl']
-#                 real_d = adv.run(duration)
-#                 res = dps_sum(real_d, adv.logs.damage)
-#                 dps = res['dps']
-#                 dps += adv.logs.team_buff / real_d * team_dps
-#                 for tension, count in adv.logs.team_tension.items():
-#                     dps += count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
-#                 results.append((dps, adv.conf['coabs']))
-#     results.sort(key=lambda x: x[0])
-#     for dps, coab in results:
-#         output.write('{},{},{},{}\n'.format(round(dps), *coab))
-#     output.write('attempts: {}'.format(len(results)))
-
 def slots(adv):
-    slots = f'[{adv.slots.a}][{adv.slots.d}][{adv.slots.w}]\n'
+    slots = f'[{adv.slots.d}][{adv.slots.w}][{adv.slots.a}]\n'
     slots += '-'*(len(adv.name)) + ' '
-    slots += f'[{"|".join((map(get_fullname, adv.coab_list)))}][S3:{get_fullname(adv.skillshare_list[0])}'
+    slots += f'[{"|".join((map(get_fullname, adv.slots.c.coab_list)))}][S3:{get_fullname(adv.skillshare_list[0])}'
     try:
         slots += f'|S4:{get_fullname(adv.skillshare_list[1])}]'
     except:
@@ -301,7 +152,7 @@ def slots(adv):
     return slots
 
 def slots_csv(adv, web):
-    padded_coab = adv.coab_list.copy()
+    padded_coab = adv.slots.c.coab_list.copy()
     if len(padded_coab) < 3:
         padded_coab.extend(['']*(3-len(padded_coab)))
     padded_share = adv.skillshare_list.copy()
@@ -363,7 +214,7 @@ def act_sum(actions, output):
             if xseq < p_xseq:
                 condensed = append_condensed(condensed, p_act)
             p_xseq = xseq
-        elif act.startswith('fs') and p_act[0] == 'x':
+        elif (act.startswith('fs') or act == 'd') and p_act[0] == 'x':
             p_xseq = 0
             condensed = append_condensed(condensed, p_act+act1)
         else:
@@ -512,7 +363,7 @@ def damage_counts(real_d, damage, counts, output, res=None):
 
 def compile_stats(real_d, adv, do_buffs=True):
     # aff uptimes
-    stat_str = []
+    stat_str = adv.stats or []
     for aff, up in adv.afflics.get_uptimes().items():
         stat_str.append(f'{aff}:{up:.1%}')
     if not do_buffs:
@@ -525,7 +376,7 @@ def compile_stats(real_d, adv, do_buffs=True):
         stat_str.append(f'{k}:{int(v)}')
     return ';'.join(stat_str)
 
-def summation(real_d, adv, output, cond=True, no_cond_dps=None):
+def summation(real_d, adv, output, cond=True):
     res = dps_sum(real_d, adv.logs.damage)
     if cond:
         output.write('='*BR+'\n')
@@ -565,7 +416,7 @@ def summation(real_d, adv, output, cond=True, no_cond_dps=None):
     damage_counts(real_d, adv.logs.damage, adv.logs.counts, output, res=res)
     output.write('\n')
 
-def report(real_d, adv, output, team_dps, cond=True, web=False):
+def report(real_d, adv, output, cond=True, web=False):
     name = adv.__class__.__name__
     dmg = adv.logs.damage
     res = dps_sum(real_d, dmg)
@@ -611,6 +462,169 @@ def report(real_d, adv, output, team_dps, cond=True, web=False):
     output.write(','.join([str(s) for s in report_csv]))
     output.write('\n')
     return report_csv
+
+CHART_DIR = 'www/dl-sim'
+DURATION_LIST = (60, 120, 180)
+QUICK_LIST_FILES = ['chara_quick.txt', 'chara_sp_quick.txt']
+SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
+ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
+def combine():
+    dst_dict = {}
+    pages = [str(d) for d in DURATION_LIST] + ['sp']
+    aff = ['_', 'affliction']
+    for p in pages:
+        dst_dict[p] = {}
+        for a in aff:
+            dst_dict[p][a] = open(os.path.join(
+                ROOT_DIR, CHART_DIR, 'page/{}_{}.csv'.format(p, a)), 'w')
+
+    for list_file in ADV_LIST_FILES:
+        with open(os.path.join(ROOT_DIR, list_file), encoding='utf8') as src:
+            c_page, c_aff = '60', '_'
+            for adv_file in src:
+                adv_file = adv_file.strip()
+                src = os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.csv'.format(adv_file))
+                if not os.path.exists(src):
+                    continue
+                with open(src, 'r', encoding='utf8') as chara:
+                    for line in chara:
+                        if line[0] == '-':
+                            _, c_page, c_aff = line.strip().split(',')
+                        else:
+                            dst_dict[c_page][c_aff].write(line.strip())
+                            dst_dict[c_page][c_aff].write('\n')
+            print('cmb:{}'.format(list_file), flush=True)
+
+    for p in pages:
+        for a in aff:
+            dst_dict[p][a].close()
+            dst_dict[p][a].close()
+
+    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
+        try:
+            lastmod = json.load(f)
+        except:
+            lastmod = {}
+        f.truncate(0)
+        f.seek(0)
+        lastmod['timestamp'] = time.time_ns() // 1000000
+        try:
+            lastmod['message'] = lastmod['changed']
+            del lastmod['changed']
+        except KeyError:
+            lastmod['message'] = []
+        json.dump(lastmod, f)
+
+def same_build_different_dps(a, b):
+    return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])
+
+BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
+ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'classbane', 'hp', 'dumb', 'afflict_res')
+BUFFER_THRESHOLD = 35000
+TDPS_WEIGHT = 15000
+def save_equip(adv, real_d, repair=False, etype=None):
+    adv.duration = int(adv.duration)
+    if adv.duration not in (60, 120, 180):
+        return
+    if any([k in adv.conf for k in ABNORMAL_COND]):
+        return
+    if any([wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]):
+        return
+    etype = etype or 'base'
+    eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
+    if adv.sim_afflict:
+        if adv.sim_afflict != {eleaff} or \
+           adv.conf_init.sim_afflict[eleaff] != 1:
+            return
+        else:
+            etype = etype if repair else 'affliction'
+    dkey = str(adv.duration)
+    adv_qual = adv.__class__.__name__
+    equip = load_equip_json(adv_qual)
+    cached = None
+    acl_list = adv.conf.acl
+    if not isinstance(acl_list, list):
+        acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
+    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
+    nteam = adv.logs.team_buff / real_d
+    new_equip = {
+        'dps': ndps,
+        'team': nteam,
+        'tdps': None,
+        'slots.a': adv.slots.a.qual_lst,
+        'slots.d': adv.slots.d.qual,
+        'acl': acl_list,
+        'coabs': adv.slots.c.coab_list,
+        'share': adv.skillshare_list
+    }
+    try:
+        cached = equip[dkey][etype]
+        cdps = cached.get('dps', 0)
+        cteam = cached.get('team', 0)
+        repair = repair or same_build_different_dps(cached, new_equip)
+    except KeyError:
+        try:
+            cached = equip[dkey]['base']
+            cdps = cached.get('dps', 0)
+            cteam = cached.get('team', 0)
+            repair = repair or same_build_different_dps(cached, new_equip)
+        except KeyError:
+            cdps = 0
+            cteam = 0
+    ncomp = ndps + nteam * TDPS_WEIGHT
+    ccomp = cdps + cteam * TDPS_WEIGHT
+    if not repair and ncomp < ccomp:
+        if etype == 'base' and nteam > cteam:
+            etype = 'buffer'
+            try:
+                cached = equip[dkey][etype]
+                cdps = cached.get('dps', 0)
+                cteam = cached.get('team', 0)
+            except KeyError:
+                pass
+            if nteam < cteam:
+                return
+            if nteam == cteam:
+                if cdps > ndps:
+                    return
+        else:
+            return
+    if not repair and (etype == 'base' and nteam < cteam and 'buffer' not in equip[dkey]):
+        equip[dkey]['buffer'] = cached
+        equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
+    if dkey not in equip:
+        equip[dkey] = {}
+    equip[dkey][etype] = new_equip
+    if etype == 'base':
+        try:
+            cdps = equip[dkey][eleaff]['dps']
+            if cdps < ndps:
+                del equip[dkey][eleaff]
+        except KeyError:
+            pass
+        try:
+            cdps = equip[dkey]['buffer']['dps']
+            cteam = equip[dkey]['buffer']['team']
+            if cteam <= nteam:
+                del equip[dkey]['buffer']
+        except KeyError:
+            pass
+    try:
+        dps_delta = equip[dkey]['base']['dps'] - equip[dkey]['buffer']['dps']
+        team_delta = equip[dkey]['buffer']['team'] - equip[dkey]['base']['team']
+        try:
+            equip[dkey]['buffer']['tdps'] = dps_delta / team_delta
+        except ZeroDivisionError:
+            equip[dkey]['buffer']['tdps'] = 99999999
+    except KeyError:
+        pass
+    if 'buffer' in equip[dkey] and equip[dkey]['buffer']['tdps'] < BUFFER_THRESHOLD:
+        equip[dkey]['pref'] = 'buffer'
+        equip[dkey]['base']['tdps'] = equip[dkey]['buffer']['tdps']
+    else:
+        equip[dkey]['pref'] = 'base'
+    save_equip_json(adv_qual, equip)
+
 
 def load_adv_module(adv_name):
     return getattr(

@@ -24,10 +24,10 @@ class Laxi(Adv):
         self.healed = 0
         self.heal = Action('heal', Conf({'startup': 5.0, 'recovery': 0.1}))
 
-        Event('hp').listener(self.heal_proc)
+        Event('hp').listener(self.a1_heal_proc)
 
 
-    def heal_proc(self, e):
+    def a1_heal_proc(self, e):
         if self.healed == 0 and e.delta < 0 and e.hp <= 30:
             self.healed = 1
             self.set_hp(100)

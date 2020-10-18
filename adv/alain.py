@@ -14,9 +14,12 @@ class Alain(Adv):
         `s4, cancel
         `fs, x=5
         """
-    conf['afflict_res.burn'] = 0
     conf['coabs'] = ['Blade', 'Wand', 'Marth']
     conf['share'] = ['Kleimann']
+
+    def prerun(self):
+        from core.ability import Last_Buff
+        Last_Buff.HEAL_TO = 50
 
 
 if __name__ == '__main__':

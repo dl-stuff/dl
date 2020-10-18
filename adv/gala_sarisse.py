@@ -5,18 +5,32 @@ def module():
 
 class Gala_Sarisse(Adv):
     conf = {}
-    conf['slots.a'] = ['Forest_Bonds', 'Primal_Crisis']
+    conf['slots.a'] = [
+    'Forest_Bonds',
+    'Flash_of_Genius',
+    'The_Red_Impulse',
+    'From_Whence_He_Comes',
+    'Dueling_Dancers'
+    ]
+    conf['slots.burn.a'] = [
+    'Forest_Bonds',
+    'Flash_of_Genius',
+    'Me_and_My_Bestie',
+    'From_Whence_He_Comes',
+    'Dueling_Dancers'
+    ]
     conf['slots.d'] = 'Gala_Mars'
     conf['acl'] = """
-        `dragon(c3-s-c3-c3-s-end), s=1
+        `dragon, s=1 and not s4.check()
         `s3, not buff(s3)
+        `s2
         `s1
-        `s4, s=1
-        `s2, cancel
-        `fs, x=3
+        `s4
+        `fs, x=5
+        `dodge, fscf
         """
-    conf['coabs'] = ['Nobunaga', 'Wand', 'Marth']
-    conf['share'] = ['Summer_Cleo']
+    conf['coabs'] = ['Yuya', 'Marth', 'Halloween_Mym']
+    conf['share'] = ['Gala_Mym']
 
     def prerun(self):
         self.ahits = 0
@@ -27,12 +41,8 @@ class Gala_Sarisse(Adv):
         if self.condition('always connect hits'):
             if self.hits // 20 > self.ahits:
                 self.ahits = self.hits // 20
-                if name[0] == 's' or name == 'ds':
-                    Selfbuff('sylvan strength',0.02,15).on()
-                    Selfbuff('sylvan crit',0.01,15,'crit','chance').on()
-                else:
-                    Selfbuff('sylvan strength',0.02,15).ex_bufftime().on()
-                    Selfbuff('sylvan crit',0.01,15,'crit','chance').ex_bufftime().on()
+                Selfbuff('a1_att',0.02,15,'att','buff', source=name).on()
+                Selfbuff('a1_crit',0.01,15,'crit','chance', source=name).on()
 
     # def s1_proc(self, e):
     #     buffcount = min(self.buffcount, 7)

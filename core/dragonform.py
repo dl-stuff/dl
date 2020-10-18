@@ -1,16 +1,14 @@
 from core.advbase import Action, S
 from core.timeline import Event, Timer, now
 from core.log import log, g_logs
+from core.acl import allow_acl
 from math import ceil
 
-MAX_C = 10
 class DragonForm(Action):
     def __init__(self, name, conf, adv):
         self.name = name
         self.conf = conf
         self.adv = adv
-        self.cancel_by = []
-        self.interrupt_by = []
         self.disabled = False
         self.shift_event = Event('dragon')
         self.act_event = Event('dact')
@@ -61,6 +59,35 @@ class DragonForm(Action):
 
         self.is_dragondrive = False
         self.can_end = True
+
+        self.allow_end_cd = self.conf.allow_end + (self.conf.ds.startup + self.conf.ds.startup) / self.speed()
+        self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
+        self.allow_end = False
+
+    def can_interrupt(self, target):
+        return None
+
+    def can_cancel(self, target):
+        return None
+
+    def getstartup(self):
+        return 0
+
+    def getrecovery(self):
+        return 0
+
+    def reset_allow_end(self):
+        if self.is_dragondrive:
+            self.allow_end = True
+        else:
+            log('allow_end', self.allow_end_cd)
+            self.allow_end = False
+            self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
+            self.allow_force_end_timer.on()
+            self.allow_end_cd += self.conf.allow_end_step
+
+    def set_allow_end(self, _):
+        self.allow_end = True
 
     def set_dragondrive(self, dd_buff, max_gauge=3000, shift_cost=1200, drain=150):
         self.disabled = False
@@ -146,9 +173,11 @@ class DragonForm(Action):
             else:
                 log('dragon_gauge', '{:+.2f}%'.format(delta/self.max_gauge*100), '{:.2f}%'.format(self.dragon_gauge/self.max_gauge*100))
 
+    @allow_acl
     def dtime(self):
         return self.conf.dshift.startup + self.conf.duration * self.adv.mod('dt') + self.conf.exhilaration * (self.off_ele_mod is None)
 
+    @allow_acl
     def ddamage(self):
         return self.conf.dracolith + self.adv.mod('da') - 1
 
@@ -281,7 +310,10 @@ class DragonForm(Action):
             self.parse_act(self.conf.act)
         if self.act_list:
             if self.act_list[0] != 'ds' or self.ds_check():
-                nact = self.act_list.pop(0)
+                if self.act_list[0] == 'end' and not self.allow_end:
+                    nact = None
+                else:
+                    nact = self.act_list.pop(0)
             # print('CHOSE BY LIST', nact, self.c_act_name)
         if nact is None:
             if self.c_act_name[0:2] == 'dx':
@@ -340,6 +372,7 @@ class DragonForm(Action):
         self.parse_act(act_str)
         return self()
 
+    @allow_acl
     def check(self, dryrun=True):
         if self.disabled or self.shift_silence:
             return False
@@ -349,7 +382,7 @@ class DragonForm(Action):
         if not doing.idle:
             if isinstance(doing, S) or isinstance(doing, DragonForm):
                 return False
-            if not dryrun:
+            if dryrun == False:
                 if doing.status == Action.STARTUP:
                     doing.startup_timer.off()
                     log('interrupt', doing.name , 'by '+self.name, 'after {:.2f}s'.format(now()-doing.startup_start))
@@ -386,6 +419,7 @@ class DragonForm(Action):
         g_logs.log_shift_dmg(True)
         self.shift_start_time = now()
         self.shift_end_timer.on(self.dtime())
+        self.reset_allow_end()
         self.shift_event()
         self.d_act_start('dshift')
         return True

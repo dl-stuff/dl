@@ -5,8 +5,13 @@ def module():
 
 class Bellina(Adv):
     conf = {}
-    conf['slots.a'] = ['Twinfold_Bonds', 'Howling_to_the_Heavens']
-    conf['slots.poison.a'] = ['Twinfold_Bonds', 'The_Plaguebringer']
+    conf['slots.a'] = [
+        'Twinfold_Bonds',
+        'Flash_of_Genius',
+        'Seaside_Princess',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `s2, duration-now<1.5
         `s3, not buff(s3)

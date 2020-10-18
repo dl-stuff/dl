@@ -120,31 +120,22 @@ class Listener(object):
 
 class Timer(object):
     def __init__(self, proc=None, timeout=None, repeat=0, timeline=None):
-        if proc:
-            self.process = proc
-        else:
-            self.process = self._process
+        self.process = proc or self._process
+        self.timeout = timeout or 0
+        self.callback = self.callback_repeat if repeat else self.callback_once
+        self.timeline = timeline or _g_timeline
 
-        if timeout :
-            self.timeout = timeout
-        else:
-            self.timeout = 0
-
-        if repeat :
-            self.callback = self.callback_repeat
-        else:
-            self.callback = self.callback_once
-
-        if timeline:
-            self.timeline = timeline
-        else:
-            self.timeline = _g_timeline
-
+        self.began = None
         self.timing = 0
         self.online = 0
-        self.pause_diff = 0
+        self.canceled = False
         #self.on()
 
+    def elapsed(self):
+        if not self.began:
+            return 0
+        else:
+            return _g_now - self.began
 
     def on(self, timeout = None):
         if timeout:
@@ -152,21 +143,24 @@ class Timer(object):
             self.timing = _g_now + timeout
         else:
             self.timing = _g_now + self.timeout
-
+        self.canceled = False
         if self.online == 0:
             self.online = 1
         self.timeline.add(self)
+        self.began = _g_now
         return self
-
 
     def off(self):
         if self.online:
             self.online = 0
+            self.canceled = True
             try:
                 self.timeline.rm(self)
             except:
                 pass
+        self.began = None
         return self
+        
 
     def add(self, time=0):
         # core.log.log('timeline', self.timing, self.timing+time, time, self.timing+time-now())
@@ -202,11 +196,6 @@ class Timer(object):
 
     def callback(self):
         pass
-
-
-    # def __str__(self):
-        # return '%f: Timer:%s'%(self.timing,self.process)
-        # return f'{self.timing}: {self.process}'
 
     def __repr__(self):
         # return '%f: Timer:%s'%(self.timing,self.process)

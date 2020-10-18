@@ -15,14 +15,10 @@ class Sazanka(Adv):
         `s1
     """
     conf['coabs'] = ['Ieyasu', 'Wand', 'Bow']
-    conf['afflict_res.sleep'] = 80
     conf['share.base'] = ['Kleimann']
     conf['share.poison'] = ['Curran']
 
     conf['mbleed'] = True
-
-    def prerun(self):
-        self.bleed = mBleed('g_bleed',0).reset()
 
 
 if __name__ == '__main__':

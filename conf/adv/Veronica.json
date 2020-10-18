@@ -7,18 +7,18 @@
         "ele": "shadow",
         "wt": "wand",
         "spiral": true,
-        "a": [["prep", 1.0], ["scharge_all", 0.05]]
+        "a": [["prep", 1.0], ["scharge_all", 0.05], ["lo_s_buff", 0.3, -1]]
     },
     "s1": {
         "sp": 3291,
         "startup": 0.1,
         "recovery": 1.3,
         "attr": [
-            {"dmg": 4.59, "killer": [0.2, ["poison"]], "crisis": 0.5, "iv": 0.26667},
-            {"dmg": 4.59, "killer": [0.2, ["poison"]], "crisis": 0.5, "iv": 0.56667},
-            {"dmg": 4.59, "killer": [0.2, ["poison"]], "crisis": 0.5, "iv": 0.66667},
-            {"dmg": 5.28, "killer": [0.2, ["poison"]], "crisis": 0.5, "iv": 0.86667},
-            {"cond": ["hp>=", 50], "hp": -10, "sp": [0.2, "%", "sn"], "iv": 0.86667}
+            {"cond": ["hp>", 50], "hp": -10, "sp": [0.2, "%", "sn"]},
+            {"dmg": 5.97, "killer": [0.2, ["poison"]], "crisis": 0.5, "iv": 0.26667},
+            {"dmg": 5.97, "killer": [0.2, ["poison"]], "crisis": 0.5, "iv": 0.56667},
+            {"dmg": 5.97, "killer": [0.2, ["poison"]], "crisis": 0.5, "iv": 0.66667},
+            {"dmg": 6.86, "killer": [0.2, ["poison"]], "crisis": 0.5, "iv": 0.86667}
         ]
     },
     "s2": {

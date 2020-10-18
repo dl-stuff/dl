@@ -16,8 +16,7 @@ class Summer_Cleo(Adv):
     """
     conf['coabs'] = ['Lucretia','Sharena','Peony']
     conf['share'] = ['Althemia']
-    conf['afflict_res.paralysis'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

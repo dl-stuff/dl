@@ -5,31 +5,30 @@
 Requirements: Python 3.7+, [lark-parser](https://github.com/lark-parser/lark)
 
 ```
-python adv/[someone].py [loglevel(-4,-3,-2,-1,0,1,2)] [teamdps] [mass]
+python adv/[someone].py [loglevel(-4,-3,-2,-1,0,1,2)] [mass]
 ```
 or
 ```
-./sim [someone] [loglevel(-4,-3,-2,-1,0,1,2)] [teamdps] [mass]
+./sim [someone] [loglevel(-4,-3,-2,-1,0,1,2)] [mass]
 ```
 or
 ```
-./sim.bat [someone] [loglevel(-4,-3,-2,-1,0,1,2)] [teamdps] [mass]
+./sim.bat [someone] [loglevel(-4,-3,-2,-1,0,1,2)] [mass]
 ```
 
 loglevel:
 - 0: default report
 - 1: detailed log
-- 2: python code transpiled from ACL
+- 2: ACL parse tree
 - -2: CSV format
-- -5: sim with 100% affliction
+- -5: sim with 100% affliction, show CSV
+- -6: sim with 100% affliction, show default report
 
 ```python adv/mikoto.py``` show basic result of Mikoto's simulation
 
 ```python adv/maribelle.py 1``` show result and combo loop of Maribelle
 
-```python adv/gala_sarisse.py -2 180 10000``` show result of Gala Sarisse for 180s with 10000 team dps
-
-```python adv/valerio.py -2 60 10000 1000``` show mass sim averaged 1000 run result of Valerio for 60s with 10000 team dps
+```python adv/eugene.py -2 60 1000``` show mass sim averaged 1000 run result of Eugene for 60s
 
 ## Documentation
 Please consult the [wiki](https://github.com/dl-stuff/dl/wiki)

@@ -5,20 +5,25 @@ def module():
 
 class Xainfried(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'His_Clever_Brother'] # no more poison lol
-    conf['slots.d'] = 'Gaibhne_and_Creidhne'
+    conf['slots.a'] = [
+    'The_Bridal_Dragon',
+    'Dragon_and_Tamer',
+    'An_Ancient_Oath',
+    'His_Clever_Brother',
+    'Dueling_Dancers'
+    ]
+    conf['slots.d'] = 'Leviathan'
     conf['acl'] = """
-        `dragon(c3-s-end)
-        `s3
+        `dragon(c2-s-c2-c2-c2-c2-c2-c2), s=2 or s=4
+        `s3, not buff(s3)
         `s2
         `s4
-        `s1, fsc
+        `s1, fscf
         `fs, x=5
         """
-    conf['coabs'] = ['Summer_Celliera', 'Yurius', 'Renee']
-    conf['share'] = ['Gala_Elisanne', 'Eugene']
-    conf['afflict_res.frostbite'] = 0
-
+    conf['coabs'] = ['Summer_Celliera', 'Yurius', 'Tiki']
+    conf['share'] = ['Gala_Mym']
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

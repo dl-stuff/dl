@@ -3,6 +3,8 @@ import re
 from itertools import islice
 from collections import deque
 
+CHAR_LIMIT = 1000
+
 def pairs(iterator):
     "s -> (s0,s1), (s2,s3), (s4, s5), ..."
     a = islice(iterator, 0, None, 2)
@@ -50,11 +52,11 @@ BINARY_EXPR['EQQ'] = BINARY_EXPR['EQ']
 
 PIN_CMD = {
     'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
-    'X': lambda e: e.didx if e.pin[0] =='x' and e.dhit == 0 else 0,
-    'XF': lambda e: e.didx if e.pin[0] == 'x' else 0,
+    'X': lambda e: e.didx if e.pin[0] =='x' and e.dstat != -1 and e.dhit == 0 else 0,
+    'XF': lambda e: e.didx if e.pin[0] == 'x' and e.dstat != -1 else 0,
     'S': lambda e: int(e.pin[1]) if (e.pin[0] == 's' and e.pin[1].isdigit()) or e.pin[-2:] == '-x' else 0,
-    'FSC': lambda e: e.pin.startswith('fs') and e.dhit == 0,
-    'FSCF': lambda e: e.pin.startswith('fs'),
+    'FSC': lambda e: e.pin.startswith('fs') and e.dstat != -1 and e.dhit == 0,
+    'FSCF': lambda e: e.pin.startswith('fs') and e.dstat != -1,
     'SP': lambda e: e.dname if e.pin == 'sp' else None,
     'PREP': lambda e: e.pin == 'prep',
 }
@@ -74,6 +76,38 @@ LITERAL_EVAL = {
     'BOOLEAN': bool,
     'NONE': lambda: None,
 }
+
+def allow_acl(f):
+    f.allow_acl = True
+    return f
+
+def check_allow_acl(f):
+    # res = getattr(f, 'allow_acl', False)
+    # if not res:
+    #     raise RuntimeError(str(f))
+    # return res
+    return getattr(f, 'allow_acl', False)
+
+# BANNED_FN = {
+#     'post_run', 'dmg_make', 'prerun', 'rngcrit_cb', 'charge', 'charge_p', 'add_combo', 'd_coabs', 'd_slots', 'd_skillshare', 'prerun_skillshare', 'enable_echo', 'disable_echo', 'bleed', 'on', 'off', 'set_hp', 'add_hp', 'afflic_condition', 'sim_buffbot', 'sim_affliction', 'actmod_on', 'actmods', 'actmod_off', 'a_shift_sigil', 'custom_crit_mod', 'solid_crit_mod', 'rand_crit_mod', 'crit_mod', '_acl', 'cb_think', '_cb_think_fsf', '_cb_think', 'think_pin', 'pre_conf', 'Modifier', 'modifer', 'ctx', 'default_slot', 'build_rates', 'killer_mod', 'rebind_function', 'run', 'Event', 'Timer', 'Listener'
+# }
+# BANNED_FN_PATTERNS = {
+#     re.compile(r'.*_proc'),
+#     re.compile(r'.*_before'),
+#     re.compile(r'.*_hit\d'),
+#     re.compile(r's\d?_.*'),
+#     re.compile(r'fs\d?_.*'),
+#     re.compile(r'x\d?_.*'),
+#     re.compile(r'a\d?_.*'),
+#     re.compile(r'config_.*'),
+#     re.compile(r'l_.*'),
+# }
+# def check_banned(fn):
+#     if fn in BANNED_FN:
+#         return True
+#     if any([pattern.match(fn) for pattern in BANNED_FN_PATTERNS]):
+#         return True
+#     return False
 
 
 class AclInterpreter(Interpreter):
@@ -209,8 +243,11 @@ class AclInterpreter(Interpreter):
     # def function(self, fn, *args):
     def function(self, t):
         fn = t.children[0]
+        fn_obj = getattr(self._inst, fn.value)
+        if not check_allow_acl(fn_obj):
+            return False
         args = t.children[1:]
-        result = getattr(self._inst, fn.value)(*map(self.visit, args))
+        result = fn_obj(*map(self.visit, args))
         # log('acl', str(t), str(result))
         return result
 
@@ -224,15 +261,19 @@ class AclInterpreter(Interpreter):
             return self.visit(fn)[self.visit(idx)]
 
 
-FSN_PATTERN = re.compile(r'^`?(fs|s)(\d+)(\(([^)]+)\))?')
+FSN_PATTERN = re.compile(r'(^|;)`?(fs|s)(\d+)(\(([^)]+)\))?')
 def _pre_parse(acl):
     return '\n'.join(filter(None,(
-        FSN_PATTERN.sub(r'`\1(\2,\4)', l.strip())
+        FSN_PATTERN.sub(r'\1`\2(\3,\5)', l.strip())
         for l in acl.split('\n')
     )))
 
 
 def build_acl(acl):
+    if isinstance(acl, list):
+        acl = '\n'.join(acl)
+    if len(acl) > CHAR_LIMIT:
+        raise ValueError(f'ACL cannot be longer than {CHAR_LIMIT} characters.')
     acl = _pre_parse(acl)
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()

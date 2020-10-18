@@ -2,23 +2,28 @@
     "c": {
         "name": "Halloween Althemia",
         "icon": "110047_02_r04",
-        "att": 452,
-        "hp": 786,
+        "att": 542,
+        "hp": 943,
         "ele": "light",
         "wt": "staff",
-        "spiral": false
+        "spiral": true,
+        "a": [["prep", 1.0], ["scharge_all", 0.05], ["a", 0.2, "hp100"]]
     },
     "s1": {
         "sp": 5916,
         "startup": 0.1,
-        "recovery": 1.8
+        "recovery": 1.8,
+        "attr": [
+            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 0.96667}
+        ],
+        "energizable": true
     },
     "s2": {
         "sp": 9662,
         "startup": 0.1,
         "recovery": 1.4,
         "attr": [
-            {"dmg": 6.17, "iv": 0.96667}
+            {"dmg": 12.34, "hp": 30.0, "iv": 0.96667}
         ]
     }
 }

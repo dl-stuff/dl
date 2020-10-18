@@ -7,13 +7,20 @@ class Summer_Sinoa(Adv):
     comment = 's!cleo ss after s1 at 2 overload'
     conf = {}
     conf['slots.d'] = 'Ariel'
-    conf['slots.a'] = ['Candy_Couriers', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Candy_Couriers',
+    'Flash_of_Genius',
+    'Moonlight_Party',
+    'The_Plaguebringer',
+    'From_Whence_He_Comes'
+    ]
     conf['acl'] = """
-        `dragon
         `s3, not buff(s3) and x=5
         `s4, s=1 and self.overload=2
         `s2, self.overload=3
         `s1
+        `fs, x=5
+        `dodge, fsc
         """
     conf['coabs'] = ['Blade','Eleonora','Tobias']
     conf['share'] = ['Summer_Cleo']
@@ -59,7 +66,7 @@ class Summer_Sinoa(Adv):
         else:
             buffs = [
                 lambda: self.inspiration.add(2),
-                lambda: Selfbuff('s2_crit_rate', 0.15, 30, 'crit', 'chance').on(),
+                lambda: Selfbuff('s2_crit_rate', 0.20, 30, 'crit', 'chance').on(),
                 lambda: Selfbuff('s2_crit_dmg', 0.15, 30, 'crit', 'damage').on(),
             ]
             log('debug', 'overload', self.overload)

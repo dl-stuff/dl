@@ -32,7 +32,7 @@ class Pinon(SigilAdv):
     conf['share'] = ['Gala_Elisanne']
 
     def fs2_proc(self, e):
-        self.update_sigil(-13)
+        self.a_update_sigil(-13)
 
     def prerun(self):
         self.config_sigil(duration=300, x=True)

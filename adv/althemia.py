@@ -5,7 +5,13 @@ def module():
 
 class Althemia(Adv):    
     conf = {}
-    conf['slots.a'] = ['Candy_Couriers', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'Candy_Couriers',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), x=5
         `s3, not buff(s3)
@@ -15,8 +21,7 @@ class Althemia(Adv):
     """
     conf['coabs'] = ['Gala_Alex','Delphi','Bow']
     conf['share'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

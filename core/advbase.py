@@ -15,6 +15,7 @@ from core.dummy import Dummy, dummy_function
 from core.condition import Condition
 from core.slots import Slots
 import core.acl
+from core.acl import allow_acl
 import conf as globalconf
 from ctypes import c_float
 from math import ceil
@@ -34,7 +35,7 @@ class Skill(object):
     def __init__(self, name=None, acts=None):
         self.charged = 0
         self.name = name
-        
+
         self.act_dict = acts or {}
         self.act_base = None
 
@@ -103,6 +104,7 @@ class Skill(object):
         self._static.silence = 0
         self.silence_end_event()
 
+    @allow_acl
     def check(self):
         if self._static.silence == 1 or not self.ac.enabled or self.sp == 0:
             return False
@@ -131,6 +133,13 @@ class Skill(object):
             self.autocharge_timer = Timer(autocharge, iv, 1)
         return self.autocharge_timer
 
+class Nop(object):
+    name = 'nop'
+    index = 0
+    status = -2
+    idle = 1
+    has_delayed = 0
+
 
 class Action(object):
     _static = Static({
@@ -150,13 +159,6 @@ class Action(object):
     startup_start = 0
     status = -2
     idle = 0
-
-    class Nop(object):
-        name = 'nop'
-        index = 0
-        status = -2
-        idle = 1
-        has_delayed = 0
 
     nop = Nop()
 
@@ -183,9 +185,6 @@ class Action(object):
             self._static.doing = self.nop
         if not self._static.prev:
             self._static.prev = self.nop
-
-        self.cancel_by = []
-        self.interrupt_by = []
 
         self.startup_timer = Timer(self._cb_acting)
         self.recovery_timer = Timer(self._cb_act_end)
@@ -221,6 +220,17 @@ class Action(object):
             self.act_event = Event(self.name)
         return self.o_tap()
 
+    def can_follow(self, target, timing, elapsed):
+        try:
+            return max(0, round(timing - elapsed, 5))
+        except (KeyError, TypeError):
+            return None
+
+    def can_interrupt(self, target):
+        return self.can_follow(target, self.conf.interrupt[target], self.startup_timer.elapsed())
+
+    def can_cancel(self, target):
+        return self.can_follow(target, self.conf.cancel[target], self.recovery_timer.elapsed())
 
     @property
     def _startup(self):
@@ -270,7 +280,7 @@ class Action(object):
 
     def act(self, action):
         self.act_event()
-    
+
     def add_delayed(self, mt):
         self.delayed.add(mt)
 
@@ -287,7 +297,7 @@ class Action(object):
     def has_delayed(self):
         return len([mt for mt in self.delayed if mt.online and mt.timing > now()])
 
-    def tap(self):
+    def tap(self, t=None):
         doing = self._static.doing
 
         if doing.idle:
@@ -304,7 +314,11 @@ class Action(object):
         #    pass
         if not doing.idle:  # doing != self
             if doing.status == Action.STARTUP:  # try to interrupt an action
-                if self.atype in doing.interrupt_by:  # can interrupt action
+                timing = doing.can_interrupt(self.atype)
+                if timing is not None: # can interrupt action
+                    if timing > 0:
+                        Timer(self.tap).on(timing)
+                        return 0
                     doing.startup_timer.off()
                     logargs = ['interrupt', doing.name, f'by {self.name}']
                     delta = now() - doing.startup_start
@@ -314,7 +328,11 @@ class Action(object):
                 else:
                     return 0
             elif doing.status == Action.RECOVERY:  # try to cancel an action
-                if self.atype in doing.cancel_by:  # can interrupt action
+                timing = doing.can_cancel(self.atype)
+                if timing is not None: # can cancel action
+                    if timing > 0:
+                        Timer(self.tap).on(timing) # wait for allowed cancel timing
+                        return 0
                     doing.recovery_timer.off()
                     count = doing.clear_delayed()
                     delta = now() - doing.recover_start
@@ -347,8 +365,6 @@ class X(Action):
         self.base = parts[0]
         self.group = 'default' if len(parts) == 1 else parts[1]
         self.atype = 'x'
-        self.interrupt_by = ['fs', 's', 'dodge']
-        self.cancel_by = ['fs', 's', 'dodge']
 
         self.act_event = Event('x')
         self.act_event.name = self.name
@@ -385,18 +401,38 @@ class Fs(Action):
             except ValueError:
                 pass
         self.atype = 'fs'
-        self.interrupt_by = ['s']
-        self.cancel_by = ['s', 'dodge']
 
     @property
     def _charge(self):
         return self.conf.charge
 
+    @property
+    def _buffer(self):
+        # human input buffer time
+        return self.conf.get('buffer', 0.46667)
+
+    def set_enabled(self, enabled):
+        self.enabled = enabled
+
     def charge_speed(self):
         return self._static.c_spd_func()
 
     def getstartup(self):
-        return (self._charge / self.charge_speed()) + (self._startup / self.speed())
+        prev = self.getprev()
+        if prev == self:
+            buffer = self._buffer
+        elif prev == self.nop:
+            buffer = 0
+        else:
+            try:
+                buffer = max(0, self._buffer - prev.startup_timer.elapsed() - prev.recovery_timer.elapsed())
+                log('bufferable', prev.startup_timer.elapsed() + prev.recovery_timer.elapsed())
+            except AttributeError:
+                buffer = 0
+        charge = self._charge / self.charge_speed()
+        startup = self._startup / self.speed()
+        # log('fs_startup', buffer, charge, startup)
+        return buffer + charge + startup
 
 
 class Fs_group(object):
@@ -432,8 +468,6 @@ class S(Action):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
         self.atype = 's'
-        self.interrupt_by = []
-        self.cancel_by = []
 
         parts = name.split('_')
         self.base = parts[0]
@@ -477,11 +511,11 @@ class Adv(object):
 
     def dmg_proc(self, name, amount):
         pass
-    
+
     """
     New before/proc system:
     x/fs/s events will try to call <name>_before before everything, and <name>_proc at each hitattr
-    
+
     Examples:
     Albert FS:
         fs_proc is called when he uses base fs
@@ -538,15 +572,28 @@ class Adv(object):
         'dodge.startup': 0.63333,
         'dodge.recovery': 0,
 
-        'acl': '`s1;`s2;`s3',
+        'dooodge.startup': 3.0,
+        'dooodge.recovery': 0,
+
+        'acl': 's1;s2;s3;s4',
 
         'attenuation.hits': 1,
         'attenuation.delay': 0.25,
     }
 
-    def damage_sources_check(self, name, conf):
-        if conf['attr'] and any(('dmg' in attr for attr in conf['attr'] if isinstance(attr, dict))):
-            self.damage_sources.add(name)
+    def hitattr_check(self, name, conf):
+        if conf['attr']:
+            for attr in conf['attr']:
+                if not isinstance(attr, dict):
+                    continue
+                if 'dmg' in attr:
+                    self.damage_sources.add(name)
+                aff = attr.get('afflic')
+                if aff is not None:
+                    aff = aff[0]
+                    self.condition('{} {} res'.format(int(getattr(self.afflics, aff).resist*100), aff))
+        if conf.get('energizable'):
+            self.energy.extra_tensionable.add(name)
 
     def doconfig(self):
         # set act
@@ -558,7 +605,7 @@ class Adv(object):
         self.all_buffs = []
         self.base_buff._static.all_buffs = self.all_buffs
         self.base_buff._static.adv = self
-        self.buff = ActiveBuffDict()
+        self.active_buff_dict = ActiveBuffDict()
         # set modifier
         self.modifier = Modifier(0, 0, 0, 0)
         self.all_modifiers = ModifierDict()
@@ -571,7 +618,7 @@ class Adv(object):
             if xn != a_x.base and self.conf[a_x.base]:
                 a_x.conf.update(self.conf[a_x.base], rebase=True)
             self.a_x_dict[a_x.group][a_x.index] = a_x
-            self.damage_sources_check(xn, xconf)
+            self.hitattr_check(xn, xconf)
         self.a_x_dict = dict(self.a_x_dict)
         for group, actions in self.a_x_dict.items():
             gxmax = f'{group}.x_max'
@@ -583,12 +630,15 @@ class Adv(object):
         for name, fs_conf in self.conf.find(r'^fs\d*(_[A-Za-z0-9]+)?$'):
             try:
                 base = name.split('_')[0]
+                if base != 'fs':
+                    fs_conf.update(self.conf.fs, rebase=True)
                 if name != base and self.conf[base]:
                     fs_conf.update(self.conf[base], rebase=True)
             except KeyError:
                 pass
-            self.a_fs_dict[name] = Fs_group(name, fs_conf)
-            self.damage_sources_check(name, fs_conf)
+            # self.a_fs_dict[name] = Fs_group(name, fs_conf)
+            self.a_fs_dict[name] = Fs(name, fs_conf)
+            self.hitattr_check(name, fs_conf)
         if 'fs1' in self.a_fs_dict:
             self.a_fs_dict['fs'].enabled = False
         self.current_fs = None
@@ -598,37 +648,17 @@ class Adv(object):
         self.a_fsf.act_event = Event('none')
 
         self.a_dodge = Dodge('dodge', self.conf.dodge)
+        self.a_dooodge = Dodge('dooodge', self.conf.dooodge)
 
-        # # skill init
-        # self.s1 = Skill('s1', self.conf.s1)
-        # self.s2 = Skill('s2', self.conf.s2)
-        # self.s3 = Skill('s3', self.conf.s3)
-        # self.s4 = Skill('s4', self.conf.s4)
-
-        # if self.conf.xtype == 'ranged':
-        #     self.l_x = self.l_range_x
-        #     self.l_fs = self.l_range_fs
-        # elif self.conf.xtype == 'melee':
-        #     self.l_x = self.l_melee_x
-        #     self.l_fs = self.l_melee_fs
-
-        # set cmd
-        self.fsf = self.a_fsf
-        self.dodge = self.a_dodge
-
-        if self.conf['auto_fsf']:
+        if self.conf['dumb']:
+            self.cb_think = self._cb_think_dumb
+            self.dumb_cd = int(self.conf['dumb'])
+            self.dumb_count = 0
+            self.condition(f'be a dumb every {self.dumb_cd}s')
+        elif self.conf['auto_fsf']:
             self.cb_think = self._cb_think_fsf
         else:
             self.cb_think = self._cb_think
-
-        # try:
-        #     self.x5ex = X(('x5ex', 5), self.conf.x5ex)
-        #     self.x5ex.atype = 'x'
-        #     self.x5ex.interrupt_by = ['fs', 's', 'dodge']
-        #     self.x5ex.cancel_by = ['fs', 's', 'dodge']
-        #     self.x4.cancel_by.append('x')
-        # except:
-        #     pass
 
         self.hits = 0
         self.last_c = 0
@@ -646,6 +676,7 @@ class Adv(object):
         self.extra_actmods = []
 
         self.disable_echo()
+        self.bleed = None
 
     @property
     def ctime(self):
@@ -663,7 +694,7 @@ class Adv(object):
                 b.act_on(e)
 
     def actmods(self, name):
-        mods = list(self.extra_actmods)
+        mods = [m for m in self.extra_actmods if name == m.mod_name]
         for t in chain(self.tension, self.sab):
             if name in t.active:
                 mods.append(t.modifier)
@@ -743,7 +774,7 @@ class Adv(object):
                     self.Selfbuff('simulated_crit_rate', self.conf.sim_buffbot.critr, -1, 'crit', 'chance').on()
             if 'critd' in self.conf.sim_buffbot:
                 if self.condition('team crit dmg {:+.0%}'.format(self.conf.sim_buffbot.critd)):
-                    self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'dmg').on()
+                    self.Selfbuff('simulated_crit_dmg', self.conf.sim_buffbot.critd, -1, 'crit', 'damage').on()
             if 'echo' in self.conf.sim_buffbot:
                 if self.condition('echo att {:g}'.format(self.conf.sim_buffbot.echo)):
                     self.enable_echo(fixed_att=self.conf.sim_buffbot.echo)
@@ -754,56 +785,36 @@ class Adv(object):
                     Timer(lambda t: Event('defchain').on(), interval, True).on()
 
     def config_slots(self):
+        if self.conf['classbane'] == 'HDT':
+            self.conf.c.a.append(['k_HDT', 0.3])
         if not self.conf['flask_env']:
             self.d_slots()
         self.slots.set_slots(self.conf.slots)
-        # for s in ('c', 'd', 'w', 'a'):
-        #     self.slots.__dict__[s] = self.cmnslots.__dict__[s]
 
-        # if self.conf['slots']:
-        #     if not self.conf['flask_env']:
-        #         self.d_slots()
-        #     for s in ('c', 'd', 'w', 'a'):
-        #         if self.conf.slots[s]:
-        #             # TODO: make this bit support string names
-        #             self.slots.__dict__[s] = self.conf.slots[s]
-        #     if self.conf['flask_env']:
-        #         return
-
-        # if self.sim_afflict:
-        #     from conf.slot_common import ele_punisher, punisher_print
-        #     aff = ele_punisher[self.slots.c.ele]
-        #     wpa = punisher_print[aff]
-        #     wp1 = self.slots.a.__class__
-        #     wp2 = wpa
-        #     if wp1 != wp2:
-        #         self.slots.a = wp1()+wp2()
-        #     if self.conf[f'slots.{aff}']:
-        #         afflic_slots = self.conf[f'slots.{aff}']
-        #         for s in ('d', 'w', 'a'):
-        #             if afflic_slots[s]:
-        #                 self.slots.__dict__[s] = afflic_slots[s]
-
-    def pre_conf(self):
-        tmpconf = Conf(self.conf_default)
-        tmpconf.update(globalconf.get_adv(self.name))
-        tmpconf.update(self.conf)
-        tmpconf.update(self.conf_init)
-        self.conf = tmpconf
+    def pre_conf(self, equip_key=None):
+        self.conf = Conf(self.conf_default)
+        self.conf.update(globalconf.get_adv(self.name))
+        self.conf.update(self.conf_base)
+        equip = globalconf.load_equip_json(self.name)
+        equip_d = equip.get(str(int(self.duration)))
+        if not equip_d:
+            equip_d = equip.get('180')
+        if equip_d:
+            if equip_key is None:
+                equip_key = equip_d.get('pref', 'base')
+                self.equip_key = equip_key
+            if equip_key in equip_d:
+                self.conf.update(equip_d[equip_key])
+                self.equip_key = self.equip_key or equip_key
+            elif 'base' in equip_d:
+                self.conf.update(equip_d['base'])
+        self.conf.update(self.conf_init)
+        return equip_d
 
     def default_slot(self):
-        self.slots = Slots(self.name, self.conf.c, self.sim_afflict)
-        # from conf import slot_common
-        # self.cmnslots = slot.Slots()
-        # self.cmnslots.c.att = self.conf.c.att
-        # self.cmnslots.c.wt = self.conf.c.wt
-        # self.cmnslots.c.ele = self.conf.c.ele
-        # self.cmnslots.c.name = self.name
-        # self.slot_common = slot_common.set
-        # self.slot_common(self.cmnslots)
-        # self.slots = self.cmnslots
+        self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf['flask_env']))
 
-    def __init__(self, conf={}, cond=None):
+    def __init__(self, conf=None, duration=180, cond=None, equip_key=None):
         if not self.name:
             self.name = self.__class__.__name__
 
@@ -815,15 +826,17 @@ class Adv(object):
         self.Modifier = Modifier
         self.Conf = Conf
 
-        self.conf_init = conf or {}
+        self.conf_base = Conf(self.conf or {})
+        self.conf_init = Conf(conf or {})
         self.ctx = Ctx().on()
         self.condition = Condition(cond)
-        self.duration = 180
+        self.duration = duration
 
         self.damage_sources = set()
         self.Modifier._static.damage_sources = self.damage_sources
 
-        self.pre_conf()
+        self.equip_key = None
+        equip = self.pre_conf(equip_key=equip_key)
 
         # set afflic
         self.afflics = Afflics()
@@ -847,6 +860,8 @@ class Adv(object):
 
         # self.ctx.off()
         self._acl = None
+
+        self.stats = []
 
     def dmg_mod(self, name):
         mod = 1
@@ -873,28 +888,24 @@ class Adv(object):
         else:
             return mod
 
-    # @staticmethod
-    # def mod_mult(a, b):
-    #     return a * (1 + b)
-
+    @allow_acl
     def mod(self, mtype, operator=None, initial=1):
         return self.all_modifiers.mod(mtype, operator=operator, initial=initial)
-        # operator = operator or Adv.mod_mult
-        # return reduce(operator, [self.sub_mod(mtype, order) for order in self.all_modifiers[mtype].keys()], initial)
 
+    @allow_acl
     def sub_mod(self, mtype, morder):
         return self.all_modifiers.sub_mod(mtype, morder)
-    # def sub_mod(self, mtype, morder):
-    #     mod_sum = sum([modifier.get() for modifier in self.all_modifiers[mtype][morder]])
-    #     if morder == 'buff':
-    #         mod_sum = min(mod_sum, 2.00)
-    #     return mod_sum
 
-    def speed(self):
-        return min(self.mod('spd'), 1.50)
+    @allow_acl
+    def speed(self, target=None):
+        if target is None:
+            return min(1+self.sub_mod('spd', 'passive'), 1.50)
+        else:
+            return min(1+self.sub_mod('spd', 'passive')+self.sub_mod('spd', target), 1.50)
 
+    @allow_acl
     def c_speed(self):
-        return min(self.mod('cspd'), 1.50)
+        return min(1+self.sub_mod('cspd', 'passive'), 1.50)
 
     def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2
@@ -959,6 +970,7 @@ class Adv(object):
         else:
             return 1
 
+    @allow_acl
     def att_mod(self, name=None):
         att = self.mod('att')
         cc = self.crit_mod(name)
@@ -990,7 +1002,12 @@ class Adv(object):
         for dkey in debuff_rates.keys():
             debuff_rates[dkey] = 1 - debuff_rates[dkey]
         rates.update(debuff_rates)
-        
+
+        if self.conf['classbane']:
+            enemy_class = self.conf['classbane']
+            if self.condition(f'vs {enemy_class} enemy'):
+                rates[enemy_class] = 1
+
         return rates if not as_list else list(rates.items())
 
     def killer_mod(self, name=None):
@@ -1013,17 +1030,20 @@ class Adv(object):
             total += p * reduce(operator.mul, [1 + sum([mod.get() for mod in order]) for order in modifiers.values()], 1.0)
         return total
 
+    @allow_acl
     def def_mod(self):
         defa = min(1-self.mod('def', operator=operator.add), 0.5)
         defb = min(1-self.mod('defb', operator=operator.add), 0.3)
         return 1 - min(defa+defb, 0.5)
 
+    @allow_acl
     def sp_mod(self, name):
         sp_mod = self.mod('sp', operator=operator.add)
         if name.startswith('fs'):
             sp_mod += self.mod('spf', operator=operator.add, initial=0)
         return sp_mod
 
+    @allow_acl
     def sp_val(self, param):
         if isinstance(param, str):
             return self.sp_convert(
@@ -1039,18 +1059,21 @@ class Adv(object):
                 for x in range(1, param + 1)
             )
 
+    @allow_acl
     def charged_in(self, param, sn):
         s = getattr(self, sn)
         return self.sp_val(param) + s.charged >= s.sp
 
+    @allow_acl
     def have_buff(self, name):
         for b in self.all_buffs:
             if b.name.startswith(name) and b.get():
                 return True
         return False
 
+    @allow_acl
     def buffstack(self, name):
-        return reduce(lambda s, b: s+int(b.name == name and b.get()), self.all_buffs, 0)
+        return reduce(lambda s, b: s+int(b.get() and b.name == name), self.all_buffs, 0)
 
     @property
     def buffcount(self):
@@ -1071,19 +1094,22 @@ class Adv(object):
             self.Skill._static.first_x_after_s = 0
             s_prev = self.Skill._static.s_prev
             self.think_pin('%s-x' % s_prev)
-        return self.x()
+        # return self.x()
 
     def getprev(self):
         prev = self.action.getprev()
         return prev.name, prev.index, prev.status
 
+    @allow_acl
     def dragon(self, act_str=None):
         if act_str:
             return self.dragonform.act(act_str)
         return self.dragonform()
 
+    @allow_acl
     def fs(self, n=None):
         fsn = 'fs' if n is None else f'fs{n}'
+        self.check_deferred_x()
         if self.current_fs is not None:
             fsn += '_' + self.current_fs
         try:
@@ -1092,16 +1118,19 @@ class Adv(object):
                 before = self.action.getprev()
             if not self.a_fs_dict[fsn].enabled:
                 return False
-            return self.a_fs_dict[fsn](before.name)
+            return self.a_fs_dict[fsn]()
         except KeyError:
             return False
 
-    def x(self, x_min=1):
-        prev = self.action.getprev()
+    def check_deferred_x(self):
         if self.deferred_x is not None:
             log('deferred_x', self.deferred_x)
             self.current_x = self.deferred_x
             self.deferred_x = None
+
+    def x(self, x_min=1):
+        prev = self.action.getprev()
+        self.check_deferred_x()
         if isinstance(prev, X) and prev.group == self.current_x:
             if prev.index < self.conf[prev.group].x_max:
                 x_next = self.a_x_dict[self.current_x][prev.index+1]
@@ -1122,8 +1151,13 @@ class Adv(object):
             log('x', e.name, 0)
         self.hit_make(e, self.conf[e.name], cb_kind=f'x_{e.group}' if e.group != 'default' else 'x', pin='x')
 
+    @allow_acl
     def dodge(self):
         return self.a_dodge()
+
+    @allow_acl
+    def fsf(self):
+        return self.a_fsf()
 
     def l_dodge(self, e):
         log('dodge', '-')
@@ -1139,20 +1173,6 @@ class Adv(object):
             log('combo', f'reset combo after {delta:.02}s')
         self.last_c = now()
 
-    # def add_hits(self, hit):
-    #     # potato combo count
-    #     if hit is None:
-    #         raise ValueError('none type hit')
-    #     if hit < 0:
-    #         self.hits = 0
-    #         log('combo', 'reset combo')
-    #     else:
-    #         c_hits = self.hits
-    #         for _ in range(hit):
-    #             self.add_combo()
-    #         return self.hits - c_hits
-    #     return 0
-
     def load_aff_conf(self, key):
         confv = self.conf[key]
         if confv is None:
@@ -1167,24 +1187,19 @@ class Adv(object):
 
     def config_coabs(self):
         if not self.conf['flask_env']:
-            self.coab_list = self.load_aff_conf('coabs')
             self.d_coabs()
+            coab_list = self.load_aff_conf('coabs')
         else:
-            self.coab_list = self.conf['coabs']
+            coab_list = self.conf['coabs'] or []
         try:
             self_coab = list(self.slots.c.coabs.keys())[0]
         except:
             self_coab = self.__class__.__name__
-        for name in self.coab_list:
+        for name in coab_list:
             try:
                 self.slots.c.coabs[name] = self.slots.c.valid_coabs[name]
             except KeyError:
                 raise ValueError(f'No such coability: {name}')
-        self.coab_list = list(self.slots.c.coabs.keys())
-        try:
-            self.coab_list.remove(self_coab)
-        except:
-            pass
 
     def rebind_function(self, owner, src, dst=None):
         dst = dst or src
@@ -1197,7 +1212,9 @@ class Adv(object):
     def skills(self):
         return tuple(self.a_s_dict.values())
 
+    @allow_acl
     def s(self, n):
+        self.check_deferred_x()
         return self.a_s_dict[f's{n}']()
 
     @property
@@ -1215,9 +1232,6 @@ class Adv(object):
     @property
     def s4(self):
         return self.a_s_dict['s4']
-
-    def cast_sn(self, name, subclass):
-        self.a_s_dict[name] = subclass(self.a_s_dict[name])
 
     def config_skills(self):
         self.current_s = {'s1': 'default', 's2': 'default', 's3': 'default', 's4': 'default'}
@@ -1275,13 +1289,14 @@ class Adv(object):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
                         self.conf[dst_sn].owner = owner
+                        self.conf[dst_sn].sp = shared_sp
                     owner_module = load_adv_module(owner)
                     preruns[dst_key] = owner_module.prerun_skillshare
                     for sfn in ('before', 'proc'):
                         self.rebind_function(owner_module, f'{src_key}_{sfn}', f'{dst_key}_{sfn}')
                 except:
                     pass
-                self.conf[dst_key].sp = shared_sp
+                # self.conf[dst_key].sp = shared_sp
 
         for sn, snconf in self.conf.find(r'^s\d(_[A-Za-z0-9]+)?$'):
             s = S(sn, snconf)
@@ -1298,12 +1313,11 @@ class Adv(object):
                 s.group -= 1
                 s.act_event.group = s.group
             self.a_s_dict[s.base].add_action(s.group, s)
-            self.damage_sources_check(sn, snconf)
+            self.hitattr_check(sn, snconf)
 
         return preruns
 
-    def run(self, d=300):
-        self.duration = d
+    def run(self):
         global loglevel
         if not loglevel:
             loglevel = 0
@@ -1327,9 +1341,9 @@ class Adv(object):
         self.l_set_hp = Listener('set_hp', self.l_set_hp)
 
         self.ctx.on()
-        
+
         self.config_slots()
-        
+
         preruns_ss = self.config_skills()
 
         # if self.conf.c.a:
@@ -1343,6 +1357,7 @@ class Adv(object):
 
         self.slots.oninit(self)
         self.base_att = int(self.slots.att)
+        self.base_hp = int(self.slots.hp)
 
         self.hp = self.condition.prev_hp
         if 'hp' in self.conf:
@@ -1396,18 +1411,28 @@ class Adv(object):
     def debug(self):
         pass
 
-    def _cb_think(self, t):
-        if loglevel >= 2:
-            log('think', '/'.join(map(str,(t.pin, t.dname, t.dstat, t.didx, t.dhit))))
-        return self._acl(t)
-
-    def _cb_think_fsf(self, t):
+    def _cb_think(self, t, default_to_x=True):
         if loglevel >= 2:
             log('think', '/'.join(map(str,(t.pin, t.dname, t.dstat, t.didx, t.dhit))))
         result = self._acl(t)
-        if not result and self.current_x == 'default' and t.pin[0] == 'x' and t.didx == 5 and t.dhit == 0:
+        if default_to_x:
+            return result or self.x()
+        else:
+            return result
+
+    def _cb_think_fsf(self, t):
+        result = self._cb_think(t, default_to_x=False)
+        if not result and self.current_x == 'default' and t.dstat >= 0 and t.pin[0] == 'x' and t.didx == 5 and t.dhit == 0:
             return self.fsf()
-        return result
+        return result or self.x()
+
+    def _cb_think_dumb(self, t):
+        if now() // self.dumb_cd > self.dumb_count:
+            self.dumb_count = now() // self.dumb_cd
+            self.hits = 0
+            return self.a_dooodge()
+        return self._cb_think(t)
+
 
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
@@ -1418,7 +1443,7 @@ class Adv(object):
             latency = self.conf.latency.default
 
         doing = self.action.getdoing()
-        
+
         t = Timer(self.cb_think)
         t.pin = pin
         t.dname = doing.name
@@ -1473,7 +1498,11 @@ class Adv(object):
             if no_autocharge and hasattr(s, 'autocharge_timer'):
                 continue
             s.charge(self.sp_convert(percent, s.sp))
-        log('sp', name if not target else f'{name}->{target}', f'{percent*100:.0f}%', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
+        if isinstance(target, list):
+            t_str = ','.join(target)
+        else:
+            t_str = target
+        log('sp', name if not target else f'{name}->{t_str}', f'{percent*100:.0f}%', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
         if percent == 1:
             self.think_pin('prep')
@@ -1486,8 +1515,13 @@ class Adv(object):
             return
         for s in targets:
             s.charge(sp)
+        if isinstance(target, list):
+            t_str = ','.join(target)
+        else:
+            t_str = target
+        log('sp', name if not target else f'{name}_{t_str}', sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
+
         self.think_pin('sp')
-        log('sp', name if not target else f'{name}_{target}', sp, ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
 
     def l_dmg_formula(self, e):
         name = e.dname
@@ -1506,7 +1540,7 @@ class Adv(object):
         dmg_mod = self.dmg_mod(name)
         att = 1.0 * self.att_mod(name) * self.base_att
         armor = 10 * self.def_mod()
-        ele = self.mod(self.slots.c.ele) + 0.5
+        ele = (self.mod(self.slots.c.ele) + 0.5) * (self.mod(f'{self.slots.c.ele}_resist'))
         return 5.0 / 3 * dmg_coef * dmg_mod * att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
@@ -1530,6 +1564,8 @@ class Adv(object):
         count = self.dmg_formula(dtype, coef) if not fixed else coef
         log('dmg', name, count)
         self.dmg_proc(name, count)
+        if fixed:
+            return count
         if self.echo > 1:
             echo_count = self.dmg_formula_echo(coef)
             self.dmg_proc(name, echo_count)
@@ -1570,12 +1606,12 @@ class Adv(object):
             for m in hitmods:
                 m.on()
             if 'extra' in attr:
-                for _ in range(min(attr['extra'], self.buffcount)):
-                    self.dmg_make(name, attr['dmg'], attenuation=attenuation)
+                for _ in range(min(attr['extra'], round(self.buffcount))):
                     self.add_combo(name)
+                    self.dmg_make(name, attr['dmg'], attenuation=attenuation)
             else:
-                self.dmg_make(name, attr['dmg'], attenuation=attenuation)
                 self.add_combo(name)
+                self.dmg_make(name, attr['dmg'], attenuation=attenuation)
 
         if onhit:
             onhit(name, base, group, aseq)
@@ -1620,17 +1656,29 @@ class Adv(object):
 
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
-            getattr(self.afflics, aff_type)(name, *aff_args)
+            getattr(self.afflics, aff_type).on(name, *aff_args)
 
         if 'bleed' in attr:
             rate, mod = attr['bleed']
+            rate = max(min(100, rate + self.sub_mod('debuff_rate', 'passive') * 100), 0)
+            debufftime = self.mod('debuff', operator=operator.add)
             if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
-                mBleed(name, mod).on()
+                bleed = mBleed(name, mod)
+                if self.bleed is None:
+                    self.bleed = bleed
+                    self.bleed.reset()
+                self.bleed = mBleed(name, mod, chance=rate/100, debufftime=debufftime)
+                self.bleed.on()
             else:
                 from module.bleed import Bleed
+                bleed = Bleed(name, mod)
+                if self.bleed is None:
+                    self.bleed = bleed
+                    self.bleed.reset()
                 if rate == 100 or rate > random.uniform(0, 100):
-                    Bleed(name, mod).on()
+                    self.bleed = Bleed(name, mod, debufftime=debufftime)
+                    self.bleed.on()
 
 
         if 'buff' in attr:
@@ -1651,31 +1699,45 @@ class Adv(object):
             if bctrl:
                 if bctrl == '-off':
                     try:
-                        self.buff.off(*blist)
+                        self.active_buff_dict.off(*blist)
                     except:
                         pass
                     return
-                if bctrl.startswith('-refresh'):
+                if bctrl == '-refresh':
                     try:
-                        return self.buff.on(base, group, aseq)
-                    except KeyError:
-                        bctrl_parts = bctrl.split('_')
-                        if len(bctrl_parts) > 1:
-                            bctrl = bctrl_parts[0]
-                            bctrl_args = bctrl_parts[1:]
-                            tgroup, tseq = bctrl_args
-                            tgroup = tgroup if not tgroup.isdigit() else int(tgroup)-1
-                            tseq = int(tseq)
-                            try:
-                                return self.buff.on(base, tgroup, tseq)
-                            except:
-                                pass
-                if bctrl == '-replace':
-                    self.buff.off_all(base)
-                    try:
-                        return self.buff.on(base, group, aseq)
+                        return self.active_buff_dict.on(base, group, aseq)
                     except KeyError:
                         pass
+                if bctrl == '-replace':
+                    self.active_buff_dict.off_all(base, aseq)
+                    try:
+                        return self.active_buff_dict.on(base, group, aseq)
+                    except KeyError:
+                        pass
+                if bctrl.startswith('-overwrite'):
+                    # does not support multi buffs
+                    try:
+                        ow_buff = self.active_buff_dict.get_overwrite(bctrl)
+                        v_current = abs(ow_buff.value())
+                        d_current = ow_buff.duration
+                        v_new = abs(blist[1])
+                        d_new = blist[2]
+                        if v_new > v_current:
+                            ow_buff.off()
+                        elif v_new == v_current:
+                            if d_new == d_current:
+                                ow_buff.on()
+                                return
+                            else:
+                                ow_buff.off()
+                        else:
+                            return
+                    except:
+                        pass
+                    buff = self.hitattr_buff(name, base, group, aseq, 0, blist)
+                    if buff:
+                        self.active_buff_dict.add_overwrite(base, group, aseq, buff.on(), bctrl)
+                    return
             if isinstance(blist[0], list):
                 buff_objs = []
                 for bseq, attrbuff in enumerate(blist):
@@ -1683,11 +1745,11 @@ class Adv(object):
                     if obj:
                         buff_objs.append(obj)
                 if buff_objs:
-                    self.buff.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
+                    self.active_buff_dict.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
             else:
                 buff = self.hitattr_buff(name, base, group, aseq, 0, blist)
                 if buff:
-                    self.buff.add(base, group, aseq, buff.on())
+                    self.active_buff_dict.add(base, group, aseq, buff.on())
 
     def hitattr_buff(self, name, base, group, aseq, bseq, attrbuff):
         btype = attrbuff[0]
@@ -1696,24 +1758,29 @@ class Adv(object):
         else:
             bargs = attrbuff[1:]
             try:
-                return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs)
+                return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs, source=name)
             except ValueError:
                 return None
 
     def l_hitattr_make(self, t):
         self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, t.onhit)
         if t.pin is not None:
-            self.think_pin(t.pin+'-h')
-            Event(t.pin+'-h')()
+            self.think_pin(f'{t.pin}-h')
+            p = Event(f'{t.pin}-h')
+            p.is_hit = t.name in self.damage_sources
+            p()
         if t.proc is not None:
             t.proc(t)
         if t.actmod:
             self.actmod_off(t)
 
     ATTR_COND = {
+        'hp>': lambda s, v: s.hp > v,
         'hp>=': lambda s, v: s.hp >= v,
+        'hp<': lambda s, v: s.hp < v,
         'hp<=': lambda s, v: s.hp <= v,
-        'rng': lambda s, v: random.random() <= v
+        'rng': lambda s, v: random.random() <= v,
+        'hits': lambda s, v: s.hits >= v
     }
     def do_hitattr_make(self, e, aseq, attr, pin=None):
         if 'cond' in attr:
@@ -1756,7 +1823,9 @@ class Adv(object):
             e.attr = attr
             self.hitattr_make(e.name, e.base, e.group, aseq, attr, onhit)
             if pin is not None:
-                Event(f'{pin}-h-{aseq}')()
+                p = Event(f'{pin}-h')
+                p.is_hit = e.name in self.damage_sources
+                p()
         return None
 
     def schedule_hits(self, e, conf, pin=None):
@@ -1793,11 +1862,13 @@ class Adv(object):
             self.actmod_off(e)
         self.think_pin(pin or e.name)
 
+    @allow_acl
     def l_fs(self, e):
         log('cast', e.name)
         self.actmod_on(e)
         self.hit_make(e, self.conf[e.name], pin=e.name.split('_')[0])
 
+    @allow_acl
     def l_s(self, e):
         if e.name == 'ds':
             return
@@ -1806,14 +1877,17 @@ class Adv(object):
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
 
+    @allow_acl
     def c_fs(self, group):
         if self.current_fs == group and self.alt_fs_buff is not None:
             return self.alt_fs_buff.uses
         return 0
 
+    @allow_acl
     def c_x(self, group):
         return self.current_x == group
 
+    @allow_acl
     def c_s(self, seq, group):
         return self.current_s[f's{seq}'] == group
 
@@ -1821,10 +1895,34 @@ class Adv(object):
     def dgauge(self):
         return self.dragonform.dragon_gauge
 
+    @property
+    def bleed_stack(self):
+        try:
+            return self.bleed._static['stacks']
+        except AttributeError:
+            return 0
+
+    @allow_acl
+    def aff(self, afflictname=None):
+        if not afflictname:
+            return any([getattr(self.afflics, afflictname).get() for afflictname in AFFLICT_LIST])
+        return getattr(self.afflics, afflictname).get()
+
+    @allow_acl
+    def aff_timeleft(self, afflictname):
+        return getattr(self.afflics, afflictname).timeleft()
+
+    @allow_acl
+    def buff(self, *args):
+        return self.active_buff_dict.check(*args)
+
+    @allow_acl
+    def timeleft(self, *args):
+        return self.active_buff_dict.timeleft(*args)
+
     def stop(self):
         doing = self.action.getdoing()
         if doing.status == Action.RECOVERY or doing.status == Action.OFF:
             Timeline.stop()
             return True
         return False
-

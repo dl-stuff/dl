@@ -1,0 +1,164 @@
+{
+  "180": {
+    "base": {
+      "dps": 55507.767536506435,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and aff()",
+        "`s1",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 59953.52990562209,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, fsc and not buff(s3)",
+        "`s4, fsc",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and aff()",
+        "`s1, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "buffer": {
+      "dps": 28886.41612824318,
+      "team": 0.11947553517312157,
+      "tdps": 222818.43198851193,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and aff()",
+        "`s1",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 40389.40778644913,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s and not energy()=5",
+        "`s3, fsc and not buff(s3)",
+        "if self.sim_afflict",
+        "`s4, fsc and (self.energy() = 0 or self.s2.count=3)",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and aff(burn) and (self.energy()=0 or self.s4.charged < self.s4.sp - 1000)",
+        "else",
+        "`s4, fsc and not energy()=5",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and (aff(burn) or aff(poison))",
+        "end",
+        "`s1, fsc",
+        "`fs, x=2 and self.s1.charged >=1682",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 66039.97129543748,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, fsc and not buff(s3)",
+        "`s4, fsc",
+        "`s2, self.s2.flames=3 and self.s2.count=3 and aff()",
+        "`s1, fsc",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    }
+  }
+}

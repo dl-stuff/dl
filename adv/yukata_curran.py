@@ -16,7 +16,6 @@ class Yukata_Curran(Adv):
         """
     conf['coabs'] = ['Sharena','Lucretia','Peony']
     conf['share'] = ['Summer_Patia']
-    conf['afflict_res.paralysis'] = 0
     conf['attenuation.hits'] = 1
 
     def prerun(self):

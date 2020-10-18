@@ -7,7 +7,13 @@ class Lathna(Adv):
     comment = 'cat sith skill damage does not work on s1 extra hits'
     
     conf = {}
-    conf['slots.a'] = ['Dragon_and_Tamer', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+        'Dragon_and_Tamer',
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'The_Plaguebringer',
+        'Dueling_Dancers'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), cancel
         `s3, not buff(s3)
@@ -16,7 +22,7 @@ class Lathna(Adv):
         `s1(all), x=5
         """
     conf['coabs'] = ['Ieyasu','Wand','Forte']
-    conf['share.base'] = ['Kleimann']
+    conf['share.base'] = ['Rodrigo']
     conf['share.poison'] = ['Curran']
         
     # conf['dragonform'] = {
@@ -48,6 +54,7 @@ class Lathna(Adv):
     def prerun_skillshare(adv, dst):
         adv.current_s[dst] = 'all'
 
+    @allow_acl
     def s(self, n, s1_kind=None):
         if n == 1 and s1_kind == 'all':
             self.current_s['s1'] = s1_kind
@@ -55,14 +62,19 @@ class Lathna(Adv):
             self.current_s['s1'] = 'default'
         return super().s(n)
 
-    def s1_proc(self, e):
+    def s1_do_hit(self, t):
         # reeeeeee fix ur shit cykagames
         with KillerModifier('s1_killer', 'hit', 0.6, ['poison']):
-            for _ in range(4):
-                self.dmg_make(e.name, 2.37/(1 + self.sub_mod('s', 'buff')))
-                self.add_combo(e.name)
-        # spaget
-        self.last_c = now() + 1
+            self.dmg_make(t.name, 2.61/(1 + self.sub_mod('s', 'buff')))
+            self.add_combo(t.name)
+
+    def s1_proc(self, e):
+        if e.group != 'all':
+            return
+        for i in range(4):
+            t = Timer(self.s1_do_hit)
+            t.name = e.name
+            t.on(i*0.4+0.4)
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

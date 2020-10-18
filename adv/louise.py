@@ -5,7 +5,13 @@ def module():
 
 class Louise(Adv):
     conf = {}
-    conf['slots.a'] = ['Resounding_Rendition', 'The_Fires_of_Hate']
+    conf['slots.a'] = [
+    'Forest_Bonds',
+    'Flash_of_Genius',
+    'Dear_Diary',
+    'The_Plaguebringer',
+    'Chariot_Drift'
+    ]
     conf['acl'] = """
         `dragon(c3-s-end), s2.check()
         `s3, not buff(s3)
@@ -14,10 +20,9 @@ class Louise(Adv):
         `s2
         `fs, x=4
         """
-    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Lin_You']
+    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
     conf['share'] = ['Curran']
-    conf['afflict_res.poison'] = 0
-
+    
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

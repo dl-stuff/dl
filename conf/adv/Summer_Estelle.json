@@ -7,15 +7,15 @@
         "ele": "water",
         "wt": "wand",
         "spiral": false,
-        "a": [["bt", 0.2]]
+        "a": [["bt", 0.2], ["k_demihuman", 0.25]]
     },
     "s1": {
         "sp": 2711,
         "startup": 0.1,
         "recovery": 1.66667,
         "attr": [
-            {"dmg": 4.4, "buff": ["debuff", -0.05, 10.0, 0.4, "def"], "iv": 0.96667},
-            {"dmg": 4.4, "iv": 1.16667}
+            {"dmg": 6.6, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_6"], "iv": 0.96667},
+            {"dmg": 6.6, "iv": 1.16667}
         ]
     },
     "s2": {
@@ -23,7 +23,7 @@
         "startup": 0.1,
         "recovery": 1.63333,
         "attr": [
-            {"buff": ["ele", 0.15, 15.0, "att", "buff", "water"], "iv": 0.63333}
+            {"buff": ["ele", 0.2, 15.0, "att", "buff", "water"], "iv": 0.63333}
         ]
     }
 }

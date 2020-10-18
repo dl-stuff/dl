@@ -6,17 +6,53 @@ def module():
 
 class Gala_Alex(adv.gala_alex.Gala_Alex):
     conf = adv.gala_alex.Gala_Alex.conf.copy()
+    conf['slots.a'] = [
+        'Howling_to_the_Heavens',
+        'Memory_of_a_Friend',
+        'The_Shining_Overlord',
+        'His_Clever_Brother',
+        'The_Plaguebringer'
+    ]
     conf['acl'] = """
         queue
         `s1; fs, x=4
         `s2; fs, x=4
         `s1; fs, x=4
-        `s2; s1
+        `s2;
+        `s1;
         end
     """
+    conf['coabs.base'] = ['Ieyasu','Wand','Summer_Patia']
+    conf['share.base'] = ['Fjorm']
+    conf['sim_afflict.frostbite'] = 1
 
-    def __init__(self, conf=None, cond=None):
-        super().__init__(conf=conf, cond=cond, altchain='break')
+    def __init__(self, **kwargs):
+        kwargs['equip_key'] = None
+        super().__init__(altchain='break', **kwargs)
+
+    def pre_conf(self, equip_key=None):
+        self.conf = Conf(self.conf_default)
+        self.conf.update(globalconf.get_adv(self.name))
+        self.conf.update(self.conf_base)
+        # equip = globalconf.load_equip_json(self.name)
+        # equip_d = equip.get(str(int(self.duration)))
+        # if not equip_d:
+        #     equip_d = equip.get('180')
+        # if equip_d:
+        #     if equip_key is None:
+        #         equip_key = equip_d.get('pref', 'base')
+        #         self.equip_key = equip_key
+        #     elif equip_key == 'affliction':
+        #         from core.simulate import ELE_AFFLICT
+        #         self.equip_key = 'affliction'
+        #         equip_key = ELE_AFFLICT[self.conf.c.ele]
+        #     if equip_key in equip_d:
+        #         self.conf.update(equip_d[equip_key])
+        #         self.equip_key = self.equip_key or equip_key
+        #     elif 'base' in equip_d:
+        #         self.conf.update(equip_d['base'])
+        self.conf.update(self.conf_init)
+        return None
 
     def prerun(self):
         super().prerun()

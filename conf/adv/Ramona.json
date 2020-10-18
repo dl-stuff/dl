@@ -10,20 +10,23 @@
         "a": [["primed_att", 0.1], ["bc", 0.13]]
     },
     "s1": {
-        "attr": [{"dmg": 3.76}, {"dmg": 2.93}, 3],
-        "recovery": 3.15,
         "sp": 3033,
-        "startup": 0.1
+        "recovery": 3.15,
+        "startup": 0.1,
+        "attr": [
+            {"dmg": 3.76, "killer": [0.3, ["burn"]], "iv": 0.78788},
+            {"dmg": 2.93, "killer": [0.3, ["burn"]], "iv": 1.45455},
+            {"dmg": 2.93, "killer": [0.3, ["burn"]], "iv": 1.93939},
+            {"dmg": 2.93, "killer": [0.3, ["burn"]], "iv": 2.42424}
+        ]
     },
     "s1_all": {
-        "attr": [{"dmg": 3.76}, {"dmg": 2.93}, 9],
-        "recovery": 3.15,
         "recovery_nospd": 3.10
     },
     "s2": {
         "sp": 9154,
         "startup": 0.1,
-        "recovery": 1.05,
+        "recovery": 1.0,
         "attr": [
             {"buff": ["team", 0.25, 15.0, "defense", "buff"], "iv": 0.16667}
         ]

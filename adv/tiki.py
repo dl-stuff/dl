@@ -38,16 +38,16 @@ class Tiki(Adv):
             # buffs=[Selfbuff('divine_dragon', self.dragonform.ddamage(), -1, 'att', 'dragon')], # reeee
             x=True, s1=True, s2=True
         ), max_gauge=1800, shift_cost=560, drain=40)
-        Event('dragon_end').listener(self.dragondrive_on)
-        Event('dragondrive_end').listener(self.dragondrive_off)
+        Event('dragon_end').listener(self.a_dragondrive_on)
+        Event('dragondrive_end').listener(self.a_dragondrive_off)
 
-    def dragondrive_on(self, e):
+    def a_dragondrive_on(self, e):
         self.a_fs_dict['fs'].set_enabled(False)
         self.s3.set_enabled(False)
         self.s4.set_enabled(False)
         self.charge_p('divine_dragon', 100)
 
-    def dragondrive_off(self, e):
+    def a_dragondrive_off(self, e):
         self.a_fs_dict['fs'].set_enabled(True)
         self.s3.set_enabled(True)
         self.s4.set_enabled(True)

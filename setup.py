@@ -17,7 +17,9 @@ def run():
         'core/log.py',
         'core/modifier.py',
         'core/simulate.py',
+        'core/slots.py',
         'core/timeline.py',
+        'module/template.py',
         'module/bleed.py',
         'module/tension.py'
     ]

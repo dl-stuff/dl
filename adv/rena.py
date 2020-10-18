@@ -14,7 +14,6 @@ class Rena(Adv):
         `s4, x=5
         """
     conf['coabs'] = ['Wand', 'Serena', 'Marth']
-    conf['afflict_res.burn'] = 0
     conf['share'] = ['Summer_Patia']
 
 

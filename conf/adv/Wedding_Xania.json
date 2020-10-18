@@ -7,17 +7,21 @@
         "ele": "wind",
         "wt": "staff",
         "spiral": false,
-        "a": [["prep", 0.5]]
+        "a": [["prep", 50]]
     },
     "s1": {
         "sp": 7888,
         "startup": 0.1,
-        "recovery": 1.3
+        "recovery": 1.3,
+        "attr": [
+            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 1.33333}
+        ],
+        "energizable": true
     },
     "s2": {
         "sp": 13804,
         "startup": 0.1,
-        "recovery": 1.05,
+        "recovery": 1.0,
         "attr": [
             {"buff": ["team", 0.1, 15.0, "defense", "buff"], "iv": 0.4}
         ]

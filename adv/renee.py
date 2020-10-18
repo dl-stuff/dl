@@ -22,7 +22,6 @@ class Renee(Adv):
         `fs, x=5
         """
     conf['coabs'] = ['Blade', 'Xander', 'Summer_Estelle']
-    conf['afflict_res.bog'] = 100
     conf['share'] = ['Gala_Elisanne', 'Eugene']
 
 

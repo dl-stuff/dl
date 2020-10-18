@@ -4,14 +4,20 @@ import os
 from core import Conf
 
 ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
-WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff')
+WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun')
+TRIBE_TYPES = ('thaumian', 'physian', 'demihuman', 'therion', 'undead', 'demon', 'human', 'dragon')
+
 ROOT_DIR = os.getenv('ROOT_DIR', os.path.realpath(os.path.join(__file__, '../..')))
+
+def save_json(fn, data, indent=None):
+    froot = os.path.join(ROOT_DIR, 'conf')
+    fpath = os.path.join(froot, fn)
+    with open(fpath, 'w', encoding='utf8') as f:
+        return json.dump(data, f, ensure_ascii=False, indent=indent)
 
 def load_json(fn):
     froot = os.path.join(ROOT_DIR, 'conf')
     fpath = os.path.join(froot, fn)
-    if not os.path.exists(fpath):
-        fpath = os.path.join(froot, 'conf', fn)
     with open(fpath, 'r', encoding='utf8') as f:
         return json.load(f, parse_float=float, parse_int=int)
 
@@ -46,6 +52,29 @@ def load_adv_json(adv):
         advconfs[adv] = aconf
         return aconf
 
+advequip = {}
+def load_equip_json(adv):
+    try:
+        return advequip[adv]
+    except KeyError:
+        try:
+            equip = load_json(f'equip/{adv}.json')
+        except:
+            equip = {}
+        advequip[adv] = equip
+        return equip
+
+def load_all_equip_json():
+    froot = os.path.join(ROOT_DIR, 'conf', 'equip')
+    for root, _, files in os.walk(froot):
+        for fn in files:
+            load_equip_json(os.path.splitext(fn)[0])
+    return advequip
+
+def save_equip_json(adv, equip):
+    advequip[adv] = equip
+    save_json(f'equip/{adv}.json', equip, indent=2)
+
 def get_icon(adv):
     try:
         return load_adv_json(adv)['c']['icon']
@@ -63,9 +92,20 @@ def get_adv(name):
 
     wt = conf.c.wt
     base = baseconfs[wt]
-    conf.update(Conf(base), rebase=True)
+    baseconf = Conf(base)
+
     if bool(conf.c.spiral):
-        conf.update(conf.lv2)
-    del conf['lv2']
+        baseconf.update(baseconf.lv2)
+    del baseconf['lv2']
+
+    if wt == 'gun' and len(conf.c.gun) == 1:
+        # move gun[n] to base combo
+        target = conf.c.gun[0]
+        for xn, xconf in list(baseconf.find(r'^(x\d|fsf?)_gun\d$')):
+            if int(xn[-1]) == target:
+                baseconf[xn.split('_')[0]] = xconf
+            del baseconf[xn]
+
+    conf.update(baseconf, rebase=True)
 
     return conf

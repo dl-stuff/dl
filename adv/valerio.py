@@ -20,7 +20,6 @@ class Valerio(StanceAdv, RngCritAdv):
         `s1(dessert)
     """
     conf['coabs'] = ['Summer_Estelle', 'Renee', 'Xander']
-    conf['afflict_res.frostbite'] = 0
     conf['share'] = ['Gala_Elisanne', 'Ranzal']
 
     def prerun(self):
@@ -41,28 +40,18 @@ class Valerio(StanceAdv, RngCritAdv):
         self.a1_stack = 0
 
     def rngcrit_cb(self, mrate=None):
-        self.a1_buff.set(0.10*mrate)
-        self.a1_buff.on()
+        new_value = 0.10*mrate
+        if not self.a1_buff:
+            self.a1_buff.set(new_value)
+            self.a1_buff.on()
+        else:
+            self.a1_buff.value(new_value)
         self.a1_stack = mrate - 1
 
     @property
     def buffcount(self):
         buffcount = super().buffcount
         return buffcount + self.a1_stack
-
-        # self.crit_mod = self.custom_crit_mod
-        # self.a1_cd = False
-
-    def custom_crit_mod(self, name):
-        if self.a1_cd or name == 'test':
-            return self.solid_crit_mod(name)
-        else:
-            crit = self.rand_crit_mod(name)
-            if crit > 1 and not self.a1_cd:
-                Spdbuff('a1', 0.10, 20).on()
-                self.a1_cd = True
-                Timer(self.a1_cd_off).on(10)
-            return crit
 
     def a1_cd_off(self, t):
         self.a1_cd = False

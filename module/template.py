@@ -6,6 +6,7 @@ from core.log import log
 from core.timeline import now
 from core.advbase import Adv
 from core.modifier import Selfbuff, ModeManager, EffectBuff
+from core.acl import allow_acl
 
 class StanceAdv(Adv):
     def config_stances(self, stance_dict, default_stance=None, hit_threshold=0, deferred=True):
@@ -24,8 +25,13 @@ class StanceAdv(Adv):
                     mode.alt['x'].deferred = deferred
                 except KeyError:
                     pass
-            setattr(self, name, lambda: self.queue_stance(name))
+            queue_stance_fn = self.make_queue_stance_fn(name)
+            queue_stance_fn.allow_acl = True
+            setattr(self, name, queue_stance_fn)
         self.update_stance()
+
+    def make_queue_stance_fn(self, name):
+        return lambda: self.queue_stance(name) and False
 
     def update_stance(self):
         if self.next_stance is not None:
@@ -45,6 +51,11 @@ class StanceAdv(Adv):
             self.stance = self.next_stance
             self.next_stance = None
 
+    def x(self, x_min=1):
+        if self.can_change_combo():
+            self.stance_dict[self.stance].alt['x'].on()
+        super().x(x_min=x_min)
+
     def queue_stance(self, stance):
         if self.can_queue_stance(stance):
             self.next_stance = stance
@@ -61,8 +72,14 @@ class StanceAdv(Adv):
         )
     
     def can_change_combo(self):
-        return self.has_alt_x and self.hits >= self.hit_threshold
+        return (
+            self.has_alt_x and
+            self.hits >= self.hit_threshold and
+            not self.stance_dict[self.stance].alt['x'].get() and
+            not self.Skill._static.silence == 1
+        )
 
+    @allow_acl
     def s(self, n, stance=None):
         if stance:
             self.queue_stance(stance)
@@ -96,7 +113,7 @@ class RngCritAdv(Adv):
         self.rngcrit_cd = False
 
     def ev_custom_crit_mod(self, name):
-        if name == 'test':
+        if name == 'test' or self.rngcrit_skip():
             return self.solid_crit_mod(name)
         else:
             chance, cdmg = self.combine_crit_mods()
@@ -116,16 +133,9 @@ class RngCritAdv(Adv):
                     new_states[state] += miss_rate * state_p
                     newest = (t, self.effect_duration*bt)
                     new_states[(newest,)+state] = chance * state_p
-            # print('sanity', sum(new_states.values()))
             new_states[(None,)] += 1 - sum(new_states.values())
-            # print('TIME', t)
-            # for s, p in new_states.items():
-            #     print(s, p)
-            # print('SUM', sum(new_states.values()))
-            # print('\n')
             mrate = reduce(lambda mv, s: mv + (sum(int(b is not None) for b in s[0]) * s[1]), new_states.items(), 0)
             if self.prev_log_time == 0 or self.prev_log_time < t - self.rngcrit_cd_duration:
-                log('rngcrit', mrate)
                 self.prev_log_time = t
             self.rngcrit_cb(mrate)
             self.rngcrit_states = new_states
@@ -148,16 +158,16 @@ class RngCritAdv(Adv):
 class SigilAdv(Adv):
     def config_sigil(self, duration=300, **kwargs):
         self.unlocked = False
-        self.locked_sigil = EffectBuff('locked_sigil', 300, lambda: None, self.sigil_unlock).no_bufftime()
+        self.locked_sigil = EffectBuff('locked_sigil', 300, lambda: None, self.a_sigil_unlock).no_bufftime()
         self.locked_sigil.on()
         self.sigil_mode = ModeManager(group='sigil', **kwargs)
 
-    def sigil_unlock(self):
+    def a_sigil_unlock(self):
         self.unlocked = now()
         self.sigil_mode.on()
 
-    def update_sigil(self, time):
+    def a_update_sigil(self, time):
         duration = self.locked_sigil.buff_end_timer.add(time)
         if duration <= 0:
             self.locked_sigil.off()
-            self.sigil_unlock()
+            self.a_sigil_unlock()

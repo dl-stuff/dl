@@ -1,15 +1,16 @@
 from itertools import chain, islice
 from collections import defaultdict
+from collections import namedtuple
 
-from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS
+from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS, WEAPON_TYPES
 from core.config import Conf
 from core.ability import ability_dict
 
-def all_subclasses(c):
-    return set(c.__subclasses__()).union([s for c in c.__subclasses__() for s in all_subclasses(c)])
+def all_subclasses(cl):
+    return set(cl.__subclasses__()).union([s for c in cl.__subclasses__() for s in all_subclasses(c)])
 
-def subclass_dict(c):
-    return {sub_class.__name__: sub_class for sub_class in all_subclasses(c)}
+def subclass_dict(cl):
+    return {sub_class.__name__: sub_class for sub_class in all_subclasses(cl)}
 
 class SlotBase:
     KIND = 's'
@@ -49,50 +50,80 @@ class SlotBase:
 
 class CharaBase(SlotBase):
     AUGMENTS = 100
-    FAC_ELEMENT = {
+    FAC_ELEMENT_ATT = {
         'all': {'altar1': 0.115, 'altar2': 0.115, 'slime': 0.04},
         'flame': {'tree': 0.26, 'arctos': 0.085},
         'water': {'tree': 0.16, 'yuletree': 0.085, 'dragonata': 0.085},
-        'wind': {'tree': 0.16, 'shrine': 0.085},
+        'wind': {'tree': 0.26, 'shrine': 0.085},
         'light': {'tree': 0.16, 'retreat': 0.085, 'circus': 0.085},
         'shadow': {'tree': 0.26, 'library': 0.07}
     }
-    FAC_WEAPON = {
-        'all': {'dojo1': 0.15, 'dojo2': 0.15},
+    FAC_ELEMENT_HP = FAC_ELEMENT_ATT.copy()
+    FAC_ELEMENT_HP['flame']['arctos'] = 0.095
+    FAC_ELEMENT_HP['water']['yuletree'] = 0.095
+    FAC_ELEMENT_HP['water']['dragonata'] = 0.095
+    FAC_ELEMENT_HP['wind']['shrine'] = 0.095
+    FAC_ELEMENT_HP['light']['retreat'] = 0.095
+    FAC_ELEMENT_HP['light']['circus'] = 0.095
+    FAC_ELEMENT_HP['shadow']['library'] = 0.085
+
+    FAC_WEAPON_ATT = {
+        'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.195},
         'dagger': 0.05, 'bow': 0.05, 'blade': 0.05, 'wand': 0.05,
-        'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05
+        'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
+        'gun': -0.15 # i am the fucking smart
     }
+    FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
+
+    NON_UNIQUE_COABS = ('Sword', 'Blade', 'Dagger', 'Bow', 'Wand', 'Axe2', 'Dagger2')
+    MAX_COAB = 3 # max allowed coab, excluding self
     def __init__(self, conf, qual=None):
         super().__init__(conf, qual)
         self.coabs = {}
-        self.max_coab = 4
+        self.coab_list = []
+        self.coab_qual = None
         self.valid_coabs = elecoabs[self.ele]
-        try:
-            coab = self.valid_coabs[self.qual]
-            chain = coab[0]
-            if chain is None or len(chain)<3 or chain[2] != 'hp≤40':
-                self.coabs[self.qual] = coab
-        except:
+        if self.conf['ex']:
+            self.coabs[self.qual] = self.conf['ex']
+            self.coab_qual = self.qual
+        else:
             try:
-                wt = self.wt
-                upper_wt = wt[0].upper() + wt[1:].lower()
-                self.coabs[upper_wt] = self.valid_coabs[upper_wt]
-            except:
-                pass
+                self.coabs[self.qual] = self.valid_coabs[self.qual]
+                self.coab_qual = self.qual
+            except KeyError:
+                try:
+                    wt = self.wt
+                    upper_wt = wt[0].upper() + wt[1:].lower()
+                    self.coabs[upper_wt] = self.valid_coabs[upper_wt]
+                    self.coab_qual = upper_wt
+                except KeyError:
+                    pass
 
     @property
     def ab(self):
         full_ab = list(super().ab)
         ex_set = set()
-        coabs = list(islice(self.coabs.items(), self.max_coab))
+        max_coabs = CharaBase.MAX_COAB
+        coabs = list(self.coabs.items())
         self.coabs = {}
+        self.coab_list = []
         for key, coab in coabs:
+            # alt check
+            if key not in CharaBase.NON_UNIQUE_COABS:
+                base_key = key.split('_')[-1]
+                if any([ckey in base_key or base_key in ckey for ckey in self.coabs.keys()]):
+                    continue
             self.coabs[key] = coab
+            if key != self.coab_qual:
+                self.coab_list.append(key)
+                max_coabs -= 1
             chain, ex = coab
             if ex:
                 ex_set.add(('ex', ex))
             if chain:
                 full_ab.append(tuple(chain))
+            if max_coabs == 0:
+                break
         full_ab.extend(ex_set)
         if self.wt == 'axe':
             full_ab.append(('cc', 0.04))
@@ -103,15 +134,17 @@ class CharaBase(SlotBase):
 
     @property
     def att(self):
-        FE = CharaBase.FAC_ELEMENT
-        FW = CharaBase.FAC_WEAPON
+        FE = CharaBase.FAC_ELEMENT_ATT
+        FW = CharaBase.FAC_WEAPON_ATT
         halidom_mods = 1 + sum(FE['all'].values()) + sum(FE[self.ele].values()) + sum(FW['all'].values()) + FW[self.wt]
         return super().att * halidom_mods
 
-    # @property
-    # def hp(self):
-    #     # FIXME - halidom calcs
-    #     return self.conf.hp + self.AUGMENTS
+    @property
+    def hp(self):
+        FE = CharaBase.FAC_ELEMENT_HP
+        FW = CharaBase.FAC_WEAPON_HP
+        halidom_mods = 1 + sum(FE['all'].values()) + sum(FE[self.ele].values()) + sum(FW['all'].values()) + FW[self.wt]
+        return super().hp * halidom_mods
 
     @property
     def ele(self):
@@ -160,8 +193,10 @@ class DragonBase(EquipBase):
         'dodge.startup': 0.66667,
         'dodge.recovery': 0,
 
-        'end.startup': 0, # amount of time needed to kys, 0 default
-        'end.recovery': 0
+        'end.startup': 0,
+        'end.recovery': 0,
+        'allow_end': 3.0, # time before force end is allowed, not including the time needed for skill
+        'allow_end_step': 2.0, # for each shift, add this amount of time to allow_end
     }
     def __init__(self, conf, c, qual=None):
         super().__init__(conf.d, c, qual)
@@ -171,7 +206,7 @@ class DragonBase(EquipBase):
         from core.dragonform import DragonForm
         for dn, dconf in self.dragonform.items():
             if isinstance(dconf, dict):
-                adv.damage_sources_check(dn, dconf)
+                adv.hitattr_check(dn, dconf)
         if adv.conf['dragonform']:
             name = self.c.name
             self.dragonform.update(adv.conf['dragonform'])
@@ -185,6 +220,10 @@ class DragonBase(EquipBase):
         return super().att * (1 + DragonBase.FAFNIR)
 
     @property
+    def hp(self):
+        return super().hp * (1 + DragonBase.FAFNIR)
+
+    @property
     def ele(self):
         return self.conf.ele
 
@@ -192,10 +231,6 @@ class DragonBase(EquipBase):
     def ab(self):
         return super().ab if self.on_ele else []
 
-    # @property
-    # def hp(self):
-    #     # FIXME - halidom calcs
-    #     return self.conf.hp + self.AUGMENTS
 
 from core.modifier import EffectBuff, SingleActionBuff
 from core.timeline import Timer, now
@@ -275,7 +310,7 @@ class Summer_Konohana_Sakuya(DragonBase):
             adv.summer_sakuya_flowers += 1
             try:
                 adv.Selfbuff(
-                    f'd_sakuya_flower_{adv.summer_sakuya_flowers}', 
+                    f'd_sakuya_flower_{adv.summer_sakuya_flowers}',
                     *self.FLOWER_BUFFS[adv.summer_sakuya_flowers]
                 ).on()
             except KeyError:
@@ -348,7 +383,7 @@ class Nyarlathotep(DragonBase):
         bloody_tongue(0)
         buff_rate = 90
         if adv.condition(f'hp=30% every {buff_rate}s'):
-            buff_times = adv.duration // buff_rate
+            buff_times = int(adv.duration // buff_rate)
             for i in range(1, buff_times):
                 adv.Timer(bloody_tongue).on(buff_rate*i)
 
@@ -358,6 +393,13 @@ class Ramiel(DragonBase):
         sp_regen_timer = Timer(lambda _: adv.charge_p('ds_sp', 0.0075, target=['s1', 's2']), 0.99, True)
         sp_regen_buff = EffectBuff('ds_sp', 90, lambda: sp_regen_timer.on(), lambda: sp_regen_timer.off())
         adv.Event('ds').listener(lambda _: sp_regen_buff.on())
+
+
+class Gold_Fafnir(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        # disabled for convienance
+        adv.dragonform.disabled = True
 ### SHADOW DRAGONS ###
 
 
@@ -365,22 +407,22 @@ class WeaponBase(EquipBase):
     AGITO_S3 = {
         'flame': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.20, -1, 'att', 'buff'], ['self', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'], ['self', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.05, -1, 'regen', 'buff', '-replace']}]}
         },
         'water': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': ['self', 0.12, -1, 'crit', 'chance', '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.20, -1, 'att', 'buff'], ['self', 0.12, -1, 'crit', 'chance'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.35, -1, 'defense', 'buff', '-replace']}]}
         },
         'wind': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': ['self', 0.25, -1, 'att', 'buff', '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'], ['self', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.50, -1, 'defense', 'buff', '-replace']}]}
         },
         'light': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': ['self', 0.20, -1, 'att', 'buff', '-replace']}]}
+            's3_phase1': {'attr': [{'buff': ['self', 0.40, -1, 'att', 'buff', '-replace']}]}
         },
         'shadow': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
@@ -392,89 +434,101 @@ class WeaponBase(EquipBase):
         'sword': {
             'startup': 0.1, 'recovery': 1.76667,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333},
                 {'dmg': 1.984, 'dp': 100, 'iv': 0.63333},
                 {'dmg': 1.984, 'iv': 0.8},
                 {'dmg': 1.984, 'iv': 0.93333},
                 {'dmg': 1.984, 'iv': 1.06667},
-                {'dmg': 1.984, 'iv': 1.23333},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333}
+                {'dmg': 1.984, 'iv': 1.23333}
             ]
         },
         'blade': {
             'startup': 0.1, 'recovery': 2.2,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333},
                 {'dmg': 1.704, 'dp': 100, 'iv': 0.33333},
                 {'dmg': 1.704, 'iv': 0.63333},
                 {'dmg': 1.704, 'iv': 0.8},
                 {'dmg': 1.704, 'iv': 0.93333},
-                {'dmg': 1.704, 'iv': 1.06667},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333}
+                {'dmg': 1.704, 'iv': 1.06667}
             ]
         },
         'dagger': {
             'startup': 0.1, 'recovery': 2.43333,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.2},
                 {'dmg': 1.312, 'dp': 100, 'iv': 0.26667},
                 {'dmg': 1.312, 'iv': 0.7},
                 {'dmg': 1.312, 'iv': 1.1},
                 {'dmg': 1.312, 'iv': 1.3},
-                {'dmg': 1.312, 'iv': 1.6},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.2}
+                {'dmg': 1.312, 'iv': 1.6}
             ]
         },
         'axe': {
             'startup': 0.1, 'recovery': 2.1,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.56667},
                 {'dmg': 2.26, 'dp': 100, 'iv': 0.66667},
                 {'dmg': 2.26, 'iv': 0.9},
                 {'dmg': 2.26, 'iv': 1.2},
                 {'dmg': 2.26, 'iv': 1.43333},
-                {'dmg': 2.26, 'iv': 1.5},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.56667}
+                {'dmg': 2.26, 'iv': 1.5}
             ]
         },
         'lance': {
             'startup': 0.1, 'recovery': 3.23333,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.5},
                 {'dmg': 1.656, 'dp': 100, 'iv': 0.86667},
                 {'dmg': 1.656, 'iv': 0.96667},
                 {'dmg': 1.656, 'iv': 1.9},
                 {'dmg': 1.656, 'iv': 2.0},
-                {'dmg': 1.656, 'iv': 2.1},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.5}
+                {'dmg': 1.656, 'iv': 2.1}
             ]
         },
         'bow': {
             'startup': 0.1, 'recovery': 2.0,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.53333},
                 {'dmg': 1.898, 'dp': 100, 'iv': 0.66667, 'msl': 1},
                 {'dmg': 1.898, 'iv': 0.8, 'msl': 1},
                 {'dmg': 1.898, 'iv': 0.9, 'msl': 1},
                 {'dmg': 1.898, 'iv': 1.5, 'msl': 1},
-                {'dmg': 1.898, 'iv': 1.53333, 'msl': 1},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.53333}
+                {'dmg': 1.898, 'iv': 1.53333, 'msl': 1}
             ]
         },
         'wand': {
             'startup': 0.1, 'recovery': 1.66667,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667},
                 {'dmg': 2.168, 'dp': 100, 'iv': 0.96667},
                 {'dmg': 2.168, 'iv': 1.06667},
                 {'dmg': 2.168, 'iv': 1.13333},
                 {'dmg': 2.168, 'iv': 1.26667},
-                {'dmg': 2.168, 'iv': 1.26667},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667}
+                {'dmg': 2.168, 'iv': 1.26667}
             ]
         },
         'staff': {
             'startup': 0.1, 'recovery': 1.4,
             'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667},
                 {'dmg': 1.51, 'dp': 100, 'iv': 0.83333},
                 {'dmg': 1.51, 'iv': 1.0},
                 {'dmg': 1.51, 'iv': 1.16667},
                 {'dmg': 1.51, 'iv': 1.33333},
-                {'dmg': 1.51, 'iv': 1.36667},
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667}
+                {'dmg': 1.51, 'iv': 1.36667}
+            ]
+        },
+        'gun': {
+            'startup': 0.1, 'recovery': 1.93333,
+            'attr': [
+                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.5},
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'dp': 100, 'iv': 0.66667, 'msl': 1},
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 0.66667, 'msl': 1}, 4,
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 0.86667, 'msl': 1}, 5,
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.06667, 'msl': 1}, 5,
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.26667, 'msl': 1}, 5,
+                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.46667, 'msl': 1}, 5
             ]
         }
     }
@@ -495,49 +549,149 @@ class WeaponBase(EquipBase):
     def ele(self):
         return self.conf.ele
 
+APGroup = namedtuple('APGroup', ['value', 'att', 'restrict', 'condition', 'union', 'qual'])
+class AmuletPicker:
+    UNION_THRESHOLD = {1: 4, 2: 4, 3: 4, 4: 3, 5: 2, 6: 2, 11: 2}
+    def __init__(self):
+        self._grouped = {5: {}, 4: {}}
+        self._grouped_lookup = {}
+        for qual, wp in wyrmprints.items():
+            try:
+                wpa_lst = next(iter(wp['a']))
+                wpa = wpa_lst[0]
+                wpv = wpa_lst[1]
+                try:
+                    parts = wpa_lst[2].split('_')
+                    wpc = tuple(c for c in parts if c not in ELEMENTS and c not in WEAPON_TYPES)
+                    wpr = tuple(c for c in parts if c in ELEMENTS or c in WEAPON_TYPES)
+                except (IndexError, AttributeError):
+                    wpc = tuple()
+                    wpr = tuple()
+            except StopIteration:
+                wpv = 0
+                wpa = (None,)
+                wpc = None
+                wpr = None
+            grouped_value = APGroup(value=wpv, att=wp['att'], restrict=wpr, condition=wpc, union=wp['union'], qual=qual)
+            group_key = 5 if wp['rarity'] == 5 else 4
+            self._grouped_lookup[qual] = (group_key, wpa, grouped_value)
+            try:
+                from bisect import bisect
+                idx = bisect(self._grouped[group_key][wpa], grouped_value)
+                self._grouped[group_key][wpa].insert(idx, grouped_value)
+            except KeyError:
+                self._grouped[group_key][wpa] = [grouped_value]
 
-class AmuletPair:
+    def get_group(self, qual):
+        rare, gkey, gval = self._grouped_lookup[qual]
+        return self._grouped[rare][gkey], gval
+
+    @staticmethod
+    def find_next_matching(bis_i, group, gval, c, retain_union):
+        
+        while bis_i >= 0 and group[bis_i].restrict and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict):
+                bis_i -= 1
+        if group[bis_i].condition:
+            while bis_i >= 0 and group[bis_i].condition and gval.condition != group[bis_i].condition:
+                bis_i -= 1
+        if gval.union in retain_union:
+            while gval.union != group[bis_i].union:
+                bis_i -= 1
+        return bis_i
+
+    def pick(self, amulets, c):
+        retain_union = {}
+        for u, thresh in AmuletPicker.UNION_THRESHOLD.items():
+            u_sum = sum(a.union == u for a in amulets)
+            if u_sum >= thresh:
+                retain_union[u] = u_sum
+
+        new_amulet_quals = set()
+        for a_i, a in enumerate(amulets):
+            group, gval = self.get_group(a.qual)
+            if len(group) == 1:
+                new_amulet_quals.add(a.qual)
+                continue
+            bis_i = len(group) - 1
+            bis_i = self.find_next_matching(bis_i, group, gval, c, retain_union)
+            while group[bis_i].qual in new_amulet_quals:
+                bis_i -= 1
+                bis_i = self.find_next_matching(bis_i, group, gval, c, retain_union)
+            bis_qual = group[bis_i].qual
+            amulets[a_i] = AmuletBase(Conf(wyrmprints[bis_qual]), c, bis_qual)
+            new_amulet_quals.add(bis_qual)
+
+        return amulets
+
+
+class AmuletQuint:
     AB_LIMITS = {
         'a': 0.20, 's': 0.40, 'cc': 0.15, 'cd': 0.25,
         'fs': 0.50, 'bt': 0.30, 'sp': 0.15, 'bk': 0.30,
         'od': 0.15, 'lo_att': 0.60, 'ro_att': 0.10,
         'bc_att': 0.15, 'bc_cd': 0.15, 'bc_energy': 1, 'bc_regen': 3,
         'prep': 100, 'dc': 3, 'dcs': 3, 'da': 0.18, 'dt': 0.20,
+        'spu': 0.08, 'au': 0.08,
         'k_burn': 0.30, 'k_poison': 0.25, 'k_paralysis': 0.25,
         'k_frostbite': 0.25, 'k_stun': 0.25, 'k_sleep': 0.25
     }
+    # actually depends on weapons kms
+    RARITY_LIMITS = {5: 3, None: 2}
+    PICKER = AmuletPicker()
     def __init__(self, confs, c, quals):
-        self.a1 = AmuletBase(confs[0], c, quals[0])
-        self.a2 = AmuletBase(confs[1], c, quals[1])
+        limits = AmuletQuint.RARITY_LIMITS.copy()
+        self.an = []
+        for conf, qual in zip(confs, quals):
+            rk = 5 if conf['rarity'] == 5 else None
+            if limits[rk] == 0:
+                continue
+            limits[rk] -= 1
+            self.an.append(AmuletBase(conf, c, qual))
+        if any(limits.values()):
+            raise ValueError('Unfilled wyrmprint slot')
+        self.an = AmuletQuint.PICKER.pick(self.an, c)
+        self.an.sort(key=lambda a: (-a.rarity, a.name))
         self.c = c
 
     def __str__(self):
-        return f'{self.a1}+{self.a2}'
+        return '+'.join(map(str, self.an))
 
     @property
     def att(self):
-        return self.a1.att + self.a2.att
+        return sum(a.att for a in self.an)
 
     @property
     def hp(self):
-        return self.a1.hp + self.a2.hp
+        return sum(a.hp for a in self.an)
+
+    @property
+    def qual_lst(self):
+        return [a.qual for a in self.an]
+
+    @property
+    def name_lst(self):
+        return (a.name for a in self.an)
+
+    @property
+    def name_icon_lst(self):
+        return chain(*((a.name, a.icon) for a in self.an))
 
     @staticmethod
     def sort_ab(a):
         if len(a) <= 2:
-            return -10 * a[1]
+            return -100 * a[1]
         if 'hp' not in a[2]:
-            return -5 * a[1]
+            return -1 * a[1]
         return a[1]
 
     @property
     def ab(self):
         merged_ab = []
 
-        limits = AmuletPair.AB_LIMITS.copy()
+        limits = AmuletQuint.AB_LIMITS.copy()
         sorted_ab = defaultdict(lambda: [])
         spf_ab = []
-        for a in chain(self.a1.ab, self.a2.ab):
+        for a in chain(*(a.ab for a in self.an)):
             if a[0] in limits:
                 sorted_ab[a[0]].append(a)
             elif a[0] == 'spf':
@@ -546,7 +700,7 @@ class AmuletPair:
                 merged_ab.append(a)
 
         for cat, lst in sorted_ab.items():
-            for a in sorted(lst, key=AmuletPair.sort_ab):
+            for a in sorted(lst, key=AmuletQuint.sort_ab):
                 delta = min(limits[cat], a[1])
                 limits[cat] -= delta
                 merged_ab.append((cat, delta, *a[2:]))
@@ -554,21 +708,35 @@ class AmuletPair:
                     break
 
         if spf_ab and limits['sp'] > 0:
-            for ab in sorted(spf_ab, key=AmuletPair.sort_ab):
+            for ab in sorted(spf_ab, key=AmuletQuint.sort_ab):
                 delta = min(limits['sp'], a[1])
                 limits['sp'] -= delta
                 merged_ab.append(('spf', delta, *a[2:]))
                 if limits['sp'] == 0:
                     break
 
+        union_level = defaultdict(lambda: 0)
+        for a in self.an:
+            if a.union:
+                union_level[a.union] += 1
+        merged_ab.extend((('union', u, l) for u, l in union_level.items()))
+
         return merged_ab
 
 
 class AmuletBase(EquipBase):
     KIND = 'a'
-    AUGMENTS = 100
+    AUGMENTS = 50
     def __init__(self, conf, c, qual=None):
         super().__init__(conf, c, qual)
+
+    @property
+    def union(self):
+        return self.conf.union
+
+    @property
+    def rarity(self):
+        return self.conf.rarity
 
 
 class Slots:
@@ -577,25 +745,32 @@ class Slots:
     DEFAULT_DRAGON = {
         'flame': 'Gala_Mars',
         'water': 'Gaibhne_and_Creidhne',
-        'wind': 'Vayu',
-        'light': 'Gala_Thor',
+        'wind': 'Midgardsormr_Zero',
+        'light': 'Daikokuten',
         'shadow': 'Gala_Cat_Sith'
     }
 
-    DEFAULT_WYRMPRINT = {
-        'sword': ('The_Shining_Overlord', 'Primal_Crisis'),
-        'blade': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
-        'dagger': ('Twinfold_Bonds', {
-            'water': 'The_Prince_of_Dragonyule',
-            'shadow': 'Howling_to_the_Heavens',
-            'all': 'Levins_Champion'
-        }),
-        'axe': ('Kung_Fu_Masters', 'Breakfast_at_Valerios'),
-        'lance': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
-        'wand': ('Candy_Couriers', 'Primal_Crisis'),
-        'bow': ('Forest_Bonds', 'Primal_Crisis'),
-        'staff': ('Resounding_Rendition', 'Breakfast_at_Valerios')
-    }
+    # DEFAULT_WYRMPRINT = {
+    #     'sword': ('The_Shining_Overlord', 'Primal_Crisis'),
+    #     'blade': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
+    #     'dagger': ('Twinfold_Bonds', {
+    #         'water': 'The_Prince_of_Dragonyule',
+    #         'shadow': 'Howling_to_the_Heavens',
+    #         'all': 'Levins_Champion'
+    #     }),
+    #     'axe': ('Kung_Fu_Masters', 'Breakfast_at_Valerios'),
+    #     'lance': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
+    #     'wand': ('Candy_Couriers', 'Primal_Crisis'),
+    #     'bow': ('Forest_Bonds', 'Primal_Crisis'),
+    #     'staff': ('Resounding_Rendition', 'Breakfast_at_Valerios')
+    # }
+    DEFAULT_WYRMPRINT = [
+        'Valiant_Crown',
+        'The_Red_Impulse',
+        'Memory_of_a_Friend',
+        'Dueling_Dancers',
+        'A_Small_Courage'
+    ]
 
     AFFLICT_WYRMPRINT = {
         'flame': 'Me_and_My_Bestie',
@@ -605,9 +780,10 @@ class Slots:
         'shadow': 'The_Fires_of_Hate'
     }
 
-    def __init__(self, name, conf, sim_afflict=None):
+    def __init__(self, name, conf, sim_afflict=None, flask_env=False):
         self.c = CharaBase(conf, name)
         self.sim_afflict = sim_afflict
+        self.flask_env = flask_env
         self.d = None
         self.w = None
         self.a = None
@@ -617,20 +793,18 @@ class Slots:
         return ','.join([
             self.c.name,
             self.c.ele, self.c.wt, str(round(self.att)),
-            self.a.a1.name,
-            self.a.a2.name,
             self.d.name,
-            self.w.name
+            self.w.name,
+            *self.a.name_lst
         ])
 
     def full_slot_icons(self):
         return ','.join([
             self.c.name, self.c.icon,
             self.c.ele, self.c.wt, str(round(self.att)),
-            self.a.a1.name, self.a.a1.icon,
-            self.a.a2.name, self.a.a2.icon,
             self.d.name, self.d.icon,
             self.w.name, self.w.icon,
+            *self.a.name_icon_lst
         ])
 
     @staticmethod
@@ -641,11 +815,9 @@ class Slots:
             k = alias[k.lower()]
             return Conf(source[k]), k
 
-    def set_d(self, key=None, affkey=None):
+    def set_d(self, key=None):
         if not key:
             key = Slots.DEFAULT_DRAGON[self.c.ele]
-        if self.sim_afflict and affkey:
-            key = affkey
         try:
             conf, key = Slots.get_with_alias(dragons[self.c.ele], key)
         except KeyError:
@@ -662,45 +834,23 @@ class Slots:
         except KeyError:
             self.d = DragonBase(conf, self.c, key)
 
-    def set_w(self, key=None, affkey=None):
+    def set_w(self, key=None):
         conf = Conf(weapons[self.c.ele][self.c.wt])
         self.w = WeaponBase(conf, self.c)
 
-    def set_a(self, keys=None, affkeys=None):
-        if not keys:
-            keys = list(Slots.DEFAULT_WYRMPRINT[self.c.wt])
-            try:
-                keys[1] = keys[1][self.c.ele]
-            except KeyError:
-                keys[1] = keys[1]['all']
-            except TypeError:
-                pass
+    def set_a(self, keys=None):
+        if keys is None or len(keys) < 5:
+            keys = list(set(Slots.DEFAULT_WYRMPRINT))
         else:
-            keys = list(keys)
-        if len(keys) < 2:
-            raise ValueError('Only one wyrmprint equipped')
-        if self.sim_afflict:
-            if affkeys:
-                keys = affkeys
-            else:
-                affwp = Slots.AFFLICT_WYRMPRINT[self.c.ele]
-                if affwp not in keys:
-                    keys[1] = affwp
-        if keys[0] == keys[1]:
-            raise ValueError('Cannot equip 2 of the same wyrmprint')
+            keys = list(set(keys))
+        # if len(keys) < 5:
+        #     raise ValueError('Less than 5 wyrmprints equipped')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
-        self.a = AmuletPair(confs, self.c, keys)
+        self.a = AmuletQuint(confs, self.c, keys)
 
     def set_slots(self, confslots):
-        affslots = None
-        if self.sim_afflict:
-            aff = next(iter(self.sim_afflict))
-            affslots = confslots[aff]
         for t in ('d', 'w', 'a'):
-            if affslots:
-                getattr(self, f'set_{t}')(confslots[t], affslots[t])
-            else:
-                getattr(self, f'set_{t}')(confslots[t])
+            getattr(self, f'set_{t}')(confslots[t])
 
     @property
     def att(self):
@@ -722,7 +872,10 @@ class Slots:
                     acat = name.split('_')[0]
                 else:
                     acat = name
-                self.abilities[f'{kind}_{aidx}_{name}'] = (kind, ability_dict[acat](*ab))
+                try:
+                    self.abilities[f'{kind}_{aidx}_{name}'] = (kind, ability_dict[acat](*ab))
+                except:
+                    pass
 
         for name, val in self.abilities.items():
             kind, abi = val
@@ -731,10 +884,17 @@ class Slots:
 
 
 if __name__ == '__main__':
-    from conf import load_adv_json
-    conf = Conf(load_adv_json('Xania'))
-    # conf['slots.a'] = ['Candy_Couriers', 'Me_and_My_Bestie']
-    conf['slots.d'] = 'Gala_Mars'
-    slots = Slots(conf.c, True)
-    slots.set_slots(conf.slots)
-    print(type(slots.d))
+    from conf import get_adv, load_all_equip_json
+    # amulet_qual = [
+    #     'The_Wyrmclan_Duo',
+    #     'Flash_of_Genius',
+    #     'Moonlight_Party',
+    #     'The_Plaguebringer',
+    #     'His_Clever_Brother'
+    # ]
+    for adv, equip in load_all_equip_json().items():
+        conf = get_adv(adv)
+        pref = equip['180']['pref']
+        a_qual = equip['180'][pref]['slots.a']
+        slots = Slots(adv, conf.c)
+        slots.set_a(keys=a_qual)

@@ -11,23 +11,23 @@
         },
         "dx1": {
             "startup": 0.3,
-            "recovery": 0.66667,
+            "recovery": 0.1,
             "attr": [
-                {"dmg": 1.85, "sp": 5}
+                {"dmg": 3.7, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.43333,
-            "recovery": 0.66667,
+            "recovery": 0.2,
             "attr": [
-                {"dmg": 2.04, "sp": 5}
+                {"dmg": 4.08, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.33333,
-            "recovery": 0.83334,
+            "recovery": 0.93334,
             "attr": [
-                {"dmg": 2.59, "sp": 5}
+                {"dmg": 5.18, "sp": 5}
             ]
         },
         "ds": {
@@ -36,9 +36,9 @@
             "recovery": 2.33333,
             "uses": 1,
             "attr": [
-                {"dmg": 2.04, "afflic": ["freeze", 180], "iv": 0.53333},
-                {"dmg": 2.04, "iv": 0.83333},
-                {"dmg": 2.04, "iv": 1.13333}
+                {"dmg": 4.08, "afflic": ["freeze", 180], "iv": 0.53333},
+                {"dmg": 4.08, "iv": 0.83333},
+                {"dmg": 4.08, "iv": 1.13333}
             ]
         }
     },
@@ -53,24 +53,24 @@
         },
         "dx1": {
             "startup": 0.33333,
-            "recovery": 0.3,
+            "recovery": 0.23334,
             "attr": [
-                {"dmg": 2.4, "sp": 5}
+                {"dmg": 4.8, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.36667,
-            "recovery": 0.53333,
+            "recovery": 0.5,
             "attr": [
-                {"dmg": 2.64, "sp": 5}
+                {"dmg": 5.28, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.2,
             "recovery": 0.8,
             "attr": [
-                {"dmg": 2.16, "sp": 5},
-                {"dmg": 2.16, "iv": 0.13333}
+                {"dmg": 4.32, "sp": 5},
+                {"dmg": 4.32, "iv": 0.13333}
             ]
         },
         "ds": {
@@ -88,29 +88,28 @@
             "att": 119,
             "hp": 376,
             "ele": "water",
-            "a": [["sp", 0.35]],
-            "skipped": [[330000294, "(Water) HP +{ability_val0}%"]]
+            "a": [["hp", 0.3], ["sp", 0.35]]
         },
         "dx1": {
             "startup": 0.30303,
             "recovery": 0.18182,
             "attr": [
-                {"dmg": 2.0, "sp": 5}
+                {"dmg": 4.0, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.36667,
             "recovery": 0.2,
             "attr": [
-                {"dmg": 2.2, "sp": 5}
+                {"dmg": 4.4, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.66667,
             "recovery": 0.83333,
             "attr": [
-                {"dmg": 3.8, "sp": 5},
-                {"dmg": 3.8, "iv": 0.33333}
+                {"dmg": 7.6, "sp": 5},
+                {"dmg": 7.6, "iv": 0.33333}
             ]
         },
         "ds": {
@@ -120,6 +119,53 @@
             "uses": 1,
             "attr": [
                 {"buff": ["zone", 0.3, 10.0, "s", "buff"]}
+            ],
+            "energizable": true
+        }
+    },
+    "High_Mercury": {
+        "d": {
+            "name": "High Mercury",
+            "icon": "210040_01",
+            "att": 113,
+            "hp": 357,
+            "ele": "water",
+            "a": [["hp", 0.35], ["a", 0.35], ["dt", 0.2]]
+        },
+        "dx1": {
+            "startup": 0.33333,
+            "recovery": 0.23334,
+            "attr": [
+                {"dmg": 4.0, "sp": 5}
+            ]
+        },
+        "dx2": {
+            "startup": 0.5,
+            "recovery": 0.23333,
+            "attr": [
+                {"dmg": 5.2, "sp": 5}
+            ]
+        },
+        "dx3": {
+            "startup": 0.66667,
+            "recovery": 1.06666,
+            "attr": [
+                {"dmg": 4.0, "sp": 5, "msl": 1},
+                {"dmg": 5.6, "msl": 1}
+            ]
+        },
+        "ds": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 3.33333,
+            "uses": 1,
+            "attr": [
+                {"dmg": 3.0, "afflic": ["bog", 180], "iv": 2.0, "msl": 1},
+                {"dmg": 3.0, "iv": 2.33333, "msl": 1},
+                {"dmg": 3.0, "iv": 2.66667, "msl": 1},
+                {"dmg": 3.0, "iv": 3.0, "msl": 1},
+                {"dmg": 3.0, "iv": 3.33333, "msl": 1},
+                {"dmg": 3.0, "iv": 3.66667, "msl": 1}
             ]
         }
     },
@@ -134,23 +180,23 @@
         },
         "dx1": {
             "startup": 0.46667,
-            "recovery": 0.33333,
+            "recovery": 0.1,
             "attr": [
-                {"dmg": 1.9, "sp": 5}
+                {"dmg": 3.8, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.46667,
-            "recovery": 0.6,
+            "recovery": 0.16666,
             "attr": [
-                {"dmg": 2.09, "sp": 5}
+                {"dmg": 4.18, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.26667,
-            "recovery": 0.5,
+            "recovery": 0.9,
             "attr": [
-                {"dmg": 4.18, "sp": 5}
+                {"dmg": 8.36, "sp": 5}
             ]
         },
         "ds": {
@@ -159,10 +205,10 @@
             "recovery": 2.13333,
             "uses": 1,
             "attr": [
-                {"dmg": 1.5, "afflic": ["freeze", 180], "iv": 0.9},
-                {"dmg": 1.5, "iv": 1.5},
-                {"dmg": 1.5, "iv": 1.66667},
-                {"dmg": 1.5, "iv": 1.93333}
+                {"dmg": 3.0, "afflic": ["freeze", 180], "iv": 0.9},
+                {"dmg": 3.0, "iv": 1.5},
+                {"dmg": 3.0, "iv": 1.66667},
+                {"dmg": 3.0, "iv": 1.93333}
             ]
         }
     },
@@ -178,24 +224,24 @@
         },
         "dx1": {
             "startup": 0.23333,
-            "recovery": 0.0,
+            "recovery": 0.23334,
             "attr": [
-                {"dmg": 2.92, "sp": 5}
+                {"dmg": 5.84, "sp": 5}
             ]
         },
         "dx2": {
-            "startup": 0.76667,
-            "recovery": 0.43333,
+            "startup": 0.43333,
+            "recovery": 0.2,
             "attr": [
-                {"dmg": 3.22, "sp": 5, "msl": 1},
-                {"dmg": 1.22, "msl": 1}
+                {"dmg": 6.44, "sp": 5, "msl": 1},
+                {"dmg": 2.44, "msl": 1}
             ]
         },
         "dx3": {
             "startup": 1.06667,
-            "recovery": 1.06666,
+            "recovery": 1.26666,
             "attr": [
-                {"dmg": 2.86, "sp": 5}
+                {"dmg": 5.72, "sp": 5}
             ]
         },
         "ds": {
@@ -204,11 +250,12 @@
             "recovery": 3.0,
             "uses": 1,
             "attr": [
-                {"dmg": 9.135, "afflic": ["bog", 180], "iv": 2.0, "msl": 1}
+                {"dmg": 18.27, "afflic": ["bog", 180], "iv": 2.0, "msl": 1}
             ]
         }
     },
     "Nimis": {
+        "act": "c3-c3-c3-c3-s",
         "d": {
             "name": "Nimis",
             "icon": "210053_01",
@@ -219,33 +266,34 @@
         },
         "dx1": {
             "startup": 0.08333,
-            "recovery": 0.88334,
+            "recovery": 0.58334,
             "attr": [
-                {"dmg": 2.7, "sp": 5}
+                {"dmg": 5.4, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.13333,
-            "recovery": 0.76667,
+            "recovery": 0.43334,
             "attr": [
-                {"dmg": 0.99, "sp": 5},
-                {"dmg": 0.99, "iv": 0.2},
-                {"dmg": 0.99, "iv": 0.36667}
+                {"dmg": 1.98, "sp": 5},
+                {"dmg": 1.98, "iv": 0.2},
+                {"dmg": 1.98, "iv": 0.36667}
             ]
         },
         "dx3": {
             "startup": 0.73333,
-            "recovery": 0.16667,
+            "recovery": 0.43334,
             "attr": [
-                {"dmg": 3.06, "sp": 5},
-                {"dmg": 3.06, "iv": 0.13334}
+                {"dmg": 6.12, "sp": 5},
+                {"dmg": 6.12, "iv": 0.13334}
             ]
         },
         "ds": {
             "sp": 30,
             "startup": 0.1,
             "recovery": 2.66667,
-            "uses": 1
+            "uses": 1,
+            "energizable": true
         }
     },
     "Poseidon": {
@@ -255,27 +303,27 @@
             "att": 119,
             "hp": 376,
             "ele": "water",
-            "a": [["a", 0.35]]
+            "a": [["a", 0.35], ["hp", 0.35]]
         },
         "dx1": {
             "startup": 0.3,
-            "recovery": 0.5,
+            "recovery": 0.23333,
             "attr": [
-                {"dmg": 1.76, "sp": 5}
+                {"dmg": 3.52, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.23333,
-            "recovery": 0.73334,
+            "recovery": 0.23334,
             "attr": [
-                {"dmg": 1.94, "sp": 5}
+                {"dmg": 3.88, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.46667,
-            "recovery": 0.76666,
+            "recovery": 0.86666,
             "attr": [
-                {"dmg": 2.46, "sp": 5}
+                {"dmg": 4.92, "sp": 5}
             ]
         },
         "ds": {
@@ -284,8 +332,8 @@
             "recovery": 1.0,
             "uses": 1,
             "attr": [
-                {"dmg": 1.848, "iv": 0.26667, "msl": 1},
-                {"dmg": 4.312, "iv": 0.26667, "msl": 1}
+                {"dmg": 3.696, "iv": 0.26667, "msl": 1},
+                {"dmg": 8.624, "iv": 0.26667, "msl": 1}
             ]
         }
     },
@@ -296,29 +344,28 @@
             "att": 113,
             "hp": 383,
             "ele": "water",
-            "a": [["od", 0.6]],
-            "skipped": [[330000299, "(Water) HP +{ability_val0}%"]]
+            "a": [["hp", 0.4], ["od", 0.6]]
         },
         "dx1": {
             "startup": 0.33333,
             "recovery": 0.21212,
             "attr": [
-                {"dmg": 1.8, "sp": 5}
+                {"dmg": 3.6, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.3,
             "recovery": 0.63333,
             "attr": [
-                {"dmg": 1.71, "sp": 5},
-                {"dmg": 1.71, "iv": 0.33333}
+                {"dmg": 3.42, "sp": 5},
+                {"dmg": 3.42, "iv": 0.33333}
             ]
         },
         "dx3": {
             "startup": 0.54545,
             "recovery": 0.63637,
             "attr": [
-                {"dmg": 3.78, "sp": 5}
+                {"dmg": 7.56, "sp": 5}
             ]
         },
         "ds": {
@@ -327,18 +374,18 @@
             "recovery": 2.22222,
             "uses": 1,
             "attr": [
-                {"dmg": 0.54, "iv": 0.83333},
-                {"dmg": 0.54, "iv": 1.43333, "msl": 1},
-                {"dmg": 0.54, "iv": 1.7, "msl": 1},
-                {"dmg": 0.54, "iv": 1.73333, "msl": 1},
-                {"dmg": 0.54, "iv": 1.8, "msl": 1},
-                {"dmg": 0.54, "iv": 1.83333, "msl": 1},
-                {"dmg": 0.54, "iv": 1.86667, "msl": 1},
-                {"dmg": 0.54, "iv": 1.9, "msl": 1},
-                {"dmg": 0.54, "iv": 1.93333, "msl": 1},
-                {"dmg": 0.54, "iv": 1.96667, "msl": 1},
-                {"dmg": 0.54, "iv": 2.0, "msl": 1},
-                {"dmg": 0.54, "iv": 2.03333, "msl": 1}
+                {"dmg": 1.08, "iv": 0.83333},
+                {"dmg": 1.08, "iv": 1.43333, "msl": 1},
+                {"dmg": 1.08, "iv": 1.7, "msl": 1},
+                {"dmg": 1.08, "iv": 1.73333, "msl": 1},
+                {"dmg": 1.08, "iv": 1.8, "msl": 1},
+                {"dmg": 1.08, "iv": 1.83333, "msl": 1},
+                {"dmg": 1.08, "iv": 1.86667, "msl": 1},
+                {"dmg": 1.08, "iv": 1.9, "msl": 1},
+                {"dmg": 1.08, "iv": 1.93333, "msl": 1},
+                {"dmg": 1.08, "iv": 1.96667, "msl": 1},
+                {"dmg": 1.08, "iv": 2.0, "msl": 1},
+                {"dmg": 1.08, "iv": 2.03333, "msl": 1}
             ]
         }
     },
@@ -353,23 +400,23 @@
         },
         "dx1": {
             "startup": 0.43333,
-            "recovery": 0.2,
+            "recovery": 0.13334,
             "attr": [
-                {"dmg": 2.3, "sp": 5}
+                {"dmg": 4.6, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.4,
-            "recovery": 0.33333,
+            "recovery": 0.03333,
             "attr": [
-                {"dmg": 2.53, "sp": 5}
+                {"dmg": 5.06, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.46667,
-            "recovery": 0.26666,
+            "recovery": 0.7,
             "attr": [
-                {"dmg": 4.03, "sp": 5}
+                {"dmg": 8.06, "sp": 5}
             ]
         },
         "ds": {
@@ -378,7 +425,7 @@
             "recovery": 2.73333,
             "uses": 1,
             "attr": [
-                {"dmg": 5.0, "iv": 0.73333},
+                {"dmg": 10.0, "iv": 0.73333},
                 {"buff": ["next", 0.4, 1, "s", "buff"], "iv": 1.26667}
             ]
         }
@@ -396,24 +443,23 @@
         },
         "dx1": {
             "startup": 0.25641,
-            "recovery": 0.71026,
+            "recovery": 0.35897,
             "attr": [
-                {"dmg": 1.8, "sp": 5}
+                {"dmg": 3.6, "sp": 5}
             ]
         },
         "dx2": {
             "startup": 0.30952,
-            "recovery": 0.85715,
+            "recovery": 0.30953,
             "attr": [
-                {"dmg": 1.95, "sp": 5}
+                {"dmg": 3.9, "sp": 5}
             ]
         },
         "dx3": {
             "startup": 0.34667,
-            "recovery": 1.15333,
+            "recovery": 0.72,
             "attr": [
-                {"sp": 5},
-                {"dmg": 0.84}
+                {"dmg": 1.68, "sp": 5}
             ]
         },
         "ds": {
@@ -422,10 +468,10 @@
             "recovery": 2.5,
             "uses": 1,
             "attr": [
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1}, 7,
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1}, "styx_spirit",
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1}, "styx_spirit",
-                {"dmg": 0.9, "iv": 0.43333, "msl": 1}, "styx_spirit"
+                {"dmg": 1.8, "iv": 0.43333, "msl": 1}, 7,
+                {"dmg": 1.8, "iv": 0.43333, "msl": 1}, "styx_spirit",
+                {"dmg": 1.8, "iv": 0.43333, "msl": 1}, "styx_spirit",
+                {"dmg": 1.8, "iv": 0.43333, "msl": 1}, "styx_spirit"
             ]
         }
     }

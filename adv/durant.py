@@ -5,12 +5,14 @@ def module():
 
 class Durant(Adv):
     conf = {}
-    conf['slots.a'] = ['The_Fires_of_Hate', 'Howling_to_the_Heavens']
-    conf['slots.d'] = 'Fatalis'
-
-    conf['slots.poison.a'] = ['Proper_Maintenance', 'The_Plaguebringer']
-    conf['slots.poison.d'] = 'Epimetheus'
-    
+    conf['slots.a'] = [
+        'Flash_of_Genius',
+        'Moonlight_Party',
+        'Proper_Maintenance',
+        'The_Plaguebringer',
+        'From_Whence_He_Comes'
+    ]
+    conf['slots.d'] = 'Epimetheus'
     conf['acl'] = """
         `dragon, s=1
         `s3, not buff(s3)

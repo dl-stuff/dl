@@ -28,10 +28,8 @@ class Laranoa(Adv):
         super().add_combo(name)
         if self.hits // 20 > self.ahits:
             self.ahits = self.hits // 20
-            if name[0] == 's' or name == 'ds':
-                Selfbuff('sylvan critdmg',0.10,20,'crit','damage').on()
-            else:
-                Selfbuff('sylvan critdmg',0.10,20,'crit','damage').ex_bufftime().on()
+            Selfbuff(f'{name}_a1_att',0.02,15,'att','buff', source=None).on()
+            Selfbuff(f'{name}_a1_crit',0.01,15,'crit','chance', source=None).on()
 
 
 if __name__ == '__main__':

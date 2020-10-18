@@ -27,7 +27,7 @@ class Ability:
         if cond.startswith('hit'):
             flurry_hits = int(cond[3:])
             def flurry_get():
-                return adv.hits >= flurry_hits
+                return adv.hits > flurry_hits
             return (m[0], m[1], m[2], cond, flurry_get)
         return m
 
@@ -53,17 +53,14 @@ ability_dict = {}
 class Strength(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('att', 'passive', value, cond)])
-
 ability_dict['a'] = Strength
-ability_dict['att'] = Strength
-
+ability_dict['au'] = Strength # united strength
 
 class Strength_Chain(Ability):
     def __init__(self, name, value, cond=None):
         # is buff bracket for some hecking reason
         super().__init__(name, [('att','buff',value, cond)])
 ability_dict['achain'] = Strength_Chain
-
 
 class Resist(Ability):
     def __init__(self, name, value, cond=None):
@@ -77,7 +74,6 @@ ability_dict['res'] = Resist
 class Skill_Damage(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('s','passive',value, cond)])
-
 ability_dict['s'] = Skill_Damage
 ability_dict['sd'] = Skill_Damage
 
@@ -85,21 +81,24 @@ ability_dict['sd'] = Skill_Damage
 class Force_Strike(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('fs','passive',value, cond)])
-
 ability_dict['fs'] = Force_Strike
+
+
+class Health_Points(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('maxhp','passive',value, cond)])
+ability_dict['hp'] = Health_Points
 
 
 class Buff_Time(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('buff','time',value, cond)])
-
+        super().__init__(name, [('buff','passive',value, cond)])
 ability_dict['bt'] = Buff_Time
 
 
 class Debuff_Time(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('debuff','time',value, cond)])
-
+        super().__init__(name, [('debuff','passive',value, cond)])
 ability_dict['dbt'] = Debuff_Time
 
 class ConditionalModifierAbility(Ability):
@@ -127,7 +126,6 @@ ability_dict['cd'] = Critical_Damage
 class Killer(ConditionalModifierAbility):
     def __init__(self, name, value, cond=None):
         super().__init__(name, 'killer','passive',value, cond)
-
 ability_dict['k'] = Killer
 
 
@@ -135,6 +133,7 @@ class Skill_Haste(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('sp', 'passive', value, cond)])
 ability_dict['sp'] = Skill_Haste
+ability_dict['spu'] = Skill_Haste # united haste
 
 
 class Striking_Haste(Ability):
@@ -147,7 +146,6 @@ class Broken_Punisher(Ability):
     EFFICIENCY = 0.15
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('att','bk',value*self.EFFICIENCY, cond)])
-
 ability_dict['bk'] = Broken_Punisher
 
 
@@ -155,42 +153,36 @@ class Overdrive_Punisher(Ability):
     EFFICIENCY = 0.35
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('killer','passive',value*self.EFFICIENCY, cond)])
-
 ability_dict['od'] = Overdrive_Punisher
 
 
 class Dragon_Damage(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('da','passive',value,cond)])
-
 ability_dict['da'] = Dragon_Damage
 
 
 class Dragon_Time(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('dt','passive',value,cond)])
-
 ability_dict['dt'] = Dragon_Time
 
 
 class Dragon_Haste(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('dh','passive',value,cond)])
-
 ability_dict['dh'] = Dragon_Haste
 
 
 class Attack_Speed(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('spd','passive',value, cond)])
-
 ability_dict['spd'] = Attack_Speed
 
 
 class Charge_Speed(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('cspd','passive',value, cond)])
-
 ability_dict['cspd'] = Charge_Speed
 
 
@@ -198,6 +190,22 @@ class Combo_Time(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('ctime','passive',value, cond)])
 ability_dict['ctime'] = Combo_Time
+
+
+class Bleed_Killer(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('killer','passive',value, cond)])
+
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom=afrom)
+        value = self.mod_object.get()
+        def get_bleed():
+            try:
+                return value if adv.bleed.get() > 0 else 0
+            except AttributeError:
+                return 0
+        self.mod_object.get = get_bleed
+ability_dict['bleed'] = Bleed_Killer
 
 
 class Co_Ability(Ability):
@@ -217,12 +225,25 @@ class Co_Ability(Ability):
         'peony': [('light','ele',0.20)],
         'gleif': [('debuff_killer', 'passive', 0.08)]
     }
-    def __init__(self, name, value, cond=None):
-        try:
-            super().__init__(name, self.EX_MAP[value])
-        except KeyError:
-            super().__init__(name)
+    def __init__(self, name, value):
+        super().__init__(name, self.EX_MAP[value])
 ability_dict['ex'] = Co_Ability
+
+
+class Union_Ability(Ability):
+    UNION_MAP = {
+        1: {4: [('s', 'passive', 0.10)]},
+        2: {4: [('att','bk', 0.10*Broken_Punisher.EFFICIENCY)]},
+        3: {4: [('att','passive', 0.08)]},
+        4: {3: [('sp','passive', 0.06)], 4: [('sp','passive', 0.10)]},
+        5: {2: [('da','passive', 0.10)], 3: [('da','passive', 0.18)], 4: [('da','passive', 0.30)]},
+        6: {2: [('fs','passive', 0.05)], 3: [('fs','passive', 0.08)], 4: [('fs','passive', 0.15)]},
+        # 7: burn res, 8: stun res, 9: para res, 10: curse res
+        11: {2: [('buff','passive', 0.05)], 3: [('buff','passive', 0.08)], 4: [('buff','passive', 0.15)]},
+    }
+    def __init__(self, name, value, level):
+        super().__init__(name, self.UNION_MAP[value][level].copy())
+ability_dict['union'] = Union_Ability
 
 
 class BuffingAbility(Ability):
@@ -233,10 +254,12 @@ class BuffingAbility(Ability):
         super().__init__(name)
 
 class Last_Buff(BuffingAbility):
+    HEAL_TO = 30
     def __init__(self, name, value, duration=15, chances=1):
         super().__init__(name, value, duration)
         self.proc_chances = chances
         self.auto_proc = 'regen' not in self.buff_args
+        Last_Buff.HEAL_TO = 30
 
     def oninit(self, adv, afrom=None):
         def l_lo_buff(e):
@@ -254,7 +277,7 @@ class Last_Buff(BuffingAbility):
                         adv.set_hp(30)
                     adv.Timer(lo_healed).on(10)
             def lo_healed(t):
-                next_hp = adv.condition.hp_threshold_list(30)
+                next_hp = adv.condition.hp_threshold_list(Last_Buff.HEAL_TO)
                 try:
                     adv.set_hp(next_hp[0])
                 except:
@@ -275,7 +298,7 @@ class Doublebuff(BuffingAbility):
             adv.Event('defchain').listener(defchain)
         else:
             def defchain(e):
-                adv.Buff(*self.buff_args).on()
+                adv.Buff(*self.buff_args, source=e.source).on()
             adv.Event('defchain').listener(defchain)
 
 ability_dict['bc'] = Doublebuff
@@ -299,7 +322,7 @@ class Doublebuff_CD(Doublebuff):
         else:
             def defchain(e):
                 if not self.is_cd:
-                    adv.Buff(*self.buff_args).on()
+                    adv.Buff(*self.buff_args, source=e.source).on()
                     self.is_cd = True
                     adv.Timer(cd_end).on(self.DB_CD)
             adv.Event('defchain').listener(defchain)
@@ -307,26 +330,17 @@ class Doublebuff_CD(Doublebuff):
 ability_dict['bcc'] = Doublebuff_CD
 
 
-# class Slayer_Strength(BuffingAbility):
-#     def __init__(self, name, value):
-#         super().__init__(name, value, -1)
-
-#     def oninit(self, adv, afrom=None):
-#         for _ in range(5):
-#             adv.Buff(*self.buff_args).on()
-
-# ability_dict['sts'] = Slayer_Strength
-# ability_dict['sls'] = Slayer_Strength
-
-class Slayers(BuffingAbility):
+class Slayer_Strength(BuffingAbility):
     def __init__(self, name, value):
         super().__init__(name, value, -1)
 
     def oninit(self, adv, afrom=None):
-        for _ in range(5):
-            adv.Buff(*self.buff_args).on()
+        pass
+        # for _ in range(5):
+        #     adv.Buff(*self.buff_args).on()
 
-ability_dict['slayers'] = Slayers
+ability_dict['sts'] = Slayer_Strength
+ability_dict['sls'] = Slayer_Strength
 
 
 class Dragon_Buff(Ability):
@@ -351,7 +365,7 @@ class Dragon_Claw(Dragon_Buff):
         4: (0.10,0.15,0.15)
     }
     def __init__(self, name, value):
-        super().__init__(name, self.DC_LEVELS[value])
+        super().__init__('dca', self.DC_LEVELS[value])
 
 ability_dict['dc'] = Dragon_Claw
 
@@ -360,7 +374,7 @@ class Dragon_Might(Dragon_Buff):
         1: (0.10, 0.10)
     }
     def __init__(self, name, value):
-        super().__init__(name, self.DM_LEVELS[value])
+        super().__init__('dca', self.DM_LEVELS[value])
 
 ability_dict['dm'] = Dragon_Might
 
@@ -371,7 +385,7 @@ class Dragon_Claw_Chain(Dragon_Buff):
         6: (0.10, 0.10, 0.15)
     }
     def __init__(self, name, value):
-        super().__init__(name, self.DCC_LEVELS[value])
+        super().__init__('dca', self.DCC_LEVELS[value])
 
 ability_dict['dcc'] = Dragon_Claw_Chain
 
@@ -380,9 +394,18 @@ class Dragon_Skill(Dragon_Buff):
         3: (0.08, 0.08, 0.08)
     }
     def __init__(self, name, value):
-        super().__init__(name, self.DS_LEVELS[value], buff_args=('s','buff'))
+        super().__init__('dcs', self.DS_LEVELS[value], buff_args=('s','buff'))
 
 ability_dict['dcs'] = Dragon_Skill
+
+class Dragon_Scale(Dragon_Buff):
+    DD_LEVELS = {
+        3: (0.10, 0.11, 0.12)
+    }
+    def __init__(self, name, value):
+        super().__init__('dcd', self.DD_LEVELS[value], buff_args=('defense','buff'))
+
+ability_dict['dcd'] = Dragon_Scale
 
 class Resilient_Offense(BuffingAbility):
     def __init__(self, name, value, interval=None):
@@ -450,9 +473,10 @@ class Primed(BuffingAbility):
         def pm_cd_end(t):
             self.is_cd = False
 
+        primed_buff = adv.Buff(*self.buff_args).no_bufftime()
         def l_primed(e):
             if not self.is_cd:
-                adv.Buff(*self.buff_args).no_bufftime().on()
+                primed_buff.on()
                 self.is_cd = True
                 adv.Timer(pm_cd_end).on(self.PRIMED_CD)
 
@@ -505,6 +529,8 @@ class Force_Charge(Ability):
             adv.fs_prep_v += self.value
         else:
             def l_fs_charge(e):
+                if not e.is_hit:
+                    return
                 adv.charge_p(self.name, adv.fs_prep_v)
                 self.charge -= 1
                 adv.fs_prep_c = self.charge
@@ -585,11 +611,11 @@ class Affliction_Selfbuff(Ability):
                 if self.is_rng:
                     import random
                     if random.random() < e.rate:
-                        adv.Buff(self.name, self.value, self.duration, *self.buff_args).on()
+                        adv.Buff(self.name, self.value, self.duration, *self.buff_args, source=e.source).on()
                         self.is_cd = True
                         adv.Timer(cd_end).on(self.cd)
                 else:
-                    adv.Buff(self.name, self.value * e.rate, self.duration, *self.buff_args).on()
+                    adv.Buff(self.name, self.value * e.rate, self.duration, *self.buff_args, source=e.source).on()
                     self.is_cd = True
                     adv.Timer(cd_end).on(self.cd)
         adv.Event(self.atype).listener(l_afflict)
@@ -603,7 +629,7 @@ class Affliction_Teambuff(Affliction_Selfbuff):
             self.is_cd = False
         def l_afflict(e):
             if not self.is_cd and e.rate > 0:
-                adv.Teambuff(self.name, self.value * e.rate, self.duration, *self.buff_args).on()
+                adv.Teambuff(self.name, self.value * e.rate, self.duration, *self.buff_args, source=e.source).on()
                 self.is_cd = True
                 adv.Timer(cd_end).on(self.cd)
         adv.Event(self.atype).listener(l_afflict)
@@ -617,7 +643,7 @@ class AntiAffliction_Selfbuff(Affliction_Selfbuff):
             self.is_cd = False
         def l_afflict(e):
             if not self.is_cd and e.rate < 1:
-                adv.Buff(self.name, self.value * (1 - e.rate), self.duration, *self.buff_args).on()
+                adv.Buff(self.name, self.value * (1 - e.rate), self.duration, *self.buff_args, source=e.source).on()
                 self.is_cd = True
                 adv.Timer(cd_end).on(self.cd)
         adv.Event(self.atype).listener(l_afflict)
@@ -787,9 +813,19 @@ ability_dict['eextra'] = Energy_Extra
 class Damaged_Buff(BuffingAbility):
     def oninit(self, adv, afrom=None):
         from core.modifier import SingleActionBuff
-        self.damaged_buff = SingleActionBuff(*self.buff_args)
-        def l_damaged_buff(e):
-            if e.delta < 0:
-                self.damaged_buff.on()
+        if self.buff_args[1] == 'fs':
+            self.damaged_buff = SingleActionBuff(*self.buff_args)
+            def l_damaged_buff(e):
+                if e.delta < 0:
+                    self.damaged_buff.on()
+        else:
+            self.is_cd = False
+            def cd_end(t):
+                self.is_cd = False
+            def l_damaged_buff(e):
+                if not self.is_cd and e.delta < 0:
+                    adv.Buff(*self.buff_args).on()
+                    self.is_cd = True
+                    adv.Timer(cd_end).on(5) # ycass
         adv.Event('hp').listener(l_damaged_buff)
 ability_dict['damaged'] = Damaged_Buff
