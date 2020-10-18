@@ -520,7 +520,8 @@ def same_build_different_dps(a, b):
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
 ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'classbane', 'hp', 'dumb', 'afflict_res')
-BUFFER_THRESHOLD = 30000
+BUFFER_THRESHOLD = 35000
+TDPS_WEIGHT = 15000
 def save_equip(adv, real_d, repair=False, etype=None):
     adv.duration = int(adv.duration)
     if adv.duration not in (60, 120, 180):
@@ -570,8 +571,8 @@ def save_equip(adv, real_d, repair=False, etype=None):
         except KeyError:
             cdps = 0
             cteam = 0
-    ncomp = ndps + nteam * BUFFER_THRESHOLD / 2
-    ccomp = cdps + cteam * BUFFER_THRESHOLD / 2
+    ncomp = ndps + nteam * TDPS_WEIGHT
+    ccomp = cdps + cteam * TDPS_WEIGHT
     if not repair and ncomp < ccomp:
         if etype == 'base' and nteam > cteam:
             etype = 'buffer'
