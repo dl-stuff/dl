@@ -29,15 +29,15 @@ class Chelsea(Adv):
 
     def fs_before(self, e):
         if self.obsession:
-            self.add_hp(-3)
+            self.add_hp(-3*self.obsession)
 
     def x_before(self, e):
         if self.obsession:
-            self.add_hp(-3)
+            self.add_hp(-3*self.obsession)
 
     def s_hp_check(self, e):
         if self.obsession and e.name in self.damage_sources:
-            self.add_hp(-3)
+            self.add_hp(-3*self.obsession)
 
     @property
     def obsession(self):
