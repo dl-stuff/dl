@@ -263,7 +263,7 @@ class Last_Buff(BuffingAbility):
 
     def oninit(self, adv, afrom=None):
         def l_lo_buff(e):
-            if self.proc_chances > 0 and e.delta < 0 and e.hp <= 30:
+            if self.proc_chances > 0 and e.hp <= 30 and (e.hp - e.delta) > 30:
                 self.proc_chances -= 1
                 adv.Buff(*self.buff_args).no_bufftime().on()
         adv.Event('hp').listener(l_lo_buff)
@@ -420,7 +420,7 @@ class Resilient_Offense(BuffingAbility):
 
     def oninit(self, adv, afrom=None):
         def l_ro_buff(e):
-            if self.proc_chances > 0 and e.delta < 0 and e.hp <= self.hp_threshold:
+            if self.proc_chances > 0 and e.hp <= 30 and (e.hp - e.delta) > 30:
                 self.proc_chances -= 1
                 adv.Buff(*self.buff_args).on()
         adv.Event('hp').listener(l_ro_buff)
