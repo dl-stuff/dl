@@ -103,7 +103,7 @@
   },
   "60": {
     "base": {
-      "dps": 68641.84211327418,
+      "dps": 72018.89127367652,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -115,20 +115,21 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<2",
-        "`dragon(c3-s-end)",
-        "else",
-        "`dragon(c3-s-c2-end)",
+        "if self.dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
+        "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`s2, x=5",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`dodge, fsc",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Wand",
+        "Nobunaga",
         "Yuya",
         "Serena"
       ],
@@ -173,36 +174,73 @@
         "Weapon",
         "Karina"
       ]
+    },
+    "buffer": {
+      "dps": 58082.96978921556,
+      "team": 0.020582699581635014,
+      "tdps": 677069.6637332906,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Dragon_and_Tamer",
+        "Gentle_Winds",
+        "Rogues_Banquet",
+        "Dragons_Nest"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "if self.dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-end)",
+        "end",
+        "`s3, not buff(s3) and x=5",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Cleo"
+      ]
     }
   },
   "120": {
     "base": {
-      "dps": 88809.81243000858,
+      "dps": 89173.27587903522,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "The_Red_Impulse",
-        "His_Clever_Brother",
-        "To_the_Extreme"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<2",
-        "`dragon(c3-s-end)",
-        "else",
-        "`dragon(c3-s-c2-end)",
+        "if self.dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
+        "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`s2, x=5",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`dodge, fsc",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Wand",
+        "Blade",
         "Yuya",
         "Serena"
       ],
@@ -251,7 +289,7 @@
     "buffer": {
       "dps": 69522.96603191276,
       "team": 0.03089509956205363,
-      "tdps": 624268.7892737705,
+      "tdps": 636033.2261643726,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",

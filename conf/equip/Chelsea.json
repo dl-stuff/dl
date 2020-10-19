@@ -1,39 +1,40 @@
 {
   "180": {
     "base": {
-      "dps": 47603.93645715551,
+      "dps": 62808.030089501015,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
         "Forest_Bonds",
+        "Memory_of_a_Friend",
         "The_Synthetic_Dragon",
         "His_Clever_Brother",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon,s",
+        "`dragon(s-s), self.hp < 30",
         "`s3,not buff(s3)",
-        "`s2, cancel",
-        "`s1, self.hp < 30 and buffstack(ro) < 3",
-        "`s4, cancel"
+        "`s2",
+        "`s1",
+        "`s4, fscf",
+        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
-        "Nobunaga",
+        "Blade",
         "Wand",
         "Yukata_Cassandra"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Karina"
       ]
     },
     "pref": "base",
     "buffer": {
-      "dps": 31836.78899465299,
-      "team": 0.09997051526171849,
-      "tdps": 157717.9773578721,
+      "dps": 37184.93597021615,
+      "team": 0.08759467845948415,
+      "tdps": 292518.8444082994,
       "slots.a": [
         "Dear_Diary",
         "Memory_of_a_Friend",
@@ -61,7 +62,7 @@
       ]
     },
     "affliction": {
-      "dps": 51545.749084314346,
+      "dps": 72527.20976833062,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -71,21 +72,23 @@
         "His_Clever_Brother",
         "To_the_Extreme"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
+        "`dragon(s-s), self.hp < 30",
         "`s3,not buff(s3)",
-        "`s2, cancel",
-        "`s1, self.hp < 30 and buffstack(ro) < 3",
-        "`s4, cancel"
+        "`s2",
+        "`s1",
+        "`s4, fscf",
+        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
-        "Nobunaga",
-        "Yukata_Cassandra",
-        "Axe2"
+        "Blade",
+        "Wand",
+        "Yukata_Cassandra"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Karina"
       ]
     }
   }

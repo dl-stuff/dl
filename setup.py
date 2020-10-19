@@ -27,7 +27,8 @@ def run():
     ADV = [
         'adv/gala_luca.py',
         'adv/incognito_nefaria.py',
-        'adv/valerio.py'
+        'adv/valerio.py',
+        'adv/gala_laxi.py'
     ]
     with open('chara_slow.txt', 'r') as f:
         for line in f:
@@ -36,7 +37,7 @@ def run():
     setup(
         name='core',
         ext_modules=cythonize(
-            CORE+ADV,
+            ADV,
             compiler_directives={'language_level' : '3'},
         ),
         zip_safe=False,

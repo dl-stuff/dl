@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 69497.2058966927,
+      "dps": 71355.0090906754,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,15 +13,18 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s), s=1",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
+        "queue prep and not buff(s3)",
+        "`s2;s4; s3; s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
         "`s1",
         "`s4, cancel",
         "`fs, x=4"
       ],
       "coabs": [
-        "Nobunaga",
+        "Blade",
         "Wand",
         "Gala_Sarisse"
       ],
@@ -32,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 74626.61575281389,
+      "dps": 83749.99881139067,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -44,12 +47,12 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon, s=1",
+        "`dragon(s), s=4",
         "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s1, (cancel and naveed_bauble < 5) or (naveed_bauble=5)",
-        "`s4",
-        "`fs, x=5"
+        "`s2, cancel",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=4"
       ],
       "coabs": [
         "Blade",
@@ -64,7 +67,7 @@
     "buffer": {
       "dps": 58260.35516527484,
       "team": 0.07479167787484026,
-      "tdps": 150241.99283538078,
+      "tdps": 175081.69755616048,
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",

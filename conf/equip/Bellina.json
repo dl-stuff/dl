@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 71711.83101308034,
+      "dps": 72904.91816279563,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -22,13 +22,12 @@
         "else",
         "`s2",
         "`dragon",
-        "`fs, x=4",
         "end"
       ],
       "coabs": [
-        "Ieyasu",
         "Curran",
-        "Summer_Patia"
+        "Summer_Patia",
+        "Berserker"
       ],
       "share": [
         "Weapon",
@@ -74,7 +73,7 @@
     "buffer": {
       "dps": 38776.67067195345,
       "team": 0.11663322340714063,
-      "tdps": 282382.32108322665,
+      "tdps": 292611.7146887732,
       "slots.a": [
         "Brothers_in_Arms",
         "The_Synthetic_Dragon",
@@ -250,6 +249,40 @@
       "share": [
         "Weapon",
         "Sha_Wujing"
+      ]
+    },
+    "affliction": {
+      "dps": 73239.40707515994,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Synthetic_Dragon",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s2, duration-now<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1000 and x=3",
+        "`fsf, x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Berserker"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
       ]
     }
   }
