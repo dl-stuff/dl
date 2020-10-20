@@ -51,11 +51,12 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
+        "# `norm",
         "if self.dragonform.shift_count<1",
         "`dragon(s-end), s=1",
         "end",
         "if self.dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-end)",
+        "`dragon(c3-s-c3-s-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
