@@ -56,7 +56,7 @@ class CharaBase(SlotBase):
         'water': {'tree': 0.16, 'yuletree': 0.085, 'dragonata': 0.085},
         'wind': {'tree': 0.26, 'shrine': 0.085},
         'light': {'tree': 0.16, 'retreat': 0.085, 'circus': 0.085},
-        'shadow': {'tree': 0.26, 'library': 0.07}
+        'shadow': {'tree': 0.26, 'library': 0.085}
     }
     FAC_ELEMENT_HP = FAC_ELEMENT_ATT.copy()
     FAC_ELEMENT_HP['flame']['arctos'] = 0.095
