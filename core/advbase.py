@@ -1022,7 +1022,7 @@ class Adv(object):
                 cond_p = cond[1]
                 if on:
                     p *= cond_p
-                    for order, mods in self.all_modifiers[f"{cond_name}_killer"].items():
+                    for order, mods in self.all_modifiers[f'{cond_name}_killer'].items():
                         for mod in mods:
                             modifiers[order].add(mod)
                 else:

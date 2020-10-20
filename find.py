@@ -33,7 +33,7 @@ def stat_shared():
     print('\n'.join(random.sample(no_shared, 10)))
 
 def stat_conf(cond):
-    deploy = './python deploy.py '
+    deploy = 'python deploy.py '
     for root, dirs, files in os.walk('./conf/adv'):
         for fn in files:
             name, ext = os.path.splitext(fn)
@@ -84,4 +84,4 @@ def get_acl():
     return acl_map
 
 if __name__ == '__main__':
-    stat_conf(lambda d: d['c']['wt'] == 'sword')
+    stat_conf(lambda d: d['c']['ele'] == 'shadow')
