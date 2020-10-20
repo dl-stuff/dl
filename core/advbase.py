@@ -781,8 +781,9 @@ class Adv(object):
             if 'doublebuff_interval' in self.conf.sim_buffbot:
                 interval = round(self.conf.sim_buffbot.doublebuff_interval, 2)
                 if self.condition('team doublebuff every {:.2f} sec'.format(interval)):
-                    Event('defchain').on()
-                    Timer(lambda t: Event('defchain').on(), interval, True).on()
+                    sim_defchain = Event('defchain')
+                    sim_defchain.source = None
+                    Timer(lambda t: sim_defchain.on(), interval, True).on()
 
     def config_slots(self):
         if self.conf['classbane'] == 'HDT':
