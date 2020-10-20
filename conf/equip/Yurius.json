@@ -147,7 +147,40 @@
         "Summer_Luca"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "base": {
+      "dps": 51137.46247290786,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    }
   },
   "60": {
     "base": {

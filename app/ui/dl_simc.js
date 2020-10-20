@@ -773,7 +773,7 @@ function makeDataset(label, data, color) {
     }
 }
 function makeGraph(ctx, datasets, ystep) {
-    new Chart(ctx, {
+    return new Chart(ctx, {
         type: 'line',
         data: { datasets: datasets },
         options: {
@@ -800,6 +800,9 @@ function makeGraph(ctx, datasets, ystep) {
         }
     })
 }
+function killGraph(graph){
+    if (graph){ graph.destroy(); }
+}
 let simcDamageGraph = null;
 let simcDoublebuffGraph = null;
 let simcUptimeGraph = null;
@@ -808,16 +811,15 @@ function populateAllGraphs() {
         return;
     }
     const tdps = $('#input-teamdps').val();
-    if (simcDamageGraph != null) { simcDamageGraph.destroy(); }
+    killGraph(simcDamageGraph);
     const datasets = [makeDataset('Damage', windows(graphData.dmg), 'mediumslateblue')];
     if (Object.keys(graphData.team).length > 1) {
         datasets.push(makeDataset('Team', scaled(graphData.team, tdps), 'seagreen'));
     }
     simcDamageGraph = makeGraph('damage-graph', datasets, 5000);
 
-    if (simcDoublebuffGraph != null) { simcDoublebuffGraph.destroy(); }
-    if (simcUptimeGraph != null) { simcUptimeGraph.destroy(); }
-
+    killGraph(simcDoublebuffGraph);
+    killGraph(simcUptimeGraph);
     if (graphData.doublebuff) {
         $('#doublebuff-graph').show();
         simcDoublebuffGraph = makeGraph('doublebuff-graph', [makeDataset('Doublebuff', scaled(graphData.doublebuff), 'steelblue')], 1);
@@ -839,9 +841,9 @@ function populateAllGraphs() {
     }
 }
 function clearAllGraphs() {
-    if (simcDamageGraph != null) { simcDamageGraph.destroy(); }
-    if (simcDoublebuffGraph != null) { simcDoublebuffGraph.destroy(); }
-    if (simcUptimeGraph != null) { simcUptimeGraph.destroy(); }
+    killGraph(simcDamageGraph);
+    killGraph(simcDoublebuffGraph);
+    killGraph(simcUptimeGraph);
 }
 function runAdvTest(no_conf) {
     if ($('#input-adv').val() == '') {
