@@ -60,9 +60,24 @@ class DragonForm(Action):
         self.is_dragondrive = False
         self.can_end = True
 
-        self.allow_end_cd = self.conf.allow_end + (self.conf.ds.startup + self.conf.ds.startup) / self.speed()
+        self.allow_end_cd = self.conf.allow_end + self.dstime()
         self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
         self.allow_end = False
+
+    def set_shift_end(self, value, percent=True):
+        if self.can_end:
+            max_d = self.dtime() - self.conf.dshift.startup
+            cur_d = self.shift_end_timer.timing - now() - (self.conf.ds.uses - self.skill_use) * self.dstime()
+            delta_t = value
+            if percent:
+                delta_t *= (max_d)
+            delta_t = min(max_d, cur_d+delta_t) - cur_d
+            if cur_d + delta_t > 0:
+                self.shift_end_timer.add(delta_t)
+                log('shift_time', f'{delta_t:+2.4}', f'{cur_d+delta_t:2.4}')
+            else:
+                self.d_shift_end(None)
+                self.shift_end_timer.off()
 
     def can_interrupt(self, target):
         return None
@@ -176,6 +191,9 @@ class DragonForm(Action):
     @allow_acl
     def dtime(self):
         return self.conf.dshift.startup + self.conf.duration * self.adv.mod('dt') + self.conf.exhilaration * (self.off_ele_mod is None)
+
+    def dstime(self):
+        return (self.conf.ds.startup + self.conf.ds.recovery) / self.speed()
 
     @allow_acl
     def ddamage(self):
@@ -293,7 +311,7 @@ class DragonForm(Action):
             self.skill_spc = 0
             self.act_sum.append('s')
             self.ds_event()
-            self.shift_end_timer.add(actconf.startup+actconf.recovery)
+            self.shift_end_timer.add(self.dstime())
         elif self.c_act_name.startswith('dx'):
             if len(self.act_sum) > 0 and self.act_sum[-1][0] == 'c' and int(self.act_sum[-1][1]) < int(self.c_act_name[-1]):
                 self.act_sum[-1] = 'c'+self.c_act_name[-1]

@@ -745,6 +745,8 @@ class Adv(object):
             self.hp_event.hp = self.hp
             self.hp_event.delta = delta
             self.hp_event()
+            if self.dragonform.status != Action.OFF and delta < 0:
+                self.dragonform.set_shift_end(delta/100)
 
     def afflic_condition(self):
         if 'afflict_res' in self.conf:

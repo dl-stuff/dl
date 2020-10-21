@@ -257,10 +257,7 @@ class Nimis(DragonBase):
         super().oninit(adv)
         def add_gauge_and_time(t):
             adv.dragonform.dragon_gauge += 200
-            max_time = adv.dragonform.dtime() - adv.dragonform.conf.dshift.startup
-            cur_time = adv.dragonform.shift_end_timer.timing - now()
-            add_time = min(abs(max_time - cur_time), 5)
-            adv.dragonform.shift_end_timer.add(add_time)
+            adv.dragonform.set_shift_end(5, percent=False)
         adv.Event('ds').listener(add_gauge_and_time)
 
 class Styx(DragonBase):

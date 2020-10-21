@@ -46,7 +46,7 @@ class Ability:
             mod_name = '{}{}_{}'.format(afrom, self.name, idx)
             self.mod_object = adv.Modifier(mod_name,*m)
             if m[1] == 'buff':
-                adv.Buff(f'{mod_name}_buff', duration=-1, modifier=self.mod_object).on()
+                adv.Buff(f'{mod_name}_buff', duration=-1, modifier=self.mod_object, source='ability').on()
 
 ability_dict = {}
 
