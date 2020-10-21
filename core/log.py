@@ -2,6 +2,9 @@ import sys
 from collections import defaultdict
 import core.timeline
 
+def hecc():
+    return {}
+
 class Log:
     DEBUG = False
     def __init__(self):
@@ -11,7 +14,7 @@ class Log:
         self.record = []
         self.damage = {'x':{},'s':{},'f':{},'d':{},'o':{}}
         self.counts = {'x':{},'s':{},'f':{},'d':{},'o':{}}
-        self.datasets = defaultdict(lambda: {})
+        self.datasets = defaultdict(hecc)
         self.p_buff = None
         self.team_buff = 0
         self.team_doublebuffs = 0

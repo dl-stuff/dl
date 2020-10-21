@@ -416,6 +416,7 @@ def summation(real_d, adv, output, cond=True):
     damage_counts(real_d, adv.logs.damage, adv.logs.counts, output, res=res)
     output.write('\n')
 
+XN_PATTERN = re.compile(r'^x\d')
 def report(real_d, adv, output, cond=True, web=False):
     name = adv.__class__.__name__
     dmg = adv.logs.damage
@@ -429,7 +430,12 @@ def report(real_d, adv, output, cond=True, web=False):
     ])
 
     dps_mappings = {}
-    dps_mappings['attack'] = dict_sum(dmg['x']) / real_d
+    for k in sorted(dmg['x']):
+        base_k = XN_PATTERN.sub('x', k)
+        try:
+            dps_mappings[base_k] += dmg['x'][k] / real_d
+        except KeyError:
+            dps_mappings[base_k] = dmg['x'][k] / real_d
     for k in sorted(dmg['f']):
         dps_mappings[k] = dmg['f'][k] / real_d
     for k in sorted(dmg['s']):

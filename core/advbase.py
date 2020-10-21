@@ -425,8 +425,15 @@ class Fs(Action):
             buffer = 0
         else:
             try:
-                buffer = max(0, self._buffer - prev.startup_timer.elapsed() - prev.recovery_timer.elapsed())
-                log('bufferable', prev.startup_timer.elapsed() + prev.recovery_timer.elapsed())
+                # check if it's 2 X in a row, maybe (???)
+                prevprev_rec = 0
+                if isinstance(prev, X) and prev.index > 1:
+                    prevprev = prev.getprev()
+                    if isinstance(prevprev, X):
+                        prevprev_rec = prevprev.getrecovery()
+                bufferable = prev.startup_timer.elapsed() + prev.recovery_timer.elapsed() + prevprev_rec
+                buffer = max(0, self._buffer - bufferable)
+                log('bufferable', bufferable)
             except AttributeError:
                 buffer = 0
         charge = self._charge / self.charge_speed()
