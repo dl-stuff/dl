@@ -532,7 +532,7 @@ class SAltBuff(ModeAltBuff):
     def l_extend_time(self, e):
         if self.get() and e.name != 'ds' and e.base == self.base and e.group == self.group:
             skill = self.adv.a_s_dict[self.base]
-            delta = skill.ac.getstartup() + skill.ac.getrecovery()
+            delta = (skill.ac.getstartup() + skill.ac.getrecovery()) / self.adv.speed()
             self.add_time(delta)
             log('debug', e.name, 'extend', delta)
 
@@ -749,9 +749,13 @@ class MultiBuffManager:
         self.buffs = buffs or []
         # self.buffs = list(filter(None, self.buffs))
         self.duration = duration
+        self.skill_buffs = set()
         for b in self.buffs:
             if b.mod_type == 'effect':
                 b.hidden = True
+            if isinstance(b, SAltBuff) and b.group != 'ddrive':
+                b.add_time = self.add_time_hax
+                self.skill_buffs.add(b)
 
     def on(self):
         # print([(b.name, b.get()) for b in self.buffs])
@@ -777,9 +781,16 @@ class MultiBuffManager:
             b.add_time(delta)
         return self
 
+    def add_time_hax(self, delta):
+        for b in self.buffs:
+            if b in self.skill_buffs:
+                b.buff_end_timer.add(delta)
+            else:
+                b.add_time(delta)
+        return self
+
     def timeleft(self):
         return min([b.timeleft for b in self.buffs])
-
 
 class ModeManager(MultiBuffManager):
     ALT_CLASS = {
