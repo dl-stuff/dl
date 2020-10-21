@@ -39,13 +39,6 @@ for target, alst in load_json('alias.json').items():
     for a in alst:
         alias[a] = target
 
-alladv = {}
-for root, dirs, files in os.walk(os.path.join(ROOT_DIR, 'conf', 'adv')):
-    for fn in files:
-        name, ext = os.path.splitext(fn)
-        if ext == '.json':
-            alladv[name.lower()] = name
-
 elecoabs = {}
 for ele in ELEMENTS:
     elecoabs[ele] = {**coability['all'], **coability[ele]}

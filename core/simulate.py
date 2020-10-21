@@ -5,7 +5,7 @@ import time
 import json
 from itertools import chain
 from collections import defaultdict
-from conf import ROOT_DIR, get_icon, alladv, get_fullname, load_equip_json, save_equip_json
+from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json
 import core.acl
 import core.advbase
 
@@ -621,18 +621,28 @@ def save_equip(adv, real_d, repair=False, etype=None):
         equip[dkey]['pref'] = 'base'
     save_equip_json(adv_qual, equip)
 
-def load_adv_module(name):
+CAP_SNEK = re.compile(r'(^[a-z]|_[a-z])')
+def cap_snakey(name):
+    return CAP_SNEK.sub(lambda s: s.group(1).upper(), name)
+
+def load_adv_module(name, in_place=None):
     parts = os.path.basename(name).split('.')
     vkey = None if len(parts) == 1 else parts[1].lower()
-    name = alladv[parts[0].lower()]
+    name = cap_snakey(parts[0])
     lname = name.lower()
     try:
         advmodule = getattr(__import__(f'adv.{lname}'), lname)
+        if in_place is not None:
+            in_place[name] = advmodule.variants
+            return
         try:
             return advmodule.variants[vkey], name
         except KeyError:
             return advmodule.variants[None], name
-    except ModuleNotFoundError:
+    except (ModuleNotFoundError, AttributeError):
+        if in_place is not None:
+            in_place[name] =  {None: core.advbase.Adv}
+            return
         return core.advbase.Adv, name
 
 def test_with_argv(*argv):

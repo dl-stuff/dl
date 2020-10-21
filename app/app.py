@@ -56,15 +56,13 @@ SIMULATED_BUFFS = {
     'echo': (0, float('inf'), 1)
 }
 
-
 ADV_MODULES = {}
-for adv in NORMAL_ADV+MASS_SIM_ADV:
-    module = core.simulate.load_adv_module(adv)
-    name = module.__name__
-    ADV_MODULES[name] = module
-for name, _ in SPECIAL_ADV.items():
-    module = core.simulate.load_adv_module(name)
-    ADV_MODULES[name] = module
+for root, dirs, files in os.walk(os.path.join(ROOT_DIR, 'conf', 'adv')):
+    for fn in files:
+        name, ext = os.path.splitext(fn)
+        if ext != '.json':
+            continue
+        core.simulate.load_adv_module(name, in_place=ADV_MODULES)
 
 def set_teamdps_res(result, logs, real_d, suffix=''):
     result['extra' + suffix] = {}

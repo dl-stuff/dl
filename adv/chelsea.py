@@ -1,22 +1,6 @@
-from core.advbase import *
-def module():
-    return Chelsea
+from core.advbase import Adv, Event, Selfbuff
 
 class Chelsea(Adv):
-    conf = {}
-    conf['slots.d'] = 'Dreadking_Rathalos'
-    conf['slots.a'] = ['Mega_Friends', 'Dear_Diary']
-    conf['acl'] = """
-        `s3,not buff(s3)
-        `s2, fsc
-        `s1, fsc and self.hp < 30 and buffstack(ro) < 3
-        `s4, fsc
-        `dodge, fsc
-        `fs
-    """
-    conf['coabs'] = ['Blade', 'Grace', 'Hunter_Berserker']
-    conf['share'] = ['Summer_Patia']
-
     def prerun(self):
         Event('dragon').listener(self.s2_clear)
         Event('s').listener(self.s_hp_check, order=0)
@@ -45,6 +29,8 @@ class Chelsea(Adv):
 
     def s2_proc(self, e):
         self.s2_buffs.append(Selfbuff('s2_obsession',0.3,60,'att','buff').on())
+
+variants = {None: Chelsea}
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

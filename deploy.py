@@ -42,28 +42,28 @@ def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
     durations = DURATION_LIST
     if special:
         durations = [180]
+
+    try:
+        adv_module, adv_name = core.simulate.load_adv_module(adv_name)
+        output_path = os.path.join(ROOT_DIR, CHART_DIR, 'chara', f'{adv_name}.csv')
+    except Exception as e:
+        print(f'\033[93m{monotonic()-t_start:.4f}s - sim:{adv_name} {e}\033[0m', flush=True)
+        return
+
     if sanity_test:
         mass = None
         durations = [30]
         output = open(os.devnull, 'w')
     else:
-        output_path = os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.csv'.format(adv_file))
         sha_before = sha256sum(output_path)
-        output = open(output_path, 'w', encoding='utf8')
 
-    try:
-        adv_module = core.simulate.load_adv_module(adv_name)
-    except Exception as e:
-        print(f'\033[93m{monotonic()-t_start:.4f}s - sim:{adv_file} {e}\033[0m', flush=True)
-        output.close()
-        return
     try:
         for d in durations:
             run_results = core.simulate.test(adv_module, {}, duration=d, verbose=verbose, mass=1000 if mass else None, special=special, output=output)
         if not sanity_test:
-            print('{:.4f}s - sim:{}'.format(monotonic() - t_start, adv_file), flush=True)
+            print(f'{monotonic() - t_start:.4f}s - sim:{adv_name}', flush=True)
     except Exception as e:
-        print(f'\033[91m{monotonic()-t_start:.4f}s - sim:{adv_file} {e}\033[0m', flush=True)
+        print(f'\033[91m{monotonic()-t_start:.4f}s - sim:{adv_name} {e}\033[0m', flush=True)
         output.close()
         return
     output.close()
@@ -90,8 +90,7 @@ def repair_equips(adv_file):
         adv_name = adv_file
         if adv_file.endswith('.py'):
             adv_name = adv_file.split('.')[0]
-        adv_module = core.simulate.load_adv_module(adv_name)
-        adv_name = adv_module.__name__
+        adv_module, adv_name = core.simulate.load_adv_module(adv_name)
         adv_ele = load_adv_json(adv_name)['c']['ele']
         adv_equip = deepcopy(load_equip_json(adv_name))
 

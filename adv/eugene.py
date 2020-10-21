@@ -1,24 +1,6 @@
-from core.advbase import *
 from module.template import RngCritAdv
 
-def module():
-    return Eugene
-
-class Eugene(RngCritAdv):    
-    conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'Memory_of_a_Friend']
-    conf['slots.d'] = 'Gaibhne_and_Creidhne'
-    conf['acl'] = """
-        `dragon(c3-s-end), s
-        `s3
-        `s1
-        `s2
-        `s4, fsc and not self.inspiration()>=5 and not self.energy()>=5
-        `fs, x=2
-    """
-    conf['coabs'] = ['Hunter_Sarisse', 'Dragonyule_Cleo', 'Summer_Estelle']
-    conf['share'] = ['Gala_Elisanne', 'Ranzal']
-
+class Eugene(RngCritAdv):
     def prerun(self):
         self.checkmate = 0
         o_s2_check = self.a_s_dict['s2'].check
@@ -41,6 +23,11 @@ class Eugene(RngCritAdv):
 
     def s2_proc(self, e):
         self.checkmate -= 1
+
+variants = {
+    None: Eugene,
+    'rng': Eugene
+}
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
