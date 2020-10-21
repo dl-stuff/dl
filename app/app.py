@@ -209,7 +209,7 @@ def get_adv_slotlist():
     if advname is not None:
         adv = ADV_MODULES[advname](duration=duration, equip_key=equip_key)
         adv.config_slots()
-        result['adv']['basename'] = adv.__class__.__name__
+        result['adv']['basename'] = adv.name
         result['adv']['ele'] = adv.slots.c.ele
         result['adv']['wt'] = adv.slots.c.wt
         result['adv']['pref_dra'] = adv.slots.d.qual

@@ -1,11 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Gala_Alex
-
-
 class Skill_Reservoir(Skill):
-
     def __init__(self, name=None, altchain=None):
         super().__init__(name)
         self.chain_timer = Timer(self.chain_off)
@@ -50,38 +45,7 @@ class Skill_Reservoir(Skill):
         return casted
 
 class Gala_Alex(Adv):
-    comment = 'see special for bk chain; s2 c4fs [s1 c4fs]*5 & use s1/s2 only when charge>=2'
-
-    conf = {}
-    conf['slots.a'] = [
-        'The_Shining_Overlord',
-        'Flash_of_Genius',
-        'Moonlight_Party',
-        'The_Plaguebringer',
-        'Dueling_Dancers'
-    ]
-    conf['acl'] = """
-        `dragon(c3-s-end), s=1
-        `s3, not buff(s3)
-        if fsc
-        # use s4/s2 if no poison or if s1 def down has less than 1/3 time left
-        if (self.sr.chain_status=1 and buff.timeleft(s1, base1)<5)
-        `s4
-        `s2
-        end
-        `s2, not afflics.poison.get()
-        `s1, not buff(s1) or self.sr.count > 1
-        end
-        `fs, x=4
-    """
-    conf['coabs.base'] = ['Ieyasu','Wand','Delphi']
-    conf['coabs.poison'] = ['Ieyasu','Wand','Forte']
-    conf['share.base'] = ['Xander']
-    
-    def d_coabs(self):
-        if self.duration <= 120:
-            self.conf['coabs'] = ['Ieyasu','Wand','Heinwald']
-
+    comment = 'see special for bk chain'
     def __init__(self, altchain=None, **kwargs):
         super().__init__(**kwargs)
         self.sr = Skill_Reservoir('s1', altchain=altchain)
@@ -126,6 +90,62 @@ class Gala_Alex(Adv):
             s.charge(sp)
         log('sp', name, sp, f'{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}')
         self.think_pin('sp')
+
+class Gala_Alex_BK(Gala_Alex):
+    conf = {}
+    conf['slots.a'] = [
+        'Howling_to_the_Heavens',
+        'Memory_of_a_Friend',
+        'The_Shining_Overlord',
+        'His_Clever_Brother',
+        'The_Plaguebringer'
+    ]
+    conf['acl'] = """
+        queue
+        `s1; fs, x=4
+        `s2; fs, x=4
+        `s1; fs, x=4
+        `s2;
+        `s1;
+        end
+    """
+    conf['coabs.base'] = ['Ieyasu','Wand','Summer_Patia']
+    conf['share.base'] = ['Fjorm']
+    conf['sim_afflict.frostbite'] = 1
+
+    def __init__(self, **kwargs):
+        kwargs['equip_key'] = None
+        super().__init__(altchain='break', **kwargs)
+
+    def pre_conf(self, equip_key=None):
+        self.conf = Conf(self.conf_default)
+        self.conf.update(globalconf.get_adv(self.name))
+        self.conf.update(self.conf_base)
+        self.conf.update(self.conf_init)
+        return None
+
+    def prerun(self):
+        super().prerun()
+        self.duration = 10
+        self.sr.charged = 1129*3
+        Selfbuff('agito_s3', 0.30, -1, 'spd', 'passive').on()
+        Selfbuff('agito_s3', 0.05, -1, 'crit', 'chance').on()
+        self.hits = 100
+
+    def post_run(self, end):
+        self.comment = f'{now():.02f}s sim; 3 charges into bk + bk killer chain; no bk def adjustment'
+
+    def build_rates(self, as_list=True):
+        rates = super().build_rates(as_list=False)
+        rates['break'] = 1.00
+        # rates['debuff_def'] = 1.00
+        # rates['poison'] = 1.00
+        return rates if not as_list else list(rates.items())
+
+variants = {
+    None: Gala_Alex,
+    'bk': Gala_Alex_BK
+}
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

@@ -5,8 +5,9 @@ import time
 import json
 from itertools import chain
 from collections import defaultdict
-from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json
+from conf import ROOT_DIR, get_icon, alladv, get_fullname, load_equip_json, save_equip_json
 import core.acl
+import core.advbase
 
 BR = 64
 def skill_efficiency(real_d, team_dps, mod):
@@ -28,15 +29,15 @@ DOT_AFFLICT = ['poison', 'paralysis', 'burn', 'frostbite']
 
 S_ALT = '†'
 
-def run_once(classname, conf, duration, cond, equip_key=None):
-    adv = classname(conf=conf, duration=duration, cond=cond, equip_key=equip_key)
+def run_once(name, module, conf, duration, cond, equip_key=None):
+    adv = module(name=name, conf=conf, duration=duration, cond=cond, equip_key=equip_key)
     real_d = adv.run()
     return adv, real_d
 
 # Using starmap
 import multiprocessing
-def run_once_mass(classname, conf, duration, cond, equip_key, idx):
-    adv = classname(conf=conf, duration=duration, cond=cond)
+def run_once_mass(name, module, conf, duration, cond, equip_key, idx):
+    adv = module(name=name, conf=conf, duration=duration, cond=cond)
     real_d = adv.run()
     return adv.logs, real_d
 
@@ -64,37 +65,26 @@ def avg_logs(log, mass):
         log.team_tension[k] /= mass
     return log
 
-def run_mass(mass, base_log, base_d, classname, conf, duration, cond, equip_key=None):
+def run_mass(mass, base_log, base_d, name, module, conf, duration, cond, equip_key=None):
     mass = 1000 if mass == 1 else mass
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
-        for log, real_d in pool.starmap(run_once_mass, [(classname, conf, duration, cond, equip_key, idx) for idx in range(mass-1)]):
+        for log, real_d in pool.starmap(run_once_mass, [(name, module, conf, duration, cond, equip_key, idx) for idx in range(mass-1)]):
             base_log = sum_logs(base_log, log)
             base_d += real_d
     base_log = avg_logs(base_log, mass)
     base_d /= mass
     return base_log, base_d
 
-def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, cond=True, special=False):
+def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=None, cond=True, special=False):
     output = output or sys.stdout
-    # ex_set = parse_ex(ex)
-    # if len(ex_set) > 0:
-    #     conf['coabs'] = ex_set
-    # else:
-    #     ex = '_'
-    # if verbose == -3:
-    #     brute_force_slots(classname, conf, output, team_dps, duration)
-    #     return
-    # if verbose == -4:
-    #     brute_force_coabs(classname, conf, output, team_dps, duration)
-    #     return
     if verbose == 2:
         # output.write(adv._acl_str)
-        adv = classname()
+        adv = module(name=name)
         output.write(str(core.acl.build_acl(adv.conf.acl)._acl_str))
         output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
         return
     run_results = []
-    adv, real_d = run_once(classname, conf, duration, cond, equip_key=None)
+    adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None)
     if verbose == 255:
         output.write(str(adv.slots))
         output.write('\n')
@@ -107,7 +97,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
         return
 
     if mass:
-        adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond)
     run_results.append((adv, real_d, True))
 
     aff_name = ELE_AFFLICT[adv.slots.c.ele]
@@ -119,9 +109,9 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
             for aff_name in DOT_AFFLICT[:(-verbose-6)]:
                 conf[f'sim_afflict.{aff_name}'] = 1
         equip_key = 'affliction' if adv.equip_key != 'buffer' else 'buffer'
-        adv, real_d = run_once(classname, conf, duration, cond, equip_key=equip_key)
+        adv, real_d = run_once(module, conf, duration, cond, equip_key=equip_key)
         if mass:
-            adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond, equip_key=equip_key)
+            adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=equip_key)
         run_results.append((adv, real_d, 'affliction'))
 
     for a, d, c in run_results:
@@ -418,7 +408,7 @@ def summation(real_d, adv, output, cond=True):
 
 XN_PATTERN = re.compile(r'^x\d')
 def report(real_d, adv, output, cond=True, web=False):
-    name = adv.__class__.__name__
+    name = adv.name
     dmg = adv.logs.damage
     res = dps_sum(real_d, dmg)
     report_csv = [res['dps']]
@@ -545,7 +535,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
         else:
             etype = etype if repair else 'affliction'
     dkey = str(adv.duration)
-    adv_qual = adv.__class__.__name__
+    adv_qual = adv.name
     equip = load_equip_json(adv_qual)
     cached = None
     acl_list = adv.conf.acl
@@ -631,19 +621,25 @@ def save_equip(adv, real_d, repair=False, etype=None):
         equip[dkey]['pref'] = 'base'
     save_equip_json(adv_qual, equip)
 
+def load_adv_module(name):
+    parts = os.path.basename(name).split('.')
+    vkey = None if len(parts) == 1 else parts[1].lower()
+    name = alladv[parts[0].lower()]
+    lname = name.lower()
+    try:
+        advmodule = getattr(__import__(f'adv.{lname}'), lname)
+        try:
+            return advmodule.variants[vkey], name
+        except KeyError:
+            return advmodule.variants[None], name
+    except ModuleNotFoundError:
+        return core.advbase.Adv, name
 
-def load_adv_module(adv_name):
-    return getattr(
-        __import__('adv.{}'.format(adv_name.lower())),
-        adv_name.lower()
-    ).module()
-
-def test_with_argv(*argv, conf={}):
+def test_with_argv(*argv):
     if argv[0] is not None and not isinstance(argv[0], str):
         module = argv[0]
     else:
-        name = os.path.basename(argv[1]).split('.')[0]
-        module = load_adv_module(name)
+        module, name = load_adv_module(argv[1])
     try:
         verbose = int(argv[2])
     except:
@@ -656,7 +652,7 @@ def test_with_argv(*argv, conf={}):
         mass = int(argv[4])
     except:
         mass = 0
-    test(module, conf=conf, verbose=verbose, duration=duration, mass=mass)
+    test(name, module, verbose=verbose, duration=duration, mass=mass)
 
 if __name__ == '__main__':
     test_with_argv(*sys.argv)

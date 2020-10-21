@@ -824,9 +824,10 @@ class Adv(object):
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf['flask_env']))
 
-    def __init__(self, conf=None, duration=180, cond=None, equip_key=None):
-        if not self.name:
-            self.name = self.__class__.__name__
+    def __init__(self, name=None, conf=None, duration=180, cond=None, equip_key=None):
+        if not name:
+            raise ValueError('Adv module must have a name')
+        self.name = name
 
         self.Event = Event
         self.Buff = Buff
@@ -1204,7 +1205,7 @@ class Adv(object):
         try:
             self_coab = list(self.slots.c.coabs.keys())[0]
         except:
-            self_coab = self.__class__.__name__
+            self_coab = self.name
         for name in coab_list:
             try:
                 self.slots.c.coabs[name] = self.slots.c.valid_coabs[name]
@@ -1256,7 +1257,7 @@ class Adv(object):
             self.skillshare_list = self.conf['share'] or []
         preruns = {}
         try:
-            self.skillshare_list.remove(self.__class__.__name__)
+            self.skillshare_list.remove(self.name)
         except ValueError:
             pass
         self.skillshare_list = list(OrderedDict.fromkeys(self.skillshare_list))
@@ -1267,7 +1268,7 @@ class Adv(object):
 
         from conf import load_adv_json, skillshare
         from core.simulate import load_adv_module
-        self_data = skillshare.get(self.__class__.__name__, {})
+        self_data = skillshare.get(self.name, {})
         share_limit = self_data.get('limit', 10)
         sp_modifier = self_data.get('mod_sp', 1)
         self.skill_share_att = self_data.get('mod_att', 0.7)
@@ -1300,7 +1301,7 @@ class Adv(object):
                         self.conf[dst_sn] = src_snconf
                         self.conf[dst_sn].owner = owner
                         self.conf[dst_sn].sp = shared_sp
-                    owner_module = load_adv_module(owner)
+                    owner_module, _ = load_adv_module(owner)
                     preruns[dst_key] = owner_module.prerun_skillshare
                     for sfn in ('before', 'proc'):
                         self.rebind_function(owner_module, f'{src_key}_{sfn}', f'{dst_key}_{sfn}')
