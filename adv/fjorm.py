@@ -7,7 +7,3 @@ class Fjorm(Adv):
         Teambuff('last_bravery_defense', 0.40, 15, 'defense').on()
 
 variants = {None: Fjorm}
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)

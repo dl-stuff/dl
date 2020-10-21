@@ -11,7 +11,3 @@ class Celliera(Adv):
         self.dragonform.disabled = False
 
 variants = {None: Celliera}
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)

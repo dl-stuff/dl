@@ -1,29 +1,6 @@
-from core.advbase import *
-
-def module():
-    return Gala_Zena
+from core.advbase import Adv
 
 class Gala_Zena(Adv):
-    conf = {}
-    conf['slots.a'] = [
-        'Here_Come_the_Sealers',
-        'Endless_Waltz',
-        'Dazzling_Duet',
-        'A_Small_Courage',
-        'Beautiful_Nothingness'
-    ]
-    conf['slots.d'] = 'Gala_Thor'
-    conf['acl'] = """
-        `dragon
-        `s3, not buff(s3)
-        `s4
-        `fs5, c_fs(auspex)
-        `s1, cancel
-        `s2, cancel
-        """
-    conf['coabs'] = ['Blade','Grace','Peony']
-    conf['share'] = ['Hunter_Sarisse']
-
     def prerun(self):
         self.auspex_count = 0
         self.a3_modifier = Modifier('zena_a3', 'att', 'passive', 0.0)
@@ -48,6 +25,8 @@ class Gala_Zena(Adv):
             return self.sub_mod('maxhp', 'passive') * ((self.hp-70)/30 * 0.5 + 0.5)
         else:
             return self.sub_mod('maxhp', 'passive') * (self.hp/70 * 0.4 + 0.1)
+
+variants = {None: Gala_Zena}
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv

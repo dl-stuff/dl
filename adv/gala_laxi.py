@@ -1,13 +1,8 @@
-from core.advbase import *
+from core.advbase import Timer, EffectBuff, Selfbuff, Event, X, log, now, defaultdict, reduce
 from module.template import RngCritAdv
 
-def module():
-    return Gala_Laxi
-
 a3_stack_cap = 10
-class Gala_Laxi(RngCritAdv):
-    conf = {}
-    
+class Gala_Laxi(RngCritAdv):    
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # human latency penalty on ex combo
@@ -160,6 +155,4 @@ class Gala_Laxi(RngCritAdv):
         if e.group == 'default':
             self.fig.on()
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Gala_Laxi}

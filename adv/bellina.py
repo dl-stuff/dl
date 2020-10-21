@@ -14,7 +14,3 @@ class Bellina(Adv):
             self.dragonform.charge_gauge(3000*(self.hp-30)/100, utp=True, dhaste=False)
 
 variants = {None: Bellina}
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)

@@ -1,21 +1,9 @@
-from core.advbase import *
+from core.advbase import Adv, defaultdict, Modifier
 
 def module():
     return Gala_Luca
 
 class Gala_Luca(Adv):
-    # conf = {}
-    # conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
-    # conf['acl'] = """
-    #     `dragon, cancel
-    #     `s3, not buff(s3)
-    #     `s2
-    #     `s1
-    #     `s4, x=5
-    #     """
-    # conf['coabs'] = ['Axe2','Lucretia','Peony']
-    # conf['share'] = ['Summer_Patia']
-
     def prerun(self):
         self.crit_mod = self.custom_crit_mod
         self.a1_buff_types = 3
@@ -113,6 +101,12 @@ class Gala_Luca(Adv):
     def post_run(self, end):
         self.comment = f'avg buff icon {self.all_icon_avg[1]:.2f} (s1 {self.s1_icon_avg[1]:.2f})'
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+class Gala_Luca_MAX(Gala_Luca):
+    comment = '7 buff icons from team (buff value not considered)'
+    def buff_icon_count(self):
+        return 7
+
+variants = {
+    None: Gala_Luca,
+    'max': Gala_Luca_MAX
+}

@@ -639,7 +639,7 @@ def load_adv_module(name, in_place=None):
             return advmodule.variants[vkey], name
         except KeyError:
             return advmodule.variants[None], name
-    except (ModuleNotFoundError, AttributeError):
+    except ModuleNotFoundError:
         if in_place is not None:
             in_place[name] =  {None: core.advbase.Adv}
             return

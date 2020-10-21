@@ -18,7 +18,3 @@ class Akasha(Adv):
         self.comment = f'total {self.team_sp} SP to team from s2'
 
 variants = {None: Akasha}
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)

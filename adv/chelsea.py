@@ -31,7 +31,3 @@ class Chelsea(Adv):
         self.s2_buffs.append(Selfbuff('s2_obsession',0.3,60,'att','buff').on())
 
 variants = {None: Chelsea}
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
