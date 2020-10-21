@@ -20,7 +20,7 @@ class Kleimann(Adv):
         `s1
         `s2
         `s4
-        `fs, self.madness_status<5 and self.madness>0
+        `fs, self.madness_status<5 and self.madness=5
         """
     conf['coabs'] = ['Ieyasu','Gala_Alex','Delphi']
     conf['share'] = ['Curran']
@@ -37,21 +37,26 @@ class Kleimann(Adv):
                 log('sp', s.name+'_autocharge', int(sp))
         self.set_hp(self.hp-1)
 
+    @property
+    def madness(self):
+        return self.fs_alt.uses
+
     def prerun(self):
-        self.madness = 0
         self.madness_status = 0
         self.madness_timer = Timer(self.a1_madness_autocharge, 2.9, 1)
+        self.fs_alt = FSAltBuff('a1_madness', 'madness', uses=0)
 
-    def fs_proc(self, e):
-        if self.madness > 0 and self.madness_status < 5:
+    def fs_madness_proc(self, e):
+        if self.madness_status < 5:
             self.madness_status += 1
-            self.madness -= 1
             if self.madness_status == 1:
                 self.madness_timer.on()
 
     def s2_proc(self, e):
-        if self.madness < 5:
-            self.madness += 1
+        if not self.fs_alt.get():
+            self.fs_alt.on()
+        if self.fs_alt.uses < 5:
+            self.fs_alt.uses += 1
 
 if __name__ == '__main__':
     from core.simulate import test_with_argv
