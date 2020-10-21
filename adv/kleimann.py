@@ -43,7 +43,7 @@ class Kleimann(Adv):
         self.madness_timer = Timer(self.a1_madness_autocharge, 2.9, 1)
 
     def fs_proc(self, e):
-        if self.madness_status < 5:
+        if self.madness > 0 and self.madness_status < 5:
             self.madness_status += 1
             self.madness -= 1
             if self.madness_status == 1:
