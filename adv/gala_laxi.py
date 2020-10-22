@@ -1,4 +1,4 @@
-from core.advbase import Timer, EffectBuff, Selfbuff, Event, X, log, now, defaultdict, reduce
+from core.advbase import *
 from module.template import RngCritAdv
 
 a3_stack_cap = 10

@@ -1,4 +1,4 @@
-from core.advbase import Adv
+from core.advbase import *
 
 class Celliera(Adv):
     def s2_proc(self, e):

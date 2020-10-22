@@ -1,4 +1,4 @@
-from core.advbase import Adv, Modifier, log
+from core.advbase import *
 
 gauge_values = {
     'x1': 77,
@@ -50,7 +50,3 @@ class Gala_Ranzal(Adv):
             self.s1_boosted_mod = None
 
 variants = {None: Gala_Ranzal}
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)

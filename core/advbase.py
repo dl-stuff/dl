@@ -516,6 +516,10 @@ class Adv(object):
     _acl_dragonbattle = core.acl.build_acl('`dragon')
     _acl = None
 
+    @property
+    def variant(self):
+        return self.__class__.__name__.replace(self.name, '').strip('_')
+
     def dmg_proc(self, name, amount):
         pass
 
@@ -537,15 +541,6 @@ class Adv(object):
         x_proc is called when base dagger combo
         x_tempura_proc is called when tempura combo
     """
-
-    def d_coabs(self):
-        pass
-
-    def d_slots(self):
-        pass
-
-    def d_skillshare(self):
-        pass
 
     def prerun(self):
         pass
@@ -584,6 +579,7 @@ class Adv(object):
 
         'acl': 's1;s2;s3;s4',
 
+        'mbleed': True,
         'attenuation.hits': 1,
         'attenuation.delay': 0.25,
     }
@@ -797,8 +793,6 @@ class Adv(object):
     def config_slots(self):
         if self.conf['classbane'] == 'HDT':
             self.conf.c.a.append(['k_HDT', 0.3])
-        if not self.conf['flask_env']:
-            self.d_slots()
         self.slots.set_slots(self.conf.slots)
 
     def pre_conf(self, equip_key=None):
@@ -1198,7 +1192,6 @@ class Adv(object):
 
     def config_coabs(self):
         if not self.conf['flask_env']:
-            self.d_coabs()
             coab_list = self.load_aff_conf('coabs')
         else:
             coab_list = self.conf['coabs'] or []
@@ -1251,7 +1244,6 @@ class Adv(object):
         self.conf.s3.owner = None
 
         if not self.conf['flask_env']:
-            self.d_skillshare()
             self.skillshare_list = self.load_aff_conf('share')
         else:
             self.skillshare_list = self.conf['share'] or []
@@ -1565,14 +1557,23 @@ class Adv(object):
 
     def l_attenuation(self, t):
         self.add_combo(name=t.dname)
-        return self.dmg_make(t.dname, t.dmg_coef, t.dtype, attenuation=t.attenuation, depth=t.depth)
+        return self.dmg_make(
+            t.dname, t.dmg_coef, t.dtype,
+            hitmods=t.hitmods, attenuation=t.attenuation, depth=t.depth
+        )
 
-    def dmg_make(self, name, coef, dtype=None, fixed=False, attenuation=None, depth=0):
+    def dmg_make(self, name, coef, dtype=None, fixed=False, hitmods=None, attenuation=None, depth=0):
         if coef <= 0.01:
             return 0
         if dtype == None:
             dtype = name
+        if hitmods is not None:
+            for m in hitmods:
+                m.on()
         count = self.dmg_formula(dtype, coef) if not fixed else coef
+        if hitmods is not None:
+            for m in hitmods:
+                m.off()
         log('dmg', name, count)
         self.dmg_proc(name, count)
         if fixed:
@@ -1583,7 +1584,7 @@ class Adv(object):
             log('dmg', 'echo', echo_count, f'from {name}')
             count += echo_count
         if attenuation is not None:
-            rate, pierce = attenuation
+            rate, pierce, hitmods = attenuation
             if pierce != 0:
                 coef *= rate
                 depth += 1
@@ -1595,7 +1596,8 @@ class Adv(object):
                 t.dname = name
                 t.dmg_coef = coef
                 t.dtype = dtype
-                t.attenuation = (rate, pierce-1)
+                t.hitmods = hitmods
+                t.attenuation = (rate, pierce-1, hitmods)
                 t.depth = depth
                 t.on(self.conf.attenuation.delay)
         return count
@@ -1611,7 +1613,7 @@ class Adv(object):
             if 'bufc' in attr:
                 hitmods.append(Modifier(f'{name}_bufc', 'att', 'bufc', attr['bufc']*self.buffcount))
             if 'fade' in attr:
-                attenuation = (attr['fade'], self.conf.attenuation.hits)
+                attenuation = (attr['fade'], self.conf.attenuation.hits, hitmods)
             else:
                 attenuation = None
             for m in hitmods:
@@ -1687,7 +1689,7 @@ class Adv(object):
                 if self.bleed is None:
                     self.bleed = bleed
                     self.bleed.reset()
-                if rate == 100 or rate > random.uniform(0, 100):
+                if rate == 100 or rate >= random.uniform(0, 100):
                     self.bleed = Bleed(name, mod, debufftime=debufftime)
                     self.bleed.on()
 

@@ -1,51 +1,7 @@
 from core.advbase import *
 
-def module():
-    return Lathna
-
 class Lathna(Adv):
     comment = 'cat sith skill damage does not work on s1 extra hits'
-    
-    conf = {}
-    conf['slots.a'] = [
-        'Dragon_and_Tamer',
-        'Flash_of_Genius',
-        'Moonlight_Party',
-        'The_Plaguebringer',
-        'Dueling_Dancers'
-    ]
-    conf['acl'] = """
-        `dragon(c3-s-end), cancel
-        `s3, not buff(s3)
-        `s2
-        `s4
-        `s1(all), x=5
-        """
-    conf['coabs'] = ['Ieyasu','Wand','Forte']
-    conf['share.base'] = ['Rodrigo']
-    conf['share.poison'] = ['Curran']
-        
-    # conf['dragonform'] = {
-    #     'act': 'c3-s-c3-c3-c2-c2-c2',
-
-    #     'dx1.dmg': 2.31,
-    #     'dx1.startup': 19 / 60.0, # c1 frames
-    #     'dx1.hit': 1,
-
-    #     'dx2.dmg': 2.54,
-    #     'dx2.startup': 42 / 60.0, # c2 frames
-    #     'dx2.hit': 1,
-
-    #     'dx3.dmg': 3.34,
-    #     'dx3.startup': 68 / 60.0, # c3 frames
-    #     'dx3.recovery': 72 / 60.0, # recovery
-    #     'dx3.hit': 2,
-
-    #     'ds.recovery': 124 / 60, # skill frames
-    #     'ds.hit': 2,
-
-    #     'dodge.startup': 41 / 60.0, # dodge frames
-    # }
 
     def prerun(self):
         self.dragonform.shift_mods.append(Modifier('faceless_god', 'poison_killer', 'passive', 2.00).off())
@@ -76,6 +32,27 @@ class Lathna(Adv):
             t.name = e.name
             t.on(i*0.4+0.4)
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+class Lathna_BUGFIX(Lathna):
+    comment = 'if s1 aspd and sd buff bugs were fixed'
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.conf.s1_all.recovery = self.conf.s1.recovery + self.conf.s1_all.recovery_nospd
+        self.conf.s1_all.recovery_nospd = 0
+        self.conf.s1_all.attr = self.conf.s1.attr
+        tmp_attr = self.conf.s1.attr[-1].copy()
+        for _ in range(4):
+            tmp_attr['iv'] += 0.4
+            self.conf.s1_all.attr.append(tmp_attr.copy())
+
+    # force use of s1_all cus im too lazy to fix acl
+    @allow_acl
+    def s(self, n, s1_kind=None):
+        return super().s(n, s1_kind='all')
+
+    def s1_proc(self, e):
+        pass
+
+variants = {
+    None: Lathna,
+    'BUGFIX': Lathna_BUGFIX
+}

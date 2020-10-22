@@ -1,7 +1,4 @@
-from core.advbase import Adv, Event, Modifier, MultiBuffManager
-
-def module():
-    return Gala_Mym
+from core.advbase import *
 
 class Gala_Mym(Adv):    
     def prerun(self):

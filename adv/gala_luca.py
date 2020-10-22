@@ -1,7 +1,4 @@
-from core.advbase import Adv, defaultdict, Modifier
-
-def module():
-    return Gala_Luca
+from core.advbase import *
 
 class Gala_Luca(Adv):
     def prerun(self):
@@ -108,5 +105,5 @@ class Gala_Luca_MAX(Gala_Luca):
 
 variants = {
     None: Gala_Luca,
-    'max': Gala_Luca_MAX
+    'MAX': Gala_Luca_MAX
 }

@@ -1,23 +1,7 @@
 from core.advbase import *
 
-def module():
-    return Yukata_Curran
-
 class Yukata_Curran(Adv):
-    conf = {}
-    conf['slots.a'] = ['Twinfold_Bonds', 'Spirit_of_the_Season']
-    conf['acl'] = """
-        `dragon
-        `s3, not buff(s3)
-        `s2
-        `s4, x=5
-        `s1, not self.energy()=5 and cancel
-        `fs, x=5
-        """
-    conf['coabs'] = ['Sharena','Lucretia','Peony']
-    conf['share'] = ['Summer_Patia']
-    conf['attenuation.hits'] = 1
-
+    conf = {'attenuation.hits': 1}
     def prerun(self):
         self.s1_ehits = 0
         self.comment = f'assume {self.conf.attenuation.hits+1} hits per s1 bullet'
@@ -30,6 +14,10 @@ class Yukata_Curran(Adv):
             self.s1_ehits -= 10
             self.energy.add(5, queue=True)
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+class Yukata_Curran_ALL(Yukata_Curran):
+    conf = {'attenuation.hits': 5}
+
+variants = {
+    None: Yukata_Curran,
+    'ALL': Yukata_Curran_ALL
+}

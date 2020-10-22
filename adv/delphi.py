@@ -1,4 +1,4 @@
-from core.advbase import Adv
+from core.advbase import *
 
 class Delphi(Adv):    
     def prerun(self):        

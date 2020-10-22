@@ -1,36 +1,7 @@
 from core.advbase import *
 from module.template import SigilAdv
 
-def module():
-    return Pinon
-
-
-class Pinon(SigilAdv):    
-    conf = {}
-    conf['slots.a'] = ['Primal_Crisis', 'His_Clever_Brother']
-    conf['slots.d'] = 'Dragonyule_Jeanne'
-    conf['acl'] = """
-        # `dragon(c3-s-end), s
-        `s3, not buff(s3)
-        if self.unlocked
-        if x=8 or fsc
-        `s2
-        `s4
-        `s1, self.energy()>=5
-        end
-        else
-        if fsc
-        `s2
-        `s4
-        `s1
-        `dodge
-        end
-        `fs2
-        end
-    """
-    conf['coabs'] = ['Dagger2', 'Axe2', 'Xander']
-    conf['share'] = ['Gala_Elisanne']
-
+class Pinon(SigilAdv):
     def fs2_proc(self, e):
         self.a_update_sigil(-13)
 
@@ -50,6 +21,4 @@ class Pinon(SigilAdv):
         else:
             self.comment += f'not unlocked'
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Pinon}

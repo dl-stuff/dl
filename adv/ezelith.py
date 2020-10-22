@@ -1,4 +1,4 @@
-from core.advbase import Adv, Modifier, Selfbuff, Debuff, now, operator, defaultdict
+from core.advbase import *
 
 class Ezelith(Adv):
     def prerun(self):

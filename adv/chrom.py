@@ -1,4 +1,4 @@
-from core.advbase import Adv, KillerModifier, AFFLICT_LIST
+from core.advbase import *
 
 # s2 only, unlike galex
 class Skill_Reservoir(Skill):

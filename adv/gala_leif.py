@@ -1,8 +1,5 @@
-from core.advbase import ModeManager
+from core.advbase import *
 from module.template import StanceAdv
-
-def module():
-    return Gala_Leif
 
 class Gala_Leif(StanceAdv):        
     def prerun(self):

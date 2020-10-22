@@ -1,4 +1,4 @@
-from core.advbase import Adv, Teambuff
+from core.advbase import *
 
 class Fjorm(Adv):
     comment = 'last bravery once at start'

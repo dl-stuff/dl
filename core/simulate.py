@@ -109,7 +109,7 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=None,
             for aff_name in DOT_AFFLICT[:(-verbose-6)]:
                 conf[f'sim_afflict.{aff_name}'] = 1
         equip_key = 'affliction' if adv.equip_key != 'buffer' else 'buffer'
-        adv, real_d = run_once(module, conf, duration, cond, equip_key=equip_key)
+        adv, real_d = run_once(name, module, conf, duration, cond, equip_key=equip_key)
         if mass:
             adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=equip_key)
         run_results.append((adv, real_d, 'affliction'))
@@ -627,7 +627,7 @@ def cap_snakey(name):
 
 def load_adv_module(name, in_place=None):
     parts = os.path.basename(name).split('.')
-    vkey = None if len(parts) == 1 else parts[1].lower()
+    vkey = None if len(parts) == 1 else parts[1].upper()
     name = cap_snakey(parts[0])
     lname = name.lower()
     try:
@@ -636,9 +636,10 @@ def load_adv_module(name, in_place=None):
             in_place[name] = advmodule.variants
             return
         try:
-            return advmodule.variants[vkey], name
+            loaded = advmodule.variants[vkey]
         except KeyError:
-            return advmodule.variants[None], name
+            loaded = advmodule.variants[None]
+        return loaded, name
     except ModuleNotFoundError:
         if in_place is not None:
             in_place[name] =  {None: core.advbase.Adv}

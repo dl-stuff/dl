@@ -1,8 +1,5 @@
 from core.advbase import *
 
-def module():
-    return Halloween_Akasha
-
 def is_defdown(attr):
     return 'debuff' in attr and 'def' in attr
 
@@ -40,6 +37,10 @@ class Halloween_Akasha(Adv):
     def a1_cd_off(self, t):
         self.a1_cd = False
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+class Halloween_Akasha_RNG(Halloween_Akasha):
+    conf = {'mbleed': False}
+
+variants = {
+    None: Halloween_Akasha,
+    'RNG': Halloween_Akasha_RNG
+}

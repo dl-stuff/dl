@@ -1,4 +1,4 @@
-from core.advbase import Adv, Timer, EffectBuff
+from core.advbase import *
 
 class Akasha(Adv):
     def prerun(self):

@@ -144,5 +144,5 @@ class Gala_Alex_BK(Gala_Alex):
 
 variants = {
     None: Gala_Alex,
-    'bk': Gala_Alex_BK
+    'BK': Gala_Alex_BK
 }

@@ -1,4 +1,4 @@
-from core.advbase import Adv, Event, Selfbuff
+from core.advbase import *
 
 class Chelsea(Adv):
     def prerun(self):

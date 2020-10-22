@@ -1,4 +1,4 @@
-from core.advbase import Adv
+from core.advbase import *
 
 class Gala_Zena(Adv):
     def prerun(self):
@@ -27,7 +27,3 @@ class Gala_Zena(Adv):
             return self.sub_mod('maxhp', 'passive') * (self.hp/70 * 0.4 + 0.1)
 
 variants = {None: Gala_Zena}
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)

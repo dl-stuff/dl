@@ -1,7 +1,4 @@
-from core.advbase import Adv
-
-def module():
-    return Gala_Elisanne
+from core.advbase import *
 
 class Gala_Elisanne(Adv):
     def prerun(self):

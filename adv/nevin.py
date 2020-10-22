@@ -1,29 +1,7 @@
 from core.advbase import *
 from module.template import SigilAdv
 
-def module():
-    return Nevin
-
 class Nevin(SigilAdv):
-    conf = {}
-    conf['slots.d'] = 'Ramiel'
-    conf['slots.a'] = ['Twinfold_Bonds', 'The_Red_Impulse']
-    conf['slots.poison.a'] = ['Twinfold_Bonds', 'The_Plaguebringer']
-    conf['acl'] = """
-        `s3, not buff(s3)
-        `s1
-        `s2, cancel
-        if not self.unlocked
-        `dragon(c3-s-end)
-        else
-        `dragon(c3-s-end)
-        `s4, x=6
-        `fsf, x=6
-        end
-        """
-    conf['coabs'] = ['Berserker','Ieyasu','Forte']
-    conf['share'] = ['Veronica']
-
     def prerun(self):
         # alt s1 doesn't add dps
         self.config_sigil(duration=300, x=True, s2=True)
@@ -57,7 +35,4 @@ class Nevin(SigilAdv):
     def a_shift_sigil(self, t):
         self.a_update_sigil(-240)
 
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Nevin}

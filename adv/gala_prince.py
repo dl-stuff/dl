@@ -1,4 +1,4 @@
-from core.advbase import Adv, Modifier
+from core.advbase import *
 
 class Gala_Prince(Adv):    
     def prerun(self):

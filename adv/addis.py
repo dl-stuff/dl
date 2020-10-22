@@ -1,14 +1,9 @@
-from core.advbase import Adv
-
-class Addis(Adv):
-    conf = {}    
-    conf['mbleed'] = True
+from core.advbase import *
 
 class Addis_RNG(Adv):
-    conf = {}    
-    conf['mbleed'] = False
+    conf = {'mbleed': False}
 
 variants = {
-    None: Addis,
-    'rng': Addis_RNG
+    None: Adv,
+    'RNG': Addis_RNG
 }

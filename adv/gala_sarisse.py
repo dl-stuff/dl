@@ -1,4 +1,4 @@
-from core.advbase import Adv, Selfbuff
+from core.advbase import *
 
 class Gala_Sarisse(Adv):
     def prerun(self):
@@ -14,7 +14,3 @@ class Gala_Sarisse(Adv):
                 Selfbuff('a1_crit',0.01,15,'crit','chance', source=name).on()
 
 variants = {None: Gala_Sarisse}
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)

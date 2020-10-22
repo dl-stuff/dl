@@ -1,4 +1,4 @@
-from core.advbase import Adv, log, dummy_function
+from core.advbase import *
 
 class Albert(Adv):    
     def prerun(self):

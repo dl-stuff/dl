@@ -1,8 +1,5 @@
 from core.advbase import *
 
-def module():
-    return Ilia
-
 class Ilia(Adv):
     def prerun(self):
         Event('dodge').listener(self.l_dodge_attack, order=0)
@@ -96,6 +93,4 @@ class Ilia(Adv):
     def fs_cartridge3_before(self, e):
         self.a_deplete_cartridge(e.name, consume=3)
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Ilia}

@@ -1,8 +1,5 @@
 from core.advbase import *
 
-def module():
-    return Forte
-
 class Forte(Adv):
     def prerun(self):
         Event('s').listener(self.s_dgauge)

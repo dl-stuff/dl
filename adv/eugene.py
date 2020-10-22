@@ -26,5 +26,5 @@ class Eugene(RngCritAdv):
 
 variants = {
     None: Eugene,
-    'rng': Eugene
+    'mass': Eugene
 }

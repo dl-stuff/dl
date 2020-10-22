@@ -1,4 +1,4 @@
-from core.advbase import Adv
+from core.advbase import *
 from core.ability import Last_Buff
 
 class Alain(Adv):
