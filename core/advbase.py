@@ -297,6 +297,13 @@ class Action(object):
     def has_delayed(self):
         return len([mt for mt in self.delayed if mt.online and mt.timing > now()])
 
+    @property
+    def max_delayed(self):
+        try:
+            return max([mt.timing - now() for mt in self.delayed if mt.online and mt.timing > now()])
+        except ValueError:
+            return 0
+
     def tap(self, t=None):
         doing = self._static.doing
 

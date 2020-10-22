@@ -346,11 +346,16 @@ class DragonForm(Action):
             else:
                 nact = 'dx1'
             # print('CHOSE BY DEFAULT', nact, self.c_act_name)
-        if nact == 'ds' or nact == 'dodge' or (nact == 'end' and self.c_act_name != 'ds'): # cancel
+        if self.has_delayed and nact == 'dsf':
+            nact = 'ds'
             count = self.clear_delayed()
             if count > 0:
                 log('cancel', self.c_act_name, f'by {nact}', f'lost {count} hit{"s" if count > 1 else ""}')
-            self.act_timer(self.d_act_start_t, self.conf.latency, nact)
+            return self.act_timer(self.d_act_start_t, self.conf.latency, nact)
+        if nact in ('ds', 'dsf', 'dodge') or (nact == 'end' and self.c_act_name != 'ds'): # cancel
+            if nact == 'dsf':
+                nact = 'ds'
+            self.act_timer(self.d_act_start_t, self.max_delayed+self.conf.latency, nact)
         else: # regular recovery
             self.act_timer(self.d_act_start_t, self.c_act_conf.recovery, nact)
 
@@ -378,8 +383,11 @@ class DragonForm(Action):
                         self.act_list.pop()
                 except IndexError:
                     pass
-                if (a == 's' or a == 'ds') and (self.skill_use <= -1 or skill_usage < self.skill_use):
-                    self.act_list.append('ds')
+                if (a in ('s', 'ds', 'sf', 'dsf')) and (self.skill_use <= -1 or skill_usage < self.skill_use):
+                    if a[-1] == 'f':
+                        self.act_list.append('dsf')
+                    else:
+                        self.act_list.append('ds')
                     skill_usage += 1
                 elif a == 'end' and self.can_end:
                     self.act_list.append('end')
