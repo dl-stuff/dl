@@ -18,18 +18,8 @@ def stat_conf(cond):
                 data = json.load(f)
                 if cond(data):
                     deploy += name + ' '
+    deploy += '-rp'
     print(deploy)
 
 if __name__ == '__main__':
-    # stat_conf(lambda d: d['c']['ele'] == 'shadow')
-
-    ADV_MODULES = {}
-    for root, dirs, files in os.walk(os.path.join(ROOT_DIR, 'conf', 'adv')):
-        for fn in files:
-            name, ext = os.path.splitext(fn)
-            if ext != '.json':
-                continue
-            core.simulate.load_adv_module(name, in_place=ADV_MODULES)
-
-    from pprint import pprint
-    pprint(ADV_MODULES)
+    stat_conf(lambda d: d['c']['ele'] == 'water')

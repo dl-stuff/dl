@@ -327,7 +327,7 @@ class DragonForm(Action):
         if self.repeat_act and not self.act_list:
             self.parse_act(self.conf.act)
         if self.act_list:
-            if self.act_list[0] != 'ds' or self.ds_check():
+            if self.act_list[0] not in ('ds', 'dsf') or self.ds_check():
                 if self.act_list[0] == 'end' and not self.allow_end:
                     nact = None
                 else:
