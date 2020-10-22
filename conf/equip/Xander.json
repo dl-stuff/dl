@@ -32,9 +32,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 48354.04498934138,
-      "team": 0.12492831890679613,
-      "tdps": 63607.93772910046,
+      "dps": 48519.122920238755,
+      "team": 0.11854444071890982,
+      "tdps": 65640.82424732434,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -67,7 +67,7 @@
       ]
     },
     "affliction": {
-      "dps": 59298.060234313285,
+      "dps": 57714.610853253886,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -84,7 +84,7 @@
         "`s1",
         "`s4",
         "`s2, cancel",
-        "`fs, x=1"
+        "`fs, x=2"
       ],
       "coabs": [
         "Yurius",
@@ -99,7 +99,7 @@
   },
   "60": {
     "base": {
-      "dps": 47946.23072558222,
+      "dps": 47308.57474352269,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -135,7 +135,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 51192.38173194323,
+      "dps": 50690.17441400524,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -147,16 +147,16 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c1-s-end), cancel and ((self.dragonform.shift_count<3))",
+        "`dragon(c1-s-end), cancel",
         "`s3, not buff(s3) and fsc",
-        "`s4",
-        "`s2",
         "`s1",
-        "`fs, x=3"
+        "`s4",
+        "`s2, cancel",
+        "`fs, x=1"
       ],
       "coabs": [
         "Yurius",
-        "Eugene",
+        "Xainfried",
         "Summer_Celliera"
       ],
       "share": [
@@ -167,7 +167,7 @@
   },
   "120": {
     "base": {
-      "dps": 52412.958620530604,
+      "dps": 53050.59349484876,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -203,33 +203,38 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 57672.58100778866,
+      "dps": 53635.34059537107,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "The_Red_Impulse",
+        "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "Dragons_Nest"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Siren",
       "acl": [
-        "`dragon(c1-s-end), cancel",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
+        "`s3, not buff(s3)",
+        "if c_s(1, enhanced)",
         "`s4",
-        "`s2, cancel",
-        "`fs, x=1"
+        "`s2",
+        "`s1",
+        "else",
+        "`dragon(c3-s-end), fsc",
+        "`s2, fsc or s",
+        "`s1, fsc or s",
+        "`fs, x=2",
+        "end"
       ],
       "coabs": [
+        "Blade",
         "Yurius",
-        "Eugene",
-        "Summer_Celliera"
+        "Dragonyule_Cleo"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Hunter_Sarisse"
       ]
     }
   }

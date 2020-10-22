@@ -1,23 +1,7 @@
 from core.advbase import *
 
-def module():
-    return Summer_Mikoto
 
 class Summer_Mikoto(Adv):
-    conf = {}
-    conf['slots.a'] = ['Forest_Bonds', 'Spirit_of_the_Season']
-    conf['acl'] = """
-        `dragon,s=1
-        `s2
-        `s1
-        `s4, cancel 
-        `s3, not buff(s3)
-        `fs, light=sun and not illuminating_sun.get()
-        `fs, light=wave and not celestial_wave.get()
-    """
-    conf['coabs'] = ['Lucretia', 'Sharena', 'Peony']
-    conf['share'] = ['Summer_Patia']
-    
     def prerun(self):
         self.sun = Selfbuff('sun', 1, -1, 'sunlight')
         self.wave = Selfbuff('wave', 1, -1, 'wavelight')
@@ -62,6 +46,4 @@ class Summer_Mikoto(Adv):
             self.current_s['s1'] = 'light'
             self.current_s['s2'] = 'light'
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Summer_Mikoto}

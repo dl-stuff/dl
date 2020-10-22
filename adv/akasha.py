@@ -1,28 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Akasha
-
 class Akasha(Adv):
-    conf = {}
-    conf['slots.a'] = [
-        'Study_Rabbits',
-        'Give_Me_Your_Wounded',
-        'Castle_Cheer_Corps',
-        'From_Whence_He_Comes',
-        'Bellathorna'
-    ]
-    conf['slots.d'] = 'Ariel'
-    conf['acl'] = """
-        `dragon
-        `s3
-        `s4
-        `s2
-        `s1, not buff(s1)
-        """
-    conf['coabs'] = ['Dagger2','Tobias','Blade']
-    conf['share'] = ['Summer_Luca', 'Patia']
-
     def prerun(self):
         self.team_sp = 0
 
@@ -39,7 +17,4 @@ class Akasha(Adv):
         # self.stats.append(f'team_sp:{self.team_sp}')
         self.comment = f'total {self.team_sp} SP to team from s2'
 
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Akasha}

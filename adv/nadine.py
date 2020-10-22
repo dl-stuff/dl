@@ -1,28 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Nadine
-
 class Nadine(Adv):
-    conf = {}
-    conf['slots.a'] = [
-    'Dragon_and_Tamer',
-    'Flash_of_Genius',
-    'Me_and_My_Bestie',
-    'Chariot_Drift',
-    'Dueling_Dancers'
-    ]
-    conf['acl'] = """
-        `dragon, s=1
-        `s3, not buff(s3)
-        `s2
-        `s1
-        `s4
-        `fs, x=5
-        """
-    conf['coabs'] = ['Blade', 'Wand', 'Serena']
-    conf['share'] = ['Gala_Mym']
-
     def prerun(self):
         self.team_s1_hits = 1
         teammates = 2
@@ -52,11 +30,10 @@ class Nadine(Adv):
             return
         if s1_hits >= 6:
             self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_6)
-
             self.energy.add(5)
             return
 
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {
+    None: Nadine,
+    'mass': Nadine
+}

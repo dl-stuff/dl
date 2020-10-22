@@ -1,24 +1,8 @@
 from core.advbase import *
 
-def module():
-    return Yukata_Cassandra
-
 echo_mod = 0.40
-
 class Yukata_Cassandra(Adv):
     comment = 's1 team buff not considered'
-
-    conf = {}
-    conf['slots.a'] = ['Proper_Maintenance', 'Jewels_of_the_Sun']
-    conf['slots.burn.a'] = conf['slots.a']
-    conf['acl'] = """
-        `dragon, s
-        `s3, not buff(s3) and x=5
-        `s4
-        `s1, x>3
-    """
-    conf['coabs'] = ['Marth', 'Blade', 'Tobias']
-    conf['share'] = ['Karl']
 
     @staticmethod
     def config_fluorescent_fish(adv):
@@ -43,7 +27,4 @@ class Yukata_Cassandra(Adv):
     def s1_proc(self, e):
         self.fluorescent_fish.on()
 
-if __name__ == '__main__':
-    import sys
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Yukata_Cassandra}

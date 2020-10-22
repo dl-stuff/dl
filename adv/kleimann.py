@@ -1,30 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Kleimann
-
 class Kleimann(Adv):
-    a3 = ('s',0.35)
- 
-    conf = {}
-    conf['slots.a'] = [
-        'Candy_Couriers',
-        'Flash_of_Genius',
-        'Moonlight_Party',
-        'The_Plaguebringer',
-        'Dueling_Dancers'
-    ]
-    conf['acl'] = """
-        `dragon(c3-s-end), x=5
-        `s3, not buff(s3)
-        `s1
-        `s2
-        `s4
-        `fs, self.madness_status<5 and self.madness=5
-        """
-    conf['coabs'] = ['Ieyasu','Gala_Alex','Delphi']
-    conf['share'] = ['Curran']
-
     def d_coabs(self):
         if self.duration <= 60:
             self.conf['coabs'] = ['Ieyasu','Gala_Alex','Bow']
@@ -58,6 +34,4 @@ class Kleimann(Adv):
         if self.fs_alt.uses < 5:
             self.fs_alt.uses += 1
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Kleimann}

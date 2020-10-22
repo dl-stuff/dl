@@ -1,23 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Nobunaga
-
 class Nobunaga(Adv):
-    conf = {}
-    conf['slots.a'] = ['The_Wyrmclan_Duo', 'Primal_Crisis']
-    conf['slots.burn.a'] = ['Resounding_Rendition', 'Me_and_My_Bestie']
-    conf['acl'] = """
-        `dragon, s=2
-        `s3, not buff(s3)
-        `s4, fsc
-        `s1
-        `s2, burning_ambition
-        `fs, xf=5 or charged_in(fs, s4)
-        """
-    conf['coabs'] = ['Wand','Marth','Yuya']
-    conf['share'] = ['Summer_Patia']
-
     def build_rates(self, as_list=True):
         rates = super().build_rates(as_list=False)
         if self.burning_ambition > 0:
@@ -53,6 +36,4 @@ class Nobunaga(Adv):
     def s2_proc(self, e):
         self.ba_proc(e)
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Nobunaga}

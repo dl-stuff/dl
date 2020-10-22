@@ -2,15 +2,9 @@ from itertools import chain, islice
 from collections import defaultdict
 from collections import namedtuple
 
-from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS, WEAPON_TYPES
+from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS, WEAPON_TYPES, subclass_dict
 from core.config import Conf
 from core.ability import ability_dict
-
-def all_subclasses(cl):
-    return set(cl.__subclasses__()).union([s for c in cl.__subclasses__() for s in all_subclasses(c)])
-
-def subclass_dict(cl):
-    return {sub_class.__name__: sub_class for sub_class in all_subclasses(cl)}
 
 class SlotBase:
     KIND = 's'

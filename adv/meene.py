@@ -2,29 +2,7 @@
 from core.advbase import *
 from collections import deque
 
-def module():
-    return Meene
-
 class Meene(Adv):
-    conf = {}
-    conf['slots.a'] = [
-        'Forest_Bonds',
-        'Flash_of_Genius',
-        'Dear_Diary',
-        'The_Plaguebringer',
-        'Chariot_Drift'
-    ]
-    conf['acl'] = """
-        `dragon
-        `s3, not buff(s3)
-        `s1
-        `s2, fsc
-        `s4
-        `fs, x=3
-        """
-    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
-    conf['share'] = ['Curran']
-    
     def prerun(self):
         self.butterfly_timers = defaultdict(lambda: set())
         self.act_history = deque(maxlen=6)
@@ -134,6 +112,4 @@ class Meene(Adv):
     def butterflies_s1(self):
         return min(10, self.butterflies)
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Meene}

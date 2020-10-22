@@ -109,3 +109,16 @@ def get_adv(name):
     conf.update(baseconf, rebase=True)
 
     return conf
+
+def all_subclasses(cl):
+    return set(cl.__subclasses__()).union([s for c in cl.__subclasses__() for s in all_subclasses(c)])
+
+def subclass_dict(cl):
+    return {sub_class.__name__: sub_class for sub_class in all_subclasses(cl)}
+
+def list_advs():
+    for fn in sorted(os.listdir(os.path.join(ROOT_DIR, 'conf', 'adv'))):
+        fn, ext = os.path.splitext(fn)
+        if ext != '.json':
+            continue
+        yield fn

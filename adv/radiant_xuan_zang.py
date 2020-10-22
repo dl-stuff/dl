@@ -1,22 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Radiant_Xuan_Zang
-
-class Radiant_Xuan_Zang(Adv):
-    conf = {}
-    conf['slots.a'] = ['Candy_Couriers', 'Spirit_of_the_Season']
-    conf['acl'] = """
-        `dragon, cancel
-        `s3, not buff(s3)
-        `s1
-        `s2
-        `s4, x>2
-        `fs, c_fs(xihe)>0 and x=5
-    """
-    conf['coabs'] = ['Sharena', 'Blade', 'Peony']
-    conf['share'] = ['Summer_Patia']
-    
+class Radiant_Xuan_Zang(Adv):    
     def prerun(self):
         self.fs_alt = FSAltBuff(group='xihe', uses=1)
         self.xihe_gauge = 0
@@ -38,6 +22,4 @@ class Radiant_Xuan_Zang(Adv):
                 self.current_s['s1'] = 'xihe'
                 self.current_s['s2'] = 'xihe'
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Radiant_Xuan_Zang}

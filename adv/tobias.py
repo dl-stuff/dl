@@ -1,9 +1,4 @@
 from core.advbase import *
-from module.x_alt import X_alt
-
-def module():
-    return Tobias
-
 
 class TobiasXAlt(XAltBuff):
     def enable_x(self, enabled):
@@ -15,26 +10,6 @@ class TobiasXAlt(XAltBuff):
             pass
 
 class Tobias(Adv):
-    comment = 'c5fs, no s2, s!cleo ss after s1'
-
-    conf = {}
-    conf['slots.a'] = [
-        'A_Dogs_Day',
-        'Study_Rabbits',
-        'Castle_Cheer_Corps',
-        'From_Whence_He_Comes',
-        'Bellathorna'
-    ]
-    conf['slots.d'] = 'Freyja'
-    conf['acl'] = """
-        `s1
-        `s3
-        `s4, fsc
-        `fs, xf=5
-    """
-    conf['coabs'] = ['Bow','Blade','Dagger2']
-    conf['share'] = ['Dragonyule_Xainfried', 'Templar_Hope']
-
     def prerun(self):
         self.s1.autocharge_init(85)
         self.s2.charge(1) # 1 sp/s regen
@@ -50,6 +25,4 @@ class Tobias(Adv):
             self.s2_sp_buff.off()
         self.s2.charge(1) # 1 sp/s regen
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Tobias}

@@ -1,49 +1,30 @@
 from core.advbase import *
 
-def module():
-    return Gala_Ranzal
-
+gauge_values = {
+    'x1': 77,
+    'x2': 77,
+    'x3': 100,
+    'x4': 136,
+    'x5': 200,
+    'fs': 150,
+    'fs_enhanced': 1000
+}
 class Gala_Ranzal(Adv):
-    conf = {}
-    conf['slots.a'] = [
-    'The_Shining_Overlord',
-    'Flash_of_Genius',
-    'Moonlight_Party',
-    'The_Plaguebringer',
-    'Dueling_Dancers'
-    ]
-    conf['slots.d'] = 'Vayu'
-    conf['acl'] = '''
-        `dragon(c3-s-end), s1.check()
-        `s3, not buff(s3)
-        `s1
-        `s2
-        `s4, fsc
-        `fs, x=2
-    '''
-    conf['coabs'] = ['Blade','Dragonyule_Xainfried','Akasha']
-    conf['share.base'] = ['Rodrigo']
-    conf['share.poison'] = ['Curran']
-
     def prerun(self):
         self.gauges = {'x':0, 'fs':0}
 
-    def dmg_proc(self, name, amount):
-        if name == 'x1':
-            self.gauges['x'] += 77
-        elif name == 'x2':
-            self.gauges['x'] += 77
-        elif name == 'x3':
-            self.gauges['x'] += 100
-        elif name == 'x4':
-            self.gauges['x'] += 136
-        elif name == 'x5':
-            self.gauges['x'] += 200
-        elif name == 'fs':
-            self.gauges['fs'] += 150
-        elif name == 'fs_enhanced':
-            self.gauges['fs'] += 1000
-        log('gauges', name, self.gauges['x'], self.gauges['fs'])
+    def charge_gauge(self, source, name):
+        self.gauges[source] = min(self.gauges[source] + gauge_values[name], 1000)
+        log('gauges', name, f'{self.gauges["x"]}/1000', f'{self.gauges["fs"]}/1000')
+
+    def x_proc(self, e):
+        self.charge_gauge('x', e.name)
+
+    def fs_proc(self, e):
+        self.charge_gauge('fs', e.name)
+
+    def fs_enhanced_proc(self, e):
+        self.charge_gauge('fs', e.name)
 
     def s1_before(self, e):
         self.s1_boosted_mod = None
@@ -68,7 +49,4 @@ class Gala_Ranzal(Adv):
             self.extra_actmods.remove(self.s1_boosted_mod)
             self.s1_boosted_mod = None
 
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Gala_Ranzal}

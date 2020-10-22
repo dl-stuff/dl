@@ -1,29 +1,7 @@
 from core.advbase import *
 
-def module():
-    return Zena
-
 class Zena(Adv):
     comment = '40 extra hits s2 on Agito size enemy (max 100 without roll & 120 with roll)'
-    conf = {}
-    conf['slots.a'] = ['Candy_Couriers', 'Primal_Crisis']
-    conf['acl'] = """
-        `s3, not buff(s3)
-        `s2
-        `s4
-        `s1
-
-        # If healing FS is needed
-        # `fs, s1.check() and self.fs_alt.uses>0
-        # `s3, not buff(s3)
-        # `s2
-        # `s4
-        # `s1, fsc or self.fs_alt.uses=0
-        """
-    conf['coabs'] = ['Blade', 'Delphi', 'Bow']
-    conf['share.base'] = ['Kleimann']
-    conf['share.poison'] = ['Curran']
-
     def prerun(self):
         self.s2_extra_hit_rate = 8 # number of hits per second
         self.s2_timers = []
@@ -46,6 +24,13 @@ class Zena(Adv):
             t.on(i)
             self.s2_timers.append(t)
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+class Zena_ALL(Zena):
+    comment = '100 extra hits on s2'
+    def prerun(self):
+        super().prerun()
+        self.s2_extra_hit_rate = 20
+
+variants = {
+    None: Zena,
+    'ALL': Zena_ALL
+}

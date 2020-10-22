@@ -7,6 +7,7 @@ from itertools import chain
 from collections import defaultdict
 from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json
 import core.acl
+import core.advbase
 
 BR = 64
 def skill_efficiency(real_d, team_dps, mod):
@@ -28,15 +29,15 @@ DOT_AFFLICT = ['poison', 'paralysis', 'burn', 'frostbite']
 
 S_ALT = '†'
 
-def run_once(classname, conf, duration, cond, equip_key=None):
-    adv = classname(conf=conf, duration=duration, cond=cond, equip_key=equip_key)
+def run_once(name, module, conf, duration, cond, equip_key=None):
+    adv = module(name=name, conf=conf, duration=duration, cond=cond, equip_key=equip_key)
     real_d = adv.run()
     return adv, real_d
 
 # Using starmap
 import multiprocessing
-def run_once_mass(classname, conf, duration, cond, equip_key, idx):
-    adv = classname(conf=conf, duration=duration, cond=cond)
+def run_once_mass(name, module, conf, duration, cond, equip_key, idx):
+    adv = module(name=name, conf=conf, duration=duration, cond=cond)
     real_d = adv.run()
     return adv.logs, real_d
 
@@ -64,37 +65,26 @@ def avg_logs(log, mass):
         log.team_tension[k] /= mass
     return log
 
-def run_mass(mass, base_log, base_d, classname, conf, duration, cond, equip_key=None):
+def run_mass(mass, base_log, base_d, name, module, conf, duration, cond, equip_key=None):
     mass = 1000 if mass == 1 else mass
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
-        for log, real_d in pool.starmap(run_once_mass, [(classname, conf, duration, cond, equip_key, idx) for idx in range(mass-1)]):
+        for log, real_d in pool.starmap(run_once_mass, [(name, module, conf, duration, cond, equip_key, idx) for idx in range(mass-1)]):
             base_log = sum_logs(base_log, log)
             base_d += real_d
     base_log = avg_logs(base_log, mass)
     base_d /= mass
     return base_log, base_d
 
-def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, cond=True, special=False):
+def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=None, cond=True, special=False):
     output = output or sys.stdout
-    # ex_set = parse_ex(ex)
-    # if len(ex_set) > 0:
-    #     conf['coabs'] = ex_set
-    # else:
-    #     ex = '_'
-    # if verbose == -3:
-    #     brute_force_slots(classname, conf, output, team_dps, duration)
-    #     return
-    # if verbose == -4:
-    #     brute_force_coabs(classname, conf, output, team_dps, duration)
-    #     return
     if verbose == 2:
         # output.write(adv._acl_str)
-        adv = classname()
+        adv = module(name=name)
         output.write(str(core.acl.build_acl(adv.conf.acl)._acl_str))
         output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
         return
     run_results = []
-    adv, real_d = run_once(classname, conf, duration, cond, equip_key=None)
+    adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None)
     if verbose == 255:
         output.write(str(adv.slots))
         output.write('\n')
@@ -107,7 +97,7 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
         return
 
     if mass:
-        adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond)
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond)
     run_results.append((adv, real_d, True))
 
     aff_name = ELE_AFFLICT[adv.slots.c.ele]
@@ -119,9 +109,9 @@ def test(classname, conf={}, duration=180, verbose=0, mass=None, output=None, co
             for aff_name in DOT_AFFLICT[:(-verbose-6)]:
                 conf[f'sim_afflict.{aff_name}'] = 1
         equip_key = 'affliction' if adv.equip_key != 'buffer' else 'buffer'
-        adv, real_d = run_once(classname, conf, duration, cond, equip_key=equip_key)
+        adv, real_d = run_once(name, module, conf, duration, cond, equip_key=equip_key)
         if mass:
-            adv.logs, real_d = run_mass(mass, adv.logs, real_d, classname, conf, duration, cond, equip_key=equip_key)
+            adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=equip_key)
         run_results.append((adv, real_d, 'affliction'))
 
     for a, d, c in run_results:
@@ -418,7 +408,7 @@ def summation(real_d, adv, output, cond=True):
 
 XN_PATTERN = re.compile(r'^x\d')
 def report(real_d, adv, output, cond=True, web=False):
-    name = adv.__class__.__name__
+    name = adv.name
     dmg = adv.logs.damage
     res = dps_sum(real_d, dmg)
     report_csv = [res['dps']]
@@ -469,57 +459,6 @@ def report(real_d, adv, output, cond=True, web=False):
     output.write('\n')
     return report_csv
 
-CHART_DIR = 'www/dl-sim'
-DURATION_LIST = (60, 120, 180)
-QUICK_LIST_FILES = ['chara_quick.txt', 'chara_sp_quick.txt']
-SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
-ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
-def combine():
-    dst_dict = {}
-    pages = [str(d) for d in DURATION_LIST] + ['sp']
-    aff = ['_', 'affliction']
-    for p in pages:
-        dst_dict[p] = {}
-        for a in aff:
-            dst_dict[p][a] = open(os.path.join(
-                ROOT_DIR, CHART_DIR, 'page/{}_{}.csv'.format(p, a)), 'w')
-
-    for list_file in ADV_LIST_FILES:
-        with open(os.path.join(ROOT_DIR, list_file), encoding='utf8') as src:
-            c_page, c_aff = '60', '_'
-            for adv_file in src:
-                adv_file = adv_file.strip()
-                src = os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.csv'.format(adv_file))
-                if not os.path.exists(src):
-                    continue
-                with open(src, 'r', encoding='utf8') as chara:
-                    for line in chara:
-                        if line[0] == '-':
-                            _, c_page, c_aff = line.strip().split(',')
-                        else:
-                            dst_dict[c_page][c_aff].write(line.strip())
-                            dst_dict[c_page][c_aff].write('\n')
-            print('cmb:{}'.format(list_file), flush=True)
-
-    for p in pages:
-        for a in aff:
-            dst_dict[p][a].close()
-            dst_dict[p][a].close()
-
-    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
-        try:
-            lastmod = json.load(f)
-        except:
-            lastmod = {}
-        f.truncate(0)
-        f.seek(0)
-        lastmod['timestamp'] = time.time_ns() // 1000000
-        try:
-            lastmod['message'] = lastmod['changed']
-            del lastmod['changed']
-        except KeyError:
-            lastmod['message'] = []
-        json.dump(lastmod, f)
 
 def same_build_different_dps(a, b):
     return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])
@@ -545,7 +484,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
         else:
             etype = etype if repair else 'affliction'
     dkey = str(adv.duration)
-    adv_qual = adv.__class__.__name__
+    adv_qual = adv.name
     equip = load_equip_json(adv_qual)
     cached = None
     acl_list = adv.conf.acl
@@ -631,19 +570,36 @@ def save_equip(adv, real_d, repair=False, etype=None):
         equip[dkey]['pref'] = 'base'
     save_equip_json(adv_qual, equip)
 
+CAP_SNEK = re.compile(r'(^[a-z]|_[a-z])')
+def cap_snakey(name):
+    return CAP_SNEK.sub(lambda s: s.group(1).upper(), name)
 
-def load_adv_module(adv_name):
-    return getattr(
-        __import__('adv.{}'.format(adv_name.lower())),
-        adv_name.lower()
-    ).module()
+def load_adv_module(name, in_place=None):
+    parts = os.path.basename(name).split('.')
+    vkey = None if len(parts) == 1 else parts[1].upper()
+    name = cap_snakey(parts[0])
+    lname = name.lower()
+    try:
+        advmodule = getattr(__import__(f'adv.{lname}'), lname)
+        if in_place is not None:
+            in_place[name] = advmodule.variants
+            return
+        try:
+            loaded = advmodule.variants[vkey]
+        except KeyError:
+            loaded = advmodule.variants[None]
+        return loaded, name
+    except ModuleNotFoundError:
+        if in_place is not None:
+            in_place[name] =  {None: core.advbase.Adv}
+            return
+        return core.advbase.Adv, name
 
-def test_with_argv(*argv, conf={}):
+def test_with_argv(*argv):
     if argv[0] is not None and not isinstance(argv[0], str):
         module = argv[0]
     else:
-        name = os.path.basename(argv[1]).split('.')[0]
-        module = load_adv_module(name)
+        module, name = load_adv_module(argv[1])
     try:
         verbose = int(argv[2])
     except:
@@ -656,7 +612,7 @@ def test_with_argv(*argv, conf={}):
         mass = int(argv[4])
     except:
         mass = 0
-    test(module, conf=conf, verbose=verbose, duration=duration, mass=mass)
+    test(name, module, verbose=verbose, duration=duration, mass=mass)
 
 if __name__ == '__main__':
     test_with_argv(*sys.argv)

@@ -1,30 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Albert
-
-class Albert(Adv):
-    conf = {}
-    conf['slots.a'] = ['The_Shining_Overlord', 'Spirit_of_the_Season']
-    conf['acl'] = """
-        if electrified
-        `s1
-        `s3, fsc
-        if x=3
-        `fs2, not afflics.paralysis.get()
-        `fs1
-        end
-        else
-        `dragon, cancel
-        `s2, charged_in(2, s1)
-        `s1, cancel
-        `s3, cancel
-        `s4, cancel
-        end
-        """
-    conf['coabs'] = ['Blade','Lucretia','Peony']
-    conf['share'] = ['Summer_Patia']
-    
+class Albert(Adv):    
     def prerun(self):
         self.s2.autocharge_init(self.s2_autocharge).on()
 
@@ -44,7 +20,4 @@ class Albert(Adv):
     def fs_proc(self, e):
         self.s2.charge(-8000)
 
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Albert}

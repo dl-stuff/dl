@@ -1,8 +1,5 @@
 from core.advbase import *
 
-def module():
-    return Sharpshooter_Joe
-
 class Sharpshooter_Joe(Adv):
     def prerun(self):
         Event('dodge').listener(self.a1_dodge_crit)
@@ -17,7 +14,4 @@ class Sharpshooter_Joe(Adv):
             self.a1_cd = True
             Timer(self.a1_cd_end).on(4.999)
 
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Sharpshooter_Joe}

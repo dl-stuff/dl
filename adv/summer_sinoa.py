@@ -1,30 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Summer_Sinoa
-
 class Summer_Sinoa(Adv):
-    comment = 's!cleo ss after s1 at 2 overload'
-    conf = {}
-    conf['slots.d'] = 'Ariel'
-    conf['slots.a'] = [
-    'Candy_Couriers',
-    'Flash_of_Genius',
-    'Moonlight_Party',
-    'The_Plaguebringer',
-    'From_Whence_He_Comes'
-    ]
-    conf['acl'] = """
-        `s3, not buff(s3) and x=5
-        `s4, s=1 and self.overload=2
-        `s2, self.overload=3
-        `s1
-        `fs, x=5
-        `dodge, fsc
-        """
-    conf['coabs'] = ['Blade','Eleonora','Tobias']
-    conf['share'] = ['Summer_Cleo']
-
     def prerun(self):
         self.overload = 0
 
@@ -76,6 +52,4 @@ class Summer_Sinoa(Adv):
                 buffs.remove(buff)
         self.overload = 0
 
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Summer_Sinoa}

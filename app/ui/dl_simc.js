@@ -36,7 +36,7 @@ const speshul = {
     Lily: 'https://cdn.discordapp.com/emojis/664261164208750592.png'
 }
 
-function slots_icon_fmt(data) {
+function slotsIconFmt(data) {
     const adv = data[2];
     const img_urls = [];
     if (speshul.hasOwnProperty(data[1]) && Math.random() < 0.1) {
@@ -68,10 +68,44 @@ function slots_icon_fmt(data) {
     img_urls.push('<img src="/dl-sim/pic/character/' + data[29] + '.png" class="slot-icon skillshare"/>');
     return img_urls;
 }
-function slots_text_format(data) {
+function slotsTextFmt(data) {
     return `[${data[6]}][${data[8]}][${data[10]}+${data[12]}+${data[14]}+${data[16]}+${data[18]}][${data[20]}|${data[22]}|${data[24]}][S3:${data[26]}|S4:${data[28]}]`
 }
-function populate_select(id, data) {
+function populateAdvSelect(data) {
+    let options = [];
+    for (let d of Object.keys(data)) {
+        options.push(
+            $('<option>' + data[d].fullname + '</option>')
+                .attr({ id: 'adv-' + d, value: d })
+                .data('variants', data[d].variants)
+        );
+    }
+    options.sort((a, b) => {
+        if (a[0].innerText < b[0].innerText) return -1;
+        if (a[0].innerText > b[0].innerText) return 1;
+        return 0;
+    });
+    $('#input-adv').empty();
+    $('#input-adv').append(options);
+}
+function populateVariantSelect(data) {
+    $('#input-variant').empty();
+    if (data.length === 0) {
+        $('#input-variant-group').hide();
+        return
+    } else {
+        $('#input-variant-group').show();
+    }
+    let options = [$('<option>Default</option>').attr({ id: 'variant-Default', value: null })];
+    for (let d of data) {
+        options.push(
+            $('<option>' + d + '</option>')
+                .attr({ id: 'variant-' + d, value: d })
+        );
+    }
+    $('#input-variant').append(options);
+}
+function populateSelect(id, data) {
     const t = id.split('-')[1];
     let options = [];
     for (let d of Object.keys(data)) {
@@ -85,11 +119,11 @@ function populate_select(id, data) {
         if (a[0].innerText < b[0].innerText) return -1;
         if (a[0].innerText > b[0].innerText) return 1;
         return 0;
-    })
+    });
     $(id).empty();
     $(id).append(options);
 }
-function stats_icon_fmt(stat_str) {
+function statsIconFmt(stat_str) {
     if (!stat_str) {
         return [[], 0];
     }
@@ -108,10 +142,10 @@ function stats_icon_fmt(stat_str) {
     }
     return [stats, parseFloat(team)];
 }
-function create_dps_bar(res_div, arr) {
+function createDpsBar(res_div, arr) {
     let copy_txt = '';
     const total = arr[0];
-    let slots = ' ' + slots_text_format(arr);
+    let slots = ' ' + slotsTextFmt(arr);
     const cond = arr[30] || '';
     const comment = arr[31] || '';
     let cond_comment = [];
@@ -125,14 +159,15 @@ function create_dps_bar(res_div, arr) {
             cond_comment.push(comment);
         }
         if (cond_comment.length > 0) {
-            cond_comment_str = '<br/>' + cond_comment.join(' ');
-            cond_cpy_str = '\n' + cond_comment.join(' ');
+            joined = cond_comment.join(' | ');
+            cond_comment_str = '<br/>' + joined;
+            cond_cpy_str = '\n' + joined;
         }
     } else {
         slots = '';
     }
     let stat_str = arr[32] || '';
-    const stats = stats_icon_fmt(stat_str);
+    const stats = statsIconFmt(stat_str);
     const stats_display = stats[0].join('');
     const team = stats[1];
     if (stat_str) { stat_str = ' (' + stat_str.replace(/;/g, ', ') + ')'; }
@@ -217,6 +252,10 @@ function serConf(no_conf) {
         'adv': $('#input-adv').val(),
         'dra': $('#input-dra').val(),
         // 'wep': $('#input-wep').val()
+    }
+    const variant = $('#input-variant').val();
+    if (variant && variant !== 'Default') {
+        requestJson['variant'] = variant;
     }
     const wplist = readWpList();
     if (wplist) {
@@ -348,7 +387,7 @@ function populateSkillShare(skillshare) {
     }
 }
 function loadAdvWPList() {
-    let selectedAdv = 'Xania';
+    let selectedAdv = 'Patia';
     if (localStorage.getItem('selectedAdv')) {
         selectedAdv = localStorage.getItem('selectedAdv');
     }
@@ -370,13 +409,14 @@ function loadAdvWPList() {
         success: function (data, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 const advwp = JSON.parse(data);
-                populate_select('#input-adv', advwp.adv);
+                populateAdvSelect(advwp.adv);
                 $('#adv-' + selectedAdv).prop('selected', true);
-                populate_select('#input-wp1', advwp.wyrmprints.gold);
-                populate_select('#input-wp2', advwp.wyrmprints.gold);
-                populate_select('#input-wp3', advwp.wyrmprints.gold);
-                populate_select('#input-wp4', advwp.wyrmprints.silver);
-                populate_select('#input-wp5', advwp.wyrmprints.silver);
+                populateVariantSelect($('#adv-' + selectedAdv).data('variants'));
+                populateSelect('#input-wp1', advwp.wyrmprints.gold);
+                populateSelect('#input-wp2', advwp.wyrmprints.gold);
+                populateSelect('#input-wp3', advwp.wyrmprints.gold);
+                populateSelect('#input-wp4', advwp.wyrmprints.silver);
+                populateSelect('#input-wp5', advwp.wyrmprints.silver);
                 populateSkillShare(advwp.skillshare);
                 clearResults();
                 loadAdvSlots(true);
@@ -446,8 +486,8 @@ function loadAdvSlots(no_conf, set_equip) {
                     $('#test-error').html('Error: ' + slots.error);
                 } else {
                     $('#test-error').empty();
-                    populate_select('#input-wep', slots.weapons);
-                    populate_select('#input-dra', slots.dragons);
+                    populateSelect('#input-wep', slots.weapons);
+                    populateSelect('#input-dra', slots.dragons);
                     buildCoab(slots.coabilities, slots.adv.basename, slots.adv.wt);
 
                     const urlVars = getUrlVars();
@@ -487,21 +527,9 @@ function loadAdvSlots(no_conf, set_equip) {
                             $('#input-res-' + key).removeAttr('value');
                         }
                     }
-                    if (slots.adv.no_config != undefined) {
-                        if (slots.adv.no_config.includes('wp')) {
-                            $('.input-wp > div > select').prop('disabled', true);
-                        }
-                        if (slots.adv.no_config.includes('acl')) {
-                            $('#input-edit-acl').prop('disabled', true);
-                        }
-                        if (slots.adv.no_config.includes('coab')) {
-                            $('input.coab-check').prop('disabled', true);
-                        }
-                    } else {
-                        $('.input-wp > div > select').prop('disabled', false);
-                        $('#input-edit-acl').prop('disabled', false);
-                        $('input.coab-check').prop('disabled', false);
-                    }
+                    $('.input-wp > div > select').prop('disabled', false);
+                    $('#input-edit-acl').prop('disabled', false);
+                    $('input.coab-check').prop('disabled', false);
 
                     if (requestJson['equip'] === 'affliction') {
                         $('#input-sim-' + ELE_AFFLICT[slots.adv.ele]).val(100);
@@ -800,14 +828,14 @@ function makeGraph(ctx, datasets, ystep) {
         }
     })
 }
-function killGraph(graph){
-    if (graph){ graph.destroy(); }
+function killGraph(graph) {
+    if (graph) { graph.destroy(); }
 }
 let simcDamageGraph = null;
 let simcDoublebuffGraph = null;
 let simcUptimeGraph = null;
 function populateAllGraphs() {
-    if (!graphData){
+    if (!graphData) {
         return;
     }
     const tdps = $('#input-teamdps').val();
@@ -869,13 +897,13 @@ function runAdvTest(no_conf) {
                     const result = res.test_output.split('\n');
                     const cond_true = result[1].split(',');
                     const name = cond_true[1];
-                    const icon_urls = slots_icon_fmt(cond_true);
+                    const icon_urls = slotsIconFmt(cond_true);
                     let copy_txt = '**' + name + ' ' + requestJson['t'] + 's** ';
                     let new_result_item = $('<div></div>').attr({ class: 'test-result-item' });
                     new_result_item.append($(
                         '<h4 class="test-result-slot-grid"><div>' +
                         icon_urls[0] + '</div><div>' + name + '</div><div>' + icon_urls.slice(1).join('') + '</div></h4>'));
-                    copy_txt += create_dps_bar(new_result_item, cond_true, undefined);
+                    copy_txt += createDpsBar(new_result_item, cond_true, undefined);
                     const logs = ['dragon', 'summation', 'action', 'timeline'].map(key => {
                         if (res.logs[key] !== undefined && res.logs[key] !== "") {
                             return res.logs[key];
@@ -973,6 +1001,7 @@ function clearResults() {
 function resetTest() {
     updateUrl();
     clearResults();
+    populateVariantSelect($('#adv-' + $('#input-adv').val()).data('variants'));
     loadAdvSlots(true, false);
 }
 function weaponSelectChange() {
@@ -1066,6 +1095,5 @@ window.onload = function () {
     clearResults();
     loadAdvWPList();
     loadGithubCommits();
-    populateAllGraphs
     $('#simulationGraphBox').on('shown.bs.modal', populateAllGraphs);
 }

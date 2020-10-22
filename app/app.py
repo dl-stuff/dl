@@ -1,7 +1,5 @@
 import io
 import json
-import inspect
-from importlib.util import spec_from_file_location, module_from_spec
 from conf import get_fullname
 import os
 import sys
@@ -14,38 +12,10 @@ from flask import jsonify
 
 import core.simulate
 from core.afflic import AFFLICT_LIST
-from conf import ROOT_DIR, TRIBE_TYPES, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json
+from conf import ROOT_DIR, TRIBE_TYPES, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json, list_advs
 app = Flask(__name__)
 
 # Helpers
-ADV_DIR = 'adv'
-CHART_DIR = 'www/dl-sim'
-DURATION_LIST = (60, 120, 180)
-
-def load_chara_file(fn, extra=None):
-    if extra:
-        chara = list(extra)
-    else:
-        chara = []
-    with open(os.path.join(ROOT_DIR, fn)) as f:
-        for l in f:
-            chara.append(l.strip().replace('.py', ''))
-    return chara
-
-NORMAL_ADV = load_chara_file('chara_quick.txt')
-MASS_SIM_ADV = load_chara_file('chara_slow.txt')
-
-SPECIAL_ADV = {
-    'hunter_sarisse_allhits': {
-        'fullname': 'Hunter Sarisse All Hits',
-        'nc': []
-    },
-    'gala_alex_bk': {
-        'fullname': 'Gala Alex Break Chain',
-        'nc': []
-    }
-}
-
 SIMULATED_BUFFS = {
     'str_buff': (-100, 200, 100),
     'def_down': (-50, 200, 100),
@@ -56,15 +26,9 @@ SIMULATED_BUFFS = {
     'echo': (0, float('inf'), 1)
 }
 
-
 ADV_MODULES = {}
-for adv in NORMAL_ADV+MASS_SIM_ADV:
-    module = core.simulate.load_adv_module(adv)
-    name = module.__name__
-    ADV_MODULES[name] = module
-for name, _ in SPECIAL_ADV.items():
-    module = core.simulate.load_adv_module(name)
-    ADV_MODULES[name] = module
+for fn in list_advs():
+    core.simulate.load_adv_module(fn, in_place=ADV_MODULES)
 
 def set_teamdps_res(result, logs, real_d, suffix=''):
     result['extra' + suffix] = {}
@@ -75,8 +39,8 @@ def set_teamdps_res(result, logs, real_d, suffix=''):
             result['extra' + suffix]['team_{}'.format(tension)] = '{} stacks'.format(round(count))
     return result
 
-def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, cond=None, t=180, log=5, mass=0):
-    adv_module = ADV_MODULES[adv_name]
+def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, cond=None, vkey=None, t=180, log=5, mass=0):
+    adv_module = ADV_MODULES[adv_name][vkey]
 
     if conf is None:
         conf = {}
@@ -95,7 +59,7 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
 
     fn = io.StringIO()
     try:
-        run_res = core.simulate.test(adv_module, conf, t, log, mass, output=fn, cond=cond)
+        run_res = core.simulate.test(adv_name, adv_module, conf, t, log, mass, output=fn, cond=cond)
         result['test_output'] = fn.getvalue()
     except Exception as e:
         result['error'] = str(e)
@@ -103,12 +67,12 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
 
     adv = run_res[0][0]
     real_d = run_res[0][1]
-    if not adv_name in SPECIAL_ADV:
+    if vkey is None:
         core.simulate.save_equip(adv, real_d)
 
     result['logs'] = {}
     fn = io.StringIO()
-    adv.logs.write_logs(output=fn, log_filter=[str(type(adv.slots.d).__name__), str(type(adv).__name__)])
+    adv.logs.write_logs(output=fn, log_filter=[str(adv.slots.d.name), str(adv.slots.c.name)])
     result['logs']['dragon'] = fn.getvalue()
     fn = io.StringIO()
     core.simulate.act_sum(adv.logs.act_seq, fn)
@@ -130,7 +94,7 @@ def simc_adv_test():
     if not request.method == 'POST':
         return 'Wrong request method.'
     params = request.get_json(silent=True)
-    adv_name = 'Euden' if not 'adv' in params or params['adv'] is None else params['adv']
+    adv_name = 'Patia' if not 'adv' in params or params['adv'] is None else params['adv']
     wp = params.get('wp')
     dra = params.get('dra')
     wep = params.get('wep')
@@ -141,17 +105,9 @@ def simc_adv_test():
     mass = 0
     coab = params.get('coab')
     share = params.get('share')
+    vkey = params.get('variant')
     # latency = 0 if 'latency' not in params else abs(float(params['latency']))
     # print(params, flush=True)
-
-    if adv_name in SPECIAL_ADV:
-        not_customizable = SPECIAL_ADV[adv_name]['nc']
-        if 'wp' in not_customizable:
-            wp = None
-        if 'acl' in not_customizable:
-            acl = None
-        if 'coab' in not_customizable:
-            coab = None
 
     conf = {}
     if 'missile' in params:
@@ -187,7 +143,11 @@ def simc_adv_test():
         except KeyError:
             pass
 
-    result = run_adv_test(adv_name, wp, dra, wep, acl, conf, cond, t=t, log=log, mass=mass)
+    result = run_adv_test(
+        adv_name,
+        wp=wp, dra=dra, wep=wep, acl=acl,
+        conf=conf, cond=cond, vkey=vkey, t=t, log=log, mass=mass
+    )
     return jsonify(result)
 
 @app.route('/simc_adv_slotlist', methods=['GET', 'POST'])
@@ -196,20 +156,22 @@ def get_adv_slotlist():
     result['adv'] = {}
     if request.method == 'GET':
         advname = request.args.get('adv', default=None)
+        variant = request.args.get('variant', default=None)
         equip_key = request.args.get('equip', default=None)
         duration = request.args.get('t', default=180)
     elif request.method == 'POST':
         params = request.get_json(silent=True)
-        advname = params.get('adv')
-        equip_key = params.get('equip')
+        advname = params.get('adv', None)
+        variant = params.get('variant', None)
+        equip_key = params.get('equip', None)
         duration = params.get('t', 180)
     else:
         return 'Wrong request method.'
     duration = max(min(((int(duration) // 60)*60), 180), 60)
     if advname is not None:
-        adv = ADV_MODULES[advname](duration=duration, equip_key=equip_key)
+        adv = ADV_MODULES[advname][variant](name=advname, duration=duration, equip_key=equip_key)
         adv.config_slots()
-        result['adv']['basename'] = adv.__class__.__name__
+        result['adv']['basename'] = adv.name
         result['adv']['ele'] = adv.slots.c.ele
         result['adv']['wt'] = adv.slots.c.wt
         result['adv']['pref_dra'] = adv.slots.d.qual
@@ -224,17 +186,6 @@ def get_adv_slotlist():
         except:
             result['adv']['pref_share'] = adv.conf['share'] or []
         result['adv']['acl'] = adv.conf.acl
-        # if 'afflict_res' in adv.conf:
-        #     res_conf = adv.conf.afflict_res
-        #     res_dict = {}
-        #     for afflic in AFFLICT_LIST:
-        #         if afflic in res_conf:
-        #             res_dict[afflic] = res_conf[afflic]
-        #     if len(res_dict.keys()) > 0:
-        #         result['adv']['afflict_res'] = res_dict
-        if advname in SPECIAL_ADV:
-            result['adv']['no_config'] = SPECIAL_ADV[advname]['nc']
-
         if adv.conf['tdps'] and 0 <= adv.conf['tdps'] <= 200000:
             result['adv']['tdps'] = int(adv.conf.tdps) + 1
         if adv.equip_key:
@@ -256,11 +207,11 @@ def get_adv_wp_list():
         return 'Wrong request method.'
     result = {}
     result['adv'] = {}
-    for name in ADV_MODULES.keys():
-        try:
-            result['adv'][name] = load_adv_json(name)['c']['name']
-        except FileNotFoundError:
-            result['adv'][name] = SPECIAL_ADV[name]['fullname']
+    for name, variants in ADV_MODULES.items():
+        result['adv'][name] = {
+            'fullname': get_fullname(name),
+            'variants': [vkey for vkey in variants.keys() if vkey is not None and vkey != 'mass']
+        }
     wplists = {'gold':{}, 'silver':{}}
     for wp, data in wyrmprints.items():
         ab_str = f'-{data["union"]}'

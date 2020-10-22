@@ -1,36 +1,6 @@
 from core.advbase import *
 
-def module():
-    return Ezelith
-
 class Ezelith(Adv):
-    conf = {}
-    conf['slots.a'] = [
-    'Twinfold_Bonds',
-    'Flash_of_Genius',
-    'Moonlight_Party',
-    'A_Passion_for_Produce',
-    'His_Clever_Brother'
-    ]
-    conf['slots.burn.a'] = [
-    'Twinfold_Bonds',
-    'Me_and_My_Bestie',
-    'Flash_of_Genius',
-    'Chariot_Drift',
-    'His_Clever_Brother'
-    ]
-    conf['slots.d'] = 'Gala_Mars'
-    conf['acl'] = """
-        `dragon, (s=1 and not s4.check())
-        `s3, not buff(s3)
-        `s2
-        `s1
-        `s4, s=1
-        `fs, x=5
-        """
-    conf['coabs'] = ['Halloween_Mym', 'Blade', 'Wand']
-    conf['share'] = ['Xander']
-
     def prerun(self):
         self.a1_hits = 0
         for h in range(0, 12):
@@ -69,7 +39,4 @@ class Ezelith(Adv):
             self.s2_debuff.on()
             self.s2_states = new_states
 
-
-if __name__ == '__main__':
-    from core.simulate import test_with_argv
-    test_with_argv(None, *sys.argv)
+variants = {None: Ezelith}
