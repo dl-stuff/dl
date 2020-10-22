@@ -1,14 +1,14 @@
 {
   "180": {
     "base": {
-      "dps": 42709.13593761002,
-      "team": 0.207665172737604,
+      "dps": 43208.25250439147,
+      "team": 0.25082502668018347,
       "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Chariot_Drift",
+        "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
@@ -18,7 +18,7 @@
         "`s2",
         "`s4",
         "`s1",
-        "`fs, cancel and s1.charged>=s1.sp-self.sp_val('fs')"
+        "`fs, cancel and s1.charged>=s1.sp-self.sp_val('fs') and x>2"
       ],
       "coabs": [
         "Blade",
@@ -34,7 +34,7 @@
     "buffer": {
       "dps": 11912.404522362856,
       "team": 0.8368787036634959,
-      "tdps": 48944.80156828409,
+      "tdps": 53400.99245366521,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -60,8 +60,8 @@
       ]
     },
     "affliction": {
-      "dps": 45994.73052668589,
-      "team": 0.31932237117773454,
+      "dps": 47138.36796618557,
+      "team": 0.2784659215805954,
       "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
@@ -72,16 +72,17 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-end), not s2.check()",
+        "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1"
+        "`s1",
+        "`fsf, x=4 and not buff(s4)"
       ],
       "coabs": [
-        "Blade",
         "Summer_Estelle",
-        "Tobias"
+        "Renee",
+        "Axe2"
       ],
       "share": [
         "Weapon",
