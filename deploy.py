@@ -119,10 +119,10 @@ def combine():
             dst_dict[p][a] = open(os.path.join(
                 ROOT_DIR, CHART_DIR, 'page/{}_{}.csv'.format(p, a)), 'w')
 
-    for fn in os.listdir(os.path.join(CHART_DIR, 'chara')):
+    for fn in os.listdir(os.path.join(ROOT_DIR, CHART_DIR, 'chara')):
         if not fn.endswith('.csv'):
             continue
-        with open(os.path.join(CHART_DIR, 'chara', fn), 'r', encoding='utf8') as chara:
+        with open(os.path.join(ROOT_DIR, CHART_DIR, 'chara', fn), 'r', encoding='utf8') as chara:
             for line in chara:
                 if line[0] == '-':
                     _, c_page, c_aff = line.strip().split(',')
