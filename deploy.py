@@ -3,14 +3,14 @@ import sys
 import hashlib
 import json
 from copy import deepcopy
-from time import monotonic
+from time import monotonic, time_ns
 import core.simulate
-from conf import ROOT_DIR, load_equip_json, load_adv_json
-from core.simulate import CHART_DIR, DURATION_LIST, QUICK_LIST_FILES, SLOW_LIST_FILES, ADV_LIST_FILES
+from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs
 
 ADV_DIR = 'adv'
-
-import hashlib
+CHART_DIR = 'www/dl-sim'
+DURATIONS = (60, 120, 180)
+SKIP_VARIANT = ('RNG', 'mass')
 
 def sha256sum(filename):
     if not os.path.exists(filename):
@@ -23,121 +23,206 @@ def sha256sum(filename):
             h.update(mv[:n])
     return h.hexdigest()
 
-def sim_adv(adv_file, special=None, mass=None, sanity_test=False):
+
+def sim_adv(name, variants, sanity_test=False):
     t_start = monotonic()
-
-    adv_file = os.path.basename(adv_file)
-    if adv_file.endswith('.py'):
-        adv_name = adv_file.split('.')[0]
-    else:
-        adv_name = adv_file
-        adv_file += '.py'
-    adv_file = adv_file.lower()
-    if special is None and adv_file.count('.py') > 1:
-        special == True
-
-    sha_before = None
-
-    verbose = -5
-    durations = DURATION_LIST
-    if special:
-        durations = [180]
-
-    try:
-        adv_module, adv_name = core.simulate.load_adv_module(adv_name)
-        output_path = os.path.join(ROOT_DIR, CHART_DIR, 'chara', f'{adv_name}.csv')
-    except Exception as e:
-        print(f'\033[93m{monotonic()-t_start:.4f}s - sim:{adv_name} {e}\033[0m', flush=True)
-        return
-
-    if sanity_test:
-        mass = None
-        durations = [30]
-        output = open(os.devnull, 'w')
-    else:
-        sha_before = sha256sum(output_path)
-
-    try:
-        for d in durations:
-            run_results = core.simulate.test(adv_module, {}, duration=d, verbose=verbose, mass=1000 if mass else None, special=special, output=output)
-        if not sanity_test:
-            print(f'{monotonic() - t_start:.4f}s - sim:{adv_name}', flush=True)
-    except Exception as e:
-        print(f'\033[91m{monotonic()-t_start:.4f}s - sim:{adv_name} {e}\033[0m', flush=True)
-        output.close()
-        return
-    output.close()
-    if sha_before is not None and sha_before != sha256sum(output_path):
-        return run_results[0][0].slots.c.icon
-    else:
-        return None
+    is_mass = 'mass' in variants
+    msg = []
+    for v, adv_module in variants.items():
+        if v in SKIP_VARIANT:
+            continue
+        verbose = -5
+        outfile = None
+        outpath = None
+        mass = 1000 if is_mass and not sanity_test else None
+        if sanity_test:
+            durations = (30,)
+            outpath = os.devnull
+        else:
+            if v is None:
+                durations = DURATIONS
+                outfile = f'{name}.csv'
+            else:
+                durations = (180,)
+                outfile = f'{name}.{v}.csv'
+            outpath = os.path.join(ROOT_DIR, CHART_DIR, 'chara', outfile)
+        sha_before = sha256sum(outpath)
+        output = open(outpath, 'w')
+        try:
+            for d in durations:
+                run_results = core.simulate.test(
+                    name, adv_module, {},
+                    duration=d, verbose=verbose, mass=mass,
+                    special=v is not None, output=output
+                )
+            if not sanity_test:
+                print(f'{monotonic() - t_start:.4f}s - sim:{name}', flush=True)
+                if sha_before != sha256sum(outpath):
+                    msg.append(run_results[0][0].slots.c.icon)
+        except Exception as e:
+            print(f'\033[91m{monotonic()-t_start:.4f}s - sim:{name} {e}\033[0m', flush=True)
+        finally:
+            output.close()
+    return msg
 
 
-def run_and_save(adv_module, ele, dkey, ekey, conf, repair=False):
+def run_and_save(name, module, ele, dkey, ekey, conf, repair=False):
     if ekey == 'affliction':
         aff_name = core.simulate.ELE_AFFLICT[ele]
         conf[f'sim_afflict.{aff_name}'] = 1
     with open(os.devnull, 'w') as output:
-        run_res = core.simulate.test(adv_module, conf, duration=int(dkey), verbose=0, output=output)
+        run_res = core.simulate.test(name, module, conf, duration=int(dkey), verbose=0, output=output)
         core.simulate.save_equip(run_res[0][0], run_res[0][1], repair=repair, etype=ekey)
 
 
-EQUIP_KEYS = ['base', 'buffer', 'affliction']
-def repair_equips(adv_file):
+def repair_equips(name, variants):
     t_start = monotonic()
     try:
-        adv_file = os.path.basename(adv_file)
-        adv_name = adv_file
-        if adv_file.endswith('.py'):
-            adv_name = adv_file.split('.')[0]
-        adv_module, adv_name = core.simulate.load_adv_module(adv_name)
-        adv_ele = load_adv_json(adv_name)['c']['ele']
-        adv_equip = deepcopy(load_equip_json(adv_name))
+        module = variants[None]
 
-        eleaff = None
+        adv_ele = load_adv_json(name)['c']['ele']
+        adv_equip = deepcopy(load_equip_json(name))
         for dkey, equip_d in adv_equip.items():
             pref = equip_d.get('pref', 'base')
             for ekey, conf in equip_d.items():
                 if ekey == 'pref':
                     continue
-                run_and_save(adv_module, adv_ele, dkey, ekey, conf, repair=True)
+                run_and_save(name, module, adv_ele, dkey, ekey, conf, repair=True)
                 # if affliction, check if base equip actually better
                 if ekey == 'affliction':
                     try:
-                        run_and_save(adv_module, adv_ele, dkey, ekey, equip_d['base'])
+                        run_and_save(name, module, adv_ele, dkey, ekey, equip_d['base'])
                     except KeyError:
                         pass
                 # check if 180 equip is actually better for 120/60
                 if dkey == '180':
                     continue
                 try:
-                    run_and_save(adv_module, adv_ele, dkey, ekey, adv_equip['180'][ekey])
+                    run_and_save(name, module, adv_ele, dkey, ekey, adv_equip['180'][ekey])
                 except KeyError:
                     pass
     except Exception as e:
-        print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{adv_file} {e}\033[0m', flush=True)
+        print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{name} {e}\033[0m', flush=True)
         return
-    print('{:.4f}s - repair:{}'.format(monotonic() - t_start, adv_file), flush=True)
+    print('{:.4f}s - repair:{}'.format(monotonic() - t_start, name), flush=True)
 
 
-def sim_adv_list(list_file, sanity_test=False, repair=False):
-    special = list_file.startswith('chara_sp')
-    mass = list_file.endswith('slow.txt') and not special
+def combine():
+    t_start = monotonic()
+
+    dst_dict = {}
+    pages = [str(d) for d in DURATIONS] + ['sp']
+    aff = ['_', 'affliction']
+    for p in pages:
+        dst_dict[p] = {}
+        for a in aff:
+            dst_dict[p][a] = open(os.path.join(
+                ROOT_DIR, CHART_DIR, 'page/{}_{}.csv'.format(p, a)), 'w')
+
+    for fn in os.listdir(os.path.join(CHART_DIR, 'chara')):
+        if not fn.endswith('.csv'):
+            continue
+        with open(os.path.join(CHART_DIR, 'chara', fn), 'r', encoding='utf8') as chara:
+            for line in chara:
+                if line[0] == '-':
+                    _, c_page, c_aff = line.strip().split(',')
+                else:
+                    dst_dict[c_page][c_aff].write(line.strip())
+                    dst_dict[c_page][c_aff].write('\n')
+
+    for p in pages:
+        for a in aff:
+            dst_dict[p][a].close()
+            dst_dict[p][a].close()
+
+    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
+        try:
+            lastmod = json.load(f)
+        except:
+            lastmod = {}
+        f.truncate(0)
+        f.seek(0)
+        lastmod['timestamp'] = time_ns() // 1000000
+        try:
+            lastmod['message'] = lastmod['changed']
+            del lastmod['changed']
+        except KeyError:
+            lastmod['message'] = []
+        json.dump(lastmod, f)
+
+    print(f'{monotonic() - t_start:.4f}s - combine', flush=True)
+
+
+def get_sim_target_modules(targets):
+    target_modules = {}
+    if all([cmd not in targets for cmd in ('all', 'quick', 'slow')]):
+        for adv in targets:
+            try:
+                core.simulate.load_adv_module(adv, in_place=target_modules)
+            except Exception as e:
+                print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
+        return target_modules
+
+    for adv in list_advs():
+        try:
+            core.simulate.load_adv_module(adv, in_place=target_modules)
+        except Exception as e:
+            print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
+    if 'all' in targets:
+        return target_modules
+    if 'quick' in targets:
+        for adv, variants in target_modules.copy().items():
+            if 'mass' in variants:
+                del target_modules[adv]
+        return target_modules
+    if 'slow' in targets:
+        for adv, variants in target_modules.copy().items():
+            if not 'mass' in variants:
+                del target_modules[adv]
+        return target_modules
+
+def main(arguments):
+    do_combine = False
+    is_repair = False
+    sanity_test = False
+    if '-c' in arguments:
+        do_combine = True
+        arguments.remove('-c')
+    if '-san' in arguments:
+        sanity_test = True
+    if '-rp' in arguments:
+        arguments.remove('-rp')
+        is_repair = True
+
+    target_modules = get_sim_target_modules(arguments)
+
     message = []
-    with open(os.path.join(ROOT_DIR, list_file), encoding='utf8') as f:
-        sorted_f = list(sorted(f))
-    for adv_file in sorted_f:
-        if repair:
-            repair_equips(adv_file.strip())
-        else:
-            msg = sim_adv(adv_file.strip(), special, mass, sanity_test)
-            if msg:
-                message.append(msg)
-    with open(os.path.join(ROOT_DIR, list_file), 'w', encoding='utf8') as f:
-        for adv_file in sorted_f:
-            f.write(adv_file.strip())
-            f.write('\n')
-    return message
+    if is_repair:
+        for name, variants in target_modules.items():
+            repair_equips(name, variants)
+        return
+    else:
+        for name, variants in target_modules.items():
+            message.extend(sim_adv(name, variants, sanity_test=sanity_test))
+
+    if sanity_test:
+        return
+
+    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
+        try:
+            lastmod = json.load(f)
+        except:
+            lastmod = {}
+        f.truncate(0)
+        f.seek(0)
+        try:
+            lastmod['changed'].extend(message)
+        except KeyError:
+            lastmod['changed'] = message
+        json.dump(lastmod, f)
+
+    if do_combine:
+        combine()
 
 
 if __name__ == '__main__':
@@ -145,69 +230,5 @@ if __name__ == '__main__':
         print('USAGE python {} sim_targets [-c] [-sp]'.format(sys.argv[0]))
         exit(1)
     t_start = monotonic()
-
-    arguments = sys.argv.copy()[1:]
-    do_combine = False
-    is_special = None
-    is_mass = None
-    is_repair = False
-    sanity_test = False
-    if '-c' in arguments:
-        do_combine = True
-        arguments.remove('-c')
-    if '-sp' in arguments:
-        is_special = True
-        arguments.remove('-sp')
-    if '-m' in arguments:
-        is_mass = True
-        arguments.remove('-m')
-    if '-san' in arguments:
-        sanity_test = True
-    if '-rp' in arguments:
-        arguments.remove('-rp')
-        is_repair = True
-
-    sim_targets = arguments
-
-    if sanity_test or 'all' in sim_targets:
-        list_files = ADV_LIST_FILES
-    elif 'quick' in sim_targets:
-        list_files = QUICK_LIST_FILES if not is_repair else ['chara_quick.txt']
-    elif 'slow' in sim_targets:
-        list_files = SLOW_LIST_FILES if not is_repair else ['chara_slow.txt']
-    else:
-        list_files = None
-        sim_targets = [a for a in sim_targets if not a.startswith('-')]
-
-    message = []
-    if list_files is not None:
-        do_combine = True
-        for list_file in list_files:
-            message.extend(sim_adv_list(list_file, sanity_test=sanity_test, repair=is_repair))
-    else:
-        for adv_file in sim_targets:
-            if is_repair:
-                repair_equips(adv_file)
-            else:
-                msg = sim_adv(adv_file, special=is_special, mass=is_mass, sanity_test=sanity_test)
-                if msg:
-                    message.append(msg)
-
-    if not sanity_test:
-        with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
-            try:
-                lastmod = json.load(f)
-            except:
-                lastmod = {}
-            f.truncate(0)
-            f.seek(0)
-            try:
-                lastmod['changed'].extend(message)
-            except KeyError:
-                lastmod['changed'] = message
-            json.dump(lastmod, f)
-
-    if do_combine and not sanity_test:
-        core.simulate.combine()
-
+    main(sys.argv.copy()[1:])
     print('total: {:.4f}s'.format(monotonic() - t_start))

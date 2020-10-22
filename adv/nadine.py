@@ -34,6 +34,6 @@ class Nadine(Adv):
             return
 
 variants = {
-    None: Nadine
-    'RNG': Nadine
+    None: Nadine,
+    'mass': Nadine
 }

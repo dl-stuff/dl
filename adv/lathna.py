@@ -34,15 +34,21 @@ class Lathna(Adv):
 
 class Lathna_BUGFIX(Lathna):
     comment = 'if s1 aspd and sd buff bugs were fixed'
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.conf.s1_all.recovery = self.conf.s1.recovery + self.conf.s1_all.recovery_nospd
-        self.conf.s1_all.recovery_nospd = 0
-        self.conf.s1_all.attr = self.conf.s1.attr
-        tmp_attr = self.conf.s1.attr[-1].copy()
-        for _ in range(4):
-            tmp_attr['iv'] += 0.4
-            self.conf.s1_all.attr.append(tmp_attr.copy())
+    conf = {
+        's1_all': {
+            'recovery': 4.05,
+            'recovery_nospd': 0,
+            'attr': [
+                {'dmg': 2.61, 'killer': [1.0, ['poison']], 'iv': 0.66667},
+                {'dmg': 2.61, 'killer': [1.0, ['poison']], 'iv': 1.0},
+                {'dmg': 2.61, 'killer': [1.0, ['poison']], 'iv': 1.33333},
+                {'dmg': 2.61, 'killer': [1.0, ['poison']], 'iv': 1.83333},
+                {'dmg': 2.61, 'killer': [1.0, ['poison']], 'iv': 2.33333},
+                {'dmg': 2.61, 'killer': [1.0, ['poison']], 'iv': 2.83333},
+                {'dmg': 2.61, 'killer': [1.0, ['poison']], 'iv': 3.33333}
+            ]
+        }
+    }
 
     # force use of s1_all cus im too lazy to fix acl
     @allow_acl

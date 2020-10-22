@@ -115,3 +115,10 @@ def all_subclasses(cl):
 
 def subclass_dict(cl):
     return {sub_class.__name__: sub_class for sub_class in all_subclasses(cl)}
+
+def list_advs():
+    for fn in os.listdir(os.path.join(ROOT_DIR, 'conf', 'adv')):
+        fn, ext = os.path.splitext(fn)
+        if ext != '.json':
+            continue
+        yield fn

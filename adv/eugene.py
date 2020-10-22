@@ -1,3 +1,4 @@
+from core.advbase import *
 from module.template import RngCritAdv
 
 class Eugene(RngCritAdv):

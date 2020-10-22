@@ -459,57 +459,6 @@ def report(real_d, adv, output, cond=True, web=False):
     output.write('\n')
     return report_csv
 
-CHART_DIR = 'www/dl-sim'
-DURATION_LIST = (60, 120, 180)
-QUICK_LIST_FILES = ['chara_quick.txt', 'chara_sp_quick.txt']
-SLOW_LIST_FILES = ['chara_slow.txt', 'chara_sp_slow.txt']
-ADV_LIST_FILES = QUICK_LIST_FILES + SLOW_LIST_FILES
-def combine():
-    dst_dict = {}
-    pages = [str(d) for d in DURATION_LIST] + ['sp']
-    aff = ['_', 'affliction']
-    for p in pages:
-        dst_dict[p] = {}
-        for a in aff:
-            dst_dict[p][a] = open(os.path.join(
-                ROOT_DIR, CHART_DIR, 'page/{}_{}.csv'.format(p, a)), 'w')
-
-    for list_file in ADV_LIST_FILES:
-        with open(os.path.join(ROOT_DIR, list_file), encoding='utf8') as src:
-            c_page, c_aff = '60', '_'
-            for adv_file in src:
-                adv_file = adv_file.strip()
-                src = os.path.join(ROOT_DIR, CHART_DIR, 'chara', '{}.csv'.format(adv_file))
-                if not os.path.exists(src):
-                    continue
-                with open(src, 'r', encoding='utf8') as chara:
-                    for line in chara:
-                        if line[0] == '-':
-                            _, c_page, c_aff = line.strip().split(',')
-                        else:
-                            dst_dict[c_page][c_aff].write(line.strip())
-                            dst_dict[c_page][c_aff].write('\n')
-            print('cmb:{}'.format(list_file), flush=True)
-
-    for p in pages:
-        for a in aff:
-            dst_dict[p][a].close()
-            dst_dict[p][a].close()
-
-    with open(os.path.join(ROOT_DIR, CHART_DIR, 'page/lastmodified.json'), 'r+') as f:
-        try:
-            lastmod = json.load(f)
-        except:
-            lastmod = {}
-        f.truncate(0)
-        f.seek(0)
-        lastmod['timestamp'] = time.time_ns() // 1000000
-        try:
-            lastmod['message'] = lastmod['changed']
-            del lastmod['changed']
-        except KeyError:
-            lastmod['message'] = []
-        json.dump(lastmod, f)
 
 def same_build_different_dps(a, b):
     return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])

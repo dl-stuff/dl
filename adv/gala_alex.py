@@ -109,8 +109,8 @@ class Gala_Alex_BK(Gala_Alex):
         `s1;
         end
     """
-    conf['coabs.base'] = ['Ieyasu','Wand','Summer_Patia']
-    conf['share.base'] = ['Fjorm']
+    conf['coabs'] = ['Ieyasu','Wand','Summer_Patia']
+    conf['share'] = ['Fjorm']
     conf['sim_afflict.frostbite'] = 1
 
     def __init__(self, **kwargs):
@@ -118,10 +118,11 @@ class Gala_Alex_BK(Gala_Alex):
         super().__init__(altchain='break', **kwargs)
 
     def pre_conf(self, equip_key=None):
+        print(self.conf_init, flush=True)
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
-        self.conf.update(self.conf_base)
         self.conf.update(self.conf_init)
+        self.conf.update(self.conf_base)
         return None
 
     def prerun(self):

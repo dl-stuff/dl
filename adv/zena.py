@@ -24,13 +24,13 @@ class Zena(Adv):
             t.on(i)
             self.s2_timers.append(t)
 
-class Zena(Adv):
-    comment '100 extra hits on s2'
+class Zena_ALL(Zena):
+    comment = '100 extra hits on s2'
     def prerun(self):
         super().prerun()
         self.s2_extra_hit_rate = 20
 
 variants = {
-    None: Zena
+    None: Zena,
     'ALL': Zena_ALL
 }

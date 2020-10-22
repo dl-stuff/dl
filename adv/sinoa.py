@@ -1,11 +1,15 @@
 from core.advbase import *
 
-class Sinoa_RNG(Sinoa):
+class Sinoa_RNG(Adv):
+    conf = {
+        's1': {
+            'startup': 0.26667,
+            'recovery': 0.83333,
+            'attr': []
+        }
+    }
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.conf.s1.startup += 0.16667
-        self.conf.s1.recovery -= 0.16667
-        del self.conf.s1['attr']
         self.s1_buff_args = [
             (0.25, 15.0, 'att', 'buff'),
             (0.25, 15.0, 'defense', 'buff'),

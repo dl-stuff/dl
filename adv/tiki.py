@@ -39,7 +39,6 @@ class Tiki_DDAMAGE(Tiki):
         Event('dragon_end').listener(self.a_dragondrive_on)
         Event('dragondrive_end').listener(self.a_dragondrive_off)
 
-
 variants = {
     None: Tiki,
     'DDAMAGE': Tiki_DDAMAGE
