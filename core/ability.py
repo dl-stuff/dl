@@ -28,6 +28,7 @@ class Ability:
             flurry_hits = int(cond[3:])
             def flurry_get():
                 return adv.hits > flurry_hits
+            adv.uses_combo = True
             return (m[0], m[1], m[2], cond, flurry_get)
         return m
 
