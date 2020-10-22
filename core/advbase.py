@@ -507,6 +507,9 @@ class Dodge(Action):
 
 
 class Adv(object):
+
+    BASE_CTIME = 2
+
     Timer = Timer
     Event = Event
     Listener = Listener
@@ -665,7 +668,6 @@ class Adv(object):
 
         self.hits = 0
         self.last_c = 0
-        self.ctime_override = 0
 
         self.hp = 100
         self.hp_event = Event('hp')
@@ -684,7 +686,7 @@ class Adv(object):
     @property
     def ctime(self):
         # base ctime is 2
-        return self.ctime_override or self.mod('ctime') + 1
+        return self.mod('ctime', operator.add, initial=Adv.BASE_CTIME)
 
     def actmod_on(self, e):
         do_sab = True
@@ -1171,8 +1173,13 @@ class Adv(object):
     def add_combo(self, name='#'):
         # real combo count
         delta = now()-self.last_c
-        if delta <= self.ctime:
+        ctime = self.ctime
+        if delta <= ctime:
             self.hits += self.echo
+            if self.ctime_coab_val:
+                ctime_needed = delta - ctime + self.ctime_coab_val
+                if ctime_needed > self.ctime_needed:
+                    self.ctime_needed = ctime_needed
         else:
             self.hits = self.echo
             log('combo', f'reset combo after {delta:.02}s')
@@ -1191,6 +1198,9 @@ class Adv(object):
         return confv['base'] or []
 
     def config_coabs(self):
+        self.ctime_coab_val = 0
+        self.ctime_coab_list = []
+        self.ctime_needed = 0
         if not self.conf['flask_env']:
             coab_list = self.load_aff_conf('coabs')
         else:
@@ -1201,9 +1211,23 @@ class Adv(object):
             self_coab = self.name
         for name in coab_list:
             try:
-                self.slots.c.coabs[name] = self.slots.c.valid_coabs[name]
+                coab = self.slots.c.valid_coabs[name]
+                self.slots.c.coabs[name] = coab
+                if name != self.name and coab[0] and coab[0][0] == 'ctime':
+                    self.ctime_coab_val += coab[0][1]
+                    self.ctime_coab_list.append(name)
             except KeyError:
                 raise ValueError(f'No such coability: {name}')
+
+    def downgrade_coab(self, coab_name):
+        try:
+            new_coab = self.slots.c.coabs[coab_name][1].capitalize()
+            self.slots.c.coabs[new_coab] = self.slots.c.valid_coabs[new_coab]
+            self.slots.c.coab_list.append(new_coab)
+        except KeyError:
+            pass
+        del self.slots.c.coabs[coab_name]
+        self.slots.c.coab_list.remove(coab_name)
 
     def rebind_function(self, owner, src, dst=None):
         dst = dst or src
@@ -1343,6 +1367,8 @@ class Adv(object):
         self.l_dmg_formula = Listener('dmg_formula', self.l_dmg_formula)
         self.l_set_hp = Listener('set_hp', self.l_set_hp)
 
+        self.uses_combo = False
+
         self.ctx.on()
 
         self.config_slots()
@@ -1390,6 +1416,26 @@ class Adv(object):
         end, reason = Timeline.run(self.duration)
         self.base_buff.count_team_buff()
         log('sim', 'end', reason)
+
+        if self.ctime_coab_val:
+            if not self.ctime_needed or not self.uses_combo:
+                for name in self.ctime_coab_list:
+                    self.downgrade_coab(name)
+            elif len(self.ctime_coab_list) > 1:
+                ctime_unused = self.ctime_coab_val - self.ctime_needed
+                ctime_coabs = {
+                    name : self.slots.c.coabs[name] for name in sorted(
+                        self.ctime_coab_list,
+                        key=lambda k: self.slots.c.coabs[k][0][1],
+                        reverse=True
+                    )
+                }
+                for coab_name in ctime_coabs.keys():
+                    ctime_amt = ctime_coabs[coab_name][0][1]
+                    if ctime_amt < ctime_unused:
+                        ctime_unused -= ctime_amt
+                        self.downgrade_coab(coab_name)
+
 
         self.post_run(end)
 
