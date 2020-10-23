@@ -2,7 +2,8 @@ from core.advbase import *
 from module.template import RngCritAdv
 
 a3_stack_cap = 10
-class Gala_Laxi(RngCritAdv):    
+class Gala_Laxi(Adv):
+    conf = {'dumb': 10}
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # human latency penalty on ex combo
@@ -19,14 +20,19 @@ class Gala_Laxi(RngCritAdv):
             66: Selfbuff('a1_sd', 0.15, -1, 's', 'buff'),
             100: Selfbuff('a1_str', 0.15, -1, 'att', 'buff'),
         }
+        self.a3_crit_buffs = []
         self.a3_crit_chance = 0
         self.a3_crit_dmg_stack = 0
         self.a3_crit_dmg_buff = Selfbuff('a3_crit_dmg',0.00,-1,'crit','damage')
-        self.config_rngcrit(cd=1, ev=-1)
 
         self.current_x = 'norm'
         self.deferred_x = 'ex'
         Event('s').listener(self.reset_to_norm, order=0)
+
+        self.crit_mod = self.ev_custom_crit_mod
+        self.rngcrit_states = {(None, 0): 1.0}
+        self.rngcrit_cd_duration = 1
+        self.prev_log_time = 0
 
     @property
     def buffcount(self):
@@ -34,10 +40,8 @@ class Gala_Laxi(RngCritAdv):
         return buffcount + self.a3_crit_dmg_stack
 
     def rngcrit_cb(self, mrate=None):
-        mrate = round(mrate, 2)
         self.a3_crit_dmg_stack = mrate - 1
         new_value = 0.04*mrate
-        log('rngcrit_cb', mrate)
         if not self.a3_crit_dmg_buff.get():
             self.a3_crit_dmg_buff.set(new_value)
             self.a3_crit_dmg_buff.on()
@@ -50,25 +54,23 @@ class Gala_Laxi(RngCritAdv):
             return self.solid_crit_mod(name)
         else:
             chance, cdmg = self.combine_crit_mods()
-            t = round(now())
+            t = now()
 
             new_states = defaultdict(lambda: 0.0)
             for state, state_p in self.rngcrit_states.items():
-                if len(state) == a3_stack_cap:
-                    new_states[(-1,)*a3_stack_cap] += state_p
+                if state[1] == a3_stack_cap:
+                    new_states[(-1, a3_stack_cap)] += state_p
                 elif state[0] is not None and t - state[0] < self.rngcrit_cd_duration:
                     new_states[state] += state_p
                 else:
                     miss_rate = 1.0 - chance
                     new_states[state] += miss_rate * state_p
-                    if state == (None,):
-                        new_states[(t,)] = chance * state_p
-                    else:
-                        new_states[(t,)+state] = chance * state_p
+                    new_stack = state[1] + 1
+                    new_states[(t, new_stack)] += chance * state_p
+            
+            new_states[(None, 0)] += 1 - sum(new_states.values())
 
-            new_states[(None,)] += 1 - sum(new_states.values())
-
-            mrate = reduce(lambda mv, s: mv + (sum(int(b is not None) for b in s[0]) * s[1]), new_states.items(), 0)
+            mrate = reduce(lambda mv, s: mv + (s[0][1] * s[1]), new_states.items(), 0)
             if self.prev_log_time == 0 or self.prev_log_time < t - self.rngcrit_cd_duration:
                 log('rngcrit', mrate)
                 self.prev_log_time = t
@@ -78,10 +80,12 @@ class Gala_Laxi(RngCritAdv):
             return chance * (cdmg - 1) + 1
 
     def norm(self):
-        self.deferred_x = 'norm'
+        if self.current_x != 'norm':
+            self.deferred_x = 'norm'
 
     def ex(self):
-        self.deferred_x = 'ex'
+        if self.current_x != 'ex':
+            self.deferred_x = 'ex'
     
     def reset_to_norm(self, e):
         self.current_x = 'norm'
@@ -144,12 +148,16 @@ class Gala_Laxi(RngCritAdv):
             log('galaxi', 'cp', self.a1_cp)
 
     def add_combo(self, name='#'):
-        super().add_combo(name)
-        if self.hits == self.echo:
-            self.rngcrit_states = {(None,): 1.0}
+        kept_combo = super().add_combo(name)
+        if not kept_combo:
+            for c in self.a3_crit_buffs:
+                c.off()
+            self.a3_crit_buffs = []
+            self.rngcrit_states = {(None, 0): 1.0}
+            self.prev_log_time = 0
         if self.a3_crit_chance < 3 and self.condition('always connect hits') and self.hits // 15 > self.a3_crit_chance:
             self.a3_crit_chance = self.hits // 15
-            Selfbuff('a3_crit_chance',0.04,-1,'crit','chance').on()
+            self.a3_crit_buffs.append(Selfbuff('a3_crit_chance',0.04,-1,'crit','chance').on())
 
     def s2_proc(self, e):
         if e.group == 'default':

@@ -1,6 +1,7 @@
 from itertools import chain, islice
 from collections import defaultdict
 from collections import namedtuple
+import html
 
 from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS, WEAPON_TYPES, subclass_dict
 from core.config import Conf
@@ -19,6 +20,10 @@ class SlotBase:
     @property
     def name(self):
         return self.conf.name
+
+    @property
+    def escaped(self):
+        return html.escape(self.conf.name).replace(',', '&#44;')
 
     @property
     def icon(self):
@@ -667,6 +672,10 @@ class AmuletQuint:
     def name_icon_lst(self):
         return chain(*((a.name, a.icon) for a in self.an))
 
+    @property
+    def escaped_icon_lst(self):
+        return chain(*((a.escaped, a.icon) for a in self.an))
+
     @staticmethod
     def sort_ab(a):
         if len(a) <= 2:
@@ -791,11 +800,11 @@ class Slots:
 
     def full_slot_icons(self):
         return ','.join([
-            self.c.name, self.c.icon,
+            self.c.escaped, self.c.icon,
             self.c.ele, self.c.wt, str(round(self.att)),
-            self.d.name, self.d.icon,
-            self.w.name, self.w.icon,
-            *self.a.name_icon_lst
+            self.d.escaped, self.d.icon,
+            self.w.escaped, self.w.icon,
+            *self.a.escaped_icon_lst
         ])
 
     @staticmethod

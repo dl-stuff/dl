@@ -1181,16 +1181,18 @@ class Adv(object):
         # real combo count
         delta = now()-self.last_c
         ctime = self.ctime
+        self.last_c = now()
         if delta <= ctime:
             self.hits += self.echo
             if self.ctime_coab_val:
                 ctime_needed = delta - ctime + self.ctime_coab_val
                 if ctime_needed > self.ctime_needed:
                     self.ctime_needed = ctime_needed
+            return True
         else:
             self.hits = self.echo
             log('combo', f'reset combo after {delta:.02}s')
-        self.last_c = now()
+            return False
 
     def load_aff_conf(self, key):
         confv = self.conf[key]
@@ -1485,7 +1487,7 @@ class Adv(object):
     def _cb_think_dumb(self, t):
         if now() // self.dumb_cd > self.dumb_count:
             self.dumb_count = now() // self.dumb_cd
-            self.hits = 0
+            self.last_c = 0
             return self.a_dooodge()
         return self._cb_think(t)
 
