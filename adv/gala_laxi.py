@@ -3,7 +3,6 @@ from module.template import RngCritAdv
 
 a3_stack_cap = 10
 class Gala_Laxi(Adv):
-    conf = {'dumb': 10}
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # human latency penalty on ex combo
@@ -155,8 +154,7 @@ class Gala_Laxi(Adv):
             self.a3_crit_buffs = []
             self.rngcrit_states = {(None, 0): 1.0}
             self.prev_log_time = 0
-        if self.a3_crit_chance < 3 and self.condition('always connect hits') and self.hits // 15 > self.a3_crit_chance:
-            self.a3_crit_chance = self.hits // 15
+        if len(self.a3_crit_buffs) < 3 and self.condition('always connect hits') and self.hits // 15 > len(self.a3_crit_buffs):
             self.a3_crit_buffs.append(Selfbuff('a3_crit_chance',0.04,-1,'crit','chance').on())
 
     def s2_proc(self, e):
