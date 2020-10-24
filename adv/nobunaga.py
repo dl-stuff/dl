@@ -24,7 +24,7 @@ class Nobunaga(Adv):
 
     def ba_proc(self, t):
         if self.burning_ambition > 0:
-            self.dmg_make('s1_burning_ambition', self.burning_ambition, fixed=True)
+            self.dmg_make(f'{t.name}_burning_ambition', self.burning_ambition, fixed=True)
             self.burning_ambition = 0
             self.ba_t.off()
             return True

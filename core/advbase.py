@@ -1274,7 +1274,7 @@ class Adv(object):
         self.current_s = {'s1': 'default', 's2': 'default', 's3': 'default', 's4': 'default'}
         self.Skill._static.current_s = self.current_s
         self.conf.s1.owner = None
-        self.conf.s3.owner = None
+        self.conf.s2.owner = None
 
         if not self.conf['flask_env']:
             self.skillshare_list = self.load_aff_conf('share')
@@ -1332,7 +1332,8 @@ class Adv(object):
                         self.rebind_function(owner_module, f'{src_key}_{sfn}', f'{dst_key}_{sfn}')
                 except:
                     pass
-                # self.conf[dst_key].sp = shared_sp
+                self.conf[dst_key].owner = owner
+                self.conf[dst_key].sp = shared_sp
 
         for sn, snconf in self.conf.find(r'^s\d(_[A-Za-z0-9]+)?$'):
             s = S(sn, snconf)
@@ -1732,20 +1733,18 @@ class Adv(object):
             debufftime = self.mod('debuff', operator=operator.add)
             if self.conf.mbleed or (rate < 100 and base[0] == 's' and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
-                bleed = mBleed(name, mod)
                 if self.bleed is None:
-                    self.bleed = bleed
+                    self.bleed = mBleed('init', mod)
                     self.bleed.reset()
-                self.bleed = mBleed(name, mod, chance=rate/100, debufftime=debufftime)
+                self.bleed = mBleed(base, mod, chance=rate/100, debufftime=debufftime)
                 self.bleed.on()
             else:
                 from module.bleed import Bleed
-                bleed = Bleed(name, mod)
                 if self.bleed is None:
-                    self.bleed = bleed
+                    self.bleed = Bleed('init', mod)
                     self.bleed.reset()
                 if rate == 100 or rate >= random.uniform(0, 100):
-                    self.bleed = Bleed(name, mod, debufftime=debufftime)
+                    self.bleed = Bleed(base, mod, debufftime=debufftime)
                     self.bleed.on()
 
 
