@@ -1,40 +1,40 @@
 {
   "180": {
     "base": {
-      "dps": 25563.238455930175,
-      "team": 0.2338502005295767,
-      "tdps": 26329.566938672953,
+      "dps": 43040.44453662412,
+      "team": 0.17515439612473716,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Chariot_Drift",
-        "Dueling_Dancers"
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
       ],
       "slots.d": "Nimis",
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
-        "`s4",
         "`s1",
-        "`s2",
+        "`s4, inspiration()<5",
+        "`s2, (inspiration()=5 or inspiration()=0) and fsc",
         "`fs, x=4"
       ],
       "coabs": [
-        "Yurius",
         "Dragonyule_Cleo",
+        "Xainfried",
         "Tiki"
       ],
       "share": [
         "Weapon",
-        "Yue"
+        "Gala_Mym"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "buffer": {
-      "dps": 6171.452576548157,
-      "team": 0.9703524728437978,
-      "tdps": 26329.566938672953,
+      "dps": 6589.10298934733,
+      "team": 0.9792743451579399,
+      "tdps": 45330.7265801606,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Sisters_Day_Out",
@@ -62,28 +62,28 @@
       ]
     },
     "affliction": {
-      "dps": 39835.817990669275,
-      "team": 0.17509835551012734,
+      "dps": 47310.32466967404,
+      "team": 0.18134421066799156,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Bridal_Dragon",
-        "His_Clever_Brother",
-        "Such_High_Spirits"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "slots.d": "Nimis",
       "acl": [
-        "`dragon, s=1",
+        "`dragon(c3-c3-c3-c1-s), s=1",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, fsc",
-        "`s4",
+        "`s4, inspiration()<5",
+        "`s2, (inspiration()=5 or inspiration()=0) and fsc",
         "`fs, x=4"
       ],
       "coabs": [
-        "Yurius",
         "Dragonyule_Cleo",
+        "Xainfried",
         "Tiki"
       ],
       "share": [

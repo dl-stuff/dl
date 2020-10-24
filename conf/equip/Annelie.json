@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 51865.337702917415,
+      "dps": 55258.97915187753,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -9,15 +9,15 @@
         "Memory_of_a_Friend",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c10-s-end), energy()>2",
+        "`dragon(s), energy()=5 or inspiration()=5",
         "`s3, not buff(s3)",
-        "`s4",
+        "`s4, not energy()=5 and not inspiration()=5",
         "`s1",
-        "`s2, self.energy()<5",
+        "`s2, x=5 and self.energy()<5",
         "`fs, x=5"
       ],
       "coabs": [
@@ -27,28 +27,28 @@
       ],
       "share": [
         "Weapon",
-        "Xainfried"
+        "Rodrigo"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 59309.5745737696,
+      "dps": 61143.95129490884,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "His_Clever_Brother",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(s-end), energy()=5",
-        "`s3, not buff(s3)",
-        "`s4",
+        "`dragon(s), energy()=5 or inspiration()=5",
+        "`s3, x=5 and not buff(s3)",
+        "`s4, not energy()=5 and not inspiration()=5",
         "`s1",
-        "`s2, self.energy()<5",
+        "`s2, fsc and self.energy()<5",
         "`fs, x=5"
       ],
       "coabs": [
@@ -58,13 +58,13 @@
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Rodrigo"
       ]
     },
     "buffer": {
       "dps": 39230.17410185514,
       "team": 0.07207243168503663,
-      "tdps": 175312.02022264406,
+      "tdps": 222398.5603825578,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",

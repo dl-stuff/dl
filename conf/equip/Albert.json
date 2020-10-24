@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 53214.07384055916,
+      "dps": 53670.98116397489,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -42,7 +42,7 @@
     "buffer": {
       "dps": 7556.388618121592,
       "team": 0.4387068890622751,
-      "tdps": 104073.32631595942,
+      "tdps": 105114.81286382822,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -68,7 +68,7 @@
       ]
     },
     "affliction": {
-      "dps": 61934.196845494494,
+      "dps": 62227.7523178383,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -263,6 +263,44 @@
         "Kleimann"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "base": {
+      "dps": 57074.19627909872,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Gentle_Winds",
+        "Spirit_of_the_Season",
+        "The_Shining_Overlord",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "if electrified",
+        "`s1",
+        "`s4",
+        "if x=1",
+        "`fs2, not aff(paralysis)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(s-end), cancel",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(2, s1)",
+        "`s1, cancel",
+        "`s4, cancel",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    }
   }
 }

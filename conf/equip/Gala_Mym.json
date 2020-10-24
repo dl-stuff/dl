@@ -105,7 +105,7 @@
   },
   "60": {
     "base": {
-      "dps": 61143.945029751085,
+      "dps": 68722.02766365139,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -113,44 +113,7 @@
         "Dragon_and_Tamer",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "if self.dragonform.shift_count<1",
-        "`dragon(s-end), s=1",
-        "end",
-        "if self.dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-end)",
-        "end",
-        "`s3, not buff(s3) and x=5",
-        "`s1",
-        "`s2, x=5 or fsc",
-        "`s4, fsc",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Yuya",
-        "Serena",
-        "Blade"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 70654.8239467134,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -171,17 +134,55 @@
       "coabs": [
         "Yuya",
         "Verica",
-        "Serena"
+        "The_Prince"
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Summer_Cleo"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 80478.47734463336,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "# `norm",
+        "if self.dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-s-end)",
+        "end",
+        "`s3, not buff(s3) and x=5",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "The_Prince"
+      ],
+      "share": [
+        "Weapon",
+        "The_Prince"
       ]
     },
     "buffer": {
       "dps": 53995.56992437147,
       "team": 0.020533240347452932,
-      "tdps": 348136.727784728,
+      "tdps": 717200.8650406061,
       "slots.a": [
         "Brothers_in_Arms",
         "Dragon_and_Tamer",
@@ -217,7 +218,7 @@
   },
   "120": {
     "base": {
-      "dps": 84934.54999637352,
+      "dps": 85452.32389538971,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -229,11 +230,12 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
+        "# `norm",
         "if self.dragonform.shift_count<1",
         "`dragon(s-end), s=1",
         "end",
         "if self.dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-end)",
+        "`dragon(c3-s-c3-s-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
@@ -243,8 +245,8 @@
         "`fs, x=5"
       ],
       "coabs": [
-        "Blade",
         "Yuya",
+        "Verica",
         "Serena"
       ],
       "share": [
@@ -293,7 +295,7 @@
     "buffer": {
       "dps": 66807.4090886124,
       "team": 0.03090675926685452,
-      "tdps": 586510.567194966,
+      "tdps": 603263.3394460337,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
