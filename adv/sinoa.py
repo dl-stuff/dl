@@ -14,6 +14,8 @@ class Sinoa(Adv):
         self.defchain = Event('defchain')
         self.t_doublebuff = 0
 
+        Event('s').listener(self.s1_combine, order=2)
+
     @staticmethod
     def s1_prune(n_t, tpl):
         if not tpl:
@@ -62,13 +64,12 @@ class Sinoa(Adv):
                 new_states[n_state] += state_p / 4
                 if i == 1:
                     db_rate += state_p / 4
-            if state[3] is None or len(state[3]) < 2:
-                if state[3] is None:
-                    n_times = (-1,)
-                else:
-                    n_times = (-1, *state[3])
-                n_state = state[:3] + (n_times,)
-                new_states[n_state] += state_p / 4
+            if state[3] is None:
+                n_times = (-1,)
+            else:
+                n_times = (-1, -1)
+            n_state = state[:3] + (n_times,)
+            new_states[n_state] += state_p / 4
         new_states[(None, None, None, None)] = 1 - sum(new_states.values())
         self.s1_states = new_states
         self.s1_combine()
@@ -76,7 +77,12 @@ class Sinoa(Adv):
         self.defchain.rate = db_rate
         self.defchain.on()
 
-    def s1_combine(self):
+        self.t_doublebuff += db_rate
+        if self.t_doublebuff > 1:
+            self.t_doublebuff -= 1
+            log('buff', 'doublebuff', 15 * self.mod('buff', operator=operator.add))
+
+    def s1_combine(self, e=None):
         self.combined_states = defaultdict(lambda: 0)
         for state, state_p in self.s1_states.items():
             c_state = tuple(
@@ -84,13 +90,13 @@ class Sinoa(Adv):
                 for i in range(4)
             )
             self.combined_states[c_state] += state_p
+        self.combined_states[(0, 0, 0, 0)] = 1 - sum(self.combined_states.values())
         
         # teambuffs
         m_team = 0
         self.s1_buffcount = 0
         for state, state_p in self.combined_states.items():
             self.s1_buffcount += sum(state) * state_p
-            self.t_doublebuff += state[1] * state_p
             if state[0] == 0 and state[2] == 0:
                 continue
             state_mods = [
@@ -99,9 +105,6 @@ class Sinoa(Adv):
             ]
             m_team += state_p * self.count_s1_team_buff(state_mods)
         log('buff', 'team', m_team)
-        if self.t_doublebuff > 1:
-            self.t_doublebuff -= 1
-            log('buff', 'doublebuff', 15 * self.mod('buff', operator=operator.add))
 
     @property
     def buffcount(self):
@@ -161,6 +164,11 @@ class Sinoa(Adv):
             mod.off()
 
         return team_buff_dmg / no_team_buff_dmg - 1
+
+    def post_run(self, end):
+        self.s1_combine()
+        if self.t_doublebuff > 0.5:
+            log('buff', 'doublebuff', 15 * self.mod('buff', operator=operator.add))
 
 class Sinoa_RNG(Adv):
     def s1_proc(self, e):
