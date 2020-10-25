@@ -29,6 +29,7 @@ class Skill_Ammo(Skill):
 
 class Mega_Man(Adv):
     comment = '16 hits leaf shield (max 32 hits)'
+    conf = {'mbleed': False}
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.a_s_dict['s1'] = Skill_Ammo('s1')
