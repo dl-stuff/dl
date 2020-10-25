@@ -32,8 +32,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 59129.88001068779,
-      "team": 0.06588211836643035,
+      "dps": 59823.669971436095,
+      "team": 0.0641822653925782,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -47,9 +47,10 @@
         "`dragon(s-end),fsc",
         "`s3, not buff(s3)",
         "`s4, fsc",
-        "`s1",
-        "`s2, cancel",
-        "`fs, x=1"
+        "`s1, fsc",
+        "`s2, fsc",
+        "`fs, x=1 and (s1.sp - s1.charged > 660 or s1.sp - s1.charged < 330) and buff(s2)",
+        "`fs, x=2"
       ],
       "coabs": [
         "Blade",

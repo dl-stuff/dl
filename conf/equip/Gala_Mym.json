@@ -293,33 +293,35 @@
       ]
     },
     "buffer": {
-      "dps": 66807.4090886124,
-      "team": 0.03090675926685452,
-      "tdps": 603263.3394460337,
+      "dps": 80023.71040739125,
+      "team": 0.03387118377276512,
+      "tdps": 160272.32837263448,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "The_Red_Impulse",
-        "His_Clever_Brother",
-        "To_the_Extreme"
+        "Dueling_Dancers",
+        "Dragons_Nest"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<2",
-        "`dragon(c3-s-end)",
-        "else",
-        "`dragon(c3-s-c2-end)",
+        "# `norm",
+        "if self.dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-s-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
-        "`s4, fsc",
-        "`s2, x=5",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`s4, s=1",
+        "`s2, x=5 or fsc",
+        "`dodge, fsc",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Wand",
         "Yuya",
+        "Verica",
         "Serena"
       ],
       "share": [

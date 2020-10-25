@@ -143,7 +143,7 @@ class DragonForm(Action):
         return combo > dodge
 
     def auto_gauge(self, t):
-        self.charge_gauge(self.dragon_gauge_val)
+        self.charge_gauge(self.dragon_gauge_val, auto=True)
 
     def pause_auto_gauge(self):
         if self.dragon_gauge_pause_timer is None:
@@ -173,7 +173,7 @@ class DragonForm(Action):
             if add_time != 0:
                 log('drive_time' if not skill_pause else 'skill_pause', f'{add_time:+2.4}', f'{duration:2.4}', f'{int(self.dragon_gauge)}/{int(self.max_gauge)}')
 
-    def charge_gauge(self, value, utp=False, dhaste=True):
+    def charge_gauge(self, value, utp=False, dhaste=True, auto=False):
         # if dhaste is None:
         #     dhaste = not utp
         dh = self.adv.mod('dh') if dhaste else 1
@@ -186,7 +186,7 @@ class DragonForm(Action):
             if utp:
                 log('dragon_gauge', '{:+} utp'.format(int(delta)), f'{int(self.dragon_gauge)}/{int(self.max_gauge)}', value)
             else:
-                log('dragon_gauge', '{:+.2f}%'.format(delta/self.max_gauge*100), '{:.2f}%'.format(self.dragon_gauge/self.max_gauge*100))
+                log('auto_gauge' if auto else 'dragon_gauge', '{:+.2f}%'.format(delta/self.max_gauge*100), '{:.2f}%'.format(self.dragon_gauge/self.max_gauge*100))
 
     @allow_acl
     def dtime(self):
@@ -279,14 +279,14 @@ class DragonForm(Action):
             self.d_shift_end(None)
             self.shift_end_timer.off()
             return
-        
+
         actconf = self.conf[self.c_act_name]
         e = self.act_event
-        e.name = self.c_act_name 
+        e.name = self.c_act_name
         e.base = self.c_act_name
         e.group = 'dragon'
         self.adv.actmod_on(e)
-        
+
         try:
             getattr(self.adv, f'{self.c_act_name}_before')(e)
         except AttributeError:
