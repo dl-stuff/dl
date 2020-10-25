@@ -1,40 +1,41 @@
 {
   "180": {
     "base": {
-      "dps": 43978.91949121875,
-      "team": 0.25067519712785175,
+      "dps": 48830.027899427994,
+      "team": 0.0771990667476814,
       "tdps": null,
       "slots.a": [
-        "Kung_Fu_Masters",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "From_Whence_He_Comes",
-        "His_Clever_Brother"
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Nimis",
       "acl": [
-        "`dragon(c3-s-end), not s2.check()",
+        "`s2, dgauge>=500",
+        "`dragon(c3-c3-c3-c3-c1-s), s=2",
         "`s3, not buff(s3)",
-        "`s2",
         "`s4",
-        "`s1",
-        "`fs, cancel and s1.charged>=s1.sp-self.sp_val('fs') and x>2"
+        "`s2, dgauge<=200",
+        "`s1, cancel",
+        "`fsf, x=4"
       ],
       "coabs": [
-        "Blade",
-        "Summer_Estelle",
-        "Hunter_Sarisse"
+        "Dragonyule_Cleo",
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Gala_Mym"
       ]
     },
     "pref": "base",
     "buffer": {
       "dps": 12466.644391207423,
       "team": 0.7786655239879976,
-      "tdps": 59683.43262538275,
+      "tdps": 51839.09099699517,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -60,33 +61,34 @@
       ]
     },
     "affliction": {
-      "dps": 46684.42820879795,
-      "team": 0.2774731955761137,
+      "dps": 54366.569454998484,
+      "team": 0.07745041030541107,
       "tdps": null,
       "slots.a": [
-        "Kung_Fu_Masters",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "From_Whence_He_Comes",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Nimis",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`s2, dgauge>=500",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
-        "`s2",
         "`s4",
-        "`s1",
-        "`fsf, x=4 and not buff(s4)"
+        "`s2, dgauge<=200",
+        "`s1, cancel",
+        "`fsf, x=4"
       ],
       "coabs": [
-        "Summer_Estelle",
-        "Renee",
-        "Axe2"
+        "Dragonyule_Cleo",
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Gala_Mym"
       ]
     }
   }

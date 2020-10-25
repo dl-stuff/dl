@@ -134,9 +134,42 @@
     },
     "pref": "base",
     "base": {
+      "dps": 52146.101146176836,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`fs, c_fs(cartridge3)",
+        "`dragon(c3-s), fscf",
+        "if ((alchemy>70 or cartridge>0) and xf=1) or x=1",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
+      "coabs": [
+        "Mitsuhide",
+        "Axe2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "buffer": {
       "dps": 41043.18037651321,
       "team": 0.03331487411683311,
-      "tdps": null,
+      "tdps": 333272.1813904023,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -167,34 +200,36 @@
   },
   "120": {
     "base": {
-      "dps": 38982.57896792494,
-      "team": 0.06796041229552549,
+      "dps": 54798.171697140824,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Entwined_Flames",
-        "Such_High_Spirits"
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "The_Warrioresses"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "`s4, dgauge >= 500 or dgauge <= 100",
-        "`fs, c_fs(cartridge3) and cancel",
-        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s2, cancel and cartridge = 0",
-        "`dodge, x=1 and cancel"
+        "`s3, not buff(s3)",
+        "`fs, c_fs(cartridge3)",
+        "`dragon(c3-s), fscf",
+        "if ((alchemy>70 or cartridge>0) and xf=1) or x=1",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
       ],
       "coabs": [
+        "Mitsuhide",
         "Axe2",
-        "Dagger2",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Elisanne"
+        "Jurota"
       ]
     },
     "pref": "base",
@@ -229,6 +264,37 @@
       "share": [
         "Weapon",
         "Hunter_Sarisse"
+      ]
+    },
+    "buffer": {
+      "dps": 38982.57896792494,
+      "team": 0.06796041229552549,
+      "tdps": 232717.72779190715,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Entwined_Flames",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`s4, dgauge >= 500 or dgauge <= 100",
+        "`fs, c_fs(cartridge3) and cancel",
+        "`dragon, cartridge=0 and sub_mod(crit, chance) >= 0.9",
+        "`s1, cancel",
+        "`s3, cancel",
+        "`s2, cancel and cartridge = 0",
+        "`dodge, x=1 and cancel"
+      ],
+      "coabs": [
+        "Axe2",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Elisanne"
       ]
     }
   }
