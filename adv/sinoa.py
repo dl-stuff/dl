@@ -1,31 +1,15 @@
 from core.advbase import *
 
-from pprint import pprint
-
-class Sinoa_EV(Adv):
+class Sinoa(Adv):
     S1_DURATIONS = (15, 15, 10)
-    conf = {
-        's1': {
-            'startup': 0.26667,
-            'recovery': 0.83333,
-            'attr': []
-        }
-    }
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        # self.s1_buff = {
-        #     'a': (0.25, 15.0, 'att', 'buff'),
-        #     'd': (0.25, 15.0, 'defense', 'buff'),
-        #     'c': (0.25, 10.0, 'crit', 'chance'),
-        #     'h': (0.15, -1, 'maxhp', 'buff')
-        # }
+    def prerun(self):
         self.s1_states = {(None, None, None, None): 1}
         self.combined_states = None
 
         self.dmg_test_event = Event('dmg_formula')
         self.dmg_test_event.dmg_coef = 1
         self.dmg_test_event.dname = 'test'
-        self.s1_sinoa_buffcount = 0
+        self.s1_buffcount = 0
 
         self.defchain = Event('defchain')
         self.t_doublebuff = 0
@@ -41,9 +25,9 @@ class Sinoa_EV(Adv):
         new_states = defaultdict(lambda: 0)
         for state, state_p in self.s1_states.items():
             n_state = (
-                Sinoa_EV.s1_prune(n_t, state[0]),
-                Sinoa_EV.s1_prune(n_t, state[1]),
-                Sinoa_EV.s1_prune(n_t, state[2]),
+                Sinoa.s1_prune(n_t, state[0]),
+                Sinoa.s1_prune(n_t, state[1]),
+                Sinoa.s1_prune(n_t, state[2]),
                 state[3]
             )
             new_states[n_state] += state_p
@@ -52,20 +36,29 @@ class Sinoa_EV(Adv):
         self.s1_combine()
 
     def s1_proc(self, e):
+        if e.name != 's1':
+            # use RNG variant when shared
+            return Teambuff(e.name, *random.choice((
+                (0.25, 15.0, 'att', 'buff'),
+                (0.25, 15.0, 'defense', 'buff'),
+                (0.25, 10.0, 'crit', 'chance'),
+                (0.15, -1, 'maxhp', 'buff')
+            ))).on()
+
         n_t = now()
         bt = self.mod('buff', operator=operator.add)
         new_states = defaultdict(lambda: 0)
         db_rate = 0
-        for dt in set(Sinoa_EV.S1_DURATIONS):
+        for dt in set(Sinoa.S1_DURATIONS):
             Timer(self.s1_expire).on(dt*bt)
         for state, state_p in self.s1_states.items():
             for i in range(3):
-                t_expire = n_t + Sinoa_EV.S1_DURATIONS[i] * bt
+                t_expire = n_t + Sinoa.S1_DURATIONS[i] * bt
                 if state[i] is None:
                     n_times = (t_expire,)
                 else:
                     n_times = (t_expire, *state[i])
-                n_state = state[:i] + (n_times,) + state[i:]
+                n_state = state[:i] + (n_times,) + state[i+1:]
                 new_states[n_state] += state_p / 4
                 if i == 1:
                     db_rate += state_p / 4
@@ -94,9 +87,9 @@ class Sinoa_EV(Adv):
         
         # teambuffs
         m_team = 0
-        self.s1_sinoa_buffcount = 0
+        self.s1_buffcount = 0
         for state, state_p in self.combined_states.items():
-            self.s1_sinoa_buffcount += sum(state) * state_p
+            self.s1_buffcount += sum(state) * state_p
             self.t_doublebuff += state[1] * state_p
             if state[0] == 0 and state[2] == 0:
                 continue
@@ -112,10 +105,10 @@ class Sinoa_EV(Adv):
 
     @property
     def buffcount(self):
-        return super().buffcount + self.s1_sinoa_buffcount
+        return super().buffcount + self.s1_buffcount
 
     def dmg_formula(self, name, dmg_coef):
-        if self.combined_states is None:
+        if self.combined_states is None or name == 'test':
             return super().dmg_formula(name, dmg_coef)
         m_dmg = 0
         for state, state_p in self.combined_states.items():
@@ -170,27 +163,15 @@ class Sinoa_EV(Adv):
         return team_buff_dmg / no_team_buff_dmg - 1
 
 class Sinoa_RNG(Adv):
-    conf = {
-        's1': {
-            'startup': 0.26667,
-            'recovery': 0.83333,
-            'attr': []
-        }
-    }
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.s1_buff_args = [
+    def s1_proc(self, e):
+        Teambuff(e.name, *random.choice((
             (0.25, 15.0, 'att', 'buff'),
             (0.25, 15.0, 'defense', 'buff'),
             (0.25, 10.0, 'crit', 'chance'),
             (0.15, -1, 'maxhp', 'buff')
-        ]
-
-    def s1_proc(self, e):
-        Teambuff(e.name, *random.choice(self.s1_buff_args)).on()
+        ))).on()
 
 variants = {
-    None: Adv,
-    'RNG': Sinoa_RNG,
-    'EV': Sinoa_EV
+    None: Sinoa,
+    'RNG': Sinoa_RNG
 }
