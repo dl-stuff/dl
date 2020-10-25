@@ -118,7 +118,6 @@ class Gala_Alex_BK(Gala_Alex):
         super().__init__(altchain='break', **kwargs)
 
     def pre_conf(self, equip_key=None):
-        print(self.conf_init, flush=True)
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
         self.conf.update(self.conf_init)

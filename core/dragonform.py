@@ -1,3 +1,4 @@
+import operator
 from core.advbase import Action, S
 from core.timeline import Event, Timer, now
 from core.log import log, g_logs
@@ -176,7 +177,7 @@ class DragonForm(Action):
     def charge_gauge(self, value, utp=False, dhaste=True, auto=False):
         # if dhaste is None:
         #     dhaste = not utp
-        dh = self.adv.mod('dh') if dhaste else 1
+        dh = self.dhaste() if dhaste else 1
         value = self.adv.sp_convert(dh, value)
         delta = min(self.dragon_gauge+value, self.max_gauge) - self.dragon_gauge
         if self.is_dragondrive and self.dragondrive_buff.get():
@@ -194,6 +195,12 @@ class DragonForm(Action):
 
     def dstime(self):
         return (self.conf.ds.startup + self.conf.ds.recovery) / self.speed()
+
+    def dhaste(self):
+        return self.adv.mod('dh', operator=operator.add)
+    
+    def chain_dhaste(self):
+        return self.adv.sub_mod('dh', 'chain') + 1
 
     @allow_acl
     def ddamage(self):

@@ -255,7 +255,7 @@ class Nimis(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         def add_gauge_and_time(t):
-            adv.dragonform.dragon_gauge += 200
+            adv.dragonform.charge_gauge(200, dhaste=False)
             adv.dragonform.set_shift_end(5, percent=False)
         adv.Event('ds').listener(add_gauge_and_time)
 
