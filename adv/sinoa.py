@@ -14,7 +14,12 @@ class Sinoa(Adv):
         self.defchain = Event('defchain')
         self.t_doublebuff = 0
 
-        Event('s').listener(self.s1_combine, order=2)
+        Event('idle').listener(self.s1_combine_after_s, order=0)
+
+    def s1_combine_after_s(self, e):
+        prev = self.action.getprev()
+        if prev.name in ('s3', 's4'):
+            self.s1_combine()
 
     @staticmethod
     def s1_prune(n_t, tpl):
@@ -33,7 +38,7 @@ class Sinoa(Adv):
                 state[3]
             )
             new_states[n_state] += state_p
-        new_states[(None, None, None, None)] = 1 - sum(new_states.values())
+        new_states[(None, None, None, None)] += 1 - sum(new_states.values())
         self.s1_states = new_states
         self.s1_combine()
 
@@ -70,7 +75,7 @@ class Sinoa(Adv):
                 n_times = (-1, -1)
             n_state = state[:3] + (n_times,)
             new_states[n_state] += state_p / 4
-        new_states[(None, None, None, None)] = 1 - sum(new_states.values())
+        new_states[(None, None, None, None)] += 1 - sum(new_states.values())
         self.s1_states = new_states
         self.s1_combine()
 
@@ -82,7 +87,7 @@ class Sinoa(Adv):
             self.t_doublebuff -= 1
             log('buff', 'doublebuff', 15 * self.mod('buff', operator=operator.add))
 
-    def s1_combine(self, e=None):
+    def s1_combine(self):
         self.combined_states = defaultdict(lambda: 0)
         for state, state_p in self.s1_states.items():
             c_state = tuple(
@@ -90,7 +95,7 @@ class Sinoa(Adv):
                 for i in range(4)
             )
             self.combined_states[c_state] += state_p
-        self.combined_states[(0, 0, 0, 0)] = 1 - sum(self.combined_states.values())
+        self.combined_states[(0, 0, 0, 0)] += 1 - sum(self.combined_states.values())
         
         # teambuffs
         m_team = 0
