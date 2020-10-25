@@ -295,11 +295,17 @@ class Doublebuff(BuffingAbility):
     def oninit(self, adv, afrom=None):
         if self.name == 'bc_energy':
             def defchain(e):
-                adv.energy.add(self.buff_args[1])
+                if hasattr(e, 'rate'):
+                    adv.energy.add(self.buff_args[1] * e.rate)
+                else:
+                    adv.energy.add(self.buff_args[1])
             adv.Event('defchain').listener(defchain)
         else:
             def defchain(e):
-                adv.Buff(*self.buff_args, source=e.source).on()
+                if hasattr(e, 'rate'):
+                    adv.Buff(self.buff_args[0], self.buff_args[1] * e.rate, *self.buff_args[2:], source=e.source).on()
+                else:
+                    adv.Buff(*self.buff_args, source=e.source).on()
             adv.Event('defchain').listener(defchain)
 
 ability_dict['bc'] = Doublebuff
