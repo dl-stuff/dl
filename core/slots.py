@@ -64,11 +64,11 @@ class CharaBase(SlotBase):
     FAC_ELEMENT_HP['wind']['shrine'] = 0.095
     FAC_ELEMENT_HP['light']['retreat'] = 0.095
     FAC_ELEMENT_HP['light']['circus'] = 0.095
-    FAC_ELEMENT_HP['shadow']['library'] = 0.085
+    FAC_ELEMENT_HP['shadow']['library'] = 0.095
 
     FAC_WEAPON_ATT = {
         'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.195},
-        'dagger': 0.05, 'bow': 0.05, 'blade': 0.05, 'wand': 0.05,
+        'dagger': 0.06, 'bow': 0.06, 'blade': 0.05, 'wand': 0.05,
         'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
         'gun': -0.15 # i am the fucking smart
     }
