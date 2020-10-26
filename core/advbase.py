@@ -1419,6 +1419,9 @@ class Adv(object):
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 
+        if self.conf.fleet:
+            self.condition(f'with {self.conf.fleet} other {self.slots.c.name}')
+
         # from pprint import pprint
         # pprint(self.conf)
 
@@ -1726,6 +1729,13 @@ class Adv(object):
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
             getattr(self.afflics, aff_type).on(name, *aff_args)
+            if self.conf.fleet:
+                try:
+                    aff_args[1] = 0
+                except IndexError:
+                    pass
+                for _ in range(self.conf.fleet):
+                    getattr(self.afflics, aff_type).on(name, *aff_args)
 
         if 'bleed' in attr:
             rate, mod = attr['bleed']
@@ -1746,7 +1756,6 @@ class Adv(object):
                 if rate == 100 or rate >= random.uniform(0, 100):
                     self.bleed = Bleed(base, mod, debufftime=debufftime)
                     self.bleed.on()
-
 
         if 'buff' in attr:
             self.hitattr_buff_outer(name, base, group, aseq, attr)
@@ -1801,31 +1810,43 @@ class Adv(object):
                             return
                     except:
                         pass
-                    buff = self.hitattr_buff(name, base, group, aseq, 0, blist)
+                    buff = self.hitattr_buff(name, base, group, aseq, 0, blist, stackable=False)
                     if buff:
                         self.active_buff_dict.add_overwrite(base, group, aseq, buff.on(), bctrl)
                     return
             if isinstance(blist[0], list):
                 buff_objs = []
                 for bseq, attrbuff in enumerate(blist):
-                    obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff)
+                    obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff, stackable=not bctrl)
                     if obj:
                         buff_objs.append(obj)
                 if buff_objs:
                     self.active_buff_dict.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
             else:
-                buff = self.hitattr_buff(name, base, group, aseq, 0, blist)
+                buff = self.hitattr_buff(name, base, group, aseq, 0, blist, stackable=not bctrl)
                 if buff:
                     self.active_buff_dict.add(base, group, aseq, buff.on())
 
-    def hitattr_buff(self, name, base, group, aseq, bseq, attrbuff):
+    def hitattr_buff(self, name, base, group, aseq, bseq, attrbuff, stackable=False):
         btype = attrbuff[0]
         if btype in ('energy', 'inspiration'):
-            getattr(self, btype).add(attrbuff[1], team=len(attrbuff) > 2 and bool(attrbuff[2]))
+            is_team = len(attrbuff) > 2 and bool(attrbuff[2])
+            if self.conf.fleet and is_team:
+                getattr(self, btype).add(attrbuff[1]*(self.conf.fleet+1))
+            else:
+                getattr(self, btype).add(attrbuff[1], team=is_team)
         else:
             bargs = attrbuff[1:]
+            bname = f'{name}_{aseq}{bseq}'
             try:
-                return bufftype_dict[btype](f'{name}_{aseq}{bseq}', *bargs, source=name)
+                if self.conf.fleet and btype in ('team', 'zone', 'debuff'):
+                    for _ in range(self.conf.fleet+1 if stackable else 1):
+                        buff = bufftype_dict[btype](bname, *bargs, source=name)
+                        buff.bufftype = 'self'
+                        buff.on()
+                    return buff
+                else:
+                    return bufftype_dict[btype](bname, *bargs, source=name)
             except ValueError:
                 return None
 
