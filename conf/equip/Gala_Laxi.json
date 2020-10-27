@@ -1,7 +1,45 @@
 {
   "180": {
     "base": {
-      "dps": 88650.80473740365,
+      "dps": 88697.10576535382,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "if buff(s2)",
+        "`norm",
+        "else",
+        "`ex",
+        "end",
+        "`dragon(s-s)",
+        "queue prep",
+        "`s2;s1;s4",
+        "end",
+        "`s3, not buff(s3) and x=4",
+        "`s2",
+        "`s1",
+        "`s4, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 97181.77652860992,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -26,7 +64,7 @@
       ],
       "coabs": [
         "Blade",
-        "Gala_Sarisse",
+        "Wand",
         "Serena"
       ],
       "share": [
@@ -34,43 +72,10 @@
         "Karina"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 97081.24233085514,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "# `norm",
-        "`ex",
-        "`dragon,s=2",
-        "`s3, not buff(s3) and fsc",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs, s3.check() and not buff(s3)"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    },
     "buffer": {
       "dps": 52262.0043132649,
       "team": 0.158874892395412,
-      "tdps": 229040.5983947001,
+      "tdps": 229332.02913779655,
       "slots.a": [
         "Me_and_My_Bestie",
         "Moonlight_Party",
