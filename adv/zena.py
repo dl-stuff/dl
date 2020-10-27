@@ -8,9 +8,13 @@ class Zena(Adv):
         Event('dragon').listener(self.s2_clear)
 
     def s2_extra_hits(self, t):
+        for m in t.actmods:
+            m.on()
         for _ in range(self.s2_extra_hit_rate):
             self.dmg_make(f'{t.name}_extra', 0.50)
             self.add_combo()
+        for m in t.actmods:
+            m.off()
 
     def s2_clear(self, e):
         for t in self.s2_timers:
@@ -21,6 +25,7 @@ class Zena(Adv):
         for i in range(0, 5):
             t = Timer(self.s2_extra_hits)
             t.name = e.name
+            t.actmods = self.actmods('s2')
             t.on(i)
             self.s2_timers.append(t)
 
