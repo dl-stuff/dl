@@ -52,7 +52,7 @@ class CharaBase(SlotBase):
     FAC_ELEMENT_ATT = {
         'all': {'altar1': 0.115, 'altar2': 0.115, 'slime': 0.04},
         'flame': {'tree': 0.26, 'arctos': 0.085},
-        'water': {'tree': 0.16, 'yuletree': 0.085, 'dragonata': 0.085},
+        'water': {'tree': 0.26, 'yuletree': 0.085, 'dragonata': 0.085},
         'wind': {'tree': 0.26, 'shrine': 0.085},
         'light': {'tree': 0.16, 'retreat': 0.085, 'circus': 0.085},
         'shadow': {'tree': 0.26, 'library': 0.085}
@@ -70,7 +70,7 @@ class CharaBase(SlotBase):
         'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.195},
         'dagger': 0.06, 'bow': 0.06, 'blade': 0.05, 'wand': 0.05,
         'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
-        'gun': -0.15 # i am the fucking smart
+        'gun': -0.10 # i am the fucking smart
     }
     FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
 
@@ -408,7 +408,7 @@ class WeaponBase(EquipBase):
         },
         'water': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.20, -1, 'att', 'buff'], ['self', 0.12, -1, 'crit', 'chance'], '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.20, -1, 'att', 'buff'], ['self', 0.12, -1, 'crit', 'chance'], ['self', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.35, -1, 'defense', 'buff', '-replace']}]}
         },
         'wind': {

@@ -5,7 +5,7 @@ from core.log import *
 from core.acl import allow_acl
 import random
 
-AFFLICT_LIST = ['poison', 'paralysis', 'burn', 'blind', 'bog', 'stun', 'freeze', 'sleep', 'frostbite', 'flashburn']
+AFFLICT_LIST = ['poison', 'paralysis', 'burn', 'blind', 'bog', 'stun', 'freeze', 'sleep', 'frostbite', 'flashburn', 'shadowblight']
 
 class Dot(object):
     """
@@ -350,6 +350,7 @@ class Afflics(object):
         self.paralysis = Afflic_dot('paralysis', duration=13, iv=3.9)
         self.frostbite = Afflic_dot('frostbite', duration=21, iv=2.9)
         self.flashburn = Afflic_dot('flashburn', duration=21, iv=2.9)
+        self.shadowblight = Afflic_dot('shadowblight', duration=21, iv=2.9)
 
         self.blind = Afflic_scc('blind', duration=8)
         self.bog = Afflic_bog('bog', duration=8)
