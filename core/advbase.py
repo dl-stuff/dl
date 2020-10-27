@@ -1419,8 +1419,8 @@ class Adv(object):
 
         self.displayed_att = int(self.base_att * self.mod('att'))
 
-        if self.conf.fleet:
-            self.condition(f'with {self.conf.fleet} other {self.slots.c.name}')
+        if self.conf['fleet']:
+            self.condition(f'with {self.conf["fleet"]} other {self.slots.c.name}')
 
         # from pprint import pprint
         # pprint(self.conf)
@@ -1729,12 +1729,12 @@ class Adv(object):
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
             getattr(self.afflics, aff_type).on(name, *aff_args)
-            if self.conf.fleet:
+            if self.conf['fleet']:
                 try:
                     aff_args[1] = 0
                 except IndexError:
                     pass
-                for _ in range(self.conf.fleet):
+                for _ in range(self.conf['fleet']):
                     getattr(self.afflics, aff_type).on(name, *aff_args)
 
         if 'bleed' in attr:
@@ -1831,16 +1831,16 @@ class Adv(object):
         btype = attrbuff[0]
         if btype in ('energy', 'inspiration'):
             is_team = len(attrbuff) > 2 and bool(attrbuff[2])
-            if self.conf.fleet and is_team:
-                getattr(self, btype).add(attrbuff[1]*(self.conf.fleet+1))
+            if self.conf['fleet'] and is_team:
+                getattr(self, btype).add(attrbuff[1]*(self.conf['fleet']+1))
             else:
                 getattr(self, btype).add(attrbuff[1], team=is_team)
         else:
             bargs = attrbuff[1:]
             bname = f'{name}_{aseq}{bseq}'
             try:
-                if self.conf.fleet and btype in ('team', 'zone', 'debuff'):
-                    for _ in range(self.conf.fleet+1 if stackable else 1):
+                if self.conf['fleet'] and btype in ('team', 'zone', 'debuff'):
+                    for _ in range(self.conf['fleet']+1 if stackable else 1):
                         buff = bufftype_dict[btype](bname, *bargs, source=name)
                         buff.bufftype = 'self'
                         buff.on()
