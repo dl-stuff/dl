@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 79540.9137337417,
+      "dps": 86967.78974124732,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -15,14 +15,17 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s1, fsc",
-        "`s2, not buff(s2) and fsc",
+        "if s2.check() and fsc and not buff(s2)",
+        "`s2",
+        "`fs4, x=1",
+        "end",
         "`s4, fsc",
         "`dodge, fscf",
         "fs4"
       ],
       "coabs": [
-        "Dragonyule_Cleo",
-        "Xander",
+        "Blade",
+        "Catherine",
         "Grace"
       ],
       "share": [
@@ -32,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 91996.38227902079,
+      "dps": 100484.28017352006,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -46,13 +49,16 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s1, fsc",
-        "`s2, fsc",
+        "if s2.check() and fsc and not buff(s2)",
+        "`s2",
+        "`fs4, x=1",
+        "end",
         "`s4, fsc",
-        "`dodge, fsc",
-        "`fs4"
+        "`dodge, fscf",
+        "fs4"
       ],
       "coabs": [
-        "Dragonyule_Cleo",
+        "Renee",
         "Xander",
         "Grace"
       ],
@@ -62,9 +68,9 @@
       ]
     },
     "buffer": {
-      "dps": 64988.33425620814,
+      "dps": 70029.98761898314,
       "team": 0.14194970657652753,
-      "tdps": 102519.26424157855,
+      "tdps": 119322.55818459704,
       "slots.a": [
         "Dear_Diary",
         "Memory_of_a_Friend",
