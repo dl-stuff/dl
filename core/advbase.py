@@ -1638,7 +1638,11 @@ class Adv(object):
         if fixed:
             return count
         if self.echo > 1:
-            echo_count = self.dmg_formula_echo(coef)
+            if attenuation is not None:
+                rate, pierce, hitmods = attenuation
+                echo_count = self.dmg_formula_echo(coef / (rate ** depth))
+            else:
+                echo_count = self.dmg_formula_echo(coef)
             self.dmg_proc(name, echo_count)
             log('dmg', 'echo', echo_count, f'from {name}')
             count += echo_count
