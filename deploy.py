@@ -55,14 +55,14 @@ def sim_adv(name, variants, sanity_test=False):
                     duration=d, verbose=verbose, mass=mass,
                     special=v is not None, output=output
                 )
+            output.close()
             if not sanity_test:
                 print(f'{monotonic() - t_start:.4f}s - sim:{name}', flush=True)
                 if sha_before != sha256sum(outpath):
                     msg.append(run_results[0][0].slots.c.icon)
         except Exception as e:
-            print(f'\033[91m{monotonic()-t_start:.4f}s - sim:{name} {e}\033[0m', flush=True)
-        finally:
             output.close()
+            print(f'\033[91m{monotonic()-t_start:.4f}s - sim:{name} {e}\033[0m', flush=True)
     return msg
 
 
