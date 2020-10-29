@@ -144,7 +144,7 @@ def combine():
         f.seek(0)
         lastmod['timestamp'] = time_ns() // 1000000
         try:
-            lastmod['message'] = lastmod['changed']
+            lastmod['message'] = list(set(lastmod['changed']))
             del lastmod['changed']
         except KeyError:
             lastmod['message'] = []
