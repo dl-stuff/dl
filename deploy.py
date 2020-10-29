@@ -59,7 +59,7 @@ def sim_adv(name, variants, sanity_test=False):
             if not sanity_test:
                 print(f'{monotonic() - t_start:.4f}s - sim:{name}', flush=True)
                 if sha_before != sha256sum(outpath):
-                    msg.append(run_results[0][0].slots.c.icon)
+                    msg.append(name)
         except Exception as e:
             output.close()
             print(f'\033[91m{monotonic()-t_start:.4f}s - sim:{name} {e}\033[0m', flush=True)
@@ -107,6 +107,17 @@ def repair_equips(name, variants):
     print('{:.4f}s - repair:{}'.format(monotonic() - t_start, name), flush=True)
 
 
+ELE_IDX = {
+    'flame': 0,
+    'water': 1,
+    'wind': 2,
+    'light': 3,
+    'shadow': 4,
+}
+def msg_sort(adv):
+    advconf = load_adv_json(adv)
+    return ELE_IDX[advconf['c']['ele']], adv
+
 def combine():
     t_start = monotonic()
 
@@ -144,7 +155,8 @@ def combine():
         f.seek(0)
         lastmod['timestamp'] = time_ns() // 1000000
         try:
-            lastmod['message'] = list(set(lastmod['changed']))
+            sort_message = [load_adv_json(adv)['c']['icon'] for adv in sorted(set(lastmod['changed']), key=msg_sort)]
+            lastmod['message'] = list(sort_message)
             del lastmod['changed']
         except KeyError:
             lastmod['message'] = []
