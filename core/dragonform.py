@@ -228,7 +228,7 @@ class DragonForm(Action):
         if self.action_timer is not None:
             self.action_timer.off()
             self.action_timer = None
-        if self.prev_act != 'ds' and self.skill_use_final > 0:
+        if not self.is_dragondrive and self.prev_act != 'ds' and self.skill_use_final > 0:
             self.skill_use_final -= 1
             self.d_act_start('ds_final')
             self.act_list = ['end']
