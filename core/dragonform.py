@@ -132,7 +132,7 @@ class DragonForm(Action):
             self.skill_sp = self.conf.ds.sp+15
         self.skill_spc = self.skill_sp
         self.skill_use = -1
-        self.skill_use_post = -1
+        self.skill_use_final = -1
 
     def end_silence(self, t):
         self.shift_silence = False
@@ -220,7 +220,7 @@ class DragonForm(Action):
 
     def ds_reset(self):
         self.skill_use = self.conf.ds.uses
-        self.skill_use_post = 1 if self.conf.ds['post'] else 0
+        self.skill_use_final = 1 if self.conf['ds_final'] else 0
         self.skill_sp = self.conf.ds.sp
         self.skill_spc = self.skill_sp
 
@@ -228,10 +228,9 @@ class DragonForm(Action):
         if self.action_timer is not None:
             self.action_timer.off()
             self.action_timer = None
-        log('d_shift_end', self.prev_act, self.skill_use_post)
-        if self.prev_act != 'ds' and self.skill_use_post > 0:
-            self.skill_use_post -= 1
-            self.d_act_start('ds')
+        if self.prev_act != 'ds' and self.skill_use_final > 0:
+            self.skill_use_final -= 1
+            self.d_act_start('ds_final')
             self.act_list = ['end']
             return False
         duration = now()-self.shift_start_time
@@ -325,7 +324,7 @@ class DragonForm(Action):
                 self.shift_end_timer.off()
             return
         self.d_act_do_hitattr(self.c_act_name)
-        if self.c_act_name == 'ds':
+        if self.c_act_name in ('ds', 'ds_final'):
             self.skill_use -= 1
             self.skill_spc = 0
             self.act_sum.append('s')
