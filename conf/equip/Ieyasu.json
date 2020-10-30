@@ -94,7 +94,7 @@
   },
   "60": {
     "base": {
-      "dps": 47868.40326308763,
+      "dps": 47976.32546761603,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -124,7 +124,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 61675.87535776492,
+      "dps": 61916.4999228157,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -136,16 +136,15 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), self.trickery <= 1",
         "`s3, not buff(s3)",
+        "`s2",
         "`s1, buff(s3)",
-        "`s2, xf=5",
         "`s4, xf=5",
-        "`fs, xf=5 and buff(s3)"
+        "`fs, xf=5 and buff(s3) and not s4.check()"
       ],
       "coabs": [
         "Wand",
-        "Dagger",
+        "Delphi",
         "Axe2"
       ],
       "share": [
@@ -156,7 +155,7 @@
   },
   "120": {
     "base": {
-      "dps": 57140.22273682875,
+      "dps": 57363.105970661556,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -186,15 +185,15 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 68089.07623441792,
+      "dps": 72243.54094419006,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Valiant_Crown",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "His_Clever_Brother",
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -202,7 +201,7 @@
         "`s2",
         "`s1, buff(s3)",
         "`s4, xf=5",
-        "`fs, xf=5 and buff(s3)"
+        "`fs, xf=5 and buff(s3) and not s4.check()"
       ],
       "coabs": [
         "Wand",
@@ -211,7 +210,7 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Pinon"
       ]
     }
   }

@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 63365.354194478256,
+      "dps": 61934.1487189331,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -32,7 +32,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 76125.65809806438,
+      "dps": 74555.90141451103,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -62,9 +62,9 @@
       ]
     },
     "buffer": {
-      "dps": 44690.01674017809,
+      "dps": 44786.31067842453,
       "team": 0.12041406951236833,
-      "tdps": 155092.65262712448,
+      "tdps": 142407.26278873277,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -94,7 +94,7 @@
   },
   "60": {
     "base": {
-      "dps": 62029.96284910581,
+      "dps": 60329.932894574966,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -125,7 +125,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 79086.6009753241,
+      "dps": 76873.22364577053,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -155,9 +155,9 @@
       ]
     },
     "buffer": {
-      "dps": 53667.636152991916,
-      "team": 0.00984818221463214,
-      "tdps": 849123.8803125916,
+      "dps": 51872.18188044284,
+      "team": 0.00984818221463215,
+      "tdps": 858813.4165070422,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Red_Impulse",
@@ -187,9 +187,9 @@
   },
   "120": {
     "base": {
-      "dps": 47869.80052413432,
-      "team": 0.02498369397573186,
-      "tdps": null,
+      "dps": 47002.252872837875,
+      "team": 0.02498369397573175,
+      "tdps": 10380.800750407994,
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
@@ -216,9 +216,9 @@
         "Aeleen"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "affliction": {
-      "dps": 69931.0263054668,
+      "dps": 68784.3094394958,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -248,33 +248,33 @@
       ]
     },
     "buffer": {
-      "dps": 31683.61705843118,
-      "team": 0.030963811711606,
-      "tdps": 2706666.3535073586,
+      "dps": 46165.814522109526,
+      "team": 0.1055592074490517,
+      "tdps": 10380.800750407994,
       "slots.a": [
-        "Honest_Repose",
-        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Valiant_Crown",
-        "His_Clever_Brother",
+        "A_Small_Courage",
         "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Konohana_Sakuya",
       "acl": [
-        "`dragon, s=2",
+        "`dragon(s), s=2",
         "`s3, not buff(s3)",
-        "`s4, not s1.charged()",
+        "`s4, fsc",
         "`s1",
-        "`s2, s1.charged>=s1.sp - self.sp_val('fs') *2",
-        "`fs, not s2.check() and burning_ambition"
+        "`s2, burning_ambition",
+        "`fs, xf=5 or charged_in(fs, s4)"
       ],
       "coabs": [
         "Wand",
-        "Bow",
-        "Dagger"
+        "Marth",
+        "Serena"
       ],
       "share": [
-        "Summer_Cleo",
-        "Karina"
+        "Weapon",
+        "Cleo"
       ]
     }
   }

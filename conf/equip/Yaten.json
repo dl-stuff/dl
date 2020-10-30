@@ -1,23 +1,28 @@
 {
   "180": {
     "base": {
-      "dps": 68826.57931283014,
+      "dps": 71332.37303895602,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "Snipers_Allure"
+        "Lord_of_the_Skies",
+        "Luck_of_the_Draw"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(s), duration-now < 8 and s=1 and self.energy() < 3",
         "`s3, not buff(s3)",
-        "`s2, self.energy() < 5",
+        "`s2, self.energy() < 5 and cancel",
         "`s1",
-        "`s4, fsc and self.energy() < 5",
-        "`fs, x=4"
+        "`s4, self.energy() < 5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -31,9 +36,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 25416.250742000746,
-      "team": 0.18704043570822418,
-      "tdps": 232090.6086775152,
+      "dps": 25396.325316726063,
+      "team": 0.18704046575991523,
+      "tdps": 245594.16881047215,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -61,7 +66,7 @@
       ]
     },
     "affliction": {
-      "dps": 82756.6292861474,
+      "dps": 85363.9992536328,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -73,11 +78,16 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(s), duration-now > 1 and duration-now < 8 and self.energy()<3",
         "`s3, not buff(s3)",
-        "`s2, self.energy() < 5",
+        "`s2, self.energy() < 5 and cancel",
         "`s1",
-        "`s4, fsc and self.energy() < 5",
-        "`fs, x=4"
+        "`s4, self.energy() < 5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -92,24 +102,28 @@
   },
   "120": {
     "base": {
-      "dps": 61899.186519790164,
+      "dps": 67898.00281350287,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "Lord_of_the_Skies",
+        "Luck_of_the_Draw"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and self.energy() < 5 and self.trickery <= 1",
+        "`dragon(s), duration-now < 7 and s=1",
         "`s3, not buff(s3)",
-        "`s2, self.energy() < 5",
+        "`s2, self.energy() < 5 and cancel",
         "`s1",
-        "`s4, fsc and self.energy() < 5",
-        "`fs, x=2"
+        "`s4, self.energy() < 5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -123,7 +137,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 79833.89536905815,
+      "dps": 81254.06199972735,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -135,12 +149,16 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and self.energy() < 5 and self.trickery <= 1",
+        "`dragon(s), duration-now < 12 and s=1 and self.energy()<3",
         "`s3, not buff(s3)",
         "`s2, self.energy() < 5 and cancel",
         "`s1",
-        "`s4, fsc and self.energy() < 5",
-        "`fs, x=4"
+        "`s4, self.energy() < 5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -155,24 +173,28 @@
   },
   "60": {
     "base": {
-      "dps": 55102.43344718549,
+      "dps": 59195.88932307013,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "Lord_of_the_Skies",
+        "Luck_of_the_Draw"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and self.energy() < 5 and self.trickery <= 1",
+        "`dragon(s), duration-now < 8",
         "`s3, not buff(s3)",
-        "`s2, self.energy() < 5",
+        "`s2, self.energy() < 5 and cancel",
         "`s1",
-        "`s4, fsc and self.energy() < 5",
-        "`fs, x=2"
+        "`s4, self.energy() < 5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -186,7 +208,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 69654.63780790086,
+      "dps": 75299.64441657081,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -198,11 +220,16 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(s), duration-now < 12 and s=1 and self.energy()<3",
         "`s3, not buff(s3)",
-        "`s2, self.energy() < 5",
+        "`s2, self.energy() < 5 and cancel",
         "`s1",
-        "`s4, fsc and self.energy() < 5",
-        "`fs, x=4"
+        "`s4, self.energy() < 5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
         "Blade",

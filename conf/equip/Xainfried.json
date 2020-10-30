@@ -1,41 +1,42 @@
 {
   "180": {
     "base": {
-      "dps": 84505.36016779277,
-      "team": 0.09673241346206805,
+      "dps": 78611.30364825734,
+      "team": 0.3800436338728096,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
+        "The_Red_Impulse",
+        "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c1-s-c3-c3-c3-end)",
+        "`dragon(c3-s-end), self.dragonform.shift_count=0",
+        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count<=3",
+        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1, fscf and buff(s3)",
-        "`fs, x=5",
-        "`dodge, fscf"
+        "`s1",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Renee",
+        "Yurius",
         "Summer_Celliera",
-        "Tiki"
+        "Tobias"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Mikoto"
       ]
     },
     "pref": "base",
     "buffer": {
-      "dps": 34713.09912854454,
-      "team": 0.9935388813069617,
-      "tdps": 55521.746134261826,
+      "dps": 35284.39418112135,
+      "team": 0.9978437936765163,
+      "tdps": 70130.94571050648,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Sisters_Day_Out",
@@ -62,40 +63,42 @@
       ]
     },
     "affliction": {
-      "dps": 90754.8762546514,
-      "team": 0.09686437682019912,
+      "dps": 81211.63403482776,
+      "team": 0.39911831572068357,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
+        "The_Red_Impulse",
+        "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c1-s-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), self.dragonform.shift_count=0",
+        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count<=3",
+        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count>=4",
+        "`s3, not buff(s3) and fscf",
         "`s2",
         "`s4",
-        "`s1, fscf and buff(s3)",
+        "`s1, buff(s3)",
         "`fs, x=5"
       ],
       "coabs": [
-        "Renee",
+        "Yurius",
         "Summer_Celliera",
-        "Tiki"
+        "Tobias"
       ],
       "share": [
         "Weapon",
-        "Yue"
+        "Mikoto"
       ]
     }
   },
   "60": {
     "base": {
-      "dps": 66743.50384212613,
-      "team": 0.06659675117738888,
+      "dps": 61780.56076836422,
+      "team": 0.06644926681540221,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -125,8 +128,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 68405.06422177455,
-      "team": 0.06659675117738888,
+      "dps": 63561.10774415317,
+      "team": 0.06644926681540221,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -155,9 +158,9 @@
       ]
     },
     "buffer": {
-      "dps": 45044.284967997424,
-      "team": 0.2395840208833817,
-      "tdps": 125438.24127063481,
+      "dps": 49328.795156803695,
+      "team": 0.2399618131052645,
+      "tdps": 71762.91212255722,
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -187,39 +190,41 @@
   },
   "120": {
     "base": {
-      "dps": 44192.7543341529,
-      "team": 0.165861501877792,
+      "dps": 72331.0322878106,
+      "team": 0.34955390944332965,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c3-s)",
+        "`dragon(c3-s-end), self.dragonform.shift_count=0",
+        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count<=3",
+        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1, fsc and buff(s3)",
+        "`s1",
         "`fs, x=5"
       ],
       "coabs": [
-        "Pipple",
+        "Yurius",
         "Summer_Celliera",
         "Tobias"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Mikoto"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 77181.52397407897,
-      "team": 0.06660475754452894,
+      "dps": 64256.34553642282,
+      "team": 0.0998083762349934,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -238,9 +243,9 @@
         "`fs, x=5"
       ],
       "coabs": [
-        "Dragonyule_Cleo",
         "Summer_Celliera",
-        "Tiki"
+        "Tiki",
+        "Dagger"
       ],
       "share": [
         "Weapon",

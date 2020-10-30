@@ -1,7 +1,45 @@
 {
   "180": {
     "base": {
-      "dps": 88878.12026691578,
+      "dps": 87058.89417422876,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "if buff(s2)",
+        "`norm",
+        "else",
+        "`ex",
+        "end",
+        "`dragon(s-s)",
+        "queue prep",
+        "`s2;s1;s4",
+        "end",
+        "`s3, not buff(s3) and x=4",
+        "`s2",
+        "`s1",
+        "`s4, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 95067.34287483511,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -37,45 +75,10 @@
         "Karina"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 97181.77652860992,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "# `norm",
-        "`ex",
-        "`dragon(s-s)",
-        "queue prep",
-        "`s2;s1;s4",
-        "end",
-        "`s3, not buff(s3) and x=4",
-        "`s2",
-        "`s1",
-        "`s4, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
     "buffer": {
-      "dps": 52262.0043132649,
-      "team": 0.158874892395412,
-      "tdps": 230471.3816108824,
+      "dps": 53852.55318684243,
+      "team": 0.16069835288211595,
+      "tdps": 206637.7183825003,
       "slots.a": [
         "Me_and_My_Bestie",
         "Moonlight_Party",
@@ -103,13 +106,13 @@
       ],
       "share": [
         "Weapon",
-        "Emma"
+        "Karl"
       ]
     }
   },
   "60": {
     "base": {
-      "dps": 93696.17263732248,
+      "dps": 91442.74419669385,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -144,7 +147,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 101622.36900285172,
+      "dps": 98680.49848793675,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -178,7 +181,7 @@
   },
   "120": {
     "base": {
-      "dps": 88333.09706598613,
+      "dps": 87873.49394478647,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -213,7 +216,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 98933.762736789,
+      "dps": 96846.01550463495,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -227,12 +230,14 @@
       "acl": [
         "# `norm",
         "`ex",
-        "`dragon, s=2",
-        "`s3, not buff(s3) and fsc",
-        "`s4",
+        "`dragon(s-s)",
+        "queue prep",
+        "`s2;s1;s4",
+        "end",
+        "`s3, not buff(s3) and x=4",
         "`s2",
         "`s1",
-        "`fs, s3.check() and not buff(s3)"
+        "`s4, x=4"
       ],
       "coabs": [
         "Blade",
@@ -245,9 +250,9 @@
       ]
     },
     "buffer": {
-      "dps": 61140.61451736667,
-      "team": 0.00438535279012043,
-      "tdps": 6200751.4218423255,
+      "dps": 61348.85911722145,
+      "team": 0.004385352790120393,
+      "tdps": 6048460.887188242,
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",

@@ -1,9 +1,9 @@
 {
   "180": {
     "base": {
-      "dps": 35213.66281812919,
-      "team": 0.38811951924730237,
-      "tdps": 29023.16427162169,
+      "dps": 33869.275969844224,
+      "team": 0.3881195192473024,
+      "tdps": 27533.46075086513,
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -41,7 +41,7 @@
     "buffer": {
       "dps": 9021.632122943294,
       "team": 1.290572141230908,
-      "tdps": 29023.16427162169,
+      "tdps": 27533.46075086513,
       "slots.a": [
         "Honest_Repose",
         "Study_Rabbits",
@@ -66,8 +66,8 @@
       ]
     },
     "affliction": {
-      "dps": 35213.66281812919,
-      "team": 0.38811951924730237,
+      "dps": 33869.275969844224,
+      "team": 0.3881195192473024,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -105,9 +105,9 @@
   },
   "120": {
     "base": {
-      "dps": 8439.462582881659,
+      "dps": 8456.678168386177,
       "team": 1.160724824753338,
-      "tdps": -4380.1122906772625,
+      "tdps": -4389.047243219427,
       "slots.a": [
         "Honest_Repose",
         "Study_Rabbits",
@@ -134,8 +134,8 @@
     },
     "pref": "buffer",
     "affliction": {
-      "dps": 38381.067484111045,
-      "team": 0.3567278168142265,
+      "dps": 36626.35789790882,
+      "team": 0.35672781681422655,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -171,9 +171,9 @@
       ]
     },
     "buffer": {
-      "dps": 8616.906019754364,
+      "dps": 8634.483570565286,
       "team": 1.2012359863622264,
-      "tdps": -4380.1122906772625,
+      "tdps": -4389.047243219427,
       "slots.a": [
         "Honest_Repose",
         "Study_Rabbits",
@@ -184,24 +184,24 @@
       "slots.d": "Horus",
       "acl": [
         "`s1",
-        "`s4, s=1",
-        "`s3"
+        "`s3, s=1",
+        "`s4"
       ],
       "coabs": [
-        "Bow",
+        "Gala_Sarisse",
         "Dagger2",
         "Tobias"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Summer_Cleo",
+        "Mikoto"
       ]
     }
   },
   "60": {
     "base": {
-      "dps": 2242.220567682737,
-      "team": 0.6607756896643957,
+      "dps": 2246.792381255257,
+      "team": 0.6607756896643956,
       "tdps": null,
       "slots.a": [
         "Honest_Repose",
@@ -227,6 +227,43 @@
         "Summer_Cleo"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "affliction": {
+      "dps": 37376.78200096414,
+      "team": 0.28117702955707097,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=1 and energy()<5",
+        "`s3, not buff(s3) and x=5",
+        "`s4, energy()<4",
+        "`s1",
+        "`s2, energy()=5 and fsc",
+        "`fs, x=5",
+        "`dodge, fsc",
+        "## S2 mode",
+        "#`dragon(c3-s-s-end), (s=1 and energy()=3) or s=2",
+        "#`s3, not buff(s3) and x=5",
+        "#`s2, energy()=5",
+        "#`s1, not energy()=5",
+        "#`s4, not energy()=5 and x>3"
+      ],
+      "coabs": [
+        "Nobunaga",
+        "Yuya",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    }
   }
 }

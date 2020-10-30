@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 59156.68629016262,
+      "dps": 62718.35404379192,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -11,9 +11,9 @@
         "His_Clever_Brother",
         "The_Plaguebringer"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon(s-end), s=1",
         "queue prep",
         "`s3;s1;s4;s2",
         "end",
@@ -26,8 +26,8 @@
       ],
       "coabs": [
         "Blade",
-        "Dagger",
-        "Catherine"
+        "Renee",
+        "Xander"
       ],
       "share": [
         "Weapon",
@@ -38,7 +38,7 @@
     "buffer": {
       "dps": 13760.282012132047,
       "team": 0.26039003346300216,
-      "tdps": 174340.02244360393,
+      "tdps": 188018.22550791348,
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -65,7 +65,73 @@
       ]
     },
     "affliction": {
-      "dps": 62924.06932892423,
+      "dps": 64653.978098377396,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(s-end), s=1",
+        "queue prep",
+        "`s3;s1;s4;s2",
+        "end",
+        "`s3, not buff(s3)",
+        "`s4, x=4 or x=5",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Rodrigo"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 38468.72107662855,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Sisters_Day_Out",
+        "The_Fires_of_Hate",
+        "His_Clever_Brother",
+        "Dragons_Nest"
+      ],
+      "slots.d": "Siren",
+      "acl": [
+        "`dragon(c3-s-end), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Dagger"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Gala_Luca"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 55936.43492881229,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -96,69 +162,6 @@
       "share": [
         "Weapon",
         "Gala_Mym"
-      ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 35940.185875643045,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Sisters_Day_Out",
-        "The_Fires_of_Hate",
-        "His_Clever_Brother",
-        "Dragons_Nest"
-      ],
-      "slots.d": "Siren",
-      "acl": [
-        "`dragon(c3-s-end), s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Dagger"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Gala_Luca"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 49457.77243128389,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Siren",
-      "acl": [
-        "`dragon(c3-s-end), cancel and aff_timeleft(poison) > 12",
-        "`s3, not buff(s3)",
-        "`s4, x=4 or x=5",
-        "`s2",
-        "`s1",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Hunter_Sarisse"
-      ],
-      "share": [
-        "Weapon",
-        "Kleimann"
       ]
     }
   }
