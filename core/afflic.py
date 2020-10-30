@@ -320,29 +320,29 @@ class Afflic_bog(Afflic_scc):
 class Afflics(object):
     RESIST_PROFILES = {
         None: {
-            'poison': 0, 'burn': 0, 'paralysis': 0, 'frostbite': 0, 'flashburn': 0,
+            'poison': 0, 'burn': 0, 'paralysis': 0, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
             'blind': 99, 'bog': 99, 'freeze': 99, 'stun': 99, 'sleep': 99 
         },
-        # 'flame': { # Volk
-        #     'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0,
-        #     'blind': 99, 'bog': 100, 'freeze': 100, 'stun': 99, 'sleep': 99 
-        # },
-        # 'shadow': { # Kai Yan
-        #     'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0,
-        #     'blind': 100, 'bog': 99, 'freeze': 100, 'stun': 99, 'sleep': 99
-        # },
-        # 'wind': { # Ciella
-        #     'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0,
-        #     'blind': 100, 'bog': 100, 'freeze': 100, 'stun': 100, 'sleep': 100
-        # },
-        # 'water': { # Ayaha & Otoha
-        #     'poison': 99, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0,
-        #     'blind': 100, 'bog': 0, 'freeze': 100, 'stun': 100, 'sleep': 100
-        # },
-        # 'shadow': { # Tartarus
-        #     'poison': 0, 'burn': 0, 'paralysis': 0, 'frostbite': 0, 'flashburn': 0,
-        #     'blind': 100, 'bog': 99, 'freeze': 100, 'stun': 99, 'sleep': 99
-        # }
+        'flame': { # Volk
+            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'blind': 99, 'bog': 100, 'freeze': 100, 'stun': 99, 'sleep': 99 
+        },
+        'shadow': { # Kai Yan
+            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'blind': 100, 'bog': 99, 'freeze': 100, 'stun': 99, 'sleep': 99
+        },
+        'wind': { # Ciella
+            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'blind': 100, 'bog': 100, 'freeze': 100, 'stun': 100, 'sleep': 100
+        },
+        'water': { # Ayaha & Otoha
+            'poison': 99, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'blind': 100, 'bog': 0, 'freeze': 100, 'stun': 100, 'sleep': 100
+        },
+        'shadow': { # Tartarus
+            'poison': 0, 'burn': 0, 'paralysis': 0, 'frostbite': 0, 'flashburn': 0,
+            'blind': 100, 'bog': 99, 'freeze': 100, 'stun': 99, 'sleep': 99
+        }
     }
     def __init__(self):
         self.poison = Afflic_dot('poison', duration=15, iv=2.9)

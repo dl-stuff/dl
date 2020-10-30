@@ -854,6 +854,7 @@ class Adv(object):
 
         # set afflic
         self.afflics = Afflics()
+        self.afflics.set_resist(self.conf.c.ele)
         self.sim_afflict = set()
         self.afflic_condition()
         self.sim_affliction()
