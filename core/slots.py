@@ -280,6 +280,22 @@ class Styx(DragonBase):
             adv.styx_spirit = 0
         adv.Event('ds').listener(reset_spirit)
         adv.Event('dragon_end').listener(reset_spirit)
+
+class Gala_Reborn_Poseidon(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        charge_gauge_o = adv.dragonform.charge_gauge
+        self.agauge = 0
+        self.acount = 0
+        adv.gposeidon_buff = adv.Selfbuff('gposeidon_buff', 0.3, 45, 'water', 'ele').ex_bufftime()
+        def charge_gauge(value, **kwargs):
+            delta = charge_gauge_o(value, **kwargs)
+            self.agauge += delta
+            n_acount = self.agauge // 100
+            if n_acount > self.acount:
+                self.acount = n_acount
+                adv.gposeidon_buff.on()
+        adv.dragonform.charge_gauge = charge_gauge
 ### WATER DRAGONS ###
 
 ### WIND DRAGONS ###
