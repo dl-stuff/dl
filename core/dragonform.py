@@ -189,7 +189,7 @@ class DragonForm(Action):
                 log('dragon_gauge', '{:+} utp'.format(int(delta)), f'{int(self.dragon_gauge)}/{int(self.max_gauge)}', value)
             else:
                 log('auto_gauge' if auto else 'dragon_gauge', '{:+.2f}%'.format(delta/self.max_gauge*100), '{:.2f}%'.format(self.dragon_gauge/self.max_gauge*100))
-        return delta
+        return value
 
     @allow_acl
     def dtime(self):
