@@ -287,7 +287,7 @@ class Gala_Reborn_Poseidon(DragonBase):
         charge_gauge_o = adv.dragonform.charge_gauge
         self.agauge = 0
         self.acount = 0
-        adv.gposeidon_buff = adv.Selfbuff('gposeidon_buff', 0.3, 45, 'water', 'ele').ex_bufftime()
+        adv.gposeidon_buff = adv.Selfbuff('gposeidon_buff', 0.3, 45, 'water', 'ele').no_bufftime()
         def charge_gauge(value, **kwargs):
             delta = charge_gauge_o(value, **kwargs)
             self.agauge += delta
