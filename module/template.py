@@ -167,7 +167,8 @@ class SigilAdv(Adv):
         self.sigil_mode.on()
 
     def a_update_sigil(self, time):
-        duration = self.locked_sigil.buff_end_timer.add(time)
-        if duration <= 0 and not self.unlocked:
-            self.locked_sigil.off()
-            self.a_sigil_unlock()
+        if not self.unlocked:
+            duration = self.locked_sigil.buff_end_timer.add(time)
+            if duration <= 0:
+                self.locked_sigil.off()
+                self.a_sigil_unlock()
