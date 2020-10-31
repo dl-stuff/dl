@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 78611.30364825734,
-      "team": 0.3800436338728096,
+      "dps": 78775.44808803296,
+      "team": 0.3772597302549734,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -19,7 +19,8 @@
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1",
+        "`s1, have_buff(ds_sp_regen_zone) and cancel",
+        "`s1, not have_buff(ds_sp_regen_zone)",
         "`fs, x=5"
       ],
       "coabs": [
@@ -36,7 +37,7 @@
     "buffer": {
       "dps": 35284.39418112135,
       "team": 0.9978437936765163,
-      "tdps": 70130.94571050648,
+      "tdps": 70080.84233927472,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Sisters_Day_Out",
@@ -63,8 +64,8 @@
       ]
     },
     "affliction": {
-      "dps": 81211.63403482776,
-      "team": 0.39911831572068357,
+      "dps": 81352.82608076722,
+      "team": 0.3772597302549734,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -78,10 +79,11 @@
         "`dragon(c3-s-end), self.dragonform.shift_count=0",
         "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count<=3",
         "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count>=4",
-        "`s3, not buff(s3) and fscf",
+        "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1, buff(s3)",
+        "`s1, have_buff(ds_sp_regen_zone) and cancel",
+        "`s1, not have_buff(ds_sp_regen_zone)",
         "`fs, x=5"
       ],
       "coabs": [
@@ -128,8 +130,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 63561.10774415317,
-      "team": 0.06644926681540221,
+      "dps": 84463.56012347026,
+      "team": 0.0665393399430555,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -138,23 +140,23 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Leviathan",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c3-s)",
+        "`dragon(c2-s-c2-c2-c2-c2-c2-c2-c2-end)",
         "`s3, not buff(s3)",
         "`s2",
-        "`s4",
-        "`s1, fsc and buff(s3)",
+        "`s4, x=5",
+        "`s1, fsc",
         "`fs, x=5"
       ],
       "coabs": [
+        "Yurius",
         "Summer_Celliera",
-        "Tiki",
-        "Dagger"
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Mikoto"
       ]
     },
     "buffer": {
@@ -223,8 +225,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 64256.34553642282,
-      "team": 0.0998083762349934,
+      "dps": 81554.29039787292,
+      "team": 0.09984143516072569,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -233,23 +235,23 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Leviathan",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c1-s-c3-c3-c3-end)",
+        "`dragon(c2-s-c2-c2-c2-c2-c2-c2-c2-end)",
         "`s3, not buff(s3)",
         "`s2",
-        "`s4",
-        "`s1, fscf and buff(s3)",
+        "`s4, x=5",
+        "`s1, fsc",
         "`fs, x=5"
       ],
       "coabs": [
+        "Yurius",
         "Summer_Celliera",
-        "Tiki",
-        "Dagger"
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Mikoto"
       ]
     }
   }

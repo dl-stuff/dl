@@ -1,15 +1,15 @@
 {
   "180": {
     "base": {
-      "dps": 56917.16447636947,
+      "dps": 55226.14605193226,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -33,12 +33,86 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Yue"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 72102.21043589397,
+      "dps": 66360.33453193239,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "queue prep and self.duration>120",
+        "`s2; s1; s4",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Yue"
+      ]
+    },
+    "buffer": {
+      "dps": 43960.87734673849,
+      "team": 0.08730444289815492,
+      "tdps": 129034.3117856588,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Beach_Battle",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "queue prep and self.duration>120",
+        "`s2; s1; s4",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    }
+  },
+  "120": {
+    "affliction": {
+      "dps": 60889.036646851986,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -71,80 +145,6 @@
       "share": [
         "Weapon",
         "Rodrigo"
-      ]
-    },
-    "buffer": {
-      "dps": 18103.856010728814,
-      "team": 0.05298825062966734,
-      "tdps": 732488.9575408942,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if aff(frostbite)",
-        "`dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)",
-        "else",
-        "`dragon, dragondrive.get()",
-        "end",
-        "queue prep and self.duration>120",
-        "`s2; s1; s4",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Cleo"
-      ]
-    }
-  },
-  "120": {
-    "affliction": {
-      "dps": 60819.006332636316,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if aff(frostbite)",
-        "`dragon, not dragondrive.get() and (self.duration<=120 or self.dragonform.dragon_gauge>=2130 or self.dragonform.shift_count>0)",
-        "else",
-        "`dragon, dragondrive.get()",
-        "end",
-        "queue prep and self.duration>120",
-        "`s4; s2; s1;",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Xander",
-        "Axe2"
-      ],
-      "share": [
-        "Weapon",
-        "Yue"
       ]
     },
     "pref": "base",
@@ -221,17 +221,17 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 58797.55496394117,
+      "dps": 58198.37196198847,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "The_Prince_of_Dragonyule",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Plaguebringer"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
@@ -240,7 +240,7 @@
         "`dragon, dragondrive.get()",
         "end",
         "queue prep and self.duration>120",
-        "`s4; s2; s1;",
+        "`s2; s1; s4",
         "end",
         "`s2, cancel",
         "`s4, cancel",
@@ -248,12 +248,12 @@
       ],
       "coabs": [
         "Blade",
-        "Xander",
-        "Axe2"
+        "Hunter_Sarisse",
+        "Xander"
       ],
       "share": [
         "Weapon",
-        "Yue"
+        "Rodrigo"
       ]
     }
   }

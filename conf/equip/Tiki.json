@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 72405.29619413095,
+      "dps": 71944.99948788137,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -29,7 +29,7 @@
       ],
       "coabs": [
         "Blade",
-        "Pipple",
+        "Catherine",
         "Xander"
       ],
       "share": [
@@ -39,7 +39,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 75195.3936140626,
+      "dps": 75048.85180413982,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -78,7 +78,7 @@
     "buffer": {
       "dps": 29337.970838510177,
       "team": 0.03329767707080338,
-      "tdps": 1293403.2984956712,
+      "tdps": 1279579.6102764956,
       "slots.a": [
         "Gentle_Winds",
         "Study_Rabbits",
@@ -111,17 +111,17 @@
   },
   "60": {
     "base": {
-      "dps": 41988.36459935096,
+      "dps": 64427.31065406461,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
+        "Moonlight_Party",
+        "Sisters_Day_Out",
         "Twinfold_Bonds",
-        "A_Small_Courage",
-        "Dueling_Dancers"
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if divine_dragon.get()",
         "`s1",
@@ -130,25 +130,26 @@
         "else",
         "`s3, not buff(s3) and fsc",
         "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5",
+        "`s4, x=5 or fsc",
         "`s2",
         "`s1, fsc",
+        "`dodge, fsc",
         "`fs,x=5",
         "end"
       ],
       "coabs": [
         "Blade",
-        "Yurius",
+        "Catherine",
         "Xander"
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Pinon"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 53865.66432068308,
+      "dps": 62070.84975535534,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -158,7 +159,7 @@
         "A_Passion_for_Produce",
         "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if divine_dragon.get()",
         "`s1",
@@ -167,7 +168,46 @@
         "else",
         "`s3, not buff(s3) and fsc",
         "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5",
+        "`s4, x=5 or fsc",
+        "`s2, s=4",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs,x=5",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Pipple",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    }
+  },
+  "120": {
+    "affliction": {
+      "dps": 70050.07219293038,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`s3, not buff(s3) and fsc",
+        "`dragon, cancel and dgauge>=1800",
+        "`s4, x=5 or fsc",
         "`s2",
         "`s1, fsc",
         "`dodge, fsc",
@@ -181,50 +221,12 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
-      ]
-    }
-  },
-  "120": {
-    "affliction": {
-      "dps": 60325.1951894854,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Siren",
-      "acl": [
-        "if divine_dragon.get()",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5",
-        "`s2",
-        "`s1, fsc",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Yurius",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Kleimann"
+        "Pinon"
       ]
     },
     "pref": "base",
     "base": {
-      "dps": 60325.1951894854,
+      "dps": 60109.85589088882,
       "team": 0.0,
       "tdps": null,
       "slots.a": [

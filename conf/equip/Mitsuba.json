@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 56922.58539328395,
-      "team": 0.02976891989563843,
+      "dps": 57249.507737794214,
+      "team": 0.030139841719270366,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -19,7 +19,7 @@
         "if xf=2 and hits > 19",
         "`s2",
         "`s4",
-        "`s1(sashimi), aff_timeleft(frostbite)<6 and inspiration()<5",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
         "`s1(tempura)",
         "`fsf",
         "else",
@@ -33,13 +33,13 @@
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Summer_Julietta"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 59671.428441527925,
-      "team": 0.029264511277240876,
+      "dps": 59841.36017087111,
+      "team": 0.030139841719270366,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -48,7 +48,7 @@
         "A_Passion_for_Produce",
         "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
@@ -65,21 +65,21 @@
       "coabs": [
         "Blade",
         "Summer_Estelle",
-        "Catherine"
+        "Xander"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Summer_Julietta"
       ]
     },
     "buffer": {
-      "dps": 10172.970262697663,
-      "team": 0.9945299808718815,
-      "tdps": 48457.1952803322,
+      "dps": 8993.87284894799,
+      "team": 1.175695228630545,
+      "tdps": 42124.22676388995,
       "slots.a": [
-        "Brothers_in_Arms",
-        "Felyne_Hospitality",
-        "Twinfold_Bonds",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Warrior_Maiden",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
@@ -87,7 +87,9 @@
       "acl": [
         "`dragon(c3-s-end)",
         "`tempura",
-        "if xf=2",
+        "if fs_prep_c > 0",
+        "`fs, x=5",
+        "elif xf=2",
         "`s2",
         "`s4",
         "`s3",
@@ -96,7 +98,7 @@
       ],
       "coabs": [
         "Summer_Estelle",
-        "Xander",
+        "Renee",
         "Tobias"
       ],
       "share": [
@@ -107,7 +109,7 @@
   },
   "60": {
     "base": {
-      "dps": 50675.79187737388,
+      "dps": 53126.99565667491,
       "team": 0.023091261688470394,
       "tdps": null,
       "slots.a": [
@@ -141,8 +143,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 51073.293421041155,
-      "team": 0.01506054796242436,
+      "dps": 57013.565735052274,
+      "team": 0.01507727887412742,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -151,18 +153,18 @@
         "A_Passion_for_Produce",
         "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
         "`tempura",
-        "if xf=2 and hits > 15",
+        "if xf=2 and hits > 19",
         "`s2",
         "`s4",
         "`s1(tempura)",
         "`fsf",
         "else",
-        "`fs, xf=2",
+        "`fs, xf=3",
         "end"
       ],
       "coabs": [

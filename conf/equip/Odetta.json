@@ -31,23 +31,26 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 6454.804774215504,
-      "team": 0.7161113166802409,
-      "tdps": 63658.1470703923,
+      "dps": 6708.059130654314,
+      "team": 0.760334905919736,
+      "tdps": 58624.73833652799,
       "slots.a": [
-        "Dazzling_Duet",
-        "Jewels_of_the_Sun",
-        "Wily_Warriors_Flash_and_Heat",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Summertime_Feeling_Feline",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
-        "`dragon(s), cancel and buff(s2) and buff(s3, 1)",
+        "if fs_prep_c",
+        "`fs, x=2",
+        "else",
+        "`fs, x=4",
         "`s2",
-        "`s4",
+        "`s4, fsc",
         "`s3",
-        "`fs, x=4"
+        "end"
       ],
       "coabs": [
         "Bow",
@@ -60,8 +63,8 @@
       ]
     },
     "affliction": {
-      "dps": 44942.7383220257,
-      "team": 0.146066857375708,
+      "dps": 46933.49465891478,
+      "team": 0.16961843047730868,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -72,10 +75,15 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), cancel and buff(s2) and buff(s3, 1)",
-        "`s2",
-        "`s4",
-        "`s3",
+        "`dragon(s),  cancel and buff(s2) and buff(s3, 1) and buff(s1)",
+        "`s1, not buff(s1) and fsc",
+        "`s2, x >= 1",
+        "`s4, fsc",
+        "if not buff(s3)",
+        "`s3, fsc",
+        "else",
+        "`s3, cancel",
+        "end",
         "`fs, x=3"
       ],
       "coabs": [
