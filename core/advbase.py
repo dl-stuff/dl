@@ -697,7 +697,7 @@ class Adv(object):
 
     def actmod_on(self, e):
         do_sab = True
-        do_tension = e.name.startswith('s') or e.name == 'ds'
+        do_tension = e.name.startswith('s') or e.name in ('ds', 'ds_final')
         if do_tension:
             for t in self.tension:
                 t.on(e)
@@ -717,7 +717,7 @@ class Adv(object):
 
     def actmod_off(self, e):
         do_sab = True
-        do_tension = e.name.startswith('s') or e.name == 'ds'
+        do_tension = e.name.startswith('s') or e.name in ('ds', 'ds_final')
         if do_tension:
             for t in self.tension:
                 t.off(e)
@@ -887,12 +887,12 @@ class Adv(object):
             scope = scope[0]
         if name.startswith('dx') or name == 'dshift':
             scope = 'x'
-        elif name == 'ds':
+        elif name in ('ds', 'ds_final'):
             scope = 's'
 
         if scope[0] == 's':
             try:
-                mod = 1 if name == 'ds' or self.a_s_dict[scope].owner is None else self.skill_share_att
+                mod = 1 if name in ('ds', 'ds_final') or self.a_s_dict[scope].owner is None else self.skill_share_att
             except:
                 pass
             return mod * self.mod('s')
@@ -1963,7 +1963,7 @@ class Adv(object):
 
     @allow_acl
     def l_s(self, e):
-        if e.name == 'ds':
+        if e.name in ('ds', 'ds_final'):
             return
         self.actmod_on(e)
         prev = self.action.getprev().name
