@@ -17,7 +17,7 @@ class Pinon(SigilAdv):
 
     def post_run(self, end):
         if self.unlocked:
-            self.comment += f'unlock at {self.unlocked:.02f}s; only s1 if energized after unlock'
+            self.comment += f'unlock at {self.unlocked:.02f}s;'
         else:
             self.comment += f'not unlocked'
 
