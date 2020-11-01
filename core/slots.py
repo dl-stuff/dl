@@ -189,8 +189,8 @@ class DragonBase(EquipBase):
         'dshift.recovery': 0.63333,
         'dshift.attr': [{'dmg': 2.0}],
 
-        'dodge.startup': 0.66667,
-        'dodge.recovery': 0,
+        'dodge.startup': 0.0,
+        'dodge.recovery': 0.66667,
 
         'end.startup': 0,
         'end.recovery': 0,

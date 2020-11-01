@@ -284,6 +284,7 @@ class DragonForm(Action):
 
     def d_act_start(self, name):
         if name in self.conf and self._static.doing == self and self.action_timer is None:
+            log('d_act', name)
             self.prev_act = self.c_act_name
             self.prev_conf = self.c_act_conf
             self.c_act_name = name
@@ -369,7 +370,7 @@ class DragonForm(Action):
             if count > 0:
                 log('cancel', self.c_act_name, f'by {nact}', f'lost {count} hit{"s" if count > 1 else ""}')
             return self.act_timer(self.d_act_start_t, self.conf.latency, nact)
-        if nact in ('ds', 'dsf', 'dodge') or (nact == 'end' and self.c_act_name not in ('ds', 'ds_final')): # cancel
+        if nact in ('ds', 'dsf', 'dodge') or (nact == 'end' and self.c_act_name not in ('ds', 'ds_final', 'dshift')): # cancel
             if nact == 'dsf':
                 nact = 'ds'
             self.act_timer(self.d_act_start_t, self.max_delayed+self.conf.latency, nact)
