@@ -209,7 +209,7 @@ class DragonForm(Action):
         return self.conf.dracolith + self.adv.mod('da') - 1
 
     def ds_check(self):
-        return self.skill_use != 0 and self.skill_spc >= self.skill_sp
+        return self.skill_use != 0 and self.skill_spc >= self.skill_sp and self.shift_end_timer.elapsed() >= 1.9
 
     def ds_charge(self, value):
         if self.skill_use != 0 and self.skill_spc < self.skill_sp:
