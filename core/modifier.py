@@ -185,9 +185,7 @@ class Buff(object):
         self.bufftype = 'misc' if hidden else 'self'
 
         self.source = source
-        if value < 0:
-            self.bufftime = self._no_bufftime
-        elif self.source is not None and source[0] != 's' and source[0:2] != 'ds':
+        if self.source is not None and source[0] != 's' and source[0:2] != 'ds':
             self.bufftime = self._ex_bufftime
         else:
             self.bufftime = self._bufftime
@@ -551,6 +549,14 @@ class Selfbuff(Buff):
         super().__init__(name, value, duration, mtype, morder, source=source)
         self.bufftype = 'self'
 bufftype_dict['self'] = Selfbuff
+
+
+class AbilityBuff(Selfbuff):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, source=None):
+        super().__init__(name, value, duration, mtype, morder, source=source)
+        self.bufftype = 'ability'
+        self.bufftime = self._no_bufftime
+bufftype_dict['ability'] = AbilityBuff
 
 
 class SingleActionBuff(Buff):

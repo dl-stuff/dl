@@ -383,7 +383,7 @@ class Repeat(Action):
     def can_ic(self, target, can):
         if target == self.parent.name:
             return None
-        result = can(target)
+        result = can(target, endcheck=False)
         if result is not None:
             self.end_event.on()
         return result
@@ -455,6 +455,24 @@ class Fs(Action):
         self.act_repeat = None
         if self.conf['repeat']:
             self.act_repeat = Repeat(self.conf.repeat, self)
+
+    def can_interrupt(self, target, endcheck=True):
+        if self.act_repeat and endcheck:
+            result = super().can_interrupt(target)
+            if result is not None:
+                self.act_repeat.end_event.on()
+            return result
+        else:
+            return super().can_interrupt(target)
+
+    def can_cancel(self, target, endcheck=True):
+        if self.act_repeat and endcheck:
+            result = super().can_cancel(target)
+            if result is not None:
+                self.act_repeat.end_event.on()
+            return result
+        else:
+            return super().can_cancel(target)
 
     def _cb_act_end(self, e):
         if self.act_repeat:
@@ -1839,18 +1857,25 @@ class Adv(object):
                     except:
                         pass
                     return
-                if bctrl == '-refresh':
+                elif bctrl == '-refresh':
                     try:
                         return self.active_buff_dict.on(base, group, aseq)
                     except KeyError:
                         pass
-                if bctrl == '-replace':
+                elif bctrl == '-replace':
                     self.active_buff_dict.off_all(base, aseq)
                     try:
                         return self.active_buff_dict.on(base, group, aseq)
                     except KeyError:
                         pass
-                if bctrl.startswith('-overwrite'):
+                elif bctrl == '-await':
+                    try:
+                        if not self.active_buff_dict.check(base, group, aseq):
+                            return self.active_buff_dict.on(base, group, aseq)
+                        return None
+                    except KeyError:
+                        pass
+                elif bctrl.startswith('-overwrite'):
                     # does not support multi buffs
                     try:
                         ow_buff = self.active_buff_dict.get_overwrite(bctrl)

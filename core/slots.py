@@ -419,17 +419,17 @@ class WeaponBase(EquipBase):
     AGITO_S3 = {
         'flame': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'], ['self', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'], ['ability', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.05, -1, 'regen', 'buff', '-replace']}]}
         },
         'water': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.20, -1, 'att', 'buff'], ['self', 0.12, -1, 'crit', 'chance'], ['self', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.20, -1, 'att', 'buff'], ['self', 0.12, -1, 'crit', 'chance'], ['ability', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.35, -1, 'defense', 'buff', '-replace']}]}
         },
         'wind': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'], ['self', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'], ['ability', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.50, -1, 'defense', 'buff', '-replace']}]}
         },
         'light': {
@@ -438,7 +438,7 @@ class WeaponBase(EquipBase):
         },
         'shadow': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.30, -1, 'spd', 'passive'], ['self', 0.05, -1, 'crit', 'chance'], '-replace']}]},
+            's3_phase1': {'attr': [{'buff': [['self', 0.30, -1, 'spd', 'passive'], ['ability', 0.05, -1, 'crit', 'chance'], '-replace']}]},
             's3_phase2': {'attr': [{'buff': ['self', 0.40, -1, 'defense', 'buff', '-replace']}]}
         }
     }
