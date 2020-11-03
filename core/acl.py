@@ -59,6 +59,7 @@ PIN_CMD = {
     'FSCF': lambda e: e.pin.startswith('fs') and e.dstat != -1,
     'SP': lambda e: e.dname if e.pin == 'sp' else None,
     'PREP': lambda e: e.pin == 'prep',
+    'REPEAT': lambda e: e.didx if e.dname.endswith('repeat') else 0
 }
 PIN_CMD['CANCEL'] = lambda e: PIN_CMD['X'](e) or PIN_CMD['FSC'](e)
 

@@ -185,7 +185,9 @@ class Buff(object):
         self.bufftype = 'misc' if hidden else 'self'
 
         self.source = source
-        if self.source is not None and source[0] != 's' and source[0:2] != 'ds':
+        if value < 0:
+            self.bufftime = self._no_bufftime
+        elif self.source is not None and source[0] != 's' and source[0:2] != 'ds':
             self.bufftime = self._ex_bufftime
         else:
             self.bufftime = self._bufftime
@@ -398,6 +400,7 @@ class Buff(object):
         self.buff_end_timer.off()
         return self
 
+    @allow_acl
     def timeleft(self):
         return -1 if self.duration == -1 else (self.buff_end_timer.timing-now())
 

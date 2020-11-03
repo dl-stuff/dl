@@ -364,6 +364,49 @@ class Action(object):
         return 1
 
 
+class Repeat(Action):
+    def __init__(self, conf, parent):
+        super().__init__(f'{parent.name}-repeat', conf)
+        self.parent = parent
+        self.act_event = Event('repeat')
+        self.act_event.name = self.parent.act_event.name
+        self.act_event.base = self.parent.act_event.base
+        self.act_event.group = self.parent.act_event.group
+        self.act_event.end = False
+        self.end_event = Event('repeat')
+        self.end_event.name = self.parent.act_event.name
+        self.end_event.base = self.parent.act_event.base
+        self.end_event.group = self.parent.act_event.group
+        self.end_event.end = True
+        self.index = 0
+
+    def can_ic(self, target, can):
+        if target == self.parent.name:
+            return None
+        result = can(target)
+        if result is not None:
+            self.end_event.on()
+        return result
+
+    def can_interrupt(self, target):
+        return self.can_ic(target, self.parent.can_interrupt)
+
+    def can_cancel(self, target):
+        return self.can_ic(target, self.parent.can_interrupt)
+
+    def __call__(self):
+        self.index = 0
+        self.tap()
+
+    def _cb_act_end(self, e):
+        self.tap()
+    
+    def tap(self, t=None):
+        self.index += 1
+        self._static.doing = self.nop
+        super().tap()
+
+
 class X(Action):
     def __init__(self, name, conf, act=None):
         parts = name.split('_')
@@ -408,6 +451,16 @@ class Fs(Action):
             except ValueError:
                 pass
         self.atype = 'fs'
+
+        self.act_repeat = None
+        if self.conf['repeat']:
+            self.act_repeat = Repeat(self.conf.repeat, self)
+
+    def _cb_act_end(self, e):
+        if self.act_repeat:
+            self.act_repeat()
+        else:
+            super()._cb_act_end(e)
 
     @property
     def _charge(self):
@@ -1143,6 +1196,7 @@ class Adv(object):
             self.current_x = self.deferred_x
             self.deferred_x = None
 
+    @allow_acl
     def x(self, x_min=1):
         prev = self.action.getprev()
         self.check_deferred_x()
@@ -1369,6 +1423,7 @@ class Adv(object):
         self.l_dodge = Listener('dodge', self.l_dodge)
         self.l_fs = Listener('fs', self.l_fs)
         self.l_s = Listener('s', self.l_s)
+        self.l_repeat = Listener('repeat', self.l_repeat)
         # self.l_x           = Listener(['x','x1','x2','x3','x4','x5'],self.l_x)
         # self.l_fs          = Listener(['fs','x1fs','x2fs','x3fs','x4fs','x5fs'],self.l_fs)
         # self.l_s           = Listener(['s','s1','s2','s3'],self.l_s)
@@ -1955,13 +2010,11 @@ class Adv(object):
             self.actmod_off(e)
         self.think_pin(pin or e.name)
 
-    @allow_acl
     def l_fs(self, e):
         log('cast', e.name)
         self.actmod_on(e)
         self.hit_make(e, self.conf[e.name], pin=e.name.split('_')[0])
 
-    @allow_acl
     def l_s(self, e):
         if e.name in ('ds', 'ds_final'):
             return
@@ -1969,6 +2022,14 @@ class Adv(object):
         prev = self.action.getprev().name
         log('cast', e.name, f'after {prev}', ', '.join([f'{s.charged}/{s.sp}' for s in self.skills]))
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
+
+    def l_repeat(self, e):
+        log('repeat', e.name)
+        if e.end:
+            self.hitattr_make(e.name, e.base, e.group, 0, self.conf[e.name].repeat.end)
+        else:
+            self.actmod_on(e)
+            self.hit_make(e, self.conf[e.name].repeat, pin=e.name.split('_')[0])
 
     @allow_acl
     def c_fs(self, group):

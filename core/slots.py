@@ -760,7 +760,7 @@ class Slots:
 
     DEFAULT_DRAGON = {
         'flame': 'Gala_Mars',
-        'water': 'Gaibhne_and_Creidhne',
+        'water': 'Gala_Reborn_Poseidon',
         'wind': 'Midgardsormr_Zero',
         'light': 'Daikokuten',
         'shadow': 'Gala_Cat_Sith'

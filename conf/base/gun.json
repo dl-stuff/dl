@@ -27,14 +27,26 @@
     },
     "fs_gun3": {
         "charge": 0.4,
-        "startup": 0.1,
-        "recovery": null,
+        "startup": 0.16667,
+        "recovery": 0.83333,
         "attr": [
-            {"dmg": 0.9, "sp": 400, "msl": 1},
-            {"buff": ["self", 0.1, 10.0, "crit", "chance", "-refresh"], "iv": 0.1}
+            {"dmg": 0.5, "sp": 90},
+            {"dmg": 0.5, "sp": 90, "iv": 0.16667},
+            {"dmg": 0.5, "sp": 90, "iv": 0.33333},
+            {"dmg": 0.5, "sp": 90, "iv": 0.5},
+            {"dmg": 0.5, "sp": 90, "iv": 0.66667},
+            {"dmg": 0.5, "sp": 90, "iv": 0.83333}
         ],
-        "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0}
+        "repeat": {
+            "startup": 0.0,
+            "recovery": 0.1,
+            "attr": [
+                {"dmg": 0.5, "sp": 90}
+            ],
+            "end": {"buff": ["self", -0.5, 5, "fs", "buff", "-overwrite_7"]}
+        },
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
     },
     "fsf": {
         "charge": 0.43333,
@@ -46,9 +58,9 @@
         "x2_gun1": {"attr": [{"dmg": 0.67, "sp": 545}, {"dmg": 0.67, "iv": 0.13333}, {"dmg": 0.67, "iv": 0.26667}, {"dmg": 0.67, "iv": 0.4}, {"dmg": 0.67, "iv": 0.53333}]},
         "x1_gun2": {"attr": [{"dmg": 1.5, "sp": 464, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}]},
         "x2_gun2": {"attr": [{"dmg": 1.5, "sp": 464, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}, {"dmg": 1.5, "msl": 1}]},
-        "x1_gun3": {"attr": [{"dmg": 0.45, "sp": 348, "msl": 1}, {"dmg": 0.45, "iv": 1.2, "msl": 1}, {"dmg": 0.45, "iv": 2.4, "msl": 1}]},
-        "x2_gun3": {"attr": [{"dmg": 1.5, "sp": 464, "msl": 1}]},
-        "x3_gun3": {"attr": [{"dmg": 1.5, "sp": 464, "msl": 1}]}
+        "x1_gun3": {"attr": [{"dmg": 0.45, "sp": 200}, {"dmg": 0.45, "iv": 0.1}, {"dmg": 0.45, "iv": 0.2}]},
+        "x2_gun3": {"attr": [{"dmg": 0.6, "sp": 200}]},
+        "x3_gun3": {"attr": [{"dmg": 0.6, "sp": 200}]}
     },
     "x1_gun1": {
         "startup": 0.2,
@@ -106,18 +118,18 @@
         "startup": 0.3,
         "recovery": 0.4,
         "attr": [
-            {"dmg": 0.45, "sp": 348, "msl": 1},
-            {"dmg": 0.45, "iv": 1.2, "msl": 1},
-            {"dmg": 0.45, "iv": 2.4, "msl": 1}
+            {"dmg": 0.45, "sp": 200},
+            {"dmg": 0.45, "iv": 0.1},
+            {"dmg": 0.45, "iv": 0.2}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.16667}
+        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
     },
     "x2_gun3": {
         "startup": 0.1,
         "recovery": 0.5,
         "attr": [
-            {"dmg": 1.5, "sp": 464, "msl": 1}
+            {"dmg": 0.6, "sp": 200}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
         "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
@@ -126,7 +138,7 @@
         "startup": 0.1,
         "recovery": 0.5,
         "attr": [
-            {"dmg": 1.5, "sp": 464, "msl": 1}
+            {"dmg": 0.6, "sp": 200}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
         "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
