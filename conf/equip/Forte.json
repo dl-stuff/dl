@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 94001.85960356997,
-      "team": 0.10404548657807683,
+      "dps": 92912.59659870174,
+      "team": 0.10407504237957081,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -13,15 +13,18 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-end), s=2",
+        "`dragon(s-c3-c2-end), self.dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), self.dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), self.dragonform.shift_count=2 and  s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), self.dragonform.shift_count>=3 and  s=2",
         "`s3, not buff(s3)",
-        "`s2, cancel or s",
+        "`s2",
         "`s4, cancel",
-        "`s1",
+        "`s1, xf or fscf",
         "`fs, x=5"
       ],
       "coabs": [
-        "Blade",
+        "Ieyasu",
         "Delphi",
         "Cleo"
       ],
@@ -32,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 109603.67390552672,
+      "dps": 110101.27753594385,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -44,11 +47,14 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-end), self.dragonform.shift_count<3 or self.trickery <= 2",
-        "`s3, not buff(s3)",
+        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
+        "`dragon(c3-s-end), self.dragonform.shift_count=0",
+        "`dragon(c3-s-end), self.dragonform.shift_count<=2 and cancel",
+        "`dragon(c3-s-end), self.dragonform.shift_count>=3 and self.trickery <= 1",
+        "`s3, not buff(s3) and fscf",
         "`s2",
-        "`s4, cancel",
         "`s1, cancel",
+        "`s4, cancel",
         "`fs, x=5"
       ],
       "coabs": [
@@ -62,9 +68,9 @@
       ]
     },
     "buffer": {
-      "dps": 62576.31934774032,
-      "team": 0.20822488762258035,
-      "tdps": 301648.3099418593,
+      "dps": 60256.090589799,
+      "team": 0.2055913441066838,
+      "tdps": 321687.3098538107,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -92,8 +98,8 @@
   },
   "60": {
     "affliction": {
-      "dps": 91227.45532703692,
-      "team": 0.17078301879285546,
+      "dps": 78227.94978795844,
+      "team": 0.08301229909711304,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -123,9 +129,9 @@
     },
     "pref": "base",
     "base": {
-      "dps": 91227.45532703692,
-      "team": 0.17078301879285546,
-      "tdps": null,
+      "dps": 78227.94978795844,
+      "team": 0.08301229909711304,
+      "tdps": 6751.451615955612,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -153,9 +159,9 @@
       ]
     },
     "buffer": {
-      "dps": 77524.02270675234,
-      "team": 0.18727537039610884,
-      "tdps": 830896.2208628491,
+      "dps": 63029.41509418596,
+      "team": 0.10416420545421042,
+      "tdps": 718542.0754603856,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -186,8 +192,8 @@
   "120": {
     "pref": "base",
     "base": {
-      "dps": 92301.99644094153,
-      "team": 0.12464450269227657,
+      "dps": 91171.98088441954,
+      "team": 0.12455294609107083,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -216,8 +222,8 @@
       ]
     },
     "affliction": {
-      "dps": 101899.87879834518,
-      "team": 0.13674168210005486,
+      "dps": 100091.76197355229,
+      "team": 0.137521514220386,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -246,9 +252,9 @@
       ]
     },
     "buffer": {
-      "dps": 87090.6552743248,
-      "team": 0.13691389348186137,
-      "tdps": 424743.27014186495,
+      "dps": 85534.57518268145,
+      "team": 0.13769941848154715,
+      "tdps": 428815.08699033054,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",

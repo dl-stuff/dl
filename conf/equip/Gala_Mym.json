@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 96030.63909842148,
+      "dps": 96046.68772117072,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -18,6 +18,43 @@
         "end",
         "if self.dragonform.shift_count>=1",
         "`dragon(c3-s-c3-end)",
+        "end",
+        "`s3, not buff(s3) and x=5",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 108788.63469177549,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "if self.dragonform.shift_count<1",
+        "`dragon(c3-s-end), s=1",
+        "end",
+        "if self.dragonform.shift_count>=1",
+        "`dragon(c3-s-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "#`s4, s1.check() or s2.check()",
@@ -37,48 +74,10 @@
         "Karina"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 108348.93332234169,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "# `norm",
-        "if self.dragonform.shift_count<1",
-        "`dragon(s-end), s=1",
-        "end",
-        "if self.dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-s-end)",
-        "end",
-        "`s3, not buff(s3) and x=5",
-        "`s1",
-        "`s2, x=5 or fsc",
-        "`s4, fsc",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Yuya",
-        "Verica",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
     "buffer": {
       "dps": 15540.598451211266,
       "team": 0.1642311846273827,
-      "tdps": 490102.05235887883,
+      "tdps": 490199.7720628781,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
@@ -105,7 +104,7 @@
   },
   "60": {
     "base": {
-      "dps": 68858.83329270975,
+      "dps": 69181.88702682109,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -143,7 +142,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 80638.68665587019,
+      "dps": 81159.49480078366,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -180,9 +179,9 @@
       ]
     },
     "buffer": {
-      "dps": 54103.29772958525,
-      "team": 0.020533240347452967,
-      "tdps": 718616.9992382544,
+      "dps": 54496.07389940886,
+      "team": 0.020600066599975035,
+      "tdps": 712901.2450585973,
       "slots.a": [
         "Brothers_in_Arms",
         "Dragon_and_Tamer",
@@ -218,7 +217,7 @@
   },
   "120": {
     "base": {
-      "dps": 85622.4346927926,
+      "dps": 86002.4525140601,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -256,7 +255,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 97050.41669049989,
+      "dps": 97539.09549807124,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -293,9 +292,9 @@
       ]
     },
     "buffer": {
-      "dps": 80183.47380438916,
-      "team": 0.03387118377276505,
-      "tdps": 160577.82110280913,
+      "dps": 79948.34717046088,
+      "team": 0.03293177068289754,
+      "tdps": 183837.8325263664,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",

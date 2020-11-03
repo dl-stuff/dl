@@ -3,7 +3,7 @@
     "base": {
       "dps": 18757.19210292101,
       "team": 0.1597639407919972,
-      "tdps": 24216.634551594936,
+      "tdps": 24202.192090982247,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Red_Impulse",
@@ -31,9 +31,9 @@
     },
     "pref": "buffer",
     "buffer": {
-      "dps": 6121.534474695839,
-      "team": 0.6815398961298115,
-      "tdps": 24216.634551594936,
+      "dps": 6119.65225800547,
+      "team": 0.6819290321774298,
+      "tdps": 24202.192090982247,
       "slots.a": [
         "A_Dogs_Day",
         "Jewels_of_the_Sun",
@@ -43,7 +43,13 @@
       ],
       "slots.d": "Freyja",
       "acl": [
-        "`fs,fs_prep_c and x=4",
+        "queue prep",
+        "`s1;s3;s4",
+        "end",
+        "queue fs_prep_c",
+        "`fs,x=5",
+        "`s3;s4",
+        "end",
         "`s3,cancel",
         "`s4,cancel",
         "#`s2",

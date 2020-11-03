@@ -1,32 +1,35 @@
 {
   "180": {
     "base": {
-      "dps": 78775.44808803296,
-      "team": 0.3772597302549734,
+      "dps": 81366.36960296302,
+      "team": 0.3031272775349707,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
+        "#Use Gaibhne & Creidhne skill at the end of the shapeshift duration",
         "`dragon(c3-s-end), self.dragonform.shift_count=0",
-        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count<=3",
-        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count>=4",
+        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count=1",
+        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count=2",
+        "`dragon(c3-c3-c3-c3-c3-s-end), self.dragonform.shift_count=3",
+        "`dragon(c3-c3-c3-c3-c3-c1-s-end), self.dragonform.shift_count>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
         "`s1, have_buff(ds_sp_regen_zone) and cancel",
-        "`s1, not have_buff(ds_sp_regen_zone)",
+        "`s1, not have_buff(ds_sp_regen_zone) and (xf or fscf)",
         "`fs, x=5"
       ],
       "coabs": [
         "Yurius",
         "Summer_Celliera",
-        "Tobias"
+        "Tiki"
       ],
       "share": [
         "Weapon",
@@ -35,9 +38,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 35284.39418112135,
-      "team": 0.9978437936765163,
-      "tdps": 70080.84233927472,
+      "dps": 35752.012906114185,
+      "team": 0.9942749422935486,
+      "tdps": 65997.9900428112,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Sisters_Day_Out",
@@ -64,32 +67,34 @@
       ]
     },
     "affliction": {
-      "dps": 81352.82608076722,
-      "team": 0.3772597302549734,
+      "dps": 83599.84363299144,
+      "team": 0.3031272775349707,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`dragon(c3-s-end), self.dragonform.shift_count=0",
-        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count<=3",
-        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count>=4",
+        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count=1",
+        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count=2",
+        "`dragon(c3-c3-c3-c3-c3-s-end), self.dragonform.shift_count=3",
+        "`dragon(c3-c3-c3-c3-c3-c1-s-end), self.dragonform.shift_count>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
         "`s1, have_buff(ds_sp_regen_zone) and cancel",
-        "`s1, not have_buff(ds_sp_regen_zone)",
+        "`s1, not have_buff(ds_sp_regen_zone) and (xf or fscf)",
         "`fs, x=5"
       ],
       "coabs": [
         "Yurius",
         "Summer_Celliera",
-        "Tobias"
+        "Tiki"
       ],
       "share": [
         "Weapon",
@@ -160,9 +165,9 @@
       ]
     },
     "buffer": {
-      "dps": 49328.795156803695,
-      "team": 0.2399618131052645,
-      "tdps": 71762.91212255722,
+      "dps": 50525.658806848565,
+      "team": 0.2361680884954027,
+      "tdps": 66314.98999407634,
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -192,8 +197,8 @@
   },
   "120": {
     "base": {
-      "dps": 72331.0322878106,
-      "team": 0.34955390944332965,
+      "dps": 71964.42957366841,
+      "team": 0.3454995527132157,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",

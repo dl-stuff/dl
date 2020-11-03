@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 48283.84411827986,
+      "dps": 49186.3950137734,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -11,16 +11,16 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Leviathan",
       "acl": [
-        "`dragon",
+        "`dragon(c2-s-c2-c2-c2-c2-c2-c2-c2)",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, charged_in(2, s1)",
-        "`s1"
+        "`s1, cancel"
       ],
       "coabs": [
-        "Renee",
+        "Yurius",
         "Summer_Celliera",
         "Tiki"
       ],
@@ -33,7 +33,7 @@
     "buffer": {
       "dps": 23519.733924451004,
       "team": 0.2946587033718557,
-      "tdps": 84043.36919441627,
+      "tdps": 87106.40749997254,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Red_Impulse",
@@ -59,7 +59,7 @@
       ]
     },
     "affliction": {
-      "dps": 51280.34697902418,
+      "dps": 53072.12485110504,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -69,16 +69,17 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Leviathan",
       "acl": [
-        "`dragon",
+        "`s2, dgauge>=500",
+        "`dragon(c2-s-c2-c2-c2-c2-c2-c2-end), s=2",
         "`s3, not buff(s3)",
         "`s4",
-        "`s2, charged_in(2, s1)",
-        "`s1"
+        "`s2, charged_in(2, s1) and dgauge<=400",
+        "`s1, cancel"
       ],
       "coabs": [
-        "Renee",
+        "Yurius",
         "Summer_Celliera",
         "Tiki"
       ],

@@ -1,12 +1,12 @@
 {
   "180": {
     "base": {
-      "dps": 71944.99948788137,
+      "dps": 73029.25014424231,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Sisters_Day_Out",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "His_Clever_Brother"
@@ -18,18 +18,17 @@
         "`s2, cancel",
         "`dodge, x=3",
         "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5 or fsc",
-        "`s2",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs,x=5",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, self.fs_prep_c>0 and x=4",
         "end"
       ],
       "coabs": [
         "Blade",
-        "Catherine",
+        "Yurius",
         "Xander"
       ],
       "share": [
@@ -39,12 +38,12 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 75048.85180413982,
+      "dps": 76869.8656273337,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Sisters_Day_Out",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "His_Clever_Brother"
@@ -56,18 +55,17 @@
         "`s2, cancel",
         "`dodge, x=3",
         "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5 or fsc",
-        "`s2, s=4",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs,x=5",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, self.fs_prep_c>0 and x=4",
         "end"
       ],
       "coabs": [
         "Blade",
-        "Pipple",
+        "Yurius",
         "Xander"
       ],
       "share": [
@@ -76,42 +74,45 @@
       ]
     },
     "buffer": {
-      "dps": 29337.970838510177,
-      "team": 0.03329767707080338,
-      "tdps": 1279579.6102764956,
+      "dps": 47696.650665866815,
+      "team": 0.04999021580387357,
+      "tdps": 506751.1526208006,
       "slots.a": [
-        "Gentle_Winds",
-        "Study_Rabbits",
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
         "Twinfold_Bonds",
-        "From_Whence_He_Comes",
-        "Rogues_Banquet"
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Nimis",
       "acl": [
         "if divine_dragon.get()",
         "`s1",
         "`s2, cancel",
         "`dodge, x=3",
         "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5",
-        "`s2",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs,x=5",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, self.fs_prep_c>0 and x=4",
         "end"
       ],
-      "coabs": [],
+      "coabs": [
+        "Dagger",
+        "Bow",
+        "Axe2"
+      ],
       "share": [
         "Weapon",
-        "Halloween_Lowen"
+        "Cleo"
       ]
     }
   },
   "60": {
     "base": {
-      "dps": 64427.31065406461,
+      "dps": 64444.71695705419,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -149,51 +150,12 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 62070.84975535534,
+      "dps": 65409.43464536453,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if divine_dragon.get()",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5 or fsc",
-        "`s2, s=4",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Pipple",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    }
-  },
-  "120": {
-    "affliction": {
-      "dps": 70050.07219293038,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Sisters_Day_Out",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "His_Clever_Brother"
@@ -216,7 +178,46 @@
       ],
       "coabs": [
         "Blade",
-        "Yurius",
+        "Catherine",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    }
+  },
+  "120": {
+    "affliction": {
+      "dps": 72030.93728661601,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`s3, not buff(s3) and fsc",
+        "`dragon, cancel and dgauge>=1800",
+        "`s4, x=5 or fsc",
+        "`s2",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs,x=5",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Catherine",
         "Xander"
       ],
       "share": [
@@ -226,7 +227,7 @@
     },
     "pref": "base",
     "base": {
-      "dps": 60109.85589088882,
+      "dps": 59891.84819749448,
       "team": 0.0,
       "tdps": null,
       "slots.a": [

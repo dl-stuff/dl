@@ -1,26 +1,31 @@
 {
   "180": {
     "base": {
-      "dps": 42446.63302190156,
-      "team": 0.15071898429131986,
+      "dps": 47278.69920724932,
+      "team": 0.1716234720218312,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
+        "Dragon_Brethren",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Entwined_Flames"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), cancel and buff(s2) and buff(s3, 1)",
-        "`s2",
-        "`s4",
-        "`s3",
-        "`fs, x=2"
+        "`dragon(s),  cancel and buff(s2) and buff(s3, 1) and buff(s1)",
+        "`s1, not buff(s1) and fsc",
+        "`s2, x >= 2",
+        "`s4, fsc",
+        "if not buff(s3)",
+        "`s3, fsc",
+        "else",
+        "`s3, cancel",
+        "end",
+        "`fs, x=3"
       ],
       "coabs": [
-        "Cleo",
+        "The_Prince",
         "Dagger2",
         "Peony"
       ],
@@ -31,9 +36,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 6708.059130654314,
-      "team": 0.760334905919736,
-      "tdps": 58624.73833652799,
+      "dps": 6981.980285794744,
+      "team": 0.7787687107900042,
+      "tdps": 66370.80610763238,
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -49,7 +54,7 @@
         "`fs, x=4",
         "`s2",
         "`s4, fsc",
-        "`s3",
+        "`s3, fsc",
         "end"
       ],
       "coabs": [
@@ -63,21 +68,21 @@
       ]
     },
     "affliction": {
-      "dps": 46933.49465891478,
-      "team": 0.16961843047730868,
+      "dps": 52101.530640981495,
+      "team": 0.17122195905027632,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
+        "Dragon_Brethren",
         "Spirit_of_the_Season",
-        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Entwined_Flames"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s),  cancel and buff(s2) and buff(s3, 1) and buff(s1)",
+        "`dragon, cancel and buff(s2) and buff(s3, 1) and buff(s1)",
         "`s1, not buff(s1) and fsc",
-        "`s2, x >= 1",
+        "`s2, x >= 2",
         "`s4, fsc",
         "if not buff(s3)",
         "`s3, fsc",
@@ -87,7 +92,7 @@
         "`fs, x=3"
       ],
       "coabs": [
-        "Cleo",
+        "The_Prince",
         "Dagger2",
         "Peony"
       ],
@@ -99,8 +104,8 @@
   },
   "60": {
     "base": {
-      "dps": 36099.16758483203,
-      "team": 0.161992562035441,
+      "dps": 35106.281498644574,
+      "team": 0.15558504848048826,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -130,8 +135,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 49783.874875498695,
-      "team": 0.12885777258097258,
+      "dps": 46884.45285772803,
+      "team": 0.12369059568213772,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -158,5 +163,42 @@
         "Gala_Mym"
       ]
     }
+  },
+  "120": {
+    "affliction": {
+      "dps": 48236.30795403519,
+      "team": 0.1697694305254421,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_Brethren",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s),  cancel and buff(s2) and buff(s3, 1) and buff(s1)",
+        "`s1, not buff(s1) and fsc",
+        "`s2, x >= 2",
+        "`s4, fsc",
+        "if not buff(s3)",
+        "`s3, fsc",
+        "else",
+        "`s3, cancel",
+        "end",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "The_Prince",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "pref": "base"
   }
 }
