@@ -291,6 +291,57 @@
             ]
         }
     },
+    "Giovanni": {
+        "d": {
+            "name": "Giovanni",
+            "icon": "210135_01",
+            "att": 128,
+            "hp": 368,
+            "ele": "shadow",
+            "a": [["a", 0.45, "shadow"], ["cc", 0.2, "shadow"]],
+            "skipped": [[1423, null]]
+        },
+        "dx1": {
+            "startup": 0.33333,
+            "recovery": 0.16667,
+            "attr": [
+                {"dmg": 2.15, "sp": 5, "msl": 1}
+            ]
+        },
+        "dx2": {
+            "startup": 0.33333,
+            "recovery": 0.66667,
+            "attr": [
+                {"dmg": 2.47, "sp": 5, "msl": 1}
+            ]
+        },
+        "dx3": {
+            "startup": 0.66667,
+            "recovery": 0.66666,
+            "attr": [
+                {"buff": ["zone", 0.1, 10.0, "crit", "damage"]}
+            ]
+        },
+        "ds": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 2.06667,
+            "uses": 1,
+            "attr": [
+                {"cond": ["not", "zone", 1], "dmg": 2.2, "iv": 0.86667, "msl": 1},
+                {"cond": ["not", "zone", 1], "dmg": 2.2, "iv": 1.13333, "msl": 1},
+                {"cond": ["not", "zone", 1], "dmg": 2.2, "iv": 1.4, "msl": 1},
+                {"cond": ["not", "zone", 1], "dmg": 2.2, "iv": 1.66667, "msl": 1},
+                {"cond": ["not", "zone", 1], "dmg": 2.2, "iv": 1.93333, "msl": 1},
+                {"cond": ["zone", 1], "buff": ["self", 0.15, -1, "crit", "damage"], "iv": 0.83333},
+                {"cond": ["zone", 1], "dmg": 2.64, "iv": 0.86667, "msl": 1},
+                {"cond": ["zone", 1], "dmg": 2.64, "iv": 1.13333, "msl": 1},
+                {"cond": ["zone", 1], "dmg": 2.64, "iv": 1.4, "msl": 1},
+                {"cond": ["zone", 1], "dmg": 2.64, "iv": 1.66667, "msl": 1},
+                {"cond": ["zone", 1], "dmg": 2.64, "iv": 1.93333, "msl": 1}
+            ]
+        }
+    },
     "Gold_Fafnir": {
         "d": {
             "name": "Gold Fafnir",

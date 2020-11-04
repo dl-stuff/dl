@@ -2,25 +2,34 @@
     "c": {
         "name": "Renee",
         "icon": "110265_01_r04",
-        "att": 459,
-        "hp": 777,
+        "att": 550,
+        "hp": 932,
         "ele": "water",
         "wt": "dagger",
-        "spiral": false,
-        "a": [["primed_crit_chance", 0.6, 5]]
+        "spiral": true,
+        "a": [["primed_crit_chance", 0.1], ["bc_regen", 1.5]]
+    },
+    "fs_enhanced": {
+        "startup": 0.15152,
+        "recovery": 0.60606,
+        "attr": [
+            {"dmg": 0.47, "sp": 288, "afflic": ["freeze", 120]},
+            {"dmg": 0.47, "iv": 0.12121},
+            {"dmg": 0.47, "iv": 0.36363}
+        ]
     },
     "s1": {
         "sp": 2311,
         "startup": 0.1,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 3.11, "afflic": ["bog", 100], "iv": 0.26667},
+            {"dmg": 3.13, "afflic": ["bog", 110], "iv": 0.26667},
             {"buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_6"], "iv": 0.26667},
-            {"dmg": 3.11, "iv": 0.43333},
-            {"dmg": 3.11, "iv": 0.56667},
-            {"dmg": 3.11, "iv": 0.76667},
-            {"dmg": 3.11, "iv": 1.1},
-            {"dmg": 3.11, "iv": 1.6}
+            {"dmg": 3.13, "iv": 0.43333},
+            {"dmg": 3.13, "iv": 0.56667},
+            {"dmg": 3.13, "iv": 0.76667},
+            {"dmg": 3.13, "iv": 1.1},
+            {"dmg": 3.13, "iv": 1.6}
         ]
     },
     "s2": {
@@ -28,11 +37,12 @@
         "startup": 0.1,
         "recovery": 2.3,
         "attr": [
-            {"dmg": 3.67, "iv": 0.3},
-            {"dmg": 3.67, "iv": 0.73333},
-            {"dmg": 3.67, "iv": 0.9},
-            {"dmg": 3.67, "iv": 1.46667},
-            {"buff": ["self", 0.1, 5.0, "defense", "buff"], "iv": 2.26667}
+            {"dmg": 3.69, "iv": 0.3},
+            {"dmg": 3.69, "iv": 0.73333},
+            {"dmg": 3.69, "iv": 0.9},
+            {"dmg": 3.69, "iv": 1.46667},
+            {"buff": ["self", 0.2, 20.0, "defense", "buff"], "iv": 2.26667},
+            {"buff": ["fsAlt", "enhanced", -1, 1], "iv": 2.26667}
         ]
     }
 }

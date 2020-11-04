@@ -1168,6 +1168,10 @@ class Adv(object):
             buffcount += self.conf.sim_buffbot.count
         return buffcount
 
+    @property
+    def zonecount(self):
+        return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
+
     def l_idle(self, e):
         """
         Listener that is called when there is nothing to do.
@@ -1953,13 +1957,23 @@ class Adv(object):
         'hp<': lambda s, v: s.hp < v,
         'hp<=': lambda s, v: s.hp <= v,
         'rng': lambda s, v: random.random() <= v,
-        'hits': lambda s, v: s.hits >= v
+        'hits': lambda s, v: s.hits >= v,
+        'zone': lambda s, v: s.zonecount >= v
     }
     def do_hitattr_make(self, e, aseq, attr, pin=None):
         if 'cond' in attr:
-            condtype, condval = attr['cond']
-            if not Adv.ATTR_COND[condtype](self, condval):
-                return
+            if len(attr['cond']) == 3:
+                negate, condtype, condval = attr['cond']
+            else:
+                condtype, condval = attr['cond']
+                negate = False
+            cond_eval = Adv.ATTR_COND[condtype](self, condval)
+            if negate:
+                if cond_eval:
+                    return
+            else:
+                if not cond_eval:
+                    return
         iv = attr.get('iv', 0)
         if not attr.get('nospd'):
             iv /= self.speed()

@@ -406,12 +406,11 @@ class Ramiel(DragonBase):
         sp_regen_buff = EffectBuff('ds_sp', 90, lambda: sp_regen_timer.on(), lambda: sp_regen_timer.off())
         adv.Event('ds').listener(lambda _: sp_regen_buff.on())
 
-
 class Gold_Fafnir(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         # disabled for convienance
-        adv.dragonform.disabled = True
+        adv.dragonform.disabled = True        
 ### SHADOW DRAGONS ###
 
 
