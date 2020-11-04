@@ -418,11 +418,9 @@
                                 reasons.</li>
                             <li>During the simulation, the ACL is read from top to bottom. When the action is
                                 available
-                                (e.g. skill is filled) and any specified condition is met, the action is executed.
+                                (e.g. skill is filled) and the specified conditions are met, the action is executed.
                                 When
-                                none of the specified actions are used, the sim will perform the next auto attack
-                                (c1 c2
-                                c3 c4 c5 then back to c1)</li>
+                                none of the specified actions are used, the sim will perform the next auto attack</li>
                             <li>You can specify the same action multiple times, to cover different conditions.</li>
                             <li>It's also possible to specify blocks of actions+subconditions under one condition,
                                 using
@@ -466,41 +464,28 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
                                 dodge is faster than recovery or if the <code>cX</code> is not the final combo.</li>
                             <li><code>end</code> means preemptively stop the transform, used to represent dragon
                                 tanking.</li>
-                            <li>The conditions are essentially python code that is evaluated so they can be just
-                                about
-                                anything, but the most commonly used ones are:
+                            <li>The conditions are a limited subset of python code, some common commonly used conditions are:
                                 <ul>
                                     <li><code>x=n</code> or <code>seq=n</code>: the previous action was combo #n in
                                         the
                                         attack chain.</li>
+                                    <li><code>xf=n</code>: the previous action was the first cancelable hit in combo #n</li>
                                     <li><code>fsc</code>: the previous action was force strike</li>
+                                    <li><code>fscf</code>: the previous action was the first cancelable hit in force strike</li>
                                     <li><code>cancel</code>: the previous action was a combo or a force strike,
                                         equivalent to <code>x=1 or x=2 or x=3 or x=4 or x=5 or fsc</code>.</li>
                                     <li><code>s=n</code>: the previous action was skill #n</li>
                                     <li><code>s</code>: the previous action was a skill</li>
                                     <li><code>prep</code>: at the start of the fight if the adventurer has skill
                                         prep</li>
-                                    <li><code>s1.charged</code> is the amount of sp charged on s1, you can combine
-                                        it
-                                        with <code>s1.sp</code> and <code>this.sp_val</code> to make conditions like
-                                        <code>s1.charged&gt;=s1.sp-this.sp_val('fs')</code>, aka "do this action
-                                        when S1
-                                        is one FS away from being fully charged. This can be used with s2 and s3 as
-                                        well.</li>
                                     <li><code>s1.check()</code> signify that a skill is ready to use.</li>
-                                    <li>``this.have_buff(buffname)` checks for presence of buff on certain
+                                    <li>`buff(s3)` checks if a buff created by `s3` is currently active, works for all skills. If you need to check for buff from specific phase of skill, use `buff(s3, 1)` and so on.</li>
+                                    <li>`have_buff(buffname)` checks for presence of misc. buffs on certain
                                         character.
                                         The name of buffs is poorly documented with inconsistent naming scheme, but
                                         you
                                         can look at logs to figure out the specifics for your adventurer.</li>
-                                    <li>You can use any python logical operators in the condition, such as
-                                        <code>and</code> to combine 2 conditions</li>
-                                    <li>For Agito weapons, <code>s3, not this.s3_buff</code> means only use S3 if
-                                        the
-                                        buff is not on, you can also check for what type of buff is currently
-                                        active,
-                                        e.g. <code>s3, this.s3_buff and this.s3_buff.mod_type = 'defense'</code>
-                                    </li>
+                                    <li>You can use basic arithmetic operators and most logical operations in the condition.
                                     <li>Special conditions are implemented for some adventurers but unfortunately
                                         most
                                         aren't well documented nor universal. You most likely have to look at the

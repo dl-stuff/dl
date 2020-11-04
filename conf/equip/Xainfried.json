@@ -1,46 +1,41 @@
 {
   "180": {
     "base": {
-      "dps": 81366.36960296302,
-      "team": 0.3031272775349707,
+      "dps": 88655.73985554477,
+      "team": 0.10257720161994992,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "From_Whence_He_Comes",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "#Use Gaibhne & Creidhne skill at the end of the shapeshift duration",
-        "`dragon(c3-s-end), self.dragonform.shift_count=0",
-        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count=1",
-        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count=2",
-        "`dragon(c3-c3-c3-c3-c3-s-end), self.dragonform.shift_count=3",
-        "`dragon(c3-c3-c3-c3-c3-c1-s-end), self.dragonform.shift_count>=4",
+        "`dragon(c3-s-c3-c3-c3-c3-end)",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1, have_buff(ds_sp_regen_zone) and cancel",
-        "`s1, not have_buff(ds_sp_regen_zone) and (xf or fscf)",
-        "`fs, x=5"
+        "`s1, fscf and aff_timeleft(frostbite)<9",
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
-        "Yurius",
+        "Pipple",
         "Summer_Celliera",
         "Tiki"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Gala_Mym"
       ]
     },
     "pref": "base",
     "buffer": {
       "dps": 35752.012906114185,
       "team": 0.9942749422935486,
-      "tdps": 65997.9900428112,
+      "tdps": 59329.21497531944,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Sisters_Day_Out",
@@ -67,29 +62,25 @@
       ]
     },
     "affliction": {
-      "dps": 83599.84363299144,
-      "team": 0.3031272775349707,
+      "dps": 94749.06827203596,
+      "team": 0.10920539775429908,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "From_Whence_He_Comes",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-end), self.dragonform.shift_count=0",
-        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count=1",
-        "`dragon(c3-c3-c3-c3-s-end), self.dragonform.shift_count=2",
-        "`dragon(c3-c3-c3-c3-c3-s-end), self.dragonform.shift_count=3",
-        "`dragon(c3-c3-c3-c3-c3-c1-s-end), self.dragonform.shift_count>=4",
+        "`dragon(c3-s-c3-c3-c3-c2-end)",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1, have_buff(ds_sp_regen_zone) and cancel",
-        "`s1, not have_buff(ds_sp_regen_zone) and (xf or fscf)",
-        "`fs, x=5"
+        "`s1, fscf and aff_timeleft(frostbite)<8",
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
         "Yurius",
@@ -98,7 +89,7 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Gala_Mym"
       ]
     }
   },
@@ -230,24 +221,25 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 81554.29039787292,
-      "team": 0.09984143516072569,
+      "dps": 90955.75403661444,
+      "team": 0.09674784465779428,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Dragon_and_Tamer",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Leviathan",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-c2-c2-c2-end)",
+        "`dragon(c3-s-c3-c3-c3-c3-end)",
         "`s3, not buff(s3)",
         "`s2",
-        "`s4, x=5",
-        "`s1, fsc",
-        "`fs, x=5"
+        "`s4",
+        "`s1, fscf and aff_timeleft(frostbite)<8",
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
         "Yurius",
@@ -256,7 +248,7 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Gala_Mym"
       ]
     }
   }

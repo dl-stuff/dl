@@ -1,21 +1,21 @@
 {
   "180": {
     "base": {
-      "dps": 69459.5975711961,
-      "team": 0.09464008234015836,
+      "dps": 81342.45454915914,
+      "team": 0.08691236754094357,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
         "Valiant_Crown",
         "Enter_the_Blue_Rose",
-        "From_Whence_He_Comes"
+        "Taiko_Tandem"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, not s1_res_down.get()",
-        "`s2",
+        "`s1, not s1_res_down.get() and energy()<5 and buff(s3)",
+        "`s2, have_buff(gposeidon_buff)",
         "`s4",
         "`fs"
       ],
@@ -31,9 +31,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 10050.327929658895,
-      "team": 0.8439508027348295,
-      "tdps": 79285.22577422301,
+      "dps": 11477.579345496817,
+      "team": 0.9449682942721629,
+      "tdps": 81422.2861554187,
       "slots.a": [
         "Dazzling_Duet",
         "Gentle_Winds",
@@ -43,14 +43,15 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`s3",
+        "`dragon(c3-s-end)",
         "`s4",
+        "`s3",
         "`s1, not s1_res_down.get()",
         "`fs"
       ],
       "coabs": [
+        "Summer_Estelle",
         "Renee",
-        "Hunter_Sarisse",
         "Tobias"
       ],
       "share": [
@@ -59,21 +60,21 @@
       ]
     },
     "affliction": {
-      "dps": 81847.93398678345,
-      "team": 0.08765924692748028,
+      "dps": 91002.03065139047,
+      "team": 0.08691236754094357,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
         "Valiant_Crown",
-        "Enter_the_Blue_Rose",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Taiko_Tandem"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, not s1_res_down.get()",
-        "`s2",
+        "`s1, not s1_res_down.get() and energy()<5 and buff(s3)",
+        "`s2, have_buff(gposeidon_buff)",
         "`s4",
         "`fs"
       ],
@@ -87,5 +88,37 @@
         "Durant"
       ]
     }
+  },
+  "120": {
+    "base": {
+      "dps": 79413.98771616825,
+      "team": 0.08355665193159331,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Valiant_Crown",
+        "Enter_the_Blue_Rose",
+        "Taiko_Tandem"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, not s1_res_down.get() and energy()<5 and buff(s3)",
+        "`s2, have_buff(gposeidon_buff)",
+        "`s4",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Durant"
+      ]
+    },
+    "pref": "base"
   }
 }

@@ -28,7 +28,7 @@
       ],
       "coabs": [
         "Blade",
-        "Yurius",
+        "Pipple",
         "Xander"
       ],
       "share": [
@@ -112,84 +112,7 @@
   },
   "60": {
     "base": {
-      "dps": 64444.71695705419,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Moonlight_Party",
-        "Sisters_Day_Out",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if divine_dragon.get()",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5 or fsc",
-        "`s2",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Catherine",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 65409.43464536453,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Moonlight_Party",
-        "Sisters_Day_Out",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if divine_dragon.get()",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5 or fsc",
-        "`s2",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Catherine",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    }
-  },
-  "120": {
-    "affliction": {
-      "dps": 72030.93728661601,
+      "dps": 68838.0865817233,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -206,23 +129,97 @@
         "`s2, cancel",
         "`dodge, x=3",
         "else",
-        "`s3, not buff(s3) and fsc",
-        "`dragon, cancel and dgauge>=1800",
-        "`s4, x=5 or fsc",
-        "`s2",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs,x=5",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, self.fs_prep_c>0 and x=4",
         "end"
       ],
       "coabs": [
         "Blade",
-        "Catherine",
+        "Yurius",
         "Xander"
       ],
       "share": [
         "Weapon",
         "Pinon"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 73773.82070756871,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, self.fs_prep_c>0 and x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Yurius",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    }
+  },
+  "120": {
+    "affliction": {
+      "dps": 75899.52449262123,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, self.fs_prep_c>0 and x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Yurius",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
       ]
     },
     "pref": "base",

@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 96046.68772117072,
+      "dps": 95834.38745292334,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -38,7 +38,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 108788.63469177549,
+      "dps": 108564.95520646915,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -51,17 +51,16 @@
       "slots.d": "Gala_Mars",
       "acl": [
         "if self.dragonform.shift_count<1",
-        "`dragon(c3-s-end), s=1",
+        "`dragon(s-c3-end), s=1",
         "end",
         "if self.dragonform.shift_count>=1",
-        "`dragon(c3-s-end)",
+        "`dragon(c3-s-c3-end)",
         "end",
         "`s3, not buff(s3) and x=5",
-        "#`s4, s1.check() or s2.check()",
         "`s1",
         "`s2, x=5 or fsc",
         "`s4, fsc",
-        "#`dodge, fsc",
+        "`dodge, fsc",
         "`fs, x=5"
       ],
       "coabs": [
@@ -77,7 +76,7 @@
     "buffer": {
       "dps": 15540.598451211266,
       "team": 0.1642311846273827,
-      "tdps": 490199.7720628781,
+      "tdps": 488907.0804907565,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",

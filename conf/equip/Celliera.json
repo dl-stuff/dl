@@ -19,7 +19,7 @@
         "`s1, xf"
       ],
       "coabs": [
-        "Summer_Estelle",
+        "Wand",
         "Hunter_Sarisse",
         "Xander"
       ],
@@ -58,27 +58,32 @@
       ]
     },
     "affliction": {
-      "dps": 63224.64360191777,
+      "dps": 70945.83006909654,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s2, not buff(s2) and x=2",
+        "queue dgauge>=500 and xf=5",
+        "`fs",
+        "`dragon(c3-s)",
+        "`s2",
+        "end",
+        "`s2, not buff(s2) and x=5",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1, xf"
+        "`s1, buff(s2) and cancel"
       ],
       "coabs": [
-        "Wand",
-        "Hunter_Sarisse",
-        "Xander"
+        "Yurius",
+        "Xander",
+        "Tiki"
       ],
       "share": [
         "Weapon",

@@ -35,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 110101.27753594385,
+      "dps": 109639.00816811359,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -68,9 +68,9 @@
       ]
     },
     "buffer": {
-      "dps": 60256.090589799,
-      "team": 0.2055913441066838,
-      "tdps": 321687.3098538107,
+      "dps": 77098.20944935291,
+      "team": 0.21109550425903387,
+      "tdps": 147769.75235969864,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -80,19 +80,24 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-end), s=2",
+        "`dragon(s-c3-c2-end), self.dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), self.dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), self.dragonform.shift_count=2 and  s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), self.dragonform.shift_count>=3 and  s=2",
         "`s3, not buff(s3)",
-        "`s2, cancel",
+        "`s2",
         "`s4, cancel",
-        "`s1",
+        "`s1, xf or fscf",
         "`fs, x=5"
       ],
       "coabs": [
-        "Dagger"
+        "Ieyasu",
+        "Bow",
+        "Cleo"
       ],
       "share": [
         "Weapon",
-        "Hildegarde"
+        "Lowen"
       ]
     }
   },

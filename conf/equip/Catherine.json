@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 78287.45203406247,
+      "dps": 79060.93084034047,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,6 +13,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon",
         "`s2, duration-now < 2.9",
         "`s3, not buff(s3)",
         "`s4",
@@ -32,7 +33,7 @@
     "buffer": {
       "dps": 12514.529715525272,
       "team": 0.7959094999250167,
-      "tdps": 82638.6948826892,
+      "tdps": 83610.51241514843,
       "slots.a": [
         "Gentle_Winds",
         "Study_Rabbits",
@@ -56,7 +57,7 @@
       ]
     },
     "affliction": {
-      "dps": 86616.45089907138,
+      "dps": 88715.59537156715,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -68,7 +69,8 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s2, duration-now < 2.6",
+        "`dragon(s-end)",
+        "`s2, duration-now < 2.9",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
@@ -98,9 +100,8 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "queue duration-now < 2.6",
-        "`s2",
-        "end",
+        "`dragon, x=5",
+        "`s2, duration-now < 2.6",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
