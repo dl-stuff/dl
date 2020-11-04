@@ -1,10 +1,6 @@
 from core.advbase import *
 
 class Opera_Karina(Adv):
-    conf = {
-        'slots.d': 'Giovanni',
-        'acl': '`dragon'
-    }
     def prerun(self):
         self.a3_modifier = Modifier('a3_okarina', 'crit', 'damage', 0.3, get=self.a3_get)
     
