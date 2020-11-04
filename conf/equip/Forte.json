@@ -136,7 +136,7 @@
     "base": {
       "dps": 78227.94978795844,
       "team": 0.08301229909711304,
-      "tdps": 6751.451615955612,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -164,33 +164,36 @@
       ]
     },
     "buffer": {
-      "dps": 63029.41509418596,
-      "team": 0.10416420545421042,
-      "tdps": 718542.0754603856,
+      "dps": 66758.67013061562,
+      "team": 0.1377705344415892,
+      "tdps": 209453.05459884222,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
-        "Sisters_Day_Out",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon(s-c3-c2-end), self.dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), self.dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), self.dragonform.shift_count=2 and  s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), self.dragonform.shift_count>=3 and  s=2",
         "`s3, not buff(s3)",
-        "`s2, cancel or s",
+        "`s2",
         "`s4, cancel",
-        "`s1",
+        "`s1, xf or fscf",
         "`fs, x=5"
       ],
       "coabs": [
         "Ieyasu",
-        "Delphi",
-        "Audric"
+        "Bow",
+        "Cleo"
       ],
       "share": [
         "Weapon",
-        "Rodrigo"
+        "Lowen"
       ]
     }
   },

@@ -106,7 +106,7 @@
   },
   "60": {
     "base": {
-      "dps": 90333.07613578135,
+      "dps": 90012.55054336766,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -141,7 +141,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 97831.2821221362,
+      "dps": 97456.98173130098,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -175,7 +175,7 @@
   },
   "120": {
     "base": {
-      "dps": 85955.88318586942,
+      "dps": 85629.79841768551,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -210,7 +210,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 95933.8117221822,
+      "dps": 95570.82259680738,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -222,12 +222,9 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if buff(s2)",
-        "`norm",
-        "else",
+        "#`norm",
         "`ex",
-        "end",
-        "`dragon(s-s)",
+        "`dragon(s-s-c3-c1-end)",
         "queue prep",
         "`s2;s1;s4",
         "end",
@@ -247,21 +244,21 @@
       ]
     },
     "buffer": {
-      "dps": 61144.241598015535,
-      "team": 0.0043853527901203905,
-      "tdps": 5657843.912524249,
+      "dps": 59749.47179230435,
+      "team": 0.14601663989725852,
+      "tdps": 177242.31049003248,
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "His_Clever_Brother"
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Cerberus",
+      "slots.d": "Horus",
       "acl": [
         "# `norm",
         "`ex",
-        "`dragon(s),s=2",
+        "# `dragon,s=2",
         "queue prep",
         "`s2;s1;s4",
         "end",
@@ -271,13 +268,13 @@
         "`s4"
       ],
       "coabs": [
-        "Blade",
-        "Wand",
-        "Serena"
+        "Gala_Sarisse",
+        "Halloween_Mym",
+        "Tobias"
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Karl"
       ]
     }
   }

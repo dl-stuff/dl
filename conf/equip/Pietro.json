@@ -124,8 +124,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 46679.703383293614,
-      "team": 0.05757962071106755,
+      "dps": 51654.311397770136,
+      "team": 0.058221461462116104,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -134,13 +134,15 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Leviathan",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-c2-c2-c2-end), s=2",
+        "`s2, dgauge>=500",
+        "`dragon(c3-s), s=2",
         "`s3, not buff(s3) and x=4",
-        "`s2",
+        "`s2, dgauge<400",
         "`s4",
-        "`s1"
+        "`s1, cancel",
+        "`fsf, x=4"
       ],
       "coabs": [
         "Yurius",

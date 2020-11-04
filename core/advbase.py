@@ -222,7 +222,7 @@ class Action(object):
 
     def can_follow(self, target, timing, elapsed):
         try:
-            return max(0, round(timing - elapsed, 5))
+            return max(0, round(timing / self.speed() - elapsed, 5))
         except (KeyError, TypeError):
             return None
 
