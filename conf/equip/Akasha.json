@@ -31,22 +31,25 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 5703.789189240719,
-      "team": 0.7292080095770945,
-      "tdps": 43384.947509395315,
+      "dps": 5681.265305829449,
+      "team": 0.7461021388730871,
+      "tdps": 42198.81872392758,
       "slots.a": [
         "A_Dogs_Day",
-        "Study_Rabbits",
+        "Sisters_Day_Out",
         "Warrior_Maiden",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Freyja",
       "acl": [
-        "`s3",
+        "#`dragon(s-end)",
+        "`s1, (x=5 or s or prep) and timeleft(s1)<5",
         "`s4",
-        "`s1, not buff(s1)",
-        "`s2"
+        "`s3",
+        "`s2",
+        "`fs, fs_prep_c >= 3",
+        "`dodge, fscf and fs_prep_c = 0"
       ],
       "coabs": [
         "Bow",
@@ -59,8 +62,8 @@
       ]
     },
     "affliction": {
-      "dps": 32615.094386318942,
-      "team": 0.1471561913365799,
+      "dps": 32741.704686023775,
+      "team": 0.146744122845268,
       "tdps": null,
       "slots.a": [
         "Levins_Champion",
@@ -71,8 +74,8 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon, s=4 and not buff(s2)",
-        "`s1, not buff(s1)",
+        "`dragon(s), s=4 and not buff(s2)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
         "`s3, not buff(s3)",
         "`s2",
         "`s4"

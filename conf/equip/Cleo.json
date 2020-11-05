@@ -1,38 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 14534.953480058573,
-      "team": 0.2782125302362976,
-      "tdps": null,
-      "slots.a": [
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4",
-        "`s2",
-        "`s1, not buff(s1)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Summer_Luca",
-        "Patia"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 40526.50153918581,
-      "team": 0.20565052855728977,
+      "dps": 44606.95977390287,
+      "team": 0.22845998484588176,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -43,16 +13,44 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon",
         "`s3, not buff(s3)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
         "`s4",
-        "`s2",
-        "`s1, not buff(s1)"
+        "`dragon(s)"
       ],
       "coabs": [
         "Ieyasu",
-        "Delphi",
-        "Audric"
+        "Audric",
+        "Dagger2"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 48166.74510787844,
+      "team": 0.22845998484588176,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s4",
+        "`dragon(s)"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Audric",
+        "Dagger2"
       ],
       "share": [
         "Weapon",
@@ -60,32 +58,33 @@
       ]
     },
     "buffer": {
-      "dps": 10255.083877308201,
-      "team": 0.3717447480827073,
-      "tdps": 45758.23926017016,
+      "dps": 5685.760005146384,
+      "team": 0.602970909959318,
+      "tdps": 103925.40553247566,
       "slots.a": [
-        "An_Ancient_Oath",
-        "Blossoms_on_the_Waters_Edge",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
         "Warrior_Maiden",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Azazel",
       "acl": [
-        "`dragon",
-        "`s3",
+        "`dragon(s-end)",
+        "`s1, (x=5 or s or prep) and timeleft(s1)<5",
         "`s4",
-        "`s2",
-        "`s1, not buff(s1)"
+        "`s3",
+        "`fs, fs_prep_c >= 3",
+        "`dodge, fscf and fs_prep_c = 0"
       ],
       "coabs": [
-        "Blade",
-        "Dagger2",
+        "Bow",
+        "Audric",
         "Tobias"
       ],
       "share": [
-        "Patia",
-        "Gala_Mym"
+        "Yuya",
+        "Patia"
       ]
     }
   }

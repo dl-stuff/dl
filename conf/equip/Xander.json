@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 77519.81320308751,
+      "dps": 78062.95232730987,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,12 +13,15 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-end), fsc",
+        "`dragon(c3-s-end), x=5 or fsc",
         "`s3, not buff(s3) and fsc",
         "`s1",
         "`s2, cancel",
         "`s4, fsc",
-        "`fs, x=2 and not buff(s1, default)"
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged != 2235",
+        "`fs, x=3",
+        "end"
       ],
       "coabs": [
         "Yurius",
@@ -34,7 +37,7 @@
     "buffer": {
       "dps": 41075.23851803499,
       "team": 0.1679831609723442,
-      "tdps": 216953.7379467014,
+      "tdps": 220187.0330048399,
       "slots.a": [
         "Brothers_in_Arms",
         "Felyne_Hospitality",
@@ -62,7 +65,7 @@
       ]
     },
     "affliction": {
-      "dps": 79653.97083193908,
+      "dps": 80011.3591488992,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -74,12 +77,15 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-end), fsc",
+        "`dragon(c3-s-end), x=5 or fsc",
         "`s3, not buff(s3) and fsc",
         "`s1",
         "`s2, cancel",
         "`s4, fsc",
-        "`fs, x=2 and not buff(s1, default)"
+        "if not buff(s1, default)",
+        "`fs, x=2 and (s1.sp-s1.charged > 541 or charged_in(fs, s1))",
+        "`fs, x=3",
+        "end"
       ],
       "coabs": [
         "Yurius",
