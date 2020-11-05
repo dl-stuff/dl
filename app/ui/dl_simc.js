@@ -28,7 +28,8 @@ const AFFLICT_COLORS = {
     freeze: 'dodgerblue',
     sleep: 'slategray',
     frostbite: 'deepskyblue',
-    flashburn: 'sandybrown'
+    flashburn: 'sandybrown',
+    shadowblight: 'rebeccapurple'
 };
 
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
