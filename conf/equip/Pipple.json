@@ -122,23 +122,24 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 57510.8625513449,
+      "dps": 74939.9576684196,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Brothers_in_Arms",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Prince_of_Dragonyule",
         "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-c3-c3-s-c3-c3-c3), x>1",
+        "`dragon(c3-c3-s-c3-end), self.dragonform.shift_count=0 and s2.check()",
+        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count=1 and cancel",
+        "`dragon(c3-c3-c3-s-end), self.dragonform.shift_count=2 and cancel",
         "`s3, not buff(s3)",
         "`s2",
-        "`s4, cancel",
-        "`s1, x>3"
+        "`s4, x>3"
       ],
       "coabs": [
         "Renee",
@@ -147,7 +148,7 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Luca"
       ]
     }
   }

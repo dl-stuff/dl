@@ -149,21 +149,20 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 77198.0495684739,
+      "dps": 85443.52633346886,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Prince_of_Dragonyule",
         "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "queue duration-now < 2.6",
-        "`s2",
-        "end",
+        "`dragon(c3-s-c3-c3-c2-end), s=1",
+        "`s2, (s1.check() and duration-now > 45) or duration-now < 3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"

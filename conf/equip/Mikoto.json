@@ -98,7 +98,7 @@
   },
   "120": {
     "base": {
-      "dps": 67313.78079280414,
+      "dps": 67052.9604451533,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -129,7 +129,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 90065.72977397568,
+      "dps": 90170.85091056679,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -141,10 +141,12 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-s-c3-c3-c3-end), s=1",
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin stance ends",
+        "`dragon(s-s-c3-c2-end), s=1 and self.dragonform.shift_count=2",
+        "`dragon(s-s-c3-c3-end), s=1",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4",
+        "`s4, xf>1",
         "`s2, xf>2",
         "`fs, xf>2 and charged_in(fs, s1)"
       ],
@@ -161,7 +163,7 @@
   },
   "60": {
     "base": {
-      "dps": 65837.76790127557,
+      "dps": 65607.65710367146,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -223,7 +225,7 @@
     "buffer": {
       "dps": 49316.474781904726,
       "team": 0.03568765422270496,
-      "tdps": 462941.4143129581,
+      "tdps": 456493.50389082363,
       "slots.a": [
         "Me_and_My_Bestie",
         "Seaside_Princess",
