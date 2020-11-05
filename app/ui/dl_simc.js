@@ -1061,7 +1061,7 @@ function update_teamdps() {
         $(dps_num).html(Math.ceil(new_total));
         let others = 0;
         $(ri).find('.result-slice').each((_, rs) => {
-            const portion = (team_v > 0) ? Math.ceil(1000 * ($(rs).data('dmg') / new_total)) / 10 : Math.floor(1000 * ($(rs).data('dmg') / new_total)) / 10;
+            const portion = (team_v > 0) ? Math.ceil(990 * ($(rs).data('dmg') / new_total)) / 10 : Math.floor(990 * ($(rs).data('dmg') / new_total)) / 10;
             others += portion;
             $(rs).css('width', portion + '%');
         });

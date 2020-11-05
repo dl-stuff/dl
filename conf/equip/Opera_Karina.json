@@ -1,0 +1,97 @@
+{
+  "180": {
+    "base": {
+      "dps": 61811.223631932124,
+      "team": 0.026883542597450603,
+      "tdps": null,
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "if dragonform.shift_count<1",
+        "`dragon(c2-s-c3-c2-end)",
+        "else",
+        "`dragon(c2-s-c3-c3-end)",
+        "end",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    },
+    "pref": "base",
+    "buffer": {
+      "dps": 6302.054319017332,
+      "team": 0.4042397344580182,
+      "tdps": 147100.19475028338,
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Welcome_to_the_Opera",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`fs, fs_prep_c and x=1",
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s2",
+        "#`s1, not aff(shadowblight)",
+        "`s4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Audric",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "affliction": {
+      "dps": 68003.11137670254,
+      "team": 0.02687319825168486,
+      "tdps": null,
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c2-s-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    }
+  }
+}

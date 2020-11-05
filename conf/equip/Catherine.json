@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 79060.93084034047,
+      "dps": 81259.88033718908,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,8 +13,8 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon",
-        "`s2, duration-now < 2.9",
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s2, duration-now < 2.7",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
@@ -33,7 +33,7 @@
     "buffer": {
       "dps": 12514.529715525272,
       "team": 0.7959094999250167,
-      "tdps": 83610.51241514843,
+      "tdps": 86373.32589715334,
       "slots.a": [
         "Gentle_Winds",
         "Study_Rabbits",
@@ -57,7 +57,7 @@
       ]
     },
     "affliction": {
-      "dps": 88715.59537156715,
+      "dps": 91223.8679501593,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -69,8 +69,8 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(s-end)",
-        "`s2, duration-now < 2.9",
+        "`dragon(c3-s-c3-c3-c2-end), s=1",
+        "`s2, duration-now < 3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
@@ -88,7 +88,7 @@
   },
   "120": {
     "affliction": {
-      "dps": 89914.30214793699,
+      "dps": 82834.12949977118,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -100,8 +100,8 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(s-end)",
-        "`s2, duration-now < 2.9",
+        "`dragon, x=5",
+        "`s2, duration-now < 2.6",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
@@ -149,7 +149,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 78468.02954389376,
+      "dps": 77198.0495684739,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -161,8 +161,9 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(s-end)",
-        "`s2, duration-now < 2.9",
+        "queue duration-now < 2.6",
+        "`s2",
+        "end",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
