@@ -147,6 +147,7 @@ class Action(object):
         'doing': 0,
         'spd_func': 0,
         'c_spd_func': 0,
+        'actmod_off': 0
     })
     OFF = -2
     STARTUP = -1
@@ -289,6 +290,8 @@ class Action(object):
         for mt in self.delayed:
             if mt.online:
                 count += 1
+            if mt.actmod:
+                self._static.actmod_off(mt)
             mt.off()
         self.delayed = set()
         return count
@@ -684,6 +687,7 @@ class Adv(object):
         self.action = Action()
         self.action._static.spd_func = self.speed
         self.action._static.c_spd_func = self.c_speed
+        self.action._static.actmod_off = self.actmod_off
         # set buff
         self.base_buff = Buff()
         self.all_buffs = []
@@ -1240,7 +1244,7 @@ class Adv(object):
             log('x', e.name, 0, '-'*38 + f'c{x_max}')
         else:
             log('x', e.name, 0)
-        self.hit_make(e, self.conf[e.name], cb_kind=f'x_{e.group}' if e.group != 'default' else 'x', pin='x')
+        self.hit_make(e, self.conf[e.name], cb_kind=f'x_{e.group}' if e.group != 'default' else 'x', pin='x', actmod=False)
 
     @allow_acl
     def dodge(self):
@@ -2032,7 +2036,7 @@ class Adv(object):
                     final_mt = res_mt
         return final_mt
 
-    def hit_make(self, e, conf, cb_kind=None, pin=None):
+    def hit_make(self, e, conf, cb_kind=None, pin=None, actmod=True):
         cb_kind = cb_kind or e.name
         try:
             getattr(self, f'{cb_kind}_before')(e)
@@ -2041,12 +2045,13 @@ class Adv(object):
         final_mt = self.schedule_hits(e, conf, pin=pin)
         proc = getattr(self, f'{cb_kind}_proc', None)
         if final_mt is not None:
-            final_mt.actmod = True
+            final_mt.actmod = actmod
             final_mt.proc = proc
         else:
             if proc:
                 proc(e)
-            self.actmod_off(e)
+            if actmod:
+                self.actmod_off(e)
         self.think_pin(pin or e.name)
 
     def l_fs(self, e):
