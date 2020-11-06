@@ -100,7 +100,7 @@ class DragonForm(Action):
             self.allow_end = False
             self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
             self.allow_force_end_timer.on()
-            self.allow_end_cd += self.conf.allow_end_step
+            self.allow_end_cd = min(self.allow_end_cd + self.conf.allow_end_step, self.dtime())
 
     def set_allow_end(self, _):
         self.allow_end = True
