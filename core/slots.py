@@ -711,9 +711,8 @@ class AmuletQuint:
                 sorted_ab[a[0]].append(a)
             # elif a[0] == 'spf':
             #     spf_ab.append(a)
-            # else:
-            #     merged_ab.append(a)
-            merged_ab.append(a)
+            else:
+                merged_ab.append(a)
 
         for cat, lst in sorted_ab.items():
             for a in sorted(lst, key=AmuletQuint.sort_ab):
