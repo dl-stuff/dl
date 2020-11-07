@@ -638,7 +638,7 @@ class AmuletPicker:
 class AmuletQuint:
     AB_LIMITS = {
         'a': 0.20, 's': 0.40, 'cc': 0.15, 'cd': 0.25,
-        'fs': 0.50, 'bt': 0.30, 'sp': 0.15, 'bk': 0.30,
+        'fs': 0.50, 'bt': 0.30, 'sp': 0.15, 'spf': 0.15, 'bk': 0.30,
         'od': 0.15, 'lo_att': 0.60, 'ro_att': 0.10,
         'bc_att': 0.15, 'bc_cd': 0.15, 'bc_energy': 1, 'bc_regen': 3,
         'prep': 100, 'dc': 3, 'dcs': 3, 'da': 0.18, 'dt': 0.20,
@@ -705,14 +705,15 @@ class AmuletQuint:
 
         limits = AmuletQuint.AB_LIMITS.copy()
         sorted_ab = defaultdict(lambda: [])
-        spf_ab = []
+        # spf_ab = []
         for a in chain(*(a.ab for a in self.an)):
             if a[0] in limits:
                 sorted_ab[a[0]].append(a)
-            elif a[0] == 'spf':
-                spf_ab.append(a)
-            else:
-                merged_ab.append(a)
+            # elif a[0] == 'spf':
+            #     spf_ab.append(a)
+            # else:
+            #     merged_ab.append(a)
+            merged_ab.append(a)
 
         for cat, lst in sorted_ab.items():
             for a in sorted(lst, key=AmuletQuint.sort_ab):
@@ -722,13 +723,13 @@ class AmuletQuint:
                 if limits[cat] == 0:
                     break
 
-        if spf_ab and limits['sp'] > 0:
-            for ab in sorted(spf_ab, key=AmuletQuint.sort_ab):
-                delta = min(limits['sp'], a[1])
-                limits['sp'] -= delta
-                merged_ab.append(('spf', delta, *a[2:]))
-                if limits['sp'] == 0:
-                    break
+        # if spf_ab and limits['sp'] > 0:
+        #     for ab in sorted(spf_ab, key=AmuletQuint.sort_ab):
+        #         delta = min(limits['sp'], a[1])
+        #         limits['sp'] -= delta
+        #         merged_ab.append(('spf', delta, *a[2:]))
+        #         if limits['sp'] == 0:
+        #             break
 
         union_level = defaultdict(lambda: 0)
         for a in self.an:
