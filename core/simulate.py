@@ -37,7 +37,7 @@ def run_once(name, module, conf, duration, cond, equip_key=None):
 # Using starmap
 import multiprocessing
 def run_once_mass(name, module, conf, duration, cond, equip_key, idx):
-    adv = module(name=name, conf=conf, duration=duration, cond=cond)
+    adv = module(name=name, conf=conf, duration=duration, cond=cond, equip_key=equip_key)
     real_d = adv.run()
     return adv.logs, real_d
 
@@ -465,8 +465,8 @@ def same_build_different_dps(a, b):
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times', 'United_by_One_Vision', 'Second_Anniversary')
 ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'classbane', 'hp', 'dumb', 'afflict_res', 'fleet')
-BUFFER_DPS_THRESHOLD = 35000
-BUFFER_TEAM_THRESHOLD = 1.5
+BUFFER_TDPS_THRESHOLD = 35000
+BUFFER_TEAM_THRESHOLD = 1.6
 TDPS_WEIGHT = 15000
 def save_equip(adv, real_d, repair=False, etype=None):
     adv.duration = int(adv.duration)
@@ -565,7 +565,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
     except KeyError:
         pass
     if 'buffer' in equip[dkey] and (
-            equip[dkey]['buffer']['tdps'] < BUFFER_DPS_THRESHOLD or \
+            equip[dkey]['buffer']['tdps'] < BUFFER_TDPS_THRESHOLD or \
             equip[dkey]['buffer']['team'] > BUFFER_TEAM_THRESHOLD
         ):
         equip[dkey]['pref'] = 'buffer'
