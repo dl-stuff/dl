@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 60272.13200257541,
+      "dps": 65952.06387973021,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -14,10 +14,11 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "`s2",
         "`s1, buff(s3)",
-        "`s4, xf=5",
-        "`fs, xf=5 and buff(s3) and not s4.check()"
+        "`s2, xf=5",
+        "`s4, xf",
+        "`fs, xf=2 and charged_in(fs,s1)",
+        "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
         "Wand",
@@ -26,14 +27,14 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Rodrigo"
       ]
     },
     "pref": "base",
     "buffer": {
       "dps": 34744.37878296851,
       "team": 0.02750676858599335,
-      "tdps": 928053.5130762623,
+      "tdps": 1134545.6664310938,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -60,7 +61,7 @@
       ]
     },
     "affliction": {
-      "dps": 75028.22996848436,
+      "dps": 75044.16429978736,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -74,8 +75,9 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s2, xf=5 or fsc",
-        "`s4, xf=5 or fsc",
+        "`s2, xf=5",
+        "`s4, xf=5",
+        "`fs, xf=2 and charged_in(fs,s1)",
         "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
@@ -134,14 +136,14 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
+        "`s2",
         "`s1, buff(s3)",
-        "`s2, xf=5 or fsc",
-        "`s4, xf=5 or fsc",
-        "`fs, xf=5 and buff(s3)"
+        "`s4, xf=5",
+        "`fs, xf=5 and buff(s3) and not s4.check()"
       ],
       "coabs": [
         "Wand",
-        "Dagger",
+        "Delphi",
         "Axe2"
       ],
       "share": [
@@ -195,14 +197,14 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
+        "`s2",
         "`s1, buff(s3)",
-        "`s2, xf=5 or fsc",
-        "`s4, xf=5 or fsc",
-        "`fs, xf=5 and buff(s3)"
+        "`s4, xf=5",
+        "`fs, xf=5 and buff(s3) and not s4.check()"
       ],
       "coabs": [
         "Wand",
-        "Dagger",
+        "Delphi",
         "Axe2"
       ],
       "share": [

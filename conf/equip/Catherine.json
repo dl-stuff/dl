@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 82722.55019261736,
+      "dps": 83829.98388767627,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -14,14 +14,14 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), cancel",
-        "`s2, (s1.check() and duration-now > 45) or duration-now < 3",
+        "`s2, (s1.check() and duration-now > 45 and energy()=5) or duration-now < 3.1",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1"
+        "`s1",
+        "`s4"
       ],
       "coabs": [
         "Blade",
-        "Renee",
+        "Hunter_Sarisse",
         "Dagger2"
       ],
       "share": [
@@ -33,7 +33,7 @@
     "buffer": {
       "dps": 12514.529715525272,
       "team": 0.7959094999250167,
-      "tdps": 88211.05977966897,
+      "tdps": 89602.46633426247,
       "slots.a": [
         "Gentle_Winds",
         "Study_Rabbits",
@@ -57,7 +57,7 @@
       ]
     },
     "affliction": {
-      "dps": 93008.58590335095,
+      "dps": 94170.7587502212,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -70,14 +70,14 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), s=1",
-        "`s2, (s1.check() and duration-now > 45) or duration-now < 3",
+        "`s2, (s1.check() and duration-now > 45 and energy() = 5) or duration-now < 3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
       ],
       "coabs": [
         "Blade",
-        "Renee",
+        "Hunter_Sarisse",
         "Dagger2"
       ],
       "share": [
@@ -88,27 +88,27 @@
   },
   "120": {
     "affliction": {
-      "dps": 82834.12949977118,
+      "dps": 85056.20566709296,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Prince_of_Dragonyule",
         "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon, x=5",
-        "`s2, duration-now < 2.6",
+        "`dragon(c3-s-c3-c3-c2-end), s=1",
+        "`s2, (s1.check() and duration-now > 45 and energy() = 5) or duration-now < 3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
       ],
       "coabs": [
         "Blade",
-        "Renee",
+        "Hunter_Sarisse",
         "Dagger2"
       ],
       "share": [
