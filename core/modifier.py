@@ -50,6 +50,9 @@ class Modifier(object):
         self.mod_order = order
         self.mod_value = value
         self.mod_condition = condition
+        if self.mod_condition:
+            # initialize cond
+            self._static.g_condition(self.mod_condition)
         self.mod_get = get
         self._mod_active = 0
         self.on()

@@ -1480,7 +1480,7 @@ class Adv(object):
         self.base_att = int(self.slots.att)
         self.base_hp = int(self.slots.hp)
 
-        self.hp = self.condition.prev_hp
+        self.hp = self.condition.starting_hp()
         if 'hp' in self.conf:
             self.set_hp(self.conf['hp'])
 
@@ -1530,7 +1530,6 @@ class Adv(object):
                     if ctime_amt < ctime_unused:
                         ctime_unused -= ctime_amt
                         self.downgrade_coab(coab_name)
-
 
         self.post_run(end)
 

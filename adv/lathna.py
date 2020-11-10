@@ -3,7 +3,11 @@ from core.advbase import *
 class Lathna(Adv):
     def prerun(self):
         self.dragonform.shift_mods.append(Modifier('faceless_god', 'poison_killer', 'passive', 2.00).off())
+        Event('dragon').listener(self.dshift_heal)
     
+    def dshift_heal(self, e):
+        Selfbuff('lathna_regen', 14, 20, 'regen', 'buff', source='dshift').on()
+
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.current_s[dst] = 'all'

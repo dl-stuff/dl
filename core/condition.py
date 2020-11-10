@@ -16,7 +16,10 @@ class Condition(dict):
 
     def cond_str(self):
         return ' & '.join([k for k, v in self.items() if v])
-        
+    
+    def starting_hp(self):
+        return min([100 if not hpc else min(hpc.keys()) for hpc in self.hp_cond.values()])
+
     def cond_set(self, key, cond=True):
         if key.startswith('hp'):
             try:
@@ -72,7 +75,7 @@ class Condition(dict):
                 return target_hp >= hp
             else:
                 return True
-        except:
+        except Exception as e:
             return self.cond_set_value(key, True)
 
     def hp_threshold_list(self, threshold=0):
