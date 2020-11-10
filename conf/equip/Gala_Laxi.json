@@ -179,40 +179,37 @@
       ]
     },
     "buffer": {
-      "dps": 54785.40270754583,
-      "team": 0.011258190356993996,
-      "tdps": 3129024.0010853475,
+      "dps": 54103.16344291706,
+      "team": 0.11835631628476183,
+      "tdps": 303400.68217444065,
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "His_Clever_Brother"
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Cerberus",
+      "slots.d": "Horus",
       "acl": [
-        "if buff(s2)",
-        "`norm",
-        "else",
+        "# `norm",
         "`ex",
-        "end",
-        "`dragon(s-s-c3-c1-end)",
+        "# `dragon,s=2",
         "queue prep",
         "`s2;s1;s4",
         "end",
         "`s3, not buff(s3) and x=4",
         "`s2",
         "`s1",
-        "`s4, x=4"
+        "`s4"
       ],
       "coabs": [
-        "Blade",
-        "Wand",
-        "Serena"
+        "Gala_Sarisse",
+        "Halloween_Mym",
+        "Tobias"
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Karl"
       ]
     }
   },
@@ -265,8 +262,11 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#`norm",
+        "if buff(s2)",
+        "`norm",
+        "else",
         "`ex",
+        "end",
         "`dragon(s-s-c3-c1-end)",
         "queue prep",
         "`s2;s1;s4",
