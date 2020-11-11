@@ -883,6 +883,9 @@ class Adv(object):
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
         self.conf.update(self.conf_base)
+        if self.conf['no_equip']:
+            self.conf.update(self.conf_init)
+            return None
         equip = globalconf.load_equip_json(self.name)
         equip_d = equip.get(str(int(self.duration)))
         if not equip_d:

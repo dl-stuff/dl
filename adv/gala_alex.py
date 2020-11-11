@@ -93,6 +93,7 @@ class Gala_Alex(Adv):
 
 class Gala_Alex_BK(Gala_Alex):
     conf = {}
+    conf['no_equip'] = True
     conf['slots.a'] = [
         'Howling_to_the_Heavens',
         'Memory_of_a_Friend',
@@ -114,15 +115,7 @@ class Gala_Alex_BK(Gala_Alex):
     conf['sim_afflict.frostbite'] = 1
 
     def __init__(self, **kwargs):
-        kwargs['equip_key'] = None
         super().__init__(altchain='break', **kwargs)
-
-    def pre_conf(self, equip_key=None):
-        self.conf = Conf(self.conf_default)
-        self.conf.update(globalconf.get_adv(self.name))
-        self.conf.update(self.conf_init)
-        self.conf.update(self.conf_base)
-        return None
 
     def prerun(self):
         super().prerun()
