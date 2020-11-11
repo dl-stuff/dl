@@ -70,7 +70,7 @@ class CharaBase(SlotBase):
         'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.225},
         'dagger': 0.06, 'bow': 0.11, 'blade': 0.05, 'wand': 0.05,
         'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
-        'gun': -0.135 # opera - diff in weap
+        'gun': -0.09 # opera - diff in weap
     }
     FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
 
@@ -433,7 +433,7 @@ class WeaponBase(EquipBase):
         },
         'light': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': ['self', 0.40, -1, 'att', 'buff', '-replace']}]}
+            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'],  ['ability', 1.00, -1, 'ctime', 'passive'], '-replace']}]}
         },
         'shadow': {
             's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
