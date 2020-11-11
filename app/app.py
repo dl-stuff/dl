@@ -79,9 +79,9 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
     result['logs']['action'] = fn.getvalue()
     result['logs']['summation'] = '\n'.join(['{}: {}'.format(k, v) for k, v in adv.logs.counts.items() if v])
     fn = io.StringIO()
-    adv.logs.write_logs(output=fn)
+    adv.logs.write_logs(output=fn, maxlen=3000)
     result['logs']['timeline'] = fn.getvalue()
-    
+
     result['chart'] = {}
     result['chart'] = adv.logs.convert_dataset()
 

@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 65022.4109511976,
-      "team": 0.022209215847371094,
+      "dps": 70170.2146663781,
+      "team": 0.02220921584737119,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -68,33 +68,35 @@
       ]
     },
     "buffer": {
-      "dps": 33319.65786196729,
-      "team": 0.14231032606170985,
-      "tdps": 263967.1942470133,
+      "dps": 45933.0789055339,
+      "team": 0.1451001253395532,
+      "tdps": 197224.80581353424,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "Valiant_Crown",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "His_Clever_Brother",
+        "The_Warrioresses"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, cartridge=0",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s2, cancel and cartridge = 0",
+        "`s3, not buff(s3)",
+        "`fs, c_fs(cartridge3)",
+        "`dragon(c3-s), fscf",
+        "if ((alchemy>=70 or cartridge>0) and xf=1) or x=1",
+        "`s1",
+        "`s2",
         "`s4",
-        "`dodge, x=1 and cancel"
+        "`dodge",
+        "end"
       ],
       "coabs": [
-        "Mitsuhide",
-        "Malora",
+        "Blade",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Verica"
+        "Hildegarde"
       ]
     }
   },

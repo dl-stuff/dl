@@ -135,15 +135,20 @@ class Log:
         if flush:
             output.flush()
 
-    def write_logs(self, log_filter=None, output=None):
+    def write_logs(self, log_filter=None, output=None, maxlen=None):
         if output is None:
             output = sys.stdout
         if log_filter is None:
             log_iter = self.record
         else:
             log_iter = self.filter_iter(log_filter)
+        maxlen = maxlen or -1
         for entry in log_iter:
             self.write_log_entry(entry, output)
+            maxlen -= 1
+            if maxlen == 0:
+                output.write('......')
+                return
 
     def get_log_list(self):
         return self.record
