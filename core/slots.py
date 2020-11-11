@@ -54,7 +54,7 @@ class CharaBase(SlotBase):
         'flame': {'tree': 0.26, 'arctos': 0.085},
         'water': {'tree': 0.26, 'yuletree': 0.085, 'dragonata': 0.085},
         'wind': {'tree': 0.26, 'shrine': 0.085},
-        'light': {'tree': 0.16, 'retreat': 0.085, 'circus': 0.085},
+        'light': {'tree': 0.26, 'retreat': 0.085, 'circus': 0.085},
         'shadow': {'tree': 0.26, 'library': 0.085}
     }
     FAC_ELEMENT_HP = FAC_ELEMENT_ATT.copy()
@@ -67,7 +67,7 @@ class CharaBase(SlotBase):
     FAC_ELEMENT_HP['shadow']['library'] = 0.095
 
     FAC_WEAPON_ATT = {
-        'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.21},
+        'all': {'dojo1': 0.15, 'dojo2': 0.15, 'weap': 0.225},
         'dagger': 0.06, 'bow': 0.11, 'blade': 0.05, 'wand': 0.05,
         'sword': 0.05, 'lance': 0.05, 'staff': 0.05, 'axe': 0.05,
         'gun': -0.135 # opera - diff in weap
