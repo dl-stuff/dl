@@ -5,7 +5,7 @@ from core.log import *
 from core.acl import allow_acl
 import random
 
-AFFLICT_LIST = ['poison', 'paralysis', 'burn', 'blind', 'bog', 'stun', 'freeze', 'sleep', 'frostbite', 'flashburn', 'shadowblight']
+AFFLICT_LIST = ['poison', 'paralysis', 'burn', 'blind', 'bog', 'stun', 'freeze', 'sleep', 'frostbite', 'flashburn', 'shadowblight', 'stormlash']
 
 class Dot(object):
     """
