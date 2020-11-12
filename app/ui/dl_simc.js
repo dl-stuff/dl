@@ -591,7 +591,7 @@ function readConditionList() {
 }
 function readResistDict() {
     let resists = {};
-    const resistList = $('#affliction-resist > div > input[type="text"]');
+    const resistList = $('#affliction-resist input[type="text"]');
     if (resistList.length === 0) {
         return null;
     } else {
@@ -984,7 +984,7 @@ function clearResults() {
     }
     // $('#input-missile').val('');
     $('#input-hp').val('');
-    const resistList = $('#affliction-resist > div > input[type="text"]');
+    const resistList = $('#affliction-resist input[type="text"]');
     resistList.each(function (idx, res) { $(res).val(''); });
     const simAff = $('#affliction-sim > div > input[type="text"]');
     simAff.each(function (idx, res) { $(res).val(''); });

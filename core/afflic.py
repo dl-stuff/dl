@@ -320,27 +320,27 @@ class Afflic_bog(Afflic_scc):
 class Afflics(object):
     RESIST_PROFILES = {
         None: {
-            'poison': 0, 'burn': 0, 'paralysis': 0, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'poison': 0, 'burn': 0, 'paralysis': 0, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0,
             'blind': 99, 'bog': 99, 'freeze': 99, 'stun': 99, 'sleep': 99
         },
         'flame': { # Volk
-            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0,
             'blind': 99, 'bog': 100, 'freeze': 100, 'stun': 99, 'sleep': 99
         },
         'shadow': { # Kai Yan
-            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0,
             'blind': 100, 'bog': 99, 'freeze': 100, 'stun': 99, 'sleep': 99
         },
         'wind': { # Ciella
-            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'poison': 0, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0,
             'blind': 100, 'bog': 100, 'freeze': 100, 'stun': 100, 'sleep': 100
         },
         'water': { # Ayaha & Otoha
-            'poison': 99, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0,
+            'poison': 99, 'burn': 0, 'paralysis': 100, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0,
             'blind': 100, 'bog': 70, 'freeze': 100, 'stun': 100, 'sleep': 100
         }, # bog at 70 for ~2 bogs
         'light': { # Tartarus
-            'poison': 0, 'burn': 0, 'paralysis': 0, 'frostbite': 0, 'flashburn': 0,
+            'poison': 90, 'burn': 0, 'paralysis': 0, 'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0,
             'blind': 100, 'bog': 99, 'freeze': 100, 'stun': 99, 'sleep': 99
         }
     }
@@ -351,6 +351,7 @@ class Afflics(object):
         self.frostbite = Afflic_dot('frostbite', duration=21, iv=2.9)
         self.flashburn = Afflic_dot('flashburn', duration=21, iv=2.9)
         self.shadowblight = Afflic_dot('shadowblight', duration=21, iv=2.9)
+        self.stormlash = Afflic_dot('stormlash', duration=21, iv=2.9)
 
         self.blind = Afflic_scc('blind', duration=8)
         self.bog = Afflic_bog('bog', duration=8)

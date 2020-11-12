@@ -146,6 +146,18 @@
                         <label for="input-sim-frostbite">Frostbite (%)</label><input id="input-sim-frostbite"
                             class="form-control" type="text" placeholder="0" />
                     </div>
+                    <div class="col-sm col-4">
+                        <label for="input-sim-flashburn">Flashburn (%)</label><input id="input-sim-flashburn"
+                            class="form-control" type="text" placeholder="0" />
+                    </div>
+                    <div class="col-sm col-4">
+                        <label for="input-sim-shadowblight">Shadowblight (%)</label><input id="input-sim-shadowblight"
+                            class="form-control" type="text" placeholder="0" />
+                    </div>
+                    <div class="col-sm col-4">
+                        <label for="input-sim-stormlash">Stormlash (%)</label><input id="input-sim-stormlash"
+                            class="form-control" type="text" placeholder="0" />
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="col-sm col-4">
@@ -212,46 +224,58 @@
                         <div id="input-conditions"></div>
                     </div>
                 </div>
-                <div class="form-row" id="affliction-resist">
-                    <div class="col-sm col-4">
-                        <label for="input-res-poison">Poison</label><input id="input-res-poison" class="form-control"
-                            type="text" placeholder="0" />
+                <div id="affliction-resist">
+                    <div class="form-row">
+                        <div class="col-sm col-4">
+                            <label for="input-res-poison">Poison</label><input id="input-res-poison"
+                                class="form-control" type="text" placeholder="0" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-paralysis">Paralysis</label><input id="input-res-paralysis"
+                                class="form-control" type="text" placeholder="0" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-burn">Burn</label><input id="input-res-burn" class="form-control"
+                                type="text" placeholder="0" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-frostbite">Frostbite</label><input id="input-res-frostbite"
+                                class="form-control" type="text" placeholder="0" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-flashburn">Flashburn</label><input id="input-res-flashburn"
+                                class="form-control" type="text" placeholder="0" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-shadowblight">Shadowblight</label><input id="input-res-shadowblight"
+                                class="form-control" type="text" placeholder="0" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-stormlash">Stormlash</label><input id="input-res-stormlash"
+                                class="form-control" type="text" placeholder="0" />
+                        </div>
                     </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-paralysis">Paralysis</label><input id="input-res-paralysis"
-                            class="form-control" type="text" placeholder="0" />
-                    </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-burn">Burn</label><input id="input-res-burn" class="form-control"
-                            type="text" placeholder="0" />
-                    </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-frostbite">Frostbite</label><input id="input-res-frostbite"
-                            class="form-control" type="text" placeholder="0" />
-                    </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-flashburn">Flashburn</label><input id="input-res-flashburn"
-                            class="form-control" type="text" placeholder="0" />
-                    </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-bog">Bog</label><input id="input-res-bog" class="form-control" type="text"
-                            placeholder="99" />
-                    </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-blind">Blind</label><input id="input-res-blind" class="form-control"
-                            type="text" placeholder="99" />
-                    </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-stun">Stun</label><input id="input-res-stun" class="form-control"
-                            type="text" placeholder="99" />
-                    </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-freeze">Freeze</label><input id="input-res-freeze" class="form-control"
-                            type="text" placeholder="99" />
-                    </div>
-                    <div class="col-sm col-4">
-                        <label for="input-res-sleep">Sleep</label><input id="input-res-sleep" class="form-control"
-                            type="text" placeholder="99" />
+                    <div class="form-row">
+                        <div class="col-sm col-4">
+                            <label for="input-res-bog">Bog</label><input id="input-res-bog" class="form-control"
+                                type="text" placeholder="99" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-blind">Blind</label><input id="input-res-blind" class="form-control"
+                                type="text" placeholder="99" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-stun">Stun</label><input id="input-res-stun" class="form-control"
+                                type="text" placeholder="99" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-freeze">Freeze</label><input id="input-res-freeze"
+                                class="form-control" type="text" placeholder="99" />
+                        </div>
+                        <div class="col-sm col-4">
+                            <label for="input-res-sleep">Sleep</label><input id="input-res-sleep" class="form-control"
+                                type="text" placeholder="99" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -464,14 +488,17 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
                                 dodge is faster than recovery or if the <code>cX</code> is not the final combo.</li>
                             <li><code>end</code> means preemptively stop the transform, used to represent dragon
                                 tanking.</li>
-                            <li>The conditions are a limited subset of python code, some common commonly used conditions are:
+                            <li>The conditions are a limited subset of python code, some common commonly used conditions
+                                are:
                                 <ul>
                                     <li><code>x=n</code> or <code>seq=n</code>: the previous action was combo #n in
                                         the
                                         attack chain.</li>
-                                    <li><code>xf=n</code>: the previous action was the first cancelable hit in combo #n</li>
+                                    <li><code>xf=n</code>: the previous action was the first cancelable hit in combo #n
+                                    </li>
                                     <li><code>fsc</code>: the previous action was force strike</li>
-                                    <li><code>fscf</code>: the previous action was the first cancelable hit in force strike</li>
+                                    <li><code>fscf</code>: the previous action was the first cancelable hit in force
+                                        strike</li>
                                     <li><code>cancel</code>: the previous action was a combo or a force strike,
                                         equivalent to <code>x=1 or x=2 or x=3 or x=4 or x=5 or fsc</code>.</li>
                                     <li><code>s=n</code>: the previous action was skill #n</li>
@@ -479,13 +506,16 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
                                     <li><code>prep</code>: at the start of the fight if the adventurer has skill
                                         prep</li>
                                     <li><code>s1.check()</code> signify that a skill is ready to use.</li>
-                                    <li>`buff(s3)` checks if a buff created by `s3` is currently active, works for all skills. If you need to check for buff from specific phase of skill, use `buff(s3, 1)` and so on.</li>
+                                    <li>`buff(s3)` checks if a buff created by `s3` is currently active, works for all
+                                        skills. If you need to check for buff from specific phase of skill, use
+                                        `buff(s3, 1)` and so on.</li>
                                     <li>`have_buff(buffname)` checks for presence of misc. buffs on certain
                                         character.
                                         The name of buffs is poorly documented with inconsistent naming scheme, but
                                         you
                                         can look at logs to figure out the specifics for your adventurer.</li>
-                                    <li>You can use basic arithmetic operators and most logical operations in the condition.
+                                    <li>You can use basic arithmetic operators and most logical operations in the
+                                        condition.
                                     <li>Special conditions are implemented for some adventurers but unfortunately
                                         most
                                         aren't well documented nor universal. You most likely have to look at the
