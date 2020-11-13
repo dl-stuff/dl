@@ -226,31 +226,31 @@
   },
   "120": {
     "affliction": {
-      "dps": 61149.88634287829,
-      "team": 0.016653240664239323,
+      "dps": 65163.43144450141,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "The_Shining_Overlord",
-        "Rogues_Banquet",
-        "The_Plaguebringer"
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
         "if electrified",
-        "`s1",
-        "`s4",
-        "if x=3",
+        "`s1, cancel",
+        "`s4, not energy()=5",
+        "if x=1",
         "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
-        "`dragon(s), cancel",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, cancel",
-        "`s4, cancel",
+        "`dragon(c9-s-end), s2.charged>s2.sp * 1/2 and cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2,s1)",
+        "`s4, cancel and not energy()=5",
+        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
         "end"
       ],
       "coabs": [
@@ -260,7 +260,7 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Jurota"
       ]
     },
     "pref": "base",

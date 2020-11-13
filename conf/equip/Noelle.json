@@ -94,9 +94,9 @@
   },
   "60": {
     "base": {
-      "dps": 31088.061076114758,
-      "team": 0.2400478135317092,
-      "tdps": 29055.438574047097,
+      "dps": 31143.600265174366,
+      "team": 0.24004781353170915,
+      "tdps": 25466.11473462522,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -125,8 +125,8 @@
     },
     "pref": "buffer",
     "affliction": {
-      "dps": 35015.68980219454,
-      "team": 0.2400478135317092,
+      "dps": 35078.24574645929,
+      "team": 0.24004781353170915,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -155,23 +155,24 @@
       ]
     },
     "buffer": {
-      "dps": 5925.283742051308,
-      "team": 1.1060742295479986,
-      "tdps": 29055.438574047097,
+      "dps": 6108.32464997519,
+      "team": 1.2231296804000678,
+      "tdps": 25466.11473462522,
       "slots.a": [
         "A_Dogs_Day",
+        "Gentle_Winds",
         "Sisters_Day_Out",
-        "Study_Rabbits",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Freyja",
       "acl": [
-        "`fs, self.fs_prep_c>0 and x=5",
         "`s1",
-        "`s3",
-        "`s4",
-        "`dodge, fsc"
+        "`s4, s1.charged<s1.sp/2",
+        "`s3, x>1",
+        "`fs, self.fs_prep_c=3 and x=1",
+        "`fs, self.fs_prep_c=1 and x=5",
+        "`fs, x=5"
       ],
       "coabs": [
         "Bow",
@@ -179,8 +180,8 @@
         "Tobias"
       ],
       "share": [
-        "Summer_Cleo",
-        "Mikoto"
+        "Mikoto",
+        "Summer_Cleo"
       ]
     }
   }
