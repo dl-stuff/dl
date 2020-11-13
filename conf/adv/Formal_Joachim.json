@@ -1,0 +1,47 @@
+{
+    "c": {
+        "name": "Formal Joachim",
+        "icon": "110350_02_r05",
+        "att": 504,
+        "hp": 755,
+        "ele": "wind",
+        "wt": "gun",
+        "spiral": false,
+        "a": [["k_stormlash", 0.3], ["k_poison", 0.3]],
+        "gun": [1]
+    },
+    "s1": {
+        "sp": 3060,
+        "startup": 0.1,
+        "recovery": 1.3,
+        "attr": [
+            {"dmg": 10.12, "afflic": ["stormlash", 120, 0.41], "iv": 1.1, "msl": 1}
+        ]
+    },
+    "s1_from2": {
+        "startup": 0.1,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 20.64, "iv": 1.4, "msl": 1},
+            {"afflic": ["poison", 120, 0.582, 30.0], "iv": 1.4, "msl": 1}
+        ]
+    },
+    "s2": {
+        "sp": 6120,
+        "startup": 0.1,
+        "recovery": 2.16667,
+        "attr": [
+            {"afflic": ["poison", 120, 0.582], "iv": 1.5, "msl": 1}
+        ],
+        "cancel": {"s1": 1.9}
+    },
+    "s99": {
+        "sp": 9298,
+        "startup": 0.1,
+        "recovery": 0.9,
+        "attr": [
+            {"dmg": 20.64, "afflic": ["stormlash", 120, 0.41], "iv": 0.1, "msl": 1},
+            {"afflic": ["poison", 120, 0.582, 30.0], "iv": 0.1, "msl": 1}
+        ]
+    }
+}

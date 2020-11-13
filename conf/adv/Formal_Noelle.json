@@ -1,0 +1,41 @@
+{
+    "c": {
+        "name": "Formal Noelle",
+        "icon": "110340_02_r05",
+        "att": 468,
+        "hp": 807,
+        "ele": "wind",
+        "wt": "staff",
+        "spiral": false,
+        "a": [["k_poison", 0.3]]
+    },
+    "fs_enhanced": {
+        "charge": 0.5,
+        "startup": 0.33333,
+        "recovery": 0.5,
+        "attr": [
+            {"buff": ["team", 0.15, -1, "maxhp", "buff"]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.03334}
+    },
+    "s1": {
+        "sp": 5916,
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"buff": ["fsAlt", "enhanced", -1, 2, "-refresh"]},
+            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 1.0}
+        ],
+        "energizable": true
+    },
+    "s2": {
+        "sp": 8352,
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"dmg": 14.25, "buff": ["affres", -0.1, 30.0, "poison", "-overwrite_25"], "iv": 0.96667, "msl": 1},
+            {"dispel": 100, "iv": 0.96667, "msl": 1}
+        ]
+    }
+}
