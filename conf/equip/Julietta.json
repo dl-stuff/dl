@@ -1,70 +1,72 @@
 {
   "180": {
     "base": {
-      "dps": 58175.795369612395,
-      "team": 0.02221657550928027,
+      "dps": 61691.09694290602,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "FirstRate_Hospitality",
-        "The_Plaguebringer"
+        "Chariot_Drift",
+        "The_Warrioresses"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(s), s4.charged<s4.sp/1.5",
+        "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c6-s-end), dragonform.shift_count=1 and energy()=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
-        "`s4",
-        "`fs, x=1 and c_fs(enhanced)>0"
+        "`s4, x=2 and energy()<5 and not buff(s4)",
+        "`fs, c_fs(enhanced)>0 and (energy()>1 and x=4) or (charged_in(fs, s1) and x=2 and energy()=5)"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Lucretia",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Hunter_Sarisse"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 64218.04642071688,
-      "team": 0.022216575509280245,
+      "dps": 70176.88601513291,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Summer_Paladyns",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(s), s4.charged<s4.sp/1.5",
+        "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c6-s-end), dragonform.shift_count=1 and energy()=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
-        "`s4",
-        "`fs, x=1 and c_fs(enhanced)>0"
+        "`s4, x=2 and energy()<5 and not buff(s4)",
+        "`fs, c_fs(enhanced)>0 and (energy()>1 and x=4) or (charged_in(fs, s1) and x=2 and energy()=5)"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Lucretia",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Hunter_Sarisse"
       ]
     },
     "buffer": {
-      "dps": 10383.081866782775,
-      "team": 0.062476991112550506,
-      "tdps": 1187089.4223691907,
+      "dps": 11118.084973839977,
+      "team": 0.06247699111255057,
+      "tdps": 809466.190168476,
       "slots.a": [
         "Felyne_Hospitality",
         "Memory_of_a_Friend",
@@ -89,8 +91,8 @@
   },
   "60": {
     "base": {
-      "dps": 53557.643467770235,
-      "team": 0.03264913266762844,
+      "dps": 52843.14142159121,
+      "team": 0.03264913266762837,
       "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
@@ -120,9 +122,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 41702.24415274165,
-      "team": 0.03501359351597531,
-      "tdps": 5013996.879380516,
+      "dps": 44650.98193575045,
+      "team": 0.03501359351597522,
+      "tdps": 3464705.0686283973,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -150,8 +152,8 @@
       ]
     },
     "affliction": {
-      "dps": 60675.66381525009,
-      "team": 0.033184897287765164,
+      "dps": 60003.27622110332,
+      "team": 0.03318489728776509,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -167,7 +169,7 @@
         "`s2",
         "`s1",
         "`s4",
-        "`fs, cancel and c_fs(enhanced)>0"
+        "`fs, x=1 and c_fs(enhanced)>0"
       ],
       "coabs": [
         "Blade",

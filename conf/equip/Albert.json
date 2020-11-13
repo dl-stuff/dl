@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 66461.15329263174,
+      "dps": 67619.33797418624,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -14,18 +14,18 @@
       "slots.d": "Gala_Thor",
       "acl": [
         "if electrified",
-        "`s1",
-        "`s4",
+        "`s1, cancel",
+        "`s4, not energy()=5",
         "if x=1",
         "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
-        "`dragon, cancel",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, cancel",
-        "`s4, cancel",
+        "`dragon(c9-s-end), s2.charged>s2.sp * 1/2 and cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2,s1)",
+        "`s4, cancel and not energy()=5",
+        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
         "end"
       ],
       "coabs": [
@@ -35,14 +35,14 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Jurota"
       ]
     },
     "pref": "base",
     "buffer": {
-      "dps": 7532.380652011317,
-      "team": 0.4325348479920438,
-      "tdps": 136240.52007412913,
+      "dps": 8058.370622965318,
+      "team": 0.43253484799204384,
+      "tdps": 137702.12418194916,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -68,31 +68,31 @@
       ]
     },
     "affliction": {
-      "dps": 61954.41876372022,
+      "dps": 72073.32255314958,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "The_Shining_Overlord",
-        "The_Plaguebringer",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
         "if electrified",
-        "`s1",
-        "`s4",
+        "`s1, cancel",
+        "`s4, not energy()=5",
         "if x=1",
         "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
-        "`dragon(s-end), cancel",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, cancel",
-        "`s4, cancel",
+        "`dragon(c9-s-end), s2.charged>s2.sp * 1/2 and cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2,s1)",
+        "`s4, cancel and not energy()=5",
+        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
         "end"
       ],
       "coabs": [
@@ -102,15 +102,15 @@
       ],
       "share": [
         "Weapon",
-        "Rodrigo"
+        "Jurota"
       ]
     }
   },
   "60": {
     "base": {
-      "dps": 45237.37098975998,
-      "team": 0.033212948138283356,
-      "tdps": -120740511.15561616,
+      "dps": 45207.753546226435,
+      "team": 0.0332129481382834,
+      "tdps": -45165373.72227838,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -147,8 +147,8 @@
     },
     "pref": "buffer",
     "affliction": {
-      "dps": 59902.42851962171,
-      "team": 0.004240283437049573,
+      "dps": 58349.70170460184,
+      "team": 0.004240283437049582,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -185,9 +185,9 @@
       ]
     },
     "buffer": {
-      "dps": 44058.74394069676,
+      "dps": 44766.864811858366,
       "team": 0.03320318648465292,
-      "tdps": -120740511.15561616,
+      "tdps": -45165373.72227838,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -226,8 +226,8 @@
   },
   "120": {
     "affliction": {
-      "dps": 63479.05834290856,
-      "team": 0.016653240664239285,
+      "dps": 61149.88634287829,
+      "team": 0.016653240664239323,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -265,7 +265,7 @@
     },
     "pref": "base",
     "base": {
-      "dps": 53504.64459764036,
+      "dps": 58445.20049216513,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
