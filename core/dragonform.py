@@ -80,10 +80,10 @@ class DragonForm(Action):
                 self.d_shift_end(None)
                 self.shift_end_timer.off()
 
-    def can_interrupt(self, target, name):
+    def can_interrupt(self, *args):
         return None
 
-    def can_cancel(self, target, name):
+    def can_cancel(self, *args):
         return None
 
     def getstartup(self):

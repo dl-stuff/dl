@@ -339,7 +339,6 @@ class Action(object):
                     return 0
             elif doing.status == Action.RECOVERY:  # try to cancel an action
                 timing = doing.can_cancel(self.atype)
-                log('tap', self.name, self.atype, str(timing))
                 if timing is not None: # can cancel action
                     if timing > 0:
                         Timer(self.tap).on(timing) # wait for allowed cancel timing
