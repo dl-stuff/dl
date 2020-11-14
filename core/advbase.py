@@ -85,7 +85,7 @@ class Skill(object):
             self._static.current_s[self.name] = cur_s
 
     def __call__(self, *args):
-        self.precast()
+        return self.precast()
     
     def precast(self, t=None):
         if not self.check():
@@ -93,7 +93,7 @@ class Skill(object):
         result = self.ac.tap(defer=False)
         if isinstance(result, float):
             Timer(self.precast).on(result)
-            return False
+            return True
         elif not result:
             return False
         self.enable_phase_up and self.phase_up()
