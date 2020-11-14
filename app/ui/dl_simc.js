@@ -29,7 +29,8 @@ const AFFLICT_COLORS = {
     sleep: 'slategray',
     frostbite: 'deepskyblue',
     flashburn: 'sandybrown',
-    shadowblight: 'rebeccapurple'
+    shadowblight: 'orchid',
+    stormlash: 'palegreen'
 };
 
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
