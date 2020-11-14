@@ -1,8 +1,7 @@
 from core.afflic import AFFLICT_LIST
+from conf import ELEMENTS, WEAPON_TYPES
 
 class Ability:
-    COND_ELE = ('flame', 'water', 'wind', 'light', 'shadow')
-    COND_WT = ('axe', 'blade', 'bow', 'dagger', 'lance', 'staff', 'sword', 'wand')
     def __init__(self, name, mod=None):
         self.name = name
         self.mod = mod or []
@@ -15,9 +14,9 @@ class Ability:
             classifier = cond
             cond = None
         new_m = (m[0], m[1], m[2], cond)
-        if classifier in self.COND_ELE:
+        if classifier in ELEMENTS:
             return adv.slots.c.ele == classifier, new_m
-        elif classifier in self.COND_WT:
+        elif classifier in WEAPON_TYPES:
             return adv.slots.c.wt == classifier, new_m
         else:
             return True, m
