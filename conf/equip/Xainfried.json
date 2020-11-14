@@ -110,33 +110,39 @@
   },
   "60": {
     "base": {
-      "dps": 61910.7073046363,
-      "team": 0.06644926681540221,
+      "dps": 79025.84984212335,
+      "team": 0.06651812061697546,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c3-s)",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "if s=4",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c1-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s1, fscf or dgauge>=500",
+        "`s4, dgauge>=500 and s=1",
         "`s2",
-        "`s4",
-        "`s1, fsc and buff(s3)",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
+        "Yurius",
         "Summer_Celliera",
-        "Tiki",
-        "Dagger"
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Summer_Julietta"
       ]
     },
     "pref": "base",
@@ -173,7 +179,7 @@
     "buffer": {
       "dps": 50632.09583825124,
       "team": 0.23616808849540283,
-      "tdps": 66454.68873010749,
+      "tdps": 167366.69248425277,
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
