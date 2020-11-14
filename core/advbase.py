@@ -47,6 +47,7 @@ class Skill(object):
         self.enable_phase_up = None
 
     def add_action(self, group, act):
+        act.cast = self.cast
         self.act_dict[group] = act
         if group == 'default':
             self.act_base = act
@@ -84,9 +85,16 @@ class Skill(object):
             self._static.current_s[self.name] = cur_s
 
     def __call__(self, *args):
+        self.precast()
+    
+    def precast(self, t=None):
         if not self.check():
             return False
-        if not self.ac():
+        result = self.ac.tap(defer=False)
+        if isinstance(result, float):
+            Timer(self.precast).on(result)
+            return False
+        elif not result:
             return False
         self.enable_phase_up and self.phase_up()
         return self.cast()
@@ -307,7 +315,7 @@ class Action(object):
         except ValueError:
             return 0
 
-    def tap(self, t=None):
+    def tap(self, t=None, defer=True):
         doing = self._static.doing
 
         if doing.idle:
@@ -318,7 +326,7 @@ class Action(object):
                 log('tap', self.name, self.atype, f'doing {doing.name}:{doing.status}')
 
         if doing == self:  # self is doing
-            return 0
+            return False
 
         # if doing.idle # idle
         #    pass
@@ -327,8 +335,10 @@ class Action(object):
                 timing = doing.can_interrupt(self.atype)
                 if timing is not None: # can interrupt action
                     if timing > 0:
-                        Timer(self.tap).on(timing)
-                        return 0
+                        if defer:
+                            Timer(self.tap).on(timing)
+                            return False
+                        return timing
                     doing.startup_timer.off()
                     logargs = ['interrupt', doing.name, f'by {self.name}']
                     delta = now() - doing.startup_start
@@ -336,13 +346,15 @@ class Action(object):
                         logargs.append(f'after {delta:.2f}s')
                     log(*logargs)
                 else:
-                    return 0
+                    return False
             elif doing.status == Action.RECOVERY:  # try to cancel an action
                 timing = doing.can_cancel(self.atype)
                 if timing is not None: # can cancel action
                     if timing > 0:
-                        Timer(self.tap).on(timing) # wait for allowed cancel timing
-                        return 0
+                        if defer:
+                            Timer(self.tap).on(timing)
+                            return False
+                        return timing
                     doing.recovery_timer.off()
                     count = doing.clear_delayed()
                     delta = now() - doing.recover_start
@@ -353,7 +365,7 @@ class Action(object):
                         logargs.append(f'lost {count} hit{"s" if count > 1 else ""}')
                     log(*logargs)
                 else:
-                    return 0
+                    return False
             elif doing.status == 0:
                 raise Exception(f'Illegal action {doing} -> {self}')
             self._setprev()
@@ -364,7 +376,7 @@ class Action(object):
         self._setdoing()
         if now() <= 3:
             log('debug', 'tap', 'startup', self.getstartup())
-        return 1
+        return True
 
 
 class Repeat(Action):

@@ -1,12 +1,17 @@
 from core.advbase import *
 
 class Formal_Joachim(Adv):
+    def prerun(self):
+        self.a_s_dict['s1'].act_dict['from2'].atype = 's1'
+
     def cast_s1_from_s2(self, t=None):
         self.current_s['s1'] = 'from2'
         self.a_s_dict['s1'].ac.atype = 's1'
         result = self.a_s_dict['s1']()
-        self.current_s['s1'] = 'default'
         return result
+    
+    def s1_proc(self, e):
+        self.current_s['s1'] = 'default'
 
     @allow_acl
     def s(self, n):
