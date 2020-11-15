@@ -637,14 +637,16 @@ class AmuletPicker:
 
 class AmuletQuint:
     AB_LIMITS = {
-        'a': 0.20, 's': 0.40, 'cc': 0.15, 'cd': 0.25,
-        'fs': 0.50, 'bt': 0.30, 'sp': 0.15, 'spf': 0.15, 'bk': 0.30,
-        'od': 0.15, 'lo_att': 0.60, 'ro_att': 0.10,
+        'a': 0.20, 's': 0.40, 'cc': 0.15, 'cd': 0.25, 'fs': 0.50,
+        'bt': 0.30, 'dbt': 0.20, 'sp': 0.15, 'spf': 0.15, 'bk': 0.30,
+        'od': 0.15, 'lo_att': 0.60, 'lo_defense': 1.0, 'ro_att': 0.10,
         'bc_att': 0.15, 'bc_cd': 0.15, 'bc_energy': 1, 'bc_regen': 3,
-        'prep': 100, 'dc': 3, 'dcs': 3, 'da': 0.18, 'dt': 0.20,
-        'spu': 0.08, 'au': 0.08,
+        'prep': 100, 'eprep': 5,
+        'dc': 3, 'dcs': 3, 'dcd': 3, 'da': 0.18, 'dh': 0.15, 'dt': 0.20,
+        'spu': 0.08, 'au': 0.08, 'affself_poison_crit_damage': 0.3,
         'k_burn': 0.30, 'k_poison': 0.30, 'k_paralysis': 0.25,
-        'k_frostbite': 0.25, 'k_stun': 0.25, 'k_sleep': 0.25
+        'k_frostbite': 0.25, 'k_stun': 0.25, 'k_sleep': 0.25,
+        'k_shadowblight': 0.25, 'k_bleed': 0.15
     }
     # actually depends on weapons kms
     RARITY_LIMITS = {5: 3, None: 2}
@@ -718,6 +720,7 @@ class AmuletQuint:
             for a in sorted(lst, key=AmuletQuint.sort_ab):
                 delta = min(limits[cat], a[1])
                 limits[cat] -= delta
+                # reminder: fix this too whenever buffcounts are fixed
                 merged_ab.append((cat, delta, *a[2:]))
                 if limits[cat] == 0:
                     break

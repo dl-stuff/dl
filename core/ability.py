@@ -205,7 +205,7 @@ class Bleed_Killer(Ability):
             except AttributeError:
                 return 0
         self.mod_object.get = get_bleed
-ability_dict['bleed'] = Bleed_Killer
+ability_dict['k_bleed'] = Bleed_Killer
 
 
 class Co_Ability(Ability):
