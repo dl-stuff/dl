@@ -643,7 +643,7 @@ class AmuletQuint:
         'bc_att': 0.15, 'bc_cd': 0.15, 'bc_energy': 1, 'bc_regen': 3,
         'prep': 100, 'dc': 3, 'dcs': 3, 'da': 0.18, 'dt': 0.20,
         'spu': 0.08, 'au': 0.08,
-        'k_burn': 0.30, 'k_poison': 0.25, 'k_paralysis': 0.25,
+        'k_burn': 0.30, 'k_poison': 0.30, 'k_paralysis': 0.25,
         'k_frostbite': 0.25, 'k_stun': 0.25, 'k_sleep': 0.25
     }
     # actually depends on weapons kms
