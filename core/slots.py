@@ -646,7 +646,7 @@ class AmuletQuint:
         'spu': 0.08, 'au': 0.08, 'affself_poison_crit_damage': 0.3,
         'k_burn': 0.30, 'k_poison': 0.30, 'k_paralysis': 0.25,
         'k_frostbite': 0.25, 'k_stun': 0.25, 'k_sleep': 0.25,
-        'k_shadowblight': 0.25, 'k_bleed': 0.15
+        'k_shadowblight': 0.25, 'bleed': 0.15
     }
     # actually depends on weapons kms
     RARITY_LIMITS = {5: 3, None: 2}
