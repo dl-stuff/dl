@@ -1266,6 +1266,10 @@ class Adv(object):
         return self.a_dodge()
 
     @allow_acl
+    def dooodge(self):
+        return self.a_dooodge()
+
+    @allow_acl
     def fsf(self):
         return self.a_fsf()
 

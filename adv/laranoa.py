@@ -8,8 +8,10 @@ class Laranoa(Adv):
 
     def add_combo(self, name='#'):
         super().add_combo(name)
-        if self.hits // 15 > self.ahits:
-            self.ahits = self.hits // 15
-            Selfbuff('a1_crit_dmg',0.10,20,'crit','damage', source=name).on()
+        if self.condition('always connect hits'):
+            a_hits = self.hits // 15
+            if a_hits > 0 and a_hits != self.ahits:
+                self.ahits = a_hits
+                Selfbuff('a1_crit_dmg',0.10,20,'crit','damage', source=name).on()
 
 variants = {None: Laranoa}
