@@ -10,7 +10,7 @@ class Karina_FLEET(Adv):
         'Felyne_Hospitality',
         'Summer_Paladyns',
         'From_Whence_He_Comes',
-        'Odd_Sparrows'
+        'Halidom_Grooms'
     ]
     conf['acl'] = """
         `s4
