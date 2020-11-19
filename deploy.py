@@ -202,9 +202,10 @@ def main(arguments):
         arguments.remove('-c')
     if '-san' in arguments:
         sanity_test = True
+        arguments.remove('-san')
     if '-rp' in arguments:
-        arguments.remove('-rp')
         is_repair = True
+        arguments.remove('-rp')
 
     target_modules = get_sim_target_modules(arguments)
 
