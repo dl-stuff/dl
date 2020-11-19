@@ -372,9 +372,7 @@ class Gala_Cat_Sith(DragonBase):
                 n_thit = adv.hits // threshold
                 if n_thit > self.thit:
                     add_trickery(1)
-                    self.thit = n_thit
-                else:
-                    self.thit = 0
+                self.thit = n_thit
                 check_trickery()
             adv.add_combo = add_combo
 
