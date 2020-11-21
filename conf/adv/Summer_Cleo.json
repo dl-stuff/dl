@@ -24,16 +24,13 @@
         "startup": 0.1,
         "recovery": 2.2,
         "attr": [
-            {"buff": [
-                ["team", 0.05, 10.0, "att", "buff"],
-                ["team", 0.03, 10.0, "crit", "chance"],
-                ["team", 0.1, 10.0, "sp", "passive"],
-                ["team", 0.1, 10.0, "s", "buff"]
-            ], "iv": 0.23333},
-            {"buff": [
-                ["self", 0.1, 10.0, "defense", "buff"],
-                ["self", 0.1, 10.0, "crit", "damage"]
-            ], "sp": [1.0, "%", "s1"], "iv": 0.56667, "msl": 1},
+            {"buff": ["nearby", 0.05, 10.0, "att", "buff"], "iv": 0.23333},
+            {"buff": ["nearby", 0.03, 10.0, "crit", "chance"], "iv": 0.23333},
+            {"buff": ["nearby", 0.1, 10.0, "sp", "passive"], "iv": 0.23333},
+            {"buff": ["nearby", 0.1, 10.0, "s", "buff"], "iv": 0.23333},
+            {"buff": ["self", 0.1, 10.0, "defense", "buff"], "iv": 0.56667, "msl": 1},
+            {"buff": ["self", 0.1, 10.0, "crit", "damage"], "iv": 0.56667, "msl": 1},
+            {"sp": [1.0, "%", "s1"], "iv": 0.56667, "msl": 1}
             {"dmg": 0.0, "iv": 2.0, "msl": 1}, 3
         ]
     }

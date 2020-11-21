@@ -625,6 +625,7 @@ class Teambuff(Buff):
         super().buff_end_proc(e)
         self.count_team_buff()
 bufftype_dict['team'] = Teambuff
+bufftype_dict['nearby'] = Teambuff
 
 
 class ElementalTeambuff(Teambuff):

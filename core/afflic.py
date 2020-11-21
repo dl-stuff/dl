@@ -277,10 +277,12 @@ class Afflic_cc(AfflicCapped):
         super().__init__(name, duration, tolerance=tolerance)
         self.stack_cap = 1
 
-    def on(self, name, rate, duration=None):
+    def on(self, name, rate, duration=None, min_duration=None):
         self.event.source = name
         self.rate = rate + self.edge
         self.duration = duration or self.default_duration
+        if min_duration:
+            self.duration = (self.duration + min_duration) / 2
         return super().on()
 
     def cb_end(self):
