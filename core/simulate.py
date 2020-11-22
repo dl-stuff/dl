@@ -465,7 +465,7 @@ def same_build_different_dps(a, b):
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times', 'United_by_One_Vision', 'Second_Anniversary')
 ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'classbane', 'hp', 'dumb', 'afflict_res', 'fleet')
-BUFFER_TDPS_THRESHOLD = 35000
+BUFFER_TDPS_THRESHOLD = 40000
 BUFFER_TEAM_THRESHOLD = 1.6
 TDPS_WEIGHT = 15000
 def save_equip(adv, real_d, repair=False, etype=None):
