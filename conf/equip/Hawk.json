@@ -1,15 +1,15 @@
 {
   "180": {
     "base": {
-      "dps": 71007.45981500158,
+      "dps": 71333.14842721159,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
+        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
@@ -30,20 +30,20 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Pinon"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 72910.12316843549,
+      "dps": 73907.2009785054,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
+        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
@@ -64,13 +64,13 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Pinon"
       ]
     },
     "buffer": {
-      "dps": 51694.18846553179,
-      "team": 0.11983254696838076,
-      "tdps": 161168.82965498368,
+      "dps": 51708.53132381535,
+      "team": 0.11986579521716736,
+      "tdps": 163721.57768478707,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -103,19 +103,19 @@
   },
   "60": {
     "affliction": {
-      "dps": 54623.83512166767,
+      "dps": 54862.78827829132,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
+        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# queue self.duration<=60",
         "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
         "# end",
         "`s3, not buff(s3)",
@@ -137,19 +137,19 @@
     },
     "pref": "base",
     "base": {
-      "dps": 53511.87987724072,
+      "dps": 54862.78827829132,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
+        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# queue self.duration<=60",
         "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
         "# end",
         "`s3, not buff(s3)",
@@ -166,13 +166,46 @@
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Pinon"
+      ]
+    },
+    "buffer": {
+      "dps": 46249.57861979215,
+      "team": 0.0726894195705449,
+      "tdps": 118493.30630766801,
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Gentle_Winds",
+        "Rogues_Banquet",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "# queue self.duration<=60",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and self.duration >= 120",
+        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
+        "`s4, s or x=5",
+        "`s1, fsc or s=1 or s=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
       ]
     }
   },
   "120": {
     "base": {
-      "dps": 67882.19878509018,
+      "dps": 67910.46404033244,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -206,19 +239,19 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 70729.71334046498,
+      "dps": 72916.40789042058,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
+        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
+        "# queue self.duration<=60",
         "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
         "# end",
         "`s3, not buff(s3)",
@@ -235,7 +268,40 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Pinon"
+      ]
+    },
+    "buffer": {
+      "dps": 53483.754187198094,
+      "team": 0.05618693484787764,
+      "tdps": 256762.71347055506,
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Gentle_Winds",
+        "Rogues_Banquet",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "# queue self.duration<=60",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and self.duration >= 120",
+        "`s2, c_fs(enhanced)=0 or self.s2.phase=1",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and self.s2.phase=0 and c_fs(enhanced)>0)",
+        "`s4, s or x=5",
+        "`s1, fsc or s=1 or s=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
       ]
     }
   }

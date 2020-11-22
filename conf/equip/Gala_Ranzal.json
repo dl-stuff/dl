@@ -1,24 +1,28 @@
 {
   "180": {
     "base": {
-      "dps": 74106.85682377857,
+      "dps": 79198.67647776059,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Brothers_in_Arms",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon(c2-s-end)",
         "`s3, not buff(s3)",
         "`s2, fsc",
-        "`s4, fsc",
-        "`s1, gauges['x'] >= 1000 and cancel",
-        "`fs, x=4"
+        "`s4",
+        "`s1, gauges['x'] >= 1000 and gauges['fs'] >= 1000 and cancel",
+        "if gauges['fs'] < 1000",
+        "`fs, x=4 or hits=0",
+        "else",
+        "`dodge, x=5",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -34,7 +38,7 @@
     "buffer": {
       "dps": 34192.30641936542,
       "team": 0.1674158975720311,
-      "tdps": 238415.53271390975,
+      "tdps": 268829.72711137583,
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
@@ -62,24 +66,28 @@
       ]
     },
     "affliction": {
-      "dps": 78287.33491155639,
+      "dps": 82995.17049941525,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Brothers_in_Arms",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, gauges['x'] >= 1000 and cancel",
-        "`fs, x=4"
+        "`s1, gauges['x'] >= 1000 and gauges['fs'] >= 1000 and cancel",
+        "if gauges['fs'] < 1000",
+        "`fs, x=4 or hits=0",
+        "else",
+        "`dodge, x=5",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -94,7 +102,7 @@
   },
   "60": {
     "base": {
-      "dps": 65240.30279927817,
+      "dps": 65294.52403485445,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -125,7 +133,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 75815.32156025818,
+      "dps": 75664.85883049686,
       "team": 0.0,
       "tdps": null,
       "slots.a": [

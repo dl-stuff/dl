@@ -1,14 +1,14 @@
 {
   "180": {
     "base": {
-      "dps": 61691.09694290602,
+      "dps": 62270.9178366622,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Chariot_Drift",
+        "FirstRate_Hospitality",
         "The_Warrioresses"
       ],
       "slots.d": "Gala_Thor",
@@ -33,25 +33,25 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 70176.88601513291,
+      "dps": 70501.76479242362,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Summer_Paladyns",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses"
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
         "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
-        "`dragon(c6-s-end), dragonform.shift_count=1 and energy()=4",
+        "`dragon(c6-s-end), dragonform.shift_count>=1 and energy()>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
         "`s4, x=2 and energy()<5 and not buff(s4)",
-        "`fs, c_fs(enhanced)>0 and (energy()>1 and x=4) or (charged_in(fs, s1) and x=2 and energy()=5)"
+        "`fs, c_fs(enhanced)>0 and (energy()>1 and x=4) or (charged_in(fs, s1) and x=2)"
       ],
       "coabs": [
         "Blade",
@@ -66,7 +66,7 @@
     "buffer": {
       "dps": 11118.084973839977,
       "team": 0.06247699111255057,
-      "tdps": 809466.190168476,
+      "tdps": 818746.7410309791,
       "slots.a": [
         "Felyne_Hospitality",
         "Memory_of_a_Friend",

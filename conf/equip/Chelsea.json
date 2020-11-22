@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 65458.00935489118,
+      "dps": 65847.92181090353,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -16,8 +16,8 @@
         "`dragon(s-s), self.hp < 30",
         "`s3,not buff(s3)",
         "`s2",
-        "`s1, fscf or dragon",
-        "`s4, fscf",
+        "`s1, fscf or s=2",
+        "`s4",
         "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
@@ -32,37 +32,37 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 37533.63377250712,
-      "team": 0.09344949158696324,
-      "tdps": 298817.8438231298,
+      "dps": 30841.80553333258,
+      "team": 0.12205138842881255,
+      "tdps": 286814.5682585868,
       "slots.a": [
         "Dear_Diary",
+        "Forest_Bonds",
         "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "To_the_Extreme"
+        "Chariot_Drift",
+        "Taiko_Tandem"
       ],
-      "slots.d": "Dreadking_Rathalos",
+      "slots.d": "Horus",
       "acl": [
+        "`dragon(s-s), self.hp < 30",
         "`s3,not buff(s3)",
-        "`s2, fsc",
-        "`s1, self.hp < 30 and buffstack(ro) < 3",
-        "`s4, fsc",
-        "`fs",
-        "`dodge, fsc"
+        "`s2",
+        "`s1, fscf or s=2",
+        "`s4",
+        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
-        "Blade",
-        "Serena",
-        "Grace"
+        "Dagger",
+        "Valentines_Hildegarde",
+        "Marth"
       ],
       "share": [
-        "Weapon",
-        "Karl"
+        "Sylas",
+        "Cleo"
       ]
     },
     "affliction": {
-      "dps": 74912.31626211153,
+      "dps": 74923.06557917636,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -77,7 +77,7 @@
         "`dragon(s-s), self.hp < 30",
         "`s3,not buff(s3)",
         "`s2",
-        "`s1",
+        "`s1, fscf or s=2",
         "`s4",
         "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
