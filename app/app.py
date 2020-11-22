@@ -191,7 +191,7 @@ def get_adv_slotlist():
         if adv.equip_key:
             result['adv']['equip'] = adv.equip_key
 
-        available_wpn = {**weapons[adv.slots.c.wt][adv.slots.c.ele], **weapons[adv.slots.c.wt]['any']}
+        available_wpn = {**weapons[adv.slots.c.wt]['any'], **weapons[adv.slots.c.wt][adv.slots.c.ele]}
         result['weapons'] = {}
         for series, wpn in sorted(available_wpn.items(), key=lambda w: -w[1]['w']['att']):
             result['weapons'][series] = f'{wpn["w"]["series"]} | {wpn["w"]["name"]}'

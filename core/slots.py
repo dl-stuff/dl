@@ -730,8 +730,11 @@ class Slots:
         try:
             conf = Conf(weapons[self.c.wt][self.c.ele][key])
         except KeyError:
-            conf = Conf(weapons[self.c.wt][self.c.ele][Slots.DEFAULT_WEAPON])
-            key = Slots.DEFAULT_WEAPON
+            try:
+                conf = Conf(weapons[self.c.wt]['any'][key])
+            except KeyError:
+                conf = Conf(weapons[self.c.wt][self.c.ele][Slots.DEFAULT_WEAPON])
+                key = Slots.DEFAULT_WEAPON
         self.w = WeaponBase(conf, self.c, key)
 
     def set_a(self, keys=None):
