@@ -3,11 +3,8 @@ from core.advbase import *
 class TobiasXAlt(XAltBuff):
     def enable_x(self, enabled):
         super().enable_x(enabled)
-        try:
-            self.adv.a_fs_dict['default'].set_enabled(not enabled)
-            self.adv.a_dodge.enabled = not enabled
-        except (KeyError, AttributeError):
-            pass
+        self.adv.a_fs_dict['fs'].set_enabled(not enabled)
+        self.adv.a_dodge.enabled = not enabled
 
 class Tobias(Adv):
     def prerun(self):
