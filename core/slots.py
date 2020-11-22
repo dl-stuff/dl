@@ -413,146 +413,20 @@ class Gold_Fafnir(DragonBase):
 
 
 class WeaponBase(EquipBase):
-    AGITO_S3 = {
-        'flame': {
-            's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'], ['ability', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
-            's3_phase2': {'attr': [{'buff': ['self', 0.05, -1, 'regen', 'buff', '-replace']}]}
-        },
-        'water': {
-            's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.20, -1, 'att', 'buff'], ['self', 0.12, -1, 'crit', 'chance'], ['ability', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
-            's3_phase2': {'attr': [{'buff': ['self', 0.35, -1, 'defense', 'buff', '-replace']}]}
-        },
-        'wind': {
-            's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'], ['ability', 1.00, -1, 'ctime', 'passive'], '-replace']}]},
-            's3_phase2': {'attr': [{'buff': ['self', 0.50, -1, 'defense', 'buff', '-replace']}]}
-        },
-        'light': {
-            's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.40, -1, 'att', 'buff'],  ['ability', 1.00, -1, 'ctime', 'passive'], '-replace']}]}
-        },
-        'shadow': {
-            's3': {'sp' : 3000, 'startup' : 0.25, 'recovery' : 0.90},
-            's3_phase1': {'attr': [{'buff': [['self', 0.30, -1, 'spd', 'passive'], ['ability', 0.05, -1, 'crit', 'chance'], '-replace']}]},
-            's3_phase2': {'attr': [{'buff': ['self', 0.40, -1, 'defense', 'buff', '-replace']}]}
-        }
-    }
-    LIGHT_S3P2 = {
-        'sword': {
-            'startup': 0.1, 'recovery': 1.76667,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333},
-                {'dmg': 1.984, 'dp': 100, 'iv': 0.63333},
-                {'dmg': 1.984, 'iv': 0.8},
-                {'dmg': 1.984, 'iv': 0.93333},
-                {'dmg': 1.984, 'iv': 1.06667},
-                {'dmg': 1.984, 'iv': 1.23333}
-            ]
-        },
-        'blade': {
-            'startup': 0.1, 'recovery': 2.2,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.43333},
-                {'dmg': 1.704, 'dp': 100, 'iv': 0.33333},
-                {'dmg': 1.704, 'iv': 0.63333},
-                {'dmg': 1.704, 'iv': 0.8},
-                {'dmg': 1.704, 'iv': 0.93333},
-                {'dmg': 1.704, 'iv': 1.06667}
-            ]
-        },
-        'dagger': {
-            'startup': 0.1, 'recovery': 2.43333,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.2},
-                {'dmg': 1.312, 'dp': 100, 'iv': 0.26667},
-                {'dmg': 1.312, 'iv': 0.7},
-                {'dmg': 1.312, 'iv': 1.1},
-                {'dmg': 1.312, 'iv': 1.3},
-                {'dmg': 1.312, 'iv': 1.6}
-            ]
-        },
-        'axe': {
-            'startup': 0.1, 'recovery': 2.1,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.56667},
-                {'dmg': 2.26, 'dp': 100, 'iv': 0.66667},
-                {'dmg': 2.26, 'iv': 0.9},
-                {'dmg': 2.26, 'iv': 1.2},
-                {'dmg': 2.26, 'iv': 1.43333},
-                {'dmg': 2.26, 'iv': 1.5}
-            ]
-        },
-        'lance': {
-            'startup': 0.1, 'recovery': 3.23333,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 2.5},
-                {'dmg': 1.656, 'dp': 100, 'iv': 0.86667},
-                {'dmg': 1.656, 'iv': 0.96667},
-                {'dmg': 1.656, 'iv': 1.9},
-                {'dmg': 1.656, 'iv': 2.0},
-                {'dmg': 1.656, 'iv': 2.1}
-            ]
-        },
-        'bow': {
-            'startup': 0.1, 'recovery': 2.0,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.53333},
-                {'dmg': 1.898, 'dp': 100, 'iv': 0.66667, 'msl': 1},
-                {'dmg': 1.898, 'iv': 0.8, 'msl': 1},
-                {'dmg': 1.898, 'iv': 0.9, 'msl': 1},
-                {'dmg': 1.898, 'iv': 1.5, 'msl': 1},
-                {'dmg': 1.898, 'iv': 1.53333, 'msl': 1}
-            ]
-        },
-        'wand': {
-            'startup': 0.1, 'recovery': 1.66667,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667},
-                {'dmg': 2.168, 'dp': 100, 'iv': 0.96667},
-                {'dmg': 2.168, 'iv': 1.06667},
-                {'dmg': 2.168, 'iv': 1.13333},
-                {'dmg': 2.168, 'iv': 1.26667},
-                {'dmg': 2.168, 'iv': 1.26667}
-            ]
-        },
-        'staff': {
-            'startup': 0.1, 'recovery': 1.4,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.36667},
-                {'dmg': 1.51, 'dp': 100, 'iv': 0.83333},
-                {'dmg': 1.51, 'iv': 1.0},
-                {'dmg': 1.51, 'iv': 1.16667},
-                {'dmg': 1.51, 'iv': 1.33333},
-                {'dmg': 1.51, 'iv': 1.36667}
-            ]
-        },
-        'gun': {
-            'startup': 0.1, 'recovery': 1.93333,
-            'attr': [
-                {'buff': ['self', 0.1, -1, 'sp', 'passive', '-replace'], 'iv': 1.5},
-                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'dp': 100, 'iv': 0.66667, 'msl': 1},
-                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 0.66667, 'msl': 1}, 4,
-                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 0.86667, 'msl': 1}, 5,
-                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.06667, 'msl': 1}, 5,
-                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.26667, 'msl': 1}, 5,
-                {'dmg': 0.44, 'killer': [0.5, ['paralysis']], 'iv': 1.46667, 'msl': 1}, 5
-            ]
-        }
-    }
-    def __init__(self, conf, c, qual=None):
-        qual = (c.ele, c.wt)
-        super().__init__(conf, c, qual)
+    def __init__(self, conf, c, qual):
+        super().__init__(conf.w, c, qual)
+        self.s3_conf = {sn: sconf for sn, sconf in conf.find(r's3.*')}
 
     @property
     def s3(self):
-        if not self.on_ele:
-            return None
-        if self.c.ele == 'light':
-            return {**WeaponBase.AGITO_S3[self.c.ele], 's3_phase2': WeaponBase.LIGHT_S3P2[self.c.wt]}
-        else:
-            return WeaponBase.AGITO_S3[self.c.ele]
+        if self.on_ele or self.ele == 'any':
+            return self.s3_conf
+        # if not self.on_ele:
+        #     return None
+        # if self.c.ele == 'light':
+        #     return {**WeaponBase.AGITO_S3[self.c.ele], 's3_phase2': WeaponBase.LIGHT_S3P2[self.c.wt]}
+        # else:
+        #     return WeaponBase.AGITO_S3[self.c.ele]
 
     @property
     def ele(self):
@@ -796,6 +670,8 @@ class Slots:
         'shadow': 'The_Fires_of_Hate'
     }
 
+    DEFAULT_WEAPON = 'agito'
+
     def __init__(self, name, conf, sim_afflict=None, flask_env=False):
         self.c = CharaBase(conf, name)
         self.sim_afflict = sim_afflict
@@ -851,8 +727,12 @@ class Slots:
             self.d = DragonBase(conf, self.c, key)
 
     def set_w(self, key=None):
-        conf = Conf(weapons[self.c.ele][self.c.wt])
-        self.w = WeaponBase(conf, self.c)
+        try:
+            conf = Conf(weapons[self.c.wt][self.c.ele][key])
+        except KeyError:
+            conf = Conf(weapons[self.c.wt][self.c.ele][Slots.DEFAULT_WEAPON])
+            key = Slots.DEFAULT_WEAPON
+        self.w = WeaponBase(conf, self.c, key)
 
     def set_a(self, keys=None):
         if keys is None or len(keys) < 5:

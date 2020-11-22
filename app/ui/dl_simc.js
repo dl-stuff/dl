@@ -253,7 +253,7 @@ function serConf(no_conf) {
     let requestJson = {
         'adv': $('#input-adv').val(),
         'dra': $('#input-dra').val(),
-        // 'wep': $('#input-wep').val()
+        'wep': $('#input-wep').val()
     }
     const variant = $('#input-variant').val();
     if (variant && variant !== 'Default') {
@@ -322,9 +322,8 @@ function deserConf(confStr) {
     return JSON.parse(atob(confStr));
 }
 function loadConf(conf, slots) {
-    // slots.adv.pref_wep = conf.wep;
+    slots.adv.pref_wep = conf.wep;
     slots.adv.pref_dra = conf.dra;
-
     if (conf.wp) {
         slots.adv.pref_wp = conf.wp;
     }

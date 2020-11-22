@@ -1,0 +1,557 @@
+{
+    "any": {
+        "core": {
+            "w": {
+                "name": "Wand of the Torrent",
+                "icon": "307031_01_59901",
+                "att": 480,
+                "hp": 112,
+                "ele": "any",
+                "wt": "wand",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 12668,
+                "startup": 0.1,
+                "recovery": 1.0,
+                "energizable": true
+            }
+        },
+        "other": {
+            "w": {
+                "name": "Mega Wand",
+                "icon": "307127_01_59901",
+                "att": 373,
+                "hp": 94,
+                "ele": "any",
+                "wt": "wand",
+                "series": "Other",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 6355,
+                "startup": 0.1,
+                "recovery": 1.5,
+                "attr": [
+                    {"dmg": 10.0, "iv": 0.63333, "msl": 1}
+                ]
+            }
+        }
+    },
+    "flame": {
+        "core": {
+            "w": {
+                "name": "Terranigmus",
+                "icon": "307015_01_50101",
+                "att": 581,
+                "hp": 168,
+                "ele": "flame",
+                "wt": "wand",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 12668,
+                "startup": 0.1,
+                "recovery": 1.0,
+                "energizable": true
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Scepter of Infinite Fire",
+                "icon": "307066_01_50101",
+                "att": 653,
+                "hp": 179,
+                "ele": "flame",
+                "wt": "wand",
+                "series": "Void",
+                "tier": 2,
+                "a": [["prep", 50.0, "flame"]]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Infernoblaze",
+                "icon": "307119_01_50101",
+                "att": 1453,
+                "hp": 251,
+                "ele": "flame",
+                "wt": "wand",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 7635,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 2.67, "iv": 0.83333},
+                    {"dmg": 2.67, "iv": 1.0},
+                    {"dmg": 2.67, "iv": 1.16667},
+                    {"dmg": 2.67, "iv": 1.33333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Archmage",
+                "icon": "307129_01_50101",
+                "att": 1001,
+                "hp": 254,
+                "ele": "flame",
+                "wt": "wand",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Br\u00edsingr",
+                "icon": "307135_01_60101",
+                "att": 1747,
+                "hp": 245,
+                "ele": "flame",
+                "wt": "wand",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "energizable": true,
+                "attr": [
+                    {"buff": ["self", 0.05, -1, "regen", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "light": {
+        "core": {
+            "w": {
+                "name": "Twilight Shimmer",
+                "icon": "307034_01_50401",
+                "att": 630,
+                "hp": 147,
+                "ele": "light",
+                "wt": "wand",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 8757,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 2.71, "iv": 0.96667},
+                    {"dmg": 2.71, "iv": 1.06667},
+                    {"dmg": 2.71, "iv": 1.16667},
+                    {"dmg": 2.71, "iv": 1.33333}
+                ]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Primeval Thunder",
+                "icon": "307118_01_50401",
+                "att": 1530,
+                "hp": 232,
+                "ele": "light",
+                "wt": "wand",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 7881,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 2.98, "iv": 0.96667},
+                    {"dmg": 2.98, "iv": 1.06667},
+                    {"dmg": 2.98, "iv": 1.16667},
+                    {"dmg": 2.98, "iv": 1.33333}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Worldshaker",
+                "icon": "307114_01_50401",
+                "att": 653,
+                "hp": 179,
+                "ele": "light",
+                "wt": "wand",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Betelgeuse",
+                "icon": "307132_01_50401",
+                "att": 1001,
+                "hp": 254,
+                "ele": "light",
+                "wt": "wand",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Brionac",
+                "icon": "307138_01_60401",
+                "att": 1747,
+                "hp": 245,
+                "ele": "light",
+                "wt": "wand",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"],  ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.1,
+                "recovery": 1.66667,
+                "attr": [
+                    {"buff": ["self", 0.1, -1, "sp", "passive", "-replace"], "iv": 1.36667},
+                    {"dmg": 2.168, "dp": 100, "iv": 0.96667},
+                    {"dmg": 2.168, "iv": 1.06667},
+                    {"dmg": 2.168, "iv": 1.13333},
+                    {"dmg": 2.168, "iv": 1.26667},
+                    {"dmg": 2.168, "iv": 1.26667}
+                ]
+            }
+        }
+    },
+    "shadow": {
+        "core": {
+            "w": {
+                "name": "Underworld Despair",
+                "icon": "307035_01_50501",
+                "att": 581,
+                "hp": 168,
+                "ele": "shadow",
+                "wt": "wand",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 12668,
+                "startup": 0.1,
+                "recovery": 1.0,
+                "energizable": true
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Dirge of Desperation",
+                "icon": "307103_01_50501",
+                "att": 653,
+                "hp": 179,
+                "ele": "shadow",
+                "wt": "wand",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Darkbinder",
+                "icon": "307120_01_50501",
+                "att": 1484,
+                "hp": 244,
+                "ele": "shadow",
+                "wt": "wand",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 7635,
+                "startup": 0.1,
+                "recovery": 1.66667,
+                "attr": [
+                    {"dmg": 10.71, "iv": 0.96667}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Oratorio",
+                "icon": "307133_01_50501",
+                "att": 1001,
+                "hp": 254,
+                "ele": "shadow",
+                "wt": "wand",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Jiu Ci",
+                "icon": "307139_01_60501",
+                "att": 1747,
+                "hp": 245,
+                "ele": "shadow",
+                "wt": "wand",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.30, -1, "spd", "passive"], ["ability", 0.05, -1, "crit", "chance"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.40, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "water": {
+        "core": {
+            "w": {
+                "name": "Ocean Monarch",
+                "icon": "307032_01_50201",
+                "att": 630,
+                "hp": 147,
+                "ele": "water",
+                "wt": "wand",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 8757,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 2.71, "iv": 0.96667},
+                    {"dmg": 2.71, "iv": 1.06667},
+                    {"dmg": 2.71, "iv": 1.16667},
+                    {"dmg": 2.71, "iv": 1.33333}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Spirit Breaker",
+                "icon": "307077_01_50201",
+                "att": 639,
+                "hp": 184,
+                "ele": "water",
+                "wt": "wand",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Aquatic Spiral",
+                "icon": "307117_01_50201",
+                "att": 1453,
+                "hp": 251,
+                "ele": "water",
+                "wt": "wand",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 7635,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 2.67, "iv": 0.83333},
+                    {"dmg": 2.67, "iv": 1.0},
+                    {"dmg": 2.67, "iv": 1.16667},
+                    {"dmg": 2.67, "iv": 1.33333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Hurdia",
+                "icon": "307130_01_50201",
+                "att": 951,
+                "hp": 274,
+                "ele": "water",
+                "wt": "wand",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Omizununo",
+                "icon": "307136_01_60201",
+                "att": 1747,
+                "hp": 245,
+                "ele": "water",
+                "wt": "wand",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.20, -1, "att", "buff"], ["self", 0.12, -1, "crit", "chance"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.35, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "wind": {
+        "core": {
+            "w": {
+                "name": "Phytalmios",
+                "icon": "307014_01_50301",
+                "att": 581,
+                "hp": 168,
+                "ele": "wind",
+                "wt": "wand",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 12668,
+                "startup": 0.1,
+                "recovery": 1.0,
+                "energizable": true
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Typhoon's Rule",
+                "icon": "307095_01_50301",
+                "att": 693,
+                "hp": 162,
+                "ele": "wind",
+                "wt": "wand",
+                "series": "Void",
+                "tier": 2,
+                "a": [["prep", 50.0, "wind"]]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Grand Tempest",
+                "icon": "307116_01_50301",
+                "att": 1575,
+                "hp": 221,
+                "ele": "wind",
+                "wt": "wand",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 7635,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 2.67, "iv": 0.83333},
+                    {"dmg": 2.67, "iv": 1.0},
+                    {"dmg": 2.67, "iv": 1.16667},
+                    {"dmg": 2.67, "iv": 1.33333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Frankin",
+                "icon": "307131_01_50301",
+                "att": 1031,
+                "hp": 241,
+                "ele": "wind",
+                "wt": "wand",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Camelot",
+                "icon": "307137_01_60301",
+                "att": 1747,
+                "hp": 245,
+                "ele": "wind",
+                "wt": "wand",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.50, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    }
+}

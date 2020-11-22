@@ -427,6 +427,7 @@ class ModeAltBuff(Buff):
     def adv(self):
         return self._static.adv
 
+
 class FSAltBuff(ModeAltBuff):
     def __init__(self, name=None, group=None, duration=-1, uses=-1, hidden=False, source=None):
         self.default_fs = self.adv.current_fs

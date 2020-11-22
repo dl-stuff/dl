@@ -455,7 +455,7 @@ ability_dict['uo'] = Resilient_Offense
 
 
 class Skill_Prep(Ability):
-    def __init__(self, name, value):
+    def __init__(self, name, value, cond=None):
         self.value = value
         if isinstance(self.value, str):
             self.value = float(value.replace('%', ''))

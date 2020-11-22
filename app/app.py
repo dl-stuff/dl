@@ -50,8 +50,8 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
         conf['slots.a'] = list(wp)
     if dra is not None:
         conf['slots.d'] = dra
-    # if wep is not None:
-    #     conf['slots.w'] = wep
+    if wep is not None:
+        conf['slots.w'] = wep
     if acl:
         conf['acl'] = acl
 
@@ -175,7 +175,7 @@ def get_adv_slotlist():
         result['adv']['ele'] = adv.slots.c.ele
         result['adv']['wt'] = adv.slots.c.wt
         result['adv']['pref_dra'] = adv.slots.d.qual
-        result['adv']['pref_wep'] = f'{adv.slots.c.ele}-{adv.slots.c.wt}'
+        result['adv']['pref_wep'] = 'agito'
         result['adv']['pref_wp'] = adv.slots.a.qual_lst
         try:
             result['adv']['pref_coab'] = adv.conf.coabs['base'] or []
@@ -191,9 +191,10 @@ def get_adv_slotlist():
         if adv.equip_key:
             result['adv']['equip'] = adv.equip_key
 
-        weapon = weapons[adv.slots.c.ele][adv.slots.c.wt]
-        weapon_name = f'Agito T{weapon["tier"]} {weapon["name"]}'
-        result['weapons'] = {f'{adv.slots.c.ele}-{adv.slots.c.wt}': weapon_name}
+        available_wpn = {**weapons[adv.slots.c.wt][adv.slots.c.ele], **weapons[adv.slots.c.wt]['any']}
+        result['weapons'] = {}
+        for series, wpn in sorted(available_wpn.items(), key=lambda w: -w[1]['w']['att']):
+            result['weapons'][series] = f'{wpn["w"]["series"]} | {wpn["w"]["name"]}'
         result['dragons'] = {drg: data['d']['name'] for drg, data in dragons[adv.slots.c.ele].items()}
         # gold fafu lul
         result['dragons']['Gold_Fafnir'] = 'Gold Fafnir'

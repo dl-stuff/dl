@@ -1,0 +1,567 @@
+{
+    "any": {
+        "core": {
+            "w": {
+                "name": "Victory Axe",
+                "icon": "304012_01_59901",
+                "att": 461,
+                "hp": 136,
+                "ele": "any",
+                "wt": "axe",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 9025,
+                "startup": 0.1,
+                "recovery": 2.4,
+                "attr": [
+                    {"dmg": 3.76, "iv": 0.36667},
+                    {"dmg": 3.76, "iv": 0.83333},
+                    {"dmg": 3.76, "iv": 1.73333}
+                ]
+            }
+        },
+        "other": {
+            "w": {
+                "name": "Mega Axe",
+                "icon": "304119_01_59901",
+                "att": 380,
+                "hp": 104,
+                "ele": "any",
+                "wt": "axe",
+                "series": "Other",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 6552,
+                "startup": 0.1,
+                "recovery": 1.5,
+                "attr": [
+                    {"dmg": 10.0, "iv": 0.63333, "msl": 1}
+                ]
+            }
+        }
+    },
+    "flame": {
+        "core": {
+            "w": {
+                "name": "Axe of the Blazing King",
+                "icon": "304027_01_50101",
+                "att": 624,
+                "hp": 170,
+                "ele": "flame",
+                "wt": "axe",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 4711,
+                "startup": 0.1,
+                "recovery": 1.0,
+                "attr": [
+                    {"buff": ["self", 0.5, 20.0, "crit", "damage"], "iv": 0.16667}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Heavenwrath Gaze",
+                "icon": "304043_01_50101",
+                "att": 707,
+                "hp": 178,
+                "ele": "flame",
+                "wt": "axe",
+                "series": "Void",
+                "tier": 2,
+                "a": [["prep", 50.0, "flame"]]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Royal Crimson Heat",
+                "icon": "304111_01_50101",
+                "att": 1559,
+                "hp": 255,
+                "ele": "flame",
+                "wt": "axe",
+                "series": "high_dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 8895,
+                "startup": 0.1,
+                "recovery": 2.4,
+                "attr": [
+                    {"dmg": 4.6, "iv": 0.36667},
+                    {"dmg": 4.6, "iv": 0.83333},
+                    {"dmg": 4.6, "iv": 1.73333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Warlord",
+                "icon": "304121_01_50101",
+                "att": 1051,
+                "hp": 264,
+                "ele": "flame",
+                "wt": "axe",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Mj\u00f6lnir",
+                "icon": "304127_01_60101",
+                "att": 1781,
+                "hp": 268,
+                "ele": "flame",
+                "wt": "axe",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "energizable": true,
+                "attr": [
+                    {"buff": ["self", 0.05, -1, "regen", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "light": {
+        "core": {
+            "w": {
+                "name": "Radiant Swath",
+                "icon": "304013_01_50401",
+                "att": 642,
+                "hp": 161,
+                "ele": "light",
+                "wt": "axe",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 4711,
+                "startup": 0.1,
+                "recovery": 1.0,
+                "attr": [
+                    {"buff": ["self", 0.5, 20.0, "crit", "damage"], "iv": 0.16667}
+                ]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Mighty Thundercrash",
+                "icon": "304110_01_50401",
+                "att": 1606,
+                "hp": 242,
+                "ele": "light",
+                "wt": "axe",
+                "series": "high_dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 8260,
+                "startup": 0.1,
+                "recovery": 4.3,
+                "attr": [
+                    {"dmg": 2.49, "iv": 0.56667},
+                    {"dmg": 2.49, "iv": 1.2},
+                    {"dmg": 2.49, "iv": 1.86667},
+                    {"dmg": 2.49, "iv": 2.53333},
+                    {"dmg": 2.49, "iv": 3.76667}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Blitzfang",
+                "icon": "304106_01_50401",
+                "att": 665,
+                "hp": 196,
+                "ele": "light",
+                "wt": "axe",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Rigel",
+                "icon": "304124_01_50401",
+                "att": 1021,
+                "hp": 278,
+                "ele": "light",
+                "wt": "axe",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Rog Mol",
+                "icon": "304130_01_60401",
+                "att": 1781,
+                "hp": 268,
+                "ele": "light",
+                "wt": "axe",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"],  ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.1,
+                "recovery": 2.1,
+                "attr": [
+                    {"buff": ["self", 0.1, -1, "sp", "passive", "-replace"], "iv": 1.56667},
+                    {"dmg": 2.26, "dp": 100, "iv": 0.66667},
+                    {"dmg": 2.26, "iv": 0.9},
+                    {"dmg": 2.26, "iv": 1.2},
+                    {"dmg": 2.26, "iv": 1.43333},
+                    {"dmg": 2.26, "iv": 1.5}
+                ]
+            }
+        }
+    },
+    "shadow": {
+        "core": {
+            "w": {
+                "name": "Primordial Titan",
+                "icon": "304014_01_50501",
+                "att": 624,
+                "hp": 170,
+                "ele": "shadow",
+                "wt": "axe",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 4711,
+                "startup": 0.1,
+                "recovery": 1.0,
+                "attr": [
+                    {"buff": ["self", 0.5, 20.0, "crit", "damage"], "iv": 0.16667}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Genocide Cleaver",
+                "icon": "304095_01_50501",
+                "att": 707,
+                "hp": 178,
+                "ele": "shadow",
+                "wt": "axe",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Shadowy Darkbite Axe",
+                "icon": "304112_01_50501",
+                "att": 1606,
+                "hp": 242,
+                "ele": "shadow",
+                "wt": "axe",
+                "series": "high_dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 8895,
+                "startup": 0.1,
+                "recovery": 2.4,
+                "attr": [
+                    {"dmg": 4.6, "iv": 0.36667},
+                    {"dmg": 4.6, "iv": 0.83333},
+                    {"dmg": 4.6, "iv": 1.73333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Fugue",
+                "icon": "304125_01_50501",
+                "att": 1021,
+                "hp": 278,
+                "ele": "shadow",
+                "wt": "axe",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Fangtian Huaji",
+                "icon": "304131_01_60501",
+                "att": 1781,
+                "hp": 268,
+                "ele": "shadow",
+                "wt": "axe",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.30, -1, "spd", "passive"], ["ability", 0.05, -1, "crit", "chance"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.40, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "water": {
+        "core": {
+            "w": {
+                "name": "Grand Seadragon",
+                "icon": "304028_01_50201",
+                "att": 642,
+                "hp": 161,
+                "ele": "water",
+                "wt": "axe",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 9025,
+                "startup": 0.1,
+                "recovery": 2.4,
+                "attr": [
+                    {"dmg": 4.18, "iv": 0.36667},
+                    {"dmg": 4.18, "iv": 0.83333},
+                    {"dmg": 4.18, "iv": 1.73333}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Permafrost Crash",
+                "icon": "304066_01_50201",
+                "att": 665,
+                "hp": 196,
+                "ele": "water",
+                "wt": "axe",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Mercy's Azure Tide",
+                "icon": "304109_01_50201",
+                "att": 1512,
+                "hp": 267,
+                "ele": "water",
+                "wt": "axe",
+                "series": "high_dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 8260,
+                "startup": 0.1,
+                "recovery": 4.3,
+                "attr": [
+                    {"dmg": 2.49, "iv": 0.56667},
+                    {"dmg": 2.49, "iv": 1.2},
+                    {"dmg": 2.49, "iv": 1.86667},
+                    {"dmg": 2.49, "iv": 2.53333},
+                    {"dmg": 2.49, "iv": 3.76667}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Helmetia",
+                "icon": "304122_01_50201",
+                "att": 990,
+                "hp": 292,
+                "ele": "water",
+                "wt": "axe",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Ohohagari",
+                "icon": "304128_01_60201",
+                "att": 1781,
+                "hp": 268,
+                "ele": "water",
+                "wt": "axe",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.20, -1, "att", "buff"], ["self", 0.12, -1, "crit", "chance"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.35, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "wind": {
+        "core": {
+            "w": {
+                "name": "Axe of the Southern Cross",
+                "icon": "304029_01_50301",
+                "att": 642,
+                "hp": 161,
+                "ele": "wind",
+                "wt": "axe",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 9025,
+                "startup": 0.1,
+                "recovery": 2.4,
+                "attr": [
+                    {"dmg": 4.18, "iv": 0.36667},
+                    {"dmg": 4.18, "iv": 0.83333},
+                    {"dmg": 4.18, "iv": 1.73333}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Jagged Bolt",
+                "icon": "304087_01_50301",
+                "att": 665,
+                "hp": 196,
+                "ele": "wind",
+                "wt": "axe",
+                "series": "Void",
+                "tier": 2,
+                "a": [["prep", 50.0, "wind"]]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Glorystorm's Guide",
+                "icon": "304108_01_50301",
+                "att": 1512,
+                "hp": 267,
+                "ele": "wind",
+                "wt": "axe",
+                "series": "high_dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 8895,
+                "startup": 0.1,
+                "recovery": 2.4,
+                "attr": [
+                    {"dmg": 4.6, "iv": 0.36667},
+                    {"dmg": 4.6, "iv": 0.83333},
+                    {"dmg": 4.6, "iv": 1.73333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Palmarosa",
+                "icon": "304123_01_50301",
+                "att": 990,
+                "hp": 292,
+                "ele": "wind",
+                "wt": "axe",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Marmyadose",
+                "icon": "304129_01_60301",
+                "att": 1781,
+                "hp": 268,
+                "ele": "wind",
+                "wt": "axe",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.50, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    }
+}

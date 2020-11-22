@@ -1,0 +1,547 @@
+{
+    "any": {
+        "core": {
+            "w": {
+                "name": "Cane of Soul's Repose",
+                "icon": "308030_01_59901",
+                "att": 408,
+                "hp": 149,
+                "ele": "any",
+                "wt": "staff",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 15205,
+                "startup": 0.1,
+                "recovery": 1.66667,
+                "attr": [
+                    {"dmg": 6.8, "iv": 0.96667}
+                ]
+            }
+        },
+        "other": {
+            "w": {
+                "name": "Mega Staff",
+                "icon": "308120_01_59901",
+                "att": 344,
+                "hp": 111,
+                "ele": "any",
+                "wt": "staff",
+                "series": "Other",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 9672,
+                "startup": 0.1,
+                "recovery": 1.5,
+                "attr": [
+                    {"dmg": 10.0, "iv": 0.63333, "msl": 1}
+                ]
+            }
+        }
+    },
+    "flame": {
+        "core": {
+            "w": {
+                "name": "Staff of the Red Emperor",
+                "icon": "308031_01_50101",
+                "att": 536,
+                "hp": 196,
+                "ele": "flame",
+                "wt": "staff",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 17748,
+                "startup": 0.1,
+                "recovery": 1.0
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Endless Demise",
+                "icon": "308044_01_50101",
+                "att": 590,
+                "hp": 216,
+                "ele": "flame",
+                "wt": "staff",
+                "series": "Void",
+                "tier": 2,
+                "a": [["prep", 50.0, "flame"]]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Blazegambol",
+                "icon": "308112_01_50101",
+                "att": 1368,
+                "hp": 286,
+                "ele": "flame",
+                "wt": "staff",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 13684,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 1.57, "iv": 0.83333},
+                    {"dmg": 1.57, "iv": 1.0},
+                    {"dmg": 1.57, "iv": 1.16667},
+                    {"dmg": 1.57, "iv": 1.33333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Cardinal",
+                "icon": "308122_01_50101",
+                "att": 877,
+                "hp": 321,
+                "ele": "flame",
+                "wt": "staff",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Gjallarhorn",
+                "icon": "308128_01_60101",
+                "att": 1612,
+                "hp": 287,
+                "ele": "flame",
+                "wt": "staff",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "energizable": true,
+                "attr": [
+                    {"buff": ["self", 0.05, -1, "regen", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "light": {
+        "core": {
+            "w": {
+                "name": "Light of Judgment",
+                "icon": "308014_01_50401",
+                "att": 564,
+                "hp": 182,
+                "ele": "light",
+                "wt": "staff",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 15205,
+                "startup": 0.1,
+                "recovery": 1.66667,
+                "attr": [
+                    {"dmg": 7.55, "iv": 0.96667}
+                ]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Heavensneer",
+                "icon": "308111_01_50401",
+                "att": 1340,
+                "hp": 294,
+                "ele": "light",
+                "wt": "staff",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 13684,
+                "startup": 0.1,
+                "recovery": 1.66667,
+                "attr": [
+                    {"dmg": 8.1, "iv": 0.96667}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Dominus of Ever",
+                "icon": "308107_01_50401",
+                "att": 590,
+                "hp": 216,
+                "ele": "light",
+                "wt": "staff",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Procyon",
+                "icon": "308125_01_50401",
+                "att": 923,
+                "hp": 297,
+                "ele": "light",
+                "wt": "staff",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Del Frith",
+                "icon": "308131_01_60401",
+                "att": 1612,
+                "hp": 287,
+                "ele": "light",
+                "wt": "staff",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"],  ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.1,
+                "recovery": 1.46667,
+                "attr": [
+                    {"buff": ["self", 0.1, -1, "sp", "passive", "-replace"], "iv": 1.36667},
+                    {"dmg": 1.51, "dp": 100, "iv": 0.83333},
+                    {"dmg": 1.51, "iv": 1.0},
+                    {"dmg": 1.51, "iv": 1.16667},
+                    {"dmg": 1.51, "iv": 1.33333},
+                    {"dmg": 1.51, "iv": 1.36667}
+                ]
+            }
+        }
+    },
+    "shadow": {
+        "core": {
+            "w": {
+                "name": "Caduceus",
+                "icon": "308015_01_50501",
+                "att": 564,
+                "hp": 182,
+                "ele": "shadow",
+                "wt": "staff",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 15205,
+                "startup": 0.1,
+                "recovery": 1.66667,
+                "attr": [
+                    {"dmg": 7.55, "iv": 0.96667}
+                ]
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Aria of Lamentation",
+                "icon": "308096_01_50501",
+                "att": 590,
+                "hp": 216,
+                "ele": "shadow",
+                "wt": "staff",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Dark Hunger",
+                "icon": "308113_01_50501",
+                "att": 1340,
+                "hp": 294,
+                "ele": "shadow",
+                "wt": "staff",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 13684,
+                "startup": 0.1,
+                "recovery": 1.66667,
+                "attr": [
+                    {"dmg": 8.1, "iv": 0.96667}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Coda",
+                "icon": "308126_01_50501",
+                "att": 923,
+                "hp": 297,
+                "ele": "shadow",
+                "wt": "staff",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Li Zhang",
+                "icon": "308132_01_60501",
+                "att": 1612,
+                "hp": 287,
+                "ele": "shadow",
+                "wt": "staff",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.30, -1, "spd", "passive"], ["ability", 0.05, -1, "crit", "chance"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.40, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "water": {
+        "core": {
+            "w": {
+                "name": "Bracing Waters",
+                "icon": "308011_01_50201",
+                "att": 536,
+                "hp": 196,
+                "ele": "water",
+                "wt": "staff",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 17748,
+                "startup": 0.1,
+                "recovery": 1.0
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Endless Azure Core",
+                "icon": "308055_01_50201",
+                "att": 590,
+                "hp": 216,
+                "ele": "water",
+                "wt": "staff",
+                "series": "Void",
+                "tier": 2,
+                "a": []
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Ocean's Embrace",
+                "icon": "308110_01_50201",
+                "att": 1340,
+                "hp": 294,
+                "ele": "water",
+                "wt": "staff",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 13684,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 1.57, "iv": 0.83333},
+                    {"dmg": 1.57, "iv": 1.0},
+                    {"dmg": 1.57, "iv": 1.16667},
+                    {"dmg": 1.57, "iv": 1.33333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Metaldetes",
+                "icon": "308123_01_50201",
+                "att": 877,
+                "hp": 321,
+                "ele": "water",
+                "wt": "staff",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Kunado",
+                "icon": "308129_01_60201",
+                "att": 1612,
+                "hp": 287,
+                "ele": "water",
+                "wt": "staff",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.20, -1, "att", "buff"], ["self", 0.12, -1, "crit", "chance"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.35, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    },
+    "wind": {
+        "core": {
+            "w": {
+                "name": "Ancient Mage's Windcane",
+                "icon": "308032_01_50301",
+                "att": 536,
+                "hp": 196,
+                "ele": "wind",
+                "wt": "staff",
+                "series": "Core",
+                "tier": 1,
+                "a": []
+            },
+            "s3": {
+                "sp": 17748,
+                "startup": 0.1,
+                "recovery": 1.0
+            }
+        },
+        "void": {
+            "w": {
+                "name": "Skypainter Staff",
+                "icon": "308088_01_50301",
+                "att": 590,
+                "hp": 216,
+                "ele": "wind",
+                "wt": "staff",
+                "series": "Void",
+                "tier": 2,
+                "a": [["prep", 50.0, "wind"]]
+            }
+        },
+        "high_dragon": {
+            "w": {
+                "name": "Stormruler",
+                "icon": "308109_01_50301",
+                "att": 1340,
+                "hp": 294,
+                "ele": "wind",
+                "wt": "staff",
+                "series": "High Dragon",
+                "tier": 2,
+                "a": []
+            },
+            "s3": {
+                "sp": 14186,
+                "startup": 0.1,
+                "recovery": 1.76667,
+                "attr": [
+                    {"dmg": 1.57, "iv": 0.83333},
+                    {"dmg": 1.57, "iv": 1.0},
+                    {"dmg": 1.57, "iv": 1.16667},
+                    {"dmg": 1.57, "iv": 1.33333}
+                ]
+            }
+        },
+        "chimeratech": {
+            "w": {
+                "name": "Chimeratech Marjoram",
+                "icon": "308124_01_50301",
+                "att": 877,
+                "hp": 321,
+                "ele": "wind",
+                "wt": "staff",
+                "series": "Chimeratech",
+                "tier": 2,
+                "a": [["uo_att", 0.04]]
+            }
+        },
+        "agito": {
+            "w": {
+                "name": "Avalon",
+                "icon": "308130_01_60301",
+                "att": 1612,
+                "hp": 287,
+                "ele": "wind",
+                "wt": "staff",
+                "series": "Agito",
+                "tier": 2,
+                "a": []
+            },
+            "s3_phase1": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": [["self", 0.40, -1, "att", "buff"], ["ability", 1.00, -1, "ctime", "passive"], "-replace"]}
+                ]
+            },
+            "s3_phase2": {
+                "sp": 3000,
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "attr": [
+                    {"buff": ["self", 0.50, -1, "defense", "buff", "-replace"]}
+                ]
+            }
+        }
+    }
+}

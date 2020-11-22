@@ -499,10 +499,12 @@ def save_equip(adv, real_d, repair=False, etype=None):
         'tdps': None,
         'slots.a': adv.slots.a.qual_lst,
         'slots.d': adv.slots.d.qual,
-        'acl': acl_list,
-        'coabs': adv.slots.c.coab_list,
-        'share': adv.skillshare_list
     }
+    if adv.slots.w.qual != adv.slots.DEFAULT_WEAPON:
+        new_equip['slots.w'] = adv.slots.w.qual
+    new_equip['acl'] = acl_list
+    new_equip['coabs'] = adv.slots.c.coab_list
+    new_equip['share'] = adv.skillshare_list
     try:
         cached = equip[dkey][etype]
         cdps = cached.get('dps', 0)

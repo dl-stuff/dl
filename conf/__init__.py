@@ -24,11 +24,13 @@ def load_json(fn):
 coability = load_json('chains.json')
 skillshare = load_json('skillshare.json')
 wyrmprints = load_json('wyrmprints.json')
-weapons = load_json('weapons.json')
+# weapons = load_json('weapons.json')
 
 baseconfs = {}
+weapons = {}
 for wep in WEAPON_TYPES:
     baseconfs[wep] = load_json(f'base/{wep}.json')
+    weapons[wep] = load_json(f'wep/{wep}.json')
 
 dragons = {}
 for ele in ELEMENTS:
@@ -41,7 +43,7 @@ for target, alst in load_json('alias.json').items():
 
 elecoabs = {}
 for ele in ELEMENTS:
-    elecoabs[ele] = {**coability['all'], **coability[ele]}
+    elecoabs[ele] = {**coability['any'], **coability[ele]}
 
 advconfs = {}
 def load_adv_json(adv):
