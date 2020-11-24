@@ -7,14 +7,15 @@
         "ele": "wind",
         "wt": "lance",
         "spiral": true,
-        "a": [["lo_regen", 14, 3], ["a", 0.15, "hp70"]]
+        "a": [["lo_regen", 14.0, 3], ["a", 0.15, "hp70"]]
     },
     "s1": {
         "sp": 3120,
         "startup": 0.1,
         "recovery": 1.16667,
         "attr": [
-            {"dmg": 5.93, "killer": [0.5, ["poison"]], "afflic": ["poison", 120, 0.582], "buff": ["debuff", -0.3, 10.0, 0.5, "attack", "-overwrite_1"], "iv": 0.16667},
+            {"dmg": 5.93, "killer": [0.5, ["poison"]], "buff": ["debuff", -0.3, 10.0, 0.5, "attack", "-overwrite_1"], "iv": 0.16667},
+            {"afflic": ["poison", 120, 0.582], "iv": 0.16667},
             {"dmg": 5.93, "killer": [0.5, ["poison"]], "iv": 0.33333}
         ]
     },

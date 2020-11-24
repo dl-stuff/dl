@@ -42,8 +42,8 @@
         "recovery": 1.33333,
         "attr": [
             {"dmg": 4.91, "killer": [0.2, ["poison"]], "buff": ["debuff", -0.05, 20.0, 1.0, "attack", "-overwrite_1"], "iv": 0.23333},
-            {"dmg": 4.91, "killer": [0.2, ["poison"]], "iv": 0.46667, "msl": 1},
-            {"dmg": 5.4, "killer": [0.2, ["poison"]], "iv": 0.63333, "msl": 1}
+            {"dmg": 4.91, "killer": [0.2, ["poison"]], "iv": 0.46667},
+            {"dmg": 5.4, "killer": [0.2, ["poison"]], "iv": 0.63333}
         ]
     },
     "x1_shielding": {
@@ -51,21 +51,27 @@
         "recovery": 0.36666,
         "attr": [
             {"dmg": 2.18, "sp": 400}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x2_shielding": {
         "startup": 0.56667,
         "recovery": 0.26666,
         "attr": [
             {"dmg": 4.4, "sp": 600}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x3_shielding": {
         "startup": 1.0,
-        "recovery": 0.66667,
+        "recovery": 0.5,
         "attr": [
             {"dmg": 6.58, "sp": 800}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x1_striking": {
         "startup": 0.0,
@@ -73,7 +79,9 @@
         "attr": [
             {"dmg": 0.67, "sp": 152},
             {"dmg": 0.67, "iv": 0.16667}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.16667, "dodge": 0.0}
     },
     "x2_striking": {
         "startup": 0.2,
@@ -82,7 +90,9 @@
             {"dmg": 0.7, "sp": 345},
             {"dmg": 0.7, "iv": 0.2},
             {"dmg": 0.7, "iv": 0.46667}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x3_striking": {
         "startup": 0.4,
@@ -93,6 +103,8 @@
             {"dmg": 0.78, "iv": 0.06667},
             {"dmg": 0.78, "iv": 0.13333},
             {"dmg": 0.8, "iv": 0.2}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     }
 }

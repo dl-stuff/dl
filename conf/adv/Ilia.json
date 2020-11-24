@@ -10,6 +10,10 @@
         "a": [],
         "gun": [1]
     },
+    "dodge": {
+        "startup": 0.16667,
+        "recovery": 0.43333
+    },
     "fs_cartridge1": {
         "charge": 2.0,
         "startup": 0.13333,
@@ -20,7 +24,9 @@
             {"dmg": 2.22, "iv": 0.2},
             {"dmg": 2.22, "iv": 0.3},
             {"dmg": 2.22, "iv": 0.4}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0}
     },
     "fs_cartridge2": {
         "charge": 2.0,
@@ -34,7 +40,9 @@
             {"dmg": 2.22, "iv": 0.4},
             {"dmg": 2.22, "iv": 0.5},
             {"dmg": 2.22, "iv": 0.56667}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0}
     },
     "fs_cartridge3": {
         "charge": 2.0,
@@ -50,15 +58,19 @@
             {"dmg": 2.22, "iv": 0.6},
             {"dmg": 2.22, "iv": 0.7},
             {"dmg": 2.22, "iv": 0.8}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0}
     },
     "s1": {
         "sp": 3060,
         "startup": 0.1,
         "recovery": 1.66667,
         "attr": [
-            {"dmg": 1.88, "afflic": ["flashburn", 120, 0.416], "iv": 0.73333, "msl": 1},
-            {"dmg": 1.88, "iv": 0.73333, "msl": 1}, 9
+            {"dmg": 1.88, "afflic": ["flashburn", 120, 0.416], "iv": 0.73333},
+            {"dmg": 1.88, "iv": 0.73333}, 2,
+            {"dmg": 1.88, "iv": 0.73333}, 4,
+            {"dmg": 1.88, "iv": 0.73333}, 3
         ]
     },
     "s1_cartridge": {
@@ -84,12 +96,8 @@
         "startup": 0.1,
         "recovery": 1.83333,
         "attr": [
-            {"dmg": 2.35, "iv": 1.0, "msl": 1},
-            {"dmg": 23.54, "iv": 1.0, "msl": 1}
+            {"dmg": 2.35, "iv": 1.0},
+            {"dmg": 23.54, "iv": 1.0}
         ]
-    },
-    "dodge": {
-        "startup": 0.16667,
-        "recovery": 0.43333
     }
 }

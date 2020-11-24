@@ -15,7 +15,9 @@
         "recovery": 0.63334,
         "attr": [
             {"dmg": 5.65, "crisis": 1.0, "sp": 360, "utp": 900, "iv": 0.03334}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
     },
     "fsf": {
         "charge": 0.73334
@@ -33,27 +35,30 @@
         "startup": 0.1,
         "recovery": 1.16667,
         "attr": [
-            {"utp": -750, "sp": [1.0, "%", "s1"]},
-            {"dmg": 2.02, "crisis": 0.5, "dispel": 100, "iv": 0.26667, "msl": 1},
-            {"dmg": 2.02, "crisis": 0.5, "iv": 0.44667, "msl": 1},
-            {"dmg": 2.02, "crisis": 0.5, "iv": 0.62667, "msl": 1},
-            {"dmg": 2.02, "crisis": 0.5, "iv": 0.80667, "msl": 1},
-            {"dmg": 2.02, "crisis": 0.5, "iv": 0.98667, "msl": 1}
+            {"utp": -750},
+            {"sp": [1.0, "%", "s1"]},
+            {"dmg": 2.02, "crisis": 0.5, "dispel": 100, "iv": 0.26667},
+            {"dmg": 2.02, "crisis": 0.5, "iv": 0.26667, "msl": 0.18},
+            {"dmg": 2.02, "crisis": 0.5, "iv": 0.26667, "msl": 0.36},
+            {"dmg": 2.02, "crisis": 0.5, "iv": 0.26667, "msl": 0.54},
+            {"dmg": 2.02, "crisis": 0.5, "iv": 0.26667, "msl": 0.72}
         ]
     },
     "s2": {
         "sp": 7338,
         "startup": 0.1,
         "recovery": 1.63333,
-        "attr": [{"hp": [30, ">"], "utp": 1200, "iv": 0.5}]
+        "attr": [
+            {"hp": [30, ">"], "utp": 1200, "iv": 0.16667}
+        ]
     },
     "s2_ddrive": {
         "sp": 7338,
         "startup": 0.1,
         "recovery": 2.26667,
         "attr": [
-            {"dmg": 12.12, "crisis": 2.0, "iv": 1.33333},
-            {"utp": -3000, "iv": 1.33333}
+            {"dmg": 12.12, "crisis": 2.0, "iv": 1.36667},
+            {"utp": -3000, "iv": 2.0}
         ]
     },
     "x1_ddrive": {
@@ -70,13 +75,17 @@
         "recovery": 0.3,
         "attr": [
             {"dmg": 2.72, "crisis": 1.0, "sp": 350, "utp": 180}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x3_ddrive": {
         "startup": 0.43333,
         "recovery": 0.73334,
         "attr": [
             {"dmg": 4.08, "crisis": 1.0, "sp": 520, "utp": 240}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     }
 }

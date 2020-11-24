@@ -420,13 +420,18 @@ class EffectBuff(Buff):
 
 
 class ModeAltBuff(Buff):
-    def __init__(self, name, duration=-1, hidden=False, source=None):
+    def __init__(self, name, duration=-1, uses=None, hidden=False, source=None):
         super().__init__(name, 1, duration, 'effect', hidden=hidden, source=source)
 
     @property
     def adv(self):
         return self._static.adv
 
+    def l_off(self, e):
+        if e.group == self.group and self.uses > 0:
+            self.uses -= 1
+            if self.uses <= 0:
+                super().off()
 
 class FSAltBuff(ModeAltBuff):
     def __init__(self, name=None, group=None, duration=-1, uses=-1, hidden=False, source=None):
@@ -443,7 +448,6 @@ class FSAltBuff(ModeAltBuff):
         self.base_uses = uses
         self.uses = 0
         self.l_fs = Listener('fs', self.l_off, order=2)
-
         self.managed = False
 
     def enable_fs(self, enabled):
@@ -468,11 +472,6 @@ class FSAltBuff(ModeAltBuff):
         self.uses = self.base_uses
         return super().on(duration)
 
-    def l_off(self, e):
-        if e.group == self.group and self.uses > 0:
-            self.uses -= 1
-            if self.uses <= 0:
-                super().off()
 bufftype_dict['fsAlt'] = FSAltBuff
 
 
@@ -507,7 +506,7 @@ bufftype_dict['xAlt'] = XAltBuff
 
 
 class SAltBuff(ModeAltBuff):
-    def __init__(self, name=None, group=None, base=None, duration=-1, hidden=False, source=None):
+    def __init__(self, name=None, group=None, base=None, duration=-1, uses=-1, hidden=False, source=None):
         if base not in ('s1', 's2', 's3', 's4'):
             raise ValueError(f'{base} is not a skill')
         if group not in self.adv.a_s_dict[base].act_dict.keys():
@@ -521,6 +520,9 @@ class SAltBuff(ModeAltBuff):
         elif duration != -1:
             self.l_s = Listener('s', self.l_extend_time, order=0).on()
         self.enable_s(True)
+        self.base_uses = uses
+        self.uses = 0
+        self.l_end = Listener('s', self.l_off, order=2)
 
     def enable_s(self, enabled):
         for s in self.adv.a_s_dict.values():
@@ -529,10 +531,13 @@ class SAltBuff(ModeAltBuff):
     def effect_on(self):
         # self.logwrapper(f'{self.name} on')
         self.adv.current_s[self.base] = self.group
+        self.uses = self.base_uses
+        self.l_end.on()
 
     def effect_off(self):
         # self.logwrapper(f'{self.name} off', self.default_s)
         self.adv.current_s[self.base] = self.default_s
+        self.l_end.off()
 
     def l_extend_time(self, e):
         if self.get() and e.name != 'ds' and e.base == self.base and e.group == self.group:

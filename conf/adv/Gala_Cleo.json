@@ -11,23 +11,26 @@
     },
     "fs_galacleo": {
         "charge": 0.5,
-        "startup": 0.23333,
+        "startup": 0.0,
         "recovery": 1.0,
         "attr": [
-            {"buff": ["zone", 0.25, 10.0, "att", "buff"]}
-        ]
+            {"buff": ["zone", 0.25, 10.0, "att", "buff"], "msl": 0.23333}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.03333}
     },
     "s1_phase1": {
         "sp": 2814,
         "startup": 0.1,
-        "recovery": 1.5,
+        "recovery": 1.4,
         "attr": [
-            {"dmg": 0.88, "buff": ["fsAlt", "galacleo", -1, 1], "msl": 1},
-            {"dmg": 2.65, "msl": 1},
-            {"dmg": 0.88, "msl": 1, "iv": 0.2},
-            {"dmg": 2.65, "msl": 1, "iv": 0.2},
-            {"dmg": 0.88, "msl": 1, "iv": 0.4},
-            {"dmg": 2.65, "msl": 1, "iv": 0.4}
+            {"dmg": 0.88},
+            {"dmg": 2.65},
+            {"dmg": 0.88, "msl": 0.2},
+            {"dmg": 2.65, "msl": 0.2},
+            {"dmg": 0.88, "msl": 0.4},
+            {"dmg": 2.65, "msl": 0.4},
+            {"buff": [["fsAlt", "galacleo", -1, 1], "-refresh"]}
         ]
     },
     "s1_phase2": {
@@ -35,14 +38,15 @@
         "startup": 0.1,
         "recovery": 1.4,
         "attr": [
-            {"dmg": 0.88, "buff": ["fsAlt", "galacleo", -1, 1], "msl": 1},
-            {"dmg": 2.65, "msl": 1},
-            {"dmg": 0.88, "msl": 1, "iv": 0.15},
-            {"dmg": 2.65, "msl": 1, "iv": 0.15},
-            {"dmg": 0.88, "msl": 1, "iv": 0.3},
-            {"dmg": 2.65, "msl": 1, "iv": 0.3},
-            {"dmg": 0.88, "msl": 1, "iv": 0.45},
-            {"dmg": 2.65, "msl": 1, "iv": 0.45}
+            {"dmg": 0.88},
+            {"dmg": 2.65},
+            {"dmg": 0.88, "msl": 0.15},
+            {"dmg": 2.65, "msl": 0.15},
+            {"dmg": 0.88, "msl": 0.3},
+            {"dmg": 2.65, "msl": 0.3},
+            {"dmg": 0.88, "msl": 0.45},
+            {"dmg": 2.65, "msl": 0.45},
+            {"buff": [["fsAlt", "galacleo", -1, 1], "-refresh"]}
         ]
     },
     "s1_phase3": {
@@ -50,22 +54,23 @@
         "startup": 0.1,
         "recovery": 1.4,
         "attr": [
-            {"dmg": 0.88, "buff": ["fsAlt", "galacleo", -1, 1], "msl": 1},
-            {"dmg": 2.65, "msl": 1},
-            {"dmg": 0.88, "msl": 1, "iv": 0.1},
-            {"dmg": 2.65, "msl": 1, "iv": 0.1},
-            {"dmg": 0.88, "msl": 1, "iv": 0.2},
-            {"dmg": 2.65, "msl": 1, "iv": 0.2},
-            {"dmg": 0.88, "msl": 1, "iv": 0.3},
-            {"dmg": 2.65, "msl": 1, "iv": 0.3},
-            {"dmg": 0.88, "msl": 1, "iv": 0.4},
-            {"dmg": 2.65, "msl": 1, "iv": 0.4}
+            {"dmg": 0.88},
+            {"dmg": 2.65},
+            {"dmg": 0.88, "msl": 0.1},
+            {"dmg": 2.65, "msl": 0.1},
+            {"dmg": 0.88, "msl": 0.2},
+            {"dmg": 2.65, "msl": 0.2},
+            {"dmg": 0.88, "msl": 0.3},
+            {"dmg": 2.65, "msl": 0.3},
+            {"dmg": 0.88, "msl": 0.4},
+            {"dmg": 2.65, "msl": 0.4},
+            {"buff": [["fsAlt", "galacleo", -1, 1], "-refresh"]}
         ]
     },
     "s2_phase1": {
         "sp": 6000,
         "startup": 0.1,
-        "recovery": 1.4,
+        "recovery": 1.5,
         "attr": [
             {"dmg": 4.6, "iv": 1.0},
             {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "iv": 1.0}

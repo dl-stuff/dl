@@ -11,9 +11,9 @@
     },
     "dragonform": {
         "act": "c3-s",
-        "dx1": {"startup": 0.3, "recovery": 0.233333, "attr": [{"dmg": 4.4, "sp": 5}]},
+        "dx1": {"startup": 0.3, "recovery": 0.23333, "attr": [{"dmg": 4.4, "sp": 5}]},
         "dx2": {"startup": 0.46667, "recovery": 0.23333, "attr": [{"dmg": 6.6, "sp": 5}]},
-        "dx3": {"startup": 0.66667, "recovery": 1.0, "attr": [{"dmg": 7.48, "sp": 5}, {"dmg": 7.48}]},
+        "dx3": {"startup": 0.33333, "recovery": 1.4, "attr": [{"dmg": 7.48, "sp": 5}, {"dmg": 7.48, "iv": 0.33334}]},
         "ds": {"sp": 30, "startup": 0.1, "recovery": 2.63333, "sp_db": 45, "uses": 1, "attr": [{"dmg": 3.08, "iv": 0.86667}, 2, {"dmg": 3.08, "iv": 1.06667}, 2, {"dmg": 3.08, "iv": 1.26667}, 2, {"dmg": 3.08, "iv": 1.46667}, 2]}
     },
     "s1": {
@@ -22,8 +22,8 @@
         "recovery": 1.0,
         "attr": [
             {"dmg": 2.8, "iv": 0.36667},
-            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 0.4},
-            {"dmg": 2.8, "iv": 1.1, "msl": 1}
+            {"dmg": 2.8, "iv": 0.36667, "msl": 0.73333},
+            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 0.4}
         ]
     },
     "s2": {

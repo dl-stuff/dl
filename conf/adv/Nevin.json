@@ -9,7 +9,9 @@
         "spiral": false,
         "a": [["cd", 0.2]]
     },
-    "fs": {"attr": []},
+    "fs": {
+        "attr": []
+    },
     "s1": {
         "sp": 3000,
         "startup": 0.1,
@@ -23,7 +25,7 @@
         "startup": 0.1,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 10.0, "iv": 1.5, "msl": 1}
+            {"dmg": 10.0, "iv": 1.33333, "msl": 0.16667}
         ]
     },
     "s2_sigil": {
@@ -31,7 +33,7 @@
         "startup": 0.1,
         "recovery": 1.63333,
         "attr": [
-            {"dmg": 10.0, "iv": 1.5, "msl": 1}
+            {"dmg": 10.0, "iv": 1.33333, "msl": 0.16667}
         ],
         "extra_self": {"dmg": 3.0, "iv": 1.6},
         "extra_team": {"dmg": 1.0, "iv": 1.6}
@@ -41,7 +43,9 @@
         "recovery": 0.08334,
         "attr": [
             {"dmg": 0.9, "sp": 144}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x2_sigil": {
         "startup": 0.15,
@@ -49,7 +53,9 @@
         "attr": [
             {"dmg": 0.46, "sp": 144},
             {"dmg": 0.46, "iv": 0.15}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x3_sigil": {
         "startup": 0.25,
@@ -57,27 +63,35 @@
         "attr": [
             {"dmg": 0.65, "sp": 264},
             {"dmg": 0.65, "iv": 0.28333}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x4_sigil": {
         "startup": 0.26667,
         "recovery": 0.4,
         "attr": [
             {"dmg": 1.43, "sp": 288}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
     },
     "x5_sigil": {
         "startup": 0.2,
         "recovery": 0.76667,
         "attr": [
             {"dmg": 1.8, "sp": 480}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.76667, "dodge": 0.0}
     },
     "x6_sigil": {
         "startup": 0.5,
         "recovery": 1.0,
         "attr": [
             {"hp": -10}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
     }
 }

@@ -293,6 +293,9 @@ class Action(object):
     def add_delayed(self, mt):
         self.delayed.add(mt)
 
+    def remove_delayed(self, mt):
+        self.delayed.remove(mt)
+
     def clear_delayed(self):
         count = 0
         for mt in self.delayed:
@@ -1962,16 +1965,22 @@ class Adv(object):
                 return None
 
     def l_hitattr_make(self, t):
-        self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, t.onhit)
-        if t.pin is not None:
-            self.think_pin(f'{t.pin}-h')
-            p = Event(f'{t.pin}-h')
-            p.is_hit = t.name in self.damage_sources
-            p()
-        if t.proc is not None:
-            t.proc(t)
-        if t.actmod:
-            self.actmod_off(t)
+        msl = getattr(t, 'msl', 0)
+        if msl:
+            self.action.getdoing().remove_delayed(t)
+            t.msl = 0
+            t.on(msl)
+        else:
+            self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, t.onhit)
+            if t.pin is not None:
+                self.think_pin(f'{t.pin}-h')
+                p = Event(f'{t.pin}-h')
+                p.is_hit = t.name in self.damage_sources
+                p()
+            if t.proc is not None:
+                t.proc(t)
+            if t.actmod:
+                self.actmod_off(t)
 
     ATTR_COND = {
         'hp>': lambda s, v: s.hp > v,
@@ -1996,14 +2005,16 @@ class Adv(object):
             else:
                 if not cond_eval:
                     return
-        iv = attr.get('iv', 0)
+        spd = self.speed()
+        iv = attr.get('iv', 0) / spd
+        msl = attr.get('msl', 0)
         if not attr.get('nospd'):
-            iv /= self.speed()
+            msl /= spd
         try:
             onhit = getattr(self, f'{e.name}_hit{aseq+1}')
         except AttributeError:
             onhit = None
-        if iv is not None and iv > 0:
+        if iv > 0 or msl > 0:
             mt = Timer(self.l_hitattr_make)
             mt.pin = pin
             mt.name = e.name
@@ -2022,8 +2033,11 @@ class Adv(object):
             mt.onhit = onhit
             mt.proc = None
             mt.actmod = False
-            mt.on(iv)
-            if not attr.get('msl'):
+            if msl and not iv:
+                mt.on(msl)
+            else:
+                mt.msl = msl
+                mt.on(iv)
                 self.action.getdoing().add_delayed(mt)
             return mt
         else:

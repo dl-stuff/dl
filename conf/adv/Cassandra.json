@@ -7,15 +7,15 @@
         "ele": "shadow",
         "wt": "wand",
         "spiral": true,
-        "a": [["prep", 100], ["scharge_all", 0.05], ["ro", 0.15, 180]]
+        "a": [["prep", 100.0], ["scharge_all", 0.05], ["ro_att", 0.15]]
     },
     "s1": {
         "sp": 2919,
         "startup": 0.1,
         "recovery": 1.76667,
         "attr": [
-            {"dmg": 8.66, "afflic": ["poison", 120, 0.582], "iv": 0.83333, "msl": 1},
-            {"dmg": 8.66, "iv": 0.83333, "msl": 1},
+            {"dmg": 8.66, "afflic": ["poison", 120, 0.582], "iv": 0.83333},
+            {"dmg": 8.66, "iv": 0.83333},
             {"buff": ["self", 0.05, -1, "maxhp", "buff"], "iv": 1.73333}
         ]
     },
@@ -25,7 +25,10 @@
         "recovery": 2.7,
         "attr": [
             {"dmg": 9.34, "crisis": 1.0, "iv": 2.5},
-            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5}, 4
+            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5},
+            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5},
+            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5},
+            {"dmg": 1.55, "crisis": 1.0, "iv": 2.5}
         ]
     }
 }

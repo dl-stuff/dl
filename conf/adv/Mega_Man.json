@@ -1,4 +1,5 @@
 {
+    "auto_fsf": false,
     "c": {
         "name": "Mega Man",
         "icon": "110354_01_r05",
@@ -11,11 +12,11 @@
     },
     "dragonform": {
         "act": "c5-s",
-        "dx1": {"startup": 0.16667, "recovery": 0.2, "attr": [{"dmg": 0.8, "sp": 5, "msl": 1}, {"dmg": 0.8, "msl": 1}, 2]},
-        "dx2": {"startup": 0.03333, "recovery": 0.2, "attr": [{"dmg": 0.8, "sp": 5, "msl": 1}, {"dmg": 0.8, "msl": 1}, 2]},
-        "dx3": {"startup": 0.03333, "recovery": 0.2, "attr": [{"dmg": 0.8, "sp": 5, "msl": 1}, {"dmg": 0.8, "msl": 1}, 2]},
-        "dx4": {"startup": 0.03333, "recovery": 0.2, "attr": [{"dmg": 0.8, "sp": 5, "msl": 1}, {"dmg": 0.8, "msl": 1}, 2]},
-        "dx5": {"startup": 0.03333, "recovery": 0.4, "attr": [{"dmg": 0.8, "sp": 5, "msl": 1}, {"dmg": 0.8, "msl": 1}, 2]},    
+        "dx1": {"startup": 0.16667, "recovery": 0.2, "attr": [{"dmg": 0.8, "sp": 5}, {"dmg": 0.8}, 2]},
+        "dx2": {"startup": 0.03333, "recovery": 0.2, "attr": [{"dmg": 0.8, "sp": 5}, {"dmg": 0.8}, 2]},
+        "dx3": {"startup": 0.03333, "recovery": 0.2, "attr": [{"dmg": 0.8, "sp": 5}, {"dmg": 0.8}, 2]},
+        "dx4": {"startup": 0.03333, "recovery": 0.2, "attr": [{"dmg": 0.8, "sp": 5}, {"dmg": 0.8}, 2]},
+        "dx5": {"startup": 0.03333, "recovery": 0.4, "attr": [{"dmg": 0.8, "sp": 5}, {"dmg": 0.8}, 2]},
         "ds": {"sp": 30, "startup": 0.1, "recovery": 2.0, "sp_db": 45, "uses": 1, "attr": [{"dmg": 2.16, "iv": 0.2}, {"dmg": 2.16, "iv": 0.33333}, {"dmg": 2.16, "iv": 0.53333}, {"dmg": 2.16, "iv": 0.73333}, {"dmg": 2.16, "iv": 0.93333}]}
     },
     "fs": {
@@ -23,15 +24,16 @@
         "startup": 0.0,
         "recovery": 1.0,
         "attr": [
-            {"dmg": 0.9, "sp": 400, "ammo": 180, "iv": 0.1, "msl": 1}
+            {"dmg": 0.9, "sp": 400, "ammo": 180, "msl": 0.1}
         ],
         "x1": {"startup": 0.16667},
         "x2": {"startup": 0.16667},
         "x3": {"startup": 0.16667},
         "x4": {"startup": 0.16667},
-        "x5": {"startup": 0.16667}
+        "x5": {"startup": 0.16667},
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0}
     },
-    "auto_fsf": false,
     "s1": {
         "ammo": 2000,
         "cost": 200,
@@ -48,71 +50,91 @@
         "startup": 0.16667,
         "recovery": 0.16666,
         "attr": [
-            {"dmg": 0.6, "sp": 80, "ammo": 50, "iv": 0.06666, "msl": 1}
-        ]
+            {"dmg": 0.6, "sp": 80, "ammo": 50, "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.03333}
     },
     "x2": {
         "startup": 0.0,
         "recovery": 0.16667,
         "attr": [
-            {"dmg": 0.6, "sp": 80, "ammo": 50, "iv": 0.06667, "msl": 1}
-        ]
+            {"dmg": 0.6, "sp": 80, "ammo": 50, "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0}
     },
     "x3": {
         "startup": 0.0,
         "recovery": 0.16667,
         "attr": [
-            {"dmg": 0.6, "sp": 80, "ammo": 50, "iv": 0.06667, "msl": 1}
-        ]
+            {"dmg": 0.6, "sp": 80, "ammo": 50, "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0}
     },
     "x4": {
         "startup": 0.0,
         "recovery": 0.16667,
         "attr": [
-            {"dmg": 0.6, "sp": 80, "ammo": 50, "iv": 0.06667, "msl": 1}
-        ]
+            {"dmg": 0.6, "sp": 80, "ammo": 50, "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0}
     },
     "x5": {
         "startup": 0.0,
         "recovery": 0.16667,
         "attr": [
-            {"dmg": 0.6, "sp": 80, "ammo": 50, "iv": 0.06667, "msl": 1}
-        ]
+            {"dmg": 0.6, "sp": 80, "ammo": 50, "msl": 0.06667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0}
     },
     "x1_metalblade": {
         "startup": 0.26667,
         "recovery": 0.06666,
         "attr": [
-            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32], "msl": 1}
-        ]
+            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.03333}
     },
     "x2_metalblade": {
         "startup": 0.13333,
         "recovery": 0.06667,
         "attr": [
-            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32], "msl": 1}
-        ]
+            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.1}
     },
     "x3_metalblade": {
         "startup": 0.13333,
         "recovery": 0.06667,
         "attr": [
-            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32], "msl": 1}
-        ]
+            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.1}
     },
     "x4_metalblade": {
         "startup": 0.13333,
         "recovery": 0.06667,
         "attr": [
-            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32], "msl": 1}
-        ]
+            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.1}
     },
     "x5_metalblade": {
         "startup": 0.13333,
         "recovery": 0.1,
         "attr": [
-            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32], "msl": 1}
-        ]
+            {"dmg": 1.0, "ammo": -200, "bleed": [50, 1.32]}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.1}
     },
     "x1_leafshield": {
         "startup": 0.0,
