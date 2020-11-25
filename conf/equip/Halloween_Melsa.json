@@ -3,7 +3,7 @@
     "base": {
       "dps": 37976.77606469655,
       "team": 0.38557307432425064,
-      "tdps": null,
+      "tdps": 38845.95316157739,
       "slots.a": [
         "A_Man_Unchanging",
         "Dragon_and_Tamer",
@@ -30,7 +30,7 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "affliction": {
       "dps": 38169.836657980966,
       "team": 0.38557307432425064,
@@ -62,19 +62,21 @@
       ]
     },
     "buffer": {
-      "dps": 6011.032898724245,
-      "team": 1.2653944697548856,
-      "tdps": 36332.08209300984,
+      "dps": 3736.4279480964633,
+      "team": 1.2670123319524373,
+      "tdps": 38845.95316157739,
       "slots.a": [
         "A_Dogs_Day",
+        "Sisters_Day_Out",
         "Study_Rabbits",
-        "Warrior_Maiden",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Freyja",
+      "slots.w": "void",
       "acl": [
-        "`s3, x=5",
+        "`fs, fs_prep_c > 1",
+        "`s3, x=5 or fs_prep_c = 1",
         "`s1, xf or s=4 or fscf",
         "`s4, s1.charged<s1.sp/3.5",
         "`fs, xf>1 and charged_in(fs, s1)"

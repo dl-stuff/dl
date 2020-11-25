@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 103516.40427204379,
+      "dps": 103617.56323972925,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,15 +13,11 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if self.dragonform.shift_count<1",
-        "`dragon(s-c3-end), s=1",
-        "end",
-        "if self.dragonform.shift_count>=1",
-        "`dragon(s-c3-end)",
-        "end",
+        "`dragon(s-c3-end), self.dragonform.shift_count <= 1",
+        "`dragon(c3-s-end), self.dragonform.shift_count >= 2",
         "`s3, x=2 and not buff(s3)",
         "`s1",
-        "`s2,  x=5 or fsc",
+        "`s2, x=5 or fsc",
         "`s4, fsc",
         "`fs, x=5"
       ],
@@ -37,7 +33,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 116219.00224628123,
+      "dps": 116325.67386023977,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -49,15 +45,11 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if self.dragonform.shift_count<1",
-        "`dragon(s-c3-end), s=1",
-        "end",
-        "if self.dragonform.shift_count>=1",
-        "`dragon(s-c3-end)",
-        "end",
+        "`dragon(s-c3-end), self.dragonform.shift_count <= 1",
+        "`dragon(c3-s-end), self.dragonform.shift_count >= 2",
         "`s3, x=2 and not buff(s3)",
         "`s1",
-        "`s2,  x=5 or fsc",
+        "`s2, x=5 or fsc",
         "`s4, fsc",
         "`fs, x=5"
       ],
@@ -74,7 +66,7 @@
     "buffer": {
       "dps": 15571.576388323303,
       "team": 0.1642311846273827,
-      "tdps": 535494.084654232,
+      "tdps": 536110.0393397869,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
