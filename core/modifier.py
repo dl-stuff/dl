@@ -369,7 +369,7 @@ class Buff(object):
         if stack > 1:
             log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'buff stack <{stack}>')
 
-        if self.mod_type == 'defense':
+        if self.mod_type == 'defense' and value > 0:
             db = Event('defchain')
             db.source = self.source
             db.on()
