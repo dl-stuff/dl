@@ -2051,6 +2051,17 @@ class Adv(object):
                 p()
         return None
 
+    @staticmethod
+    def compare_mt(mt_a, mt_b):
+        if mt_a is None:
+            return mt_b
+        if mt_b is None:
+            return mt_a
+        if (mt_a.timing + getattr(mt_a, 'msl', 0)) >= (mt_b.timing + getattr(mt_b, 'msl', 0)):
+            return mt_a
+        else:
+            return mt_b
+
     def schedule_hits(self, e, conf, pin=None):
         final_mt = None
         if conf['attr']:
@@ -2064,8 +2075,7 @@ class Adv(object):
                 else:
                     res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin)
                     prev_attr = attr
-                if res_mt is not None and (final_mt is None or res_mt.timing >= final_mt.timing):
-                    final_mt = res_mt
+                final_mt = self.compare_mt(res_mt, final_mt)
         return final_mt
 
     def hit_make(self, e, conf, cb_kind=None, pin=None, actmod=True):
