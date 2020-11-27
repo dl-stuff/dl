@@ -2,10 +2,11 @@ import os
 import sys
 import hashlib
 import json
+import argparse
 from copy import deepcopy
 from time import monotonic, time_ns
 import core.simulate
-from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs
+from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES
 
 ADV_DIR = 'adv'
 CHART_DIR = 'www/dl-sim'
@@ -165,49 +166,88 @@ def combine():
     print(f'{monotonic() - t_start:.4f}s - combine', flush=True)
 
 
-def get_sim_target_modules(targets):
+def get_sim_target_module_dict(advs=None, conds=None, mass=None):
     target_modules = {}
-    if all([cmd not in targets for cmd in ('all', 'quick', 'slow')]):
-        for adv in targets:
-            try:
-                core.simulate.load_adv_module(adv, in_place=target_modules)
-            except Exception as e:
-                print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
-        return target_modules
-
-    for adv in list_advs():
+    advs = advs or list_advs()
+    for adv in advs:
         try:
-            core.simulate.load_adv_module(adv, in_place=target_modules)
+            if conds is not None:
+                adv_data = load_adv_json(adv)
+                if not all([cond(adv_data) for cond in conds]):
+                    continue
+            name = core.simulate.load_adv_module(adv, in_place=target_modules)
+            if mass is not None:
+                if (mass and 'mass' not in target_modules[name]) or (not mass and 'mass' in target_modules[name]):
+                    del target_modules[name]
         except Exception as e:
             print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
-    if 'all' in targets:
-        return target_modules
-    if 'quick' in targets:
-        for adv, variants in target_modules.copy().items():
-            if 'mass' in variants:
-                del target_modules[adv]
-        return target_modules
-    if 'slow' in targets:
-        for adv, variants in target_modules.copy().items():
-            if not 'mass' in variants:
-                del target_modules[adv]
-        return target_modules
+    return target_modules
+    
 
-def main(arguments):
-    do_combine = False
-    is_repair = False
-    sanity_test = False
-    if '-c' in arguments:
-        do_combine = True
-        arguments.remove('-c')
-    if '-san' in arguments:
-        sanity_test = True
-        arguments.remove('-san')
-    if '-rp' in arguments:
-        is_repair = True
-        arguments.remove('-rp')
+def get_sim_target_modules(targets):
+    target_filters = set()
+    target_advs = set()
+    target_kind = set()
+    for target in targets:
+        if target in ('all', 'quick', 'slow'):
+            target_kind.add(target)
+        elif target in ELEMENTS:
+            element = str(target)
+            target_filters.add(lambda d: d['c']['ele'] == element)
+        elif target in WEAPON_TYPES:
+            weapontype = str(target)
+            target_filters.add(lambda d: d['c']['wt'] == weapontype)
+        else:
+            target_advs.add(target)
+    if 'quick' in target_kind:
+        return get_sim_target_module_dict(target_advs, target_filters, mass=False)
+    if 'slow' in target_kind:
+        return get_sim_target_module_dict(target_advs, target_filters, mass=True)
+    return get_sim_target_module_dict(target_advs, target_filters)
+    # target_modules = {}
+    # if all([cmd not in targets for cmd in ('all', 'quick', 'slow')]):
+    #     for adv in targets:
+    #         try:
+    #             core.simulate.load_adv_module(adv, in_place=target_modules)
+    #         except Exception as e:
+    #             print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
+    #     return target_modules
 
-    target_modules = get_sim_target_modules(arguments)
+    # for adv in list_advs():
+    #     try:
+    #         core.simulate.load_adv_module(adv, in_place=target_modules)
+    #     except Exception as e:
+    #         print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
+    # if 'all' in targets:
+    #     return target_modules
+    # if 'quick' in targets:
+    #     for adv, variants in target_modules.copy().items():
+    #         if 'mass' in variants:
+    #             del target_modules[adv]
+    #     return target_modules
+    # if 'slow' in targets:
+    #     for adv, variants in target_modules.copy().items():
+    #         if not 'mass' in variants:
+    #             del target_modules[adv]
+    #     return target_modules
+
+def main(targets, do_combine, is_repair, sanity_test):
+    # do_combine = False
+    # is_repair = False
+    # sanity_test = False
+    # if '-c' in arguments:
+    #     do_combine = True
+    #     arguments.remove('-c')
+    # if '-san' in arguments:
+    #     sanity_test = True
+    #     arguments.remove('-san')
+    # if '-rp' in arguments:
+    #     is_repair = True
+    #     arguments.remove('-rp')
+
+    target_modules = get_sim_target_modules(targets)
+    if not target_modules:
+        exit()
 
     message = []
     if is_repair:
@@ -239,9 +279,19 @@ def main(arguments):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 1:
-        print('USAGE python {} sim_targets [-c] [-sp]'.format(sys.argv[0]))
-        exit(1)
+    parser = argparse.ArgumentParser(description='Deploy adventurers.')
+    parser.add_argument('targets', type=str, nargs='+', help="""targets to simulate:
+    all: all advs
+    quick: not mass sim advs
+    slow: mass sim advs
+    [element]: [element] attribute advs
+    [weapon]: [weapon] type advs
+    [qual_name]: adv names""")
+    parser.add_argument('-combine', '-c', help='run combine after sim', action='store_true')
+    parser.add_argument('-repair', '-rp', help='run equip.json repair', action='store_true')
+    parser.add_argument('-sanity_test', '-san', help='run sanity test only', action='store_true')
+    args = parser.parse_args()
+
     t_start = monotonic()
-    main(sys.argv.copy()[1:])
+    main(args.targets, args.combine, args.repair, args.sanity_test)
     print('total: {:.4f}s'.format(monotonic() - t_start))

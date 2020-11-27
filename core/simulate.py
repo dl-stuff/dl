@@ -589,7 +589,7 @@ def load_adv_module(name, in_place=None):
         advmodule = getattr(__import__(f'adv.{lname}'), lname)
         if in_place is not None:
             in_place[name] = advmodule.variants
-            return
+            return name
         try:
             loaded = advmodule.variants[vkey]
         except KeyError:

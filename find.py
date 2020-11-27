@@ -53,5 +53,5 @@ def rank_ss():
     pprint(sorted(ranked, reverse=True))
 
 if __name__ == '__main__':
-    stat_conf(lambda d: d['c']['ele'] == 'water')
+    stat_conf(lambda d: d['c']['ele'] == 'shadow')
     # rank_ss()
