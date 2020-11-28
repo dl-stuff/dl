@@ -30,7 +30,8 @@ const AFFLICT_COLORS = {
     frostbite: 'deepskyblue',
     flashburn: 'sandybrown',
     shadowblight: 'darkorchid',
-    stormlash: 'olivedrab'
+    stormlash: 'olivedrab',
+    scorchrend: 'coral'
 };
 
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
