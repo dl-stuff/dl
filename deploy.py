@@ -172,7 +172,7 @@ def get_sim_target_module_dict(advs=None, conds=None, mass=None):
         try:
             name = core.simulate.load_adv_module(adv, in_place=target_modules)
             if conds is not None:
-                adv_data = load_adv_json(adv)
+                adv_data = load_adv_json(name)
                 if not all([cond(adv_data) for cond in conds]):
                     del target_modules[name]
             if mass is not None:
