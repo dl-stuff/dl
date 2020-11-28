@@ -242,7 +242,7 @@ class Buff(object):
         return self
 
     def value(self, newvalue=None):
-        if newvalue:
+        if newvalue is not None:
             self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {newvalue:.02f}', 'buff value change')
             return self.set(newvalue)
         else:
