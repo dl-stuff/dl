@@ -505,6 +505,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
     new_equip['acl'] = acl_list
     new_equip['coabs'] = adv.slots.c.coab_list
     new_equip['share'] = adv.skillshare_list
+    cached = None
     try:
         cached = equip[dkey][etype]
         cdps = cached.get('dps', 0)
@@ -537,11 +538,14 @@ def save_equip(adv, real_d, repair=False, etype=None):
                     return
         else:
             return
-    if not repair and (etype == 'base' and nteam <= cteam and 'buffer' not in equip[dkey]):
-        equip[dkey]['buffer'] = cached
-        equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
     if dkey not in equip:
         equip[dkey] = {}
+    if not repair and cached and (etype == 'base' and nteam <= cteam and 'buffer' not in equip[dkey]):
+        equip[dkey]['buffer'] = cached
+        try:
+            equip[dkey]['buffer']['tdps'] = (ndps - cdps) / (cteam - nteam)
+        except ZeroDivisionError:
+            equip[dkey]['buffer']['tdps'] = 99999999
     equip[dkey][etype] = new_equip
     if etype == 'base':
         try:
