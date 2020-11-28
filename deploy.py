@@ -80,7 +80,6 @@ def repair_equips(name, variants):
     t_start = monotonic()
     try:
         module = variants[None]
-
         adv_ele = load_adv_json(name)['c']['ele']
         adv_equip = deepcopy(load_equip_json(name))
         for dkey, equip_d in adv_equip.items():
@@ -171,11 +170,11 @@ def get_sim_target_module_dict(advs=None, conds=None, mass=None):
     advs = advs or list_advs()
     for adv in advs:
         try:
+            name = core.simulate.load_adv_module(adv, in_place=target_modules)
             if conds is not None:
                 adv_data = load_adv_json(adv)
                 if not all([cond(adv_data) for cond in conds]):
-                    continue
-            name = core.simulate.load_adv_module(adv, in_place=target_modules)
+                    del target_modules[name]
             if mass is not None:
                 if (mass and 'mass' not in target_modules[name]) or (not mass and 'mass' in target_modules[name]):
                     del target_modules[name]
