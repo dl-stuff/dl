@@ -676,7 +676,7 @@ class Adv(object):
         'dooodge.startup': 3.0,
         'dooodge.recovery': 0,
 
-        'acl': 's1;s2;s3;s4',
+        'acl': 'dragon;s1;s2;s3;s4',
 
         'mbleed': True,
         'attenuation.hits': 1,

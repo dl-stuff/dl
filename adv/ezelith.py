@@ -3,7 +3,7 @@ from core.advbase import *
 class Ezelith(Adv):
     def prerun(self):
         self.a1_hits = 0
-        for h in range(0, 12):
+        for h in range(1, 12):
             setattr(self, f's1_hit{h}', self.s1_hit)
         self.s2_debuff = Debuff('s2_ab', 0.0, 20, 0).on()
         self.s2_states = {None: 1.0}

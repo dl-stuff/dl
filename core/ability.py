@@ -727,7 +727,7 @@ class Affliction_Edge(Ability):
 ability_dict['edge'] = Affliction_Edge
 
 
-class Energy_Combo(Ability):
+class ComboProcAbility(Ability):
     def __init__(self, name, value, cond=None):
         self.threshold = value
         super().__init__(name)
@@ -737,17 +737,32 @@ class Energy_Combo(Ability):
             self.add_combo_o = adv.add_combo
             self.ehit = 0
             def add_combo(name='#'):
-                self.add_combo_o(name)
+                result = self.add_combo_o(name)
                 if adv.hits == 0:
                     self.ehit == 0
                 else:
                     n_ehit = adv.hits // self.threshold
                     if n_ehit > self.ehit:
-                        adv.energy.add(n_ehit - self.ehit)
+                        self.combo_proc_cb(adv, n_ehit - self.ehit)
                         self.ehit = n_ehit
+                return result
             adv.add_combo = add_combo
 
+    def combo_proc_cb(self, adv, delta):
+        raise NotImplementedError('combo_proc_cb')
+
+class Energy_Combo(ComboProcAbility):
+    def combo_proc_cb(self, adv, delta):
+        adv.energy.add(delta)
+
 ability_dict['ecombo'] = Energy_Combo
+
+
+class DPrep_Combo(ComboProcAbility):
+    def combo_proc_cb(self, adv, delta):
+        adv.dragonform.charge_gauge(delta*30, dhaste=False)
+
+ability_dict['dpcombo'] = DPrep_Combo
 
 
 class Skill_Recharge(Ability):
