@@ -23,7 +23,7 @@ class Gala_Leonidas(Adv):
             self.dragonform.shift_cost = 250
             self.draconian_grace_dtime.on()
             self.draconian_grace_endshift.on()
-            Timer(self.reset_draconian_grace, 40*self.base_buff._bufftime())
+            self.draconian_grace_endtimer = Timer(self.reset_draconian_grace, 40*self.base_buff._bufftime()).on()
         else:
             self.draconian_grace.on(40)
 
@@ -33,6 +33,7 @@ class Gala_Leonidas(Adv):
         self.draconian_grace_level = 0
         self.draconian_grace.off()
         self.draconian_grace_endshift.off()
+        self.draconian_grace_endtimer.off()
 
     def s2_hit1(self, name, base, group, aseq):
         self.upgrade_draconian_grace()
