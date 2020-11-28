@@ -63,7 +63,7 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
         result['test_output'] = fn.getvalue()
     except Exception as e:
         result['error'] = str(e)
-        raise e
+        # raise e
         return result
 
     adv = run_res[0][0]
