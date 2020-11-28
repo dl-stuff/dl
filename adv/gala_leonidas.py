@@ -4,7 +4,7 @@ class Gala_Leonidas(Adv):
     def prerun(self):
         self.draconian_grace = Selfbuff('draconian_grace', 0.0, 0.0, 'att', 'buff')
         self.draconian_grace_level = 0
-        self.draconian_grace_dtime = Modifier('draconian_grace_dtime', 'dt', 'leonidas', -0.5)
+        self.draconian_grace_dtime = Modifier('draconian_grace_dtime', 'dt', 'leonidas', -0.5).off()
         self.draconian_grace_endshift = Listener('dragon_end', self.reset_draconian_grace).off()
     
     def upgrade_draconian_grace(self):
