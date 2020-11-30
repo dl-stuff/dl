@@ -1989,7 +1989,8 @@ class Adv(object):
         'hp<=': lambda s, v: s.hp <= v,
         'rng': lambda s, v: random.random() <= v,
         'hits': lambda s, v: s.hits >= v,
-        'zone': lambda s, v: s.zonecount >= v
+        'zone': lambda s, v: s.zonecount >= v,
+        'var': lambda s, v: getattr(s, v[0]) == v[1]
     }
     def do_hitattr_make(self, e, aseq, attr, pin=None):
         if 'cond' in attr:
@@ -2111,7 +2112,7 @@ class Adv(object):
 
     def l_repeat(self, e):
         log('repeat', e.name)
-        if e.end:
+        if e.end and self.conf[e.name].repeat['end']:
             self.hitattr_make(e.name, e.base, e.group, 0, self.conf[e.name].repeat.end)
         else:
             self.actmod_on(e)

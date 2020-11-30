@@ -346,10 +346,10 @@ class Gala_Thor(DragonBase):
 class Lumiere_Pandora(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        joyful_radiance_buff = adv.Selfbuff('joyful_radiance', 1, -1, 'att', 'passive').on()
+        joyful_radiance_buff = adv.Selfbuff('joyful_radiance', 0.8, -1, 'att', 'passive').on()
         adv.joyful_radiance = 4
         def add_joyful_radiance(e):
-            if e.buff.mod_type != 'effect' and e.buff.name[0] == 's' and e.buff.name[1].isdigit():
+            if e.buff.mod_type != 'effect' and e.buff.bufftype in ('self', 'team') and e.buff.name[0] == 's' and e.buff.name[1].isdigit():
                 if adv.joyful_radiance == 0:
                     joyful_radiance_buff.on()
                 adv.joyful_radiance = min(4, adv.joyful_radiance+1)
