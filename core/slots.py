@@ -342,6 +342,26 @@ class Gala_Thor(DragonBase):
         def shift_end_energy(e):
             adv.energy.add(5, team=True)
         adv.Event('dragon_end').listener(shift_end_energy)
+
+class Lumiere_Pandora(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        joyful_radiance_buff = adv.Selfbuff('joyful_radiance', 1, -1, 'att', 'passive').on()
+        adv.joyful_radiance = 4
+        def add_joyful_radiance(e):
+            if e.buff.mod_type != 'effect' and e.buff.name[0] == 's' and e.buff.name[1].isdigit():
+                if adv.joyful_radiance == 0:
+                    joyful_radiance_buff.on()
+                adv.joyful_radiance = min(4, adv.joyful_radiance+1)
+                joyful_radiance_buff.value(adv.joyful_radiance*0.2)
+        adv.Event('buff').listener(add_joyful_radiance)
+        def expire_joyful_radiance(t):
+            adv.joyful_radiance = max(0, adv.joyful_radiance-1)
+            if adv.joyful_radiance == 0:
+                joyful_radiance_buff.off()
+            else:
+                joyful_radiance_buff.value(adv.joyful_radiance*0.2)
+        Timer(expire_joyful_radiance, 20, True).on()
 ### LIGHT DRAGONS ###
 
 ### SHADOW DRAGONS ###
