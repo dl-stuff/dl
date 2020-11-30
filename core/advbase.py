@@ -294,7 +294,7 @@ class Action(object):
         self.delayed.add(mt)
 
     def remove_delayed(self, mt):
-        self.delayed.remove(mt)
+        self.delayed.discard(mt)
 
     def clear_delayed(self):
         count = 0

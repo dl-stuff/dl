@@ -1,8 +1,8 @@
 import os
 import json
-from deploy import ROOT_DIR
+from collections import defaultdict
 import random
-from conf import load_adv_json, skillshare
+from conf import load_adv_json, load_all_equip_json, skillshare, coability
 import core.simulate
 
 from pprint import pprint
@@ -52,6 +52,29 @@ def rank_ss():
         ))
     pprint(sorted(ranked, reverse=True))
 
+def find_offele_backline():
+    secondary = {
+        'Axe2': ('flame', 'wind'),
+        'Dagger2': ('flame', 'water')
+    }
+    advequip = load_all_equip_json()
+    offele = defaultdict(lambda: [])
+    for adv, allequip in advequip.items():
+        element = load_adv_json(adv)['c']['ele']
+        for duration, keyequip in allequip.items():
+            for key, conf in keyequip.items():
+                try:
+                    for coab in conf['coabs']:
+                        try:
+                            coab_element = load_adv_json(coab)['c']['ele']
+                            if coab_element != element:
+                                offele[coab].append((adv, element, duration, key, coab))
+                        except:
+                            if coab in secondary and element not in secondary[coab]:
+                                offele[coab].append((adv, element, duration, key, coab))
+                except TypeError:
+                    continue
+    pprint(dict(offele), width=200)
+
 if __name__ == '__main__':
-    stat_conf(lambda d: d['c']['ele'] == 'shadow')
-    # rank_ss()
+    find_offele_backline()

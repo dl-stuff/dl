@@ -602,7 +602,7 @@ def load_adv_module(name, in_place=None):
     except ModuleNotFoundError:
         if in_place is not None:
             in_place[name] =  {None: core.advbase.Adv}
-            return
+            return name
         return core.advbase.Adv, name
 
 def test_with_argv(*argv):
