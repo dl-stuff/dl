@@ -4,6 +4,8 @@ class Pecorine(Adv):
     def prerun(self):
         self.gourmand_gauge = 0
         self.gourmand_mode = ModeManager(group='gourmand', fs=True, s1=True, duration=20)
+        for buff in self.gourmand_mode.buffs:
+            buff.no_bufftime()
         self.heal_event.listener(self.a3_buff)
         self.a3_cd = False
 
