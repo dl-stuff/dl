@@ -1,0 +1,73 @@
+{
+    "c": {
+        "name": "Forager Cleo",
+        "icon": "100004_17_r05",
+        "att": 485,
+        "hp": 712,
+        "ele": "water",
+        "wt": "wand",
+        "spiral": false,
+        "a": [["k_debuff_def", 0.15]]
+    },
+    "fs_foragercleo": {
+        "charge": 0.5,
+        "startup": 0.0,
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 1.98, "sp": 400, "msl": 0.2, "cond": ["var>=", ["starlit_dining", 1]]},
+            {"dmg": 1.98, "msl": 0.2, "cond": ["var>=", ["starlit_dining", 1]]},
+            {"dmg": 1.98, "msl": 0.6, "cond": ["var>=", ["starlit_dining", 2]]},
+            {"dmg": 1.98, "msl": 0.6, "cond": ["var>=", ["starlit_dining", 2]]},
+            {"dmg": 1.98, "msl": 0.8, "cond": ["var>=", ["starlit_dining", 3]]},
+            {"dmg": 1.98, "msl": 0.8, "cond": ["var>=", ["starlit_dining", 3]]},
+            {"dmg": 1.98, "msl": 1.0, "cond": ["var>=", ["starlit_dining", 4]]},
+            {"dmg": 1.98, "msl": 1.0, "cond": ["var>=", ["starlit_dining", 4]]},
+            {"buff": ["s1", "-off"], "iv": 1.0}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
+    },
+    "s1": {
+        "sp": 2490,
+        "startup": 0.1,
+        "recovery": 1.5,
+        "attr": [
+            {"buff": [["fsAlt", "foragercleo", -1, 1], ["self", 0.15, -1, "sp", "buff"], "-refresh"]},
+            {"dmg": 1.53, "iv": 0.4},
+            {"dmg": 1.53, "iv": 0.73333},
+            {"dmg": 1.53, "iv": 0.86667},
+            {"dmg": 1.53, "iv": 1.0},
+            {"dmg": 1.53, "iv": 1.13333},
+            {"dmg": 4.25, "iv": 1.33333}
+        ]
+    },
+    "s2_phase1": {
+        "sp": 5909,
+        "startup": 0.1,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 18.45, "iv": 0.66667},
+            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0}
+        ]
+    },
+    "s2_phase2": {
+        "sp": 5909,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 18.45, "iv": 0.33333},
+            {"buff": ["energy", 2, "team"], "iv": 0.33333},
+            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0}
+        ]
+    },
+    "s2_phase3": {
+        "sp": 5909,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 18.45, "iv": 0.33333},
+            {"buff": ["energy", 3, "team"], "iv": 0.33333},
+            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0}
+        ]
+    }
+}

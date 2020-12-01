@@ -18,6 +18,9 @@ class Bleed(Dot):
         self.true_dmg_event = Event('true_dmg')
         self.true_dmg_event.dname = f'o_{name}_bleed'
         self.true_dmg_event.dtype = name
+        self.bleed_event = Event('bleed')
+        self.bleed_event.rate = 1
+        self.bleed_event.source = name
         self.debufftime = debufftime
 
     def reset(self):
@@ -72,6 +75,7 @@ class Bleed(Dot):
         elif self._static['stacks'] < 3:
             pass
         self._static['stacks'] += 1
+        self.bleed_event()
 
 
 class mBleed(Bleed):
@@ -84,6 +88,7 @@ class mBleed(Bleed):
         super(mBleed, self).__init__(name, dmg_coef, debufftime=debufftime)
         self.end_index = None
         self.chance = chance
+        self.bleed_event.rate = chance
 
     def sum_bleeds(self, bleeds, active=None, probability=1.0, index=0):
         ''' Calculates the total damage from bleed during the current tick
@@ -177,6 +182,7 @@ class mBleed(Bleed):
             self._static['tick_event'] = Timer(self.tick_proc, self.iv, True).on()
 
         self._static['stacks'] += 1
+        self.bleed_event()
 
     def dot_end_proc(self, e):
         # can't remove self in order to build a more accurate picture

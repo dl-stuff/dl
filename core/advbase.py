@@ -768,6 +768,7 @@ class Adv(object):
 
         self.hp = 100
         self.hp_event = Event('hp')
+        self.heal_event = Event('heal')
         self.dragonform = None
 
         from module.tension import Energy, Inspiration
@@ -828,6 +829,8 @@ class Adv(object):
         if self.conf['flask_env'] and 'hp' in self.conf:
             hp = self.conf['hp']
         old_hp = self.hp
+        if hp > old_hp:
+            self.heal_event()
         hp = round(hp*10)/10
         self.hp = max(min(hp, 100), 0)
         if self.hp != old_hp:
@@ -1833,6 +1836,9 @@ class Adv(object):
                 elif mode == '%':
                     self.set_hp(self.hp*value)
 
+        if 'heal' in attr:
+            self.heal_event()
+
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
             getattr(self.afflics, aff_type).on(name, *aff_args)
@@ -1990,7 +1996,9 @@ class Adv(object):
         'rng': lambda s, v: random.random() <= v,
         'hits': lambda s, v: s.hits >= v,
         'zone': lambda s, v: s.zonecount >= v,
-        'var': lambda s, v: getattr(s, v[0]) == v[1]
+        'var>=': lambda s, v: getattr(s, v[0]) >= v[1],
+        'var=': lambda s, v: getattr(s, v[0]) == v[1],
+        'var<=': lambda s, v: getattr(s, v[0]) <= v[1],
     }
     def do_hitattr_make(self, e, aseq, attr, pin=None):
         if 'cond' in attr:

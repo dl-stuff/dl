@@ -655,7 +655,7 @@ bufftype_dict['ele'] = ElementalTeambuff
 
 class ZoneTeambuff(Teambuff):
     def __init__(self, name='<buff_noname>', value=0, duration=0, mtype='att', morder=None, source=None):
-        super().__init__(name, value, duration, mtype, morder)
+        super().__init__(name, value, duration, mtype, morder, source=source)
         self.bufftime = self._no_bufftime
         self.name += '_zone'
 
@@ -664,9 +664,9 @@ class ZoneTeambuff(Teambuff):
         return sorted((b for b in self._static.all_buffs if type(b) == ZoneTeambuff and b.get()), key=lambda b: b.timeleft())
 
     def on(self, duration=0):
-        zones = self.zone_buffs
-        if len(zones) > 4:
-            zones[0].off()
+        zone_buffs = {(b.timeleft(), b.source): b for b in self._static.all_buffs if type(b) == ZoneTeambuff and b.get()}
+        if len(zone_buffs) > 4:
+            sorted(zone_buffs.items())[0][1].off()
         super().on(duration=duration)
         return self
 
