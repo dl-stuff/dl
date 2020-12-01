@@ -66,9 +66,9 @@
       ]
     },
     "buffer": {
-      "dps": 41585.31913087075,
+      "dps": 41581.82676976498,
       "team": 0.115742057865968,
-      "tdps": 374461.59110971726,
+      "tdps": 374491.764766296,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -129,7 +129,7 @@
     },
     "pref": "base",
     "base": {
-      "dps": 80063.29548485264,
+      "dps": 80083.51065150504,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -161,7 +161,7 @@
   },
   "60": {
     "base": {
-      "dps": 47547.483685924366,
+      "dps": 47329.38655645391,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -193,27 +193,25 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 71650.28622631692,
+      "dps": 72021.61450291394,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Hastened_Squall",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
+        "`dragon (c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3) and x=2",
+        "`s4, cancel",
         "`s2, s1.check()",
         "`s1, cancel",
-        "if self.hits <= 44 and c_fs(enhanced) > 0",
-        "`fs, x=1",
-        "`dodge, fsc",
-        "end"
+        "`fs, self.hits <= 44 and c_fs(enhanced) > 0 and x=2",
+        "`fsf, x=4 and not buff(s2)"
       ],
       "coabs": [
         "Blade",
@@ -222,7 +220,7 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Karina"
       ]
     }
   }

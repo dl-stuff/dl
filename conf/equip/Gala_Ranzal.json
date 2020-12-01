@@ -36,9 +36,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 34192.30641936542,
-      "team": 0.1674158975720311,
-      "tdps": 259583.4477072726,
+      "dps": 34254.06029331353,
+      "team": 0.16548877297569947,
+      "tdps": 262233.1487416354,
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
@@ -66,22 +66,22 @@
       ]
     },
     "affliction": {
-      "dps": 79572.27007524758,
+      "dps": 79751.92902676234,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon(c2-s-end)",
         "`s3, not buff(s3)",
         "`s2, fsc",
-        "`s4, fsc",
+        "`s4",
         "`s1, gauges['x'] >= 1000 and gauges['fs'] >= 1000 and cancel",
         "if gauges['fs'] < 1000",
         "`fs, x=4 or hits=0",
@@ -96,13 +96,13 @@
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Formal_Joachim"
       ]
     }
   },
   "60": {
     "base": {
-      "dps": 65294.52403485445,
+      "dps": 61216.65630109247,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -133,33 +133,37 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 75664.85883049686,
+      "dps": 74158.46341346487,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Brothers_in_Arms",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(s-end)",
-        "`s3, not buff(s3) and fsc",
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
         "`s2, fsc",
-        "`s4",
-        "`s1, gauges['x'] >= 1000 and cancel",
-        "`fs, x=4"
+        "`s4, fsc",
+        "`s1, gauges['x'] >= 1000 and gauges['fs'] >= 1000 and cancel",
+        "if gauges['fs'] < 1000",
+        "`fs, x=4 or hits=0",
+        "else",
+        "`dodge, x=5",
+        "end"
       ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Lin_You"
+        "Bow"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Pinon"
       ]
     }
   }

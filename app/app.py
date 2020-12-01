@@ -176,7 +176,7 @@ def get_adv_slotlist():
         result['adv']['ele'] = adv.slots.c.ele
         result['adv']['wt'] = adv.slots.c.wt
         result['adv']['pref_dra'] = adv.slots.d.qual
-        result['adv']['pref_wep'] = 'agito'
+        result['adv']['pref_wep'] = adv.slots.w.qual
         result['adv']['pref_wp'] = adv.slots.a.qual_lst
         try:
             result['adv']['pref_coab'] = adv.conf.coabs['base'] or []
@@ -231,7 +231,7 @@ def get_adv_wp_list():
 
 @app.route('/simc_adv_equip', methods=['GET'])
 def get_adv_equip():
-    return '<pre>' + json.dumps(load_equip_json(request.args.get('adv', default=None)), ensure_ascii=False, indent=4) + '</pre>'
+    return '<pre>' + json.dumps(load_equip_json(request.args.get('adv', default=None)), ensure_ascii=False, indent=4).replace('>', '&gt;').replace('<', '&lt;') + '</pre>'
 
 @app.route('/simc_git_diff', methods=['GET'])
 def get_git_diff():

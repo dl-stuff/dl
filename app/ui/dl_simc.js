@@ -496,6 +496,7 @@ function loadAdvSlots(no_conf, set_equip) {
                     if (urlVars.conf) { slots = loadConf(conf, slots); }
 
                     $('#wep-' + slots.adv.pref_wep).prop('selected', true);
+                    console.log(slots.adv.pref_wep)
                     $('#dra-' + slots.adv.pref_dra).prop('selected', true);
                     slots.adv.pref_wp.forEach((wp, i) => {
                         $(`#wp${i + 1}-` + wp).prop('selected', true);
