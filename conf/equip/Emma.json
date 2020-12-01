@@ -1,9 +1,38 @@
 {
   "180": {
     "base": {
+      "dps": 30651.371176103643,
+      "team": 0.38723977266004195,
+      "tdps": 26779.296783306778,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon",
+        "`s1",
+        "`s3, not buff(s3)",
+        "`s4"
+      ],
+      "coabs": [
+        "Yuya",
+        "Gala_Leonidas",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "pref": "buffer",
+    "buffer": {
       "dps": 5825.894699683439,
       "team": 1.31427966759468,
-      "tdps": null,
+      "tdps": 26779.296783306778,
       "slots.a": [
         "Honest_Repose",
         "Sisters_Day_Out",
@@ -13,36 +42,6 @@
       ],
       "slots.d": "Horus",
       "slots.w": "void",
-      "acl": [
-        "`fs,  fs_prep_c > 1",
-        "`fs,  fs_prep_c = 1 and x = 5",
-        "`s1",
-        "`s3, s=1",
-        "`s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Summer_Cleo",
-        "Mikoto"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 9029.57769304618,
-      "team": 1.278527174086779,
-      "tdps": 89607.26033429679,
-      "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Horus",
       "acl": [
         "`fs,  fs_prep_c > 1",
         "`fs,  fs_prep_c = 1 and x = 5",
@@ -61,41 +60,32 @@
       ]
     },
     "affliction": {
-      "dps": 16460.589834302144,
-      "team": 0.4045677036374348,
+      "dps": 9029.57769304618,
+      "team": 1.278527174086779,
       "tdps": null,
       "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "From_Whence_He_Comes",
+        "Bellathorna"
       ],
-      "slots.d": "Gala_Mars",
-      "slots.w": "void",
+      "slots.d": "Horus",
       "acl": [
-        "`dragon, s=1 and energy()<5",
-        "`s3, not buff(s3) and x=5",
-        "`s4, energy()<4",
+        "`fs,  fs_prep_c > 1",
+        "`fs,  fs_prep_c = 1 and x = 5",
         "`s1",
-        "`s2, energy()=5 and fsc",
-        "`fs, x=5",
-        "`dodge, fsc",
-        "## S2 mode",
-        "#`dragon(c3-s-s-end), (s=1 and energy()=3) or s=2",
-        "#`s3, not buff(s3) and x=5",
-        "#`s2, energy()=5",
-        "#`s1, not energy()=5",
-        "#`s4, not energy()=5 and x>3"
+        "`s3, s=1",
+        "`s4"
       ],
       "coabs": [
-        "Nobunaga",
-        "Yuya",
-        "Serena"
+        "Bow",
+        "Dagger2",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Xander"
+        "Summer_Cleo",
+        "Mikoto"
       ]
     }
   },

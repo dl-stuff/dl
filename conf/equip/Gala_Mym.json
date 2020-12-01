@@ -13,13 +13,13 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-end), self.dragonform.shift_count <= 1",
-        "`dragon(c3-s-end), self.dragonform.shift_count >= 2",
         "`s3, x=2 and not buff(s3)",
         "`s1",
         "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dragon(s-c3-end), self.dragonform.shift_count <= 1",
+        "`dragon(c3-s-end), self.dragonform.shift_count >= 2"
       ],
       "coabs": [
         "Yuya",

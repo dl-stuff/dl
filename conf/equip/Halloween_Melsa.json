@@ -1,39 +1,38 @@
 {
   "180": {
     "base": {
-      "dps": 37976.77606469655,
-      "team": 0.38557307432425064,
-      "tdps": 38845.95316157739,
+      "dps": 5770.896580518436,
+      "team": 1.246637802133256,
+      "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
         "From_Whence_He_Comes",
-        "The_Queen_of_the_Knife"
+        "Bellathorna"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Freyja",
       "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, cancel",
-        "`fs, x=5"
+        "`fs, fs_prep_c > 1",
+        "`s3, x=5 or fs_prep_c = 1",
+        "`s1, xf or s=4 or fscf",
+        "`s4, s1.charged<s1.sp/3.5",
+        "`fs, xf>1 and charged_in(fs, s1)"
       ],
       "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Akasha"
+        "Bow",
+        "Dagger2",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Mikoto",
+        "Summer_Cleo"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "affliction": {
-      "dps": 38169.836657980966,
-      "team": 0.38557307432425064,
+      "dps": 18872.718643716355,
+      "team": 0.3885558423259219,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -43,6 +42,7 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
+      "slots.w": "void",
       "acl": [
         "`dragon(s), s",
         "`s3, not buff(s3)",
@@ -64,7 +64,7 @@
     "buffer": {
       "dps": 3736.4279480964633,
       "team": 1.2670123319524373,
-      "tdps": 38845.95316157739,
+      "tdps": 99853.52547898561,
       "slots.a": [
         "A_Dogs_Day",
         "Sisters_Day_Out",
