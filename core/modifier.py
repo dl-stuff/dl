@@ -792,9 +792,9 @@ class MultiBuffManager:
         self.duration = duration
         self.skill_buffs = set()
         for b in self.buffs:
+            if b.mod_type == 'effect':
+                b.hidden = True
             if not timed_mode:
-                if b.mod_type == 'effect':
-                    b.hidden = True
                 if isinstance(b, SAltBuff) and b.group != 'ddrive':
                     b.pause = self.pause
                     b.resume = self.resume
