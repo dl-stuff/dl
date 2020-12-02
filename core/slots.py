@@ -465,12 +465,11 @@ class AmuletPicker:
                 wpv = wpa_lst[1]
                 try:
                     parts = wpa_lst[2].split('_')
-                except AttributeError:
-                    parts = [wpa_lst[2]]
-                except IndexError:
-                    parts = []
-                wpc = tuple(c for c in parts if c not in ELEMENTS and c not in WEAPON_TYPES)
-                wpr = tuple(c for c in parts if c in ELEMENTS or c in WEAPON_TYPES)
+                    wpc = tuple(c for c in parts if c not in ELEMENTS and c not in WEAPON_TYPES)
+                    wpr = tuple(c for c in parts if c in ELEMENTS or c in WEAPON_TYPES)
+                except (AttributeError, IndexError):
+                    wpc = tuple()
+                    wpr = tuple()
             except StopIteration:
                 wpv = 0
                 wpa = (None,)
@@ -492,15 +491,11 @@ class AmuletPicker:
 
     @staticmethod
     def find_next_matching(bis_i, group, gval, c, retain_union):
-        
-        while bis_i >= 0 and group[bis_i].restrict and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict):
-                bis_i -= 1
-        if group[bis_i].condition:
-            while bis_i >= 0 and group[bis_i].condition and gval.condition != group[bis_i].condition:
-                bis_i -= 1
-        if gval.union in retain_union:
-            while gval.union != group[bis_i].union:
-                bis_i -= 1
+        while bis_i >= 0 and \
+            ((group[bis_i].restrict and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict)) or \
+            (group[bis_i].condition and group[bis_i].condition and gval.condition != group[bis_i].condition) or \
+            (gval.union in retain_union and gval.union != group[bis_i].union)):
+            bis_i -= 1
         return bis_i
 
     def pick(self, amulets, c):
