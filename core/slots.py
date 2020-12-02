@@ -491,7 +491,7 @@ class AmuletPicker:
 
     @staticmethod
     def find_next_matching(bis_i, group, gval, c, retain_union):
-        while bis_i >= 0 and \
+        while bis_i > 0 and \
             ((group[bis_i].restrict and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict)) or \
             (group[bis_i].condition and group[bis_i].condition and gval.condition != group[bis_i].condition) or \
             (gval.union in retain_union and gval.union != group[bis_i].union)):
