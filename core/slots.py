@@ -465,8 +465,10 @@ class AmuletPicker:
                 wpv = wpa_lst[1]
                 try:
                     parts = wpa_lst[2].split('_')
-                except (IndexError, AttributeError):
+                except AttributeError:
                     parts = [wpa_lst[2]]
+                except IndexError:
+                    parts = []
                 wpc = tuple(c for c in parts if c not in ELEMENTS and c not in WEAPON_TYPES)
                 wpr = tuple(c for c in parts if c in ELEMENTS or c in WEAPON_TYPES)
             except StopIteration:
