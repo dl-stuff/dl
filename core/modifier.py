@@ -417,7 +417,7 @@ class Buff(object):
     
     def resume(self):
         if self.pause_time > 0:
-            log('resume', self.name, self.pause_time)
+            log('resume', self.name, self.pause_time, now()+self.pause_time)
             self.buff_end_timer.on(self.pause_time)
         self.pause_time = -1
     # def __repr__(self):
@@ -836,7 +836,7 @@ class MultiBuffManager:
         if self.pause_time > 0:
             for b in self.buffs:
                 b.buff_end_timer.on(self.pause_time)
-            log('resume', self.pause_by, self.pause_time)
+            log('resume', self.pause_by, self.pause_time, now()+self.pause_time)
         self.pause_time = -1
 
     def timeleft(self):
