@@ -96,7 +96,7 @@
     "base": {
       "dps": 5637.8704803347,
       "team": 0.042476804125213936,
-      "tdps": null,
+      "tdps": -4226.3038421580395,
       "slots.a": [
         "Crystalian_Envoy",
         "The_Shining_Overlord",
@@ -115,27 +115,65 @@
         "Pia"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "buffer": {
-      "dps": 5263.841315837835,
-      "team": 0.04248560446102187,
-      "tdps": 42501692.2831155,
+      "dps": 12051.053602240954,
+      "team": 1.5599216830129439,
+      "tdps": -4226.3038421580395,
       "slots.a": [
-        "Crystalian_Envoy",
-        "The_Shining_Overlord",
-        "Valiant_Crown",
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
+        "`dragon(c3-s-end), fsc",
+        "#`s1, not buff(s1) and fsc",
         "`s4",
+        "`s2",
+        "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Renee",
+        "Hunter_Sarisse",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "affliction": {
+      "dps": 47868.80990616001,
+      "team": 0.2994153012636075,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon, s=2",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4",
+        "`s1, fsc",
         "`fs, x=2"
       ],
-      "coabs": [],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Renee"
+      ],
       "share": [
         "Weapon",
-        "Pia"
+        "Pinon"
       ]
     }
   }

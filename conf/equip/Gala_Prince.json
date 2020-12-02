@@ -160,24 +160,25 @@
       ]
     },
     "buffer": {
-      "dps": 62468.15786614792,
-      "team": 0.19712205779722142,
-      "tdps": 61865.40939200009,
+      "dps": 63391.469286394036,
+      "team": 0.1710518904121784,
+      "tdps": 104301.91316751247,
       "slots.a": [
         "An_Ancient_Oath",
+        "Dragon_Brethren",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Entwined_Flames"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s2, buff(s3, 1)",
-        "`s3",
         "`s1, fsc",
-        "`s4, fsc",
-        "`fs, x=2"
+        "`s2, cancel and buff(s3, 1)",
+        "`s3, cancel",
+        "`s4, dgauge >= 500 and cancel",
+        "`dragon, dragonform.shift_count=0 and cancel and buff(s1) and buff(s3, 1)",
+        "`dragon, dragonform.shift_count>=1 and cancel and buff(s3, 1)",
+        "`fs, x=2 or hits=0"
       ],
       "coabs": [
         "Cleo",
@@ -186,7 +187,7 @@
       ],
       "share": [
         "Weapon",
-        "Chitose"
+        "Sha_Wujing"
       ]
     }
   },
