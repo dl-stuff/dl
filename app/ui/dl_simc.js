@@ -351,7 +351,7 @@ function loadConf(conf, slots) {
     }
     if (conf.sim_afflict) {
         for (const key of Object.keys(conf.sim_afflict)) {
-            const res = $('#affliction-sim > div > #input-sim-' + key);
+            const res = $('#affliction-sim #input-sim-' + key);
             if (res) {
                 res.val(conf.sim_afflict[key]);
             }
@@ -496,7 +496,6 @@ function loadAdvSlots(no_conf, set_equip) {
                     if (urlVars.conf) { slots = loadConf(conf, slots); }
 
                     $('#wep-' + slots.adv.pref_wep).prop('selected', true);
-                    console.log(slots.adv.pref_wep)
                     $('#dra-' + slots.adv.pref_dra).prop('selected', true);
                     slots.adv.pref_wp.forEach((wp, i) => {
                         $(`#wp${i + 1}-` + wp).prop('selected', true);
@@ -536,7 +535,7 @@ function loadAdvSlots(no_conf, set_equip) {
 
                     if (requestJson['equip'] === 'affliction') {
                         $('#input-sim-' + ELE_AFFLICT[slots.adv.ele]).val(100);
-                    } else {
+                    } else if (!urlVars.conf) {
                         const simAff = $('#affliction-sim > div > input[type="text"]');
                         simAff.each(function (idx, res) { $(res).val(''); });
                     }

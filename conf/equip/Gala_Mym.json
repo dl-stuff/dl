@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 105509.53841968109,
+      "dps": 105610.83304060127,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,13 +13,13 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`s3, x=2 and not buff(s3)",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2, x=5 or fsc",
         "`s4, fsc",
         "`fs, x=5",
         "`dragon(s-c3-end), self.dragonform.shift_count <= 1",
-        "`dragon(c3-s-end), self.dragonform.shift_count >= 2"
+        "`dragon(c3-s-end), self.dragonform.shift_count >= 2 and buff(s1)"
       ],
       "coabs": [
         "Yuya",
@@ -45,7 +45,7 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-end), self.dragonform.shift_count <= 1",
+        "`dragon(s-end), self.dragonform.shift_count <= 1",
         "`dragon(c3-s-end), self.dragonform.shift_count >= 2",
         "`s3, x=2 and not buff(s3)",
         "`s1",
@@ -66,7 +66,7 @@
     "buffer": {
       "dps": 15798.747927145012,
       "team": 0.16423118462738276,
-      "tdps": 546246.9913742455,
+      "tdps": 546863.7720493043,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",

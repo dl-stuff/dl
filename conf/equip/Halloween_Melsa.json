@@ -1,38 +1,39 @@
 {
   "180": {
     "base": {
-      "dps": 5770.896580518436,
-      "team": 1.246637802133256,
-      "tdps": null,
+      "dps": 37976.77606469655,
+      "team": 0.38557307432425064,
+      "tdps": 37402.390835502636,
       "slots.a": [
-        "A_Dogs_Day",
-        "Sisters_Day_Out",
-        "Study_Rabbits",
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
         "From_Whence_He_Comes",
-        "Bellathorna"
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Freyja",
+      "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`fs, fs_prep_c > 1",
-        "`s3, x=5 or fs_prep_c = 1",
-        "`s1, xf or s=4 or fscf",
-        "`s4, s1.charged<s1.sp/3.5",
-        "`fs, xf>1 and charged_in(fs, s1)"
+        "`dragon(s), s",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Akasha"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "affliction": {
-      "dps": 18872.718643716355,
-      "team": 0.3885558423259219,
+      "dps": 38169.836657980966,
+      "team": 0.38557307432425064,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -42,7 +43,6 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
-      "slots.w": "void",
       "acl": [
         "`dragon(s), s",
         "`s3, not buff(s3)",
@@ -62,9 +62,9 @@
       ]
     },
     "buffer": {
-      "dps": 3736.4279480964633,
-      "team": 1.2670123319524373,
-      "tdps": 99853.52547898561,
+      "dps": 5770.896580518436,
+      "team": 1.246637802133256,
+      "tdps": 37402.390835502636,
       "slots.a": [
         "A_Dogs_Day",
         "Sisters_Day_Out",
@@ -73,7 +73,6 @@
         "Bellathorna"
       ],
       "slots.d": "Freyja",
-      "slots.w": "void",
       "acl": [
         "`fs, fs_prep_c > 1",
         "`s3, x=5 or fs_prep_c = 1",
