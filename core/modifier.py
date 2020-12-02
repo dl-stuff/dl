@@ -211,6 +211,7 @@ class Buff(object):
         self.__active = 0
 
         self.buffevent = Event('buff')
+        self.pause_time = -1
         # self.on()
 
     def logwrapper(self, *args):
@@ -407,6 +408,18 @@ class Buff(object):
 
     def add_time(self, delta):
         self.buff_end_timer.add(delta)
+    
+    def pause(self):
+        self.pause_time = self.timeleft()
+        if self.pause_time > 0:
+            log('pause', self.name, self.pause_time)
+            self.buff_end_timer.off()
+    
+    def resume(self):
+        if self.pause_time > 0:
+            log('resume', self.name, self.pause_time)
+            self.buff_end_timer.on(self.pause_time)
+        self.pause_time = -1
     # def __repr__(self):
     #     return f'{self.modifier}({self.buff_end_timer})'
 
@@ -443,7 +456,7 @@ class FSAltBuff(ModeAltBuff):
             if group is None:
                 raise ValueError(f'fs[n] not found in conf')
             raise ValueError(f'{self.group} is not an FS')
-        super().__init__(self.group or 'fs[n]', duration=duration, hidden=hidden, source=source)
+        super().__init__(f'fs_{self.group}' if self.group else 'fs[n]', duration=duration, hidden=hidden, source=source)
         self.enable_fs(False)
         self.base_uses = uses
         self.uses = 0
@@ -483,7 +496,7 @@ class XAltBuff(ModeAltBuff):
         self.deferred = deferred
         if not self.x_max:
             raise ValueError(f'{self.group} is not a X group')
-        super().__init__(group, duration=duration, hidden=hidden, source=source)
+        super().__init__(f'x_{self.group}', duration=duration, hidden=hidden, source=source)
         self.enable_x(False)
 
     def enable_x(self, enabled):
@@ -506,7 +519,7 @@ bufftype_dict['xAlt'] = XAltBuff
 
 
 class SAltBuff(ModeAltBuff):
-    def __init__(self, name=None, group=None, base=None, duration=-1, uses=-1, hidden=False, source=None):
+    def __init__(self, name=None, group=None, base=None, duration=-1, uses=-1, hidden=False, source=None, timed_mode=False):
         if base not in ('s1', 's2', 's3', 's4'):
             raise ValueError(f'{base} is not a skill')
         if group not in self.adv.a_s_dict[base].act_dict.keys():
@@ -517,8 +530,9 @@ class SAltBuff(ModeAltBuff):
         self.default_s = self.adv.current_s[base]
         if group == 'ddrive':
             self.l_s = Listener('s', self.l_add_ddrive, order=0).on()
-        elif duration != -1:
-            self.l_s = Listener('s', self.l_extend_time, order=0).on()
+        elif duration != -1 and not timed_mode:
+            self.l_s = Listener('s', self.l_pause, order=0).on()
+            self.l_s_end = Listener('s_end', self.l_resume, order=0).on()
         self.enable_s(True)
         self.base_uses = uses
         self.uses = 0
@@ -545,6 +559,14 @@ class SAltBuff(ModeAltBuff):
             delta = (skill.ac.getstartup() + skill.ac.getrecovery()) / self.adv.speed()
             self.add_time(delta)
             log('debug', e.name, 'extend', delta)
+    
+    def l_pause(self, e):
+        if self.get() and e.base == self.base and e.group == self.group:
+            self.pause()
+    
+    def l_resume(self, e):
+        if self.get() and e.act.base == self.base and e.act.group == self.group:
+            self.resume()
 
     def l_add_ddrive(self, e):
         if self.get() and e.base == self.base and e.group == self.group:
@@ -763,24 +785,27 @@ bufftype_dict['affres'] = AffResDebuff
 
 
 class MultiBuffManager:
-    def __init__(self, name, buffs, duration=None):
+    def __init__(self, name, buffs, duration=None, timed_mode=False):
         self.name = name
         self.buffs = buffs or []
         # self.buffs = list(filter(None, self.buffs))
         self.duration = duration
         self.skill_buffs = set()
         for b in self.buffs:
-            if b.mod_type == 'effect':
-                b.hidden = True
-            if isinstance(b, SAltBuff) and b.group != 'ddrive':
-                b.add_time = self.add_time_hax
-                self.skill_buffs.add(b)
+            if not timed_mode:
+                if b.mod_type == 'effect':
+                    b.hidden = True
+                if isinstance(b, SAltBuff) and b.group != 'ddrive':
+                    b.pause = self.pause
+                    b.resume = self.resume
+                    self.pause_by = b.name
+                    self.pause_time = -1
 
-    def on(self):
+    def on(self, duration=None):
         # print([(b.name, b.get()) for b in self.buffs])
         for b in self.buffs:
             try:
-                b.on(duration=self.duration)
+                b.on(duration=duration or self.duration)
             except TypeError:
                 b.on()
         # print([(b.name, b.get()) for b in self.buffs])
@@ -800,16 +825,22 @@ class MultiBuffManager:
             b.add_time(delta)
         return self
 
-    def add_time_hax(self, delta):
-        for b in self.buffs:
-            if b in self.skill_buffs:
-                b.buff_end_timer.add(delta)
-            else:
-                b.add_time(delta)
-        return self
+    def pause(self, e=None):
+        self.pause_time = self.timeleft()
+        if self.pause_time > 0:
+            for b in self.buffs:
+                b.buff_end_timer.off()
+            log('pause', self.pause_by, self.pause_time)
+
+    def resume(self, e=None):
+        if self.pause_time > 0:
+            for b in self.buffs:
+                b.buff_end_timer.on(self.pause_time)
+            log('resume', self.pause_by, self.pause_time)
+        self.pause_time = -1
 
     def timeleft(self):
-        return min([b.timeleft for b in self.buffs])
+        return min([b.timeleft() for b in self.buffs])
 
 class ModeManager(MultiBuffManager):
     ALT_CLASS = {
@@ -818,19 +849,32 @@ class ModeManager(MultiBuffManager):
         's1': SAltBuff,
         's2': SAltBuff
     }
-    def __init__(self, name=None, group=None, buffs=None, duration=None, **kwargs):
+    def __init__(self, name=None, group=None, buffs=None, duration=-1, **kwargs):
         buffs = buffs or []
+        self.group = group
         self.alt = {}
+        pause = kwargs.get('pause')
+        timed_mode = bool(duration != -1 and pause)
         for k, buffclass in ModeManager.ALT_CLASS.items():
             if kwargs.get(k, False):
                 if k in ('s1', 's2'):
-                    self.alt[k] = buffclass(group=group, base=k)
+                    self.alt[k] = buffclass(group=group, duration=duration, base=k, timed_mode=timed_mode)
                 elif k in ('x'):
-                    self.alt[k] = buffclass(group=group, deferred=(kwargs.get('deferred', False)))
+                    self.alt[k] = buffclass(group=group, duration=duration, deferred=(kwargs.get('deferred', False)))
                 else:
-                    self.alt[k] = buffclass(group=group)
+                    self.alt[k] = buffclass(group=group, duration=duration)
         buffs.extend(self.alt.values())
-        super().__init__(name, buffs, duration)
+        super().__init__(name, buffs, duration, timed_mode=timed_mode)
+        if timed_mode:
+            self.pause_by = group
+            if 's' in pause:
+                self.l_s = Listener('s', self.pause, order=0).on()
+                self.l_s_end = Listener('s_end', self.resume, order=0).on()
+            if 'dragon' in pause:
+                self.l_dragon = Listener('dragon', self.pause, order=0).on()
+                self.l_dragon_end = Listener('dragon_end', self.resume, order=0).on()
+            for b in self.buffs:
+                b.no_bufftime()
 
     def on_except(self, exclude=None):
         for b in self.buffs:

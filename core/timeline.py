@@ -103,6 +103,8 @@ class Listener(object):
         self.off()
         return self.__cb
 
+    def set_cb(self, cb):
+        self.__cb = cb
 
     def off(self):
         if not self.__online:

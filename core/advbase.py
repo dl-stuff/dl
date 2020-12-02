@@ -197,8 +197,10 @@ class Action(object):
 
         self.startup_timer = Timer(self._cb_acting)
         self.recovery_timer = Timer(self._cb_act_end)
-        self.idle_event = Event('idle')
         self.act_event = Event(self.name)
+        self.idle_event = Event('idle')
+        self.end_event = Event(f'{self.name}_end')
+        self.end_event.act = self.act_event
 
         self.enabled = True
         self.delayed = set()
@@ -280,6 +282,7 @@ class Action(object):
             self._setprev()  # turn self from doing to prev
             self._static.doing = self.nop
             self.idle_event()
+            self.end_event()
 
     def _act(self, partidx):
         self.idx = partidx
@@ -440,6 +443,9 @@ class X(Action):
         self.act_event.index = self.index
         self.act_event.group = self.group
 
+        self.end_event = Event('x_end')
+        self.end_event.act = self.act_event
+
         self.rt_name = self.name
         self.tap, self.o_tap = self.rt_tap, self.tap
 
@@ -468,6 +474,9 @@ class Fs(Action):
                 self.act_event.level = int(parts[0][2:])
             except ValueError:
                 pass
+        self.end_event = Event('fs_end')
+        self.end_event.act = self.act_event
+
         self.atype = 'fs'
 
         self.act_repeat = None
@@ -585,6 +594,9 @@ class S(Action):
         self.act_event.group = self.group
         self.act_event.phase = 0
 
+        self.end_event = Event('s_end')
+        self.end_event.act = self.act_event
+
 
 class Dodge(Action):
     def __init__(self, name, conf, act=None):
@@ -594,6 +606,9 @@ class Dodge(Action):
 
         self.act_event = Event('dodge')
         self.act_event.name = self.name
+
+        self.end_event = Event('dodge_end')
+        self.end_event.act = self.act_event
 
     def getstartup(self):
         return self._startup
