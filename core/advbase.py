@@ -202,6 +202,7 @@ class Action(object):
         self.end_event = Event(f'{self.name}_end')
         self.end_event.act = self.act_event
 
+
         self.enabled = True
         self.delayed = set()
         # ?????
@@ -346,6 +347,7 @@ class Action(object):
                             return False
                         return timing
                     doing.startup_timer.off()
+                    doing.end_event()
                     logargs = ['interrupt', doing.name, f'by {self.name}']
                     delta = now() - doing.startup_start
                     if delta > 0:
@@ -362,6 +364,7 @@ class Action(object):
                             return False
                         return timing
                     doing.recovery_timer.off()
+                    doing.end_event()
                     count = doing.clear_delayed()
                     delta = now() - doing.recover_start
                     logargs = ['cancel', doing.name, f'by {self.name}']
@@ -394,11 +397,11 @@ class Repeat(Action):
         self.act_event.base = self.parent.act_event.base
         self.act_event.group = self.parent.act_event.group
         self.act_event.end = False
-        self.end_event = Event('repeat')
-        self.end_event.name = self.parent.act_event.name
-        self.end_event.base = self.parent.act_event.base
-        self.end_event.group = self.parent.act_event.group
-        self.end_event.end = True
+        self.end_repeat_event = Event('repeat')
+        self.end_repeat_event.name = self.parent.act_event.name
+        self.end_repeat_event.base = self.parent.act_event.base
+        self.end_repeat_event.group = self.parent.act_event.group
+        self.end_repeat_event.end = True
         self.index = 0
 
     def can_ic(self, target, can):
@@ -406,7 +409,7 @@ class Repeat(Action):
             return None
         result = can(target, endcheck=False)
         if result is not None:
-            self.end_event.on()
+            self.end_repeat_event.on()
         return result
 
     def can_interrupt(self, target):
