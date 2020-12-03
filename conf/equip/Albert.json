@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 70786.62471032953,
+      "dps": 70820.56631266818,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -42,7 +42,7 @@
     "buffer": {
       "dps": 8058.370622965318,
       "team": 0.43253484799204384,
-      "tdps": 145024.74050025688,
+      "tdps": 145103.21187082093,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -68,7 +68,7 @@
       ]
     },
     "affliction": {
-      "dps": 71188.44112153622,
+      "dps": 71223.71552016734,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -145,7 +145,7 @@
         "Kleimann"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "affliction": {
       "dps": 58533.14676243592,
       "team": 0.0010171912209736888,
@@ -185,42 +185,41 @@
       ]
     },
     "buffer": {
-      "dps": 44606.96857933338,
-      "team": 0.03307865541921541,
-      "tdps": -2727820.183841379,
+      "dps": 42263.91230313383,
+      "team": 0.04114719685425297,
+      "tdps": 370258.89630587137,
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Gentle_Winds",
         "Spirit_of_the_Season",
         "The_Shining_Overlord",
-        "The_Plaguebringer",
+        "Rogues_Banquet",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
         "if electrified",
-        "`s1",
-        "`s3, fsc",
-        "`s4",
-        "if x=3",
+        "`s1, cancel",
+        "`s4, not energy()=5",
+        "if x=2",
         "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
-        "`dragon(s), cancel",
-        "`s2, charged_in(2, s1)",
-        "`s1, cancel",
-        "`s3, cancel",
-        "`s4, cancel",
+        "`dragon(c1-s-end), s2.charged>s2.sp * 1/2 and cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2,s1)",
+        "`s4, cancel and not energy()=5",
+        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
         "end"
       ],
       "coabs": [
-        "Blade",
         "Lucretia",
-        "Peony"
+        "Peony",
+        "Sharena"
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Summer_Cleo"
       ]
     }
   },
@@ -300,6 +299,44 @@
       "share": [
         "Weapon",
         "Xander"
+      ]
+    },
+    "buffer": {
+      "dps": 54092.60887694778,
+      "team": 0.03091009484458069,
+      "tdps": 140378.4906630492,
+      "slots.a": [
+        "Gentle_Winds",
+        "Spirit_of_the_Season",
+        "The_Shining_Overlord",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s4, not energy()=5",
+        "if x=2",
+        "`fs2, not aff(paralysis)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c1-s-end), s2.charged>s2.sp * 1/2 and cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2,s1)",
+        "`s4, cancel and not energy()=5",
+        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
+        "end"
+      ],
+      "coabs": [
+        "Lucretia",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Cleo"
       ]
     }
   }

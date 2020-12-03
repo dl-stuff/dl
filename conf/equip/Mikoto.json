@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 85646.90196471052,
+      "dps": 79014.99145382586,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -68,7 +68,7 @@
     "buffer": {
       "dps": 35142.79735271975,
       "team": 0.1552464129207572,
-      "tdps": 325315.7587465142,
+      "tdps": 282597.1516874912,
       "slots.a": [
         "Memory_of_a_Friend",
         "Seaside_Princess",
@@ -98,33 +98,35 @@
   },
   "120": {
     "base": {
-      "dps": 68192.2430893596,
+      "dps": 90665.26564897862,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Valiant_Crown",
-        "His_Clever_Brother",
-        "To_the_Extreme"
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s), s=1",
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin stance ends",
+        "`dragon(s-s-c3-c2-end), s=1 and self.dragonform.shift_count=2",
+        "`dragon(s-s-c3-c3-end), s=1",
         "`s3, not buff(s3)",
-        "`s2, x=5",
-        "`s4",
         "`s1",
-        "`fs, x=5 and charged_in(fs, s1)"
+        "`s4, xf>1",
+        "`s2, xf>2",
+        "`fs, charged_in(fs, s1)"
       ],
       "coabs": [
-        "Gala_Sarisse",
+        "Yuya",
         "Serena",
-        "Axe2"
+        "Halloween_Mym"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Formal_Joachim"
       ]
     },
     "pref": "base",
@@ -158,6 +160,36 @@
       "share": [
         "Weapon",
         "Formal_Joachim"
+      ]
+    },
+    "buffer": {
+      "dps": 68192.2430893596,
+      "team": 0.0,
+      "tdps": 99999999,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=1",
+        "`s3, not buff(s3)",
+        "`s2, x=5",
+        "`s4",
+        "`s1",
+        "`fs, x=5 and charged_in(fs, s1)"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Serena",
+        "Axe2"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
       ]
     }
   },
