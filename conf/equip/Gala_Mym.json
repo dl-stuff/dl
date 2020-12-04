@@ -18,8 +18,8 @@
         "`s2, x=5 or fsc",
         "`s4, fsc",
         "`fs, x=5",
-        "`dragon(s-c3-end), self.dragonform.shift_count <= 1",
-        "`dragon(c3-s-end), self.dragonform.shift_count >= 2 and buff(s1)"
+        "`dragon(c1-s-c3-end), self.dragonform.shift_count <= 1",
+        "`dragon(c3-s-c3-end), self.dragonform.shift_count >= 2 and buff(s1)"
       ],
       "coabs": [
         "Yuya",
@@ -33,7 +33,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 118430.55005690226,
+      "dps": 118545.81160562891,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -45,13 +45,13 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-end), self.dragonform.shift_count <= 1",
-        "`dragon(c3-s-end), self.dragonform.shift_count >= 2",
-        "`s3, x=2 and not buff(s3)",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dragon(s-c3-end), self.dragonform.shift_count <= 1",
+        "`dragon(c3-s-end), self.dragonform.shift_count >= 2 and buff(s1)"
       ],
       "coabs": [
         "Yuya",

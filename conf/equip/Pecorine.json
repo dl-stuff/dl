@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 87811.68631586933,
+      "dps": 89329.33678700798,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -9,9 +9,46 @@
         "The_Lurker_in_the_Woods",
         "The_Shining_Overlord",
         "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife"
+        "Odd_Sparrows"
       ],
       "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon(c3-s-end), not gourmand_mode.get()",
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs",
+        "else",
+        "`s2",
+        "`s4",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Grace",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "pref": "base",
+    "buffer": {
+      "dps": 77147.93491481818,
+      "team": 0.08970301275477567,
+      "tdps": 135797.02061390664,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "The_Shining_Overlord",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Daikokuten",
       "acl": [
         "`dragon(s-end)",
         "if gourmand_mode.get()",
@@ -26,6 +63,42 @@
         "end"
       ],
       "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Elisanne"
+      ]
+    },
+    "affliction": {
+      "dps": 98618.86582620988,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon(c3-s-end), not gourmand_mode.get()",
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs",
+        "else",
+        "`s2",
+        "`s4",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
         "Mitsuhide",
         "Grace",
         "Peony"
@@ -34,47 +107,12 @@
         "Weapon",
         "Mikoto"
       ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 39247.56509097935,
-      "team": 0.07077502198188651,
-      "tdps": 686175.996346833,
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Dazzling_Duet",
-        "The_Shining_Overlord",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses"
-      ],
-      "slots.d": "Cupid",
-      "acl": [
-        "if gourmand_mode.get()",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`dodge, fsc",
-        "`fs",
-        "else",
-        "`dragon(s-end)",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`fs, x=3",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Prince",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
+    }
+  },
+  "120": {
     "affliction": {
-      "dps": 93890.07658326981,
-      "team": 0.038830236535680115,
+      "dps": 90037.92638749047,
+      "team": 0.033276856763186854,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -104,8 +142,47 @@
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Mikoto"
       ]
-    }
+    },
+    "pref": "base"
+  },
+  "60": {
+    "affliction": {
+      "dps": 76058.18213117619,
+      "team": 0.05046606962572546,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Shining_Overlord",
+        "A_Game_of_Cat_and_Boar",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs",
+        "else",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Grace",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "pref": "base"
   }
 }
