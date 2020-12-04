@@ -396,21 +396,25 @@ class DragonForm(Action):
                 except IndexError:
                     pass
             else:
-                try:
-                    if len(self.act_list) > 0 and self.act_list[-1] == 'dodge':
-                        self.act_list.pop()
-                except IndexError:
-                    pass
+                nact = None
                 if (a in ('s', 'ds', 'sf', 'dsf')) and (self.skill_use <= -1 or skill_usage < self.skill_use):
                     if a[-1] == 'f':
-                        self.act_list.append('dsf')
+                        # self.act_list.append('dsf')
+                        nact = 'dsf'
                     else:
-                        self.act_list.append('ds')
+                        nact = 'ds'
                     skill_usage += 1
                 elif a == 'end' and self.can_end:
-                    self.act_list.append('end')
+                    nact = 'end'
                 elif a == 'dodge':
-                    self.act_list.append('dodge')
+                    nact = 'dodge'
+                if nact:
+                    try:
+                        if len(self.act_list) > 0 and self.act_list[-1] == 'dodge':
+                            self.act_list.pop()
+                    except IndexError:
+                        pass
+                    self.act_list.append(nact)
 
     def act(self, act_str):
         self.parse_act(act_str)
