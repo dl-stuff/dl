@@ -6,6 +6,7 @@ from core import Conf
 ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
 WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun')
 TRIBE_TYPES = ('thaumian', 'physian', 'demihuman', 'therion', 'undead', 'demon', 'human', 'dragon')
+DURATION = (60, 120, 180)
 
 ROOT_DIR = os.getenv('ROOT_DIR', os.path.realpath(os.path.join(__file__, '../..')))
 
@@ -43,7 +44,11 @@ for target, alst in load_json('alias.json').items():
 
 elecoabs = {}
 for ele in ELEMENTS:
-    elecoabs[ele] = {**coability['any'], **coability[ele]}
+    elecoabs[ele] = {**coability['any'], **coability['generic'], **coability[ele]}
+
+mono_elecoabs = {}
+for ele in ELEMENTS:
+    mono_elecoabs[ele] = {**coability['generic'], **coability[ele]}
 
 advconfs = {}
 def load_adv_json(adv):

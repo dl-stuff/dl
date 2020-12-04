@@ -453,7 +453,7 @@ function selectSkillShare(basename, pref_share) {
             break;
     }
 }
-function loadAdvSlots(no_conf, set_equip) {
+function loadAdvSlots(no_conf, set_equip, set_mono) {
     if ($('#input-adv').val() == '') {
         return false;
     }
@@ -470,6 +470,9 @@ function loadAdvSlots(no_conf, set_equip) {
     };
     if (set_equip) {
         requestJson['equip'] = $('#input-equip').val();
+    }
+    if (set_mono) {
+        requestJson['mono'] = $('#input-mono').prop('checked');
     }
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {
@@ -502,8 +505,11 @@ function loadAdvSlots(no_conf, set_equip) {
                     });
                     for (const c of slots.adv.pref_coab) {
                         const check = $("input[id$='-" + c + "']");
-                        check.prop('checked', true);
-                        coabSelection(1, true);
+                        console.log(check);
+                        if (check.length) {
+                            check.prop('checked', true);
+                            coabSelection(1, true);
+                        }
                     }
                     selectSkillShare(slots.adv.basename, slots.adv.pref_share);
                     const acl = trimAcl(slots.adv.acl);
@@ -998,13 +1004,14 @@ function clearResults() {
     $('#input-classbane').val('');
     $('#input-dumb').val('');
     $('#input-equip').val($('#input-equip').data('pref') || 'base');
+    // $('#input-mono').prop('checked', false);
     clearAllGraphs();
 }
 function resetTest() {
     updateUrl();
     clearResults();
     populateVariantSelect($('#adv-' + $('#input-adv').val()).data('variants'));
-    loadAdvSlots(true, false);
+    loadAdvSlots(true, false, true);
 }
 function weaponSelectChange() {
     const weapon = $('#input-wep').val();
@@ -1078,11 +1085,12 @@ function update_teamdps() {
 }
 function changeEquip() {
     updateUrl();
-    loadAdvSlots(true, true);
+    loadAdvSlots(true, true, true);
 }
 window.onload = function () {
     $('#input-adv').change(debounce(resetTest, 100));
     $('#input-equip').change(debounce(changeEquip, 100));
+    $('#input-mono').change(debounce(changeEquip, 100));
     $('#run-test').click(debounce(runAdvTest, 100));
     if (!localStorage.getItem('displayMode')) {
         localStorage.setItem('displayMode', 'Markdown');

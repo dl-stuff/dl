@@ -6,25 +6,13 @@
     <title>Dragalia Lost Damage Simulator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" type="image/png" href="/ui/favicon.png" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-        integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg=="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-        integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-        integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
-        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
     <script src="/ui/dl_simc.js" type="text/javascript"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159918955-2"></script>
@@ -57,12 +45,10 @@
                     </select>
                 </div>
                 <div class="col-sm">
-                    <label for="input-teamdps">Team DPS</label><input id="input-teamdps" class="form-control"
-                        type="number" step="5000" min="0" />
+                    <label for="input-teamdps">Team DPS</label><input id="input-teamdps" class="form-control" type="number" step="5000" min="0" />
                 </div>
                 <div class="col-sm">
-                    <label for="input-t">Simulation Time (s)</label><input id="input-t" class="form-control"
-                        type="text" />
+                    <label for="input-t">Simulation Time (s)</label><input id="input-t" class="form-control" type="text" />
                 </div>
                 <div class="col-sm">
                     <label for="input-hp">HP</label><input id="input-hp" class="form-control" type="text" />
@@ -112,6 +98,11 @@
                     </div>
                     <div class="col-sm-8">
                         <label class="coab-label">Co-Abilities:</label>
+                        &nbsp;
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input id="input-mono" class="custom-control-input" type="checkbox" />
+                            <label for="input-mono" class="custom-control-label">Mono-ele</label>
+                        </div>
                         <br />
                         <div id="input-coabs">
                             <div id="input-coabs-blade"></div>
@@ -131,58 +122,45 @@
             <div class="collapse" id="advanced-inputs">
                 <div class="form-row" id="affliction-sim">
                     <div class="col-sm col-4">
-                        <label for="input-sim-poison">Poison (%)</label><input id="input-sim-poison"
-                            class="form-control" type="text" placeholder="0" />
+                        <label for="input-sim-poison">Poison (%)</label><input id="input-sim-poison" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-paralysis">Paralysis (%)</label><input id="input-sim-paralysis"
-                            class="form-control" type="text" placeholder="0" />
+                        <label for="input-sim-paralysis">Paralysis (%)</label><input id="input-sim-paralysis" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-burn">Burn (%)</label><input id="input-sim-burn" class="form-control"
-                            type="text" placeholder="0" />
+                        <label for="input-sim-burn">Burn (%)</label><input id="input-sim-burn" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-frostbite">Frostbite (%)</label><input id="input-sim-frostbite"
-                            class="form-control" type="text" placeholder="0" />
+                        <label for="input-sim-frostbite">Frostbite (%)</label><input id="input-sim-frostbite" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-flashburn">Flashburn (%)</label><input id="input-sim-flashburn"
-                            class="form-control" type="text" placeholder="0" />
+                        <label for="input-sim-flashburn">Flashburn (%)</label><input id="input-sim-flashburn" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-shadowblight">Shadowblight (%)</label><input id="input-sim-shadowblight"
-                            class="form-control" type="text" placeholder="0" />
+                        <label for="input-sim-shadowblight">Shadowblight (%)</label><input id="input-sim-shadowblight" class="form-control" type="text" placeholder="0" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-stormlash">Stormlash (%)</label><input id="input-sim-stormlash"
-                            class="form-control" type="text" placeholder="0" />
+                        <label for="input-sim-stormlash">Stormlash (%)</label><input id="input-sim-stormlash" class="form-control" type="text" placeholder="0" />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-sm col-4">
-                        <label for="input-sim-buff-str">+Str%</label><input id="input-sim-buff-str_buff"
-                            class="form-control" type="text" />
+                        <label for="input-sim-buff-str">+Str%</label><input id="input-sim-buff-str_buff" class="form-control" type="text" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-buff-critr">+Crit Rate%</label><input id="input-sim-buff-critr"
-                            class="form-control" type="text" />
+                        <label for="input-sim-buff-critr">+Crit Rate%</label><input id="input-sim-buff-critr" class="form-control" type="text" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-buff-critd">+Crit Dmg%</label><input id="input-sim-buff-critd"
-                            class="form-control" type="text" />
+                        <label for="input-sim-buff-critd">+Crit Dmg%</label><input id="input-sim-buff-critd" class="form-control" type="text" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-buff-def">-Def%</label><input id="input-sim-buff-def_down"
-                            class="form-control" type="text" />
+                        <label for="input-sim-buff-def">-Def%</label><input id="input-sim-buff-def_down" class="form-control" type="text" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-buff-doublebuff_interval">Doublebuff (s)</label><input
-                            id="input-sim-buff-doublebuff_interval" class="form-control" type="text" />
+                        <label for="input-sim-buff-doublebuff_interval">Doublebuff (s)</label><input id="input-sim-buff-doublebuff_interval" class="form-control" type="text" />
                     </div>
                     <div class="col-sm col-4">
-                        <label for="input-sim-buff-count">Buff Counts</label><input id="input-sim-buff-count"
-                            class="form-control" type="text" />
+                        <label for="input-sim-buff-count">Buff Counts</label><input id="input-sim-buff-count" class="form-control" type="text" />
                     </div>
                     <div class="col-sm col-4">
                         <label for="input-sim-buff-echo">Bonus Attack</label>
@@ -227,54 +205,42 @@
                 <div id="affliction-resist">
                     <div class="form-row">
                         <div class="col-sm col-4">
-                            <label for="input-res-poison">Poison</label><input id="input-res-poison"
-                                class="form-control" type="text" placeholder="0" />
+                            <label for="input-res-poison">Poison</label><input id="input-res-poison" class="form-control" type="text" placeholder="0" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-paralysis">Paralysis</label><input id="input-res-paralysis"
-                                class="form-control" type="text" placeholder="0" />
+                            <label for="input-res-paralysis">Paralysis</label><input id="input-res-paralysis" class="form-control" type="text" placeholder="0" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-burn">Burn</label><input id="input-res-burn" class="form-control"
-                                type="text" placeholder="0" />
+                            <label for="input-res-burn">Burn</label><input id="input-res-burn" class="form-control" type="text" placeholder="0" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-frostbite">Frostbite</label><input id="input-res-frostbite"
-                                class="form-control" type="text" placeholder="0" />
+                            <label for="input-res-frostbite">Frostbite</label><input id="input-res-frostbite" class="form-control" type="text" placeholder="0" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-flashburn">Flashburn</label><input id="input-res-flashburn"
-                                class="form-control" type="text" placeholder="0" />
+                            <label for="input-res-flashburn">Flashburn</label><input id="input-res-flashburn" class="form-control" type="text" placeholder="0" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-shadowblight">Shadowblight</label><input id="input-res-shadowblight"
-                                class="form-control" type="text" placeholder="0" />
+                            <label for="input-res-shadowblight">Shadowblight</label><input id="input-res-shadowblight" class="form-control" type="text" placeholder="0" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-stormlash">Stormlash</label><input id="input-res-stormlash"
-                                class="form-control" type="text" placeholder="0" />
+                            <label for="input-res-stormlash">Stormlash</label><input id="input-res-stormlash" class="form-control" type="text" placeholder="0" />
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-sm col-4">
-                            <label for="input-res-bog">Bog</label><input id="input-res-bog" class="form-control"
-                                type="text" placeholder="99" />
+                            <label for="input-res-bog">Bog</label><input id="input-res-bog" class="form-control" type="text" placeholder="99" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-blind">Blind</label><input id="input-res-blind" class="form-control"
-                                type="text" placeholder="99" />
+                            <label for="input-res-blind">Blind</label><input id="input-res-blind" class="form-control" type="text" placeholder="99" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-stun">Stun</label><input id="input-res-stun" class="form-control"
-                                type="text" placeholder="99" />
+                            <label for="input-res-stun">Stun</label><input id="input-res-stun" class="form-control" type="text" placeholder="99" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-freeze">Freeze</label><input id="input-res-freeze"
-                                class="form-control" type="text" placeholder="99" />
+                            <label for="input-res-freeze">Freeze</label><input id="input-res-freeze" class="form-control" type="text" placeholder="99" />
                         </div>
                         <div class="col-sm col-4">
-                            <label for="input-res-sleep">Sleep</label><input id="input-res-sleep" class="form-control"
-                                type="text" placeholder="99" />
+                            <label for="input-res-sleep">Sleep</label><input id="input-res-sleep" class="form-control" type="text" placeholder="99" />
                         </div>
                     </div>
                 </div>
@@ -282,12 +248,10 @@
             <div class="form-row">
                 <div class="col">
                     <button type="button" id="run-test" class="btn btn-primary">Run Test</button>
-                    <button type="button" id="toggle-basic" class="btn btn-success" data-toggle="collapse"
-                        data-target="#basic-inputs" aria-expanded="true" aria-controls="basic-inputs">
+                    <button type="button" id="toggle-basic" class="btn btn-success" data-toggle="collapse" data-target="#basic-inputs" aria-expanded="true" aria-controls="basic-inputs">
                         Settings
                     </button>
-                    <button type="button" id="toggle-advanced" class="btn btn-info" data-toggle="collapse"
-                        data-target="#advanced-inputs" aria-expanded="false" aria-controls="advanced-inputs">
+                    <button type="button" id="toggle-advanced" class="btn btn-info" data-toggle="collapse" data-target="#advanced-inputs" aria-expanded="false" aria-controls="advanced-inputs">
                         Conditions
                     </button>
                     <!-- <button type="button" id="toggle-coab" class="btn btn-info" data-toggle="collapse" data-target="#coability" aria-expanded="false" aria-controls="coability">
@@ -300,14 +264,11 @@
                     Resist
                 </button> -->
                     <button type="button" id="display-mode" class="btn btn-secondary"></button>
-                    <button type="button" class="btn btn-dark" data-toggle="modal"
-                        data-target="#damageLogBox">Log</button>
-                    <button type="button" class="btn btn-dark" data-toggle="modal"
-                        data-target="#simulationGraphBox">Graph</button>
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#damageLogBox">Log</button>
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#simulationGraphBox">Graph</button>
                     <button type="button" id="clear-results" class="btn btn-secondary">Clear</button>
                     <button type="button" id="reset-test" class="btn btn-secondary">Reset</button>
-                    <button type="button" class="btn btn-secondary" data-toggle="modal"
-                        data-target="#aboutBox">About</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#aboutBox">About</button>
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#aclBox">ACL
                         Guide</button>
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#commitsBox">Latest
@@ -318,8 +279,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="aboutBox" tabindex="-1" role="dialog" aria-labelledby="aboutTitle"
-            aria-hidden="true">
+        <div class="modal fade" id="aboutBox" tabindex="-1" role="dialog" aria-labelledby="aboutTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -333,8 +293,7 @@
                         <p>This is an elaborate napkin math machine, designed to estimate highest possible damage
                             per
                             second for a given adventurer.
-                            The source code can be found here: <a
-                                href="https://github.com/dl-stuff/dl">https://github.com/dl-stuff/dl</a></p>
+                            The source code can be found here: <a href="https://github.com/dl-stuff/dl">https://github.com/dl-stuff/dl</a></p>
                         <h5>How does simulated afflictions work?</h5>
                         <p>The affliction is considered [uptime]% effective for the entire duration of the
                             simulation.
@@ -370,8 +329,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="damageLogBox" tabindex="-1" role="dialog" aria-labelledby="damageLogTitle"
-            aria-hidden="true">
+        <div class="modal fade" id="damageLogBox" tabindex="-1" role="dialog" aria-labelledby="damageLogTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -387,8 +345,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="simulationGraphBox" tabindex="-1" role="dialog"
-            aria-labelledby="simulationGraphTitle" aria-hidden="true">
+        <div class="modal fade" id="simulationGraphBox" tabindex="-1" role="dialog" aria-labelledby="simulationGraphTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -406,13 +363,11 @@
             </div>
         </div>
 
-        <div class="modal fade" id="commitsBox" tabindex="-1" role="dialog" aria-labelledby="commitsTitle"
-            aria-hidden="true">
+        <div class="modal fade" id="commitsBox" tabindex="-1" role="dialog" aria-labelledby="commitsTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="commitsTitle">Latest Updates - <a
-                                href="https://github.com/dl-stuff/dl/commits/master">See all</a></h5>
+                        <h5 class="modal-title" id="commitsTitle">Latest Updates - <a href="https://github.com/dl-stuff/dl/commits/master">See all</a></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

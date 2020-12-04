@@ -6,11 +6,10 @@ import argparse
 from copy import deepcopy
 from time import monotonic, time_ns
 import core.simulate
-from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES
+from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATION
 
 ADV_DIR = 'adv'
 CHART_DIR = 'www/dl-sim'
-DURATIONS = (60, 120, 180)
 SKIP_VARIANT = ('RNG', 'mass')
 
 def sha256sum(filename):

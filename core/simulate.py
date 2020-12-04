@@ -459,6 +459,50 @@ def report(real_d, adv, output, cond=True, web=False):
     output.write('\n')
     return report_csv
 
+CAP_SNEK = re.compile(r'(^[a-z]|_[a-z])')
+def cap_snakey(name):
+    return CAP_SNEK.sub(lambda s: s.group(1).upper(), name)
+
+def load_adv_module(name, in_place=None):
+    parts = os.path.basename(name).split('.')
+    vkey = None if len(parts) == 1 else parts[1].upper()
+    name = cap_snakey(parts[0])
+    lname = name.lower()
+    try:
+        advmodule = getattr(__import__(f'adv.{lname}'), lname)
+        if in_place is not None:
+            in_place[name] = advmodule.variants
+            return name
+        try:
+            loaded = advmodule.variants[vkey]
+        except KeyError:
+            loaded = advmodule.variants[None]
+        return loaded, name
+    except ModuleNotFoundError:
+        if in_place is not None:
+            in_place[name] =  {None: core.advbase.Adv}
+            return name
+        return core.advbase.Adv, name
+
+def test_with_argv(*argv):
+    if argv[0] is not None and not isinstance(argv[0], str):
+        module = argv[0]
+    else:
+        module, name = load_adv_module(argv[1])
+    try:
+        verbose = int(argv[2])
+    except:
+        verbose = 0
+    try:
+        duration = int(argv[3])
+    except:
+        duration = 180
+    try:
+        mass = int(argv[4])
+    except:
+        mass = 0
+    test(name, module, verbose=verbose, duration=duration, mass=mass)
+
 
 def same_build_different_dps(a, b):
     return all([a[k] == b[k] for k in ('slots.a', 'slots.d', 'acl', 'coabs', 'share')]) and any([a[k] != b[k] for k in ('dps', 'team')])
@@ -580,49 +624,6 @@ def save_equip(adv, real_d, repair=False, etype=None):
         equip[dkey]['pref'] = 'base'
     save_equip_json(adv_qual, equip)
 
-CAP_SNEK = re.compile(r'(^[a-z]|_[a-z])')
-def cap_snakey(name):
-    return CAP_SNEK.sub(lambda s: s.group(1).upper(), name)
-
-def load_adv_module(name, in_place=None):
-    parts = os.path.basename(name).split('.')
-    vkey = None if len(parts) == 1 else parts[1].upper()
-    name = cap_snakey(parts[0])
-    lname = name.lower()
-    try:
-        advmodule = getattr(__import__(f'adv.{lname}'), lname)
-        if in_place is not None:
-            in_place[name] = advmodule.variants
-            return name
-        try:
-            loaded = advmodule.variants[vkey]
-        except KeyError:
-            loaded = advmodule.variants[None]
-        return loaded, name
-    except ModuleNotFoundError:
-        if in_place is not None:
-            in_place[name] =  {None: core.advbase.Adv}
-            return name
-        return core.advbase.Adv, name
-
-def test_with_argv(*argv):
-    if argv[0] is not None and not isinstance(argv[0], str):
-        module = argv[0]
-    else:
-        module, name = load_adv_module(argv[1])
-    try:
-        verbose = int(argv[2])
-    except:
-        verbose = 0
-    try:
-        duration = int(argv[3])
-    except:
-        duration = 180
-    try:
-        mass = int(argv[4])
-    except:
-        mass = 0
-    test(name, module, verbose=verbose, duration=duration, mass=mass)
 
 if __name__ == '__main__':
     test_with_argv(*sys.argv)

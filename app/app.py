@@ -12,7 +12,10 @@ from flask import jsonify
 
 import core.simulate
 from core.afflic import AFFLICT_LIST
-from conf import ROOT_DIR, TRIBE_TYPES, skillshare, wyrmprints, weapons, dragons, load_adv_json, load_equip_json, list_advs
+from conf import (
+    ROOT_DIR, TRIBE_TYPES, skillshare, wyrmprints, weapons, dragons, mono_elecoabs,
+    load_adv_json, load_equip_json, list_advs
+)
 app = Flask(__name__)
 
 # Helpers
@@ -159,12 +162,14 @@ def get_adv_slotlist():
         advname = request.args.get('adv', default=None)
         variant = request.args.get('variant', default=None)
         equip_key = request.args.get('equip', default=None)
+        mono = bool(request.args.get('mono', default=None))
         duration = request.args.get('t', default=180)
     elif request.method == 'POST':
         params = request.get_json(silent=True)
         advname = params.get('adv', None)
         variant = params.get('variant', None)
         equip_key = params.get('equip', None)
+        mono = bool(params.get('mono', None))
         duration = params.get('t', 180)
     else:
         return 'Wrong request method.'
@@ -178,14 +183,8 @@ def get_adv_slotlist():
         result['adv']['pref_dra'] = adv.slots.d.qual
         result['adv']['pref_wep'] = adv.slots.w.qual
         result['adv']['pref_wp'] = adv.slots.a.qual_lst
-        try:
-            result['adv']['pref_coab'] = adv.conf.coabs['base'] or []
-        except:
-            result['adv']['pref_coab'] = adv.conf['coabs'] or []
-        try:
-            result['adv']['pref_share'] = adv.conf.share['base'] or []
-        except:
-            result['adv']['pref_share'] = adv.conf['share'] or []
+        result['adv']['pref_coab'] = adv.conf['coabs'] or []
+        result['adv']['pref_share'] = adv.conf['share'] or []
         result['adv']['acl'] = adv.conf.acl
         if adv.conf['tdps'] and 0 <= adv.conf['tdps'] <= 200000:
             result['adv']['tdps'] = int(adv.conf.tdps) + 1
@@ -199,7 +198,10 @@ def get_adv_slotlist():
         result['dragons'] = {drg: data['d']['name'] for drg, data in dragons[adv.slots.c.ele].items()}
         # gold fafu lul
         result['dragons']['Gold_Fafnir'] = 'Gold Fafnir'
-        result['coabilities'] = {k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()}
+        if mono:
+            result['coabilities'] = {k: (get_fullname(k), *v) for k, v in mono_elecoabs[adv.slots.c.ele].items()}
+        else:
+            result['coabilities'] = {k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()}
     return jsonify(result)
 
 
