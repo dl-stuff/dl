@@ -15,10 +15,10 @@
       "slots.w": "void",
       "acl": [
         "`s1",
-        "`s4, s1.charged<s1.sp/2",
+        "`s4, s1.charged<(s1.sp / 2)",
         "`s3, x>1",
-        "`fs, self.fs_prep_c=3 and x=1",
-        "`fs, self.fs_prep_c=1 and x=5",
+        "`fs, (fs_prep_c=3) and (x=1)",
+        "`fs, (fs_prep_c=1) and (x=5)",
         "`fs, x=5"
       ],
       "coabs": [
@@ -47,10 +47,10 @@
       "slots.w": "void",
       "acl": [
         "`s1",
-        "`s4, s1.charged<s1.sp/2",
+        "`s4, s1.charged<(s1.sp / 2)",
         "`s3, x>1",
-        "`fs, self.fs_prep_c=3 and x=1",
-        "`fs, self.fs_prep_c=1 and x=5",
+        "`fs, (fs_prep_c=3) and (x=1)",
+        "`fs, (fs_prep_c=1) and (x=5)",
         "`fs, x=5"
       ],
       "coabs": [
@@ -64,33 +64,34 @@
       ]
     },
     "affliction": {
-      "dps": 19579.524397580244,
-      "team": 0.44780992582782225,
+      "dps": 4529.157891988565,
+      "team": 1.4687741918583066,
       "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
+        "A_Dogs_Day",
+        "Gentle_Winds",
+        "Sisters_Day_Out",
         "From_Whence_He_Comes",
-        "The_Queen_of_the_Knife"
+        "Bellathorna"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Freyja",
       "slots.w": "void",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
         "`s1",
-        "`s2",
-        "`s4"
+        "`s4, s1.charged<(s1.sp / 2)",
+        "`s3, x>1",
+        "`fs, (fs_prep_c=3) and (x=1)",
+        "`fs, (fs_prep_c=1) and (x=5)",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Blade",
-        "Eleonora",
-        "Akasha"
+        "Bow",
+        "Dagger2",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Mikoto",
+        "Summer_Cleo"
       ]
     }
   },
@@ -110,11 +111,9 @@
       "slots.w": "void",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3)",
         "`s1",
         "`s2",
-        "`s4",
-        "`dodge, fsc"
+        "`s4"
       ],
       "coabs": [
         "Blade",
@@ -142,7 +141,6 @@
       "slots.w": "void",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3)",
         "`s1",
         "`s2",
         "`s4"
@@ -172,10 +170,10 @@
       "slots.w": "void",
       "acl": [
         "`s1",
-        "`s4, s1.charged<s1.sp/2",
+        "`s4, s1.charged<(s1.sp / 2)",
         "`s3, x>1",
-        "`fs, self.fs_prep_c=3 and x=1",
-        "`fs, self.fs_prep_c=1 and x=5",
+        "`fs, (fs_prep_c=3) and (x=1)",
+        "`fs, (fs_prep_c=1) and (x=5)",
         "`fs, x=5"
       ],
       "coabs": [

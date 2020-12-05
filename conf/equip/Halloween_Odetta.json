@@ -14,7 +14,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon, s=2",
-        "`s3, not buff(s3) and fsc",
+        "`s3, (not buff(s3)) and fsc",
         "`s2",
         "`s4",
         "`s1, fsc",
@@ -74,12 +74,12 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-end), fsc",
         "#`s1, not buff(s1) and fsc",
+        "`dragon(c3-s-end), fsc",
         "`s4",
         "`s2",
         "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
-        "`fs, x=2 or hits=0"
+        "`fs, (x=2) or (hits=0)"
       ],
       "coabs": [
         "Renee",
@@ -129,12 +129,12 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-end), fsc",
         "#`s1, not buff(s1) and fsc",
+        "`dragon(c3-s-end), fsc",
         "`s4",
         "`s2",
         "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
-        "`fs, x=2 or hits=0"
+        "`fs, (x=2) or (hits)"
       ],
       "coabs": [
         "Renee",
@@ -147,8 +147,8 @@
       ]
     },
     "affliction": {
-      "dps": 47868.80990616001,
-      "team": 0.2994153012636075,
+      "dps": 49547.224161467486,
+      "team": 0.28999119511878624,
       "tdps": null,
       "slots.a": [
         "Brothers_in_Arms",
@@ -159,11 +159,11 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
         "`s4",
-        "`s1, fsc",
+        "`s1",
         "`fs, x=2"
       ],
       "coabs": [
@@ -173,8 +173,41 @@
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Fjorm"
       ]
     }
+  },
+  "60": {
+    "base": {
+      "dps": 12571.758128110523,
+      "team": 1.3645992073293924,
+      "tdps": null,
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "#`s1, not buff(s1) and fsc",
+        "`dragon(c3-s-end), fsc",
+        "`s4",
+        "`s2",
+        "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
+        "`fs, (x=2) or (hits=0)"
+      ],
+      "coabs": [
+        "Renee",
+        "Hunter_Sarisse",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "pref": "base"
   }
 }

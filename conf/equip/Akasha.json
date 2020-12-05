@@ -13,8 +13,7 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), not buff(s2)",
-        "`s1, prep or (timeleft(s1) < 5 and x=5)",
+        "`s1, prep or ((timeleft(s1)<5) and (x=5))",
         "`s3, not buff(s3)",
         "`s4",
         "`s2"
@@ -44,12 +43,12 @@
       "slots.d": "Freyja",
       "acl": [
         "#`dragon(s-end)",
-        "`s1, (x=5 or s or prep) and timeleft(s1)<5",
+        "`s1, ((x=5) or (s or prep)) and (timeleft(s1)<5)",
         "`s4",
         "`s3",
         "`s2",
-        "`fs, fs_prep_c >= 3",
-        "`dodge, fscf and fs_prep_c = 0"
+        "`fs, fs_prep_c>=3",
+        "`dodge, fscf and (fs_prep_c)"
       ],
       "coabs": [
         "Bow",
@@ -74,8 +73,7 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon, not buff(s2)",
-        "`s1, prep or (timeleft(s1) < 5 and x=5)",
+        "`s1, prep or ((timeleft(s1)<5) and (x=5))",
         "`s3, not buff(s3)",
         "`s4",
         "`s2"

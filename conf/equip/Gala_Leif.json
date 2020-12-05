@@ -14,13 +14,13 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
+        "`s3, (not buff(s3)) and cancel",
         "`s4, cancel",
-        "`s2(shielding), s2.check() and fsc",
-        "`s1(striking), s1.check()",
-        "`fs, xf=2 and hits > 5 and stance = 'striking'",
-        "`fs, x=1 and hits > 5 and stance = 'shielding'",
-        "`fs, x=2 or hits=0"
+        "`s(2, shielding), s2.check() and fsc",
+        "`s(1, striking), s1.check()",
+        "`fs, (xf=2) and ((hits>5) and (stance='striking'))",
+        "`fs, (x=1) and ((hits>5) and (stance='shielding'))",
+        "`fs, (x=2) or (hits=0)"
       ],
       "coabs": [
         "Blade",
@@ -49,8 +49,8 @@
         "`dragon(s-end)",
         "`s3, not buff(s3)",
         "`s4, fsc",
-        "`s2(shielding), s2.check()",
-        "`s1(striking), s1.check()",
+        "`s(2, shielding), s2.check()",
+        "`s(1, striking), s1.check()",
         "`fs, xf=1"
       ],
       "coabs": [
@@ -77,13 +77,13 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
+        "`s3, (not buff(s3)) and cancel",
         "`s4, cancel",
-        "`s2(shielding), s2.check() and fsc",
-        "`s1(striking), s1.check()",
-        "`fs, xf=2 and hits > 5 and stance = 'striking'",
-        "`fs, x=1 and hits > 5 and stance = 'shielding'",
-        "`fs, x=2 or hits=0"
+        "`s(2, shielding), s2.check() and fsc",
+        "`s(1, striking), s1.check()",
+        "`fs, (xf=2) and ((hits>5) and (stance='striking'))",
+        "`fs, (x=1) and ((hits>5) and (stance='shielding'))",
+        "`fs, (x=2) or (hits=0)"
       ],
       "coabs": [
         "Blade",
@@ -110,11 +110,11 @@
       ],
       "slots.d": "Vayu",
       "acl": [
-        "`dragon(c3-s-end),fsc",
+        "`dragon(c3-s-end), fsc",
         "`s3, not buff(s3)",
         "`s4, aff(poison) and cancel",
-        "`s2(shielding), s2.check()",
-        "`s1(striking), s1.check()",
+        "`s(2, shielding), s2.check()",
+        "`s(1, striking), s1.check()",
         "`fs, xf=3"
       ],
       "coabs": [
@@ -129,8 +129,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 71423.93425449463,
-      "team": 0.04672555329215881,
+      "dps": 74360.66361451015,
+      "team": 0.04815809916923419,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -142,13 +142,13 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s2(shielding), s2.check()",
-        "`s1(striking), s1.check()",
-        "`fs, xf=2 and hits > 5 and stance = 'striking'",
-        "`fs, xf=1 and stance = 'shielding'",
-        "`fs, x=4"
+        "`s3, (not buff(s3)) and cancel",
+        "`s4, cancel",
+        "`s(2, shielding), s2.check() and fsc",
+        "`s(1, striking), s1.check()",
+        "`fs, (xf=2) and ((hits>5) and (stance='striking'))",
+        "`fs, (x=1) and ((hits>5) and (stance='shielding'))",
+        "`fs, (x=2) or (hits=0)"
       ],
       "coabs": [
         "Blade",

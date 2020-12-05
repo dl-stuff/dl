@@ -13,11 +13,10 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), (self.hp>0 and (self.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)",
         "`s3, not buff(s3)",
-        "`s2, self.hp > 30",
+        "`s2, hp>30",
         "`s1",
-        "`s4, s1.charged<s1.sp/3"
+        "`s4, s1.charged<(s1.sp/3)"
       ],
       "coabs": [
         "Wand",
@@ -43,11 +42,11 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), (self.hp>0 and (self.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)",
+        "`dragon(c3-s-end), ((hp) and (or sim_afflict))",
         "`s3, not buff(s3)",
-        "`s2, self.hp > 30",
+        "`s2, hp>30",
         "`s1",
-        "`s4, s1.charged<s1.sp/3"
+        "`s4, s1.charged<(s1.sp / 3)"
       ],
       "coabs": [
         "Wand",
@@ -72,11 +71,10 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), (self.hp>0 and (self.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)",
         "`s3, not buff(s3)",
-        "`s2, self.hp > 30",
+        "`s2, hp>30",
         "`s1",
-        "`s4, s1.charged<s1.sp/3",
+        "`s4, s1.charged<(s1.sp / 3)",
         "`fs, x=5"
       ],
       "coabs": [
@@ -133,11 +131,11 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), (self.hp>0 and (self.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)",
+        "`dragon(c3-s-end), ((hp) and (or sim_afflict))",
         "`s3, not buff(s3)",
-        "`s2, self.hp > 30",
+        "`s2, hp>30",
         "`s1",
-        "`s4, s1.charged<s1.sp/3"
+        "`s4, s1.charged<(s1.sp / 3)"
       ],
       "coabs": [
         "Wand",
@@ -164,9 +162,8 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), (self.hp>0 and (self.trickery <= 0 or self.sim_afflict)) or (self.hp=0 and x=5)",
         "`s3, not buff(s3)",
-        "`s2, self.hp > 30",
+        "`s2, hp>30",
         "`s1",
         "`s4",
         "`fs, x=5"

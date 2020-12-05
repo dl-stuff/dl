@@ -14,7 +14,7 @@
       "slots.d": "Ramiel",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s1, ((x=5) or s) and (timeleft(s1)<5)",
         "`s4",
         "`dragon(s)"
       ],
@@ -43,7 +43,7 @@
       "slots.d": "Ramiel",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s1, ((x=5) or s) and (timeleft(s1)<5)",
         "`s4",
         "`dragon(s)"
       ],
@@ -71,11 +71,11 @@
       "slots.d": "Azazel",
       "acl": [
         "`dragon(s-end)",
-        "`s1, (x=5 or s or prep) and timeleft(s1)<5",
+        "`s1, ((x=5) or (s or prep)) and (timeleft(s1)<5)",
         "`s4",
         "`s3",
-        "`fs, fs_prep_c >= 3",
-        "`dodge, fscf and fs_prep_c = 0"
+        "`fs, fs_prep_c>=3",
+        "`dodge, fscf and (fs_prep_c)"
       ],
       "coabs": [
         "Bow",

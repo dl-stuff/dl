@@ -16,7 +16,7 @@
         "`dragon(s)",
         "`s4",
         "`s3, not buff(s3)",
-        "`s1, x<=4 and timeleft(s1) < 5"
+        "`s1, (x<=4) and (timeleft(s1)<5)"
       ],
       "coabs": [
         "Blade",
@@ -42,17 +42,16 @@
       ],
       "slots.d": "Freyja",
       "acl": [
+        "#`s2",
         "queue prep",
         "`s1;s3;s4",
         "end",
         "queue fs_prep_c",
-        "`fs,x=5",
-        "`s3;s4",
+        "`fs, x=5;s3;s4",
         "end",
-        "`s3,cancel",
-        "`s4,cancel",
-        "#`s2",
-        "`s1, x=1 and timeleft(s1) < 5"
+        "`s3, cancel",
+        "`s4, cancel",
+        "`s1, (x=1) and (timeleft(s1)<5)"
       ],
       "coabs": [
         "Bow",
@@ -80,7 +79,7 @@
         "`dragon(s)",
         "`s4",
         "`s3, not buff(s3)",
-        "`s1, x<=4 and timeleft(s1) < 5"
+        "`s1, (x<=4) and (timeleft(s1)<5)"
       ],
       "coabs": [
         "Blade",

@@ -15,7 +15,7 @@
       "acl": [
         "`dragon, xf",
         "`s3, not buff(s3)",
-        "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
+        "`s2, ((not charged_in(s2, s1)) or (not charged_in(s2, s4))) and fscf",
         "`s4",
         "`s1",
         "`fs, x=5"
@@ -46,7 +46,7 @@
       "acl": [
         "`dragon, xf",
         "`s3, not buff(s3)",
-        "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
+        "`s2, ((not charged_in(s2, s1)) or (not charged_in(s2, s4))) and fscf",
         "`s4",
         "`s1",
         "`fs, x=5"
@@ -75,9 +75,9 @@
       "slots.d": "PopStar_Siren",
       "acl": [
         "`dragon",
-        "`s3, not buff(s3) and x=5",
+        "`s3, (not buff(s3)) and (x=5)",
         "`s1",
-        "`s4,cancel",
+        "`s4, cancel",
         "`s2, x=5"
       ],
       "coabs": [

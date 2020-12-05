@@ -376,7 +376,7 @@ class AclRegenerator(Interpreter):
     def arithmetic(self, t):
         if len(t.children) == 3:
             left, op, right = t.children
-            return f'({self.visit(left)} {BINARY_EXPR_TOKENS[op.type]} {self.visit(right)})'
+            return f'({self.visit(left)}{BINARY_EXPR_TOKENS[op.type]}{self.visit(right)})'
         return False
 
     def actcond(self, t):
@@ -419,12 +419,13 @@ class AclRegenerator(Interpreter):
 
     def indice(self, t):
         fn, idx = t.children
+        visited_idx = self.visit(idx).strip('\'')
         if isinstance(fn, Token):
-            return f'{fn.value}[{self.visit(idx)}]'
+            return f'{fn.value}[{visited_idx}]'
         else:
             fnres = self.visit(fn)
             if fnres:
-                return f'{fnres}[{self.visit(idx)}]'
+                return f'{fnres}[{visited_idx}]'
 
 
 FSN_PATTERN = re.compile(r'(^|;)`?(fs|s)(\d+)(\(([^)]+)\))?')

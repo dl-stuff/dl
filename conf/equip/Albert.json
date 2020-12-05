@@ -21,11 +21,11 @@
         "`fs1",
         "end",
         "else",
-        "`dragon(c1-s-end), s2.charged>s2.sp * 1/2 and cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2,s1)",
-        "`s4, cancel and not energy()=5",
-        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
+        "`dragon(c1-s-end), (s2.charged>(s2.sp * (1 / 2))) and cancel",
+        "`s3, (not buff(s3)) and (x=5)",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel and (not energy()=5)",
+        "`s1, (not s2.charged>(s2.sp * (4 / 5))) and (not energy()=5)",
         "end"
       ],
       "coabs": [
@@ -84,15 +84,14 @@
         "`s1, cancel",
         "`s4, not energy()=5",
         "if x=2",
-        "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
-        "`dragon(c9-s-end), s2.charged>s2.sp * 1/2 and cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2,s1)",
-        "`s4, cancel and not energy()=5",
-        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
+        "`dragon(c9-s-end), (s2.charged>(s2.sp * (1 / 2))) and cancel",
+        "`s3, (not buff(s3)) and (x=5)",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel and (not energy()=5)",
+        "`s1, (not s2.charged>(s2.sp * (4 / 5))) and (not energy()=5)",
         "end"
       ],
       "coabs": [
@@ -110,7 +109,7 @@
     "base": {
       "dps": 45174.34859299124,
       "team": 0.033286653005353536,
-      "tdps": -2727820.183841379,
+      "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -147,8 +146,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 58533.14676243592,
-      "team": 0.0010171912209736888,
+      "dps": 57748.02085960626,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -163,7 +162,6 @@
         "`s1",
         "`s4",
         "if x=3",
-        "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
@@ -185,9 +183,9 @@
       ]
     },
     "buffer": {
-      "dps": 42263.91230313383,
-      "team": 0.04114719685425297,
-      "tdps": 370258.89630587137,
+      "dps": 42257.85612437414,
+      "team": 0.041172065651068186,
+      "tdps": 369859.2070767629,
       "slots.a": [
         "Gentle_Winds",
         "Spirit_of_the_Season",
@@ -205,11 +203,11 @@
         "`fs1",
         "end",
         "else",
-        "`dragon(c1-s-end), s2.charged>s2.sp * 1/2 and cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2,s1)",
-        "`s4, cancel and not energy()=5",
-        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
+        "`dragon(c1-s-end), (s2.charged>(s2.sp * (1 / 2))) and cancel",
+        "`s3, (not buff(s3)) and (x=5)",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel and (not energy()=5)",
+        "`s1, (not s2.charged>(s2.sp * (4 / 5))) and (not energy()=5)",
         "end"
       ],
       "coabs": [
@@ -225,7 +223,7 @@
   },
   "120": {
     "affliction": {
-      "dps": 65411.258182839,
+      "dps": 65465.466488808095,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -241,15 +239,14 @@
         "`s1, cancel",
         "`s4, not energy()=5",
         "if x=2",
-        "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
-        "`dragon(c9-s-end), s2.charged>s2.sp * 1/2 and cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2,s1)",
-        "`s4, cancel and not energy()=5",
-        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
+        "`dragon(c9-s-end), (s2.charged>(s2.sp * (1 / 2))) and cancel",
+        "`s3, (not buff(s3)) and (x=5)",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel and (not energy()=5)",
+        "`s1, (not s2.charged>(s2.sp * (4 / 5))) and (not energy()=5)",
         "end"
       ],
       "coabs": [
@@ -264,7 +261,7 @@
     },
     "pref": "base",
     "base": {
-      "dps": 58431.721337481715,
+      "dps": 58489.00535734209,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -280,7 +277,6 @@
         "`s1",
         "`s4",
         "if x=1",
-        "`fs2, not aff(paralysis)",
         "`fs1",
         "end",
         "else",
@@ -302,9 +298,9 @@
       ]
     },
     "buffer": {
-      "dps": 54092.60887694778,
-      "team": 0.03091009484458069,
-      "tdps": 140378.4906630492,
+      "dps": 51093.712567664625,
+      "team": 0.030708692934036805,
+      "tdps": 240820.82573695906,
       "slots.a": [
         "Gentle_Winds",
         "Spirit_of_the_Season",
@@ -322,11 +318,11 @@
         "`fs1",
         "end",
         "else",
-        "`dragon(c1-s-end), s2.charged>s2.sp * 1/2 and cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2,s1)",
-        "`s4, cancel and not energy()=5",
-        "`s1, not s2.charged>s2.sp* 4/5 and not energy()=5",
+        "`dragon(c1-s-end), (s2.charged>(s2.sp * (1 / 2))) and cancel",
+        "`s3, (not buff(s3)) and (x=5)",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel and (not energy()=5)",
+        "`s1, (not s2.charged>(s2.sp * (4 / 5))) and (not energy()=5)",
         "end"
       ],
       "coabs": [

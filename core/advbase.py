@@ -86,7 +86,7 @@ class Skill(object):
 
     def __call__(self, *args):
         return self.precast()
-    
+
     def precast(self, t=None):
         if not self.check():
             return False
@@ -424,7 +424,7 @@ class Repeat(Action):
 
     def _cb_act_end(self, e):
         self.tap()
-    
+
     def tap(self, t=None):
         self.index += 1
         self._static.doing = self.nop
@@ -1251,7 +1251,8 @@ class Adv(object):
                 before = self.action.getprev()
             if not self.a_fs_dict[fsn].enabled:
                 return False
-            return self.a_fs_dict[fsn]()
+            self.a_fs_dict[fsn]()
+            return True
         except KeyError:
             return False
 

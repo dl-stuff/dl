@@ -1,9 +1,9 @@
 {
   "180": {
     "base": {
-      "dps": 6050.745745756093,
-      "team": 1.9074001961937874,
-      "tdps": 140893.93430426926,
+      "dps": 9402.955265309918,
+      "team": 1.8836077629985122,
+      "tdps": 1113.161089744764,
       "slots.a": [
         "A_Dogs_Day",
         "Jewels_of_the_Sun",
@@ -12,12 +12,11 @@
         "Bellathorna"
       ],
       "slots.d": "Freyja",
-      "slots.w": "void",
       "acl": [
-        "`s4, s1.charged<s1.sp/4",
+        "`s4, s1.charged<(s1.sp / 4)",
         "`s1",
         "`s3, xf or fsc",
-        "`fs, fs_prep_c=2 and xf=4",
+        "`fs, (fs_prep_c=2) and (xf=4)",
         "`fs, xf=5"
       ],
       "coabs": [
@@ -61,9 +60,9 @@
       ]
     },
     "buffer": {
-      "dps": 9402.955265309918,
-      "team": 1.8836077629985122,
-      "tdps": 140893.93430426926,
+      "dps": 9603.305273026357,
+      "team": 1.7036248211204619,
+      "tdps": 1113.161089744764,
       "slots.a": [
         "A_Dogs_Day",
         "Jewels_of_the_Sun",
@@ -73,16 +72,17 @@
       ],
       "slots.d": "Freyja",
       "acl": [
-        "`s4, s1.charged<s1.sp/4",
+        "`dragon(s-end)",
+        "`s4, s1.charged<(s1.sp / 4)",
         "`s1",
         "`s3, xf or fsc",
-        "`fs, fs_prep_c=2 and xf=4",
+        "`fs, (fs_prep_c=2) and (xf=4)",
         "`fs, xf=5"
       ],
       "coabs": [
         "Blade",
         "Bow",
-        "Dagger2"
+        "The_Prince"
       ],
       "share": [
         "Mikoto",
@@ -136,12 +136,8 @@
       "slots.w": "void",
       "acl": [
         "`dragon(s), s=1",
-        "`s3, not buff(s3)",
         "`s1",
         "`s4",
-        "queue s=4 and not aff(poison)",
-        "`s2;s2,x=5",
-        "end",
         "`fs, xf=5"
       ],
       "coabs": [
@@ -168,10 +164,10 @@
       "slots.d": "Freyja",
       "slots.w": "void",
       "acl": [
-        "`s4, s1.charged<s1.sp/4",
+        "`s4, s1.charged<(s1.sp / 4)",
         "`s1",
         "`s3, xf or fsc",
-        "`fs, fs_prep_c=2 and xf=4",
+        "`fs, (fs_prep_c=2) and (xf=4)",
         "`fs, xf=5"
       ],
       "coabs": [
@@ -200,10 +196,10 @@
       "slots.d": "Freyja",
       "slots.w": "void",
       "acl": [
-        "`s4, s1.charged<s1.sp/4",
+        "`s4, s1.charged<(s1.sp / 4)",
         "`s1",
         "`s3, xf or fsc",
-        "`fs, fs_prep_c=2 and xf=4",
+        "`fs, (fs_prep_c=2) and (xf=4)",
         "`fs, xf=5"
       ],
       "coabs": [
@@ -232,7 +228,6 @@
       "slots.w": "void",
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
         "`s1, xf or fscf",
         "`s4",
         "`fs, xf=5"

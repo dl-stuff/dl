@@ -13,7 +13,7 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-c2-end), self.dragonform.shift_count=0 and cancel and buff(s3)",
+        "`dragon(s-c3-c2-end), (dragonform.shift_count=0) and (cancel and buff(s3))",
         "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
         "`s3, not buff(s3)",
         "`s2, cancel",
@@ -75,7 +75,6 @@
       ],
       "slots.d": "Gold_Fafnir",
       "acl": [
-        "`dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -107,7 +106,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))",
+        "`dragon(c3-s-end), fsc and ((dragonform.shift_count<3))",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -138,7 +137,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))",
+        "`dragon(c3-s-end), fsc and ((dragonform.shift_count<3))",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -170,7 +169,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))",
+        "`dragon(c3-s-end), fsc and ((dragonform.shift_count<3))",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -201,7 +200,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))",
+        "`dragon(c3-s-end), fsc and ((dragonform.shift_count<3))",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -231,7 +230,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and ((self.dragonform.shift_count<3) or ((self.dragonform.shift_count<=3) and self.trickery <= 1))",
+        "`dragon(c3-s-end), fsc and ((dragonform.shift_count<3))",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",

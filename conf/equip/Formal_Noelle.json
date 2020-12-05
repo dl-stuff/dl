@@ -14,7 +14,7 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(s-c3-c3-c3-end)",
-        "`s1, x>=4 and timeleft(s1, default, 0) < 5",
+        "`s1, (x>=4) and (timeleft(s1, default, False)<5)",
         "`s2",
         "`s3, not buff(s3)",
         "`s4"
@@ -44,11 +44,11 @@
       "slots.d": "Freyja",
       "slots.w": "void",
       "acl": [
-        "`s1, (x=5 or s or prep) and timeleft(s1, default, 0)<5",
+        "`s1, ((x=5) or (s)) and (timeleft(s1, default, False)<5)",
         "`s4",
         "`s3",
         "`fs, fs_prep_c",
-        "`dodge, fscf and fs_prep_c = 0"
+        "`dodge, fscf and (fs_prep_c)"
       ],
       "coabs": [
         "Bow",
@@ -74,7 +74,7 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(s-c3-c3-c3-end)",
-        "`s1, x>=4 and timeleft(s1, default, 0) < 5",
+        "`s1, (x>=4) and (timeleft(s1, default, False)<5)",
         "`s2",
         "`s3, not buff(s3)",
         "`s4"
@@ -105,7 +105,7 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(s-c3-c3-c3-end)",
-        "`s1, x>=4 and timeleft(s1, default, 0) < 5",
+        "`s1, (x>=4) and (timeleft(s1, default, False)<5)",
         "`s2",
         "`s3, not buff(s3)",
         "`s4"
@@ -135,7 +135,7 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon",
-        "`s1, x>=4 and timeleft(s1, default, 0) < 5",
+        "`s1, (x>=4) and (timeleft(s1, default, False)<5)",
         "`s2",
         "`s3, not buff(s3)",
         "`s4"
@@ -166,7 +166,7 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon",
-        "`s1, x>=4 and timeleft(s1, default, 0) < 5",
+        "`s1, (x>=4) and (timeleft(s1, default, False)<5)",
         "`s2",
         "`s3, not buff(s3)",
         "`s4"
@@ -196,7 +196,7 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(s-c3-c3-c3-end)",
-        "`s1, x>=4 and timeleft(s1, default, 0) < 5",
+        "`s1, (x>=4) and (timeleft(s1, default, False)<5)",
         "`s2",
         "`s3, not buff(s3)",
         "`s4"

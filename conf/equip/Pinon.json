@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 75774.79272978751,
+      "dps": 63416.833103330515,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -16,9 +16,7 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
-        "`dodge, fsc",
-        "`dodge,x=5",
+        "`s1, fsc and (aff_timeleft(frostbite)<4)",
         "`fs2"
       ],
       "coabs": [
@@ -33,7 +31,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 80045.33771279252,
+      "dps": 70417.01364137756,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -48,9 +46,7 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
-        "`dodge, fsc",
-        "`dodge,x=5",
+        "`s1, fsc and (aff_timeleft(frostbite)<4)",
         "`fs2"
       ],
       "coabs": [
@@ -66,7 +62,7 @@
     "buffer": {
       "dps": 25826.34370964582,
       "team": 0.3070228179112053,
-      "tdps": 162686.43926845654,
+      "tdps": 122435.49078673468,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -95,7 +91,7 @@
   },
   "60": {
     "base": {
-      "dps": 54648.63760069162,
+      "dps": 50256.79252994126,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -111,7 +107,6 @@
         "`s2, fsc",
         "`s4, fsc",
         "`s1, fsc",
-        "`dodge, fsc",
         "`fs2"
       ],
       "coabs": [
@@ -125,7 +120,7 @@
       ]
     },
     "affliction": {
-      "dps": 66004.65439885325,
+      "dps": 58053.77135985261,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -140,8 +135,7 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
-        "`dodge, fsc",
+        "`s1, fsc and (aff_timeleft(frostbite)<4)",
         "`fs2"
       ],
       "coabs": [
@@ -158,44 +152,32 @@
   },
   "120": {
     "base": {
-      "dps": 47108.27705813733,
+      "dps": 59155.07109784832,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Dear_Diary",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
+        "Flowers_Under_the_Moon",
         "His_Clever_Brother"
       ],
-      "slots.d": "Nimis",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "# `dragon(c3-s-end), s",
         "`s3, not buff(s3)",
-        "if self.unlocked",
-        "if x=8 or fsc",
-        "`s2",
-        "`s4",
-        "`s1",
-        "end",
-        "else",
-        "if fsc",
-        "`s2",
-        "`s4",
-        "`s1",
-        "`dodge",
-        "end",
-        "`fs2",
-        "end"
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc and (aff_timeleft(frostbite)<4)",
+        "`fs2"
       ],
       "coabs": [
         "Blade",
         "Dragonyule_Cleo",
-        "Tiki"
+        "Grace"
       ],
       "share": [
         "Weapon",
-        "Yue"
+        "Hunter_Sarisse"
       ]
     },
     "pref": "base",
@@ -216,7 +198,6 @@
         "`s2",
         "`s4, fsc",
         "`s1, fsc",
-        "`dodge, fsc",
         "`fs2"
       ],
       "coabs": [
@@ -227,6 +208,46 @@
       "share": [
         "Weapon",
         "Hunter_Sarisse"
+      ]
+    },
+    "buffer": {
+      "dps": 47108.27705813733,
+      "team": 0.0,
+      "tdps": 99999999,
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Nimis",
+      "acl": [
+        "# `dragon(c3-s-end), s",
+        "`s3, not buff(s3)",
+        "if unlocked",
+        "if (x=8) or fsc",
+        "`s2",
+        "`s4",
+        "`s1",
+        "end",
+        "else",
+        "if fsc",
+        "`s2",
+        "`s4",
+        "`s1",
+        "end",
+        "`fs2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Yue"
       ]
     }
   }

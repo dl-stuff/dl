@@ -13,8 +13,8 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c2-s-c3-c2-end), dragonform.shift_count = 0",
-        "`dragon(c2-s-c3-c3-end), dragonform.shift_count > 0",
+        "`dragon(c2-s-c3-c2-end), dragonform.shift_count",
+        "`dragon(c2-s-c3-c3-end), dragonform.shift_count",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -44,11 +44,11 @@
       ],
       "slots.d": "Azazel",
       "acl": [
-        "`fs, fs_prep_c and x=1",
+        "#`s1, not aff(shadowblight)",
+        "`fs, fs_prep_c and (x=1)",
         "`dragon(s-end)",
         "`s3, not buff(s3)",
         "`s2",
-        "#`s1, not aff(shadowblight)",
         "`s4"
       ],
       "coabs": [

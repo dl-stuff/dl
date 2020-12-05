@@ -5,7 +5,7 @@ import time
 import json
 from itertools import chain
 from collections import defaultdict
-from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json
+from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json, DURATIONS
 import core.acl
 import core.advbase
 
@@ -514,7 +514,7 @@ BUFFER_TEAM_THRESHOLD = 1.6
 TDPS_WEIGHT = 15000
 def save_equip(adv, real_d, repair=False, etype=None):
     adv.duration = int(adv.duration)
-    if adv.duration not in (60, 120, 180):
+    if adv.duration not in DURATIONS:
         return
     if any([k in adv.conf for k in ABNORMAL_COND]):
         return

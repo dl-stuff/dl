@@ -6,7 +6,7 @@ import argparse
 from copy import deepcopy
 from time import monotonic, time_ns
 import core.simulate
-from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATION
+from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS
 
 ADV_DIR = 'adv'
 CHART_DIR = 'www/dl-sim'
@@ -180,7 +180,7 @@ def get_sim_target_module_dict(advs=None, conds=None, mass=None):
         except Exception as e:
             print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
     return target_modules
-    
+
 
 def get_sim_target_modules(targets):
     target_filters = set()

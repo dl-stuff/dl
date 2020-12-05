@@ -14,8 +14,8 @@
       "slots.d": "Horus",
       "slots.w": "void",
       "acl": [
-        "`fs,  fs_prep_c > 1",
-        "`fs,  fs_prep_c = 1 and x = 5",
+        "`fs, fs_prep_c>1",
+        "`fs, (fs_prep_c=1) and (x=5)",
         "`s1",
         "`s3, s=1",
         "`s4"
@@ -45,8 +45,8 @@
       "slots.d": "Horus",
       "slots.w": "void",
       "acl": [
-        "`fs,  fs_prep_c > 1",
-        "`fs,  fs_prep_c = 1 and x = 5",
+        "`fs, fs_prep_c>1",
+        "`fs, (fs_prep_c=1) and (x=5)",
         "`s1",
         "`s3, s=1",
         "`s4"
@@ -75,8 +75,8 @@
       "slots.d": "Horus",
       "slots.w": "void",
       "acl": [
-        "`fs,  fs_prep_c > 1",
-        "`fs,  fs_prep_c = 1 and x = 5",
+        "`fs, fs_prep_c>1",
+        "`fs, (fs_prep_c=1) and (x=5)",
         "`s1",
         "`s3, s=1",
         "`s4"
@@ -135,19 +135,17 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon, s=1 and energy()<5",
-        "`s3, not buff(s3) and x=5",
-        "`s4, energy()<4",
-        "`s1",
-        "`s2, energy()=5 and fsc",
-        "`fs, x=5",
-        "`dodge, fsc",
         "## S2 mode",
         "#`dragon(c3-s-s-end), (s=1 and energy()=3) or s=2",
         "#`s3, not buff(s3) and x=5",
         "#`s2, energy()=5",
         "#`s1, not energy()=5",
-        "#`s4, not energy()=5 and x>3"
+        "#`s4, not energy()=5 and x>3",
+        "`dragon, (s=1)",
+        "`s3, (not buff(s3)) and (x=5)",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Nobunaga",
@@ -230,19 +228,17 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon, s=1 and energy()<5",
-        "`s3, not buff(s3) and x=5",
-        "`s4, energy()<4",
-        "`s1",
-        "`s2, energy()=5 and fsc",
-        "`fs, x=5",
-        "`dodge, fsc",
         "## S2 mode",
         "#`dragon(c3-s-s-end), (s=1 and energy()=3) or s=2",
         "#`s3, not buff(s3) and x=5",
         "#`s2, energy()=5",
         "#`s1, not energy()=5",
-        "#`s4, not energy()=5 and x>3"
+        "#`s4, not energy()=5 and x>3",
+        "`dragon, (s=1)",
+        "`s3, (not buff(s3)) and (x=5)",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Nobunaga",

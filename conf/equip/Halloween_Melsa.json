@@ -74,11 +74,11 @@
       ],
       "slots.d": "Freyja",
       "acl": [
-        "`fs, fs_prep_c > 1",
-        "`s3, x=5 or fs_prep_c = 1",
-        "`s1, xf or s=4 or fscf",
-        "`s4, s1.charged<s1.sp/3.5",
-        "`fs, xf>1 and charged_in(fs, s1)"
+        "`fs, fs_prep_c>1",
+        "`s3, (x=5) or (fs_prep_c=1)",
+        "`s1, xf or ((s=4) or fscf)",
+        "`s4, s1.charged<(s1.sp / 3.5)",
+        "`fs, (xf>1) and charged_in(fs, s1)"
       ],
       "coabs": [
         "Bow",

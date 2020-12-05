@@ -13,10 +13,9 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), x=5 and trickery <= 1",
         "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo) > 0",
-        "if x=5 or x=4 or fsc or s",
+        "`fs, (s1.charged>=s1.sp) and (c_fs(galacleo))",
+        "if (x=5) or ((x=4) or (fsc or s))",
         "`s4",
         "`s2",
         "end",
@@ -46,11 +45,11 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), x=5 and trickery <= 1",
+        "`dragon(c3-s-end), (x=5) and (trickery<=1)",
         "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo) > 0",
-        "if x=5 or x=4 or fsc or s",
-        "`s4, x >= 4",
+        "`fs, (s1.charged>=s1.sp) and (c_fs(galacleo))",
+        "if (x=5) or ((x=4) or (fsc or s))",
+        "`s4, x>=4",
         "`s2",
         "end",
         "`s1, s or fsc"
@@ -79,15 +78,14 @@
       "slots.d": "Azazel",
       "acl": [
         "`dragon(c3-s-end), cancel",
-        "queue s1.charged>=s1.sp and c_fs(galacleo)",
-        "`fs",
-        "`s1, fsc",
+        "queue (s1.charged>=s1.sp) and c_fs(galacleo)",
+        "`fs;s1, fsc",
         "end",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
         "`s1, fsc",
-        "`fs, x=3 and not c_fs(galacleo) and fs_prep_c"
+        "`fs, (x=3) and ((not c_fs(galacleo)) and fs_prep_c)"
       ],
       "coabs": [
         "Bow",
@@ -115,8 +113,8 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo) > 0",
-        "if x=5 or x=4 or fsc or s",
+        "`fs, (s1.charged>=s1.sp) and (c_fs(galacleo))",
+        "if (x=5) or ((x=4) or (fsc or s))",
         "`s4",
         "`s2",
         "end",
@@ -146,11 +144,10 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), x=5 and trickery <= 1",
         "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo) > 0",
-        "if x=5 or x=4 or fsc or s",
-        "`s4, x >= 4",
+        "`fs, (s1.charged>=s1.sp) and (c_fs(galacleo))",
+        "if (x=5) or ((x=4) or (fsc or s))",
+        "`s4, x>=4",
         "`s2",
         "end",
         "`s1, s or fsc"
@@ -180,8 +177,8 @@
       "acl": [
         "#`dragon(c3-s-end), x=5",
         "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo) > 0",
-        "if x=5 or x=4 or fsc or s",
+        "`fs, (s1.charged>=s1.sp) and (c_fs(galacleo))",
+        "if (x=5) or ((x=4) or (fsc or s))",
         "`s4",
         "`s2",
         "end",
@@ -213,8 +210,8 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo) > 0",
-        "if x=5 or x=4 or fsc or s",
+        "`fs, (s1.charged>=s1.sp) and (c_fs(galacleo))",
+        "if (x=5) or ((x=4) or (fsc or s))",
         "`s4",
         "`s2",
         "end",
@@ -244,11 +241,10 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), x=5 and trickery <= 1",
         "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo) > 0",
-        "if x=5 or x=4 or fsc or s",
-        "`s4, x >= 4",
+        "`fs, (s1.charged>=s1.sp) and (c_fs(galacleo))",
+        "if (x=5) or ((x=4) or (fsc or s))",
+        "`s4, x>=4",
         "`s2",
         "end",
         "`s1, s or fsc"

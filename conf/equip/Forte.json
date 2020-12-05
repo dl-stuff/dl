@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 101021.77172899495,
+      "dps": 101491.31726096277,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -14,9 +14,9 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
-        "`dragon(c3-s-end), dragonform.shift_count>=3 and self.trickery <= 1",
-        "`s3, not buff(s3) and fsc",
+        "`dragon(c3-s-end), (dragonform.shift_count<=2) and cancel",
+        "`dragon(c3-s-end), (dragonform.shift_count>=3) and (trickery<1)",
+        "`s3, (not buff(s3)) and fsc",
         "`s2",
         "`s1, cancel",
         "`s4, cancel",
@@ -48,9 +48,8 @@
       "acl": [
         "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
         "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
-        "`dragon(c3-s-end), dragonform.shift_count>=3 and self.trickery <= 1",
-        "`s3, not buff(s3) and fscf",
+        "`dragon(c3-s-end), (dragonform.shift_count<=2) and cancel",
+        "`s3, (not buff(s3)) and fscf",
         "`s2",
         "`s1, cancel",
         "`s4, cancel",
@@ -69,7 +68,7 @@
     "buffer": {
       "dps": 76092.87118020246,
       "team": 0.21364778743193158,
-      "tdps": 116682.2312949759,
+      "tdps": 118879.98647705292,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -79,10 +78,10 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
-        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
-        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and  s=2",
-        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and  s=2",
+        "`dragon(s-c3-c2-end), (dragonform.shift_count=0) and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), (dragonform.shift_count=1) and (s=2)",
+        "`dragon(s-c3-c3-c3-c3-end), (dragonform.shift_count=2) and (s=2)",
+        "`dragon(s-c3-c3-c3-c3-c3-end), (dragonform.shift_count>=3) and (s=2)",
         "`s3, not buff(s3)",
         "`s2",
         "`s4, cancel",
@@ -102,7 +101,7 @@
   },
   "60": {
     "affliction": {
-      "dps": 80673.3514658738,
+      "dps": 80704.34395332201,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -114,10 +113,9 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
-        "`dragon(c3-s-end), dragonform.shift_count>=3 and self.trickery <= 1",
-        "`s3, not buff(s3) and fscf",
+        "`dragon(c3-s-end), dragonform.shift_count",
+        "`dragon(c3-s-end), (dragonform.shift_count<=2) and cancel",
+        "`s3, (not buff(s3)) and fscf",
         "`s2",
         "`s1, cancel",
         "`s4, cancel",
@@ -135,7 +133,7 @@
     },
     "pref": "base",
     "base": {
-      "dps": 78428.41725437528,
+      "dps": 69230.11030889678,
       "team": 0.0830601523833373,
       "tdps": null,
       "slots.a": [
@@ -167,7 +165,7 @@
     "buffer": {
       "dps": 66929.66532531845,
       "team": 0.13784978680223442,
-      "tdps": 209870.93728610233,
+      "tdps": 41986.864996947304,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -177,13 +175,11 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
-        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
-        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and  s=2",
-        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and  s=2",
+        "`dragon(s-c3-c2-end), (dragonform.shift_count=0) and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), (dragonform.shift_count=1) and (s=2)",
+        "`dragon(s-c3-c3-c3-c3-end), (dragonform.shift_count=2) and (s=2)",
         "`s3, not buff(s3)",
         "`s2",
-        "`s4, cancel",
         "`s1, xf or fscf",
         "`fs, x=5"
       ],
@@ -261,9 +257,9 @@
       ]
     },
     "buffer": {
-      "dps": 85832.20925712235,
-      "team": 0.13900647697846763,
-      "tdps": 413059.2218713383,
+      "dps": 78368.34659060104,
+      "team": 0.20908421184848258,
+      "tdps": 158953.51211262646,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -273,21 +269,24 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-end), s=2",
+        "`dragon(s-c3-c2-end), (dragonform.shift_count=0) and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), (dragonform.shift_count=1) and (s=2)",
+        "`dragon(s-c3-c3-c3-c3-end), (dragonform.shift_count=2) and (s=2)",
+        "`dragon(s-c3-c3-c3-c3-c3-end), (dragonform.shift_count>=3) and (s=2)",
         "`s3, not buff(s3)",
-        "`s2, cancel",
+        "`s2",
         "`s4, cancel",
-        "`s1, cancel",
+        "`s1, xf or fscf",
         "`fs, x=5"
       ],
       "coabs": [
-        "Ieyasu",
-        "Wand",
+        "Blade",
+        "Bow",
         "Cleo"
       ],
       "share": [
         "Weapon",
-        "Curran"
+        "Lowen"
       ]
     }
   }
