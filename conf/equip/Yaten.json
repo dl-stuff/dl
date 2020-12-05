@@ -13,12 +13,13 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), ((duration - now)<8) and ((s=1) and (energy()<3))",
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, (energy()<5) and cancel",
+        "`s2, energy()<5 and cancel",
         "`s4, energy()<5",
         "if not buff(s3)",
+        "`fs, x=5",
         "else",
         "`fs, x=4",
         "end"
@@ -47,11 +48,11 @@
       ],
       "slots.d": "Azazel",
       "acl": [
-        "`dragon(c3-s-end), fsc and (energy()<5)",
+        "`dragon(c3-s-end), fsc and energy()<5",
         "`s3, not buff(s3)",
         "`s2, energy()<5",
         "`s1",
-        "`s4, fsc and (energy()<5)",
+        "`s4, fsc and energy()<5",
         "`fs, x=2"
       ],
       "coabs": [
@@ -77,12 +78,13 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), ((duration - now)<8) and ((s=1) and (energy()<3))",
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
         "`s3, not buff(s3)",
-        "`s2, (energy()<5) and cancel",
+        "`s2, energy()<5 and cancel",
         "`s1",
         "`s4, energy()<5",
         "if not buff(s3)",
+        "`fs, x=5",
         "else",
         "`fs, x=4",
         "end"
@@ -113,10 +115,11 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "`s2, (energy()<5) and cancel",
+        "`s2, energy()<5 and cancel",
         "`s1",
         "`s4, energy()<5",
         "if not buff(s3)",
+        "`fs, x=5",
         "else",
         "`fs, x=4",
         "end"
@@ -146,10 +149,11 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "`s2, (energy()<5) and cancel",
+        "`s2, energy()<5 and cancel",
         "`s1",
         "`s4, energy()<5",
         "if not buff(s3)",
+        "`fs, x=5",
         "else",
         "`fs, x=4",
         "end"
@@ -179,12 +183,13 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), (duration - now)<8",
+        "`dragon(s), (duration-now)<8",
         "`s3, not buff(s3)",
-        "`s2, (energy()<5) and cancel",
+        "`s2, energy()<5 and cancel",
         "`s1",
         "`s4, energy()<5",
         "if not buff(s3)",
+        "`fs, x=5",
         "else",
         "`fs, x=4",
         "end"
@@ -213,12 +218,13 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), ((duration - now)<8) and ((s=1) and (energy()<3))",
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
         "`s3, not buff(s3)",
-        "`s2, (energy()<5) and cancel",
+        "`s2, energy()<5 and cancel",
         "`s1",
         "`s4, energy()<5",
         "if not buff(s3)",
+        "`fs, x=5",
         "else",
         "`fs, x=4",
         "end"

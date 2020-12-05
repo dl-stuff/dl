@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 55434.50991964196,
+      "dps": 54730.69582436665,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -15,7 +15,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
-        "`dragon, (not dragondrive.get()) and (or ((dragonform.dragon_gauge>=2130) or (dragonform.shift_count)))",
+        "`dragon, not dragondrive.get()",
         "else",
         "`dragon, dragondrive.get()",
         "end",
@@ -35,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 66480.8722061491,
+      "dps": 64974.40233663308,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -49,7 +49,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
-        "`dragon, (not dragondrive.get()) and (or ((dragonform.dragon_gauge>=2130) or (dragonform.shift_count)))",
+        "`dragon, not dragondrive.get()",
         "end",
         "`s2, cancel",
         "`s4, cancel",
@@ -68,7 +68,7 @@
     "buffer": {
       "dps": 43110.51066274137,
       "team": 0.18686812170296768,
-      "tdps": 65950.24953742484,
+      "tdps": 62183.88163656884,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -80,7 +80,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
-        "`dragon, (not dragondrive.get()) and (or ((dragonform.dragon_gauge>=2130) or (dragonform.shift_count)))",
+        "`dragon, not dragondrive.get()",
         "else",
         "`dragon, dragondrive.get()",
         "end",
@@ -115,7 +115,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
-        "`dragon, (not dragondrive.get()) and ((duration<=120))",
+        "`dragon, not dragondrive.get() and (duration<=120)",
         "end",
         "`s2, cancel",
         "`s4, cancel",
@@ -147,7 +147,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
-        "`dragon, (not dragondrive.get()) and ((duration<=120))",
+        "`dragon, not dragondrive.get() and (duration<=120)",
         "end",
         "`s2, cancel",
         "`s4, cancel",
@@ -180,7 +180,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
-        "`dragon, (not dragondrive.get()) and ((duration<=120))",
+        "`dragon, not dragondrive.get() and (duration<=120)",
         "end",
         "`s2, cancel",
         "`s4, cancel",
@@ -212,7 +212,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
-        "`dragon, (not dragondrive.get()) and ((duration<=120))",
+        "`dragon, not dragondrive.get() and (duration<=120)",
         "end",
         "`s2, cancel",
         "`s4, cancel",

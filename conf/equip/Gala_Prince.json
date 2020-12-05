@@ -16,10 +16,10 @@
         "`s1, fsc",
         "`s2, cancel and buff(s3, 1)",
         "`s3, cancel",
-        "`s4, (dgauge>=500) and cancel",
-        "`dragon, (dragonform.shift_count=0) and (cancel and (buff(s1) and buff(s3, 1)))",
-        "`dragon, (dragonform.shift_count>=1) and (cancel and buff(s3, 1))",
-        "`fs, (x=2) or (hits=0)"
+        "`s4, dgauge>=500 and cancel",
+        "`dragon, dragonform.shift_count=0 and (cancel and (buff(s1) and buff(s3, 1)))",
+        "`dragon, dragonform.shift_count>=1 and (cancel and buff(s3, 1))",
+        "`fs, x=2 or hits=0"
       ],
       "coabs": [
         "Cleo",

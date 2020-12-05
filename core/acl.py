@@ -123,7 +123,7 @@ class AclInterpreter(Interpreter):
 
     def visit(self, t):
         result = super().visit(t)
-        if t.data == 'literal':
+        if t.data in ('literal', 'selfcond', 'pincond'):
             t._visited = True
         else:
             t._visited = bool(result) or getattr(t, '_visited', False)
@@ -353,11 +353,12 @@ class AclRegenerator(Interpreter):
             rres = self.visit(right)
             if rres:
                 try:
-                    combined = f'{lres}{BINARY_EXPR_TOKENS[op.type]}{rres}'
                     if lres:
+                        combined = f'{lres}{BINARY_EXPR_TOKENS[op.type]}{rres}'
                         condstr[-1] = combined
                 except KeyError:
-                    condstr.append(op.type.lower())
+                    if lres:
+                        condstr.append(op.type.lower())
                     condstr.append(rres)
         if condstr:
             if negate:
