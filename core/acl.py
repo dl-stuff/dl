@@ -343,10 +343,10 @@ class AclRegenerator(Interpreter):
         else:
             left, op, right = args
             lres = self.visit(left)
-            if lres:
+            if lres is not False:
                 condstr.append(lres)
             rres = self.visit(right)
-            if rres:
+            if rres is not False:
                 try:
                     combined = f'{lres}{BINARY_EXPR_TOKENS[op.type]}{rres}'
                     if lres:
