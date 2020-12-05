@@ -6,7 +6,7 @@ from core.log import log
 from core.timeline import now
 from core.advbase import Adv
 from core.modifier import Selfbuff, ModeManager, EffectBuff
-from core.acl import allow_acl
+from core.acl import allow_acl, CONTINUE
 
 class StanceAdv(Adv):
     def config_stances(self, stance_dict, default_stance=None, hit_threshold=0, deferred=True):
@@ -31,7 +31,7 @@ class StanceAdv(Adv):
         self.update_stance()
 
     def make_queue_stance_fn(self, name):
-        return lambda: self.queue_stance(name) and False
+        return lambda: self.queue_stance(name) and CONTINUE
 
     def update_stance(self):
         if self.next_stance is not None:

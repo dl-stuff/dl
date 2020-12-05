@@ -5,6 +5,7 @@ from collections import deque
 
 from core.log import log
 CHAR_LIMIT = 1000
+CONTINUE = '<continue>'
 
 def pairs(iterator):
     "s -> (s0,s1), (s2,s3), (s4, s5), ..."
@@ -128,15 +129,15 @@ class AclInterpreter(Interpreter):
             t._visited = True
         else:
             t._visited = bool(result) or getattr(t, '_visited', False)
-        if t.data == 'action':
-            log('visited', str(t._visited), str(t))
+        # if t.data == 'action':
+        #     log('visited', str(t._visited), str(t))
         return result
 
     def start(self, t):
         for child in t.children:
             result = self.visit(child)
             # log('acl', str(result), str(t))
-            if result:
+            if result and result is not CONTINUE:
                 return True
         return False
 
@@ -231,7 +232,10 @@ class AclInterpreter(Interpreter):
         act = t.children[0]
         self._inst = self._adv
         if isinstance(act, Token):
-            return getattr(self._adv, act.value)()
+            act_obj = getattr(self._inst, act.value)
+            if not check_allow_acl(act_obj):
+                return False
+            return act_obj()
         else:
             return self.visit(act)
 

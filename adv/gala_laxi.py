@@ -1,5 +1,5 @@
 from core.advbase import *
-from module.template import RngCritAdv
+from core.acl import CONTINUE
 
 a3_stack_cap = 10
 class Gala_Laxi(Adv):
@@ -78,13 +78,17 @@ class Gala_Laxi(Adv):
 
             return chance * (cdmg - 1) + 1
 
+    @allow_acl
     def norm(self):
         if self.current_x != 'norm':
             self.deferred_x = 'norm'
+        return CONTINUE
 
+    @allow_acl
     def ex(self):
         if self.current_x != 'ex':
             self.deferred_x = 'ex'
+        return CONTINUE
     
     def reset_to_norm(self, e):
         self.current_x = 'norm'
