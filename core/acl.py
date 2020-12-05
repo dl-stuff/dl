@@ -405,6 +405,8 @@ class AclRegenerator(Interpreter):
 
     def literal(self, t):
         token = t.children[0]
+        if token.type == 'STRING':
+            return f'\'{token.value}\''
         return str(LITERAL_EVAL[token.type](token.value))
 
     def function(self, t):
@@ -412,7 +414,7 @@ class AclRegenerator(Interpreter):
         args = t.children[1:]
         if fn.value in ('s', 'fs') and len(args) == 1:
             return f'{fn.value}{self.visit(args[0])}'
-        argstr = ', '.join([str(self.visit(arg)) for arg in args])
+        argstr = ', '.join([str(self.visit(arg)).strip('\'') for arg in args])
         return f'{fn.value}({argstr})'
 
     def indice(self, t):
