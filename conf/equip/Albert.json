@@ -21,11 +21,11 @@
         "`fs1",
         "end",
         "else",
-        "`dragon(c1-s-end), (s2.charged>(s2.sp * (1 / 2))) and cancel",
-        "`s3, (not buff(s3)) and (x=5)",
+        "`dragon(c1-s-end), (s2.charged>(s2.sp*(1/2))) and cancel",
+        "`s3, not buff(s3) and (x=5)",
         "`s2, charged_in(2, s1)",
-        "`s4, cancel and (not energy()=5)",
-        "`s1, (not s2.charged>(s2.sp * (4 / 5))) and (not energy()=5)",
+        "`s4, cancel and not energy()=5",
+        "`s1, not s2.charged>(s2.sp*(4/5)) and not energy()=5",
         "end"
       ],
       "coabs": [

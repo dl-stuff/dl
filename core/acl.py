@@ -263,6 +263,7 @@ def remove_paranthesis(condres):
     if condres[0] == '(' and condres[-1] == ')':
         return condres[1:-1]
     return condres
+
 class AclRegenerator(Interpreter):
     CTRL = ('if', 'elif', 'else', 'queue', 'end')
     def visit(self, t):
@@ -325,7 +326,7 @@ class AclRegenerator(Interpreter):
                 queue_child_res = self.visit(child)
                 if queue_child_res:
                     queue_list.append(queue_child_res)
-            return f'queue {condres}\n+'+';'.join(queue_list)+'\nend'
+            return f'queue {condres}\n`'+';'.join(queue_list)+'\nend'
         return False
 
     def condition(self, t):
@@ -335,6 +336,7 @@ class AclRegenerator(Interpreter):
             return None
         condstr = []
         negate = False
+        combined = None
         if isinstance(args[0], Token) and args[0].type == 'NOT': # NOT cond
             args = args[1:]
             argl -= 1
@@ -360,6 +362,8 @@ class AclRegenerator(Interpreter):
         if condstr:
             if negate:
                 condstr.insert(0, 'not')
+            if negate or combined:
+                return ' '.join(condstr)
             return '('+' '.join(condstr)+')'
         return False
 
@@ -412,9 +416,15 @@ class AclRegenerator(Interpreter):
     def function(self, t):
         fn = t.children[0]
         args = t.children[1:]
-        if fn.value in ('s', 'fs') and len(args) == 1:
-            return f'{fn.value}{self.visit(args[0])}'
-        argstr = ', '.join([str(self.visit(arg)).strip('\'') for arg in args])
+        if fn.value in ('s', 'fs'):
+            if len(args) == 0:
+                return str(fn.value)
+            elif len(args) == 1:
+                return f'{fn.value}{self.visit(args[0])}'
+            else:
+                argstr = ', '.join((str(self.visit(arg)).strip('\'') for arg in args[1:]))
+                return f'{fn.value}{self.visit(args[0])}({argstr})'
+        argstr = ', '.join((str(self.visit(arg)).strip('\'') for arg in args))
         return f'{fn.value}({argstr})'
 
     def indice(self, t):
