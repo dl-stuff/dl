@@ -1574,7 +1574,7 @@ class Adv(object):
         self.post_run(end)
         self.logs = copy.deepcopy(g_logs)
 
-        # print(core.acl.regenerate_acl(self._acl))
+        # core.acl.regenerate_acl(self._acl)
 
         return end
 

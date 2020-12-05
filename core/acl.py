@@ -309,7 +309,8 @@ class AclRegenerator(Interpreter):
                 if_else_list.append(self.visit(else_block))
         if if_else_list:
             if_else_list.append('end')
-            return if_else_list
+            if_else_list = (f'`{res}' if not res.startswith('`') and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res for res in if_else_list)
+            return '\n'.join(if_else_list)
         return False
 
     def ifqueue(self, t):
@@ -321,7 +322,7 @@ class AclRegenerator(Interpreter):
                 queue_child_res = self.visit(child)
                 if queue_child_res:
                     queue_list.append(queue_child_res)
-            return [f'queue {condres}', ';'.join(queue_list), 'end']
+            return f'queue {condres}\n+'+';'.join(queue_list)+'\nend'
         return False
 
     def condition(self, t):
