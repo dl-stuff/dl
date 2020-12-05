@@ -532,9 +532,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
     adv_qual = adv.name
     equip = load_equip_json(adv_qual)
     cached = None
-    acl_list = adv.conf.acl
-    if not isinstance(acl_list, list):
-        acl_list = [line.strip() for line in acl_list.split('\n') if line.strip()]
+    acl_list = core.acl.regenerate_acl(adv._acl).split('\n')
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
     nteam = adv.logs.team_buff / real_d
     new_equip = {

@@ -1547,9 +1547,6 @@ class Adv(object):
         if self.conf['fleet']:
             self.condition(f'with {self.conf["fleet"]} other {self.slots.c.name}')
 
-        # from pprint import pprint
-        # pprint(self.conf)
-
         Event('idle')()
         end, reason = Timeline.run(self.duration)
         self.base_buff.count_team_buff()
@@ -1575,18 +1572,6 @@ class Adv(object):
                         self.downgrade_coab(coab_name)
 
         self.post_run(end)
-
-        # for aff, up in self.afflics.get_uptimes().items():
-        #     if up > 0.10:
-        #         if len(self.comment) > 0:
-        #             self.comment += '; '
-        #         self.comment += '{:.0%} {} uptime'.format(up, aff)
-
-        # if g_logs.team_doublebuffs > 0:
-        #     if len(self.comment) > 0:
-        #         self.comment += '; '
-        #     self.comment += f'{d/g_logs.team_doublebuffs:.2f}s team doublebuff interval'
-
         self.logs = copy.deepcopy(g_logs)
 
         return end

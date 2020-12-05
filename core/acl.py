@@ -48,7 +48,19 @@ BINARY_EXPR = {
     'MOD': lambda l, r: l % r,
 }
 BINARY_EXPR['EQQ'] = BINARY_EXPR['EQ']
-
+BINARY_EXPR_TOKENS = {
+    'GT': '>',
+    'LT': '<',
+    'EQ': '=',
+    'NE': '!=',
+    'GE': '>=',
+    'LE': '<=',
+    'ADD': '+',
+    'MINUS': '-',
+    'MULT': '*',
+    'DIV': '/',
+    'MOD': '%',
+}
 
 PIN_CMD = {
     'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
@@ -89,28 +101,6 @@ def check_allow_acl(f):
     # return res
     return getattr(f, 'allow_acl', False)
 
-# BANNED_FN = {
-#     'post_run', 'dmg_make', 'prerun', 'rngcrit_cb', 'charge', 'charge_p', 'add_combo', 'd_coabs', 'd_slots', 'd_skillshare', 'prerun_skillshare', 'enable_echo', 'disable_echo', 'bleed', 'on', 'off', 'set_hp', 'add_hp', 'afflic_condition', 'sim_buffbot', 'sim_affliction', 'actmod_on', 'actmods', 'actmod_off', 'a_shift_sigil', 'custom_crit_mod', 'solid_crit_mod', 'rand_crit_mod', 'crit_mod', '_acl', 'cb_think', '_cb_think_fsf', '_cb_think', 'think_pin', 'pre_conf', 'Modifier', 'modifer', 'ctx', 'default_slot', 'build_rates', 'killer_mod', 'rebind_function', 'run', 'Event', 'Timer', 'Listener'
-# }
-# BANNED_FN_PATTERNS = {
-#     re.compile(r'.*_proc'),
-#     re.compile(r'.*_before'),
-#     re.compile(r'.*_hit\d'),
-#     re.compile(r's\d?_.*'),
-#     re.compile(r'fs\d?_.*'),
-#     re.compile(r'x\d?_.*'),
-#     re.compile(r'a\d?_.*'),
-#     re.compile(r'config_.*'),
-#     re.compile(r'l_.*'),
-# }
-# def check_banned(fn):
-#     if fn in BANNED_FN:
-#         return True
-#     if any([pattern.match(fn) for pattern in BANNED_FN_PATTERNS]):
-#         return True
-#     return False
-
-
 class AclInterpreter(Interpreter):
     def bind(self, tree, acl):
         self._tree = tree
@@ -130,6 +120,11 @@ class AclInterpreter(Interpreter):
                 self._queue.appendleft(n_actcond)
         except IndexError:
             return self.visit(self._tree)
+
+    def visit(self, t):
+        result = super().visit(t)
+        t._visited = bool(result) or getattr(t, '_visited', False)
+        return result
 
     def start(self, t):
         for child in t.children:
@@ -261,6 +256,170 @@ class AclInterpreter(Interpreter):
         else:
             return self.visit(fn)[self.visit(idx)]
 
+def remove_paranthesis(condres):
+    if condres[0] == '(' and condres[-1] == ')':
+        return condres[1:-1]
+    return condres
+class AclRegenerator(Interpreter):
+    CTRL = ('if', 'elif', 'else', 'queue', 'end')
+    def visit(self, t):
+        if getattr(t, '_visited', False):
+            return super().visit(t)
+        return False
+
+    def start(self, t):
+        childres = []
+        for child in t.children:
+            result = self.visit(child)
+            if not result:
+                continue
+            if isinstance(result, str):
+                if not result.startswith('`') and not any((result.startswith(ctrl) for ctrl in AclRegenerator.CTRL)):
+                    result = f'`{result}'
+                childres.append(result)
+            elif isinstance(result, list):
+                result = (f'`{res}' if not res.startswith('`') and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res for res in result)
+                childres.extend(result)
+        return '\n'.join(childres)
+
+    def ifelse(self, t):
+        if_else_list = []
+        else_block = None
+        if len(t.children) % 2 > 0:
+            else_block = t.children[-1]
+            children_iter = pairs(t.children[:-1])
+        else:
+            children_iter = pairs(t.children)
+        for idx, condblock in enumerate(children_iter):
+            condition, block = condblock
+            condres = self.visit(condition)
+            if condres:
+                condres = remove_paranthesis(condres)
+                if idx == 0:
+                    if_else_list.append(f'if {condres}')
+                else:
+                    if_else_list.append(f'elif {condres}')
+                blockres = self.visit(block)
+                if blockres:
+                    if_else_list.append(self.visit(block))
+        if else_block is not None:
+            elseres = self.visit(else_block)
+            if elseres:
+                if_else_list.append('else')
+                if_else_list.append(self.visit(else_block))
+        if if_else_list:
+            if_else_list.append('end')
+            return if_else_list
+        return False
+
+    def ifqueue(self, t):
+        condres = self.visit(t.children[0])
+        if condres:
+            queue_list = []
+            condres = remove_paranthesis(condres)
+            for child in t.children[1:]:
+                queue_child_res = self.visit(child)
+                if queue_child_res:
+                    queue_list.append(queue_child_res)
+            return [f'queue {condres}', ';'.join(queue_list), 'end']
+        return False
+
+    def condition(self, t):
+        args = t.children
+        argl = len(t.children)
+        if argl == 0:
+            return None
+        condstr = []
+        negate = False
+        if isinstance(args[0], Token) and args[0].type == 'NOT': # NOT cond
+            args = args[1:]
+            argl -= 1
+            negate = True
+        if argl == 1:
+            arglres = self.visit(args[0])
+            if arglres:
+                condstr.append(arglres)
+        else:
+            left, op, right = args
+            lres = self.visit(left)
+            if lres:
+                condstr.append(lres)
+            rres = self.visit(right)
+            if rres:
+                try:
+                    combined = f'{lres}{BINARY_EXPR_TOKENS[op.type]}{rres}'
+                    if lres:
+                        condstr[-1] = combined
+                except KeyError:
+                    condstr.append(op.type.lower())
+                    condstr.append(rres)
+        if condstr:
+            if negate:
+                condstr.insert(0, 'not')
+            return '('+' '.join(condstr)+')'
+        return False
+
+    def selfcond(self, t):
+        children = t.children[:-1]
+        last = t.children[-1]
+        childlist = [child.value for child in children]
+        if isinstance(last, Token):
+            childlist.append(last.value)
+        else:
+            childlist.append(self.visit(last))
+        return '.'.join(childlist)
+
+    def arithmetic(self, t):
+        if len(t.children) == 3:
+            left, op, right = t.children
+            return f'({self.visit(left)} {BINARY_EXPR_TOKENS[op.type]} {self.visit(right)})'
+        return False
+
+    def actcond(self, t):
+        action, condition = t.children
+        condres = self.visit(condition)
+        if condres:
+            actionres = self.visit(action)
+            condres = remove_paranthesis(condres)
+            if actionres:
+                return f'{actionres}, {condres}'
+
+    def params(self, t):
+        p = t.children[0]
+        return p.type.lower()
+
+    def pincond(self, t):
+        cmd = t.children[0]
+        return cmd.type.lower()
+
+    def action(self, t):
+        act = t.children[0]
+        if isinstance(act, Token):
+            return act.value
+        else:
+            return self.visit(act)
+
+    def literal(self, t):
+        token = t.children[0]
+        return str(LITERAL_EVAL[token.type](token.value))
+
+    def function(self, t):
+        fn = t.children[0]
+        args = t.children[1:]
+        if fn.value in ('s', 'fs') and len(args) == 1:
+            return f'{fn.value}{self.visit(args[0])}'
+        argstr = ', '.join([str(self.visit(arg)) for arg in args])
+        return f'{fn.value}({argstr})'
+
+    def indice(self, t):
+        fn, idx = t.children
+        if isinstance(fn, Token):
+            return f'{fn.value}[{self.visit(idx)}]'
+        else:
+            fnres = self.visit(fn)
+            if fnres:
+                return f'{fnres}[{self.visit(idx)}]'
+
 
 FSN_PATTERN = re.compile(r'(^|;)`?(fs|s)(\d+)(\(([^)]+)\))?')
 def _pre_parse(acl):
@@ -281,3 +440,12 @@ def build_acl(acl):
     interpreter.bind(tree, acl)
     return interpreter
 
+REGENERATOR = AclRegenerator()
+def regenerate_acl(interpreter):
+    acl_str = REGENERATOR.visit(interpreter._tree) or ''
+    comments = '\n'.join((line.strip() for line in interpreter._acl_str.split('\n') if line.strip().startswith('#')))
+    if comments:
+        # no real way to tell where comments were relatively
+        # perhaps incl into parse tree?
+        acl_str = f'{comments}\n{acl_str}'
+    return acl_str
