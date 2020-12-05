@@ -443,6 +443,8 @@ def build_acl(acl):
 REGENERATOR = AclRegenerator()
 def regenerate_acl(interpreter):
     acl_str = REGENERATOR.visit(interpreter._tree) or ''
+    if isinstance(acl_str, list):
+        acl_str = '\n'.join(acl_str)
     comments = '\n'.join((line.strip() for line in interpreter._acl_str.split('\n') if line.strip().startswith('#')))
     if comments:
         # no real way to tell where comments were relatively
