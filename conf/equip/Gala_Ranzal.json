@@ -17,9 +17,9 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
-        "`s1, (gauges[x]>=1000) and ((gauges[fs]>=1000) and cancel)",
+        "`s1, gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)",
         "if gauges[fs]<1000",
-        "`fs, (x=4) or (hits=0)",
+        "`fs, x=4 or hits=0",
         "else",
         "`dodge, x=5",
         "end"
@@ -52,7 +52,7 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, (gauges[x]>=1000) and cancel",
+        "`s1, gauges[x]>=1000 and cancel",
         "`fs, x=4"
       ],
       "coabs": [
@@ -81,9 +81,9 @@
         "`dragon(c2-s-end)",
         "`s3, not buff(s3)",
         "`s2, fsc",
-        "`s1, (gauges[x]>=1000) and ((gauges[fs]>=1000) and cancel)",
+        "`s1, gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)",
         "if gauges[fs]<1000",
-        "`fs, (x=4) or (hits=0)",
+        "`fs, x=4 or hits=0",
         "else",
         "`s4, x=5",
         "`dodge, x=5",
@@ -118,7 +118,7 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, (gauges[x]>=1000) and cancel",
+        "`s1, gauges[x]>=1000 and cancel",
         "`fs, x=4"
       ],
       "coabs": [
@@ -148,9 +148,9 @@
         "`dragon(c2-s-end)",
         "`s3, not buff(s3)",
         "`s2, fsc",
-        "`s1, (gauges[x]>=1000) and ((gauges[fs]>=1000) and cancel)",
+        "`s1, gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)",
         "if gauges[fs]<1000",
-        "`fs, (x=4) or (hits=0)",
+        "`fs, x=4 or hits=0",
         "else",
         "`s4, x=5",
         "end"

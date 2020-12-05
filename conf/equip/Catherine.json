@@ -14,7 +14,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), cancel",
-        "`s2, (s1.check() and (((duration - now)>45) and (energy()=5))) or ((duration - now)<3.1)",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
         "`s3, not buff(s3)",
         "`s1",
         "`s4"
@@ -70,7 +70,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c2-end), s=1",
-        "`s2, (s1.check() and (((duration - now)>45) and (energy()=5))) or ((duration - now)<3)",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
@@ -101,7 +101,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c2-end), s=1",
-        "`s2, (s1.check() and (((duration - now)>45) and (energy()=5))) or ((duration - now)<3)",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
@@ -132,8 +132,8 @@
       ],
       "slots.d": "Nimis",
       "acl": [
-        "`s2, (duration - now)<3",
-        "`s3, (not buff(s3)) and (xf=3)",
+        "`s2, (duration-now)<3",
+        "`s3, not buff(s3) and xf=3",
         "`s4",
         "`s1"
       ],
@@ -162,7 +162,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), s=1",
-        "`s2, (s1.check() and ((duration - now)>45)) or ((duration - now)<3)",
+        "`s2, (s1.check() and (duration-now)>45) or (duration-now)<3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"

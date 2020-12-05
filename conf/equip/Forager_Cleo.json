@@ -15,7 +15,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s2",
-        "`fs, ((starlit_dining>=4) and charged_in(fs, s1)) or (starlit_dining and ((duration - now)<3))",
+        "`fs, (starlit_dining>=4 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<3)",
         "`s1",
         "`s4",
         "`dragon(s-end), s=2"
@@ -75,7 +75,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s2",
-        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and duration - now < 2)",
+        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)",
         "`s1",
         "`s4, cancel",
         "`dragon(c3-s-c3-c3-c2-end), s=4"

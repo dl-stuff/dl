@@ -13,7 +13,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s2, (not buff(s2)) and (x=2)",
+        "`s2, not buff(s2) and x=2",
         "`s3, not buff(s3)",
         "`s4",
         "`s1, xf"
@@ -70,10 +70,10 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "queue (dgauge>=500) and (x=3)",
+        "queue dgauge>=500 and x=3",
         "`fs;dragon(c3-s);s2",
         "end",
-        "`s2, (not buff(s2)) and (xf=5)",
+        "`s2, not buff(s2) and xf=5",
         "`s3, not buff(s3)",
         "`s4",
         "`s1, buff(s2) and cancel"

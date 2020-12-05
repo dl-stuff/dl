@@ -15,7 +15,7 @@
       "acl": [
         "`dragon, cancel",
         "`s2, not buff(s2)",
-        "`s3, (not buff(s3)) and fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1, fsc",
         "`s4, fsc",
         "`dodge, fsc",
@@ -47,12 +47,12 @@
       "acl": [
         "`dragon, fsc",
         "`s2, not buff(s2)",
-        "`s3, (not buff(s3)) and fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1, fsc",
         "`s4, fsc",
         "`dodge, fsc",
-        "`fs2, (charged_in(fs1, s1) or charged_in(fs1, s4)) and (xf and (not xf=2))",
-        "`fs2, (x=5) or (dgauge>=500)"
+        "`fs2, (charged_in(fs1, s1) or charged_in(fs1, s4)) and (xf and not xf=2)",
+        "`fs2, x=5 or dgauge>=500"
       ],
       "coabs": [
         "Axe2",
@@ -80,7 +80,7 @@
         "`dragon(s)",
         "`s2, not buff(s2)",
         "`fs2, charged_in(fs2, s1) or charged_in(fs2, s4)",
-        "`s3, (not buff(s3)) and fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1, fsc",
         "`s4, fsc",
         "`dodge, fsc",

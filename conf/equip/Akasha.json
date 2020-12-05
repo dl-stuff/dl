@@ -1,9 +1,9 @@
 {
   "180": {
     "base": {
-      "dps": 38329.72031413516,
-      "team": 0.14789715834548037,
-      "tdps": null,
+      "dps": 25922.14256454735,
+      "team": 0.14913925394511746,
+      "tdps": 36192.98832022773,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -13,7 +13,7 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`s1, prep or ((timeleft(s1)<5) and (x=5))",
+        "`s1, prep or (timeleft(s1)<5 and x=5)",
         "`s3, not buff(s3)",
         "`s4",
         "`s2"
@@ -28,11 +28,11 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "buffer": {
-      "dps": 5624.093261482874,
-      "team": 0.7461021388730872,
-      "tdps": 54672.94341783391,
+      "dps": 5544.591328022914,
+      "team": 0.7121640878225601,
+      "tdps": 36192.98832022773,
       "slots.a": [
         "A_Dogs_Day",
         "Sisters_Day_Out",
@@ -43,12 +43,12 @@
       "slots.d": "Freyja",
       "acl": [
         "#`dragon(s-end)",
-        "`s1, ((x=5) or (s or prep)) and (timeleft(s1)<5)",
+        "`s1, (x=5 or (s or prep)) and timeleft(s1)<5",
         "`s4",
         "`s3",
         "`s2",
         "`fs, fs_prep_c>=3",
-        "`dodge, fscf and (fs_prep_c)"
+        "`dodge, fscf and fs_prep_c"
       ],
       "coabs": [
         "Bow",
@@ -61,8 +61,8 @@
       ]
     },
     "affliction": {
-      "dps": 41484.81411319688,
-      "team": 0.14761549464253296,
+      "dps": 30007.64749272529,
+      "team": 0.14913913146637942,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -73,7 +73,7 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`s1, prep or ((timeleft(s1)<5) and (x=5))",
+        "`s1, prep or (timeleft(s1)<5 and x=5)",
         "`s3, not buff(s3)",
         "`s4",
         "`s2"

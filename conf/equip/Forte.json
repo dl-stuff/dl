@@ -48,8 +48,8 @@
       "acl": [
         "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
         "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), (dragonform.shift_count<=2) and cancel",
-        "`s3, (not buff(s3)) and fscf",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`s3, not buff(s3) and fscf",
         "`s2",
         "`s1, cancel",
         "`s4, cancel",
@@ -78,10 +78,10 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-c2-end), (dragonform.shift_count=0) and buff(s3)",
-        "`dragon(s-c3-c3-c3-c1-end), (dragonform.shift_count=1) and (s=2)",
-        "`dragon(s-c3-c3-c3-c3-end), (dragonform.shift_count=2) and (s=2)",
-        "`dragon(s-c3-c3-c3-c3-c3-end), (dragonform.shift_count>=3) and (s=2)",
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
         "`s3, not buff(s3)",
         "`s2",
         "`s4, cancel",
@@ -114,8 +114,8 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), dragonform.shift_count",
-        "`dragon(c3-s-end), (dragonform.shift_count<=2) and cancel",
-        "`s3, (not buff(s3)) and fscf",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`s3, not buff(s3) and fscf",
         "`s2",
         "`s1, cancel",
         "`s4, cancel",
@@ -133,7 +133,7 @@
     },
     "pref": "base",
     "base": {
-      "dps": 69230.11030889678,
+      "dps": 78428.41725437528,
       "team": 0.0830601523833373,
       "tdps": null,
       "slots.a": [
@@ -165,7 +165,7 @@
     "buffer": {
       "dps": 66929.66532531845,
       "team": 0.13784978680223442,
-      "tdps": 41986.864996947304,
+      "tdps": 209870.93728610233,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -175,9 +175,9 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-c2-end), (dragonform.shift_count=0) and buff(s3)",
-        "`dragon(s-c3-c3-c3-c1-end), (dragonform.shift_count=1) and (s=2)",
-        "`dragon(s-c3-c3-c3-c3-end), (dragonform.shift_count=2) and (s=2)",
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, xf or fscf",
@@ -269,10 +269,10 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-c2-end), (dragonform.shift_count=0) and buff(s3)",
-        "`dragon(s-c3-c3-c3-c1-end), (dragonform.shift_count=1) and (s=2)",
-        "`dragon(s-c3-c3-c3-c3-end), (dragonform.shift_count=2) and (s=2)",
-        "`dragon(s-c3-c3-c3-c3-c3-end), (dragonform.shift_count>=3) and (s=2)",
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
         "`s3, not buff(s3)",
         "`s2",
         "`s4, cancel",

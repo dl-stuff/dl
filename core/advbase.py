@@ -155,7 +155,8 @@ class Action(object):
         'doing': 0,
         'spd_func': 0,
         'c_spd_func': 0,
-        'actmod_off': 0
+        'actmod_off': 0,
+        'pin': 'idle',
     })
     OFF = -2
     STARTUP = -1
@@ -201,6 +202,7 @@ class Action(object):
         self.idle_event = Event('idle')
         self.end_event = Event(f'{self.name}_end')
         self.end_event.act = self.act_event
+        self.defer_event = Event('defer')
 
 
         self.enabled = True
@@ -322,6 +324,10 @@ class Action(object):
         except ValueError:
             return 0
 
+    def defer_tap(self, t):
+        self.defer_event.pin = t.pin
+        self.defer_event()
+
     def tap(self, t=None, defer=True):
         doing = self._static.doing
 
@@ -343,7 +349,9 @@ class Action(object):
                 if timing is not None: # can interrupt action
                     if timing > 0:
                         if defer:
-                            Timer(self.tap).on(timing)
+                            dt = Timer(self.defer_tap)
+                            dt.pin = self._static.pin
+                            dt.on(timing)
                             return False
                         return timing
                     doing.startup_timer.off()
@@ -360,7 +368,9 @@ class Action(object):
                 if timing is not None: # can cancel action
                     if timing > 0:
                         if defer:
-                            Timer(self.tap).on(timing)
+                            dt = Timer(self.defer_tap)
+                            dt.pin = self._static.pin
+                            dt.on(timing)
                             return False
                         return timing
                     doing.recovery_timer.off()
@@ -1229,6 +1239,9 @@ class Adv(object):
             self.think_pin('%s-x' % s_prev)
         # return self.x()
 
+    def l_defer(self, e):
+        self.think_pin(e.pin)
+
     def getprev(self):
         prev = self.action.getprev()
         return prev.name, prev.index, prev.status
@@ -1251,8 +1264,7 @@ class Adv(object):
                 before = self.action.getprev()
             if not self.a_fs_dict[fsn].enabled:
                 return False
-            self.a_fs_dict[fsn]()
-            return True
+            return self.a_fs_dict[fsn]()
         except KeyError:
             return False
 
@@ -1489,6 +1501,7 @@ class Adv(object):
         logreset()
 
         self.l_idle = Listener('idle', self.l_idle)
+        self.l_defer = Listener('defer', self.l_defer)
         self.l_x = Listener('x', self.l_x)
         self.l_dodge = Listener('dodge', self.l_dodge)
         self.l_fs = Listener('fs', self.l_fs)
@@ -1617,6 +1630,7 @@ class Adv(object):
             latency = self.conf.latency.default
 
         doing = self.action.getdoing()
+        self.action._static.pin = pin
 
         t = Timer(self.cb_think)
         t.pin = pin

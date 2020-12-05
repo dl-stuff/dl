@@ -125,9 +125,9 @@
         "if s=4",
         "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
         "end",
-        "`s3, (not buff(s3)) and fscf",
-        "`s1, fscf or (dgauge>=500)",
-        "`s4, (dgauge>=500) and (s=1)",
+        "`s3, not buff(s3) and fscf",
+        "`s1, fscf or dgauge>=500",
+        "`s4, dgauge>=500 and s=1",
         "`s2",
         "`fs, x=5",
         "`dodge, fscf"
@@ -254,7 +254,7 @@
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1, fscf and (aff_timeleft(frostbite)<8)",
+        "`s1, fscf and aff_timeleft(frostbite)<8",
         "`fs, x=5",
         "`dodge, fscf"
       ],

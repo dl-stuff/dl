@@ -18,7 +18,7 @@
         "`s4",
         "`s2, s1.check()",
         "`s1, cancel",
-        "if (hits<=44) and c_fs(enhanced)",
+        "if hits<=44 and c_fs(enhanced)",
         "`fs, x=1",
         "`dodge, fsc",
         "end"
@@ -48,12 +48,12 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, (not buff(s3)) and (x=2)",
+        "`s3, not buff(s3) and x=2",
         "`s4, cancel",
         "`s2, s1.check()",
         "`s1, cancel",
-        "`fs, (hits<=44) and ((c_fs(enhanced)) and (x=2))",
-        "`fsf, (x=4) and (not buff(s2))"
+        "`fs, hits<=44 and (c_fs(enhanced) and x=2)",
+        "`fsf, x=4 and not buff(s2)"
       ],
       "coabs": [
         "Blade",
@@ -83,7 +83,7 @@
         "`s4",
         "`s2, s1.check()",
         "`s1",
-        "`fs, (hits<=44) and ((c_fs(enhanced)) and (x=4))"
+        "`fs, hits<=44 and (c_fs(enhanced) and x=4)"
       ],
       "coabs": [
         "Bow",
@@ -115,7 +115,7 @@
         "`s4",
         "`s2, s1.check()",
         "`s1",
-        "`fs, (hits<=44) and ((c_fs(enhanced)) and (x=4))"
+        "`fs, hits<=44 and (c_fs(enhanced) and x=4)"
       ],
       "coabs": [
         "Blade",
@@ -146,7 +146,7 @@
         "`s4",
         "`s2, s1.check()",
         "`s1",
-        "`fs, (hits<=44) and ((c_fs(enhanced)) and (x=4))"
+        "`fs, hits<=44 and (c_fs(enhanced) and x=4)"
       ],
       "coabs": [
         "Blade",
@@ -178,7 +178,7 @@
         "`s4",
         "`s2, s1.check()",
         "`s1",
-        "`fs, (hits<=44) and ((c_fs(enhanced)) and (x=1))",
+        "`fs, hits<=44 and (c_fs(enhanced) and x=1)",
         "`dodge, fsc"
       ],
       "coabs": [
@@ -206,12 +206,12 @@
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, (not buff(s3)) and (x=2)",
+        "`s3, not buff(s3) and x=2",
         "`s4, cancel",
         "`s2, s1.check()",
         "`s1, cancel",
-        "`fs, (hits<=44) and ((c_fs(enhanced)) and (x=2))",
-        "`fsf, (x=4) and (not buff(s2))"
+        "`fs, hits<=44 and (c_fs(enhanced) and x=2)",
+        "`fsf, x=4 and not buff(s2)"
       ],
       "coabs": [
         "Blade",

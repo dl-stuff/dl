@@ -14,7 +14,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon, s=2",
-        "`s3, (not buff(s3)) and fsc",
+        "`s3, not buff(s3) and fsc",
         "`s2",
         "`s4",
         "`s1, fsc",
@@ -79,7 +79,7 @@
         "`s4",
         "`s2",
         "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
-        "`fs, (x=2) or (hits=0)"
+        "`fs, x=2 or hits=0"
       ],
       "coabs": [
         "Renee",
@@ -134,7 +134,7 @@
         "`s4",
         "`s2",
         "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
-        "`fs, (x=2) or (hits)"
+        "`fs, x=2 or hits=0"
       ],
       "coabs": [
         "Renee",
@@ -196,7 +196,7 @@
         "`s4",
         "`s2",
         "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
-        "`fs, (x=2) or (hits=0)"
+        "`fs, x=2 or hits=0"
       ],
       "coabs": [
         "Renee",
@@ -208,6 +208,36 @@
         "Gala_Elisanne"
       ]
     },
-    "pref": "base"
+    "pref": "base",
+    "affliction": {
+      "dps": 54638.051318565966,
+      "team": 0.2352033471346948,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4",
+        "`s1",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Renee"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    }
   }
 }

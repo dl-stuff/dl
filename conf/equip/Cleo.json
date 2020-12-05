@@ -43,7 +43,7 @@
       "slots.d": "Ramiel",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, ((x=5) or s) and (timeleft(s1)<5)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
         "`s4",
         "`dragon(s)"
       ],
@@ -58,9 +58,9 @@
       ]
     },
     "buffer": {
-      "dps": 5568.069319835627,
-      "team": 0.6026340863085538,
-      "tdps": 104593.35619012667,
+      "dps": 5440.8608557864545,
+      "team": 0.5819625474633888,
+      "tdps": 111070.2501282106,
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -71,11 +71,11 @@
       "slots.d": "Azazel",
       "acl": [
         "`dragon(s-end)",
-        "`s1, ((x=5) or (s or prep)) and (timeleft(s1)<5)",
+        "`s1, (x=5 or (s or prep)) and timeleft(s1)<5",
         "`s4",
         "`s3",
         "`fs, fs_prep_c>=3",
-        "`dodge, fscf and (fs_prep_c)"
+        "`dodge, fscf and fs_prep_c"
       ],
       "coabs": [
         "Bow",

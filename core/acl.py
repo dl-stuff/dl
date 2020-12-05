@@ -3,6 +3,7 @@ import re
 from itertools import islice
 from collections import deque
 
+from core.log import log
 CHAR_LIMIT = 1000
 
 def pairs(iterator):
@@ -127,6 +128,8 @@ class AclInterpreter(Interpreter):
             t._visited = True
         else:
             t._visited = bool(result) or getattr(t, '_visited', False)
+        if t.data == 'action':
+            log('visited', str(t._visited), str(t))
         return result
 
     def start(self, t):
@@ -309,6 +312,8 @@ class AclRegenerator(Interpreter):
         if else_block is not None:
             elseres = self.visit(else_block)
             if elseres:
+                if not if_else_list:
+                    return self.visit(else_block)
                 if_else_list.append('else')
                 if_else_list.append(self.visit(else_block))
         if if_else_list:
@@ -371,11 +376,14 @@ class AclRegenerator(Interpreter):
     def selfcond(self, t):
         children = t.children[:-1]
         last = t.children[-1]
-        childlist = [child.value for child in children]
+        childlist = [str(child.value) for child in children]
         if isinstance(last, Token):
-            childlist.append(last.value)
+            childlist.append(str(last.value))
         else:
-            childlist.append(self.visit(last))
+            lastres = self.visit(last)
+            if not lastres:
+                return False
+            childlist.append(lastres)
         return '.'.join(childlist)
 
     def arithmetic(self, t):
