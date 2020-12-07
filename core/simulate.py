@@ -5,7 +5,7 @@ import time
 import json
 from itertools import chain
 from collections import defaultdict
-from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json, DURATIONS
+from conf import ROOT_DIR, get_icon, get_fullname, load_equip_json, save_equip_json, DURATIONS, ELE_AFFLICT
 import core.acl
 import core.advbase
 
@@ -15,14 +15,6 @@ def skill_efficiency(real_d, team_dps, mod):
 tension_efficiency = {
     'energy': 0.5,
     'inspiration': 0.6
-}
-
-ELE_AFFLICT = {
-    'flame': 'burn',
-    'water': 'frostbite',
-    'wind': 'poison',
-    'light': 'paralysis',
-    'shadow': 'poison'
 }
 
 DOT_AFFLICT = ['poison', 'paralysis', 'burn', 'frostbite']
