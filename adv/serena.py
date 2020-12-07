@@ -6,13 +6,13 @@ class Serena(Adv):
             'count': 0,
             'buffs': [],
             'threshold': 20,
-            'buffargs': ('a1_cd',0.06,-1,'crit','damage')
+            'buffargs': ('a1_cd',0.07,-1,'crit','damage')
         }
         self.a3_dict = {
             'count': 0,
             'buffs': [],
             'threshold': 30,
-            'buffargs': ('a3_cc',0.03,-1,'crit','chance')
+            'buffargs': ('a3_cc',0.05,-1,'crit','chance')
         }
 
     def update_a(self, a_dict, kept_combo):
