@@ -3,23 +3,29 @@ from core.advbase import *
 class Ezelith(Adv):
     def prerun(self):
         self.a1_hits = 0
-        for h in range(1, 12):
-            setattr(self, f's1_hit{h}', self.s1_hit)
+        # for h in range(1, 12):
+        #     setattr(self, f's1_hit{h}', self.s1_hit)
         self.s2_debuff = Debuff('s2_ab', 0.0, 20, 0).on()
         self.s2_states = {None: 1.0}
         self.a1_debuff_rate_mod = Modifier('a1_debuff_rate', 'debuff_rate', 'passive', 0.2)
 
-    def s1_hit(self, name, base, group, aseq):
-        self.a1_hits += 1
-        if self.a1_hits % 2 == 0:
-            Selfbuff('a1',0.2,7,'crit','chance').on()
+    # def s1_hit(self, name, base, group, aseq):
+    #     self.a1_hits += 1
+    #     if self.a1_hits % 2 == 0:
+    #         Selfbuff('a1',0.2,7,'crit','chance').on()
 
     def add_combo(self, name='#'):
-        super().add_combo(name=name)
+        result = super().add_combo(name=name)
         if self.hits >= 15:
             self.a1_debuff_rate_mod.on()
         else:
             self.a1_debuff_rate_mod.off()
+        if name.startswith('s1'):
+            for _ in range(self.echo):
+                self.a1_hits += 1
+                if self.a1_hits % 2 == 0:
+                    Selfbuff('a1_crit', 0.2, 7, 'crit', 'chance').on()
+        return result
 
     def x_proc(self, e):
         if self.buff('s2'):
