@@ -212,6 +212,7 @@ class Buff(object):
 
         self.buffevent = Event('buff')
         self.pause_time = -1
+        self.refresh_time = -1
         # self.on()
 
     def logwrapper(self, *args):
@@ -362,7 +363,10 @@ class Buff(object):
             proc_type = 'start'
         else:
             if d >= 0:
-                self.buff_end_timer.on(d)
+                if self.buff_end_timer.online:
+                   self.buff_end_timer.add(d)
+                else:
+                    self.refresh_time = d
             proc_type = 'refresh'
 
         self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'buff {proc_type} <{d:.02f}s>')
@@ -416,6 +420,7 @@ class Buff(object):
             self.buff_end_timer.off()
     
     def resume(self):
+        self.pause_time = max(self.pause_time, self.refresh_time)
         if self.pause_time > 0:
             log('resume', self.name, self.pause_time, now()+self.pause_time)
             self.buff_end_timer.on(self.pause_time)
@@ -834,6 +839,8 @@ class MultiBuffManager:
 
     def resume(self, e=None):
         if self.pause_time > 0:
+            for b in self.buffs:
+                self.pause_time = max(self.pause_time, b.refresh_time)
             for b in self.buffs:
                 b.buff_end_timer.on(self.pause_time)
             log('resume', self.pause_by, self.pause_time, now()+self.pause_time)
