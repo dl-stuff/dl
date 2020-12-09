@@ -16,6 +16,8 @@ from conf import (
     ROOT_DIR, TRIBE_TYPES, skillshare, wyrmprints, weapons, dragons, mono_elecoabs,
     load_adv_json, load_equip_json, list_advs
 )
+from conf.equip import initialize_equip_managers
+
 app = Flask(__name__)
 
 # Helpers
@@ -32,6 +34,8 @@ SIMULATED_BUFFS = {
 ADV_MODULES = {}
 for fn in list_advs():
     core.simulate.load_adv_module(fn, in_place=ADV_MODULES)
+
+EQUIP_MANAGERS = initialize_equip_managers()
 
 def set_teamdps_res(result, logs, real_d, suffix=''):
     result['extra' + suffix] = {}
@@ -72,7 +76,8 @@ def run_adv_test(adv_name, wp=None, dra=None, wep=None, acl=None, conf=None, con
     adv = run_res[0][0]
     real_d = run_res[0][1]
     if vkey is None:
-        core.simulate.save_equip(adv, real_d)
+        # core.simulate.save_equip(adv, real_d)
+        EQUIP_MANAGERS[adv_name].accept_new_entry(adv, real_d)
 
     result['logs'] = {}
     fn = io.StringIO()

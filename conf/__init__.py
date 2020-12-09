@@ -7,6 +7,13 @@ ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
 WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun')
 TRIBE_TYPES = ('thaumian', 'physian', 'demihuman', 'therion', 'undead', 'demon', 'human', 'dragon')
 DURATIONS = (60, 120, 180)
+ELE_AFFLICT = {
+    'flame': 'burn',
+    'water': 'frostbite',
+    'wind': 'poison',
+    'light': 'paralysis',
+    'shadow': 'poison'
+}
 
 ROOT_DIR = os.getenv('ROOT_DIR', os.path.realpath(os.path.join(__file__, '../..')))
 

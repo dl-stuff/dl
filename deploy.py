@@ -6,7 +6,8 @@ import argparse
 from copy import deepcopy
 from time import monotonic, time_ns
 import core.simulate
-from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS
+from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS, ELE_AFFLICT
+from conf.equip import EquipManager
 
 ADV_DIR = 'adv'
 CHART_DIR = 'www/dl-sim'
@@ -68,7 +69,7 @@ def sim_adv(name, variants, sanity_test=False):
 
 def run_and_save(name, module, ele, dkey, ekey, conf, repair=False):
     if ekey == 'affliction':
-        aff_name = core.simulate.ELE_AFFLICT[ele]
+        aff_name = ELE_AFFLICT[ele]
         conf[f'sim_afflict.{aff_name}'] = 1
     with open(os.devnull, 'w') as output:
         run_res = core.simulate.test(name, module, conf, duration=int(dkey), verbose=0, output=output)
@@ -249,8 +250,13 @@ def main(targets, do_combine, is_repair, sanity_test):
 
     message = []
     if is_repair:
-        for name, variants in target_modules.items():
-            repair_equips(name, variants)
+        for advname in target_modules.keys():
+            EquipManager(advname).repair_entries()
+            # t_start = monotonic()
+            # try:
+            #     EquipManager(advname).repair_entries()
+            # except Exception as e:
+            #     print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{advname} {e}\033[0m', flush=True)
         return
     else:
         for name, variants in target_modules.items():

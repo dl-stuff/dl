@@ -796,20 +796,3 @@ class Slots:
             kind, abi = val
             abi.oninit(adv, kind)
             self.abilities[name] = abi
-
-
-if __name__ == '__main__':
-    from conf import get_adv, load_all_equip_json
-    # amulet_qual = [
-    #     'The_Wyrmclan_Duo',
-    #     'Flash_of_Genius',
-    #     'Moonlight_Party',
-    #     'The_Plaguebringer',
-    #     'His_Clever_Brother'
-    # ]
-    for adv, equip in load_all_equip_json().items():
-        conf = get_adv(adv)
-        pref = equip['180']['pref']
-        a_qual = equip['180'][pref]['slots.a']
-        slots = Slots(adv, conf.c)
-        slots.set_a(keys=a_qual)
