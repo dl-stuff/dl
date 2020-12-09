@@ -184,18 +184,14 @@ class EquipManager(dict):
                 if self.debug:
                     print('better than existing/same build different dps')
                 self[duration][kind] = deepcopy(new_entry)
-                kicked = current_entry
                 need_write = True
-            else:
-                kicked = new_entry
-                need_write = True
-            try:
-                if self.debug:
-                    print(f'kick to {KICK_TO[kind]}')
-                for kicked_kind in KICK_TO[kind]:
-                    kicked_entries.append((kicked_kind, kicked))
-            except KeyError:
-                pass
+                try:
+                    if self.debug:
+                        print(f'kick to {KICK_TO[kind]}')
+                    for kicked_kind in KICK_TO[kind]:
+                        kicked_entries.append((kicked_kind, current_entry))
+                except KeyError:
+                    pass
 
         # kicked entries
         for kind, kicked in kicked_entries:
@@ -221,8 +217,10 @@ class EquipManager(dict):
                     if (self[duration][buffkind]['team'] > BUFFER_TEAM_THRESHOLD or
                         self[duration][buffkind]['tdps'] < BUFFER_TDPS_THRESHOLD):
                         self[duration][prefkey] = buffkind
+                        need_write = True
                 except TypeError:
                     self[duration][prefkey] = basekind
+                    need_write = True
             except KeyError:
                 continue
 
@@ -260,25 +258,31 @@ class EquipManager(dict):
                     self[duration][prefkey] = basekind
             except KeyError:
                 continue
-        
+
+        for duration in list(self.keys()):
+            for kind in list(self[duration].keys()):
+                if duration != '180':
+                    try:
+                        self.repair_entry(adv_module, element, self['180'][kind], duration, kind)
+                    except KeyError:
+                        pass
+                # for affkind, basekind in (('affliction', 'base'), ('mono_affliction', 'mono_base')):
+                #     try:
+                #         self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind)
+                #     except KeyError:
+                #         pass
+                for basekind in ('base', 'buffer', 'affliction'):
+                    monokind = f'mono_{basekind}'
+                    if not EQUIP_ENTRY_MAP[monokind].acceptable(self[duration][basekind], element):
+                        continue
+                    try:
+                        current_entry = self[duration][monokind]
+                        if not current_entry.better_than(self[duration][basekind]):
+                            self[duration][monokind] = deepcopy(self[duration][basekind])
+                    except KeyError:
+                        self[duration][monokind] = deepcopy(self[duration][basekind])
+
         save_json(f'equip/{self.advname}.json', self, indent=2)
-        # for duration in list(self.keys()):
-        #     for kind in list(self[duration].keys()):
-        #         for monokind in ('base', 'buffer', 'affliction'):
-        #             try:
-        #                 self.repair_entry(adv_module, element, self[duration][monokind], duration, f'mono_{monokind}')
-        #             except KeyError:
-        #                 pass
-        #         if duration != '180':
-        #             try:
-        #                 self.repair_entry(adv_module, element, self['180'][kind], duration, kind)
-        #             except KeyError:
-        #                 pass
-        #         for affkind, basekind in (('affliction', 'base'), ('mono_affliction', 'mono_base')):
-        #             try:
-        #                 self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind)
-        #             except KeyError:
-        #                 pass
 
 
 def _test_equip(advname, confs):
