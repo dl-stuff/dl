@@ -7,6 +7,7 @@ from copy import deepcopy
 from time import monotonic, time_ns
 import core.simulate
 from conf import ROOT_DIR, load_equip_json, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS, ELE_AFFLICT
+from conf.equip import EquipManager
 
 ADV_DIR = 'adv'
 CHART_DIR = 'www/dl-sim'
@@ -249,8 +250,13 @@ def main(targets, do_combine, is_repair, sanity_test):
 
     message = []
     if is_repair:
-        for name, variants in target_modules.items():
-            repair_equips(name, variants)
+        for advname in target_modules.keys():
+            EquipManager(advname).repair_entries()
+            # t_start = monotonic()
+            # try:
+            #     EquipManager(advname).repair_entries()
+            # except Exception as e:
+            #     print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{advname} {e}\033[0m', flush=True)
         return
     else:
         for name, variants in target_modules.items():

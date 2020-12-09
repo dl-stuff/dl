@@ -1,5 +1,6 @@
 from pprint import pprint
 from copy import deepcopy
+import os
 
 from conf import load_json, save_json, DURATIONS, ELE_AFFLICT, mono_elecoabs, load_adv_json
 import core.simulate
@@ -31,6 +32,7 @@ class EquipEntry(dict):
     def same_build_different_dps(self, other):
         same_build = all((self.get(k) == other.get(k) for k in EquipEntry.CONF_KEYS))
         different_dps = any((self.get(k) != other.get(k) for k in EquipEntry.META_KEYS))
+        return same_build and different_dps
 
     @staticmethod
     def weight(entry):
@@ -54,11 +56,11 @@ def build_entry_from_sim(entryclass, adv, real_d):
         'dps': ndps,
         'team': nteam,
         'tdps': None,
-        'ele': adv.slots.c.ele,
-        'slots.a': adv.slots.a.qual_lst
+        'slots.a': adv.slots.a.qual_lst,
+        'slots.d': adv.slots.d.qual
     }
-    if adv.slots.d.qual != adv.slots.DEFAULT_DRAGON[adv.slots.c.ele]:
-        new_equip['slots.d'] = adv.slots.d.qual
+    # if adv.slots.d.qual != adv.slots.DEFAULT_DRAGON[adv.slots.c.ele]:
+    #     new_equip['slots.d'] = adv.slots.d.qual
     if adv.slots.w.qual != adv.slots.DEFAULT_WEAPON:
         new_equip['slots.w'] = adv.slots.w.qual
     acl_list = adv.conf.acl
@@ -76,11 +78,15 @@ class BaseEntry(EquipEntry):
 
 class BufferEntry(EquipEntry):
     @staticmethod
+    def eligible(adv):
+        return not adv.sim_afflict and EquipEntry.eligible(adv)
+
+    @staticmethod
     def acceptable(entry, ele=None):
         return entry['team'] and EquipEntry.acceptable(entry)
 
     def better_than(self, other):
-        return self['team'] > other['team'] or self['dps'] > other['dps']
+        return self['team'] > other['team'] or (self['team'] == other['team'] and self['dps'] > other['dps'])
 
 class AfflictionEntry(EquipEntry):
     @staticmethod
@@ -117,7 +123,7 @@ EQUIP_ENTRY_MAP = {
 }
 KICK_TO = {
     'base': ('buffer', 'mono_base'),
-    'buffer': ('base', 'mono_buffer'),
+    'buffer': ('mono_buffer',),
     'affliction': ('mono_affliction',)
 }
 THRESHOLD_RELATION = (
@@ -137,7 +143,7 @@ class EquipManager(dict):
             self.debug = False
         self.pref = None
         for duration, dequip in self.items():
-            for kind, entry in dequip:
+            for kind, entry in dequip.items():
                 try:
                     dequip[kind] = EQUIP_ENTRY_MAP[kind](entry)
                 except KeyError:
@@ -148,7 +154,7 @@ class EquipManager(dict):
         if self.advname != adv.name:
             raise RuntimeError(f'adv/equip name mismatch {self.advname} != {adv.name}')
 
-        duration = str(adv.duration)
+        duration = str(int(adv.duration))
         kicked_entries = []
         need_write = False
         if duration not in self:
@@ -161,17 +167,31 @@ class EquipManager(dict):
             new_entry = build_entry_from_sim(entryclass, adv, real_d)
             if not entryclass.acceptable(new_entry, adv.slots.c.ele):
                 continue
+            if self.debug:
+                print('~'*60)
+                print(kind, adv.sim_afflict)
+                pprint(new_entry)
             try:
                 current_entry = self[duration][kind]
+                pprint(current_entry)
             except KeyError:
                 self[duration][kind] = new_entry
-                continue
-            keep, kicked = current_entry, new_entry
-            if current_entry.same_build_different_dps(new_entry) or not current_entry.better_than(new_entry):
-                keep, kicked = new_entry, current_entry
                 need_write = True
-            self[duration][kind] = keep
+                if self.debug:
+                    print('fill empty slot')
+                continue
+            if current_entry.same_build_different_dps(new_entry) or not current_entry.better_than(new_entry):
+                if self.debug:
+                    print('better than existing/same build different dps')
+                self[duration][kind] = deepcopy(new_entry)
+                kicked = current_entry
+                need_write = True
+            else:
+                kicked = new_entry
+                need_write = True
             try:
+                if self.debug:
+                    print(f'kick to {KICK_TO[kind]}')
                 for kicked_kind in KICK_TO[kind]:
                     kicked_entries.append((kicked_kind, kicked))
             except KeyError:
@@ -182,14 +202,16 @@ class EquipManager(dict):
             entryclass = EQUIP_ENTRY_MAP[kind]
             if not entryclass.acceptable(kicked, adv.slots.c.ele):
                 continue
-            kicked = entryclass(kicked)
+            kicked = entryclass(deepcopy(kicked))
             try:
                 current_entry = self[duration][kind]
             except KeyError:
                 self[duration][kind] = kicked
+                need_write = True
                 continue
             if not current_entry.better_than(kicked):
                 self[duration][kind] = kicked
+                need_write = True
 
         # tdps threshold
         for basekind, buffkind, prefkey in THRESHOLD_RELATION:
@@ -204,40 +226,60 @@ class EquipManager(dict):
             except KeyError:
                 continue
 
-        if self.debug:
-            print('~'*60)
-            pprint(self)
-            print('~'*60)
-        elif need_write:
+        if not self.debug and need_write:
             save_json(f'equip/{self.advname}.json', self, indent=2)
 
     def repair_entry(self, adv_module, element, conf, duration, kind):
         conf = deepcopy(conf)
         if kind in ('affliction', 'mono_affliction'):
-            conf['sim_afflict'][ELE_AFFLICT[element]] = 1
-        run_res = core.simulate.test(self.advname, adv_module, conf, int(duration))
+            conf[f'sim_afflict.{ELE_AFFLICT[element]}'] = 1
+        with open(os.devnull, 'w') as output:
+            run_res = core.simulate.test(self.advname, adv_module, conf, int(duration), output=output)
         adv = run_res[0][0]
         real_d = run_res[0][1]
-        self.accept_new_entry(adv, real_d)
+        self[duration][kind] = build_entry_from_sim(EQUIP_ENTRY_MAP[kind], adv, real_d)
 
     def repair_entries(self):
         adv_module, _ = core.simulate.load_adv_module(self.advname)
         element = load_adv_json(self.advname)['c']['ele']
-        for duration in self:
-            for kind in self[duration]:
+        for duration in list(self.keys()):
+            for kind in list(self[duration].keys()):
                 if kind.startswith('pref'):
                     continue
                 self.repair_entry(adv_module, element, self[duration][kind], duration, kind)
-                if duration != '180':
-                    try:
-                        self.repair_entry(adv_module, element, self['180'][kind], duration, kind)
-                    except KeyError:
-                        pass
-                for affkind, basekind in (('affliction', 'base'), ('mono_affliction', 'mono_base')):
-                    try:
-                        self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind)
-                    except KeyError:
-                        pass
+
+        # tdps threshold
+        for basekind, buffkind, prefkey in THRESHOLD_RELATION:
+            try:
+                self[duration][basekind].update_threshold(self[duration][buffkind])
+                try:
+                    if (self[duration][buffkind]['team'] > BUFFER_TEAM_THRESHOLD or
+                        self[duration][buffkind]['tdps'] < BUFFER_TDPS_THRESHOLD):
+                        self[duration][prefkey] = buffkind
+                except TypeError:
+                    self[duration][prefkey] = basekind
+            except KeyError:
+                continue
+        
+        save_json(f'equip/{self.advname}.json', self, indent=2)
+        # for duration in list(self.keys()):
+        #     for kind in list(self[duration].keys()):
+        #         for monokind in ('base', 'buffer', 'affliction'):
+        #             try:
+        #                 self.repair_entry(adv_module, element, self[duration][monokind], duration, f'mono_{monokind}')
+        #             except KeyError:
+        #                 pass
+        #         if duration != '180':
+        #             try:
+        #                 self.repair_entry(adv_module, element, self['180'][kind], duration, kind)
+        #             except KeyError:
+        #                 pass
+        #         for affkind, basekind in (('affliction', 'base'), ('mono_affliction', 'mono_base')):
+        #             try:
+        #                 self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind)
+        #             except KeyError:
+        #                 pass
+
 
 def _test_equip(advname, confs):
     adv_module, advname = core.simulate.load_adv_module(advname)
@@ -413,43 +455,8 @@ def test_equip_monoele():
     _test_equip('Durant', (monoele_conf, base_conf))
 
 def test_repair():
-    basic_conf = {
-        'slots.a': [
-            'Candy_Couriers',
-            'Me_and_My_Bestie',
-            'Memory_of_a_Friend',
-            'The_Plaguebringer',
-            'To_the_Extreme'
-        ],
-        'slots.d': 'Gala_Mars',
-        'acl': [
-            '`dragon(s-s)',
-            '`s3, not buff(s3) and x=5',
-            '`s1',
-            '`s4,cancel',
-            '`s2, x=5'
-        ],
-        'coabs': [
-            'Blade',
-            'Joe',
-            'Marth'
-        ],
-        'share': [
-            'Weapon',
-            'Durant'
-        ]
-    }
-    equip_manager = _test_equip('Xania', (basic_conf,))
-    equip_manager['180']['base']['dps'] = 222
-    # print('~'*60)
-    # pprint(equip_manager)
-    # print('~'*60)
-    # adv_module, _ = core.simulate.load_adv_module(equip_manager.advname)
-    # element = load_adv_json(equip_manager.advname)['c']['ele']
-    # equip_manager.repair_entry(adv_module, element, equip_manager['180']['base'], '180', 'base')
-    # print('~'*60)
-    # pprint(equip_manager)
-    # print('~'*60)
+    equip_manager = EquipManager('Aeleen')
+    equip_manager.debug = True
     equip_manager.repair_entries()
 
 if __name__ == '__main__':
