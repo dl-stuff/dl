@@ -246,19 +246,6 @@ class EquipManager(dict):
                     continue
                 self.repair_entry(adv_module, element, self[duration][kind], duration, kind)
 
-        # tdps threshold
-        for basekind, buffkind, prefkey in THRESHOLD_RELATION:
-            try:
-                self[duration][basekind].update_threshold(self[duration][buffkind])
-                try:
-                    if (self[duration][buffkind]['team'] > BUFFER_TEAM_THRESHOLD or
-                        self[duration][buffkind]['tdps'] < BUFFER_TDPS_THRESHOLD):
-                        self[duration][prefkey] = buffkind
-                except TypeError:
-                    self[duration][prefkey] = basekind
-            except KeyError:
-                continue
-
         for duration in list(self.keys()):
             for kind in list(self[duration].keys()):
                 if duration != '180':
@@ -281,6 +268,19 @@ class EquipManager(dict):
                             self[duration][monokind] = deepcopy(self[duration][basekind])
                     except KeyError:
                         self[duration][monokind] = deepcopy(self[duration][basekind])
+
+        # tdps threshold
+        for basekind, buffkind, prefkey in THRESHOLD_RELATION:
+            try:
+                self[duration][basekind].update_threshold(self[duration][buffkind])
+                try:
+                    if (self[duration][buffkind]['team'] > BUFFER_TEAM_THRESHOLD or
+                        self[duration][buffkind]['tdps'] < BUFFER_TDPS_THRESHOLD):
+                        self[duration][prefkey] = buffkind
+                except TypeError:
+                    self[duration][prefkey] = basekind
+            except KeyError:
+                continue
 
         save_json(f'equip/{self.advname}.json', self, indent=2)
 
