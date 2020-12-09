@@ -2,7 +2,7 @@ from pprint import pprint
 from copy import deepcopy
 import os
 
-from conf import load_json, save_json, DURATIONS, ELE_AFFLICT, mono_elecoabs, load_adv_json
+from conf import load_json, save_json, DURATIONS, ELE_AFFLICT, mono_elecoabs, load_adv_json, list_advs
 import core.simulate
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times', 'United_by_One_Vision', 'Second_Anniversary')
@@ -284,6 +284,8 @@ class EquipManager(dict):
 
         save_json(f'equip/{self.advname}.json', self, indent=2)
 
+def initialize_equip_managers():
+    return {advname: EquipManager(advname) for advname in list_advs()}
 
 def _test_equip(advname, confs):
     adv_module, advname = core.simulate.load_adv_module(advname)
