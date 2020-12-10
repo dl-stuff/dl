@@ -4,6 +4,7 @@ class Yuya(Adv):
     def prerun(self):
         self.a1_hits = 0
         self.a1_buff = SingleActionBuff('a1_sd', 0, 1, 's', 'buff')
+        self.set_hp(100)
 
     def s1_before(self, e):
         self.a1_buff = SingleActionBuff('a1_sd', 0, 1, 's', 'buff')
