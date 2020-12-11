@@ -68,7 +68,7 @@
     "buffer": {
       "dps": 44589.39840799094,
       "team": 0.12318538292025279,
-      "tdps": 165810.898317949,
+      "tdps": null,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -95,28 +95,28 @@
         "Weapon",
         "Hildegarde"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 47102.0097618886,
-      "team": 0.030892044780800824,
+    },
+    "mono_base": {
+      "dps": 65014.87740963859,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
+        "A_Man_Unchanging",
         "Forest_Bonds",
-        "The_Fires_of_Hate",
-        "Seaside_Memory",
-        "The_Plaguebringer"
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3) and x=4",
-        "`fs, c_fs(enhanced) and (x=4 and s1.check())",
+        "`fs, c_fs(enhanced) and x=4",
         "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
-        "`s4",
-        "`s2"
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
       ],
       "coabs": [
         "Wand",
@@ -125,7 +125,104 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Cleo"
+        "Xander"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 44589.39840799094,
+      "team": 0.12318538292025279,
+      "tdps": null,
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Seaside_Memory",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Heinwald"
+      ],
+      "share": [
+        "Weapon",
+        "Hildegarde"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 69726.00562276752,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    }
+  },
+  "120": {
+    "base": {
+      "dps": 65541.72151016911,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Wand",
+        "Heinwald",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
       ]
     },
     "affliction": {
@@ -160,28 +257,60 @@
         "Fjorm"
       ]
     },
-    "pref": "base"
-  },
-  "60": {
-    "base": {
-      "dps": 51964.65600293324,
+    "pref": "base",
+    "mono_base": {
+      "dps": 65541.72151016911,
       "team": 0.0,
-      "tdps": -35190.2901061298,
+      "tdps": null,
       "slots.a": [
-        "Dear_Diary",
+        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3) and x=4",
-        "`fs, c_fs(enhanced) and (x=4 and s1.check())",
+        "`fs, c_fs(enhanced) and x=4",
         "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
-        "`s4",
-        "`s2"
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Wand",
+        "Heinwald",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 65141.02068417886,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
       ],
       "coabs": [
         "Ieyasu",
@@ -190,14 +319,143 @@
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Fjorm"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 65578.39787074327,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Wand",
+        "Heinwald",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
       ]
     },
     "pref": "buffer",
     "buffer": {
+      "dps": 44178.05588152059,
+      "team": 0.057691710563616015,
+      "tdps": 370943.1004931767,
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Seaside_Memory",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Heinwald"
+      ],
+      "share": [
+        "Weapon",
+        "Hildegarde"
+      ]
+    },
+    "affliction": {
+      "dps": 57183.68033767367,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "mono_base": {
+      "dps": 65578.39787074327,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Wand",
+        "Heinwald",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_buffer": {
       "dps": 54150.00821856359,
       "team": 0.06210100027705326,
-      "tdps": -35190.2901061298,
+      "tdps": 184029.075235404,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -224,7 +482,7 @@
         "Elisanne"
       ]
     },
-    "affliction": {
+    "mono_affliction": {
       "dps": 59437.93608022319,
       "team": 0.0,
       "tdps": null,

@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 50948.31575410727,
+      "dps": 52911.76630064216,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -17,7 +17,7 @@
         "`s3, not buff(s3) and fsc",
         "`s2",
         "`s4, cancel",
-        "`s1, cancel",
+        "`s1, buff(s3) or cancel",
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
@@ -64,7 +64,7 @@
     "buffer": {
       "dps": 50948.31575410727,
       "team": 0.0,
-      "tdps": 99999999,
+      "tdps": null,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -90,11 +90,9 @@
         "Weapon",
         "Formal_Joachim"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 45098.57466547953,
+    },
+    "mono_base": {
+      "dps": 52911.76630064216,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -106,10 +104,73 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, buff(s3) or cancel",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 60763.208718811926,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
         "`s3, not buff(s3) and fsc",
         "`s2",
         "`s4, cancel",
         "`s1, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 44282.58252968876,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, buff(s3) or cancel",
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
@@ -136,6 +197,67 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "mono_base": {
+      "dps": 44282.58252968876,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, buff(s3) or cancel",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 54877.86557478907,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
         "`s3, not buff(s3) and fsc",
         "`s2",
         "`s4, cancel",
@@ -155,7 +277,7 @@
   },
   "120": {
     "base": {
-      "dps": 49710.4715500279,
+      "dps": 51897.73483576389,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -167,10 +289,11 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), trickery<=1",
         "`s3, not buff(s3) and fsc",
         "`s2",
         "`s4, cancel",
-        "`s1, cancel",
+        "`s1, buff(s3) or cancel",
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
@@ -185,6 +308,66 @@
     },
     "pref": "base",
     "affliction": {
+      "dps": 60366.07279575517,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "mono_base": {
+      "dps": 51897.73483576389,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, buff(s3) or cancel",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
       "dps": 60366.07279575517,
       "team": 0.0,
       "tdps": null,

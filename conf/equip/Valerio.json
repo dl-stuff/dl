@@ -33,8 +33,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 60453.768777928846,
-      "team": 0.07169348845702075,
+      "dps": 60489.30746648813,
+      "team": 0.07272066541620681,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -64,9 +64,9 @@
       ]
     },
     "buffer": {
-      "dps": 8622.905801166178,
-      "team": 0.6405756295317225,
-      "tdps": 88792.19728290441,
+      "dps": 8296.787422150683,
+      "team": 0.6475144378495649,
+      "tdps": null,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -90,13 +90,11 @@
         "Gala_Elisanne",
         "Yuya"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 57106.17086973344,
-      "team": 0.05369375835680536,
-      "tdps": -1233485.7334046473,
+    },
+    "mono_base": {
+      "dps": 59045.479446827594,
+      "team": 0.072703956247098,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -107,8 +105,106 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s2(entree), dgauge>=500",
-        "`dragon",
+        "`dragon(c3-s-c3-c3-c2-end)",
         "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
+        "`s1(dessert), aff_timeleft(frostbite)>10",
+        "`s1(appetizer)"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 59045.479446827594,
+      "team": 0.072703956247098,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s2(entree), dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
+        "`s1(dessert), aff_timeleft(frostbite)>10",
+        "`s1(appetizer)"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 60489.30746648813,
+      "team": 0.07272066541620681,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s2(entree), dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
+        "`s1(dessert), aff_timeleft(frostbite)>10",
+        "`s1(appetizer)"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 58827.66641410557,
+      "team": 0.05454185687924702,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s2(entree), dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
         "`s1(dessert), aff_timeleft(frostbite)>10",
         "`s1(appetizer)"
       ],
@@ -124,6 +220,123 @@
     },
     "pref": "buffer",
     "affliction": {
+      "dps": 49353.59740169358,
+      "team": 0.06188267444641296,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s2(entree), dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
+        "`s1(dessert), aff_timeleft(frostbite)>10",
+        "`s1(appetizer)"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "buffer": {
+      "dps": 7076.943667365756,
+      "team": 0.4510189895514659,
+      "tdps": 130526.37461824034,
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end), s",
+        "`s2(entree), dgauge<=400",
+        "`s4",
+        "`s3"
+      ],
+      "coabs": [
+        "Renee",
+        "Hunter_Sarisse",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Yuya"
+      ]
+    },
+    "mono_base": {
+      "dps": 58827.66641410557,
+      "team": 0.05454185687924702,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s2(entree), dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
+        "`s1(dessert), aff_timeleft(frostbite)>10",
+        "`s1(appetizer)"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 14132.70188016844,
+      "team": 0.0188547101004868,
+      "tdps": -1252410.7015621113,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Siren",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2(entree), inspiration()=0",
+        "`s4"
+      ],
+      "coabs": [
+        "Summer_Estelle",
+        "Renee",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_affliction": {
       "dps": 59678.7319604753,
       "team": 0.05369375835680536,
       "tdps": null,
@@ -152,32 +365,6 @@
         "Gala_Mym"
       ]
     },
-    "buffer": {
-      "dps": 14132.70188016844,
-      "team": 0.0188547101004868,
-      "tdps": -1233485.7334046473,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Siren",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2(entree), inspiration()=0",
-        "`s4"
-      ],
-      "coabs": [
-        "Summer_Estelle",
-        "Renee",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    }
+    "mono_pref": "mono_buffer"
   }
 }

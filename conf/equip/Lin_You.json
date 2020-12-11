@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 85200.02617701386,
+      "dps": 85206.59648031925,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -19,7 +19,7 @@
         "`s2, s1.check()",
         "`s1, cancel",
         "if hits<=44 and c_fs(enhanced)",
-        "`fs, x=1",
+        "`fs, x=2",
         "`dodge, fsc",
         "end"
       ],
@@ -58,7 +58,7 @@
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Axe2"
+        "Valentines_Melody"
       ],
       "share": [
         "Weapon",
@@ -68,7 +68,100 @@
     "buffer": {
       "dps": 41961.294577928646,
       "team": 0.11572259443268444,
-      "tdps": 373641.2220194137,
+      "tdps": null,
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "FirstRate_Hospitality",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon(s)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s1.check()",
+        "`s1",
+        "`fs, hits<=44 and (c_fs(enhanced) and x=4)"
+      ],
+      "coabs": [
+        "Bow",
+        "Lowen",
+        "Templar_Hope"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "mono_base": {
+      "dps": 75871.93366818658,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s1.check()",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=2",
+        "`dodge, fsc",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 91652.36302155306,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3) and x=2",
+        "`s4, cancel",
+        "`s2, s1.check()",
+        "`s1, cancel",
+        "`fs, hits<=44 and (c_fs(enhanced) and x=2)",
+        "`fsf, x=4 and not buff(s2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 41961.294577928646,
+      "team": 0.11572259443268444,
+      "tdps": null,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -98,70 +191,7 @@
   },
   "120": {
     "affliction": {
-      "dps": 87908.10237339475,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon(s)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s1.check()",
-        "`s1",
-        "`fs, hits<=44 and (c_fs(enhanced) and x=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Axe2"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
-    "pref": "base",
-    "base": {
-      "dps": 83391.91458284049,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Hastened_Squall",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s1.check()",
-        "`s1",
-        "`fs, hits<=44 and (c_fs(enhanced) and x=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Axe2"
-      ],
-      "share": [
-        "Weapon",
-        "Rodrigo"
-      ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 50325.84241230866,
+      "dps": 81523.87765288982,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -171,15 +201,49 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Long_Long",
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3) and x=2",
+        "`s4, cancel",
+        "`s2, s1.check()",
+        "`s1, cancel",
+        "`fs, hits<=44 and (c_fs(enhanced) and x=2)",
+        "`fsf, x=4 and not buff(s2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "pref": "base",
+    "base": {
+      "dps": 80066.94208752304,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, s1.check()",
-        "`s1",
-        "`fs, hits<=44 and (c_fs(enhanced) and x=1)",
-        "`dodge, fsc"
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=2",
+        "`dodge, fsc",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -188,7 +252,73 @@
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 81523.87765288982,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3) and x=2",
+        "`s4, cancel",
+        "`s2, s1.check()",
+        "`s1, cancel",
+        "`fs, hits<=44 and (c_fs(enhanced) and x=2)",
+        "`fsf, x=4 and not buff(s2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
         "Karina"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 60354.72368867982,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s1.check()",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=2",
+        "`dodge, fsc",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Axe2"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "pref": "base",
@@ -216,7 +346,38 @@
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Axe2"
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 72021.61450291394,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3) and x=2",
+        "`s4, cancel",
+        "`s2, s1.check()",
+        "`s1, cancel",
+        "`fs, hits<=44 and (c_fs(enhanced) and x=2)",
+        "`fsf, x=4 and not buff(s2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Valentines_Melody"
       ],
       "share": [
         "Weapon",

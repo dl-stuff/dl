@@ -34,7 +34,7 @@
     "buffer": {
       "dps": 7497.012992685395,
       "team": 0.7816776847017606,
-      "tdps": 71667.56468067187,
+      "tdps": null,
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -96,57 +96,58 @@
   },
   "60": {
     "base": {
-      "dps": 36692.60774938423,
-      "team": 0.15016900547684786,
+      "dps": 36618.37818387645,
+      "team": 0.13890386892627848,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
+        "Dragon_Brethren",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Entwined_Flames"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), fsc",
-        "`s4, cancel",
+        "`dragon, cancel and (buff(s2) and (buff(s3, 1) and buff(s1)))",
+        "`s1, not buff(s1) and fsc",
         "`s2, cancel",
-        "`s3, fsc",
-        "`s1, fsc",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Gala_Prince",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 51736.35759157442,
-      "team": 0.11750741382372341,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Spirit_of_the_Season",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s), cancel and (buff(s2) and buff(s3, 1))",
-        "`s2",
-        "`s4",
+        "`s4, fsc",
         "`s3",
         "`fs, x=3"
       ],
       "coabs": [
-        "Cleo",
+        "The_Prince",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 39848.8011717653,
+      "team": 0.13890386892627848,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_Brethren",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, cancel and (buff(s2) and (buff(s3, 1) and buff(s1)))",
+        "`s1, not buff(s1) and fsc",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`s3",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "The_Prince",
         "Dagger2",
         "Peony"
       ],

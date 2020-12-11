@@ -67,7 +67,7 @@
     "buffer": {
       "dps": 13002.82588810023,
       "team": 1.0329762677127727,
-      "tdps": 77633.31874707983,
+      "tdps": null,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Sisters_Day_Out",
@@ -96,18 +96,16 @@
         "Weapon",
         "Karl"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 46371.2658917819,
-      "team": 0.4261127267630201,
+    },
+    "mono_base": {
+      "dps": 53759.15523498596,
+      "team": 0.5079912483338508,
       "tdps": null,
       "slots.a": [
+        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Plaguebringer",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -127,7 +125,104 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 53759.15523498596,
+      "team": 0.5079912483338508,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Delphi",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 61892.52005566816,
+      "team": 0.5025061912377479,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4, x>=4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Dagger",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 47845.80235568637,
+      "team": 0.4357936679091136,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Delphi",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "pref": "base",
@@ -144,6 +239,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
         "`s3, not buff(s3)",
         "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
         "if x=5 or (x=4 or (fsc or s))",
@@ -163,9 +259,73 @@
       ]
     },
     "buffer": {
+      "dps": 15054.140718183206,
+      "team": 0.8501556814891122,
+      "tdps": null,
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "Luck_of_the_Draw"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "queue s1.charged>=s1.sp and c_fs(galacleo)",
+        "`fs;s1, fsc",
+        "end",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, fsc",
+        "`fs, x=3 and (not c_fs(galacleo) and fs_prep_c)"
+      ],
+      "coabs": [
+        "Bow",
+        "Audric",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "mono_base": {
+      "dps": 47845.80235568637,
+      "team": 0.4357936679091136,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Delphi",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
       "dps": 33625.45093953818,
       "team": 0.5366895809382,
-      "tdps": 115266.57226159946,
+      "tdps": null,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -193,18 +353,50 @@
         "Weapon",
         "Patia"
       ]
+    },
+    "mono_affliction": {
+      "dps": 53784.925460721,
+      "team": 0.4441504110480969,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4, x>=4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Dagger",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
     }
   },
   "120": {
     "base": {
-      "dps": 46196.196601726726,
-      "team": 0.48941773338914524,
+      "dps": 55083.01258091275,
+      "team": 0.5017052940845734,
       "tdps": null,
       "slots.a": [
+        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Plaguebringer",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -224,7 +416,7 @@
       ],
       "share": [
         "Weapon",
-        "Cassandra"
+        "Formal_Joachim"
       ]
     },
     "pref": "base",
@@ -241,6 +433,70 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4, x>=4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Dagger",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "mono_base": {
+      "dps": 55083.01258091275,
+      "team": 0.5017052940845734,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Delphi",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 62150.18520548297,
+      "team": 0.49992296202224057,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
         "`s3, not buff(s3)",
         "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
         "if x=5 or (x=4 or (fsc or s))",

@@ -64,7 +64,7 @@
     "buffer": {
       "dps": 31587.252248272518,
       "team": 0.30520631373369383,
-      "tdps": 171213.87123826076,
+      "tdps": null,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
@@ -93,8 +93,8 @@
   },
   "120": {
     "base": {
-      "dps": 50499.047823210065,
-      "team": 0.11651785456053015,
+      "dps": 53044.264312313855,
+      "team": 0.11783974925392028,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -105,21 +105,21 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon, energy()>3",
+        "`dragon(c7-s), energy()>3",
         "`s3, not buff(s3)",
-        "`s4, x=5",
-        "`s1",
         "`s2, energy()<3",
+        "`s1, energy()=5 or energy()<2",
+        "`s4",
         "`fs, x=5"
       ],
       "coabs": [
         "Blade",
-        "Bow",
+        "Axe2",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Luca"
       ]
     },
     "pref": "base",
@@ -156,8 +156,8 @@
   },
   "60": {
     "base": {
-      "dps": 45913.19505967217,
-      "team": 0.05635459923513824,
+      "dps": 41702.40432997776,
+      "team": 0.05087653484093174,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -168,27 +168,27 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon, energy()>3",
+        "`dragon(c7-s), energy()>3",
         "`s3, not buff(s3)",
-        "`s4, x=5",
-        "`s1",
         "`s2, energy()<3",
+        "`s1, energy()=5 or energy()<2",
+        "`s4",
         "`fs, x=5"
       ],
       "coabs": [
         "Blade",
-        "Bow",
+        "Axe2",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Luca"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 49413.28538735623,
-      "team": 0.0633057614580364,
+      "dps": 48280.94483969673,
+      "team": 0.05087653484093174,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -199,11 +199,11 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(s-end), energy()=5 and cancel",
+        "`dragon, energy()>3 and not s2.check()",
         "`s3, not buff(s3)",
-        "`s2, energy()<3",
-        "`s1",
-        "`s4, x=5 or fsc",
+        "`s2, energy()<4",
+        "`s1, energy()=5 or energy()<2",
+        "`s4",
         "`fs, x=5"
       ],
       "coabs": [
@@ -213,7 +213,7 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Luca"
       ]
     }
   }

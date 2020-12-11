@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 5825.894699683439,
-      "team": 1.31427966759468,
+      "dps": 16225.651303852423,
+      "team": 1.1419507215836298,
       "tdps": null,
       "slots.a": [
         "Honest_Repose",
@@ -12,16 +12,15 @@
         "Bellathorna"
       ],
       "slots.d": "Horus",
-      "slots.w": "void",
       "acl": [
         "`fs, fs_prep_c>1",
-        "`fs, fs_prep_c=1 and x=5",
         "`s1",
         "`s3, s=1",
-        "`s4"
+        "`s4",
+        "`dragon(), have_buff(s4_00) and energy()=5"
       ],
       "coabs": [
-        "Bow",
+        "Gala_Sarisse",
         "Dagger2",
         "Tobias"
       ],
@@ -34,36 +33,6 @@
     "buffer": {
       "dps": 5825.894699683439,
       "team": 1.31427966759468,
-      "tdps": 99999999,
-      "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Horus",
-      "slots.w": "void",
-      "acl": [
-        "`fs, fs_prep_c>1",
-        "`fs, fs_prep_c=1 and x=5",
-        "`s1",
-        "`s3, s=1",
-        "`s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Summer_Cleo",
-        "Mikoto"
-      ]
-    },
-    "affliction": {
-      "dps": 5825.894699683439,
-      "team": 1.31427966759468,
       "tdps": null,
       "slots.a": [
         "Honest_Repose",
@@ -90,26 +59,116 @@
         "Summer_Cleo",
         "Mikoto"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 8596.315695256159,
-      "team": 1.1607248247533377,
-      "tdps": -4895.413657186464,
+    },
+    "affliction": {
+      "dps": 16225.651303852423,
+      "team": 1.1419507215836298,
+      "tdps": null,
       "slots.a": [
         "Honest_Repose",
-        "Study_Rabbits",
-        "Warrior_Maiden",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Horus",
       "acl": [
-        "`s3",
-        "`s4, s=1",
+        "`fs, fs_prep_c>1",
         "`s1",
-        "`fs, xf=5"
+        "`s3, s=1",
+        "`s4",
+        "`dragon(), have_buff(s4_00) and energy()=5"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Mikoto"
+      ]
+    }
+  },
+  "120": {
+    "base": {
+      "dps": 14285.579252882359,
+      "team": 1.0815637166883911,
+      "tdps": null,
+      "slots.a": [
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`fs, fs_prep_c>1",
+        "`s1",
+        "`s3, s=1",
+        "`s4",
+        "`dragon(), have_buff(s4_00) and energy()=5"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Mikoto"
+      ]
+    },
+    "pref": "buffer",
+    "affliction": {
+      "dps": 14285.579252882359,
+      "team": 1.0815637166883911,
+      "tdps": null,
+      "slots.a": [
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`fs, fs_prep_c>1",
+        "`s1",
+        "`s3, s=1",
+        "`s4",
+        "`dragon(), have_buff(s4_00) and energy()=5"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Mikoto"
+      ]
+    },
+    "buffer": {
+      "dps": 5706.440056972396,
+      "team": 1.2819708805278083,
+      "tdps": null,
+      "slots.a": [
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "void",
+      "acl": [
+        "`fs, fs_prep_c>1",
+        "`fs, fs_prep_c=1 and x=5",
+        "`s1",
+        "`s3, s=1",
+        "`s4"
       ],
       "coabs": [
         "Bow",
@@ -117,12 +176,11 @@
         "Tobias"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Summer_Cleo",
+        "Mikoto"
       ]
     },
-    "pref": "buffer",
-    "affliction": {
+    "mono_affliction": {
       "dps": 29660.594482885674,
       "team": 0.39644476848927196,
       "tdps": null,
@@ -156,26 +214,30 @@
         "Weapon",
         "Xander"
       ]
-    },
-    "buffer": {
-      "dps": 8794.634589064799,
-      "team": 1.2012359863622262,
-      "tdps": -4895.413657186464,
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 18756.98324410889,
+      "team": 1.0330188709560644,
+      "tdps": null,
       "slots.a": [
         "Honest_Repose",
+        "Sisters_Day_Out",
         "Summertime_Feeling_Feline",
-        "Warrior_Maiden",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Horus",
       "acl": [
+        "`fs, fs_prep_c>1",
         "`s1",
         "`s3, s=1",
-        "`s4"
+        "`s4",
+        "`dragon(), have_buff(s4_00) and energy()=5"
       ],
       "coabs": [
-        "Bow",
+        "Gala_Sarisse",
         "Dagger2",
         "Tobias"
       ],
@@ -183,39 +245,38 @@
         "Summer_Cleo",
         "Mikoto"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 2283.8748691213304,
-      "team": 0.6607756896643958,
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 18756.98324410889,
+      "team": 1.0330188709560644,
       "tdps": null,
       "slots.a": [
         "Honest_Repose",
         "Sisters_Day_Out",
-        "Study_Rabbits",
+        "Summertime_Feeling_Feline",
         "From_Whence_He_Comes",
         "Bellathorna"
       ],
       "slots.d": "Horus",
       "acl": [
+        "`fs, fs_prep_c>1",
         "`s1",
-        "`s4, s=1",
-        "`s3",
-        "`fs"
+        "`s3, s=1",
+        "`s4",
+        "`dragon(), have_buff(s4_00) and energy()=5"
       ],
       "coabs": [
-        "Bow",
+        "Gala_Sarisse",
         "Dagger2",
         "Tobias"
       ],
       "share": [
-        "Halloween_Lowen",
-        "Summer_Cleo"
+        "Summer_Cleo",
+        "Mikoto"
       ]
     },
-    "pref": "base",
-    "affliction": {
+    "mono_affliction": {
       "dps": 29052.80606695933,
       "team": 0.32028870197394077,
       "tdps": null,

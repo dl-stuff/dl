@@ -22,7 +22,7 @@ class EquipEntry(dict):
     def eligible(adv):
         adv.duration = int(adv.duration)
         return (adv.duration in DURATIONS and \
-            all([not k in adv.conf for k in ABNORMAL_COND]) or \
+            all([not k in adv.conf for k in ABNORMAL_COND]) and \
             all([not wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]))
 
     @staticmethod
@@ -242,7 +242,7 @@ class EquipManager(dict):
         element = load_adv_json(self.advname)['c']['ele']
         for duration in list(self.keys()):
             for kind in list(self[duration].keys()):
-                if kind.startswith('pref'):
+                if kind.endswith('pref'):
                     continue
                 self.repair_entry(adv_module, element, self[duration][kind], duration, kind)
 
@@ -260,6 +260,8 @@ class EquipManager(dict):
                 #         pass
                 for basekind in ('base', 'buffer', 'affliction'):
                     monokind = f'mono_{basekind}'
+                    if not basekind in self[duration]:
+                        continue
                     if not EQUIP_ENTRY_MAP[monokind].acceptable(self[duration][basekind], element):
                         continue
                     try:

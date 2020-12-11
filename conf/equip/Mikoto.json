@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 65122.79152995411,
+      "dps": 86282.23339148048,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,12 +13,15 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin stance ends",
-        "`dragon(s-s-c3-c3-end), s=1",
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1",
+        "`s3, not buff(s3) and fsc",
         "`s1",
         "`s4, xf>1",
-        "`s2, xf>2",
-        "`fs, charged_in(fs, s1)"
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Yuya",
@@ -32,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 69906.29973796972,
+      "dps": 98781.90088914742,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -43,15 +46,17 @@
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
-      "slots.w": "high_dragon",
       "acl": [
         "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(s-s-c3-c3-end), s=1",
+        "`dragon(c3-s-s-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) and fsc",
         "`s1",
-        "`s4, cancel",
-        "`s2, xf>1",
+        "`s4, xf>1",
+        "`s2, xf>3",
         "`fs, xf and charged_in(fs, s1)",
-        "`dodge, xf=5 and speed()=1"
+        "`fs, xf>2 and charged_in(fs, s4)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Yuya",
@@ -64,9 +69,106 @@
       ]
     },
     "buffer": {
-      "dps": 32963.514170502676,
-      "team": 0.1564513516448724,
-      "tdps": 205554.4872021912,
+      "dps": 33638.399607871484,
+      "team": 0.1552464129207572,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "Valiant_Crown",
+        "One_with_the_Shadows",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "high_dragon",
+      "acl": [
+        "`dragon(s), s=1",
+        "`s3, not buff(s3)",
+        "`s2, x=5",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Halloween_Lowen",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Cleo",
+        "Chelle"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 98781.90088914742,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf>2 and charged_in(fs, s4)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_base": {
+      "dps": 86282.23339148048,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 33638.399607871484,
+      "team": 0.1552464129207572,
+      "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Seaside_Princess",
@@ -96,25 +198,27 @@
   },
   "120": {
     "base": {
-      "dps": 85957.53471157777,
+      "dps": 90896.055653299,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "Chariot_Drift",
+        "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin stance ends",
-        "`dragon(s-s-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1",
+        "`s3, not buff(s3) and fsc",
         "`s1",
         "`s4, xf>1",
-        "`s2, xf>2",
-        "`fs, charged_in(fs, s1)"
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Yuya",
@@ -128,7 +232,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 98730.0266854704,
+      "dps": 105035.19291837176,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -141,16 +245,18 @@
       "slots.d": "Gala_Mars",
       "acl": [
         "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(s-s-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-s-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) and fsc",
         "`s1",
-        "`s4, cancel",
-        "`s2, xf>1",
+        "`s4, xf>1",
+        "`s2, xf>3",
         "`fs, xf and charged_in(fs, s1)",
-        "`dodge, xf=5 and speed()=1"
+        "`fs, xf>2 and charged_in(fs, s4)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
       ],
       "coabs": [
-        "Marth",
+        "Yuya",
         "Serena",
         "Halloween_Mym"
       ],
@@ -160,111 +266,18 @@
       ]
     },
     "buffer": {
-      "dps": 68978.5624878622,
-      "team": 0.0,
-      "tdps": 99999999,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=1",
-        "`s3, not buff(s3)",
-        "`s2, x=5",
-        "`s4",
-        "`s1",
-        "`fs, x=5 and charged_in(fs, s1)"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Serena",
-        "Axe2"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 66722.34172659263,
-      "team": 0.0,
+      "dps": 35480.30756487135,
+      "team": 0.13685063321228805,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Gala_Sarisse",
-        "Halloween_Mym"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 88057.32262317135,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(s-s-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, cancel",
-        "`s2, xf>1",
-        "`fs, xf and charged_in(fs, s1)",
-        "`dodge, xf=5 and speed()=1"
-      ],
-      "coabs": [
-        "Marth",
-        "Serena",
-        "Halloween_Mym"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 54058.84986114657,
-      "team": 0.03784610425821928,
-      "tdps": 334604.8982755166,
-      "slots.a": [
-        "Me_and_My_Bestie",
         "Seaside_Princess",
         "Valiant_Crown",
         "One_with_the_Shadows",
         "To_the_Extreme"
       ],
-      "slots.d": "Apollo",
+      "slots.d": "Horus",
+      "slots.w": "high_dragon",
       "acl": [
         "`dragon(s), s=1",
         "`s3, not buff(s3)",
@@ -273,13 +286,307 @@
         "`s1"
       ],
       "coabs": [
-        "Marth",
+        "Halloween_Lowen",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Cleo",
+        "Chelle"
+      ]
+    },
+    "mono_base": {
+      "dps": 90896.055653299,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yuya",
         "Serena",
         "Halloween_Mym"
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 105035.19291837176,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf>2 and charged_in(fs, s4)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 35480.30756487135,
+      "team": 0.13685063321228805,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "Valiant_Crown",
+        "One_with_the_Shadows",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "high_dragon",
+      "acl": [
+        "`dragon(s), s=1",
+        "`s3, not buff(s3)",
+        "`s2, x=5",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Halloween_Lowen",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Cleo",
         "Chelle"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 90452.02667154402,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 108153.14362013347,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf>2 and charged_in(fs, s4)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "buffer": {
+      "dps": 31909.578703808005,
+      "team": 0.0698270122998465,
+      "tdps": 838392.5652775597,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "Valiant_Crown",
+        "One_with_the_Shadows",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "high_dragon",
+      "acl": [
+        "`dragon(s), s=1",
+        "`s3, not buff(s3)",
+        "`s2, x=5",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Halloween_Lowen",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Cleo",
+        "Chelle"
+      ]
+    },
+    "mono_base": {
+      "dps": 90452.02667154402,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 31909.578703808005,
+      "team": 0.0698270122998465,
+      "tdps": 838392.5652775597,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "Valiant_Crown",
+        "One_with_the_Shadows",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "high_dragon",
+      "acl": [
+        "`dragon(s), s=1",
+        "`s3, not buff(s3)",
+        "`s2, x=5",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Halloween_Lowen",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Cleo",
+        "Chelle"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 108153.14362013347,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>1",
+        "`s2, xf>3",
+        "`fs, xf and charged_in(fs, s1)",
+        "`fs, xf>2 and charged_in(fs, s4)",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Serena",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     }
   }

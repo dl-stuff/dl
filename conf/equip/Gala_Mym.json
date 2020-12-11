@@ -66,7 +66,7 @@
     "buffer": {
       "dps": 15798.747927145012,
       "team": 0.16423118462738276,
-      "tdps": 546863.7720493043,
+      "tdps": null,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
@@ -89,12 +89,72 @@
         "Summer_Cleo",
         "Patia"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 70838.10975775847,
+    },
+    "mono_base": {
+      "dps": 105610.83304060127,
       "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 118545.81160562891,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 87769.78438586045,
+      "team": 0.03919153869111342,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -105,31 +165,183 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "# `norm",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, x=5 or fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 57628.94122894702,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 69736.83992212734,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "buffer": {
+      "dps": 14467.288532627836,
+      "team": 0.1238953395998955,
+      "tdps": null,
+      "slots.a": [
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Warrior_Maiden",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Sword",
+        "Dagger2"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Patia"
+      ]
+    },
+    "mono_base": {
+      "dps": 57628.94122894702,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 54899.42196565108,
+      "team": 0.02059932314296393,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Dragon_and_Tamer",
+        "Gentle_Winds",
+        "Rogues_Banquet",
+        "Dragons_Nest"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
         "if dragonform.shift_count<1",
         "`dragon(s-end), s=1",
         "end",
         "if dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-s-end)",
+        "`dragon(c3-s-c3-end)",
         "end",
         "`s3, not buff(s3) and x=5",
         "`s1",
         "`s2, x=5 or fsc",
-        "`dodge, fsc",
+        "`s4, fsc",
         "`fs, x=5"
       ],
       "coabs": [
         "Yuya",
         "Verica",
-        "The_Prince"
+        "Serena"
       ],
       "share": [
         "Weapon",
         "Summer_Cleo"
       ]
     },
-    "pref": "base",
-    "affliction": {
+    "mono_affliction": {
       "dps": 83108.29507768607,
       "team": 0.0,
       "tdps": null,
@@ -164,46 +376,11 @@
         "Weapon",
         "The_Prince"
       ]
-    },
-    "buffer": {
-      "dps": 54899.42196565108,
-      "team": 0.02059932314296393,
-      "tdps": 773748.1315036089,
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Dragon_and_Tamer",
-        "Gentle_Winds",
-        "Rogues_Banquet",
-        "Dragons_Nest"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "if dragonform.shift_count<1",
-        "`dragon(s-end), s=1",
-        "end",
-        "if dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-end)",
-        "end",
-        "`s3, not buff(s3) and x=5",
-        "`s1",
-        "`s2, x=5 or fsc",
-        "`s4, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Yuya",
-        "Verica",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Cleo"
-      ]
     }
   },
   "120": {
     "base": {
-      "dps": 96382.37559743298,
+      "dps": 93972.65145684795,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -215,18 +392,13 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<1",
-        "`dragon(s-c3-end), s=1",
-        "end",
-        "if dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-end)",
-        "end",
-        "`s3, not buff(s3) and x=5",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
       ],
       "coabs": [
         "Yuya",
@@ -240,6 +412,132 @@
     },
     "pref": "base",
     "affliction": {
+      "dps": 105968.22560017994,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "buffer": {
+      "dps": 15702.321018220853,
+      "team": 0.15628424120158904,
+      "tdps": null,
+      "slots.a": [
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Warrior_Maiden",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Sword",
+        "Dagger2"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Patia"
+      ]
+    },
+    "mono_base": {
+      "dps": 93972.65145684795,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 80776.13901946586,
+      "team": 0.03290972219838243,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Dragons_Nest"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "# `norm",
+        "if dragonform.shift_count<1",
+        "`dragon(s-end), s=1",
+        "end",
+        "if dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-s-end)",
+        "end",
+        "`s3, not buff(s3) and x=5",
+        "`s1",
+        "`s4, s=1",
+        "`s2, x=5 or fsc",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Cleo"
+      ]
+    },
+    "mono_affliction": {
       "dps": 108862.94451385686,
       "team": 0.0,
       "tdps": null,
@@ -274,33 +572,31 @@
         "Weapon",
         "Formal_Joachim"
       ]
-    },
-    "buffer": {
-      "dps": 80776.13901946586,
-      "team": 0.03290972219838243,
-      "tdps": 474213.56169132894,
+    }
+  },
+  "300": {
+    "pref": "base",
+    "mono_pref": "mono_base",
+    "base": {
+      "dps": 129570.91878781034,
+      "team": 0.0,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "Dragons_Nest"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "# `norm",
-        "if dragonform.shift_count<1",
-        "`dragon(s-end), s=1",
-        "end",
-        "if dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-s-end)",
-        "end",
-        "`s3, not buff(s3) and x=5",
+        "`s3, not buff(s3)",
         "`s1",
-        "`s4, s=1",
         "`s2, x=5 or fsc",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
       ],
       "coabs": [
         "Yuya",
@@ -309,7 +605,96 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Cleo"
+        "Formal_Joachim"
+      ]
+    },
+    "mono_base": {
+      "dps": 129570.91878781034,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "buffer": {
+      "dps": 16019.536404604592,
+      "team": 0.16936483094982996,
+      "tdps": 670454.3189184446,
+      "slots.a": [
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Warrior_Maiden",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Sword",
+        "Dagger2"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Patia"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 111420.38673198772,
+      "team": 0.04116299588018907,
+      "tdps": 440942.93108918524,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5 or fsc",
+        "`s4, x=5 or fsc",
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+      ],
+      "coabs": [
+        "Yuya",
+        "Verica",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
       ]
     }
   }

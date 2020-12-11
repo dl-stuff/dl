@@ -65,7 +65,7 @@
     "buffer": {
       "dps": 17630.853841743185,
       "team": 0.11895095927134017,
-      "tdps": 3627597.8537760447,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -90,23 +90,51 @@
         "Weapon",
         "Vixel"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 63274.17551521452,
-      "team": 0.0,
+    },
+    "mono_base": {
+      "dps": 71472.9504240166,
+      "team": 0.10410860387457864,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-end), fsc and dragonform.shift_count<3",
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and (cancel and buff(s3))",
+        "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 17630.853841743185,
+      "team": 0.11895095927134017,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gold_Fafnir",
+      "acl": [
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -120,11 +148,136 @@
       ],
       "share": [
         "Weapon",
+        "Vixel"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 78321.94554274666,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), fsc",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
         "Xander"
+      ]
+    }
+  },
+  "120": {
+    "base": {
+      "dps": 72990.0874334839,
+      "team": 0.1249360103382946,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and (cancel and buff(s3))",
+        "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "pref": "base",
     "affliction": {
+      "dps": 70517.06752899525,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), fsc",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_base": {
+      "dps": 72990.0874334839,
+      "team": 0.1249360103382946,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and (cancel and buff(s3))",
+        "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_affliction": {
       "dps": 72008.65958560101,
       "team": 0.0,
       "tdps": null,
@@ -157,19 +310,50 @@
   },
   "60": {
     "base": {
-      "dps": 52323.17112608168,
-      "team": 0.0,
+      "dps": 63672.21672031446,
+      "team": 0.14390697002801675,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-end), fsc and dragonform.shift_count<3",
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and (cancel and buff(s3))",
+        "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "pref": "buffer",
+    "buffer": {
+      "dps": 15938.902914999508,
+      "team": 0.056806635932170876,
+      "tdps": -548026.7590338845,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gold_Fafnir",
+      "acl": [
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -183,24 +367,83 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Vixel"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 41060.67906018354,
-      "team": 0.01751379407808633,
-      "tdps": 643064.0908351227,
+    "affliction": {
+      "dps": 59301.95580192016,
+      "team": 0.0,
+      "tdps": null,
       "slots.a": [
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Seaside_Memory",
+        "His_Clever_Brother",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and dragonform.shift_count<3",
+        "`dragon(c3-s-end), fsc",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_base": {
+      "dps": 63672.21672031446,
+      "team": 0.14390697002801675,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and (cancel and buff(s3))",
+        "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 15938.902914999508,
+      "team": 0.056806635932170876,
+      "tdps": -548026.7590338845,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gold_Fafnir",
+      "acl": [
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -208,16 +451,16 @@
         "`fs, x=3"
       ],
       "coabs": [
-        "Blade",
-        "Wand",
-        "Bow"
+        "Delphi",
+        "Forte",
+        "Cleo"
       ],
       "share": [
         "Weapon",
-        "Curran"
+        "Vixel"
       ]
     },
-    "affliction": {
+    "mono_affliction": {
       "dps": 61472.003036521615,
       "team": 0.0,
       "tdps": null,
@@ -246,6 +489,7 @@
         "Weapon",
         "Xander"
       ]
-    }
+    },
+    "mono_pref": "mono_buffer"
   }
 }

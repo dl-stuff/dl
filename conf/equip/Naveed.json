@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 79656.50364913035,
+      "dps": 80180.77595963916,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -14,11 +14,11 @@
       "slots.d": "Gala_Mars",
       "acl": [
         "queue prep and not buff(s3)",
-        "`fs;s2;fs;s4;s3;s1",
+        "`fs;s2;fs, x=1;s3;s4;s1",
         "end",
         "`dragon(s), s=4",
         "`s2, cancel",
-        "`s1",
+        "`s1, s2",
         "`s4, cancel",
         "`fs, x=4"
       ],
@@ -34,7 +34,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 90798.52566268264,
+      "dps": 92653.20852812669,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -49,7 +49,7 @@
         "queue prep and not buff(s3)",
         "`fs;s2;fs;s4;s3;s1",
         "end",
-        "`dragon(s), s=4",
+        "`dragon(s-s-c3-end), s=4",
         "`s2, cancel",
         "`s1",
         "`s4, cancel",
@@ -68,7 +68,102 @@
     "buffer": {
       "dps": 47441.9887509006,
       "team": 0.147337300955222,
-      "tdps": 218644.66560318097,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs;s4;s3;s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s2, cancel",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger"
+      ],
+      "share": [
+        "Weapon",
+        "Hildegarde"
+      ]
+    },
+    "mono_base": {
+      "dps": 80180.77595963916,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs, x=1;s3;s4;s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s2, cancel",
+        "`s1, s2",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 92653.20852812669,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs;s4;s3;s1",
+        "end",
+        "`dragon(s-s-c3-end), s=4",
+        "`s2, cancel",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 47441.9887509006,
+      "team": 0.147337300955222,
+      "tdps": null,
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
@@ -99,24 +194,26 @@
   },
   "120": {
     "base": {
-      "dps": 66926.65251957625,
+      "dps": 77666.46065476173,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s), s=1",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
-        "`s1",
-        "`s4, fsc",
-        "`fs, x=2"
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs, x=1;s3;s4;s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s2, cancel",
+        "`s1, s2",
+        "`s4, cancel",
+        "`fs, x=4"
       ],
       "coabs": [
         "Blade",
@@ -125,11 +222,75 @@
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Formal_Joachim"
       ]
     },
     "pref": "base",
     "affliction": {
+      "dps": 87210.49056392438,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs;s4;s3;s1",
+        "end",
+        "`dragon(s-s-c3-end), s=4",
+        "`s2, cancel",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_base": {
+      "dps": 77666.46065476173,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs, x=1;s3;s4;s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s2, cancel",
+        "`s1, s2",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
       "dps": 89309.37890350637,
       "team": 0.0,
       "tdps": null,
@@ -162,37 +323,103 @@
   },
   "60": {
     "base": {
-      "dps": 61375.937901046906,
+      "dps": 70854.81971491012,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
-        "`s1",
-        "`s4, fsc",
-        "`fs, x=2"
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs, x=1;s3;s4;s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s2, cancel",
+        "`s1, s2",
+        "`s4, cancel",
+        "`fs, x=4"
       ],
       "coabs": [
         "Blade",
         "Wand",
-        "Yuya"
+        "Gala_Sarisse"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Formal_Joachim"
       ]
     },
     "pref": "base",
     "affliction": {
+      "dps": 83600.22808985817,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs;s4;s3;s1",
+        "end",
+        "`dragon(s-s-c3-end), s=4",
+        "`s2, cancel",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_base": {
+      "dps": 70854.81971491012,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs, x=1;s3;s4;s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s2, cancel",
+        "`s1, s2",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
       "dps": 83615.13118215707,
       "team": 0.0,
       "tdps": null,
@@ -209,6 +436,74 @@
         "`s3, not buff(s3)",
         "`s2, cancel",
         "`s1",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    }
+  },
+  "300": {
+    "pref": "base",
+    "mono_pref": "mono_base",
+    "base": {
+      "dps": 80482.81671274074,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs, x=1;s3;s4;s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s2, cancel",
+        "`s1, s2",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Gala_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_base": {
+      "dps": 80482.81671274074,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;fs, x=1;s3;s4;s1",
+        "end",
+        "`dragon(s), s=4",
+        "`s2, cancel",
+        "`s1, s2",
         "`s4, cancel",
         "`fs, x=4"
       ],

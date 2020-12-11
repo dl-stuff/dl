@@ -37,7 +37,7 @@
     "buffer": {
       "dps": 39438.55872079402,
       "team": 0.14743779763137704,
-      "tdps": 245165.54624583328,
+      "tdps": null,
       "slots.a": [
         "Brothers_in_Arms",
         "Felyne_Hospitality",
@@ -96,42 +96,136 @@
         "Weapon",
         "Gala_Mym"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 53417.1730236583,
+    },
+    "mono_base": {
+      "dps": 75585.2269143732,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "The_Shining_Overlord",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
-        "if c_s(1, enhanced)",
-        "`s4",
-        "`s2",
+        "`dragon(c3-s-end), x=5 or fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1",
-        "else",
-        "`dragon(c3-s-end), fsc",
-        "`s2, fsc or s",
-        "`s1, fsc or s",
-        "`fs, x=2",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
         "end"
       ],
       "coabs": [
-        "Blade",
         "Yurius",
-        "Hunter_Sarisse"
+        "Xainfried",
+        "Summer_Celliera"
       ],
       "share": [
         "Weapon",
-        "Hunter_Sarisse"
+        "Gala_Mym"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 77376.89442331997,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-end), x=5 or fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Yurius",
+        "Xainfried",
+        "Summer_Celliera"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 39438.55872079402,
+      "team": 0.14743779763137704,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Felyne_Hospitality",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "Odd_Sparrows"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Renee"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Patia"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 76644.14466702526,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-end), x=5 or fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Yurius",
+        "Xainfried",
+        "Summer_Celliera"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "pref": "base",
@@ -167,42 +261,106 @@
         "Weapon",
         "Gala_Mym"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 57092.749416534534,
+    },
+    "mono_base": {
+      "dps": 76644.14466702526,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "The_Shining_Overlord",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
-        "if c_s(1, enhanced)",
-        "`s4",
-        "`s2",
+        "`dragon(c3-s-end), x=5 or fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1",
-        "else",
-        "`dragon(c3-s-end), fsc",
-        "`s2, fsc or s",
-        "`s1, fsc or s",
-        "`fs, x=2",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
         "end"
       ],
       "coabs": [
-        "Blade",
         "Yurius",
-        "Dagger"
+        "Xainfried",
+        "Summer_Celliera"
       ],
       "share": [
         "Weapon",
-        "Hunter_Sarisse"
+        "Gala_Mym"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 77087.2419657252,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-end), x=5 or fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Yurius",
+        "Xainfried",
+        "Summer_Celliera"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    }
+  },
+  "120": {
+    "base": {
+      "dps": 72704.22690187512,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-end), x=5 or fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Yurius",
+        "Xainfried",
+        "Summer_Celliera"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "pref": "base",
@@ -242,7 +400,7 @@
     "buffer": {
       "dps": 37886.26071694602,
       "team": 0.12515469168458954,
-      "tdps": 153461.99524019472,
+      "tdps": 278199.4483488971,
       "slots.a": [
         "Brothers_in_Arms",
         "Felyne_Hospitality",
@@ -267,6 +425,102 @@
       "share": [
         "Templar_Hope",
         "Patia"
+      ]
+    },
+    "mono_base": {
+      "dps": 72704.22690187512,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-end), x=5 or fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Yurius",
+        "Xainfried",
+        "Summer_Celliera"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 37886.26071694602,
+      "team": 0.12515469168458954,
+      "tdps": 278199.4483488971,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Felyne_Hospitality",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "Odd_Sparrows"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Renee"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Patia"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 73396.55488897391,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-end), x=5 or fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Yurius",
+        "Xainfried",
+        "Summer_Celliera"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     }
   }

@@ -34,7 +34,7 @@
     "buffer": {
       "dps": 7074.862664308021,
       "team": 1.1378790573072612,
-      "tdps": 55992.35576203388,
+      "tdps": null,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Sisters_Day_Out",
@@ -88,19 +88,17 @@
         "Weapon",
         "Xander"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 49860.273553398816,
-      "team": 0.16816428453659857,
+    },
+    "mono_base": {
+      "dps": 55675.644768729675,
+      "team": 0.269889464031819,
       "tdps": null,
       "slots.a": [
+        "A_Man_Unchanging",
         "Dragon_and_Tamer",
-        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "The_Plaguebringer"
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -112,13 +110,75 @@
         "`fs, x=5"
       ],
       "coabs": [
-        "Ieyasu",
         "Wand",
-        "Delphi"
+        "Curran",
+        "Summer_Patia"
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 63869.5685614314,
+      "team": 0.1936055872554984,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and prep",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 53816.952606050334,
+      "team": 0.2403762087636473,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3) and prep",
+        "`s2",
+        "`s4, cancel",
+        "`s1, bleed_stack<3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "pref": "base",
@@ -135,6 +195,67 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and prep",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_base": {
+      "dps": 53816.952606050334,
+      "team": 0.2403762087636473,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3) and prep",
+        "`s2",
+        "`s4, cancel",
+        "`s1, bleed_stack<3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 62197.33192794304,
+      "team": 0.19077742638013084,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
         "`s3, not buff(s3) and prep",
         "`s2, cancel",
         "`s4, cancel",

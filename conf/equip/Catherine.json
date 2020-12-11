@@ -33,7 +33,7 @@
     "buffer": {
       "dps": 12539.218616761511,
       "team": 0.7959094999250168,
-      "tdps": 76808.02648365618,
+      "tdps": null,
       "slots.a": [
         "Gentle_Winds",
         "Study_Rabbits",
@@ -57,6 +57,35 @@
       ]
     },
     "affliction": {
+      "dps": 83698.61114940641,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c2-end), s=1",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "mono_affliction": {
       "dps": 83698.61114940641,
       "team": 0.0,
       "tdps": null,
@@ -116,40 +145,9 @@
         "Mikoto"
       ]
     },
-    "pref": "base"
-  },
-  "60": {
-    "base": {
-      "dps": 48023.02524358785,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Prince_of_Dragonyule",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Nimis",
-      "acl": [
-        "`s2, (duration-now)<3",
-        "`s3, not buff(s3) and xf=3",
-        "`s4",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
-      ]
-    },
     "pref": "base",
-    "affliction": {
-      "dps": 76360.24057953326,
+    "mono_affliction": {
+      "dps": 83422.16794001176,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -161,16 +159,106 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=1",
-        "`s2, (s1.check() and (duration-now)>45) or (duration-now)<3",
+        "`dragon(c3-s-c2-end), s=1",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
       ],
       "coabs": [
         "Blade",
-        "Renee",
+        "Hunter_Sarisse",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 66012.92165051278,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
         "Dagger2"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 70634.78722058679,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c2-end), s=1",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 70634.78722058679,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c2-end), s=1",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Tiki"
       ],
       "share": [
         "Weapon",

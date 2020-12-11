@@ -251,12 +251,12 @@ def main(targets, do_combine, is_repair, sanity_test):
     message = []
     if is_repair:
         for advname in target_modules.keys():
-            EquipManager(advname).repair_entries()
-            # t_start = monotonic()
-            # try:
-            #     EquipManager(advname).repair_entries()
-            # except Exception as e:
-            #     print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{advname} {e}\033[0m', flush=True)
+            # EquipManager(advname).repair_entries()
+            t_start = monotonic()
+            try:
+                EquipManager(advname).repair_entries()
+            except Exception as e:
+                print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{advname} {e}\033[0m', flush=True)
         return
     else:
         for name, variants in target_modules.items():

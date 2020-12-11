@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 78960.98129589857,
+      "dps": 78739.78401464432,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -35,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 87614.49180099202,
+      "dps": 90400.23087422653,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -43,9 +43,77 @@
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "His_Clever_Brother"
+        "Snipers_Allure"
       ],
       "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Patia",
+        "Berserker"
+      ],
+      "share": [
+        "Weapon",
+        "Catherine"
+      ]
+    },
+    "buffer": {
+      "dps": 38306.2938668025,
+      "team": 0.11551720782168139,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "The_Synthetic_Dragon",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1000 and x=3",
+        "`fsf, x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Patia",
+        "Gala_Alex",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "mono_base": {
+      "dps": 78739.78401464432,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Andromeda",
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
@@ -64,13 +132,46 @@
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Formal_Joachim"
       ]
     },
-    "buffer": {
-      "dps": 38405.206015937554,
-      "team": 0.11559719981912416,
-      "tdps": 350837.0042130688,
+    "mono_affliction": {
+      "dps": 90400.23087422653,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Patia",
+        "Berserker"
+      ],
+      "share": [
+        "Weapon",
+        "Catherine"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 38306.2938668025,
+      "team": 0.11551720782168139,
+      "tdps": null,
       "slots.a": [
         "Brothers_in_Arms",
         "The_Synthetic_Dragon",
@@ -105,17 +206,17 @@
   },
   "60": {
     "base": {
-      "dps": 89921.52983277668,
+      "dps": 64595.26138042879,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Synthetic_Dragon",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "Snipers_Allure"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Andromeda",
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
@@ -139,7 +240,73 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 100576.35397475987,
+      "dps": 84573.19699669098,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Patia",
+        "Berserker"
+      ],
+      "share": [
+        "Weapon",
+        "Catherine"
+      ]
+    },
+    "mono_base": {
+      "dps": 64595.26138042879,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Andromeda",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Curran",
+        "Berserker"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 99079.09962594867,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -174,46 +341,46 @@
   },
   "120": {
     "base": {
-      "dps": 78118.81538803216,
+      "dps": 76812.05654215728,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Synthetic_Dragon",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "His_Clever_Brother"
+        "Snipers_Allure"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Andromeda",
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
         "if dragondrive.get()",
         "`s4, dgauge>500 and x=3",
-        "`s1, dgauge>1000 and x=3",
+        "`s1, dgauge>1100 and x=3",
         "else",
         "`s2",
         "`dragon",
         "end"
       ],
       "coabs": [
+        "Ieyasu",
         "Curran",
-        "Summer_Patia",
         "Berserker"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Formal_Joachim"
       ]
     },
     "pref": "base",
     "buffer": {
-      "dps": 54273.65994621267,
-      "team": 0.05869265527134084,
-      "tdps": 406271.5399666522,
+      "dps": 37545.60094243347,
+      "team": 0.09993314829283294,
+      "tdps": 392927.2345614668,
       "slots.a": [
-        "Memory_of_a_Friend",
-        "Seaside_Princess",
+        "Brothers_in_Arms",
+        "The_Synthetic_Dragon",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "The_Plaguebringer"
@@ -233,17 +400,118 @@
         "end"
       ],
       "coabs": [
-        "Ieyasu",
-        "Curran",
-        "Summer_Patia"
+        "Patia",
+        "Gala_Alex",
+        "Grace"
       ],
       "share": [
         "Weapon",
-        "Sha_Wujing"
+        "Karl"
       ]
     },
     "affliction": {
-      "dps": 95331.17511513036,
+      "dps": 88797.42525796473,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Patia",
+        "Berserker"
+      ],
+      "share": [
+        "Weapon",
+        "Catherine"
+      ]
+    },
+    "mono_base": {
+      "dps": 76812.05654215728,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Andromeda",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Curran",
+        "Berserker"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 37545.60094243347,
+      "team": 0.09993314829283294,
+      "tdps": 392927.2345614668,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "The_Synthetic_Dragon",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1000 and x=3",
+        "`fsf, x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Patia",
+        "Gala_Alex",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 94738.24080774591,
       "team": 0.0,
       "tdps": null,
       "slots.a": [

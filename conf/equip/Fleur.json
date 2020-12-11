@@ -33,7 +33,7 @@
     "buffer": {
       "dps": 25406.060203303976,
       "team": 0.08876560825329308,
-      "tdps": 338539.13220996206,
+      "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -87,25 +87,84 @@
         "Weapon",
         "Xander"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 48034.78641014126,
-      "team": 0.043019367100923016,
+    },
+    "mono_base": {
+      "dps": 45385.61854891964,
+      "team": 0.022216958448770443,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "His_Clever_Brother"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s)",
-        "`s2, s=1",
+        "`dragon(s), buff(s3, 1) and (s=1 and not s2.check())",
         "`s1",
+        "`s2, s=1",
+        "`s3",
+        "`s4, xf or fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 45385.61854891964,
+      "team": 0.022216958448770443,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1) and (s=1 and not s2.check())",
+        "`s1",
+        "`s2, s=1",
+        "`s3",
+        "`s4, xf or fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_pref": "mono_base"
+  },
+  "60": {
+    "base": {
+      "dps": 52273.50345545676,
+      "team": 0.03320624013878432,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1) and (s=1 and not s2.check())",
+        "`s1",
+        "`s2, s=1",
         "`s3",
         "`s4, xf or fscf"
       ],
@@ -116,7 +175,7 @@
       ],
       "share": [
         "Weapon",
-        "Kleimann"
+        "Xander"
       ]
     },
     "pref": "base",
@@ -133,7 +192,7 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), buff(s3, 1) and (s=1)",
+        "`dragon(s), buff(s3, 1) and (s=1 and not s2.check())",
         "`s1",
         "`s2, s=1",
         "`s3",

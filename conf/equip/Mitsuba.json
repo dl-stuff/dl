@@ -73,7 +73,7 @@
     "buffer": {
       "dps": 7889.71814548497,
       "team": 0.8332927636600407,
-      "tdps": 67946.0596578464,
+      "tdps": null,
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -102,12 +102,10 @@
         "Gala_Elisanne",
         "Templar_Hope"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 53055.93446545967,
-      "team": 0.02487804119229544,
+    },
+    "mono_base": {
+      "dps": 62462.11917110577,
+      "team": 0.03012034570925533,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -116,15 +114,125 @@
         "A_Passion_for_Produce",
         "His_Clever_Brother"
       ],
-      "slots.d": "Siren",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "if xf=2",
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
         "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
         "`s2",
         "`s4",
         "`s1(sashimi), aff_timeleft(frostbite)<6",
         "`s1(tempura)",
         "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 62462.11917110577,
+      "team": 0.03012034570925533,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 68517.9719071782,
+      "team": 0.030051799726589376,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 62858.21782478391,
+      "team": 0.030054424518783037,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
         "end"
       ],
       "coabs": [
@@ -139,6 +247,75 @@
     },
     "pref": "base",
     "affliction": {
+      "dps": 65874.60761275384,
+      "team": 0.02783881186248668,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_base": {
+      "dps": 62858.21782478391,
+      "team": 0.030054424518783037,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_affliction": {
       "dps": 68927.24552356364,
       "team": 0.01499539772442266,
       "tdps": null,
@@ -211,6 +388,75 @@
     },
     "pref": "base",
     "affliction": {
+      "dps": 69037.88214248345,
+      "team": 0.028128451890542618,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_base": {
+      "dps": 66536.61392743699,
+      "team": 0.028385710473046905,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_affliction": {
       "dps": 69037.88214248345,
       "team": 0.028128451890542618,
       "tdps": null,

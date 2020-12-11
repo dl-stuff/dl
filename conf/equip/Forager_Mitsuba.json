@@ -1,24 +1,29 @@
 {
   "180": {
     "base": {
-      "dps": 62747.81151680347,
-      "team": 0.07236046128423645,
+      "dps": 63534.74241711845,
+      "team": 0.07230023739787647,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "Hastened_Squall",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s3, not buff(s3) and cancel",
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
         "`s2, not c_fs(foragermitsuba) and cancel",
         "`s4, cancel",
         "`s1, cancel",
-        "`fs, s2.charged>=9000 and cancel"
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -32,14 +37,14 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 65111.348893562266,
-      "team": 0.07236046128423645,
+      "dps": 69165.69500828232,
+      "team": 0.07234645658874576,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
@@ -58,13 +63,13 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Xander"
       ]
     },
     "buffer": {
       "dps": 3357.4205464227093,
       "team": 0.572171786176187,
-      "tdps": 118825.62081445393,
+      "tdps": null,
       "slots.a": [
         "A_Dogs_Day",
         "Sisters_Day_Out",
@@ -89,18 +94,87 @@
         "Templar_Hope",
         "Tobias"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 59342.544287634395,
-      "team": 0.06509922784758855,
-      "tdps": -444349.0049744732,
+    },
+    "mono_base": {
+      "dps": 63534.74241711845,
+      "team": 0.07230023739787647,
+      "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 63534.74241711845,
+      "team": 0.07230023739787647,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 69165.69500828232,
+      "team": 0.07234645658874576,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
@@ -111,6 +185,43 @@
         "`s4, cancel",
         "`s1, cancel",
         "`fs, s2.charged>=9000 and cancel"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    }
+  },
+  "120": {
+    "base": {
+      "dps": 62477.78262501061,
+      "team": 0.06288052992549087,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -124,14 +235,14 @@
     },
     "pref": "buffer",
     "affliction": {
-      "dps": 62061.87044374976,
-      "team": 0.06509922784758855,
+      "dps": 63083.686033194026,
+      "team": 0.06511238949622916,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
@@ -150,24 +261,89 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Xander"
       ]
     },
     "buffer": {
-      "dps": 30415.767168951905,
-      "team": 0.0,
-      "tdps": -444349.0049744732,
+      "dps": 3337.2928317318997,
+      "team": 0.5728619926319194,
+      "tdps": null,
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
+    "mono_base": {
+      "dps": 62477.78262501061,
+      "team": 0.06288052992549087,
+      "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 63083.686033194026,
+      "team": 0.06511238949622916,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon(c3-s-c3-c3-end), cancel",
         "`s3, not buff(s3) and cancel",
+        "`s2, not c_fs(foragermitsuba) and cancel",
         "`s4, cancel",
         "`s1, cancel",
         "`fs, s2.charged>=9000 and cancel"
@@ -179,20 +355,20 @@
       ],
       "share": [
         "Weapon",
-        "Nevin"
+        "Xander"
       ]
     }
   },
   "60": {
     "affliction": {
-      "dps": 52715.452411257414,
-      "team": 0.04341045111433441,
+      "dps": 52488.15346672228,
+      "team": 0.04336446986026434,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
@@ -203,6 +379,42 @@
         "`s4, cancel",
         "`s1, cancel",
         "`fs, s2.charged>=9000 and cancel"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "pref": "base",
+    "base": {
+      "dps": 49738.00206438928,
+      "team": 0.04329675955935509,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -214,16 +426,50 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "base": {
-      "dps": 52715.452411257414,
-      "team": 0.04341045111433441,
+    "mono_base": {
+      "dps": 49738.00206438928,
+      "team": 0.04329675955935509,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 52488.15346672228,
+      "team": 0.04336446986026434,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
@@ -242,7 +488,7 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Xander"
       ]
     }
   }

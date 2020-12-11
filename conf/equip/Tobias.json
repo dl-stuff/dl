@@ -3,7 +3,7 @@
     "base": {
       "dps": 9402.955265309918,
       "team": 1.8836077629985122,
-      "tdps": 1113.161089744764,
+      "tdps": null,
       "slots.a": [
         "A_Dogs_Day",
         "Jewels_of_the_Sun",
@@ -60,9 +60,9 @@
       ]
     },
     "buffer": {
-      "dps": 9603.305273026357,
-      "team": 1.7036248211204619,
-      "tdps": 1113.161089744764,
+      "dps": 9402.955265309918,
+      "team": 1.8836077629985122,
+      "tdps": null,
       "slots.a": [
         "A_Dogs_Day",
         "Jewels_of_the_Sun",
@@ -72,7 +72,6 @@
       ],
       "slots.d": "Freyja",
       "acl": [
-        "`dragon(s-end)",
         "`s4, s1.charged<(s1.sp/4)",
         "`s1",
         "`s3, xf or fsc",
@@ -82,7 +81,7 @@
       "coabs": [
         "Blade",
         "Bow",
-        "The_Prince"
+        "Dagger2"
       ],
       "share": [
         "Mikoto",
@@ -92,9 +91,9 @@
   },
   "120": {
     "base": {
-      "dps": 5790.715732764964,
-      "team": 1.8085726083977445,
-      "tdps": -2258.2925422699604,
+      "dps": 5847.628192328455,
+      "team": 1.8337741527053233,
+      "tdps": null,
       "slots.a": [
         "A_Dogs_Day",
         "Jewels_of_the_Sun",
@@ -105,9 +104,10 @@
       "slots.d": "Freyja",
       "slots.w": "void",
       "acl": [
-        "`s3, s=1",
-        "`s4",
+        "`s4, s1.charged<(s1.sp/4)",
         "`s1",
+        "`s3, xf or fsc",
+        "`fs, fs_prep_c=2 and xf=4",
         "`fs, xf=5"
       ],
       "coabs": [
@@ -116,44 +116,45 @@
         "Dagger2"
       ],
       "share": [
-        "Summer_Cleo",
-        "Mikoto"
+        "Mikoto",
+        "Summer_Cleo"
       ]
     },
     "pref": "buffer",
     "affliction": {
-      "dps": 27212.11185834482,
-      "team": 0.8455395042966777,
+      "dps": 29011.977140565847,
+      "team": 0.569415283245675,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
+        "Valiant_Crown",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Entwined_Flames"
       ],
-      "slots.d": "Ariel",
+      "slots.d": "Midgardsormr_Zero",
       "slots.w": "void",
       "acl": [
-        "`dragon(s), s=1",
-        "`s1",
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, xf or fscf",
         "`s4",
         "`fs, xf=5"
       ],
       "coabs": [
         "Blade",
-        "Akasha",
+        "Dragonyule_Xainfried",
         "Dagger2"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Formal_Joachim"
       ]
     },
     "buffer": {
       "dps": 5847.628192328455,
       "team": 1.8337741527053233,
-      "tdps": -2258.2925422699604,
+      "tdps": null,
       "slots.a": [
         "A_Dogs_Day",
         "Jewels_of_the_Sun",
@@ -228,6 +229,7 @@
       "slots.w": "void",
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
         "`s1, xf or fscf",
         "`s4",
         "`fs, xf=5"

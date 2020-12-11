@@ -38,7 +38,7 @@
     "buffer": {
       "dps": 25372.633802402648,
       "team": 0.1867513990264208,
-      "tdps": 243765.47563061203,
+      "tdps": null,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -98,6 +98,104 @@
         "Weapon",
         "Summer_Luca"
       ]
+    },
+    "mono_base": {
+      "dps": 70896.17741076033,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Lord_of_the_Skies",
+        "Luck_of_the_Draw"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 25372.633802402648,
+      "team": 0.1867513990264208,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fsc and energy()<5",
+        "`s3, not buff(s3)",
+        "`s2, energy()<5",
+        "`s1",
+        "`s4, fsc and energy()<5",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Wand",
+        "Dagger",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Ricardt"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 87207.68043436536,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`s3, not buff(s3)",
+        "`s2, energy()<5 and cancel",
+        "`s1",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
     }
   },
   "120": {
@@ -114,9 +212,10 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
         "`s3, not buff(s3)",
-        "`s2, energy()<5 and cancel",
         "`s1",
+        "`s2, energy()<5 and cancel",
         "`s4, energy()<5",
         "if not buff(s3)",
         "`fs, x=5",
@@ -148,6 +247,75 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`s3, not buff(s3)",
+        "`s2, energy()<5 and cancel",
+        "`s1",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "mono_base": {
+      "dps": 67510.459221671,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Lord_of_the_Skies",
+        "Luck_of_the_Draw"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 83045.9640363639,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
         "`s3, not buff(s3)",
         "`s2, energy()<5 and cancel",
         "`s1",
@@ -171,7 +339,7 @@
   },
   "60": {
     "base": {
-      "dps": 58790.51552681686,
+      "dps": 61394.057390212896,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -183,7 +351,42 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), (duration-now)<8",
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 75528.80769047333,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
         "`s3, not buff(s3)",
         "`s2, energy()<5 and cancel",
         "`s1",
@@ -204,8 +407,41 @@
         "Summer_Luca"
       ]
     },
-    "pref": "base",
-    "affliction": {
+    "mono_base": {
+      "dps": 61394.057390212896,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Lord_of_the_Skies",
+        "Luck_of_the_Draw"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "mono_affliction": {
       "dps": 75528.80769047333,
       "team": 0.0,
       "tdps": null,

@@ -3,7 +3,7 @@
     "base": {
       "dps": 44944.765180227165,
       "team": 0.36462173872959164,
-      "tdps": 18773.878647381545,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -31,12 +31,12 @@
     },
     "pref": "buffer",
     "affliction": {
-      "dps": 51123.20858087218,
+      "dps": 51943.09749371231,
       "team": 0.3645115993198766,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Dragon_and_Tamer",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother"
@@ -62,40 +62,7 @@
     "buffer": {
       "dps": 18535.103012251086,
       "team": 1.7713455523864738,
-      "tdps": 18773.878647381545,
-      "slots.a": [
-        "Gentle_Winds",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(c3-c3-sf-end), dragonform.shift_count=0 and s=4",
-        "`s3, (xf>1 or fscf) and not speed()>=1.5",
-        "`s4, s=1",
-        "`s1",
-        "`fs, fs_prep_c=3 and xf=2",
-        "`fs, fs_prep_c=1 and x=4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Summer_Estelle",
-        "Hunter_Sarisse",
-        "Tobias"
-      ],
-      "share": [
-        "Mikoto",
-        "Summer_Cleo"
-      ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 18221.527128482765,
-      "team": 1.672262508523242,
-      "tdps": 99999999,
+      "tdps": null,
       "slots.a": [
         "Gentle_Winds",
         "Once_in_a_Lifetime",
@@ -123,14 +90,133 @@
         "Summer_Cleo"
       ]
     },
-    "pref": "buffer",
-    "affliction": {
-      "dps": 48059.34347336387,
-      "team": 0.32445260360245454,
+    "mono_base": {
+      "dps": 44944.765180227165,
+      "team": 0.36462173872959164,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 44944.765180227165,
+      "team": 0.36462173872959164,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 51943.09749371231,
+      "team": 0.3645115993198766,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    }
+  },
+  "120": {
+    "base": {
+      "dps": 43451.80673759408,
+      "team": 0.3090971804975108,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "pref": "buffer",
+    "affliction": {
+      "dps": 48696.469643923294,
+      "team": 0.32445260360245465,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother"
@@ -156,39 +242,6 @@
     "buffer": {
       "dps": 18221.527128482765,
       "team": 1.672262508523242,
-      "tdps": 99999999,
-      "slots.a": [
-        "Gentle_Winds",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(c3-c3-sf-end), dragonform.shift_count=0 and s=4",
-        "`s3, (xf>1 or fscf) and not speed()>=1.5",
-        "`s4, s=1",
-        "`s1",
-        "`fs, fs_prep_c=3 and xf=2",
-        "`fs, fs_prep_c=1 and x=4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Summer_Estelle",
-        "Hunter_Sarisse",
-        "Tobias"
-      ],
-      "share": [
-        "Mikoto",
-        "Summer_Cleo"
-      ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 16269.525229728592,
-      "team": 1.3536521366883274,
       "tdps": null,
       "slots.a": [
         "Gentle_Winds",
@@ -217,8 +270,155 @@
         "Summer_Cleo"
       ]
     },
+    "mono_base": {
+      "dps": 43451.80673759408,
+      "team": 0.3090971804975108,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 48696.469643923294,
+      "team": 0.32445260360245465,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    }
+  },
+  "60": {
+    "base": {
+      "dps": 57175.02835300845,
+      "team": 0.23794804064271352,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "pref": "base",
     "affliction": {
+      "dps": 67291.74535405557,
+      "team": 0.24420582867136115,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_base": {
+      "dps": 57175.02835300845,
+      "team": 0.23794804064271352,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_affliction": {
       "dps": 68820.14533006631,
       "team": 0.24559150412834324,
       "tdps": null,

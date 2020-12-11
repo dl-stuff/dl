@@ -68,7 +68,104 @@
     "buffer": {
       "dps": 76092.87118020246,
       "team": 0.21364778743193158,
-      "tdps": 118879.98647705292,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel",
+        "`s1, xf or fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Lowen"
+      ]
+    },
+    "mono_base": {
+      "dps": 101491.31726096277,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 109877.62101280366,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`s3, not buff(s3) and fscf",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 76092.87118020246,
+      "team": 0.21364778743193158,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -101,7 +198,40 @@
   },
   "60": {
     "affliction": {
-      "dps": 80704.34395332201,
+      "dps": 72867.24584166968,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`s3, not buff(s3) and fscf",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "pref": "base",
+    "base": {
+      "dps": 66497.3615989233,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -113,9 +243,10 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), dragonform.shift_count",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
         "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
-        "`s3, not buff(s3) and fscf",
+        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
+        "`s3, not buff(s3) and fsc",
         "`s2",
         "`s1, cancel",
         "`s4, cancel",
@@ -131,41 +262,10 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "base": {
-      "dps": 78428.41725437528,
-      "team": 0.0830601523833373,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s-end)",
-        "`s3, not buff(s3)",
-        "`s2, cancel or s",
-        "`s4, cancel",
-        "`s1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Cleo",
-        "Dagger2"
-      ],
-      "share": [
-        "Weapon",
-        "Rodrigo"
-      ]
-    },
     "buffer": {
       "dps": 66929.66532531845,
       "team": 0.13784978680223442,
-      "tdps": 209870.93728610233,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -178,8 +278,10 @@
         "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
         "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
         "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
         "`s3, not buff(s3)",
         "`s2",
+        "`s4, cancel",
         "`s1, xf or fscf",
         "`fs, x=5"
       ],
@@ -192,11 +294,206 @@
         "Weapon",
         "Lowen"
       ]
+    },
+    "mono_base": {
+      "dps": 66497.3615989233,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 66929.66532531845,
+      "team": 0.13784978680223442,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel",
+        "`s1, xf or fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Lowen"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 72867.24584166968,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`s3, not buff(s3) and fscf",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
     }
   },
   "120": {
     "pref": "base",
     "base": {
+      "dps": 92081.52161027423,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "affliction": {
+      "dps": 93258.32990480226,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`s3, not buff(s3) and fscf",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "buffer": {
+      "dps": 78368.34659060104,
+      "team": 0.20908421184848258,
+      "tdps": 65586.85085993359,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel",
+        "`s1, xf or fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Lowen"
+      ]
+    },
+    "mono_base": {
       "dps": 91806.46120580414,
       "team": 0.1245430498659683,
       "tdps": null,
@@ -226,37 +523,7 @@
         "Kleimann"
       ]
     },
-    "affliction": {
-      "dps": 99144.26440778478,
-      "team": 0.1388779291659413,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Cleo"
-      ],
-      "share": [
-        "Weapon",
-        "Curran"
-      ]
-    },
-    "buffer": {
+    "mono_buffer": {
       "dps": 78368.34659060104,
       "team": 0.20908421184848258,
       "tdps": 158953.51211262646,
@@ -287,6 +554,36 @@
       "share": [
         "Weapon",
         "Lowen"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 99144.26440778478,
+      "team": 0.1388779291659413,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Curran"
       ]
     }
   }
