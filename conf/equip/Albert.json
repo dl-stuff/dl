@@ -167,7 +167,45 @@
         "Yuya",
         "Chitose"
       ]
-    }
+    },
+    "mono_affliction": {
+      "dps": 71223.71552016734,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s4, not energy()=5",
+        "if x=2",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c9-s-end), s2.charged>(s2.sp*(1/2)) and cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel and not energy()=5",
+        "`s1, not s2.charged>(s2.sp*(4/5)) and not energy()=5",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "mono_pref": "mono_base"
   },
   "60": {
     "base": {
@@ -401,6 +439,10 @@
     }
   },
   "30": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "540": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

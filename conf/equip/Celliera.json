@@ -1,38 +1,42 @@
 {
   "180": {
     "base": {
-      "dps": 61432.51409165252,
+      "dps": 68002.81032439362,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
         "Valiant_Crown",
-        "A_Small_Courage",
+        "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s2, not buff(s2) and x=2",
+        "queue dgauge>=500 and cancel",
+        "`fs;dragon(c3-s);s2,x=2",
+        "end",
+        "`s2, not buff(s2) and xf=5",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1, xf"
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
       ],
       "coabs": [
-        "Wand",
-        "Hunter_Sarisse",
-        "Xander"
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Mym"
       ]
     },
     "pref": "base",
     "buffer": {
       "dps": 8362.781055588428,
       "team": 0.4696294743955427,
-      "tdps": 113003.41211413493,
+      "tdps": 115761.80096222152,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -58,7 +62,7 @@
       ]
     },
     "affliction": {
-      "dps": 67239.7552358022,
+      "dps": 70538.00054098439,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -70,13 +74,14 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "queue dgauge>=500 and x=3",
-        "`fs;dragon(c3-s);s2",
+        "queue dgauge>=500 and cancel",
+        "`fs;dragon(c3-s);s2,x=2",
         "end",
         "`s2, not buff(s2) and xf=5",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1, buff(s2) and cancel"
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Yurius",
@@ -89,35 +94,7 @@
       ]
     },
     "mono_base": {
-      "dps": 61432.51409165252,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s2, not buff(s2) and x=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, xf"
-      ],
-      "coabs": [
-        "Wand",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 67239.7552358022,
+      "dps": 68002.81032439362,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -129,13 +106,46 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "queue dgauge>=500 and x=3",
-        "`fs;dragon(c3-s);s2",
+        "queue dgauge>=500 and cancel",
+        "`fs;dragon(c3-s);s2,x=2",
         "end",
         "`s2, not buff(s2) and xf=5",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1, buff(s2) and cancel"
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 70538.00054098439,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "queue dgauge>=500 and cancel",
+        "`fs;dragon(c3-s);s2,x=2",
+        "end",
+        "`s2, not buff(s2) and xf=5",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Yurius",
