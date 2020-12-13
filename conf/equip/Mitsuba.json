@@ -276,12 +276,10 @@
         "Weapon",
         "Summer_Julietta"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 66536.61392743699,
-      "team": 0.028385710473046905,
+    },
+    "mono_base": {
+      "dps": 53055.93446545967,
+      "team": 0.02487804119229544,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -290,18 +288,15 @@
         "A_Passion_for_Produce",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Siren",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "if xf=2",
         "`s3, not buff(s3)",
-        "if xf=2 and hits>19",
         "`s2",
         "`s4",
         "`s1(sashimi), aff_timeleft(frostbite)<6",
         "`s1(tempura)",
         "`fsf",
-        "else",
-        "`fs, x=2",
         "end"
       ],
       "coabs": [
@@ -314,10 +309,9 @@
         "Summer_Julietta"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 69037.88214248345,
-      "team": 0.028128451890542618,
+    "mono_affliction": {
+      "dps": 68927.24552356364,
+      "team": 0.01499539772442266,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -328,7 +322,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
         "if xf=2 and hits>19",
         "`s2",
@@ -336,7 +330,7 @@
         "`s1(tempura)",
         "`fsf",
         "else",
-        "`fs, x=2",
+        "`fs, xf=3",
         "end"
       ],
       "coabs": [

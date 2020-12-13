@@ -288,12 +288,10 @@
         "Weapon",
         "Patia"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 46196.196601726726,
-      "team": 0.48941773338914524,
+    },
+    "mono_base": {
+      "dps": 46371.2658917819,
+      "team": 0.4261127267630201,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -319,13 +317,44 @@
       ],
       "share": [
         "Weapon",
-        "Cassandra"
+        "Kleimann"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 62150.18520548297,
-      "team": 0.49992296202224057,
+    "mono_buffer": {
+      "dps": 33625.45093953818,
+      "team": 0.5366895809382,
+      "tdps": 115266.57226159946,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "#`dragon(c3-s-end), x=5",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Delphi",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 53784.925460721,
+      "team": 0.4441504110480969,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -353,6 +382,7 @@
         "Weapon",
         "Fjorm"
       ]
-    }
+    },
+    "mono_pref": "mono_base"
   }
 }

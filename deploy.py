@@ -122,7 +122,7 @@ def combine():
     t_start = monotonic()
 
     dst_dict = {}
-    pages = [str(d) for d in DURATIONS] + ['sp']
+    pages = [str(d) for d in DURATIONS] + ['mono', 'sp']
     aff = ['_', 'affliction']
     for p in pages:
         dst_dict[p] = {}
@@ -254,7 +254,13 @@ def main(targets, do_combine, is_repair, sanity_test):
             # EquipManager(advname).repair_entries()
             t_start = monotonic()
             try:
-                EquipManager(advname).repair_entries()
+                manager = EquipManager(advname)
+                try:
+                    del manager['120']
+                except KeyError:
+                    pass
+                manager.repair_entries()
+                print('{:.4f}s - repair:{}'.format(monotonic() - t_start, advname), flush=True)
             except Exception as e:
                 print(f'\033[91m{monotonic()-t_start:.4f}s - repair:{advname} {e}\033[0m', flush=True)
         return

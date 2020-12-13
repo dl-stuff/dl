@@ -66,9 +66,9 @@
       ]
     },
     "buffer": {
-      "dps": 49991.92019563341,
-      "team": 0.17552551174871603,
-      "tdps": 351205.0941399416,
+      "dps": 50118.39703108034,
+      "team": 0.17765742998144066,
+      "tdps": 342607.9496801772,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -125,33 +125,30 @@
       ]
     },
     "mono_buffer": {
-      "dps": 59462.385884565105,
-      "team": 0.08009940773302923,
-      "tdps": null,
+      "dps": 50118.39703108034,
+      "team": 0.17765742998144066,
+      "tdps": 342607.9496801772,
       "slots.a": [
-        "A_Man_Unchanging",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), s",
+        "`dragon(c1-s-end)",
         "`s3, not buff(s3)",
-        "if x=5 or s=4",
+        "if x=5",
         "`s2, aff_timeleft(poison)<4",
         "`s4",
         "`s1, sr.count>1",
-        "end",
-        "`fs, hits=0"
+        "end"
       ],
-      "coabs": [
-        "Bow"
-      ],
+      "coabs": [],
       "share": [
         "Weapon",
-        "Durant"
+        "Cleo"
       ]
     },
     "mono_pref": "mono_base",
@@ -255,9 +252,9 @@
       ]
     },
     "buffer": {
-      "dps": 72196.86143284921,
-      "team": 0.07678703894248072,
-      "tdps": 123342.36835739821,
+      "dps": 72356.74061805842,
+      "team": 0.07683216201008843,
+      "tdps": 118303.14184591532,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -284,86 +281,21 @@
         "Weapon",
         "Sha_Wujing"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 83711.16489620939,
-      "team": 0.06726012964458584,
+    },
+    "mono_base": {
+      "dps": 76240.79627511963,
+      "team": 0.044000779880609374,
       "tdps": null,
       "slots.a": [
-        "Howling_to_the_Heavens",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Luck_of_the_Draw",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c1-s-end), trickery<1",
-        "`s3, not buff(s3)",
-        "if x=5",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
-        "end"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Delphi"
-      ],
-      "share": [
-        "Weapon",
-        "Durant"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 87259.01585614137,
-      "team": 0.0672765408041283,
-      "tdps": null,
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<1",
-        "`s3, not buff(s3) and x=5",
-        "if x=5",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
-        "end"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Curran"
-      ],
-      "share": [
-        "Weapon",
-        "Durant"
-      ]
-    },
-    "buffer": {
-      "dps": 78211.96972314417,
-      "team": 0.15890446246035617,
-      "tdps": 60005.84001326169,
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Chariot_Drift",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c2-s-end)",
+        "`dragon(c1-s-end)",
         "`s3, not buff(s3)",
         "if fsc",
         "`s2, aff_timeleft(poison)<4",
@@ -379,8 +311,72 @@
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Gala_Mym"
       ]
-    }
+    },
+    "mono_buffer": {
+      "dps": 72356.74061805842,
+      "team": 0.07683216201008843,
+      "tdps": 118303.14184591532,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if fsc",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Heinwald"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 80207.7223064853,
+      "team": 0.044000779880609374,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c1-s-end)",
+        "`s3, not buff(s3)",
+        "if fsc",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Forte"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_pref": "mono_base"
   }
 }

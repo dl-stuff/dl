@@ -17,6 +17,7 @@ from core.slots import Slots
 import core.acl
 from core.acl import allow_acl
 import conf as globalconf
+from conf.equip import EquipManager
 from ctypes import c_float
 from math import ceil
 
@@ -925,33 +926,36 @@ class Adv(object):
             self.conf.c.a.append(['k_HDT', 0.3])
         self.slots.set_slots(self.conf.slots)
 
-    def pre_conf(self, equip_key=None):
+    def pre_conf(self, equip_key=None, mono=False):
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
         self.conf.update(self.conf_base)
         if self.conf['no_equip']:
             self.conf.update(self.conf_init)
             return None
-        equip = globalconf.load_equip_json(self.name)
-        equip_d = equip.get(str(int(self.duration)))
-        if not equip_d:
-            equip_d = equip.get('180')
-        if equip_d:
-            if equip_key is None:
-                equip_key = equip_d.get('pref', 'base')
-                self.equip_key = equip_key
-            if equip_key in equip_d:
-                self.conf.update(equip_d[equip_key])
-                self.equip_key = self.equip_key or equip_key
-            elif 'base' in equip_d:
-                self.conf.update(equip_d['base'])
+        # equip = globalconf.load_equip_json(self.name)
+        # equip_d = equip.get(str(int(self.duration)))
+        # if not equip_d:
+        #     equip_d = equip.get('180')
+        # if equip_d:
+        #     if equip_key is None:
+        #         equip_key = equip_d.get('pref', 'base')
+        #         self.equip_key = equip_key
+        #     if equip_key in equip_d:
+        #         self.conf.update(equip_d[equip_key])
+        #         self.equip_key = self.equip_key or equip_key
+        #     elif 'base' in equip_d:
+        #         self.conf.update(equip_d['base'])
+        equip = EquipManager(self.name)
+        equip_conf, self.equip_key = equip.get_conf(self.duration, equip_key, mono)
+        if equip_conf:
+            self.conf.update(equip_conf)
         self.conf.update(self.conf_init)
-        return equip_d
 
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf['flask_env']))
 
-    def __init__(self, name=None, conf=None, duration=180, cond=None, equip_key=None):
+    def __init__(self, name=None, conf=None, duration=180, cond=None, equip_key=None, mono=None):
         if not name:
             raise ValueError('Adv module must have a name')
         self.name = name
@@ -974,7 +978,7 @@ class Adv(object):
         self.Modifier._static.damage_sources = self.damage_sources
 
         self.equip_key = None
-        equip = self.pre_conf(equip_key=equip_key)
+        self.pre_conf(equip_key=equip_key, mono=mono)
 
         # set afflic
         self.afflics = Afflics()

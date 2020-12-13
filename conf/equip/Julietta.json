@@ -118,6 +118,37 @@
         "Weapon",
         "Hunter_Sarisse"
       ]
+    },
+    "mono_affliction": {
+      "dps": 70501.76479242362,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Summer_Paladyns",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c6-s-end), dragonform.shift_count>=1 and energy()>=4",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, x=2 and (energy()<5 and not buff(s4))",
+        "`fs, c_fs(enhanced) and ((energy()>1 and x=4) or (charged_in(fs, s1) and x=2))"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
+      ]
     }
   },
   "60": {
@@ -200,6 +231,36 @@
       "coabs": [
         "Blade",
         "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Kleimann"
+      ]
+    },
+    "mono_base": {
+      "dps": 50981.16030808447,
+      "team": 0.033239993584681195,
+      "tdps": null,
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "FirstRate_Hospitality",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, s4.charged<(s4.sp/1.5)",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, s1.charged<(s1.sp/2)",
+        "`fs, x=3 and c_fs(enhanced)"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
         "Peony"
       ],
       "share": [

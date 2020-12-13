@@ -21,15 +21,15 @@ DOT_AFFLICT = ['poison', 'paralysis', 'burn', 'frostbite']
 
 S_ALT = '†'
 
-def run_once(name, module, conf, duration, cond, equip_key=None):
-    adv = module(name=name, conf=conf, duration=duration, cond=cond, equip_key=equip_key)
+def run_once(name, module, conf, duration, cond, equip_key=None, mono=False):
+    adv = module(name=name, conf=conf, duration=duration, cond=cond, equip_key=equip_key, mono=mono)
     real_d = adv.run()
     return adv, real_d
 
 # Using starmap
 import multiprocessing
-def run_once_mass(name, module, conf, duration, cond, equip_key, idx):
-    adv = module(name=name, conf=conf, duration=duration, cond=cond, equip_key=equip_key)
+def run_once_mass(name, module, conf, duration, cond, equip_key, idx, mono):
+    adv = module(name=name, conf=conf, duration=duration, cond=cond, equip_key=equip_key, mono=mono)
     real_d = adv.run()
     return adv.logs, real_d
 
@@ -57,10 +57,10 @@ def avg_logs(log, mass):
         log.team_tension[k] /= mass
     return log
 
-def run_mass(mass, base_log, base_d, name, module, conf, duration, cond, equip_key=None):
+def run_mass(mass, base_log, base_d, name, module, conf, duration, cond, equip_key=None, mono=False):
     mass = 1000 if mass == 1 else mass
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
-        for log, real_d in pool.starmap(run_once_mass, [(name, module, conf, duration, cond, equip_key, idx) for idx in range(mass-1)]):
+        for log, real_d in pool.starmap(run_once_mass, [(name, module, conf, duration, cond, equip_key, mono, idx) for idx in range(mass-1)]):
             base_log = sum_logs(base_log, log)
             base_d += real_d
     base_log = avg_logs(base_log, mass)
@@ -87,10 +87,20 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=None,
         adv.logs.write_logs(output=output)
         act_sum(adv.logs.act_seq, output)
         return
-
     if mass:
-        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond)
-    run_results.append((adv, real_d, True))
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=None)
+    run_results.append((adv, real_d, True, None))
+
+    deploy_mono = not special and duration == 180 and verbose == -5
+
+    if deploy_mono:
+        from conf.equip import EquipManager
+        manager = EquipManager(name)
+        if manager.has_different_mono(180, adv.equip_key):
+            adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
+            if mass:
+                adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=None)
+        run_results.append((adv, real_d, True, 'mono'))
 
     aff_name = ELE_AFFLICT[adv.slots.c.ele]
 
@@ -104,13 +114,19 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=None,
         adv, real_d = run_once(name, module, conf, duration, cond, equip_key=equip_key)
         if mass:
             adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=equip_key)
-        run_results.append((adv, real_d, 'affliction'))
+        run_results.append((adv, real_d, 'affliction', None))
+        if deploy_mono:
+            if manager.has_different_mono(180, adv.equip_key):
+                adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
+                if mass:
+                    adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=None)
+            run_results.append((adv, real_d, 'affliction', 'mono'))
 
-    for a, d, c in run_results:
+    for a, d, c, m in run_results:
         if verbose == -2:
             report(d, a, output, cond=c, web=False)
         elif abs(verbose) == 5:
-            page = 'sp' if special else int(duration)
+            page = 'sp' if special else m or int(duration)
             if c:
                 output.write('-,{},{}\n'.format(page, c if isinstance(c, str) else '_'))
             report(d, a, output, cond=c, web=True)

@@ -29,6 +29,9 @@ class EquipEntry(dict):
     def acceptable(entry, ele=None):
         return isinstance(entry, EquipEntry)
 
+    def same_build(self, other):
+        return all((self.get(k) == other.get(k) for k in EquipEntry.CONF_KEYS))
+
     def same_build_different_dps(self, other):
         same_build = all((self.get(k) == other.get(k) for k in EquipEntry.CONF_KEYS))
         different_dps = any((self.get(k) != other.get(k) for k in EquipEntry.META_KEYS))
@@ -233,7 +236,7 @@ class EquipManager(dict):
         return need_write
 
 
-    def repair_entry(self, adv_module, element, conf, duration, kind):
+    def repair_entry(self, adv_module, element, conf, duration, kind, do_compare=False):
         conf = deepcopy(conf)
         if kind in ('affliction', 'mono_affliction'):
             conf[f'sim_afflict.{ELE_AFFLICT[element]}'] = 1
@@ -241,7 +244,9 @@ class EquipManager(dict):
             run_res = core.simulate.test(self.advname, adv_module, conf, int(duration), output=output)
         adv = run_res[0][0]
         real_d = run_res[0][1]
-        self[duration][kind] = build_entry_from_sim(EQUIP_ENTRY_MAP[kind], adv, real_d)
+        new_entry = build_entry_from_sim(EQUIP_ENTRY_MAP[kind], adv, real_d)
+        if not do_compare or not self[duration][kind].better_than(new_entry):
+            self[duration][kind] = new_entry
 
     def repair_entries(self):
         adv_module, _ = core.simulate.load_adv_module(self.advname)
@@ -254,9 +259,14 @@ class EquipManager(dict):
 
         for duration in list(self.keys()):
             for kind in list(self[duration].keys()):
+                # if duration != '180':
+                #     try:
+                #         self.repair_entry(adv_module, element, self['180'][kind], duration, kind, do_compare=True)
+                #     except KeyError:
+                #         pass
                 # for affkind, basekind in (('affliction', 'base'), ('mono_affliction', 'mono_base')):
                 #     try:
-                #         self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind)
+                #         self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind, do_compare=True)
                 #     except KeyError:
                 #         pass
                 for basekind in ('base', 'buffer', 'affliction'):
@@ -275,6 +285,36 @@ class EquipManager(dict):
             self.update_tdps_threshold(duration)
 
         save_equip_json(self.advname, self)
+    
+    def get_conf(self, duration, equip_key, mono):
+        duration = str(int(duration))
+        if not duration in self:
+            duration = '180'
+            if not duration in self:
+                return None, None
+        equip_d = self[duration]
+        if equip_key is None:
+            if mono:
+                equip_key = equip_d.get('mono_pref', 'mono_base')
+                if equip_key not in equip_d:
+                    equip_key = equip_d.get('pref', 'base')
+            else:
+                equip_key = equip_d.get('pref', 'base')
+        if mono and not equip_key.startswith('mono_'):
+            equip_key = f'mono_{equip_key}'
+        if not equip_key in equip_d:
+            return equip_d.get('base', None), None
+        return equip_d[equip_key], equip_key
+    
+    def has_different_mono(self, duration, kind):
+        duration = str(int(duration))
+        monokind = f'mono_{kind}'
+        if not monokind in self[duration]:
+            return False
+        try:
+            return not self[duration][kind].same_build(self[duration][monokind])
+        except KeyError:
+            return False
 
 def initialize_equip_managers():
     return {advname: EquipManager(advname) for advname in list_advs()}

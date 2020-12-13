@@ -6,7 +6,7 @@ from core import Conf
 ELEMENTS = ('flame', 'water', 'wind', 'light', 'shadow')
 WEAPON_TYPES = ('sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun')
 TRIBE_TYPES = ('thaumian', 'physian', 'demihuman', 'therion', 'undead', 'demon', 'human', 'dragon')
-DURATIONS = (60, 120, 180)
+DURATIONS = (60, 180)
 ELE_AFFLICT = {
     'flame': 'burn',
     'water': 'frostbite',

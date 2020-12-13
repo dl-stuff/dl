@@ -161,57 +161,25 @@
         "Weapon",
         "Summer_Julietta"
       ]
-    }
-  },
-  "120": {
-    "affliction": {
-      "dps": 69139.5038250957,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if aff(frostbite)",
-        "`dragon, not dragondrive.get()",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
     },
-    "pref": "base",
-    "base": {
-      "dps": 55493.20305478388,
-      "team": 0.0,
-      "tdps": null,
+    "mono_buffer": {
+      "dps": 43713.74684761562,
+      "team": 0.194920082766066,
+      "tdps": 56520.33808118715,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Proper_Maintenance",
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`s3, not buff(s3)",
         "if aff(frostbite)",
-        "`dragon, not dragondrive.get() and duration<=120",
+        "`dragon, not dragondrive.get()",
+        "else",
+        "`dragon, dragondrive.get()",
         "end",
         "`s2, cancel",
         "`s4, cancel",
@@ -224,9 +192,10 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Gala_Elisanne"
       ]
-    }
+    },
+    "mono_pref": "mono_base"
   },
   "60": {
     "base": {
@@ -262,6 +231,68 @@
     },
     "pref": "base",
     "affliction": {
+      "dps": 65892.6032301185,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get()",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_base": {
+      "dps": 52284.27368081272,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get() and duration<=120",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "mono_affliction": {
       "dps": 65892.6032301185,
       "team": 0.0,
       "tdps": null,
