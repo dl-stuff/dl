@@ -2,7 +2,7 @@ from pprint import pprint
 from copy import deepcopy
 import os
 
-from conf import load_json, save_json, DURATIONS, ELE_AFFLICT, mono_elecoabs, load_adv_json, list_advs
+from conf import load_equip_json, save_equip_json, DURATIONS, ELE_AFFLICT, mono_elecoabs, load_adv_json, list_advs
 import core.simulate
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times', 'United_by_One_Vision', 'Second_Anniversary')
@@ -139,7 +139,7 @@ class EquipManager(dict):
             super().__init__({})
             self.debug = True
         else:
-            super().__init__(load_json(f'equip/{advname}.json'))
+            super().__init__(load_equip_json(advname))
             self.debug = False
         self.pref = None
         for duration, dequip in self.items():
@@ -173,7 +173,6 @@ class EquipManager(dict):
                 pprint(new_entry)
             try:
                 current_entry = self[duration][kind]
-                pprint(current_entry)
             except KeyError:
                 self[duration][kind] = new_entry
                 need_write = True
@@ -212,7 +211,7 @@ class EquipManager(dict):
         need_write = need_write or self.update_tdps_threshold(duration)
 
         if not self.debug and need_write:
-            save_json(f'equip/{self.advname}.json', self, indent=2)
+            save_equip_json(self.advname, self)
 
     def update_tdps_threshold(self, duration):
         need_write = False
@@ -275,7 +274,7 @@ class EquipManager(dict):
 
             self.update_tdps_threshold(duration)
 
-        save_json(f'equip/{self.advname}.json', self, indent=2)
+        save_equip_json(self.advname, self)
 
 def initialize_equip_managers():
     return {advname: EquipManager(advname) for advname in list_advs()}
