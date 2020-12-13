@@ -70,7 +70,7 @@
     "buffer": {
       "dps": 51421.828849754005,
       "team": 0.11969564156244006,
-      "tdps": null,
+      "tdps": 163790.2807162654,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -132,72 +132,6 @@
         "Weapon",
         "Pinon"
       ]
-    },
-    "mono_buffer": {
-      "dps": 51421.828849754005,
-      "team": 0.11969564156244006,
-      "tdps": null,
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Hastened_Squall",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Pazuzu",
-      "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Verica"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 73604.44006461662,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "# queue self.duration<=60",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
     }
   },
   "60": {
@@ -218,7 +152,6 @@
         "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
         "# end",
         "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
         "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
         "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
         "`s4, s or x=5",
@@ -236,7 +169,7 @@
     },
     "pref": "base",
     "base": {
-      "dps": 53505.57217953204,
+      "dps": 54407.12702287338,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -252,7 +185,6 @@
         "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
         "# end",
         "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
         "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
         "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
         "`s4, s or x=5",
@@ -269,75 +201,9 @@
       ]
     },
     "buffer": {
-      "dps": 43191.8987846624,
-      "team": 0.039031959117792295,
-      "tdps": null,
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Hastened_Squall",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Pazuzu",
-      "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Verica"
-      ]
-    },
-    "mono_base": {
-      "dps": 53505.57217953204,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "# queue self.duration<=60",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "mono_buffer": {
       "dps": 45684.30051306203,
       "team": 0.07229086540082745,
-      "tdps": null,
+      "tdps": 120662.91448368116,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -365,56 +231,23 @@
         "Weapon",
         "Patia"
       ]
-    },
-    "mono_affliction": {
-      "dps": 54407.12702287338,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "# queue self.duration<=60",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
     }
   },
   "120": {
     "base": {
-      "dps": 70233.51966333653,
+      "dps": 67760.64202875497,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
+        "Dear_Diary",
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Plaguebringer"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "# queue self.duration<=60",
+        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
         "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
         "# end",
         "`s3, not buff(s3)",
@@ -431,7 +264,7 @@
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Xander"
       ]
     },
     "pref": "base",
@@ -469,48 +302,15 @@
       ]
     },
     "buffer": {
-      "dps": 48674.7464597479,
-      "team": 0.10313902159137799,
-      "tdps": 209026.34978448212,
+      "dps": 54824.0065153028,
+      "team": 0.05607803204157501,
+      "tdps": 230689.89838768306,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Hastened_Squall",
+        "Gentle_Winds",
+        "Rogues_Banquet",
         "The_Plaguebringer"
-      ],
-      "slots.d": "Pazuzu",
-      "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Verica"
-      ]
-    },
-    "mono_base": {
-      "dps": 70233.51966333653,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
@@ -526,78 +326,12 @@
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Xainfried",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 48674.7464597479,
-      "team": 0.10313902159137799,
-      "tdps": 209026.34978448212,
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Hastened_Squall",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Pazuzu",
-      "acl": [
-        "# queue self.duration<=60 and prep and self.afflics.stun.resist",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Blade",
         "Wand",
-        "Sylas"
+        "Akasha"
       ],
       "share": [
         "Weapon",
-        "Verica"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 72916.25291976094,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "# queue self.duration<=60",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
+        "Patia"
       ]
     }
   }

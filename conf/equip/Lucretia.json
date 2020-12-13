@@ -64,7 +64,7 @@
     "buffer": {
       "dps": 31587.252248272518,
       "team": 0.30520631373369383,
-      "tdps": null,
+      "tdps": 171213.87123826076,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
@@ -89,12 +89,10 @@
         "Patia",
         "Mikoto"
       ]
-    }
-  },
-  "120": {
-    "base": {
-      "dps": 53044.264312313855,
-      "team": 0.11783974925392028,
+    },
+    "mono_base": {
+      "dps": 54614.097920451546,
+      "team": 0.14160757549958616,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -114,12 +112,72 @@
       ],
       "coabs": [
         "Blade",
-        "Axe2",
         "Peony"
       ],
       "share": [
         "Weapon",
         "Summer_Luca"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 28261.830502289056,
+      "team": 0.2632562107278175,
+      "tdps": 216626.08354562815,
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
+        "A_Game_of_Cat_and_Boar",
+        "Taiko_Tandem"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1, energy()<2 or energy()=5",
+        "`s2, energy()<4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow"
+      ],
+      "share": [
+        "Patia",
+        "Mikoto"
+      ]
+    },
+    "mono_pref": "mono_base"
+  },
+  "120": {
+    "base": {
+      "dps": 50499.047823210065,
+      "team": 0.11651785456053015,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon, energy()>3",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1",
+        "`s2, energy()<3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
       ]
     },
     "pref": "base",
@@ -156,8 +214,8 @@
   },
   "60": {
     "base": {
-      "dps": 41702.40432997776,
-      "team": 0.05087653484093174,
+      "dps": 45913.19505967217,
+      "team": 0.05635459923513824,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -168,27 +226,27 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c7-s), energy()>3",
+        "`dragon, energy()>3",
         "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s1",
         "`s2, energy()<3",
-        "`s1, energy()=5 or energy()<2",
-        "`s4",
         "`fs, x=5"
       ],
       "coabs": [
         "Blade",
-        "Axe2",
+        "Bow",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Mikoto"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 48280.94483969673,
-      "team": 0.05087653484093174,
+      "dps": 49413.28538735623,
+      "team": 0.0633057614580364,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -199,11 +257,11 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon, energy()>3 and not s2.check()",
+        "`dragon(s-end), energy()=5 and cancel",
         "`s3, not buff(s3)",
-        "`s2, energy()<4",
-        "`s1, energy()=5 or energy()<2",
-        "`s4",
+        "`s2, energy()<3",
+        "`s1",
+        "`s4, x=5 or fsc",
         "`fs, x=5"
       ],
       "coabs": [
@@ -213,7 +271,7 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Mikoto"
       ]
     }
   }

@@ -36,7 +36,7 @@
     "buffer": {
       "dps": 30102.500192829782,
       "team": 0.16747457090984558,
-      "tdps": null,
+      "tdps": 392727.3317384181,
       "slots.a": [
         "Levins_Champion",
         "Memory_of_a_Friend",
@@ -128,39 +128,41 @@
       ]
     },
     "mono_buffer": {
-      "dps": 30102.500192829782,
-      "team": 0.16747457090984558,
+      "dps": 75791.18063201375,
+      "team": 0.05113767060565286,
       "tdps": null,
       "slots.a": [
-        "Levins_Champion",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Vayu",
+      "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(s-end)",
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s2(shielding), s2.check()",
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3) and cancel",
+        "`s4, cancel",
+        "`s2(shielding), s2.check() and fsc",
         "`s1(striking), s1.check()",
-        "`fs, xf=1"
+        "`fs, xf=2 and (hits>5 and stance='striking')",
+        "`fs, x=1 and (hits>5 and stance='shielding')",
+        "`fs, x=2 or hits=0"
       ],
       "coabs": [
         "Blade",
-        "Wand",
-        "Summer_Amane"
+        "Dragonyule_Xainfried",
+        "Lin_You"
       ],
       "share": [
-        "Halloween_Lowen",
-        "Patia"
+        "Weapon",
+        "Fjorm"
       ]
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 81709.9213293803,
-      "team": 0.05113767060565286,
+      "dps": 89474.67532881573,
+      "team": 0.0512549348964479,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -193,26 +195,24 @@
   },
   "60": {
     "base": {
-      "dps": 67110.14117832381,
-      "team": 0.04815809916923419,
+      "dps": 54511.23198256616,
+      "team": 0.045975718190476494,
       "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "The_Shining_Overlord",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Plaguebringer"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Vayu",
       "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
-        "`s4, cancel",
-        "`s2(shielding), s2.check() and fsc",
+        "`dragon(c3-s-end), fsc",
+        "`s3, not buff(s3)",
+        "`s4, aff(poison) and cancel",
+        "`s2(shielding), s2.check()",
         "`s1(striking), s1.check()",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
+        "`fs, xf=3"
       ],
       "coabs": [
         "Blade",
@@ -221,75 +221,11 @@
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Xander"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 74360.66361451015,
-      "team": 0.04815809916923419,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
-        "`s4, cancel",
-        "`s2(shielding), s2.check() and fsc",
-        "`s1(striking), s1.check()",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Lin_You"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "mono_base": {
-      "dps": 67110.14117832381,
-      "team": 0.04815809916923419,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
-        "`s4, cancel",
-        "`s2(shielding), s2.check() and fsc",
-        "`s1(striking), s1.check()",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Lin_You"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "mono_affliction": {
       "dps": 74360.66361451015,
       "team": 0.04815809916923419,
       "tdps": null,
