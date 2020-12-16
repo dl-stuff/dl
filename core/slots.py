@@ -3,7 +3,7 @@ from collections import defaultdict
 from collections import namedtuple
 import html
 
-from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS, WEAPON_TYPES, subclass_dict
+from conf import wyrmprints, weapons, dragons, elecoabs, alias, ELEMENTS, WEAPON_TYPES, subclass_dict, get_icon
 from core.config import Conf
 from core.ability import ability_dict
 
@@ -109,8 +109,9 @@ class CharaBase(SlotBase):
         for key, coab in coabs:
             # alt check
             if key not in CharaBase.NON_UNIQUE_COABS:
-                base_key = key.split('_')[-1]
-                if any([ckey in base_key or base_key in ckey for ckey in self.coabs.keys()]):
+                key_base_id = get_icon(key).split('_')[0]
+                self_base_id = self.icon.split('_')[0]
+                if key_base_id == self_base_id:
                     continue
             self.coabs[key] = coab
             if key != self.coab_qual:
