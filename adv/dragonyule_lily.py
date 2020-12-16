@@ -1,16 +1,20 @@
 from core.advbase import *
 
-class Yukata_Cassandra(Adv):
+echo_mod = 0.40
+class Dragonyule_Lily(Adv):
     comment = 's1 overdamage team buff not considered'
     def prerun(self):
-        self.a3_att_mod = Modifier('a3_att', 'att', 'passive', 0.30, get=self.a3_get)
+        self.starfall_strength = 0
         self.sum_echo_att = 0
+
+    def fs_dragonyulelily_proc(self, e):
+        self.starfall_strength = min(3, self.starfall_strength+1)
 
     def s1_proc(self, e):
         self.sum_echo_att += self.echo_att
 
-    def a3_get(self):
-        return self.s2.sp == self.s2.charged
+    def s2_proc(self, e):
+        self.starfall_strength = 0
 
     def post_run(self, end):
         try:
@@ -19,5 +23,4 @@ class Yukata_Cassandra(Adv):
         except KeyError:
             pass
 
-
-variants = {None: Yukata_Cassandra}
+variants = {None: Dragonyule_Lily}

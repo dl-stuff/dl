@@ -789,6 +789,21 @@ class AffResDebuff(Buff):
 bufftype_dict['affres'] = AffResDebuff
 
 
+class EchoBuff(Buff):
+    def __init__(self, name, value=0, duration=0, source=None):
+        self.echo_mod = value
+        super().__init__(name, 1, duration, 'effect', source=source)
+
+    def on(self, duration=None):
+        if self._static.adv.enable_echo(mod=self.echo_mod):
+            return super().on(duration)
+    
+    def off(self):
+        self._static.adv.adv.disable_echo()
+        return super().off(duration)
+bufftype_dict['echo'] = EchoBuff
+
+
 class MultiBuffManager:
     def __init__(self, name, buffs, duration=None, timed_mode=False):
         self.name = name

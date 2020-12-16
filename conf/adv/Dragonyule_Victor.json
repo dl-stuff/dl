@@ -1,0 +1,42 @@
+{
+    "c": {
+        "name": "Dragonyule Victor",
+        "icon": "110307_02_r05",
+        "att": 519,
+        "hp": 741,
+        "ele": "shadow",
+        "wt": "axe",
+        "spiral": false,
+        "a": []
+    },
+    "fs_dragonyulevictor": {
+        "startup": 0.5,
+        "recovery": 0.36667,
+        "attr": [
+            {"buff": ["zone", 0.15, 10.0, "crit", "chance"]}
+        ]
+    },
+    "s1": {
+        "sp": 3540,
+        "startup": 0.1,
+        "recovery": 2.26667,
+        "attr": [
+            {"dmg": 4.0, "dispel": 100, "iv": 0.6},
+            {"dmg": 4.0, "iv": 0.8},
+            {"dmg": 4.0, "iv": 1.06667},
+            {"dmg": 4.0, "iv": 1.33333},
+            {"dmg": 4.0, "iv": 1.66667},
+            {"buff": [["fsAlt", "dragonyulevictor", -1, 1], "-refresh"]}
+        ]
+    },
+    "s2": {
+        "sp": 6017,
+        "startup": 0.1,
+        "recovery": 1.63333,
+        "attr": [
+            {"dmg": 25.0, "iv": 0.93333, "msl": 0.5}
+        ],
+        "extra_self": {"dmg": 5.0, "iv": 1.0},
+        "extra_team": {"dmg": 5.0, "iv": 1.0}
+    }
+}

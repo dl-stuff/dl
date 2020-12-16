@@ -5,7 +5,6 @@ class Nevin(SigilAdv):
     def prerun(self):
         # alt s1 doesn't add dps
         self.config_sigil(duration=300, x=True, s2=True)
-        self.zone = ZoneTeambuff()
 
         t = Timer(self.x_sword_dmg, 1.5, True)
         self.sword = EffectBuff('revelation_sword', 12, lambda: t.on(), lambda: t.off()).no_bufftime()

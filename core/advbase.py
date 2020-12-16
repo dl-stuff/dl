@@ -1052,8 +1052,12 @@ class Adv(object):
 
     def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2
-        self.echo_att = fixed_att or (mod * self.base_att * self.mod('att'))
-        log('debug', 'echo_att', self.echo_att)
+        new_att = fixed_att or (mod * self.base_att * self.mod('att'))
+        if new_att >= self.echo_att:
+            self.echo_att = new_att
+            log('debug', 'echo_att', self.echo_att)
+            return True
+        return False
 
     def disable_echo(self):
         self.echo = 1
