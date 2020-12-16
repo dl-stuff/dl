@@ -92,6 +92,7 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=None,
     run_results.append((adv, real_d, True, None))
 
     deploy_mono = not special and duration == 180 and verbose == -5
+    is_buffer = adv.equip_key == 'buffer'
 
     if deploy_mono:
         from conf.equip import EquipManager
@@ -110,7 +111,7 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=None,
         if verbose < -5:
             for aff_name in DOT_AFFLICT[:(-verbose-6)]:
                 conf[f'sim_afflict.{aff_name}'] = 1
-        equip_key = 'affliction' if adv.equip_key != 'buffer' else 'buffer'
+        equip_key = 'buffer' if is_buffer else 'affliction'
         adv, real_d = run_once(name, module, conf, duration, cond, equip_key=equip_key)
         if mass:
             adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=equip_key)
