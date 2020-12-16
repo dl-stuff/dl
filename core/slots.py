@@ -109,9 +109,9 @@ class CharaBase(SlotBase):
         for key, coab in coabs:
             # alt check
             if key not in CharaBase.NON_UNIQUE_COABS:
-                key_base_id = get_icon(key).split('_')[0]
-                self_base_id = self.icon.split('_')[0]
-                if key_base_id == self_base_id:
+                key_base_id = get_icon(key).split('_')
+                self_base_id = self.icon.split('_')
+                if key_base_id[0] == self_base_id[0] and key_base_id[1] != self_base_id[1]:
                     continue
             self.coabs[key] = coab
             if key != self.coab_qual:

@@ -850,3 +850,23 @@ class Damaged_Buff(BuffingAbility):
                     adv.Timer(cd_end).on(5) # ycass
         adv.Event('hp').listener(l_damaged_buff)
 ability_dict['damaged'] = Damaged_Buff
+
+
+class Poised_Buff(Ability):
+    def __init__(self, name, value, passive=False):
+        self.value = value
+        self.buff_args = name.split('_')[1:]
+        self.passive = passive
+        super().__init__(name)
+
+    def oninit(self, adv, afrom=None):
+        from core.modifier import ZoneTeambuff
+        self.poised_buff = adv.Buff(self.name, self.value, -1, *self.buff_args)
+        if self.passive:
+            self.poised_buff.hidden = True
+        def l_poised_buff(e):
+            if isinstance(e.buff, ZoneTeambuff):
+                self.poised_buff.on(e.buff.duration)
+        adv.Event('buff').listener(l_poised_buff)
+
+ability_dict['poised'] = Poised_Buff
