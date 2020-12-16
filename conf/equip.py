@@ -211,7 +211,8 @@ class EquipManager(dict):
                 self[duration][kind] = kicked
                 need_write = True
 
-        need_write = need_write or self.update_tdps_threshold(duration)
+        tdps_write = self.update_tdps_threshold(duration)
+        need_write = need_write or tdps_write
 
         if not self.debug and need_write:
             save_equip_json(self.advname, self)
@@ -285,7 +286,7 @@ class EquipManager(dict):
             self.update_tdps_threshold(duration)
 
         save_equip_json(self.advname, self)
-    
+
     def get_conf(self, duration, equip_key, mono):
         duration = str(int(duration))
         if not duration in self:
@@ -305,7 +306,7 @@ class EquipManager(dict):
         if not equip_key in equip_d:
             return equip_d.get('base', None), None
         return equip_d[equip_key], equip_key
-    
+
     def has_different_mono(self, duration, kind):
         duration = str(int(duration))
         monokind = f'mono_{kind}'
