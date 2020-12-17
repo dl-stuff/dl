@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 63416.833103330515,
+      "dps": 76506.05561987197,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -14,9 +14,11 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
+        "`dragon(c3-s)",
         "`s2, fsc",
         "`s4, fsc",
         "`s1, fsc and aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
         "`fs2"
       ],
       "coabs": [
@@ -31,38 +33,44 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 70417.01364137756,
-      "team": 0.0,
+      "dps": 73943.43909215936,
+      "team": 0.012101130143787473,
       "tdps": null,
       "slots.a": [
         "Dear_Diary",
         "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "His_Clever_Brother"
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Warrioresses"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
-        "`fs2"
+        "`s4, not buff(s4)",
+        "`s2, not buff(s2)",
+        "`dragon(c3-s)",
+        "if not self.unlocked",
+        "if fsc",
+        "`s1",
+        "`dodge",
+        "end",
+        "`fs2",
+        "end"
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Cleo",
-        "Grace"
+        "Renee",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Hunter_Sarisse"
+        "Durant"
       ]
     },
     "buffer": {
       "dps": 25826.34370964582,
       "team": 0.3070228179112053,
-      "tdps": 122435.49078673468,
+      "tdps": 165068.22605244713,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -89,8 +97,8 @@
       ]
     },
     "mono_affliction": {
-      "dps": 65372.83010970605,
-      "team": 0.0,
+      "dps": 73943.43909215936,
+      "team": 0.012101130143787473,
       "tdps": null,
       "slots.a": [
         "Dear_Diary",
@@ -102,14 +110,11 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`s4",
-        "if self.unlocked",
-        "if x=8 or fsc",
+        "`s4, not buff(s4)",
         "`s2, not buff(s2)",
-        "end",
-        "else",
+        "`dragon(c3-s)",
+        "if not self.unlocked",
         "if fsc",
-        "`s2, not buff(s2)",
         "`s1",
         "`dodge",
         "end",
@@ -118,12 +123,12 @@
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Cleo",
+        "Renee",
         "Tiki"
       ],
       "share": [
         "Weapon",
-        "Yue"
+        "Durant"
       ]
     }
   },
@@ -189,6 +194,10 @@
     "pref": "base"
   },
   "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "600": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

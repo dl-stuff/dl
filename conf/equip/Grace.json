@@ -34,7 +34,7 @@
     "buffer": {
       "dps": 4768.707959940152,
       "team": 0.30545507675500916,
-      "tdps": null,
+      "tdps": 140163.02752201332,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -91,36 +91,38 @@
       ]
     },
     "mono_base": {
-      "dps": 4634.589614970057,
-      "team": 0.25661450252494084,
+      "dps": 30852.316723265092,
+      "team": 0.08300550368193133,
       "tdps": null,
       "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Azazel",
+      "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-end), fscf",
+        "`dragon(s), buff(s3) and buffstack(ro_att)=3",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s4, x=4",
-        "`fs, x=5"
+        "`s4",
+        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
+        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Bow"
+        "Ieyasu",
+        "Audric"
       ],
       "share": [
         "Weapon",
-        "Karl"
+        "Gala_Mym"
       ]
     },
     "mono_buffer": {
       "dps": 4634.589614970057,
       "team": 0.25661450252494084,
-      "tdps": null,
+      "tdps": 151015.94550408705,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
