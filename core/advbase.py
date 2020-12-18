@@ -2173,6 +2173,10 @@ class Adv(object):
         return self.dragonform.dragon_gauge
 
     @property
+    def dshift_count(self):
+        return self.dragonform.shift_count
+
+    @property
     def bleed_stack(self):
         try:
             return self.bleed._static['stacks']
