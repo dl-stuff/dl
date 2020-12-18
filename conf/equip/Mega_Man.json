@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 46178.5393201075,
+      "dps": 46214.821697409214,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -35,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 60143.88119379476,
+      "dps": 59449.30741102976,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -58,9 +58,9 @@
         "end"
       ],
       "coabs": [
+        "Blade",
         "Marth",
-        "Dagger2",
-        "Blade"
+        "Dagger2"
       ],
       "share": [
         "Weapon",
@@ -70,7 +70,7 @@
     "buffer": {
       "dps": 8526.120482556364,
       "team": 0.3186946453239508,
-      "tdps": 118145.75296449591,
+      "tdps": 118259.59980137902,
       "slots.a": [
         "Honest_Repose",
         "Sisters_Day_Out",
@@ -92,6 +92,71 @@
       "share": [
         "Karl",
         "Templar_Hope"
+      ]
+    },
+    "mono_base": {
+      "dps": 43761.16786876515,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if bleed_stack>=3",
+        "`s2, c_x(metalblade) or c_x(default)",
+        "`s1, c_x(metalblade)",
+        "else",
+        "`s1, c_x(default) and s1.check_full()",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 54821.05620560271,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if bleed_stack>=3",
+        "`s2, c_x(metalblade) or c_x(default)",
+        "`s1, c_x(metalblade)",
+        "else",
+        "`s1, c_x(default) and s1.check_full()",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     }
   }

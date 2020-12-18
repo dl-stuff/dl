@@ -33,8 +33,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 73943.43909215936,
-      "team": 0.012101130143787473,
+      "dps": 75017.3039203987,
+      "team": 0.011073780883079169,
       "tdps": null,
       "slots.a": [
         "Dear_Diary",
@@ -45,12 +45,12 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
         "`s4, not buff(s4)",
         "`s2, not buff(s2)",
-        "`dragon(c3-s)",
+        "`dragon(c3-s), not s2.check()",
         "if not self.unlocked",
         "if fsc",
+        "`s3, not buff(s3)",
         "`s1",
         "`dodge",
         "end",
@@ -59,7 +59,7 @@
       ],
       "coabs": [
         "Blade",
-        "Renee",
+        "Dragonyule_Cleo",
         "Tiki"
       ],
       "share": [
@@ -97,8 +97,8 @@
       ]
     },
     "mono_affliction": {
-      "dps": 73943.43909215936,
-      "team": 0.012101130143787473,
+      "dps": 75017.3039203987,
+      "team": 0.011073780883079169,
       "tdps": null,
       "slots.a": [
         "Dear_Diary",
@@ -109,12 +109,12 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
         "`s4, not buff(s4)",
         "`s2, not buff(s2)",
-        "`dragon(c3-s)",
+        "`dragon(c3-s), not s2.check()",
         "if not self.unlocked",
         "if fsc",
+        "`s3, not buff(s3)",
         "`s1",
         "`dodge",
         "end",
@@ -123,12 +123,42 @@
       ],
       "coabs": [
         "Blade",
-        "Renee",
+        "Dragonyule_Cleo",
         "Tiki"
       ],
       "share": [
         "Weapon",
         "Durant"
+      ]
+    },
+    "mono_base": {
+      "dps": 67568.21337109625,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc and aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
+        "`fs2"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     }
   },
