@@ -402,8 +402,11 @@ class Buff(object):
             return
         self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'buff end <turn off>')
         self.__active = 0
-        self.effect_off()
         self.buff_end_timer.off()
+        try:
+            self.regen_timer.off()
+        except AttributeError:
+            self.effect_off()
         return self
 
     @allow_acl
