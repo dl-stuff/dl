@@ -331,6 +331,22 @@ class Summer_Konohana_Sakuya(DragonBase):
         add_flower()
         Timer(add_flower, 60, True).on()
         adv.Event('ds').listener(add_flower)
+
+class Gala_Reborn_Zephyr(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        charge_gauge_o = adv.dragonform.charge_gauge
+        self.agauge = 0
+        self.acount = 0
+        adv.gzephyr_buff = adv.Selfbuff('gzephyr_buff', 0.3, 45, 'wind', 'ele').no_bufftime()
+        def charge_gauge(value, **kwargs):
+            delta = charge_gauge_o(value, **kwargs)
+            self.agauge += delta
+            n_acount = self.agauge // 100
+            if n_acount > self.acount:
+                self.acount = n_acount
+                adv.gzephyr_buff.on()
+        adv.dragonform.charge_gauge = charge_gauge
 ### WIND DRAGONS ###
 
 ### LIGHT DRAGONS ###
