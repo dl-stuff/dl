@@ -17,7 +17,7 @@
         "`s3, not buff(s3)",
         "`s1(low), aff_timeleft(frostbite)<5",
         "`s1(high)",
-        "`s2(high), s1.charged<=(s1.sp*(2/3))",
+        "`s2(high)",
         "`s4"
       ],
       "coabs": [
@@ -60,32 +60,34 @@
       ]
     },
     "affliction": {
-      "dps": 76172.15303603177,
-      "team": 0.0,
+      "dps": 77206.1061705509,
+      "team": 0.055858112499413415,
       "tdps": null,
       "slots.a": [
-        "Kung_Fu_Masters",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Chariot_Drift",
+        "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), cancel",
-        "`s3, not buff(s3)",
-        "`s1(high)",
-        "`s2(high)",
-        "`s4"
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3) and x=1",
+        "`s4",
+        "`s1(high), x=4",
+        "`s2(low), dgauge>=500",
+        "`s2(high), dgauge<=350",
+        "`fsf, x=4"
       ],
       "coabs": [
-        "Blade",
-        "Summer_Estelle",
-        "Xander"
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Gala_Mym"
       ]
     },
     "mono_base": {
@@ -105,7 +107,7 @@
         "`s3, not buff(s3)",
         "`s1(low), aff_timeleft(frostbite)<5",
         "`s1(high)",
-        "`s2(high), s1.charged<=(s1.sp*(2/3))",
+        "`s2(high)",
         "`s4"
       ],
       "coabs": [
@@ -119,32 +121,34 @@
       ]
     },
     "mono_affliction": {
-      "dps": 76172.15303603177,
-      "team": 0.0,
+      "dps": 77206.1061705509,
+      "team": 0.055858112499413415,
       "tdps": null,
       "slots.a": [
-        "Kung_Fu_Masters",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Chariot_Drift",
+        "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), cancel",
-        "`s3, not buff(s3)",
-        "`s1(high)",
-        "`s2(high)",
-        "`s4"
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3) and x=1",
+        "`s4",
+        "`s1(high), x=4",
+        "`s2(low), dgauge>=500",
+        "`s2(high), dgauge<=350",
+        "`fsf, x=4"
       ],
       "coabs": [
-        "Blade",
-        "Summer_Estelle",
-        "Xander"
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Gala_Mym"
       ]
     },
     "mono_buffer": {

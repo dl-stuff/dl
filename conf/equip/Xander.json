@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 75585.2269143732,
+      "dps": 75881.40224807976,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,7 +13,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-end), x=5 or fsc",
+        "`dragon(c3-s-c3-c3-c2-end)",
         "`s3, not buff(s3) and fsc",
         "`s1",
         "`s2, cancel",
@@ -25,8 +25,8 @@
       ],
       "coabs": [
         "Yurius",
-        "Xainfried",
-        "Summer_Celliera"
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
@@ -37,7 +37,7 @@
     "buffer": {
       "dps": 39438.55872079402,
       "team": 0.14743779763137704,
-      "tdps": 245165.54624583328,
+      "tdps": 247174.3617494876,
       "slots.a": [
         "Brothers_in_Arms",
         "Felyne_Hospitality",
@@ -65,7 +65,7 @@
       ]
     },
     "affliction": {
-      "dps": 77376.89442331997,
+      "dps": 79076.47571799466,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -77,11 +77,12 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-end), x=5 or fsc",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=1",
         "`s3, not buff(s3) and fsc",
         "`s1",
         "`s2, cancel",
-        "`s4, fsc",
+        "`s4",
         "if not buff(s1, default)",
         "`fs, x=2 and s1.charged!=2235",
         "`fs, x=3",
@@ -90,7 +91,7 @@
       "coabs": [
         "Yurius",
         "Xainfried",
-        "Summer_Celliera"
+        "Tiki"
       ],
       "share": [
         "Weapon",
@@ -98,7 +99,7 @@
       ]
     },
     "mono_base": {
-      "dps": 75585.2269143732,
+      "dps": 75881.40224807976,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -110,7 +111,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-end), x=5 or fsc",
+        "`dragon(c3-s-c3-c3-c2-end)",
         "`s3, not buff(s3) and fsc",
         "`s1",
         "`s2, cancel",
@@ -122,8 +123,8 @@
       ],
       "coabs": [
         "Yurius",
-        "Xainfried",
-        "Summer_Celliera"
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
@@ -131,7 +132,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 77376.89442331997,
+      "dps": 79076.47571799466,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -143,11 +144,12 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-end), x=5 or fsc",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=1",
         "`s3, not buff(s3) and fsc",
         "`s1",
         "`s2, cancel",
-        "`s4, fsc",
+        "`s4",
         "if not buff(s1, default)",
         "`fs, x=2 and s1.charged!=2235",
         "`fs, x=3",
@@ -156,7 +158,7 @@
       "coabs": [
         "Yurius",
         "Xainfried",
-        "Summer_Celliera"
+        "Tiki"
       ],
       "share": [
         "Weapon",
@@ -166,7 +168,7 @@
     "mono_buffer": {
       "dps": 39438.55872079402,
       "team": 0.14743779763137704,
-      "tdps": 245165.54624583328,
+      "tdps": 247174.3617494876,
       "slots.a": [
         "Brothers_in_Arms",
         "Felyne_Hospitality",
@@ -329,5 +331,9 @@
         "Gala_Mym"
       ]
     }
+  },
+  "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }

@@ -1,31 +1,37 @@
 {
   "180": {
     "base": {
-      "dps": 86282.23339148048,
+      "dps": 87078.67399201184,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "Chariot_Drift",
-        "To_the_Extreme"
+        "Dueling_Dancers",
+        "Mana_Fount"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(c3-s-s-c3-end), s=1",
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c2-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
         "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
         "`s1",
-        "`s4, xf>1",
+        "`s4, xf>2",
         "`s2, xf>3",
-        "`fs, xf and charged_in(fs, s1)",
+        "`fs, charged_in(fs, s1) and xf",
         "`fs, xf=5 and (s3.check() and not buff(s3))",
         "`fsf, xf=5"
       ],
       "coabs": [
         "Yuya",
-        "Serena",
+        "The_Prince",
         "Halloween_Mym"
       ],
       "share": [
@@ -35,7 +41,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 98781.90088914742,
+      "dps": 100290.9379639055,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -47,20 +53,25 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(c3-s-s-c3-end), s=1 and buff(s2)",
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c2-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
         "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
         "`s1",
-        "`s4, xf>1",
+        "`s4, xf>2",
         "`s2, xf>3",
-        "`fs, xf and charged_in(fs, s1)",
-        "`fs, xf>2 and charged_in(fs, s4)",
+        "`fs, charged_in(fs, s1) and xf",
         "`fs, xf=5 and (s3.check() and not buff(s3))",
         "`fsf, xf=5"
       ],
       "coabs": [
         "Yuya",
-        "Serena",
+        "The_Prince",
         "Halloween_Mym"
       ],
       "share": [
@@ -69,9 +80,9 @@
       ]
     },
     "buffer": {
-      "dps": 33638.399607871484,
+      "dps": 33688.86441654167,
       "team": 0.1552464129207572,
-      "tdps": 339098.5517358144,
+      "tdps": 343903.65980772814,
       "slots.a": [
         "Memory_of_a_Friend",
         "Seaside_Princess",
@@ -99,7 +110,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 98781.90088914742,
+      "dps": 100290.9379639055,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -111,20 +122,25 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(c3-s-s-c3-end), s=1 and buff(s2)",
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c2-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
         "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
         "`s1",
-        "`s4, xf>1",
+        "`s4, xf>2",
         "`s2, xf>3",
-        "`fs, xf and charged_in(fs, s1)",
-        "`fs, xf>2 and charged_in(fs, s4)",
+        "`fs, charged_in(fs, s1) and xf",
         "`fs, xf=5 and (s3.check() and not buff(s3))",
         "`fsf, xf=5"
       ],
       "coabs": [
         "Yuya",
-        "Serena",
+        "The_Prince",
         "Halloween_Mym"
       ],
       "share": [
@@ -133,31 +149,37 @@
       ]
     },
     "mono_base": {
-      "dps": 86282.23339148048,
+      "dps": 87078.67399201184,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "Chariot_Drift",
-        "To_the_Extreme"
+        "Dueling_Dancers",
+        "Mana_Fount"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(c3-s-s-c3-end), s=1",
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c2-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
         "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
         "`s1",
-        "`s4, xf>1",
+        "`s4, xf>2",
         "`s2, xf>3",
-        "`fs, xf and charged_in(fs, s1)",
+        "`fs, charged_in(fs, s1) and xf",
         "`fs, xf=5 and (s3.check() and not buff(s3))",
         "`fsf, xf=5"
       ],
       "coabs": [
         "Yuya",
-        "Serena",
+        "The_Prince",
         "Halloween_Mym"
       ],
       "share": [
@@ -166,9 +188,9 @@
       ]
     },
     "mono_buffer": {
-      "dps": 33638.399607871484,
+      "dps": 33688.86441654167,
       "team": 0.1552464129207572,
-      "tdps": 339098.5517358144,
+      "tdps": 343903.65980772814,
       "slots.a": [
         "Memory_of_a_Friend",
         "Seaside_Princess",
@@ -396,6 +418,14 @@
     "mono_pref": "mono_base"
   },
   "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "15": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "10": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

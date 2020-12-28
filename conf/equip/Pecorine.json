@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 90045.13573282116,
+      "dps": 90307.6210939777,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,7 +13,6 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c3-s-end), not gourmand_mode.get()",
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
         "`s4, fsc",
@@ -21,6 +20,8 @@
         "`dodge, fsc",
         "`fs",
         "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c5-s-end), dragonform.shift_count=1",
         "`s2",
         "`fs, x=1",
         "end"
@@ -39,7 +40,7 @@
     "buffer": {
       "dps": 57135.694904625976,
       "team": 0.13438553519363636,
-      "tdps": 244888.26703540608,
+      "tdps": 246841.49333151244,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -72,7 +73,7 @@
       ]
     },
     "affliction": {
-      "dps": 98618.86582620988,
+      "dps": 98940.39554423305,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -84,7 +85,6 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c3-s-end), not gourmand_mode.get()",
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
         "`s4, fsc",
@@ -92,6 +92,8 @@
         "`dodge, fsc",
         "`fs",
         "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c5-s-end), dragonform.shift_count=1",
         "`s2",
         "`fs, x=1",
         "end"
@@ -107,7 +109,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 96043.05661307946,
+      "dps": 96405.36999403461,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -119,7 +121,10 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c3-s-end), not gourmand_mode.get()",
+        "if not gourmand_mode.get()",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c5-s-end), dragonform.shift_count=1",
+        "end",
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
         "`s4, fsc",
@@ -249,5 +254,9 @@
       ]
     },
     "pref": "base"
+  },
+  "30": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }

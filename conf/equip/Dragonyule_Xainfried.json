@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 43407.972496673545,
-      "team": 0.22061960091014576,
+      "dps": 55679.04826773773,
+      "team": 0.236970068792226,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -11,7 +11,7 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Ariel",
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
@@ -21,7 +21,7 @@
       ],
       "coabs": [
         "Blade",
-        "Bow",
+        "Eleonora",
         "The_Prince"
       ],
       "share": [
@@ -31,9 +31,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 3581.545442896923,
-      "team": 1.165737212196798,
-      "tdps": 42139.12276966062,
+      "dps": 4587.907646981038,
+      "team": 1.2307717597750738,
+      "tdps": 51409.79441303696,
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -58,13 +58,13 @@
         "Tobias"
       ],
       "share": [
-        "Yuya",
+        "Templar_Hope",
         "Tobias"
       ]
     },
     "affliction": {
-      "dps": 44267.735948581736,
-      "team": 0.20644388472841876,
+      "dps": 59769.98517362036,
+      "team": 0.23564451217227403,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -75,11 +75,16 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s1",
-        "`s2",
+        "if s=1",
+        "`dragon(s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=3",
+        "end",
         "`s3, not buff(s3)",
-        "`s4"
+        "`s2, cancel",
+        "`s4, x=5",
+        "`s1, cancel or dgauge>=500"
       ],
       "coabs": [
         "Blade",
@@ -92,69 +97,67 @@
       ]
     },
     "mono_base": {
-      "dps": 34979.993041230315,
-      "team": 0.18782245087500535,
+      "dps": 52007.4168693044,
+      "team": 0.24794689334135075,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Lin_You",
-        "Ku_Hai"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 32914.12375790338,
-      "team": 0.26189940704229303,
-      "tdps": 27888.150245558063,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
       "slots.d": "Ariel",
       "acl": [
-        "`dragon, cancel",
+        "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
-        "`s4",
-        "`fs, x=5"
+        "`s4"
       ],
       "coabs": [
         "Blade",
         "Ku_Hai",
-        "Tobias"
+        "Bow"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_buffer",
+    "mono_buffer": {
+      "dps": 49791.60758500826,
+      "team": 0.29714739323146067,
+      "tdps": 45036.31648550683,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Ariel",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Eleonora",
+        "Tobias",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 44267.735948581736,
-      "team": 0.20644388472841876,
+      "dps": 59769.98517362036,
+      "team": 0.23564451217227403,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -165,11 +168,16 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s1",
-        "`s2",
+        "if s=1",
+        "`dragon(s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=3",
+        "end",
         "`s3, not buff(s3)",
-        "`s4"
+        "`s2, cancel",
+        "`s4, x=5",
+        "`s1, cancel or dgauge>=500"
       ],
       "coabs": [
         "Blade",
@@ -181,5 +189,9 @@
         "Gala_Mym"
       ]
     }
+  },
+  "600": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }

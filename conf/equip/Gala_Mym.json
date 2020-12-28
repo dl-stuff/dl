@@ -256,37 +256,33 @@
       ]
     },
     "buffer": {
-      "dps": 54899.42196565108,
-      "team": 0.02059932314296393,
-      "tdps": 773748.1315036089,
+      "dps": 45907.9813394645,
+      "team": 0.12328095660648447,
+      "tdps": 202222.05525117306,
       "slots.a": [
         "Brothers_in_Arms",
         "Dragon_and_Tamer",
         "Gentle_Winds",
-        "Rogues_Banquet",
-        "Dragons_Nest"
+        "Entwined_Flames",
+        "Rogues_Banquet"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<1",
-        "`dragon(s-end), s=1",
-        "end",
-        "if dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-end)",
-        "end",
-        "`s3, not buff(s3) and x=5",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
       ],
       "coabs": [
-        "Yuya",
-        "Verica",
-        "Serena"
+        "Nobunaga",
+        "Wand",
+        "Marth"
       ],
       "share": [
-        "Weapon",
+        "Patia",
         "Summer_Cleo"
       ]
     },
@@ -327,37 +323,33 @@
       ]
     },
     "mono_buffer": {
-      "dps": 54899.42196565108,
-      "team": 0.02059932314296393,
-      "tdps": 773748.1315036089,
+      "dps": 45907.9813394645,
+      "team": 0.12328095660648447,
+      "tdps": 202222.05525117306,
       "slots.a": [
         "Brothers_in_Arms",
         "Dragon_and_Tamer",
         "Gentle_Winds",
-        "Rogues_Banquet",
-        "Dragons_Nest"
+        "Entwined_Flames",
+        "Rogues_Banquet"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "if dragonform.shift_count<1",
-        "`dragon(s-end), s=1",
-        "end",
-        "if dragonform.shift_count>=1",
-        "`dragon(c3-s-c3-end)",
-        "end",
-        "`s3, not buff(s3) and x=5",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2, x=5 or fsc",
         "`s4, fsc",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
       ],
       "coabs": [
-        "Yuya",
-        "Verica",
-        "Serena"
+        "Nobunaga",
+        "Wand",
+        "Marth"
       ],
       "share": [
-        "Weapon",
+        "Patia",
         "Summer_Cleo"
       ]
     },
@@ -536,6 +528,26 @@
     "mono_pref": "mono_base"
   },
   "100": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "120": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "40": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "20": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "30": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "10": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

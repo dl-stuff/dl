@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 46961.39200027068,
-      "team": 0.08305760055672959,
+      "dps": 47022.49986234002,
+      "team": 0.08305760055672949,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -31,38 +31,42 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 51272.189112436696,
-      "team": 0.0666364285362065,
+      "dps": 55288.319449320734,
+      "team": 0.08095456482364799,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s)",
+        "if s=2",
+        "`dragon(s-c3-end), dragonform.shift_count=0",
+        "`dragon(s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=2",
+        "end",
         "`s3, not buff(s3)",
+        "`s2, dgauge>=500 or dgauge<=450",
         "`s4",
-        "`s1",
-        "`s2, x=5"
+        "`s1, x>2"
       ],
       "coabs": [
         "Blade",
-        "Hunter_Sarisse",
-        "Catherine"
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Mym"
       ]
     },
     "buffer": {
       "dps": 19624.62471052578,
       "team": 0.3385087064852301,
-      "tdps": 107013.69716283916,
+      "tdps": 107252.91265516289,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -89,8 +93,8 @@
       ]
     },
     "mono_base": {
-      "dps": 46961.39200027068,
-      "team": 0.08305760055672959,
+      "dps": 47022.49986234002,
+      "team": 0.08305760055672949,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -120,7 +124,7 @@
     "mono_buffer": {
       "dps": 19624.62471052578,
       "team": 0.3385087064852301,
-      "tdps": 107013.69716283916,
+      "tdps": 107252.91265516289,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -147,32 +151,36 @@
       ]
     },
     "mono_affliction": {
-      "dps": 51272.189112436696,
-      "team": 0.0666364285362065,
+      "dps": 55288.319449320734,
+      "team": 0.08095456482364799,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s)",
+        "if s=2",
+        "`dragon(s-c3-end), dragonform.shift_count=0",
+        "`dragon(s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=2",
+        "end",
         "`s3, not buff(s3)",
+        "`s2, dgauge>=500 or dgauge<=450",
         "`s4",
-        "`s1",
-        "`s2, x=5"
+        "`s1, x>2"
       ],
       "coabs": [
         "Blade",
-        "Hunter_Sarisse",
-        "Catherine"
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Mym"
       ]
     },
     "mono_pref": "mono_base"

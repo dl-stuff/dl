@@ -1,37 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 56253.76146150763,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Yurius",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 58430.707725030756,
+      "dps": 68968.29836551828,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -47,11 +17,12 @@
         "`s3, not buff(s3)",
         "`s1, cancel",
         "`s4, cancel",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Blade",
-        "Yurius",
+        "Pipple",
         "Xander"
       ],
       "share": [
@@ -59,10 +30,43 @@
         "Summer_Julietta"
       ]
     },
+    "pref": "base",
+    "affliction": {
+      "dps": 72896.65016896793,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, x>3 or fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "buffer": {
-      "dps": 29762.368325109484,
-      "team": 0.1288486882682708,
-      "tdps": 205600.7980557897,
+      "dps": 35853.197240226116,
+      "team": 0.1288486882682706,
+      "tdps": 257007.6697742127,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -89,7 +93,7 @@
       ]
     },
     "mono_base": {
-      "dps": 56253.76146150763,
+      "dps": 68968.29836551828,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -103,13 +107,14 @@
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`fs, x=5"
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Blade",
-        "Yurius",
+        "Pipple",
         "Xander"
       ],
       "share": [
@@ -118,9 +123,9 @@
       ]
     },
     "mono_buffer": {
-      "dps": 29762.368325109484,
-      "team": 0.1288486882682708,
-      "tdps": 205600.7980557897,
+      "dps": 35853.197240226116,
+      "team": 0.1288486882682706,
+      "tdps": 257007.6697742127,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -147,32 +152,35 @@
       ]
     },
     "mono_affliction": {
-      "dps": 58430.707725030756,
+      "dps": 72896.65016896793,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5"
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, x>3 or fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Blade",
         "Yurius",
-        "Xander"
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Mym"
       ]
     },
     "mono_pref": "mono_base"

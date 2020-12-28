@@ -33,34 +33,37 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 69871.87336591138,
-      "team": 0.32279994193561734,
+      "dps": 74565.9792795202,
+      "team": 0.12187403805002772,
       "tdps": null,
       "slots.a": [
-        "Brothers_in_Arms",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "From_Whence_He_Comes",
+        "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c2-s-end), dragonform.shift_count=0 and s",
-        "`dragon(c3-c3-s-end), dragonform.shift_count>=1 and s",
-        "`s3, not buff(s3)",
+        "if s=1 and speed()>1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "`dragon(s-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=2",
+        "end",
+        "`s3, not buff(s3) and fsc",
         "`s2",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`fs, x=4 or hits=0"
+        "`s4",
+        "`s1, (speed()>1 and dgauge>=500) or ( dragonform.shift_count>=1 and fsc)",
+        "`fs, x=4"
       ],
       "coabs": [
-        "Summer_Estelle",
+        "Yurius",
         "Hunter_Sarisse",
-        "Xander"
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Summer_Cleo"
+        "Gala_Mym"
       ]
     },
     "buffer": {

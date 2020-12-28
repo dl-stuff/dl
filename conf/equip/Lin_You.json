@@ -35,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 91652.36302155306,
+      "dps": 91797.52547843038,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -47,13 +47,15 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, not buff(s3) and x=2",
-        "`s4, cancel",
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
         "`s2, s1.check()",
         "`s1, cancel",
-        "`fs, hits<=44 and (c_fs(enhanced) and x=2)",
-        "`fsf, x=4 and not buff(s2)"
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=2",
+        "`dodge, fsc",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -96,7 +98,7 @@
       ]
     },
     "mono_base": {
-      "dps": 77066.90667080252,
+      "dps": 85206.59648031925,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -121,7 +123,7 @@
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Bow"
+        "Valentines_Melody"
       ],
       "share": [
         "Weapon",
@@ -129,7 +131,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 91652.36302155306,
+      "dps": 91797.52547843038,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -141,13 +143,15 @@
       ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, not buff(s3) and x=2",
-        "`s4, cancel",
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
         "`s2, s1.check()",
         "`s1, cancel",
-        "`fs, hits<=44 and (c_fs(enhanced) and x=2)",
-        "`fsf, x=4 and not buff(s2)"
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=2",
+        "`dodge, fsc",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -162,7 +166,7 @@
     "mono_buffer": {
       "dps": 41961.294577928646,
       "team": 0.11572259443268444,
-      "tdps": 303360.05051541363,
+      "tdps": 373697.9983415969,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -288,5 +292,9 @@
         "Karina"
       ]
     }
+  },
+  "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }

@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 63104.710534796584,
+      "dps": 64875.98624268632,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -25,7 +25,7 @@
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Renee",
         "Xander"
       ],
       "share": [
@@ -35,9 +35,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 7767.165026327464,
+      "dps": 7780.011278179986,
       "team": 0.5870868576652485,
-      "tdps": 94257.85092266889,
+      "tdps": 97253.02860903408,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -61,8 +61,43 @@
       ]
     },
     "affliction": {
-      "dps": 64580.67924848766,
-      "team": 0.024219663011164103,
+      "dps": 77181.16088371599,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "queue prep",
+        "`s3;fs;s1;s4",
+        "end",
+        "`s2, x>=3 or fsc",
+        "`s4",
+        "`s1, x=5 or fsc",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_base": {
+      "dps": 64875.98624268632,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -90,46 +125,13 @@
       ],
       "share": [
         "Weapon",
-        "Durant"
-      ]
-    },
-    "mono_base": {
-      "dps": 63104.710534796584,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=4",
-        "queue prep",
-        "`s3;fs;s1;s4",
-        "end",
-        "`s2, x>=3",
-        "`s4, x>=3",
-        "`s1, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
         "Mikoto"
       ]
     },
     "mono_buffer": {
       "dps": 51714.95214639559,
       "team": 0.049004258620353874,
-      "tdps": 232423.8486422131,
+      "tdps": 268569.19106259686,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -161,36 +163,38 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 64580.67924848766,
-      "team": 0.024219663011164103,
+      "dps": 77181.16088371599,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
         "queue prep",
         "`s3;fs;s1;s4",
         "end",
-        "`s2, x>=3",
-        "`s4, x>=3",
-        "`s1, cancel",
+        "`s2, x>=3 or fsc",
+        "`s4",
+        "`s1, x=5 or fsc",
         "`dodge, fsc",
         "`fs, x=5"
       ],
       "coabs": [
         "Blade",
-        "Renee",
-        "Xander"
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Gala_Mym"
       ]
     }
   },
@@ -327,5 +331,9 @@
         "Durant"
       ]
     }
+  },
+  "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }

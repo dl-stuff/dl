@@ -1,39 +1,39 @@
 {
   "180": {
     "base": {
-      "dps": 16225.651303852423,
-      "team": 1.1419507215836298,
+      "dps": 42152.03411274834,
+      "team": 0.2863847165509173,
       "tdps": null,
       "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`fs, fs_prep_c>1",
-        "`s1",
-        "`s3, s=1",
+        "`dragon(s-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
         "`s4",
-        "`dragon(), have_buff(s4_00) and energy()=5"
+        "`fs, x=5"
       ],
       "coabs": [
-        "Gala_Sarisse",
-        "Dagger2",
-        "Tobias"
+        "Yuya",
+        "The_Prince",
+        "Halloween_Mym"
       ],
       "share": [
-        "Summer_Cleo",
-        "Mikoto"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "buffer": {
-      "dps": 5825.894699683439,
-      "team": 1.31427966759468,
-      "tdps": 60348.28648869077,
+      "dps": 5765.247199774398,
+      "team": 1.3222457979485236,
+      "tdps": 35127.09142801281,
       "slots.a": [
         "Honest_Repose",
         "Sisters_Day_Out",
@@ -48,7 +48,8 @@
         "`fs, fs_prep_c=1 and x=5",
         "`s1",
         "`s3, s=1",
-        "`s4"
+        "`s4",
+        "`fs, x=5"
       ],
       "coabs": [
         "Bow",
@@ -61,9 +62,67 @@
       ]
     },
     "affliction": {
-      "dps": 16225.651303852423,
-      "team": 1.1419507215836298,
+      "dps": 47852.15066043767,
+      "team": 0.2863847165509172,
       "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "The_Prince",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_base": {
+      "dps": 42152.03411274834,
+      "team": 0.2863847165509173,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yuya",
+        "The_Prince",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 9808.137776409554,
+      "team": 1.0362556742292517,
+      "tdps": 43132.61635905769,
       "slots.a": [
         "Honest_Repose",
         "Sisters_Day_Out",
@@ -80,74 +139,43 @@
         "`dragon(), have_buff(s4_00) and energy()=5"
       ],
       "coabs": [
-        "Gala_Sarisse",
-        "Dagger2",
-        "Tobias"
+        "Gala_Sarisse"
       ],
       "share": [
         "Summer_Cleo",
         "Mikoto"
       ]
     },
-    "mono_base": {
-      "dps": 7801.548945849101,
-      "team": 1.0084662372216595,
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 47852.15066043767,
+      "team": 0.2863847165509172,
       "tdps": null,
       "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`fs, fs_prep_c>1",
-        "`s1",
-        "`s3, s=1",
+        "`dragon(s-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
         "`s4",
-        "`dragon(), have_buff(s4_00) and energy()=5"
+        "`fs, x=5"
       ],
       "coabs": [
-        "Gala_Sarisse",
-        "Valentines_Hildegarde",
-        "Gala_Laxi"
+        "Yuya",
+        "The_Prince",
+        "Halloween_Mym"
       ],
       "share": [
-        "Halloween_Lowen",
-        "Patia"
+        "Weapon",
+        "Formal_Joachim"
       ]
-    },
-    "mono_buffer": {
-      "dps": 7801.548945849101,
-      "team": 1.0084662372216595,
-      "tdps": null,
-      "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`fs, fs_prep_c>1",
-        "`s1",
-        "`s3, s=1",
-        "`s4",
-        "`dragon(), have_buff(s4_00) and energy()=5"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Valentines_Hildegarde",
-        "Gala_Laxi"
-      ],
-      "share": [
-        "Halloween_Lowen",
-        "Patia"
-      ]
-    },
-    "mono_pref": "mono_base"
+    }
   },
   "60": {
     "base": {
@@ -243,6 +271,41 @@
         "Weapon",
         "Xander"
       ]
+    },
+    "buffer": {
+      "dps": 4970.523529248457,
+      "team": 1.1762094622248094,
+      "tdps": 96280.48597819904,
+      "slots.a": [
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "void",
+      "acl": [
+        "`fs, fs_prep_c>1",
+        "`fs, fs_prep_c=1 and x=5",
+        "`s1",
+        "`s3, s=1",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Mikoto"
+      ]
     }
+  },
+  "30": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }
