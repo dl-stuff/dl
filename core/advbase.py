@@ -199,6 +199,7 @@ class Action(object):
 
         self.startup_timer = Timer(self._cb_acting)
         self.recovery_timer = Timer(self._cb_act_end)
+        self.start_event = Event(f'{self.name}_start')
         self.act_event = Event(self.name)
         self.idle_event = Event('idle')
         self.end_event = Event(f'{self.name}_end')
@@ -394,6 +395,7 @@ class Action(object):
         self.startup_start = now()
         self.startup_timer.on(self.getstartup())
         self._setdoing()
+        self.start_event()
         if now() <= 3:
             log('debug', 'tap', 'startup', self.getstartup())
         return True
@@ -475,6 +477,7 @@ class X(Action):
 class Fs(Action):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
+        self.extra_charge = 0
         parts = name.split('_')
         self.act_event = Event('fs')
         self.act_event.name = self.name
@@ -488,6 +491,8 @@ class Fs(Action):
                 self.act_event.level = int(parts[0][2:])
             except ValueError:
                 pass
+        self.start_event = Event('fs_start')
+        self.start_event.act = self.act_event
         self.end_event = Event('fs_end')
         self.end_event.act = self.act_event
 
@@ -523,7 +528,7 @@ class Fs(Action):
 
     @property
     def _charge(self):
-        return self.conf.charge
+        return self.conf.charge + self.extra_charge
 
     @property
     def _buffer(self):
@@ -1275,6 +1280,17 @@ class Adv(object):
             return self.a_fs_dict[fsn]()
         except KeyError:
             return False
+
+    @allow_acl
+    def fst(self, t=None):
+        fs_act = self.a_fs_dict['fs']
+        delta = fs_act.getstartup() + fs_act.getrecovery()
+        if delta < t:
+            fs_act.extra_charge = t - delta
+            log('fs', 'charge_for', fs_act.extra_charge)
+        result = self.fs()
+        fs_act.extra_charge = 0
+        return result
 
     def check_deferred_x(self):
         if self.deferred_x is not None:

@@ -242,6 +242,17 @@ class Gala_Mars(DragonBase):
         def shift_end_prep(e):
             adv.charge_p('shift_end',100)
         adv.Event('dragon_end').listener(shift_end_prep)
+
+class Gozu_Tenno(DragonBase):
+    def oninit(self, adv):
+        super().oninit(adv)
+        adv.gozu_tenno_buff = adv.Selfbuff('gozu_tenno_buff', 0.3, 30, 'flame', 'ele').no_bufftime()
+        def fs_end(e):
+            fs_action = adv.action.getprev()
+            fs_elapsed = now() - fs_action.startup_start
+            if fs_elapsed > 3.0:
+                adv.gozu_tenno_buff.on()
+        adv.Event('fs_end').listener(fs_end, order=0)
 ### FLAME DRAGONS ###
 
 ### WATER DRAGONS ###
