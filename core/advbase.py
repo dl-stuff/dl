@@ -522,6 +522,7 @@ class Fs(Action):
 
     def _cb_act_end(self, e):
         if self.act_repeat:
+            self._setprev()
             self.act_repeat()
         else:
             super()._cb_act_end(e)
@@ -1282,8 +1283,9 @@ class Adv(object):
             return False
 
     @allow_acl
-    def fst(self, t=None):
-        fs_act = self.a_fs_dict['fs']
+    def fst(self, t=None, n=None):
+        fsn = 'fs' if n is None else f'fs{n}'
+        fs_act = self.a_fs_dict[fsn]
         delta = fs_act.getstartup() + fs_act.getrecovery()
         if delta < t:
             fs_act.extra_charge = t - delta

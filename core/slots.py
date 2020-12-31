@@ -231,7 +231,6 @@ class DragonBase(EquipBase):
     def ab(self):
         return super().ab if self.on_ele else []
 
-
 from core.modifier import EffectBuff, SingleActionBuff
 from core.timeline import Timer, now
 from core.log import log
@@ -245,14 +244,18 @@ class Gala_Mars(DragonBase):
 
 class Gozu_Tenno(DragonBase):
     def oninit(self, adv):
+        from core.advbase import Repeat
         super().oninit(adv)
         adv.gozu_tenno_buff = adv.Selfbuff('gozu_tenno_buff', 0.3, 30, 'flame', 'ele').no_bufftime()
         def fs_end(e):
             fs_action = adv.action.getprev()
+            if isinstance(fs_action, Repeat):
+                fs_action = fs_action.parent
             fs_elapsed = now() - fs_action.startup_start
             if fs_elapsed > 3.0:
                 adv.gozu_tenno_buff.on()
         adv.Event('fs_end').listener(fs_end, order=0)
+        adv.Event('repeat').listener(fs_end, order=0)
 ### FLAME DRAGONS ###
 
 ### WATER DRAGONS ###
