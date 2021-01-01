@@ -1289,8 +1289,8 @@ class Adv(object):
         delta = fs_act.getstartup() + fs_act.getrecovery()
         if delta < t:
             fs_act.extra_charge = t - delta
-            log('fs', 'charge_for', fs_act.extra_charge)
-        result = self.fs()
+            log(fsn, 'charge_for', fs_act.extra_charge)
+        result = self.fs(n=n)
         fs_act.extra_charge = 0
         return result
 
