@@ -51,7 +51,7 @@ class Seimei(Adv):
     def charge_dmg(self, t):
         self.hitattr_make('fs_charge', 'fs', 'charge', 0, self.conf.fs.charge_attr)
         # hax
-        Event('repeat')()
+        Event('fs_end')()
 
     def fs_charge_proc(self, e):
         self.charge_t.on()
