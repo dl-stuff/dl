@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 68100.35533920316,
+      "dps": 68468.3121492088,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -36,7 +36,7 @@
     "buffer": {
       "dps": 8362.781055588428,
       "team": 0.4696294743955427,
-      "tdps": 127201.50148263716,
+      "tdps": 127985.00599005597,
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -62,7 +62,7 @@
       ]
     },
     "affliction": {
-      "dps": 70639.18209913743,
+      "dps": 71450.80471431377,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -74,10 +74,10 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "queue dgauge>=500 and cancel",
-        "`fs;dragon(c3-s);s2,x=2",
+        "queue dgauge>=500 and ((xf=3 and (dragonform.shift_count=0 or dragonform.shift_count=1)) or (xf=5 and dragonform.shift_count>=2))",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=5",
         "end",
-        "`s2, not buff(s2) and xf=5",
+        "`s2, not buff(s2) and xf",
         "`s3, not buff(s3)",
         "`s4",
         "`s1, buff(s2) and cancel",
@@ -94,7 +94,7 @@
       ]
     },
     "mono_base": {
-      "dps": 68100.35533920316,
+      "dps": 68468.3121492088,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -126,7 +126,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 70639.18209913743,
+      "dps": 71450.80471431377,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -138,10 +138,10 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "queue dgauge>=500 and cancel",
-        "`fs;dragon(c3-s);s2,x=2",
+        "queue dgauge>=500 and ((xf=3 and (dragonform.shift_count=0 or dragonform.shift_count=1)) or (xf=5 and dragonform.shift_count>=2))",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=5",
         "end",
-        "`s2, not buff(s2) and xf=5",
+        "`s2, not buff(s2) and xf",
         "`s3, not buff(s3)",
         "`s4",
         "`s1, buff(s2) and cancel",

@@ -73,7 +73,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, not s1_res_down.get() and (energy()<5 and buff(s3))",
+        "`s1, not s1_res_down.get() and (energy()<5 and buff(s3)) and stronger_bullets<3",
         "`s2, have_buff(gposeidon_buff)",
         "`s4",
         "`fs"
@@ -161,7 +161,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, not s1_res_down.get() and (energy()<5 and buff(s3))",
+        "`s1, not s1_res_down.get() and (energy()<5 and buff(s3)) and stronger_bullets<3",
         "`s2, have_buff(gposeidon_buff)",
         "`s4",
         "`fs"

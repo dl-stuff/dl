@@ -1,8 +1,42 @@
 {
   "180": {
     "base": {
-      "dps": 57293.02083883894,
-      "team": 0.04989349159548327,
+      "dps": 66907.89295568448,
+      "team": 0.05009576425080719,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon, s=4",
+        "`s3, fsc and not buff(s3)",
+        "`s4, fsc",
+        "`s2, fsc",
+        "if buff(s2)",
+        "`fs, x=1",
+        "else",
+        "`fs, x=2 or hits=0",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Akasha",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 72795.07441255788,
+      "team": 0.049890961279810214,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -11,9 +45,9 @@
         "Hastened_Squall",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "AC011_Garland",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon, s=4",
+        "`dragon(c3-s-c3-c3-end), s=4",
         "`s3, fsc and not buff(s3)",
         "`s4, fsc",
         "`s2, fsc",
@@ -30,51 +64,13 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 61599.312290612645,
-      "team": 0.05047612183937976,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "AC011_Garland",
-      "acl": [
-        "`dragon, s=4",
-        "if dgauge>=500",
-        "`s4, s=2",
-        "else",
-        "`s4, fsc",
-        "end",
-        "`s2, fsc",
-        "if buff(s2)",
-        "`fs, x=1",
-        "else",
-        "`fs, x=2",
-        "end",
-        "`s3, fsc and not buff(s3)"
-      ],
-      "coabs": [
-        "Blade",
-        "Akasha",
-        "Grace"
-      ],
-      "share": [
-        "Weapon",
         "Yue"
       ]
     },
     "buffer": {
       "dps": 4567.390405461126,
       "team": 0.43578419934890295,
-      "tdps": 136633.5840018956,
+      "tdps": 161634.3578836314,
       "slots.a": [
         "A_Dogs_Day",
         "Study_Rabbits",
@@ -99,17 +95,17 @@
       ]
     },
     "mono_base": {
-      "dps": 54435.41954114777,
-      "team": 0.04989349159548341,
+      "dps": 62893.96155978144,
+      "team": 0.04989299338529549,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "One_with_the_Shadows",
+        "Flowers_Under_the_Moon",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "AC011_Garland",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon, s=4",
         "`s3, fsc and not buff(s3)",
@@ -132,9 +128,9 @@
       ]
     },
     "mono_buffer": {
-      "dps": 48749.68078388788,
-      "team": 0.04989854747104833,
-      "tdps": 1124580437.9986362,
+      "dps": 52260.1355414599,
+      "team": 0.05083103339729969,
+      "tdps": 11336217.946184877,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -142,7 +138,7 @@
         "Hastened_Squall",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Zephyr",
+      "slots.d": "AC011_Garland",
       "acl": [
         "`dragon, s=4",
         "`s3, fsc and not buff(s3)",
@@ -156,7 +152,7 @@
       ],
       "coabs": [
         "Blade",
-        "Lin_You",
+        "Eleonora",
         "Akasha"
       ],
       "share": [
@@ -164,6 +160,39 @@
         "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_base"
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 70587.43699873115,
+      "team": 0.049890961279810214,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=4",
+        "`s3, fsc and not buff(s3)",
+        "`s4, fsc",
+        "`s2, fsc",
+        "if buff(s2)",
+        "`fs, x=1",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Akasha",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
+        "Yue"
+      ]
+    }
   }
 }
