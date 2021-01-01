@@ -244,11 +244,13 @@ class Gala_Mars(DragonBase):
 
 class Gozu_Tenno(DragonBase):
     def oninit(self, adv):
-        from core.advbase import Repeat
+        from core.advbase import Repeat, Fs
         super().oninit(adv)
         adv.gozu_tenno_buff = adv.Selfbuff('gozu_tenno_buff', 0.3, 30, 'flame', 'ele').no_bufftime()
         def fs_end(e):
-            fs_action = adv.action.getprev()
+            fs_action = adv.action.getdoing()
+            if not isinstance(fs_action, Fs):
+                fs_action = adv.action.getprev()
             if isinstance(fs_action, Repeat):
                 fs_action = fs_action.parent
             fs_elapsed = now() - fs_action.startup_start
