@@ -433,9 +433,11 @@ class DragonForm(Action):
             if dryrun == False:
                 if doing.status == Action.STARTUP:
                     doing.startup_timer.off()
+                    doing.end_event()
                     log('interrupt', doing.name , 'by '+self.name, 'after {:.2f}s'.format(now()-doing.startup_start))
                 elif doing.status == Action.RECOVERY:
                     doing.recovery_timer.off()
+                    doing.end_event()
                     log('cancel', doing.name , 'by '+self.name, 'after {:.2f}s'.format(now()-doing.recover_start))
         return True
 
