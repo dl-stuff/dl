@@ -52,8 +52,8 @@ class Seimei(Adv):
         self.hitattr_make('fs_charge', 'fs', 'charge', 0, self.conf.fs.charge_attr)
 
     def fs_charge_proc(self, e):
-        self.charge_t.on()
-    
+        self.charge_t = Timer(self.charge_dmg, 0.5 / self.speed(), True)
+
     def fs_end_proc(self, e):
         self.charge_t.off()
 
