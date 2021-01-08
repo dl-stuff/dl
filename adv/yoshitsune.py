@@ -6,7 +6,8 @@ class Yoshitsune(Adv):
     def prerun(self):
         Event('dodge').listener(self.l_dodge_attack, order=0)
         self.dodge_aspd = Selfbuff('dodge_aspd', 0.10, 30, 'spd', 'buff').ex_bufftime()
-        self.a1_cd = False
+        # self.a1_cd = False
+        self.a1_cd = True
 
     def a1_cd_end(self, _):
         self.a1_cd = False
