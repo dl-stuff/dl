@@ -870,3 +870,22 @@ class Poised_Buff(Ability):
         adv.Event('buff').listener(l_poised_buff)
 
 ability_dict['poised'] = Poised_Buff
+
+
+class Dodge_Buff(BuffingAbility):
+    D_CD = 14.999
+    def __init__(self, name, value, duration=None):
+        super().__init__(name, value, duration or 15)
+        self.is_cd = False
+
+    def oninit(self, adv, afrom=None):
+        def cd_end(t):
+            self.is_cd = False
+        def l_dodge_buff(e):
+            if not self.is_cd:
+                adv.Buff(*self.buff_args).on()
+                self.is_cd = True
+                adv.Timer(cd_end).on(self.D_CD)
+        adv.Event('dodge').listener(l_dodge_buff)
+
+ability_dict['dodge'] = Dodge_Buff
