@@ -1,7 +1,7 @@
 {
   "180": {
     "affliction": {
-      "dps": 92520.67151895813,
+      "dps": 93949.40728820133,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,42 +13,11 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-s-c2-dodge-c3-end), s and not s=1",
-        "`s3, not buff(s3) and (s1.sp-s1.charged)<=180",
-        "`s2, s1.check()",
-        "`s1",
-        "`s4",
-        "`fs"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Gala_Mym"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "base": {
-      "dps": 86661.15689216195,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "Valiant_Crown",
-        "Enter_the_Blue_Rose",
-        "The_Warrioresses"
-      ],
-      "slots.d": "Gozu_Tenno",
-      "acl": [
-        "`dragon(s-s-end), s",
+        "`dragon(c1-s-c3-c3-s-c3-end), s=1 or s=2",
         "`s3, not buff(s3)",
-        "`s4",
         "`s1",
-        "`s2",
+        "`s2, s=1",
+        "`s4",
         "`fs"
       ],
       "coabs": [
@@ -58,13 +27,44 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Formal_Joachim"
+      ]
+    },
+    "pref": "base",
+    "base": {
+      "dps": 89636.69631180503,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon(c1-s-c3-c3-s-c3-end), s",
+        "`s3, not buff(s3) and s1.check()",
+        "`s1",
+        "`s2, s=1",
+        "`s4",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Mym",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "buffer": {
       "dps": 8926.610655664159,
       "team": 0.6227690416635033,
-      "tdps": 124820.8260784093,
+      "tdps": 129598.74408745967,
       "slots.a": [
         "Dazzling_Duet",
         "Honest_Repose",
@@ -90,23 +90,23 @@
       ]
     },
     "mono_base": {
-      "dps": 86661.15689216195,
+      "dps": 89636.69631180503,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "Valiant_Crown",
-        "Enter_the_Blue_Rose",
+        "The_Plaguebringer",
         "The_Warrioresses"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(s-s-end), s",
-        "`s3, not buff(s3)",
-        "`s4",
+        "`dragon(c1-s-c3-c3-s-c3-end), s",
+        "`s3, not buff(s3) and s1.check()",
         "`s1",
-        "`s2",
+        "`s2, s=1",
+        "`s4",
         "`fs"
       ],
       "coabs": [
@@ -116,11 +116,11 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Formal_Joachim"
       ]
     },
     "mono_affliction": {
-      "dps": 92520.67151895813,
+      "dps": 93949.40728820133,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -132,17 +132,17 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-s-c2-dodge-c3-end), s and not s=1",
-        "`s3, not buff(s3) and (s1.sp-s1.charged)<=180",
-        "`s2, s1.check()",
+        "`dragon(c1-s-c3-c3-s-c3-end), s=1 or s=2",
+        "`s3, not buff(s3)",
         "`s1",
+        "`s2, s=1",
         "`s4",
         "`fs"
       ],
       "coabs": [
         "Blade",
-        "Wand",
-        "Gala_Mym"
+        "Gala_Mym",
+        "Serena"
       ],
       "share": [
         "Weapon",
@@ -152,7 +152,7 @@
     "mono_buffer": {
       "dps": 54943.23986778228,
       "team": 0.08330241888010491,
-      "tdps": 380756.2547497027,
+      "tdps": 416475.9788543017,
       "slots.a": [
         "Felyne_Hospitality",
         "Memory_of_a_Friend",

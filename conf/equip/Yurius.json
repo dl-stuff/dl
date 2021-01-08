@@ -35,40 +35,43 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 65058.63881330119,
+      "dps": 68081.25628877978,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "The_Cutie_Competition",
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "if aff(frostbite)",
-        "`dragon, not dragondrive.get()",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
+        "`dragon, not dragondrive.get() and x=3",
+        "if dragondrive.get()",
+        "`s4",
+        "`s2",
+        "`s1",
+        "else",
+        "`s1",
+        "`s2",
+        "end"
       ],
       "coabs": [
-        "Blade",
         "Hunter_Sarisse",
-        "Xander"
+        "Xander",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Leonidas"
       ]
     },
     "buffer": {
-      "dps": 43713.74684761562,
-      "team": 0.194920082766066,
-      "tdps": 56884.8365361325,
+      "dps": 43770.43206073118,
+      "team": 0.19492008276606615,
+      "tdps": 56594.02395124559,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -132,40 +135,44 @@
       ]
     },
     "mono_affliction": {
-      "dps": 65058.63881330119,
+      "dps": 68081.25628877978,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "The_Cutie_Competition",
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "if aff(frostbite)",
-        "`dragon, not dragondrive.get()",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
+        "`dragon, not dragondrive.get() and x=3 and dragonform.shift_count=0",
+        "`dragon, not dragondrive.get() and dragonform.shift_count=1",
+        "if dragondrive.get()",
+        "`s4",
+        "`s2",
+        "`s1",
+        "else",
+        "`s1",
+        "`s2",
+        "end"
       ],
       "coabs": [
-        "Blade",
         "Hunter_Sarisse",
-        "Xander"
+        "Xander",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Leonidas"
       ]
     },
     "mono_buffer": {
-      "dps": 43713.74684761562,
-      "team": 0.194920082766066,
-      "tdps": 56884.8365361325,
+      "dps": 43770.43206073118,
+      "team": 0.19492008276606615,
+      "tdps": 56594.02395124559,
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",

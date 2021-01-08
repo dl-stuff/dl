@@ -18,7 +18,7 @@
         "`s4, fsc",
         "`s1, fsc",
         "`dodge, fsc",
-        "`fs",
+        "`fs, x=3 or dodge",
         "else",
         "`dragon(c3-s-end), dragonform.shift_count=0",
         "`dragon(c5-s-end), dragonform.shift_count=1",
@@ -121,10 +121,6 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "if not gourmand_mode.get()",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c5-s-end), dragonform.shift_count=1",
-        "end",
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
         "`s4, fsc",
@@ -132,6 +128,8 @@
         "`dodge, fsc",
         "`fs",
         "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c5-s-end), dragonform.shift_count=1",
         "`s2",
         "`fs, x=1",
         "end"
@@ -147,7 +145,7 @@
       ]
     },
     "mono_base": {
-      "dps": 88684.90280964375,
+      "dps": 88980.82894952397,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -159,7 +157,6 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c3-s-end), not gourmand_mode.get()",
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
         "`s4, fsc",
@@ -167,13 +164,15 @@
         "`dodge, fsc",
         "`fs",
         "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c5-s-end), dragonform.shift_count=1",
         "`s2",
         "`fs, x=1",
         "end"
       ],
       "coabs": [
         "Blade",
-        "Fritz",
+        "Mitsuhide",
         "Peony"
       ],
       "share": [
@@ -184,7 +183,7 @@
     "mono_buffer": {
       "dps": 57135.694904625976,
       "team": 0.13438553519363636,
-      "tdps": 234766.3969902599,
+      "tdps": 236968.46538589356,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",

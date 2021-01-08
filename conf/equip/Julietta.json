@@ -149,7 +149,39 @@
         "Weapon",
         "Hunter_Sarisse"
       ]
-    }
+    },
+    "mono_buffer": {
+      "dps": 55647.141858239695,
+      "team": 0.03748886788895178,
+      "tdps": 189159.6814761902,
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "FirstRate_Hospitality",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon(c10-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c6-s-end), dragonform.shift_count=1 and energy()=4",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, x=2 and (energy()<5 and not buff(s4))",
+        "`fs, c_fs(enhanced) and ((energy()>1 and x=4) or (charged_in(fs, s1) and (x=2 and energy()=5)))"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "mono_pref": "mono_base"
   },
   "60": {
     "base": {
@@ -268,5 +300,9 @@
         "Kleimann"
       ]
     }
+  },
+  "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }

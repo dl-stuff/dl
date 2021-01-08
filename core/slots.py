@@ -254,7 +254,7 @@ class Gozu_Tenno(DragonBase):
             if isinstance(fs_action, Repeat):
                 fs_action = fs_action.parent
             fs_elapsed = now() - fs_action.startup_start
-            if fs_elapsed > 3.0:
+            if fs_elapsed >= 3.0:
                 adv.gozu_tenno_buff.on()
         adv.Event('fs_end').listener(fs_end, order=0)
         adv.Event('repeat').listener(fs_end, order=0)
@@ -461,7 +461,7 @@ class Gold_Fafnir(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         # disabled for convienance
-        adv.dragonform.disabled = True        
+        adv.dragonform.disabled = True
 ### SHADOW DRAGONS ###
 
 
