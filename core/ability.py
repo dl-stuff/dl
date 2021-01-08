@@ -883,7 +883,7 @@ class Dodge_Buff(BuffingAbility):
             self.is_cd = False
         def l_dodge_buff(e):
             if not self.is_cd:
-                adv.Buff(*self.buff_args).on()
+                adv.Buff(*self.buff_args, source='dodge').on()
                 self.is_cd = True
                 adv.Timer(cd_end).on(self.D_CD)
         adv.Event('dodge').listener(l_dodge_buff)
