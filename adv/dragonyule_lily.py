@@ -5,13 +5,9 @@ class Dragonyule_Lily(Adv):
     comment = 's1 overdamage team buff not considered'
     def prerun(self):
         self.starfall_strength = 0
-        self.sum_echo_att = 0
 
     def fs_dragonyulelily_proc(self, e):
         self.starfall_strength = min(3, self.starfall_strength+1)
-
-    def s1_proc(self, e):
-        self.sum_echo_att += self.echo_att
 
     def s2_proc(self, e):
         self.starfall_strength = 0

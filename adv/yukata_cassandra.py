@@ -4,10 +4,6 @@ class Yukata_Cassandra(Adv):
     comment = 's1 overdamage team buff not considered'
     def prerun(self):
         self.a3_att_mod = Modifier('a3_att', 'att', 'passive', 0.30, get=self.a3_get)
-        self.sum_echo_att = 0
-
-    def s1_proc(self, e):
-        self.sum_echo_att += self.echo_att
 
     def a3_get(self):
         return self.s2.sp == self.s2.charged
