@@ -1063,9 +1063,9 @@ class Adv(object):
             self.echo_att = new_att
             log('debug', 'echo_att', self.echo_att)
             try:
-                self.sum_echo_act += new_att
+                self.sum_echo_att += new_att
             except AttributeError:
-                self.sum_echo_act = new_att
+                self.sum_echo_att = new_att
             return True
         return False
 

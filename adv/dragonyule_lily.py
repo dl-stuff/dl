@@ -16,7 +16,7 @@ class Dragonyule_Lily(Adv):
         try:
             average_echo_att = self.sum_echo_att / g_logs.counts['s']['s1']
             self.comment += f'; {average_echo_att:.2f} avg overdamage att'
-        except KeyError:
+        except (KeyError, AttributeError):
             pass
 
 variants = {None: Dragonyule_Lily}
