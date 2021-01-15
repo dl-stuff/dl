@@ -419,6 +419,8 @@ class Repeat(Action):
         self.end_repeat_event.group = self.parent.act_event.group
         self.end_repeat_event.end = True
         self.index = 0
+        self.extra_charge = None
+        self.index0_time = None
 
     def can_ic(self, target, can):
         if target == self.parent.name:
@@ -436,6 +438,7 @@ class Repeat(Action):
 
     def __call__(self):
         self.index = 0
+        self.index0_time = now()
         self.tap()
 
     def _cb_act_end(self, e):
@@ -444,7 +447,10 @@ class Repeat(Action):
     def tap(self, t=None):
         self.index += 1
         self._static.doing = self.nop
-        super().tap()
+        if self.extra_charge is not None and now() - self.index0_time > self.extra_charge:
+            self.end_repeat_event.on()
+        else:
+            super().tap()
 
 
 class X(Action):
@@ -532,6 +538,9 @@ class Fs(Action):
 
     @property
     def _charge(self):
+        if self.act_repeat is not None:
+            self.act_repeat.extra_charge = self.extra_charge
+            return self.conf.charge
         return self.conf.charge + self.extra_charge
 
     @property
