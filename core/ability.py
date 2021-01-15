@@ -738,7 +738,8 @@ class ComboProcAbility(Ability):
             self.ehit = 0
             def add_combo(name='#'):
                 result = self.add_combo_o(name)
-                if adv.hits == 0:
+                if not result:
+                    self.combo_reset_cb()
                     self.ehit == 0
                 else:
                     n_ehit = adv.hits // self.threshold
@@ -750,6 +751,9 @@ class ComboProcAbility(Ability):
 
     def combo_proc_cb(self, adv, delta):
         raise NotImplementedError('combo_proc_cb')
+
+    def combo_reset_cb(self):
+        pass
 
 class Energy_Combo(ComboProcAbility):
     def combo_proc_cb(self, adv, delta):
@@ -763,6 +767,23 @@ class DPrep_Combo(ComboProcAbility):
         adv.dragonform.charge_gauge(delta*30, dhaste=False)
 
 ability_dict['dpcombo'] = DPrep_Combo
+
+
+class Crit_Combo_Resetable(ComboProcAbility):
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom=afrom)
+        self.combo_crit_buffs = []
+
+    def combo_proc_cb(self, adv, delta):
+        if len(self.combo_crit_buffs) < 20:
+            self.combo_crit_buffs.append(adv.Selfbuff(self.name, 0.01, -1, 'crit', 'chance').on())
+
+    def combo_reset_cb(self):
+        for buff in self.combo_crit_buffs:
+            buff.off()
+        self.combo_crit_buffs = []
+
+ability_dict['critcombo'] = Crit_Combo_Resetable
 
 
 class Skill_Recharge(Ability):

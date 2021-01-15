@@ -156,6 +156,7 @@ class Action(object):
         'doing': 0,
         'spd_func': 0,
         'c_spd_func': 0,
+        'f_spd_func': 0,
         'actmod_off': 0,
         'pin': 'idle',
     })
@@ -192,6 +193,8 @@ class Action(object):
             self._static.spd_func = self.nospeed
         if not self._static.c_spd_func:
             self._static.c_spd_func = self.nospeed
+        if not self._static.f_spd_func:
+            self._static.f_spd_func = self.nospeed
         if not self._static.doing:
             self._static.doing = self.nop
         if not self._static.prev:
@@ -542,6 +545,9 @@ class Fs(Action):
     def charge_speed(self):
         return self._static.c_spd_func()
 
+    def speed(self):
+        return self._static.f_spd_func() - 1 + super().speed()
+
     def getstartup(self):
         prev = self.getprev()
         if prev == self:
@@ -737,6 +743,7 @@ class Adv(object):
         self.action = Action()
         self.action._static.spd_func = self.speed
         self.action._static.c_spd_func = self.c_speed
+        self.action._static.f_spd_func = self.f_speed
         self.action._static.actmod_off = self.actmod_off
         # set buff
         self.base_buff = Buff()
@@ -1055,6 +1062,10 @@ class Adv(object):
     @allow_acl
     def c_speed(self):
         return min(1+self.sub_mod('cspd', 'passive'), 1.50)
+
+    @allow_acl
+    def f_speed(self):
+        return min(1+self.sub_mod('fspd', 'passive'), 1.50)
 
     def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2

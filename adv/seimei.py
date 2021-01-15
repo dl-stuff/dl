@@ -11,9 +11,6 @@ class Seimei(Adv):
         self.acount = 0
         o_s2_check = self.a_s_dict['s2'].check
         self.a_s_dict['s2'].check = lambda: o_s2_check() and (self.shikigami_lv>0)
-        self.charge_t = Timer(self.charge_dmg, 0.5, True).off()
-        Event('fs_start').listener(self.fs_charge_proc)
-        Event('fs_end').listener(self.fs_end_proc)
 
     def charge_gauge(self, value, **kwargs):
         delta = self.dragonform.charge_gauge(value, **kwargs)
@@ -47,15 +44,6 @@ class Seimei(Adv):
             self.hitattr_make('#shikigami_lv2', '#', '#', 0, self.conf.s1.shikigami.lv2)
             self.shikigami_gauge -= 4
             log('shikigami', 'gauge', self.shikigami_gauge)
-
-    def charge_dmg(self, t):
-        self.hitattr_make('fs_charge', 'fs', 'charge', 0, self.conf.fs.charge_attr)
-
-    def fs_charge_proc(self, e):
-        self.charge_t = Timer(self.charge_dmg, 0.5 / self.speed(), True).on()
-
-    def fs_end_proc(self, e):
-        self.charge_t.off()
 
     def shikigami_on(self):
         self.shikigami_t.on()
