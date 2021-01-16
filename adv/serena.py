@@ -23,8 +23,9 @@ class Serena(Adv):
                 a_dict['count'] = a_hits
 
     def add_combo(self, name='#'):
-        kept_combo = super().add_combo(name)
-        self.update_a(self.a1_dict, kept_combo)
-        self.update_a(self.a3_dict, kept_combo)
+        result = super().add_combo(name)
+        self.update_a(self.a1_dict, result)
+        self.update_a(self.a3_dict, result)
+        return result
 
 variants = {None: Serena}

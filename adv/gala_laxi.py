@@ -151,8 +151,8 @@ class Gala_Laxi(Adv):
             log('galaxi', 'cp', self.a1_cp)
 
     def add_combo(self, name='#'):
-        kept_combo = super().add_combo(name)
-        if not kept_combo:
+        result = super().add_combo(name)
+        if not result:
             for c in self.a3_crit_buffs:
                 c.off()
             self.a3_crit_buffs = []
@@ -161,6 +161,7 @@ class Gala_Laxi(Adv):
         a_hits = self.hits // 15
         if len(self.a3_crit_buffs) < 3 and self.condition('always connect hits') and a_hits > len(self.a3_crit_buffs):
             self.a3_crit_buffs.append(Selfbuff('a3_crit_chance',0.04,-1,'crit','chance').on())
+        return result
 
     def s2_proc(self, e):
         if e.group == 'default':

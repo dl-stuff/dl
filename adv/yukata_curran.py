@@ -7,12 +7,13 @@ class Yukata_Curran(Adv):
         self.comment = f'assume {self.conf.attenuation.hits+1} hits per s1 bullet'
 
     def add_combo(self, name='#'):
-        super().add_combo(name)
+        result = super().add_combo(name)
         if name.startswith('s1'):
             self.s1_ehits += 1
         if self.s1_ehits >= 10:
             self.s1_ehits -= 10
             self.energy.add(5, queue=True)
+        return result
 
 class Yukata_Curran_ALL(Yukata_Curran):
     conf = {'attenuation.hits': 5}

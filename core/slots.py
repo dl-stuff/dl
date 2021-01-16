@@ -421,12 +421,13 @@ class Gala_Cat_Sith(DragonBase):
             add_combo_o = adv.add_combo
             self.thit = 0
             def add_combo(name='#'):
-                add_combo_o(name)
+                result = add_combo_o(name)
                 n_thit = adv.hits // threshold
                 if n_thit > self.thit:
                     add_trickery(1)
                 self.thit = n_thit
                 check_trickery()
+                return result
             adv.add_combo = add_combo
 
 class Fatalis(DragonBase):

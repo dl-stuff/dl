@@ -12,10 +12,11 @@ class Lapis(Adv):
             self.bullets.append(Selfbuff('bullets',0.04,-1,'crit','chance').on())
 
     def add_combo(self, name='#'):
-        super().add_combo(name)
+        result = super().add_combo(name)
         if self.condition('always connect hits') and self.hits // 30 > self.bullet_c:
             self.add_bullet()
             self.bullet_c = self.hits // 30
+        return result
 
     def s1_proc(self, e):
         if e.name == 's1' and self.condition('always s1 dispel'):
