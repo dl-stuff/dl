@@ -446,7 +446,8 @@ class Repeat(Action):
 
     def tap(self, t=None):
         self.index += 1
-        self._static.doing = self.nop
+        if self._static.doing != self:
+            self._static.doing = self.nop
         if self.extra_charge is not None and now() - self.index0_time > self.extra_charge:
             self.end_repeat_event.on()
         else:
