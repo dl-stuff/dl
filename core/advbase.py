@@ -447,10 +447,11 @@ class Repeat(Action):
     def tap(self, t=None):
         self.index += 1
         self._static.doing = self.nop
-        if self.extra_charge is not None and now() - self.index0_time > self.extra_charge:
+        if self.extra_charge and now() - self.index0_time > self.extra_charge:
+            self.extra_charge = None
             self.end_repeat_event.on()
         else:
-            super().tap()
+            return super().tap()
 
 
 class X(Action):
@@ -539,7 +540,7 @@ class Fs(Action):
     @property
     def _charge(self):
         if self.act_repeat is not None:
-            self.act_repeat.extra_charge = self.extra_charge
+            self.act_repeat.extra_charge = self.extra_charge or None
             return self.conf.charge
         return self.conf.charge + self.extra_charge
 
