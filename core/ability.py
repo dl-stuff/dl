@@ -772,16 +772,13 @@ ability_dict['dpcombo'] = DPrep_Combo
 class Crit_Combo_Resetable(ComboProcAbility):
     def oninit(self, adv, afrom=None):
         super().oninit(adv, afrom=afrom)
-        self.combo_crit_buffs = []
+        self.combo_crit_mod = adv.Modifier(self.name, 'crit', 'chance', 0.0)
 
     def combo_proc_cb(self, adv, delta):
-        if len(self.combo_crit_buffs) < 20:
-            self.combo_crit_buffs.append(adv.Selfbuff(self.name, 0.01, -1, 'crit', 'chance').on())
+        self.combo_crit_mod.mod_value = min(0.20, (adv.hits // self.threshold) * 0.01)
 
     def combo_reset_cb(self):
-        for buff in self.combo_crit_buffs:
-            buff.off()
-        self.combo_crit_buffs = []
+        self.combo_crit_mod.mod_value = 0
 
 ability_dict['critcombo'] = Crit_Combo_Resetable
 
