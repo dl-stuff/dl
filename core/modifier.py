@@ -801,9 +801,9 @@ class EchoBuff(Buff):
         if self._static.adv.enable_echo(mod=self.echo_mod):
             return super().on(duration)
     
-    def off(self):
-        self._static.adv.adv.disable_echo()
-        return super().off(duration)
+    def effect_off(self):
+        super().effect_off()
+        self._static.adv.disable_echo()
 bufftype_dict['echo'] = EchoBuff
 
 

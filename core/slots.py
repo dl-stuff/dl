@@ -177,6 +177,7 @@ class EquipBase(SlotBase):
 
 
 class DragonBase(EquipBase):
+    AUGMENTS = 50
     FAFNIR = 0.115
     DEFAULT_DCONF = {
         'duration': 10, # 10s dragon time
