@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 105610.83304060127,
+      "dps": 106459.38913669293,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -19,7 +19,8 @@
         "`s4, fsc",
         "`fs, x=5",
         "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
-        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)",
+        "`fst(3), not buff(gozu_tenno_buff) and x = 5"
       ],
       "coabs": [
         "Yuya",
@@ -33,7 +34,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 118545.81160562891,
+      "dps": 119498.29695403462,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -50,8 +51,10 @@
         "`s2, x=5 or fsc",
         "`s4, fsc",
         "`fs, x=5",
-        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
-        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+        "`dragon(c1-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c1-s-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)",
+        "`fs, x = 5"
       ],
       "coabs": [
         "Yuya",
@@ -64,9 +67,9 @@
       ]
     },
     "buffer": {
-      "dps": 15798.747927145012,
-      "team": 0.16423118462738276,
-      "tdps": 546863.7720493043,
+      "dps": 15926.101668605637,
+      "team": 0.16423118462738256,
+      "tdps": 551255.1570123212,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
@@ -91,7 +94,7 @@
       ]
     },
     "mono_base": {
-      "dps": 105610.83304060127,
+      "dps": 106459.38913669293,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -109,7 +112,8 @@
         "`s4, fsc",
         "`fs, x=5",
         "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
-        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)",
+        "`fst(3), not buff(gozu_tenno_buff) and x = 5"
       ],
       "coabs": [
         "Yuya",
@@ -122,7 +126,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 118545.81160562891,
+      "dps": 119498.29695403462,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -139,8 +143,10 @@
         "`s2, x=5 or fsc",
         "`s4, fsc",
         "`fs, x=5",
-        "`dragon(c1-s-c3-end), dragonform.shift_count<=1",
-        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)"
+        "`dragon(c1-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c1-s-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-end), dragonform.shift_count>=2 and buff(s1)",
+        "`fs, x = 5"
       ],
       "coabs": [
         "Yuya",
@@ -155,7 +161,7 @@
     "mono_buffer": {
       "dps": 14864.895809457092,
       "team": 0.16423118462738276,
-      "tdps": 552549.9766504993,
+      "tdps": 557716.8156891197,
       "slots.a": [
         "Honest_Repose",
         "Jewels_of_the_Sun",
@@ -555,6 +561,30 @@
     "mono_pref": "mono_base"
   },
   "6": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "480": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "240": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "420": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "400": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "560": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "360": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

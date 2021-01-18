@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 89407.13713241235,
-      "team": 0.0874893642159735,
+      "dps": 82479.56991758315,
+      "team": 0.08051701720310835,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -13,10 +13,11 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon(c2-s-c3-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not s1_res_down.get() and (energy()<5 and buff(s3))",
-        "`s2, have_buff(gposeidon_buff)",
+        "`s4, s1.check() or s2.check()",
+        "`s1, s=2 or not have_buff(s1_res_down)",
+        "`s2",
         "`fs"
       ],
       "coabs": [
@@ -31,9 +32,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 13824.610884538017,
-      "team": 0.9557636556094685,
-      "tdps": 87049.13527564175,
+      "dps": 13935.085022572115,
+      "team": 0.9557636556094682,
+      "tdps": 78314.47947039948,
       "slots.a": [
         "Dazzling_Duet",
         "Gentle_Winds",
@@ -60,22 +61,23 @@
       ]
     },
     "affliction": {
-      "dps": 100017.6517175508,
-      "team": 0.08748936421597368,
+      "dps": 89723.7028958711,
+      "team": 0.17958209881373535,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
         "Valiant_Crown",
-        "His_Clever_Brother",
-        "Taiko_Tandem"
+        "Enter_the_Blue_Rose",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon(c1-s-c3-c3-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s1, not s1_res_down.get() and (energy()<5 and buff(s3)) and stronger_bullets<3",
-        "`s2, have_buff(gposeidon_buff)",
-        "`s4",
+        "`s4, not buff(s4) and energy()<5",
+        "`s1, s=2 or not have_buff(s1_res_down)",
+        "`s2, energy()=5",
         "`fs"
       ],
       "coabs": [
@@ -85,12 +87,12 @@
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Dragonyule_Lily"
       ]
     },
     "mono_base": {
-      "dps": 89407.13713241235,
-      "team": 0.0874893642159735,
+      "dps": 82479.56991758315,
+      "team": 0.08051701720310835,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -101,10 +103,11 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon(c2-s-c3-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not s1_res_down.get() and (energy()<5 and buff(s3))",
-        "`s2, have_buff(gposeidon_buff)",
+        "`s4, s1.check() or s2.check()",
+        "`s1, s=2 or not have_buff(s1_res_down)",
+        "`s2",
         "`fs"
       ],
       "coabs": [
@@ -120,7 +123,7 @@
     "mono_buffer": {
       "dps": 13173.559897897154,
       "team": 0.8374028273160341,
-      "tdps": 101656.49903039997,
+      "tdps": 91567.3263967595,
       "slots.a": [
         "Dazzling_Duet",
         "Gentle_Winds",
@@ -147,22 +150,23 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 100017.6517175508,
-      "team": 0.08748936421597368,
+      "dps": 89723.7028958711,
+      "team": 0.17958209881373535,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
         "Valiant_Crown",
-        "His_Clever_Brother",
-        "Taiko_Tandem"
+        "Enter_the_Blue_Rose",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon(c1-s-c3-c3-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s1, not s1_res_down.get() and (energy()<5 and buff(s3)) and stronger_bullets<3",
-        "`s2, have_buff(gposeidon_buff)",
-        "`s4",
+        "`s4, not buff(s4) and energy()<5",
+        "`s1, s=2 or not have_buff(s1_res_down)",
+        "`s2, energy()=5",
         "`fs"
       ],
       "coabs": [
@@ -172,7 +176,7 @@
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Dragonyule_Lily"
       ]
     }
   },
@@ -296,6 +300,14 @@
     }
   },
   "120": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "360": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "420": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

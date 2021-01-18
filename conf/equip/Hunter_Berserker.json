@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 70627.12480679501,
-      "team": 0.05076513716438371,
+      "dps": 71881.1886086321,
+      "team": 0.05076102266935937,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -13,7 +13,8 @@
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(s-c3-c3-end), fsc",
+        "`dragon(s-c3-c3-end), fsc and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), fsc and dragonform.shift_count>0",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, fsc",
@@ -66,38 +67,40 @@
       ]
     },
     "buffer": {
-      "dps": 45920.58645328455,
-      "team": 0.1269685642239596,
-      "tdps": 324218.2052284193,
+      "dps": 57092.337922240535,
+      "team": 0.17103935219983243,
+      "tdps": 122955.23843839837,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
         "The_Shining_Overlord",
-        "Flowers_Under_the_Moon",
-        "Lord_of_the_Skies"
+        "Snipers_Allure",
+        "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(s-s-c3-end), s",
+        "`dragon(s-c3-c3-end), fsc",
         "`s3, not buff(s3)",
-        "`s4, fsc",
+        "`s4",
         "`s1, fsc",
-        "`s2",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fst(4, 3), not have_buff(gozu_tenno_buff)",
         "`fs3"
       ],
       "coabs": [
         "Nobunaga",
-        "Gala_Laxi",
+        "Valentines_Hildegarde",
         "Grace"
       ],
       "share": [
         "Weapon",
-        "Emma"
+        "Cleo"
       ]
     },
     "mono_base": {
-      "dps": 70604.61059237205,
-      "team": 0.05076513716438371,
+      "dps": 70698.72400177455,
+      "team": 0.04949413488560555,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -108,7 +111,8 @@
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(s-c3-c3-end), fsc",
+        "`dragon(s-c3-c3-end), (fsc or s=1) and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), (fsc or s=1) and dragonform.shift_count>0",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, fsc",
@@ -119,8 +123,8 @@
       ],
       "coabs": [
         "Nobunaga",
-        "Emma",
-        "Valentines_Hildegarde"
+        "Yuya",
+        "Halloween_Mym"
       ],
       "share": [
         "Weapon",
@@ -130,7 +134,7 @@
     "mono_buffer": {
       "dps": 65089.02373161524,
       "team": 0.051149137063166934,
-      "tdps": 14363511.235898694,
+      "tdps": 3389542.5312521933,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -160,8 +164,8 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 70148.50041053016,
-      "team": 0.050214146518481176,
+      "dps": 77121.99632213383,
+      "team": 0.04909337422044704,
       "tdps": null,
       "slots.a": [
         "Me_and_My_Bestie",
@@ -183,6 +187,7 @@
       ],
       "coabs": [
         "Nobunaga",
+        "Yuya",
         "Halloween_Mym"
       ],
       "share": [
@@ -190,5 +195,9 @@
         "Formal_Joachim"
       ]
     }
+  },
+  "240": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }

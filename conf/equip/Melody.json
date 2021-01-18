@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 52352.858708069,
-      "team": 0.23277397746548417,
+      "dps": 53825.737984002386,
+      "team": 0.2327739774654839,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -23,7 +23,7 @@
       "coabs": [
         "Dragonyule_Xainfried",
         "Lin_You",
-        "Akasha"
+        "Dagger2"
       ],
       "share": [
         "Weapon",
@@ -32,9 +32,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 6593.033712654384,
-      "team": 1.3735782119852282,
-      "tdps": 40111.899667587226,
+      "dps": 6678.768871466538,
+      "team": 1.3735782119852287,
+      "tdps": 41327.834948284326,
       "slots.a": [
         "A_Dogs_Day",
         "Study_Rabbits",
@@ -61,36 +61,38 @@
       ]
     },
     "affliction": {
-      "dps": 15491.825998785867,
-      "team": 1.36077932239064,
+      "dps": 56918.45179245995,
+      "team": 0.21652171740584786,
       "tdps": null,
       "slots.a": [
-        "A_Dogs_Day",
-        "Summertime_Feeling_Feline",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Ariel",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`s3, s1.charged<(s1.sp/2) and s4.charged<(s4.sp/1.25)",
+        "`dragon",
+        "`s3, not buff(s3)",
         "`s1",
-        "`s4, s1.charged<(s1.sp/3)",
-        "`fs, xf=5"
+        "`s2",
+        "`s4, x=5 or fsc or s",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Dagger2"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Weapon",
+        "Pinon"
       ]
     },
     "mono_base": {
-      "dps": 52352.858708069,
-      "team": 0.23277397746548417,
+      "dps": 52792.337060287835,
+      "team": 0.2327739774654839,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -121,7 +123,7 @@
     "mono_buffer": {
       "dps": 6008.647129082199,
       "team": 1.3007719650539074,
-      "tdps": 43393.53830022999,
+      "tdps": 43805.035660081,
       "slots.a": [
         "A_Dogs_Day",
         "Study_Rabbits",
@@ -147,6 +149,36 @@
         "Patia"
       ]
     },
-    "mono_pref": "mono_base"
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 55825.247555398135,
+      "team": 0.2327739774654839,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Akasha"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    }
   }
 }

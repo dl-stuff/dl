@@ -1,12 +1,12 @@
 {
   "180": {
     "base": {
-      "dps": 63527.25553327391,
+      "dps": 64545.3614490676,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "Brothers_in_Arms",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Prince_of_Dragonyule",
         "From_Whence_He_Comes",
         "Bellathorna"
@@ -16,11 +16,12 @@
         "`dragon(c3-c3-s-c3-end), dragonform.shift_count=0 and s2.check()",
         "`dragon(c3-c3-c3-s-end), dragonform.shift_count>=1 and cancel",
         "`s3, not buff(s3)",
-        "`s2",
-        "`s4, x>3"
+        "`s2, cancel",
+        "`s4, x>3",
+        "`s1, x=5"
       ],
       "coabs": [
-        "Renee",
+        "Blade",
         "Summer_Celliera",
         "Tiki"
       ],
@@ -31,9 +32,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 12579.227478429384,
-      "team": 0.29775893725652663,
-      "tdps": 171104.94994463102,
+      "dps": 12673.682808435282,
+      "team": 0.29775893725652697,
+      "tdps": 174206.95787862627,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Once_in_a_Lifetime",
@@ -59,7 +60,7 @@
       ]
     },
     "affliction": {
-      "dps": 78612.6980951894,
+      "dps": 79310.58838572649,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -71,7 +72,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-c3-s-c2-end), cancel",
+        "`dragon(c3-c3-c3-s-c2-end), x>1",
         "`s3, not buff(s3)",
         "`s2, x=5 or energy()<5",
         "`s4, not energy()=5 and x>3"
@@ -87,12 +88,12 @@
       ]
     },
     "mono_base": {
-      "dps": 63527.25553327391,
+      "dps": 64545.3614490676,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "Brothers_in_Arms",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Prince_of_Dragonyule",
         "From_Whence_He_Comes",
         "Bellathorna"
@@ -102,11 +103,12 @@
         "`dragon(c3-c3-s-c3-end), dragonform.shift_count=0 and s2.check()",
         "`dragon(c3-c3-c3-s-end), dragonform.shift_count>=1 and cancel",
         "`s3, not buff(s3)",
-        "`s2",
-        "`s4, x>3"
+        "`s2, cancel",
+        "`s4, x>3",
+        "`s1, x=5"
       ],
       "coabs": [
-        "Renee",
+        "Blade",
         "Summer_Celliera",
         "Tiki"
       ],
@@ -116,7 +118,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 78612.6980951894,
+      "dps": 79310.58838572649,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -128,7 +130,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-c3-s-c2-end), cancel",
+        "`dragon(c3-c3-c3-s-c2-end), x>1",
         "`s3, not buff(s3)",
         "`s2, x=5 or energy()<5",
         "`s4, not energy()=5 and x>3"
@@ -146,7 +148,7 @@
     "mono_buffer": {
       "dps": 44358.902162231556,
       "team": 0.05998049967310613,
-      "tdps": 319576.42026175046,
+      "tdps": 336550.36881740385,
       "slots.a": [
         "Felyne_Hospitality",
         "Levins_Champion",

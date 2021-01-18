@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 51306.985832913684,
+      "dps": 48273.21544361892,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -24,9 +24,9 @@
         "end"
       ],
       "coabs": [
-        "Blade",
         "Marth",
-        "Gala_Laxi"
+        "Gala_Laxi",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -35,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 59477.145044063436,
+      "dps": 58019.782139558556,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -68,9 +68,9 @@
       ]
     },
     "buffer": {
-      "dps": 8537.408373751274,
-      "team": 0.318694645323951,
-      "tdps": 134202.37235453835,
+      "dps": 8601.373090522471,
+      "team": 0.3186946453239512,
+      "tdps": 124482.29970343637,
       "slots.a": [
         "Honest_Repose",
         "Sisters_Day_Out",
@@ -95,7 +95,7 @@
       ]
     },
     "mono_base": {
-      "dps": 51306.985832913684,
+      "dps": 53399.351683306246,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -119,8 +119,8 @@
       ],
       "coabs": [
         "Blade",
-        "Marth",
-        "Gala_Laxi"
+        "Gala_Laxi",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -159,6 +159,40 @@
         "Weapon",
         "Formal_Joachim"
       ]
-    }
+    },
+    "mono_buffer": {
+      "dps": 40752.48938749236,
+      "team": 0.07179758065656529,
+      "tdps": 176146.0787419644,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "Lord_of_the_Skies",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if bleed_stack>=3",
+        "`s2, c_x(metalblade) or c_x(default)",
+        "`s1, c_x(metalblade)",
+        "else",
+        "`s1, c_x(default) and s1.check_full()",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth",
+        "Gala_Laxi"
+      ],
+      "share": [
+        "Weapon",
+        "Ricardt"
+      ]
+    },
+    "mono_pref": "mono_base"
   }
 }

@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 101491.31726096277,
+      "dps": 102563.57235654988,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,8 +13,8 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`dragon(c2-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), dragonform.shift_count<=2 and cancel",
         "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
         "`s3, not buff(s3) and fsc",
         "`s2",
@@ -34,7 +34,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 109935.49293898379,
+      "dps": 110806.07757290445,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -68,7 +68,7 @@
     "buffer": {
       "dps": 76092.87118020246,
       "team": 0.21364778743193158,
-      "tdps": 118879.98647705292,
+      "tdps": 123898.78451131168,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -99,7 +99,7 @@
       ]
     },
     "mono_base": {
-      "dps": 101491.31726096277,
+      "dps": 102563.57235654988,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -111,8 +111,8 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`dragon(c2-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), dragonform.shift_count<=2 and cancel",
         "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
         "`s3, not buff(s3) and fsc",
         "`s2",
@@ -131,7 +131,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 109935.49293898379,
+      "dps": 110806.07757290445,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -165,7 +165,7 @@
     "mono_buffer": {
       "dps": 76092.87118020246,
       "team": 0.21364778743193158,
-      "tdps": 118879.98647705292,
+      "tdps": 123898.78451131168,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -230,43 +230,44 @@
         "Xander"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "base": {
-      "dps": 66497.3615989233,
-      "team": 0.0,
+      "dps": 67460.03467414335,
+      "team": 0.13784978680223464,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
-        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
-        "`s3, not buff(s3) and fsc",
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
+        "`s3, not buff(s3)",
         "`s2",
-        "`s1, cancel",
         "`s4, cancel",
+        "`s1, xf or fscf",
         "`fs, x=5"
       ],
       "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Bow"
+        "Blade",
+        "Bow",
+        "Cleo"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Lowen"
       ]
     },
     "buffer": {
-      "dps": 66929.66532531845,
-      "team": 0.13784978680223442,
-      "tdps": -3136.049292664907,
+      "dps": 67460.03467414335,
+      "team": 0.13784978680223464,
+      "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -297,41 +298,9 @@
       ]
     },
     "mono_base": {
-      "dps": 66497.3615989233,
-      "team": 0.0,
+      "dps": 67460.03467414335,
+      "team": 0.13784978680223464,
       "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
-        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Bow"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 66929.66532531845,
-      "team": 0.13784978680223442,
-      "tdps": -3136.049292664907,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -361,7 +330,40 @@
         "Lowen"
       ]
     },
-    "mono_pref": "mono_buffer",
+    "mono_buffer": {
+      "dps": 67460.03467414335,
+      "team": 0.13784978680223464,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel",
+        "`s1, xf or fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Lowen"
+      ]
+    },
+    "mono_pref": "mono_base",
     "mono_affliction": {
       "dps": 72867.24584166968,
       "team": 0.0,

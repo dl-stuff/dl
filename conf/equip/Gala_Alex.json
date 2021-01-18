@@ -1,25 +1,23 @@
 {
   "180": {
     "base": {
-      "dps": 85222.24698007903,
-      "team": 0.07596849713977426,
+      "dps": 87189.57995945185,
+      "team": 0.16878331835658983,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Luck_of_the_Draw",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), s",
         "`s3, not buff(s3)",
-        "if x=5 or s=4",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
-        "end"
+        "`s2, aff_timeleft(poison)<4 and (x=5 or s=4)",
+        "`s4, x=5 or s=4",
+        "`s1, sr.count>1 and (x=5 or s=4)"
       ],
       "coabs": [
         "Ieyasu",
@@ -28,13 +26,13 @@
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Dragonyule_Lily"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 87332.68524386726,
-      "team": 0.07607151898802034,
+      "dps": 89875.99699769494,
+      "team": 0.16853211276047736,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -61,13 +59,13 @@
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Dragonyule_Lily"
       ]
     },
     "buffer": {
-      "dps": 50118.39703108034,
-      "team": 0.17765742998144066,
-      "tdps": 345208.1654122257,
+      "dps": 50520.774884139886,
+      "team": 0.17765742998144082,
+      "tdps": 4132109.9649710194,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -92,25 +90,23 @@
       ]
     },
     "mono_base": {
-      "dps": 85222.24698007903,
-      "team": 0.07596849713977426,
+      "dps": 87189.57995945185,
+      "team": 0.16878331835658983,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Luck_of_the_Draw",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), s",
         "`s3, not buff(s3)",
-        "if x=5 or s=4",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
-        "end"
+        "`s2, aff_timeleft(poison)<4 and (x=5 or s=4)",
+        "`s4, x=5 or s=4",
+        "`s1, sr.count>1 and (x=5 or s=4)"
       ],
       "coabs": [
         "Ieyasu",
@@ -119,13 +115,13 @@
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Dragonyule_Lily"
       ]
     },
     "mono_buffer": {
-      "dps": 50118.39703108034,
-      "team": 0.17765742998144066,
-      "tdps": 345208.1654122257,
+      "dps": 50520.774884139886,
+      "team": 0.17765742998144082,
+      "tdps": 4132109.9649710194,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -151,8 +147,8 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 87332.68524386726,
-      "team": 0.07607151898802034,
+      "dps": 89875.99699769494,
+      "team": 0.16853211276047736,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -179,7 +175,7 @@
       ],
       "share": [
         "Weapon",
-        "Durant"
+        "Dragonyule_Lily"
       ]
     }
   },
@@ -378,6 +374,18 @@
     "mono_pref": "mono_base"
   },
   "120": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "600": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "500": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

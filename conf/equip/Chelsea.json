@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 70955.29995654868,
+      "dps": 72430.99177073382,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,8 +13,11 @@
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "if s2.check()",
-        "`dragon(s-s), hp<30",
+        "if s2.check() and dragonform.shift_count=0",
+        "`dragon(s), hp<30",
+        "end",
+        "if s2.check() and dragonform.shift_count>0",
+        "`dragon(c3-s), hp<30",
         "end",
         "`s3, not buff(s3)",
         "`s2",
@@ -24,9 +27,9 @@
         "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
-        "Blade",
         "Yukata_Cassandra",
-        "Serena"
+        "Serena",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -37,7 +40,7 @@
     "buffer": {
       "dps": 30609.477644989794,
       "team": 0.1220513884288127,
-      "tdps": 330564.2224225156,
+      "tdps": 342654.9641435395,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -65,13 +68,13 @@
       ]
     },
     "affliction": {
-      "dps": 80832.83141691027,
+      "dps": 81102.92587449777,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Forest_Bonds",
         "Me_and_My_Bestie",
-        "The_Synthetic_Dragon",
+        "Memory_of_a_Friend",
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
@@ -88,9 +91,9 @@
         "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
-        "Blade",
         "Yukata_Cassandra",
-        "Serena"
+        "Halloween_Mym",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -98,7 +101,7 @@
       ]
     },
     "mono_base": {
-      "dps": 70955.29995654868,
+      "dps": 72430.99177073382,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -110,8 +113,11 @@
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "if s2.check()",
-        "`dragon(s-s), hp<30",
+        "if s2.check() and dragonform.shift_count=0",
+        "`dragon(s), hp<30",
+        "end",
+        "if s2.check() and dragonform.shift_count>0",
+        "`dragon(c3-s), hp<30",
         "end",
         "`s3, not buff(s3)",
         "`s2",
@@ -121,9 +127,9 @@
         "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
-        "Blade",
         "Yukata_Cassandra",
-        "Serena"
+        "Serena",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -133,7 +139,7 @@
     "mono_buffer": {
       "dps": 30609.477644989794,
       "team": 0.1220513884288127,
-      "tdps": 330564.2224225156,
+      "tdps": 342654.9641435395,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -161,13 +167,13 @@
       ]
     },
     "mono_affliction": {
-      "dps": 80832.83141691027,
+      "dps": 81102.92587449777,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Forest_Bonds",
         "Me_and_My_Bestie",
-        "The_Synthetic_Dragon",
+        "Memory_of_a_Friend",
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
@@ -184,9 +190,9 @@
         "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
-        "Blade",
         "Yukata_Cassandra",
-        "Serena"
+        "Halloween_Mym",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",

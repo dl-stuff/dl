@@ -3,21 +3,21 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 73601.89932387296,
-      "team": 0.09469352176939204,
+      "dps": 75702.42876030628,
+      "team": 0.09418465565357666,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "Chariot_Drift",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(c3-s), cancel",
+        "`dragon(c3-s)",
         "`s3, not buff(s3)",
-        "`s2, self.shikigami.timeleft()<8",
+        "`s2, self.shikigami.timeleft()<6",
         "`s1,not have_buff(shikigami)",
         "`s4",
         "# For a character with unique FS you really don't want to FS that much, huh...",
@@ -27,8 +27,8 @@
       ],
       "coabs": [
         "Nobunaga",
-        "Emma",
-        "Valentines_Hildegarde"
+        "Valentines_Hildegarde",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -36,40 +36,9 @@
       ]
     },
     "buffer": {
-      "dps": 42626.81001685141,
-      "team": 0.21184456611618077,
-      "tdps": 264403.0147552895,
-      "slots.a": [
-        "Honest_Repose",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Amaterasu_Oblation",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, cancel",
-        "`s3, not buff(s3)",
-        "`s2, self.shikigami.timeleft()<8",
-        "`s1,not have_buff(shikigami)",
-        "`s4",
-        "#`fst(3),x=1 and not have_buff(gozu_tenno_buff)",
-        "`fst(3.1), self.shikigami_gauge<7"
-      ],
-      "coabs": [
-        "Nobunaga",
-        "Gala_Mym",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "mono_base": {
-      "dps": 73601.89932387296,
-      "team": 0.09469352176939204,
-      "tdps": null,
+      "dps": 53232.774766983726,
+      "team": 0.22738359052153959,
+      "tdps": 168692.44499286887,
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
@@ -79,9 +48,9 @@
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(c3-s), cancel",
+        "`dragon(c3-s)",
         "`s3, not buff(s3)",
-        "`s2, self.shikigami.timeleft()<8",
+        "`s2, self.shikigami.timeleft()<6",
         "`s1,not have_buff(shikigami)",
         "`s4",
         "# For a character with unique FS you really don't want to FS that much, huh...",
@@ -93,6 +62,39 @@
         "Nobunaga",
         "Emma",
         "Valentines_Hildegarde"
+      ],
+      "share": [
+        "Weapon",
+        "Ricardt"
+      ]
+    },
+    "mono_base": {
+      "dps": 75702.42876030628,
+      "team": 0.09418465565357666,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s2, self.shikigami.timeleft()<6",
+        "`s1,not have_buff(shikigami)",
+        "`s4",
+        "# For a character with unique FS you really don't want to FS that much, huh...",
+        "`fst(3),x=1 and not have_buff(gozu_tenno_buff)",
+        "# Use FS only when gauge is about to be depleted",
+        "`fst(3.1), self.shikigami_gauge<7"
+      ],
+      "coabs": [
+        "Nobunaga",
+        "Valentines_Hildegarde",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -100,60 +102,21 @@
       ]
     },
     "mono_buffer": {
-      "dps": 58080.365961409894,
-      "team": 0.2253694327674846,
-      "tdps": 118778.84182257301,
+      "dps": 53232.774766983726,
+      "team": 0.22738359052153959,
+      "tdps": 168692.44499286887,
       "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "The_Lurker_in_the_Woods",
-        "Lord_of_the_Skies",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gozu_Tenno",
-      "acl": [
-        "`dragon, cancel",
-        "`s3, not buff(s3)",
-        "if self.shikigami_lv==2 and self.shikigami.timeleft()<2",
-        "`s2",
-        "end",
-        "if not have_buff(shikigami)",
-        "`s1",
-        "end",
-        "`s4",
-        "if not have_buff(gozu_tenno_buff)",
-        "`fst(3),x=1",
-        "else",
-        "#`fst(900)",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Halloween_Mym",
-        "Dagger"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "affliction": {
-      "dps": 84512.98941633913,
-      "team": 0.09469352176939204,
-      "tdps": null,
-      "slots.a": [
+        "A_Man_Unchanging",
         "Candy_Couriers",
-        "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "The_Plaguebringer",
+        "Snipers_Allure",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(c3-s), cancel",
+        "`dragon(c3-s)",
         "`s3, not buff(s3)",
-        "`s2, self.shikigami.timeleft()<8",
+        "`s2, self.shikigami.timeleft()<6",
         "`s1,not have_buff(shikigami)",
         "`s4",
         "# For a character with unique FS you really don't want to FS that much, huh...",
@@ -165,6 +128,39 @@
         "Nobunaga",
         "Emma",
         "Valentines_Hildegarde"
+      ],
+      "share": [
+        "Weapon",
+        "Ricardt"
+      ]
+    },
+    "affliction": {
+      "dps": 86869.65255705173,
+      "team": 0.09418465565357666,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s2, self.shikigami.timeleft()<6",
+        "`s1,not have_buff(shikigami)",
+        "`s4",
+        "# For a character with unique FS you really don't want to FS that much, huh...",
+        "`fst(3),x=1 and not have_buff(gozu_tenno_buff)",
+        "# Use FS only when gauge is about to be depleted",
+        "`fst(3.1), self.shikigami_gauge<7"
+      ],
+      "coabs": [
+        "Nobunaga",
+        "Valentines_Hildegarde",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -172,8 +168,8 @@
       ]
     },
     "mono_affliction": {
-      "dps": 84512.98941633913,
-      "team": 0.09469352176939204,
+      "dps": 86869.65255705173,
+      "team": 0.09418465565357666,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -184,9 +180,9 @@
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(c3-s), cancel",
+        "`dragon(c3-s)",
         "`s3, not buff(s3)",
-        "`s2, self.shikigami.timeleft()<8",
+        "`s2, self.shikigami.timeleft()<6",
         "`s1,not have_buff(shikigami)",
         "`s4",
         "# For a character with unique FS you really don't want to FS that much, huh...",
@@ -196,8 +192,8 @@
       ],
       "coabs": [
         "Nobunaga",
-        "Emma",
-        "Valentines_Hildegarde"
+        "Valentines_Hildegarde",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
