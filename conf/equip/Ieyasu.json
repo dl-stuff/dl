@@ -1,14 +1,14 @@
 {
   "180": {
     "base": {
-      "dps": 70863.99539251374,
+      "dps": 71334.10774220768,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "Chariot_Drift",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -33,14 +33,14 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 35839.87498991791,
-      "team": 0.03744350591034522,
-      "tdps": 935385.7111152366,
+      "dps": 45246.8447347641,
+      "team": 0.11806954733062555,
+      "tdps": 220948.27664912134,
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Valiant_Crown",
-        "The_Plaguebringer",
+        "Chariot_Drift",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -50,20 +50,21 @@
         "`s2, xf=5",
         "`s4",
         "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
         "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
-        "Patia",
-        "Gala_Alex",
-        "Grace"
+        "Wand",
+        "Delphi",
+        "Axe2"
       ],
       "share": [
         "Weapon",
-        "Templar_Hope"
+        "Cleo"
       ]
     },
     "affliction": {
-      "dps": 79138.23615004562,
+      "dps": 74839.03619511094,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -79,7 +80,7 @@
         "`s1, buff(s3)",
         "`s2, xf=5",
         "`s4, cancel",
-        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fs, xf=2 and charged_in(fs, s1) and buff(s3)",
         "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
@@ -93,14 +94,14 @@
       ]
     },
     "mono_buffer": {
-      "dps": 35839.87498991791,
-      "team": 0.03744350591034522,
-      "tdps": 766558.7771929092,
+      "dps": 38206.03486176523,
+      "team": 0.11806954733062555,
+      "tdps": 223059.1107362624,
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Valiant_Crown",
-        "The_Plaguebringer",
+        "Chariot_Drift",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -110,16 +111,17 @@
         "`s2, xf=5",
         "`s4",
         "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
         "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
+        "Dagger",
         "Patia",
-        "Gala_Alex",
         "Grace"
       ],
       "share": [
         "Weapon",
-        "Templar_Hope"
+        "Cleo"
       ]
     },
     "mono_affliction": {
@@ -256,6 +258,14 @@
     "mono_pref": "mono_base"
   },
   "10": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "360": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "600": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

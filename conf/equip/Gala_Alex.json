@@ -1,38 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 88011.3211530883,
-      "team": 0.1687833183565902,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), s",
-        "`s3, not buff(s3)",
-        "`s2, aff_timeleft(poison)<4 and (x=5 or s=4)",
-        "`s4, x=5 or s=4",
-        "`s1, sr.count>1 and (x=5 or s=4)"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Wand",
-        "Delphi"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 91929.29367447033,
-      "team": 0.16856598910200354,
+      "dps": 91222.84616300896,
+      "team": 0.16942573924867502,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -43,14 +13,47 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), trickery<2",
+        "`dragon(c3-s-end), s=2",
         "`s3, not buff(s3)",
-        "if x=5 or s=4",
+        "if x=5 or s=4 or not buff(s3)",
         "`s2, aff_timeleft(poison)<4",
         "`s4",
         "`s1, sr.count>1",
         "end",
-        "`fs, hits=0"
+        "`fs, hits=0 or x=4 and not buff(s3)"
+      ],
+      "coabs": [
+        "Wand",
+        "Delphi",
+        "Heinwald"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 92005.42095741292,
+      "team": 0.16942573924867524,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), s=2",
+        "`s3, not buff(s3)",
+        "if x=5 or s=4 or not buff(s3)",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, hits=0 or x=4 and not buff(s3)"
       ],
       "coabs": [
         "Ieyasu",
@@ -63,92 +66,40 @@
       ]
     },
     "buffer": {
-      "dps": 51459.65654127878,
-      "team": 0.17765742998144105,
-      "tdps": 4118909.7181796865,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c1-s-end)",
-        "`s3, not buff(s3)",
-        "if x=5",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
-        "end"
-      ],
-      "coabs": [],
-      "share": [
-        "Weapon",
-        "Cleo"
-      ]
-    },
-    "mono_base": {
-      "dps": 88011.3211530883,
-      "team": 0.1687833183565902,
-      "tdps": null,
+      "dps": 42103.58640246198,
+      "team": 0.24337548321259772,
+      "tdps": 664224.8793249428,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Snipers_Allure",
+        "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Azazel",
       "acl": [
-        "`dragon(c3-s-end), s",
+        "`dragon(c3-s-end), s=2",
         "`s3, not buff(s3)",
-        "`s2, aff_timeleft(poison)<4 and (x=5 or s=4)",
-        "`s4, x=5 or s=4",
-        "`s1, sr.count>1 and (x=5 or s=4)"
+        "if x=5 or s=4 or not buff(s3)",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, hits=0 or x=4 and not buff(s3)"
       ],
       "coabs": [
-        "Ieyasu",
         "Wand",
-        "Delphi"
+        "Delphi",
+        "Heinwald"
       ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
-    "mono_buffer": {
-      "dps": 51459.65654127878,
-      "team": 0.17765742998144105,
-      "tdps": 4118909.7181796865,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c1-s-end)",
-        "`s3, not buff(s3)",
-        "if x=5",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
-        "end"
-      ],
-      "coabs": [],
-      "share": [
-        "Weapon",
-        "Cleo"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 91929.29367447033,
-      "team": 0.16856598910200354,
+    "mono_base": {
+      "dps": 91222.84616300896,
+      "team": 0.16942573924867502,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -159,14 +110,79 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), trickery<2",
+        "`dragon(c3-s-end), s=2",
         "`s3, not buff(s3)",
-        "if x=5 or s=4",
+        "if x=5 or s=4 or not buff(s3)",
         "`s2, aff_timeleft(poison)<4",
         "`s4",
         "`s1, sr.count>1",
         "end",
-        "`fs, hits=0"
+        "`fs, hits=0 or x=4 and not buff(s3)"
+      ],
+      "coabs": [
+        "Wand",
+        "Delphi",
+        "Heinwald"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 42879.33278780421,
+      "team": 0.24380256423488295,
+      "tdps": 649980.8695002688,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), s=2",
+        "`s3, not buff(s3)",
+        "if x=5 or s=4 or not buff(s3)",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, hits=0 or x=4 and not buff(s3)"
+      ],
+      "coabs": [
+        "Wand",
+        "Delphi",
+        "Heinwald"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 92005.42095741292,
+      "team": 0.16942573924867524,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), s=2",
+        "`s3, not buff(s3)",
+        "if x=5 or s=4 or not buff(s3)",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, hits=0 or x=4 and not buff(s3)"
       ],
       "coabs": [
         "Ieyasu",
@@ -382,6 +398,54 @@
     "mono_pref": "mono_base"
   },
   "500": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "480": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "169": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "164": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "120": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "140": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "133": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "420": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "510": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "240": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "360": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "540": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "400": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

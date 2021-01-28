@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 84000.26435855709,
+      "dps": 66435.30801065003,
       "team": 0.08051701720310814,
       "tdps": null,
       "slots.a": [
@@ -34,7 +34,7 @@
     "buffer": {
       "dps": 14192.858011318214,
       "team": 0.9557636556094682,
-      "tdps": 79757.41155012429,
+      "tdps": 59688.83250377782,
       "slots.a": [
         "Dazzling_Duet",
         "Gentle_Winds",
@@ -61,8 +61,8 @@
       ]
     },
     "affliction": {
-      "dps": 92381.71325538335,
-      "team": 0.18044676284220754,
+      "dps": 72813.5948991211,
+      "team": 0.09239681137772245,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -75,7 +75,7 @@
       "acl": [
         "`dragon(c1-s-c3-c3-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s4, not buff(s4) and energy()<5",
+        "`s4",
         "`s1, s=2 or not have_buff(s1_res_down)",
         "`s2, energy()=5",
         "`fs"
@@ -87,11 +87,11 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Durant"
       ]
     },
     "mono_base": {
-      "dps": 84000.26435855709,
+      "dps": 66435.30801065003,
       "team": 0.08051701720310814,
       "tdps": null,
       "slots.a": [
@@ -123,7 +123,7 @@
     "mono_buffer": {
       "dps": 13524.464934023197,
       "team": 0.8374028273160338,
-      "tdps": 93112.85597231511,
+      "tdps": 69905.97837834038,
       "slots.a": [
         "Dazzling_Duet",
         "Gentle_Winds",
@@ -150,8 +150,8 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 92381.71325538335,
-      "team": 0.18044676284220754,
+      "dps": 72813.5948991211,
+      "team": 0.09239681137772245,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -164,7 +164,7 @@
       "acl": [
         "`dragon(c1-s-c3-c3-c3-end), s=2",
         "`s3, not buff(s3)",
-        "`s4, not buff(s4) and energy()<5",
+        "`s4",
         "`s1, s=2 or not have_buff(s1_res_down)",
         "`s2, energy()=5",
         "`fs"
@@ -176,7 +176,7 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Durant"
       ]
     }
   },
@@ -210,7 +210,7 @@
         "Durant"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "affliction": {
       "dps": 89748.607560372,
       "team": 0.0721906270466843,
@@ -297,13 +297,82 @@
         "Weapon",
         "Durant"
       ]
-    }
+    },
+    "buffer": {
+      "dps": 75694.99703794622,
+      "team": 0.0651802389531671,
+      "tdps": -644923.5767788482,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Valiant_Crown",
+        "Enter_the_Blue_Rose",
+        "Taiko_Tandem"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c2-s-c3-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4, s1.check() or s2.check()",
+        "`s1, s=2 or not have_buff(s1_res_down)",
+        "`s2",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Durant"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 75694.99703794622,
+      "team": 0.0651802389531671,
+      "tdps": -644923.5767788482,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Valiant_Crown",
+        "Enter_the_Blue_Rose",
+        "Taiko_Tandem"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c2-s-c3-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4, s1.check() or s2.check()",
+        "`s1, s=2 or not have_buff(s1_res_down)",
+        "`s2",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Durant"
+      ]
+    },
+    "mono_pref": "mono_buffer"
   },
   "360": {
     "pref": "base",
     "mono_pref": "mono_base"
   },
   "420": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "40": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "600": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

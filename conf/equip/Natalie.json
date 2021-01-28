@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 96588.55222246819,
+      "dps": 99401.12532126218,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,11 +13,11 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=5 and trickery<=4",
-        "`s3, not buff(s3)",
-        "`s2, s=3 or x=5",
-        "`s1",
-        "`s4, cancel"
+        "`dragon(s-c3-c3-end), xf=5",
+        "`s3, not buff(s3) and xf=5",
+        "`s1, s=2 or hp<=20",
+        "`s2, xf=5",
+        "`s4, xf=5"
       ],
       "coabs": [
         "Wand",
@@ -31,7 +31,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 107718.06329124513,
+      "dps": 106212.56795752853,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -43,10 +43,10 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=5 and trickery<=1",
+        "`dragon(s-c3-c3-end), xf=5 and trickery<=3",
         "`s3, not buff(s3)",
-        "`s2, s=3 or x=5",
-        "`s1",
+        "`s2, x=5",
+        "`s1, hp<=30 or (xf=5 and hp>30)",
         "`s4"
       ],
       "coabs": [
@@ -62,7 +62,7 @@
     "buffer": {
       "dps": 30610.276441802882,
       "team": 0.12478145341878007,
-      "tdps": 528750.6594368241,
+      "tdps": 551290.652534634,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -84,7 +84,7 @@
       ]
     },
     "mono_base": {
-      "dps": 96588.55222246819,
+      "dps": 99401.12532126218,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -96,11 +96,11 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=5 and trickery<=4",
-        "`s3, not buff(s3)",
-        "`s2, s=3 or x=5",
-        "`s1",
-        "`s4, cancel"
+        "`dragon(s-c3-c3-end), xf=5",
+        "`s3, not buff(s3) and xf=5",
+        "`s1, s=2 or hp<=20",
+        "`s2, xf=5",
+        "`s4, xf=5"
       ],
       "coabs": [
         "Wand",
@@ -115,7 +115,7 @@
     "mono_buffer": {
       "dps": 30610.276441802882,
       "team": 0.12478145341878007,
-      "tdps": 528750.6594368241,
+      "tdps": 551290.652534634,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -137,7 +137,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 107718.06329124513,
+      "dps": 106212.56795752853,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -149,10 +149,10 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=5 and trickery<=1",
+        "`dragon(s-c3-c3-end), xf=5 and trickery<=3",
         "`s3, not buff(s3)",
-        "`s2, s=3 or x=5",
-        "`s1",
+        "`s2, x=5",
+        "`s1, hp<=30 or (xf=5 and hp>30)",
         "`s4"
       ],
       "coabs": [
@@ -285,6 +285,14 @@
     }
   },
   "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "10": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "600": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

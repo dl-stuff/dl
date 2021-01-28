@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 98996.43287879699,
-      "team": 0.11102635482546361,
+      "dps": 133617.21572571626,
+      "team": 0.1063459122231123,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -28,7 +28,7 @@
       ],
       "coabs": [
         "Yurius",
-        "Eugene",
+        "Summer_Celliera",
         "Tiki"
       ],
       "share": [
@@ -40,7 +40,7 @@
     "buffer": {
       "dps": 29763.44022531629,
       "team": 1.5165895784527055,
-      "tdps": 49256.4058945821,
+      "tdps": 73642.43356473416,
       "slots.a": [
         "Gentle_Winds",
         "Sisters_Day_Out",
@@ -71,45 +71,8 @@
       ]
     },
     "affliction": {
-      "dps": 103812.8601719227,
-      "team": 0.11107009744920113,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if s=4",
-        "queue dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-end);s1",
-        "end",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=1",
-        "end",
-        "`s3, not buff(s3) and fscf",
-        "`s4, dgauge>=500",
-        "`s2",
-        "`s1, fscf",
-        "`fs, charged_in(fs, s2)",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Yurius",
-        "Summer_Celliera",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
-      ]
-    },
-    "mono_base": {
-      "dps": 98996.43287879699,
-      "team": 0.11102635482546361,
+      "dps": 137725.25452789498,
+      "team": 0.1063459122231123,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -135,7 +98,43 @@
       ],
       "coabs": [
         "Yurius",
-        "Eugene",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_base": {
+      "dps": 133617.21572571626,
+      "team": 0.1063459122231123,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "if s=4",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c1-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
+        "end",
+        "`s3, not buff(s3,1) and fscf",
+        "`s1, fscf or dgauge>=500",
+        "`s4, dgauge>=500 and s=1",
+        "`s2",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
         "Tiki"
       ],
       "share": [
@@ -146,7 +145,7 @@
     "mono_buffer": {
       "dps": 27925.9571212403,
       "team": 1.2572891362893635,
-      "tdps": 62001.90471751347,
+      "tdps": 91830.12367115001,
       "slots.a": [
         "Gentle_Winds",
         "Sisters_Day_Out",
@@ -177,29 +176,28 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 103812.8601719227,
-      "team": 0.11107009744920113,
+      "dps": 137725.25452789498,
+      "team": 0.1063459122231123,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
         "if s=4",
-        "queue dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-end);s1",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c1-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
         "end",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=1",
-        "end",
-        "`s3, not buff(s3) and fscf",
-        "`s4, dgauge>=500",
+        "`s3, not buff(s3,1) and fscf",
+        "`s1, fscf or dgauge>=500",
+        "`s4, dgauge>=500 and s=1",
         "`s2",
-        "`s1, fscf",
-        "`fs, charged_in(fs, s2)",
         "`fs, x=5",
         "`dodge, fscf"
       ],
@@ -210,7 +208,7 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Julietta"
       ]
     }
   },

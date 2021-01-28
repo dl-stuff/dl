@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 77088.68774685146,
+      "dps": 73933.34315879089,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -70,7 +70,7 @@
     "buffer": {
       "dps": 52814.61944698458,
       "team": 0.11969564156243988,
-      "tdps": 202798.2638549473,
+      "tdps": 176436.86466887442,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -203,7 +203,7 @@
   },
   "60": {
     "affliction": {
-      "dps": 55880.7761838396,
+      "dps": 59297.78465697611,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -213,12 +213,13 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "# queue self.duration<=60",
         "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
         "# end",
         "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and duration>=120",
         "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
         "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
         "`s4, s or x=5",
@@ -366,7 +367,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 55880.7761838396,
+      "dps": 59297.78465697611,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -376,12 +377,13 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "# queue self.duration<=60",
         "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
         "# end",
         "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and duration>=120",
         "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
         "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
         "`s4, s or x=5",

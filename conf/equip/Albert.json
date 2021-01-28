@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 72695.62228144235,
+      "dps": 81146.75740977423,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -22,11 +22,10 @@
         "end",
         "else",
         "`dragon(c1-s-end), s2.charged>(s2.sp*(1/2)) and cancel",
-        "`s3, not buff(s3) and x=5",
+        "`s3, x=5",
         "`s2, charged_in(2, s1)",
         "`s4, cancel and not energy()=5",
         "`s1, not s2.charged>(s2.sp*(4/5)) and not energy()=5",
-        "`fs, x=5",
         "end"
       ],
       "coabs": [
@@ -43,7 +42,7 @@
     "buffer": {
       "dps": 8183.472031188681,
       "team": 0.42307827325718833,
-      "tdps": 152482.77760422096,
+      "tdps": 172458.12415952483,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -107,7 +106,7 @@
       ]
     },
     "mono_base": {
-      "dps": 72695.62228144235,
+      "dps": 81146.75740977423,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -128,11 +127,10 @@
         "end",
         "else",
         "`dragon(c1-s-end), s2.charged>(s2.sp*(1/2)) and cancel",
-        "`s3, not buff(s3) and x=5",
+        "`s3, x=5",
         "`s2, charged_in(2, s1)",
         "`s4, cancel and not energy()=5",
         "`s1, not s2.charged>(s2.sp*(4/5)) and not energy()=5",
-        "`fs, x=5",
         "end"
       ],
       "coabs": [
@@ -148,7 +146,7 @@
     "mono_buffer": {
       "dps": 7059.988322152237,
       "team": 0.37932320645855405,
-      "tdps": 173033.53141000526,
+      "tdps": 195313.04129613523,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -454,6 +452,10 @@
     "mono_pref": "mono_base"
   },
   "300": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "600": {
     "pref": "base",
     "mono_pref": "mono_base"
   }
