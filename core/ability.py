@@ -250,7 +250,9 @@ class BuffingAbility(Ability):
     def __init__(self, name, value, duration):
         self.buff_args = (name, value, duration, 'att', 'buff')
         if '_' in name:
-            self.buff_args = (name, value, duration, *name.split('_')[1:])
+            # how dum
+            extra_args = (arg.replace('-', '_') for arg in name.split('_')[1:])
+            self.buff_args = (name, value, duration, *extra_args)
         super().__init__(name)
 
 class Last_Buff(BuffingAbility):
@@ -873,7 +875,7 @@ ability_dict['damaged'] = Damaged_Buff
 class Poised_Buff(Ability):
     def __init__(self, name, value, passive=False):
         self.value = value
-        self.buff_args = name.split('_')[1:]
+        self.buff_args = (arg.replace('-', '_') for arg in name.split('_')[1:])
         self.passive = passive
         super().__init__(name)
 
