@@ -381,7 +381,8 @@ class Buff(object):
             if self.bufftype == 'team':
                 log('buff', 'doublebuff', 15 * self.bufftime())
 
-        if self.mod_type == 'regen':
+        # FIXME: heal formula 1day twust
+        if self.mod_type in ('regen', 'heal'):
             # may need to make this part global since game always regen all stacks at same ticks
             self.set_hp_event = Event('set_hp')
             self.set_hp_event.delta = self.get()

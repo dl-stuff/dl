@@ -1908,7 +1908,9 @@ class Adv(object):
                     self.set_hp(self.hp*value)
 
         if 'heal' in attr:
-            self.heal_event()
+            # self.heal_event()
+            # FIXME: heal formula 1day twust
+            self.set_hp(self.hp+attr['heal'])
 
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]
