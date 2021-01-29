@@ -100,20 +100,22 @@
                 "tier": 3,
                 "a": []
             },
-            "s3": {
+            "s3_phase1": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
+                "startup": 0.26667,
+                "recovery": 0.83333,
                 "attr": [
-                    {"buff": ["self", 0.4, -1, "att", "buff"], "iv": 0.16667},
-                    {"buff": ["sAlt", "enhanced", "s3", -1, 1], "iv": 0.16667}
+                    {"buff": [["self", 0.4, -1, "att", "buff"], ["ability", 1.0, -1, "ctime", "passive"], "-replace"]}
                 ]
             },
-            "s3_enhanced": {
+            "s3_phase2": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
-                "energizable": true
+                "startup": 0.26667,
+                "recovery": 0.83333,
+                "energizable": true,
+                "attr": [
+                    {"buff": ["self", 0.05, -1, "regen", "buff", "-replace"]}
+                ]
             }
         }
     },
@@ -191,27 +193,26 @@
                 "tier": 2,
                 "a": []
             },
-            "s3": {
+            "s3_phase1": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
+                "startup": 0.26667,
+                "recovery": 0.83333,
                 "attr": [
-                    {"buff": ["self", 0.4, -1, "att", "buff"], "iv": 0.16667},
-                    {"buff": ["sAlt", "enhanced", "s3", -1, 1], "iv": 0.16667}
+                    {"buff": [["self", 0.4, -1, "att", "buff"], ["ability", 1.0, -1, "ctime", "passive"], "-replace"]}
                 ]
             },
-            "s3_enhanced": {
+            "s3_phase2": {
                 "sp": 3000,
                 "startup": 0.1,
                 "recovery": 1.93333,
                 "attr": [
-                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "dp": 100, "iv": 0.66667},
-                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.66667}, 4,
-                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.86667}, 5,
-                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.06667}, 5,
-                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.26667}, 5,
-                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.46667}, 5,
-                    {"buff": ["self", 0.1, -1, "sp", "passive"], "iv": 1.5}
+                    {"buff": ["self", 0.1, -1, "sp", "passive", "-replace"], "iv": 1.5},
+                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "dp": 100, "iv": 0.66667, "msl": 1},
+                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.66667, "msl": 1}, 4,
+                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 0.86667, "msl": 1}, 5,
+                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.06667, "msl": 1}, 5,
+                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.26667, "msl": 1}, 5,
+                    {"dmg": 0.44, "killer": [0.5, ["paralysis"]], "iv": 1.46667, "msl": 1}, 5
                 ]
             }
         }
@@ -290,21 +291,20 @@
                 "tier": 3,
                 "a": []
             },
-            "s3": {
+            "s3_phase1": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
+                "startup": 0.26667,
+                "recovery": 0.83333,
                 "attr": [
-                    {"buff": ["self", 0.3, -1, "spd", "passive"], "iv": 0.16667},
-                    {"buff": ["sAlt", "enhanced", "s3", -1, 1], "iv": 0.16667}
+                    {"buff": [["self", 0.3, -1, "spd", "passive"], ["ability", 0.05, -1, "crit", "chance"], "-replace"]}
                 ]
             },
-            "s3_enhanced": {
+            "s3_phase2": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
+                "startup": 0.26667,
+                "recovery": 0.83333,
                 "attr": [
-                    {"buff": ["self", 0.4, -1, "defense", "buff"], "iv": 0.16667}
+                    {"buff": ["self", 0.4, -1, "defense", "buff", "-replace"]}
                 ]
             }
         }
@@ -387,22 +387,20 @@
                 "tier": 2,
                 "a": []
             },
-            "s3": {
+            "s3_phase1": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
+                "startup": 0.26667,
+                "recovery": 0.83333,
                 "attr": [
-                    {"buff": ["self", 0.12, -1, "crit", "chance"], "iv": 0.16667},
-                    {"buff": ["self", 0.2, -1, "att", "buff"], "iv": 0.16667},
-                    {"buff": ["sAlt", "enhanced", "s3", -1, 1], "iv": 0.16667}
+                    {"buff": [["self", 0.2, -1, "att", "buff"], ["self", 0.12, -1, "crit", "chance"], ["ability", 1.0, -1, "ctime", "passive"], "-replace"]}
                 ]
             },
-            "s3_enhanced": {
+            "s3_phase2": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
+                "startup": 0.26667,
+                "recovery": 0.83333,
                 "attr": [
-                    {"buff": ["self", 0.35, -1, "defense", "buff"], "iv": 0.16667}
+                    {"buff": ["self", 0.35, -1, "defense", "buff", "-replace"]}
                 ]
             }
         }
@@ -485,21 +483,20 @@
                 "tier": 2,
                 "a": []
             },
-            "s3": {
+            "s3_phase1": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
+                "startup": 0.26667,
+                "recovery": 0.83333,
                 "attr": [
-                    {"buff": ["self", 0.4, -1, "att", "buff"], "iv": 0.16667},
-                    {"buff": ["sAlt", "enhanced", "s3", -1, 1], "iv": 0.16667}
+                    {"buff": [["self", 0.4, -1, "att", "buff"], ["ability", 1.0, -1, "ctime", "passive"], "-replace"]}
                 ]
             },
-            "s3_enhanced": {
+            "s3_phase2": {
                 "sp": 3000,
-                "startup": 0.1,
-                "recovery": 1.0,
+                "startup": 0.26667,
+                "recovery": 0.83333,
                 "attr": [
-                    {"buff": ["self", 0.5, -1, "defense", "buff"], "iv": 0.16667}
+                    {"buff": ["self", 0.5, -1, "defense", "buff", "-replace"]}
                 ]
             }
         }
