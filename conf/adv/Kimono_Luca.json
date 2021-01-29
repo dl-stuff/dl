@@ -14,14 +14,14 @@
         "startup": 0.26667,
         "recovery": 1.46667,
         "attr": [
-            {"dmg": 3.66, "sp": 480, "buff": ["debuff", -0.02, 10.0, 1.0, "attack"]}
+            {"dmg": 3.66, "sp": 480, "odmg": 1.61, "buff": ["debuff", -0.02, 10.0, 1.0, "attack"]}
         ],
         "repeat": {
             "startup": 0.0,
             "recovery": 1.46667,
             "attr": [
-                {"dmg": 3.66, "sp": 480},
-                {"dmg": 3.66, "sp": 480, "msl": 0.26667}
+                {"dmg": 3.66, "odmg": 1.61, "sp": 480},
+                {"dmg": 3.66, "odmg": 1.61, "sp": 480, "msl": 0.26667}
             ]
         },
         "interrupt": {"s": 0.0},
@@ -57,6 +57,9 @@
         "sp": 4958,
         "startup": 0.1,
         "recovery": 2.83333,
+        "attr": [
+            {"buff": ["team", 21.0, 60.0, "heal", "buff", "-refresh"], "iv": 0.93333}
+        ],
         "energizable": true
     }
 }

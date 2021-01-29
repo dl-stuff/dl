@@ -7,20 +7,25 @@
         "ele": "flame",
         "wt": "staff",
         "spiral": false,
-        "a": [["a", 0.2, "hp100"]]
+        "a": [["a", 0.2, "hp100"], ["a", 0.3]]
     },
     "s1": {
         "sp": 7734,
         "startup": 0.1,
         "recovery": 1.66667,
         "attr": [
-            {"buff": ["echo", 0.4, 30.0, "-refresh"], "iv": 1.0}
-        ]
+            {"buff": ["echo", 0.4, 30.0, "-refresh"], "iv": 1.0},
+            {"heal": 87, "iv": 1.0}
+        ],
+        "energizable": true
     },
     "s2": {
         "sp": 13188,
         "startup": 0.1,
         "recovery": 1.93333,
-        "energizable": true
+        "energizable": true,
+        "attr": [
+            {"buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 1.0}
+        ]
     }
 }
