@@ -127,7 +127,7 @@ def simc_adv_test():
         conf['hp'] = min(abs(int(params['hp'])), 100)
     if 'specialmode' in params:
         if params['specialmode'].startswith('berserk'):
-            conf['berserk'] = int(params['specialmode'].replace('berserk', ''))
+            conf['berserk'] = float(params['specialmode'].replace('berserk', ''))
         else:
             conf[params['specialmode']] = True
     if 'classbane' in params and (params['classbane'] in TRIBE_TYPES or params['classbane'] == 'HDT'):
