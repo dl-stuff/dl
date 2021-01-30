@@ -768,6 +768,7 @@ class Adv(object):
         self.modifier._static.g_condition = self.condition
         if self.conf['berserk']:
             Modifier('berserk_fs_odmg', 'fs', 'berserk', self.conf['berserk']-1)
+            Modifier('berserk_def', 'def', 'berserk', 3)
 
         # init actions
         for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z0-9]+)?$'):
