@@ -1612,6 +1612,10 @@ class Adv(object):
         if self.conf['fleet']:
             self.condition(f'with {self.conf["fleet"]} other {self.slots.c.name}')
 
+        if self.conf['berserk']:
+            self.condition('Agito Berserk Phase ODPS')
+            self.afflics.set_resist('immune')
+
         Event('idle')()
         end, reason = Timeline.run(self.duration)
         self.base_buff.count_team_buff()
@@ -1856,6 +1860,8 @@ class Adv(object):
                 attenuation = (attr['fade'], self.conf.attenuation.hits, hitmods)
             else:
                 attenuation = None
+            if self.conf['berserk'] and 'odmg' in attr:
+                hitmods.append(Modifier('odgauge', 'att', 'odgauge', attr['odmg']))
             for m in hitmods:
                 m.on()
             if 'extra' in attr:

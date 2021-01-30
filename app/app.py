@@ -125,8 +125,8 @@ def simc_adv_test():
             conf['missile_iv'] = missile
     if 'hp' in params:
         conf['hp'] = min(abs(int(params['hp'])), 100)
-    if 'dragonbattle' in params:
-        conf['dragonbattle'] = bool(params['dragonbattle'])
+    if 'specialmode' in params:
+        conf[params['specialmode']] = True
     if 'classbane' in params and (params['classbane'] in TRIBE_TYPES or params['classbane'] == 'HDT'):
         conf['classbane'] = params['classbane']
     if 'dumb' in params:

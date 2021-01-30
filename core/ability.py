@@ -146,14 +146,33 @@ class Broken_Punisher(Ability):
     EFFICIENCY = 0.15
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('att','bk',value*self.EFFICIENCY, cond)])
+    
+    def oninit(self, adv, afrom=None):
+        if not adv.conf['berserk']:
+            super().oninit(adv, afrom=afrom)
 ability_dict['bk'] = Broken_Punisher
 
 
 class Overdrive_Punisher(Ability):
     EFFICIENCY = 0.45
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('killer','passive',value*self.EFFICIENCY, cond)])
+        super().__init__(name, [('killer','passive',value, cond)])
+
+    def oninit(self, adv, afrom=None):
+        if not adv.conf['berserk']:
+            self.mod = ('killer','passive',value*self.EFFICIENCY, cond)
+        super().oninit(adv, afrom=afrom)
 ability_dict['od'] = Overdrive_Punisher
+
+
+class Gauge_Accelerator(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('hit', 'odaccel', value, cond)])
+
+    def oninit(self, adv, afrom=None):
+        if adv.conf['berserk']:
+            super().oninit(adv, afrom=afrom)
+ability_dict['odaccel'] = Overdrive_Punisher
 
 
 class Dragon_Damage(Ability):

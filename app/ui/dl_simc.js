@@ -282,8 +282,8 @@ function serConf(no_conf) {
     // if (!isNaN(parseInt($('#input-missile').val()))) {
     //     requestJson['missile'] = $('#input-missile').val();
     // }
-    if (!isNaN(parseInt($('#input-dragonbattle').val()))) {
-        requestJson['dragonbattle'] = $('#input-dragonbattle').val();
+    if (!isNaN(parseInt($('#input-specialmode').val()))) {
+        requestJson['specialmode'] = $('#input-specialmode').val();
     }
     if ($('#input-classbane').val()) {
         requestJson['classbane'] = $('#input-classbane').val();

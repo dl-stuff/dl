@@ -326,6 +326,11 @@ class Afflics(object):
             'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0, 'scorchrend': 0,
             'blind': 99, 'bog': 99, 'freeze': 99, 'stun': 99, 'sleep': 99
         },
+        'immune': {
+            'poison': 100, 'burn': 100, 'paralysis': 100,
+            'frostbite': 100, 'flashburn': 100, 'shadowblight': 100, 'stormlash': 100, 'scorchrend': 100,
+            'blind': 100, 'bog': 100, 'freeze': 100, 'stun': 100, 'sleep': 100
+        },
         'flame': { # Volk
             'poison': 0, 'burn': 0, 'paralysis': 100,
             'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0, 'scorchrend': 0,
