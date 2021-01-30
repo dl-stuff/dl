@@ -768,7 +768,6 @@ class Adv(object):
         self.modifier._static.g_condition = self.condition
         if self.conf['berserk']:
             Modifier('berserk_fs_odmg', 'fs', 'berserk', self.conf['berserk']-1)
-            Modifier('berserk_def', 'def', 'berserk', 3)
 
         # init actions
         for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z0-9]+)?$'):
@@ -1219,7 +1218,8 @@ class Adv(object):
     def def_mod(self):
         defa = min(1-self.mod('def', operator=operator.add), 0.5)
         defb = min(1-self.mod('defb', operator=operator.add), 0.3)
-        return 1 - min(defa+defb, 0.5)
+        berserk_def = 4 if self.conf['berserk'] else 1
+        return (1 - min(defa+defb, 0.5)) * berserk_def
 
     @allow_acl
     def sp_mod(self, name):
