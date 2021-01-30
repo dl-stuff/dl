@@ -1827,7 +1827,7 @@ class Adv(object):
         self.dmg_proc(name, count)
         if fixed:
             return count
-        if self.echo > 1:
+        if not self.conf['berserk'] and self.echo > 1:
             if attenuation is not None:
                 rate, pierce, hitmods = attenuation
                 echo_count = self.dmg_formula_echo(coef / (rate ** depth))
