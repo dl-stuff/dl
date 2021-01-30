@@ -1861,7 +1861,7 @@ class Adv(object):
             else:
                 attenuation = None
             if self.conf['berserk'] and 'odmg' in attr:
-                hitmods.append(Modifier('odgauge', 'att', 'odgauge', attr['odmg']))
+                hitmods.append(Modifier('odgauge', 'att', 'odgauge', attr['odmg']-1))
             for m in hitmods:
                 m.on()
             if 'extra' in attr:
