@@ -1005,7 +1005,11 @@ class Adv(object):
 
         # set afflic
         self.afflics = Afflics()
-        self.afflics.set_resist(self.conf.c.ele)
+        if self.conf['berserk']:
+            self.condition('Agito Berserk Phase ODPS')
+            self.afflics.set_resist('immune')
+        else:
+            self.afflics.set_resist(self.conf.c.ele)
         self.sim_afflict = set()
         self.afflic_condition()
         self.sim_affliction()
@@ -1611,10 +1615,6 @@ class Adv(object):
 
         if self.conf['fleet']:
             self.condition(f'with {self.conf["fleet"]} other {self.slots.c.name}')
-
-        if self.conf['berserk']:
-            self.condition('Agito Berserk Phase ODPS')
-            self.afflics.set_resist('immune')
 
         Event('idle')()
         end, reason = Timeline.run(self.duration)
