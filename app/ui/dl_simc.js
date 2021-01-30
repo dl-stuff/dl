@@ -282,7 +282,7 @@ function serConf(no_conf) {
     // if (!isNaN(parseInt($('#input-missile').val()))) {
     //     requestJson['missile'] = $('#input-missile').val();
     // }
-    if (!isNaN(parseInt($('#input-specialmode').val()))) {
+    if ($('#input-specialmode').val()) {
         requestJson['specialmode'] = $('#input-specialmode').val();
     }
     if ($('#input-classbane').val()) {
@@ -344,7 +344,7 @@ function loadConf(conf, slots) {
         $('#input-teamdps').val(conf.teamdps);
         localStorage.setItem('simc-teamdps', conf.teamdps);
     }
-    for (const key of ['t', 'hp', 'dragonbattle', 'classbane']) {
+    for (const key of ['t', 'hp', 'specialmode', 'classbane']) {
         if (conf[key]) {
             $('#input-' + key).val(conf[key]);
         }
@@ -1000,7 +1000,7 @@ function clearResults() {
         $('#input-sim-buff-' + key).val('');
     }
     $('#input-conditions').empty();
-    $('#input-dragonbattle').val('');
+    $('#input-specialmode').val('');
     $('#input-classbane').val('');
     $('#input-dumb').val('');
     $('#input-equip').val($('#input-equip').data('pref') || 'base');
