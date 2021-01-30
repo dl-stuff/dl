@@ -1008,7 +1008,7 @@ class Adv(object):
         # set afflic
         self.afflics = Afflics()
         if self.conf['berserk']:
-            self.condition('Agito Berserk Phase ODPS')
+            self.condition(f'Agito Berserk Phase ODPS (FS {self.conf.berserk:.0f}x)')
             self.afflics.set_resist('immune')
         else:
             self.afflics.set_resist(self.conf.c.ele)
