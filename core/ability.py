@@ -169,11 +169,7 @@ ability_dict['od'] = Overdrive_Punisher
 
 class Gauge_Accelerator(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('hit', 'odaccel', value, cond)])
-
-    def oninit(self, adv, afrom=None):
-        if adv.conf['berserk']:
-            super().oninit(adv, afrom=afrom)
+        super().__init__(name, [('odaccel', 'passive', value, cond)])
 ability_dict['odaccel'] = Overdrive_Punisher
 
 
@@ -238,8 +234,9 @@ class Co_Ability(Ability):
         'sword': [('dh','passive',0.15)],
         'axe2': [('crit','damage',0.30)],
         'dagger2': [('x','ex',0.20)],
-        'geuden': [('da','passive',0.10),('dt','passive',0.20)],
-        'megaman': [('killer','passive',0.15*Overdrive_Punisher.EFFICIENCY)],
+        'gun': [('odaccel', 'passive', 0.20)],
+        'geuden': [('da','passive',0.10), ('dt','passive',0.20)],
+        'megaman': [('killer','passive',0.15*Overdrive_Punisher.EFFICIENCY), ('odaccel', 'passive', 0.10)],
         'tobias': [('buff','ex',0.20)],
         'grace': [('fs','ex',0.20)],
         'sharena': [('paralysis_killer', 'passive', 0.08)],
@@ -247,7 +244,14 @@ class Co_Ability(Ability):
         'gleif': [('debuff_killer', 'passive', 0.08)]
     }
     def __init__(self, name, value):
+        self.coab_type = value
         super().__init__(name, self.EX_MAP[value])
+
+    def oninit(self, adv, afrom=None):
+        if adv.conf['berserk'] and self.coab_type == 'megaman':
+            self.mod = [('killer','passive',0.15), ('odaccel', 'passive', 0.10)]
+        super().oninit(adv, afrom=afrom)
+
 ability_dict['ex'] = Co_Ability
 
 
@@ -263,7 +267,13 @@ class Union_Ability(Ability):
         11: {2: [('buff','passive', 0.05)], 3: [('buff','passive', 0.08)], 4: [('buff','passive', 0.15)]},
     }
     def __init__(self, name, value, level):
+        self.union_id = value
+        self.union_lv = level
         super().__init__(name, self.UNION_MAP[value][level].copy())
+
+    def oninit(self, adv, afrom=None):
+        if not adv.conf['berserk'] or not (self.union_id == 3 and self.union_lv >= 4):
+            super().oninit(adv, afrom=afrom)
 ability_dict['union'] = Union_Ability
 
 

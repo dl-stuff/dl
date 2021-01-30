@@ -60,6 +60,7 @@ class Dot(object):
         self.quickshot_event.dmg_coef = self.coef
         self.quickshot_event.dname = self.name
         self.quickshot_event.dtype = self.dtype if self.dtype else self.name
+        self.quickshot_event.dot = True
         self.quickshot_event()
         self.tick_dmg = self.quickshot_event.dmg
         log('dot', self.name, 'start', '%f/%d' % (self.iv, self.duration))

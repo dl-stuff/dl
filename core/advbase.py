@@ -1047,9 +1047,12 @@ class Adv(object):
         elif name in ('ds', 'ds_final'):
             scope = 's'
 
+        if self.conf['berserk']:
+            mod *= self.mod('odaccel')
+
         if scope[0] == 's':
             try:
-                mod = 1 if name in ('ds', 'ds_final') or self.a_s_dict[scope].owner is None else self.skill_share_att
+                mod *= (1 if name in ('ds', 'ds_final') or self.a_s_dict[scope].owner is None else self.skill_share_att)
             except:
                 pass
             return mod * self.mod('s')
@@ -1771,10 +1774,13 @@ class Adv(object):
 
     def l_dmg_formula(self, e):
         name = e.dname
-        dmg_coef = e.dmg_coef
+        if self.conf['berserk'] and getattr(e, 'dot', False):
+            dmg_coef = 0
+        else:
+            dmg_coef = e.dmg_coef
         if hasattr(e, 'dtype'):
             name = e.dtype
-        if 'modifiers' in e.__dict__:
+        if hasattr(e, 'modifiers'):
             if e.modifiers != None and e.modifiers != 0:
                 self.all_modifiers = e.modifiers
         e.dmg = self.dmg_formula(name, dmg_coef)

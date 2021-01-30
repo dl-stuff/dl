@@ -14,6 +14,7 @@ class Bleed(Dot):
         self.quickshot_event.dmg_coef = dmg_coef
         self.quickshot_event.dname = f'o_{name}_bleed'
         self.quickshot_event.dtype = name
+        self.quickshot_event.dot = True
         self.dot_end_timer = Timer(self.dot_end_proc)
         self.true_dmg_event = Event('true_dmg')
         self.true_dmg_event.dname = f'o_{name}_bleed'
