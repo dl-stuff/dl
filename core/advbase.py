@@ -1906,7 +1906,7 @@ class Adv(object):
             self.dragonform.charge_gauge(attr['dp'])
 
         if 'utp' in attr:
-            self.dragonform.charge_gauge(attr['utp'], utp=True)
+            self.dragonform.charge_gauge(attr['utp'], utp=True, dh=attr['utp']>0)
 
         if 'hp' in attr:
             try:
