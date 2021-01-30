@@ -179,7 +179,8 @@
                         <select id="input-specialmode" class="form-control">
                             <option value="">None</option>
                             <option value="dragonbattle">Dragon Battle</option>
-                            <option value="berserk">Berserk</option>
+                            <option value="berserk5">Berserk Solo</option>
+                            <option value="berserk10">Berserk Coop</option>
                         </select>
                     </div>
                     <div class="col-sm col-4">
@@ -396,7 +397,8 @@
                     <div class="modal-body">
                         <ul>
                             <li>Each consists of an action, optionally followed by a comma and condition, e.g.
-                                <code>s1, x=5</code></li>
+                                <code>s1, x=5</code>
+                            </li>
                             <li>Lines starting with # is considered comment and not evaluated</li>
                             <li>` is a decorator that is removed from each line, this behavior exists due to
                                 historical
