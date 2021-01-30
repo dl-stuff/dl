@@ -766,6 +766,8 @@ class Adv(object):
         self.all_modifiers = ModifierDict()
         self.modifier._static.all_modifiers = self.all_modifiers
         self.modifier._static.g_condition = self.condition
+        if self.conf['berserk']:
+            Modifier('berserk_fs_odmg', 'fs', 'berserk', self.conf['berserk']-1)
 
         # init actions
         for xn, xconf in self.conf.find(r'^x\d+(_[A-Za-z0-9]+)?$'):
@@ -1007,7 +1009,6 @@ class Adv(object):
         self.afflics = Afflics()
         if self.conf['berserk']:
             self.condition('Agito Berserk Phase ODPS')
-            Modifier('berserk_fs_odmg', 'fs', 'berserk', self.conf['berserk']-1)
             self.afflics.set_resist('immune')
         else:
             self.afflics.set_resist(self.conf.c.ele)
