@@ -145,7 +145,7 @@ ability_dict['spf'] = Striking_Haste
 class Broken_Punisher(Ability):
     EFFICIENCY = 0.15
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('att','bk',value*self.EFFICIENCY, cond)])
+        super().__init__(name, [('att', 'bk', value*self.EFFICIENCY, cond)])
     
     def oninit(self, adv, afrom=None):
         if not adv.conf['berserk']:
@@ -156,11 +156,13 @@ ability_dict['bk'] = Broken_Punisher
 class Overdrive_Punisher(Ability):
     EFFICIENCY = 0.45
     def __init__(self, name, value, cond=None):
+        self.value = value
+        self.cond = cond
         super().__init__(name, [('killer','passive',value, cond)])
 
     def oninit(self, adv, afrom=None):
         if not adv.conf['berserk']:
-            self.mod = ('killer','passive',value*self.EFFICIENCY, cond)
+            self.mod = [('killer', 'passive', self.value*self.EFFICIENCY, self.cond)]
         super().oninit(adv, afrom=afrom)
 ability_dict['od'] = Overdrive_Punisher
 
