@@ -18,7 +18,10 @@ class Condition(dict):
         return ' & '.join([k for k, v in self.items() if v])
     
     def starting_hp(self):
-        return min([100 if not hpc else min(hpc.keys()) for hpc in self.hp_cond.values()])
+        # start_hp = min([100 if not hpc else min(hpc.keys()) for hpc in self.hp_cond.values()])
+        start_hp = 100
+        self.hp_cond_set(start_hp)
+        return start_hp
 
     def cond_set(self, key, cond=True):
         if key.startswith('hp'):
