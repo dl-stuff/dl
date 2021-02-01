@@ -109,7 +109,7 @@ class DragonForm(Action):
         self.disabled = False
         self.is_dragondrive = True
         self.shift_event = Event('dragondrive')
-        self.dragondrive_end_event = Event('dragondrive_end')
+        self.end_event = Event('dragondrive_end')
         ratio = max_gauge / self.max_gauge
         self.dragon_gauge *= ratio
         self.dragon_gauge_val *= ratio
@@ -256,7 +256,8 @@ class DragonForm(Action):
         self.status = Action.OFF
         self._setprev() # turn self from doing to prev
         self._static.doing = self.nop
-        self.end_event()
+        if not self.is_dragondrive:
+            self.end_event()
         self.idle_event()
         return True
 
@@ -269,7 +270,7 @@ class DragonForm(Action):
         self.status = Action.OFF
         self._setprev() # turn self from doing to prev
         self._static.doing = self.nop
-        self.dragondrive_end_event()
+        self.end_event()
         self.idle_event()
 
     def act_timer(self, act, time, next_action=None):
