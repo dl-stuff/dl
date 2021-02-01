@@ -182,7 +182,7 @@ class EquipBase(SlotBase):
 class DragonBase(EquipBase):
     AUGMENTS = 50
     FAFNIR = 0.115
-    DEFAULT_DCONF = {
+    DEFAULT_DCONF = Conf({
         'duration': 10, # 10s dragon time
         'dracolith': 0.70, # base dragon damage
         'exhilaration': 0, # psiren aura
@@ -201,7 +201,7 @@ class DragonBase(EquipBase):
         'end.recovery': 0,
         'allow_end': 3.0, # time before force end is allowed, not including the time needed for skill
         'allow_end_step': 2.0, # for each shift, add this amount of time to allow_end
-    }
+    })
     def __init__(self, conf, c, qual=None):
         super().__init__(conf.d, c, qual)
         self.dragonform = conf
@@ -694,7 +694,7 @@ class Slots:
     DEFAULT_DRAGON = {
         'flame': 'Gala_Mars',
         'water': 'Gala_Reborn_Poseidon',
-        'wind': 'Midgardsormr_Zero',
+        'wind': 'Gala_Reborn_Zephyr',
         'light': 'Daikokuten',
         'shadow': 'Gala_Cat_Sith'
     }
