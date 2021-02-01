@@ -150,10 +150,6 @@ class CrisisModifier(Modifier):
     def __init__(self, name, scale, hp):
         self.hp_scale = scale
         self.hp_lost = 100 - hp
-        if hp < 100:
-            self.hp_cond = self._static.g_condition.hp_cond_set(hp)
-        else:
-            self.hp_cond = False
         super().__init__('mod_{}_crisis'.format(name), 'att', 'crisis', self.c_mod_value())
 
     def c_mod_value(self):
@@ -164,10 +160,7 @@ class CrisisModifier(Modifier):
         return self.mod_value
 
     def on(self):
-        if self.hp_cond:
-            self.mod_value = self.c_mod_value()
-        else:
-            self.mod_value = 0
+        self.mod_value = self.c_mod_value()
         return super().on()
 
 

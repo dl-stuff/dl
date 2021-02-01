@@ -893,12 +893,15 @@ class Adv(object):
                 log('hp', f'=1', f'{delta/100:.2%}')
             else:
                 log('hp', f'{self.hp/100:.2%}', f'{delta/100:.2%}')
-            self.condition.hp_cond_set(self.hp)
+            self.condition.hp_cond_update()
             self.hp_event.hp = self.hp
             self.hp_event.delta = delta
             self.hp_event()
             if self.dragonform.status != Action.OFF and delta < 0:
                 self.dragonform.set_shift_end(delta/100)
+
+    def get_hp(self):
+        return self.hp
 
     def afflic_condition(self):
         if 'afflict_res' in self.conf:
@@ -996,7 +999,7 @@ class Adv(object):
         self.conf_base = Conf(self.conf or {})
         self.conf_init = Conf(conf or {})
         self.ctx = Ctx().on()
-        self.condition = Condition(cond)
+        self.condition = Condition(cond, self.get_hp)
         self.duration = duration
 
         self.damage_sources = set()
@@ -1598,9 +1601,13 @@ class Adv(object):
         self.base_att = int(self.slots.att)
         self.base_hp = int(self.slots.hp)
 
-        self.hp = self.condition.starting_hp()
+        self.set_hp(100)
         if 'hp' in self.conf:
             self.set_hp(self.conf['hp'])
+            if self.hp == 0:
+                self.condition(f'starting hp=1')
+            else:
+                self.condition(f'starting hp={self.hp}%')
 
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)
