@@ -24,7 +24,7 @@ class Gala_Laxi(Adv):
         self.a3_crit_dmg_stack = 0
         self.a3_crit_dmg_buff = Selfbuff('a3_crit_dmg',0.00,-1,'crit','damage')
 
-        self.current_x = 'norm'
+        self.current_x = 'default'
         self.deferred_x = 'ex'
         Event('s').listener(self.reset_to_norm, order=0)
 
@@ -80,18 +80,18 @@ class Gala_Laxi(Adv):
 
     @allow_acl
     def norm(self):
-        if self.current_x != 'norm':
-            self.deferred_x = 'norm'
+        if self.current_x != 'default' and isinstance(self.action.getdoing(), X):
+            self.deferred_x = 'default'
         return CONTINUE
 
     @allow_acl
     def ex(self):
-        if self.current_x != 'ex':
+        if self.current_x != 'ex' and isinstance(self.action.getdoing(), X):
             self.deferred_x = 'ex'
         return CONTINUE
     
     def reset_to_norm(self, e):
-        self.current_x = 'norm'
+        self.current_x = 'default'
 
     def x(self, x_min=1):
         prev = self.action.getprev()

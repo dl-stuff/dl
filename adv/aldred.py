@@ -1,11 +1,6 @@
 from core.advbase import *
 
 class Aldred(Adv):
-    def d_slots(self):
-        if self.duration <= 60:
-            self.conf['slots.a'] = ['The_Chocolatiers', 'Primal_Crisis']
-            self.conf['slots.poison.a'] = ['The_Chocolatiers', 'Primal_Crisis']
-
     def prerun(self):
         self.dragondrive = self.dragonform.set_dragondrive(ModeManager(
             group='ddrive',
@@ -15,8 +10,7 @@ class Aldred(Adv):
         self.hp = 100
 
     def s2_before(self, e):
-        if self.hp > 30:
-            if e.group == 'default':
-                self.dragonform.charge_gauge(3000*(self.hp-30)/100, utp=True, dhaste=False)
+        if self.hp > 30 and e.group == 'default':
+            self.dragonform.charge_gauge(3000*(self.hp-30)/100, utp=True, dhaste=False)
 
 variants = {None: Aldred}

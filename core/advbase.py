@@ -1870,7 +1870,9 @@ class Adv(object):
             else:
                 attenuation = None
             if self.conf['berserk'] and 'odmg' in attr:
-                hitmods.append(Modifier('odgauge', 'att', 'odgauge', attr['odmg']-1))
+                hitmods.append(Modifier(name, 'att', 'odgauge', attr['odmg']-1))
+            if 'crit' in attr:
+                hitmods.append(Modifier(name, 'crit', 'chance', attr['crit']))
             for m in hitmods:
                 m.on()
             if 'extra' in attr:
@@ -1925,7 +1927,7 @@ class Adv(object):
         if 'heal' in attr:
             # self.heal_event()
             # FIXME: heal formula 1day twust
-            self.set_hp(self.hp+attr['heal'])
+            self.set_hp(self.hp+attr['heal']/2)
 
         if 'afflic' in attr:
             aff_type, aff_args = attr['afflic'][0], attr['afflic'][1:]

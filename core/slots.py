@@ -124,6 +124,9 @@ class CharaBase(SlotBase):
                 full_ab.append(tuple(chain))
             if max_coabs == 0:
                 break
+        # speshul clause maybe fix later
+        if 'psophie' in ex_set and 'peony' in ex_set:
+            ex_set.remove('psophie')
         full_ab.extend(ex_set)
         if self.wt == 'axe':
             full_ab.append(('cc', 0.04))
@@ -464,6 +467,11 @@ class Gold_Fafnir(DragonBase):
         super().oninit(adv)
         # disabled for convienance
         adv.dragonform.disabled = True
+
+class Arsene(DragonBase):
+    @property
+    def ab(self):
+        return super().ab if self.on_ele else [['s', 0.9]]
 ### SHADOW DRAGONS ###
 
 

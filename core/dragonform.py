@@ -179,6 +179,8 @@ class DragonForm(Action):
         # if dhaste is None:
         #     dhaste = not utp
         dh = self.dhaste() if dhaste else 1
+        if utp:
+            dh *= self.adv.mod('utph', operator=operator.add)
         value = self.adv.sp_convert(dh, value)
         delta = min(self.dragon_gauge+value, self.max_gauge) - self.dragon_gauge
         if self.is_dragondrive and self.dragondrive_buff.get():

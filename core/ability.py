@@ -241,7 +241,10 @@ class Co_Ability(Ability):
         'grace': [('fs','ex',0.20)],
         'sharena': [('paralysis_killer', 'passive', 0.08)],
         'peony': [('light','ele',0.20)],
-        'gleif': [('debuff_killer', 'passive', 0.08)]
+        'gleif': [('debuff_killer', 'passive', 0.08)],
+        'sophie': [('light','ele',0.15)],
+        'mona': [('wind', 'ele', 0.2)],
+        'joker': [('spd','passive', 0.07)]
     }
     def __init__(self, name, value):
         self.coab_type = value
