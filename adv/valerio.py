@@ -10,7 +10,7 @@ class Valerio(StanceAdv, RngCritAdv):
         }, hit_threshold=20)
     
         self.config_rngcrit(cd=10, ev=20)
-        self.a1_buff = Selfbuff('a1', 0, 20, 'spd', 'passive')
+        self.a1_buff = Selfbuff('a1', 0, 20, 'spd', 'buff')
         self.a1_stack = 0
 
     def rngcrit_cb(self, mrate=None):
@@ -37,7 +37,7 @@ class Valerio_RNG(Valerio):
         self.config_rngcrit(cd=10)
 
     def rngcrit_cb(self):
-        Selfbuff('a1', 0.10, 20, 'spd', 'passive').on()
+        Selfbuff('a1', 0.10, 20, 'spd', 'buff').on()
 
 variants = {
     None: Valerio,

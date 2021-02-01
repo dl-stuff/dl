@@ -13,6 +13,6 @@ class Gala_Mym(Adv):
             self.a1_buff.on()
         else:
             self.dragonform.conf.update(self.conf.dragonform2)
-            self.dragonform.shift_spd_mod = Modifier('flamewyrm_spd', 'spd', 'passive', 0.15).off()
+            self.dragonform.shift_spd_mod = Modifier('flamewyrm_spd', 'spd', 'buff', 0.15).off()
 
 variants = {None: Gala_Mym}

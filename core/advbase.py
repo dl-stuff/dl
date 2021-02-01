@@ -1077,17 +1077,17 @@ class Adv(object):
     @allow_acl
     def speed(self, target=None):
         if target is None:
-            return min(1+self.sub_mod('spd', 'passive'), 1.50)
+            return 1 + min(self.sub_mod('spd', 'buff'), 0.50) + self.sub_mod('spd', 'passive')
         else:
-            return min(1+self.sub_mod('spd', 'passive')+self.sub_mod('spd', target), 1.50)
+            return 1 + min(self.sub_mod('spd', 'buff'), 0.50) + self.sub_mod('spd', 'passive') + self.sub_mod('spd', target)
 
     @allow_acl
     def c_speed(self):
-        return min(1+self.sub_mod('cspd', 'passive'), 1.50)
+        return 1 + min(self.sub_mod('cspd', 'buff'), 0.50) + self.sub_mod('cspd', 'passive')
 
     @allow_acl
     def f_speed(self):
-        return min(1+self.sub_mod('fspd', 'passive'), 1.50)
+        return 1 + min(self.sub_mod('fspd', 'buff'), 0.50) + self.sub_mod('fspd', 'passive')
 
     def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2

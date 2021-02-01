@@ -193,7 +193,10 @@ ability_dict['dh'] = Dragon_Haste
 
 class Attack_Speed(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [('spd','passive',value, cond)])
+        if name.endswith('buff'):
+            super().__init__(name, [('spd','buff',value, cond)])
+        else:
+            super().__init__(name, [('spd','passive',value, cond)])
 ability_dict['spd'] = Attack_Speed
 
 
@@ -201,6 +204,12 @@ class Charge_Speed(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('cspd','passive',value, cond)])
 ability_dict['cspd'] = Charge_Speed
+
+
+class Force_Strike_Speed(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [('fspd','buff',value, cond)])
+ability_dict['fspd'] = Force_Strike_Speed
 
 
 class Combo_Time(Ability):
@@ -839,30 +848,6 @@ class Skill_Recharge(Ability):
 
 ability_dict['scharge'] = Skill_Recharge
 
-
-class Crisis_Att_Spd(Ability):
-    BUFF_LEVEL = {
-        2: (0.15, 0.10),
-        3: (0.20, 0.10)
-    }
-    def __init__(self, name, lvl):
-        self.att, self.spd = Crisis_Att_Spd.BUFF_LEVEL[lvl]
-        super().__init__(name)
-
-    def oninit(self, adv, afrom=None):
-        from core.advbase import Selfbuff, Spdbuff
-        self.atk_buff = Selfbuff(f'{self.name}_att',self.att,-1,'att','passive')
-        self.spd_buff = Spdbuff(f'{self.name}_spd',self.spd,-1)
-        def l_cas_buff(e):
-            if e.hp <= 30:
-                self.atk_buff.on()
-                self.spd_buff.on()
-            else:
-                self.atk_buff.off()
-                self.spd_buff.off()
-        adv.Event('hp').listener(l_cas_buff)
-
-ability_dict['crisisattspd'] = Crisis_Att_Spd
 
 class Energy_Extra(Ability):
     def __init__(self, name, value, rng=False):

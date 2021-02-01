@@ -13,12 +13,12 @@ class Mona(Adv):
         self.beast_eye.on()
 
     def fs_ddrive_proc(self, e):
-        # need further investigation on how this works
         self.dmg_make('x_zorro', 2.0)
 
     def x_ddrive_proc(self, e):
-        # need further investigation on how this works
-        if e.base in ('x3', 'x6'):
+        if e.base == 'x3':
+            self.dmg_make('x_zorro', 2.0)
+        if e.base == 'x5':
             self.dmg_make('x_zorro', 2.0)
             self.add_hp(5)
 

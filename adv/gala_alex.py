@@ -121,7 +121,7 @@ class Gala_Alex_BK(Gala_Alex):
         super().prerun()
         self.duration = 10
         self.sr.charged = 1129*3
-        Selfbuff('agito_s3', 0.30, -1, 'spd', 'passive').on()
+        Selfbuff('agito_s3', 0.30, -1, 'spd', 'buff').on()
         Selfbuff('agito_s3', 0.05, -1, 'crit', 'chance').on()
         self.hits = 100
 
