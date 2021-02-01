@@ -125,8 +125,8 @@ class CharaBase(SlotBase):
             if max_coabs == 0:
                 break
         # speshul clause maybe fix later
-        if 'psophie' in ex_set and 'peony' in ex_set:
-            ex_set.remove('psophie')
+        if ('ex', 'sophie') in ex_set and ('ex', 'peony') in ex_set:
+            ex_set.remove(('ex', 'sophie'))
         full_ab.extend(ex_set)
         if self.wt == 'axe':
             full_ab.append(('cc', 0.04))
