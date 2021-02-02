@@ -197,35 +197,35 @@
   },
   "60": {
     "base": {
-      "dps": 79403.32707511344,
-      "team": 0.044000779880609374,
+      "dps": 84782.88068231635,
+      "team": 0.07716630119572086,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c1-s-end)",
+        "`dragon(c3-s-end), s=2",
         "`s3, not buff(s3)",
-        "if fsc",
+        "if x=5 or s=4 or not buff(s3)",
         "`s2, aff_timeleft(poison)<4",
         "`s4",
         "`s1, sr.count>1",
         "end",
-        "`fs, x=4"
+        "`fs, hits=0 or x=4 and not buff(s3)"
       ],
       "coabs": [
-        "Ieyasu",
         "Wand",
+        "Delphi",
         "Heinwald"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Dragonyule_Lily"
       ]
     },
     "pref": "base",
@@ -262,97 +262,99 @@
       ]
     },
     "buffer": {
-      "dps": 75355.48254206889,
-      "team": 0.07683216201008843,
-      "tdps": 123291.9320021567,
+      "dps": 77442.45052582835,
+      "team": 0.08217617201275057,
+      "tdps": 1465193.4999074596,
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Shining_Overlord",
-        "The_Plaguebringer",
+        "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), s=2",
         "`s3, not buff(s3)",
-        "if fsc",
+        "if x=5 or s=4 or not buff(s3)",
         "`s2, aff_timeleft(poison)<4",
         "`s4",
         "`s1, sr.count>1",
         "end",
-        "`fs, x=4"
+        "`fs, hits=0 or x=4 and not buff(s3)"
       ],
       "coabs": [
-        "Ieyasu",
         "Wand",
+        "Delphi",
         "Heinwald"
       ],
       "share": [
         "Weapon",
-        "Sha_Wujing"
+        "Dragonyule_Lily"
       ]
     },
     "mono_base": {
-      "dps": 79403.32707511344,
-      "team": 0.044000779880609374,
+      "dps": 84782.88068231635,
+      "team": 0.07716630119572086,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c1-s-end)",
+        "`dragon(c3-s-end), s=2",
         "`s3, not buff(s3)",
-        "if fsc",
+        "if x=5 or s=4 or not buff(s3)",
         "`s2, aff_timeleft(poison)<4",
         "`s4",
         "`s1, sr.count>1",
         "end",
-        "`fs, x=4"
+        "`fs, hits=0 or x=4 and not buff(s3)"
       ],
       "coabs": [
-        "Ieyasu",
         "Wand",
+        "Delphi",
         "Heinwald"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Dragonyule_Lily"
       ]
     },
     "mono_buffer": {
-      "dps": 75355.48254206889,
-      "team": 0.07683216201008843,
-      "tdps": 123291.9320021567,
+      "dps": 77442.45052582835,
+      "team": 0.08217617201275057,
+      "tdps": 1465193.4999074596,
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Shining_Overlord",
-        "The_Plaguebringer",
+        "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), s=2",
         "`s3, not buff(s3)",
-        "if fsc",
+        "if x=5 or s=4 or not buff(s3)",
         "`s2, aff_timeleft(poison)<4",
         "`s4",
         "`s1, sr.count>1",
         "end",
-        "`fs, x=4"
+        "`fs, hits=0 or x=4 and not buff(s3)"
       ],
       "coabs": [
-        "Ieyasu",
         "Wand",
+        "Delphi",
         "Heinwald"
       ],
       "share": [
         "Weapon",
-        "Sha_Wujing"
+        "Dragonyule_Lily"
       ]
     },
     "mono_affliction": {
@@ -446,6 +448,10 @@
     "mono_pref": "mono_base"
   },
   "150": {
+    "pref": "base",
+    "mono_pref": "mono_base"
+  },
+  "120": {
     "pref": "base",
     "mono_pref": "mono_base"
   }

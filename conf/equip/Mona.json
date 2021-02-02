@@ -3,30 +3,31 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 68684.57897202938,
+      "dps": 71160.2071124996,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Hastened_Squall",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get()",
-        "`s4",
-        "`s2",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon",
+        "`fs",
+        "end",
         "`s1",
-        "`dodge, fsc",
-        "`fs, x=9"
+        "`s2",
+        "`s4"
       ],
       "coabs": [
         "Blade",
         "Wand",
-        "Eleonora"
+        "Bow"
       ],
       "share": [
         "Weapon",
@@ -34,8 +35,38 @@
       ]
     },
     "mono_base": {
-      "dps": 68684.57897202938,
+      "dps": 71403.39266074501,
       "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, s1.check() and not dragondrive.get()",
+        "`fs, s1.check() and not dragondrive.get()",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "affliction": {
+      "dps": 74952.23023680189,
+      "team": 0.09720694276916238,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -47,82 +78,119 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get()",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon",
+        "`fs",
+        "end",
         "`s4",
         "`s2",
-        "`s1",
-        "`dodge, fsc",
-        "`fs, x=9"
+        "`s1"
       ],
       "coabs": [
         "Blade",
         "Wand",
-        "Eleonora"
+        "Akasha"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "affliction": {
-      "dps": 73728.2057683098,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get()",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs, not dragondrive.get() and not beast_eye.get()"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Lin_You"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
+        "Dragonyule_Lily"
       ]
     },
     "mono_affliction": {
-      "dps": 73728.2057683098,
-      "team": 0.0,
+      "dps": 74952.23023680189,
+      "team": 0.09720694276916238,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "Hastened_Squall",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get()",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon",
+        "`fs",
+        "end",
         "`s4",
         "`s2",
-        "`s1",
-        "`fs, not dragondrive.get() and not beast_eye.get()"
+        "`s1"
       ],
       "coabs": [
         "Blade",
         "Wand",
-        "Lin_You"
+        "Akasha"
       ],
       "share": [
         "Weapon",
-        "Jurota"
+        "Dragonyule_Lily"
+      ]
+    },
+    "buffer": {
+      "dps": 51589.62999372452,
+      "team": 0.10970972739643862,
+      "tdps": 178385.0674248451,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, s1.check() and not dragondrive.get()",
+        "`fs, s1.check() and not dragondrive.get()",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Lowen"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 51589.62999372452,
+      "team": 0.10970972739643862,
+      "tdps": 180601.69446436598,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, s1.check() and not dragondrive.get()",
+        "`fs, s1.check() and not dragondrive.get()",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Lowen"
       ]
     }
+  },
+  "360": {
+    "pref": "base",
+    "mono_pref": "mono_base"
   }
 }
