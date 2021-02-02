@@ -170,7 +170,7 @@ ability_dict['od'] = Overdrive_Punisher
 class Gauge_Accelerator(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [('odaccel', 'passive', value, cond)])
-ability_dict['odaccel'] = Overdrive_Punisher
+ability_dict['odaccel'] = Gauge_Accelerator
 
 
 class Dragon_Damage(Ability):
