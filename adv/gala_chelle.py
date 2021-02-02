@@ -8,7 +8,7 @@ class Gala_Chelle(Adv):
         self.a3_modifier.get = self.a3_mod_value
 
     def a3_mod_value(self):
-        return self.buffcount * 0.02
+        return min(0.3, self.buffcount * 0.02)
 
     def s2_proc(self, e):
         if self.royal_pride < 10:
