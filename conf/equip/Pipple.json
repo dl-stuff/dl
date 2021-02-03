@@ -1,24 +1,24 @@
 {
   "180": {
     "base": {
-      "dps": 65733.8336896905,
+      "dps": 71706.15339989885,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Brothers_in_Arms",
+        "An_Ancient_Oath",
+        "Candy_Couriers",
         "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-s-c3-end), dragonform.shift_count=0 and s2.check()",
-        "`dragon(c3-c3-c3-s-end), dragonform.shift_count>=1 and cancel",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=0 and x=4",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=1 and s=2",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count>=2 and x>1",
         "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s4, x>3",
-        "`s1, x=5"
+        "`s2, x=5 or energy()<5",
+        "`s4, not energy()=5 and x>3"
       ],
       "coabs": [
         "Blade",
@@ -27,14 +27,14 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Gala_Mym"
       ]
     },
     "pref": "base",
     "buffer": {
       "dps": 12907.043035508612,
       "team": 0.29775893725652663,
-      "tdps": 177414.62654627324,
+      "tdps": 197472.19313096002,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Once_in_a_Lifetime",
@@ -60,7 +60,7 @@
       ]
     },
     "affliction": {
-      "dps": 80767.7383035745,
+      "dps": 81148.09967360468,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -72,7 +72,9 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-c3-s-c2-end), x>1",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=0 and x=4",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=1 and s=2",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count>=2 and x>1",
         "`s3, not buff(s3)",
         "`s2, x=5 or energy()<5",
         "`s4, not energy()=5 and x>3"
@@ -88,24 +90,24 @@
       ]
     },
     "mono_base": {
-      "dps": 65733.8336896905,
+      "dps": 71706.15339989885,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Brothers_in_Arms",
+        "An_Ancient_Oath",
+        "Candy_Couriers",
         "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-s-c3-end), dragonform.shift_count=0 and s2.check()",
-        "`dragon(c3-c3-c3-s-end), dragonform.shift_count>=1 and cancel",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=0 and x=4",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=1 and s=2",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count>=2 and x>1",
         "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s4, x>3",
-        "`s1, x=5"
+        "`s2, x=5 or energy()<5",
+        "`s4, not energy()=5 and x>3"
       ],
       "coabs": [
         "Blade",
@@ -114,11 +116,11 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Gala_Mym"
       ]
     },
     "mono_affliction": {
-      "dps": 80767.7383035745,
+      "dps": 81148.09967360468,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -130,7 +132,9 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-c3-s-c2-end), x>1",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=0 and x=4",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=1 and s=2",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count>=2 and x>1",
         "`s3, not buff(s3)",
         "`s2, x=5 or energy()<5",
         "`s4, not energy()=5 and x>3"
@@ -148,7 +152,7 @@
     "mono_buffer": {
       "dps": 49250.41579395577,
       "team": 0.06017375958958289,
-      "tdps": 273930.331230098,
+      "tdps": 373181.5621809768,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
