@@ -6,6 +6,7 @@ from conf import load_equip_json, save_equip_json, DURATIONS, ELE_AFFLICT, mono_
 import core.simulate
 
 BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times', 'United_by_One_Vision', 'Second_Anniversary')
+BANNED_SHARES = ('Durant', 'Yue')
 ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'berserk', 'classbane', 'hp', 'dumb', 'afflict_res', 'fleet')
 BUFFER_TDPS_THRESHOLD = 40000
 BUFFER_TEAM_THRESHOLD = 1.6
@@ -23,7 +24,8 @@ class EquipEntry(dict):
         adv.duration = int(adv.duration)
         return (adv.duration in DURATIONS and \
             all([not k in adv.conf for k in ABNORMAL_COND]) and \
-            all([not wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]))
+            all([not wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]) and \
+            all([not ss in BANNED_SHARES for ss in adv.skillshare_list]))
 
     @staticmethod
     def acceptable(entry, ele=None):
@@ -157,7 +159,12 @@ class EquipManager(dict):
         if self.advname != adv.name:
             raise RuntimeError(f'adv/equip name mismatch {self.advname} != {adv.name}')
 
-        duration = str(int(adv.duration))
+        duration = int(adv.duration)
+        print(duration, DURATIONS)
+        if duration not in DURATIONS:
+            return
+
+        duration = str(duration)
         kicked_entries = []
         need_write = False
         if duration not in self:
@@ -252,6 +259,11 @@ class EquipManager(dict):
     def repair_entries(self):
         adv_module, _ = core.simulate.load_adv_module(self.advname)
         element = load_adv_json(self.advname)['c']['ele']
+
+        for duration in list(self.keys()):
+            if not int(duration) in DURATIONS:
+                del self[duration]
+
         for duration in list(self.keys()):
             for kind in list(self[duration].keys()):
                 if kind.endswith('pref'):
