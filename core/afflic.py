@@ -90,10 +90,15 @@ class AfflicBase:
 
         self.get_override = 0
         self.aff_edge_mods = []
+        self.aff_time_mods = []
 
     @property
     def edge(self):
         return sum([m.get() for m in self.aff_edge_mods])
+
+    @property
+    def time(self):
+        return 1 + sum([m.get() for m in self.aff_time_mods])
 
     @property
     def rate(self):
@@ -258,7 +263,7 @@ class Afflic_dot(AfflicUncapped):
             self.dtype = 's'
         else:
             self.dtype = dtype
-        self.duration = duration or self.default_duration
+        self.duration = (duration or self.default_duration) * self.time
         self.iv = iv or self.default_iv
         self.dot = Dot(f'o_{name}_{self.name}', coef, self.duration, self.iv, self.dtype)
         self.dot.on()
@@ -281,7 +286,7 @@ class Afflic_cc(AfflicCapped):
     def on(self, name, rate, duration=None, min_duration=None):
         self.event.source = name
         self.rate = rate + self.edge
-        self.duration = duration or self.default_duration
+        self.duration = (duration or self.default_duration) * self.time
         if min_duration:
             self.duration = (self.duration + min_duration) / 2
         return super().on()

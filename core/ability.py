@@ -245,7 +245,7 @@ class Co_Ability(Ability):
         'dagger2': [('x','ex',0.20)],
         'gun': [('odaccel', 'passive', 0.20)],
         'geuden': [('da','passive',0.10), ('dt','passive',0.20)],
-        'megaman': [('killer','passive',0.15*Overdrive_Punisher.EFFICIENCY), ('odaccel', 'passive', 0.10)],
+        'megaman': [('odaccel', 'passive', 0.10)],
         'tobias': [('buff','ex',0.20)],
         'grace': [('fs','ex',0.20)],
         'sharena': [('paralysis_killer', 'passive', 0.08)],
@@ -253,16 +253,29 @@ class Co_Ability(Ability):
         'gleif': [('debuff_killer', 'passive', 0.08)],
         'sophie': [('light','ele',0.15)],
         'mona': [('wind', 'ele', 0.2)],
-        'joker': [('spd','passive', 0.07)]
+        'joker': [('spd','passive', 0.07)],
+    }
+    EX_AB_MAP = {
+        'megaman': [('od', 0.15)],
+        'panther': [('edge_scorchrend', 0.2), ('afftime_scorchrend', 0.2)]
     }
     def __init__(self, name, value):
-        self.coab_type = value
-        super().__init__(name, self.EX_MAP[value])
+        super().__init__(name, self.EX_MAP.get(value, []))
+        self.sub_abs = []
+        try:
+            for sub_ab in self.EX_AB_MAP[value]:
+                if '_' in sub_ab[0]:
+                    acat = sub_ab[0].split('_')[0]
+                else:
+                    acat = sub_ab[0]
+                self.sub_abs.append(ability_dict[acat](*sub_ab))
+        except KeyError:
+            pass
 
     def oninit(self, adv, afrom=None):
-        if adv.conf['berserk'] and self.coab_type == 'megaman':
-            self.mod = [('killer','passive',0.15), ('odaccel', 'passive', 0.10)]
         super().oninit(adv, afrom=afrom)
+        for sub_ab in self.sub_abs:
+            sub_ab.oninit(adv, afrom=afrom)
 
 ability_dict['ex'] = Co_Ability
 
@@ -770,6 +783,18 @@ class Affliction_Edge(Ability):
         adv.afflics.__dict__[self.atype].aff_edge_mods.append(self.mod_object)
 
 ability_dict['edge'] = Affliction_Edge
+
+
+class Affliction_Time(Ability):
+    def __init__(self, name, value, cond=None):
+        self.atype = name.split('_')[1]
+        super().__init__(name, [('afftime', self.atype, value, cond)])
+
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom)
+        adv.afflics.__dict__[self.atype].aff_time_mods.append(self.mod_object)
+
+ability_dict['afftime'] = Affliction_Time
 
 
 class ComboProcAbility(Ability):
