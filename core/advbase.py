@@ -447,6 +447,8 @@ class Repeat(Action):
     def tap(self, t=None):
         self.index += 1
         self._static.doing = self.nop
+        # if self.extra_charge:
+        #     log('extra_charge', now() - self.index0_time, self.extra_charge)
         if self.extra_charge and now() - self.index0_time > self.extra_charge:
             self.extra_charge = None
             self.end_repeat_event.on()
@@ -539,8 +541,9 @@ class Fs(Action):
 
     @property
     def _charge(self):
-        if self.act_repeat is not None:
+        if self.act_repeat is not None and self.act_repeat.extra_charge is None:
             self.act_repeat.extra_charge = self.extra_charge or None
+            self.extra_charge = 0
             return self.conf.charge
         return self.conf.charge + self.extra_charge
 
@@ -1327,9 +1330,9 @@ class Adv(object):
         delta = fs_act.getstartup() + fs_act.getrecovery()
         if delta < t:
             fs_act.extra_charge = t - delta
-            log(fsn, 'charge_for', fs_act.extra_charge)
         result = self.fs(n=n)
-        fs_act.extra_charge = 0
+        if result:
+            log(fsn, 'charge_for', fs_act.extra_charge)
         return result
 
     def check_deferred_x(self):

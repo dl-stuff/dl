@@ -357,7 +357,7 @@ class Buff(object):
         else:
             if d >= 0:
                 if self.buff_end_timer.online:
-                   self.buff_end_timer.add(d)
+                   self.buff_end_timer.on(d)
                 else:
                     self.refresh_time = d
             proc_type = 'refresh'

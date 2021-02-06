@@ -259,7 +259,7 @@ class Gozu_Tenno(DragonBase):
                 fs_action = fs_action.parent
             fs_elapsed = now() - fs_action.startup_start
             if fs_elapsed >= 3.0:
-                adv.gozu_tenno_buff.on()
+                adv.gozu_tenno_buff.on(30)
         adv.Event('fs_end').listener(fs_end, order=0)
         adv.Event('repeat').listener(fs_end, order=0)
 ### FLAME DRAGONS ###
