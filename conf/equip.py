@@ -5,7 +5,7 @@ import os
 from conf import load_equip_json, save_equip_json, DURATIONS, ELE_AFFLICT, mono_elecoabs, load_adv_json, list_advs
 import core.simulate
 
-BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times', 'United_by_One_Vision', 'Second_Anniversary')
+BANNED_PRINTS = ('Witchs_Kitchen', 'Berry_Lovable_Friends', 'Happier_Times')
 BANNED_SHARES = ('Durant', 'Yue')
 ABNORMAL_COND = ('sim_buffbot', 'dragonbattle', 'berserk', 'classbane', 'hp', 'dumb', 'afflict_res', 'fleet')
 BUFFER_TDPS_THRESHOLD = 40000
