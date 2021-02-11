@@ -35,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 97160.39550517591,
+      "dps": 104132.93883113832,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -47,11 +47,11 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`s2, (duration-now)<1.15",
-        "`s3, not buff(s3)",
+        "`s2, (duration-now)<1.1",
+        "`s3, not buff(s3) and x=4",
         "if dragondrive.get()",
-        "`s4, cancel",
-        "`s1, dgauge>1100 and x=3",
+        "`s4, x=3",
+        "`s1, x=3",
         "else",
         "`s2",
         "`dragon",
@@ -59,12 +59,12 @@
       ],
       "coabs": [
         "Ieyasu",
-        "Wand",
+        "Curran",
         "Berserker"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Fjorm"
       ]
     },
     "buffer": {
@@ -134,7 +134,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 97160.39550517591,
+      "dps": 104132.93883113832,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -146,11 +146,11 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`s2, (duration-now)<1.15",
-        "`s3, not buff(s3)",
+        "`s2, (duration-now)<1.1",
+        "`s3, not buff(s3) and x=4",
         "if dragondrive.get()",
-        "`s4, cancel",
-        "`s1, dgauge>1100 and x=3",
+        "`s4, x=3",
+        "`s1, x=3",
         "else",
         "`s2",
         "`dragon",
@@ -158,12 +158,12 @@
       ],
       "coabs": [
         "Ieyasu",
-        "Wand",
+        "Curran",
         "Berserker"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Fjorm"
       ]
     },
     "mono_buffer": {

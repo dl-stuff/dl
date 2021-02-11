@@ -31,7 +31,7 @@
         "Hunter_Sarisse"
       ]
     },
-    "pref": "base",
+    "pref": "buffer",
     "affliction": {
       "dps": 72577.54655590098,
       "team": 0.0,
@@ -64,28 +64,34 @@
       ]
     },
     "buffer": {
-      "dps": 11404.177955384399,
-      "team": 0.062476991112550506,
-      "tdps": 847459.564203256,
+      "dps": 62611.92141587802,
+      "team": 0.08977123713623897,
+      "tdps": 19371.2402318798,
       "slots.a": [
-        "Felyne_Hospitality",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Dueling_Dancers",
-        "Sisters_of_the_Anvil"
+        "A_Game_of_Cat_and_Boar",
+        "FirstRate_Hospitality"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "s3"
+        "`dragon(c10-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c6-s-end), dragonform.shift_count=1 and energy()=4",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, x=2 and (energy()<5)",
+        "`fs, c_fs(enhanced) and ((energy()>1 and x=4) or (charged_in(fs, s1) and (x=2 and energy()=5)))"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Lucretia",
         "Peony"
       ],
       "share": [
-        "Elisanne",
-        "Xander"
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "mono_base": {
@@ -151,15 +157,15 @@
       ]
     },
     "mono_buffer": {
-      "dps": 57077.271078583064,
-      "team": 0.03748886788895173,
-      "tdps": 194021.0773854201,
+      "dps": 62611.92141587802,
+      "team": 0.08977123713623897,
+      "tdps": 19371.2402318798,
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "FirstRate_Hospitality",
-        "The_Warrioresses"
+        "A_Game_of_Cat_and_Boar",
+        "FirstRate_Hospitality"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
@@ -168,7 +174,7 @@
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
-        "`s4, x=2 and (energy()<5 and not buff(s4))",
+        "`s4, x=2 and (energy()<5)",
         "`fs, c_fs(enhanced) and ((energy()>1 and x=4) or (charged_in(fs, s1) and (x=2 and energy()=5)))"
       ],
       "coabs": [
@@ -178,10 +184,10 @@
       ],
       "share": [
         "Weapon",
-        "Patia"
+        "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base"
+    "mono_pref": "mono_buffer"
   },
   "60": {
     "base": {

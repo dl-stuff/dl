@@ -3,7 +3,7 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 71160.2071124996,
+      "dps": 71470.58413440011,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -18,7 +18,6 @@
         "`s3, not buff(s3)",
         "if s2.check() and not dragondrive.get()",
         "`dragon",
-        "`fs",
         "end",
         "`s1",
         "`s2",
@@ -27,7 +26,7 @@
       "coabs": [
         "Blade",
         "Wand",
-        "Bow"
+        "Eleonora"
       ],
       "share": [
         "Weapon",
@@ -35,7 +34,7 @@
       ]
     },
     "mono_base": {
-      "dps": 71160.2071124996,
+      "dps": 71470.58413440011,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -50,7 +49,6 @@
         "`s3, not buff(s3)",
         "if s2.check() and not dragondrive.get()",
         "`dragon",
-        "`fs",
         "end",
         "`s1",
         "`s2",
@@ -59,7 +57,7 @@
       "coabs": [
         "Blade",
         "Wand",
-        "Bow"
+        "Eleonora"
       ],
       "share": [
         "Weapon",
@@ -67,8 +65,8 @@
       ]
     },
     "affliction": {
-      "dps": 74952.23023680189,
-      "team": 0.09720694276916238,
+      "dps": 75574.61549337285,
+      "team": 0.09599040984416794,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -80,13 +78,15 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
-        "if s2.check() and not dragondrive.get()",
-        "`dragon",
-        "`fs",
+        "if not dragondrive.get() and not have_buff(beast_eye)",
+        "`fs, x=9",
         "end",
-        "`s4",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon()",
+        "end",
+        "`s1",
         "`s2",
-        "`s1"
+        "`s4"
       ],
       "coabs": [
         "Blade",
@@ -99,8 +99,8 @@
       ]
     },
     "mono_affliction": {
-      "dps": 74952.23023680189,
-      "team": 0.09720694276916238,
+      "dps": 75574.61549337285,
+      "team": 0.09599040984416794,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -112,13 +112,15 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
-        "if s2.check() and not dragondrive.get()",
-        "`dragon",
-        "`fs",
+        "if not dragondrive.get() and not have_buff(beast_eye)",
+        "`fs, x=9",
         "end",
-        "`s4",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon()",
+        "end",
+        "`s1",
         "`s2",
-        "`s1"
+        "`s4"
       ],
       "coabs": [
         "Blade",
@@ -131,21 +133,23 @@
       ]
     },
     "buffer": {
-      "dps": 53605.951431295,
-      "team": 0.1096960494747089,
-      "tdps": 160026.3251526833,
+      "dps": 53881.2083109785,
+      "team": 0.11030896110028618,
+      "tdps": 159455.54783559623,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Hastened_Squall",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s1.check() and not dragondrive.get()",
-        "`fs, s1.check() and not dragondrive.get()",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon",
+        "`fs",
+        "end",
         "`s1",
         "`s2",
         "`s4"
@@ -161,21 +165,23 @@
       ]
     },
     "mono_buffer": {
-      "dps": 53605.951431295,
-      "team": 0.1096960494747089,
-      "tdps": 160026.3251526833,
+      "dps": 53881.2083109785,
+      "team": 0.11030896110028618,
+      "tdps": 159455.54783559623,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Hastened_Squall",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s1.check() and not dragondrive.get()",
-        "`fs, s1.check() and not dragondrive.get()",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon",
+        "`fs",
+        "end",
         "`s1",
         "`s2",
         "`s4"
