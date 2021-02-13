@@ -7,7 +7,7 @@
         "ele": "light",
         "wt": "sword",
         "spiral": true,
-        "a": [["fs", 0.5]]
+        "a": [["fs", 0.5], ["affres_poison", 100.0], ["resself_poison_att", 0.15, 10.0, 15.0]]
     },
     "fs": {
         "startup": 0.13333,
@@ -61,12 +61,7 @@
         "startup": 0.1,
         "recovery": 1.0,
         "attr": [
-            {"buff": [
-                ["sAlt", "enhanced", "s1", 25.0], ["fsAlt", null, 25.0],
-                ["self", 0.30, 25.0, "att", "passive"],
-                ["self", 0.10, 25.0, "spd", "passive"],
-                ["self", 0.10, 25.0, "fs", "passive"], "-refresh"]
-            }
+            {"buff": [["sAlt", "enhanced", "s1", 25.0], ["fsAlt", null, 25.0], ["self", 0.3, 25.0, "att", "passive"], ["self", 0.1, 25.0, "spd", "passive"], ["self", 0.1, 25.0, "fs", "passive"], "-refresh"]}
         ]
     }
 }

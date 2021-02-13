@@ -7,7 +7,7 @@
         "ele": "flame",
         "wt": "gun",
         "spiral": false,
-        "a": [["k_scorchrend", 0.3], ["od", 0.1]],
+        "a": [["affres_stun", 100.0], ["affres_sleep", 100.0], ["k_scorchrend", 0.3], ["od", 0.1]],
         "gun": [3]
     },
     "dragonform": {
@@ -28,13 +28,7 @@
             {"dmg": 0.5, "sp": 90, "odmg": 1.3, "iv": 0.66667},
             {"dmg": 0.5, "sp": 90, "odmg": 1.3, "iv": 0.83333}
         ],
-        "repeat": {
-            "startup": 0.0,
-            "recovery": 0.1,
-            "attr": [
-                {"dmg": 0.5, "sp": 90, "odmg": 1.3}
-            ]
-        },
+        "repeat": {"startup": 0.0, "recovery": 0.1, "attr": [{"dmg": 0.5, "sp": 90, "odmg": 1.3}]},
         "interrupt": {"s": 0.0, "dodge": 0.0},
         "cancel": {"s": 0.0, "dodge": 0.0}
     },

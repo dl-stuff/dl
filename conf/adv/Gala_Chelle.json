@@ -7,7 +7,7 @@
         "ele": "shadow",
         "wt": "gun",
         "spiral": false,
-        "a": [["fs", 0.02], ["fs", 0.45]],
+        "a": [["affres_paralysis", 100.0], ["affres_blind", 100.0], ["fs", 0.02], ["fs", 0.45]],
         "gun": [3]
     },
     "dragonform": {
@@ -28,13 +28,7 @@
             {"dmg": 0.5, "sp": 90, "odmg": 0.65, "iv": 0.66667},
             {"dmg": 0.5, "sp": 90, "odmg": 0.65, "iv": 0.83333}
         ],
-        "repeat": {
-            "startup": 0.0,
-            "recovery": 0.1,
-            "attr": [
-                {"dmg": 0.5, "sp": 90, "odmg": 0.65}
-            ]
-        },
+        "repeat": {"startup": 0.0, "recovery": 0.1, "attr": [{"dmg": 0.5, "sp": 90, "odmg": 0.65}]},
         "interrupt": {"s": 0.0, "dodge": 0.0},
         "cancel": {"s": 0.0, "dodge": 0.0}
     },

@@ -7,7 +7,7 @@
         "ele": "flame",
         "wt": "wand",
         "spiral": false,
-        "a": []
+        "a": [["affres_stun", 100.0]]
     },
     "fs": {
         "charge": 0.5,
@@ -16,13 +16,7 @@
         "attr": [
             {"dmg": 0.77, "odmg": 1.5, "sp": 150, "cp": 20}
         ],
-        "repeat": {
-            "startup": 0.0,
-            "recovery": 0.5,
-            "attr": [
-                {"dmg": 0.77, "odmg": 1.5, "sp": 150, "cp": 20}
-            ]
-        },
+        "repeat": {"startup": 0.0, "recovery": 0.5, "attr": [{"dmg": 0.77, "odmg": 1.5, "sp": 150, "cp": 20}]},
         "interrupt": {"s": 0.0},
         "cancel": {"s": 0.0}
     },
@@ -30,10 +24,7 @@
         "sp": 2649,
         "startup": 0.1,
         "recovery": 2.16667,
-        "shikigami": {
-            "lv1": {"dmg": 1.62, "sp": 100},
-            "lv2": {"dmg": 4.86, "sp": 200, "buff": ["debuff", -0.1, 10.0, 1.0, "def", "-overwrite_6"]}
-        }
+        "shikigami": {"lv1": {"dmg": 1.62, "sp": 100}, "lv2": {"dmg": 4.86, "sp": 200, "buff": ["debuff", -0.1, 10.0, 1.0, "def", "-overwrite_6"]}}
     },
     "s2": {
         "sp": 7000,

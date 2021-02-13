@@ -7,7 +7,7 @@
         "ele": "shadow",
         "wt": "axe",
         "spiral": false,
-        "a": [["antiaffself_poison", 0.15, 10, 5], ["edge_poison", 60, "hp50"]]
+        "a": [["antiaffself_poison", 0.15, 10, 5], ["affres_paralysis", 100.0], ["edge_poison", 60.0]]
     },
     "fs1": {
         "charge": 0.4,
@@ -15,22 +15,6 @@
         "recovery": 0.76667,
         "attr": [
             {"dmg": 2.58, "odmg": 1.95, "sp": 600}
-        ]
-    },
-    "fs2": {
-        "charge": 0.8,
-        "startup": 0.4,
-        "recovery": 0.76667,
-        "attr": [
-            {"dmg": 3.7, "odmg": 1.95, "sp": 900}
-        ]
-    },
-    "fs3": {
-        "charge": 1.2,
-        "startup": 0.4,
-        "recovery": 0.76667,
-        "attr": [
-            {"dmg": 4.78, "odmg": 1.95, "sp": 1400}
         ]
     },
     "fs1_enhanced": {
@@ -41,12 +25,28 @@
             {"dmg": 2.87, "sp": 600, "odmg": 1.95, "afflic": ["poison", 110, 0.436]}
         ]
     },
+    "fs2": {
+        "charge": 0.8,
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 3.7, "odmg": 1.95, "sp": 900}
+        ]
+    },
     "fs2_enhanced": {
         "charge": 0.8,
         "startup": 0.4,
         "recovery": 0.76667,
         "attr": [
             {"dmg": 4.12, "sp": 900, "odmg": 1.95, "afflic": ["poison", 110, 0.436]}
+        ]
+    },
+    "fs3": {
+        "charge": 1.2,
+        "startup": 0.4,
+        "recovery": 0.76667,
+        "attr": [
+            {"dmg": 4.78, "odmg": 1.95, "sp": 1400}
         ]
     },
     "fs3_enhanced": {

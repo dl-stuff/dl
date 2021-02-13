@@ -7,7 +7,7 @@
         "ele": "water",
         "wt": "blade",
         "spiral": true,
-        "a": [["lo_att", 0.6], ["k_thaumian", 0.35]]
+        "a": [["k_thaumian", 0.35], ["affres_burn", 100.0], ["resself_burn_att", 0.15, 10.0, 15.0], ["lo_att", 0.6]]
     },
     "fs_enhanced": {
         "startup": 0.03333,
@@ -43,13 +43,7 @@
         "startup": 0.1,
         "recovery": 1.0,
         "attr": [
-            {"buff": [
-                ["sAlt", "enhanced", "s1"],
-                ["sAlt", "enhanced", "s2"],
-                ["fsAlt", "enhanced"],
-                ["self", 0.25, -1, "att", "buff"],
-                ["self", -1, -1, "regen", "buff"],
-            "-refresh"], "iv": 0.16667}
+            {"buff": [["sAlt", "enhanced", "s1"], ["sAlt", "enhanced", "s2"], ["fsAlt", "enhanced"], ["self", 0.25, -1, "att", "buff"], ["self", -1, -1, "regen", "buff"], "-refresh"], "iv": 0.16667}
         ]
     },
     "s2_enhanced": {
