@@ -130,10 +130,7 @@ class CharaBase(SlotBase):
             if key not in CharaBase.NON_UNIQUE_COABS:
                 key_base_id = get_icon(key).split("_")
                 self_base_id = self.icon.split("_")
-                if (
-                    key_base_id[0] == self_base_id[0]
-                    and key_base_id[1] != self_base_id[1]
-                ):
+                if key_base_id[0] == self_base_id[0] and key_base_id[1] != self_base_id[1]:
                     continue
             self.coabs[key] = coab
             if key != self.coab_qual:
@@ -160,26 +157,14 @@ class CharaBase(SlotBase):
     def att(self):
         FE = CharaBase.FAC_ELEMENT_ATT
         FW = CharaBase.FAC_WEAPON_ATT
-        halidom_mods = (
-            1
-            + sum(FE["all"].values())
-            + sum(FE[self.ele].values())
-            + sum(FW["all"].values())
-            + FW[self.wt]
-        )
+        halidom_mods = 1 + sum(FE["all"].values()) + sum(FE[self.ele].values()) + sum(FW["all"].values()) + FW[self.wt]
         return super().att * halidom_mods
 
     @property
     def hp(self):
         FE = CharaBase.FAC_ELEMENT_HP
         FW = CharaBase.FAC_WEAPON_HP
-        halidom_mods = (
-            1
-            + sum(FE["all"].values())
-            + sum(FE[self.ele].values())
-            + sum(FW["all"].values())
-            + FW[self.wt]
-        )
+        halidom_mods = 1 + sum(FE["all"].values()) + sum(FE[self.ele].values()) + sum(FW["all"].values()) + FW[self.wt]
         return super().hp * halidom_mods
 
     @property
@@ -290,9 +275,7 @@ class Gozu_Tenno(DragonBase):
         from core.advbase import Repeat, Fs
 
         super().oninit(adv)
-        adv.gozu_tenno_buff = adv.Selfbuff(
-            "gozu_tenno_buff", 0.3, 30, "flame", "ele"
-        ).no_bufftime()
+        adv.gozu_tenno_buff = adv.Selfbuff("gozu_tenno_buff", 0.3, 30, "flame", "ele").no_bufftime()
 
         def fs_end(e):
             fs_action = adv.action.getdoing()
@@ -314,9 +297,7 @@ class Gozu_Tenno(DragonBase):
 class Gaibhne_and_Creidhne(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        charge_timer = Timer(
-            lambda _: adv.charge_p("ds", 0.091, no_autocharge=True), 0.9, True
-        )
+        charge_timer = Timer(lambda _: adv.charge_p("ds", 0.091, no_autocharge=True), 0.9, True)
         ds_buff = EffectBuff(
             "ds_sp_regen_zone",
             10,
@@ -372,9 +353,7 @@ class Gala_Reborn_Poseidon(DragonBase):
         charge_gauge_o = adv.dragonform.charge_gauge
         self.agauge = 0
         self.acount = 0
-        adv.gposeidon_buff = adv.Selfbuff(
-            "gposeidon_buff", 0.3, 45, "water", "ele"
-        ).no_bufftime()
+        adv.gposeidon_buff = adv.Selfbuff("gposeidon_buff", 0.3, 45, "water", "ele").no_bufftime()
 
         def charge_gauge(value, **kwargs):
             delta = charge_gauge_o(value, **kwargs)
@@ -394,9 +373,7 @@ class AC011_Garland(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         if adv.condition("maintain shield"):
-            Timer(
-                lambda _: adv.Modifier("d_1_dauntless", "att", "passive", 0.30).on(), 15
-            ).on()
+            Timer(lambda _: adv.Modifier("d_1_dauntless", "att", "passive", 0.30).on(), 15).on()
 
 
 class Summer_Konohana_Sakuya(DragonBase):
@@ -435,9 +412,7 @@ class Gala_Reborn_Zephyr(DragonBase):
         charge_gauge_o = adv.dragonform.charge_gauge
         self.agauge = 0
         self.acount = 0
-        adv.gzephyr_buff = adv.Selfbuff(
-            "gzephyr_buff", 0.3, 45, "wind", "ele"
-        ).no_bufftime()
+        adv.gzephyr_buff = adv.Selfbuff("gzephyr_buff", 0.3, 45, "wind", "ele").no_bufftime()
 
         def charge_gauge(value, **kwargs):
             delta = charge_gauge_o(value, **kwargs)
@@ -462,7 +437,9 @@ class Menoetius(DragonBase):
         def l_selfaff_proc(e):
             if not self.is_cd:
                 self.deranged_thrill.on()
-                adv.dmg_make("#menoetius_aura", 27.53)
+                # confirm which mod is used
+                # adv.dmg_make("#menoetius_aura", 27.53)
+                adv.dmg_make("#menoetius_aura", 24.57)
                 self.is_cd = True
                 Timer(cd_end, 20).on()
 
@@ -490,9 +467,7 @@ class Gala_Thor(DragonBase):
 class Lumiere_Pandora(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        joyful_radiance_buff = adv.Selfbuff(
-            "joyful_radiance", 0.8, -1, "att", "passive"
-        ).on()
+        joyful_radiance_buff = adv.Selfbuff("joyful_radiance", 0.8, -1, "att", "passive").on()
         adv.joyful_radiance = 4
 
         def add_joyful_radiance(e):
@@ -523,9 +498,7 @@ class Gala_Cat_Sith(DragonBase):
         super().oninit(adv)
         adv.trickery = Gala_Cat_Sith.MAX_TRICKERY
         threshold = 25
-        self.trickery_buff = SingleActionBuff(
-            "d_trickery_buff", 1.80, 1, "s", "buff"
-        ).on()
+        self.trickery_buff = SingleActionBuff("d_trickery_buff", 1.80, 1, "s", "buff").on()
 
         def add_trickery(t):
             adv.trickery = min(adv.trickery + t, Gala_Cat_Sith.MAX_TRICKERY)
@@ -586,12 +559,8 @@ class Nyarlathotep(DragonBase):
 class Ramiel(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        sp_regen_timer = Timer(
-            lambda _: adv.charge_p("ds_sp", 0.0075, target=["s1", "s2"]), 0.99, True
-        )
-        sp_regen_buff = EffectBuff(
-            "ds_sp", 90, lambda: sp_regen_timer.on(), lambda: sp_regen_timer.off()
-        )
+        sp_regen_timer = Timer(lambda _: adv.charge_p("ds_sp", 0.0075, target=["s1", "s2"]), 0.99, True)
+        sp_regen_buff = EffectBuff("ds_sp", 90, lambda: sp_regen_timer.on(), lambda: sp_regen_timer.off())
         Event("ds").listener(lambda _: sp_regen_buff.on())
 
 
@@ -632,9 +601,7 @@ class WeaponBase(EquipBase):
         return self.conf.ele
 
 
-APGroup = namedtuple(
-    "APGroup", ["value", "att", "restrict", "condition", "union", "qual"]
-)
+APGroup = namedtuple("APGroup", ["value", "att", "restrict", "condition", "union", "qual"])
 
 
 class AmuletPicker:
@@ -650,9 +617,7 @@ class AmuletPicker:
                 wpv = wpa_lst[1]
                 try:
                     parts = wpa_lst[2].split("_")
-                    wpc = tuple(
-                        c for c in parts if c not in ELEMENTS and c not in WEAPON_TYPES
-                    )
+                    wpc = tuple(c for c in parts if c not in ELEMENTS and c not in WEAPON_TYPES)
                     wpr = tuple(c for c in parts if c in ELEMENTS or c in WEAPON_TYPES)
                 except (AttributeError, IndexError):
                     wpc = tuple()
@@ -687,17 +652,8 @@ class AmuletPicker:
     @staticmethod
     def find_next_matching(bis_i, group, gval, c, retain_union):
         while bis_i > 0 and (
-            (
-                group[bis_i].restrict
-                and not (
-                    c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict
-                )
-            )
-            or (
-                group[bis_i].condition
-                and group[bis_i].condition
-                and gval.condition != group[bis_i].condition
-            )
+            (group[bis_i].restrict and not (c.wt in group[bis_i].restrict or c.ele in group[bis_i].restrict))
+            or (group[bis_i].condition and group[bis_i].condition and gval.condition != group[bis_i].condition)
             or (gval.union in retain_union and gval.union != group[bis_i].union)
         ):
             bis_i -= 1
