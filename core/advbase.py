@@ -918,7 +918,7 @@ class Adv(object):
                         vars(self.afflics)[afflic].resist = 100
 
     def sim_affliction(self):
-        if "sim_afflict" in self.conf:
+        if "sim_afflict" in self.conf and not self.conf["berserk"]:
             for aff_type in AFFLICT_LIST:
                 aff = vars(self.afflics)[aff_type]
                 if self.conf.sim_afflict[aff_type]:
