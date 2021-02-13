@@ -1,6 +1,7 @@
 from core.advbase import *
 from module.template import SigilAdv
 
+
 class Pinon(SigilAdv):
     def fs2_proc(self, e):
         self.a_update_sigil(-13)
@@ -17,8 +18,9 @@ class Pinon(SigilAdv):
 
     def post_run(self, end):
         if self.unlocked:
-            self.comment += f'unlock at {self.unlocked:.02f}s;'
+            self.comment += f"unlock at {self.unlocked:.02f}s;"
         else:
-            self.comment += f'not unlocked'
+            self.comment += f"not unlocked"
+
 
 variants = {None: Pinon}

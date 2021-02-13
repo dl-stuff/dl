@@ -1,17 +1,18 @@
 from core.advbase import *
 
-class Joker(Adv):    
+
+class Joker(Adv):
     def prerun(self):
-        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(
-            group='ddrive',
-            x=True, fs=True, s1=True, s2=True
-        ), drain=75)
+        self.dragondrive = self.dragonform.set_dragondrive(
+            ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=75
+        )
 
     def fs_ddrive_proc(self, e):
-        self.dmg_make('x_arsene', 2.9)
+        self.dmg_make("x_arsene", 2.9)
 
     def x_ddrive_proc(self, e):
-        if e.base in ('x3', 'x6'):
-            self.dmg_make('x_arsene', 2.56)
+        if e.base in ("x3", "x6"):
+            self.dmg_make("x_arsene", 2.56)
+
 
 variants = {None: Joker}

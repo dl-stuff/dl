@@ -5,7 +5,22 @@ from core.log import *
 from core.acl import allow_acl
 import random
 
-AFFLICT_LIST = ['poison', 'paralysis', 'burn', 'blind', 'bog', 'stun', 'freeze', 'sleep', 'frostbite', 'flashburn', 'shadowblight', 'stormlash', 'scorchrend']
+AFFLICT_LIST = [
+    "poison",
+    "paralysis",
+    "burn",
+    "blind",
+    "bog",
+    "stun",
+    "freeze",
+    "sleep",
+    "frostbite",
+    "flashburn",
+    "shadowblight",
+    "stormlash",
+    "scorchrend",
+]
+
 
 class Dot(object):
     """
@@ -19,17 +34,17 @@ class Dot(object):
         self.coef = coef
         self.iv = iv  # Seconds between each damage tick
         self.duration = duration
-        self.true_dmg_event = Event('true_dmg')
+        self.true_dmg_event = Event("true_dmg")
         self.true_dmg_event.dname = name
         self.true_dmg_event.dtype = dtype if dtype else name
-        self.true_dmg_event.comment = ''
+        self.true_dmg_event.comment = ""
         self.tick_dmg = 0
-        self.quickshot_event = Event('dmg_formula')
+        self.quickshot_event = Event("dmg_formula")
         self.tick_timer = Timer(self.tick_proc)
         self.dotend_timer = Timer(self.dot_end_proc)
 
     def dot_end_proc(self, t):
-        log('dot', self.name, 'end')
+        log("dot", self.name, "end")
         self.active = 0
         self.tick_timer.off()
         self.cb_end()
@@ -52,7 +67,7 @@ class Dot(object):
 
     def on(self):
         if self.active:
-            log('dot', self.name, 'failed')
+            log("dot", self.name, "failed")
             return 0
         self.active = 1
         self.tick_timer.on(self.iv)
@@ -63,13 +78,13 @@ class Dot(object):
         self.quickshot_event.dot = True
         self.quickshot_event()
         self.tick_dmg = self.quickshot_event.dmg
-        log('dot', self.name, 'start', '%f/%d' % (self.iv, self.duration))
+        log("dot", self.name, "start", "%f/%d" % (self.iv, self.duration))
         return 1
 
     def off(self):
         self.tick_timer.off()
         self.dotend_timer.off()
-        log('dot', self.name, 'end by other reason')
+        log("dot", self.name, "end by other reason")
 
 
 class AfflicBase:
@@ -134,10 +149,14 @@ class AfflicBase:
         if next_r == 0:
             self.last_afflict = next_t
         prev_r, prev_t = self.c_uptime
-        rate = prev_r + next_r*(next_t-prev_t)
+        rate = prev_r + next_r * (next_t - prev_t)
         self.c_uptime = (rate, next_t)
         if next_t > 0 and rate > 0:
-            log('{}_uptime'.format(self.name), '{:.2f}/{:.2f}'.format(rate, next_t), '{:.2%}'.format(rate/next_t))
+            log(
+                "{}_uptime".format(self.name),
+                "{:.2f}/{:.2f}".format(rate, next_t),
+                "{:.2%}".format(rate / next_t),
+            )
         # if next_t > 0 and rate > 0:
         #     log('uptime', self.name, rate / next_t)
 
@@ -153,7 +172,7 @@ class AfflicUncapped(AfflicBase):
         for stack_p in self.stacks:
             nostack_p *= 1.0 - stack_p
         self._get = 1.0 - nostack_p
-        log('affliction', self.name, self._get)
+        log("affliction", self.name, self._get)
 
     def stack_end(self, e):
         self.stacks.remove(e.total_success_p)
@@ -190,7 +209,7 @@ class AfflicUncapped(AfflicBase):
 
 
 class AfflicCapped(AfflicBase):
-    State = namedtuple('State', ('timers', 'resist'))
+    State = namedtuple("State", ("timers", "resist"))
 
     def __init__(self, name=None, duration=12, tolerance=0.2):
         super().__init__(name, duration, tolerance)
@@ -201,19 +220,21 @@ class AfflicCapped(AfflicBase):
         total_p = 0.0
         states = defaultdict(lambda: 0.0)
         for state, state_p in self.states.items():
-            reduced_state = self.State(frozenset([t for t in state.timers if t.timing > now()]), state.resist)
+            reduced_state = self.State(
+                frozenset([t for t in state.timers if t.timing > now()]), state.resist
+            )
             states[reduced_state] += state_p
             if reduced_state.timers:
                 total_p += state_p
         self.states = states
         self._get = total_p
-        log('affliction', self.name, self.get())
+        log("affliction", self.name, self.get())
         return total_p
 
     def stack_end(self, t):
         self.update()
         if self.get() != self.start_rate:
-            log('cc', self.name, self.get() or 'end')
+            log("cc", self.name, self.get() or "end")
 
     def on(self):
         timer = Timer(self.stack_end, self.duration).on()
@@ -224,12 +245,18 @@ class AfflicCapped(AfflicBase):
         total_p = 0.0
         for start_state, start_state_p in self.states.items():
             res = start_state.resist - self.res_modifier
-            if res >= self.rate or res >= 1 or len(start_state.timers) >= self.stack_cap:
+            if (
+                res >= self.rate
+                or res >= 1
+                or len(start_state.timers) >= self.stack_cap
+            ):
                 states[start_state] += start_state_p
             else:
                 rate_after_res = min(1, self.rate - res)
                 succeed_timers = frozenset(list(start_state.timers) + [timer])
-                state_on_succeed = self.State(succeed_timers, min(1.0, res + self.tolerance))
+                state_on_succeed = self.State(
+                    succeed_timers, min(1.0, res + self.tolerance)
+                )
                 overall_succeed_p = start_state_p * rate_after_res
                 overall_fail_p = start_state_p * (1.0 - rate_after_res)
                 total_p += overall_succeed_p
@@ -243,9 +270,10 @@ class AfflicCapped(AfflicBase):
         self.event()
 
         self.start_rate = round(self.get(), 3)
-        log('cc', self.name, self.start_rate or 'fail')
+        log("cc", self.name, self.start_rate or "fail")
 
         return total_p
+
 
 class Afflic_dot(AfflicUncapped):
     def __init__(self, name=None, duration=12, iv=3.99, tolerance=0.05):
@@ -259,13 +287,15 @@ class Afflic_dot(AfflicUncapped):
         self.rate = rate + self.edge
         self.coef = coef
         self.event.source = name
-        if dtype is None and name[0] == 's':
-            self.dtype = 's'
+        if dtype is None and name[0] == "s":
+            self.dtype = "s"
         else:
             self.dtype = dtype
         self.duration = (duration or self.default_duration) * self.time
         self.iv = iv or self.default_iv
-        self.dot = Dot(f'o_{name}_{self.name}', coef, self.duration, self.iv, self.dtype)
+        self.dot = Dot(
+            f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype
+        )
         self.dot.on()
         r = super().on()
         self.dot.tick_dmg *= r
@@ -273,7 +303,7 @@ class Afflic_dot(AfflicUncapped):
 
     def timeleft(self):
         if self.dot:
-            return self.dot.dotend_timer.timing-now()
+            return self.dot.dotend_timer.timing - now()
         else:
             return 0
 
@@ -309,6 +339,7 @@ class Afflic_scc(AfflicCapped):
     def cb_end(self):
         pass
 
+
 class Afflic_bog(Afflic_scc):
     def __init__(self, name=None, duration=8, tolerance=0.2):
         super().__init__(name, duration, tolerance)
@@ -320,64 +351,139 @@ class Afflic_bog(Afflic_scc):
             # from core.advbase import Debuff
             # Debuff('{}_bog'.format(name),-0.5*p,self.duration,1,'att','bog').on()
             from core.advbase import Selfbuff
-            bog = Selfbuff('{}_bog'.format(name),0.5*p,self.duration,'att','bog').no_bufftime()
-            bog.bufftype = 'bog'
+
+            bog = Selfbuff(
+                "{}_bog".format(name), 0.5 * p, self.duration, "att", "bog"
+            ).no_bufftime()
+            bog.bufftype = "bog"
             bog.on()
         return p
+
 
 class Afflics(object):
     RESIST_PROFILES = {
         None: {
-            'poison': 0, 'burn': 0, 'paralysis': 0,
-            'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0, 'scorchrend': 0,
-            'blind': 99, 'bog': 99, 'freeze': 99, 'stun': 99, 'sleep': 99
+            "poison": 0,
+            "burn": 0,
+            "paralysis": 0,
+            "frostbite": 0,
+            "flashburn": 0,
+            "shadowblight": 0,
+            "stormlash": 0,
+            "scorchrend": 0,
+            "blind": 99,
+            "bog": 99,
+            "freeze": 99,
+            "stun": 99,
+            "sleep": 99,
         },
-        'immune': {
-            'poison': 100, 'burn': 100, 'paralysis': 100,
-            'frostbite': 100, 'flashburn': 100, 'shadowblight': 100, 'stormlash': 100, 'scorchrend': 100,
-            'blind': 100, 'bog': 100, 'freeze': 100, 'stun': 100, 'sleep': 100
+        "immune": {
+            "poison": 100,
+            "burn": 100,
+            "paralysis": 100,
+            "frostbite": 100,
+            "flashburn": 100,
+            "shadowblight": 100,
+            "stormlash": 100,
+            "scorchrend": 100,
+            "blind": 100,
+            "bog": 100,
+            "freeze": 100,
+            "stun": 100,
+            "sleep": 100,
         },
-        'flame': { # Volk
-            'poison': 0, 'burn': 0, 'paralysis': 100,
-            'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0, 'scorchrend': 0,
-            'blind': 99, 'bog': 100, 'freeze': 100, 'stun': 99, 'sleep': 99
+        "flame": {  # Volk
+            "poison": 0,
+            "burn": 0,
+            "paralysis": 100,
+            "frostbite": 0,
+            "flashburn": 0,
+            "shadowblight": 0,
+            "stormlash": 0,
+            "scorchrend": 0,
+            "blind": 99,
+            "bog": 100,
+            "freeze": 100,
+            "stun": 99,
+            "sleep": 99,
         },
-        'shadow': { # Kai Yan
-            'poison': 0, 'burn': 0, 'paralysis': 100,
-            'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0, 'scorchrend': 0,
-            'blind': 100, 'bog': 99, 'freeze': 100, 'stun': 99, 'sleep': 99
+        "shadow": {  # Kai Yan
+            "poison": 0,
+            "burn": 0,
+            "paralysis": 100,
+            "frostbite": 0,
+            "flashburn": 0,
+            "shadowblight": 0,
+            "stormlash": 0,
+            "scorchrend": 0,
+            "blind": 100,
+            "bog": 99,
+            "freeze": 100,
+            "stun": 99,
+            "sleep": 99,
         },
-        'wind': { # Ciella
-            'poison': 0, 'burn': 0, 'paralysis': 100,
-            'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0, 'scorchrend': 0,
-            'blind': 100, 'bog': 100, 'freeze': 100, 'stun': 100, 'sleep': 100
+        "wind": {  # Ciella
+            "poison": 0,
+            "burn": 0,
+            "paralysis": 100,
+            "frostbite": 0,
+            "flashburn": 0,
+            "shadowblight": 0,
+            "stormlash": 0,
+            "scorchrend": 0,
+            "blind": 100,
+            "bog": 100,
+            "freeze": 100,
+            "stun": 100,
+            "sleep": 100,
         },
-        'water': { # Ayaha & Otoha
-            'poison': 99, 'burn': 0, 'paralysis': 100,
-            'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0, 'scorchrend': 0,
-            'blind': 100, 'bog': 70, 'freeze': 100, 'stun': 100, 'sleep': 100
-        }, # bog at 70 for ~2 bogs
-        'light': { # Tartarus
-            'poison': 90, 'burn': 0, 'paralysis': 0,
-            'frostbite': 0, 'flashburn': 0, 'shadowblight': 0, 'stormlash': 0, 'scorchrend': 0,
-            'blind': 100, 'bog': 99, 'freeze': 100, 'stun': 99, 'sleep': 99
-        }
+        "water": {  # Ayaha & Otoha
+            "poison": 99,
+            "burn": 0,
+            "paralysis": 100,
+            "frostbite": 0,
+            "flashburn": 0,
+            "shadowblight": 0,
+            "stormlash": 0,
+            "scorchrend": 0,
+            "blind": 100,
+            "bog": 70,
+            "freeze": 100,
+            "stun": 100,
+            "sleep": 100,
+        },  # bog at 70 for ~2 bogs
+        "light": {  # Tartarus
+            "poison": 90,
+            "burn": 0,
+            "paralysis": 0,
+            "frostbite": 0,
+            "flashburn": 0,
+            "shadowblight": 0,
+            "stormlash": 0,
+            "scorchrend": 0,
+            "blind": 100,
+            "bog": 99,
+            "freeze": 100,
+            "stun": 99,
+            "sleep": 99,
+        },
     }
-    def __init__(self):
-        self.poison = Afflic_dot('poison', duration=15, iv=2.9)
-        self.burn = Afflic_dot('burn', duration=12, iv=3.9)
-        self.paralysis = Afflic_dot('paralysis', duration=13, iv=3.9)
-        self.frostbite = Afflic_dot('frostbite', duration=21, iv=2.9)
-        self.flashburn = Afflic_dot('flashburn', duration=21, iv=2.9)
-        self.shadowblight = Afflic_dot('shadowblight', duration=21, iv=2.9)
-        self.stormlash = Afflic_dot('stormlash', duration=21, iv=2.9)
-        self.scorchrend = Afflic_dot('scorchrend', duration=21, iv=2.9)
 
-        self.blind = Afflic_scc('blind', duration=8)
-        self.bog = Afflic_bog('bog', duration=8)
-        self.freeze = Afflic_cc('freeze', duration=4.5)
-        self.stun = Afflic_cc('stun', duration=6.5)
-        self.sleep = Afflic_cc('sleep', duration=6.5)
+    def __init__(self):
+        self.poison = Afflic_dot("poison", duration=15, iv=2.9)
+        self.burn = Afflic_dot("burn", duration=12, iv=3.9)
+        self.paralysis = Afflic_dot("paralysis", duration=13, iv=3.9)
+        self.frostbite = Afflic_dot("frostbite", duration=21, iv=2.9)
+        self.flashburn = Afflic_dot("flashburn", duration=21, iv=2.9)
+        self.shadowblight = Afflic_dot("shadowblight", duration=21, iv=2.9)
+        self.stormlash = Afflic_dot("stormlash", duration=21, iv=2.9)
+        self.scorchrend = Afflic_dot("scorchrend", duration=21, iv=2.9)
+
+        self.blind = Afflic_scc("blind", duration=8)
+        self.bog = Afflic_bog("bog", duration=8)
+        self.freeze = Afflic_cc("freeze", duration=4.5)
+        self.stun = Afflic_cc("stun", duration=6.5)
+        self.sleep = Afflic_cc("sleep", duration=6.5)
 
         self.set_resist()
 
@@ -392,5 +498,5 @@ class Afflics(object):
             aff.uptime()
             rate, t = aff.c_uptime
             if rate > 0:
-                uptimes[atype] = rate/t
+                uptimes[atype] = rate / t
         return dict(sorted(uptimes.items(), key=lambda u: u[1], reverse=True))

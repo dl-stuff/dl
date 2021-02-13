@@ -2,18 +2,21 @@ import sys
 from collections import defaultdict
 import core.timeline
 
+
 def hecc():
     return {}
 
+
 class Log:
     DEBUG = False
+
     def __init__(self):
         self.reset()
 
     def reset(self):
         self.record = []
-        self.damage = {'x':{},'s':{},'f':{},'d':{},'o':{}}
-        self.counts = {'x':{},'s':{},'f':{},'d':{},'o':{}}
+        self.damage = {"x": {}, "s": {}, "f": {}, "d": {}, "o": {}}
+        self.counts = {"x": {}, "s": {}, "f": {}, "d": {}, "o": {}}
         self.datasets = defaultdict(hecc)
         self.p_buff = None
         self.team_buff = 0
@@ -24,14 +27,17 @@ class Log:
         self.shift_dmg = None
 
     def convert_dataset(self):
-        if 'doublebuff' in self.datasets:
+        if "doublebuff" in self.datasets:
             converted_doublebuff = {}
             stacks = 0
-            for t, v in sorted(self.datasets['doublebuff'].items()):
+            for t, v in sorted(self.datasets["doublebuff"].items()):
                 stacks += v
                 converted_doublebuff[t] = stacks
-            self.datasets['doublebuff'] = converted_doublebuff
-        return {cat: [{'x': t, 'y': d} for t, d in sorted(data.items())] for cat, data in self.datasets.items()}
+            self.datasets["doublebuff"] = converted_doublebuff
+        return {
+            cat: [{"x": t, "y": d} for t, d in sorted(data.items())]
+            for cat, data in self.datasets.items()
+        }
 
     @staticmethod
     def update_dict(dict, name: str, value, replace=False):
@@ -47,14 +53,18 @@ class Log:
     @staticmethod
     def fmt_hitattr_v(v):
         if isinstance(v, list):
-            return '['+','.join(map(str, v))+']'
+            return "[" + ",".join(map(str, v)) + "]"
         if isinstance(v, dict):
             return Log.fmt_hitattr(v)
         return str(v)
 
     @staticmethod
     def fmt_hitattr(attr):
-        return '{'+'/'.join([f'{k}:{Log.fmt_hitattr_v(v)}' for k, v in attr.items()])+'}'
+        return (
+            "{"
+            + "/".join([f"{k}:{Log.fmt_hitattr_v(v)}" for k, v in attr.items()])
+            + "}"
+        )
 
     def log_shift_dmg(self, enable):
         if enable:
@@ -67,7 +77,7 @@ class Log:
         if (name, attr_str) in self.hitattr_set:
             return
         self.hitattr_set.add((name, attr_str))
-        log('hitattr', name, attr_str)
+        log("hitattr", name, attr_str)
         return attr_str
 
     def log(self, *args):
@@ -76,41 +86,45 @@ class Log:
         if len(args) >= 2:
             category = args[0]
             name = args[1]
-            if category == 'dmg':
+            if category == "dmg":
                 dmg_amount = float(args[2])
-                if name[0:2] == 'o_' and name[2] in self.damage:
+                if name[0:2] == "o_" and name[2] in self.damage:
                     name = name[2:]
                 if name[0] in self.damage:
                     self.update_dict(self.damage[name[0]], name, dmg_amount)
                 else:
-                    if name[0] == '#':
+                    if name[0] == "#":
                         name = name[1:]
                         n_rec[2] = name
-                    self.update_dict(self.damage['o'], name, dmg_amount)
-                if name[0] == 'd' and self.shift_dmg is not None:
+                    self.update_dict(self.damage["o"], name, dmg_amount)
+                if name[0] == "d" and self.shift_dmg is not None:
                     self.shift_dmg += dmg_amount
-                self.update_dict(self.datasets['dmg'], time_now, dmg_amount)
-            elif category == 'x' or category == 'cast':
+                self.update_dict(self.datasets["dmg"], time_now, dmg_amount)
+            elif category == "x" or category == "cast":
                 self.update_dict(self.counts[name[0]], name, 1)
                 # name1 = name.split('_')[0]
                 # if name1 != name:
                 #     self.update_dict(self.counts[name[0]], name1, 1)
                 self.act_seq.append(name)
-            elif category == 'buff' and name == 'team':
+            elif category == "buff" and name == "team":
                 buff_amount = float(args[2])
                 if self.p_buff is not None:
                     pt, pb = self.p_buff
                     self.team_buff += (time_now - pt) * pb
                 self.p_buff = (time_now, buff_amount)
-                self.update_dict(self.datasets['team'], time_now, buff_amount, replace=True)
-            elif category == 'buff' and name == 'doublebuff':
+                self.update_dict(
+                    self.datasets["team"], time_now, buff_amount, replace=True
+                )
+            elif category == "buff" and name == "doublebuff":
                 self.team_doublebuffs += 1
-                self.update_dict(self.datasets['doublebuff'], time_now, 1)
-                self.update_dict(self.datasets['doublebuff'], time_now + float(args[2]), -1)
-            elif category in ('energy', 'inspiration') and name == 'team':
+                self.update_dict(self.datasets["doublebuff"], time_now, 1)
+                self.update_dict(
+                    self.datasets["doublebuff"], time_now + float(args[2]), -1
+                )
+            elif category in ("energy", "inspiration") and name == "team":
                 self.update_dict(self.team_tension, category, float(args[2]))
-            elif category == 'affliction':
-                self.update_dict(self.datasets[name], time_now, float(args[2])*100)
+            elif category == "affliction":
+                self.update_dict(self.datasets[name], time_now, float(args[2]) * 100)
         if self.DEBUG:
             self.write_log_entry(n_rec, sys.stdout, flush=True)
         self.record.append(n_rec)
@@ -125,13 +139,13 @@ class Log:
 
     def write_log_entry(self, entry, output, flush=False):
         time = entry[0]
-        output.write('{:>8.3f}: '.format(time))
+        output.write("{:>8.3f}: ".format(time))
         for value in entry[1:]:
             if isinstance(value, float):
-                output.write('{:<16.3f},'.format(value))
+                output.write("{:<16.3f},".format(value))
             else:
-                output.write('{:<16},'.format(value))
-        output.write('\n')
+                output.write("{:<16},".format(value))
+        output.write("\n")
         if flush:
             output.flush()
 
@@ -147,7 +161,7 @@ class Log:
             self.write_log_entry(entry, output)
             maxlen -= 1
             if maxlen == 0:
-                output.write('......')
+                output.write("......")
                 return
 
     def get_log_list(self):

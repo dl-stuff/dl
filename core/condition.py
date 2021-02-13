@@ -1,11 +1,12 @@
 from typing import Union
 from collections import defaultdict
 
+
 class Condition(dict):
     def __init__(self, cond, get_hp):
         self.global_cond = True
         self.base_cond = {}
-        self.hp_cond = {'>': {}, '<': {}, '=': {}}
+        self.hp_cond = {">": {}, "<": {}, "=": {}}
         self.get_hp = get_hp
         super().__init__({})
         if isinstance(cond, dict):
@@ -14,17 +15,17 @@ class Condition(dict):
             self.global_cond = cond
 
     def cond_str(self):
-        return ' & '.join((k for k, v in self.items() if v))
+        return " & ".join((k for k, v in self.items() if v))
 
     def cond_set(self, key, cond=True):
-        if key.startswith('hp'):
+        if key.startswith("hp"):
             try:
-                if key[2] == '≤':
+                if key[2] == "≤":
                     hp = int(key[3:])
-                    op = '<'
+                    op = "<"
                 else:
                     hp = int(key[2:])
-                    op = '>'
+                    op = ">"
                 self.hp_cond[op][hp] = key
                 self.hp_cond_update()
                 return self[key] and self.global_cond
@@ -41,15 +42,20 @@ class Condition(dict):
 
     def hp_cond_update(self):
         current_hp = self.get_hp()
-        for hpt, hpt_key in self.hp_cond['>'].items():
+        for hpt, hpt_key in self.hp_cond[">"].items():
             self[hpt_key] = current_hp >= hpt
-        for hpt, hpt_key in self.hp_cond['<'].items():
+        for hpt, hpt_key in self.hp_cond["<"].items():
             self[hpt_key] = current_hp <= hpt
-        for hpt, hpt_key in self.hp_cond['='].items():
+        for hpt, hpt_key in self.hp_cond["="].items():
             self[hpt_key] = current_hp == hpt
 
     def hp_threshold_list(self, threshold=0):
-        return sorted(filter(lambda hp: hp > threshold, list(self.hp_cond['='].keys())+list(self.hp_cond['<'].keys())))
+        return sorted(
+            filter(
+                lambda hp: hp > threshold,
+                list(self.hp_cond["="].keys()) + list(self.hp_cond["<"].keys()),
+            )
+        )
 
     def exist(self):
         return any(self.values()) and self.global_cond

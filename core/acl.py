@@ -4,14 +4,17 @@ from itertools import islice
 from collections import deque
 
 from core.log import log
+
 CHAR_LIMIT = 1000
-CONTINUE = '<continue>'
+CONTINUE = "<continue>"
+
 
 def pairs(iterator):
     "s -> (s0,s1), (s2,s3), (s4, s5), ..."
     a = islice(iterator, 0, None, 2)
     b = islice(iterator, 1, None, 2)
     return zip(a, b)
+
 
 from lark import Lark, Tree, Token
 from lark.visitors import Visitor, Interpreter, v_args
@@ -20,88 +23,93 @@ from core.timeline import now
 from core.log import log
 from conf import ROOT_DIR
 
-froot = os.path.join(ROOT_DIR, 'core')
-lark_file = os.path.join(froot, 'acl.lark')
+froot = os.path.join(ROOT_DIR, "core")
+lark_file = os.path.join(froot, "acl.lark")
 with open(lark_file) as f:
-    PARSER = Lark(f.read(), parser='lalr')
+    PARSER = Lark(f.read(), parser="lalr")
 
 
 SHORT_CIRCUIT = {
-    'AND': lambda l: bool(not l),
-    'OR': lambda l: bool(l),
+    "AND": lambda l: bool(not l),
+    "OR": lambda l: bool(l),
 }
 
 
 BINARY_EXPR = {
-    'AND': lambda l, r: l and r,
-    'OR': lambda l, r: l or r,
-    'IS': lambda l, r: l is r,
-    'IN': lambda l, r: l in r,
-    'GT': lambda l, r: l > r,
-    'LT': lambda l, r: l < r,
-    'EQ': lambda l, r: l == r,
-    'NE': lambda l, r: l != r,
-    'GE': lambda l, r: l >= r,
-    'LE': lambda l, r: l <= r,
-    'ADD': lambda l, r: l + r,
-    'MINUS': lambda l, r: l - r,
-    'MULT': lambda l, r: l * r,
-    'DIV': lambda l, r: l / r,
-    'MOD': lambda l, r: l % r,
+    "AND": lambda l, r: l and r,
+    "OR": lambda l, r: l or r,
+    "IS": lambda l, r: l is r,
+    "IN": lambda l, r: l in r,
+    "GT": lambda l, r: l > r,
+    "LT": lambda l, r: l < r,
+    "EQ": lambda l, r: l == r,
+    "NE": lambda l, r: l != r,
+    "GE": lambda l, r: l >= r,
+    "LE": lambda l, r: l <= r,
+    "ADD": lambda l, r: l + r,
+    "MINUS": lambda l, r: l - r,
+    "MULT": lambda l, r: l * r,
+    "DIV": lambda l, r: l / r,
+    "MOD": lambda l, r: l % r,
 }
-BINARY_EXPR['EQQ'] = BINARY_EXPR['EQ']
+BINARY_EXPR["EQQ"] = BINARY_EXPR["EQ"]
 BINARY_EXPR_TOKENS = {
-    'GT': '>',
-    'LT': '<',
-    'EQ': '=',
-    'NE': '!=',
-    'GE': '>=',
-    'LE': '<=',
-    'ADD': '+',
-    'MINUS': '-',
-    'MULT': '*',
-    'DIV': '/',
-    'MOD': '%',
+    "GT": ">",
+    "LT": "<",
+    "EQ": "=",
+    "NE": "!=",
+    "GE": ">=",
+    "LE": "<=",
+    "ADD": "+",
+    "MINUS": "-",
+    "MULT": "*",
+    "DIV": "/",
+    "MOD": "%",
 }
 
 PIN_CMD = {
-    'SEQ': lambda e: e.didx if e.dname[0] == 'x' else 0 if e.dstat == -2 else -1,
-    'X': lambda e: e.didx if e.pin[0] =='x' and e.dstat != -1 and e.dhit == 0 else 0,
-    'XF': lambda e: e.didx if e.pin[0] == 'x' and e.dstat != -1 else 0,
-    'S': lambda e: int(e.pin[1]) if (e.pin[0] == 's' and e.pin[1].isdigit()) or e.pin[-2:] == '-x' else 0,
-    'FSC': lambda e: e.pin.startswith('fs') and e.dstat != -1 and e.dhit == 0,
-    'FSCF': lambda e: e.pin.startswith('fs') and e.dstat != -1,
-    'SP': lambda e: e.dname if e.pin == 'sp' else None,
-    'PREP': lambda e: e.pin == 'prep',
-    'REPEAT': lambda e: e.didx if e.dname.endswith('repeat') else 0
+    "SEQ": lambda e: e.didx if e.dname[0] == "x" else 0 if e.dstat == -2 else -1,
+    "X": lambda e: e.didx if e.pin[0] == "x" and e.dstat != -1 and e.dhit == 0 else 0,
+    "XF": lambda e: e.didx if e.pin[0] == "x" and e.dstat != -1 else 0,
+    "S": lambda e: int(e.pin[1])
+    if (e.pin[0] == "s" and e.pin[1].isdigit()) or e.pin[-2:] == "-x"
+    else 0,
+    "FSC": lambda e: e.pin.startswith("fs") and e.dstat != -1 and e.dhit == 0,
+    "FSCF": lambda e: e.pin.startswith("fs") and e.dstat != -1,
+    "SP": lambda e: e.dname if e.pin == "sp" else None,
+    "PREP": lambda e: e.pin == "prep",
+    "REPEAT": lambda e: e.didx if e.dname.endswith("repeat") else 0,
 }
-PIN_CMD['CANCEL'] = lambda e: PIN_CMD['X'](e) or PIN_CMD['FSC'](e)
+PIN_CMD["CANCEL"] = lambda e: PIN_CMD["X"](e) or PIN_CMD["FSC"](e)
 
 
 PARAM_EVAL = {
-    'DURATION': lambda adv: adv.duration,
-    'NOW': lambda _: now(),
+    "DURATION": lambda adv: adv.duration,
+    "NOW": lambda _: now(),
 }
 
 
 LITERAL_EVAL = {
-    'SIGNED_INT': int,
-    'SIGNED_FLOAT': float,
-    'STRING': str,
-    'BOOLEAN': bool,
-    'NONE': lambda: None,
+    "SIGNED_INT": int,
+    "SIGNED_FLOAT": float,
+    "STRING": str,
+    "BOOLEAN": bool,
+    "NONE": lambda: None,
 }
+
 
 def allow_acl(f):
     f.allow_acl = True
     return f
+
 
 def check_allow_acl(f):
     # res = getattr(f, 'allow_acl', False)
     # if not res:
     #     raise RuntimeError(str(f))
     # return res
-    return getattr(f, 'allow_acl', False)
+    return getattr(f, "allow_acl", False)
+
 
 class AclInterpreter(Interpreter):
     def bind(self, tree, acl):
@@ -125,10 +133,10 @@ class AclInterpreter(Interpreter):
 
     def visit(self, t):
         result = super().visit(t)
-        if t.data in ('literal', 'selfcond', 'pincond'):
+        if t.data in ("literal", "selfcond", "pincond"):
             t._visited = True
         else:
-            t._visited = bool(result) or getattr(t, '_visited', False)
+            t._visited = bool(result) or getattr(t, "_visited", False)
         # if t.data == 'action':
         #     log('visited', str(t._visited), str(t))
         return result
@@ -167,7 +175,7 @@ class AclInterpreter(Interpreter):
         if argl == 0:
             return True
         negate = False
-        if isinstance(args[0], Token) and args[0].type == 'NOT': # NOT cond
+        if isinstance(args[0], Token) and args[0].type == "NOT":  # NOT cond
             args = args[1:]
             argl -= 1
             negate = True
@@ -266,15 +274,18 @@ class AclInterpreter(Interpreter):
         else:
             return self.visit(fn)[self.visit(idx)]
 
+
 def remove_paranthesis(condres):
-    if condres[0] == '(' and condres[-1] == ')':
+    if condres[0] == "(" and condres[-1] == ")":
         return condres[1:-1]
     return condres
 
+
 class AclRegenerator(Interpreter):
-    CTRL = ('if', 'elif', 'else', 'queue', 'end')
+    CTRL = ("if", "elif", "else", "queue", "end")
+
     def visit(self, t):
-        if getattr(t, '_visited', False):
+        if getattr(t, "_visited", False):
             return super().visit(t)
         return False
 
@@ -285,13 +296,21 @@ class AclRegenerator(Interpreter):
             if not result:
                 continue
             if isinstance(result, str):
-                if not result.startswith('`') and not any((result.startswith(ctrl) for ctrl in AclRegenerator.CTRL)):
-                    result = f'`{result}'
+                if not result.startswith("`") and not any(
+                    (result.startswith(ctrl) for ctrl in AclRegenerator.CTRL)
+                ):
+                    result = f"`{result}"
                 childres.append(result)
             elif isinstance(result, list):
-                result = (f'`{res}' if not res.startswith('`') and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res for res in result)
+                result = (
+                    f"`{res}"
+                    if not res.startswith("`")
+                    and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL))
+                    else res
+                    for res in result
+                )
                 childres.extend(result)
-        return '\n'.join(childres)
+        return "\n".join(childres)
 
     def ifelse(self, t):
         if_else_list = []
@@ -307,9 +326,9 @@ class AclRegenerator(Interpreter):
             if condres:
                 condres = remove_paranthesis(condres)
                 if idx == 0:
-                    if_else_list.append(f'if {condres}')
+                    if_else_list.append(f"if {condres}")
                 else:
-                    if_else_list.append(f'elif {condres}')
+                    if_else_list.append(f"elif {condres}")
                 blockres = self.visit(block)
                 if blockres:
                     if_else_list.append(self.visit(block))
@@ -318,12 +337,18 @@ class AclRegenerator(Interpreter):
             if elseres:
                 if not if_else_list:
                     return self.visit(else_block)
-                if_else_list.append('else')
+                if_else_list.append("else")
                 if_else_list.append(self.visit(else_block))
         if if_else_list:
-            if_else_list.append('end')
-            if_else_list = (f'`{res}' if not res.startswith('`') and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res for res in if_else_list)
-            return '\n'.join(if_else_list)
+            if_else_list.append("end")
+            if_else_list = (
+                f"`{res}"
+                if not res.startswith("`")
+                and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL))
+                else res
+                for res in if_else_list
+            )
+            return "\n".join(if_else_list)
         return False
 
     def ifqueue(self, t):
@@ -335,7 +360,7 @@ class AclRegenerator(Interpreter):
                 queue_child_res = self.visit(child)
                 if queue_child_res:
                     queue_list.append(queue_child_res)
-            return f'queue {condres}\n`'+';'.join(queue_list)+'\nend'
+            return f"queue {condres}\n`" + ";".join(queue_list) + "\nend"
         return False
 
     def condition(self, t):
@@ -346,7 +371,7 @@ class AclRegenerator(Interpreter):
         condstr = []
         negate = False
         combined = None
-        if isinstance(args[0], Token) and args[0].type == 'NOT': # NOT cond
+        if isinstance(args[0], Token) and args[0].type == "NOT":  # NOT cond
             args = args[1:]
             argl -= 1
             negate = True
@@ -363,7 +388,7 @@ class AclRegenerator(Interpreter):
             if rres:
                 try:
                     if lres:
-                        combined = f'{lres}{BINARY_EXPR_TOKENS[op.type]}{rres}'
+                        combined = f"{lres}{BINARY_EXPR_TOKENS[op.type]}{rres}"
                         condstr[-1] = combined
                 except KeyError:
                     if lres:
@@ -371,10 +396,10 @@ class AclRegenerator(Interpreter):
                     condstr.append(rres)
         if condstr:
             if negate:
-                condstr.insert(0, 'not')
+                condstr.insert(0, "not")
             if negate or combined:
-                return ' '.join(condstr)
-            return '('+' '.join(condstr)+')'
+                return " ".join(condstr)
+            return "(" + " ".join(condstr) + ")"
         return False
 
     def selfcond(self, t):
@@ -388,12 +413,14 @@ class AclRegenerator(Interpreter):
             if not lastres:
                 return False
             childlist.append(lastres)
-        return '.'.join(childlist)
+        return ".".join(childlist)
 
     def arithmetic(self, t):
         if len(t.children) == 3:
             left, op, right = t.children
-            return f'({self.visit(left)}{BINARY_EXPR_TOKENS[op.type]}{self.visit(right)})'
+            return (
+                f"({self.visit(left)}{BINARY_EXPR_TOKENS[op.type]}{self.visit(right)})"
+            )
         return False
 
     def actcond(self, t):
@@ -403,7 +430,7 @@ class AclRegenerator(Interpreter):
             actionres = self.visit(action)
             condres = remove_paranthesis(condres)
             if actionres:
-                return f'{actionres}, {condres}'
+                return f"{actionres}, {condres}"
 
     def params(self, t):
         p = t.children[0]
@@ -422,62 +449,76 @@ class AclRegenerator(Interpreter):
 
     def literal(self, t):
         token = t.children[0]
-        if token.type == 'STRING':
-            return f'\'{token.value}\''
+        if token.type == "STRING":
+            return f"'{token.value}'"
         return str(LITERAL_EVAL[token.type](token.value))
 
     def function(self, t):
         fn = t.children[0]
         args = t.children[1:]
-        if fn.value in ('s', 'fs'):
+        if fn.value in ("s", "fs"):
             if len(args) == 0:
                 return str(fn.value)
             elif len(args) == 1:
-                return f'{fn.value}{self.visit(args[0])}'
+                return f"{fn.value}{self.visit(args[0])}"
             else:
-                argstr = ', '.join((str(self.visit(arg)).strip('\'') for arg in args[1:]))
-                return f'{fn.value}{self.visit(args[0])}({argstr})'
-        argstr = ', '.join((str(self.visit(arg)).strip('\'') for arg in args))
-        return f'{fn.value}({argstr})'
+                argstr = ", ".join(
+                    (str(self.visit(arg)).strip("'") for arg in args[1:])
+                )
+                return f"{fn.value}{self.visit(args[0])}({argstr})"
+        argstr = ", ".join((str(self.visit(arg)).strip("'") for arg in args))
+        return f"{fn.value}({argstr})"
 
     def indice(self, t):
         fn, idx = t.children
-        visited_idx = self.visit(idx).strip('\'')
+        visited_idx = self.visit(idx).strip("'")
         if isinstance(fn, Token):
-            return f'{fn.value}[{visited_idx}]'
+            return f"{fn.value}[{visited_idx}]"
         else:
             fnres = self.visit(fn)
             if fnres:
-                return f'{fnres}[{visited_idx}]'
+                return f"{fnres}[{visited_idx}]"
 
 
-FSN_PATTERN = re.compile(r'(^|;)`?(fs|s)(\d+)(\(([^)]+)\))?')
+FSN_PATTERN = re.compile(r"(^|;)`?(fs|s)(\d+)(\(([^)]+)\))?")
+
+
 def _pre_parse(acl):
-    return '\n'.join(filter(None,(
-        FSN_PATTERN.sub(r'\1`\2(\3,\5)', l.strip())
-        for l in acl.split('\n')
-    )))
+    return "\n".join(
+        filter(
+            None, (FSN_PATTERN.sub(r"\1`\2(\3,\5)", l.strip()) for l in acl.split("\n"))
+        )
+    )
 
 
 def build_acl(acl):
     if isinstance(acl, list):
-        acl = '\n'.join(acl)
+        acl = "\n".join(acl)
     if len(acl) > CHAR_LIMIT:
-        raise ValueError(f'ACL cannot be longer than {CHAR_LIMIT} characters.')
+        raise ValueError(f"ACL cannot be longer than {CHAR_LIMIT} characters.")
     acl = _pre_parse(acl)
     tree = PARSER.parse(acl)
     interpreter = AclInterpreter()
     interpreter.bind(tree, acl)
     return interpreter
 
+
 REGENERATOR = AclRegenerator()
+
+
 def regenerate_acl(interpreter):
-    acl_str = REGENERATOR.visit(interpreter._tree) or ''
+    acl_str = REGENERATOR.visit(interpreter._tree) or ""
     if isinstance(acl_str, list):
-        acl_str = '\n'.join(acl_str)
-    comments = '\n'.join((line.strip() for line in interpreter._acl_str.split('\n') if line.strip().startswith('#')))
+        acl_str = "\n".join(acl_str)
+    comments = "\n".join(
+        (
+            line.strip()
+            for line in interpreter._acl_str.split("\n")
+            if line.strip().startswith("#")
+        )
+    )
     if comments:
         # no real way to tell where comments were relatively
         # perhaps incl into parse tree?
-        acl_str = f'{comments}\n{acl_str}'
+        acl_str = f"{comments}\n{acl_str}"
     return acl_str

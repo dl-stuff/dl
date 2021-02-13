@@ -1,6 +1,3 @@
 from core.advbase import *
 
-variants = {
-    None: Adv,
-    'mass': Adv
-}
+variants = {None: Adv, "mass": Adv}

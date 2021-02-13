@@ -12,5 +12,6 @@ class Dummy:
     def get(self, *args, **kargs):
         return False
 
+
 def dummy_function(*args, **kargs):
     return False

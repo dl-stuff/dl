@@ -1,17 +1,21 @@
 from core.advbase import *
 
+
 class Zena(Adv):
-    comment = '40 extra hits s2 on Agito size enemy (max 100 without roll & 120 with roll)'
+    comment = (
+        "40 extra hits s2 on Agito size enemy (max 100 without roll & 120 with roll)"
+    )
+
     def prerun(self):
-        self.s2_extra_hit_rate = 8 # number of hits per second
+        self.s2_extra_hit_rate = 8  # number of hits per second
         self.s2_timers = []
-        Event('dragon').listener(self.s2_clear)
+        Event("dragon").listener(self.s2_clear)
 
     def s2_extra_hits(self, t):
         for m in t.actmods:
             m.on()
         for _ in range(self.s2_extra_hit_rate):
-            self.dmg_make(f'{t.name}_extra', 0.50)
+            self.dmg_make(f"{t.name}_extra", 0.50)
             self.add_combo()
         for m in t.actmods:
             m.off()
@@ -25,17 +29,17 @@ class Zena(Adv):
         for i in range(0, 5):
             t = Timer(self.s2_extra_hits)
             t.name = e.name
-            t.actmods = self.actmods('s2')
+            t.actmods = self.actmods("s2")
             t.on(i)
             self.s2_timers.append(t)
 
+
 class Zena_ALL(Zena):
-    comment = '100 extra hits on s2'
+    comment = "100 extra hits on s2"
+
     def prerun(self):
         super().prerun()
         self.s2_extra_hit_rate = 20
 
-variants = {
-    None: Zena,
-    'ALL': Zena_ALL
-}
+
+variants = {None: Zena, "ALL": Zena_ALL}
