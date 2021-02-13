@@ -956,6 +956,7 @@ class Adv(object):
         if self.conf['classbane'] == 'HDT':
             self.conf.c.a.append(['k_HDT', 0.3])
         self.slots.set_slots(self.conf.slots)
+        self.element = self.slots.c.ele
 
     def pre_conf(self, equip_key=None, mono=False):
         self.conf = Conf(self.conf_default)
@@ -1802,7 +1803,8 @@ class Adv(object):
         dmg_mod = self.dmg_mod(name)
         att = 1.0 * self.att_mod(name) * self.base_att
         armor = 10 * self.def_mod()
-        ele = (self.mod(self.slots.c.ele) + 0.5) * (self.mod(f'{self.slots.c.ele}_resist'))
+        # to allow dragon overriding
+        ele = (self.mod(self.element) + 0.5) * (self.mod(f'{self.slots.c.ele}_resist'))
         return 5.0 / 3 * dmg_coef * dmg_mod * att / armor * ele  # true formula
 
     def l_true_dmg(self, e):

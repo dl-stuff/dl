@@ -40,11 +40,7 @@ class DragonForm(Action):
         self.dracolith_mod.off()
         self.shift_mods = [self.dracolith_mod]
         self.shift_spd_mod = None
-
-        self.off_ele_mod = None
-        if self.adv.slots.c.ele != self.adv.slots.d.ele:
-            self.off_ele_mod = self.adv.Modifier('off_ele', 'att', 'dragon', -1/3)
-            self.off_ele_mod.off()
+        self.off_ele = (self.adv.slots.c.ele != self.adv.slots.d.ele)
 
         self.dragon_gauge = 0
         self.dragon_gauge_val = self.conf.gauge_val
@@ -195,7 +191,7 @@ class DragonForm(Action):
 
     @allow_acl
     def dtime(self):
-        return self.conf.dshift.startup + self.conf.duration * self.adv.mod('dt') + self.conf.exhilaration * (self.off_ele_mod is None)
+        return self.conf.dshift.startup + self.conf.duration * self.adv.mod('dt') + self.conf.exhilaration * int(not self.off_ele)
 
     def dstime(self):
         return (self.conf.ds.startup + self.conf.ds.recovery) / self.speed()
@@ -244,8 +240,8 @@ class DragonForm(Action):
         log(self.name, '{:.2f}dmg / {:.2f}s, {:.2f} dps'.format(shift_dmg, duration, shift_dmg/duration), ' '.join(self.act_sum))
         self.act_sum = []
         self.act_list = []
-        if self.off_ele_mod is not None:
-            self.off_ele_mod.off()
+        if self.off_ele:
+            self.adv.element = self.adv.slots.c.ele
         if self.shift_spd_mod is not None:
             self.shift_spd_mod.off()
         self.ds_reset()
@@ -461,8 +457,8 @@ class DragonForm(Action):
             if len(self.act_list) == 0:
                 self.parse_act(self.conf.act)
             self.dragon_gauge -= self.shift_cost
-            if self.off_ele_mod is not None:
-                self.off_ele_mod.on()
+            if self.off_ele:
+                self.adv.element = self.adv.slots.d.ele
             if self.shift_spd_mod is not None:
                 self.shift_spd_mod.on()
             self.pause_auto_gauge()
