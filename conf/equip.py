@@ -13,7 +13,7 @@ from conf import (
 )
 import core.simulate
 
-BANNED_PRINTS = ("Witchs_Kitchen", "Berry_Lovable_Friends", "Happier_Times")
+BANNED_PRINTS = ("Witchs_Kitchen", "Berry_Lovable_Friends", "Happier_Times", "United_by_One_Vision", "Second_Anniversary")
 BANNED_SHARES = ("Durant", "Yue")
 ABNORMAL_COND = (
     "sim_buffbot",
@@ -69,9 +69,7 @@ class EquipEntry(dict):
     def update_threshold(self, other):
         if self["team"] != other["team"]:
             self["tdps"] = None
-            other["tdps"] = (self["dps"] - other["dps"]) / (
-                other["team"] - self["team"]
-            )
+            other["tdps"] = (self["dps"] - other["dps"]) / (other["team"] - self["team"])
         else:
             self["tdps"] = None
             other["tdps"] = None
@@ -116,18 +114,14 @@ class BufferEntry(EquipEntry):
         return entry["team"] and EquipEntry.acceptable(entry)
 
     def better_than(self, other):
-        return self["team"] > other["team"] or (
-            self["team"] == other["team"] and self["dps"] > other["dps"]
-        )
+        return self["team"] > other["team"] or (self["team"] == other["team"] and self["dps"] > other["dps"])
 
 
 class AfflictionEntry(EquipEntry):
     @staticmethod
     def eligible(adv):
         eleaff = ELE_AFFLICT[adv.slots.c.ele]
-        return (
-            adv.sim_afflict == {eleaff} and adv.conf_init.sim_afflict[eleaff] == 1
-        ) and EquipEntry.eligible(adv)
+        return (adv.sim_afflict == {eleaff} and adv.conf_init.sim_afflict[eleaff] == 1) and EquipEntry.eligible(adv)
 
 
 def all_monoele_coabs(entry, ele):
@@ -224,9 +218,7 @@ class EquipManager(dict):
                 if self.debug:
                     print("fill empty slot")
                 continue
-            if current_entry.same_build_different_dps(
-                new_entry
-            ) or not current_entry.better_than(new_entry):
+            if current_entry.same_build_different_dps(new_entry) or not current_entry.better_than(new_entry):
                 if self.debug:
                     print("better than existing/same build different dps")
                 self[duration][kind] = deepcopy(new_entry)
@@ -268,10 +260,7 @@ class EquipManager(dict):
                 ckind = self[duration].get(prefkey)
                 self[duration][basekind].update_threshold(self[duration][buffkind])
                 try:
-                    if (
-                        self[duration][buffkind]["team"] > BUFFER_TEAM_THRESHOLD
-                        or self[duration][buffkind]["tdps"] < BUFFER_TDPS_THRESHOLD
-                    ):
+                    if self[duration][buffkind]["team"] > BUFFER_TEAM_THRESHOLD or self[duration][buffkind]["tdps"] < BUFFER_TDPS_THRESHOLD:
                         self[duration][prefkey] = buffkind
                     else:
                         self[duration][prefkey] = basekind
@@ -287,9 +276,7 @@ class EquipManager(dict):
         if kind in ("affliction", "mono_affliction"):
             conf[f"sim_afflict.{ELE_AFFLICT[element]}"] = 1
         with open(os.devnull, "w") as output:
-            run_res = core.simulate.test(
-                self.advname, adv_module, conf, int(duration), output=output
-            )
+            run_res = core.simulate.test(self.advname, adv_module, conf, int(duration), output=output)
         adv = run_res[0][0]
         real_d = run_res[0][1]
         new_entry = build_entry_from_sim(EQUIP_ENTRY_MAP[kind], adv, real_d)
@@ -308,9 +295,7 @@ class EquipManager(dict):
             for kind in list(self[duration].keys()):
                 if kind.endswith("pref"):
                     continue
-                self.repair_entry(
-                    adv_module, element, self[duration][kind], duration, kind
-                )
+                self.repair_entry(adv_module, element, self[duration][kind], duration, kind)
 
         for duration in list(self.keys()):
             for kind in list(self[duration].keys()):
@@ -328,16 +313,12 @@ class EquipManager(dict):
                     monokind = f"mono_{basekind}"
                     if not basekind in self[duration]:
                         continue
-                    if not EQUIP_ENTRY_MAP[monokind].acceptable(
-                        self[duration][basekind], element
-                    ):
+                    if not EQUIP_ENTRY_MAP[monokind].acceptable(self[duration][basekind], element):
                         continue
                     try:
                         current_entry = self[duration][monokind]
                         if not current_entry.better_than(self[duration][basekind]):
-                            self[duration][monokind] = deepcopy(
-                                self[duration][basekind]
-                            )
+                            self[duration][monokind] = deepcopy(self[duration][basekind])
                     except KeyError:
                         self[duration][monokind] = deepcopy(self[duration][basekind])
 
