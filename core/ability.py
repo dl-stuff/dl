@@ -371,7 +371,10 @@ class Union_Ability(Ability):
             3: [("fs", "passive", 0.08)],
             4: [("fs", "passive", 0.15)],
         },
-        # 7: burn res, 8: stun res, 9: para res, 10: curse res
+        7: {2: [("affres", "burn", 100)]},
+        8: {2: [("affres", "stun", 100)]},
+        9: {2: [("affres", "para", 100)]},
+        10: {2: [("affres", "curse", 100)]},
         11: {
             2: [("buff", "passive", 0.05)],
             3: [("buff", "passive", 0.08)],
@@ -532,9 +535,7 @@ class Dragon_Buff(Ability):
 
         def l_dc_buff(t):
             if self.dc_level < len(self.dc_values):
-                adv.Buff(
-                    self.name, self.dc_values[self.dc_level], -1, *self.buff_args
-                ).on()
+                adv.Buff(self.name, self.dc_values[self.dc_level], -1, *self.buff_args).on()
                 self.dc_level += 1
 
         adv.Event("dragon").listener(l_dc_buff)
@@ -631,9 +632,7 @@ class Resilient_Offense(BuffingAbility):
                 except:
                     adv.set_hp(100)
 
-            if self.interval < adv.duration and adv.condition(
-                f"hp={self.hp_threshold}% every {self.interval}s"
-            ):
+            if self.interval < adv.duration and adv.condition(f"hp={self.hp_threshold}% every {self.interval}s"):
                 for i in range(1, self.proc_chances):
                     adv.Timer(ro_damaged).on(self.interval * i)
             adv.Timer(ro_damaged).on(0.1)
@@ -905,9 +904,7 @@ class Potent_Affres(Affliction_Selfbuff):
 
         def l_afflict(e):
             if not self.is_cd and e.atype == self.atype:
-                adv.Buff(
-                    self.name, self.value, self.duration, *self.buff_args, source=None
-                ).on()
+                adv.Buff(self.name, self.value, self.duration, *self.buff_args, source=None).on()
                 self.is_cd = True
                 adv.Timer(cd_end).on(self.cd)
 
