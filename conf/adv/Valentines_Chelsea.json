@@ -1,0 +1,124 @@
+{
+    "c": {
+        "name": "Valentine's Chelsea",
+        "icon": "110342_03_r05",
+        "att": 494,
+        "hp": 764,
+        "ele": "wind",
+        "wt": "bow",
+        "spiral": false,
+        "a": [["k_stormlash", 0.3]]
+    },
+    "fs_ablaze": {
+        "attr": [
+            {"dispel": 100},
+            {"dmg": 0.31, "sp": 460, "odmg": 3.0},
+            {"dmg": 0.31, "odmg": 3.0},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.06666},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.06666},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.13333},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.13333},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.2},
+            {"dmg": 0.31, "odmg": 3.0, "iv": 0.2}
+        ]
+    },
+    "s1": {
+        "sp": 2910,
+        "startup": 0.1,
+        "recovery": 3.63333,
+        "attr": [
+            {"buff": ["self", 0.1, 15.0, "att", "buff", "-overwrite_32"], "iv": 1.5},
+            {"buff": ["selfaff", -5.0, 15.0, 100, "burn", "regen", "buff", "-overwrite_burn"], "iv": 1.5},
+            {"dmg": 9.06, "afflic": ["stormlash", 120, 0.41], "iv": 1.93333},
+            {"dmg": 9.06, "iv": 2.16667},
+            {"dmg": 10.87, "iv": 2.63333}
+        ]
+    },
+    "s2_phase1": {
+        "sp": 11640,
+        "startup": 0.1,
+        "recovery": 2.9
+    },
+    "s2_phase2": {
+        "sp": 11640,
+        "startup": 0.1,
+        "recovery": 2.9,
+        "attr": [
+            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5}
+        ]
+    },
+    "s2_phase3": {
+        "sp": 11640,
+        "startup": 0.1,
+        "recovery": 2.9,
+        "attr": [
+            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5},
+            {"buff": ["next", 0.3, 1, "s", "buff", "-overwrite_33"], "iv": 2.5}
+        ]
+    },
+    "s2_romance": {
+        "sp": 11640,
+        "startup": 0.1,
+        "recovery": 2.9,
+        "attr": [
+            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5},
+            {"buff": ["next", 0.3, 1, "s", "buff", "-overwrite_33"], "iv": 2.5},
+            {"sp": [1.0, "%", "s1"], "iv": 2.5}
+        ]
+    },
+    "x1_romance": {
+        "startup": 0.36667,
+        "recovery": 0.06666,
+        "attr": [
+            {"dmg": 0.42, "sp": 184},
+            {"dmg": 0.42},
+            {"dmg": 0.42}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    },
+    "x2_romance": {
+        "startup": 0.26667,
+        "recovery": 0.26666,
+        "attr": [
+            {"dmg": 0.53, "sp": 92},
+            {"dmg": 0.53, "iv": 0.2}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    },
+    "x3_romance": {
+        "startup": 0.46667,
+        "recovery": 0.43333,
+        "attr": [
+            {"dmg": 0.6, "sp": 276},
+            {"dmg": 0.6},
+            {"dmg": 0.6}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    },
+    "x4_romance": {
+        "startup": 0.26667,
+        "recovery": 0.26666,
+        "attr": [
+            {"dmg": 0.92, "sp": 414},
+            {"dmg": 0.92, "iv": 0.13333}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    },
+    "x5_romance": {
+        "startup": 0.96667,
+        "recovery": 0.33333,
+        "attr": [
+            {"dmg": 0.51, "sp": 529},
+            {"dmg": 0.51},
+            {"dmg": 0.51},
+            {"dmg": 0.51},
+            {"dmg": 0.51}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    }
+}
