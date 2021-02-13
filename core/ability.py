@@ -62,13 +62,21 @@ class Strength_Chain(Ability):
         super().__init__(name, [('att','buff',value, cond)])
 ability_dict['achain'] = Strength_Chain
 
+
 class Resist(Ability):
     def __init__(self, name, value, cond=None):
         if not cond or cond.startswith('hp'):
-            super().__init__(name, [(name,'passive',value, cond)])
+            super().__init__(name, [(name, 'passive', value, cond)])
         else:
-            super().__init__(name, [(name,'buff',value, cond)])
+            super().__init__(name, [(name, 'buff', value, cond)])
 ability_dict['res'] = Resist
+
+
+class Affliction_Resist(Ability):
+    def __init__(self, name, value, cond=None):
+        atype = name.split('_')[1]
+        super().__init__(name, [('affres', atype, value, cond)])
+ability_dict['affres'] = Affliction_Resist
 
 
 class Skill_Damage(Ability):
@@ -713,6 +721,20 @@ class AntiAffliction_Selfbuff(Affliction_Selfbuff):
         adv.Event(self.atype).listener(l_afflict)
 
 ability_dict['antiaffself'] = AntiAffliction_Selfbuff
+
+
+class Potent_Affres(Affliction_Selfbuff):
+    def oninit(self, adv, afrom=None):
+        def cd_end(t):
+            self.is_cd = False
+        def l_afflict(e):
+            if not self.is_cd:
+                adv.Buff(self.name, self.value, self.duration, *self.buff_args, source=None).on()
+                self.is_cd = True
+                adv.Timer(cd_end).on(self.cd)
+        adv.Event(f'self_{self.atype}').listener(l_afflict)
+
+ability_dict['resself'] = Potent_Affres
 
 
 class Energy_Stat(Ability):

@@ -275,10 +275,27 @@ class Buff(object):
         return value, stack
 
     def effect_on(self):
-        return self.modifier and self.modifier.on()
+        value = self.get()
+        if self.mod_type == 'defense' and value > 0:
+            db = Event('defchain')
+            db.source = self.source
+            db.on()
+            if self.bufftype == 'team':
+                log('buff', 'doublebuff', 15 * self.bufftime())
+        # FIXME: heal formula 1day twust
+        elif self.mod_type in ('regen', 'heal') and value != 0:
+            self.set_hp_event = Event('set_hp')
+            self.set_hp_event.delta = self.get()
+            self.regen_timer = Timer(self.hp_regen, 3.9, True).on()
+        else:
+            return self.modifier and self.modifier.on()
 
     def effect_off(self):
-        return self.modifier and self.modifier.off()
+        # FIXME: heal formula 1day twust
+        if self.mod_type in ('regen', 'heal'):
+            self.regen_timer.off()
+        else:
+            return self.modifier and self.modifier.off()
 
     def buff_end_proc(self, e):
         self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', 'buff end <timeout>')
@@ -367,21 +384,7 @@ class Buff(object):
         if stack > 1:
             log('buff', self.name, f'{self.mod_type}({self.mod_order}): {value:.02f}', f'buff stack <{stack}>')
 
-        if self.mod_type == 'defense' and value > 0:
-            db = Event('defchain')
-            db.source = self.source
-            db.on()
-            if self.bufftype == 'team':
-                log('buff', 'doublebuff', 15 * self.bufftime())
-
-        # FIXME: heal formula 1day twust
-        if self.mod_type in ('regen', 'heal'):
-            # may need to make this part global since game always regen all stacks at same ticks
-            self.set_hp_event = Event('set_hp')
-            self.set_hp_event.delta = self.get()
-            self.regen_timer = Timer(self.hp_regen, 3.9, True).on()
-        else:
-            self.effect_on()
+        self.effect_on()
 
         self.buffevent.buff = self
         self.buffevent.on()
@@ -397,11 +400,12 @@ class Buff(object):
         self.logwrapper(self.name, f'{self.mod_type}({self.mod_order}): {self.value():.02f}', f'buff end <turn off>')
         self.__active = 0
         self.buff_end_timer.off()
-        try:
-            self.regen_timer.off()
-        except AttributeError:
-            self.effect_off()
+        self.effect_off()
         return self
+
+    @property
+    def adv(self):
+        return self._static.adv
 
     @allow_acl
     def timeleft(self):
@@ -437,10 +441,6 @@ class EffectBuff(Buff):
 class ModeAltBuff(Buff):
     def __init__(self, name, duration=-1, uses=None, hidden=False, source=None):
         super().__init__(name, 1, duration, 'effect', hidden=hidden, source=source)
-
-    @property
-    def adv(self):
-        return self._static.adv
 
     def l_off(self, e):
         if e.group == self.group and self.uses > 0:
@@ -801,6 +801,37 @@ class EchoBuff(Buff):
 bufftype_dict['echo'] = EchoBuff
 
 
+class SelfAffliction(Buff):
+    def __init__(self, name='<buff_noname>', value=0, duration=0, rate=100, affname=None, mtype='att', morder=None, source=None):
+        super().__init__(name, value, duration, mtype, morder, source=source)
+        self.name = affname
+        self.bufftype = 'misc'
+        self.affname = affname
+        self._rate = rate
+        self.affevent = Event(f'self_{affname}')
+
+    @property
+    def rate(self):
+        affres = self.adv.adv_affres(self.affname)
+        return (0 if affres >= 100 else min(100, max(0, self._rate - affres)))/100
+
+    def on(self, duration=None):
+        self.affevent.rate = self.rate
+        self.affevent()
+        if self.rate > 0:
+            self.adv.dragonform.disabled = True
+            return super().on(duration)
+
+    def effect_off(self):
+        super().effect_off()
+        self.adv.dragonform.disabled = False
+
+    @allow_acl
+    def get(self):
+        return super().get() * self.rate
+bufftype_dict['selfaff'] = SelfAffliction
+
+
 class MultiBuffManager:
     def __init__(self, name, buffs, duration=None, timed_mode=False):
         self.name = name
@@ -860,6 +891,7 @@ class MultiBuffManager:
 
     def timeleft(self):
         return min([b.timeleft() for b in self.buffs])
+
 
 class ModeManager(MultiBuffManager):
     ALT_CLASS = {

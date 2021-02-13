@@ -94,11 +94,11 @@ class AfflicBase:
 
     @property
     def edge(self):
-        return sum([m.get() for m in self.aff_edge_mods])
+        return sum((m.get() for m in self.aff_edge_mods))
 
     @property
     def time(self):
-        return 1 + sum([m.get() for m in self.aff_time_mods])
+        return 1 + sum((m.get() for m in self.aff_time_mods))
 
     @property
     def rate(self):

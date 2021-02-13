@@ -1079,6 +1079,10 @@ class Adv(object):
         return self.all_modifiers.sub_mod(mtype, morder)
 
     @allow_acl
+    def adv_affres(self, aff):
+        return self.all_modifiers.sub_mod('affres', aff)
+
+    @allow_acl
     def speed(self, target=None):
         if target is None:
             return 1 + min(self.sub_mod('spd', 'buff'), 0.50) + self.sub_mod('spd', 'passive')
