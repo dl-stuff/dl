@@ -3,14 +3,14 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 60618.36815302928,
-      "team": 0.07845536821601827,
+      "dps": 61082.11946005102,
+      "team": 0.07510498875523118,
       "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Chariot_Drift",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
@@ -27,8 +27,8 @@
       ],
       "coabs": [
         "Nobunaga",
-        "Axe2",
-        "Kimono_Elisanne"
+        "Yuya",
+        "Marth"
       ],
       "share": [
         "Weapon",
@@ -38,7 +38,7 @@
     "buffer": {
       "dps": 41767.460288578885,
       "team": 0.21149522224299505,
-      "tdps": 141693.69022780165,
+      "tdps": 141613.21289331862,
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
@@ -69,14 +69,14 @@
       ]
     },
     "mono_base": {
-      "dps": 57336.07741866407,
-      "team": 0.07845536821601827,
+      "dps": 61082.11946005102,
+      "team": 0.07510498875523118,
       "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Chariot_Drift",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
@@ -93,7 +93,8 @@
       ],
       "coabs": [
         "Nobunaga",
-        "Kimono_Elisanne"
+        "Yuya",
+        "Marth"
       ],
       "share": [
         "Weapon",
@@ -103,7 +104,7 @@
     "mono_buffer": {
       "dps": 41767.460288578885,
       "team": 0.21149522224299505,
-      "tdps": 117022.2054432524,
+      "tdps": 141613.21289331862,
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
@@ -134,32 +135,37 @@
       ]
     },
     "affliction": {
-      "dps": 70687.16858350014,
-      "team": 0.0784553682160185,
+      "dps": 74833.94517288292,
+      "team": 0.07121174955805433,
       "tdps": null,
       "slots.a": [
-        "Candy_Couriers",
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(c3-s)",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s2, self.shikigami.timeleft()<6",
-        "`s1,not have_buff(shikigami)",
+        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
+        "`s2",
+        "end",
+        "if not have_buff(shikigami)",
+        "`s1",
+        "end",
         "`s4",
-        "# For a character with unique FS you really don't want to FS that much, huh...",
-        "`fst(3),x=1 and not have_buff(gozu_tenno_buff)",
-        "# Use FS only when gauge is about to be depleted",
-        "`fst(3.1), self.shikigami_gauge<7"
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
       ],
       "coabs": [
         "Nobunaga",
-        "Axe2",
-        "Kimono_Elisanne"
+        "Yuya",
+        "Marth"
       ],
       "share": [
         "Weapon",
@@ -167,32 +173,37 @@
       ]
     },
     "mono_affliction": {
-      "dps": 66754.10535784999,
-      "team": 0.0784553682160185,
+      "dps": 74833.94517288292,
+      "team": 0.07121174955805433,
       "tdps": null,
       "slots.a": [
-        "Candy_Couriers",
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(c3-s)",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s2, self.shikigami.timeleft()<6",
-        "`s1,not have_buff(shikigami)",
+        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
+        "`s2",
+        "end",
+        "if not have_buff(shikigami)",
+        "`s1",
+        "end",
         "`s4",
-        "# For a character with unique FS you really don't want to FS that much, huh...",
-        "`fst(3),x=1 and not have_buff(gozu_tenno_buff)",
-        "# Use FS only when gauge is about to be depleted",
-        "`fst(3.1), self.shikigami_gauge<7"
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
       ],
       "coabs": [
         "Nobunaga",
-        "Valentines_Hildegarde",
-        "Kimono_Elisanne"
+        "Yuya",
+        "Marth"
       ],
       "share": [
         "Weapon",

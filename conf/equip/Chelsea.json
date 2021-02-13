@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 45495.20561221867,
+      "dps": 58959.02494254479,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -11,20 +11,13 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Horus",
       "acl": [
-        "if s2.check() and dragonform.shift_count=0",
-        "`dragon(s), hp<30",
-        "end",
-        "if s2.check() and dragonform.shift_count>0",
-        "`dragon(c3-s), hp<30",
-        "end",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, fscf or s=2",
+        "`s3, x=5 and not buff(s3)",
         "`s4",
-        "`fst(3), not have_buff(gozu_tenno_buff)",
-        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
+        "`s1, cancel",
+        "`s2, fsc",
+        "`fs, x=5"
       ],
       "coabs": [
         "Yukata_Cassandra",
@@ -40,7 +33,7 @@
     "buffer": {
       "dps": 29863.81118183596,
       "team": 0.12169235029128009,
-      "tdps": 128450.0989007752,
+      "tdps": 239088.2721146167,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -68,7 +61,7 @@
       ]
     },
     "affliction": {
-      "dps": 48977.35015703606,
+      "dps": 57922.326363836044,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -83,16 +76,16 @@
         "if s2.check()",
         "`dragon(s), hp<30",
         "end",
+        "`s4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, fscf or s=2",
-        "`s4",
         "`fst(3), not have_buff(gozu_tenno_buff)",
         "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
+        "Nobunaga",
         "Yukata_Cassandra",
-        "Halloween_Mym",
         "Kimono_Elisanne"
       ],
       "share": [
@@ -167,7 +160,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 48977.35015703606,
+      "dps": 57922.326363836044,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -182,16 +175,16 @@
         "if s2.check()",
         "`dragon(s), hp<30",
         "end",
+        "`s4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, fscf or s=2",
-        "`s4",
         "`fst(3), not have_buff(gozu_tenno_buff)",
         "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
       ],
       "coabs": [
+        "Nobunaga",
         "Yukata_Cassandra",
-        "Halloween_Mym",
         "Kimono_Elisanne"
       ],
       "share": [

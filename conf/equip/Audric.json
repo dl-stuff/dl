@@ -1,24 +1,24 @@
 {
   "180": {
     "base": {
-      "dps": 75904.6965562762,
-      "team": 0.1040634662769907,
+      "dps": 78470.69334834708,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Ramiel",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and (cancel and buff(s3))",
-        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3)",
+        "`dragon(c5-s-end), fsc and dragonform.shift_count<2",
+        "`dragon(c5-s-c5-end), fsc and dragonform.shift_count>=2",
         "`s3, not buff(s3) and fsc",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`s4, fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc or aff_timeleft(poison)<4",
         "`fs, x=4"
       ],
       "coabs": [
@@ -33,23 +33,24 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 81555.90674182665,
+      "dps": 88697.95626906866,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-end), fsc",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, cancel",
-        "`s4, fsc",
+        "`dragon(c5-s-end), fsc and dragonform.shift_count<2",
+        "`dragon(c5-s-c5-end), fsc and dragonform.shift_count>=2",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc",
         "`fs, x=4"
       ],
       "coabs": [
@@ -59,13 +60,13 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Gala_Mym"
       ]
     },
     "buffer": {
       "dps": 55452.410647825964,
       "team": 0.12174156873309877,
-      "tdps": 1156927.6713510419,
+      "tdps": 189074.96379470397,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -94,24 +95,24 @@
       ]
     },
     "mono_base": {
-      "dps": 75904.6965562762,
-      "team": 0.1040634662769907,
+      "dps": 78470.69334834708,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Ramiel",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and (cancel and buff(s3))",
-        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3)",
+        "`dragon(c5-s-end), fsc and dragonform.shift_count<2",
+        "`dragon(c5-s-c5-end), fsc and dragonform.shift_count>=2",
         "`s3, not buff(s3) and fsc",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`s4, fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc or aff_timeleft(poison)<4",
         "`fs, x=4"
       ],
       "coabs": [
@@ -127,7 +128,7 @@
     "mono_buffer": {
       "dps": 18380.06333524912,
       "team": 0.11895095927134018,
-      "tdps": 3863957.030432219,
+      "tdps": 505171.4620982975,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -155,23 +156,24 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 81555.90674182665,
+      "dps": 88697.95626906866,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-end), fsc",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, cancel",
-        "`s4, fsc",
+        "`dragon(c5-s-end), fsc and dragonform.shift_count<2",
+        "`dragon(c5-s-c5-end), fsc and dragonform.shift_count>=2",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc",
         "`fs, x=4"
       ],
       "coabs": [
@@ -181,7 +183,7 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Gala_Mym"
       ]
     }
   },

@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 52511.28414616984,
-      "team": 0.04081662726712112,
+      "dps": 64291.35699934924,
+      "team": 0.04557643949723985,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -11,16 +11,14 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-c3-end), fsc and dragonform.shift_count=0",
-        "`dragon(c3-s-c3-end), fsc and dragonform.shift_count>0",
+        "`dragon(s-c3-c3-end), fsc",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
         "`dodge, fsc",
-        "`fst(4, 3), not have_buff(gozu_tenno_buff)",
         "`fs3"
       ],
       "coabs": [
@@ -35,8 +33,8 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 58326.81593063852,
-      "team": 0.040426756982636855,
+      "dps": 73597.18541609311,
+      "team": 0.04142921576110918,
       "tdps": null,
       "slots.a": [
         "Me_and_My_Bestie",
@@ -45,16 +43,16 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-c3-end), fsc",
+        "`dragon(s-s), s=2",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
         "`dodge, fsc",
-        "`fst(4, 3), not have_buff(gozu_tenno_buff)",
-        "`fs3"
+        "`fs3",
+        "`fst(3),not have_buff(gozu_tenno_buff)"
       ],
       "coabs": [
         "Nobunaga",
@@ -69,7 +67,7 @@
     "buffer": {
       "dps": 41504.43381783662,
       "team": 0.14537980609975784,
-      "tdps": 105265.06989569172,
+      "tdps": 228318.1816127004,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -99,42 +97,9 @@
       ]
     },
     "mono_base": {
-      "dps": 56447.23305594381,
-      "team": 0.04052444834325699,
+      "dps": 57669.8328491375,
+      "team": 0.05058969789165023,
       "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gozu_Tenno",
-      "acl": [
-        "`dragon(s-c3-c3-end), (fsc or s=1) and dragonform.shift_count=0",
-        "`dragon(c3-s-c3-end), (fsc or s=1) and dragonform.shift_count>0",
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`s2, fsc",
-        "`dodge, fsc",
-        "`fst(4, 3), not have_buff(gozu_tenno_buff)",
-        "`fs3"
-      ],
-      "coabs": [
-        "Nobunaga",
-        "Yuya",
-        "Halloween_Mym"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 63806.19743851212,
-      "team": 0.04339777691329147,
-      "tdps": -2561128.7408317532,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -144,7 +109,6 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-c3-end), fsc",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, fsc",
@@ -153,16 +117,46 @@
         "`fs3"
       ],
       "coabs": [
-        "Nobunaga",
-        "Yuya",
-        "Halloween_Mym"
+        "Ezelith",
+        "Marth",
+        "Blade"
       ],
       "share": [
         "Weapon",
         "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_buffer",
+    "mono_buffer": {
+      "dps": 57669.8328491375,
+      "team": 0.05058969789165023,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Ezelith",
+        "Marth",
+        "Blade"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_pref": "mono_base",
     "mono_affliction": {
       "dps": 58725.00513389255,
       "team": 0.04036831981530117,

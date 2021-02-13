@@ -71,8 +71,8 @@
       ]
     },
     "affliction": {
-      "dps": 101846.09922832996,
-      "team": 0.11102635482546361,
+      "dps": 102879.35198430039,
+      "team": 0.11107009744920113,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -83,16 +83,17 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
         "if s=4",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c1-end), dragonform.shift_count=2",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
+        "queue dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end);s1",
         "end",
-        "`s3, not buff(s3,1) and fscf",
-        "`s1, fscf or dgauge>=500",
-        "`s4, dgauge>=500 and s=1",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=1",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s4, dgauge>=500",
         "`s2",
+        "`s1, fscf",
+        "`fs, charged_in(fs, s2)",
         "`fs, x=5",
         "`dodge, fscf"
       ],
@@ -103,7 +104,7 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Mikoto"
       ]
     },
     "mono_base": {
@@ -176,8 +177,8 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 101846.09922832996,
-      "team": 0.11102635482546361,
+      "dps": 102879.35198430039,
+      "team": 0.11107009744920113,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -188,16 +189,17 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
         "if s=4",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c1-end), dragonform.shift_count=2",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
+        "queue dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end);s1",
         "end",
-        "`s3, not buff(s3,1) and fscf",
-        "`s1, fscf or dgauge>=500",
-        "`s4, dgauge>=500 and s=1",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=1",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s4, dgauge>=500",
         "`s2",
+        "`s1, fscf",
+        "`fs, charged_in(fs, s2)",
         "`fs, x=5",
         "`dodge, fscf"
       ],
@@ -208,7 +210,7 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Mikoto"
       ]
     }
   },
