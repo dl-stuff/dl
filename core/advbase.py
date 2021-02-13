@@ -23,9 +23,7 @@ from math import ceil
 
 
 class Skill(object):
-    _static = Static(
-        {"s_prev": "<nop>", "first_x_after_s": 0, "silence": 0, "current_s": {}}
-    )
+    _static = Static({"s_prev": "<nop>", "first_x_after_s": 0, "silence": 0, "current_s": {}})
     charged = 0
     sp = 0
     silence_duration = 1.9
@@ -248,14 +246,10 @@ class Action(object):
             return None
 
     def can_interrupt(self, target):
-        return self.can_follow(
-            target, self.conf.interrupt[target], self.startup_timer.elapsed()
-        )
+        return self.can_follow(target, self.conf.interrupt[target], self.startup_timer.elapsed())
 
     def can_cancel(self, target):
-        return self.can_follow(
-            target, self.conf.cancel[target], self.recovery_timer.elapsed()
-        )
+        return self.can_follow(target, self.conf.cancel[target], self.recovery_timer.elapsed())
 
     @property
     def _startup(self):
@@ -331,13 +325,7 @@ class Action(object):
     @property
     def max_delayed(self):
         try:
-            return max(
-                [
-                    mt.timing - now()
-                    for mt in self.delayed
-                    if mt.online and mt.timing > now()
-                ]
-            )
+            return max([mt.timing - now() for mt in self.delayed if mt.online and mt.timing > now()])
         except ValueError:
             return 0
 
@@ -587,11 +575,7 @@ class Fs(Action):
                     prevprev = prev.getprev()
                     if isinstance(prevprev, X):
                         prevprev_rec = prevprev.getrecovery()
-                bufferable = (
-                    prev.startup_timer.elapsed()
-                    + prev.recovery_timer.elapsed()
-                    + prevprev_rec
-                )
+                bufferable = prev.startup_timer.elapsed() + prev.recovery_timer.elapsed() + prevprev_rec
                 buffer = max(0, self._buffer - bufferable)
                 log("bufferable", bufferable)
             except AttributeError:
@@ -757,21 +741,13 @@ class Adv(object):
                 if "dmg" in attr:
                     self.damage_sources.add(name)
                 if "buff" in attr:
-                    buffs = (
-                        attr["buff"]
-                        if isinstance(attr["buff"][0], list)
-                        else (attr["buff"],)
-                    )
+                    buffs = attr["buff"] if isinstance(attr["buff"][0], list) else (attr["buff"],)
                     if any((bargs[0] in Adv.actual_buffs_trust for bargs in buffs)):
                         self.buff_sources.add(name)
                 aff = attr.get("afflic")
                 if aff is not None:
                     aff = aff[0]
-                    self.condition(
-                        "{} {} res".format(
-                            int(getattr(self.afflics, aff).resist * 100), aff
-                        )
-                    )
+                    self.condition("{} {} res".format(int(getattr(self.afflics, aff).resist * 100), aff))
         if conf.get("energizable"):
             self.energy.extra_tensionable.add(name)
 
@@ -959,16 +935,10 @@ class Adv(object):
                     buff.val = value
                     buff.on()
             if "str_buff" in self.conf.sim_buffbot:
-                if self.condition(
-                    "team str {:+.0%}".format(self.conf.sim_buffbot.str_buff)
-                ):
-                    self.Selfbuff(
-                        "simulated_att", self.conf.sim_buffbot.str_buff, -1
-                    ).on()
+                if self.condition("team str {:+.0%}".format(self.conf.sim_buffbot.str_buff)):
+                    self.Selfbuff("simulated_att", self.conf.sim_buffbot.str_buff, -1).on()
             if "critr" in self.conf.sim_buffbot:
-                if self.condition(
-                    "team crit rate {:+.0%}".format(self.conf.sim_buffbot.critr)
-                ):
+                if self.condition("team crit rate {:+.0%}".format(self.conf.sim_buffbot.critr)):
                     self.Selfbuff(
                         "simulated_crit_rate",
                         self.conf.sim_buffbot.critr,
@@ -977,9 +947,7 @@ class Adv(object):
                         "chance",
                     ).on()
             if "critd" in self.conf.sim_buffbot:
-                if self.condition(
-                    "team crit dmg {:+.0%}".format(self.conf.sim_buffbot.critd)
-                ):
+                if self.condition("team crit dmg {:+.0%}".format(self.conf.sim_buffbot.critd)):
                     self.Selfbuff(
                         "simulated_crit_dmg",
                         self.conf.sim_buffbot.critd,
@@ -996,7 +964,7 @@ class Adv(object):
                     sim_defchain = Event("defchain")
                     sim_defchain.source = None
 
-                    def proc_sim_doublebuff():
+                    def proc_sim_doublebuff(t):
                         sim_defchain()
                         # assume that this is a skill buff
                         self.buffskill_event()
@@ -1036,13 +1004,9 @@ class Adv(object):
         self.conf.update(self.conf_init)
 
     def default_slot(self):
-        self.slots = Slots(
-            self.name, self.conf.c, self.sim_afflict, bool(self.conf["flask_env"])
-        )
+        self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf["flask_env"]))
 
-    def __init__(
-        self, name=None, conf=None, duration=180, cond=None, equip_key=None, mono=None
-    ):
+    def __init__(self, name=None, conf=None, duration=180, cond=None, equip_key=None, mono=None):
         if not name:
             raise ValueError("Adv module must have a name")
         self.name = name
@@ -1116,11 +1080,7 @@ class Adv(object):
 
         if scope[0] == "s":
             try:
-                mod *= (
-                    1
-                    if name in ("ds", "ds_final") or self.a_s_dict[scope].owner is None
-                    else self.skill_share_att
-                )
+                mod *= 1 if name in ("ds", "ds_final") or self.a_s_dict[scope].owner is None else self.skill_share_att
             except:
                 pass
             return mod * self.mod("s")
@@ -1141,41 +1101,22 @@ class Adv(object):
 
     @allow_acl
     def adv_affres(self, aff):
-        return self.all_modifiers.sub_mod("affres", aff) + self.all_modifiers.sub_mod(
-            "affres", "all"
-        )
+        return self.all_modifiers.sub_mod("affres", aff) + self.all_modifiers.sub_mod("affres", "all")
 
     @allow_acl
     def speed(self, target=None):
         if target is None:
-            return (
-                1
-                + min(self.sub_mod("spd", "buff"), 0.50)
-                + self.sub_mod("spd", "passive")
-            )
+            return 1 + min(self.sub_mod("spd", "buff"), 0.50) + self.sub_mod("spd", "passive")
         else:
-            return (
-                1
-                + min(self.sub_mod("spd", "buff"), 0.50)
-                + self.sub_mod("spd", "passive")
-                + self.sub_mod("spd", target)
-            )
+            return 1 + min(self.sub_mod("spd", "buff"), 0.50) + self.sub_mod("spd", "passive") + self.sub_mod("spd", target)
 
     @allow_acl
     def c_speed(self):
-        return (
-            1
-            + min(self.sub_mod("cspd", "buff"), 0.50)
-            + self.sub_mod("cspd", "passive")
-        )
+        return 1 + min(self.sub_mod("cspd", "buff"), 0.50) + self.sub_mod("cspd", "passive")
 
     @allow_acl
     def f_speed(self):
-        return (
-            1
-            + min(self.sub_mod("fspd", "buff"), 0.50)
-            + self.sub_mod("fspd", "passive")
-        )
+        return 1 + min(self.sub_mod("fspd", "buff"), 0.50) + self.sub_mod("fspd", "passive")
 
     def enable_echo(self, mod=None, fixed_att=None):
         self.echo = 2
@@ -1267,11 +1208,7 @@ class Adv(object):
 
         debuff_rates = {}
         for buff in self.all_buffs:
-            if (
-                buff.get()
-                and (buff.bufftype == "debuff" or buff.name == "simulated_def")
-                and buff.val < 0
-            ):
+            if buff.get() and (buff.bufftype == "debuff" or buff.name == "simulated_def") and buff.val < 0:
                 dkey = f"debuff_{buff.mod_type}"
                 try:
                     debuff_rates[dkey] *= 1 - buff.chance
@@ -1304,9 +1241,7 @@ class Adv(object):
                 cond_p = cond[1]
                 if on:
                     p *= cond_p
-                    for order, mods in self.all_modifiers[
-                        f"{cond_name}_killer"
-                    ].items():
+                    for order, mods in self.all_modifiers[f"{cond_name}_killer"].items():
                         for mod in mods:
                             modifiers[order].add(mod)
                 else:
@@ -1338,12 +1273,7 @@ class Adv(object):
             return self.sp_convert(self.sp_mod(param), self.conf[param].attr[0]["sp"])
         elif isinstance(param, int) and 0 < param:
             suffix = "" if self.current_x == "default" else f"_{self.current_x}"
-            return sum(
-                self.sp_convert(
-                    self.sp_mod("x"), self.conf[f"x{x}{suffix}"].attr[0]["sp"]
-                )
-                for x in range(1, param + 1)
-            )
+            return sum(self.sp_convert(self.sp_mod("x"), self.conf[f"x{x}{suffix}"].attr[0]["sp"]) for x in range(1, param + 1))
 
     @allow_acl
     def charged_in(self, param, sn):
@@ -1359,15 +1289,12 @@ class Adv(object):
 
     @allow_acl
     def buffstack(self, name):
-        return reduce(
-            lambda s, b: s + int(b.get() and b.name == name), self.all_buffs, 0
-        )
+        return reduce(lambda s, b: s + int(b.get() and b.name == name), self.all_buffs, 0)
 
     @property
     def buffcount(self):
         buffcount = reduce(
-            lambda s, b: s
-            + int(b.get() and b.bufftype in ("self", "team") and not b.hidden),
+            lambda s, b: s + int(b.get() and b.bufftype in ("self", "team") and not b.hidden),
             self.all_buffs,
             0,
         )
@@ -1631,16 +1558,12 @@ class Adv(object):
                     # not allowed to share skill
                     continue
                 if share_limit < share_costs:
-                    raise ValueError(
-                        f"Skill share exceed cost {(*self.skillshare_list, share_costs)}."
-                    )
+                    raise ValueError(f"Skill share exceed cost {(*self.skillshare_list, share_costs)}.")
                 src_key = f's{sdata["s"]}'
                 shared_sp = self.sp_convert(sdata["sp"], sp_modifier)
                 try:
                     owner_conf = Conf(load_adv_json(owner))
-                    for src_sn, src_snconf in owner_conf.find(
-                        f"^{src_key}(_[A-Za-z0-9]+)?$"
-                    ):
+                    for src_sn, src_snconf in owner_conf.find(f"^{src_key}(_[A-Za-z0-9]+)?$"):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
                         self.conf[dst_sn].owner = owner
@@ -1648,9 +1571,7 @@ class Adv(object):
                     owner_module, _ = load_adv_module(owner)
                     preruns[dst_key] = owner_module.prerun_skillshare
                     for sfn in ("before", "proc"):
-                        self.rebind_function(
-                            owner_module, f"{src_key}_{sfn}", f"{dst_key}_{sfn}"
-                        )
+                        self.rebind_function(owner_module, f"{src_key}_{sfn}", f"{dst_key}_{sfn}")
                 except:
                     pass
                 self.conf[dst_key].owner = owner
@@ -1796,14 +1717,7 @@ class Adv(object):
 
     def _cb_think_fsf(self, t):
         result = self._cb_think(t, default_to_x=False)
-        if (
-            not result
-            and self.current_x == "default"
-            and t.dstat >= 0
-            and t.pin[0] == "x"
-            and t.didx == 5
-            and t.dhit == 0
-        ):
+        if not result and self.current_x == "default" and t.dstat >= 0 and t.pin[0] == "x" and t.didx == 5 and t.dhit == 0:
             return self.fsf()
         return result or self.x()
 
@@ -2020,11 +1934,7 @@ class Adv(object):
             if "crisis" in attr:
                 hitmods.append(CrisisModifier(name, attr["crisis"], self.hp))
             if "bufc" in attr:
-                hitmods.append(
-                    Modifier(
-                        f"{name}_bufc", "att", "bufc", attr["bufc"] * self.buffcount
-                    )
-                )
+                hitmods.append(Modifier(f"{name}_bufc", "att", "bufc", attr["bufc"] * self.buffcount))
             if "fade" in attr:
                 attenuation = (attr["fade"], self.conf.attenuation.hits, hitmods)
             else:
@@ -2104,9 +2014,7 @@ class Adv(object):
             rate, mod = attr["bleed"]
             rate = max(min(100, rate + self.sub_mod("debuff_rate", "passive") * 100), 0)
             debufftime = self.mod("debuff", operator=operator.add)
-            if self.conf.mbleed or (
-                rate < 100 and base[0] == "s" and self.a_s_dict[base].owner is not None
-            ):
+            if self.conf.mbleed or (rate < 100 and base[0] == "s" and self.a_s_dict[base].owner is not None):
                 from module.bleed import mBleed
 
                 if self.bleed is None:
@@ -2184,30 +2092,20 @@ class Adv(object):
                         return
                 except:
                     pass
-                buff = self.hitattr_buff(
-                    name, base, group, aseq, 0, blist, stackable=False
-                )
+                buff = self.hitattr_buff(name, base, group, aseq, 0, blist, stackable=False)
                 if buff:
-                    self.active_buff_dict.add_overwrite(
-                        base, group, aseq, buff.on(), bctrl
-                    )
+                    self.active_buff_dict.add_overwrite(base, group, aseq, buff.on(), bctrl)
                 return
         if isinstance(blist[0], list):
             buff_objs = []
             for bseq, attrbuff in enumerate(blist):
-                obj = self.hitattr_buff(
-                    name, base, group, aseq, bseq, attrbuff, stackable=not bctrl
-                )
+                obj = self.hitattr_buff(name, base, group, aseq, bseq, attrbuff, stackable=not bctrl)
                 if obj:
                     buff_objs.append(obj)
             if buff_objs:
-                self.active_buff_dict.add(
-                    base, group, aseq, MultiBuffManager(name, buff_objs).on()
-                )
+                self.active_buff_dict.add(base, group, aseq, MultiBuffManager(name, buff_objs).on())
         else:
-            buff = self.hitattr_buff(
-                name, base, group, aseq, 0, blist, stackable=not bctrl
-            )
+            buff = self.hitattr_buff(name, base, group, aseq, 0, blist, stackable=not bctrl)
             if buff:
                 self.active_buff_dict.add(base, group, aseq, buff.on())
 
@@ -2331,9 +2229,7 @@ class Adv(object):
             return mt_b
         if mt_b is None:
             return mt_a
-        if (mt_a.timing + getattr(mt_a, "msl", 0)) >= (
-            mt_b.timing + getattr(mt_b, "msl", 0)
-        ):
+        if (mt_a.timing + getattr(mt_a, "msl", 0)) >= (mt_b.timing + getattr(mt_b, "msl", 0)):
             return mt_a
         else:
             return mt_b
@@ -2347,9 +2243,7 @@ class Adv(object):
                     attr = getattr(self, attr, 0)
                 if prev_attr is not None and isinstance(attr, int):
                     for repeat in range(1, attr):
-                        res_mt = self.do_hitattr_make(
-                            e, aseq + repeat, prev_attr, pin=pin
-                        )
+                        res_mt = self.do_hitattr_make(e, aseq + repeat, prev_attr, pin=pin)
                 else:
                     res_mt = self.do_hitattr_make(e, aseq, attr, pin=pin)
                     prev_attr = attr
@@ -2434,12 +2328,7 @@ class Adv(object):
     @allow_acl
     def aff(self, afflictname=None):
         if not afflictname:
-            return any(
-                [
-                    getattr(self.afflics, afflictname).get()
-                    for afflictname in AFFLICT_LIST
-                ]
-            )
+            return any([getattr(self.afflics, afflictname).get() for afflictname in AFFLICT_LIST])
         return getattr(self.afflics, afflictname).get()
 
     @allow_acl
