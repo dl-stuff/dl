@@ -2180,8 +2180,6 @@ class Adv(object):
         spd = self.speed()
         iv = attr.get("iv", 0) / spd
         msl = attr.get("msl", 0)
-        if not attr.get("nospd"):
-            msl /= spd
         try:
             onhit = getattr(self, f"{e.name}_hit{aseq+1}")
         except AttributeError:
