@@ -220,9 +220,7 @@ class AfflicCapped(AfflicBase):
         total_p = 0.0
         states = defaultdict(lambda: 0.0)
         for state, state_p in self.states.items():
-            reduced_state = self.State(
-                frozenset([t for t in state.timers if t.timing > now()]), state.resist
-            )
+            reduced_state = self.State(frozenset([t for t in state.timers if t.timing > now()]), state.resist)
             states[reduced_state] += state_p
             if reduced_state.timers:
                 total_p += state_p
@@ -245,18 +243,12 @@ class AfflicCapped(AfflicBase):
         total_p = 0.0
         for start_state, start_state_p in self.states.items():
             res = start_state.resist - self.res_modifier
-            if (
-                res >= self.rate
-                or res >= 1
-                or len(start_state.timers) >= self.stack_cap
-            ):
+            if res >= self.rate or res >= 1 or len(start_state.timers) >= self.stack_cap:
                 states[start_state] += start_state_p
             else:
                 rate_after_res = min(1, self.rate - res)
                 succeed_timers = frozenset(list(start_state.timers) + [timer])
-                state_on_succeed = self.State(
-                    succeed_timers, min(1.0, res + self.tolerance)
-                )
+                state_on_succeed = self.State(succeed_timers, min(1.0, res + self.tolerance))
                 overall_succeed_p = start_state_p * rate_after_res
                 overall_fail_p = start_state_p * (1.0 - rate_after_res)
                 total_p += overall_succeed_p
@@ -293,9 +285,7 @@ class Afflic_dot(AfflicUncapped):
             self.dtype = dtype
         self.duration = (duration or self.default_duration) * self.time
         self.iv = iv or self.default_iv
-        self.dot = Dot(
-            f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype
-        )
+        self.dot = Dot(f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype)
         self.dot.on()
         r = super().on()
         self.dot.tick_dmg *= r
@@ -352,9 +342,7 @@ class Afflic_bog(Afflic_scc):
             # Debuff('{}_bog'.format(name),-0.5*p,self.duration,1,'att','bog').on()
             from core.advbase import Selfbuff
 
-            bog = Selfbuff(
-                "{}_bog".format(name), 0.5 * p, self.duration, "att", "bog"
-            ).no_bufftime()
+            bog = Selfbuff("{}_bog".format(name), 0.5 * p, self.duration, "att", "bog").no_bufftime()
             bog.bufftype = "bog"
             bog.on()
         return p
@@ -378,19 +366,19 @@ class Afflics(object):
             "sleep": 99,
         },
         "immune": {
-            "poison": 100,
-            "burn": 100,
-            "paralysis": 100,
-            "frostbite": 100,
-            "flashburn": 100,
-            "shadowblight": 100,
-            "stormlash": 100,
-            "scorchrend": 100,
-            "blind": 100,
-            "bog": 100,
-            "freeze": 100,
-            "stun": 100,
-            "sleep": 100,
+            "poison": 999,
+            "burn": 999,
+            "paralysis": 999,
+            "frostbite": 999,
+            "flashburn": 999,
+            "shadowblight": 999,
+            "stormlash": 999,
+            "scorchrend": 999,
+            "blind": 999,
+            "bog": 999,
+            "freeze": 999,
+            "stun": 999,
+            "sleep": 999,
         },
         "flame": {  # Volk
             "poison": 0,
