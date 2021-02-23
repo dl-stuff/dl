@@ -772,10 +772,11 @@ class AmuletQuint:
 
     @staticmethod
     def sort_ab(a):
-        if len(a) <= 2:
+        try:
+            if "hp" not in a[2]:
+                return -1 * a[1]
+        except (TypeError, IndexError):
             return -100 * a[1]
-        if "hp" not in a[2]:
-            return -1 * a[1]
         return a[1]
 
     @property
