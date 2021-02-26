@@ -16,11 +16,5 @@ class Pinon(SigilAdv):
             x_min = 8
         return super().x(x_min=x_min)
 
-    def post_run(self, end):
-        if self.unlocked:
-            self.comment += f"unlock at {self.unlocked:.02f}s;"
-        else:
-            self.comment += f"not unlocked"
-
 
 variants = {None: Pinon}

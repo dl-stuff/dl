@@ -10,9 +10,7 @@ from core.acl import allow_acl, CONTINUE
 
 
 class StanceAdv(Adv):
-    def config_stances(
-        self, stance_dict, default_stance=None, hit_threshold=0, deferred=True
-    ):
+    def config_stances(self, stance_dict, default_stance=None, hit_threshold=0, deferred=True):
         """@param: stance_dict[str] -> ModeManager or None"""
         if default_stance is None:
             default_stance = next(iter(stance_dict))
@@ -69,10 +67,7 @@ class StanceAdv(Adv):
         return False
 
     def can_queue_stance(self, stance):
-        return (
-            stance not in (self.stance, self.next_stance)
-            and not self.Skill._static.silence == 1
-        )
+        return stance not in (self.stance, self.next_stance) and not self.Skill._static.silence == 1
 
     def can_change_combo(self):
         return (
@@ -142,10 +137,7 @@ class RngCritAdv(Adv):
                 new_states.items(),
                 0,
             )
-            if (
-                self.prev_log_time == 0
-                or self.prev_log_time < t - self.rngcrit_cd_duration
-            ):
+            if self.prev_log_time == 0 or self.prev_log_time < t - self.rngcrit_cd_duration:
                 self.prev_log_time = t
             self.rngcrit_cb(mrate)
             self.rngcrit_states = new_states
@@ -168,9 +160,7 @@ class RngCritAdv(Adv):
 class SigilAdv(Adv):
     def config_sigil(self, duration=300, **kwargs):
         self.unlocked = False
-        self.locked_sigil = EffectBuff(
-            "locked_sigil", 300, lambda: None, self.a_sigil_unlock
-        ).no_bufftime()
+        self.locked_sigil = EffectBuff("locked_sigil", 300, lambda: None, self.a_sigil_unlock).no_bufftime()
         self.locked_sigil.on()
         self.sigil_mode = ModeManager(group="sigil", **kwargs)
 
@@ -184,3 +174,9 @@ class SigilAdv(Adv):
             if duration <= 0:
                 self.locked_sigil.off()
                 self.a_sigil_unlock()
+
+    def post_run(self, end):
+        if self.unlocked:
+            self.comment += f"unlock at {self.unlocked:.02f}s;"
+        else:
+            self.comment += f"not unlocked"

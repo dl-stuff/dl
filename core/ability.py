@@ -1195,3 +1195,26 @@ class Dodge_Buff(BuffingAbility):
 
 
 ability_dict["dodge"] = Dodge_Buff
+
+
+class Healed_Buff(BuffingAbility):
+    D_CD = 9.9999
+
+    def __init__(self, name, value, duration=None):
+        super().__init__(name, value, duration or 15)
+        self.is_cd = False
+
+    def oninit(self, adv, afrom=None):
+        def cd_end(t):
+            self.is_cd = False
+
+        def l_heal_buff(e):
+            if not self.is_cd:
+                adv.Buff(*self.buff_args, source="heal").on()
+                self.is_cd = True
+                adv.Timer(cd_end).on(self.D_CD)
+
+        adv.heal_event.listener(l_heal_buff)
+
+
+ability_dict["healed"] = Healed_Buff

@@ -888,6 +888,7 @@ class Adv(object):
             hp = self.conf["hp"]
         old_hp = self.hp
         if hp > old_hp:
+            self.heal_event.delta = hp - old_hp
             self.heal_event()
         hp = round(hp * 10) / 10
         self.hp = max(min(hp, 100), 0)

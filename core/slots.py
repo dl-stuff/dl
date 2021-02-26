@@ -259,6 +259,26 @@ from core.modifier import EffectBuff, Selfbuff, SingleActionBuff
 from core.timeline import Timer, now, Event
 from core.log import log
 
+
+class Gala_Reborn(DragonBase):
+    def oninit(self, adv, buff_name, buff_ele):
+        super().oninit(adv)
+        charge_gauge_o = adv.dragonform.charge_gauge
+        self.agauge = 0
+        self.acount = 0
+        setattr(adv, buff_name, adv.Selfbuff(buff_name, 0.3, 45, buff_ele, "ele").no_bufftime())
+
+        def charge_gauge(value, **kwargs):
+            delta = charge_gauge_o(value, **kwargs)
+            self.agauge += delta
+            n_acount = self.agauge // 100
+            if n_acount > self.acount:
+                self.acount = n_acount
+                getattr(adv, buff_name).on()
+
+        adv.dragonform.charge_gauge = charge_gauge
+
+
 ### FLAME DRAGONS ###
 class Gala_Mars(DragonBase):
     def oninit(self, adv):
@@ -347,23 +367,9 @@ class Styx(DragonBase):
         Event("dragon_end").listener(reset_spirit)
 
 
-class Gala_Reborn_Poseidon(DragonBase):
+class Gala_Reborn_Poseidon(Gala_Reborn):
     def oninit(self, adv):
-        super().oninit(adv)
-        charge_gauge_o = adv.dragonform.charge_gauge
-        self.agauge = 0
-        self.acount = 0
-        adv.gposeidon_buff = adv.Selfbuff("gposeidon_buff", 0.3, 45, "water", "ele").no_bufftime()
-
-        def charge_gauge(value, **kwargs):
-            delta = charge_gauge_o(value, **kwargs)
-            self.agauge += delta
-            n_acount = self.agauge // 100
-            if n_acount > self.acount:
-                self.acount = n_acount
-                adv.gposeidon_buff.on()
-
-        adv.dragonform.charge_gauge = charge_gauge
+        super().oninit(adv, "gposeidon_buff", "water")
 
 
 ### WATER DRAGONS ###
@@ -406,23 +412,9 @@ class Summer_Konohana_Sakuya(DragonBase):
         Event("ds").listener(add_flower)
 
 
-class Gala_Reborn_Zephyr(DragonBase):
+class Gala_Reborn_Zephyr(Gala_Reborn):
     def oninit(self, adv):
-        super().oninit(adv)
-        charge_gauge_o = adv.dragonform.charge_gauge
-        self.agauge = 0
-        self.acount = 0
-        adv.gzephyr_buff = adv.Selfbuff("gzephyr_buff", 0.3, 45, "wind", "ele").no_bufftime()
-
-        def charge_gauge(value, **kwargs):
-            delta = charge_gauge_o(value, **kwargs)
-            self.agauge += delta
-            n_acount = self.agauge // 100
-            if n_acount > self.acount:
-                self.acount = n_acount
-                adv.gzephyr_buff.on()
-
-        adv.dragonform.charge_gauge = charge_gauge
+        super().oninit(adv, "gzephyr_buff", "wind")
 
 
 class Menoetius(DragonBase):
@@ -486,6 +478,11 @@ class Lumiere_Pandora(DragonBase):
                 joyful_radiance_buff.value(adv.joyful_radiance * 0.2)
 
         Timer(expire_joyful_radiance, 20, True).on()
+
+
+class Gala_Reborn_Jeanne(Gala_Reborn):
+    def oninit(self, adv):
+        super().oninit(adv, "gjeanne_buff", "light")
 
 
 ### LIGHT DRAGONS ###
@@ -843,7 +840,7 @@ class Slots:
         "flame": "Gala_Mars",
         "water": "Gala_Reborn_Poseidon",
         "wind": "Gala_Reborn_Zephyr",
-        "light": "Daikokuten",
+        "light": "Gala_Reborn_Jeanne",
         "shadow": "Gala_Cat_Sith",
     }
 
