@@ -80,7 +80,7 @@ class CharaBase(SlotBase):
 
     FAC_WEAPON_ATT = {
         "all": {"dojo": 0.33, "weap": 0.225},
-        "dagger": 0.06,
+        "dagger": 0.11,
         "bow": 0.11,
         "blade": 0.06,
         "wand": 0.06,
@@ -88,7 +88,7 @@ class CharaBase(SlotBase):
         "lance": 0.05,
         "staff": 0.05,
         "axe": 0.05,
-        "gun": -0.015,  # opera (0.05) - diff in weap
+        "gun": -0.1,  # opera (0.05) + fount (0.05) - diff in weap (0.225 - 0.205 = 0.2)
     }
     FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
 
