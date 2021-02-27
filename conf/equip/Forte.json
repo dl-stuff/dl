@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 106596.99491145278,
+      "dps": 103509.61246178213,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,43 +13,9 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c2-s-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-end), dragonform.shift_count<=2 and cancel",
+        "`dragon(c2-s-c3-end), dragonform.shift_count<=2",
         "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery<1",
         "`s3, not buff(s3) and fsc",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Bow",
-        "Cleo"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 114457.69645407166,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
-        "`dragon(s-end), dragonform.shift_count=0",
-        "`dragon(end), dragonform.shift_count<=2 and cancel",
-        "`s3, not buff(s3) and fscf",
         "`s2",
         "`s1, cancel",
         "`s4, cancel",
@@ -62,13 +28,49 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Formal_Joachim"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 114483.67771255688,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c4-s-end), dragonform.shift_count=0 and x=1",
+        "`dragon(end), dragonform.shift_count=1 and fscf",
+        "`dragon(end), dragonform.shift_count=2 and fscf",
+        "`dragon(end), dragonform.shift_count=3 and fscf",
+        "`dragon(end), dragonform.shift_count>=4",
+        "`s3, not buff(s3) and fscf",
+        "`s2",
+        "`s4, x>3 or fscf",
+        "`s1, buff(s3) and (fscf or x>3)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Wand",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "buffer": {
       "dps": 79225.02326268046,
       "team": 0.21364778743193158,
-      "tdps": 128117.27178542891,
+      "tdps": 113666.4670905556,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -131,26 +133,29 @@
       ]
     },
     "mono_affliction": {
-      "dps": 114457.69645407166,
+      "dps": 114483.67771255688,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
-        "`dragon(s-end), dragonform.shift_count=0",
-        "`dragon(end), dragonform.shift_count<=2 and cancel",
+        "`dragon(c4-s-end), dragonform.shift_count=0 and x=1",
+        "`dragon(end), dragonform.shift_count=1 and fscf",
+        "`dragon(end), dragonform.shift_count=2 and fscf",
+        "`dragon(end), dragonform.shift_count=3 and fscf",
+        "`dragon(end), dragonform.shift_count>=4",
         "`s3, not buff(s3) and fscf",
         "`s2",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5"
+        "`s4, x>3 or fscf",
+        "`s1, buff(s3) and (fscf or x>3)",
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
         "Ieyasu",
@@ -159,7 +164,7 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Gala_Mym"
       ]
     },
     "mono_buffer": {
@@ -199,26 +204,29 @@
   },
   "60": {
     "affliction": {
-      "dps": 75864.64464773925,
+      "dps": 79963.24653760616,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`dragon(end), dragonform.shift_count=0 and x=1",
+        "`dragon(end), dragonform.shift_count=1 and fscf",
+        "`dragon(end), dragonform.shift_count=2 and fscf",
+        "`dragon(end), dragonform.shift_count=3 and fscf",
+        "`dragon(end), dragonform.shift_count>=4",
         "`s3, not buff(s3) and fscf",
         "`s2",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5"
+        "`s4, x>3 or fscf",
+        "`s1, buff(s3) and (fscf or x>3)",
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
         "Ieyasu",
@@ -227,7 +235,7 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Gala_Mym"
       ]
     },
     "pref": "base",
@@ -365,26 +373,29 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 75864.64464773925,
+      "dps": 79963.24653760616,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "#Shapeshift into Cat Sith and end ASAP. Using shortly after skills along with a few pokes of standard attack is ideal. From the fourth shapeshift and on, only do it when trickery stacks are running low.",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-end), dragonform.shift_count<=2 and cancel",
+        "`dragon(end), dragonform.shift_count=0 and x=1",
+        "`dragon(end), dragonform.shift_count=1 and fscf",
+        "`dragon(end), dragonform.shift_count=2 and fscf",
+        "`dragon(end), dragonform.shift_count=3 and fscf",
+        "`dragon(end), dragonform.shift_count>=4",
         "`s3, not buff(s3) and fscf",
         "`s2",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5"
+        "`s4, x>3 or fscf",
+        "`s1, buff(s3) and (fscf or x>3)",
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
         "Ieyasu",
@@ -393,7 +404,7 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Gala_Mym"
       ]
     }
   }

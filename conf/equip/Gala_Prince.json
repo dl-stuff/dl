@@ -1,23 +1,28 @@
 {
   "180": {
     "base": {
-      "dps": 68289.9874228417,
-      "team": 0.17869529273113965,
+      "dps": 73991.5458556147,
+      "team": 0.19818680029810323,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_Brethren",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
+        "The_Shining_Overlord",
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, s=4",
-        "`s1, cancel",
+        "if fsc and buff(s3,1)",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s), dragonform.shift_count=2",
+        "`dragon(c3-s), dragonform.shift_count>=3",
+        "end",
+        "`s4",
         "`s2, cancel",
-        "`s3, cancel",
-        "`s4, fsc",
+        "`s3, fsc",
+        "`s1, fsc",
         "`fs, x=2"
       ],
       "coabs": [
@@ -27,28 +32,33 @@
       ],
       "share": [
         "Weapon",
-        "Sharena"
+        "Gala_Mym"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 67458.05536413961,
-      "team": 0.17820606731253402,
+      "dps": 81361.10474610048,
+      "team": 0.19818680029810323,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_Brethren",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3-s)",
-        "`s1, cancel",
+        "if fsc and buff(s3,1)",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s), dragonform.shift_count=2",
+        "`dragon(c3-s), dragonform.shift_count>=3",
+        "end",
+        "`s4",
         "`s2, cancel",
-        "`s3, cancel",
-        "`s4, dgauge>=400 and cancel",
+        "`s3, fsc",
+        "`s1, fsc",
         "`fs, x=2"
       ],
       "coabs": [
@@ -58,13 +68,13 @@
       ],
       "share": [
         "Weapon",
-        "Yue"
+        "Gala_Mym"
       ]
     },
     "buffer": {
       "dps": 24722.329768649353,
       "team": 0.31583548313219706,
-      "tdps": 317687.0144833664,
+      "tdps": 418782.55582719925,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_Brethren",

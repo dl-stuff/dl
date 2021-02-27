@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 92704.6382431211,
+      "dps": 98759.64056544153,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -11,7 +11,7 @@
         "A_Game_of_Cat_and_Boar",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -20,8 +20,8 @@
         "`dodge, fsc",
         "`fs, dodge",
         "else",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c5-s-end), dragonform.shift_count=1",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
         "`s2",
         "`fs, x=1",
         "end"
@@ -40,7 +40,7 @@
     "buffer": {
       "dps": 59850.840743428285,
       "team": 0.1343855351936364,
-      "tdps": 244474.20961157538,
+      "tdps": 289531.1594804416,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -73,7 +73,7 @@
       ]
     },
     "affliction": {
-      "dps": 101566.55070134612,
+      "dps": 107868.60307154889,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -83,7 +83,7 @@
         "A_Game_of_Cat_and_Boar",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -92,8 +92,7 @@
         "`dodge, fsc",
         "`fs, dodge",
         "else",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c5-s-end), dragonform.shift_count=1",
+        "`dragon(c3-end), s=2 or ((duration-now)<=3.2)",
         "`s2",
         "`fs, x=1",
         "end"
@@ -109,17 +108,17 @@
       ]
     },
     "mono_affliction": {
-      "dps": 99117.6050822105,
+      "dps": 104501.78145328544,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "The_Shining_Overlord",
+        "The_Lurker_in_the_Woods",
         "A_Game_of_Cat_and_Boar",
-        "The_Warrioresses"
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -128,8 +127,7 @@
         "`dodge, fsc",
         "`fs, dodge",
         "else",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c5-s-end), dragonform.shift_count=1",
+        "`dragon(c3-end), s=2 or ((duration-now)<=3.2)",
         "`s2",
         "`fs, x=1",
         "end"
@@ -145,7 +143,7 @@
       ]
     },
     "mono_base": {
-      "dps": 91342.62931978342,
+      "dps": 96840.8696841371,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -155,7 +153,7 @@
         "A_Game_of_Cat_and_Boar",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -164,8 +162,8 @@
         "`dodge, fsc",
         "`fs, dodge",
         "else",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c5-s-end), dragonform.shift_count=1",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
         "`s2",
         "`fs, x=1",
         "end"
@@ -183,7 +181,7 @@
     "mono_buffer": {
       "dps": 59850.840743428285,
       "team": 0.1343855351936364,
-      "tdps": 234339.12385718108,
+      "tdps": 275253.0537413108,
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",

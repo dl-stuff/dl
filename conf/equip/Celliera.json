@@ -188,6 +188,41 @@
         "Weapon",
         "Gala_Mym"
       ]
-    }
+    },
+    "mono_buffer": {
+      "dps": 63506.22185662419,
+      "team": 0.11451470570608953,
+      "tdps": 66359.33121297923,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if dgauge>=500 and xf=5",
+        "queue dragonform.shift_count=0",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
+        "end",
+        "end",
+        "`s2, not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Summer_Estelle",
+        "Renee",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_pref": "mono_base"
   }
 }

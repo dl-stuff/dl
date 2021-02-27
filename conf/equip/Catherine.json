@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 75602.13461492349,
+      "dps": 74615.68183005479,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -33,7 +33,7 @@
     "buffer": {
       "dps": 12868.403966578056,
       "team": 0.7959094999250161,
-      "tdps": 78820.18075454015,
+      "tdps": 77580.777549827,
       "slots.a": [
         "Gentle_Winds",
         "Study_Rabbits",
@@ -57,7 +57,7 @@
       ]
     },
     "affliction": {
-      "dps": 85885.85708536646,
+      "dps": 84780.9634774475,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -70,7 +70,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c2-end), s=1",
-        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3",
+        "`s2, (s1.check() and ((duration-now)>45)) or (duration-now)<3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
@@ -86,7 +86,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 85885.85708536646,
+      "dps": 84780.9634774475,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -99,7 +99,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c2-end), s=1",
-        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3",
+        "`s2, (s1.check() and ((duration-now)>45)) or (duration-now)<3",
         "`s3, not buff(s3)",
         "`s4",
         "`s1"
@@ -142,7 +142,37 @@
         "Weapon",
         "Mikoto"
       ]
-    }
+    },
+    "mono_buffer": {
+      "dps": 63933.87255113965,
+      "team": 0.12800612075035667,
+      "tdps": 78827.2297911919,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_pref": "mono_base"
   },
   "60": {
     "base": {

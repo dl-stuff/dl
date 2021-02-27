@@ -30,22 +30,22 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 48154.04182892032,
-      "team": 0.22758040026131968,
+      "dps": 50187.20087933184,
+      "team": 0.22637993616315943,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
       "slots.d": "Ramiel",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s1, (x=5 or s) and timeleft(s1)<5 and not duration-now<1.5",
         "`s4",
-        "`dragon(s)"
+        "`dragon(s), cancel"
       ],
       "coabs": [
         "Ieyasu",
@@ -88,8 +88,8 @@
       ]
     },
     "mono_base": {
-      "dps": 37560.285286122315,
-      "team": 0.22884507201939008,
+      "dps": 38139.23361058691,
+      "team": 0.22758040026131968,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -107,8 +107,7 @@
       ],
       "coabs": [
         "Ieyasu",
-        "Audric",
-        "Joker"
+        "Audric"
       ],
       "share": [
         "Weapon",
@@ -118,7 +117,7 @@
     "mono_buffer": {
       "dps": 37560.285286122315,
       "team": 0.22884507201939008,
-      "tdps": null,
+      "tdps": 457785.4457254077,
       "slots.a": [
         "A_Man_Unchanging",
         "An_Ancient_Oath",
@@ -143,6 +142,34 @@
         "Gala_Mym"
       ]
     },
-    "mono_pref": "mono_base"
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 47383.22844132837,
+      "team": 0.226474207017084,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, (x=5) and timeleft(s1)<5",
+        "`s4",
+        "`dragon(s)"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Forte",
+        "Audric"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    }
   }
 }

@@ -1,28 +1,27 @@
 {
   "180": {
     "base": {
-      "dps": 58959.02494254479,
+      "dps": 72664.08165363812,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "The_Synthetic_Dragon",
+        "Sweet_Surprise",
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Horus",
       "acl": [
-        "`s3, x=5 and not buff(s3)",
+        "`s3, not buff(s3)",
+        "`s2",
         "`s4",
-        "`s1, cancel",
-        "`s2, fsc",
-        "`fs, x=5"
+        "`s1"
       ],
       "coabs": [
-        "Yukata_Cassandra",
-        "Serena",
-        "Axe2"
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -31,9 +30,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 29863.81118183596,
+      "dps": 29284.90758994637,
       "team": 0.12169235029128009,
-      "tdps": 239088.2721146167,
+      "tdps": 356465.907346356,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -61,7 +60,7 @@
       ]
     },
     "affliction": {
-      "dps": 57922.326363836044,
+      "dps": 77486.6487480901,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -71,21 +70,16 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Horus",
       "acl": [
-        "if s2.check()",
-        "`dragon(s), hp<30",
-        "end",
-        "`s4",
         "`s3, not buff(s3)",
         "`s2",
-        "`s1, fscf or s=2",
-        "`fst(3), not have_buff(gozu_tenno_buff)",
-        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
+        "`s4",
+        "`s1"
       ],
       "coabs": [
-        "Nobunaga",
-        "Yukata_Cassandra",
+        "Blade",
+        "Halloween_Mym",
         "Kimono_Elisanne"
       ],
       "share": [
@@ -94,34 +88,26 @@
       ]
     },
     "mono_base": {
-      "dps": 43702.25137073805,
+      "dps": 72664.08165363812,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "The_Synthetic_Dragon",
+        "Sweet_Surprise",
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Horus",
       "acl": [
-        "if s2.check() and dragonform.shift_count=0",
-        "`dragon(s), hp<30",
-        "end",
-        "if s2.check() and dragonform.shift_count>0",
-        "`dragon(c3-s), hp<30",
-        "end",
         "`s3, not buff(s3)",
         "`s2",
-        "`s1, fscf or s=2",
         "`s4",
-        "`fst(3), not have_buff(gozu_tenno_buff)",
-        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
+        "`s1"
       ],
       "coabs": [
-        "Yukata_Cassandra",
-        "Serena",
+        "Blade",
+        "Halloween_Mym",
         "Kimono_Elisanne"
       ],
       "share": [
@@ -132,7 +118,7 @@
     "mono_buffer": {
       "dps": 29863.81118183596,
       "team": 0.12169235029128009,
-      "tdps": 113716.59891339684,
+      "tdps": 351708.7998494267,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -160,7 +146,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 57922.326363836044,
+      "dps": 77486.6487480901,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -170,21 +156,16 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Horus",
       "acl": [
-        "if s2.check()",
-        "`dragon(s), hp<30",
-        "end",
-        "`s4",
         "`s3, not buff(s3)",
         "`s2",
-        "`s1, fscf or s=2",
-        "`fst(3), not have_buff(gozu_tenno_buff)",
-        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
+        "`s4",
+        "`s1"
       ],
       "coabs": [
-        "Nobunaga",
-        "Yukata_Cassandra",
+        "Blade",
+        "Halloween_Mym",
         "Kimono_Elisanne"
       ],
       "share": [

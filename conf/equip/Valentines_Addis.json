@@ -1,52 +1,22 @@
 {
   "180": {
     "base": {
-      "dps": 78495.18409479305,
+      "dps": 88497.09260514176,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2, hp>30",
-        "`s1",
-        "`s4, s1.charged<(s1.sp/3)"
-      ],
-      "coabs": [
-        "Wand",
-        "Curran",
-        "Summer_Patia"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 86006.54969104183,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), hp>0",
         "`s3, not buff(s3)",
         "`s2, hp>30",
-        "`s1",
-        "`s4, s1.charged<(s1.sp/3)"
+        "`s1, buff(s3)",
+        "`s4, xf"
       ],
       "coabs": [
         "Wand",
@@ -55,13 +25,42 @@
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Valentines_Chelsea"
+      ]
+    },
+    "pref": "base",
+    "affliction": {
+      "dps": 92952.0154439505,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2, hp=100",
+        "`s1, buff(s3) and ((x=5 and hp=100) or hp<100)",
+        "`s4"
+      ],
+      "coabs": [
+        "Wand",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Valentines_Chelsea"
       ]
     },
     "buffer": {
       "dps": 59212.58672948151,
       "team": 0.03440409868288179,
-      "tdps": 560473.8418828524,
+      "tdps": 851192.357794019,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -88,22 +87,22 @@
       ]
     },
     "mono_base": {
-      "dps": 78495.18409479305,
+      "dps": 88497.09260514176,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dear_Diary",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
         "`s2, hp>30",
-        "`s1",
-        "`s4, s1.charged<(s1.sp/3)"
+        "`s1, buff(s3)",
+        "`s4, xf"
       ],
       "coabs": [
         "Wand",
@@ -112,13 +111,13 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Valentines_Chelsea"
       ]
     },
     "mono_buffer": {
       "dps": 59212.58672948151,
       "team": 0.03440409868288179,
-      "tdps": 560473.8418828524,
+      "tdps": 851192.357794019,
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -145,23 +144,22 @@
       ]
     },
     "mono_affliction": {
-      "dps": 86006.54969104183,
+      "dps": 92952.0154439505,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), hp>0",
         "`s3, not buff(s3)",
-        "`s2, hp>30",
-        "`s1",
-        "`s4, s1.charged<(s1.sp/3)"
+        "`s2, hp=100",
+        "`s1, buff(s3) and ((x=5 and hp=100) or hp<100)",
+        "`s4"
       ],
       "coabs": [
         "Wand",
@@ -170,7 +168,7 @@
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Valentines_Chelsea"
       ]
     },
     "mono_pref": "mono_base"

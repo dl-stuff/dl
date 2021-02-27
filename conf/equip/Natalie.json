@@ -1,21 +1,21 @@
 {
   "180": {
     "base": {
-      "dps": 102447.7006533889,
+      "dps": 104590.18056750396,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
-        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(s-c3-c3-end), xf=5",
-        "`s3, not buff(s3) and xf=5",
-        "`s1, s=2 or hp<=20",
+        "`s3, not buff(s3) and cancel",
+        "`s1, hp<=20",
         "`s2, xf=5",
         "`s4, xf=5"
       ],
@@ -31,23 +31,24 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 107844.07220854971,
+      "dps": 117661.52299334196,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=5 and trickery<=3",
+        "`dragon(s-c3-c3-end), xf=5 and trickery<=5",
         "`s3, not buff(s3)",
-        "`s2, x=5",
-        "`s1, hp<=30 or (xf=5 and hp>30)",
-        "`s4"
+        "`s1, hp<=30 or xf=5",
+        "`s2, xf=5 and (hp=0 or hp=100)",
+        "`s4, xf",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Wand",
@@ -56,13 +57,13 @@
       ],
       "share": [
         "Weapon",
-        "Jurota"
+        "Valentines_Chelsea"
       ]
     },
     "buffer": {
       "dps": 28220.61009532431,
       "team": 0.12477416027336397,
-      "tdps": 594891.5255806386,
+      "tdps": 612062.3877961899,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -84,21 +85,21 @@
       ]
     },
     "mono_base": {
-      "dps": 102447.7006533889,
+      "dps": 104590.18056750396,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
-        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(s-c3-c3-end), xf=5",
-        "`s3, not buff(s3) and xf=5",
-        "`s1, s=2 or hp<=20",
+        "`s3, not buff(s3) and cancel",
+        "`s1, hp<=20",
         "`s2, xf=5",
         "`s4, xf=5"
       ],
@@ -115,7 +116,7 @@
     "mono_buffer": {
       "dps": 28220.61009532431,
       "team": 0.12477416027336397,
-      "tdps": 594891.5255806386,
+      "tdps": 612062.3877961899,
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -137,23 +138,24 @@
       ]
     },
     "mono_affliction": {
-      "dps": 107844.07220854971,
+      "dps": 117661.52299334196,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=5 and trickery<=3",
+        "`dragon(s-c3-c3-end), xf=5 and trickery<=5",
         "`s3, not buff(s3)",
-        "`s2, x=5",
-        "`s1, hp<=30 or (xf=5 and hp>30)",
-        "`s4"
+        "`s1, hp<=30 or xf=5",
+        "`s2, xf=5 and (hp=0 or hp=100)",
+        "`s4, xf",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Wand",
@@ -162,7 +164,7 @@
       ],
       "share": [
         "Weapon",
-        "Jurota"
+        "Valentines_Chelsea"
       ]
     },
     "mono_pref": "mono_base"

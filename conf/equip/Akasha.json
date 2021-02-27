@@ -1,38 +1,39 @@
 {
   "180": {
     "base": {
-      "dps": 24370.761341332593,
-      "team": 0.1491393174176504,
+      "dps": 47582.07540585716,
+      "team": 0.14914054335135446,
       "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "Valiant_Crown",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
+        "`dragon(s-c3-c3-c3-end), not buff(s2)",
         "`s1, prep or (timeleft(s1)<5 and x=5)",
+        "`s2",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2"
+        "`s4"
       ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Eleonora"
+        "Mona"
       ],
       "share": [
         "Weapon",
         "Formal_Joachim"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "buffer": {
-      "dps": 5296.150902029384,
-      "team": 0.7054445576850445,
-      "tdps": 34288.029410139636,
+      "dps": 5284.3611099593745,
+      "team": 0.7058776586773338,
+      "tdps": 75974.30300857837,
       "slots.a": [
         "A_Dogs_Day",
         "Sisters_Day_Out",
@@ -89,27 +90,28 @@
       ]
     },
     "mono_base": {
-      "dps": 24370.761341332593,
-      "team": 0.1491393174176504,
+      "dps": 47582.07540585716,
+      "team": 0.14914054335135446,
       "tdps": null,
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "Valiant_Crown",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
+        "`dragon(s-c3-c3-c3-end), not buff(s2)",
         "`s1, prep or (timeleft(s1)<5 and x=5)",
+        "`s2",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2"
+        "`s4"
       ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Eleonora"
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -117,31 +119,33 @@
       ]
     },
     "mono_buffer": {
-      "dps": 24370.761341332593,
-      "team": 0.1491393174176504,
-      "tdps": null,
+      "dps": 7631.877828891126,
+      "team": 0.6927132598441049,
+      "tdps": 73495.59012956613,
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Warrior_Maiden",
+        "From_Whence_He_Comes",
+        "Bellathorna"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Ariel",
       "acl": [
-        "`s1, prep or (timeleft(s1)<5 and x=5)",
-        "`s3, not buff(s3)",
+        "#`dragon(s-end)",
+        "`s1, (x=5 or (s or prep)) and timeleft(s1)<5",
         "`s4",
-        "`s2"
+        "`s3",
+        "`s2",
+        "`fs, fs_prep_c and x=2"
       ],
       "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Eleonora"
+        "Bow",
+        "Mona",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Tobias",
+        "Templar_Hope"
       ]
     },
     "mono_pref": "mono_base"
