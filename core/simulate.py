@@ -103,10 +103,7 @@ def run_mass(
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
         for log, real_d in pool.starmap(
             run_once_mass,
-            [
-                (name, module, conf, duration, cond, equip_key, mono, idx)
-                for idx in range(mass - 1)
-            ],
+            [(name, module, conf, duration, cond, equip_key, mono, idx) for idx in range(mass - 1)],
         ):
             base_log = sum_logs(base_log, log)
             base_d += real_d
@@ -146,9 +143,7 @@ def test(
         act_sum(adv.logs.act_seq, output)
         return
     if mass:
-        adv.logs, real_d = run_mass(
-            mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=None
-        )
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=None)
     run_results.append((adv, real_d, True, None))
 
     deploy_mono = not special and duration == 180 and verbose == -5
@@ -159,9 +154,7 @@ def test(
 
         manager = EquipManager(name)
         if manager.has_different_mono(180, adv.equip_key):
-            adv, real_d = run_once(
-                name, module, conf, duration, cond, equip_key=None, mono=True
-            )
+            adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
             if mass:
                 adv.logs, real_d = run_mass(
                     mass,
@@ -201,9 +194,7 @@ def test(
         run_results.append((adv, real_d, "affliction", None))
         if deploy_mono:
             if manager.has_different_mono(180, adv.equip_key):
-                adv, real_d = run_once(
-                    name, module, conf, duration, cond, equip_key=None, mono=True
-                )
+                adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
                 if mass:
                     adv.logs, real_d = run_mass(
                         mass,
@@ -287,13 +278,7 @@ def act_repeats(condensed):
         length = 1
         c_slice = tuple(condensed[start : start + length])
         while start + length * (accumulator[c_slice] + 1) <= maxlen:
-            n_slice = tuple(
-                condensed[
-                    start
-                    + length * accumulator[c_slice] : start
-                    + length * (accumulator[c_slice] + 1)
-                ]
-            )
+            n_slice = tuple(condensed[start + length * accumulator[c_slice] : start + length * (accumulator[c_slice] + 1)])
             if n_slice == c_slice:
                 accumulator[c_slice] += 1
             else:
@@ -421,7 +406,10 @@ def damage_counts(real_d, damage, counts, output, res=None):
         dmg = damage.get(k1)
         cnt = counts.get(k1)
         if dmg or cnt:
-            output.write("\n{:>1} {:>3.0f}%| ".format(k1, res[k1] * 100 / res["dps"]))
+            if res["dps"] == 0:
+                output.write("\n{:>1} {:>3.0f}| ".format(k1, 0))
+            else:
+                output.write("\n{:>1} {:>3.0f}%| ".format(k1, res[k1] * 100 / res["dps"]))
         if k1 == "x":
             dmg, cnt = condense_damage_counts(dmg, cnt, x_rule)
         if k1 == "d":
@@ -636,9 +624,7 @@ def test_with_argv(*argv):
 
 
 def same_build_different_dps(a, b):
-    return all(
-        [a[k] == b[k] for k in ("slots.a", "slots.d", "acl", "coabs", "share")]
-    ) and any([a[k] != b[k] for k in ("dps", "team")])
+    return all([a[k] == b[k] for k in ("slots.a", "slots.d", "acl", "coabs", "share")]) and any([a[k] != b[k] for k in ("dps", "team")])
 
 
 BANNED_PRINTS = (
@@ -731,11 +717,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
             return
     if dkey not in equip:
         equip[dkey] = {}
-    if (
-        not repair
-        and cached
-        and (etype == "base" and nteam <= cteam and "buffer" not in equip[dkey])
-    ):
+    if not repair and cached and (etype == "base" and nteam <= cteam and "buffer" not in equip[dkey]):
         equip[dkey]["buffer"] = cached
         try:
             equip[dkey]["buffer"]["tdps"] = (ndps - cdps) / (cteam - nteam)
@@ -765,10 +747,7 @@ def save_equip(adv, real_d, repair=False, etype=None):
             equip[dkey]["buffer"]["tdps"] = 99999999
     except KeyError:
         pass
-    if "buffer" in equip[dkey] and (
-        equip[dkey]["buffer"]["tdps"] < BUFFER_TDPS_THRESHOLD
-        or equip[dkey]["buffer"]["team"] > BUFFER_TEAM_THRESHOLD
-    ):
+    if "buffer" in equip[dkey] and (equip[dkey]["buffer"]["tdps"] < BUFFER_TDPS_THRESHOLD or equip[dkey]["buffer"]["team"] > BUFFER_TEAM_THRESHOLD):
         equip[dkey]["pref"] = "buffer"
         equip[dkey]["base"]["tdps"] = equip[dkey]["buffer"]["tdps"]
     else:
