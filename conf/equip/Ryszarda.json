@@ -3,8 +3,8 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 70826.63036342342,
-      "team": 0.10600680545211863,
+      "dps": 73746.90010354403,
+      "team": 0.10809943715649663,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -17,10 +17,10 @@
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "`s1, cancel",
         "`s2, x>2",
         "`s4",
-        "`fs, not buff(fs) and x>2"
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
       ],
       "coabs": [
         "Blade",
@@ -33,8 +33,8 @@
       ]
     },
     "mono_base": {
-      "dps": 70826.63036342342,
-      "team": 0.10600680545211863,
+      "dps": 73746.90010354403,
+      "team": 0.10809943715649663,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -47,10 +47,10 @@
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "`s1, cancel",
         "`s2, x>2",
         "`s4",
-        "`fs, not buff(fs) and x>2"
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
       ],
       "coabs": [
         "Blade",
@@ -63,8 +63,8 @@
       ]
     },
     "affliction": {
-      "dps": 74846.6687995662,
-      "team": 0.10600680545211863,
+      "dps": 78117.5930347066,
+      "team": 0.10809943715649663,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -75,12 +75,12 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, buff(s2)",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s1, cancel",
         "`s2, x>2",
         "`s4",
-        "`fs, not buff(fs) and x>2"
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
       ],
       "coabs": [
         "Blade",
@@ -93,8 +93,8 @@
       ]
     },
     "mono_affliction": {
-      "dps": 74846.6687995662,
-      "team": 0.10600680545211863,
+      "dps": 78117.5930347066,
+      "team": 0.10809943715649663,
       "tdps": null,
       "slots.a": [
         "Dragon_and_Tamer",
@@ -105,12 +105,12 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, buff(s2)",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s1, cancel",
         "`s2, x>2",
         "`s4",
-        "`fs, not buff(fs) and x>2"
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
       ],
       "coabs": [
         "Blade",
@@ -125,7 +125,7 @@
     "buffer": {
       "dps": 60030.33750350075,
       "team": 0.15364699989844413,
-      "tdps": 226621.51121331943,
+      "tdps": 301148.1136269641,
       "slots.a": [
         "Dragon_and_Tamer",
         "Extreme_Teamwork",
@@ -155,7 +155,7 @@
     "mono_buffer": {
       "dps": 60030.33750350075,
       "team": 0.15364699989844413,
-      "tdps": 226621.51121331943,
+      "tdps": 301148.1136269641,
       "slots.a": [
         "Dragon_and_Tamer",
         "Extreme_Teamwork",
@@ -171,6 +171,70 @@
         "`s1",
         "`s2, x>2",
         "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    }
+  },
+  "60": {
+    "pref": "base",
+    "mono_pref": "mono_base",
+    "affliction": {
+      "dps": 62517.06158192888,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Beautiful_Nothingness",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, x>2",
+        "`s4",
+        "`fs, s1.check()",
+        "`s1, timeleft(fs) > 4"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 62517.06158192888,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Beautiful_Nothingness",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, x>2",
+        "`s4",
+        "`fs, s1.check()",
+        "`s1, timeleft(fs) > 4"
       ],
       "coabs": [
         "Blade",

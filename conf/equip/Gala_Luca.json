@@ -1,23 +1,25 @@
 {
   "180": {
     "base": {
-      "dps": 81532.30312963505,
+      "dps": 89430.74217036676,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Valiant_Crown",
         "A_Small_Courage",
-        "His_Clever_Brother"
+        "Liber_Grimortis"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-end), buff(s2) and s=1",
+        "`dragon(c3-s-c3-c3-end), buff(s2) and s=1",
         "`s3, not buff(s3)",
         "`s2, charged_in(5, s1)",
         "`s1",
-        "`s4, cancel"
+        "`s4",
+        "`fs, (charged_in(fs, s4) or charged_in(fs, s1)) and x>1",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Wand",
@@ -26,12 +28,12 @@
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Ilia"
       ]
     },
     "pref": "base",
     "affliction": {
-      "dps": 95530.39253265789,
+      "dps": 97056.29550200627,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -43,11 +45,13 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c2-end), buff(s2) and s=1",
+        "`dragon(c3-s-c3-c3-end), s=1",
         "`s3, not buff(s3)",
         "`s2, charged_in(5, s1)",
         "`s1",
-        "`s4"
+        "`s4",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and x>1",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Wand",
@@ -62,7 +66,7 @@
     "buffer": {
       "dps": 61299.342667298435,
       "team": 0.1410071803423328,
-      "tdps": 143488.86640535377,
+      "tdps": 199503.31206376725,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -90,23 +94,54 @@
       ]
     },
     "mono_base": {
-      "dps": 79793.32011447189,
+      "dps": 86478.20466478841,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Valiant_Crown",
         "A_Small_Courage",
-        "His_Clever_Brother"
+        "Liber_Grimortis"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(s-end), energy()=5",
+        "`dragon(c3-s-end), buff(s2) and s=1",
         "`s3, not buff(s3)",
         "`s2, charged_in(5, s1)",
         "`s1",
-        "`s4, not charged_in(5, s1) and not energy()=5"
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Wand",
+        "Halloween_Elisanne",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 95254.2450825722,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), buff(s2) and s=1",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4",
+        "`fs, (charged_in(fs, s4) or charged_in(fs, s1)) and x>1",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Lucretia",
@@ -115,42 +150,13 @@
       ],
       "share": [
         "Weapon",
-        "Karina"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 84286.31577026012,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "`dragon(s-end), energy()=5",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(5, s1)",
-        "`s1",
-        "`s4, not charged_in(5, s1) and not energy()=5"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
+        "Ilia"
       ]
     },
     "mono_buffer": {
       "dps": 58945.53823355396,
       "team": 0.11430186517399507,
-      "tdps": 182392.3157262794,
+      "tdps": 240876.7904996395,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
