@@ -681,7 +681,7 @@ class AmuletPicker:
         return amulets
 
 
-class AmuletQuint:
+class AmuletStack:
     AB_LIMITS = {
         "a": 0.20,
         "s": 0.40,
@@ -722,11 +722,11 @@ class AmuletQuint:
         "bleed": 0.15,
     }
     # actually depends on weapons kms
-    RARITY_LIMITS = {5: 3, None: 2}
+    RARITY_LIMITS = {6: 2, 5: 3, None: 2}
     PICKER = AmuletPicker()
 
     def __init__(self, confs, c, quals):
-        limits = AmuletQuint.RARITY_LIMITS.copy()
+        limits = AmuletStack.RARITY_LIMITS.copy()
         self.an = []
         for conf, qual in zip(confs, quals):
             rk = 5 if conf["rarity"] == 5 else None
@@ -734,9 +734,9 @@ class AmuletQuint:
                 continue
             limits[rk] -= 1
             self.an.append(AmuletBase(conf, c, qual))
-        if any(limits.values()):
-            raise ValueError("Unfilled wyrmprint slot")
-        self.an = AmuletQuint.PICKER.pick(self.an, c)
+        # if any(limits.values()):
+        #     raise ValueError("Unfilled wyrmprint slot")
+        self.an = AmuletStack.PICKER.pick(self.an, c)
         self.an.sort(key=lambda a: (-a.rarity, a.name))
         self.c = c
 
@@ -780,7 +780,7 @@ class AmuletQuint:
     def ab(self):
         merged_ab = []
 
-        limits = AmuletQuint.AB_LIMITS.copy()
+        limits = AmuletStack.AB_LIMITS.copy()
         sorted_ab = defaultdict(lambda: [])
         # spf_ab = []
         for a in chain(*(a.ab for a in self.an)):
@@ -792,7 +792,7 @@ class AmuletQuint:
                 merged_ab.append(a)
 
         for cat, lst in sorted_ab.items():
-            for a in sorted(lst, key=AmuletQuint.sort_ab):
+            for a in sorted(lst, key=AmuletStack.sort_ab):
                 delta = min(limits[cat], a[1])
                 limits[cat] -= delta
                 # reminder: fix this too whenever buffcounts are fixed
@@ -801,7 +801,7 @@ class AmuletQuint:
                     break
 
         # if spf_ab and limits['sp'] > 0:
-        #     for ab in sorted(spf_ab, key=AmuletQuint.sort_ab):
+        #     for ab in sorted(spf_ab, key=AmuletStack.sort_ab):
         #         delta = min(limits['sp'], a[1])
         #         limits['sp'] -= delta
         #         merged_ab.append(('spf', delta, *a[2:]))
@@ -960,7 +960,7 @@ class Slots:
         # if len(keys) < 5:
         #     raise ValueError('Less than 5 wyrmprints equipped')
         confs = [Slots.get_with_alias(wyrmprints, k)[0] for k in keys]
-        self.a = AmuletQuint(confs, self.c, keys)
+        self.a = AmuletStack(confs, self.c, keys)
 
     def set_slots(self, confslots):
         for t in ("d", "w", "a"):

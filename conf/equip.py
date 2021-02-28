@@ -30,6 +30,12 @@ BUFFER_TEAM_THRESHOLD = 1.6
 TDPS_WEIGHT = 15000
 
 
+def equivalent(a, b):
+    if isinstance(a, list):
+        return set(a) == set(b)
+    return a == b
+
+
 class EquipEntry(dict):
     CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
     META_KEYS = ("dps", "team")
@@ -52,10 +58,10 @@ class EquipEntry(dict):
         return isinstance(entry, EquipEntry)
 
     def same_build(self, other):
-        return all((self.get(k) == other.get(k) for k in EquipEntry.CONF_KEYS))
+        return all((equivalent(self.get(k), other.get(k)) for k in EquipEntry.CONF_KEYS))
 
     def same_build_different_dps(self, other):
-        same_build = all((self.get(k) == other.get(k) for k in EquipEntry.CONF_KEYS))
+        same_build = all((equivalent(self.get(k), other.get(k)) for k in EquipEntry.CONF_KEYS))
         different_dps = any((self.get(k) != other.get(k) for k in EquipEntry.META_KEYS))
         return same_build and different_dps
 
