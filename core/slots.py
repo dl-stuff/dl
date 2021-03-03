@@ -372,6 +372,16 @@ class Gala_Reborn_Poseidon(Gala_Reborn):
         super().oninit(adv, "gposeidon_buff", "water")
 
 
+class Gabriel(DragonBase):
+    def oninit(self, adv):
+        self.gabriel_favor = Selfbuff("gabriel_favor", 0.1, -1, "att", "buff")
+
+        def gab_buff_on(_):
+            return self.gabriel_favor.on()
+
+        adv.heal_event.listener(gab_buff_on)
+
+
 ### WATER DRAGONS ###
 
 ### WIND DRAGONS ###

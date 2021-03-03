@@ -176,6 +176,8 @@ class SigilAdv(Adv):
                 self.a_sigil_unlock()
 
     def post_run(self, end):
+        if self.comment:
+            self.comment += "; "
         if self.unlocked:
             self.comment += f"unlock at {self.unlocked:.02f}s;"
         else:

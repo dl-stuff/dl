@@ -43,9 +43,7 @@ class ModifierDict(defaultdict):
 
 
 class Modifier(object):
-    _static = Static(
-        {"all_modifiers": ModifierDict(), "g_condition": None, "damage_sources": set()}
-    )
+    _static = Static({"all_modifiers": ModifierDict(), "g_condition": None, "damage_sources": set()})
 
     def __init__(self, name, mtype, order, value, condition=None, get=None):
         self.mod_name = name
@@ -79,9 +77,7 @@ class Modifier(object):
     def get(self):
         if callable(self.mod_get) and not self.mod_get():
             return 0
-        if self.mod_condition is not None and not self._static.g_condition(
-            self.mod_condition
-        ):
+        if self.mod_condition is not None and not self._static.g_condition(self.mod_condition):
             return 0
         return self.mod_value
 
@@ -140,9 +136,7 @@ class KillerModifier(Modifier):
                 return self
 
         for kcondition in self.killer_condition:
-            self._static.all_modifiers[f"{kcondition}_killer"][self.mod_order].append(
-                modifier
-            )
+            self._static.all_modifiers[f"{kcondition}_killer"][self.mod_order].append(modifier)
 
         self._mod_active = 1
         return self
@@ -154,9 +148,7 @@ class KillerModifier(Modifier):
         if modifier == None:
             modifier = self
         for kcondition in self.killer_condition:
-            self._static.all_modifiers[f"{kcondition}_killer"][self.mod_order].remove(
-                self
-            )
+            self._static.all_modifiers[f"{kcondition}_killer"][self.mod_order].remove(self)
         return self
 
 
@@ -164,9 +156,7 @@ class CrisisModifier(Modifier):
     def __init__(self, name, scale, hp):
         self.hp_scale = scale
         self.hp_lost = 100 - hp
-        super().__init__(
-            "mod_{}_crisis".format(name), "att", "crisis", self.c_mod_value()
-        )
+        super().__init__("mod_{}_crisis".format(name), "att", "crisis", self.c_mod_value())
 
     def c_mod_value(self):
         return self.hp_scale * (self.hp_lost ** 2) / 10000
@@ -216,9 +206,7 @@ class Buff(object):
             self.modifier = modifier
             self.get = self.modifier.get
         elif mtype != "effect":
-            self.modifier = Modifier(
-                "mod_" + self.name, self.mod_type, self.mod_order, 0
-            )
+            self.modifier = Modifier("mod_" + self.name, self.mod_type, self.mod_order, 0)
             self.modifier.get = self.get
         else:
             self.modifier = None
@@ -364,9 +352,7 @@ class Buff(object):
         self.dmg_test_event.modifiers = ModifierDict()
         for mod in base_mods:
             self.dmg_test_event.modifiers.append(mod)
-        for b in filter(
-            lambda b: b.get() and b.bufftype == "simulated_def", self._static.all_buffs
-        ):
+        for b in filter(lambda b: b.get() and b.bufftype == "simulated_def", self._static.all_buffs):
             self.dmg_test_event.modifiers.append(b.modifier)
 
         self.dmg_test_event()
@@ -383,9 +369,7 @@ class Buff(object):
             elif b.modifier.mod_type == "spd":
                 placehold = Modifier("placehold_spd", "att", "spd", b.modifier.get())
             elif b.modifier.mod_type.endswith("_killer"):
-                placehold = Modifier(
-                    "placehold_k", "killer", "passive", b.modifier.get()
-                )
+                placehold = Modifier("placehold_k", "killer", "passive", b.modifier.get())
             if placehold:
                 self.dmg_test_event.modifiers.append(placehold)
                 placeholders.append(placehold)
@@ -406,9 +390,7 @@ class Buff(object):
                 return self
             value = self.__value
             mod_val = min(value, max(Buff.MAXHP_CAP - max_hp, 0))
-            self._static.adv.set_hp(
-                (self._static.adv.hp * max_hp + value * 100) / (max_hp + mod_val)
-            )
+            self._static.adv.set_hp((self._static.adv.hp * max_hp + value * 100) / (max_hp + mod_val))
 
         d = max(-1, (duration or self.duration) * self.bufftime())
         if self.__active == 0:
@@ -512,9 +494,7 @@ class ModeAltBuff(Buff):
 
 
 class FSAltBuff(ModeAltBuff):
-    def __init__(
-        self, name=None, group=None, duration=-1, uses=-1, hidden=False, source=None
-    ):
+    def __init__(self, name=None, group=None, duration=-1, uses=-1, hidden=False, source=None):
         self.default_fs = self.adv.current_fs
         self.group = group
         pattern = r"^fs\d+$" if group is None else f"^fs\d*_{group}$"
@@ -577,9 +557,7 @@ class XAltBuff(ModeAltBuff):
         self.deferred = deferred
         if not self.x_max:
             raise ValueError(f"{self.group} is not a X group")
-        super().__init__(
-            f"x_{self.group}", duration=duration, hidden=hidden, source=source
-        )
+        super().__init__(f"x_{self.group}", duration=duration, hidden=hidden, source=source)
         self.enable_x(False)
 
     def enable_x(self, enabled):
@@ -619,9 +597,7 @@ class SAltBuff(ModeAltBuff):
             raise ValueError(f"{base} is not a skill")
         if group not in self.adv.a_s_dict[base].act_dict.keys():
             raise ValueError(f"{base}-{group} is not a skill")
-        super().__init__(
-            f"{base}_{group}", duration=duration, hidden=hidden, source=source
-        )
+        super().__init__(f"{base}_{group}", duration=duration, hidden=hidden, source=source)
         self.base = base
         self.group = group
         self.default_s = self.adv.current_s[base]
@@ -651,12 +627,7 @@ class SAltBuff(ModeAltBuff):
         self.l_end.off()
 
     def l_extend_time(self, e):
-        if (
-            self.get()
-            and e.name != "ds"
-            and e.base == self.base
-            and e.group == self.group
-        ):
+        if self.get() and e.name != "ds" and e.base == self.base and e.group == self.group:
             skill = self.adv.a_s_dict[self.base]
             delta = (skill.ac.getstartup() + skill.ac.getrecovery()) / self.adv.speed()
             self.add_time(delta)
@@ -673,9 +644,7 @@ class SAltBuff(ModeAltBuff):
     def l_add_ddrive(self, e):
         if self.get() and e.base == self.base and e.group == self.group:
             skill = self.adv.a_s_dict[self.base]
-            self.adv.dragonform.add_drive_gauge_time(
-                skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True
-            )
+            self.adv.dragonform.add_drive_gauge_time(skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True)
 
 
 bufftype_dict["sAlt"] = SAltBuff
@@ -749,10 +718,7 @@ class SingleActionBuff(Buff):
     def act_on(self, e):
         if (
             self.get()
-            and (
-                e.name.startswith(self.mod_type)
-                or (e.name == "ds" and self.mod_type == "s")
-            )
+            and (e.name.startswith(self.mod_type) or (e.name == "ds" and self.mod_type == "s"))
             and self.uses > 0
             and not e.name in self.active
             and e.name in self._static.adv.damage_sources
@@ -861,11 +827,7 @@ class ZoneTeambuff(Teambuff):
         )
 
     def on(self, duration=0):
-        zone_buffs = {
-            (b.timeleft(), b.source): b
-            for b in self._static.all_buffs
-            if type(b) == ZoneTeambuff and b.get()
-        }
+        zone_buffs = {(b.timeleft(), b.source): b for b in self._static.all_buffs if type(b) == ZoneTeambuff and b.get()}
         if len(zone_buffs) > 4:
             sorted(zone_buffs.items())[0][1].off()
         super().on(duration=duration)
@@ -945,9 +907,7 @@ class Debuff(Teambuff):
 
     @property
     def chance(self):
-        return max(
-            min(1, self._chance + self._static.adv.sub_mod("debuff_rate", "passive")), 0
-        )
+        return max(min(1, self._chance + self._static.adv.sub_mod("debuff_rate", "passive")), 0)
 
     def ev_val(self):
         ev_val = self.val
@@ -1130,9 +1090,7 @@ class ModeManager(MultiBuffManager):
         for k, buffclass in ModeManager.ALT_CLASS.items():
             if kwargs.get(k, False):
                 if k in ("s1", "s2"):
-                    self.alt[k] = buffclass(
-                        group=group, duration=duration, base=k, timed_mode=timed_mode
-                    )
+                    self.alt[k] = buffclass(group=group, duration=duration, base=k, timed_mode=timed_mode)
                 elif k in ("x"):
                     self.alt[k] = buffclass(
                         group=group,
@@ -1180,6 +1138,59 @@ def init_mode(*args, source=None):
 
 
 bufftype_dict["mode"] = init_mode
+
+
+class MultiLevelBuff:
+    def __init__(self, name, buffs):
+        self.name = name
+        self.buffs = buffs or []
+
+    @property
+    def level(self):
+        level = -1
+        for idx, b in enumerate(self.buffs):
+            if b.get():
+                level = idx
+        return min(level + 1, len(self.buffs))
+
+    def on(self, duration=None):
+        level = self.level
+        if level == len(self.buffs):
+            level -= 1
+        for idx, b in enumerate(self.buffs):
+            if idx == level:
+                b.on()
+            else:
+                b.off()
+        return self
+
+    def off(self):
+        for b in self.buffs:
+            b.off()
+        return self
+
+    @allow_acl
+    def get(self):
+        return self.buffs[self.level - 1].get()
+
+    def add_time(self, delta):
+        self.buffs[self.level - 1].add_time(delta)
+
+    def pause(self, e=None):
+        self.pause_time = self.timeleft()
+        if self.pause_time > 0:
+            self.buffs[self.level - 1].buff_end_timer.off()
+            log("pause", self.pause_by, self.pause_time)
+
+    def resume(self, e=None):
+        if self.pause_time > 0:
+            self.pause_time = max(self.pause_time, self.buffs[self.level - 1].refresh_time)
+            self.buffs[self.level - 1].buff_end_timer.on(self.pause_time)
+            log("resume", self.pause_by, self.pause_time, now() + self.pause_time)
+        self.pause_time = -1
+
+    def timeleft(self):
+        return self.buffs[self.level - 1].timeleft()
 
 
 class ActiveBuffDict(defaultdict):
