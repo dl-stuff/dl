@@ -374,6 +374,7 @@ class Gala_Reborn_Poseidon(Gala_Reborn):
 
 class Gabriel(DragonBase):
     def oninit(self, adv):
+        super().oninit(adv)
         self.gabriel_favor = Selfbuff("gabriel_favor", 0.1, -1, "att", "buff")
 
         def gab_buff_on(_):
