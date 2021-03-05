@@ -11,7 +11,7 @@ from flask import request
 from flask import jsonify
 
 import core.simulate
-from core.afflic import AFFLICT_LIST
+from core.afflic import AFFLICT_LIST, Afflics
 from conf import (
     ROOT_DIR,
     TRIBE_TYPES,
@@ -275,6 +275,7 @@ def get_adv_slotlist():
             result["coabilities"] = {
                 k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()
             }
+        result['afflict_res'] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
     return jsonify(result)
 
 

@@ -526,14 +526,8 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
                     } else {
                         $('#input-acl').val(acl);
                     }
-                    if (slots.adv.afflict_res != undefined) {
-                        for (const key in slots.adv.afflict_res) {
-                            $('#input-res-' + key).val(slots.adv.afflict_res[key]);
-                        }
-                    } else {
-                        for (const key in slots.adv.afflict_res) {
-                            $('#input-res-' + key).removeAttr('value');
-                        }
+                    for (const key in slots.afflict_res) {
+                        $('#input-res-' + key).attr('placeholder', slots.afflict_res[key]);
                     }
                     $('.input-wp > div > select').prop('disabled', false);
                     $('#input-edit-acl').prop('disabled', false);
@@ -604,7 +598,7 @@ function readResistDict() {
     } else {
         resistList.each(function (idx, res) {
             const resVal = parseInt($(res).val());
-            if (!isNaN(resVal) && resVal > 0) {
+            if (!isNaN(resVal) && resVal >= 0) {
                 const parts = $(res).attr('id').split('-');
                 resists[parts[parts.length - 1]] = resVal;
             }

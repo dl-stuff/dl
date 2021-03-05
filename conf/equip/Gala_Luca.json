@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 89430.74217036676,
+      "dps": 89733.37638909133,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -13,12 +13,12 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), buff(s2) and s=1",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
-        "`s4",
-        "`fs, (charged_in(fs, s4) or charged_in(fs, s1)) and x>1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
         "`fsf, xf=5"
       ],
       "coabs": [
@@ -33,7 +33,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 97056.29550200627,
+      "dps": 97365.4835431409,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -45,12 +45,12 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
-        "`s4",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and x>1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
         "`fsf, xf=5"
       ],
       "coabs": [
@@ -66,7 +66,7 @@
     "buffer": {
       "dps": 61299.342667298435,
       "team": 0.1410071803423328,
-      "tdps": 199503.31206376725,
+      "tdps": 201649.5447448962,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -94,7 +94,7 @@
       ]
     },
     "mono_base": {
-      "dps": 86478.20466478841,
+      "dps": 88854.27601138204,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -106,11 +106,13 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-end), buff(s2) and s=1",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
-        "`s4, cancel"
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Wand",
@@ -156,7 +158,7 @@
     "mono_buffer": {
       "dps": 58945.53823355396,
       "team": 0.11430186517399507,
-      "tdps": 240876.7904996395,
+      "tdps": 261664.47706080516,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -185,33 +187,34 @@
   },
   "60": {
     "base": {
-      "dps": 71621.36684181503,
+      "dps": 82316.0480137267,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Valiant_Crown",
         "A_Small_Courage",
-        "The_Plaguebringer"
+        "Liber_Grimortis"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(s-end), energy()=5 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
         "`s1",
-        "`s4, xf",
-        "`fs, xf=5"
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
       ],
       "coabs": [
-        "Lucretia",
+        "Wand",
         "Axe2",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Rodrigo"
+        "Ilia"
       ]
     },
     "pref": "base",
@@ -247,7 +250,7 @@
     "buffer": {
       "dps": 64337.677029470986,
       "team": 0.03328307773501328,
-      "tdps": 218840.63337933796,
+      "tdps": 540165.5197693075,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",

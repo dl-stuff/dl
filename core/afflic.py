@@ -479,6 +479,9 @@ class Afflics(object):
         for aff, resist in Afflics.RESIST_PROFILES[profile].items():
             getattr(self, aff).resist = resist
 
+    def get_resist(self):
+        return {aff: getattr(self, aff).resist for aff in AFFLICT_LIST}
+
     def get_uptimes(self):
         uptimes = {}
         for atype in AFFLICT_LIST:
