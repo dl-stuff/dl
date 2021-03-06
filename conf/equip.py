@@ -14,15 +14,19 @@ from conf import (
 import core.simulate
 
 BANNED_PRINTS = (
+    # srry no full hp sd allowed
     "Witchs_Kitchen",
     "Berry_Lovable_Friends",
     "Happier_Times",
+    # bugged in game
     "United_by_One_Vision",
     "Second_Anniversary",
     # 9* prints not yet obtainable
     "Crown_of_Light",
-    "Her_Beloved",
-    "Mask_of_Determination",
+    "Her_Beloved_Crown",
+    "Her_Beloved_Sword",
+    "Mask_of_Determination_Bow",
+    "Mask_of_Determination_Lance",
     "Tutelarys_Destiny",
 )
 BANNED_SHARES = ("Durant", "Yue")

@@ -172,8 +172,8 @@
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
-        "`s4, x>2",
-        "`fs, c_fs(enhanced) and ((charged_in(fs, s1) and x>1))"
+        "`s4, x>2 and energy()<5",
+        "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
       ],
       "coabs": [
         "Blade",
