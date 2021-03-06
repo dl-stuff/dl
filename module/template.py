@@ -179,6 +179,6 @@ class SigilAdv(Adv):
         if self.comment:
             self.comment += "; "
         if self.unlocked:
-            self.comment += f"unlock at {self.unlocked:.02f}s;"
+            self.comment += f"unlock at {self.unlocked:.02f}s"
         else:
             self.comment += f"not unlocked"

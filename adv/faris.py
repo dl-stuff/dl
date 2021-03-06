@@ -10,9 +10,9 @@ class Faris(SigilAdv):
         """
     }
 
-    def prerun(self):
-        self.config_sigil(duration=300, s1=True, x=True, fs=True)
-        self.uriel_wrath = MultiLevelBuff(
+    @staticmethod
+    def setup_uriel_wrath():
+        return MultiLevelBuff(
             "uriel_wrath",
             [
                 Debuff("uriel_wrath_lv1", -0.15, 15, mtype="attack", source="s1"),
@@ -27,8 +27,18 @@ class Faris(SigilAdv):
             ],
         )
 
+    def prerun(self):
+        self.config_sigil(duration=300, s1=True, x=True, fs=True)
+        self.uriel_wrath = Faris.setup_uriel_wrath()
+
+    @staticmethod
+    def prerun_skillshare(adv, dst):
+        adv.unlocked = True
+        adv.uriel_wrath = Faris.setup_uriel_wrath()
+        adv.current_s[dst] = "sigil"
+
     def s1_proc(self, e):
-        if e.group == "sigil":
+        if self.unlocked:
             self.uriel_wrath.on()
 
 

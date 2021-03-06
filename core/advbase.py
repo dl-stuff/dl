@@ -838,6 +838,7 @@ class Adv(object):
 
         self.disable_echo()
         self.bleed = None
+        self.alive = True
 
     @property
     def ctime(self):
@@ -879,6 +880,12 @@ class Adv(object):
             self.add_hp(e.delta)
         except AttributeError:
             self.set_hp(e.hp)
+        try:
+            if e.can_die and self.hp <= 0:
+                self.stop()
+                self.alive = False
+        except AttributeError:
+            pass
 
     def add_hp(self, delta):
         self.set_hp(self.hp + delta)
@@ -1674,6 +1681,12 @@ class Adv(object):
         Event("idle")()
         end, reason = Timeline.run(self.duration)
         self.base_buff.count_team_buff()
+        if not self.alive:
+            reason = "death"
+            if self.comment:
+                self.comment += "; "
+            self.comment += f"died at {end:.02f}s"
+            end = self.duration
         log("sim", "end", reason)
 
         if self.ctime_coab_val:

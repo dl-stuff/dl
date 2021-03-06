@@ -49,13 +49,15 @@ function slotsIconFmt(data) {
     }
     img_urls.push('<img src="/dl-sim/pic/dragon/' + data[7] + '.png" class="slot-icon dragon"/>');
     img_urls.push('<img src="/dl-sim/pic/weapon/' + data[9] + '.png" class="slot-icon weapon"/>');
-    for (const w of Array(5).keys()) {
-        img_urls.push('<img src="/dl-sim/pic/amulet/' + data[11 + w * 2] + '.png" class="slot-icon"/>');
+    for (const w of Array(7).keys()) {
+        if (data[11 + w * 2]) {
+            img_urls.push('<img src="/dl-sim/pic/amulet/' + data[11 + w * 2] + '.png" class="slot-icon"/>');
+        }
     }
     img_urls.push(' | ');
     for (const c of Array(3).keys()) {
-        const c_name = data[20 + c * 2];
-        const c_icon = data[21 + c * 2];
+        const c_name = data[24 + c * 2];
+        const c_icon = data[25 + c * 2];
         if (c_icon) {
             img_urls.push('<img src="/dl-sim/pic/character/' + c_icon + '.png" class="slot-icon coab unique"/>');
         } else if (c_name) {
@@ -63,16 +65,22 @@ function slotsIconFmt(data) {
         }
     }
     img_urls.push(' | ');
-    if (data[27]) {
-        img_urls.push('<img src="/dl-sim/pic/character/' + data[27] + '.png" class="slot-icon skillshare"/>');
+    if (data[31]) {
+        img_urls.push('<img src="/dl-sim/pic/character/' + data[31] + '.png" class="slot-icon skillshare"/>');
     } else {
         img_urls.push('<img src="/dl-sim/pic/icons/weaponskill.png" class="slot-icon skillshare"/>');
     }
-    img_urls.push('<img src="/dl-sim/pic/character/' + data[29] + '.png" class="slot-icon skillshare"/>');
+    img_urls.push('<img src="/dl-sim/pic/character/' + data[33] + '.png" class="slot-icon skillshare"/>');
     return img_urls;
 }
 function slotsTextFmt(data) {
-    return `[${data[6]}][${data[8]}][${data[10]}+${data[12]}+${data[14]}+${data[16]}+${data[18]}][${data[20]}|${data[22]}|${data[24]}][S3:${data[26]}|S4:${data[28]}]`
+    const amulet = [];
+    for (const w of Array(7).keys()) {
+        if (data[10 + w * 2]) {
+            amulet.push(data[10 + w * 2]);
+        }
+    }
+    return `[${data[6]}][${data[8]}][${amulet.join('+')}][${data[24]}|${data[26]}|${data[28]}][S3:${data[30]}|S4:${data[32]}]`
 }
 function populateAdvSelect(data) {
     let options = [];
@@ -108,9 +116,15 @@ function populateVariantSelect(data) {
     }
     $('#input-variant').append(options);
 }
-function populateSelect(id, data) {
+function populateSelect(id, data, allowNone) {
     const t = id.split('-')[1];
     let options = [];
+    if (allowNone) {
+        options.push(
+            $('<option></option>')
+                .attr({ id: t + '-None', value: '' })
+        );
+    }
     for (let d of Object.keys(data)) {
         options.push(
             $('<option>' + data[d] + '</option>')
@@ -147,10 +161,11 @@ function statsIconFmt(stat_str) {
 }
 function createDpsBar(res_div, arr) {
     let copy_txt = '';
+    console.log(arr);
     const total = arr[0];
     let slots = ' ' + slotsTextFmt(arr);
-    const cond = arr[30] || '';
-    const comment = arr[31] || '';
+    const cond = arr[34] || '';
+    const comment = arr[35] || '';
     let cond_comment = [];
     let cond_comment_str = '';
     let cond_cpy_str = '';
@@ -169,7 +184,7 @@ function createDpsBar(res_div, arr) {
     } else {
         slots = '';
     }
-    let stat_str = arr[32] || '';
+    let stat_str = arr[36] || '';
     const stats = statsIconFmt(stat_str);
     const stats_display = stats[0].join('');
     const team = stats[1];
@@ -187,7 +202,7 @@ function createDpsBar(res_div, arr) {
 
     let res_bar = $('<div></div>').attr({ class: 'result-bar' });
     let damage_txt_arr = [];
-    for (let i = 33; i < arr.length; i++) {
+    for (let i = 37; i < arr.length; i++) {
         const dmg = arr[i].split(':')
         if (dmg.length == 2) {
             const dmg_val = parseInt(dmg[1]);
@@ -248,7 +263,10 @@ function updateUrl(urlVars) {
     }
 }
 function readWpList() {
-    return [...$('.input-wp > div > select').map((_, v) => $(v).val())];
+    return [...$('.input-wp > div > select').map((_, v) => {
+        const val = $(v).val();
+        if (val) { return val; }
+    })];
 }
 function serConf(no_conf) {
     let requestJson = {
@@ -414,11 +432,13 @@ function loadAdvWPList() {
                 populateAdvSelect(advwp.adv);
                 $('#adv-' + selectedAdv).prop('selected', true);
                 populateVariantSelect($('#adv-' + selectedAdv).data('variants'));
-                populateSelect('#input-wp1', advwp.wyrmprints.gold);
-                populateSelect('#input-wp2', advwp.wyrmprints.gold);
-                populateSelect('#input-wp3', advwp.wyrmprints.gold);
-                populateSelect('#input-wp4', advwp.wyrmprints.silver);
-                populateSelect('#input-wp5', advwp.wyrmprints.silver);
+                populateSelect('#input-wp1', advwp.wyrmprints.formA);
+                populateSelect('#input-wp2', advwp.wyrmprints.formA);
+                populateSelect('#input-wp3', advwp.wyrmprints.formA);
+                populateSelect('#input-wp4', advwp.wyrmprints.formB);
+                populateSelect('#input-wp5', advwp.wyrmprints.formB);
+                populateSelect('#input-wp6', advwp.wyrmprints.formC, true);
+                populateSelect('#input-wp7', advwp.wyrmprints.formC, true);
                 populateSkillShare(advwp.skillshare);
                 clearResults();
                 loadAdvSlots(true);
@@ -500,9 +520,14 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
 
                     $('#wep-' + slots.adv.pref_wep).prop('selected', true);
                     $('#dra-' + slots.adv.pref_dra).prop('selected', true);
-                    slots.adv.pref_wp.forEach((wp, i) => {
-                        $(`#wp${i + 1}-` + wp).prop('selected', true);
-                    });
+                    for (let i = 0; i < 7; i++) {
+                        if (slots.adv.pref_wp[i]) {
+                            $(`#wp${i + 1}-` + slots.adv.pref_wp[i]).prop('selected', true);
+                        } else {
+                            $(`#wp${i + 1}-None`).prop('selected', true);
+                        }
+                    }
+
                     for (const c of slots.adv.pref_coab) {
                         const check = $("input[id$='-" + c + "']");
                         console.log(check);

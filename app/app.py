@@ -49,14 +49,10 @@ EQUIP_MANAGERS = initialize_equip_managers()
 def set_teamdps_res(result, logs, real_d, suffix=""):
     result["extra" + suffix] = {}
     if logs.team_buff > 0:
-        result["extra" + suffix]["team_buff"] = "+{}%".format(
-            round(logs.team_buff / real_d * 100)
-        )
+        result["extra" + suffix]["team_buff"] = "+{}%".format(round(logs.team_buff / real_d * 100))
     for tension, count in logs.team_tension.items():
         if count > 0:
-            result["extra" + suffix]["team_{}".format(tension)] = "{} stacks".format(
-                round(count)
-            )
+            result["extra" + suffix]["team_{}".format(tension)] = "{} stacks".format(round(count))
     return result
 
 
@@ -92,9 +88,7 @@ def run_adv_test(
 
     fn = io.StringIO()
     try:
-        run_res = core.simulate.test(
-            adv_name, adv_module, conf, t, log, mass, output=fn, cond=cond
-        )
+        run_res = core.simulate.test(adv_name, adv_module, conf, t, log, mass, output=fn, cond=cond)
         result["test_output"] = fn.getvalue()
     except Exception as e:
         result["error"] = str(e)
@@ -109,16 +103,12 @@ def run_adv_test(
 
     result["logs"] = {}
     fn = io.StringIO()
-    adv.logs.write_logs(
-        output=fn, log_filter=[str(adv.slots.d.name), str(adv.slots.c.name)]
-    )
+    adv.logs.write_logs(output=fn, log_filter=[str(adv.slots.d.name), str(adv.slots.c.name)])
     result["logs"]["dragon"] = fn.getvalue()
     fn = io.StringIO()
     core.simulate.act_sum(adv.logs.act_seq, fn)
     result["logs"]["action"] = fn.getvalue()
-    result["logs"]["summation"] = "\n".join(
-        ["{}: {}".format(k, v) for k, v in adv.logs.counts.items() if v]
-    )
+    result["logs"]["summation"] = "\n".join(["{}: {}".format(k, v) for k, v in adv.logs.counts.items() if v])
     fn = io.StringIO()
     adv.logs.write_logs(output=fn, maxlen=3000)
     result["logs"]["timeline"] = fn.getvalue()
@@ -135,9 +125,7 @@ def simc_adv_test():
     if not request.method == "POST":
         return "Wrong request method."
     params = request.get_json(silent=True)
-    adv_name = (
-        "Patia" if not "adv" in params or params["adv"] is None else params["adv"]
-    )
+    adv_name = "Patia" if not "adv" in params or params["adv"] is None else params["adv"]
     wp = params.get("wp")
     dra = params.get("dra")
     wep = params.get("wep")
@@ -164,9 +152,7 @@ def simc_adv_test():
             conf["berserk"] = float(params["specialmode"].replace("berserk", ""))
         else:
             conf[params["specialmode"]] = True
-    if "classbane" in params and (
-        params["classbane"] in TRIBE_TYPES or params["classbane"] == "HDT"
-    ):
+    if "classbane" in params and (params["classbane"] in TRIBE_TYPES or params["classbane"] == "HDT"):
         conf["classbane"] = params["classbane"]
     if "dumb" in params:
         conf["dumb"] = params["dumb"]
@@ -176,24 +162,18 @@ def simc_adv_test():
         conf["share"] = share
     for afflic in AFFLICT_LIST:
         try:
-            conf[f"sim_afflict.{afflic}"] = (
-                min(abs(int(params["sim_afflict"][afflic])), 100) / 100
-            )
+            conf[f"sim_afflict.{afflic}"] = min(abs(int(params["sim_afflict"][afflic])), 100) / 100
         except KeyError:
             pass
         try:
-            conf[f"afflict_res.{afflic}"] = min(
-                abs(int(params["afflict_res"][afflic])), 100
-            )
+            conf[f"afflict_res.{afflic}"] = min(abs(int(params["afflict_res"][afflic])), 100)
         except KeyError:
             pass
 
     for buff, bounds in SIMULATED_BUFFS.items():
         b_min, b_max, b_ratio = bounds
         try:
-            conf[f"sim_buffbot.{buff}"] = (
-                min(max(float(params["sim_buff"][buff]), b_min), b_max) / b_ratio
-            )
+            conf[f"sim_buffbot.{buff}"] = min(max(float(params["sim_buff"][buff]), b_min), b_max) / b_ratio
         except KeyError:
             pass
 
@@ -234,9 +214,7 @@ def get_adv_slotlist():
         return "Wrong request method."
     duration = max(min(((int(duration) // 60) * 60), 180), 60)
     if advname is not None:
-        adv = ADV_MODULES[advname][variant](
-            name=advname, duration=duration, equip_key=equip_key
-        )
+        adv = ADV_MODULES[advname][variant](name=advname, duration=duration, equip_key=equip_key)
         adv.config_slots()
         result["adv"]["basename"] = adv.name
         result["adv"]["ele"] = adv.slots.c.ele
@@ -257,25 +235,16 @@ def get_adv_slotlist():
             **weapons[adv.slots.c.wt][adv.slots.c.ele],
         }
         result["weapons"] = {}
-        for series, wpn in sorted(
-            available_wpn.items(), key=lambda w: -w[1]["w"]["att"]
-        ):
+        for series, wpn in sorted(available_wpn.items(), key=lambda w: -w[1]["w"]["att"]):
             result["weapons"][series] = f'{wpn["w"]["series"]} | {wpn["w"]["name"]}'
-        result["dragons"] = {
-            drg: data["d"]["name"] for drg, data in dragons[adv.slots.c.ele].items()
-        }
+        result["dragons"] = {drg: data["d"]["name"] for drg, data in dragons[adv.slots.c.ele].items()}
         # gold fafu lul
         result["dragons"]["Gold_Fafnir"] = "Gold Fafnir"
         if mono:
-            result["coabilities"] = {
-                k: (get_fullname(k), *v)
-                for k, v in mono_elecoabs[adv.slots.c.ele].items()
-            }
+            result["coabilities"] = {k: (get_fullname(k), *v) for k, v in mono_elecoabs[adv.slots.c.ele].items()}
         else:
-            result["coabilities"] = {
-                k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()
-            }
-        result['afflict_res'] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
+            result["coabilities"] = {k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()}
+        result["afflict_res"] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
     return jsonify(result)
 
 
@@ -288,25 +257,24 @@ def get_adv_wp_list():
     for name, variants in ADV_MODULES.items():
         result["adv"][name] = {
             "fullname": get_fullname(name),
-            "variants": [
-                vkey for vkey in variants.keys() if vkey is not None and vkey != "mass"
-            ],
+            "variants": [vkey for vkey in variants.keys() if vkey is not None and vkey != "mass"],
         }
-    wplists = {"gold": {}, "silver": {}}
+    wplists = {"formA": {}, "formB": {}, "formC": {}}
     for wp, data in wyrmprints.items():
         ab_str = f'-{data["union"]}'
         if data["a"]:
             ab_str = "[" + "|".join(map(str, data["a"][0])) + "]" + ab_str
         else:
             ab_str = "[]" + ab_str
+        display_name = data["name"] + " " + ab_str
         if data["rarity"] == 5:
-            wplists["gold"][wp] = data["name"] + " " + ab_str
+            wplists["formA"][wp] = display_name
+        elif data["rarity"] == 9:
+            wplists["formC"][wp] = display_name
         else:
-            wplists["silver"][wp] = data["name"] + " " + ab_str
+            wplists["formB"][wp] = display_name
     result["wyrmprints"] = wplists
-    result["skillshare"] = {
-        k: {"fullname": get_fullname(k), **v} for k, v in skillshare.items()
-    }
+    result["skillshare"] = {k: {"fullname": get_fullname(k), **v} for k, v in skillshare.items()}
     return jsonify(result)
 
 
@@ -329,10 +297,6 @@ def get_adv_equip():
 def get_git_diff():
     return (
         "<pre>"
-        + subprocess.check_output(
-            ["git", "diff", "conf/equip"], cwd=ROOT_DIR, encoding="UTF-8"
-        )
-        .replace(">", "&gt;")
-        .replace("<", "&lt;")
+        + subprocess.check_output(["git", "diff", "conf/equip"], cwd=ROOT_DIR, encoding="UTF-8").replace(">", "&gt;").replace("<", "&lt;")
         + "</pre>"
     )

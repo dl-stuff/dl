@@ -2,6 +2,7 @@ from itertools import chain, islice
 from collections import defaultdict
 from collections import namedtuple
 import html
+import pprint
 
 from conf import (
     wyrmprints,
@@ -616,7 +617,7 @@ class AmuletPicker:
     UNION_THRESHOLD = {1: 4, 2: 4, 3: 4, 4: 3, 5: 2, 6: 2, 11: 2}
 
     def __init__(self):
-        self._grouped = {5: {}, 4: {}}
+        self._grouped = {9: {}, 5: {}, 4: {}}
         self._grouped_lookup = {}
         for qual, wp in wyrmprints.items():
             try:
@@ -643,7 +644,7 @@ class AmuletPicker:
                 union=wp["union"],
                 qual=qual,
             )
-            group_key = 5 if wp["rarity"] == 5 else 4
+            group_key = 4 if wp["rarity"] < 5 else wp["rarity"]
             self._grouped_lookup[qual] = (group_key, wpa, grouped_value)
             try:
                 from bisect import bisect
@@ -668,14 +669,25 @@ class AmuletPicker:
         return bis_i
 
     def pick(self, amulets, c):
+        union_threshold = AmuletPicker.UNION_THRESHOLD.copy()
+        for a in amulets:
+            for ab in a.ab:
+                if ab[0] == "psalm":
+                    _, union, min_count, extra_level = ab
+                    union_threshold[union] = max(min_count, union_threshold[union] - extra_level)
+
         retain_union = {}
-        for u, thresh in AmuletPicker.UNION_THRESHOLD.items():
+        for u, thresh in union_threshold.items():
             u_sum = sum(a.union == u for a in amulets)
             if u_sum >= thresh:
                 retain_union[u] = u_sum
 
         new_amulet_quals = set()
         for a_i, a in enumerate(amulets):
+            # always keep psalm print
+            if any((ab[0] == "psalm" for ab in a.ab)):
+                new_amulet_quals.add(a.qual)
+                continue
             group, gval = self.get_group(a.qual)
             if len(group) == 1:
                 new_amulet_quals.add(a.qual)
@@ -733,14 +745,15 @@ class AmuletStack:
         "bleed": 0.15,
     }
     # actually depends on weapons kms
-    RARITY_LIMITS = {6: 2, 5: 3, None: 2}
+    RARITY_LIMITS = {9: 2, 5: 3, None: 2}
+    RARITY_SORT = {5: 0, 4: 1, 3: 2, 2: 3, 9: 4}
     PICKER = AmuletPicker()
 
     def __init__(self, confs, c, quals):
         limits = AmuletStack.RARITY_LIMITS.copy()
         self.an = []
         for conf, qual in zip(confs, quals):
-            rk = 5 if conf["rarity"] == 5 else None
+            rk = None if conf["rarity"] < 5 else conf["rarity"]
             if limits[rk] == 0:
                 continue
             limits[rk] -= 1
@@ -748,7 +761,7 @@ class AmuletStack:
         # if any(limits.values()):
         #     raise ValueError("Unfilled wyrmprint slot")
         self.an = AmuletStack.PICKER.pick(self.an, c)
-        self.an.sort(key=lambda a: (-a.rarity, a.name))
+        self.an.sort(key=lambda a: (AmuletStack.RARITY_SORT[a.rarity], a.name))
         self.c = c
 
     def __str__(self):
@@ -776,7 +789,15 @@ class AmuletStack:
 
     @property
     def escaped_icon_lst(self):
-        return chain(*((a.escaped, a.icon) for a in self.an))
+        # return chain(*((a.escaped, a.icon) for a in self.an))
+        escaped_icon_lst = []
+        for a in self.an:
+            escaped_icon_lst.append(a.escaped)
+            escaped_icon_lst.append(a.icon)
+        for _ in range(len(self.an), 7):
+            escaped_icon_lst.append("")
+            escaped_icon_lst.append("")
+        return escaped_icon_lst
 
     @staticmethod
     def sort_ab(a):
@@ -792,37 +813,37 @@ class AmuletStack:
         merged_ab = []
 
         limits = AmuletStack.AB_LIMITS.copy()
-        sorted_ab = defaultdict(lambda: [])
-        # spf_ab = []
+        sorted_ab = defaultdict(list)
+        psalm_ab = []
         for a in chain(*(a.ab for a in self.an)):
             if a[0] in limits:
                 sorted_ab[a[0]].append(a)
-            # elif a[0] == 'spf':
-            #     spf_ab.append(a)
+            elif a[0] == "psalm":
+                psalm_ab.append(a)
             else:
                 merged_ab.append(a)
+
+        base_union_level = defaultdict(lambda: defaultdict(lambda: 0))
+        limit_union_level = defaultdict(lambda: 3)
+        for _, union, min_count, extra_level in psalm_ab:
+            if limit_union_level[union] > 0:
+                base_union_level[union][min_count] += extra_level
+            limit_union_level[union] -= 1
 
         for cat, lst in sorted_ab.items():
             for a in sorted(lst, key=AmuletStack.sort_ab):
                 delta = min(limits[cat], a[1])
                 limits[cat] -= delta
-                # reminder: fix this too whenever buffcounts are fixed
                 merged_ab.append((cat, delta, *a[2:]))
                 if limits[cat] == 0:
                     break
-
-        # if spf_ab and limits['sp'] > 0:
-        #     for ab in sorted(spf_ab, key=AmuletStack.sort_ab):
-        #         delta = min(limits['sp'], a[1])
-        #         limits['sp'] -= delta
-        #         merged_ab.append(('spf', delta, *a[2:]))
-        #         if limits['sp'] == 0:
-        #             break
 
         union_level = defaultdict(lambda: 0)
         for a in self.an:
             if a.union:
                 union_level[a.union] += 1
+                union_level[a.union] += base_union_level[a.union][union_level[a.union]]
+
         merged_ab.extend((("union", u, l) for u, l in union_level.items()))
 
         return merged_ab

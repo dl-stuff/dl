@@ -255,9 +255,7 @@ class Timeline(object):
             _g_now = tnext.timing
             tnext.callback()
         else:
-            raise RuntimeError(
-                f"Timeline error {tnext.timing:.03f} < {_g_now:.03f} - {tnext}"
-            )
+            raise RuntimeError(f"Timeline error {tnext.timing:.03f} < {_g_now:.03f} - {tnext}")
         return 0
         # tcount = len(self._tlist)
         # if tcount == 0:

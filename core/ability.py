@@ -1218,3 +1218,25 @@ class Healed_Buff(BuffingAbility):
 
 
 ability_dict["healed"] = Healed_Buff
+
+
+class Corrosion(Ability):
+    def __init__(self, name, value):
+        super().__init__(name)
+
+    def oninit(self, adv, afrom=None):
+        self.set_hp_event = adv.Event("set_hp")
+        self.set_hp_event.delta = -1
+        self.set_hp_event.can_die = True
+
+        def l_degen(t):
+            self.set_hp_event.on()
+
+        def l_amplify(t):
+            self.set_hp_event.delta -= 1
+
+        self.corrosion_degen = adv.Timer(l_degen, 2.9, True).on()
+        self.corrosion_amplify = adv.Timer(l_amplify, 5, True).on()
+
+
+ability_dict["corrosion"] = Corrosion

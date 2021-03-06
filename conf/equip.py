@@ -13,7 +13,18 @@ from conf import (
 )
 import core.simulate
 
-BANNED_PRINTS = ("Witchs_Kitchen", "Berry_Lovable_Friends", "Happier_Times", "United_by_One_Vision", "Second_Anniversary")
+BANNED_PRINTS = (
+    "Witchs_Kitchen",
+    "Berry_Lovable_Friends",
+    "Happier_Times",
+    "United_by_One_Vision",
+    "Second_Anniversary",
+    # 9* prints not yet obtainable
+    "Crown_of_Light",
+    "Her_Beloved",
+    "Mask_of_Determination",
+    "Tutelarys_Destiny",
+)
 BANNED_SHARES = ("Durant", "Yue")
 ABNORMAL_COND = (
     "sim_buffbot",
@@ -195,7 +206,6 @@ class EquipManager(dict):
             raise RuntimeError(f"adv/equip name mismatch {self.advname} != {adv.name}")
 
         duration = int(adv.duration)
-        print(duration, DURATIONS)
         if duration not in DURATIONS:
             return
 
