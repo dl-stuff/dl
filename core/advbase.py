@@ -19,7 +19,7 @@ from core.acl import allow_acl
 import conf as globalconf
 from conf.equip import EquipManager
 from ctypes import c_float
-from math import ceil
+from math import ceil, floor
 
 
 class Skill(object):
@@ -887,33 +887,40 @@ class Adv(object):
         except AttributeError:
             pass
 
-    def add_hp(self, delta):
+    def add_hp(self, delta, pct=True):
+        if pct:
+            delta = delta * self.max_hp // 100
         self.set_hp(self.hp + delta)
 
-    def set_hp(self, hp):
+    def set_hp(self, hp, pct=True):
         if self.conf["flask_env"] and "hp" in self.conf:
-            hp = self.conf["hp"]
+            hp = self.conf["hp"] * self.max_hp
         old_hp = self.hp
+        if pct:
+            hp = hp * self.max_hp // 100
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        hp = round(hp * 10) / 10
-        self.hp = max(min(hp, 100), 0)
+        hp = floor(hp)
+        self.hp = max(min(hp, self.max_hp), 1)
         if self.hp != old_hp:
             delta = self.hp - old_hp
-            if self.hp == 0:
-                log("hp", f"=1", f"{delta/100:.2%}")
+            if self.hp == 1:
+                log("hp", f"=1", f"{delta}")
             else:
-                log("hp", f"{self.hp/100:.2%}", f"{delta/100:.2%}")
+                log("hp", f"{self.hp}", f"{delta}")
             self.condition.hp_cond_update()
             self.hp_event.hp = self.hp
             self.hp_event.delta = delta
             self.hp_event()
             if self.dragonform.status != Action.OFF and delta < 0:
-                self.dragonform.set_shift_end(delta / 100)
+                self.dragonform.set_shift_end(delta * self.max_hp / 10000)
 
     def get_hp(self):
         return self.hp
+
+    def get_hp_pct(self):
+        return self.hp / self.max_hp
 
     def afflic_condition(self):
         if "afflict_res" in self.conf:
@@ -1030,7 +1037,7 @@ class Adv(object):
         self.conf_base = Conf(self.conf or {})
         self.conf_init = Conf(conf or {})
         self.ctx = Ctx().on()
-        self.condition = Condition(cond, self.get_hp)
+        self.condition = Condition(cond, self.get_hp_pct)
         self.duration = duration
 
         self.damage_sources = set()
@@ -1649,6 +1656,7 @@ class Adv(object):
         self.slots.oninit(self)
         self.base_att = int(self.slots.att)
         self.base_hp = int(self.slots.hp)
+        self.max_hp = self.base_hp
 
         self.set_hp(100)
         if "hp" in self.conf:
