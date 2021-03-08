@@ -63,6 +63,7 @@ class Ilia(Adv):
     def l_dodge_attack(self, e):
         log("cast", "dodge_attack")
         for _ in range(7):
+            self.add_combo("dodge")
             self.dmg_make("dodge", 0.10)
         self.a_update(1)
 
