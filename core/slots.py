@@ -89,7 +89,7 @@ class CharaBase(SlotBase):
         "lance": 0.05,
         "staff": 0.05,
         "axe": 0.05,
-        "gun": -0.1,  # opera (0.05) + fount (0.05) - diff in weap (0.225 - 0.205 = 0.2)
+        "gun": 0.075,  # opera (0.05) + fount (0.05) - diff in weap (0.225 - 0.200 = 0.025)
     }
     FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
 
