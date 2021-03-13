@@ -1,5 +1,5 @@
-// const APP_URL = 'http://127.0.0.1:5000/';
-const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
@@ -551,8 +551,15 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
                     } else {
                         $('#input-acl').val(acl);
                     }
-                    for (const key in slots.afflict_res) {
-                        $('#input-res-' + key).attr('placeholder', slots.afflict_res[key]);
+                    if (requestJson['equip'] == 'noaffliction') {
+                        for (const key in slots.afflict_res) {
+                            $('#input-res-' + key).val(slots.afflict_res[key]);
+                        }
+                    } else {
+                        for (const key in slots.afflict_res) {
+                            $('#input-res-' + key).val('');
+                            $('#input-res-' + key).attr('placeholder', slots.afflict_res[key]);
+                        }
                     }
                     $('.input-wp > div > select').prop('disabled', false);
                     $('#input-edit-acl').prop('disabled', false);

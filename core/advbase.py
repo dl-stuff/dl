@@ -769,7 +769,8 @@ class Adv(object):
                 aff = attr.get("afflic")
                 if aff is not None:
                     aff = aff[0]
-                    self.condition("{} {} res".format(int(getattr(self.afflics, aff).resist * 100), aff))
+                    if not "999 all affliction res" in self.condition:
+                        self.condition(f"{int(getattr(self.afflics, aff).resist * 100)} {aff} res")
         if conf.get("energizable"):
             self.energy.extra_tensionable.add(name)
 
@@ -938,14 +939,15 @@ class Adv(object):
         return self.hp
 
     def afflic_condition(self):
-        if "afflict_res" in self.conf:
+        if "afflict_res" in self.conf and not self.conf["berserk"]:
             res_conf = self.conf.afflict_res
-            for afflic in AFFLICT_LIST:
-                if afflic in res_conf and 0 <= res_conf[afflic] <= 100:
-                    if self.condition("{} {} res".format(res_conf[afflic], afflic)):
-                        vars(self.afflics)[afflic].resist = res_conf[afflic]
-                    else:
-                        vars(self.afflics)[afflic].resist = 100
+            if all((value >= 200 for value in res_conf.values())):
+                self.condition("999 all affliction res")
+                self.afflics.set_resist("immune")
+            else:
+                for afflic, resist in res_conf.items():
+                    if self.condition(f"{resist} {afflic} res"):
+                        vars(self.afflics)[afflic].resist = resist
 
     def sim_affliction(self):
         if "sim_afflict" in self.conf and not self.conf["berserk"]:

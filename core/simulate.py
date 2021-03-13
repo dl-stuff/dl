@@ -1,21 +1,16 @@
 import sys
 import os
 import re
-import time
-import json
 from itertools import chain
 from collections import defaultdict
 from conf import (
-    ROOT_DIR,
     get_icon,
     get_fullname,
-    load_equip_json,
-    save_equip_json,
-    DURATIONS,
     ELE_AFFLICT,
 )
 import core.acl
 import core.advbase
+from core.afflic import AFFLICT_LIST
 
 BR = 64
 
@@ -112,6 +107,40 @@ def run_mass(
     return base_log, base_d
 
 
+def run_variants_with_conf(run_results, name, module, conf, duration, cond, equip_key, mass, deploy_mono, manager):
+    adv, real_d = run_once(name, module, conf, duration, cond, equip_key=equip_key)
+    if mass:
+        adv.logs, real_d = run_mass(
+            mass,
+            adv.logs,
+            real_d,
+            name,
+            module,
+            conf,
+            duration,
+            cond,
+            equip_key=equip_key,
+        )
+    run_results.append((adv, real_d, equip_key, None))
+    if deploy_mono:
+        if manager.has_different_mono(180, adv.equip_key):
+            adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
+            if mass:
+                adv.logs, real_d = run_mass(
+                    mass,
+                    adv.logs,
+                    real_d,
+                    name,
+                    module,
+                    conf,
+                    duration,
+                    cond,
+                    equip_key=None,
+                )
+        run_results.append((adv, real_d, equip_key, "mono"))
+    return adv, real_d
+
+
 def test(
     name,
     module,
@@ -149,6 +178,7 @@ def test(
     deploy_mono = not special and duration == 180 and verbose == -5
     is_buffer = adv.equip_key == "buffer"
 
+    manager = None
     if deploy_mono:
         from conf.equip import EquipManager
 
@@ -178,36 +208,13 @@ def test(
             for aff_name in DOT_AFFLICT[: (-verbose - 6)]:
                 conf[f"sim_afflict.{aff_name}"] = 1
         equip_key = "buffer" if is_buffer else "affliction"
-        adv, real_d = run_once(name, module, conf, duration, cond, equip_key=equip_key)
-        if mass:
-            adv.logs, real_d = run_mass(
-                mass,
-                adv.logs,
-                real_d,
-                name,
-                module,
-                conf,
-                duration,
-                cond,
-                equip_key=equip_key,
-            )
-        run_results.append((adv, real_d, "affliction", None))
-        if deploy_mono:
-            if manager.has_different_mono(180, adv.equip_key):
-                adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
-                if mass:
-                    adv.logs, real_d = run_mass(
-                        mass,
-                        adv.logs,
-                        real_d,
-                        name,
-                        module,
-                        conf,
-                        duration,
-                        cond,
-                        equip_key=None,
-                    )
-            run_results.append((adv, real_d, "affliction", "mono"))
+        adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, equip_key, mass, deploy_mono, manager)
+
+    if verbose == -5:
+        for afflic in AFFLICT_LIST:
+            conf[f"afflict_res.{afflic}"] = 999
+        equip_key = "buffer" if is_buffer else "noaffliction"
+        adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, equip_key, mass, deploy_mono, manager)
 
     for a, d, c, m in run_results:
         if verbose == -2:
@@ -621,138 +628,6 @@ def test_with_argv(*argv):
     except:
         mass = 0
     test(name, module, verbose=verbose, duration=duration, mass=mass)
-
-
-def same_build_different_dps(a, b):
-    return all([a[k] == b[k] for k in ("slots.a", "slots.d", "acl", "coabs", "share")]) and any([a[k] != b[k] for k in ("dps", "team")])
-
-
-BANNED_PRINTS = (
-    "Witchs_Kitchen",
-    "Berry_Lovable_Friends",
-    "Happier_Times",
-    "United_by_One_Vision",
-    "Second_Anniversary",
-)
-ABNORMAL_COND = (
-    "sim_buffbot",
-    "dragonbattle",
-    "classbane",
-    "hp",
-    "dumb",
-    "afflict_res",
-    "fleet",
-)
-BUFFER_TDPS_THRESHOLD = 40000
-BUFFER_TEAM_THRESHOLD = 1.6
-TDPS_WEIGHT = 15000
-
-
-def save_equip(adv, real_d, repair=False, etype=None):
-    adv.duration = int(adv.duration)
-    if adv.duration not in DURATIONS:
-        return
-    if any([k in adv.conf for k in ABNORMAL_COND]):
-        return
-    if any([wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst]):
-        return
-    etype = etype or "base"
-    eleaff = core.simulate.ELE_AFFLICT[adv.slots.c.ele]
-    if adv.sim_afflict:
-        if adv.sim_afflict != {eleaff} or adv.conf_init.sim_afflict[eleaff] != 1:
-            return
-        else:
-            etype = etype if repair else "affliction"
-    dkey = str(adv.duration)
-    adv_qual = adv.name
-    equip = load_equip_json(adv_qual)
-    cached = None
-    acl_list = core.acl.regenerate_acl(adv._acl).split("\n")
-    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
-    nteam = adv.logs.team_buff / real_d
-    new_equip = {
-        "dps": ndps,
-        "team": nteam,
-        "tdps": None,
-        "slots.a": adv.slots.a.qual_lst,
-        "slots.d": adv.slots.d.qual,
-    }
-    if adv.slots.w.qual != adv.slots.DEFAULT_WEAPON:
-        new_equip["slots.w"] = adv.slots.w.qual
-    new_equip["acl"] = acl_list
-    new_equip["coabs"] = adv.slots.c.coab_list
-    new_equip["share"] = adv.skillshare_list
-    cached = None
-    try:
-        cached = equip[dkey][etype]
-        cdps = cached.get("dps", 0)
-        cteam = cached.get("team", 0)
-        repair = repair or same_build_different_dps(cached, new_equip)
-    except KeyError:
-        try:
-            cached = equip[dkey]["base"]
-            cdps = cached.get("dps", 0)
-            cteam = cached.get("team", 0)
-            repair = repair or same_build_different_dps(cached, new_equip)
-        except KeyError:
-            cdps = 0
-            cteam = 0
-    ncomp = ndps + nteam * TDPS_WEIGHT
-    ccomp = cdps + cteam * TDPS_WEIGHT
-    if not repair and ncomp < ccomp:
-        if etype == "base" and nteam > cteam:
-            etype = "buffer"
-            try:
-                cached = equip[dkey][etype]
-                cdps = cached.get("dps", 0)
-                cteam = cached.get("team", 0)
-            except KeyError:
-                pass
-            if nteam < cteam:
-                return
-            if nteam == cteam:
-                if cdps > ndps:
-                    return
-        else:
-            return
-    if dkey not in equip:
-        equip[dkey] = {}
-    if not repair and cached and (etype == "base" and nteam <= cteam and "buffer" not in equip[dkey]):
-        equip[dkey]["buffer"] = cached
-        try:
-            equip[dkey]["buffer"]["tdps"] = (ndps - cdps) / (cteam - nteam)
-        except ZeroDivisionError:
-            equip[dkey]["buffer"]["tdps"] = 99999999
-    equip[dkey][etype] = new_equip
-    if etype == "base":
-        try:
-            cdps = equip[dkey][eleaff]["dps"]
-            if cdps < ndps:
-                del equip[dkey][eleaff]
-        except KeyError:
-            pass
-        try:
-            cdps = equip[dkey]["buffer"]["dps"]
-            cteam = equip[dkey]["buffer"]["team"]
-            if cteam <= nteam:
-                equip[dkey]["buffer"] = cached
-        except KeyError:
-            pass
-    try:
-        dps_delta = equip[dkey]["base"]["dps"] - equip[dkey]["buffer"]["dps"]
-        team_delta = equip[dkey]["buffer"]["team"] - equip[dkey]["base"]["team"]
-        try:
-            equip[dkey]["buffer"]["tdps"] = dps_delta / team_delta
-        except ZeroDivisionError:
-            equip[dkey]["buffer"]["tdps"] = 99999999
-    except KeyError:
-        pass
-    if "buffer" in equip[dkey] and (equip[dkey]["buffer"]["tdps"] < BUFFER_TDPS_THRESHOLD or equip[dkey]["buffer"]["team"] > BUFFER_TEAM_THRESHOLD):
-        equip[dkey]["pref"] = "buffer"
-        equip[dkey]["base"]["tdps"] = equip[dkey]["buffer"]["tdps"]
-    else:
-        equip[dkey]["pref"] = "base"
-    save_equip_json(adv_qual, equip)
 
 
 if __name__ == "__main__":
