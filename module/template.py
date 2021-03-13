@@ -4,8 +4,8 @@ import operator
 
 from core.log import log
 from core.timeline import now
-from core.advbase import Adv
-from core.modifier import Selfbuff, ModeManager, EffectBuff
+from core.advbase import Adv, ReservoirSkill
+from core.modifier import ModeManager, EffectBuff
 from core.acl import allow_acl, CONTINUE
 
 
@@ -182,3 +182,66 @@ class SigilAdv(Adv):
             self.comment += f"unlock at {self.unlocked:.02f}s"
         else:
             self.comment += f"not unlocked"
+
+
+class ArmamentAdv(Adv):
+    def __init__(self, true_sp=999999, maxcharge=2, **kwargs):
+        super().__init__(**kwargs)
+        self.sr = ReservoirSkill(name="s1", true_sp=true_sp, maxcharge=maxcharge)
+        self.a_s_dict["s1"] = self.sr
+        self.a_s_dict["s2"] = self.sr
+
+    def config_armament(self, autocharge=80000):
+        self.current_s["s1"] = "base1"
+        self.current_s["s2"] = "base2"
+        self.sr.autocharge_init(autocharge).on()
+
+    @property
+    def skills(self):
+        return (self.sr, self.s3, self.s4)
+
+    @allow_acl
+    def s(self, n):
+        sn = f"s{n}"
+        if n == 1 or n == 2:
+            if self.sr.count == self.sr.maxcharge and f"max{n}" in self.sr.act_dict:
+                self.current_s[sn] = f"max{n}"
+            else:
+                self.current_s[sn] = f"base{n}"
+            return self.sr(call=n)
+        else:
+            return self.a_s_dict[sn]()
+
+    def charge_p(self, name, percent, target=None, no_autocharge=False):
+        percent = percent / 100 if percent > 1 else percent
+        targets = self.get_targets(target)
+        if not targets:
+            return
+        for s in targets:
+            if s != self.sr and no_autocharge and hasattr(s, "autocharge_timer"):
+                continue
+            s.charge(self.sp_convert(percent, s.sp))
+        log(
+            "sp",
+            name if not target else f"{name}->{target}",
+            f"{percent*100:.0f}%",
+            f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
+        )
+        self.think_pin("prep")
+
+    def charge(self, name, sp, target=None):
+        sp = self.sp_convert(self.sp_mod(name), sp)
+        targets = self.get_targets(target)
+        if not targets:
+            return
+        for s in targets:
+            if name[0] == "x" and s == self.sr:
+                continue
+            s.charge(sp)
+        log(
+            "sp",
+            name,
+            sp,
+            f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
+        )
+        self.think_pin("sp")

@@ -42,6 +42,8 @@ class Skill(object):
         self.skill_charged = Event("{}_charged".format(self.name))
 
         self.enable_phase_up = None
+        self.maxcharge = 1
+        self.autocharge_sp = 0
 
     def add_action(self, group, act):
         act.cast = self.cast
@@ -69,6 +71,10 @@ class Skill(object):
     @property
     def sp(self):
         return self.ac.conf.sp
+
+    @property
+    def count(self):
+        return self.charged // self.sp
 
     @property
     def owner(self):
@@ -99,7 +105,7 @@ class Skill(object):
     def charge(self, sp):
         if not self.ac.enabled:
             return
-        self.charged = max(min(self.sp, self.charged + sp), 0)
+        self.charged = max(min(self.sp * self.maxcharge, self.charged + sp), 0)
         if self.charged >= self.sp:
             self.skill_charged()
 
@@ -131,14 +137,30 @@ class Skill(object):
         else:
             if sp < 1:
                 sp = int(sp * self.sp)
+            self.autocharge_sp = sp
 
             def autocharge(t):
-                if self.charged < self.sp:
-                    self.charge(sp)
-                    log("sp", self.name + "_autocharge", int(sp))
+                if self.charged < self.sp * self.maxcharge:
+                    self.charge(self.autocharge_sp)
+                    log("sp", self.name + "_autocharge", int(self.autocharge_sp))
 
             self.autocharge_timer = Timer(autocharge, iv, 1)
         return self.autocharge_timer
+
+
+class ReservoirSkill(Skill):
+    def __init__(self, name=None, acts=None, true_sp=1, maxcharge=1):
+        super().__init__(name=name, acts=acts)
+        self.maxcharge = maxcharge
+        self.true_sp = true_sp
+
+    @property
+    def sp(self):
+        return self.true_sp
+
+    def __call__(self, call=1):
+        self.name = f"s{call}"
+        return super().__call__()
 
 
 class Nop(object):
