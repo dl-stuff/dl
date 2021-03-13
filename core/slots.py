@@ -26,6 +26,8 @@ class SlotBase:
     def __init__(self, conf, qual=None):
         self.conf = conf
         self.qual = qual
+        self.att_augment = self.AUGMENTS
+        self.hp_augment = self.AUGMENTS
 
     def __str__(self):
         return self.name
@@ -44,11 +46,11 @@ class SlotBase:
 
     @property
     def att(self):
-        return self.conf.att + self.AUGMENTS
+        return self.conf.att + self.att_augment
 
     @property
     def hp(self):
-        return self.conf.hp + self.AUGMENTS
+        return self.conf.hp + self.hp_augment
 
     @property
     def ab(self):
@@ -860,6 +862,9 @@ class AmuletBase(EquipBase):
 
     def __init__(self, conf, c, qual=None):
         super().__init__(conf, c, qual)
+        if self.rarity == 9:
+            self.att_augment -= 10
+            self.hp_augment -= 10
 
     @property
     def union(self):
