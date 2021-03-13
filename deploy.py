@@ -118,8 +118,6 @@ def combine():
                 if line[0] == "-":
                     _, c_page, c_aff = line.strip().split(",")
                 else:
-                    if c_page not in dst_dict:
-                        continue
                     dst_dict[c_page][c_aff].write(line.strip())
                     dst_dict[c_page][c_aff].write("\n")
 

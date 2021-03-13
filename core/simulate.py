@@ -107,7 +107,7 @@ def run_mass(
     return base_log, base_d
 
 
-def run_variants_with_conf(run_results, name, module, conf, duration, cond, equip_key, mass, deploy_mono, manager):
+def run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, variant, deploy_mono, manager):
     adv, real_d = run_once(name, module, conf, duration, cond, equip_key=equip_key)
     if mass:
         adv.logs, real_d = run_mass(
@@ -121,7 +121,7 @@ def run_variants_with_conf(run_results, name, module, conf, duration, cond, equi
             cond,
             equip_key=equip_key,
         )
-    run_results.append((adv, real_d, equip_key, None))
+    run_results.append((adv, real_d, variant, None))
     if deploy_mono:
         if manager.has_different_mono(180, adv.equip_key):
             adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
@@ -137,7 +137,7 @@ def run_variants_with_conf(run_results, name, module, conf, duration, cond, equi
                     cond,
                     equip_key=None,
                 )
-        run_results.append((adv, real_d, equip_key, "mono"))
+        run_results.append((adv, real_d, variant, "mono"))
     return adv, real_d
 
 
@@ -208,13 +208,13 @@ def test(
             for aff_name in DOT_AFFLICT[: (-verbose - 6)]:
                 conf[f"sim_afflict.{aff_name}"] = 1
         equip_key = "buffer" if is_buffer else "affliction"
-        adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, equip_key, mass, deploy_mono, manager)
+        adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, "affliction", deploy_mono, manager)
 
     if verbose == -5:
         for afflic in AFFLICT_LIST:
             conf[f"afflict_res.{afflic}"] = 999
         equip_key = "buffer" if is_buffer else "noaffliction"
-        adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, equip_key, mass, deploy_mono, manager)
+        adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, "noaffliction", deploy_mono, manager)
 
     for a, d, c, m in run_results:
         if verbose == -2:
