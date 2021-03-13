@@ -156,7 +156,7 @@ class AfflictionEntry(EquipEntry):
 class NoAfflictionEntry(EquipEntry):
     @staticmethod
     def eligible(adv):
-        return NoAfflictionEntry.immune_affres(adv) and EquipEntry.eligible(adv)
+        return (NoAfflictionEntry.immune_affres(adv) or not adv.use_afflict) and EquipEntry.eligible(adv)
 
     @staticmethod
     def immune_affres(adv):

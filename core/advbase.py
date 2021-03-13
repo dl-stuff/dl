@@ -769,6 +769,7 @@ class Adv(object):
                 aff = attr.get("afflic")
                 if aff is not None:
                     aff = aff[0]
+                    self.use_afflict.add(aff)
                     if not "999 all affliction res" in self.condition:
                         self.condition(f"{int(getattr(self.afflics, aff).resist * 100)} {aff} res")
         if conf.get("energizable"):
@@ -1073,6 +1074,7 @@ class Adv(object):
         else:
             self.afflics.set_resist(self.conf.c.ele)
         self.sim_afflict = set()
+        self.use_afflict = set()
         self.afflic_condition()
         self.sim_affliction()
 
