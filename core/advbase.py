@@ -22,6 +22,12 @@ from ctypes import c_float
 from math import ceil, floor
 
 
+def float_ceil(value, percent):
+    c_float_value = c_float(c_float(percent).value * value).value
+    int_value = int(c_float_value)
+    return int_value if int_value == c_float_value else int_value + 1
+
+
 class Skill(object):
     _static = Static({"s_prev": "<nop>", "first_x_after_s": 0, "silence": 0, "current_s": {}})
     charged = 0
@@ -823,7 +829,8 @@ class Adv(object):
         self.hits = 0
         self.last_c = 0
 
-        self.hp = 100
+        self._hp = 3000
+        self.base_hp = 3000
         self.hp_event = Event("hp")
         self.heal_event = Event("heal")
         self.dragonform = None
@@ -887,40 +894,73 @@ class Adv(object):
         except AttributeError:
             pass
 
-    def add_hp(self, delta, pct=True):
-        if pct:
-            delta = delta * self.max_hp // 100
-        self.set_hp(self.hp + delta)
+    def l_heal_make(self, e):
+        self.heal_make(e.name, e.delta, target=e.target, fixed=True)
 
-    def set_hp(self, hp, pct=True):
+    def heal_formula(self, name, coef):
+        healstat = self.max_hp * 0.16 + self.base_att * self.mod("att") * 0.06
+        energize = 1
+        if name in self.energy.active:
+            energize += self.energy.modifier.get()
+        potency = self.mod("recovery")
+        elemental_mod = 1.2
+        coef_mod = 0.01
+        # log("heal_formula", coef * coef_mod, healstat, energize, potency, elemental_mod)
+        return coef * coef_mod * healstat * energize * potency * elemental_mod
+
+    def heal_make(self, name, coef, target="self", fixed=False):
+        if fixed:
+            heal_value = coef
+        else:
+            heal_value = self.heal_formula(name, coef)
+        log("heal", name, heal_value, target)
+        self.add_hp(heal_value, percent=False)
+
+    def add_hp(self, delta, percent=True, affects_dragon=True):
+        if percent:
+            delta = self.max_hp * delta / 100
+        new_hp = self._hp + delta
+        if delta > 0:
+            affects_dragon = False
+        self.set_hp(new_hp, percent=False, affects_dragon=affects_dragon)
+
+    def set_hp(self, hp, percent=True, affects_dragon=True):
+        if affects_dragon and self.dragonform.status != Action.OFF:
+            if not percent:
+                hp = hp / 10000
+            self.dragonform.set_shift_end(hp, percent=True, addition=False)
+            return
+        max_hp = self.max_hp
         if self.conf["flask_env"] and "hp" in self.conf:
-            hp = self.conf["hp"] * self.max_hp
-        old_hp = self.hp
-        if pct:
-            hp = hp * self.max_hp // 100
+            hp = self.conf["hp"] * max_hp
+        old_hp = self._hp
+        if percent:
+            hp = max_hp * hp / 100
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        hp = floor(hp)
-        self.hp = max(min(hp, self.max_hp), 1)
-        if self.hp != old_hp:
-            delta = self.hp - old_hp
-            if self.hp == 1:
-                log("hp", f"=1", f"{delta}")
-            else:
-                log("hp", f"{self.hp}", f"{delta}")
+        self._hp = max(min(hp, max_hp), 1)
+        if self._hp != old_hp:
+            delta = self._hp - old_hp
+            log("hp", f"{self._hp / max_hp:.1%}", f"{int(self._hp)}/{max_hp}", f"{round(delta):+}")
             self.condition.hp_cond_update()
-            self.hp_event.hp = self.hp
+            self.hp_event.hp = self._hp
             self.hp_event.delta = delta
             self.hp_event()
-            if self.dragonform.status != Action.OFF and delta < 0:
-                self.dragonform.set_shift_end(delta * self.max_hp / 10000)
 
     def get_hp(self):
         return self.hp
 
-    def get_hp_pct(self):
-        return self.hp / self.max_hp
+    @property
+    def hp(self):
+        return min(self._hp / self.max_hp * 100, 100)
+
+    def max_hp_mod(self):
+        return 1 + min(0.3, self.sub_mod("maxhp", "buff")) + self.sub_mod("maxhp", "passive")
+
+    @property
+    def max_hp(self):
+        return float_ceil(self.base_hp, self.max_hp_mod())
 
     def afflic_condition(self):
         if "afflict_res" in self.conf:
@@ -1037,7 +1077,7 @@ class Adv(object):
         self.conf_base = Conf(self.conf or {})
         self.conf_init = Conf(conf or {})
         self.ctx = Ctx().on()
-        self.condition = Condition(cond, self.get_hp_pct)
+        self.condition = Condition(cond, self.get_hp)
         self.duration = duration
 
         self.damage_sources = set()
@@ -1635,6 +1675,7 @@ class Adv(object):
         self.l_true_dmg = Listener("true_dmg", self.l_true_dmg)
         self.l_dmg_formula = Listener("dmg_formula", self.l_dmg_formula)
         self.l_set_hp = Listener("set_hp", self.l_set_hp)
+        self.l_heal_make = Listener("heal_make", self.l_heal_make)
 
         self.uses_combo = False
 
@@ -1656,7 +1697,7 @@ class Adv(object):
         self.slots.oninit(self)
         self.base_att = int(self.slots.att)
         self.base_hp = int(self.slots.hp)
-        self.max_hp = self.base_hp
+        self._hp = self.max_hp
 
         self.set_hp(100)
         if "hp" in self.conf:
@@ -1783,9 +1824,8 @@ class Adv(object):
     # DL uses C floats and round SP up, which leads to precision issues
     @staticmethod
     def sp_convert(haste, sp):
-        sp_hasted = c_float(c_float(haste).value * sp).value
-        sp_int = int(sp_hasted)
-        return sp_int if sp_int == sp_hasted else sp_int + 1
+        # FIXME: dum
+        return float_ceil(sp, haste)
 
     def get_targets(self, target):
         # FIXME - make a shared sp skill class
@@ -2017,9 +2057,12 @@ class Adv(object):
                     self.set_hp(self.hp * value)
 
         if "heal" in attr:
-            # self.heal_event()
-            # FIXME: heal formula 1day twust
-            self.set_hp(self.hp + attr["heal"] / 2)
+            try:
+                self.heal_make(name, float(attr["heal"]))
+            except TypeError:
+                value = attr["heal"][0]
+                target = attr["heal"][1]
+                self.heal_make(name, value, target)
 
         if "afflic" in attr:
             aff_type, aff_args = attr["afflic"][0], attr["afflic"][1:]

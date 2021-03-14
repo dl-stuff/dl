@@ -123,6 +123,14 @@ class Health_Points(Ability):
 ability_dict["hp"] = Health_Points
 
 
+class Recovery_Potency(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [("recovery", "passive", value, cond)])
+
+
+ability_dict["rcv"] = Recovery_Potency
+
+
 class Buff_Time(Ability):
     def __init__(self, name, value, cond=None):
         super().__init__(name, [("buff", "passive", value, cond)])
@@ -314,6 +322,7 @@ class Co_Ability(Ability):
         "bow": [("sp", "passive", 0.15)],
         "wand": [("s", "ex", 0.15)],
         "sword": [("dh", "passive", 0.15)],
+        "staff": [("recovery", "passive", 0.2)],
         "axe2": [("crit", "damage", 0.30)],
         "dagger2": [("x", "ex", 0.20)],
         "gun": [("odaccel", "passive", 0.20)],

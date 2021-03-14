@@ -46,9 +46,7 @@ class DragonForm(Action):
         self.dragon_gauge = 0
         self.dragon_gauge_val = self.conf.gauge_val
         self.conf.gauge_iv = min(int(self.adv.duration / 12), 15)
-        self.dragon_gauge_timer = Timer(
-            self.auto_gauge, timeout=max(1, self.conf.gauge_iv), repeat=1
-        ).on()
+        self.dragon_gauge_timer = Timer(self.auto_gauge, timeout=max(1, self.conf.gauge_iv), repeat=1).on()
         self.dragon_gauge_pause_timer = None
         self.dragon_gauge_timer_diff = 0
         self.max_gauge = 1000
@@ -61,19 +59,15 @@ class DragonForm(Action):
         self.can_end = True
 
         self.allow_end_cd = self.conf.allow_end + self.dstime()
-        self.allow_force_end_timer = Timer(
-            self.set_allow_end, timeout=self.allow_end_cd
-        )
+        self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
         self.allow_end = False
 
-    def set_shift_end(self, value, percent=True):
+    def set_shift_end(self, value, percent=True, addition=True):
         if self.can_end:
             max_d = self.dtime() - self.conf.dshift.startup
-            cur_d = (
-                self.shift_end_timer.timing
-                - now()
-                - (self.conf.ds.uses - self.skill_use) * self.dstime()
-            )
+            cur_d = self.shift_end_timer.timing - now() - (self.conf.ds.uses - self.skill_use) * self.dstime()
+            if not addition:
+                delta_t = value - cur_d
             delta_t = value
             if percent:
                 delta_t *= max_d
@@ -103,13 +97,9 @@ class DragonForm(Action):
         else:
             log("allow_end", self.allow_end_cd)
             self.allow_end = False
-            self.allow_force_end_timer = Timer(
-                self.set_allow_end, timeout=self.allow_end_cd
-            )
+            self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
             self.allow_force_end_timer.on()
-            self.allow_end_cd = min(
-                self.allow_end_cd + self.conf.allow_end_step, self.dtime()
-            )
+            self.allow_end_cd = min(self.allow_end_cd + self.conf.allow_end_step, self.dtime())
 
     def set_allow_end(self, _):
         self.allow_end = True
@@ -123,9 +113,7 @@ class DragonForm(Action):
         self.dragon_gauge *= ratio
         self.dragon_gauge_val *= ratio
         self.max_gauge = max_gauge
-        self.shift_cost = (
-            shift_cost  # does not deduct, but need to have this much pt to shift
-        )
+        self.shift_cost = shift_cost  # does not deduct, but need to have this much pt to shift
         self.drain = drain
         self.dragondrive_buff = dd_buff
         self.dragondrive_timer = Timer(self.d_dragondrive_end)
@@ -220,11 +208,7 @@ class DragonForm(Action):
 
     @allow_acl
     def dtime(self):
-        return (
-            self.conf.dshift.startup
-            + self.conf.duration * self.adv.mod("dt")
-            + self.conf.exhilaration * int(not self.off_ele)
-        )
+        return self.conf.dshift.startup + self.conf.duration * self.adv.mod("dt") + self.conf.exhilaration * int(not self.off_ele)
 
     def dstime(self):
         return (self.conf.ds.startup + self.conf.ds.recovery) / self.speed()
@@ -240,11 +224,7 @@ class DragonForm(Action):
         return self.conf.dracolith + self.adv.mod("da") - 1
 
     def ds_check(self):
-        return (
-            self.skill_use != 0
-            and self.skill_spc >= self.skill_sp
-            and self.shift_end_timer.elapsed() >= 1.9
-        )
+        return self.skill_use != 0 and self.skill_spc >= self.skill_sp and self.shift_end_timer.elapsed() >= 1.9
 
     def ds_charge(self, value):
         if self.skill_use != 0 and self.skill_spc < self.skill_sp:
@@ -263,11 +243,7 @@ class DragonForm(Action):
         if self.action_timer is not None:
             self.action_timer.off()
             self.action_timer = None
-        if (
-            not self.is_dragondrive
-            and self.prev_act != "ds"
-            and self.skill_use_final > 0
-        ):
+        if not self.is_dragondrive and self.prev_act != "ds" and self.skill_use_final > 0:
             self.skill_use_final -= 1
             self.d_act_start("ds_final")
             self.act_list = ["end"]
@@ -285,9 +261,7 @@ class DragonForm(Action):
             )
         log(
             self.name,
-            "{:.2f}dmg / {:.2f}s, {:.2f} dps".format(
-                shift_dmg, duration, shift_dmg / duration
-            ),
+            "{:.2f}dmg / {:.2f}s, {:.2f} dps".format(shift_dmg, duration, shift_dmg / duration),
             " ".join(self.act_sum),
         )
         self.act_sum = []
@@ -300,9 +274,7 @@ class DragonForm(Action):
         if not self.is_dragondrive:
             self.shift_silence = True
             Timer(self.end_silence).on(10)
-            self.dragon_gauge_pause_timer = Timer(self.resume_auto_gauge).on(
-                self.dragon_gauge_timer_diff
-            )
+            self.dragon_gauge_pause_timer = Timer(self.resume_auto_gauge).on(self.dragon_gauge_timer_diff)
         self.status = Action.OFF
         self._setprev()  # turn self from doing to prev
         self._static.doing = self.nop
@@ -336,11 +308,7 @@ class DragonForm(Action):
         self.d_act_start(t.next_action)
 
     def d_act_start(self, name):
-        if (
-            name in self.conf
-            and self._static.doing == self
-            and self.action_timer is None
-        ):
+        if name in self.conf and self._static.doing == self and self.action_timer is None:
             log("d_act", name)
             self.prev_act = self.c_act_name
             self.prev_conf = self.c_act_conf
@@ -388,11 +356,7 @@ class DragonForm(Action):
             self.ds_event()
             self.shift_end_timer.add(self.dstime())
         elif self.c_act_name.startswith("dx"):
-            if (
-                len(self.act_sum) > 0
-                and self.act_sum[-1][0] == "c"
-                and int(self.act_sum[-1][1]) < int(self.c_act_name[-1])
-            ):
+            if len(self.act_sum) > 0 and self.act_sum[-1][0] == "c" and int(self.act_sum[-1][1]) < int(self.c_act_name[-1]):
                 self.act_sum[-1] = "c" + self.c_act_name[-1]
             else:
                 self.act_sum.append("c" + self.c_act_name[-1])
@@ -436,14 +400,10 @@ class DragonForm(Action):
                     f'lost {count} hit{"s" if count > 1 else ""}',
                 )
             return self.act_timer(self.d_act_start_t, self.conf.latency, nact)
-        if nact in ("ds", "dsf", "dodge") or (
-            nact == "end" and self.c_act_name not in ("ds", "ds_final", "dshift")
-        ):  # cancel
+        if nact in ("ds", "dsf", "dodge") or (nact == "end" and self.c_act_name not in ("ds", "ds_final", "dshift")):  # cancel
             if nact == "dsf":
                 nact = "ds"
-            self.act_timer(
-                self.d_act_start_t, self.max_delayed + self.conf.latency, nact
-            )
+            self.act_timer(self.d_act_start_t, self.max_delayed + self.conf.latency, nact)
         else:  # regular recovery
             self.act_timer(self.d_act_start_t, self.c_act_conf.recovery, nact)
 
@@ -467,9 +427,7 @@ class DragonForm(Action):
                     pass
             else:
                 nact = None
-                if (a in ("s", "ds", "sf", "dsf")) and (
-                    self.skill_use <= -1 or skill_usage < self.skill_use
-                ):
+                if (a in ("s", "ds", "sf", "dsf")) and (self.skill_use <= -1 or skill_usage < self.skill_use):
                     if a[-1] == "f":
                         # self.act_list.append('dsf')
                         nact = "dsf"
@@ -496,9 +454,7 @@ class DragonForm(Action):
     def check(self, dryrun=True):
         if self.disabled or self.shift_silence:
             return False
-        if self.dragon_gauge < self.shift_cost and not (
-            self.is_dragondrive and self.dragondrive_buff.get()
-        ):
+        if self.dragon_gauge < self.shift_cost and not (self.is_dragondrive and self.dragondrive_buff.get()):
             return False
         doing = self.getdoing()
         if not doing.idle:
