@@ -750,8 +750,7 @@ class AmuletStack:
         "rcv": 0.20,
     }
     # actually depends on weapons kms
-    RARITY_LIMITS = {9: 2, 5: 3, None: 2}
-    RARITY_SORT = {5: 0, 4: 1, 3: 2, 2: 3, 9: 4}
+    RARITY_LIMITS = {1: 3, 2: 2, 3: 2}
     PICKER = AmuletPicker()
 
     def __init__(self, confs, c, quals):
@@ -759,10 +758,9 @@ class AmuletStack:
         self.an = []
         # icon_ids = set()
         for conf, qual in zip(confs, quals):
-            rk = None if conf["rarity"] < 5 else conf["rarity"]
-            if limits[rk] == 0:
+            if limits[conf["rarity"]] == 0:
                 continue
-            limits[rk] -= 1
+            limits[conf["rarity"]] -= 1
             amulet = AmuletBase(conf, c, qual)
             self.an.append(amulet)
             # if amulet.icon not in icon_ids:
@@ -771,7 +769,7 @@ class AmuletStack:
         # if any(limits.values()):
         #     raise ValueError("Unfilled wyrmprint slot")
         self.an = AmuletStack.PICKER.pick(self.an, c)
-        self.an.sort(key=lambda a: (AmuletStack.RARITY_SORT[a.rarity], a.name))
+        self.an.sort(key=lambda a: (a.rarity, a.name))
         self.c = c
 
     def __str__(self):
@@ -865,7 +863,8 @@ class AmuletBase(EquipBase):
 
     def __init__(self, conf, c, qual=None):
         super().__init__(conf, c, qual)
-        if self.rarity == 9:
+        # form C
+        if self.rarity == 3:
             self.att_augment -= 10
             self.hp_augment -= 10
 

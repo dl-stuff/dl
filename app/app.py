@@ -38,6 +38,8 @@ SIMULATED_BUFFS = {
     "count": (0, float("inf"), 1),
     "echo": (0, float("inf"), 1),
 }
+RARITY_MAP = {1: "formA", 2: "formB", 3: "formC"}
+
 
 ADV_MODULES = {}
 for fn in list_advs():
@@ -270,12 +272,7 @@ def get_adv_wp_list():
         else:
             ab_str = "[]" + ab_str
         display_name = data["name"] + " " + ab_str
-        if data["rarity"] == 5:
-            wplists["formA"][wp] = display_name
-        elif data["rarity"] == 9:
-            wplists["formC"][wp] = display_name
-        else:
-            wplists["formB"][wp] = display_name
+        wplists[RARITY_MAP[data["rarity"]]][wp] = display_name
     result["wyrmprints"] = wplists
     result["skillshare"] = {k: {"fullname": get_fullname(k), **v} for k, v in skillshare.items()}
     return jsonify(result)

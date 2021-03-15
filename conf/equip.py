@@ -22,13 +22,9 @@ BANNED_PRINTS = (
     # bugged in game
     "United_by_One_Vision",
     "Second_Anniversary",
-    # banning these until dupe clause is fixed
-    "Crown_of_Light",
+    # corrosion
     "Her_Beloved_Crown",
     "Her_Beloved_Sword",
-    "Mask_of_Determination_Bow",
-    "Mask_of_Determination_Lance",
-    "Tutelarys_Destiny",
 )
 BANNED_SHARES = ("Durant", "Yue")
 ABNORMAL_COND = (
@@ -43,6 +39,7 @@ ABNORMAL_COND = (
 BUFFER_TDPS_THRESHOLD = 40000
 BUFFER_TEAM_THRESHOLD = 1.6
 TDPS_WEIGHT = 15000
+HAS_7SLOT = ("light",)
 
 
 def equivalent(a, b):
@@ -74,6 +71,8 @@ class EquipEntry(dict):
 
     @staticmethod
     def acceptable(entry, ele=None):
+        if len(entry["slots.a"]) > 5 and (ele not in HAS_7SLOT or entry.get("slots.w", "Agito") != "Agito"):
+            return False
         return isinstance(entry, EquipEntry)
 
     def same_build(self, other):
@@ -136,7 +135,7 @@ class BufferEntry(EquipEntry):
 
     @staticmethod
     def acceptable(entry, ele=None):
-        return entry["team"] and EquipEntry.acceptable(entry)
+        return entry["team"] and EquipEntry.acceptable(entry, ele)
 
     def better_than(self, other):
         return self["team"] > other["team"] or (self["team"] == other["team"] and self["dps"] > other["dps"])
@@ -171,25 +170,25 @@ def all_monoele_coabs(entry, ele):
 class MonoBaseEntry(BaseEntry):
     @staticmethod
     def acceptable(entry, ele):
-        return all_monoele_coabs(entry, ele) and BaseEntry.acceptable(entry)
+        return all_monoele_coabs(entry, ele) and BaseEntry.acceptable(entry, ele)
 
 
 class MonoBufferEntry(BufferEntry):
     @staticmethod
     def acceptable(entry, ele):
-        return all_monoele_coabs(entry, ele) and BufferEntry.acceptable(entry)
+        return all_monoele_coabs(entry, ele) and BufferEntry.acceptable(entry, ele)
 
 
 class MonoAfflictionEntry(AfflictionEntry):
     @staticmethod
     def acceptable(entry, ele):
-        return all_monoele_coabs(entry, ele) and AfflictionEntry.acceptable(entry)
+        return all_monoele_coabs(entry, ele) and AfflictionEntry.acceptable(entry, ele)
 
 
 class MonoNoAfflictionEntry(AfflictionEntry):
     @staticmethod
     def acceptable(entry, ele):
-        return all_monoele_coabs(entry, ele) and NoAfflictionEntry.acceptable(entry)
+        return all_monoele_coabs(entry, ele) and NoAfflictionEntry.acceptable(entry, ele)
 
 
 EQUIP_ENTRY_MAP = {
