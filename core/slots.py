@@ -756,16 +756,16 @@ class AmuletStack:
     def __init__(self, confs, c, quals):
         limits = AmuletStack.RARITY_LIMITS.copy()
         self.an = []
-        # icon_ids = set()
+        icon_ids = set()
         for conf, qual in zip(confs, quals):
             if limits[conf["rarity"]] == 0:
                 continue
             limits[conf["rarity"]] -= 1
             amulet = AmuletBase(conf, c, qual)
             self.an.append(amulet)
-            # if amulet.icon not in icon_ids:
-            #     self.an.append(amulet)
-            #     icon_ids.add(amulet.icon)
+            if amulet.icon not in icon_ids:
+                self.an.append(amulet)
+                icon_ids.add(amulet.icon)
         # if any(limits.values()):
         #     raise ValueError("Unfilled wyrmprint slot")
         self.an = AmuletStack.PICKER.pick(self.an, c)
