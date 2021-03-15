@@ -7,14 +7,14 @@
         "ele": "shadow",
         "wt": "staff",
         "spiral": false,
-        "a": [["affres_blind", 100.0]]
+        "a": [["rcv", 0.2, "hp100"], ["affres_blind", 100.0], ["rcv", 0.13]]
     },
     "s1": {
         "sp": 5916,
         "startup": 0.1,
         "recovery": 1.8,
         "attr": [
-            {"heal": 44, "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333},
+            {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333},
             {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_8"], "iv": 0.96667}
         ],
         "energizable": true

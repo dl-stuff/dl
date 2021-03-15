@@ -1956,7 +1956,11 @@ class Adv(object):
             for m in hitmods:
                 m.off()
         log("dmg", name, count)
-        self.dmg_proc(name, count)
+        # self.dmg_proc(name, count)
+        dmg_made_event = Event("dmg_made")
+        dmg_made_event.name = name
+        dmg_made_event.count = count
+        dmg_made_event()
         if fixed:
             return count
         if not self.conf["berserk"] and self.echo > 1:
@@ -1965,7 +1969,12 @@ class Adv(object):
                 echo_count = self.dmg_formula_echo(coef / (rate ** depth))
             else:
                 echo_count = self.dmg_formula_echo(coef)
-            self.dmg_proc(name, echo_count)
+            # self.dmg_proc(name, echo_count)
+            dmg_made_event = Event("dmg_made")
+            dmg_made_event.name = "echo"
+            dmg_made_event.source = name
+            dmg_made_event.count = echo_count
+            dmg_made_event()
             log("dmg", "echo", echo_count, f"from {name}")
             count += echo_count
         if attenuation is not None:

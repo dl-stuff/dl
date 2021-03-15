@@ -742,7 +742,10 @@ class AmuletStack:
         "k_stun": 0.25,
         "k_sleep": 0.25,
         "k_shadowblight": 0.25,
+        "k_stormlash": 0.25,
+        "k_flashburn": 0.25,
         "bleed": 0.15,
+        "rcv": 0.20,
     }
     # actually depends on weapons kms
     RARITY_LIMITS = {9: 2, 5: 3, None: 2}

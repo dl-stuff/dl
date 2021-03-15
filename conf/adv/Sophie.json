@@ -7,14 +7,14 @@
         "ele": "wind",
         "wt": "staff",
         "spiral": true,
-        "a": [["affres_freeze", 50.0], ["resself_freeze_att", 0.15, 10.0, 15.0], ["affres_freeze", 50.0]]
+        "a": [["rcv", 0.15], ["affres_freeze", 50.0], ["resself_freeze_att", 0.15, 10.0, 15.0], ["affres_freeze", 50.0]]
     },
     "s1": {
         "sp": 5916,
         "startup": 0.1,
         "recovery": 1.8,
         "attr": [
-            {"heal": 130, "iv": 0.93333},
+            {"heal": [130, "team"], "iv": 0.93333},
             {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 0.93333}
         ],
         "energizable": true

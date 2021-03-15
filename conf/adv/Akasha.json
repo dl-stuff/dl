@@ -7,14 +7,14 @@
         "ele": "wind",
         "wt": "staff",
         "spiral": false,
-        "a": [["prep", 100.0], ["affres_bog", 100.0]]
+        "a": [["prep", 100.0], ["affres_bog", 100.0], ["rcv", 0.15, "hp70"]]
     },
     "s1": {
         "sp": 5916,
         "startup": 0.1,
         "recovery": 1.8,
         "attr": [
-            {"heal": 44, "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333},
+            {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333},
             {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 0.93333}
         ],
         "energizable": true
