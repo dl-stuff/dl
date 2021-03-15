@@ -23,7 +23,8 @@
         "attr": [
             {"buff": ["echo", 0.4, 30.0, "-refresh"], "iv": 1.0},
             {"heal": [87, "team"], "iv": 1.0},
-            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 1.0}
+            {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 1.0},
+            {"buff": [["fsAlt", "dragonyulelily", -1, 3], "-refresh"]}
         ],
         "energizable": true
     },
@@ -32,10 +33,10 @@
         "startup": 0.1,
         "recovery": 2.66667,
         "attr": [
-            {"buff": ["self", 0.2, 10.0, "att", "buff", "-overwrite_28"], "iv": 1.66667},
-            {"buff": ["self", 0.4, 10.0, "att", "buff", "-overwrite_28"], "iv": 1.66667},
-            {"buff": ["self", 0.6, 10.0, "att", "buff", "-overwrite_28"], "iv": 1.66667},
-            {"buff": ["self", 1.0, 10.0, "att", "buff", "-overwrite_28"], "iv": 2.16667}
+            {"cond": ["var=", ["starfall_strength", 0]], "buff": ["self", 0.2, 10.0, "att", "buff", "-overwrite_28"], "iv": 1.66667},
+            {"cond": ["var=", ["starfall_strength", 1]], "buff": ["self", 0.4, 10.0, "att", "buff", "-overwrite_28"], "iv": 1.66667},
+            {"cond": ["var=", ["starfall_strength", 2]], "buff": ["self", 0.6, 10.0, "att", "buff", "-overwrite_28"], "iv": 1.66667},
+            {"cond": ["var=", ["starfall_strength", 3]], "buff": ["self", 1.0, 10.0, "att", "buff", "-overwrite_28"], "iv": 2.16667}
         ]
     },
     "x1_mode1": {
