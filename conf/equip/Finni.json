@@ -3,7 +3,7 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 56334.60739739639,
+      "dps": 58553.36430314597,
       "team": 0.10362242642498647,
       "tdps": null,
       "slots.a": [
@@ -34,7 +34,7 @@
       ]
     },
     "mono_base": {
-      "dps": 56334.60739739639,
+      "dps": 58553.36430314597,
       "team": 0.10362242642498647,
       "tdps": null,
       "slots.a": [
@@ -65,55 +65,69 @@
       ]
     },
     "buffer": {
-      "dps": 36770.36008933414,
-      "team": 0.11183952564236223,
-      "tdps": 2380918.9582002326,
+      "dps": 53819.32342688187,
+      "team": 0.14148828695894838,
+      "tdps": 125021.34665652554,
       "slots.a": [
+        "Gentle_Winds",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "The_Red_Impulse",
-        "A_Small_Courage",
-        "Dueling_Dancers"
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon",
+        "`dragon, self.sr.count=1",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1, self.sr.count=2 and cancel"
+        "if self.sr.count=2 and cancel",
+        "`s2, not s2_autocharge_buff.get()",
+        "`s1",
+        "end",
+        "`s4, cancel"
       ],
-      "coabs": [],
+      "coabs": [
+        "Blade",
+        "Xander",
+        "Tiki"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
     "mono_buffer": {
-      "dps": 36770.36008933414,
-      "team": 0.11183952564236223,
-      "tdps": 2380918.9582002326,
+      "dps": 53819.32342688187,
+      "team": 0.14148828695894838,
+      "tdps": 125021.34665652554,
       "slots.a": [
+        "Gentle_Winds",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "The_Red_Impulse",
-        "A_Small_Courage",
-        "Dueling_Dancers"
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon",
+        "`dragon, self.sr.count=1",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1, self.sr.count=2 and cancel"
+        "if self.sr.count=2 and cancel",
+        "`s2, not s2_autocharge_buff.get()",
+        "`s1",
+        "end",
+        "`s4, cancel"
       ],
-      "coabs": [],
+      "coabs": [
+        "Blade",
+        "Xander",
+        "Tiki"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
     "affliction": {
-      "dps": 69067.37002828669,
+      "dps": 71795.09455061014,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -145,7 +159,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 69067.37002828669,
+      "dps": 71795.09455061014,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -177,38 +191,39 @@
       ]
     },
     "noaffliction": {
-      "dps": 56334.60739739639,
-      "team": 0.10362242642498647,
+      "dps": 71795.09455061014,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon, self.sr.count=1",
+        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=2",
         "`s3, not buff(s3)",
-        "if self.sr.count=2 and cancel",
-        "`s2, not s2_autocharge_buff.get()",
-        "`s1",
-        "end",
-        "`s4, cancel"
+        "`s4",
+        "if s2_autocharge_buff.get()",
+        "`s1, self.sr.count=2 and cancel",
+        "else",
+        "`s2, self.sr.count=2",
+        "end"
       ],
       "coabs": [
-        "Blade",
-        "Xander",
+        "Yurius",
+        "Summer_Celliera",
         "Tiki"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Mym"
       ]
     },
     "mono_noaffliction": {
-      "dps": 69067.37002828669,
+      "dps": 71795.09455061014,
       "team": 0.0,
       "tdps": null,
       "slots.a": [

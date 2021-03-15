@@ -188,6 +188,67 @@
         "Weapon",
         "Seimei"
       ]
+    },
+    "noaffliction": {
+      "dps": 13907.461809405979,
+      "team": 0.7298837682999705,
+      "tdps": null,
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "From_Whence_He_Comes",
+        "Bellathorna"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`fs, fs_prep_c",
+        "`s1, not buff(s1)",
+        "`s2",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Renee",
+        "Hunter_Sarisse",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 63147.98930233087,
+      "team": 0.12300205222175374,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "queue s4.check() and s2.check() and dgauge>=500",
+        "`s4;s2;dragon(c3-s-c3-c3-c2-end)",
+        "end",
+        "`s1, buff(s3)",
+        "`s2, dgauge<=500",
+        "`s4, dgauge<=450",
+        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
     }
   },
   "60": {
