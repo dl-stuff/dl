@@ -19,7 +19,6 @@ from core.acl import allow_acl
 import conf as globalconf
 from conf.equip import EquipManager
 from ctypes import c_float
-from math import ceil, floor
 
 
 def float_ceil(value, percent):
@@ -908,15 +907,13 @@ class Adv(object):
 
     def l_set_hp(self, e):
         try:
-            self.add_hp(e.delta)
+            can_die = e.can_die
         except AttributeError:
-            self.set_hp(e.hp)
+            can_die = False
         try:
-            if e.can_die and self.hp <= 0:
-                self.stop()
-                self.alive = False
+            self.add_hp(e.delta, can_die=can_die)
         except AttributeError:
-            pass
+            self.set_hp(e.hp, can_die=can_die)
 
     def l_heal_make(self, e):
         self.heal_make(e.name, e.delta, target=e.target, fixed=True)
@@ -937,23 +934,18 @@ class Adv(object):
             heal_value = coef
         else:
             heal_value = self.heal_formula(name, coef)
-        log("heal", name, heal_value, target)
+        log("heal", name, heal_value, target, self._hp)
         self.add_hp(heal_value, percent=False)
 
-    def add_hp(self, delta, percent=True, affects_dragon=True):
+    def add_hp(self, delta, percent=True, can_die=False):
         if percent:
             delta = self.max_hp * delta / 100
-        new_hp = self._hp + delta
         if delta > 0:
-            affects_dragon = False
-        self.set_hp(new_hp, percent=False, affects_dragon=affects_dragon)
+            delta *= self.sub_mod("getrecovery", "buff") + 1
+        new_hp = self._hp + delta
+        self.set_hp(new_hp, percent=False, can_die=can_die)
 
-    def set_hp(self, hp, percent=True, affects_dragon=True):
-        if affects_dragon and self.dragonform.status != Action.OFF:
-            if not percent:
-                hp = hp / 10000
-            self.dragonform.set_shift_end(hp, percent=True, addition=False)
-            return
+    def set_hp(self, hp, percent=True, can_die=False):
         max_hp = self.max_hp
         if self.conf["flask_env"] and "hp" in self.conf:
             hp = self.conf["hp"] * max_hp
@@ -963,7 +955,19 @@ class Adv(object):
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        self._hp = max(min(hp, max_hp), 1)
+        elif self.dragonform.status != Action.OFF:
+            delta = (hp - old_hp) / 10000
+            if delta < 0:
+                self.dragonform.set_shift_end(delta, percent=True)
+                return
+        if can_die:
+            self._hp = max(min(hp, max_hp), 0)
+            if self._hp == 0:
+                self.stop()
+                self.alive = False
+                return
+        else:
+            self._hp = max(min(hp, max_hp), 1)
         if self._hp != old_hp:
             delta = self._hp - old_hp
             log("hp", f"{self._hp / max_hp:.1%}", f"{int(self._hp)}/{max_hp}", f"{round(delta):+}")
@@ -977,6 +981,8 @@ class Adv(object):
 
     @property
     def hp(self):
+        if self._hp == 1:
+            return 0
         return min(self._hp / self.max_hp * 100, 100)
 
     def max_hp_mod(self):
@@ -1986,7 +1992,7 @@ class Adv(object):
         dmg_made_event = Event("dmg_made")
         dmg_made_event.name = name
         dmg_made_event.count = count
-        dmg_made_event()
+        dmg_made_event.on()
         if fixed:
             return count
         if not self.conf["berserk"] and self.echo > 1:
@@ -2000,7 +2006,7 @@ class Adv(object):
             dmg_made_event.name = "echo"
             dmg_made_event.source = name
             dmg_made_event.count = echo_count
-            dmg_made_event()
+            dmg_made_event.on()
             log("dmg", "echo", echo_count, f"from {name}")
             count += echo_count
         if attenuation is not None:

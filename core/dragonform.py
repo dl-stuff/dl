@@ -62,12 +62,10 @@ class DragonForm(Action):
         self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
         self.allow_end = False
 
-    def set_shift_end(self, value, percent=True, addition=True):
+    def set_shift_end(self, value, percent=True):
         if self.can_end:
             max_d = self.dtime() - self.conf.dshift.startup
             cur_d = self.shift_end_timer.timing - now() - (self.conf.ds.uses - self.skill_use) * self.dstime()
-            if not addition:
-                delta_t = value - cur_d
             delta_t = value
             if percent:
                 delta_t *= max_d

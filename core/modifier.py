@@ -307,7 +307,7 @@ class Buff(object):
                 self.modifier.on()
             percent = value * 100
             log("heal", self.name, self._static.adv.max_hp * value, "team" if self.bufftype == "team" else "self")
-            self._static.adv.add_hp(percent, affects_dragon=False)
+            self._static.adv.add_hp(percent)
         # FIXME: heal formula 1day twust
         elif self.mod_type == "regen" and value != 0:
             self.set_hp_event = Event("set_hp")
@@ -954,8 +954,8 @@ bufftype_dict["affres"] = AffResDebuff
 
 class EchoBuff(Buff):
     def __init__(self, name, value=0, duration=0, source=None):
-        self.echo_mod = value
         super().__init__(name, 1, duration, "effect", source=source)
+        self.echo_mod = value
 
     def on(self, duration=None):
         if self._static.adv.enable_echo(mod=self.echo_mod):
@@ -967,6 +967,26 @@ class EchoBuff(Buff):
 
 
 bufftype_dict["echo"] = EchoBuff
+
+
+class DrainBuff(Buff):
+    def __init__(self, name, value=0, duration=0, source=None):
+        super().__init__(name, 1, duration, "effect", source=source)
+        self.drain = value
+        self.drain_listener = Listener("dmg_made", self.l_drain)
+
+    def effect_on(self):
+        self.drain_listener.on()
+
+    def effect_off(self):
+        self.drain_listener.off()
+
+    def l_drain(self, e):
+        if e.name != "echo":
+            self._static.adv.add_hp(self.drain * e.count, percent=False)
+
+
+bufftype_dict["drain"] = DrainBuff
 
 
 class SelfAffliction(Buff):

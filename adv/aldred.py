@@ -12,13 +12,11 @@ class Aldred(Adv):
                 s2=True,
             )
         )
-        self.hp = 100
+        self.set_hp(100)
 
     def s2_before(self, e):
         if self.hp > 30 and e.group == "default":
-            self.dragonform.charge_gauge(
-                3000 * (self.hp - 30) / 100, utp=True, dhaste=False
-            )
+            self.dragonform.charge_gauge(3000 * (self.hp - 30) / 100, utp=True, dhaste=False)
 
 
 variants = {None: Aldred}
