@@ -619,7 +619,7 @@ class AmuletPicker:
     UNION_THRESHOLD = {1: 4, 2: 4, 3: 4, 4: 3, 5: 2, 6: 2, 11: 2}
 
     def __init__(self):
-        self._grouped = {9: {}, 5: {}, 4: {}}
+        self._grouped = {1: {}, 2: {}, 3: {}}
         self._grouped_lookup = {}
         for qual, wp in wyrmprints.items():
             try:
@@ -646,7 +646,7 @@ class AmuletPicker:
                 union=wp["union"],
                 qual=qual,
             )
-            group_key = 4 if wp["rarity"] < 5 else wp["rarity"]
+            group_key = wp["rarity"]
             self._grouped_lookup[qual] = (group_key, wpa, grouped_value)
             try:
                 from bisect import bisect
