@@ -1,4 +1,4 @@
-from core.afflic import AFFLICT_LIST
+from core.log import log
 from conf import ELEMENTS, WEAPON_TYPES
 
 
@@ -121,6 +121,14 @@ class Health_Points(Ability):
 
 
 ability_dict["hp"] = Health_Points
+
+
+class Recovery_Potency(Ability):
+    def __init__(self, name, value, cond=None):
+        super().__init__(name, [("recovery", "passive", value, cond)])
+
+
+ability_dict["rcv"] = Recovery_Potency
 
 
 class Buff_Time(Ability):
@@ -314,6 +322,7 @@ class Co_Ability(Ability):
         "bow": [("sp", "passive", 0.15)],
         "wand": [("s", "ex", 0.15)],
         "sword": [("dh", "passive", 0.15)],
+        "staff": [("recovery", "passive", 0.2)],
         "axe2": [("crit", "damage", 0.30)],
         "dagger2": [("x", "ex", 0.20)],
         "gun": [("odaccel", "passive", 0.20)],
@@ -1225,18 +1234,29 @@ class Corrosion(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
+        self.getrecovery_mod = adv.Modifier("corrosion", "getrecovery", "buff", -0.5)
         self.set_hp_event = adv.Event("set_hp")
         self.set_hp_event.delta = -1
         self.set_hp_event.can_die = True
+        self.heal_to_reset = 3000
 
         def l_degen(t):
             self.set_hp_event.on()
 
         def l_amplify(t):
             self.set_hp_event.delta -= 1
+            log("corrosion", "amplify", f"{self.set_hp_event.delta:+}%")
+
+        def l_reset(e):
+            self.heal_to_reset -= e.delta
+            if self.heal_to_reset <= 0:
+                self.set_hp_event.delta = -1
+                self.heal_to_reset = 3000
+                log("corrosion", "reset", f"{self.set_hp_event.delta:+}%")
 
         self.corrosion_degen = adv.Timer(l_degen, 2.9, True).on()
         self.corrosion_amplify = adv.Timer(l_amplify, 5, True).on()
+        adv.heal_event.listener(l_reset)
 
 
 ability_dict["corrosion"] = Corrosion

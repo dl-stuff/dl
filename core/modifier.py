@@ -174,7 +174,7 @@ bufftype_dict = {}
 
 
 class Buff(object):
-    MAXHP_CAP = 1.30
+    MAXHP_BUFF_CAP = 0.30
     _static = Static({"all_buffs": [], "adv": None})
     DB_DURATION = 15  # usual doublebuff effect duration for offensive buffs, note that regen lasts 20s
 
@@ -302,16 +302,27 @@ class Buff(object):
             db.on()
             if self.bufftype == "team":
                 log("buff", "doublebuff", 15 * self.bufftime())
+        elif self.mod_type == "maxhp":
+            if self._static.adv.sub_mod("maxhp", "buff") < Buff.MAXHP_BUFF_CAP:
+                self.modifier.on()
+            percent = value * 100
+            log("heal", self.name, self._static.adv.max_hp * value, "team" if self.bufftype == "team" else "self")
+            self._static.adv.add_hp(percent)
         # FIXME: heal formula 1day twust
-        elif self.mod_type in ("regen", "heal") and value != 0:
+        elif self.mod_type == "regen" and value != 0:
             self.set_hp_event = Event("set_hp")
-            self.set_hp_event.delta = self.get()
+            self.set_hp_event.delta = value
             self.regen_timer = Timer(self.hp_regen, 3.9, True).on()
+        elif self.mod_type == "heal" and value != 0:
+            self.set_hp_event = Event("heal_make")
+            self.set_hp_event.name = self.name
+            self.set_hp_event.delta = self._static.adv.heal_formula(self.source, value)
+            self.set_hp_event.target = "team" if self.bufftype == "team" else "self"
+            self.regen_timer = Timer(self.hp_regen, 2.9, True).on()
         else:
             return self.modifier and self.modifier.on()
 
     def effect_off(self):
-        # FIXME: heal formula 1day twust
         if self.mod_type in ("regen", "heal"):
             self.regen_timer.off()
         else:
@@ -384,14 +395,6 @@ class Buff(object):
             mod.off()
 
     def on(self, duration=None):
-        if self.mod_type == "maxhp":
-            max_hp = self._static.adv.mod("maxhp")
-            if max_hp >= Buff.MAXHP_CAP:
-                return self
-            value = self.__value
-            mod_val = min(value, max(Buff.MAXHP_CAP - max_hp, 0))
-            self._static.adv.set_hp((self._static.adv.hp * max_hp + value * 100) / (max_hp + mod_val))
-
         d = max(-1, (duration or self.duration) * self.bufftime())
         if self.__active == 0:
             self.__active = 1
@@ -951,8 +954,8 @@ bufftype_dict["affres"] = AffResDebuff
 
 class EchoBuff(Buff):
     def __init__(self, name, value=0, duration=0, source=None):
-        self.echo_mod = value
         super().__init__(name, 1, duration, "effect", source=source)
+        self.echo_mod = value
 
     def on(self, duration=None):
         if self._static.adv.enable_echo(mod=self.echo_mod):
@@ -964,6 +967,26 @@ class EchoBuff(Buff):
 
 
 bufftype_dict["echo"] = EchoBuff
+
+
+class DrainBuff(Buff):
+    def __init__(self, name, value=0, duration=0, source=None):
+        super().__init__(name, 1, duration, "effect", source=source)
+        self.drain = value
+        self.drain_listener = Listener("dmg_made", self.l_drain)
+
+    def effect_on(self):
+        self.drain_listener.on()
+
+    def effect_off(self):
+        self.drain_listener.off()
+
+    def l_drain(self, e):
+        if e.name != "echo":
+            self._static.adv.add_hp(self.drain * e.count, percent=False)
+
+
+bufftype_dict["drain"] = DrainBuff
 
 
 class SelfAffliction(Buff):

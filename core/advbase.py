@@ -19,7 +19,12 @@ from core.acl import allow_acl
 import conf as globalconf
 from conf.equip import EquipManager
 from ctypes import c_float
-from math import ceil
+
+
+def float_ceil(value, percent):
+    c_float_value = c_float(c_float(percent).value * value).value
+    int_value = int(c_float_value)
+    return int_value if int_value == c_float_value else int_value + 1
 
 
 class Skill(object):
@@ -847,7 +852,8 @@ class Adv(object):
         self.hits = 0
         self.last_c = 0
 
-        self.hp = 100
+        self._hp = 3000
+        self.base_hp = 3000
         self.hp_event = Event("hp")
         self.heal_event = Event("heal")
         self.dragonform = None
@@ -901,43 +907,90 @@ class Adv(object):
 
     def l_set_hp(self, e):
         try:
-            self.add_hp(e.delta)
+            can_die = e.can_die
         except AttributeError:
-            self.set_hp(e.hp)
+            can_die = False
         try:
-            if e.can_die and self.hp <= 0:
-                self.stop()
-                self.alive = False
+            self.add_hp(e.delta, can_die=can_die)
         except AttributeError:
-            pass
+            self.set_hp(e.hp, can_die=can_die)
 
-    def add_hp(self, delta):
-        self.set_hp(self.hp + delta)
+    def l_heal_make(self, e):
+        self.heal_make(e.name, e.delta, target=e.target, fixed=True)
 
-    def set_hp(self, hp):
+    def heal_formula(self, name, coef):
+        healstat = self.max_hp * 0.16 + self.base_att * self.mod("att") * 0.06
+        energize = 1
+        if name in self.energy.active:
+            energize += self.energy.modifier.get()
+        potency = self.mod("recovery")
+        elemental_mod = 1.2
+        coef_mod = 0.01
+        # log("heal_formula", coef * coef_mod, healstat, energize, potency, elemental_mod)
+        return coef * coef_mod * healstat * energize * potency * elemental_mod
+
+    def heal_make(self, name, coef, target="self", fixed=False):
+        if fixed:
+            heal_value = coef
+        else:
+            heal_value = self.heal_formula(name, coef)
+        log("heal", name, heal_value, target, self._hp)
+        self.add_hp(heal_value, percent=False)
+
+    def add_hp(self, delta, percent=True, can_die=False):
+        if percent:
+            delta = self.max_hp * delta / 100
+        if delta > 0:
+            delta *= self.sub_mod("getrecovery", "buff") + 1
+        new_hp = self._hp + delta
+        self.set_hp(new_hp, percent=False, can_die=can_die)
+
+    def set_hp(self, hp, percent=True, can_die=False):
+        max_hp = self.max_hp
         if self.conf["flask_env"] and "hp" in self.conf:
-            hp = self.conf["hp"]
-        old_hp = self.hp
+            hp = self.conf["hp"] * max_hp
+        old_hp = self._hp
+        if percent:
+            hp = max_hp * hp / 100
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        hp = round(hp * 10) / 10
-        self.hp = max(min(hp, 100), 0)
-        if self.hp != old_hp:
-            delta = self.hp - old_hp
-            if self.hp == 0:
-                log("hp", f"=1", f"{delta/100:.2%}")
-            else:
-                log("hp", f"{self.hp/100:.2%}", f"{delta/100:.2%}")
+        elif self.dragonform.status != Action.OFF:
+            delta = (hp - old_hp) / 10000
+            if delta < 0:
+                self.dragonform.set_shift_end(delta, percent=True)
+                return
+        if can_die:
+            self._hp = max(min(hp, max_hp), 0)
+            if self._hp == 0:
+                self.stop()
+                self.alive = False
+                return
+        else:
+            self._hp = max(min(hp, max_hp), 1)
+        if self._hp != old_hp:
+            delta = self._hp - old_hp
+            log("hp", f"{self._hp / max_hp:.1%}", f"{int(self._hp)}/{max_hp}", f"{round(delta):+}")
             self.condition.hp_cond_update()
-            self.hp_event.hp = self.hp
+            self.hp_event.hp = self._hp
             self.hp_event.delta = delta
             self.hp_event()
-            if self.dragonform.status != Action.OFF and delta < 0:
-                self.dragonform.set_shift_end(delta / 100)
 
     def get_hp(self):
         return self.hp
+
+    @property
+    def hp(self):
+        if self._hp == 1:
+            return 0
+        return min(self._hp / self.max_hp * 100, 100)
+
+    def max_hp_mod(self):
+        return 1 + min(0.3, self.sub_mod("maxhp", "buff")) + self.sub_mod("maxhp", "passive")
+
+    @property
+    def max_hp(self):
+        return float_ceil(self.base_hp, self.max_hp_mod())
 
     def afflic_condition(self):
         if "afflict_res" in self.conf and not self.conf["berserk"]:
@@ -1654,6 +1707,7 @@ class Adv(object):
         self.l_true_dmg = Listener("true_dmg", self.l_true_dmg)
         self.l_dmg_formula = Listener("dmg_formula", self.l_dmg_formula)
         self.l_set_hp = Listener("set_hp", self.l_set_hp)
+        self.l_heal_make = Listener("heal_make", self.l_heal_make)
 
         self.uses_combo = False
 
@@ -1675,6 +1729,7 @@ class Adv(object):
         self.slots.oninit(self)
         self.base_att = int(self.slots.att)
         self.base_hp = int(self.slots.hp)
+        self._hp = self.max_hp
 
         self.set_hp(100)
         if "hp" in self.conf:
@@ -1801,9 +1856,8 @@ class Adv(object):
     # DL uses C floats and round SP up, which leads to precision issues
     @staticmethod
     def sp_convert(haste, sp):
-        sp_hasted = c_float(c_float(haste).value * sp).value
-        sp_int = int(sp_hasted)
-        return sp_int if sp_int == sp_hasted else sp_int + 1
+        # FIXME: dum
+        return float_ceil(sp, haste)
 
     def get_targets(self, target):
         # FIXME - make a shared sp skill class
@@ -1934,7 +1988,11 @@ class Adv(object):
             for m in hitmods:
                 m.off()
         log("dmg", name, count)
-        self.dmg_proc(name, count)
+        # self.dmg_proc(name, count)
+        dmg_made_event = Event("dmg_made")
+        dmg_made_event.name = name
+        dmg_made_event.count = count
+        dmg_made_event.on()
         if fixed:
             return count
         if not self.conf["berserk"] and self.echo > 1:
@@ -1943,7 +2001,12 @@ class Adv(object):
                 echo_count = self.dmg_formula_echo(coef / (rate ** depth))
             else:
                 echo_count = self.dmg_formula_echo(coef)
-            self.dmg_proc(name, echo_count)
+            # self.dmg_proc(name, echo_count)
+            dmg_made_event = Event("dmg_made")
+            dmg_made_event.name = "echo"
+            dmg_made_event.source = name
+            dmg_made_event.count = echo_count
+            dmg_made_event.on()
             log("dmg", "echo", echo_count, f"from {name}")
             count += echo_count
         if attenuation is not None:
@@ -2035,9 +2098,12 @@ class Adv(object):
                     self.set_hp(self.hp * value)
 
         if "heal" in attr:
-            # self.heal_event()
-            # FIXME: heal formula 1day twust
-            self.set_hp(self.hp + attr["heal"] / 2)
+            try:
+                self.heal_make(name, float(attr["heal"]))
+            except TypeError:
+                value = attr["heal"][0]
+                target = attr["heal"][1]
+                self.heal_make(name, value, target)
 
         if "afflic" in attr:
             aff_type, aff_args = attr["afflic"][0], attr["afflic"][1:]

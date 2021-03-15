@@ -3,9 +3,7 @@ from core.advbase import *
 
 class Mona(Adv):
     def prerun(self):
-        self.dragondrive = self.dragonform.set_dragondrive(
-            ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=75
-        )
+        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=75)
         self.beast_eye = Selfbuff("beast_eye", 0.2, 30, "utph", "buff").ex_bufftime()
         Event("dragondrive").listener(self.ddrive_buff_off)
 
@@ -20,7 +18,7 @@ class Mona(Adv):
             self.dmg_make("x_zorro", 2.0)
         if e.base == "x5":
             self.dmg_make("x_zorro", 2.0)
-            self.add_hp(5)
+            self.heal_make("x_zorro", 10, target="team")
 
     def ddrive_buff_off(self, e):
         self.beast_eye.off()

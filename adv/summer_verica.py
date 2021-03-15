@@ -7,7 +7,7 @@ class Summer_Verica(Adv):
 
     def s2_autocharge(self, t):
         if self.s1.sp > self.s1.charged:
-            log("s2", 1578)
+            log("sp", "s2_autocharge", 1578)
             self.s2.charge(1578)
 
 

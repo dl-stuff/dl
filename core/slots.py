@@ -336,7 +336,7 @@ class Nimis(DragonBase):
 
         def add_gauge_and_time(t):
             adv.dragonform.charge_gauge(200, dhaste=False)
-            adv.dragonform.set_shift_end(5, percent=False)
+            adv.dragonform.set_shift_end(5, percent=False, addition=True)
 
         Event("ds").listener(add_gauge_and_time)
 
@@ -744,7 +744,10 @@ class AmuletStack:
         "k_stun": 0.25,
         "k_sleep": 0.25,
         "k_shadowblight": 0.25,
+        "k_stormlash": 0.25,
+        "k_flashburn": 0.25,
         "bleed": 0.15,
+        "rcv": 0.20,
     }
     # actually depends on weapons kms
     RARITY_LIMITS = {9: 2, 5: 3, None: 2}

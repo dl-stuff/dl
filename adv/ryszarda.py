@@ -17,7 +17,7 @@ class Ryszarda(SigilAdv):
         if not self.a1_heal_cd:
             self.a_update_sigil(-30)
             # bullshit maffs
-            if e.delta >= 30:
+            if e.delta >= 1000:
                 self.a_update_sigil(-15)
             self.a1_heal_cd = True
             Timer(self.a1_heal_cd_off).on(20)

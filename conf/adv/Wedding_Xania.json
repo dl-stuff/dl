@@ -7,13 +7,14 @@
         "ele": "wind",
         "wt": "staff",
         "spiral": false,
-        "a": [["affres_freeze", 100.0], ["prep", 50.0]]
+        "a": [["rcv", 0.15, "hp100"], ["affres_freeze", 100.0], ["prep", 50.0]]
     },
     "s1": {
         "sp": 7888,
         "startup": 0.1,
         "recovery": 1.3,
         "attr": [
+            {"heal": [108, "team"], "iv": 1.3},
             {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 1.33333}
         ],
         "energizable": true
@@ -23,7 +24,8 @@
         "startup": 0.1,
         "recovery": 1.0,
         "attr": [
-            {"buff": ["team", 0.1, 15.0, "defense", "buff"], "iv": 0.4}
+            {"buff": ["team", 0.1, 15.0, "defense", "buff"], "iv": 0.4},
+            {"buff": ["team", 29.0, 15.0, "heal", "buff"], "iv": 0.43333}
         ]
     }
 }

@@ -7,14 +7,14 @@
         "ele": "water",
         "wt": "staff",
         "spiral": false,
-        "a": [["prep", 75.0], ["affres_stun", 100.0], ["spu", 0.08]]
+        "a": [["prep", 75.0], ["affres_stun", 100.0], ["sp", 0.02], ["sp", 0.04], ["sp", 0.02]]
     },
     "s1": {
         "sp": 7888,
         "startup": 0.1,
         "recovery": 1.8,
         "attr": [
-            {"heal": 44, "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333},
+            {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333},
             {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_8"], "iv": 0.96667},
             {"buff": ["team", 0.15, 5.0, "defense", "buff"], "iv": 1.0}
         ],
@@ -26,7 +26,7 @@
         "recovery": 1.93333,
         "energizable": true,
         "attr": [
-            {"heal": 90, "iv": 0.96667}
+            {"heal": [90, "team"], "iv": 0.96667}
         ]
     }
 }
