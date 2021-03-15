@@ -212,6 +212,43 @@
         "Weapon",
         "Mikoto"
       ]
+    },
+    "mono_noaffliction": {
+      "dps": 102879.35198430039,
+      "team": 0.11107009744920113,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if s=4",
+        "queue dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end);s1",
+        "end",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=1",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s4, dgauge>=500 or dgauge<=300",
+        "`s2",
+        "`s1, fscf",
+        "`fs, charged_in(fs, s2)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
     }
   },
   "60": {

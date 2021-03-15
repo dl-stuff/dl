@@ -199,7 +199,73 @@
         "Pinon"
       ]
     },
-    "mono_pref": "mono_base"
+    "mono_pref": "mono_base",
+    "noaffliction": {
+      "dps": 35989.943569656025,
+      "team": 0.09782749620160493,
+      "tdps": null,
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "# queue self.duration<=60",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and duration>=120",
+        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
+        "`s4, s or x=5",
+        "`s1, fsc or (s=1 or s=4)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 35465.95312080713,
+      "team": 0.10242447356302133,
+      "tdps": null,
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "From_Whence_He_Comes",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "# queue self.duration<=60",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and duration>=120",
+        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
+        "`s4, s or x=5",
+        "`s1, fsc or (s=1 or s=4)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    }
   },
   "60": {
     "affliction": {
