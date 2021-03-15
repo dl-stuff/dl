@@ -762,7 +762,6 @@ class AmuletStack:
                 continue
             limits[conf["rarity"]] -= 1
             amulet = AmuletBase(conf, c, qual)
-            self.an.append(amulet)
             if amulet.icon not in icon_ids:
                 self.an.append(amulet)
                 icon_ids.add(amulet.icon)
