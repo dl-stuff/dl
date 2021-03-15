@@ -138,7 +138,10 @@ class AfflicBase:
             self._resist = resist
 
     def get(self):
-        return self.get_override or self._get
+        if self.resist >= 3:
+            return 0
+        else:
+            return self.get_override or self._get
 
     def set_res_mod(self, delta):
         self.res_modifier = max(min(self.res_modifier + delta, 0), -1)
@@ -480,7 +483,7 @@ class Afflics(object):
             getattr(self, aff).resist = resist
 
     def get_resist(self):
-        return {aff: getattr(self, aff).resist for aff in AFFLICT_LIST}
+        return {aff: int(getattr(self, aff).resist * 100) for aff in AFFLICT_LIST}
 
     def get_uptimes(self):
         uptimes = {}

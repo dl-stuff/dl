@@ -3,7 +3,7 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 71171.50471516368,
+      "dps": 72811.18728412892,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -31,7 +31,7 @@
       ]
     },
     "mono_base": {
-      "dps": 71171.50471516368,
+      "dps": 72811.18728412892,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -59,7 +59,7 @@
       ]
     },
     "affliction": {
-      "dps": 82236.58311852212,
+      "dps": 84174.28924271736,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -69,17 +69,19 @@
         "Enter_the_Blue_Rose",
         "The_Plaguebringer"
       ],
-      "slots.d": "Fatalis",
+      "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-end), s=2",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), buff(s3) and s=1 and dragonform.shift_count=0",
+        "`dragon(c3-s-end), buff(s3) and s=4 and dragonform.shift_count=1",
+        "`dragon(c3-s-end), buff(s3) and s=4 and dragonform.shift_count=2",
+        "`s3, not buff(s3) and charged_in(fs,s1)",
         "`s1, not aff(shadowblight)",
         "`s4",
         "`fs"
       ],
       "coabs": [
-        "Blade",
-        "Dagger",
+        "Forte",
+        "Cleo",
         "Grace"
       ],
       "share": [
@@ -88,7 +90,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 82236.58311852212,
+      "dps": 84174.28924271736,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -98,17 +100,19 @@
         "Enter_the_Blue_Rose",
         "The_Plaguebringer"
       ],
-      "slots.d": "Fatalis",
+      "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-end), s=2",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), buff(s3) and s=1 and dragonform.shift_count=0",
+        "`dragon(c3-s-end), buff(s3) and s=4 and dragonform.shift_count=1",
+        "`dragon(c3-s-end), buff(s3) and s=4 and dragonform.shift_count=2",
+        "`s3, not buff(s3) and charged_in(fs,s1)",
         "`s1, not aff(shadowblight)",
         "`s4",
         "`fs"
       ],
       "coabs": [
-        "Blade",
-        "Dagger",
+        "Forte",
+        "Cleo",
         "Grace"
       ],
       "share": [
@@ -119,7 +123,7 @@
     "buffer": {
       "dps": 10973.041210102263,
       "team": 0.5211098552508723,
-      "tdps": 115519.7179605838,
+      "tdps": 118666.23793606163,
       "slots.a": [
         "Castle_Cheer_Corps",
         "Dazzling_Duet",
@@ -146,7 +150,7 @@
     "mono_buffer": {
       "dps": 14024.382771704064,
       "team": 0.3951714887720596,
-      "tdps": 144613.47431981075,
+      "tdps": 148762.76802027563,
       "slots.a": [
         "Dazzling_Duet",
         "Jewels_of_the_Sun",

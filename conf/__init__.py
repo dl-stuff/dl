@@ -25,7 +25,7 @@ TRIBE_TYPES = (
     "human",
     "dragon",
 )
-DURATIONS = (60, 180)
+DURATIONS = (180,)
 ELE_AFFLICT = {
     "flame": "burn",
     "water": "frostbite",
@@ -158,9 +158,7 @@ def get_adv(name):
 
 
 def all_subclasses(cl):
-    return set(cl.__subclasses__()).union(
-        [s for c in cl.__subclasses__() for s in all_subclasses(c)]
-    )
+    return set(cl.__subclasses__()).union([s for c in cl.__subclasses__() for s in all_subclasses(c)])
 
 
 def subclass_dict(cl):

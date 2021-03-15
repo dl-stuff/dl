@@ -48,6 +48,8 @@ class Skill(object):
         self.skill_charged = Event("{}_charged".format(self.name))
 
         self.enable_phase_up = None
+        self.maxcharge = 1
+        self.autocharge_sp = 0
 
     def add_action(self, group, act):
         act.cast = self.cast
@@ -75,6 +77,10 @@ class Skill(object):
     @property
     def sp(self):
         return self.ac.conf.sp
+
+    @property
+    def count(self):
+        return self.charged // self.sp
 
     @property
     def owner(self):
@@ -105,7 +111,7 @@ class Skill(object):
     def charge(self, sp):
         if not self.ac.enabled:
             return
-        self.charged = max(min(self.sp, self.charged + sp), 0)
+        self.charged = max(min(self.sp * self.maxcharge, self.charged + sp), 0)
         if self.charged >= self.sp:
             self.skill_charged()
 
@@ -137,14 +143,30 @@ class Skill(object):
         else:
             if sp < 1:
                 sp = int(sp * self.sp)
+            self.autocharge_sp = sp
 
             def autocharge(t):
-                if self.charged < self.sp:
-                    self.charge(sp)
-                    log("sp", self.name + "_autocharge", int(sp))
+                if self.charged < self.sp * self.maxcharge:
+                    self.charge(self.autocharge_sp)
+                    log("sp", self.name + "_autocharge", int(self.autocharge_sp))
 
             self.autocharge_timer = Timer(autocharge, iv, 1)
         return self.autocharge_timer
+
+
+class ReservoirSkill(Skill):
+    def __init__(self, name=None, acts=None, true_sp=1, maxcharge=1):
+        super().__init__(name=name, acts=acts)
+        self.maxcharge = maxcharge
+        self.true_sp = true_sp
+
+    @property
+    def sp(self):
+        return self.true_sp
+
+    def __call__(self, call=1):
+        self.name = f"s{call}"
+        return super().__call__()
 
 
 class Nop(object):
@@ -753,7 +775,9 @@ class Adv(object):
                 aff = attr.get("afflic")
                 if aff is not None:
                     aff = aff[0]
-                    self.condition("{} {} res".format(int(getattr(self.afflics, aff).resist * 100), aff))
+                    self.use_afflict.add(aff)
+                    if not "999 all affliction res" in self.condition:
+                        self.condition(f"{int(getattr(self.afflics, aff).resist * 100)} {aff} res")
         if conf.get("energizable"):
             self.energy.extra_tensionable.add(name)
 
@@ -963,14 +987,15 @@ class Adv(object):
         return float_ceil(self.base_hp, self.max_hp_mod())
 
     def afflic_condition(self):
-        if "afflict_res" in self.conf:
+        if "afflict_res" in self.conf and not self.conf["berserk"]:
             res_conf = self.conf.afflict_res
-            for afflic in AFFLICT_LIST:
-                if afflic in res_conf and 0 <= res_conf[afflic] <= 100:
-                    if self.condition("{} {} res".format(res_conf[afflic], afflic)):
-                        vars(self.afflics)[afflic].resist = res_conf[afflic]
-                    else:
-                        vars(self.afflics)[afflic].resist = 100
+            if all((value >= 200 for value in res_conf.values())):
+                self.condition("999 all affliction res")
+                self.afflics.set_resist("immune")
+            else:
+                for afflic, resist in res_conf.items():
+                    if self.condition(f"{resist} {afflic} res"):
+                        vars(self.afflics)[afflic].resist = resist
 
     def sim_affliction(self):
         if "sim_afflict" in self.conf and not self.conf["berserk"]:
@@ -1096,6 +1121,7 @@ class Adv(object):
         else:
             self.afflics.set_resist(self.conf.c.ele)
         self.sim_afflict = set()
+        self.use_afflict = set()
         self.afflic_condition()
         self.sim_affliction()
 

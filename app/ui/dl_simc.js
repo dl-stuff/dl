@@ -551,8 +551,15 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
                     } else {
                         $('#input-acl').val(acl);
                     }
-                    for (const key in slots.afflict_res) {
-                        $('#input-res-' + key).attr('placeholder', slots.afflict_res[key]);
+                    if (requestJson['equip'] == 'noaffliction') {
+                        for (const key in slots.afflict_res) {
+                            $('#input-res-' + key).val(slots.afflict_res[key]);
+                        }
+                    } else {
+                        for (const key in slots.afflict_res) {
+                            $('#input-res-' + key).val('');
+                            $('#input-res-' + key).attr('placeholder', slots.afflict_res[key]);
+                        }
                     }
                     $('.input-wp > div > select').prop('disabled', false);
                     $('#input-edit-acl').prop('disabled', false);

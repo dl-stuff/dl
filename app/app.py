@@ -166,7 +166,7 @@ def simc_adv_test():
         except KeyError:
             pass
         try:
-            conf[f"afflict_res.{afflic}"] = min(abs(int(params["afflict_res"][afflic])), 100)
+            conf[f"afflict_res.{afflic}"] = min(abs(int(params["afflict_res"][afflic])), 999)
         except KeyError:
             pass
 
@@ -244,7 +244,10 @@ def get_adv_slotlist():
             result["coabilities"] = {k: (get_fullname(k), *v) for k, v in mono_elecoabs[adv.slots.c.ele].items()}
         else:
             result["coabilities"] = {k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()}
-        result["afflict_res"] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
+        if equip_key == "noaffliction":
+            result["afflict_res"] = Afflics.RESIST_PROFILES["immune"]
+        else:
+            result["afflict_res"] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
     return jsonify(result)
 
 

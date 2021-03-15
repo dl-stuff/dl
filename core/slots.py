@@ -26,6 +26,8 @@ class SlotBase:
     def __init__(self, conf, qual=None):
         self.conf = conf
         self.qual = qual
+        self.att_augment = self.AUGMENTS
+        self.hp_augment = self.AUGMENTS
 
     def __str__(self):
         return self.name
@@ -44,11 +46,11 @@ class SlotBase:
 
     @property
     def att(self):
-        return self.conf.att + self.AUGMENTS
+        return self.conf.att + self.att_augment
 
     @property
     def hp(self):
-        return self.conf.hp + self.AUGMENTS
+        return self.conf.hp + self.hp_augment
 
     @property
     def ab(self):
@@ -89,7 +91,7 @@ class CharaBase(SlotBase):
         "lance": 0.05,
         "staff": 0.05,
         "axe": 0.05,
-        "gun": -0.1,  # opera (0.05) + fount (0.05) - diff in weap (0.225 - 0.205 = 0.2)
+        "gun": 0.075,  # opera (0.05) + fount (0.05) - diff in weap (0.225 - 0.200 = 0.025)
     }
     FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
 
@@ -755,12 +757,17 @@ class AmuletStack:
     def __init__(self, confs, c, quals):
         limits = AmuletStack.RARITY_LIMITS.copy()
         self.an = []
+        # icon_ids = set()
         for conf, qual in zip(confs, quals):
             rk = None if conf["rarity"] < 5 else conf["rarity"]
             if limits[rk] == 0:
                 continue
             limits[rk] -= 1
-            self.an.append(AmuletBase(conf, c, qual))
+            amulet = AmuletBase(conf, c, qual)
+            self.an.append(amulet)
+            # if amulet.icon not in icon_ids:
+            #     self.an.append(amulet)
+            #     icon_ids.add(amulet.icon)
         # if any(limits.values()):
         #     raise ValueError("Unfilled wyrmprint slot")
         self.an = AmuletStack.PICKER.pick(self.an, c)
@@ -858,6 +865,9 @@ class AmuletBase(EquipBase):
 
     def __init__(self, conf, c, qual=None):
         super().__init__(conf, c, qual)
+        if self.rarity == 9:
+            self.att_augment -= 10
+            self.hp_augment -= 10
 
     @property
     def union(self):

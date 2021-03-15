@@ -12,17 +12,22 @@ from conf import (
     list_advs,
 )
 import core.simulate
+from core.afflic import Afflics, AFFLICT_LIST
 
 BANNED_PRINTS = (
+    # srry no full hp sd allowed
     "Witchs_Kitchen",
     "Berry_Lovable_Friends",
     "Happier_Times",
+    # bugged in game
     "United_by_One_Vision",
     "Second_Anniversary",
-    # 9* prints not yet obtainable
+    # banning these until dupe clause is fixed
     "Crown_of_Light",
-    "Her_Beloved",
-    "Mask_of_Determination",
+    "Her_Beloved_Crown",
+    "Her_Beloved_Sword",
+    "Mask_of_Determination_Bow",
+    "Mask_of_Determination_Lance",
     "Tutelarys_Destiny",
 )
 BANNED_SHARES = ("Durant", "Yue")
@@ -33,7 +38,6 @@ ABNORMAL_COND = (
     "classbane",
     "hp",
     "dumb",
-    "afflict_res",
     "fleet",
 )
 BUFFER_TDPS_THRESHOLD = 40000
@@ -63,6 +67,10 @@ class EquipEntry(dict):
             and all([not wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst])
             and all([not ss in BANNED_SHARES for ss in adv.skillshare_list])
         )
+
+    @staticmethod
+    def standard_affres(adv):
+        return adv.afflics.get_resist() == Afflics.RESIST_PROFILES[adv.slots.c.ele]
 
     @staticmethod
     def acceptable(entry, ele=None):
@@ -118,13 +126,13 @@ def build_entry_from_sim(entryclass, adv, real_d):
 class BaseEntry(EquipEntry):
     @staticmethod
     def eligible(adv):
-        return not adv.sim_afflict and EquipEntry.eligible(adv)
+        return not adv.sim_afflict and EquipEntry.standard_affres(adv) and EquipEntry.eligible(adv)
 
 
 class BufferEntry(EquipEntry):
     @staticmethod
     def eligible(adv):
-        return not adv.sim_afflict and EquipEntry.eligible(adv)
+        return not adv.sim_afflict and EquipEntry.standard_affres(adv) and EquipEntry.eligible(adv)
 
     @staticmethod
     def acceptable(entry, ele=None):
@@ -137,8 +145,23 @@ class BufferEntry(EquipEntry):
 class AfflictionEntry(EquipEntry):
     @staticmethod
     def eligible(adv):
+        return AfflictionEntry.onele_affliction(adv) and EquipEntry.standard_affres(adv) and EquipEntry.eligible(adv)
+
+    @staticmethod
+    def onele_affliction(adv):
         eleaff = ELE_AFFLICT[adv.slots.c.ele]
-        return (adv.sim_afflict == {eleaff} and adv.conf_init.sim_afflict[eleaff] == 1) and EquipEntry.eligible(adv)
+        return adv.sim_afflict == {eleaff} and adv.conf_init.sim_afflict[eleaff] == 1
+
+
+class NoAfflictionEntry(EquipEntry):
+    @staticmethod
+    def eligible(adv):
+        return (NoAfflictionEntry.immune_affres(adv) or not adv.use_afflict) and EquipEntry.eligible(adv)
+
+    @staticmethod
+    def immune_affres(adv):
+        affres = adv.afflics.get_resist()
+        return all((value >= 300 for value in affres.values()))
 
 
 def all_monoele_coabs(entry, ele):
@@ -163,19 +186,28 @@ class MonoAfflictionEntry(AfflictionEntry):
         return all_monoele_coabs(entry, ele) and AfflictionEntry.acceptable(entry)
 
 
+class MonoNoAfflictionEntry(AfflictionEntry):
+    @staticmethod
+    def acceptable(entry, ele):
+        return all_monoele_coabs(entry, ele) and NoAfflictionEntry.acceptable(entry)
+
+
 EQUIP_ENTRY_MAP = {
     "base": BaseEntry,
     "buffer": BufferEntry,
     "affliction": AfflictionEntry,
+    "noaffliction": NoAfflictionEntry,
     # 'affbuff' ?
     "mono_base": MonoBaseEntry,
     "mono_buffer": MonoBufferEntry,
     "mono_affliction": MonoAfflictionEntry,
+    "mono_noaffliction": MonoNoAfflictionEntry,
 }
 KICK_TO = {
     "base": ("buffer", "mono_base"),
     "buffer": ("mono_buffer",),
     "affliction": ("mono_affliction",),
+    "noaffliction": ("mono_noaffliction",),
 }
 THRESHOLD_RELATION = (
     ("base", "buffer", "pref"),
@@ -186,12 +218,8 @@ THRESHOLD_RELATION = (
 class EquipManager(dict):
     def __init__(self, advname, debug=False):
         self.advname = advname
-        if debug:
-            super().__init__({})
-            self.debug = True
-        else:
-            super().__init__(load_equip_json(advname))
-            self.debug = False
+        super().__init__(load_equip_json(advname))
+        self.debug = debug
         self.pref = None
         for duration, dequip in self.items():
             for kind, entry in dequip.items():
@@ -217,14 +245,19 @@ class EquipManager(dict):
 
         # first pass
         for kind, entryclass in EQUIP_ENTRY_MAP.items():
+            if self.debug:
+                print("~" * 60)
+                print(f"{kind} {entryclass}")
             if not entryclass.eligible(adv):
+                if self.debug:
+                    print(f"not eligible")
                 continue
             new_entry = build_entry_from_sim(entryclass, adv, real_d)
             if not entryclass.acceptable(new_entry, adv.slots.c.ele):
+                if self.debug:
+                    print(f"not acceptable")
                 continue
             if self.debug:
-                print("~" * 60)
-                print(kind, adv.sim_afflict)
                 pprint(new_entry)
             try:
                 current_entry = self[duration][kind]
@@ -232,7 +265,7 @@ class EquipManager(dict):
                 self[duration][kind] = new_entry
                 need_write = True
                 if self.debug:
-                    print("fill empty slot")
+                    print(f"fill empty slot {duration, kind}")
                 continue
             if current_entry.same_build_different_dps(new_entry) or not current_entry.better_than(new_entry):
                 if self.debug:
@@ -291,6 +324,9 @@ class EquipManager(dict):
         conf = deepcopy(conf)
         if kind in ("affliction", "mono_affliction"):
             conf[f"sim_afflict.{ELE_AFFLICT[element]}"] = 1
+        if kind in ("noaffliction", "mono_noaffliction"):
+            for afflic in AFFLICT_LIST:
+                conf[f"afflict_res.{afflic}"] = 999
         with open(os.devnull, "w") as output:
             run_res = core.simulate.test(self.advname, adv_module, conf, int(duration), output=output)
         adv = run_res[0][0]
@@ -325,7 +361,7 @@ class EquipManager(dict):
                 #         self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind, do_compare=True)
                 #     except KeyError:
                 #         pass
-                for basekind in ("base", "buffer", "affliction"):
+                for basekind in ("base", "buffer", "affliction", "noaffliction"):
                     monokind = f"mono_{basekind}"
                     if not basekind in self[duration]:
                         continue
@@ -374,7 +410,7 @@ class EquipManager(dict):
 
 
 def initialize_equip_managers():
-    return {advname: EquipManager(advname) for advname in list_advs()}
+    return {advname: EquipManager(advname, debug=False) for advname in list_advs()}
 
 
 def _test_equip(advname, confs):
