@@ -138,7 +138,7 @@ class BufferEntry(EquipEntry):
         return entry["team"] and EquipEntry.acceptable(entry, ele)
 
     def better_than(self, other):
-        return self["team"] > other["team"] or (self["team"] == other["team"] and self["dps"] > other["dps"])
+        return self["team"] > other["team"] or (round(self["team"], 5) == round(other["team"], 5) and self["dps"] > other["dps"])
 
 
 class AfflictionEntry(EquipEntry):
