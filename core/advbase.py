@@ -934,7 +934,7 @@ class Adv(object):
             heal_value = coef
         else:
             heal_value = self.heal_formula(name, coef)
-        log("heal", name, heal_value, target, self._hp)
+        log("heal", name, heal_value, target)
         self.add_hp(heal_value, percent=False)
 
     def add_hp(self, delta, percent=True, can_die=False):

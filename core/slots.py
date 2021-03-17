@@ -748,6 +748,7 @@ class AmuletStack:
         "k_flashburn": 0.25,
         "bleed": 0.15,
         "rcv": 0.20,
+        "hp": 0.15,
     }
     # actually depends on weapons kms
     RARITY_LIMITS = {1: 3, 2: 2, 3: 2}

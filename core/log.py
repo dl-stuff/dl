@@ -3,10 +3,6 @@ from collections import defaultdict
 import core.timeline
 
 
-def hecc():
-    return {}
-
-
 class Log:
     DEBUG = False
 
@@ -17,7 +13,8 @@ class Log:
         self.record = []
         self.damage = {"x": {}, "s": {}, "f": {}, "d": {}, "o": {}}
         self.counts = {"x": {}, "s": {}, "f": {}, "d": {}, "o": {}}
-        self.datasets = defaultdict(hecc)
+        self.heal = {}
+        self.datasets = defaultdict(dict)
         self.p_buff = None
         self.team_buff = 0
         self.team_doublebuffs = 0
@@ -34,10 +31,7 @@ class Log:
                 stacks += v
                 converted_doublebuff[t] = stacks
             self.datasets["doublebuff"] = converted_doublebuff
-        return {
-            cat: [{"x": t, "y": d} for t, d in sorted(data.items())]
-            for cat, data in self.datasets.items()
-        }
+        return {cat: [{"x": t, "y": d} for t, d in sorted(data.items())] for cat, data in self.datasets.items()}
 
     @staticmethod
     def update_dict(dict, name: str, value, replace=False):
@@ -60,11 +54,7 @@ class Log:
 
     @staticmethod
     def fmt_hitattr(attr):
-        return (
-            "{"
-            + "/".join([f"{k}:{Log.fmt_hitattr_v(v)}" for k, v in attr.items()])
-            + "}"
-        )
+        return "{" + "/".join([f"{k}:{Log.fmt_hitattr_v(v)}" for k, v in attr.items()]) + "}"
 
     def log_shift_dmg(self, enable):
         if enable:
@@ -112,19 +102,19 @@ class Log:
                     pt, pb = self.p_buff
                     self.team_buff += (time_now - pt) * pb
                 self.p_buff = (time_now, buff_amount)
-                self.update_dict(
-                    self.datasets["team"], time_now, buff_amount, replace=True
-                )
+                self.update_dict(self.datasets["team"], time_now, buff_amount, replace=True)
             elif category == "buff" and name == "doublebuff":
                 self.team_doublebuffs += 1
                 self.update_dict(self.datasets["doublebuff"], time_now, 1)
-                self.update_dict(
-                    self.datasets["doublebuff"], time_now + float(args[2]), -1
-                )
+                self.update_dict(self.datasets["doublebuff"], time_now + float(args[2]), -1)
             elif category in ("energy", "inspiration") and name == "team":
                 self.update_dict(self.team_tension, category, float(args[2]))
             elif category == "affliction":
                 self.update_dict(self.datasets[name], time_now, float(args[2]) * 100)
+            elif category == "heal":
+                heal_value = float(args[2])
+                self.update_dict(self.heal, args[3], heal_value)
+                self.update_dict(self.datasets[f"heal_{args[3]}"], time_now, heal_value)
         if self.DEBUG:
             self.write_log_entry(n_rec, sys.stdout, flush=True)
         self.record.append(n_rec)

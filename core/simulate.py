@@ -501,6 +501,11 @@ def summation(real_d, adv, output, cond=True):
         #         output.write(' ({}: {})'.format(k, int(v)))
         output.write(", duration {:.2f}s".format(real_d))
 
+        if adv.logs.heal:
+            output.write("\nHealing - ")
+            for k, v in adv.logs.heal.items():
+                output.write("{}: {}; ".format(k, int(v)))
+
         output.write("\n")
         output.write(adv.slots.c.name)
         output.write(" ")

@@ -14,7 +14,7 @@
         "startup": 0.1,
         "recovery": 1.93333,
         "attr": [
-            {"heal": 279, "buff": ["self", 0.15, -1, "maxhp", "buff"], "iv": 1.0},
+            {"heal": [279, "lowest"], "buff": ["self", 0.15, -1, "maxhp", "buff"], "iv": 1.0},
             {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 1.0}
         ],
         "energizable": true
@@ -25,7 +25,7 @@
         "recovery": 1.8,
         "energizable": true,
         "attr": [
-            {"heal": 44, "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333}
+            {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333}
         ]
     }
 }
