@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 68308.96473947736,
+      "dps": 64090.89305861194,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -34,7 +34,7 @@
     "buffer": {
       "dps": 49214.68076022627,
       "team": 0.14627802804089085,
-      "tdps": 130534.1905068165,
+      "tdps": 101698.20100546571,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -62,15 +62,17 @@
       ]
     },
     "affliction": {
-      "dps": 73185.74973966705,
+      "dps": 72113.0292341933,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Spirit_of_the_Season",
-        "The_Shining_Overlord",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -92,7 +94,7 @@
       ]
     },
     "mono_base": {
-      "dps": 68308.96473947736,
+      "dps": 64090.89305861194,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -154,7 +156,7 @@
     "mono_buffer": {
       "dps": 49214.68076022627,
       "team": 0.14627802804089085,
-      "tdps": 130534.1905068165,
+      "tdps": 101698.20100546571,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -183,7 +185,39 @@
     },
     "mono_pref": "mono_base",
     "mono_noaffliction": {
-      "dps": 73185.74973966705,
+      "dps": 72113.0292341933,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Spirit_of_the_Season",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c2-end), fsc",
+        "`s3, (not buff(s3)) or duration-now<1.4",
+        "`s2",
+        "`s4, fsc",
+        "`s1, cancel and not s4.check()",
+        "`fs, x=4 or hits=3"
+      ],
+      "coabs": [
+        "Wand",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "noaffliction": {
+      "dps": 36603.74373103627,
       "team": 0.0,
       "tdps": null,
       "slots.a": [

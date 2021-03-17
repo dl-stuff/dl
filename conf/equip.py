@@ -88,7 +88,7 @@ class EquipEntry(dict):
         return entry["dps"] + entry["team"] * TDPS_WEIGHT
 
     def better_than(self, other):
-        return self.weight(self) > self.weight(other)
+        return self.weight(self) >= self.weight(other)
 
     def update_threshold(self, other):
         if self["team"] != other["team"]:
@@ -266,7 +266,7 @@ class EquipManager(dict):
                 if self.debug:
                     print(f"fill empty slot {duration, kind}")
                 continue
-            if current_entry.same_build_different_dps(new_entry) or not current_entry.better_than(new_entry):
+            if current_entry.same_build_different_dps(new_entry) or new_entry.better_than(current_entry):
                 if self.debug:
                     print("better than existing/same build different dps")
                 self[duration][kind] = deepcopy(new_entry)

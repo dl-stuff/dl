@@ -1,24 +1,30 @@
 {
   "180": {
-    "pref": "buffer",
+    "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 54536.98658250606,
-      "team": 0.11494255904518014,
+      "dps": 65505.336570814026,
+      "team": 0.12023326178025351,
       "tdps": null,
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
+        "Moonlight_Party",
         "Enter_the_Blue_Rose",
-        "Taiko_Tandem"
+        "Taiko_Tandem",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, cancel",
+        "`dragon(c3-c3-c3-c3-c1-end), have_buff(s2_base2_00)",
         "`s3, not buff(s3)",
-        "`s1, aff_timeleft(flashburn)<2 and cancel",
-        "`s4, cancel"
+        "`s4, x=2",
+        "if energy()=5 or energy()<=3",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "end",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
         "Blade",
@@ -59,22 +65,28 @@
       ]
     },
     "affliction": {
-      "dps": 60879.14551509767,
-      "team": 0.11562385060188946,
+      "dps": 73403.81732042262,
+      "team": 0.12023326178025351,
       "tdps": null,
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Enter_the_Blue_Rose",
-        "Taiko_Tandem"
+        "Taiko_Tandem",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c1-end), not buff(s2) and energy()=5",
+        "`dragon(c3-c3-c3-c3-c1-end), have_buff(s2_base2_00)",
         "`s3, not buff(s3)",
         "`s4, x=2",
-        "`s1, aff_timeleft(flashburn)<2 and x=2"
+        "if energy()=5 or energy()<=3",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "end",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
         "Blade",
@@ -115,9 +127,9 @@
       ]
     },
     "buffer": {
-      "dps": 69127.33491989323,
-      "team": 0.1518041890756944,
-      "tdps": -395813.97581466666,
+      "dps": 36783.05106174778,
+      "team": 0.18632566182286905,
+      "tdps": 434577.73496720474,
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -128,56 +140,56 @@
       "slots.d": "Daikokuten",
       "acl": [
         "`dragon, cancel",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s1, aff_timeleft(flashburn)<2 and cancel",
         "`s4, cancel"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Bow",
         "Peony"
       ],
       "share": [
-        "Weapon",
+        "Templar_Hope",
         "Dragonyule_Lily"
       ]
     },
     "mono_buffer": {
-      "dps": 65455.87006226755,
-      "team": 0.12626316456935996,
-      "tdps": null,
+      "dps": 36783.05106174778,
+      "team": 0.18632566182286905,
+      "tdps": 477383.0645019442,
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
         "Enter_the_Blue_Rose",
-        "Taiko_Tandem"
+        "Snipers_Allure"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Daikokuten",
       "acl": [
         "`dragon, cancel",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s1, aff_timeleft(flashburn)<2 and cancel",
         "`s4, cancel"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Dagger"
+        "Bow",
+        "Peony"
       ],
       "share": [
-        "Weapon",
+        "Templar_Hope",
         "Dragonyule_Lily"
       ]
     },
     "noaffliction": {
-      "dps": 57086.53281996243,
-      "team": 0.12626316456935996,
+      "dps": 50481.09614427784,
+      "team": 0.12240199870469716,
       "tdps": null,
       "slots.a": [
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
+        "Worthy_Rivals",
         "Enter_the_Blue_Rose",
         "Taiko_Tandem"
       ],
@@ -186,7 +198,8 @@
         "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s1, aff_timeleft(flashburn)<2 and cancel",
-        "`s4, cancel"
+        "`s4, cancel",
+        "`fs, x=2"
       ],
       "coabs": [
         "Blade",

@@ -1,15 +1,17 @@
 {
   "180": {
     "base": {
-      "dps": 89733.37638909133,
+      "dps": 98595.13464365178,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Extreme_Teamwork",
+        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "A_Small_Courage",
-        "Liber_Grimortis"
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -33,7 +35,7 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 97365.4835431409,
+      "dps": 109844.53909354984,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -41,11 +43,13 @@
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "Liber_Grimortis"
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`dragon(c3-s-c3-c3-end), s1.charged<2000 and buff(s2)",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -66,7 +70,7 @@
     "buffer": {
       "dps": 61299.342667298435,
       "team": 0.1410071803423328,
-      "tdps": 201649.5447448962,
+      "tdps": 264495.69366473245,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -94,15 +98,17 @@
       ]
     },
     "mono_base": {
-      "dps": 88854.27601138204,
+      "dps": 97302.42596776532,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Extreme_Teamwork",
+        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "A_Small_Courage",
-        "Liber_Grimortis"
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -115,7 +121,7 @@
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Lucretia",
+        "Wand",
         "Halloween_Elisanne",
         "Peony"
       ],
@@ -125,7 +131,7 @@
       ]
     },
     "mono_affliction": {
-      "dps": 95254.2450825722,
+      "dps": 108480.18121852598,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -133,20 +139,22 @@
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "Liber_Grimortis"
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), buff(s2) and s=1",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-end), s1.charged<2000 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
-        "`s4",
-        "`fs, (charged_in(fs, s4) or charged_in(fs, s1)) and x>1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Lucretia",
+        "Wand",
         "Halloween_Elisanne",
         "Peony"
       ],
@@ -158,7 +166,7 @@
     "mono_buffer": {
       "dps": 58945.53823355396,
       "team": 0.11430186517399507,
-      "tdps": 261664.47706080516,
+      "tdps": 335575.34407529485,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -185,15 +193,17 @@
     },
     "mono_pref": "mono_base",
     "noaffliction": {
-      "dps": 73678.53928087284,
+      "dps": 86605.43333493604,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Extreme_Teamwork",
+        "Jewels_of_the_Sun",
+        "Levins_Champion",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "A_Small_Courage",
-        "Liber_Grimortis"
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -208,6 +218,39 @@
       "coabs": [
         "Wand",
         "Axe2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 108480.18121852598,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s1.charged<2000 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Halloween_Elisanne",
         "Peony"
       ],
       "share": [

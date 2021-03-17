@@ -1,15 +1,17 @@
 {
   "180": {
     "base": {
-      "dps": 72232.62276396007,
-      "team": 0.12648350289208857,
+      "dps": 74154.88293986894,
+      "team": 0.1264835028920885,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "The_Shining_Overlord",
         "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -43,7 +45,7 @@
     "buffer": {
       "dps": 9355.421108920176,
       "team": 0.42235115440825677,
-      "tdps": 212518.00030461882,
+      "tdps": 219015.02749247896,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -69,15 +71,17 @@
       ]
     },
     "affliction": {
-      "dps": 80310.88409316415,
+      "dps": 86158.28914942533,
       "team": 0.1264835028920885,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "The_Shining_Overlord",
+        "Worthy_Rivals",
         "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -108,15 +112,17 @@
       ]
     },
     "mono_base": {
-      "dps": 72232.62276396007,
-      "team": 0.12648350289208857,
+      "dps": 74154.88293986894,
+      "team": 0.1264835028920885,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "The_Shining_Overlord",
         "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -149,7 +155,7 @@
     "mono_buffer": {
       "dps": 8174.531007545069,
       "team": 0.37889749935620043,
-      "tdps": 253781.85304206278,
+      "tdps": 261397.35853239393,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -173,15 +179,17 @@
       ]
     },
     "mono_affliction": {
-      "dps": 80310.88409316415,
+      "dps": 86158.28914942533,
       "team": 0.1264835028920885,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "The_Shining_Overlord",
+        "Worthy_Rivals",
         "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -213,15 +221,58 @@
     },
     "mono_pref": "mono_base",
     "mono_noaffliction": {
-      "dps": 80310.88409316415,
+      "dps": 86158.28914942533,
       "team": 0.1264835028920885,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`s3, duration-now<2",
+        "if x=2",
+        "`fs2, not have_buff(affself_paralysis_crit)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel",
+        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "noaffliction": {
+      "dps": 47571.78402097435,
+      "team": 0.10646806684955931,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
         "The_Shining_Overlord",
         "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [

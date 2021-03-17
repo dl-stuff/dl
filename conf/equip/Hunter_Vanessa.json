@@ -33,15 +33,17 @@
     },
     "pref": "base",
     "affliction": {
-      "dps": 63985.95412386098,
-      "team": 0.08086670346640466,
+      "dps": 70262.92368292759,
+      "team": 0.08086670346640448,
       "tdps": null,
       "slots.a": [
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Spirit_of_the_Season",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -160,29 +162,30 @@
     },
     "mono_pref": "mono_base",
     "mono_affliction": {
-      "dps": 63394.54072958575,
-      "team": 0.10783782073836008,
+      "dps": 69430.89837643832,
+      "team": 0.08086670346640448,
       "tdps": null,
       "slots.a": [
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Spirit_of_the_Season",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, fsc",
-        "`s2, not buff(s2)",
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s2, timeleft(s2)<3",
         "`s3, not buff(s3) and fsc",
-        "`s1, fsc",
         "`s4, fsc",
+        "`s1, fsc",
         "`dodge, fsc",
-        "`fs2, (charged_in(fs1, s1) or charged_in(fs1, s4)) and (xf and not xf=2)",
-        "`fs2, x=5 or dgauge>=500"
+        "`fs2, x=5"
       ],
       "coabs": [
-        "Blade",
+        "Wand",
         "Peony",
         "Sharena"
       ],
@@ -214,6 +217,39 @@
       ],
       "coabs": [
         "Axe2",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 69430.89837643832,
+      "team": 0.08086670346640448,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Spirit_of_the_Season",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s2, timeleft(s2)<3",
+        "`s3, not buff(s3) and fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, x=5"
+      ],
+      "coabs": [
+        "Wand",
         "Peony",
         "Sharena"
       ],
