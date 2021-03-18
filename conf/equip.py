@@ -198,45 +198,37 @@ def filtered_monoele_coabs(entry, ele):
     entry["coabs"] = [coab for coab in entry["coabs"] if coab in mono_elecoabs[ele]]
     return entry
 
+class MonoEntry:
+    @classmethod
+    def build_from_sim(cls, adv, real_d):
+        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
 
-class MonoBaseEntry(BaseEntry):
+    def same_build(self, other):
+        return equivalent(self.get("coabs"), other.get("coabs"))
+
+
+class MonoBaseEntry(BaseEntry, MonoEntry):
     @staticmethod
     def acceptable(entry, ele):
         return all_monoele_coabs(entry, ele) and BaseEntry.acceptable(entry, ele)
 
-    @classmethod
-    def build_from_sim(cls, adv, real_d):
-        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
 
-
-class MonoBufferEntry(BufferEntry):
+class MonoBufferEntry(BufferEntry, MonoEntry):
     @staticmethod
     def acceptable(entry, ele):
         return all_monoele_coabs(entry, ele) and BufferEntry.acceptable(entry, ele)
 
-    @classmethod
-    def build_from_sim(cls, adv, real_d):
-        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
 
-
-class MonoAfflictionEntry(AfflictionEntry):
+class MonoAfflictionEntry(AfflictionEntry, MonoEntry):
     @staticmethod
     def acceptable(entry, ele):
         return all_monoele_coabs(entry, ele) and AfflictionEntry.acceptable(entry, ele)
 
-    @classmethod
-    def build_from_sim(cls, adv, real_d):
-        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
 
-
-class MonoNoAfflictionEntry(NoAfflictionEntry):
+class MonoNoAfflictionEntry(NoAfflictionEntry, MonoEntry):
     @staticmethod
     def acceptable(entry, ele):
         return all_monoele_coabs(entry, ele) and NoAfflictionEntry.acceptable(entry, ele)
-
-    @classmethod
-    def build_from_sim(cls, adv, real_d):
-        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
 
 
 EQUIP_ENTRY_MAP = {
@@ -255,6 +247,12 @@ SKIP_IF_IDENTICAL = {
     "noaffliction": "base",
     "mono_affliction": "mono_base",
     "mono_noaffliction": "mono_base",
+}
+SKIP_IF_SAME_COAB = {
+    "mono_base": "base",
+    "mono_buffer": "buffer",
+    "mono_affliction": "affliction",
+    "mono_noaffliction": "noaffliction",
 }
 KICK_TO = {
     "base": ("buffer", "mono_base"),
@@ -281,6 +279,22 @@ class EquipManager(dict):
                 except KeyError:
                     if kind == "pref":
                         self.pref = entry
+
+    def check_skip_entry(self, new_entry, duration, kind, compare_map, need_write=False):
+        try:
+            compare_entry = self[duration][compare_map[kind]]
+            if new_entry.same_build(compare_entry):
+                try:
+                    current_entry = self[duration][kind]
+                    if new_entry.better_than(current_entry):
+                        del self[duration][kind]
+                        need_write = True
+                except KeyError:
+                    pass
+                return True, need_write
+        except KeyError:
+            pass
+        return False, need_write
 
     def accept_new_entry(self, adv, real_d):
         if self.advname != adv.name:
@@ -312,12 +326,12 @@ class EquipManager(dict):
                 if self.debug:
                     print(f"not acceptable")
                 continue
-            try:
-                compare_entry = self[duration][SKIP_IF_IDENTICAL[kind]]
-                if new_entry.same_build(compare_entry):
-                    continue
-            except KeyError:
-                pass
+            skip, need_write = self.check_skip_entry(new_entry, duration, kind, SKIP_IF_IDENTICAL, need_write)
+            if skip:
+                continue
+            skip, need_write = self.check_skip_entry(new_entry, duration, kind, SKIP_IF_SAME_COAB, need_write)
+            if skip:
+                continue
             try:
                 current_entry = self[duration][kind]
             except KeyError:
@@ -412,27 +426,13 @@ class EquipManager(dict):
             for kind in list(self[duration].keys()):
                 if kind.endswith("pref"):
                     continue
-                try:
-                    compare_entry = self[duration][SKIP_IF_IDENTICAL[kind]]
-                    if self[duration][kind].same_build(compare_entry):
-                        del self[duration][kind]
-                        continue
-                except KeyError:
-                    pass
+                if self.check_skip_entry(self[duration][kind], duration, kind, SKIP_IF_IDENTICAL)[0]:
+                    continue
+                if self.check_skip_entry(self[duration][kind], duration, kind, SKIP_IF_SAME_COAB)[0]:
+                    continue
                 self.repair_entry(adv_module, element, self[duration][kind], duration, kind)
 
         for duration in list(self.keys()):
-            # for kind in list(self[duration].keys()):
-            # if duration != '180':
-            #     try:
-            #         self.repair_entry(adv_module, element, self['180'][kind], duration, kind, do_compare=True)
-            #     except KeyError:
-            #         pass
-            # for affkind, basekind in (('affliction', 'base'), ('mono_affliction', 'mono_base')):
-            #     try:
-            #         self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind, do_compare=True)
-            #     except KeyError:
-            #         pass
             for basekind in ("base", "buffer", "affliction", "noaffliction"):
                 monokind = f"mono_{basekind}"
                 if not basekind in self[duration]:

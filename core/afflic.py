@@ -383,80 +383,85 @@ class Afflics(object):
             "stun": 999,
             "sleep": 999,
         },
-        "flame": {  # Volk
+        "flame": {  # Legend Volk
             "poison": 0,
             "burn": 0,
+            "freeze": 100,
             "paralysis": 100,
-            "frostbite": 0,
-            "flashburn": 0,
-            "shadowblight": 0,
-            "stormlash": 0,
-            "scorchrend": 0,
             "blind": 99,
-            "bog": 100,
-            "freeze": 100,
             "stun": 99,
-            "sleep": 99,
-        },
-        "shadow": {  # Kai Yan
-            "poison": 0,
-            "burn": 0,
-            "paralysis": 100,
-            "frostbite": 0,
-            "flashburn": 0,
-            "shadowblight": 0,
-            "stormlash": 0,
-            "scorchrend": 0,
-            "blind": 100,
+            "curse": 100,
             "bog": 99,
-            "freeze": 100,
-            "stun": 99,
             "sleep": 99,
-        },
-        "wind": {  # Ciella
-            "poison": 0,
-            "burn": 0,
-            "paralysis": 100,
             "frostbite": 0,
             "flashburn": 0,
-            "shadowblight": 0,
             "stormlash": 0,
-            "scorchrend": 0,
-            "blind": 100,
-            "bog": 100,
-            "freeze": 100,
-            "stun": 100,
-            "sleep": 100,
+            "shadowblight": 0,
+            "scorchrend": 0
         },
-        "water": {  # Ayaha & Otoha
+        "shadow": {  # Legend Kai Yan
+            "poison": 0,
+            "burn": 0,
+            "freeze": 100,
+            "paralysis": 100,
+            "blind": 100,
+            "stun": 99,
+            "curse": 100,
+            "bog": 99,
+            "sleep": 99,
+            "frostbite": 0,
+            "flashburn": 0,
+            "stormlash": 0,
+            "shadowblight": 0,
+            "scorchrend": 0
+        },
+        "wind": {  # Master Ciella
+            "poison": 0,
+            "burn": 0,
+            "freeze": 100,
+            "paralysis": 100,
+            "blind": 100,
+            "stun": 100,
+            "curse": 100,
+            "bog": 100,
+            "sleep": 100,
+            "frostbite": 0,
+            "flashburn": 0,
+            "stormlash": 0,
+            "shadowblight": 0,
+            "scorchrend": 0
+        },
+        "water": {  # Master Ayaha & Otoha
             "poison": 99,
             "burn": 0,
+            "freeze": 100,
             "paralysis": 100,
-            "frostbite": 0,
-            "flashburn": 0,
-            "shadowblight": 0,
-            "stormlash": 0,
-            "scorchrend": 0,
             "blind": 100,
-            "bog": 70,
-            "freeze": 100,
             "stun": 100,
+            "curse": 100,
+            "bog": 70, # bog at 70 for ~2 bogs
             "sleep": 100,
-        },  # bog at 70 for ~2 bogs
-        "light": {  # Tartarus
-            "poison": 90,
-            "burn": 0,
-            "paralysis": 0,
             "frostbite": 0,
             "flashburn": 0,
-            "shadowblight": 0,
             "stormlash": 0,
-            "scorchrend": 0,
-            "blind": 100,
-            "bog": 99,
+            "shadowblight": 0,
+            "scorchrend": 0
+        },
+        "light": {  # Master Lilith
+            "poison": 100,
+            "burn": 100,
             "freeze": 100,
-            "stun": 99,
-            "sleep": 99,
+            "paralysis": 0,
+            "blind": 100,
+            "stun": 100,
+            "curse": 100,
+            "bog": 100,
+            "sleep": 100,
+            "frostbite": 0,
+            "flashburn": 0,
+            "stormlash": 100,
+            "shadowblight": 100,
+            "scorchrend": 100
         },
     }
 
@@ -480,6 +485,8 @@ class Afflics(object):
 
     def set_resist(self, profile=None):
         for aff, resist in Afflics.RESIST_PROFILES[profile].items():
+            if aff == "curse":
+                continue
             getattr(self, aff).resist = resist
 
     def get_resist(self):

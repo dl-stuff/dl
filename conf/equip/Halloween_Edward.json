@@ -1,24 +1,26 @@
 {
   "180": {
     "base": {
-      "dps": 59703.20350187745,
+      "dps": 66671.51150211332,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Dragonyule_Dreaming",
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "A_Small_Courage",
-        "Liber_Grimortis"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon(c3-s-c3-c3-end), xf",
         "`s3, not buff(s3)",
         "`s2",
-        "`s4",
-        "`s1, xf=5",
         "`fs, charged_in(fs,s2) and xf=5",
+        "`s4, xf",
+        "`s1, xf=5",
         "`fsf, xf=5"
       ],
       "coabs": [
@@ -68,7 +70,7 @@
     "buffer": {
       "dps": 6161.550365770069,
       "team": 0.4102196708924847,
-      "tdps": 130519.46782469196,
+      "tdps": 147506.2397780589,
       "slots.a": [
         "Gentle_Winds",
         "Jewels_of_the_Sun",
@@ -91,18 +93,8 @@
         "Templar_Hope"
       ]
     },
-    "mono_affliction": {
-      "dps": 75096.27306794646,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Wand",
-        "Halloween_Elisanne",
-        "Peony"
-      ]
-    },
     "mono_base": {
-      "dps": 59703.20350187745,
+      "dps": 66671.51150211332,
       "team": 0.0,
       "tdps": null,
       "coabs": [
@@ -114,13 +106,89 @@
     "mono_buffer": {
       "dps": 55914.22033599837,
       "team": 0.09976905127447482,
-      "tdps": 37977.540304108945,
+      "tdps": 107821.92502282649,
       "coabs": [
         "Wand",
         "Gala_Zena",
         "Peony"
       ]
     },
-    "mono_pref": "mono_buffer"
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 75096.27306794646,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`fs, charged_in(fs,s2) and xf=5",
+        "`s4, xf",
+        "`s1, xf=5",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Halloween_Elisanne",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "noaffliction": {
+      "dps": 59142.03462087213,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`fs, charged_in(fs,s2) and xf=5",
+        "`s4, xf",
+        "`s1, xf=5",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Gala_Zena",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 51758.415007230986,
+      "team": 0.0,
+      "tdps": null,
+      "coabs": [
+        "Wand",
+        "Gala_Zena",
+        "Peony"
+      ]
+    }
   }
 }

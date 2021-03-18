@@ -1,15 +1,17 @@
 {
   "180": {
     "base": {
-      "dps": 52674.4919335022,
-      "team": 0.17029934598830768,
+      "dps": 57511.23344558162,
+      "team": 0.1702993459883075,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_Brethren",
         "Memory_of_a_Friend",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -34,7 +36,7 @@
     "buffer": {
       "dps": 7165.539311918112,
       "team": 0.8125257114870044,
-      "tdps": 70861.23377424068,
+      "tdps": 78392.44359668954,
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -149,9 +151,9 @@
         "`fs, x=3"
       ],
       "coabs": [
-        "Peony",
-        "Blade",
-        "Wand"
+        "The_Prince",
+        "Dagger2",
+        "Peony"
       ],
       "share": [
         "Weapon",
@@ -159,13 +161,35 @@
       ]
     },
     "mono_noaffliction": {
-      "dps": 42265.961665557006,
-      "team": 0.1641103377287356,
+      "dps": 52064.00229455029,
+      "team": 0.1702993459883075,
       "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_Brethren",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, cancel and (buff(s2) and (buff(s3, 1) and buff(s1)))",
+        "`s1, not buff(s1) and fsc",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`s3",
+        "`fs, x=3"
+      ],
       "coabs": [
         "Peony",
         "Blade",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     }
   }

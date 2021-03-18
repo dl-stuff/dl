@@ -325,10 +325,10 @@ function serConf(no_conf) {
     if (sim_buff != null) {
         requestJson['sim_buff'] = sim_buff;
     }
-    const condition = readConditionList();
-    if (condition !== null) {
-        requestJson['condition'] = condition;
-    }
+    // const condition = readConditionList();
+    // if (condition !== null) {
+    //     requestJson['condition'] = condition;
+    // }
 
     if (!no_conf) {
         const urlVars = { conf: btoa(JSON.stringify(requestJson)) };
@@ -551,6 +551,7 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
                     } else {
                         $('#input-acl').val(acl);
                     }
+                    $('#input-toggle-affliction').prop('checked', false);
                     if (requestJson['equip'] == 'noaffliction') {
                         for (const key in slots.afflict_res) {
                             $('#input-res-' + key).val(slots.afflict_res[key]);
@@ -595,33 +596,33 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
         }
     });
 }
-function buildConditionList(conditions) {
-    const conditionDiv = $('#input-conditions');
-    conditionDiv.empty();
-    for (cond in conditions) {
-        if (cond.startsWith('hp')) {
-            continue;
-        }
-        const newCondCheck = $('<div></div>').attr({ class: 'custom-control custom-checkbox custom-control-inline' });
-        const newCondCheckInput = $('<input/>').attr({ id: 'input-cond-' + cond, type: 'checkbox', class: 'custom-control-input' }).prop('checked', conditions[cond]).data('cond', cond);
-        const newCondCheckLabel = $('<label>' + cond + '</label>').attr({ for: 'input-cond-' + cond, class: 'custom-control-label' });
-        newCondCheck.append(newCondCheckInput);
-        newCondCheck.append(newCondCheckLabel);
-        conditionDiv.append(newCondCheck);
-    }
-}
-function readConditionList() {
-    let conditions = {};
-    const condCheckList = $('#input-conditions > div > input[type="checkbox"]');
-    if (condCheckList.length === 0) {
-        return null;
-    } else {
-        condCheckList.each(function (idx, condCheck) {
-            conditions[$(condCheck).data('cond')] = $(condCheck).prop('checked');
-        });
-        return conditions;
-    }
-}
+// function buildConditionList(conditions) {
+//     const conditionDiv = $('#input-conditions');
+//     conditionDiv.empty();
+//     for (cond in conditions) {
+//         if (cond.startsWith('hp')) {
+//             continue;
+//         }
+//         const newCondCheck = $('<div></div>').attr({ class: 'custom-control custom-checkbox custom-control-inline' });
+//         const newCondCheckInput = $('<input/>').attr({ id: 'input-cond-' + cond, type: 'checkbox', class: 'custom-control-input' }).prop('checked', conditions[cond]).data('cond', cond);
+//         const newCondCheckLabel = $('<label>' + cond + '</label>').attr({ for: 'input-cond-' + cond, class: 'custom-control-label' });
+//         newCondCheck.append(newCondCheckInput);
+//         newCondCheck.append(newCondCheckLabel);
+//         conditionDiv.append(newCondCheck);
+//     }
+// }
+// function readConditionList() {
+//     let conditions = {};
+//     const condCheckList = $('#input-conditions > div > input[type="checkbox"]');
+//     if (condCheckList.length === 0) {
+//         return null;
+//     } else {
+//         condCheckList.each(function (idx, condCheck) {
+//             conditions[$(condCheck).data('cond')] = $(condCheck).prop('checked');
+//         });
+//         return conditions;
+//     }
+// }
 function readResistDict() {
     let resists = {};
     const resistList = $('#affliction-resist input[type="text"]');
@@ -927,7 +928,7 @@ function runAdvTest(no_conf) {
                 if (res.hasOwnProperty('error')) {
                     $('#test-error').html('Error: ' + res.error);
                 } else {
-                    buildConditionList(res.condition);
+                    // buildConditionList(res.condition);
                     const result = res.test_output.split('\n');
                     const cond_true = result[1].split(',');
                     const name = cond_true[1];
@@ -1025,12 +1026,13 @@ function clearResults() {
     for (let key of SIMULATED_BUFFS) {
         $('#input-sim-buff-' + key).val('');
     }
-    $('#input-conditions').empty();
+    // $('#input-conditions').empty();
     $('#input-specialmode').val('');
     $('#input-classbane').val('');
     $('#input-dumb').val('');
     $('#input-equip').val($('#input-equip').data('pref') || 'base');
     // $('#input-mono').prop('checked', false);
+    $('#input-toggle-affliction').prop('checked', false);
     clearAllGraphs();
 }
 function resetTest() {
@@ -1113,6 +1115,10 @@ function changeEquip() {
     updateUrl();
     loadAdvSlots(true, true, true);
 }
+function toggleAffRes() {
+    const newVal = $(this).prop('checked') ? 999 : '';
+    $('#affliction-resist input[type="text"]').each(function (idx, res) {$(res).val(newVal);});
+}
 window.onload = function () {
     $('#input-adv').change(debounce(resetTest, 100));
     $('#input-equip').change(debounce(changeEquip, 100));
@@ -1126,6 +1132,7 @@ window.onload = function () {
     $('#clear-results').click(clearResults);
     $('#reset-test').click(resetTest);
     $('#input-edit-acl').change(editAcl);
+    $('#input-toggle-affliction').change(toggleAffRes);
     $('#input-teamdps').change(update_teamdps);
     // $('#input-wep').change(weaponSelectChange);
     clearResults();

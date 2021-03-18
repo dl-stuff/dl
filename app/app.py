@@ -216,7 +216,7 @@ def get_adv_slotlist():
         return "Wrong request method."
     duration = max(min(((int(duration) // 60) * 60), 180), 60)
     if advname is not None:
-        adv = ADV_MODULES[advname][variant](name=advname, duration=duration, equip_key=equip_key)
+        adv = ADV_MODULES[advname][variant](name=advname, duration=duration, equip_key=equip_key, mono=mono)
         adv.config_slots()
         result["adv"]["basename"] = adv.name
         result["adv"]["ele"] = adv.slots.c.ele
