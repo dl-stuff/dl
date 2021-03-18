@@ -160,12 +160,14 @@ class RngCritAdv(Adv):
 class SigilAdv(Adv):
     def config_sigil(self, duration=300, **kwargs):
         self.unlocked = False
-        self.locked_sigil = EffectBuff("locked_sigil", 300, lambda: None, self.a_sigil_unlock).no_bufftime()
+        self.unlocked_time = None
+        self.locked_sigil = EffectBuff("locked_sigil", duration, lambda: None, self.a_sigil_unlock).no_bufftime()
         self.locked_sigil.on()
         self.sigil_mode = ModeManager(group="sigil", **kwargs)
 
     def a_sigil_unlock(self):
-        self.unlocked = now()
+        self.unlocked = True
+        self.unlocked_time = now()
         self.sigil_mode.on()
 
     def a_update_sigil(self, time):
@@ -178,8 +180,8 @@ class SigilAdv(Adv):
     def post_run(self, end):
         if self.comment:
             self.comment += "; "
-        if self.unlocked:
-            self.comment += f"unlock at {self.unlocked:.02f}s"
+        if self.unlocked_time is not None:
+            self.comment += f"unlock at {self.unlocked_time:.02f}s"
         else:
             self.comment += f"not unlocked"
 

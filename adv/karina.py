@@ -4,7 +4,7 @@ from core.advbase import *
 class Karina_FLEET(Adv):
     comment = "4 Karina comp"
     conf = {"fleet": 3}
-    conf["no_equip"] = True
+    conf["prefer_baseconf"] = True
     conf["slots.d"] = "Gaibhne_and_Creidhne"
     conf["slots.a"] = [
         "Brothers_in_Arms",

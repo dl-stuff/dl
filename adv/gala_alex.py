@@ -107,7 +107,7 @@ class Gala_Alex(Adv):
 
 class Gala_Alex_BK(Gala_Alex):
     conf = {}
-    conf["no_equip"] = True
+    conf["prefer_baseconf"] = True
     conf["slots.a"] = [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",

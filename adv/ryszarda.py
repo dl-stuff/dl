@@ -34,4 +34,10 @@ class Ryszarda(SigilAdv):
         return super().x()
 
 
-variants = {None: Ryszarda}
+class Ryszarda_UNLOCKED(Ryszarda):
+    def prerun(self):
+        super().prerun()
+        self.a_update_sigil(-300)
+
+
+variants = {None: Ryszarda, "UNLOCKED": Ryszarda_UNLOCKED}

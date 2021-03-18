@@ -17,4 +17,10 @@ class Pinon(SigilAdv):
         return super().x(x_min=x_min)
 
 
-variants = {None: Pinon}
+class Pinon_UNLOCKED(Pinon):
+    def prerun(self):
+        super().prerun()
+        self.a_update_sigil(-300)
+
+
+variants = {None: Pinon, "UNLOCKED": Pinon_UNLOCKED}

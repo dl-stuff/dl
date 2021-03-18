@@ -1,3 +1,4 @@
+from core.slots import SlotBase
 from core.advbase import *
 from module.template import SigilAdv
 
@@ -8,9 +9,7 @@ class Nevin(SigilAdv):
         self.config_sigil(duration=300, x=True, s2=True)
 
         t = Timer(self.x_sword_dmg, 1.5, True)
-        self.sword = EffectBuff(
-            "revelation_sword", 12, lambda: t.on(), lambda: t.off()
-        ).no_bufftime()
+        self.sword = EffectBuff("revelation_sword", 12, lambda: t.on(), lambda: t.off()).no_bufftime()
         Event("dragon").listener(self.a_shift_sigil)
 
     @staticmethod
@@ -30,9 +29,7 @@ class Nevin(SigilAdv):
     def s2_proc(self, e):
         if self.unlocked:
             for aseq in range(self.zonecount):
-                self.hitattr_make(
-                    e.name, e.base, e.group, aseq + 1, self.conf[e.name].extra_self
-                )
+                self.hitattr_make(e.name, e.base, e.group, aseq + 1, self.conf[e.name].extra_self)
         else:
             self.a_update_sigil(-60)
 
@@ -40,4 +37,10 @@ class Nevin(SigilAdv):
         self.a_update_sigil(-240)
 
 
-variants = {None: Nevin}
+class Nevin_UNLOCKED(Nevin):
+    def prerun(self):
+        super().prerun()
+        self.a_update_sigil(-300)
+
+
+variants = {None: Nevin, "UNLOCKED": Nevin_UNLOCKED}

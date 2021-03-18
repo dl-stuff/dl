@@ -1072,27 +1072,15 @@ class Adv(object):
     def pre_conf(self, equip_key=None, mono=False):
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
-        self.conf.update(self.conf_base)
-        if self.conf["no_equip"]:
-            self.conf.update(self.conf_init)
-            return None
-        # equip = globalconf.load_equip_json(self.name)
-        # equip_d = equip.get(str(int(self.duration)))
-        # if not equip_d:
-        #     equip_d = equip.get('180')
-        # if equip_d:
-        #     if equip_key is None:
-        #         equip_key = equip_d.get('pref', 'base')
-        #         self.equip_key = equip_key
-        #     if equip_key in equip_d:
-        #         self.conf.update(equip_d[equip_key])
-        #         self.equip_key = self.equip_key or equip_key
-        #     elif 'base' in equip_d:
-        #         self.conf.update(equip_d['base'])
+        if not self.conf["prefer_baseconf"]:
+            self.conf.update(self.conf_base)
         equip = EquipManager(self.name)
         equip_conf, self.equip_key = equip.get_conf(self.duration, equip_key, mono)
         if equip_conf:
             self.conf.update(equip_conf)
+        if self.conf["prefer_baseconf"]:
+            self.conf.update(self.conf_base)
+            return None
         self.conf.update(self.conf_init)
 
     def default_slot(self):
