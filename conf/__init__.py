@@ -133,6 +133,16 @@ def get_fullname(adv):
         return adv
 
 
+def get_adv_coability(adv):
+    try:
+        advconf = load_adv_json(adv)
+        if advconf["c"].get("ex") or adv in elecoabs[advconf["c"]["ele"]]:
+            return adv
+        return advconf["c"]["wt"][0].upper() + advconf["c"]["wt"][1:]
+    except (FileNotFoundError, KeyError) as e:
+        return None
+
+
 def get_adv(name):
     conf = Conf(load_adv_json(name))
 

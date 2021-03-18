@@ -8,6 +8,7 @@ from conf import (
     DURATIONS,
     ELE_AFFLICT,
     mono_elecoabs,
+    get_adv_coability,
     load_adv_json,
     list_advs,
 )
@@ -40,12 +41,55 @@ BUFFER_TDPS_THRESHOLD = 40000
 BUFFER_TEAM_THRESHOLD = 1.6
 TDPS_WEIGHT = 15000
 HAS_7SLOT = ("light",)
+DEFAULT_MONO_COABS = {
+    "flame": ("Blade", "Wand", "Dagger", "Bow"),
+    "water": ("Blade", "Wand", "Dagger", "Bow"),
+    "wind": ("Blade", "Mona", "Dragonyule_Xainfried", "Dagger"),
+    "light": ("Blade", "Peony", "Wand", "Dagger"),
+    "shadow": ("Blade", "Wand", "Dagger", "Bow"),
+}
 
 
 def equivalent(a, b):
-    if isinstance(a, list):
+    try:
         return set(a) == set(b)
-    return a == b
+    except (ValueError, TypeError):
+        return a == b
+
+
+def build_entry_from_sim(entryclass, adv, real_d, coab_only=False):
+    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
+    nteam = adv.logs.team_buff / real_d
+    new_equip = {
+        "dps": ndps,
+        "team": nteam,
+        "tdps": None,
+    }
+    if coab_only:
+        new_equip["coabs"] = adv.slots.c.coab_list
+        return entryclass(new_equip)
+    new_equip["slots.a"] = adv.slots.a.qual_lst
+    new_equip["slots.d"] = adv.slots.d.qual
+    # if adv.slots.d.qual != adv.slots.DEFAULT_DRAGON[adv.slots.c.ele]:
+    #     new_equip['slots.d'] = adv.slots.d.qual
+    if adv.slots.w.qual != adv.slots.DEFAULT_WEAPON:
+        new_equip["slots.w"] = adv.slots.w.qual
+    acl_list = adv.conf.acl
+    if not isinstance(acl_list, list):
+        acl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
+    new_equip["acl"] = acl_list
+    new_equip["coabs"] = adv.slots.c.coab_list
+    new_equip["share"] = adv.skillshare_list
+    return entryclass(new_equip)
+
+
+def filter_coab_only(entry):
+    return {
+        "dps": entry["dps"],
+        "team": entry["team"],
+        "tdps": entry["tdps"],
+        "coabs": entry["coabs"],
+    }
 
 
 class EquipEntry(dict):
@@ -71,15 +115,21 @@ class EquipEntry(dict):
 
     @staticmethod
     def acceptable(entry, ele=None):
-        if len(entry["slots.a"]) > 5 and (ele not in HAS_7SLOT or entry.get("slots.w", "Agito") != "Agito"):
+        if len(entry.get("slots.a", tuple())) > 5 and (ele not in HAS_7SLOT or entry.get("slots.w", "Agito") != "Agito"):
+            return False
+        if len(entry.get("coabs")) != 3:
             return False
         return isinstance(entry, EquipEntry)
+
+    @classmethod
+    def build_from_sim(cls, adv, real_d):
+        return build_entry_from_sim(cls, adv, real_d)
 
     def same_build(self, other):
         return all((equivalent(self.get(k), other.get(k)) for k in EquipEntry.CONF_KEYS))
 
     def same_build_different_dps(self, other):
-        same_build = all((equivalent(self.get(k), other.get(k)) for k in EquipEntry.CONF_KEYS))
+        same_build = self.same_build(other)
         different_dps = any((self.get(k) != other.get(k) for k in EquipEntry.META_KEYS))
         return same_build and different_dps
 
@@ -97,29 +147,6 @@ class EquipEntry(dict):
         else:
             self["tdps"] = None
             other["tdps"] = None
-
-
-def build_entry_from_sim(entryclass, adv, real_d):
-    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
-    nteam = adv.logs.team_buff / real_d
-    new_equip = {
-        "dps": ndps,
-        "team": nteam,
-        "tdps": None,
-        "slots.a": adv.slots.a.qual_lst,
-        "slots.d": adv.slots.d.qual,
-    }
-    # if adv.slots.d.qual != adv.slots.DEFAULT_DRAGON[adv.slots.c.ele]:
-    #     new_equip['slots.d'] = adv.slots.d.qual
-    if adv.slots.w.qual != adv.slots.DEFAULT_WEAPON:
-        new_equip["slots.w"] = adv.slots.w.qual
-    acl_list = adv.conf.acl
-    if not isinstance(acl_list, list):
-        acl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
-    new_equip["acl"] = acl_list
-    new_equip["coabs"] = adv.slots.c.coab_list
-    new_equip["share"] = adv.skillshare_list
-    return entryclass(new_equip)
 
 
 class BaseEntry(EquipEntry):
@@ -167,10 +194,19 @@ def all_monoele_coabs(entry, ele):
     return all((coab in mono_elecoabs[ele] for coab in entry["coabs"]))
 
 
+def filtered_monoele_coabs(entry, ele):
+    entry["coabs"] = [coab for coab in entry["coabs"] if coab in mono_elecoabs[ele]]
+    return entry
+
+
 class MonoBaseEntry(BaseEntry):
     @staticmethod
     def acceptable(entry, ele):
         return all_monoele_coabs(entry, ele) and BaseEntry.acceptable(entry, ele)
+
+    @classmethod
+    def build_from_sim(cls, adv, real_d):
+        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
 
 
 class MonoBufferEntry(BufferEntry):
@@ -178,17 +214,29 @@ class MonoBufferEntry(BufferEntry):
     def acceptable(entry, ele):
         return all_monoele_coabs(entry, ele) and BufferEntry.acceptable(entry, ele)
 
+    @classmethod
+    def build_from_sim(cls, adv, real_d):
+        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
+
 
 class MonoAfflictionEntry(AfflictionEntry):
     @staticmethod
     def acceptable(entry, ele):
         return all_monoele_coabs(entry, ele) and AfflictionEntry.acceptable(entry, ele)
 
+    @classmethod
+    def build_from_sim(cls, adv, real_d):
+        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
 
-class MonoNoAfflictionEntry(AfflictionEntry):
+
+class MonoNoAfflictionEntry(NoAfflictionEntry):
     @staticmethod
     def acceptable(entry, ele):
         return all_monoele_coabs(entry, ele) and NoAfflictionEntry.acceptable(entry, ele)
+
+    @classmethod
+    def build_from_sim(cls, adv, real_d):
+        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
 
 
 EQUIP_ENTRY_MAP = {
@@ -201,6 +249,12 @@ EQUIP_ENTRY_MAP = {
     "mono_buffer": MonoBufferEntry,
     "mono_affliction": MonoAfflictionEntry,
     "mono_noaffliction": MonoNoAfflictionEntry,
+}
+SKIP_IF_IDENTICAL = {
+    "affliction": "base",
+    "noaffliction": "base",
+    "mono_affliction": "mono_base",
+    "mono_noaffliction": "mono_base",
 }
 KICK_TO = {
     "base": ("buffer", "mono_base"),
@@ -246,18 +300,24 @@ class EquipManager(dict):
         for kind, entryclass in EQUIP_ENTRY_MAP.items():
             if self.debug:
                 print("~" * 60)
-                print(f"{kind} {entryclass}")
+                print(f"{kind}")
             if not entryclass.eligible(adv):
                 if self.debug:
                     print(f"not eligible")
                 continue
-            new_entry = build_entry_from_sim(entryclass, adv, real_d)
+            new_entry = entryclass.build_from_sim(adv, real_d)
+            if self.debug:
+                pprint(new_entry)
             if not entryclass.acceptable(new_entry, adv.slots.c.ele):
                 if self.debug:
                     print(f"not acceptable")
                 continue
-            if self.debug:
-                pprint(new_entry)
+            try:
+                compare_entry = self[duration][SKIP_IF_IDENTICAL[kind]]
+                if new_entry.same_build(compare_entry):
+                    continue
+            except KeyError:
+                pass
             try:
                 current_entry = self[duration][kind]
             except KeyError:
@@ -330,8 +390,14 @@ class EquipManager(dict):
             run_res = core.simulate.test(self.advname, adv_module, conf, int(duration), output=output)
         adv = run_res[0][0]
         real_d = run_res[0][1]
-        new_entry = build_entry_from_sim(EQUIP_ENTRY_MAP[kind], adv, real_d)
-        if not do_compare or not self[duration][kind].better_than(new_entry):
+        new_entry = EQUIP_ENTRY_MAP[kind].build_from_sim(adv, real_d)
+        if not EQUIP_ENTRY_MAP[kind].acceptable(new_entry, element):
+            try:
+                del self[duration][kind]
+            except KeyError:
+                pass
+            return
+        if not do_compare or not kind in self[duration] or new_entry.better_than(self[duration][kind]):
             self[duration][kind] = new_entry
 
     def repair_entries(self):
@@ -346,32 +412,53 @@ class EquipManager(dict):
             for kind in list(self[duration].keys()):
                 if kind.endswith("pref"):
                     continue
+                try:
+                    compare_entry = self[duration][SKIP_IF_IDENTICAL[kind]]
+                    if self[duration][kind].same_build(compare_entry):
+                        del self[duration][kind]
+                        continue
+                except KeyError:
+                    pass
                 self.repair_entry(adv_module, element, self[duration][kind], duration, kind)
 
         for duration in list(self.keys()):
-            for kind in list(self[duration].keys()):
-                # if duration != '180':
-                #     try:
-                #         self.repair_entry(adv_module, element, self['180'][kind], duration, kind, do_compare=True)
-                #     except KeyError:
-                #         pass
-                # for affkind, basekind in (('affliction', 'base'), ('mono_affliction', 'mono_base')):
-                #     try:
-                #         self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind, do_compare=True)
-                #     except KeyError:
-                #         pass
-                for basekind in ("base", "buffer", "affliction", "noaffliction"):
-                    monokind = f"mono_{basekind}"
-                    if not basekind in self[duration]:
-                        continue
-                    if not EQUIP_ENTRY_MAP[monokind].acceptable(self[duration][basekind], element):
-                        continue
+            # for kind in list(self[duration].keys()):
+            # if duration != '180':
+            #     try:
+            #         self.repair_entry(adv_module, element, self['180'][kind], duration, kind, do_compare=True)
+            #     except KeyError:
+            #         pass
+            # for affkind, basekind in (('affliction', 'base'), ('mono_affliction', 'mono_base')):
+            #     try:
+            #         self.repair_entry(adv_module, element, self[duration][basekind], duration, affkind, do_compare=True)
+            #     except KeyError:
+            #         pass
+            for basekind in ("base", "buffer", "affliction", "noaffliction"):
+                monokind = f"mono_{basekind}"
+                if not basekind in self[duration]:
                     try:
-                        current_entry = self[duration][monokind]
-                        if not current_entry.better_than(self[duration][basekind]):
-                            self[duration][monokind] = deepcopy(self[duration][basekind])
+                        del self[duration][monokind]
                     except KeyError:
-                        self[duration][monokind] = deepcopy(self[duration][basekind])
+                        continue
+                    continue
+                if not EQUIP_ENTRY_MAP[monokind].acceptable(self[duration][basekind], element):
+                    if monokind not in self[duration]:
+                        # try auto populate
+                        filtered_entry = filtered_monoele_coabs(self[duration][basekind], element)
+                        advcoab = get_adv_coability(self.advname)
+                        for coab in DEFAULT_MONO_COABS[element]:
+                            if len(filtered_entry["coabs"]) == 3:
+                                break
+                            if coab not in filtered_entry["coabs"] and coab != advcoab:
+                                filtered_entry["coabs"].append(coab)
+                        self.repair_entry(adv_module, element, filtered_entry, duration, monokind)
+                    continue
+                try:
+                    current_entry = self[duration][monokind]
+                    if not current_entry.better_than(self[duration][basekind]):
+                        self[duration][monokind] = EQUIP_ENTRY_MAP[monokind](filter_coab_only(self[duration][basekind]))
+                except KeyError:
+                    self[duration][monokind] = EQUIP_ENTRY_MAP[monokind](filter_coab_only(self[duration][basekind]))
 
             self.update_tdps_threshold(duration)
 
@@ -395,7 +482,14 @@ class EquipManager(dict):
             equip_key = f"mono_{equip_key}"
         if not equip_key in equip_d:
             return equip_d.get("base", None), None
-        return equip_d[equip_key], equip_key
+        if equip_key.startswith("mono"):
+            _, base_key = equip_key.split("_")
+            full_equip = {}
+            full_equip.update(equip_d[base_key])
+            full_equip.update(equip_d[equip_key])
+            return full_equip, equip_key
+        else:
+            return equip_d[equip_key], equip_key
 
     def has_different_mono(self, duration, kind):
         duration = str(int(duration))

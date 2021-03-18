@@ -50,8 +50,8 @@
         "Jewels_of_the_Sun",
         "Study_Rabbits",
         "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
       "slots.d": "PopStar_Siren",
       "acl": [
@@ -62,8 +62,8 @@
       ],
       "coabs": [
         "Bow",
-        "Dagger2",
-        "Tobias"
+        "Blade",
+        "Peony"
       ],
       "share": [
         "Yuya",
@@ -115,150 +115,31 @@
       "dps": 74154.88293986894,
       "team": 0.1264835028920885,
       "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "The_Shining_Overlord",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
-      ],
       "coabs": [
         "Blade",
         "Wand",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 8174.531007545069,
-      "team": 0.37889749935620043,
-      "tdps": 261397.35853239393,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Bellathorna"
-      ],
-      "slots.d": "PopStar_Siren",
-      "acl": [
-        "`dragon(s-s-end)",
-        "`s4",
-        "`s3, fsc",
-        "`fs1, x=2"
-      ],
-      "coabs": [
-        "Bow"
-      ],
-      "share": [
-        "Yuya",
-        "Chitose"
       ]
     },
     "mono_affliction": {
       "dps": 86158.28914942533,
       "team": 0.1264835028920885,
       "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
-      ],
       "coabs": [
         "Blade",
         "Wand",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "mono_pref": "mono_base",
     "mono_noaffliction": {
-      "dps": 86158.28914942533,
-      "team": 0.1264835028920885,
+      "dps": 48914.70996319176,
+      "team": 0.10646806684955931,
       "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
-      ],
       "coabs": [
         "Blade",
         "Wand",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "noaffliction": {
@@ -301,236 +182,16 @@
         "Weapon",
         "Dragonyule_Lily"
       ]
-    }
-  },
-  "60": {
-    "base": {
-      "dps": 47297.12554576658,
-      "team": 0.033286653005353536,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "if electrified",
-        "`s1",
-        "`s4",
-        "if x=3",
-        "`fs2, not aff(paralysis)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(s), cancel",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, cancel",
-        "`s4, cancel",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Kleimann"
-      ]
-    },
-    "pref": "buffer",
-    "affliction": {
-      "dps": 68749.20834812851,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "The_Shining_Overlord",
-        "Rogues_Banquet",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "if electrified",
-        "`s1",
-        "`s4",
-        "if x=3",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(s), cancel",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, cancel",
-        "`s4, cancel",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Kleimann"
-      ]
-    },
-    "buffer": {
-      "dps": 49689.626363879615,
-      "team": 0.0411336771159362,
-      "tdps": -304892.75735580514,
-      "slots.a": [
-        "Gentle_Winds",
-        "Spirit_of_the_Season",
-        "The_Shining_Overlord",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, not energy()=5",
-        "if x=2",
-        "`fs2, not aff(paralysis)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c1-s-end), s2.charged>(s2.sp*(1/2)) and cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel and not energy()=5",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and not energy()=5",
-        "end"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Cleo"
-      ]
-    },
-    "mono_base": {
-      "dps": 47297.12554576658,
-      "team": 0.033286653005353536,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "if electrified",
-        "`s1",
-        "`s4",
-        "if x=3",
-        "`fs2, not aff(paralysis)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(s), cancel",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, cancel",
-        "`s4, cancel",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Kleimann"
-      ]
     },
     "mono_buffer": {
-      "dps": 49689.626363879615,
-      "team": 0.0411336771159362,
-      "tdps": -304892.75735580514,
-      "slots.a": [
-        "Gentle_Winds",
-        "Spirit_of_the_Season",
-        "The_Shining_Overlord",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, not energy()=5",
-        "if x=2",
-        "`fs2, not aff(paralysis)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c1-s-end), s2.charged>(s2.sp*(1/2)) and cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel and not energy()=5",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and not energy()=5",
-        "end"
-      ],
+      "dps": 10190.915322739513,
+      "team": 0.37889749935620043,
+      "tdps": 253408.9571622618,
       "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Cleo"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 68749.20834812851,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "The_Shining_Overlord",
-        "Rogues_Banquet",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "if electrified",
-        "`s1",
-        "`s4",
-        "if x=3",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(s), cancel",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, cancel",
-        "`s4, cancel",
-        "end"
-      ],
-      "coabs": [
+        "Bow",
         "Blade",
-        "Lucretia",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Kleimann"
       ]
-    },
-    "mono_pref": "mono_buffer"
+    }
   }
 }
