@@ -37,13 +37,13 @@
       ]
     },
     "mono_base": {
-      "dps": 61404.38163446665,
+      "dps": 62715.97378407032,
       "team": 0.12023326178025351,
       "tdps": null,
       "coabs": [
         "Blade",
-        "Peony",
-        "Dagger"
+        "Gala_Zena",
+        "Peony"
       ]
     },
     "affliction": {
@@ -80,16 +80,6 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_affliction": {
-      "dps": 62715.97378407032,
-      "team": 0.12023326178025351,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Peony"
-      ]
-    },
     "buffer": {
       "dps": 36783.05106174778,
       "team": 0.18632566182286905,
@@ -119,32 +109,47 @@
       ]
     },
     "noaffliction": {
-      "dps": 50481.09614427784,
-      "team": 0.12240199870469716,
+      "dps": 53835.5023030067,
+      "team": 0.1202332617802537,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
+        "Moonlight_Party",
         "Worthy_Rivals",
         "Enter_the_Blue_Rose",
-        "Taiko_Tandem"
+        "Taiko_Tandem",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, cancel",
+        "`dragon(c3-c3-c3-c3-c1-end), have_buff(s2_base2_00)",
         "`s3, not buff(s3)",
-        "`s1, aff_timeleft(flashburn)<2 and cancel",
-        "`s4, cancel",
-        "`fs, x=2"
+        "`s4, x=2",
+        "if energy()=5 or energy()<=3",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "end",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Dagger2",
+        "Peony"
       ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 62715.97378407032,
+      "team": 0.12023326178025351,
+      "tdps": null,
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Peony"
       ]
     },
     "mono_noaffliction": {
@@ -153,8 +158,8 @@
       "tdps": null,
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Wand",
+        "Peony"
       ]
     }
   }
