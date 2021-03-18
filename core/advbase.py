@@ -911,9 +911,13 @@ class Adv(object):
         except AttributeError:
             can_die = False
         try:
-            self.add_hp(e.delta, can_die=can_die)
+            ignore_dragon = e.ignore_dragon
         except AttributeError:
-            self.set_hp(e.hp, can_die=can_die)
+            ignore_dragon = False
+        try:
+            self.add_hp(e.delta, can_die=can_die, ignore_dragon=ignore_dragon)
+        except AttributeError:
+            self.set_hp(e.hp, can_die=can_die, ignore_dragon=ignore_dragon)
 
     def l_heal_make(self, e):
         self.heal_make(e.name, e.delta, target=e.target, fixed=True)
@@ -937,15 +941,15 @@ class Adv(object):
         log("heal", name, heal_value, target)
         self.add_hp(heal_value, percent=False)
 
-    def add_hp(self, delta, percent=True, can_die=False):
+    def add_hp(self, delta, percent=True, can_die=False, ignore_dragon=False):
         if percent:
             delta = self.max_hp * delta / 100
         if delta > 0:
             delta *= self.sub_mod("getrecovery", "buff") + 1
         new_hp = self._hp + delta
-        self.set_hp(new_hp, percent=False, can_die=can_die)
+        self.set_hp(new_hp, percent=False, can_die=can_die, ignore_dragon=ignore_dragon)
 
-    def set_hp(self, hp, percent=True, can_die=False):
+    def set_hp(self, hp, percent=True, can_die=False, ignore_dragon=False):
         max_hp = self.max_hp
         if self.conf["flask_env"] and "hp" in self.conf:
             hp = self.conf["hp"] * max_hp
@@ -955,7 +959,7 @@ class Adv(object):
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        elif self.dragonform.status != Action.OFF:
+        elif self.dragonform.status != Action.OFF and not ignore_dragon:
             delta = (hp - old_hp) / 10000
             if delta < 0:
                 self.dragonform.set_shift_end(delta, percent=True)
