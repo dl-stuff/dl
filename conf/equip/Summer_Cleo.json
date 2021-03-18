@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 62462.74152818956,
-      "team": 0.060184831221061906,
+      "dps": 61898.02805032604,
+      "team": 0.05138020434948999,
       "tdps": null,
       "slots.a": [
         "Dear_Diary",
@@ -34,9 +34,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 17632.657412550092,
-      "team": 0.3267359589671597,
-      "tdps": 168185.68540569893,
+      "dps": 18262.046538142786,
+      "team": 0.30150619115110355,
+      "tdps": 174456.00943013153,
       "slots.a": [
         "Forest_Bonds",
         "Jewels_of_the_Sun",
@@ -64,8 +64,8 @@
       ]
     },
     "affliction": {
-      "dps": 66830.9125260807,
-      "team": 0.03436020089352889,
+      "dps": 66921.7766242759,
+      "team": 0.03436617280231171,
       "tdps": null,
       "slots.a": [
         "Extreme_Teamwork",
@@ -96,35 +96,80 @@
         "Ilia"
       ]
     },
-    "mono_base": {
-      "dps": 62462.74152818956,
-      "team": 0.060184831221061906,
-      "tdps": null,
+    "mono_pref": "mono_buffer",
+    "mono_buffer": {
+      "dps": 61898.02805032604,
+      "team": 0.05138020434948999,
+      "tdps": -147977.53976858992,
       "coabs": [
         "Lucretia",
         "Peony",
         "Sharena"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 66830.9125260807,
-      "team": 0.03436020089352889,
+    "mono_base": {
+      "dps": 63168.511807751354,
+      "team": 0.05996585700604939,
       "tdps": null,
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Game_of_Cat_and_Boar",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, s1.charged<s1.sp/3",
+        "`s1",
+        "`s4, cancel",
+        "`fs,x=5"
+      ],
+      "coabs": [
+        "Lucretia",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 66260.88192264571,
+      "team": 0.03440397625621229,
+      "tdps": null,
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, s1.charged<(s1.sp/3)",
+        "`s1",
+        "`s4",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Mitsuhide",
         "Peony",
         "Sharena"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 18871.248469688395,
-      "team": 0.29346080625561394,
-      "tdps": 186866.62032832374,
-      "coabs": [
-        "Lucretia",
-        "Sharena",
-        "Blade"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
       ]
     }
   }

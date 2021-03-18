@@ -98,16 +98,6 @@
         "Gala_Mym"
       ]
     },
-    "mono_base": {
-      "dps": 46799.31694720517,
-      "team": 0.03745870801752855,
-      "tdps": null,
-      "coabs": [
-        "Yurius",
-        "Summer_Celliera",
-        "Tiki"
-      ]
-    },
     "mono_affliction": {
       "dps": 52559.92195623452,
       "team": 0.03745870801752855,
@@ -128,6 +118,40 @@
         "Tiki"
       ]
     },
-    "mono_pref": "mono_base"
+    "mono_pref": "mono_base",
+    "mono_base": {
+      "dps": 46799.31694720517,
+      "team": 0.03745870801752855,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if s=2",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s2, dgauge>=500",
+        "`s4",
+        "`s1, (xf or fscf) and buff(s3)",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Yurius",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    }
   }
 }

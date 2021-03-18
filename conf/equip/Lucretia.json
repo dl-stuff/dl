@@ -1,23 +1,28 @@
 {
   "180": {
     "base": {
-      "dps": 61162.84450991137,
-      "team": 0.1415966523741035,
+      "dps": 66666.91691299474,
+      "team": 0.14471671035878356,
       "tdps": null,
       "slots.a": [
-        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Moonlight_Party",
+        "Worthy_Rivals",
         "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon, energy()>3 and not s2.check()",
+        "if energy()>3 and not s2.check()",
+        "`dragon(c6-s-end), dragonform.shift_count=0",
+        "`dragon(c8-s), dragonform.shift_count=1 and cancel",
+        "end",
         "`s3, not buff(s3)",
         "`s2, energy()<4",
+        "`s4, energy()<5",
         "`s1, energy()=5 or energy()<2",
-        "`s4",
         "`fs, x=5"
       ],
       "coabs": [
@@ -67,9 +72,9 @@
       ]
     },
     "buffer": {
-      "dps": 32465.102965618706,
-      "team": 0.305206313733694,
-      "tdps": 175403.70969425302,
+      "dps": 32915.211709347765,
+      "team": 0.26325621072781763,
+      "tdps": 284729.6057311871,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
@@ -96,19 +101,8 @@
       ]
     },
     "mono_base": {
-      "dps": 59319.69474203618,
+      "dps": 60285.15933689473,
       "team": 0.1415966523741035,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Dagger"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 67897.00560906678,
-      "team": 0.14471671035878347,
       "tdps": null,
       "coabs": [
         "Blade",
@@ -116,14 +110,50 @@
         "Peony"
       ]
     },
+    "mono_pref": "mono_base",
     "mono_buffer": {
-      "dps": 32915.211709347765,
-      "team": 0.26325621072781763,
-      "tdps": 217035.82842146917,
+      "dps": 60285.15933689473,
+      "team": 0.1415966523741035,
+      "tdps": null,
       "coabs": [
         "Blade",
-        "Bow",
+        "Gala_Zena",
         "Peony"
+      ]
+    },
+    "noaffliction": {
+      "dps": 65274.981406066756,
+      "team": 0.14471671035878356,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "if energy()>3 and not s2.check()",
+        "`dragon(c6-s-end), dragonform.shift_count=0",
+        "`dragon(c8-s), dragonform.shift_count=1 and cancel",
+        "end",
+        "`s3, not buff(s3)",
+        "`s2, energy()<4",
+        "`s4, energy()<5",
+        "`s1, energy()=5 or energy()<2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
       ]
     }
   }

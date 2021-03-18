@@ -198,7 +198,7 @@ def filtered_monoele_coabs(entry, ele):
     entry["coabs"] = [coab for coab in entry["coabs"] if coab in mono_elecoabs[ele]]
     return entry
 
-class MonoEntry:
+class MonoEntry(EquipEntry):
     @classmethod
     def build_from_sim(cls, adv, real_d):
         return build_entry_from_sim(cls, adv, real_d, coab_only=True)
@@ -280,15 +280,16 @@ class EquipManager(dict):
                     if kind == "pref":
                         self.pref = entry
 
-    def check_skip_entry(self, new_entry, duration, kind, compare_map, need_write=False):
+    def check_skip_entry(self, new_entry, duration, kind, compare_map, need_write=False, do_compare=True):
         try:
             compare_entry = self[duration][compare_map[kind]]
             if new_entry.same_build(compare_entry):
                 try:
-                    current_entry = self[duration][kind]
-                    if new_entry.better_than(current_entry):
+                    if not do_compare or new_entry.better_than(self[duration][kind]):
                         del self[duration][kind]
                         need_write = True
+                        if self.debug:
+                            print("Remove identical [{kind}] and fall back to [{compare_map[kind]}]")
                 except KeyError:
                     pass
                 return True, need_write
@@ -326,10 +327,10 @@ class EquipManager(dict):
                 if self.debug:
                     print(f"not acceptable")
                 continue
-            skip, need_write = self.check_skip_entry(new_entry, duration, kind, SKIP_IF_IDENTICAL, need_write)
+            skip, need_write = self.check_skip_entry(new_entry, duration, kind, SKIP_IF_IDENTICAL, need_write=need_write)
             if skip:
                 continue
-            skip, need_write = self.check_skip_entry(new_entry, duration, kind, SKIP_IF_SAME_COAB, need_write)
+            skip, need_write = self.check_skip_entry(new_entry, duration, kind, SKIP_IF_SAME_COAB, need_write=need_write)
             if skip:
                 continue
             try:
@@ -426,9 +427,9 @@ class EquipManager(dict):
             for kind in list(self[duration].keys()):
                 if kind.endswith("pref"):
                     continue
-                if self.check_skip_entry(self[duration][kind], duration, kind, SKIP_IF_IDENTICAL)[0]:
+                if self.check_skip_entry(self[duration][kind], duration, kind, SKIP_IF_IDENTICAL, do_compare=False)[0]:
                     continue
-                if self.check_skip_entry(self[duration][kind], duration, kind, SKIP_IF_SAME_COAB)[0]:
+                if self.check_skip_entry(self[duration][kind], duration, kind, SKIP_IF_SAME_COAB, do_compare=False)[0]:
                     continue
                 self.repair_entry(adv_module, element, self[duration][kind], duration, kind)
 
@@ -445,6 +446,9 @@ class EquipManager(dict):
                     if monokind not in self[duration]:
                         # try auto populate
                         filtered_entry = filtered_monoele_coabs(self[duration][basekind], element)
+                        if len(filtered_entry["coabs"]) == 3:
+                            # same amount of coab, no need to populate
+                            continue
                         advcoab = get_adv_coability(self.advname)
                         for coab in DEFAULT_MONO_COABS[element]:
                             if len(filtered_entry["coabs"]) == 3:
@@ -453,12 +457,12 @@ class EquipManager(dict):
                                 filtered_entry["coabs"].append(coab)
                         self.repair_entry(adv_module, element, filtered_entry, duration, monokind)
                     continue
-                try:
-                    current_entry = self[duration][monokind]
-                    if not current_entry.better_than(self[duration][basekind]):
-                        self[duration][monokind] = EQUIP_ENTRY_MAP[monokind](filter_coab_only(self[duration][basekind]))
-                except KeyError:
-                    self[duration][monokind] = EQUIP_ENTRY_MAP[monokind](filter_coab_only(self[duration][basekind]))
+                # try:
+                #     current_entry = self[duration][monokind]
+                #     if not current_entry.better_than(self[duration][basekind]):
+                #         self[duration][monokind] = EQUIP_ENTRY_MAP[monokind](filter_coab_only(self[duration][basekind]))
+                # except KeyError:
+                #     self[duration][monokind] = EQUIP_ENTRY_MAP[monokind](filter_coab_only(self[duration][basekind]))
 
             self.update_tdps_threshold(duration)
 

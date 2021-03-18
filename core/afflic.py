@@ -390,7 +390,6 @@ class Afflics(object):
             "paralysis": 100,
             "blind": 99,
             "stun": 99,
-            "curse": 100,
             "bog": 99,
             "sleep": 99,
             "frostbite": 0,
@@ -406,7 +405,6 @@ class Afflics(object):
             "paralysis": 100,
             "blind": 100,
             "stun": 99,
-            "curse": 100,
             "bog": 99,
             "sleep": 99,
             "frostbite": 0,
@@ -422,7 +420,6 @@ class Afflics(object):
             "paralysis": 100,
             "blind": 100,
             "stun": 100,
-            "curse": 100,
             "bog": 100,
             "sleep": 100,
             "frostbite": 0,
@@ -438,7 +435,6 @@ class Afflics(object):
             "paralysis": 100,
             "blind": 100,
             "stun": 100,
-            "curse": 100,
             "bog": 70, # bog at 70 for ~2 bogs
             "sleep": 100,
             "frostbite": 0,
@@ -454,7 +450,6 @@ class Afflics(object):
             "paralysis": 0,
             "blind": 100,
             "stun": 100,
-            "curse": 100,
             "bog": 100,
             "sleep": 100,
             "frostbite": 0,
@@ -485,8 +480,6 @@ class Afflics(object):
 
     def set_resist(self, profile=None):
         for aff, resist in Afflics.RESIST_PROFILES[profile].items():
-            if aff == "curse":
-                continue
             getattr(self, aff).resist = resist
 
     def get_resist(self):

@@ -1,25 +1,26 @@
 {
   "180": {
     "base": {
-      "dps": 60174.86068786464,
-      "team": 0.02919785580407084,
+      "dps": 64809.574241205526,
+      "team": 0.02919852316789649,
       "tdps": null,
       "slots.a": [
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
+        "Worthy_Rivals",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(s), cancel",
+        "`dragon(c3-s), cancel",
         "`s1",
         "`s3, not buff(s3)",
         "`s2, cancel",
         "`s4",
-        "`fs, x=5 or hits=0",
-        "`dodge, fsc"
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
@@ -35,7 +36,7 @@
     "buffer": {
       "dps": 28230.90518710603,
       "team": 0.14664311653544784,
-      "tdps": 271990.1620706639,
+      "tdps": 311454.6868890244,
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -94,7 +95,8 @@
         "Jurota"
       ]
     },
-    "mono_base": {
+    "mono_pref": "mono_buffer",
+    "mono_buffer": {
       "dps": 60174.86068786464,
       "team": 0.02919785580407084,
       "tdps": null,
@@ -104,25 +106,36 @@
         "Peony"
       ]
     },
-    "mono_buffer": {
-      "dps": 28230.90518710603,
-      "team": 0.14664311653544784,
-      "tdps": 271990.1620706639,
-      "coabs": [
-        "Wand",
-        "Mitsuhide",
-        "Peony"
-      ]
-    },
-    "mono_pref": "mono_base",
     "mono_affliction": {
       "dps": 67486.73955346094,
       "team": 0.02919852316789649,
       "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s), cancel",
+        "`s1",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s4",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Malora",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
       ]
     }
   }

@@ -98,36 +98,6 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_base": {
-      "dps": 69161.36186248415,
-      "team": 0.09130525597768871,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 79007.37497829257,
-      "team": 0.09130525597768871,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 40469.11722394676,
-      "team": 0.1349168559536213,
-      "tdps": 657903.9671640443,
-      "coabs": [
-        "Wand",
-        "Hildegarde",
-        "Peony"
-      ]
-    },
     "mono_pref": "mono_base",
     "noaffliction": {
       "dps": 60740.013886849425,
@@ -162,13 +132,56 @@
       ]
     },
     "mono_noaffliction": {
-      "dps": 66056.0840555854,
+      "dps": 68915.76059943928,
       "team": 0.09130525597768871,
       "tdps": null,
       "coabs": [
         "Blade",
         "Lucretia",
         "Peony"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 69161.36186248415,
+      "team": 0.09130525597768871,
+      "tdps": null,
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ]
+    },
+    "mono_base": {
+      "dps": 69161.36186248415,
+      "team": 0.09130525597768871,
+      "tdps": null,
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "FirstRate_Hospitality",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c7-s-end), dragonform.shift_count>=1 and energy()>=4",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, x>2 and energy()<5",
+        "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     }
   }
