@@ -34,6 +34,50 @@
       ]
     },
     "pref": "base",
+    "mono_base": {
+      "dps": 97302.42596776532,
+      "team": 0.0,
+      "tdps": null,
+      "coabs": [
+        "Wand",
+        "Halloween_Elisanne",
+        "Peony"
+      ]
+    },
+    "mono_pref": "mono_base",
+    "noaffliction": {
+      "dps": 83494.91602516733,
+      "team": 0.10953565191831298,
+      "tdps": null,
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Axe2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "affliction": {
       "dps": 109844.53909354984,
       "team": 0.0,
@@ -49,7 +93,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s1.charged<2000 and buff(s2)",
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -59,63 +103,22 @@
       ],
       "coabs": [
         "Wand",
-        "Peony",
-        "Blade"
+        "Axe2",
+        "Peony"
       ],
       "share": [
         "Weapon",
         "Ilia"
       ]
     },
-    "buffer": {
-      "dps": 55158.56508213886,
-      "team": 0.1410071803423328,
-      "tdps": 308045.09001640184,
+    "mono_noaffliction": {
+      "dps": 72838.71960040311,
+      "team": 0.02052674416758437,
+      "tdps": null,
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Valiant_Crown",
-        "Chariot_Drift",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s), buff(s2) and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, xf>3",
-        "`fs, xf=5"
-      ],
-      "coabs": [
-        "Halloween_Elisanne",
-        "Peony",
-        "Blade"
-      ],
-      "share": [
-        "Weapon",
-        "Cleo"
-      ]
-    },
-    "mono_base": {
-      "dps": 97302.42596776532,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Wand",
-        "Halloween_Elisanne",
-        "Peony"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 86605.43333493604,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Levins_Champion",
-        "Memory_of_a_Friend",
         "A_Small_Courage",
         "Chariot_Drift",
         "Crown_of_Light",
@@ -134,31 +137,54 @@
       "coabs": [
         "Wand",
         "Peony",
-        "Blade"
+        "Dagger"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Summer_Cleo"
+      ]
+    },
+    "buffer": {
+      "dps": 83494.91602516733,
+      "team": 0.10953565191831298,
+      "tdps": 137856.6553814419,
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Wand",
+        "Axe2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "mono_affliction": {
-      "dps": 98851.08533244493,
+      "dps": 104564.1750705766,
       "team": 0.0,
       "tdps": null,
       "coabs": [
         "Wand",
         "Peony",
-        "Blade"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 77519.4021312437,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Wand",
-        "Peony",
-        "Blade"
+        "Sharena"
       ]
     }
   }

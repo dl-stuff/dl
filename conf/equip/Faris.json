@@ -3,7 +3,7 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "affliction": {
-      "dps": 77635.26367818056,
+      "dps": 87406.11280542015,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -19,7 +19,12 @@
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
-        "`dodge, xf=1"
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -32,7 +37,7 @@
       ]
     },
     "base": {
-      "dps": 74181.68909414978,
+      "dps": 83410.35224845151,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -48,7 +53,12 @@
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
-        "`dodge, xf=1"
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -63,7 +73,7 @@
     "buffer": {
       "dps": 54612.41277246617,
       "team": 0.07035745196044109,
-      "tdps": 278140.7765120113,
+      "tdps": 409309.0166508185,
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
@@ -87,6 +97,74 @@
       "share": [
         "Weapon",
         "Seimei"
+      ]
+    },
+    "mono_base": {
+      "dps": 87594.49306231835,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Rivalry_of_Kings",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-c3-c3-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 91601.44561577118,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-c3-c3-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     }
   }

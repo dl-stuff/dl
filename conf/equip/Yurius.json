@@ -96,6 +96,68 @@
         "Gala_Elisanne"
       ]
     },
-    "mono_pref": "mono_base"
+    "mono_pref": "mono_base",
+    "mono_affliction": {
+      "dps": 70541.21438152116,
+      "team": 0.14416559405421903,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, not dragondrive.get() and x=5",
+        "`s2, not (not dragondrive.get() and dgauge>=1500) and (energy()=5 or energy()<3)",
+        "`s1",
+        "`s4, cancel and not energy()=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_base": {
+      "dps": 62928.6556722947,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get()",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Catherine",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Chelle"
+      ]
+    }
   }
 }
