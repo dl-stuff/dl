@@ -198,6 +198,7 @@ def filtered_monoele_coabs(entry, ele):
     entry["coabs"] = [coab for coab in entry["coabs"] if coab in mono_elecoabs[ele]]
     return entry
 
+
 class MonoEntry(EquipEntry):
     @classmethod
     def build_from_sim(cls, adv, real_d):
@@ -243,8 +244,10 @@ EQUIP_ENTRY_MAP = {
     "mono_noaffliction": MonoNoAfflictionEntry,
 }
 SKIP_IF_IDENTICAL = {
+    "buffer": "base",
     "affliction": "base",
     "noaffliction": "base",
+    "mono_buffer": "mono_base",
     "mono_affliction": "mono_base",
     "mono_noaffliction": "mono_base",
 }
@@ -289,7 +292,7 @@ class EquipManager(dict):
                         del self[duration][kind]
                         need_write = True
                         if self.debug:
-                            print("Remove identical [{kind}] and fall back to [{compare_map[kind]}]")
+                            print(f"Remove identical [{kind}] and fall back to [{compare_map[kind]}]")
                 except KeyError:
                     pass
                 return True, need_write
@@ -341,25 +344,34 @@ class EquipManager(dict):
                 if self.debug:
                     print(f"fill empty slot {duration, kind}")
                 continue
-            if current_entry.same_build_different_dps(new_entry) or new_entry.better_than(current_entry):
+            same_build_different_dps = current_entry.same_build_different_dps(new_entry)
+            better_than = new_entry.better_than(current_entry)
+            if same_build_different_dps or better_than:
                 if self.debug:
                     print("better than existing/same build different dps")
                 self[duration][kind] = deepcopy(new_entry)
                 need_write = True
-                try:
-                    if self.debug:
-                        print(f"kick to {KICK_TO[kind]}")
-                    for kicked_kind in KICK_TO[kind]:
-                        kicked_entries.append((kicked_kind, current_entry))
-                except KeyError:
-                    pass
+                if better_than:
+                    try:
+                        if self.debug:
+                            print(f"kick to {KICK_TO[kind]}")
+                        for kicked_kind in KICK_TO[kind]:
+                            kicked_entries.append((kicked_kind, current_entry))
+                    except KeyError:
+                        pass
 
         # kicked entries
         for kind, kicked in kicked_entries:
             entryclass = EQUIP_ENTRY_MAP[kind]
             if not entryclass.acceptable(kicked, adv.slots.c.ele):
                 continue
-            kicked = entryclass(deepcopy(kicked))
+            if kind.startswith("mono_"):
+                kicked = entryclass(filter_coab_only(kicked))
+                skip, need_write = self.check_skip_entry(kicked, duration, kind, SKIP_IF_SAME_COAB, need_write=need_write)
+                if skip:
+                    continue
+            else:
+                kicked = entryclass(deepcopy(kicked))
             try:
                 current_entry = self[duration][kind]
             except KeyError:
@@ -395,6 +407,8 @@ class EquipManager(dict):
         return need_write
 
     def repair_entry(self, adv_module, element, conf, duration, kind, do_compare=False):
+        if self.debug:
+            print(f"Repair {kind}")
         conf = deepcopy(conf)
         if kind in ("affliction", "mono_affliction"):
             conf[f"sim_afflict.{ELE_AFFLICT[element]}"] = 1
@@ -449,11 +463,11 @@ class EquipManager(dict):
                         if len(filtered_entry["coabs"]) == 3:
                             # same amount of coab, no need to populate
                             continue
-                        advcoab = get_adv_coability(self.advname)
+                        advcoabs = get_adv_coability(self.advname)
                         for coab in DEFAULT_MONO_COABS[element]:
                             if len(filtered_entry["coabs"]) == 3:
                                 break
-                            if coab not in filtered_entry["coabs"] and coab != advcoab:
+                            if coab not in filtered_entry["coabs"] and coab not in advcoabs:
                                 filtered_entry["coabs"].append(coab)
                         self.repair_entry(adv_module, element, filtered_entry, duration, monokind)
                     continue
@@ -466,7 +480,8 @@ class EquipManager(dict):
 
             self.update_tdps_threshold(duration)
 
-        save_equip_json(self.advname, self)
+        if not self.debug:
+            save_equip_json(self.advname, self)
 
     def get_conf(self, duration, equip_key, mono):
         duration = str(int(duration))
@@ -629,4 +644,5 @@ def test_repair():
 
 
 if __name__ == "__main__":
-    test_repair()
+    # test_repair()
+    print(get_adv_coability("Peony"))

@@ -978,8 +978,10 @@ class Adv(object):
             delta = self._hp - old_hp
             log("hp", f"{self._hp / max_hp:.1%}", f"{int(self._hp)}/{max_hp}", f"{round(delta):+}")
             self.condition.hp_cond_update()
-            self.hp_event.hp = self._hp
-            self.hp_event.delta = delta
+            self.hp_event.hp = self.hp
+            self.hp_event.real_hp = self._hp
+            self.hp_event.delta = delta / max_hp
+            self.hp_event.real_delta = delta
             self.hp_event()
 
     def get_hp(self):
@@ -1531,23 +1533,19 @@ class Adv(object):
             coab_list = self.load_aff_conf("coabs")
         else:
             coab_list = self.conf["coabs"] or []
-        try:
-            self_coab = list(self.slots.c.coabs.keys())[0]
-        except:
-            self_coab = self.name
         for name in coab_list:
             try:
                 coab = self.slots.c.valid_coabs[name]
                 self.slots.c.coabs[name] = coab
-                if name != self.name and coab[0] and coab[0][0] == "ctime":
-                    self.ctime_coab_val += coab[0][1]
+                if name != self.name and coab["chain"] and coab["chain"][0][0] == "ctime":
+                    self.ctime_coab_val += coab["chain"][0][1]
                     self.ctime_coab_list.append(name)
             except KeyError:
                 raise ValueError(f"No such coability: {name}")
 
     def downgrade_coab(self, coab_name):
         try:
-            new_coab = self.slots.c.coabs[coab_name][1].capitalize()
+            new_coab = self.slots.c.coabs[coab_name]["category"]
             self.slots.c.coabs[new_coab] = self.slots.c.valid_coabs[new_coab]
             self.slots.c.coab_list.append(new_coab)
         except KeyError:

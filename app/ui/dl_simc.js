@@ -3,7 +3,6 @@ const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
-const RANGED = ['wand', 'bow', 'staff', 'gun'];
 const DEFAULT_SHARE = 'Ranzal';
 const DEFAULT_SHARE_ALT = 'Curran';
 const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
@@ -690,11 +689,11 @@ function buildCoab(coab, basename, weapontype) {
         const check = $('<input>').addClass('custom-control-input').prop('type', 'checkbox').prop('id', cid);
         const kcoab = coab[k];
         const fullname = kcoab[0];
-        const chain = kcoab[1];
-        const ex = kcoab[2];
+        const ex = kcoab[1];
+        const chain = kcoab[2];
         check.data('name', k);
-        check.data('chain', chain);
         check.data('ex', ex);
+        check.data('chain', chain);
         check.change(checkCoabSelection);
         if (k == basename) {
             check.prop('disabled', true);
@@ -708,7 +707,7 @@ function buildCoab(coab, basename, weapontype) {
         wrap.append(check);
         wrap.append(label);
         if (chain) {
-            wrap.prop('title', chain.join('|') + ' - ' + ex);
+            wrap.prop('title', `${ex}-${chain}`);
         } else {
             wrap.prop('title', ex);
         }
@@ -1117,7 +1116,7 @@ function changeEquip() {
 }
 function toggleAffRes() {
     const newVal = $(this).prop('checked') ? 999 : '';
-    $('#affliction-resist input[type="text"]').each(function (idx, res) {$(res).val(newVal);});
+    $('#affliction-resist input[type="text"]').each(function (idx, res) { $(res).val(newVal); });
 }
 window.onload = function () {
     $('#input-adv').change(debounce(resetTest, 100));

@@ -16,7 +16,6 @@ class Ryszarda(SigilAdv):
     def a1_healed(self, e):
         if not self.a1_heal_cd:
             self.a_update_sigil(-30)
-            # bullshit maffs
             if e.delta >= 1000:
                 self.a_update_sigil(-15)
             self.a1_heal_cd = True
