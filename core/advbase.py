@@ -941,6 +941,8 @@ class Adv(object):
         else:
             heal_value = self.heal_formula(name, coef)
         log("heal", name, heal_value, target)
+        if target != "self":
+            self.slots.c.set_need_healing()
         self.add_hp(heal_value, percent=False)
 
     def add_hp(self, delta, percent=True, can_die=False, ignore_dragon=False):
@@ -983,6 +985,9 @@ class Adv(object):
             self.hp_event.delta = (delta / max_hp) * 100
             self.hp_event.real_delta = delta
             self.hp_event()
+
+            if self._hp < max_hp:
+                self.slots.c.set_need_regen()
 
     def get_hp(self):
         return self.hp
@@ -1503,10 +1508,7 @@ class Adv(object):
         self.last_c = now()
         if delta <= ctime:
             self.hits += self.echo
-            if self.ctime_coab_val:
-                ctime_needed = delta - ctime + self.ctime_coab_val
-                if ctime_needed > self.ctime_needed:
-                    self.ctime_needed = ctime_needed
+            self.slots.c.update_req_ctime(delta, ctime)
             return True
         else:
             self.hits = self.echo
@@ -1526,32 +1528,11 @@ class Adv(object):
         return confv["base"] or []
 
     def config_coabs(self):
-        self.ctime_coab_val = 0
-        self.ctime_coab_list = []
-        self.ctime_needed = 0
         if not self.conf["flask_env"]:
             coab_list = self.load_aff_conf("coabs")
         else:
             coab_list = self.conf["coabs"] or []
-        for name in coab_list:
-            try:
-                coab = self.slots.c.valid_coabs[name]
-                self.slots.c.coabs[name] = coab
-                if name != self.name and coab["chain"] and coab["chain"][0][0] == "ctime":
-                    self.ctime_coab_val += coab["chain"][0][1]
-                    self.ctime_coab_list.append(name)
-            except KeyError:
-                raise ValueError(f"No such coability: {name}")
-
-    def downgrade_coab(self, coab_name):
-        try:
-            new_coab = self.slots.c.coabs[coab_name]["category"]
-            self.slots.c.coabs[new_coab] = self.slots.c.valid_coabs[new_coab]
-            self.slots.c.coab_list.append(new_coab)
-        except KeyError:
-            pass
-        del self.slots.c.coabs[coab_name]
-        self.slots.c.coab_list.remove(coab_name)
+        self.slots.c.set_coab_list(coab_list)
 
     def rebind_function(self, owner, src, dst=None):
         dst = dst or src
@@ -1762,28 +1743,10 @@ class Adv(object):
             end = self.duration
         log("sim", "end", reason)
 
-        if self.ctime_coab_val:
-            if not self.ctime_needed or not self.uses_combo:
-                for name in self.ctime_coab_list:
-                    self.downgrade_coab(name)
-            elif len(self.ctime_coab_list) > 1:
-                ctime_unused = self.ctime_coab_val - self.ctime_needed
-                ctime_coabs = {
-                    name: self.slots.c.coabs[name]
-                    for name in sorted(
-                        self.ctime_coab_list,
-                        key=lambda k: self.slots.c.coabs[k][0][1],
-                        reverse=True,
-                    )
-                }
-                for coab_name in ctime_coabs.keys():
-                    ctime_amt = ctime_coabs[coab_name][0][1]
-                    if ctime_amt < ctime_unused:
-                        ctime_unused -= ctime_amt
-                        self.downgrade_coab(coab_name)
-
         self.post_run(end)
         self.logs = copy.deepcopy(g_logs)
+
+        self.slots.c.downgrade_coabs()
 
         return end
 

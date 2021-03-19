@@ -112,6 +112,64 @@ class CharaBase(SlotBase):
                 self.coabs[self.coab_qual] = self.valid_coabs[self.coab_qual]
             except KeyError:
                 pass
+        self._chain_ctime = 0
+        self._ctime_coabs = []
+        self._need_ctime = 0
+
+        self._healing_coabs = []
+        self._need_healing = False
+
+        self._regen_coabs = []
+        self._need_regen = False
+
+        self._bufftime_coabs = []
+        self._need_bufftime = False
+
+    def set_coab_list(self, coab_list):
+        for name in coab_list:
+            try:
+                self.coabs[name] = self.valid_coabs[name]
+            except KeyError:
+                raise ValueError(f"No such coability: {name}")
+
+    def update_req_ctime(self, delta, ctime):
+        self._need_ctime = max(self._need_ctime, delta - (ctime - self._chain_ctime))
+
+    def set_need_healing(self):
+        self._need_healing = True
+
+    def set_need_regen(self):
+        self._need_regen = True
+
+    def set_need_bufftime(self):
+        self._need_bufftime = True
+
+    def downgrade_one_coab(self, key, coab):
+        try:
+            self.coab_list.remove(key)
+            del self.coabs[key]
+            category = coab["category"]
+            self.coabs[category] = self.valid_coabs[category]
+            self.coab_list.append(category)
+        except (ValueError, KeyError):
+            pass
+
+    def downgrade_coabs(self):
+        for ctime_value, key, coab in sorted(self._ctime_coabs, reverse=True):
+            if self._chain_ctime - ctime_value < self._need_ctime:
+                continue
+            self.downgrade_one_coab(key, coab)
+            self._chain_ctime -= ctime_value
+
+        for flag, coab_list in (
+            (self._need_healing, self._healing_coabs),
+            (self._need_regen, self._regen_coabs),
+            (self._need_bufftime, self._bufftime_coabs),
+        ):
+            if not flag:
+                for key, coab in coab_list:
+                    self.downgrade_one_coab(key, coab)
+        self.coab_list = sorted(self.coab_list)
 
     @property
     def ab(self):
@@ -138,6 +196,16 @@ class CharaBase(SlotBase):
                 ex_ab[coab["category"]] = coab["ex"]
             for chain in coab["chain"]:
                 full_ab.append(tuple(chain))
+                if key != self.coab_qual:
+                    if chain[0] == "ctime":
+                        self._chain_ctime += chain[1]
+                        self._ctime_coabs.append((chain[1], key, coab))
+                    if chain[0] in ("hp", "rcv"):
+                        self._healing_coabs.append((key, coab))
+                    if chain[0].endswith("regen") or chain[0].endswith("heal"):
+                        self._regen_coabs.append((key, coab))
+                    if chain[0] == "bt":
+                        self._bufftime_coabs.append((key, coab))
             if max_coabs == 0:
                 break
         for ex_list in ex_ab.values():

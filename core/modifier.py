@@ -302,6 +302,8 @@ class Buff(object):
             db.on()
             if self.bufftype == "team":
                 log("buff", "doublebuff", 15 * self.bufftime())
+                if self.bufftime == self._bufftime:
+                    self._static.adv.slots.c.set_need_bufftime()
         elif self.mod_type == "maxhp":
             if self._static.adv.sub_mod("maxhp", "buff") < Buff.MAXHP_BUFF_CAP:
                 self.modifier.on()
@@ -396,6 +398,8 @@ class Buff(object):
 
     def on(self, duration=None):
         d = max(-1, (duration or self.duration) * self.bufftime())
+        if d != -1 and self.bufftime == self._bufftime:
+            self._static.adv.slots.c.set_need_bufftime()
         if self.__active == 0:
             self.__active = 1
             if self.__stored == 0:

@@ -247,10 +247,8 @@ EQUIP_ENTRY_MAP = {
     "mono_noaffliction": MonoNoAfflictionEntry,
 }
 SKIP_IF_IDENTICAL = {
-    "buffer": "base",
     "affliction": "base",
     "noaffliction": "base",
-    "mono_buffer": "mono_base",
     "mono_affliction": "mono_base",
     "mono_noaffliction": "mono_base",
 }
