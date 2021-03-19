@@ -9,10 +9,13 @@
         "spiral": false,
         "a": [["a", 0.08], ["affres_blind", 100.0], ["prep", 100.0]]
     },
-    "fs_zenaheal": {
+    "fs_zena": {
         "charge": 0.5,
         "startup": 0.23333,
-        "recovery": 1.0
+        "recovery": 1.0,
+        "attr": [
+            {"buff": ["team", 14.0, 15.0, "heal", "buff"]}
+        ]
     },
     "s1": {
         "sp": 2759,
@@ -22,7 +25,7 @@
             {"dmg": 1.9, "iv": 0.26667},
             {"dmg": 1.9, "iv": 0.53333},
             {"dmg": 1.9, "iv": 0.7},
-            {"dmg": 2.09, "buff": ["fsAlt", "zenaheal", -1, 1], "iv": 0.83333}
+            {"dmg": 2.09, "buff": [["fsAlt", "zena", -1, 1], "-refresh"], "iv": 0.83333}
         ]
     },
     "s2": {
@@ -30,7 +33,7 @@
         "startup": 0.1,
         "recovery": 0.86667,
         "attr": [
-            {"dmg": 4.0, "iv": 0.33333}
+            {"dmg": 4.0, "buff": ["self", 0.15, 10.0, "recovery", "buff"], "iv": 0.33333}
         ]
     }
 }

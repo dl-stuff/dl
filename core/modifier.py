@@ -410,6 +410,8 @@ class Buff(object):
                     self.buff_end_timer.on(d)
                 else:
                     self.refresh_time = d
+            else:
+                return self
             proc_type = "refresh"
 
         self.logwrapper(

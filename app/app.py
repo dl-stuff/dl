@@ -195,6 +195,12 @@ def simc_adv_test():
     return jsonify(result)
 
 
+def summarize_coab(coab):
+    if not coab["chain"]:
+        return (coab["category"].lower(), None)
+    return (coab["category"].lower(), "|".join(map(str, coab["chain"][0])))
+
+
 @app.route("/simc_adv_slotlist", methods=["GET", "POST"])
 def get_adv_slotlist():
     result = {}
@@ -243,9 +249,9 @@ def get_adv_slotlist():
         # gold fafu lul
         result["dragons"]["Gold_Fafnir"] = "Gold Fafnir"
         if mono:
-            result["coabilities"] = {k: (get_fullname(k), *v) for k, v in mono_elecoabs[adv.slots.c.ele].items()}
+            result["coabilities"] = {k: (get_fullname(k), *summarize_coab(v)) for k, v in mono_elecoabs[adv.slots.c.ele].items()}
         else:
-            result["coabilities"] = {k: (get_fullname(k), *v) for k, v in adv.slots.c.valid_coabs.items()}
+            result["coabilities"] = {k: (get_fullname(k), *summarize_coab(v)) for k, v in adv.slots.c.valid_coabs.items()}
         if equip_key == "noaffliction":
             result["afflict_res"] = Afflics.RESIST_PROFILES["immune"]
         else:

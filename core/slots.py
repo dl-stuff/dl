@@ -95,7 +95,6 @@ class CharaBase(SlotBase):
     }
     FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
 
-    NON_UNIQUE_COABS = ("Sword", "Blade", "Dagger", "Bow", "Wand", "Axe2", "Dagger2")
     MAX_COAB = 3  # max allowed coab, excluding self
 
     def __init__(self, conf, qual=None):
@@ -104,52 +103,45 @@ class CharaBase(SlotBase):
         self.coab_list = []
         self.coab_qual = None
         self.valid_coabs = elecoabs[self.ele]
-        if self.conf["ex"]:
-            self.coabs[self.qual] = self.conf["ex"]
+        try:
+            self.coabs[self.qual] = self.valid_coabs[self.qual]
             self.coab_qual = self.qual
-        else:
+        except KeyError:
             try:
-                self.coabs[self.qual] = self.valid_coabs[self.qual]
-                self.coab_qual = self.qual
+                self.coab_qual = self.wt.capitalize()
+                self.coabs[self.coab_qual] = self.valid_coabs[self.coab_qual]
             except KeyError:
-                try:
-                    wt = self.wt
-                    upper_wt = wt[0].upper() + wt[1:].lower()
-                    self.coabs[upper_wt] = self.valid_coabs[upper_wt]
-                    self.coab_qual = upper_wt
-                except KeyError:
-                    pass
+                pass
 
     @property
     def ab(self):
         full_ab = list(super().ab)
-        ex_set = set()
+        ex_ab = {}
         max_coabs = CharaBase.MAX_COAB
         coabs = list(self.coabs.items())
         self.coabs = {}
         self.coab_list = []
+        seen_base_id = set()
         for key, coab in coabs:
             # alt check
-            if key not in CharaBase.NON_UNIQUE_COABS:
-                key_base_id = get_icon(key).split("_")
-                self_base_id = self.icon.split("_")
-                if key_base_id[0] == self_base_id[0] and key_base_id[1] != self_base_id[1]:
+            icon = get_icon(key)
+            if icon:
+                key_base_id = icon.split("_")[0]
+                if key_base_id in seen_base_id:
                     continue
+                seen_base_id.add(key_base_id)
             self.coabs[key] = coab
             if key != self.coab_qual:
                 self.coab_list.append(key)
                 max_coabs -= 1
-            chain, ex = coab
-            if ex:
-                ex_set.add(("ex", ex))
-            if chain:
+            if coab["ex"] and (coab["category"] not in ex_ab or coab["ex"][0][1] > ex_ab[coab["category"]][0][1]):
+                ex_ab[coab["category"]] = coab["ex"]
+            for chain in coab["chain"]:
                 full_ab.append(tuple(chain))
             if max_coabs == 0:
                 break
-        # speshul clause maybe fix later
-        if ("ex", "sophie") in ex_set and ("ex", "peony") in ex_set:
-            ex_set.remove(("ex", "sophie"))
-        full_ab.extend(ex_set)
+        for ex_list in ex_ab.values():
+            full_ab.extend(map(tuple, ex_list))
         if self.wt == "axe":
             full_ab.append(("cc", 0.04))
         else:
@@ -550,21 +542,6 @@ class Fatalis(DragonBase):
     @property
     def ab(self):
         return super().ab if self.on_ele else [["a", 0.5]]
-
-
-class Nyarlathotep(DragonBase):
-    def oninit(self, adv):
-        super().oninit(adv)
-
-        def bloody_tongue(t=None):
-            adv.Buff("bloody_tongue", 0.30, 20).on()
-
-        bloody_tongue(0)
-        buff_rate = 90
-        if adv.condition(f"hp=30% every {buff_rate}s"):
-            buff_times = int(adv.duration // buff_rate)
-            for i in range(1, buff_times):
-                adv.Timer(bloody_tongue).on(buff_rate * i)
 
 
 class Ramiel(DragonBase):

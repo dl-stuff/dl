@@ -51,7 +51,7 @@ def load_json(fn):
         return json.load(f, parse_float=float, parse_int=int)
 
 
-coability = load_json("chains.json")
+exability = load_json("exability.json")
 skillshare = load_json("skillshare.json")
 wyrmprints = load_json("wyrmprints.json")
 # weapons = load_json('weapons.json')
@@ -73,11 +73,11 @@ for target, alst in load_json("alias.json").items():
 
 elecoabs = {}
 for ele in ELEMENTS:
-    elecoabs[ele] = {**coability["any"], **coability["generic"], **coability[ele]}
+    elecoabs[ele] = {**exability["any"], **exability["generic"], **exability[ele]}
 
 mono_elecoabs = {}
 for ele in ELEMENTS:
-    mono_elecoabs[ele] = {**coability["generic"], **coability[ele]}
+    mono_elecoabs[ele] = {**exability["generic"], **exability[ele]}
 
 advconfs = {}
 
@@ -135,10 +135,15 @@ def get_fullname(adv):
 
 def get_adv_coability(adv):
     try:
+        advcoabs = set()
         advconf = load_adv_json(adv)
-        if advconf["c"].get("ex") or adv in elecoabs[advconf["c"]["ele"]]:
-            return adv
-        return advconf["c"]["wt"][0].upper() + advconf["c"]["wt"][1:]
+        try:
+            uniquecoab = elecoabs[advconf["c"]["ele"]][adv]
+            advcoabs.add(adv)
+            advcoabs.add(uniquecoab["category"])
+        except KeyError:
+            advcoabs.add(advconf["c"]["wt"].upper())
+        return advcoabs
     except (FileNotFoundError, KeyError) as e:
         return None
 
