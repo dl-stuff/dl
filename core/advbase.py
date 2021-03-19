@@ -980,7 +980,7 @@ class Adv(object):
             self.condition.hp_cond_update()
             self.hp_event.hp = self.hp
             self.hp_event.real_hp = self._hp
-            self.hp_event.delta = delta / max_hp
+            self.hp_event.delta = (delta / max_hp) * 100
             self.hp_event.real_delta = delta
             self.hp_event()
 

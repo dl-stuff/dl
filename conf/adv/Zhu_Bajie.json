@@ -51,7 +51,8 @@
         "recovery": 1.0,
         "attr": [
             {"cond": ["hp>=", 30], "hp": [20, "="]},
-            {"cond": ["hp<=", 30], "buff": ["self", 0.2, 10, "att", "buff"], "iv": 0.13333}
+            {"cond": ["hp<=", 30], "buff": ["self", 0.2, 10, "att", "buff"], "iv": 0.13333},
+            {"buff": ["self", -1.0, 10, "getrecovery", "buff"]}
         ]
     }
 }

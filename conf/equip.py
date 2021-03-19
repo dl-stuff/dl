@@ -140,12 +140,14 @@ class EquipEntry(dict):
     def better_than(self, other):
         return self.weight(self) >= self.weight(other)
 
-    def update_threshold(self, other):
+    def update_threshold(self, other, change_self=True):
         if self["team"] != other["team"]:
-            self["tdps"] = None
+            if change_self:
+                self["tdps"] = None
             other["tdps"] = (self["dps"] - other["dps"]) / (other["team"] - self["team"])
         else:
-            self["tdps"] = None
+            if change_self:
+                self["tdps"] = None
             other["tdps"] = None
 
 
@@ -195,6 +197,7 @@ def all_monoele_coabs(entry, ele):
 
 
 def filtered_monoele_coabs(entry, ele):
+    entry = deepcopy(entry)
     entry["coabs"] = [coab for coab in entry["coabs"] if coab in mono_elecoabs[ele]]
     return entry
 
@@ -393,7 +396,10 @@ class EquipManager(dict):
         for basekind, buffkind, prefkey in THRESHOLD_RELATION:
             try:
                 ckind = self[duration].get(prefkey)
-                self[duration][basekind].update_threshold(self[duration][buffkind])
+                if basekind.startswith("mono_") and basekind not in self[duration]:
+                    self[duration][basekind[5:]].update_threshold(self[duration][buffkind], change_self=False)
+                else:
+                    self[duration][basekind].update_threshold(self[duration][buffkind])
                 try:
                     if self[duration][buffkind]["team"] > BUFFER_TEAM_THRESHOLD or self[duration][buffkind]["tdps"] < BUFFER_TDPS_THRESHOLD:
                         self[duration][prefkey] = buffkind
@@ -408,7 +414,9 @@ class EquipManager(dict):
 
     def repair_entry(self, adv_module, element, conf, duration, kind, do_compare=False):
         if self.debug:
+            print("~" * 60)
             print(f"Repair {kind}")
+            pprint(conf)
         conf = deepcopy(conf)
         if kind in ("affliction", "mono_affliction"):
             conf[f"sim_afflict.{ELE_AFFLICT[element]}"] = 1

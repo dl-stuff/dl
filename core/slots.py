@@ -146,6 +146,7 @@ class CharaBase(SlotBase):
             full_ab.append(("cc", 0.04))
         else:
             full_ab.append(("cc", 0.02))
+        self.coab_list = sorted(self.coab_list)
         return full_ab
 
     @property
