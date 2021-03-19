@@ -1,39 +1,40 @@
 {
   "180": {
     "base": {
-      "dps": 5359.420910420607,
-      "team": 0.25661450252494084,
+      "dps": 37479.044010323305,
+      "team": 0.08300550368193124,
       "tdps": null,
       "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Azazel",
+      "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-end), fscf",
+        "`dragon(s), buff(s3) and buffstack(ro_att)=3",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s4, x=4",
-        "`fs, x=5"
+        "`s4",
+        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
+        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
+        "`dodge, fsc"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
+        "Audric",
+        "Dagger2",
+        "Ieyasu"
       ],
       "share": [
         "Weapon",
-        "Karl"
+        "Gala_Mym"
       ]
     },
-    "pref": "buffer",
+    "pref": "base",
     "buffer": {
       "dps": 4972.537186973761,
       "team": 0.30545507675500916,
-      "tdps": 7921.359024658305,
+      "tdps": 146129.77842250426,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -111,15 +112,15 @@
       ]
     },
     "noaffliction": {
-      "dps": 27399.761412661635,
-      "team": 0.08300550368193124,
+      "dps": 27525.47953994291,
+      "team": 0.09174924099876128,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Synthetic_Dragon",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Blessed_Days",
+        "Dueling_Dancers"
       ],
       "slots.d": "Ramiel",
       "acl": [
@@ -138,6 +139,16 @@
       "share": [
         "Weapon",
         "Gala_Mym"
+      ]
+    },
+    "mono_base": {
+      "dps": 5359.420910420607,
+      "team": 0.25661450252494084,
+      "tdps": null,
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
       ]
     }
   }
