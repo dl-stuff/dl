@@ -1288,7 +1288,7 @@ class Corrosion(Ability):
             log("corrosion", "amplify", f"{self.set_hp_event.delta:+}%")
 
         def l_reset(e):
-            self.heal_to_reset -= e.real_delta
+            self.heal_to_reset -= e.delta
             if self.heal_to_reset <= 0:
                 self.set_hp_event.delta = -1
                 self.heal_to_reset = 3000
