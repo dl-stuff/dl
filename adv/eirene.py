@@ -7,7 +7,7 @@ class Eirene(ArmamentAdv):
         super().__init__(true_sp=999999, maxcharge=2, **kwargs)
 
     def prerun(self):
-        self.config_armament(autocharge=80000)
+        self.config_armament(autocharge=100000)
         self.hp_event.listener(self.a3_heal)
         self.a3_cd = False
 
