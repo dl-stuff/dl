@@ -24,22 +24,4 @@ class Lathna(Adv):
         return super().s(n)
 
 
-class Lathna_BUGFIX(Lathna):
-    comment = "if s1 aspd bug was fixed"
-    conf = {
-        "s1_all": {
-            "recovery": 4.05,
-            "recovery_nospd": 0,
-        }
-    }
-
-    # # force use of s1_all cus im too lazy to fix acl
-    # @allow_acl
-    # def s(self, n, s1_kind=None):
-    #     return super().s(n, s1_kind='all')
-
-    def s1_proc(self, e):
-        pass
-
-
-variants = {None: Lathna, "BUGFIX": Lathna_BUGFIX}
+variants = {None: Lathna}
