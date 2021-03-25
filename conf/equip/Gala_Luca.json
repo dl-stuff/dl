@@ -1,21 +1,22 @@
 {
   "180": {
     "base": {
-      "dps": 98595.13464365178,
+      "dps": 100051.16858897898,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Extreme_Teamwork",
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "A_Small_Courage",
-        "Chariot_Drift",
+        "Snipers_Allure",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dragonform.shift_count=1",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -35,7 +36,7 @@
     },
     "pref": "base",
     "mono_base": {
-      "dps": 97302.42596776532,
+      "dps": 99085.5981546592,
       "team": 0.0,
       "tdps": null,
       "coabs": [
@@ -46,21 +47,22 @@
     },
     "mono_pref": "mono_base",
     "noaffliction": {
-      "dps": 83494.91602516733,
-      "team": 0.10953565191831298,
+      "dps": 91344.56556084675,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "Moonlight_Party",
+        "Worthy_Rivals",
         "A_Small_Courage",
-        "Seaside_Memory",
+        "Lord_of_the_Skies",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dragonform.shift_count=1",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -75,11 +77,11 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Summer_Julietta"
       ]
     },
     "affliction": {
-      "dps": 109844.53909354984,
+      "dps": 110037.02289514468,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -93,7 +95,8 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dragonform.shift_count=1",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -111,20 +114,10 @@
         "Ilia"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 74743.97675793937,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Dagger",
-        "Peony",
-        "Wand"
-      ]
-    },
     "buffer": {
       "dps": 83494.91602516733,
       "team": 0.10953565191831298,
-      "tdps": 137856.6553814419,
+      "tdps": 151149.44106197127,
       "slots.a": [
         "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
@@ -155,12 +148,22 @@
       ]
     },
     "mono_affliction": {
-      "dps": 94616.55235470372,
+      "dps": 104749.51399567751,
       "team": 0.0,
       "tdps": null,
       "coabs": [
         "Peony",
         "Sharena",
+        "Wand"
+      ]
+    },
+    "mono_buffer": {
+      "dps": 61380.534061993734,
+      "team": 0.02221980232115832,
+      "tdps": 1696912.6704048866,
+      "coabs": [
+        "Dagger",
+        "Peony",
         "Wand"
       ]
     }

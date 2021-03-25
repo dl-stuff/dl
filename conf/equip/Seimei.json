@@ -3,8 +3,8 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 71153.59009784559,
-      "team": 0.07605497419292247,
+      "dps": 74399.68958972523,
+      "team": 0.07877073082389945,
       "tdps": null,
       "slots.a": [
         "Candy_Couriers",
@@ -15,12 +15,20 @@
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon(c3-s)",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s2, self.shikigami.timeleft()<6",
-        "`s1,not have_buff(shikigami)",
+        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
+        "`s2",
+        "end",
+        "if not have_buff(shikigami)",
+        "`s1",
+        "end",
         "`s4",
-        "`fst(3.1), self.shikigami_gauge<7"
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -35,7 +43,7 @@
     "buffer": {
       "dps": 50911.03853878116,
       "team": 0.21494140216541638,
-      "tdps": 145748.95369238968,
+      "tdps": 172494.20025281634,
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -101,8 +109,8 @@
       ]
     },
     "mono_buffer": {
-      "dps": 71153.59009784559,
-      "team": 0.07605497419292247,
+      "dps": 74399.68958972523,
+      "team": 0.07877073082389945,
       "tdps": null,
       "coabs": [
         "Blade",
