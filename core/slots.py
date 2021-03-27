@@ -291,14 +291,16 @@ class DragonBase(EquipBase):
     def oninit(self, adv):
         from core.dragonform import DragonForm
 
+        if adv.conf["dragonform"]:
+            name = self.c.name
+            self.dragonform = Conf(adv.conf["dragonform"])
+        else:
+            name = self.name
+
         for dn, dconf in self.dragonform.items():
             if isinstance(dconf, dict):
                 adv.hitattr_check(dn, dconf)
-        if adv.conf["dragonform"]:
-            name = self.c.name
-            self.dragonform.update(adv.conf["dragonform"])
-        else:
-            name = self.name
+
         self.dragonform.update(DragonBase.DEFAULT_DCONF, rebase=True)
         adv.dragonform = DragonForm(name, self.dragonform, adv)
 
