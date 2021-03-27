@@ -1391,11 +1391,21 @@ class Adv(object):
     def zonecount(self):
         return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
 
-    def has_aura(self, key):
+    @allow_acl
+    def auralvl(self, kind=None, key=2):
+        if isinstance(key, str):
+            try:
+                key = {
+                    "hp": 1,
+                    "att": 2,
+                    "defense": 3,
+                }[key.lower()]
+            except KeyError:
+                return 0
         aura = self.active_buff_dict.aura_buffs.get(key)
         if aura:
-            return aura.get()
-        return False
+            return aura.level(kind, adjust=kind is None)
+        return 0
 
     def l_idle(self, e):
         """
@@ -2234,7 +2244,7 @@ class Adv(object):
         "rng": lambda s, v: random.random() <= v,
         "hits": lambda s, v: s.hits >= v,
         "zone": lambda s, v: s.zonecount >= v,
-        "aura": lambda s, v: s.has_aura(v),
+        "aura": lambda s, v: s.auralvl(key=v),
         "var>=": lambda s, v: getattr(s, v[0]) >= v[1],
         "var=": lambda s, v: getattr(s, v[0]) == v[1],
         "var<=": lambda s, v: getattr(s, v[0]) <= v[1],

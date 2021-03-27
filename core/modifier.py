@@ -11,6 +11,8 @@ from core.acl import allow_acl
 
 
 class ModifierDict(defaultdict):
+    BUFF_CAPS_FOR_TYPE = {"maxhp": 0.3}
+
     def __init__(self, *args, **kwargs):
         if args:
             super().__init__(*args, **kwargs)
@@ -36,10 +38,18 @@ class ModifierDict(defaultdict):
         )
 
     def sub_mod(self, mtype, morder):
-        mod_sum = sum([modifier.get() for modifier in self[mtype][morder]])
         if morder == "buff":
-            mod_sum = min(mod_sum, 2.00)
-        return mod_sum
+            capped_sum = 0
+            uncapped_sum = 0
+            for modifier in self[mtype][morder]:
+                if modifier.buff_capped:
+                    capped_sum += modifier.get()
+                else:
+                    uncapped_sum += modifier.get()
+            capped_sum = min(capped_sum, ModifierDict.BUFF_CAPS_FOR_TYPE.get(mtype, 2.0))
+            return capped_sum + uncapped_sum
+        else:
+            return sum((modifier.get() for modifier in self[mtype][morder]))
 
 
 class Modifier(object):
@@ -55,6 +65,7 @@ class Modifier(object):
             # initialize cond
             self._static.g_condition(self.mod_condition)
         self.mod_get = get
+        self.buff_capped = order == "buff"
         self._mod_active = 0
         self.on()
         # self._static.all_modifiers.append(self)
@@ -351,6 +362,8 @@ class Buff(object):
         self.effect_off()
 
     def count_team_buff(self):
+        if self.bufftype == "self":
+            return
         base_mods = [
             Modifier("base_cc", "crit", "chance", 0.12),
             Modifier("base_killer", "killer", "passive", 0.30),
@@ -1220,67 +1233,74 @@ class MultiLevelBuff:
 
 
 class AuraBuff:
-    def __init__(self, meta_args, self_aura, team_aura, source=None):
-        self.aura_id, self.mod_type, self.mod_order = meta_args
-        self.self_buffs = []
+    SELF_AMP = "self"
+    TEAM_AMP = "team"
+
+    def __init__(self, meta_args, aura_values, source=None):
+        self.aura_id, self.publish_level, self.max_team_level, self.mod_type, self.mod_order = meta_args
+        self.publish_level -= 1
+        self.buffs = []
         self.name = f"{source}_{self.mod_type}_aura"
-        for idx, buffargs in enumerate(self_aura):
-            sbuff = Selfbuff(f"{self.name}_lv{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
-            sbuff.hidden = True
-            self.self_buffs.append(sbuff)
-        self.team_buffs = []
-        for idx, buffargs in enumerate(team_aura):
-            tbuff = Teambuff(f"{self.name}_team_lv{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
-            tbuff.hidden = True
-            self.team_buffs.append(tbuff)
+        for idx, buffargs in enumerate(aura_values):
+            buff = Teambuff(f"{self.name}_lv{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
+            buff.hidden = True
+            buff.modifier.buff_capped = False
+            self.buffs.append(buff)
+        self.max_len = self.publish_level + self.max_team_level
 
-    @property
-    def self_level(self):
+    def iterate_buffs(self, kind=None):
+        if kind == AuraBuff.SELF_AMP:
+            idx_range = range(0, self.publish_level)
+        elif kind == AuraBuff.TEAM_AMP:
+            idx_range = range(self.publish_level, self.max_len)
+        else:
+            idx_range = range(0, self.max_len)
+        for idx in idx_range:
+            yield idx, self.buffs[idx]
+
+    def level(self, kind=None, adjust=True):
         level = -1
-        for idx, b in enumerate(self.self_buffs):
-            if b.get():
+        for idx, buff in self.iterate_buffs(kind):
+            if buff.get():
                 level = idx
-        return min(level + 1, len(self.self_buffs))
+        if adjust and level >= self.publish_level:
+            level -= self.publish_level
+        return min(level + 1, len(self.buffs))
 
-    @property
-    def team_level(self):
-        level = -1
-        for idx, b in enumerate(self.team_buffs):
-            if b.get():
-                level = idx
-        return min(level + 1, len(self.team_buffs))
-
-    @staticmethod
-    def toggle_buffs(buff_list, level=-1):
+    def toggle_buffs(self, kind, level=-1):
         buff_value = 0
         buff_time = 0
-        for idx, b in enumerate(buff_list):
+        for idx, b in self.iterate_buffs(kind):
             if idx == level:
+                b.bufftype = kind
                 b.on()
                 buff_value = b.get()
                 buff_time = b.duration
             else:
                 b.off()
+
         if level < 0:
             return " lv0"
         else:
+            if level >= self.publish_level:
+                level -= self.publish_level
             return f" lv{level + 1}({buff_value:.2f}/{buff_time:.2f}s)"
 
     def on(self, duration=None):
-        self_level = self.self_level
-        team_level = self.team_level
-        if self_level >= len(self.self_buffs):
+        self_level = self.level(AuraBuff.SELF_AMP)
+        team_level = self.level(AuraBuff.TEAM_AMP)
+        if self_level >= self.publish_level:
             self_level = -1
-            team_level = min(team_level, len(self.team_buffs) - 1)
-            team_description = self.toggle_buffs(self.team_buffs, team_level)
+            team_level = min(team_level, self.max_team_level - 1)
+            team_description = self.toggle_buffs(AuraBuff.TEAM_AMP, self.publish_level + team_level)
         else:
             if team_level > 0:
-                buff_value = self.team_buffs[team_level - 1].get()
-                buff_time = self.team_buffs[team_level - 1].timeleft()
+                buff_value = self.buffs[self.publish_level + team_level - 1].get()
+                buff_time = self.buffs[self.publish_level + team_level - 1].timeleft()
                 team_description = f" lv{team_level}({buff_value:.2f}/{buff_time:.2f}s)"
             else:
                 team_description = " lv0"
-        self_description = self.toggle_buffs(self.self_buffs, self_level)
+        self_description = self.toggle_buffs(AuraBuff.SELF_AMP, self_level)
         log(
             "aura",
             self.name,
@@ -1290,28 +1310,22 @@ class AuraBuff:
         return self
 
     def off(self):
-        self.toggle_buffs(self.self_buffs)
-        self.toggle_buffs(self.team_buffs)
+        for _, b in self.iterate_buffs():
+            b.off()
         return self
 
     @allow_acl
-    def get(self):
-        team_level = self.team_level
-        if team_level > 0:
-            return self.team_buffs[team_level - 1].get()
-        self_level = self.self_level
-        if self_level > 0:
-            return self.self_buffs[self_level - 1].get()
+    def get(self, kind=TEAM_AMP):
+        level = self.level(kind, adjust=False)
+        if level > 0:
+            return self.buffs[level - 1].get()
         return False
 
-    def timeleft(self):
-        team_level = self.team_level
-        if team_level > 0:
-            return self.team_buffs[team_level - 1].timeleft()
-        self_level = self.self_level
-        if self_level > 0:
-            return self.self_buffs[self_level - 1].timeleft()
-        return 0
+    def timeleft(self, kind=SELF_AMP):
+        level = self.level(kind, adjust=False)
+        if level > 0:
+            return self.buffs[level - 1].timeleft()
+        return False
 
 
 class ActiveBuffDict(defaultdict):
