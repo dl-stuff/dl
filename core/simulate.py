@@ -2,7 +2,8 @@ import sys
 import os
 import re
 from itertools import chain
-from collections import defaultdict
+from collections import defaultdict, Counter
+
 from conf import (
     get_icon,
     get_fullname,
@@ -274,8 +275,6 @@ def append_condensed(condensed, act):
 
 
 def act_repeats(condensed):
-    from collections import Counter
-
     condensed = list(filter(lambda a: a[0] != "dshift", condensed))
     start = 0
     maxlen = len(condensed)
@@ -306,7 +305,7 @@ def act_sum(actions, output):
         act1 = act.split("_")[0]
         if act[0] == "x":
             xseq = int(act1[1:])
-            if xseq < p_xseq:
+            if xseq <= p_xseq:
                 condensed = append_condensed(condensed, p_act)
             p_xseq = xseq
         elif (act.startswith("fs") or act == "d") and p_act[0] == "x":
