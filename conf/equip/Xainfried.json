@@ -27,7 +27,7 @@
         "`dodge, fscf"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Eugene",
         "Tiki",
         "Yurius"
       ],
@@ -109,13 +109,50 @@
     },
     "mono_pref": "mono_base",
     "mono_buffer": {
-      "dps": 78107.68786803728,
-      "team": 0.1478173477409895,
-      "tdps": 567767.906093793,
+      "dps": 98996.43287879699,
+      "team": 0.11102635482546361,
+      "tdps": null,
       "coabs": [
-        "Blade",
-        "Renee",
-        "Summer_Estelle"
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ]
+    },
+    "noaffliction": {
+      "dps": 86466.84165473367,
+      "team": 0.11107009744920102,
+      "tdps": null,
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Pecorines_Grand_Adventure",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if s=4",
+        "queue dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end);s1",
+        "end",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=1",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s4, dgauge>=500 or dgauge<=300",
+        "`s2",
+        "`s1, fscf",
+        "`fs, charged_in(fs, s2)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
       ]
     }
   }

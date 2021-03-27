@@ -65,7 +65,7 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_buffer",
+    "mono_pref": "mono_base",
     "noaffliction": {
       "dps": 56193.54186229791,
       "team": 0.14564550240173843,
@@ -90,6 +90,48 @@
       "coabs": [
         "Forte",
         "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 92868.32901495461,
+      "team": 0.16815771055365375,
+      "tdps": null,
+      "coabs": [
+        "Delphi",
+        "Heinwald",
+        "Wand"
+      ]
+    },
+    "affliction": {
+      "dps": 90385.54469612241,
+      "team": 0.16815771055365394,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), s=2",
+        "`s3, not buff(s3)",
+        "if x=5 or s=4 or not buff(s3)",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, hits=0 or x=4 and not buff(s3)"
+      ],
+      "coabs": [
+        "Delphi",
+        "Heinwald",
         "Wand"
       ],
       "share": [
