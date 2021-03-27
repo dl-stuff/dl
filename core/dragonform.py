@@ -237,6 +237,17 @@ class DragonForm(Action):
         self.skill_sp = self.conf.ds.sp
         self.skill_spc = self.skill_sp
 
+    def d_shift_partial_end(self):
+        if not self.is_dragondrive and self.status != Action.OFF:
+            duration = now() - self.shift_start_time
+            shift_dmg = g_logs.shift_dmg
+            g_logs.log_shift_dmg(False)
+            log(
+                self.name,
+                "{:.2f}dmg / {:.2f}s, {:.2f} dps".format(shift_dmg, duration, shift_dmg / duration),
+                " ".join(self.act_sum),
+            )
+
     def d_shift_end(self, t):
         if self.action_timer is not None:
             self.action_timer.off()

@@ -1734,13 +1734,16 @@ class Adv(object):
 
         Event("idle")()
         end, reason = Timeline.run(self.duration)
+
         self.base_buff.count_team_buff()
+        self.dragonform.d_shift_partial_end()
         if not self.alive:
             reason = "death"
             if self.comment:
                 self.comment += "; "
             self.comment += f"died at {end:.02f}s"
             end = self.duration
+
         log("sim", "end", reason)
 
         self.post_run(end)

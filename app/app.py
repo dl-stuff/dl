@@ -110,6 +110,7 @@ def run_adv_test(
     fn = io.StringIO()
     core.simulate.act_sum(adv.logs.act_seq, fn)
     result["logs"]["action"] = fn.getvalue()
+    result["logs"]["healing"] = "Healing - " + ", ".join(["{}: {:.0f}".format(k, v) for k, v in adv.logs.heal.items() if v])
     result["logs"]["summation"] = "\n".join(["{}: {}".format(k, v) for k, v in adv.logs.counts.items() if v])
     fn = io.StringIO()
     adv.logs.write_logs(output=fn, maxlen=3000)

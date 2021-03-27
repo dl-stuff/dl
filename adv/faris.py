@@ -17,7 +17,7 @@ class Faris(SigilAdv):
                     "uriel_wrath_lv3",
                     [
                         Debuff("uriel_wrath_lv3_debuff", -0.30, 10, mtype="attack", source="s1"),
-                        AffResDebuff("uriel_wrath_lv3_scortch", -0.20, 10, affname="scorchrend", source="s1"),
+                        AffResDebuff("uriel_wrath_lv3_scortch", -0.25, 10, affname="scorchrend", source="s1"),
                     ],
                 ),
             ],
