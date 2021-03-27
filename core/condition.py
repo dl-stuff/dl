@@ -41,9 +41,9 @@ class Condition(dict):
                 pass
         elif key == "zone":
             return self.adv.zonecount > 0 and self.global_cond
-        elif key.startswith("aura"):
-            auratype = int(key.split("_")[-1])
-            return self.adv.auralvl(key=auratype) and self.global_cond
+        elif key.startswith("amp"):
+            amptype = int(key.split("_")[-1])
+            return self.adv.amp_lvl(key=amptype) > 0 and self.global_cond
         return self.cond_set_value(key, cond)
 
     def cond_set_value(self, key, cond=True):

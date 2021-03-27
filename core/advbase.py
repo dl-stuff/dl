@@ -1392,20 +1392,18 @@ class Adv(object):
         return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
 
     @allow_acl
-    def auralvl(self, kind=None, key=2):
-        if isinstance(key, str):
-            try:
-                key = {
-                    "hp": 1,
-                    "att": 2,
-                    "defense": 3,
-                }[key.lower()]
-            except KeyError:
-                return 0
-        aura = self.active_buff_dict.aura_buffs.get(key)
-        if aura:
-            return aura.level(kind, adjust=kind is None)
-        return 0
+    def amp_lvl(self, kind=None, key=2):
+        try:
+            self.active_buff_dict.get_amp(key=key).level(kind, adjust=kind is None)
+        except KeyError:
+            return 0
+
+    @allow_acl
+    def amp_timeleft(self, kind=None, key=2):
+        try:
+            return self.active_buff_dict.get_amp(key=key).timeleft(kind)
+        except KeyError:
+            return 0
 
     def l_idle(self, e):
         """
@@ -2109,14 +2107,14 @@ class Adv(object):
                     self.bleed = Bleed(base, mod, debufftime=debufftime)
                     self.bleed.on()
 
-        if "aura" in attr:
-            aura_data = attr["aura"]
-            aura_id = aura_data[0][0]
+        if "amp" in attr:
+            amp_data = attr["amp"]
+            amp_id = amp_data[0][0]
             try:
-                self.active_buff_dict.get_aura(aura_id).on()
+                self.active_buff_dict.get_amp(amp_id).on()
             except KeyError:
-                aura_buff = AuraBuff(*aura_data, source=name)
-                self.active_buff_dict.add_aura(base, group, aseq, aura_buff.on(), aura_id)
+                amp_buff = AmpBuff(*amp_data, source=name)
+                self.active_buff_dict.add_amp(base, group, aseq, amp_buff.on(), amp_id)
 
         if "buff" in attr:
             self.hitattr_buff_outer(name, base, group, aseq, attr)
@@ -2244,7 +2242,7 @@ class Adv(object):
         "rng": lambda s, v: random.random() <= v,
         "hits": lambda s, v: s.hits >= v,
         "zone": lambda s, v: s.zonecount >= v,
-        "aura": lambda s, v: s.auralvl(key=v),
+        "amp": lambda s, v: s.amp_lvl(key=v),
         "var>=": lambda s, v: getattr(s, v[0]) >= v[1],
         "var=": lambda s, v: getattr(s, v[0]) == v[1],
         "var<=": lambda s, v: getattr(s, v[0]) <= v[1],

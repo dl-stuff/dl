@@ -1232,16 +1232,16 @@ class MultiLevelBuff:
         return 0
 
 
-class AuraBuff:
+class AmpBuff:
     SELF_AMP = "self"
     TEAM_AMP = "team"
 
-    def __init__(self, meta_args, aura_values, source=None):
-        self.aura_id, self.publish_level, self.max_team_level, self.mod_type, self.mod_order = meta_args
+    def __init__(self, meta_args, amp_values, source=None):
+        self.amp_id, self.publish_level, self.max_team_level, self.mod_type, self.mod_order = meta_args
         self.publish_level -= 1
         self.buffs = []
-        self.name = f"{source}_{self.mod_type}_aura"
-        for idx, buffargs in enumerate(aura_values):
+        self.name = f"{source}_{self.mod_type}_amp"
+        for idx, buffargs in enumerate(amp_values):
             buff = Teambuff(f"{self.name}_lv{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
             buff.hidden = True
             buff.modifier.buff_capped = False
@@ -1249,9 +1249,9 @@ class AuraBuff:
         self.max_len = self.publish_level + self.max_team_level
 
     def iterate_buffs(self, kind=None):
-        if kind == AuraBuff.SELF_AMP:
+        if kind == AmpBuff.SELF_AMP:
             idx_range = range(0, self.publish_level)
-        elif kind == AuraBuff.TEAM_AMP:
+        elif kind == AmpBuff.TEAM_AMP:
             idx_range = range(self.publish_level, self.max_len)
         else:
             idx_range = range(0, self.max_len)
@@ -1287,12 +1287,12 @@ class AuraBuff:
             return f" lv{level + 1}({buff_value:.2f}/{buff_time:.2f}s)"
 
     def on(self, duration=None):
-        self_level = self.level(AuraBuff.SELF_AMP)
-        team_level = self.level(AuraBuff.TEAM_AMP)
+        self_level = self.level(AmpBuff.SELF_AMP)
+        team_level = self.level(AmpBuff.TEAM_AMP)
         if self_level >= self.publish_level:
             self_level = -1
             team_level = min(team_level, self.max_team_level - 1)
-            team_description = self.toggle_buffs(AuraBuff.TEAM_AMP, self.publish_level + team_level)
+            team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, self.publish_level + team_level)
         else:
             if team_level > 0:
                 buff_value = self.buffs[self.publish_level + team_level - 1].get()
@@ -1300,9 +1300,9 @@ class AuraBuff:
                 team_description = f" lv{team_level}({buff_value:.2f}/{buff_time:.2f}s)"
             else:
                 team_description = " lv0"
-        self_description = self.toggle_buffs(AuraBuff.SELF_AMP, self_level)
+        self_description = self.toggle_buffs(AmpBuff.SELF_AMP, self_level)
         log(
-            "aura",
+            "amp",
             self.name,
             f"self{self_description}",
             f"team{team_description}",
@@ -1321,18 +1321,18 @@ class AuraBuff:
             return self.buffs[level - 1].get()
         return False
 
-    def timeleft(self, kind=SELF_AMP):
+    def timeleft(self, kind=TEAM_AMP):
         level = self.level(kind, adjust=False)
         if level > 0:
             return self.buffs[level - 1].timeleft()
-        return False
+        return 0
 
 
 class ActiveBuffDict(defaultdict):
     def __init__(self):
         super().__init__(lambda: defaultdict(lambda: {}))
         self.overwrite_buffs = {}
-        self.aura_buffs = {}
+        self.amp_buffs = {}
 
     def check(self, k, group=None, seq=None, *args):
         if self.get(k, False):
@@ -1388,10 +1388,15 @@ class ActiveBuffDict(defaultdict):
         self[k][group][seq] = buff
         self.overwrite_buffs[overwrite_group] = buff
 
-    def get_aura(self, aura_id):
-        # print(self.aura_buffs[aura_id], aura_id)
-        return self.aura_buffs[aura_id]
+    def get_amp(self, amp_id):
+        if isinstance(amp_id, str):
+            amp_id = {
+                "hp": 1,
+                "att": 2,
+                "defense": 3,
+            }[amp_id.lower()]
+        return self.amp_buffs[amp_id]
 
-    def add_aura(self, k, group, seq, buff, aura_id):
+    def add_amp(self, k, group, seq, buff, amp_id):
         self[k][group][seq] = buff
-        self.aura_buffs[aura_id] = buff
+        self.amp_buffs[amp_id] = buff
