@@ -1,8 +1,6 @@
-from itertools import chain, islice
-from collections import defaultdict
-from collections import namedtuple
+from itertools import chain
+from collections import defaultdict, namedtuple
 import html
-import pprint
 
 from conf import (
     wyrmprints,
@@ -669,9 +667,11 @@ class AmuletPicker:
     def __init__(self):
         self._grouped = {1: {}, 2: {}, 3: {}}
         self._grouped_lookup = {}
+        special_counter = 0
         for qual, wp in wyrmprints.items():
-            try:
-                wpa_lst = next(iter(wp["a"]))
+            ab_length = len(wp["a"])
+            if ab_length == 1:
+                wpa_lst = wp["a"][0]
                 wpa = wpa_lst[0]
                 wpv = wpa_lst[1]
                 try:
@@ -681,11 +681,16 @@ class AmuletPicker:
                 except (AttributeError, IndexError):
                     wpc = tuple()
                     wpr = tuple()
-            except StopIteration:
+            else:
                 wpv = 0
-                wpa = (None,)
+                if ab_length > 1:
+                    wpa = ("special", special_counter)
+                    special_counter += 1
+                else:
+                    wpa = (None,)
                 wpc = None
                 wpr = None
+
             grouped_value = APGroup(
                 value=wpv,
                 att=wp["att"],
