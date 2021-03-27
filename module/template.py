@@ -272,6 +272,10 @@ class DivineShiftAdv(Adv):
         Event("dragondrive").listener(self.a_dragondrive_on)
         Event("dragondrive_end").listener(self.a_dragondrive_off)
 
+    @property
+    def dragondrive(self):
+        return getattr(self, self.shift_name)
+
     def a_dragondrive_on(self, e):
         self.a_fs_dict["fs"].set_enabled(False)
         self.s3.set_enabled(False)
