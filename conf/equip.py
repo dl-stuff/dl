@@ -26,6 +26,8 @@ BANNED_PRINTS = (
     # corrosion
     "Her_Beloved_Crown",
     "Her_Beloved_Sword",
+    # defense reduction
+    "Holywyrms_Advent",
 )
 BANNED_SHARES = ("Durant", "Yue")
 ABNORMAL_COND = (

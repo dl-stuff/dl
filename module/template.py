@@ -3,7 +3,7 @@ from functools import reduce
 import operator
 
 from core.log import log
-from core.timeline import now
+from core.timeline import now, Event
 from core.advbase import Adv, ReservoirSkill
 from core.modifier import ModeManager, EffectBuff
 from core.acl import allow_acl, CONTINUE
@@ -247,3 +247,38 @@ class ArmamentAdv(Adv):
             f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
         )
         self.think_pin("sp")
+
+
+class DivineShiftAdv(Adv):
+    def configure_divine_shift(self, shift_name, max_gauge=1800, shift_cost=560, drain=40, buffs=None):
+        self.shift_name = shift_name
+        self.comment = f"dragon damage does not work on {shift_name}"
+        setattr(
+            self,
+            shift_name,
+            self.dragonform.set_dragondrive(
+                ModeManager(
+                    group="ddrive",
+                    buffs=buffs,
+                    x=True,
+                    s1=True,
+                    s2=True,
+                ),
+                max_gauge=max_gauge,
+                shift_cost=shift_cost,
+                drain=drain,
+            ),
+        )
+        Event("dragondrive").listener(self.a_dragondrive_on)
+        Event("dragondrive_end").listener(self.a_dragondrive_off)
+
+    def a_dragondrive_on(self, e):
+        self.a_fs_dict["fs"].set_enabled(False)
+        self.s3.set_enabled(False)
+        self.s4.set_enabled(False)
+        self.charge_p(self.shift_name, 100)
+
+    def a_dragondrive_off(self, e):
+        self.a_fs_dict["fs"].set_enabled(True)
+        self.s3.set_enabled(True)
+        self.s4.set_enabled(True)

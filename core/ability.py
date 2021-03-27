@@ -22,18 +22,6 @@ class Ability:
         else:
             return True, m
 
-    def flurry_modifier(self, m, adv):
-        cond = m[3]
-        if cond.startswith("hit"):
-            flurry_hits = int(cond[3:])
-
-            def flurry_get():
-                return adv.hits > flurry_hits
-
-            adv.uses_combo = True
-            return (m[0], m[1], m[2], cond, flurry_get)
-        return m
-
     def oninit(self, adv, afrom=None):
         if afrom is not None:
             afrom += "_"
@@ -44,8 +32,6 @@ class Ability:
                 is_ele_wt, m = self.check_ele_wt(m, adv)
                 if not is_ele_wt:
                     continue
-                if m[3] is not None:
-                    m = self.flurry_modifier(m, adv)
             mod_name = "{}{}_{}".format(afrom, self.name, idx)
             self.mod_object = adv.Modifier(mod_name, *m)
             if m[1] == "buff":

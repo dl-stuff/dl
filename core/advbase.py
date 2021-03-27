@@ -989,9 +989,6 @@ class Adv(object):
             if self._hp < max_hp:
                 self.slots.c.set_need_regen()
 
-    def get_hp(self):
-        return self.hp
-
     @property
     def hp(self):
         if self._hp == 1:
@@ -1109,7 +1106,7 @@ class Adv(object):
         self.conf_base = Conf(self.conf or {})
         self.conf_init = Conf(conf or {})
         self.ctx = Ctx().on()
-        self.condition = Condition(cond, self.get_hp)
+        self.condition = Condition(cond, self)
         self.duration = duration
 
         self.damage_sources = set()
@@ -1393,6 +1390,12 @@ class Adv(object):
     @property
     def zonecount(self):
         return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
+
+    def has_aura(self, key):
+        aura = self.active_buff_dict.aura_buffs.get(key)
+        if aura:
+            return aura.get()
+        return False
 
     def l_idle(self, e):
         """
@@ -2096,6 +2099,15 @@ class Adv(object):
                     self.bleed = Bleed(base, mod, debufftime=debufftime)
                     self.bleed.on()
 
+        if "aura" in attr:
+            aura_data = attr["aura"]
+            aura_id = aura_data[0][0]
+            try:
+                self.active_buff_dict.get_aura(aura_id).on()
+            except KeyError:
+                aura_buff = AuraBuff(*aura_data, source=name)
+                self.active_buff_dict.add_aura(base, group, aseq, aura_buff.on(), aura_id)
+
         if "buff" in attr:
             self.hitattr_buff_outer(name, base, group, aseq, attr)
 
@@ -2222,6 +2234,7 @@ class Adv(object):
         "rng": lambda s, v: random.random() <= v,
         "hits": lambda s, v: s.hits >= v,
         "zone": lambda s, v: s.zonecount >= v,
+        "aura": lambda s, v: s.has_aura(v),
         "var>=": lambda s, v: getattr(s, v[0]) >= v[1],
         "var=": lambda s, v: getattr(s, v[0]) == v[1],
         "var<=": lambda s, v: getattr(s, v[0]) <= v[1],

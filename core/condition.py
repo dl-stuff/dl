@@ -3,11 +3,11 @@ from collections import defaultdict
 
 
 class Condition(dict):
-    def __init__(self, cond, get_hp):
+    def __init__(self, cond, adv):
         self.global_cond = True
         self.base_cond = {}
         self.hp_cond = {">": {}, "<": {}, "=": {}}
-        self.get_hp = get_hp
+        self.adv = adv
         super().__init__({})
         if isinstance(cond, dict):
             self.base_cond = cond
@@ -31,6 +31,19 @@ class Condition(dict):
                 return self[key] and self.global_cond
             except ValueError:
                 pass
+        elif key.startswith("hit"):
+            try:
+                hitcount = int(key[3:])
+                self[key] = self.adv.hits > hitcount
+                self.adv.uses_combo = True
+                return self[key] and self.global_cond
+            except ValueError:
+                pass
+        elif key == "zone":
+            return self.adv.zonecount > 0 and self.global_cond
+        elif key.startswith("aura"):
+            auratype = int(key.split("_")[-1])
+            return self.adv.has_aura(auratype) and self.global_cond
         return self.cond_set_value(key, cond)
 
     def cond_set_value(self, key, cond=True):
@@ -41,7 +54,7 @@ class Condition(dict):
         return self[key] and self.global_cond
 
     def hp_cond_update(self):
-        current_hp = self.get_hp()
+        current_hp = self.adv.hp
         for hpt, hpt_key in self.hp_cond[">"].items():
             self[hpt_key] = current_hp >= hpt
         for hpt, hpt_key in self.hp_cond["<"].items():

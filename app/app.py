@@ -20,7 +20,6 @@ from conf import (
     weapons,
     dragons,
     mono_elecoabs,
-    load_adv_json,
     load_equip_json,
     list_advs,
 )

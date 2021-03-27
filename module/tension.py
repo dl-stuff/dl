@@ -1,4 +1,6 @@
-from core.advbase import *
+from core.timeline import Event
+from core.log import log
+from core.modifier import Modifier, Selfbuff
 
 
 class Tension:
@@ -54,10 +56,7 @@ class Tension:
         )
 
     def on(self, e):
-        if self.stack >= self.MAX_STACK and (
-            e.name in self.modifier._static.damage_sources
-            or e.name in self.extra_tensionable
-        ):
+        if self.stack >= self.MAX_STACK and (e.name in self.modifier._static.damage_sources or e.name in self.extra_tensionable):
             log(self.name, "active", "stack <{}>".format(int(self.stack)))
             self.active.add(e.name)
 
@@ -85,6 +84,4 @@ class Energy(Tension):
 
 class Inspiration(Tension):
     def __init__(self):
-        super().__init__(
-            "inspiration", mod=Modifier("mod_inspired", "crit", "chance", 1.00)
-        )
+        super().__init__("inspiration", mod=Modifier("mod_inspired", "crit", "chance", 1.00))

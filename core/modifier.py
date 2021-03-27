@@ -339,14 +339,7 @@ class Buff(object):
         self.__active = 0
 
         if self.__stored:
-            idx = len(self._static.all_buffs)
-            while 1:
-                idx -= 1
-                if idx < 0:
-                    break
-                if self == self._static.all_buffs[idx]:
-                    self._static.all_buffs.pop(idx)
-                    break
+            self._static.all_buffs.remove(self)
             self.__stored = 0
         value, stack = self.valuestack()
         if stack > 0:
@@ -1200,7 +1193,9 @@ class MultiLevelBuff:
 
     @allow_acl
     def get(self):
-        return self.buffs[self.level - 1].get()
+        if self.level > 0:
+            return self.buffs[self.level - 1].get()
+        return False
 
     def add_time(self, delta):
         self.buffs[self.level - 1].add_time(delta)
@@ -1219,13 +1214,111 @@ class MultiLevelBuff:
         self.pause_time = -1
 
     def timeleft(self):
-        return self.buffs[self.level - 1].timeleft()
+        if self.level > 0:
+            return self.buffs[self.level - 1].timeleft()
+        return 0
+
+
+class AuraBuff:
+    def __init__(self, meta_args, self_aura, team_aura, source=None):
+        self.aura_id, self.mod_type, self.mod_order = meta_args
+        self.self_buffs = []
+        self.name = f"{source}_{self.mod_type}_aura"
+        for idx, buffargs in enumerate(self_aura):
+            sbuff = Selfbuff(f"{self.name}_lv{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
+            sbuff.hidden = True
+            self.self_buffs.append(sbuff)
+        self.team_buffs = []
+        for idx, buffargs in enumerate(team_aura):
+            tbuff = Teambuff(f"{self.name}_team_lv{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
+            tbuff.hidden = True
+            self.team_buffs.append(tbuff)
+
+    @property
+    def self_level(self):
+        level = -1
+        for idx, b in enumerate(self.self_buffs):
+            if b.get():
+                level = idx
+        return min(level + 1, len(self.self_buffs))
+
+    @property
+    def team_level(self):
+        level = -1
+        for idx, b in enumerate(self.team_buffs):
+            if b.get():
+                level = idx
+        return min(level + 1, len(self.team_buffs))
+
+    @staticmethod
+    def toggle_buffs(buff_list, level=-1):
+        buff_value = 0
+        buff_time = 0
+        for idx, b in enumerate(buff_list):
+            if idx == level:
+                b.on()
+                buff_value = b.get()
+                buff_time = b.duration
+            else:
+                b.off()
+        if level < 0:
+            return " lv0"
+        else:
+            return f" lv{level + 1}({buff_value:.2f}/{buff_time:.2f}s)"
+
+    def on(self, duration=None):
+        self_level = self.self_level
+        team_level = self.team_level
+        if self_level >= len(self.self_buffs):
+            self_level = -1
+            team_level = min(team_level, len(self.team_buffs) - 1)
+            team_description = self.toggle_buffs(self.team_buffs, team_level)
+        else:
+            if team_level > 0:
+                buff_value = self.team_buffs[team_level - 1].get()
+                buff_time = self.team_buffs[team_level - 1].timeleft()
+                team_description = f" lv{team_level}({buff_value:.2f}/{buff_time:.2f}s)"
+            else:
+                team_description = " lv0"
+        self_description = self.toggle_buffs(self.self_buffs, self_level)
+        log(
+            "aura",
+            self.name,
+            f"self{self_description}",
+            f"team{team_description}",
+        )
+        return self
+
+    def off(self):
+        self.toggle_buffs(self.self_buffs)
+        self.toggle_buffs(self.team_buffs)
+        return self
+
+    @allow_acl
+    def get(self):
+        team_level = self.team_level
+        if team_level > 0:
+            return self.team_buffs[team_level - 1].get()
+        self_level = self.self_level
+        if self_level > 0:
+            return self.self_buffs[self_level - 1].get()
+        return False
+
+    def timeleft(self):
+        team_level = self.team_level
+        if team_level > 0:
+            return self.team_buffs[team_level - 1].timeleft()
+        self_level = self.self_level
+        if self_level > 0:
+            return self.self_buffs[self_level - 1].timeleft()
+        return 0
 
 
 class ActiveBuffDict(defaultdict):
     def __init__(self):
         super().__init__(lambda: defaultdict(lambda: {}))
         self.overwrite_buffs = {}
+        self.aura_buffs = {}
 
     def check(self, k, group=None, seq=None, *args):
         if self.get(k, False):
@@ -1280,3 +1373,11 @@ class ActiveBuffDict(defaultdict):
     def add_overwrite(self, k, group, seq, buff, overwrite_group):
         self[k][group][seq] = buff
         self.overwrite_buffs[overwrite_group] = buff
+
+    def get_aura(self, aura_id):
+        # print(self.aura_buffs[aura_id], aura_id)
+        return self.aura_buffs[aura_id]
+
+    def add_aura(self, k, group, seq, buff, aura_id):
+        self[k][group][seq] = buff
+        self.aura_buffs[aura_id] = buff
