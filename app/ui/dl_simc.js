@@ -160,7 +160,6 @@ function statsIconFmt(stat_str) {
 }
 function createDpsBar(res_div, arr) {
     let copy_txt = '';
-    console.log(arr);
     const total = arr[0];
     let slots = ' ' + slotsTextFmt(arr);
     const cond = arr[34] || '';
@@ -529,7 +528,6 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
 
                     for (const c of slots.adv.pref_coab) {
                         const check = $("input[id$='-" + c + "']");
-                        console.log(check);
                         if (check.length) {
                             check.prop('checked', true);
                             coabSelection(1, true);

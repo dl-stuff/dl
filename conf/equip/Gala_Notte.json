@@ -3,7 +3,7 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 71313.38689759676,
+      "dps": 72373.67264806511,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -15,11 +15,17 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon, not metamorphosis.get()",
-        "`s3, not buff (s3) and cancel",
+        "if metamorphosis.get()",
         "`s1",
         "`s2",
-        "`s4, cancel"
+        "`dodge, x=3",
+        "else",
+        "`dragon, xf=2",
+        "`s3, not buff (s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
       ],
       "coabs": [
         "Blade",
@@ -44,7 +50,7 @@
     "buffer": {
       "dps": 53407.99970793022,
       "team": 0.049985938570972346,
-      "tdps": 358208.4822563379,
+      "tdps": 379420.1625964581,
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
@@ -75,7 +81,7 @@
       ]
     },
     "affliction": {
-      "dps": 80428.63576062462,
+      "dps": 80533.69382210076,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -92,8 +98,8 @@
         "`s2",
         "`dodge, x=3",
         "else",
-        "`dragon",
-        "`s3, not buff (s3) and cancel",
+        "`dragon, xf=2",
+        "`s3, not buff (s3)",
         "`s1",
         "`s2",
         "`s4",
