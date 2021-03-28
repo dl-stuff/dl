@@ -2,7 +2,7 @@
   "180": {
     "base": {
       "dps": 48066.62591047169,
-      "team": 0.3888150327225528,
+      "team": 0.3870321512851328,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -36,7 +36,7 @@
     "buffer": {
       "dps": 5151.47166825376,
       "team": 0.6264461039782165,
-      "tdps": 180595.7193032478,
+      "tdps": 179250.84883099076,
       "slots.a": [
         "Sisters_Day_Out",
         "Summertime_Feeling_Feline",
@@ -65,12 +65,44 @@
     "mono_pref": "mono_base",
     "mono_buffer": {
       "dps": 48066.62591047169,
-      "team": 0.3888150327225528,
+      "team": 0.3870321512851328,
       "tdps": null,
       "coabs": [
         "Forte",
         "Gala_Alex",
         "Ieyasu"
+      ]
+    },
+    "noaffliction": {
+      "dps": 11574.893616338883,
+      "team": 0.2994520362100717,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Shinobi",
+      "acl": [
+        "queue buff(s3) and (s=1 and dgauge>=500)",
+        "`dragon(c3-s);fs",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, s=1",
+        "`s2, fscf",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Forte",
+        "Gala_Alex",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     }
   }

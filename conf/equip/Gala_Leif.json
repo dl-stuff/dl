@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 86768.25113615554,
-      "team": 0.05113851445554701,
+      "dps": 87463.78821941128,
+      "team": 0.051080072342569484,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -34,9 +34,9 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 30215.410043268123,
-      "team": 0.1963485440553687,
-      "tdps": 389455.4752776998,
+      "dps": 30457.941762678965,
+      "team": 0.19634854405536842,
+      "tdps": 392417.19682599086,
       "slots.a": [
         "A_Man_Unchanging",
         "Astounding_Trick",
@@ -66,7 +66,7 @@
       ]
     },
     "affliction": {
-      "dps": 89484.18254005225,
+      "dps": 90201.49061652557,
       "team": 0.05113911313142372,
       "tdps": null,
       "slots.a": [
@@ -97,21 +97,43 @@
         "Fjorm"
       ]
     },
-    "mono_pref": "mono_buffer",
-    "mono_buffer": {
-      "dps": 83209.294362809,
-      "team": 0.051138237617983355,
-      "tdps": -12855758179.357027,
+    "mono_pref": "mono_base",
+    "noaffliction": {
+      "dps": 65692.71856733524,
+      "team": 0.05113769409107982,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3) and cancel",
+        "`s4, fsc",
+        "`s1(striking), s1.check()",
+        "`s2(shielding), s2.check() and fsc",
+        "`fs, xf=2 and (hits>5 and stance='striking')",
+        "`fs, x=1 and (hits>5 and stance='shielding')",
+        "`fs, x=2 or hits=0"
+      ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
         "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 55590.140917853576,
-      "team": 0.05113851445554701,
-      "tdps": null,
+    "mono_buffer": {
+      "dps": 66696.04705713764,
+      "team": 0.05754574715439337,
+      "tdps": 3211999.020472749,
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",

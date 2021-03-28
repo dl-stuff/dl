@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 53310.58049643389,
+      "dps": 53712.840169012285,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -64,7 +64,7 @@
     "buffer": {
       "dps": 4436.471577052071,
       "team": 0.4219314958599544,
-      "tdps": 115834.22759130524,
+      "tdps": 116787.60432787366,
       "slots.a": [
         "A_Dogs_Day",
         "Valiant_Crown",
@@ -89,14 +89,34 @@
       ]
     },
     "mono_pref": "mono_base",
-    "mono_base": {
-      "dps": 52318.52176941454,
+    "noaffliction": {
+      "dps": 44928.79765670244,
       "team": 0.0,
       "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), bleed_stack=3",
+        "`s3",
+        "`s2, charged_in(2, s1)",
+        "`s1, not charged_in(3, s2) and (bleed_stack<3 and buff(s2))",
+        "`s4, cancel",
+        "`fsf, xf=5"
+      ],
       "coabs": [
-        "Akasha",
         "Dragonyule_Xainfried",
-        "Lin_You"
+        "Lin_You",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     }
   }

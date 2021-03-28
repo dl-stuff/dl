@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 76207.7482880818,
-      "team": 0.0723714277106584,
+      "dps": 76787.03015851483,
+      "team": 0.07237142771065859,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -69,7 +69,7 @@
     "buffer": {
       "dps": 3501.1457410469684,
       "team": 0.572171786176187,
-      "tdps": 145471.28931691116,
+      "tdps": 146630.31583744337,
       "slots.a": [
         "A_Dogs_Day",
         "Sisters_Day_Out",
@@ -96,15 +96,50 @@
       ]
     },
     "mono_buffer": {
-      "dps": 73084.16826599366,
-      "team": 0.07230023739787647,
-      "tdps": -43876475.6049961,
+      "dps": 73639.70670720474,
+      "team": 0.07230023739787665,
+      "tdps": -44209996.11212008,
       "coabs": [
         "Dragonyule_Xainfried",
         "Lin_You",
         "Mona"
       ]
     },
-    "mono_pref": "mono_buffer"
+    "mono_pref": "mono_buffer",
+    "noaffliction": {
+      "dps": 55312.40984621932,
+      "team": 0.07237142771065859,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    }
   }
 }

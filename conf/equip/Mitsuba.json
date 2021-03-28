@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 65496.88287575373,
-      "team": 0.030150077144643017,
+      "dps": 65912.69058227667,
+      "team": 0.030150077144642892,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -73,7 +73,7 @@
     "buffer": {
       "dps": 8151.691957002103,
       "team": 0.8332927636600407,
-      "tdps": 71400.99994878334,
+      "tdps": 71918.72576949274,
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -104,8 +104,8 @@
       ]
     },
     "mono_buffer": {
-      "dps": 65496.88287575373,
-      "team": 0.030150077144643017,
+      "dps": 65912.69058227667,
+      "team": 0.030150077144642892,
       "tdps": null,
       "coabs": [
         "Blade",
@@ -113,6 +113,41 @@
         "Xander"
       ]
     },
-    "mono_pref": "mono_base"
+    "mono_pref": "mono_base",
+    "noaffliction": {
+      "dps": 41401.62385794643,
+      "team": 0.030150077144642892,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Chelle"
+      ]
+    }
   }
 }

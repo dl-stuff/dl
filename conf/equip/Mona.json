@@ -3,7 +3,7 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 75014.9735592172,
+      "dps": 76791.5495090321,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -26,7 +26,7 @@
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
-        "Eleonora"
+        "Humanoid_Midgardsormr"
       ],
       "share": [
         "Weapon",
@@ -34,8 +34,8 @@
       ]
     },
     "affliction": {
-      "dps": 75574.61549337285,
-      "team": 0.09599040984416794,
+      "dps": 76165.94045702457,
+      "team": 0.049980544610227585,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -68,9 +68,9 @@
       ]
     },
     "buffer": {
-      "dps": 49136.953067811584,
-      "team": 0.11622534875044299,
-      "tdps": 222653.84246745033,
+      "dps": 49521.503135298815,
+      "team": 0.09322747879312898,
+      "tdps": 292510.82113080955,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -100,34 +100,57 @@
       ]
     },
     "noaffliction": {
-      "dps": 67324.89698254848,
-      "team": 0.0,
+      "dps": 76165.94045702457,
+      "team": 0.049980544610227585,
       "tdps": null,
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "The_Shining_Overlord",
-        "The_Plaguebringer",
+        "Hastened_Squall",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
+        "if not dragondrive.get() and not have_buff(beast_eye)",
+        "`fs, x=9",
+        "end",
         "if s2.check() and not dragondrive.get()",
-        "`dragon",
+        "`dragon()",
         "end",
         "`s1",
         "`s2",
         "`s4"
       ],
       "coabs": [
+        "Akasha",
         "Blade",
-        "Dragonyule_Xainfried",
-        "Wedding_Elisanne"
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Dragonyule_Lily"
+      ]
+    },
+    "mono_affliction": {
+      "dps": 74363.48668480117,
+      "team": 0.049786990050991874,
+      "tdps": null,
+      "coabs": [
+        "Blade",
+        "Gala_Notte",
+        "Wand"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 74363.48668480117,
+      "team": 0.049786990050991874,
+      "tdps": null,
+      "coabs": [
+        "Blade",
+        "Gala_Notte",
+        "Wand"
       ]
     }
   }

@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 77407.42760615321,
-      "team": 0.09746508640177116,
+      "dps": 77962.03558286055,
+      "team": 0.04995685670347471,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
@@ -37,7 +37,7 @@
     "buffer": {
       "dps": 40819.49747366885,
       "team": 0.14743779763137715,
-      "tdps": 732158.1965880629,
+      "tdps": 381023.59041304875,
       "slots.a": [
         "Brothers_in_Arms",
         "Felyne_Hospitality",
@@ -100,13 +100,46 @@
     },
     "mono_pref": "mono_base",
     "mono_buffer": {
-      "dps": 77407.42760615321,
-      "team": 0.09746508640177116,
+      "dps": 77962.03558286055,
+      "team": 0.04995685670347471,
       "tdps": null,
       "coabs": [
         "Blade",
         "Xainfried",
         "Yurius"
+      ]
+    },
+    "noaffliction": {
+      "dps": 65771.22775356479,
+      "team": 0.09746508640177116,
+      "tdps": null,
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Xainfried",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     }
   }

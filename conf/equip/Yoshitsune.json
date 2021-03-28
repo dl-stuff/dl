@@ -3,7 +3,7 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 70937.90885797222,
+      "dps": 71391.66946900467,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -63,31 +63,53 @@
       ]
     },
     "noaffliction": {
-      "dps": 58500.699162207835,
-      "team": 0.1236696319646861,
+      "dps": 67628.12647128208,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Rivalry_of_Kings",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`dodge, x=2",
+        "`dodge, x=2 and not have_buff(dodge_att_buff)",
+        "`fsf, x=2",
         "`s4",
-        "`dragon(c3-s-c3-c3-c2-end), buff(s4) and x=1"
+        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`s2"
       ],
       "coabs": [
         "Blade",
-        "Summer_Estelle",
+        "Dagger",
         "Tiki"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Mym"
+      ]
+    },
+    "mono_base": {
+      "dps": 68693.4617292192,
+      "team": 0.0,
+      "tdps": null,
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Tiki"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 62130.08287065848,
+      "team": 0.0,
+      "tdps": null,
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Xander"
       ]
     }
   }

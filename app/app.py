@@ -274,7 +274,7 @@ def get_adv_wp_list():
     for wp, data in wyrmprints.items():
         ab_str = f'-{data["union"]}'
         if data["a"]:
-            ab_str = "[" + "|".join(map(str, data["a"][-1])) + "]" + ab_str
+            ab_str = "[" + "‖".join(["|".join(map(str, ab)) for ab in data["a"]]) + "]" + ab_str
         else:
             ab_str = "[]" + ab_str
         display_name = data["name"] + " " + ab_str

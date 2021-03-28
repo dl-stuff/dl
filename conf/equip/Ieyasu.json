@@ -118,32 +118,35 @@
     },
     "mono_pref": "mono_base",
     "noaffliction": {
-      "dps": 4463.991450889958,
-      "team": 0.07180223703037522,
+      "dps": 51182.496836485,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "An_Ancient_Oath",
+        "Levins_Champion",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`s1",
+        "`dragon(s), duration-now<12",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2, xf=5",
         "`s4",
-        "`s3, fsc",
-        "`fs, x=2"
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
+        "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
-        "Bow",
-        "Joker",
-        "Tobias"
+        "Axe2",
+        "Delphi",
+        "Wand"
       ],
       "share": [
-        "Valentines_Orion",
-        "Dragonyule_Xainfried"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "mono_noaffliction": {
