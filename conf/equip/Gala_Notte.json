@@ -1,0 +1,113 @@
+{
+  "180": {
+    "pref": "base",
+    "mono_pref": "mono_base",
+    "base": {
+      "dps": 71313.38689759676,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon, not metamorphosis.get()",
+        "`s3, not buff (s3) and cancel",
+        "`s1",
+        "`s2",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 52379.117709433995,
+      "team": 0.0,
+      "tdps": null,
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ]
+    },
+    "buffer": {
+      "dps": 53407.99970793022,
+      "team": 0.049985938570972346,
+      "tdps": 358208.4822563379,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "if not aff(stormlash)",
+        "`dragon, not metamorphosis.get()",
+        "else",
+        "`dragon, metamorphosis.get()",
+        "end",
+        "`s3, not buff (s3) and cancel",
+        "`s1",
+        "`s2",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "affliction": {
+      "dps": 80428.63576062462,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1",
+        "`s2",
+        "`dodge, x=3",
+        "else",
+        "`dragon",
+        "`s3, not buff (s3) and cancel",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    }
+  }
+}
