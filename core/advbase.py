@@ -1516,6 +1516,7 @@ class Adv(object):
         delta = now() - self.last_c
         ctime = self.ctime
         self.last_c = now()
+        g_logs.total_hits += self.echo
         if delta <= ctime:
             self.hits += self.echo
             self.slots.c.update_req_ctime(delta, ctime)

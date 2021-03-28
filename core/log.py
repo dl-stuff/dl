@@ -22,6 +22,7 @@ class Log:
         self.act_seq = []
         self.hitattr_set = set()
         self.shift_dmg = None
+        self.total_hits = 0
 
     def convert_dataset(self):
         if "doublebuff" in self.datasets:

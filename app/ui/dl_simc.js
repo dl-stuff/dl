@@ -938,7 +938,7 @@ function runAdvTest(no_conf) {
                         '<h4 class="test-result-slot-grid"><div>' +
                         icon_urls[0] + '</div><div>' + name + '</div><div>' + icon_urls.slice(1).join('') + '</div></h4>'));
                     copy_txt += createDpsBar(new_result_item, cond_true, undefined);
-                    const logs = ['dragon', 'healing', 'summation', 'action', 'timeline'].map(key => {
+                    const logs = ['dragon', 'misc', 'summation', 'action', 'timeline'].map(key => {
                         if (res.logs[key] !== undefined && res.logs[key] !== "") {
                             return res.logs[key];
                         } else {
