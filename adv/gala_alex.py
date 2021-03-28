@@ -109,26 +109,15 @@ class Gala_Alex_BK(Gala_Alex):
     conf = {}
     conf["prefer_baseconf"] = True
     conf["slots.a"] = [
-        "Howling_to_the_Heavens",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
     ]
-    conf[
-        "acl"
-    ] = """
-        queue
-        `s1; fs, x=4
-        `s2; fs, x=4
-        `s1; fs, x=4
-        `s2;
-        `s1;
-        end
-    """
-    conf["coabs"] = ["Ieyasu", "Wand", "Summer_Patia"]
-    conf["share"] = ["Fjorm"]
-    conf["sim_afflict.frostbite"] = 1
+    conf["coabs"] = ["Ieyasu", "Delphi", "Wand"]
+    conf["share"] = ["Sha_Wujing"]
+    # conf["sim_afflict.poison"] = 1
 
     def __init__(self, **kwargs):
         super().__init__(altchain="break", **kwargs)
@@ -137,18 +126,43 @@ class Gala_Alex_BK(Gala_Alex):
         super().prerun()
         self.duration = 10
         self.sr.charged = 1129 * 3
-        Selfbuff("agito_s3", 0.30, -1, "spd", "buff").on()
-        Selfbuff("agito_s3", 0.05, -1, "crit", "chance").on()
+        Selfbuff("agito_s3_spd", 0.30, -1, "spd", "buff").on()
+        Selfbuff("agito_s3_crit", 0.05, -1, "crit", "chance").on()
+        # EchoBuff("dylily_s4_echo", 0.4, 30).on()
+        # Selfbuff("dylily_s4_att", 0.15, 60, "att", "buff").on()
+        Debuff("sha_s4_defdown", -0.15, 10, 1, "defb").on()
         self.hits = 100
+        if "poison" in self.conf.sim_afflict:
+            self.conf.acl = """
+                queue
+                `s1; fs, x=4
+                `s2; fs, x=4
+                `s1; fs, x=4
+                `s2;
+                `s1;
+                end
+            """
+            self.bk_chain = "s1 s2 s1 s2 s1"
+        else:
+            self.conf.acl = """
+                queue
+                `s2; fs, x=4
+                `s1; fs, x=4
+                `s2; fs, x=4
+                `s1;
+                `s2;
+                end
+            """
+            self.bk_chain = "s2 s1 s2 s1 s2"
 
     def post_run(self, end):
-        self.comment = f"{now():.02f}s sim; 3 charges into bk + bk killer chain; no bk def adjustment"
+        self.comment = f"{now():.02f}s sim; {self.bk_chain} on bk; no bk def adjustment"
 
     def build_rates(self, as_list=True):
         rates = super().build_rates(as_list=False)
         rates["break"] = 1.00
-        # rates['debuff_def'] = 1.00
-        # rates['poison'] = 1.00
+        # rates["debuff_def"] = 1.00
+        # rates["poison"] = 1.00
         return rates if not as_list else list(rates.items())
 
 

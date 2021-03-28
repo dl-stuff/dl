@@ -1082,10 +1082,9 @@ class Adv(object):
         equip_conf, self.equip_key = equip.get_conf(self.duration, equip_key, mono)
         if equip_conf:
             self.conf.update(equip_conf)
+        self.conf.update(self.conf_init)
         if self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
-            return None
-        self.conf.update(self.conf_init)
 
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf["flask_env"]))
