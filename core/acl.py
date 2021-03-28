@@ -71,9 +71,7 @@ PIN_CMD = {
     "SEQ": lambda e: e.didx if e.dname[0] == "x" else 0 if e.dstat == -2 else -1,
     "X": lambda e: e.didx if e.pin[0] == "x" and e.dstat != -1 and e.dhit == 0 else 0,
     "XF": lambda e: e.didx if e.pin[0] == "x" and e.dstat != -1 else 0,
-    "S": lambda e: int(e.pin[1])
-    if (e.pin[0] == "s" and e.pin[1].isdigit()) or e.pin[-2:] == "-x"
-    else 0,
+    "S": lambda e: int(e.pin[1]) if (e.pin[0] == "s" and e.pin[1].isdigit()) or e.pin[-2:] == "-x" else 0,
     "FSC": lambda e: e.pin.startswith("fs") and e.dstat != -1 and e.dhit == 0,
     "FSCF": lambda e: e.pin.startswith("fs") and e.dstat != -1,
     "SP": lambda e: e.dname if e.pin == "sp" else None,
@@ -129,7 +127,8 @@ class AclInterpreter(Interpreter):
             if not self.visit(n_actcond):
                 self._queue.appendleft(n_actcond)
         except IndexError:
-            return self.visit(self._tree)
+            pass
+        return self.visit(self._tree)
 
     def visit(self, t):
         result = super().visit(t)
@@ -296,17 +295,12 @@ class AclRegenerator(Interpreter):
             if not result:
                 continue
             if isinstance(result, str):
-                if not result.startswith("`") and not any(
-                    (result.startswith(ctrl) for ctrl in AclRegenerator.CTRL)
-                ):
+                if not result.startswith("`") and not any((result.startswith(ctrl) for ctrl in AclRegenerator.CTRL)):
                     result = f"`{result}"
                 childres.append(result)
             elif isinstance(result, list):
                 result = (
-                    f"`{res}"
-                    if not res.startswith("`")
-                    and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL))
-                    else res
+                    f"`{res}" if not res.startswith("`") and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res
                     for res in result
                 )
                 childres.extend(result)
@@ -342,10 +336,7 @@ class AclRegenerator(Interpreter):
         if if_else_list:
             if_else_list.append("end")
             if_else_list = (
-                f"`{res}"
-                if not res.startswith("`")
-                and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL))
-                else res
+                f"`{res}" if not res.startswith("`") and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res
                 for res in if_else_list
             )
             return "\n".join(if_else_list)
@@ -418,9 +409,7 @@ class AclRegenerator(Interpreter):
     def arithmetic(self, t):
         if len(t.children) == 3:
             left, op, right = t.children
-            return (
-                f"({self.visit(left)}{BINARY_EXPR_TOKENS[op.type]}{self.visit(right)})"
-            )
+            return f"({self.visit(left)}{BINARY_EXPR_TOKENS[op.type]}{self.visit(right)})"
         return False
 
     def actcond(self, t):
@@ -462,9 +451,7 @@ class AclRegenerator(Interpreter):
             elif len(args) == 1:
                 return f"{fn.value}{self.visit(args[0])}"
             else:
-                argstr = ", ".join(
-                    (str(self.visit(arg)).strip("'") for arg in args[1:])
-                )
+                argstr = ", ".join((str(self.visit(arg)).strip("'") for arg in args[1:]))
                 return f"{fn.value}{self.visit(args[0])}({argstr})"
         argstr = ", ".join((str(self.visit(arg)).strip("'") for arg in args))
         return f"{fn.value}({argstr})"
@@ -484,11 +471,7 @@ FSN_PATTERN = re.compile(r"(^|;)`?(fs|s)(\d+)(\(([^)]+)\))?")
 
 
 def _pre_parse(acl):
-    return "\n".join(
-        filter(
-            None, (FSN_PATTERN.sub(r"\1`\2(\3,\5)", l.strip()) for l in acl.split("\n"))
-        )
-    )
+    return "\n".join(filter(None, (FSN_PATTERN.sub(r"\1`\2(\3,\5)", l.strip()) for l in acl.split("\n"))))
 
 
 def build_acl(acl):
@@ -510,13 +493,7 @@ def regenerate_acl(interpreter):
     acl_str = REGENERATOR.visit(interpreter._tree) or ""
     if isinstance(acl_str, list):
         acl_str = "\n".join(acl_str)
-    comments = "\n".join(
-        (
-            line.strip()
-            for line in interpreter._acl_str.split("\n")
-            if line.strip().startswith("#")
-        )
-    )
+    comments = "\n".join((line.strip() for line in interpreter._acl_str.split("\n") if line.strip().startswith("#")))
     if comments:
         # no real way to tell where comments were relatively
         # perhaps incl into parse tree?

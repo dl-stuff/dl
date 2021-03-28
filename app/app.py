@@ -90,7 +90,7 @@ def run_adv_test(
         run_res = core.simulate.test(adv_name, adv_module, conf, t, log, mass, output=fn, cond=cond)
         result["test_output"] = fn.getvalue()
     except Exception as e:
-        result["error"] = traceback.format_exc()
+        result["error"] = traceback.format_exc(limit=-1)
         return result
 
     adv = run_res[0][0]
