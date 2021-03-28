@@ -1394,14 +1394,14 @@ class Adv(object):
     @allow_acl
     def amp_lvl(self, kind=None, key=2):
         try:
-            self.active_buff_dict.get_amp(key=key).level(kind, adjust=kind is None)
+            self.active_buff_dict.get_amp(key).level(kind, adjust=kind is None)
         except KeyError:
             return 0
 
     @allow_acl
     def amp_timeleft(self, kind=None, key=2):
         try:
-            return self.active_buff_dict.get_amp(key=key).timeleft(kind)
+            return self.active_buff_dict.get_amp(key).timeleft(kind)
         except KeyError:
             return 0
 
