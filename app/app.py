@@ -1,11 +1,9 @@
 import io
 import json
 from conf import get_fullname
-import os
-import sys
+import traceback
 import subprocess
 
-from contextlib import redirect_stdout
 from flask import Flask
 from flask import request
 from flask import jsonify
@@ -92,8 +90,7 @@ def run_adv_test(
         run_res = core.simulate.test(adv_name, adv_module, conf, t, log, mass, output=fn, cond=cond)
         result["test_output"] = fn.getvalue()
     except Exception as e:
-        result["error"] = str(e)
-        # raise e
+        result["error"] = traceback.format_exc()
         return result
 
     adv = run_res[0][0]
@@ -109,7 +106,10 @@ def run_adv_test(
     fn = io.StringIO()
     core.simulate.act_sum(adv.logs.act_seq, fn)
     result["logs"]["action"] = fn.getvalue()
-    result["logs"]["healing"] = "Healing - " + ", ".join(["{}: {:.0f}".format(k, v) for k, v in adv.logs.heal.items() if v])
+    misc_data = [f"Hitcount - {adv.logs.total_hits} ({adv.logs.total_hits/real_d:.2f}/s)"]
+    if adv.logs.heal:
+        misc_data.append("Healing - " + ", ".join(["{}: {:.0f}".format(k, v) for k, v in adv.logs.heal.items() if v]))
+    result["logs"]["misc"] = "\n".join(misc_data)
     result["logs"]["summation"] = "\n".join(["{}: {}".format(k, v) for k, v in adv.logs.counts.items() if v])
     fn = io.StringIO()
     adv.logs.write_logs(output=fn, maxlen=3000)
