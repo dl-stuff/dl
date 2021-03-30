@@ -109,7 +109,6 @@ class DragonForm(Action):
         self.end_event = Event("dragondrive_end")
         ratio = max_gauge / self.max_gauge
         self.dragon_gauge *= ratio
-        self.dragon_gauge_val *= ratio
         self.max_gauge = max_gauge
         self.shift_cost = shift_cost  # does not deduct, but need to have this much pt to shift
         self.drain = drain
@@ -142,7 +141,7 @@ class DragonForm(Action):
         return combo > dodge
 
     def auto_gauge(self, t):
-        self.charge_gauge(self.dragon_gauge_val, auto=True)
+        self.charge_gauge(self.dragon_gauge_val, percent=True, auto=True)
 
     def pause_auto_gauge(self):
         if self.dragon_gauge_pause_timer is None:
@@ -177,31 +176,27 @@ class DragonForm(Action):
                     f"{int(self.dragon_gauge)}/{int(self.max_gauge)}",
                 )
 
-    def charge_gauge(self, value, utp=False, dhaste=True, auto=False):
+    def charge_gauge(self, value, utp=False, dhaste=True, percent=False, auto=False):
         # if dhaste is None:
         #     dhaste = not utp
         dh = self.dhaste() if dhaste else 1
         if utp:
             dh *= self.adv.mod("utph", operator=operator.add)
+        if percent:
+            value *= self.max_gauge / 100
         value = self.adv.sp_convert(dh, value)
         delta = min(self.dragon_gauge + value, self.max_gauge) - self.dragon_gauge
         if self.is_dragondrive and self.dragondrive_buff.get():
             self.add_drive_gauge_time(delta)
         elif delta != 0:
             self.dragon_gauge += delta
-            if utp:
-                log(
-                    "dragon_gauge",
-                    "{:+} utp".format(int(delta)),
-                    f"{int(self.dragon_gauge)}/{int(self.max_gauge)}",
-                    value,
-                )
-            else:
-                log(
-                    "auto_gauge" if auto else "dragon_gauge",
-                    "{:+.2f}%".format(delta / self.max_gauge * 100),
-                    "{:.2f}%".format(self.dragon_gauge / self.max_gauge * 100),
-                )
+            log(
+                "dragon_gauge",
+                "{:+} ({:+.2f}%)".format(int(delta), delta / self.max_gauge * 100),
+                f"{int(self.dragon_gauge)}/{int(self.max_gauge)}",
+                "{:.2f}%".format(self.dragon_gauge / self.max_gauge * 100),
+                "auto" if auto else "",
+            )
         return value
 
     @allow_acl

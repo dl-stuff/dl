@@ -1083,7 +1083,7 @@ ability_dict["ecombo"] = Energy_Combo
 
 class DPrep_Combo(ComboProcAbility):
     def combo_proc_cb(self, adv, delta):
-        adv.dragonform.charge_gauge(delta * 30, dhaste=False)
+        adv.dragonform.charge_gauge(delta * 3, dhaste=False, percent=True)
 
 
 ability_dict["dpcombo"] = DPrep_Combo

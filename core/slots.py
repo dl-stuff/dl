@@ -267,7 +267,7 @@ class DragonBase(EquipBase):
             "duration": 10,  # 10s dragon time
             "dracolith": 0.70,  # base dragon damage
             "exhilaration": 0,  # psiren aura
-            "gauge_val": 100,  # gauge regen value
+            "gauge_val": 10,  # gauge regen percent
             "latency": 0,  # amount of delay for cancel
             "act": "c3-s",
             "dshift.startup": 1.0,
