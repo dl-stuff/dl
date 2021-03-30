@@ -65,8 +65,8 @@ class CharaBase(SlotBase):
     FAC_ELEMENT_ATT = {
         "all": {"altar": 0.26, "slime": 0.04},
         "flame": {"tree": 0.31, "arctos": 0.085},
-        "water": {"tree": 0.31, "yuletree": 0.085, "dragonata": 0.085},
-        "wind": {"tree": 0.26, "shrine": 0.085},
+        "water": {"tree": 0.26, "yuletree": 0.085, "dragonata": 0.085},
+        "wind": {"tree": 0.31, "shrine": 0.085},
         "light": {"tree": 0.26, "retreat": 0.085, "circus": 0.085},
         "shadow": {"tree": 0.31, "library": 0.085},
     }
