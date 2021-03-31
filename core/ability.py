@@ -1217,24 +1217,26 @@ ability_dict["poised"] = Poised_Buff
 
 
 class Dodge_Buff(BuffingAbility):
-    def __init__(self, name, value, duration=15, cooldown=15):
+    def __init__(self, name, value, duration=15, cooldown=15, cond=None):
         super().__init__(name, value, duration, cooldown)
         self.is_cd = False
+        self.cond = cond
 
     def oninit(self, adv, afrom=None):
         if adv.nihilism:
             return
+        if not self.cond or adv.condition(f"dodge {self.cond}"):
 
-        def cd_end(t):
-            self.is_cd = False
+            def cd_end(t):
+                self.is_cd = False
 
-        def l_dodge_buff(e):
-            if not self.is_cd:
-                adv.Buff(*self.buff_args, source="dodge").on()
-                self.is_cd = True
-                adv.Timer(cd_end).on(self.cooldown)
+            def l_dodge_buff(e):
+                if not self.is_cd:
+                    adv.Buff(*self.buff_args, source="dodge").on()
+                    self.is_cd = True
+                    adv.Timer(cd_end).on(self.cooldown)
 
-        adv.Event("dodge").listener(l_dodge_buff)
+            adv.Event("dodge").listener(l_dodge_buff)
 
 
 ability_dict["dodge"] = Dodge_Buff
