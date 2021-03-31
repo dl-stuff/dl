@@ -726,7 +726,7 @@ class Dragon_Prep(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
-        adv.dragonform.charge_gauge(self.value * 10, dhaste=False)
+        adv.dragonform.charge_gauge(self.value, percent=True, dhaste=False)
 
 
 ability_dict["dp"] = Dragon_Prep

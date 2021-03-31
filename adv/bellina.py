@@ -17,7 +17,7 @@ class Bellina(Adv):
 
     def s2_before(self, e):
         if self.hp > 30 and e.group == "default":
-            self.dragonform.charge_gauge(3000 * (self.hp - 30) / 100, utp=True, dhaste=False)
+            self.dragonform.charge_gauge(1500 * (self.hp - 30) / 100, utp=True, dhaste=False)
 
 
 variants = {None: Bellina}
