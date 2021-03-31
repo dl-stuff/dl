@@ -26,6 +26,7 @@ class Valentines_Chelsea(Adv):
         self.a2_spd_mod = Modifier("a2_spd", "spd", "buff", 0.15, get=self.a2_buff.get)
 
         self.full_gauge_at = None
+        self.a_s_dict["s2"].enable_phase_up = True
 
     def a2_cd_end(self, t):
         self.is_cd = False

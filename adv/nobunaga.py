@@ -19,7 +19,7 @@ class Nobunaga(Adv):
         adv.ba_t = Timer(adv.ba_proc)
 
     def s1_proc(self, e):
-        if self.conf["berserk"]:
+        if self.berserk_mode:
             self.burning_ambition = 0
         else:
             self.burning_ambition = self.dmg_formula("s", 15.65)
@@ -28,9 +28,7 @@ class Nobunaga(Adv):
 
     def ba_proc(self, t):
         if self.burning_ambition > 0:
-            self.dmg_make(
-                f"{t.name}_burning_ambition", self.burning_ambition, fixed=True
-            )
+            self.dmg_make(f"{t.name}_burning_ambition", self.burning_ambition, fixed=True)
             self.burning_ambition = 0
             self.ba_t.off()
             return True

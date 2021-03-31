@@ -50,13 +50,13 @@ class Skill(object):
         self.maxcharge = 1
         self.autocharge_sp = 0
 
-    def add_action(self, group, act):
+    def add_action(self, group, act, phase_up=True):
         act.cast = self.cast
         self.act_dict[group] = act
         if group == "default":
             self.act_base = act
         if isinstance(group, int):
-            self.enable_phase_up = True
+            self.enable_phase_up = phase_up
 
     def set_enabled(self, enabled):
         for ac in self.act_dict.values():
@@ -800,8 +800,11 @@ class Adv(object):
         self.all_modifiers = ModifierDict()
         self.modifier._static.all_modifiers = self.all_modifiers
         self.modifier._static.g_condition = self.condition
-        if self.conf["berserk"]:
+        if self.berserk_mode:
             Modifier("berserk_fs_odmg", "fs", "berserk", self.conf["berserk"] - 1)
+
+        # nihilism
+        self.nihilism = bool(self.conf["nihilism"])
 
         # init actions
         for xn, xconf in self.conf.find(r"^x\d+(_[A-Za-z0-9]+)?$"):
@@ -1003,7 +1006,7 @@ class Adv(object):
         return float_ceil(self.base_hp, self.max_hp_mod())
 
     def afflic_condition(self):
-        if "afflict_res" in self.conf and not self.conf["berserk"]:
+        if "afflict_res" in self.conf and not self.berserk_mode:
             res_conf = self.conf.afflict_res
             if all((value >= 200 for value in res_conf.values())):
                 self.condition("999 all affliction res")
@@ -1014,7 +1017,7 @@ class Adv(object):
                         vars(self.afflics)[afflic].resist = resist
 
     def sim_affliction(self):
-        if "sim_afflict" in self.conf and not self.conf["berserk"]:
+        if "sim_afflict" in self.conf and not self.berserk_mode:
             for aff_type in AFFLICT_LIST:
                 aff = vars(self.afflics)[aff_type]
                 if self.conf.sim_afflict[aff_type]:
@@ -1119,9 +1122,11 @@ class Adv(object):
         # set afflic
         self.afflics = Afflics()
         if self.conf["berserk"]:
+            self.berserk_mode = True
             self.condition(f"Agito Berserk Phase ODPS (FS {self.conf.berserk:.0f}x)")
             self.afflics.set_resist("immune")
         else:
+            self.berserk_mode = False
             self.afflics.set_resist(self.conf.c.ele)
         self.sim_afflict = set()
         self.use_afflict = set()
@@ -1159,7 +1164,7 @@ class Adv(object):
         elif name in ("ds", "ds_final"):
             scope = "s"
 
-        if self.conf["berserk"]:
+        if self.berserk_mode:
             mod *= self.mod("odaccel")
 
         if scope[0] == "s":
@@ -1341,7 +1346,7 @@ class Adv(object):
     def def_mod(self):
         defa = min(1 - self.mod("def", operator=operator.add), 0.5)
         defb = min(1 - self.mod("defb", operator=operator.add), 0.3)
-        berserk_def = 4 if self.conf["berserk"] else 1
+        berserk_def = 4 if self.berserk_mode else 1
         return (1 - min(defa + defb, 0.5)) * berserk_def
 
     @allow_acl
@@ -1662,7 +1667,11 @@ class Adv(object):
                 self.current_s[s.base] = 0
                 s.group -= 1
                 s.act_event.group = s.group
-            self.a_s_dict[s.base].add_action(s.group, s)
+            phase_up = True
+            if self.nihilism:
+                # agito weapon skills can phase up
+                phase_up = self.slots.w.qual == "agito" and sn.startswith("s3") and snconf.owner is None
+            self.a_s_dict[s.base].add_action(s.group, s, phase_up=phase_up)
             self.hitattr_check(sn, snconf)
 
         return preruns
@@ -1893,7 +1902,7 @@ class Adv(object):
 
     def l_dmg_formula(self, e):
         name = e.dname
-        if self.conf["berserk"] and getattr(e, "dot", False):
+        if self.berserk_mode and getattr(e, "dot", False):
             dmg_coef = 0
         else:
             dmg_coef = e.dmg_coef
@@ -1964,7 +1973,7 @@ class Adv(object):
         dmg_made_event.on()
         if fixed:
             return count
-        if not self.conf["berserk"] and self.echo > 1:
+        if not self.berserk_mode and self.echo > 1:
             if attenuation is not None:
                 rate, pierce, hitmods = attenuation
                 echo_count = self.dmg_formula_echo(coef / (rate ** depth))
@@ -2011,7 +2020,7 @@ class Adv(object):
                 attenuation = (attr["fade"], self.conf.attenuation.hits, hitmods)
             else:
                 attenuation = None
-            if self.conf["berserk"] and "odmg" in attr:
+            if self.berserk_mode and "odmg" in attr:
                 hitmods.append(Modifier(name, "att", "odgauge", attr["odmg"] - 1))
             if "crit" in attr:
                 hitmods.append(Modifier(name, "crit", "chance", attr["crit"]))
@@ -2116,7 +2125,8 @@ class Adv(object):
                 amp_buff = AmpBuff(*amp_data, source=name)
                 self.active_buff_dict.add_amp(base, group, aseq, amp_buff.on(), amp_id)
 
-        if "buff" in attr:
+        # coei: _CurseOfEmptinessInvalid
+        if "buff" in attr and (not self.nihilism or attr.get("coei")):
             self.hitattr_buff_outer(name, base, group, aseq, attr)
 
         for m in hitmods:

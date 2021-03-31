@@ -381,14 +381,15 @@ class Gozu_Tenno(DragonBase):
 class Gaibhne_and_Creidhne(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        charge_timer = Timer(lambda _: adv.charge_p("ds", 0.091, no_autocharge=True), 0.9, True)
-        ds_buff = EffectBuff(
-            "ds_sp_regen_zone",
-            10,
-            lambda: charge_timer.on(),
-            lambda: charge_timer.off(),
-        )
-        Event("ds").listener(lambda _: ds_buff.on())
+        if not adv.nihilism:
+            charge_timer = Timer(lambda _: adv.charge_p("ds", 0.091, no_autocharge=True), 0.9, True)
+            ds_buff = EffectBuff(
+                "ds_sp_regen_zone",
+                10,
+                lambda: charge_timer.on(),
+                lambda: charge_timer.off(),
+            )
+            Event("ds").listener(lambda _: ds_buff.on())
 
 
 class Nimis(DragonBase):
@@ -415,7 +416,7 @@ class Styx(DragonBase):
             else:
                 adv.csd_buff.value(min(2.00, adv.csd_buff.get() + 0.50))
 
-        csd_timer = Timer(add_csd, 15, True).on()
+        Timer(add_csd, 15, True).on()
 
         def add_spirit(e):
             if e.index == 3:
