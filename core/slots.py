@@ -406,24 +406,27 @@ class Nimis(DragonBase):
 class Styx(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
+
+        if not adv.nihilism:
+            adv.csd_buff = SingleActionBuff("d_compounding_sd", 0.0, -1, "s", "buff")
+
+            def add_csd(e):
+                if not adv.csd_buff.get():
+                    adv.csd_buff.set(min(2.00, adv.csd_buff.get() + 0.50))
+                    adv.csd_buff.on()
+                else:
+                    adv.csd_buff.value(min(2.00, adv.csd_buff.get() + 0.50))
+
+            Timer(add_csd, 15, True).on()
+
+            def add_spirit(e):
+                if e.index == 3:
+                    adv.styx_spirit = min(3, adv.styx_spirit + 1)
+                    log("dx_spirit", adv.styx_spirit)
+
+            Event("dx").listener(add_spirit)
+
         adv.styx_spirit = 0
-        adv.csd_buff = SingleActionBuff("d_compounding_sd", 0.0, -1, "s", "buff")
-
-        def add_csd(e):
-            if not adv.csd_buff.get():
-                adv.csd_buff.set(min(2.00, adv.csd_buff.get() + 0.50))
-                adv.csd_buff.on()
-            else:
-                adv.csd_buff.value(min(2.00, adv.csd_buff.get() + 0.50))
-
-        Timer(add_csd, 15, True).on()
-
-        def add_spirit(e):
-            if e.index == 3:
-                adv.styx_spirit = min(3, adv.styx_spirit + 1)
-                log("dx_spirit", adv.styx_spirit)
-
-        Event("dx").listener(add_spirit)
 
         def reset_spirit(e):
             adv.styx_spirit = 0
@@ -470,6 +473,12 @@ class Summer_Konohana_Sakuya(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         adv.summer_sakuya_flowers = 0
+        self.flower_buffs = Summer_Konohana_Sakuya.FLOWER_BUFFS
+        if adv.nihilism:
+            self.flower_buffs = dict(self.flower_buffs)
+            del self.flower_buffs[1]
+            del self.flower_buffs[2]
+            del self.flower_buffs[3]
 
         def add_flower(t=None):
             if adv.summer_sakuya_flowers >= 6:
@@ -478,7 +487,7 @@ class Summer_Konohana_Sakuya(DragonBase):
             try:
                 adv.Selfbuff(
                     f"d_sakuya_flower_{adv.summer_sakuya_flowers}",
-                    *self.FLOWER_BUFFS[adv.summer_sakuya_flowers],
+                    *self.flower_buffs[adv.summer_sakuya_flowers],
                 ).on()
             except KeyError:
                 pass
@@ -520,40 +529,42 @@ class Menoetius(DragonBase):
 class Gala_Thor(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
+        if not adv.nihilism:
 
-        def chariot_energy(t):
-            adv.energy.add(1)
+            def chariot_energy(t):
+                adv.energy.add(1)
 
-        Timer(chariot_energy, 5, True).on()
+            Timer(chariot_energy, 5, True).on()
 
-        def shift_end_energy(e):
-            adv.energy.add(5, team=True)
+            def shift_end_energy(e):
+                adv.energy.add(5, team=True)
 
-        Event("dragon_end").listener(shift_end_energy)
+            Event("dragon_end").listener(shift_end_energy)
 
 
 class Lumiere_Pandora(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        joyful_radiance_buff = adv.Selfbuff("joyful_radiance", 0.8, -1, "att", "passive").on()
-        adv.joyful_radiance = 4
+        if not adv.nihilism:
+            joyful_radiance_buff = adv.Selfbuff("joyful_radiance", 0.8, -1, "att", "passive").on()
+            adv.joyful_radiance = 4
 
-        def add_joyful_radiance(e):
-            if adv.joyful_radiance == 0:
-                joyful_radiance_buff.on()
-            adv.joyful_radiance = min(4, adv.joyful_radiance + 1)
-            joyful_radiance_buff.value(adv.joyful_radiance * 0.2)
-
-        Event("buffskills").listener(add_joyful_radiance)
-
-        def expire_joyful_radiance(t):
-            adv.joyful_radiance = max(0, adv.joyful_radiance - 1)
-            if adv.joyful_radiance == 0:
-                joyful_radiance_buff.off()
-            else:
+            def add_joyful_radiance(e):
+                if adv.joyful_radiance == 0:
+                    joyful_radiance_buff.on()
+                adv.joyful_radiance = min(4, adv.joyful_radiance + 1)
                 joyful_radiance_buff.value(adv.joyful_radiance * 0.2)
 
-        Timer(expire_joyful_radiance, 20, True).on()
+            Event("buffskills").listener(add_joyful_radiance)
+
+            def expire_joyful_radiance(t):
+                adv.joyful_radiance = max(0, adv.joyful_radiance - 1)
+                if adv.joyful_radiance == 0:
+                    joyful_radiance_buff.off()
+                else:
+                    joyful_radiance_buff.value(adv.joyful_radiance * 0.2)
+
+            Timer(expire_joyful_radiance, 20, True).on()
 
 
 class Gala_Reborn_Jeanne(Gala_Reborn):
@@ -569,39 +580,40 @@ class Gala_Cat_Sith(DragonBase):
 
     def oninit(self, adv):
         super().oninit(adv)
-        adv.trickery = Gala_Cat_Sith.MAX_TRICKERY
-        threshold = 25
-        self.trickery_buff = SingleActionBuff("d_trickery_buff", 1.80, 1, "s", "buff").on()
+        if not adv.nihilism:
+            adv.trickery = Gala_Cat_Sith.MAX_TRICKERY
+            threshold = 25
+            self.trickery_buff = SingleActionBuff("d_trickery_buff", 1.80, 1, "s", "buff").on()
 
-        def add_trickery(t):
-            adv.trickery = min(adv.trickery + t, Gala_Cat_Sith.MAX_TRICKERY)
-            log("debug", "trickery", f"+{t}", adv.trickery, adv.hits)
+            def add_trickery(t):
+                adv.trickery = min(adv.trickery + t, Gala_Cat_Sith.MAX_TRICKERY)
+                log("debug", "trickery", f"+{t}", adv.trickery, adv.hits)
 
-        def check_trickery(e=None):
-            if adv.trickery > 0 and not self.trickery_buff.get():
-                adv.trickery -= 1
-                log("debug", "trickery", "-1", adv.trickery)
-                self.trickery_buff.on()
+            def check_trickery(e=None):
+                if adv.trickery > 0 and not self.trickery_buff.get():
+                    adv.trickery -= 1
+                    log("debug", "trickery", "-1", adv.trickery)
+                    self.trickery_buff.on()
 
-        def shift_end_trickery(e=None):
-            if not adv.dragonform.is_dragondrive:
-                add_trickery(8)
+            def shift_end_trickery(e=None):
+                if not adv.dragonform.is_dragondrive:
+                    add_trickery(8)
 
-        Event("dragon_end").listener(shift_end_trickery)
-        if adv.condition("always connect hits"):
-            add_combo_o = adv.add_combo
-            self.thit = 0
+            Event("dragon_end").listener(shift_end_trickery)
+            if adv.condition("always connect hits"):
+                add_combo_o = adv.add_combo
+                self.thit = 0
 
-            def add_combo(name="#"):
-                result = add_combo_o(name)
-                n_thit = adv.hits // threshold
-                if n_thit > self.thit:
-                    add_trickery(1)
-                self.thit = n_thit
-                check_trickery()
-                return result
+                def add_combo(name="#"):
+                    result = add_combo_o(name)
+                    n_thit = adv.hits // threshold
+                    if n_thit > self.thit:
+                        add_trickery(1)
+                    self.thit = n_thit
+                    check_trickery()
+                    return result
 
-            adv.add_combo = add_combo
+                adv.add_combo = add_combo
 
 
 class Fatalis(DragonBase):
@@ -647,12 +659,6 @@ class WeaponBase(EquipBase):
     def s3(self):
         if self.on_ele or self.ele == "any":
             return self.s3_conf
-        # if not self.on_ele:
-        #     return None
-        # if self.c.ele == 'light':
-        #     return {**WeaponBase.AGITO_S3[self.c.ele], 's3_phase2': WeaponBase.LIGHT_S3P2[self.c.wt]}
-        # else:
-        #     return WeaponBase.AGITO_S3[self.c.ele]
 
     @property
     def ele(self):

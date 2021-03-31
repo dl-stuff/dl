@@ -204,7 +204,10 @@ class DragonForm(Action):
         return self.conf.dshift.startup + self.conf.duration * self.adv.mod("dt") + self.conf.exhilaration * int(not self.off_ele)
 
     def dstime(self):
-        return (self.conf.ds.startup + self.conf.ds.recovery) / self.speed()
+        try:
+            return (self.conf.ds.startup + self.conf.ds.recovery) / self.speed()
+        except TypeError:
+            return 0
 
     def dhaste(self):
         return self.adv.mod("dh", operator=operator.add)

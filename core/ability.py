@@ -33,6 +33,8 @@ class Ability:
                 if not is_ele_wt:
                     continue
             mod_name = "{}{}_{}".format(afrom, self.name, idx)
+            if m[1] == "buff" and adv.nihilism:
+                continue
             self.mod_object = adv.Modifier(mod_name, *m)
             if m[1] == "buff":
                 adv.Buff(
@@ -271,10 +273,7 @@ ability_dict["dh"] = Dragon_Haste
 
 class Attack_Speed(Ability):
     def __init__(self, name, value, cond=None):
-        if name.endswith("buff"):
-            super().__init__(name, [("spd", "buff", value, cond)])
-        else:
-            super().__init__(name, [("spd", "passive", value, cond)])
+        super().__init__(name, [("spd", "passive", value, cond)])
 
 
 ability_dict["spd"] = Attack_Speed
@@ -322,55 +321,6 @@ class Bleed_Killer(Ability):
 
 
 ability_dict["bleed"] = Bleed_Killer
-
-
-class Co_Ability(Ability):
-    EX_MAP = {
-        "blade": [("att", "ex", 0.10)],
-        "dagger": [("crit", "chance", 0.10)],
-        "bow": [("sp", "passive", 0.15)],
-        "wand": [("s", "ex", 0.15)],
-        "sword": [("dh", "passive", 0.15)],
-        "staff": [("recovery", "passive", 0.2)],
-        "axe2": [("crit", "damage", 0.30)],
-        "dagger2": [("x", "ex", 0.20)],
-        "gun": [("odaccel", "passive", 0.20)],
-        "geuden": [("da", "passive", 0.10), ("dt", "passive", 0.20)],
-        "megaman": [("odaccel", "passive", 0.10)],
-        "tobias": [("buff", "ex", 0.20)],
-        "grace": [("fs", "ex", 0.20)],
-        "sharena": [("paralysis_killer", "passive", 0.08)],
-        "peony": [("light", "ele", 0.20)],
-        "gleif": [("debuff_killer", "passive", 0.08)],
-        "sophie": [("light", "ele", 0.15)],
-        "mona": [("wind", "ele", 0.2)],
-        "joker": [("spd", "passive", 0.07)],
-    }
-    EX_AB_MAP = {
-        "megaman": [("od", 0.15)],
-        "panther": [("edge_scorchrend", 0.2), ("afftime_scorchrend", 0.2)],
-    }
-
-    def __init__(self, name, value):
-        super().__init__(name, self.EX_MAP.get(value, []))
-        self.sub_abs = []
-        try:
-            for sub_ab in self.EX_AB_MAP[value]:
-                if "_" in sub_ab[0]:
-                    acat = sub_ab[0].split("_")[0]
-                else:
-                    acat = sub_ab[0]
-                self.sub_abs.append(ability_dict[acat](*sub_ab))
-        except KeyError:
-            pass
-
-    def oninit(self, adv, afrom=None):
-        super().oninit(adv, afrom=afrom)
-        for sub_ab in self.sub_abs:
-            sub_ab.oninit(adv, afrom=afrom)
-
-
-ability_dict["ex"] = Co_Ability
 
 
 class Union_Ability(Ability):
@@ -438,6 +388,9 @@ class HpCheck_Buff(ConditionalBuffingAbility):
         raise NotImplementedError("check_hp")
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return False
+
         self.buff_object = adv.Buff(*self.buff_args)
         if self.check_hp(adv.hp):
             self.buff_object.on()
@@ -468,6 +421,7 @@ class HpCheck_Buff(ConditionalBuffingAbility):
                     self.buff_object.off()
 
         adv.Event("hp").listener(l_hpchanged)
+        return True
 
 
 class HpMore_Buff(HpCheck_Buff):
@@ -475,8 +429,8 @@ class HpMore_Buff(HpCheck_Buff):
         return hp >= self.threshold
 
     def oninit(self, adv, afrom=None):
-        adv.condition(f"hp{int(self.threshold)}")
-        return super().oninit(adv, afrom=afrom)
+        if super().oninit(adv, afrom=afrom):
+            adv.condition(f"hp{int(self.threshold)}")
 
 
 ability_dict["hpmore"] = HpMore_Buff
@@ -487,8 +441,8 @@ class HpLess_Buff(HpCheck_Buff):
         return hp <= self.threshold
 
     def oninit(self, adv, afrom=None):
-        adv.condition(f"hp≤{int(self.threshold)}")
-        return super().oninit(adv, afrom=afrom)
+        if super().oninit(adv, afrom=afrom):
+            adv.condition(f"hp≤{int(self.threshold)}")
 
 
 ability_dict["hpless"] = HpLess_Buff
@@ -496,6 +450,8 @@ ability_dict["hpless"] = HpLess_Buff
 
 class Hitcount_Buff(ConditionalBuffingAbility):
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
         self.threshold = int(self.threshold)
         adv.condition(f"hit{self.threshold}")
         self.buff_object = adv.Buff(*self.buff_args)
@@ -525,6 +481,9 @@ class Last_Buff(BuffingAbility):
         Last_Buff.HEAL_TO = 30
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def l_lo_buff(e):
             if self.proc_chances > 0 and e.hp <= 30 and (e.hp - e.delta) > 30:
                 self.proc_chances -= 1
@@ -560,6 +519,9 @@ class Doublebuff(BuffingAbility):
         super().__init__(name, value, duration, cooldown)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         self.is_cd = False
 
         def cd_end(t):
@@ -622,6 +584,9 @@ class Dragon_Buff(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         self.dc_level = 0
 
         def l_dc_buff(t):
@@ -647,6 +612,9 @@ class Resilient_Offense(BuffingAbility):
             self.hp_threshold = 70
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def l_ro_buff(e):
             if self.proc_chances > 0 and e.hp <= 30 and (e.hp - e.delta) > 30:
                 self.proc_chances -= 1
@@ -703,6 +671,9 @@ class Primed(BuffingAbility):
         super().__init__(name, value, duration, cooldown)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def pm_cd_end(t):
             self.is_cd = False
 
@@ -751,6 +722,9 @@ class Energy_Prep(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         adv.energy.add(self.energy_count)
 
 
@@ -797,6 +771,9 @@ class Energized_Buff(BuffingAbility):
         super().__init__(name, value, duration)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def l_energized(e):
             if e.stack >= 5:
                 adv.Buff(*self.buff_args).on()
@@ -813,6 +790,9 @@ class Energy_Buff(BuffingAbility):
         self.is_cd = False
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def cd_end(t):
             self.is_cd = False
 
@@ -851,6 +831,9 @@ class Affliction_Selfbuff(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def cd_end(t):
             self.is_cd = False
 
@@ -888,6 +871,9 @@ ability_dict["affself"] = Affliction_Selfbuff
 
 class Affliction_Teambuff(Affliction_Selfbuff):
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def cd_end(t):
             self.is_cd = False
 
@@ -911,6 +897,9 @@ ability_dict["affteam"] = Affliction_Teambuff
 
 class AntiAffliction_Selfbuff(Affliction_Selfbuff):
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def cd_end(t):
             self.is_cd = False
 
@@ -934,6 +923,9 @@ ability_dict["antiaffself"] = AntiAffliction_Selfbuff
 
 class Potent_Affres(Affliction_Selfbuff):
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def cd_end(t):
             self.is_cd = False
 
@@ -1075,6 +1067,9 @@ class ComboProcAbility(Ability):
 
 class Energy_Combo(ComboProcAbility):
     def combo_proc_cb(self, adv, delta):
+        if adv.nihilism:
+            return
+
         adv.energy.add(delta)
 
 
@@ -1137,6 +1132,9 @@ class Energy_Extra(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         if self.use_rng:
 
             def l_energy(e):
@@ -1161,6 +1159,9 @@ class Damaged_Buff(BuffingAbility):
         super().__init__(name, value, duration, cooldown)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         from core.modifier import SingleActionBuff
 
         if self.buff_args[1] == "fs":
@@ -1196,6 +1197,9 @@ class Poised_Buff(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         from core.modifier import ZoneTeambuff
 
         self.poised_buff = adv.Buff(self.name, self.value, -1, *self.buff_args)
@@ -1218,6 +1222,9 @@ class Dodge_Buff(BuffingAbility):
         self.is_cd = False
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def cd_end(t):
             self.is_cd = False
 
@@ -1239,6 +1246,9 @@ class Healed_Buff(BuffingAbility):
         self.is_cd = False
 
     def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
         def cd_end(t):
             self.is_cd = False
 
