@@ -1226,13 +1226,13 @@ class Dodge_Buff(BuffingAbility):
         if adv.nihilism:
             return
         if not self.cond or adv.condition(f"dodge {self.cond}"):
-
+            self.dodge_buff = adv.Buff(*self.buff_args, source="dodge")
             def cd_end(t):
                 self.is_cd = False
 
             def l_dodge_buff(e):
                 if not self.is_cd:
-                    adv.Buff(*self.buff_args, source="dodge").on()
+                    self.dodge_buff.on()
                     self.is_cd = True
                     adv.Timer(cd_end).on(self.cooldown)
 
