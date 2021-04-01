@@ -29,6 +29,8 @@ class Chelsea(Adv):
         return len(self.s2_buffs)
 
     def s2_proc(self, e):
+        if self.nihilism:
+            return
         self.s2_buffs.append(Selfbuff("s2_obsession", 0.3, 60, "att", "buff").on())
 
 

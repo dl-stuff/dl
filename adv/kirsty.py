@@ -3,7 +3,7 @@ from core.advbase import *
 
 class Kirsty(Adv):
     def prerun(self):
-        if self.condition("maintain Dauntless Strength"):
+        if not self.nihilism and self.condition("maintain Dauntless Strength"):
             Timer(self.dauntless_strength).on(15)
             Timer(self.dauntless_strength).on(30)
             Timer(self.dauntless_strength).on(45)

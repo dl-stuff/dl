@@ -17,6 +17,8 @@ class Serena(Adv):
         }
 
     def update_a(self, a_dict, kept_combo):
+        if self.nihilism:
+            return
         if self.condition("always connect hits") and len(a_dict["buffs"]) < 3:
             a_hits = self.hits // a_dict["threshold"]
             if a_hits > 0 and a_dict["count"] != a_hits:

@@ -13,9 +13,9 @@ class Gala_Chelle(Adv):
 
     def s2_proc(self, e):
         if self.royal_pride < 10:
-            self.royal_pride_buffs.append(
-                Selfbuff("a1_royal_pride", 1, -1, "royal", "pride").on()
-            )
+            self.royal_pride_buffs.append(Selfbuff("a1_royal_pride", 1, -1, "royal", "pride").on())
+        if self.nihilism:
+            return
         if not self.royal_pride_zone.get() and self.royal_pride >= 5:
             self.royal_pride_zone.on()
 

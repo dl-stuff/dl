@@ -38,8 +38,9 @@ class Ilia(Adv):
         if self.cartridge > 0:
             prev_cartridge = self.cartridge
             self.cartridge -= consume
-            for i in range(min(3, prev_cartridge - self.cartridge)):
-                Selfbuff("a3_crit", 0.3, 15, "crit", "chance").ex_bufftime().on()
+            if not self.nihilism:
+                for i in range(min(3, prev_cartridge - self.cartridge)):
+                    Selfbuff("a3_crit", 0.3, 15, "crit", "chance").ex_bufftime().on()
             if self.cartridge > 0:
                 self.current_s["s1"] = "cartridge"
                 self.current_s["s2"] = "cartridge"

@@ -16,6 +16,8 @@ class Yoshitsune(Adv):
         for _ in range(7):
             self.add_combo("dodge")
             self.dmg_make("dodge", 0.10)
+        if self.nihilism:
+            return
         if not self.a1_cd:
             self.a1_cd = True
             Timer(self.a1_cd_end).on(4.999)

@@ -13,9 +13,9 @@ class Halloween_Akasha(Adv):
         self.debuffing_actions = set()
 
     def prerun(self):
-        self.a1_debuff_rate = Selfbuff(
-            "a1_debuff_rate", 0.5, 5.0, "debuff_rate", "passive"
-        )
+        if self.nihilism:
+            return
+        self.a1_debuff_rate = Selfbuff("a1_debuff_rate", 0.5, 5.0, "debuff_rate", "passive")
         self.a1_cd = False
         # make this less potato maybe
         Event("s").listener(self.a1_proc)
@@ -30,9 +30,7 @@ class Halloween_Akasha(Adv):
                     continue
                 if is_defdown(attr["buff"]):
                     self.debuffing_actions.add(name)
-                elif isinstance(attr["buff"][0], list) and any(
-                    (is_defdown(b) for b in attr["buff"])
-                ):
+                elif isinstance(attr["buff"][0], list) and any((is_defdown(b) for b in attr["buff"])):
                     self.debuffing_actions.add(name)
 
     def a1_proc(self, e):

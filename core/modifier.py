@@ -185,7 +185,6 @@ bufftype_dict = {}
 
 
 class Buff(object):
-    MAXHP_BUFF_CAP = 0.30
     _static = Static({"all_buffs": [], "adv": None})
     DB_DURATION = 15  # usual doublebuff effect duration for offensive buffs, note that regen lasts 20s
 
@@ -316,8 +315,7 @@ class Buff(object):
                 if self.bufftime == self._bufftime:
                     self._static.adv.slots.c.set_need_bufftime()
         elif self.mod_type == "maxhp":
-            if self._static.adv.sub_mod("maxhp", "buff") < Buff.MAXHP_BUFF_CAP:
-                self.modifier.on()
+            self.modifier.on()
             percent = value * 100
             log("heal", self.name, self._static.adv.max_hp * value, "team" if self.bufftype == "team" else "self")
             self._static.adv.add_hp(percent)

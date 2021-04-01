@@ -8,9 +8,11 @@ class Sha_Wujing(Adv):
         Event("s").listener(self.a1_check, order=2)
 
     def a3_start(self, t):
-        Selfbuff("a3", 0.08, -1, "att", "assailant").on()
+        Modifier("a3", "att", "assailant", 0.08).on()
 
     def a1_check(self, e):
+        if self.nihilism:
+            return
         if self.a1_count > 0:
             self.a1_count -= 1
             Selfbuff("a1", 0.06, -1, "s", "buff").on()

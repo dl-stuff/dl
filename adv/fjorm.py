@@ -5,6 +5,8 @@ class Fjorm(Adv):
     comment = "last bravery once at start"
 
     def prerun(self):
+        if self.nihilism:
+            return
         Teambuff("last_bravery", 0.3, 15).on()
         Teambuff("last_bravery_defense", 0.40, 15, "defense").on()
 

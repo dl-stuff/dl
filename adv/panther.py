@@ -14,6 +14,8 @@ class Panther(Adv):
             self.dmg_make("x_carmen", 6.0)
 
     def a3_res_buff_proc(self, e):
+        if self.nihilism:
+            return
         if self.a3_buffcount < 3 and e.rate:
             self.a3_buffcount = min(3, self.a3_buffcount + e.rate)
             self.a3_mod.mod_value = self.a3_buffcount * 0.10

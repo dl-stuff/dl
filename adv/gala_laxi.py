@@ -72,10 +72,7 @@ class Gala_Laxi(Adv):
             new_states[(None, 0)] += 1 - sum(new_states.values())
 
             mrate = reduce(lambda mv, s: mv + (s[0][1] * s[1]), new_states.items(), 0)
-            if (
-                self.prev_log_time == 0
-                or self.prev_log_time < t - self.rngcrit_cd_duration
-            ):
+            if self.prev_log_time == 0 or self.prev_log_time < t - self.rngcrit_cd_duration:
                 log("rngcrit", mrate)
                 self.prev_log_time = t
             self.rngcrit_cb(mrate)
@@ -100,9 +97,7 @@ class Gala_Laxi(Adv):
 
     def x(self, x_min=1):
         prev = self.action.getprev()
-        if isinstance(prev, X) and (
-            prev.group == self.current_x or "ex" in (prev.group, self.current_x)
-        ):
+        if isinstance(prev, X) and (prev.group == self.current_x or "ex" in (prev.group, self.current_x)):
             if self.deferred_x is not None:
                 log("deferred_x", self.deferred_x)
                 self.current_x = self.deferred_x
@@ -146,19 +141,22 @@ class Gala_Laxi(Adv):
             delta = next_cp - self.a1_cp
             if delta == 0:
                 return
-            if delta > 0:
-                for thresh, buff in self.a1_buffs.items():
-                    if self.a1_cp < thresh and next_cp >= thresh:
-                        buff.on()
-            else:
-                for thresh, buff in self.a1_buffs.items():
-                    if next_cp < thresh:
-                        buff.off()
+            if not self.nihilism:
+                if delta > 0:
+                    for thresh, buff in self.a1_buffs.items():
+                        if self.a1_cp < thresh and next_cp >= thresh:
+                            buff.on()
+                else:
+                    for thresh, buff in self.a1_buffs.items():
+                        if next_cp < thresh:
+                            buff.off()
             self.a1_cp = next_cp
             log("galaxi", "cp", self.a1_cp)
 
     def add_combo(self, name="#"):
         result = super().add_combo(name)
+        if self.nihilism:
+            return result
         if not result:
             for c in self.a3_crit_buffs:
                 c.off()
@@ -166,14 +164,8 @@ class Gala_Laxi(Adv):
             self.rngcrit_states = {(None, 0): 1.0}
             self.prev_log_time = 0
         a_hits = self.hits // 15
-        if (
-            len(self.a3_crit_buffs) < 3
-            and self.condition("always connect hits")
-            and a_hits > len(self.a3_crit_buffs)
-        ):
-            self.a3_crit_buffs.append(
-                Selfbuff("a3_crit_chance", 0.04, -1, "crit", "chance").on()
-            )
+        if len(self.a3_crit_buffs) < 3 and self.condition("always connect hits") and a_hits > len(self.a3_crit_buffs):
+            self.a3_crit_buffs.append(Selfbuff("a3_crit_chance", 0.04, -1, "crit", "chance").on())
         return result
 
     def s2_proc(self, e):

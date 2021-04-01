@@ -9,6 +9,8 @@ class Incognito_Nefaria(RngCritAdv):
         self.a1_stack = 0
 
     def rngcrit_cb(self, mrate=None):
+        if self.nihilism:
+            return
         new_value = 0.20 * mrate
         if not self.a1_buff:
             self.a1_buff.set(new_value)

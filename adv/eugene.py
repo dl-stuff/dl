@@ -6,9 +6,7 @@ class Eugene(RngCritAdv):
     def prerun(self):
         self.checkmate = 0
         o_s2_check = self.a_s_dict["s2"].check
-        self.a_s_dict["s2"].check = (
-            lambda: not self.a_s_dict["s2"]._static.silence and self.checkmate > 0
-        )
+        self.a_s_dict["s2"].check = lambda: not self.a_s_dict["s2"]._static.silence and self.checkmate > 0
         self.config_rngcrit(cd=10)
 
     @staticmethod
@@ -19,9 +17,13 @@ class Eugene(RngCritAdv):
         return self.inspiration() >= 5
 
     def rngcrit_cb(self):
+        if self.nihilism:
+            return
         self.inspiration.add(1)
 
     def s1_proc(self, e):
+        if self.nihilism:
+            return
         if e.group == 2:
             self.checkmate = min(self.checkmate + 1, 2)
 

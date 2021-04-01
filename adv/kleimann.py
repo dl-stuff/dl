@@ -7,6 +7,8 @@ class Kleimann(Adv):
             self.conf["coabs"] = ["Ieyasu", "Gala_Alex", "Bow"]
 
     def a1_madness_autocharge(self, t):
+        if self.nihilism:
+            return
         for s in self.skills:
             if s.charged < s.sp:
                 sp = self.madness_status * 100

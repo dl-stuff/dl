@@ -22,6 +22,9 @@ class Chrom(Adv):
         self.a_s_dict["s2"].flames = 0
 
     def s1_proc(self, e):
+        # get fucked
+        if self.nihilism:
+            return
         if self.s2.flames < 3:
             self.s2.flames += 1
 

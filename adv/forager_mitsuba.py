@@ -14,6 +14,8 @@ class Forager_Mitsuba(Adv):
 
     def add_combo(self, name="#"):
         result = super().add_combo(name)
+        if self.nihilism:
+            return result
         if self.condition("always connect hits"):
             a_hits = self.hits // 15
             if a_hits > 0 and a_hits != self.ahits and self.new_dish < 3:

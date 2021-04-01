@@ -7,11 +7,11 @@ class Lapis(Adv):
     def prerun(self):
         self.bullets = []
         self.bullet_c = 0
-        self.s1_res_down = Debuff(
-            "s1_res_down", 0.05, 30, 1, "water_resist", "down", source="s1"
-        )
+        self.s1_res_down = Debuff("s1_res_down", 0.05, 30, 1, "water_resist", "down", source="s1")
 
     def add_bullet(self):
+        if self.nihilism:
+            return
         if len(self.bullets) < 3:
             self.bullets.append(Selfbuff("bullets", 0.04, -1, "crit", "chance").on())
 

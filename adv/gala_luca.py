@@ -34,7 +34,7 @@ class Gala_Luca(Adv):
         return min(icon_count, 7)
 
     def custom_crit_mod(self, name):
-        if name == "test":
+        if name == "test" or self.nihilism:
             return self.solid_crit_mod(name)
 
         base_rate, crit_dmg = self.combine_crit_mods()

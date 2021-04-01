@@ -12,6 +12,8 @@ class Yuya(Adv):
 
     def add_combo(self, name="#"):
         result = super().add_combo(name=name)
+        if self.nihilism:
+            return result
         if name.startswith("s1"):
             for _ in range(self.echo):
                 self.a1_hits += 1

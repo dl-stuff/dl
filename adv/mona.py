@@ -8,6 +8,8 @@ class Mona(Adv):
         Event("dragondrive").listener(self.ddrive_buff_off)
 
     def fs_proc(self, e):
+        if self.nihilism:
+            return
         self.beast_eye.on()
 
     def fs_ddrive_proc(self, e):

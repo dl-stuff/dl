@@ -25,7 +25,8 @@ class Tobias(Adv):
             self.s2_x_alt.off()
             self.s2_sp_buff.off()
         else:
-            self.s2_x_alt.on(10)
+            if not self.nihilism:
+                self.s2_x_alt.on(10)
             self.s2_sp_buff.on(7)
         self.s2.charge(1)  # 1 sp/s regen
 

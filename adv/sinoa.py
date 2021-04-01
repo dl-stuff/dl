@@ -16,7 +16,21 @@ class Sinoa(Adv):
         self.defchain = Event("defchain")
         self.t_doublebuff = 0
 
-        Event("idle").listener(self.s1_combine_after_s, order=0)
+        if self.nihilism:
+            self.s1_buffs = (
+                None,
+                None,
+                None,
+                (0.15, -1, "maxhp", "buff"),
+            )
+        else:
+            self.s1_buffs = (
+                (0.25, 15.0, "att", "buff"),
+                (0.25, 15.0, "defense", "buff"),
+                (0.25, 10.0, "crit", "chance"),
+                (0.15, -1, "maxhp", "buff"),
+            )
+            Event("idle").listener(self.s1_combine_after_s, order=0)
 
     def s1_combine_after_s(self, e):
         prev = self.action.getprev()
@@ -45,19 +59,12 @@ class Sinoa(Adv):
         self.s1_combine()
 
     def s1_proc(self, e):
-        if e.name != "s1":
-            # use RNG variant when shared
-            return Teambuff(
-                e.name,
-                *random.choice(
-                    (
-                        (0.25, 15.0, "att", "buff"),
-                        (0.25, 15.0, "defense", "buff"),
-                        (0.25, 10.0, "crit", "chance"),
-                        (0.15, -1, "maxhp", "buff"),
-                    )
-                )
-            ).on()
+        if e.name != "s1" or self.nihilism:
+            # use RNG variant when shared/in nihilism
+            buff_args = random.choice(self.s1_buff_args)
+            if buff_args:
+                Teambuff(e.name, *buff_args).on()
+            return
 
         n_t = now()
         bt = self.mod("buff", operator=operator.add)
@@ -144,9 +151,7 @@ class Sinoa(Adv):
         self.dmg_test_event.modifiers = ModifierDict()
         for mod in base_mods:
             self.dmg_test_event.modifiers.append(mod)
-        for b in filter(
-            lambda b: b.get() and b.bufftype == "simulated_def", self.all_buffs
-        ):
+        for b in filter(lambda b: b.get() and b.bufftype == "simulated_def", self.all_buffs):
             self.dmg_test_event.modifiers.append(b.modifier)
 
         self.dmg_test_event()
@@ -155,18 +160,14 @@ class Sinoa(Adv):
         for mod in state_mods:
             self.dmg_test_event.modifiers.append(mod)
         placeholders = []
-        for b in filter(
-            lambda b: b.get() and b.bufftype in ("team", "debuff"), self.all_buffs
-        ):
+        for b in filter(lambda b: b.get() and b.bufftype in ("team", "debuff"), self.all_buffs):
             placehold = None
             if b.modifier.mod_type == "s":
                 placehold = Modifier("placehold_sd", "att", "sd", b.modifier.get() / 2)
             elif b.modifier.mod_type == "spd":
                 placehold = Modifier("placehold_spd", "att", "spd", b.modifier.get())
             elif b.modifier.mod_type.endswith("_killer"):
-                placehold = Modifier(
-                    "placehold_k", "killer", "passive", b.modifier.get()
-                )
+                placehold = Modifier("placehold_k", "killer", "passive", b.modifier.get())
             if placehold:
                 self.dmg_test_event.modifiers.append(placehold)
                 placeholders.append(placehold)
@@ -181,7 +182,8 @@ class Sinoa(Adv):
         return team_buff_dmg / no_team_buff_dmg - 1
 
     def post_run(self, end):
-        self.s1_combine()
+        if not self.nihilism:
+            self.s1_combine()
         if self.t_doublebuff > 0.5:
             log("buff", "doublebuff", 15 * self.mod("buff", operator=operator.add))
 

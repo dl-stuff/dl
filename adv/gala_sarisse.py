@@ -7,6 +7,8 @@ class Gala_Sarisse(Adv):
 
     def add_combo(self, name="#"):
         result = super().add_combo(name)
+        if self.nihilism:
+            return result
         if self.condition("always connect hits"):
             a_hits = self.hits // 20
             if a_hits > 0 and a_hits != self.ahits:

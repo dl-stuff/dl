@@ -13,13 +13,13 @@ class Gala_Mym(Adv):
         Event("dragon").listener(self.a1_on)
 
     def a1_on(self, e):
+        if self.nihilism:
+            return
         if not self.a1_buff.get():
             self.a1_buff.on()
         else:
             self.dragonform.conf.update(self.conf.dragonform2)
-            self.dragonform.shift_spd_mod = Modifier(
-                "flamewyrm_spd", "spd", "buff", 0.15
-            ).off()
+            self.dragonform.shift_spd_mod = Modifier("flamewyrm_spd", "spd", "buff", 0.15).off()
 
 
 variants = {None: Gala_Mym}

@@ -14,6 +14,7 @@ class Sylas(Adv):
 
         self.defchain = Event("defchain")
         self.t_doublebuff = 0
+        self.s2_max_hp = Modifier("s2_maxhp", "maxhp", "buff", 0)
 
         Event("idle").listener(self.s2_combine_after_s, order=0)
 
@@ -43,6 +44,8 @@ class Sylas(Adv):
         self.s2_combine()
 
     def s2_proc(self, e):
+        if self.nihilism:
+            return Teambuff("s2_hp", 0.1, -1, "maxhp", "buff").on()
         n_t = now()
         n_bt = 15 * self.mod("buff", operator=operator.add)
         new_states = defaultdict(lambda: 0)
@@ -94,6 +97,7 @@ class Sylas(Adv):
         self.s2_buffcount = 0
         for state, state_p in self.combined_states.items():
             self.s2_buffcount += sum(state) * state_p
+            self.s2_max_hp.mod_value += state[2]
             if state[0] == 0:
                 continue
             state_mods = [Modifier("sylas_att", "att", "buff", 0.25 * state[0])]
@@ -122,9 +126,7 @@ class Sylas(Adv):
         self.dmg_test_event.modifiers = ModifierDict()
         for mod in base_mods:
             self.dmg_test_event.modifiers.append(mod)
-        for b in filter(
-            lambda b: b.get() and b.bufftype == "simulated_def", self.all_buffs
-        ):
+        for b in filter(lambda b: b.get() and b.bufftype == "simulated_def", self.all_buffs):
             self.dmg_test_event.modifiers.append(b.modifier)
 
         self.dmg_test_event()
@@ -133,18 +135,14 @@ class Sylas(Adv):
         for mod in state_mods:
             self.dmg_test_event.modifiers.append(mod)
         placeholders = []
-        for b in filter(
-            lambda b: b.get() and b.bufftype in ("team", "debuff"), self.all_buffs
-        ):
+        for b in filter(lambda b: b.get() and b.bufftype in ("team", "debuff"), self.all_buffs):
             placehold = None
             if b.modifier.mod_type == "s":
                 placehold = Modifier("placehold_sd", "att", "sd", b.modifier.get() / 2)
             elif b.modifier.mod_type == "spd":
                 placehold = Modifier("placehold_spd", "att", "spd", b.modifier.get())
             elif b.modifier.mod_type.endswith("_killer"):
-                placehold = Modifier(
-                    "placehold_k", "killer", "passive", b.modifier.get()
-                )
+                placehold = Modifier("placehold_k", "killer", "passive", b.modifier.get())
             if placehold:
                 self.dmg_test_event.modifiers.append(placehold)
                 placeholders.append(placehold)

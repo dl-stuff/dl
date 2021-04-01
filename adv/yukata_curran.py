@@ -10,6 +10,8 @@ class Yukata_Curran(Adv):
 
     def add_combo(self, name="#"):
         result = super().add_combo(name)
+        if self.nihilism:
+            return result
         if name.startswith("s1"):
             self.s1_ehits += 1
         if self.s1_ehits >= 10:
