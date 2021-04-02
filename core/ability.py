@@ -591,7 +591,10 @@ class Dragon_Buff(Ability):
 
         def l_dc_buff(t):
             if self.dc_level < len(self.dc_values):
-                adv.Buff(self.name, self.dc_values[self.dc_level], -1, *self.buff_args).on()
+                buff = adv.Buff(self.name, self.dc_values[self.dc_level], -1, *self.buff_args)
+                if self.buff_args[1] == "passive":
+                    buff.hidden = True
+                buff.on()
                 self.dc_level += 1
 
         adv.Event("dragon").listener(l_dc_buff)
