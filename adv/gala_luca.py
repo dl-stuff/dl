@@ -7,7 +7,6 @@ class Gala_Luca(Adv):
         self.a1_buff_types = 3
         self.a1_states = {(None,) * self.a1_buff_types: 1.0}
 
-        self.shared_crit = False
         self.all_icon_avg = (0, 0)
         self.s1_icon_avg = (0, 0)
 
@@ -17,11 +16,17 @@ class Gala_Luca(Adv):
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.rebind_function(Gala_Luca, "buff_icon_count")
-        # mayb need to do some check for existing ds_before/ds_proc
-        adv.rebind_function(Gala_Luca, "ds_before")
-        adv.rebind_function(Gala_Luca, "ds_proc")
-        adv.shared_crit = True
-        adv.gluca_crit_mods = {}
+        adv.rebind_function(Gala_Luca, "get_gluca_crit_mod")
+        adv.gluca_crit_mod = Modifier(dst, "crit", "chance", 0).off()
+        adv.share_dst = dst
+        adv.extra_actmods.append(adv.get_gluca_crit_mod)
+
+    def get_gluca_crit_mod(self, name, base, group, aseq, attr):
+        if base in (self.share_dst, "ds") or attr.get("gluca"):
+            self.gluca_crit_mod.mod_value = 0.1 * self.buff_icon_count()
+            log("debug_gluca", f"{name}:{aseq}", self.gluca_crit_mod.mod_value)
+            return self.gluca_crit_mod
+        return None
 
     def buff_icon_count(self):
         # not accurate to game
@@ -29,8 +34,6 @@ class Gala_Luca(Adv):
         icon_count = len(set(icons))
         if self.conf["sim_buffbot.count"] is not None:
             icon_count += self.conf.sim_buffbot.count
-        if self.shared_crit:
-            log("debug", "buff_icon_count", icon_count, str(icons))
         return min(icon_count, 7)
 
     def custom_crit_mod(self, name):
@@ -78,26 +81,6 @@ class Gala_Luca(Adv):
         self.a1_states = new_states
 
         return 1.0 + mean_rate * crit_dmg
-
-    def s1_before(self, e):
-        if self.shared_crit:
-            self.gluca_crit_mods[e.name] = Modifier(e.name, "crit", "chance", 0.1 * self.buff_icon_count()).off()
-            self.extra_actmods.append(self.gluca_crit_mods[e.name])
-
-    def s1_proc(self, e):
-        if self.shared_crit:
-            self.extra_actmods.remove(self.gluca_crit_mods[e.name])
-            del self.gluca_crit_mods[e.name]
-
-    def ds_before(self, e):
-        if self.shared_crit:
-            self.gluca_crit_mods[e.name] = Modifier(e.name, "crit", "chance", 0.1 * self.buff_icon_count()).off()
-            self.extra_actmods.append(self.gluca_crit_mods[e.name])
-
-    def ds_proc(self, e):
-        if self.shared_crit:
-            self.extra_actmods.remove(self.gluca_crit_mods[e.name])
-            del self.gluca_crit_mods[e.name]
 
     def post_run(self, end):
         self.comment = f"avg buff icon {self.all_icon_avg[1]:.2f} (s1 {self.s1_icon_avg[1]:.2f})"

@@ -892,13 +892,13 @@ class Adv(object):
             for b in self.sab:
                 b.act_on(e)
 
-    def actmods(self, name, base, group, aseq):
+    def actmods(self, name, base, group, aseq, attr):
         mods = []
         for m in self.extra_actmods:
             if isinstance(m, Modifier) and name == m.mod_name:
                 mods.append(m)
             else:
-                modifier = m(name, base, group, aseq)
+                modifier = m(name, base, group, aseq, attr)
                 if modifier:
                     mods.append(modifier)
         for t in chain(self.tension, self.sab):
@@ -2017,7 +2017,7 @@ class Adv(object):
 
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
         g_logs.log_hitattr(name, attr)
-        hitmods = self.actmods(name, base, group, aseq)
+        hitmods = self.actmods(name, base, group, aseq, attr)
         if "dmg" in attr:
             if "killer" in attr:
                 hitmods.append(KillerModifier(name, "hit", *attr["killer"]))
