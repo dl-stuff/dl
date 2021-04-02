@@ -2026,7 +2026,8 @@ class Adv(object):
             if "bufc" in attr:
                 hitmods.append(Modifier(f"{name}_bufc", "att", "bufc", attr["bufc"] * self.buffcount))
             if "drg" in attr:
-                hitmods.append(Modifier(f"{name}_drg", "att", "dragon", self.mod("da", operator=operator.add, initial=0)))
+                # base 0.2 + any ability ddamage, no dracolith
+                hitmods.append(Modifier(f"{name}_drg", "att", "dragon", 0.2 + self.mod("da", operator=operator.add, initial=0)))
             if "fade" in attr:
                 attenuation = (attr["fade"], self.conf.attenuation.hits, hitmods)
             else:
