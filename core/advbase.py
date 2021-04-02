@@ -805,6 +805,8 @@ class Adv(object):
 
         # nihilism
         self.nihilism = bool(self.conf["nihilism"])
+        if self.nihilism:
+            self.condition("Curse of Nihility")
 
         # init actions
         for xn, xconf in self.conf.find(r"^x\d+(_[A-Za-z0-9]+)?$"):

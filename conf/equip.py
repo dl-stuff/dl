@@ -34,6 +34,7 @@ ABNORMAL_COND = (
     "sim_buffbot",
     "dragonbattle",
     "berserk",
+    "nihilism",
     "classbane",
     "hp",
     "dumb",

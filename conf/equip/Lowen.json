@@ -1,8 +1,8 @@
 {
   "180": {
     "base": {
-      "dps": 44487.35686712324,
-      "team": 0.13072295669968023,
+      "dps": 44797.23832549241,
+      "team": 0.13072295669968004,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -30,42 +30,35 @@
     },
     "pref": "base",
     "buffer": {
-      "dps": 4906.20826242608,
-      "team": 0.5990493190896453,
-      "tdps": 84516.16604008042,
+      "dps": 4085.047369700199,
+      "team": 0.4184845407234137,
+      "tdps": 141478.89508571234,
       "slots.a": [
         "A_Dogs_Day",
+        "Astounding_Trick",
         "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
+        "Dragons_Nest",
         "From_Whence_He_Comes"
       ],
       "slots.d": "Freyja",
       "acl": [
-        "#`s2",
-        "queue prep",
-        "`s1;s3;s4",
-        "end",
-        "queue fs_prep_c",
-        "`fs, x=5;s3;s4",
-        "end",
-        "`s3, cancel",
-        "`s4, cancel",
-        "`s1, x=1 and timeleft(s1)<5"
+        "`s4",
+        "`s3, not buff(s3)",
+        "`s1, x<=4 and timeleft(s1)<5"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
+        "Humanoid_Midgardsormr",
+        "Joker",
         "Tobias"
       ],
       "share": [
-        "Tobias",
+        "Patia",
         "Templar_Hope"
       ]
     },
     "affliction": {
-      "dps": 45424.441551014614,
-      "team": 0.14580732629609205,
+      "dps": 45782.898345367204,
+      "team": 0.12677657232552447,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -93,46 +86,50 @@
     },
     "mono_pref": "mono_base",
     "noaffliction": {
-      "dps": 4906.20826242608,
-      "team": 0.5990493190896453,
+      "dps": 6199.049529529285,
+      "team": 0.33968283125051535,
       "tdps": null,
       "slots.a": [
         "A_Dogs_Day",
+        "Astounding_Trick",
         "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
+        "Dragons_Nest",
         "From_Whence_He_Comes"
       ],
       "slots.d": "Freyja",
       "acl": [
-        "#`s2",
-        "queue prep",
-        "`s1;s3;s4",
-        "end",
-        "queue fs_prep_c",
-        "`fs, x=5;s3;s4",
-        "end",
-        "`s3, cancel",
-        "`s4, cancel",
-        "`s1, x=1 and timeleft(s1)<5"
+        "`dragon(s)",
+        "`s4",
+        "`s3, not buff(s3)",
+        "`s1, x<=4 and timeleft(s1)<5"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Tobias"
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Mona"
       ],
       "share": [
-        "Tobias",
-        "Templar_Hope"
+        "Patia",
+        "Yuya"
       ]
     },
-    "mono_base": {
-      "dps": 4906.20826242608,
-      "team": 0.5990493190896453,
+    "mono_buffer": {
+      "dps": 3949.3169994135037,
+      "team": 0.42122022910221024,
+      "tdps": 140613.78610632053,
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Tobias"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 3949.3169994135037,
+      "team": 0.42122022910221024,
       "tdps": null,
       "coabs": [
-        "Blade",
-        "Bow",
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
         "Tobias"
       ]
     }

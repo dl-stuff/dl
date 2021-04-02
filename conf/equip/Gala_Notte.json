@@ -3,12 +3,75 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 72373.67264806511,
+      "dps": 72383.88947523508,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon, cancel",
+        "`s3, not buff (s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "buffer": {
+      "dps": 44807.85631401958,
+      "team": 0.0942984015511663,
+      "tdps": 292433.7285426068,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Beautiful_Nothingness"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`s3, not buff (s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "noaffliction": {
+      "dps": 53710.42013949632,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "The_Plaguebringer"
@@ -37,51 +100,18 @@
         "Formal_Joachim"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 52379.117709433995,
+    "mono_affliction": {
+      "dps": 81898.59699526764,
       "team": 0.0,
       "tdps": null,
       "coabs": [
         "Blade",
-        "Mona",
-        "Wand"
-      ]
-    },
-    "buffer": {
-      "dps": 53407.99970793022,
-      "team": 0.049985938570972346,
-      "tdps": 379420.1625964581,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "if not aff(stormlash)",
-        "`dragon, not metamorphosis.get()",
-        "else",
-        "`dragon, metamorphosis.get()",
-        "end",
-        "`s3, not buff (s3) and cancel",
-        "`s1",
-        "`s2",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Dragonyule_Xainfried",
+        "Mona"
       ]
     },
     "affliction": {
-      "dps": 80533.69382210076,
+      "dps": 80169.1813351545,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -94,11 +124,11 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "if metamorphosis.get()",
-        "`s1",
-        "`s2",
+        "`s1, cancel",
+        "`s2, cancel",
         "`dodge, x=3",
         "else",
-        "`dragon, xf=2",
+        "`dragon, cancel",
         "`s3, not buff (s3)",
         "`s1",
         "`s2",
@@ -112,7 +142,7 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Dragonyule_Lily"
       ]
     }
   }
