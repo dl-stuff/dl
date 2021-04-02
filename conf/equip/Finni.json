@@ -3,40 +3,41 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 58553.36430314597,
-      "team": 0.09998802824499466,
+      "dps": 62024.127952692674,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon, self.sr.count=1",
+        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
         "`s3, not buff(s3)",
-        "if self.sr.count=2 and cancel",
-        "`s2, not s2_autocharge_buff.get()",
-        "`s1",
-        "end",
-        "`s4, cancel"
+        "`s4",
+        "if s2_autocharge_buff.get()",
+        "`s1, self.sr.count=2 and cancel",
+        "else",
+        "`s2, self.sr.count=2",
+        "end"
       ],
       "coabs": [
-        "Blade",
+        "Summer_Celliera",
         "Tiki",
-        "Xander"
+        "Yurius"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Mym"
       ]
     },
     "buffer": {
-      "dps": 54166.111833914365,
-      "team": 0.1414882869589486,
-      "tdps": 105716.26792669724,
+      "dps": 53819.32342688187,
+      "team": 0.14148828695894838,
+      "tdps": 57989.28449951024,
       "slots.a": [
         "Gentle_Winds",
         "Memory_of_a_Friend",
@@ -64,78 +65,24 @@
         "Dragonyule_Lily"
       ]
     },
-    "affliction": {
+    "mono_affliction": {
       "dps": 74428.95354323121,
       "team": 0.0,
       "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count=2 and cancel",
-        "else",
-        "`s2, self.sr.count=2",
-        "end"
-      ],
       "coabs": [
         "Summer_Celliera",
         "Tiki",
         "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "noaffliction": {
-      "dps": 74428.95354323121,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count=2 and cancel",
-        "else",
-        "`s2, self.sr.count=2",
-        "end"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
     },
     "mono_noaffliction": {
-      "dps": 58553.36430314597,
-      "team": 0.09998802824499466,
+      "dps": 62024.127952692674,
+      "team": 0.0,
       "tdps": null,
       "coabs": [
-        "Blade",
+        "Summer_Celliera",
         "Tiki",
-        "Xander"
+        "Yurius"
       ]
     }
   }
