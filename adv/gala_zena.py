@@ -3,7 +3,7 @@ from core.advbase import *
 
 class Gala_Zena(Adv):
     def prerun(self):
-        self.auspex_count = 0
+        self.auspex_gauge = 0
         self.a3_modifier = Modifier("zena_a3", "att", "passive", 0.0)
         self.a3_modifier.get = self.a3_get
         self.fs_alt = FSAltBuff("a1_auspex", "auspex", uses=1)
@@ -14,18 +14,20 @@ class Gala_Zena(Adv):
                 if ex[0] == "hp":
                     self.passive_hp -= ex[1]
 
-    def update_auspex(self):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+        self.update_auspex(attr.get("cp", 0))
+        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
+
+    def update_auspex(self, delta):
         if not self.fs_alt.get():
-            self.auspex_count += 1
-        if self.auspex_count >= 2:
+            self.auspex_gauge += delta
+        if self.auspex_gauge >= 100:
             self.fs_alt.on()
-            self.auspex_count = 0
+            self.auspex_gauge = 0
 
-    def s1_proc(self, _):
-        self.update_auspex()
-
-    def s2_proc(self, _):
-        self.update_auspex()
+    @property
+    def auspex_count(self):
+        return self.auspex_gauge // 50
 
     def a3_get(self):
         if self.hp > 70:

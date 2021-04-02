@@ -10,11 +10,14 @@
         "a": [["s", 0.35], ["affres_burn", 100.0], ["resself_burn_att", 0.15, 10.0, 15.0], ["k_frostbite", 0.1, "hit15"]]
     },
     "fs_enhanced": {
+        "charge": 0.35,
         "startup": 0.43333,
         "recovery": 0.56667,
         "attr": [
-            {"buff": ["energy", 3, "nearby"], "msl": 0.5}
-        ]
+            {"buff": ["energy", 3, "team"], "msl": 0.5}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.23334}
     },
     "s1": {
         "sp": 2359,
@@ -31,7 +34,7 @@
         "startup": 0.1,
         "recovery": 1.0,
         "attr": [
-            {"buff": ["fsAlt", "enhanced", -1, 2], "iv": 0.16667},
+            {"buff": ["fsAlt", "enhanced", -1, 2, "-refresh"], "iv": 0.16667, "coei": 1},
             {"buff": ["energy", 3, "nearby"], "iv": 0.16667}
         ]
     }

@@ -9,12 +9,21 @@
         "spiral": true,
         "a": [["a", 0.13, "hp70"], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["ecombo", 20]]
     },
+    "fs_enhanced": {
+        "startup": 0.15152,
+        "recovery": 0.60606,
+        "attr": [
+            {"dmg": 0.47, "odmg": 8.4, "sp": 288, "afflic": ["freeze", 200]},
+            {"dmg": 0.47, "odmg": 8.4, "iv": 0.12121},
+            {"dmg": 0.47, "odmg": 4.2, "iv": 0.36363}
+        ]
+    },
     "s1_phase1": {
         "sp": 3136,
         "startup": 0.1,
         "recovery": 2.43333,
         "attr": [
-            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.03333},
+            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.03333, "coei": 1},
             {"dmg": 1.9, "iv": 0.5}, 3,
             {"buff": ["energy", 1, "nearby"], "iv": 0.5},
             {"dmg": 1.9, "iv": 0.93333}, 3,
@@ -26,7 +35,7 @@
         "startup": 0.1,
         "recovery": 2.43333,
         "attr": [
-            {"buff": ["fsAlt", "enhanced2", -1, 1, "-refresh"], "iv": 0.03333},
+            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.03333, "coei": 1},
             {"buff": ["nearby", 0.1, 10.0, "att", "buff"], "iv": 0.5},
             {"buff": ["energy", 1, "nearby"], "iv": 0.5},
             {"dmg": 1.9, "iv": 0.5}, 3,
@@ -39,7 +48,7 @@
         "startup": 0.1,
         "recovery": 2.43333,
         "attr": [
-            {"buff": ["fsAlt", "enhanced3", -1, 1, "-refresh"], "iv": 0.03333},
+            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.03333, "coei": 1},
             {"buff": ["nearby", 0.1, 10.0, "att", "buff"], "iv": 0.5},
             {"buff": ["nearby", 0.08, 10.0, "crit", "chance"], "iv": 0.5},
             {"buff": ["energy", 1, "nearby"], "iv": 0.5},

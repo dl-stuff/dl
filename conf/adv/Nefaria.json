@@ -10,6 +10,7 @@
         "a": [["edge_poison", 60.0], ["edge_blind", 60.0], ["affres_paralysis", 100.0], ["resself_paralysis_att", 0.15, 10.0, 15.0], ["k_poison", 0.3], ["k_blind", 0.4]]
     },
     "fs_enhanced": {
+        "charge": 0.35,
         "startup": 0.33333,
         "recovery": 0.66667,
         "attr": [
@@ -33,7 +34,9 @@
             {"dmg": 0.37, "msl": 1.53333},
             {"dmg": 0.37, "msl": 1.63333},
             {"dmg": 0.37, "msl": 1.73333}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.33334}
     },
     "s1": {
         "sp": 2713,
@@ -43,7 +46,7 @@
             {"dmg": 1.144, "killer": [0.74, ["poison", "blind"]], "afflic": ["poison", 70, 0.582], "iv": 1.1, "msl": 1.26667},
             {"dmg": 1.144, "killer": [0.74, ["poison", "blind"]], "iv": 1.1, "msl": 1.26667}, 5,
             {"dmg": 1.144, "killer": [0.74, ["poison", "blind"]], "iv": 1.53333},
-            {"dmg": 1.144, "killer": [0.74, ["poison", "blind"]], "iv": 1.53333}
+            {"dmg": 1.144, "killer": [0.74, ["poison", "blind"]], "iv": 1.53333, "msl": 0.5}
         ]
     },
     "s2": {
@@ -51,7 +54,7 @@
         "startup": 0.1,
         "recovery": 1.0,
         "attr": [
-            {"buff": ["fsAlt", "enhanced", -1, 1], "iv": 0.16667}
+            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.16667, "coei": 1}
         ]
     }
 }

@@ -24,13 +24,13 @@
         "startup": 0.1,
         "recovery": 1.4,
         "attr": [
-            {"buff": ["fsAlt", "galacleo", -1, 1, "-replace"]},
             {"dmg": 0.88},
             {"dmg": 2.65},
             {"dmg": 0.88, "msl": 0.2},
             {"dmg": 2.65, "msl": 0.2},
             {"dmg": 0.88, "msl": 0.4},
-            {"dmg": 2.65, "msl": 0.4}
+            {"dmg": 2.65, "msl": 0.4},
+            {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1}
         ]
     },
     "s1_phase2": {
@@ -38,7 +38,6 @@
         "startup": 0.1,
         "recovery": 1.4,
         "attr": [
-            {"buff": ["fsAlt", "galacleo", -1, 1, "-replace"]},
             {"dmg": 0.88},
             {"dmg": 2.65},
             {"dmg": 0.88, "msl": 0.15},
@@ -46,7 +45,8 @@
             {"dmg": 0.88, "msl": 0.3},
             {"dmg": 2.65, "msl": 0.3},
             {"dmg": 0.88, "msl": 0.45},
-            {"dmg": 2.65, "msl": 0.45}
+            {"dmg": 2.65, "msl": 0.45},
+            {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1}
         ]
     },
     "s1_phase3": {
@@ -54,7 +54,6 @@
         "startup": 0.1,
         "recovery": 1.4,
         "attr": [
-            {"buff": ["fsAlt", "galacleo", -1, 1, "-replace"]},
             {"dmg": 0.88},
             {"dmg": 2.65},
             {"dmg": 0.88, "msl": 0.1},
@@ -64,7 +63,8 @@
             {"dmg": 0.88, "msl": 0.3},
             {"dmg": 2.65, "msl": 0.3},
             {"dmg": 0.88, "msl": 0.4},
-            {"dmg": 2.65, "msl": 0.4}
+            {"dmg": 2.65, "msl": 0.4},
+            {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1}
         ]
     },
     "s2_phase1": {
@@ -73,7 +73,7 @@
         "recovery": 1.5,
         "attr": [
             {"dmg": 4.6, "iv": 1.0},
-            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "iv": 1.0}
+            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0}
         ]
     },
     "s2_phase2": {
@@ -82,8 +82,8 @@
         "recovery": 1.4,
         "attr": [
             {"dmg": 4.6, "iv": 1.0},
-            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "iv": 1.0},
-            {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "iv": 1.0}
+            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0},
+            {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "coei": 1, "iv": 1.0}
         ]
     },
     "s2_phase3": {
@@ -92,9 +92,9 @@
         "recovery": 1.4,
         "attr": [
             {"dmg": 4.6, "iv": 1.0},
-            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "iv": 1.0},
-            {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "iv": 1.0},
-            {"heal": [22, "team"], "buff": ["team", 17.0, 15.0, "heal", "buff"], "iv": 1.0}
+            {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0},
+            {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "coei": 1, "iv": 1.0},
+            {"heal": [22, "team"], "buff": ["team", 17.0, 15.0, "heal", "buff"], "coei": 1, "iv": 1.0}
         ]
     }
 }

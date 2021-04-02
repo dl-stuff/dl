@@ -31,13 +31,13 @@
         "startup": 0.1,
         "recovery": 1.5,
         "attr": [
-            {"buff": [["fsAlt", "foragercleo", -1, 1], ["self", 0.15, -1, "sp", "buff"], "-refresh"]},
             {"dmg": 1.53, "iv": 0.4},
             {"dmg": 1.53, "iv": 0.73333},
             {"dmg": 1.53, "iv": 0.86667},
             {"dmg": 1.53, "iv": 1.0},
             {"dmg": 1.53, "iv": 1.13333},
-            {"dmg": 4.25, "iv": 1.33333}
+            {"dmg": 4.25, "iv": 1.33333},
+            {"buff": [["fsAlt", "foragercleo", -1, 1], ["self", 0.15, 1, "sp", "passive"], "-refresh"], "coei": 1}
         ]
     },
     "s2_phase1": {
@@ -46,7 +46,7 @@
         "recovery": 1.16667,
         "attr": [
             {"dmg": 18.45, "iv": 0.66667},
-            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0}
+            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0, "coei": 1}
         ]
     },
     "s2_phase2": {
@@ -56,7 +56,7 @@
         "attr": [
             {"dmg": 18.45, "iv": 0.33333},
             {"buff": ["energy", 2, "team"], "iv": 0.33333},
-            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0}
+            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0, "coei": 1}
         ]
     },
     "s2_phase3": {
@@ -66,7 +66,7 @@
         "attr": [
             {"dmg": 18.45, "iv": 0.33333},
             {"buff": ["energy", 3, "team"], "iv": 0.33333},
-            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0}
+            {"buff": ["debuff", -0.15, 10.0, 1.0, "defb"], "iv": 1.0, "coei": 1}
         ]
     }
 }

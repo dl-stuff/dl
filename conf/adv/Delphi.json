@@ -9,7 +9,8 @@
         "spiral": true,
         "a": [["a", -0.55], ["affres_paralysis", 100.0], ["resself_paralysis_att", 0.15, 10.0, 15.0], ["edge_poison", 70.0, "hit15"]]
     },
-    "fs_enhanced": {
+    "fs_delphi": {
+        "charge": 0.5,
         "startup": 0.15152,
         "recovery": 0.60606,
         "attr": [
@@ -19,7 +20,9 @@
             {"dmg": 0.11, "odmg": 4.2, "iv": 0.27272},
             {"dmg": 0.11, "odmg": 4.2, "iv": 0.27272},
             {"dmg": 0.57, "odmg": 4.2, "iv": 0.36363}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
     },
     "s1": {
         "sp": 999999,
@@ -27,7 +30,8 @@
         "recovery": 1.66667,
         "attr": [
             {"dmg": 3.66, "buff": ["fsAlt", "enhanced", -1, 1], "iv": 0.36667},
-            {"buff": ["debuff", -0.2, 10.0, 1.0, "defb"], "iv": 0.4}
+            {"buff": ["debuff", -0.2, 10.0, 1.0, "defb"], "iv": 0.4, "coei": 1},
+            {"buff": ["fsAlt", "delphi", -1, 1, "-refresh"], "coei": 1}
         ]
     },
     "s2": {
@@ -35,8 +39,8 @@
         "startup": 0.1,
         "recovery": 3.0,
         "attr": [
-            {"dmg": 4.99, "afflic": ["poison", 120, 3.0, 27], "iv": 2.4},
-            {"buff": ["debuff", -0.15, 15.0, 1.0, "attack", "-overwrite_1"], "iv": 2.4}
+            {"dmg": 4.99, "afflic": ["poison", 120, 3.0, 27.0], "iv": 2.4},
+            {"buff": ["debuff", -0.15, 15.0, 1.0, "attack", "-overwrite_1"], "iv": 2.4, "coei": 1}
         ]
     }
 }

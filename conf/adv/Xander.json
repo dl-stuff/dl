@@ -13,10 +13,10 @@
         "startup": 0.03333,
         "recovery": 0.88334,
         "attr": [
-            {"buff": ["s1", "default", 1, "-off"]},
-            {"dmg": 2.18, "sp": 330, "odmg": 3.3, "iv": 0.21667},
+            {"dmg": 2.18, "odmg": 3.3, "sp": 330, "iv": 0.21667},
             {"dmg": 2.18, "odmg": 3.3, "iv": 0.425},
-            {"dmg": 2.18, "odmg": 3.3, "iv": 0.71667}
+            {"dmg": 2.18, "odmg": 3.3, "iv": 0.71667},
+            {"buff": ["s1", "default", 1, "-off"]}
         ]
     },
     "fs_enhanced2": {
@@ -35,7 +35,7 @@
         "recovery": 1.66667,
         "attr": [
             {"dmg": 16.64, "bufc": 0.05, "afflic": ["frostbite", 120, 0.41], "iv": 0.8},
-            {"buff": [["sAlt", "enhanced", "s1"], ["fsAlt", "enhanced"], ["self", 0.05, -1, "att", "passive"], "-replace"], "iv": 1.63333}
+            {"buff": [["sAlt", "enhanced", "s1"], ["fsAlt", "enhanced"], ["self", 0.05, -1, "att", "buff"], "-replace"], "coei": 1, "iv": 1.63333}
         ]
     },
     "s1_enhanced": {
@@ -44,7 +44,7 @@
         "recovery": 1.66667,
         "attr": [
             {"dmg": 16.74, "bufc": 0.05, "afflic": ["frostbite", 120, 0.41], "iv": 0.8},
-            {"buff": [["sAlt", "enhanced2", "s1"], ["fsAlt", "enhanced2"], ["self", 0.05, -1, "att", "passive"], "-replace"], "iv": 1.63333}
+            {"buff": [["sAlt", "enhanced2", "s1"], ["fsAlt", "enhanced2"], ["self", 0.05, -1, "att", "buff"], "-replace"], "coei": 1, "iv": 1.63333}
         ]
     },
     "s1_enhanced2": {

@@ -14,7 +14,7 @@
         "startup": 0.33333,
         "recovery": 0.5,
         "attr": [
-            {"buff": ["team", 0.15, -1, "maxhp", "buff"]}
+            {"buff": ["team", 0.15, -1, "maxhp", "buff"], "coei": 1}
         ],
         "interrupt": {"s": 0.0},
         "cancel": {"s": 0.0, "dodge": 0.03334}
@@ -24,9 +24,9 @@
         "startup": 0.1,
         "recovery": 1.5,
         "attr": [
-            {"buff": ["team", 25.0, 40.0, "heal", "buff"], "iv": 0.86667},
+            {"buff": ["team", 25.0, 40.0, "heal", "buff"], "iv": 0.86667, "coei": 1},
             {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 1.0},
-            {"buff": ["fsAlt", "formalnoelle", -1, 1, "-refresh"]}
+            {"buff": ["fsAlt", "formalnoelle", -1, 1, "-refresh"], "coei": 1}
         ],
         "energizable": true
     },
@@ -35,7 +35,7 @@
         "startup": 0.1,
         "recovery": 1.5,
         "attr": [
-            {"dmg": 14.25, "buff": ["affres", -0.2, 30.0, "poison", "-overwrite_25"], "iv": 0.96667, "msl": 0.5},
+            {"dmg": 14.25, "buff": ["affres", -0.2, 30.0, "poison", "-overwrite_25"], "iv": 0.96667, "msl": 0.5, "coei": 1},
             {"dispel": 100, "iv": 0.96667, "msl": 0.5}
         ]
     }

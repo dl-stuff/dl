@@ -41,18 +41,19 @@
         "startup": 0.1,
         "recovery": 1.13333,
         "attr": [
-            {"buff": ["fsAlt", "enhanced", -1, 1], "iv": 0.16667}
+            {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 0.16667, "coei": 1}
         ]
     },
-    "s2_phase1": {
+    "s2": {
         "sp": 5259,
         "startup": 0.1,
         "recovery": 1.0,
         "attr": [
+            {"buff": ["sAlt", "enhanced", "s2", -1, 1, "-refresh"], "coei": 1},
             {"buff": ["self", 0.3, 15.0, "cspd", "buff", "-refresh"], "iv": 0.16667}
         ]
     },
-    "s2_phase2": {
+    "s2_enhanced": {
         "sp": 5259,
         "startup": 0.1,
         "recovery": 1.33333,

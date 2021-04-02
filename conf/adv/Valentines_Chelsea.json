@@ -27,8 +27,8 @@
         "startup": 0.1,
         "recovery": 3.63333,
         "attr": [
-            {"buff": ["self", 0.1, 15.0, "att", "buff", "-overwrite_32"], "iv": 1.5},
-            {"buff": ["selfaff", -5.0, 15.0, 100, "burn", "regen", "buff", "-overwrite_burn"], "iv": 1.5},
+            {"buff": ["self", 0.1, 15.0, "att", "buff", "-overwrite_32"], "iv": 1.5, "coei": 1},
+            {"buff": ["selfaff", -5.0, 15.0, 100, "burn", "regen", "buff"], "iv": 1.5, "coei": 1},
             {"dmg": 9.06, "afflic": ["stormlash", 120, 0.41], "iv": 1.93333},
             {"dmg": 9.06, "iv": 2.16667},
             {"dmg": 10.87, "iv": 2.63333}
@@ -44,7 +44,7 @@
         "startup": 0.1,
         "recovery": 2.9,
         "attr": [
-            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5}
+            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "coei": 1, "iv": 2.5}
         ]
     },
     "s2_phase3": {
@@ -52,8 +52,8 @@
         "startup": 0.1,
         "recovery": 2.9,
         "attr": [
-            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5},
-            {"buff": ["next", 0.3, 1, "s", "buff", "-overwrite_33"], "iv": 2.5}
+            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5, "coei": 1},
+            {"buff": ["next", 0.3, 1, "s", "buff", "-overwrite_33"], "coei": 1, "iv": 2.5}
         ]
     },
     "s2_romance": {
@@ -61,8 +61,8 @@
         "startup": 0.1,
         "recovery": 2.9,
         "attr": [
-            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5},
-            {"buff": ["next", 0.3, 1, "s", "buff", "-overwrite_33"], "iv": 2.5},
+            {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5, "coei": 1},
+            {"buff": ["next", 0.3, 1, "s", "buff", "-overwrite_33"], "iv": 2.5, "coei": 1},
             {"sp": [1.0, "%", "s1"], "iv": 2.5}
         ]
     },

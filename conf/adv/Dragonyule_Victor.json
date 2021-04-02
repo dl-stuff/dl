@@ -10,11 +10,14 @@
         "a": [["affres_blind", 100.0]]
     },
     "fs_dragonyulevictor": {
+        "charge": 0.45,
         "startup": 0.5,
         "recovery": 0.36667,
         "attr": [
             {"buff": ["zone", 0.15, 10.0, "crit", "chance"]}
-        ]
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
     },
     "s1": {
         "sp": 3540,
@@ -26,7 +29,7 @@
             {"dmg": 4.0, "iv": 1.06667},
             {"dmg": 4.0, "iv": 1.33333},
             {"dmg": 4.0, "iv": 1.66667},
-            {"buff": ["fsAlt", "dragonyulevictor", -1, 1, "-refresh"]}
+            {"buff": ["fsAlt", "dragonyulevictor", -1, 1, "-refresh"], "coei": 1}
         ]
     },
     "s2": {

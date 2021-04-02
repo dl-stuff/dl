@@ -9,6 +9,16 @@
         "spiral": true,
         "a": [["fs", 0.3], ["affres_blind", 50.0], ["resself_blind_att", 0.15, 10.0, 15.0], ["affres_blind", 50.0]]
     },
+    "fs_erik": {
+        "charge": 0.5,
+        "startup": 0.46667,
+        "recovery": 0.55897,
+        "attr": [
+            {"dmg": 1.92, "odmg": 3.08, "sp": 300, "dispel": 100}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
+    },
     "s1": {
         "sp": 2868,
         "startup": 0.1,
@@ -23,7 +33,8 @@
         "startup": 0.1,
         "recovery": 1.5,
         "attr": [
-            {"dmg": 17.16, "killer": [0.5, ["poison"]], "iv": 0.66667}
+            {"dmg": 17.16, "killer": [0.5, ["poison"]], "iv": 0.66667},
+            {"buff": ["fsAlt", "erik", -1, 1, "-refresh"], "coei": 1}
         ]
     }
 }
