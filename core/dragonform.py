@@ -217,7 +217,7 @@ class DragonForm(Action):
 
     @allow_acl
     def ddamage(self):
-        return self.conf.dracolith + self.adv.mod("da") - 1
+        return self.conf.dracolith + self.adv.mod("da", operator=operator.add, initial=0)
 
     def ds_check(self):
         return self.skill_use != 0 and self.skill_spc >= self.skill_sp and self.shift_end_timer.elapsed() >= 1.9

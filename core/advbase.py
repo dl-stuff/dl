@@ -892,8 +892,15 @@ class Adv(object):
             for b in self.sab:
                 b.act_on(e)
 
-    def actmods(self, name):
-        mods = [m for m in self.extra_actmods if name == m.mod_name]
+    def actmods(self, name, base, group, aseq):
+        mods = []
+        for m in self.extra_actmods:
+            if isinstance(m, Modifier) and name == m.mod_name:
+                mods.append(m)
+            else:
+                modifier = m(name, base, group, aseq)
+                if modifier:
+                    mods.append(modifier)
         for t in chain(self.tension, self.sab):
             if name in t.active:
                 mods.append(t.modifier)
@@ -2010,7 +2017,7 @@ class Adv(object):
 
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
         g_logs.log_hitattr(name, attr)
-        hitmods = self.actmods(name)
+        hitmods = self.actmods(name, base, group, aseq)
         if "dmg" in attr:
             if "killer" in attr:
                 hitmods.append(KillerModifier(name, "hit", *attr["killer"]))
@@ -2018,6 +2025,8 @@ class Adv(object):
                 hitmods.append(CrisisModifier(name, attr["crisis"], self.hp))
             if "bufc" in attr:
                 hitmods.append(Modifier(f"{name}_bufc", "att", "bufc", attr["bufc"] * self.buffcount))
+            if "drg" in attr:
+                hitmods.append(Modifier(f"{name}_drg", "att", "dragon", self.mod("da", operator=operator.add, initial=0)))
             if "fade" in attr:
                 attenuation = (attr["fade"], self.conf.attenuation.hits, hitmods)
             else:
@@ -2277,6 +2286,8 @@ class Adv(object):
         spd = self.speed()
         iv = attr.get("iv", 0) / spd
         msl = attr.get("msl", 0)
+        if attr.get("msl_spd"):
+            msl /= spd
         try:
             onhit = getattr(self, f"{e.name}_hit{aseq+1}")
         except AttributeError:

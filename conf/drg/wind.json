@@ -124,7 +124,7 @@
             "sp_db": 90,
             "uses": 1,
             "attr": [
-                {"heal": [42, "team"], "buff": ["team", 30.0, 20.0, "heal", "buff"], "iv": 0.96667},
+                {"heal": [42, "team"], "buff": ["team", 30.0, 20.0, "heal", "buff"], "iv": 0.96667, "coei": 1},
                 {"buff": ["energy", 5, "team"], "iv": 1.0}
             ]
         }
@@ -476,7 +476,7 @@
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 0.698, "buff": ["self", 0.10, -1, "wind_resist", "down", "-refresh"], "iv": 0.73333},
+                {"dmg": 0.698, "buff": ["self", 0.1, -1, "wind_resist", "down", "-refresh"], "iv": 0.73333},
                 {"dmg": 0.698, "iv": 0.83333},
                 {"dmg": 0.698, "iv": 0.93333},
                 {"dmg": 0.698, "iv": 1.03333},
@@ -541,8 +541,8 @@
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 1.82, "afflic": ["poison", 120, 0.291, 30], "iv": 1.0},
-                {"buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 1.0},
+                {"dmg": 1.82, "afflic": ["poison", 120, 0.291, 30.0], "iv": 1.0},
+                {"buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 1.0, "coei": 1},
                 {"dmg": 1.82, "iv": 1.33333},
                 {"dmg": 1.82, "iv": 1.4},
                 {"dmg": 1.82, "iv": 1.46667},
@@ -632,7 +632,7 @@
             "uses": 1,
             "attr": [
                 {"dmg": 17.92, "iv": 0.93333},
-                {"buff": ["next", 0.4, 1, "s", "buff"], "iv": 1.5}
+                {"buff": ["next", 0.4, 1, "s", "buff", "-refresh"], "iv": 1.5}
             ]
         }
     },

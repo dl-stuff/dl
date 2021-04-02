@@ -1227,6 +1227,7 @@ class Dodge_Buff(BuffingAbility):
             return
         if not self.cond or adv.condition(f"dodge {self.cond}"):
             self.dodge_buff = adv.Buff(*self.buff_args, source="dodge")
+
             def cd_end(t):
                 self.is_cd = False
 

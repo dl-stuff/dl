@@ -81,7 +81,8 @@
             "uses": 1,
             "attr": [
                 {"dmg": 3.6, "afflic": ["burn", 120, 0.415, 30.0], "iv": 0.73333},
-                {"dmg": 8.4, "buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 0.73333}
+                {"dmg": 8.4, "iv": 0.73333},
+                {"buff": ["debuff", -0.05, 10.0, 1.0, "def"], "coei": 1, "iv": 0.73333}
             ]
         }
     },
@@ -170,8 +171,8 @@
             "uses": 1,
             "attr": [
                 {"dmg": 2.2, "afflic": ["burn", 120, 0.97], "iv": 1.3},
-                {"buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 1.3},
-                {"buff": ["debuff", -0.05, 10.0, 0.3, "attack"], "iv": 1.3},
+                {"buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 1.3, "coei": 1},
+                {"buff": ["debuff", -0.05, 10.0, 0.3, "attack"], "iv": 1.3, "coei": 1},
                 {"dmg": 2.2, "iv": 1.56667},
                 {"dmg": 2.2, "iv": 1.66667},
                 {"dmg": 2.2, "iv": 1.86667},
@@ -315,7 +316,7 @@
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 25.0, "buff": ["self", 0.10, -1, "flame_resist", "down", "-refresh"], "iv": 0.7}
+                {"dmg": 25.0, "buff": ["self", 0.1, -1, "flame_resist", "down", "-refresh"], "iv": 0.7}
             ]
         }
     },
@@ -491,7 +492,7 @@
             "uses": 1,
             "attr": [
                 {"dmg": 13.2, "iv": 0.4},
-                {"buff": ["next", 0.4, 1, "s", "buff"], "iv": 1.76667}
+                {"buff": ["next", 0.4, 1, "s", "buff", "-refresh"], "iv": 1.76667}
             ]
         }
     },

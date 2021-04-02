@@ -457,6 +457,55 @@
             ]
         }
     },
+    "High_Chthonius": {
+        "d": {
+            "name": "High Chthonius",
+            "icon": "210148_01",
+            "att": 128,
+            "hp": 368,
+            "ele": "shadow",
+            "a": [["a", 0.65], ["a", 0.2, "shadow"], ["a", 0.2, "shadow"], ["hp", 0.3, "shadow"]]
+        },
+        "dx1": {
+            "startup": 0.33333,
+            "recovery": 0.26667,
+            "attr": [
+                {"dmg": 2.69, "sp": 5, "msl": 0.06667, "msl_spd": 1}
+            ]
+        },
+        "dx2": {
+            "startup": 0.66667,
+            "recovery": 0.52777,
+            "attr": [
+                {"dmg": 2.69, "sp": 5, "msl": 0.06667, "msl_spd": 1},
+                {"dmg": 2.69, "iv": 0.33333}
+            ]
+        },
+        "dx3": {
+            "startup": 0.46667,
+            "recovery": 1.02222,
+            "attr": [
+                {"dmg": 2.69, "sp": 5, "msl": 0.1, "msl_spd": 1},
+                {"dmg": 2.89, "iv": 0.3},
+                {"dmg": 2.89, "iv": 0.56666}
+            ]
+        },
+        "ds": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 2.66667,
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 3.97, "afflic": ["shadowblight", 120, 0.41], "iv": 0.83333, "msl": 0.16667, "msl_spd": 1},
+                {"dmg": 3.97, "iv": 0.83333, "msl": 0.36667, "msl_spd": 1},
+                {"dmg": 3.97, "iv": 0.83333, "msl": 0.56667, "msl_spd": 1},
+                {"dmg": 3.97, "iv": 0.83333, "msl": 0.76667, "msl_spd": 1},
+                {"dmg": 3.97, "iv": 0.83333, "msl": 0.96667, "msl_spd": 1},
+                {"dmg": 4.77, "iv": 0.83333, "msl": 1.33333, "msl_spd": 1}
+            ]
+        }
+    },
     "High_Zodiark": {
         "d": {
             "name": "High Zodiark",
@@ -495,7 +544,7 @@
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 17.0, "buff": ["debuff", -0.1, 10.0, 1.0, "def"], "iv": 1.11111}
+                {"dmg": 17.0, "buff": ["debuff", -0.1, 10.0, 1.0, "def"], "iv": 1.11111, "coei": 1}
             ]
         }
     },
@@ -683,7 +732,7 @@
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 6.448, "buff": ["debuff", -0.2, 15.0, 1.0, "def", "-overwrite_6"]},
+                {"dmg": 6.448, "buff": ["debuff", -0.2, 15.0, 1.0, "def", "-overwrite_6"], "coei": 1},
                 {"afflic": ["poison", 120, 0.582]},
                 {"sp": [1.0, "%", "s2"]},
                 {"dmg": 9.672, "msl": 0.33333}
