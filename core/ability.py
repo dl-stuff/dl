@@ -605,21 +605,26 @@ ability_dict["dshift"] = Dragon_Buff
 
 class Resilient_Offense(BuffingAbility):
     def __init__(self, name, value, interval=None):
-        super().__init__(name, value, -1)
         self.interval = interval
-        if name[0:2] == "ro":
+        duration = -1
+        if name.startswith("ro"):
             self.proc_chances = 3
             self.hp_threshold = 30
-        elif name[0:2] == "uo":
+        elif name.startswith("uo"):
             self.proc_chances = 5
             self.hp_threshold = 70
+        elif name.startswith("nyar"):
+            self.proc_chances = float("inf")
+            self.hp_threshold = 30
+            duration = 20
+        super().__init__(name, value, duration)
 
     def oninit(self, adv, afrom=None):
         if adv.nihilism:
             return
 
         def l_ro_buff(e):
-            if self.proc_chances > 0 and e.hp <= 30 and (e.hp - e.delta) > 30:
+            if self.proc_chances is self.proc_chances > 0 and e.hp <= 30 and (e.hp - e.delta) > 30:
                 self.proc_chances -= 1
                 adv.Buff(*self.buff_args).on()
 
@@ -650,6 +655,7 @@ class Resilient_Offense(BuffingAbility):
 
 ability_dict["ro"] = Resilient_Offense
 ability_dict["uo"] = Resilient_Offense
+ability_dict["nyar"] = Resilient_Offense
 
 
 class Skill_Prep(Ability):
