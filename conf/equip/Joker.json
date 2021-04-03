@@ -33,8 +33,8 @@
       ]
     },
     "affliction": {
-      "dps": 89863.12983363277,
-      "team": 0.11130762255991779,
+      "dps": 89778.2451613015,
+      "team": 0.11134417136237768,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
@@ -91,33 +91,32 @@
       ]
     },
     "noaffliction": {
-      "dps": 56448.37012732675,
-      "team": 0.0,
+      "dps": 73786.76006622911,
+      "team": 0.11134417136237768,
       "tdps": null,
       "slots.a": [
-        "Levins_Champion",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Snipers_Allure"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, not dragondrive.get()",
-        "`s4, not buff(s4)",
-        "`s2, cancel",
-        "`s1, cancel",
-        "`fs"
+        "`dragon, s2.check() and not dragondrive.get() and dgauge>=1900",
+        "`s2, dragondrive.get() or xf>2",
+        "`s1",
+        "`s4, not energy()=5 and xf=6"
       ],
       "coabs": [
-        "Gala_Alex",
+        "Bow",
         "Ieyasu",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     }
   }

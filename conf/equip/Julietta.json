@@ -66,45 +66,14 @@
       ]
     },
     "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 61470.77247907834,
-      "team": 0.08668762960784893,
+    "mono_noaffliction": {
+      "dps": 66056.0840555854,
+      "team": 0.08986455133877709,
       "tdps": null,
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Small_Courage",
-        "FirstRate_Hospitality",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, x>2 and energy()<5"
-      ],
       "coabs": [
         "Blade",
         "Lucretia",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 60740.013886849425,
-      "team": 0.07754481366892652,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
       ]
     },
     "mono_buffer": {
@@ -128,15 +97,15 @@
       ]
     },
     "affliction": {
-      "dps": 56174.04313128531,
-      "team": 0.0,
+      "dps": 64225.751443195266,
+      "team": 0.049891900881423326,
       "tdps": null,
       "slots.a": [
-        "Brothers_in_Arms",
         "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "Chariot_Drift",
+        "FirstRate_Hospitality",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
@@ -151,13 +120,46 @@
         "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
       ],
       "coabs": [
+        "Blade",
         "Lucretia",
-        "Peony",
-        "Sharena"
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Yukata_Cassandra"
+        "Dragonyule_Lily"
+      ]
+    },
+    "noaffliction": {
+      "dps": 64225.751443195266,
+      "team": 0.049891900881423326,
+      "tdps": null,
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "FirstRate_Hospitality",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c7-s-end), dragonform.shift_count>=1 and energy()>=4",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, x>2 and energy()<5",
+        "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     }
   }

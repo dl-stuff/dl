@@ -3,7 +3,7 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "base": {
-      "dps": 96868.15034881802,
+      "dps": 87564.61535455352,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -35,9 +35,9 @@
       ]
     },
     "buffer": {
-      "dps": 55198.049809339725,
+      "dps": 49499.02731222515,
       "team": 0.0951306517298226,
-      "tdps": 438030.2224547368,
+      "tdps": 400140.09522858285,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -67,57 +67,97 @@
       ]
     },
     "noaffliction": {
-      "dps": 76165.94045702457,
-      "team": 0.049980544610227585,
+      "dps": 78612.21224973387,
+      "team": 0.0,
       "tdps": null,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`s3, not buff(s3)",
-        "if not dragondrive.get() and not have_buff(beast_eye)",
-        "`fs, x=9",
-        "end",
         "if s2.check() and not dragondrive.get()",
-        "`dragon()",
+        "`dragon",
         "end",
         "`s1",
         "`s2",
-        "`s4"
+        "`s4",
+        "`fs, x=4"
       ],
       "coabs": [
-        "Akasha",
-        "Blade",
+        "Gala_Notte",
+        "Humanoid_Midgardsormr",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Luca"
       ]
     },
     "mono_affliction": {
-      "dps": 94578.32736793459,
+      "dps": 89137.08548663114,
       "team": 0.0,
       "tdps": null,
       "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Humanoid_Midgardsormr"
+        "Gala_Notte",
+        "Humanoid_Midgardsormr",
+        "Wand"
+      ]
+    },
+    "affliction": {
+      "dps": 78612.21224973387,
+      "team": 0.0,
+      "tdps": null,
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon",
+        "end",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Humanoid_Midgardsormr",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Luca"
       ]
     },
     "mono_noaffliction": {
-      "dps": 74363.48668480117,
-      "team": 0.049786990050991874,
+      "dps": 59143.66090728494,
+      "team": 0.04997589495999762,
       "tdps": null,
       "coabs": [
+        "Akasha",
         "Blade",
-        "Gala_Notte",
         "Wand"
+      ]
+    },
+    "mono_base": {
+      "dps": 57090.52839588331,
+      "team": 0.0,
+      "tdps": null,
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Humanoid_Midgardsormr"
       ]
     }
   }

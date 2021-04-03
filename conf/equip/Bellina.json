@@ -1,7 +1,7 @@
 {
   "180": {
     "base": {
-      "dps": 107189.66057550546,
+      "dps": 106259.51638628777,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
@@ -11,7 +11,7 @@
         "A_Passion_for_Produce",
         "The_Plaguebringer"
       ],
-      "slots.d": "Nyarlathotep",
+      "slots.d": "Arsene",
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
@@ -69,8 +69,8 @@
     },
     "buffer": {
       "dps": 47813.93432899793,
-      "team": 0.11949722792379953,
-      "tdps": 496879.5283215271,
+      "team": 0.11770732909144029,
+      "tdps": 496533.07494460867,
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -101,24 +101,37 @@
       ]
     },
     "mono_pref": "mono_base",
-    "mono_noaffliction": {
-      "dps": 68712.77191395029,
+    "noaffliction": {
+      "dps": 66944.5692230088,
       "team": 0.0,
       "tdps": null,
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Andromeda",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
       "coabs": [
         "Berserker",
         "Curran",
         "Ieyasu"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 49895.05036478915,
-      "team": 0.04563421672183811,
-      "tdps": 1255518.6508394293,
-      "coabs": [
-        "Audric",
-        "Curran",
-        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Veronica"
       ]
     }
   }
