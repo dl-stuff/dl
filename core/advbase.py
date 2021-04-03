@@ -1078,6 +1078,9 @@ class Adv(object):
                         self.buffskill_event()
 
                     Timer(proc_sim_doublebuff, interval, True).on()
+            if "dprep" in self.conf.sim_buffbot:
+                if self.condition(f"team dprep {self.conf.sim_buffbot.team_dprep:.0%}"):
+                    self.dragonform.charge_gauge(self.conf.sim_buffbot.team_dprep, percent=True, dhaste=False)
 
     def config_slots(self):
         if self.conf["classbane"] == "HDT":

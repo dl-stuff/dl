@@ -5,7 +5,7 @@ const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
 const DEFAULT_SHARE = 'Ranzal';
 const DEFAULT_SHARE_ALT = 'Curran';
-const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'echo'];
+const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'dprep', 'echo'];
 const ELE_AFFLICT = {
     'flame': 'burn',
     'water': 'frostbite',
