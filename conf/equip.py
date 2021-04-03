@@ -1,20 +1,17 @@
-from pprint import pprint
-from copy import deepcopy
-import os
+import itertools
+from enum import Enum
 
 from conf import (
-    load_equip_json,
-    save_equip_json,
-    DURATIONS,
+    load_json,
+    save_json,
     ELE_AFFLICT,
     mono_elecoabs,
-    get_adv_coability,
-    load_adv_json,
-    list_advs,
 )
-import core.simulate
-from core.afflic import Afflics, AFFLICT_LIST
 
+
+TDPS_WEIGHT = 15000
+BUFFER_TDPS_THRESHOLD = 40000
+BUFFER_TEAM_THRESHOLD = 1.6
 BANNED_PRINTS = (
     # srry no full hp sd allowed
     "Witchs_Kitchen",
@@ -25,22 +22,18 @@ BANNED_PRINTS = (
     "Second_Anniversary",
     # corrosion
     "Her_Beloved_Crown",
-    "Her_Beloved_Sword"
+    "Her_Beloved_Sword",
 )
 BANNED_SHARES = ("Durant", "Yue")
 ABNORMAL_COND = (
     "sim_buffbot",
     "dragonbattle",
     "berserk",
-    "nihilism",
     "classbane",
     "hp",
     "dumb",
     "fleet",
 )
-BUFFER_TDPS_THRESHOLD = 40000
-BUFFER_TEAM_THRESHOLD = 1.6
-TDPS_WEIGHT = 15000
 HAS_7SLOT = ("light",)
 DEFAULT_MONO_COABS = {
     "flame": ("Blade", "Wand", "Dagger", "Bow"),
@@ -49,6 +42,138 @@ DEFAULT_MONO_COABS = {
     "light": ("Blade", "Peony", "Wand", "Dagger"),
     "shadow": ("Blade", "Wand", "Dagger", "Bow"),
 }
+BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
+BUILD_META_KEYS = ("dps", "team")
+
+
+class ValueEnum(Enum):
+    def __str__(self):
+        return self.value
+
+
+class AfflictionCondition(ValueEnum):
+    SELF = 0
+    ALWAYS = 1
+    IMMUNE = -1
+
+    @classmethod
+    def get_condition(cls, adv):
+        affres = adv.afflics.get_resist()
+        if all((value >= 300 for value in affres.values())):
+            return cls.IMMUNE
+        if not adv.sim_afflict:
+            return cls.SELF
+        eleaff = ELE_AFFLICT[adv.slots.c.ele]
+        if adv.sim_afflict == {eleaff} and adv.conf_init.sim_afflict[eleaff] == 1:
+            return cls.ALWAYS
+
+
+class NihilismCondition(ValueEnum):
+    NORMAL = 0
+    NIHILISM = 1
+
+    @classmethod
+    def get_condition(cls, adv):
+        if adv.nihilism:
+            return cls.NIHILISM
+        return cls.NORMAL
+
+
+def all_monoele_coabs(adv):
+    return all((coab in mono_elecoabs[adv.slots.c.ele] for coab in adv.slots.c.coab_list))
+
+
+class MonoCondition(ValueEnum):
+    ANY = 0
+    MONO = 1
+
+    @classmethod
+    def get_condition(cls, adv):
+        if all_monoele_coabs(adv):
+            return cls.MONO
+        return cls.ANY
+
+
+class ConditionTuple(tuple):
+    SEPARATOR = "-"
+
+    def __str__(self):
+        return ConditionTuple.SEPARATOR.join(map(str, self))
+
+    @property
+    def aff(self):
+        return self[0]
+
+    @property
+    def nihil(self):
+        return self[1]
+
+    @property
+    def mono(self):
+        return self[2]
+
+    def reduced(self):
+        aff, nihil, mono = self
+        return (
+            ConditionTuple(AfflictionCondition.SELF, nihil, mono),
+            ConditionTuple(aff, NihilismCondition.NORMAL, mono),
+            ConditionTuple(AfflictionCondition.SELF, NihilismCondition.NORMAL, mono),
+        )
+
+
+def dps_weight(entry):
+    return entry["dps"] + entry["team"] * TDPS_WEIGHT
+
+
+class OpimizationMode(ValueEnum):
+    PERSONAL = 0
+    TEAMBUFF = 1
+
+
+def same_build(entry_a, entry_b):
+    return all((equivalent(entry_a.get(k), entry_b.get(k)) for k in BUILD_CONF_KEYS))
+
+
+def same_build_different_dps(entry_a, entry_b):
+    return entry_a.same_build(entry_b) and any((entry_a.get(k) != entry_b.get(k) for k in BUILD_META_KEYS))
+
+
+def compare_build_personal(entry_a, entry_b):
+    return dps_weight(entry_a) >= dps_weight(entry_b)
+
+
+def compare_build_teambuff(entry_a, entry_b):
+    return entry_a["team"] > entry_b["team"] or (round(entry_a["team"], 5) == round(entry_b["team"], 5) and entry_a["dps"] > entry_b["dps"])
+
+
+OPT_COMPARE = {
+    OpimizationMode.PERSONAL: compare_build_personal,
+    OpimizationMode.TEAMBUFF: compare_build_teambuff,
+}
+OPT_KICK = {
+    OpimizationMode.PERSONAL: OpimizationMode.TEAMBUFF,
+    OpimizationMode.TEAMBUFF: OpimizationMode.PERSONAL,
+}
+
+
+def build_from_sim(adv, real_d, coab_only=False):
+    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
+    nteam = adv.logs.team_buff / real_d
+    build = {"dps": ndps, "team": nteam}
+    if coab_only:
+        build["coabs"] = adv.slots.c.coab_list
+        return build
+    build["slots.a"] = adv.slots.a.qual_lst
+    build["slots.d"] = adv.slots.d.qual
+    if adv.slots.w.qual != adv.slots.DEFAULT_WEAPON:
+        build["slots.w"] = adv.slots.w.qual
+    acl_list = adv.conf.acl
+    if not isinstance(acl_list, list):
+        acl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
+    build["acl"] = acl_list
+    build["coabs"] = adv.slots.c.coab_list
+    build["share"] = adv.skillshare_list
+    return build
 
 
 def equivalent(a, b):
@@ -58,598 +183,156 @@ def equivalent(a, b):
         return a == b
 
 
-def build_entry_from_sim(entryclass, adv, real_d, coab_only=False):
-    ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
-    nteam = adv.logs.team_buff / real_d
-    new_equip = {
-        "dps": ndps,
-        "team": nteam,
-        "tdps": None,
-    }
-    if coab_only:
-        new_equip["coabs"] = adv.slots.c.coab_list
-        return entryclass(new_equip)
-    new_equip["slots.a"] = adv.slots.a.qual_lst
-    new_equip["slots.d"] = adv.slots.d.qual
-    # if adv.slots.d.qual != adv.slots.DEFAULT_DRAGON[adv.slots.c.ele]:
-    #     new_equip['slots.d'] = adv.slots.d.qual
-    if adv.slots.w.qual != adv.slots.DEFAULT_WEAPON:
-        new_equip["slots.w"] = adv.slots.w.qual
-    acl_list = adv.conf.acl
-    if not isinstance(acl_list, list):
-        acl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
-    new_equip["acl"] = acl_list
-    new_equip["coabs"] = adv.slots.c.coab_list
-    new_equip["share"] = adv.skillshare_list
-    return entryclass(new_equip)
-
-
-def filter_coab_only(entry):
-    return {
-        "dps": entry["dps"],
-        "team": entry["team"],
-        "tdps": entry["tdps"],
-        "coabs": entry["coabs"],
-    }
+def validate_sim(adv):
+    adv.duration = int(adv.duration)
+    wp_qual_lst = adv.slots.a.qual_lst
+    return (
+        adv.duration == 180
+        and all([not k in adv.conf for k in ABNORMAL_COND])
+        and all([not wp in BANNED_PRINTS for wp in wp_qual_lst])
+        and all([not ss in BANNED_SHARES for ss in adv.skillshare_list])
+        and len(adv.slots.c.coab_list) == 3
+        and ((len(wp_qual_lst) > 5 and adv.slots.c.ele in HAS_7SLOT and adv.slots.w.qual == "Agito") or len(wp_qual_lst) == 5)
+    )
 
 
 class EquipEntry(dict):
-    CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
-    META_KEYS = ("dps", "team")
+    def __init__(self, conditions):
+        converted = {
+            OpimizationMode.PERSONAL: None,
+            OpimizationMode.TEAMBUFF: None,
+            "META": {"tdps": None, "pref": OpimizationMode.PERSONAL},
+        }
+        self._conditions = conditions
+        super().__init__(converted)
+        self._downgrade = None
 
-    def __init__(self, equip):
-        super().__init__(equip)
+    def from_dict(self, builds):
+        for k, v in builds.items():
+            if k == "META":
+                self[k] = v
+            else:
+                self[OpimizationMode(k)] = v
 
-    @staticmethod
-    def eligible(adv):
-        adv.duration = int(adv.duration)
-        return (
-            adv.duration in DURATIONS
-            and all([not k in adv.conf for k in ABNORMAL_COND])
-            and all([not wp in BANNED_PRINTS for wp in adv.slots.a.qual_lst])
-            and all([not ss in BANNED_SHARES for ss in adv.skillshare_list])
-        )
+    @property.setter
+    def downgrade(self, downgrade):
+        self._downgrade = downgrade
 
-    @staticmethod
-    def standard_affres(adv):
-        return adv.afflics.get_resist() == Afflics.RESIST_PROFILES[adv.slots.c.ele]
+    def builds(self):
+        for opt in OpimizationMode:
+            yield opt, self[opt]
 
-    @staticmethod
-    def acceptable(entry, ele=None):
-        if len(entry.get("slots.a", tuple())) > 5 and (ele not in HAS_7SLOT or entry.get("slots.w", "Agito") != "Agito"):
-            return False
-        if len(entry.get("coabs")) != 3:
-            return False
-        return isinstance(entry, EquipEntry)
+    @property.setter
+    def tdps(self, tdps):
+        self["META"]["tdps"] = tdps
 
-    @classmethod
-    def build_from_sim(cls, adv, real_d):
-        return build_entry_from_sim(cls, adv, real_d)
+    @property.getter
+    def tdps(self):
+        return self["META"]["tdps"]
 
-    def same_build(self, other):
-        return all((equivalent(self.get(k), other.get(k)) for k in EquipEntry.CONF_KEYS))
+    @property.setter
+    def pref(self, pref):
+        self["META"]["pref"] = pref
 
-    def same_build_different_dps(self, other):
-        same_build = self.same_build(other)
-        different_dps = any((self.get(k) != other.get(k) for k in EquipEntry.META_KEYS))
-        return same_build and different_dps
+    @property.getter
+    def pref(self):
+        return self["META"]["pref"]
 
-    @staticmethod
-    def weight(entry):
-        return entry["dps"] + entry["team"] * TDPS_WEIGHT
+    def get_build(self, opt):
+        personal_build = self[opt]
+        if not personal_build and self._downgrade:
+            personal_build = self._downgrade[opt]
+        return personal_build
 
-    def better_than(self, other):
-        return self.weight(self) >= self.weight(other)
+    @property
+    def preferred(self):
+        return self.get_build(self.pref)
 
-    def update_threshold(self, other, change_self=True):
-        if self["team"] != other["team"]:
-            if change_self:
-                self["tdps"] = None
-            other["tdps"] = (self["dps"] - other["dps"]) / (other["team"] - self["team"])
+    @property
+    def empty(self):
+        return not any((self[opt] for opt in OpimizationMode))
+
+    def update_meta(self):
+        personal_build = self.get_build(OpimizationMode.PERSONAL)
+        teambuff_build = self.get_build(OpimizationMode.TEAMBUFF)
+        if not teambuff_build:
+            self.tdps = None
+            self.pref = OpimizationMode.PERSONAL
+            return
+        if not personal_build:
+            self.tdps = None
+            self.pref = OpimizationMode.TEAMBUFF
+            return
+
+        if personal_build["team"] != teambuff_build["team"]:
+            self.tdps = (personal_build["dps"] - teambuff_build["dps"]) / (teambuff_build["team"] - personal_build["team"])
         else:
-            if change_self:
-                self["tdps"] = None
-            other["tdps"] = None
+            self.tdps = None
 
+        if teambuff_build["team"] > BUFFER_TEAM_THRESHOLD or self.tdps < BUFFER_TDPS_THRESHOLD:
+            self.pref = OpimizationMode.TEAMBUFF
+        else:
+            self.pref = OpimizationMode.PERSONAL
 
-class BaseEntry(EquipEntry):
-    @staticmethod
-    def eligible(adv):
-        return not adv.sim_afflict and EquipEntry.standard_affres(adv) and EquipEntry.eligible(adv)
-
-
-class BufferEntry(EquipEntry):
-    @staticmethod
-    def eligible(adv):
-        return not adv.sim_afflict and EquipEntry.standard_affres(adv) and EquipEntry.eligible(adv)
-
-    @staticmethod
-    def acceptable(entry, ele=None):
-        return entry["team"] and EquipEntry.acceptable(entry, ele)
-
-    def better_than(self, other):
-        return self["team"] > other["team"] or (round(self["team"], 5) == round(other["team"], 5) and self["dps"] > other["dps"])
-
-
-class AfflictionEntry(EquipEntry):
-    @staticmethod
-    def eligible(adv):
-        return AfflictionEntry.onele_affliction(adv) and EquipEntry.standard_affres(adv) and EquipEntry.eligible(adv)
-
-    @staticmethod
-    def onele_affliction(adv):
-        eleaff = ELE_AFFLICT[adv.slots.c.ele]
-        return adv.sim_afflict == {eleaff} and adv.conf_init.sim_afflict[eleaff] == 1
-
-
-class NoAfflictionEntry(EquipEntry):
-    @staticmethod
-    def eligible(adv):
-        return (NoAfflictionEntry.immune_affres(adv) or not adv.use_afflict) and EquipEntry.eligible(adv)
-
-    @staticmethod
-    def immune_affres(adv):
-        affres = adv.afflics.get_resist()
-        return all((value >= 300 for value in affres.values()))
-
-
-def all_monoele_coabs(entry, ele):
-    return all((coab in mono_elecoabs[ele] for coab in entry["coabs"]))
-
-
-def filtered_monoele_coabs(entry, ele):
-    entry = deepcopy(entry)
-    entry["coabs"] = [coab for coab in entry["coabs"] if coab in mono_elecoabs[ele]]
-    return entry
-
-
-class MonoEntry(EquipEntry):
-    @classmethod
-    def build_from_sim(cls, adv, real_d):
-        return build_entry_from_sim(cls, adv, real_d, coab_only=True)
-
-    def same_build(self, other):
-        return equivalent(self.get("coabs"), other.get("coabs"))
-
-
-class MonoBaseEntry(BaseEntry, MonoEntry):
-    @staticmethod
-    def acceptable(entry, ele):
-        return all_monoele_coabs(entry, ele) and BaseEntry.acceptable(entry, ele)
-
-
-class MonoBufferEntry(BufferEntry, MonoEntry):
-    @staticmethod
-    def acceptable(entry, ele):
-        return all_monoele_coabs(entry, ele) and BufferEntry.acceptable(entry, ele)
-
-
-class MonoAfflictionEntry(AfflictionEntry, MonoEntry):
-    @staticmethod
-    def acceptable(entry, ele):
-        return all_monoele_coabs(entry, ele) and AfflictionEntry.acceptable(entry, ele)
-
-
-class MonoNoAfflictionEntry(NoAfflictionEntry, MonoEntry):
-    @staticmethod
-    def acceptable(entry, ele):
-        return all_monoele_coabs(entry, ele) and NoAfflictionEntry.acceptable(entry, ele)
-
-
-EQUIP_ENTRY_MAP = {
-    "base": BaseEntry,
-    "buffer": BufferEntry,
-    "affliction": AfflictionEntry,
-    "noaffliction": NoAfflictionEntry,
-    # 'affbuff' ?
-    "mono_base": MonoBaseEntry,
-    "mono_buffer": MonoBufferEntry,
-    "mono_affliction": MonoAfflictionEntry,
-    "mono_noaffliction": MonoNoAfflictionEntry,
-}
-SKIP_IF_IDENTICAL = {
-    "affliction": "base",
-    "noaffliction": "base",
-    "mono_affliction": "mono_base",
-    "mono_noaffliction": "mono_base",
-}
-SKIP_IF_SAME_COAB = {
-    "mono_base": "base",
-    "mono_buffer": "buffer",
-    "mono_affliction": "affliction",
-    "mono_noaffliction": "noaffliction",
-}
-KICK_TO = {
-    "base": ("buffer", "mono_base"),
-    "buffer": ("mono_buffer",),
-    "affliction": ("mono_affliction",),
-    "noaffliction": ("mono_noaffliction",),
-}
-THRESHOLD_RELATION = (
-    ("base", "buffer", "pref"),
-    ("mono_base", "mono_buffer", "mono_pref"),
-)
+    def accept_new_build(self, new_build):
+        changed = False
+        kicked = {}
+        for opt, existing_build in self.builds():
+            if not existing_build or same_build_different_dps(new_build, existing_build) or OPT_COMPARE[opt](new_build, existing_build):
+                self[opt] = new_build
+                kicked[OPT_KICK[opt]] = existing_build
+                changed = True
+        for opt, kicked_build in self.builds():
+            if not self[opt] or same_build_different_dps(new_build, existing_build) or OPT_COMPARE[opt](kicked_build, self[opt]):
+                self[opt] = kicked_build
+                changed = True
+        if self._downgrade:
+            changed = self._downgrade.accept_new_build(new_build) or changed
+            for opt, reference_build in self._downgrade.builds():
+                if same_build(self[opt], reference_build):
+                    self[opt] = None
+                    changed = True
+        if changed:
+            self.update_meta()
+        return changed
 
 
 class EquipManager(dict):
-    def __init__(self, advname, debug=False):
-        self.advname = advname
-        super().__init__(load_equip_json(advname))
-        self.debug = debug
-        self.pref = None
-        for duration, dequip in self.items():
-            for kind, entry in dequip.items():
-                try:
-                    dequip[kind] = EQUIP_ENTRY_MAP[kind](entry)
-                except KeyError:
-                    if kind == "pref":
-                        self.pref = entry
+    ALL_COND_ENUMS = (AfflictionCondition, NihilismCondition, MonoCondition)
 
-    def check_skip_entry(self, new_entry, duration, kind, compare_map, need_write=False, do_compare=True):
+    def __init__(self, advname, debug=False):
+        self._advname = advname
+        self._equip_file = f"equip/{advname}.json"
+        self.debug = debug
+        for conditions in map(ConditionTuple, itertools.product(*EquipManager.ALL_COND_ENUMS)):
+            self[conditions] = EquipEntry(conditions)
         try:
-            compare_entry = self[duration][compare_map[kind]]
-            if new_entry.same_build(compare_entry):
-                try:
-                    if not do_compare or new_entry.better_than(self[duration][kind]):
-                        del self[duration][kind]
-                        need_write = True
-                        if self.debug:
-                            print(f"Remove identical [{kind}] and fall back to [{compare_map[kind]}]")
-                except KeyError:
-                    pass
-                return True, need_write
-        except KeyError:
+            for key, value in load_json(self._equip_file):
+                aff, nihil, mono = map(int, key.split(ConditionTuple.SEPARATOR))
+                conditions = ConditionTuple(AfflictionCondition(aff), NihilismCondition(nihil), MonoCondition(mono))
+                self[conditions].from_dict(value)
+        except FileNotFoundError:
             pass
-        return False, need_write
+        for key, value in self.items():
+            if key[2] == MonoCondition.MONO:
+                value.downgrade = self.get(key[0], key[1], MonoCondition.ANY)
+
+    def get_preferred_entry(self, conditions):
+        preferred = self[conditions].preferred
+        if preferred:
+            return preferred
+
+        for r_cond in conditions.reduced():
+            preferred = self[r_cond].preferred
+            if preferred:
+                return preferred
+
+    def write_equip_json(self):
+        save_json(self._equip_file)
 
     def accept_new_entry(self, adv, real_d):
-        if self.advname != adv.name:
-            raise RuntimeError(f"adv/equip name mismatch {self.advname} != {adv.name}")
-
-        duration = int(adv.duration)
-        if duration not in DURATIONS:
+        if not validate_sim(adv):
             return
-
-        duration = str(duration)
-        kicked_entries = []
-        need_write = False
-        if duration not in self:
-            self[duration] = {"pref": "base", "mono_pref": "mono_base"}
-
-        # first pass
-        for kind, entryclass in EQUIP_ENTRY_MAP.items():
-            if self.debug:
-                print("~" * 60)
-                print(f"{kind}")
-            if not entryclass.eligible(adv):
-                if self.debug:
-                    print(f"not eligible")
-                continue
-            new_entry = entryclass.build_from_sim(adv, real_d)
-            if self.debug:
-                pprint(new_entry)
-            if not entryclass.acceptable(new_entry, adv.slots.c.ele):
-                if self.debug:
-                    print(f"not acceptable")
-                continue
-            skip, need_write = self.check_skip_entry(new_entry, duration, kind, SKIP_IF_IDENTICAL, need_write=need_write)
-            if skip:
-                continue
-            skip, need_write = self.check_skip_entry(new_entry, duration, kind, SKIP_IF_SAME_COAB, need_write=need_write)
-            if skip:
-                continue
-            try:
-                current_entry = self[duration][kind]
-            except KeyError:
-                self[duration][kind] = new_entry
-                need_write = True
-                if self.debug:
-                    print(f"fill empty slot {duration, kind}")
-                continue
-            same_build_different_dps = current_entry.same_build_different_dps(new_entry)
-            better_than = new_entry.better_than(current_entry)
-            if same_build_different_dps or better_than:
-                if self.debug:
-                    print("better than existing/same build different dps")
-                self[duration][kind] = deepcopy(new_entry)
-                need_write = True
-                if better_than:
-                    try:
-                        if self.debug:
-                            print(f"kick to {KICK_TO[kind]}")
-                        for kicked_kind in KICK_TO[kind]:
-                            kicked_entries.append((kicked_kind, current_entry))
-                    except KeyError:
-                        pass
-
-        # kicked entries
-        for kind, kicked in kicked_entries:
-            entryclass = EQUIP_ENTRY_MAP[kind]
-            if not entryclass.acceptable(kicked, adv.slots.c.ele):
-                continue
-            if kind.startswith("mono_"):
-                kicked = entryclass(filter_coab_only(kicked))
-                skip, need_write = self.check_skip_entry(kicked, duration, kind, SKIP_IF_SAME_COAB, need_write=need_write)
-                if skip:
-                    continue
-            else:
-                kicked = entryclass(deepcopy(kicked))
-            try:
-                current_entry = self[duration][kind]
-            except KeyError:
-                self[duration][kind] = kicked
-                need_write = True
-                continue
-            if not current_entry.better_than(kicked):
-                self[duration][kind] = kicked
-                need_write = True
-
-        tdps_write = self.update_tdps_threshold(duration)
-        need_write = need_write or tdps_write
-
-        if not self.debug and need_write:
-            save_equip_json(self.advname, self)
-
-    def update_tdps_threshold(self, duration):
-        need_write = False
-        for basekind, buffkind, prefkey in THRESHOLD_RELATION:
-            try:
-                ckind = self[duration].get(prefkey)
-                if basekind.startswith("mono_") and basekind not in self[duration]:
-                    self[duration][basekind[5:]].update_threshold(self[duration][buffkind], change_self=False)
-                else:
-                    self[duration][basekind].update_threshold(self[duration][buffkind])
-                try:
-                    if self[duration][buffkind]["team"] > BUFFER_TEAM_THRESHOLD or self[duration][buffkind]["tdps"] < BUFFER_TDPS_THRESHOLD:
-                        self[duration][prefkey] = buffkind
-                    else:
-                        self[duration][prefkey] = basekind
-                except TypeError:
-                    self[duration][prefkey] = basekind
-                need_write = need_write or ckind != self[duration].get(prefkey)
-            except KeyError:
-                continue
-        return need_write
-
-    def repair_entry(self, adv_module, element, conf, duration, kind, do_compare=False):
-        if self.debug:
-            print("~" * 60)
-            print(f"Repair {kind}")
-            pprint(conf)
-        conf = deepcopy(conf)
-        if kind in ("affliction", "mono_affliction"):
-            conf[f"sim_afflict.{ELE_AFFLICT[element]}"] = 1
-        if kind in ("noaffliction", "mono_noaffliction"):
-            for afflic in AFFLICT_LIST:
-                conf[f"afflict_res.{afflic}"] = 999
-        with open(os.devnull, "w") as output:
-            run_res = core.simulate.test(self.advname, adv_module, conf, int(duration), output=output)
-        adv = run_res[0][0]
-        real_d = run_res[0][1]
-        new_entry = EQUIP_ENTRY_MAP[kind].build_from_sim(adv, real_d)
-        if not EQUIP_ENTRY_MAP[kind].acceptable(new_entry, element):
-            try:
-                del self[duration][kind]
-            except KeyError:
-                pass
-            return
-        if not do_compare or not kind in self[duration] or new_entry.better_than(self[duration][kind]):
-            self[duration][kind] = new_entry
-
-    def repair_entries(self):
-        adv_module, _ = core.simulate.load_adv_module(self.advname)
-        element = load_adv_json(self.advname)["c"]["ele"]
-
-        for duration in list(self.keys()):
-            if not int(duration) in DURATIONS:
-                del self[duration]
-
-        for duration in list(self.keys()):
-            for kind in list(self[duration].keys()):
-                if kind.endswith("pref"):
-                    continue
-                if self.check_skip_entry(self[duration][kind], duration, kind, SKIP_IF_IDENTICAL, do_compare=False)[0]:
-                    continue
-                if self.check_skip_entry(self[duration][kind], duration, kind, SKIP_IF_SAME_COAB, do_compare=False)[0]:
-                    continue
-                self.repair_entry(adv_module, element, self[duration][kind], duration, kind)
-
-        for duration in list(self.keys()):
-            for basekind in ("base", "buffer", "affliction", "noaffliction"):
-                monokind = f"mono_{basekind}"
-                if not basekind in self[duration]:
-                    try:
-                        del self[duration][monokind]
-                    except KeyError:
-                        continue
-                    continue
-                if not EQUIP_ENTRY_MAP[monokind].acceptable(self[duration][basekind], element):
-                    if monokind not in self[duration]:
-                        # try auto populate
-                        filtered_entry = filtered_monoele_coabs(self[duration][basekind], element)
-                        if len(filtered_entry["coabs"]) == 3:
-                            # same amount of coab, no need to populate
-                            continue
-                        advcoabs = get_adv_coability(self.advname)
-                        for coab in DEFAULT_MONO_COABS[element]:
-                            if len(filtered_entry["coabs"]) == 3:
-                                break
-                            if coab not in filtered_entry["coabs"] and coab not in advcoabs:
-                                filtered_entry["coabs"].append(coab)
-                        self.repair_entry(adv_module, element, filtered_entry, duration, monokind)
-                    continue
-                # try:
-                #     current_entry = self[duration][monokind]
-                #     if not current_entry.better_than(self[duration][basekind]):
-                #         self[duration][monokind] = EQUIP_ENTRY_MAP[monokind](filter_coab_only(self[duration][basekind]))
-                # except KeyError:
-                #     self[duration][monokind] = EQUIP_ENTRY_MAP[monokind](filter_coab_only(self[duration][basekind]))
-
-            self.update_tdps_threshold(duration)
-
-        if not self.debug:
-            save_equip_json(self.advname, self)
-
-    def get_conf(self, duration, equip_key, mono):
-        duration = str(int(duration))
-        if not duration in self:
-            duration = "180"
-            if not duration in self:
-                return None, None
-        equip_d = self[duration]
-        if equip_key is None:
-            if mono:
-                equip_key = equip_d.get("mono_pref", "mono_base")
-                if equip_key not in equip_d:
-                    equip_key = equip_d.get("pref", "base")
-            else:
-                equip_key = equip_d.get("pref", "base")
-        if mono and not equip_key.startswith("mono_"):
-            equip_key = f"mono_{equip_key}"
-        if not equip_key in equip_d:
-            return equip_d.get("base", None), None
-        if equip_key.startswith("mono"):
-            _, base_key = equip_key.split("_")
-            full_equip = {}
-            full_equip.update(equip_d[base_key])
-            full_equip.update(equip_d[equip_key])
-            return full_equip, equip_key
-        else:
-            return equip_d[equip_key], equip_key
-
-    def has_different_mono(self, duration, kind):
-        duration = str(int(duration))
-        monokind = f"mono_{kind}"
-        if not monokind in self[duration]:
-            return False
-        try:
-            return not self[duration][kind].same_build(self[duration][monokind])
-        except KeyError:
-            return False
-
-
-def initialize_equip_managers():
-    return {advname: EquipManager(advname, debug=False) for advname in list_advs()}
-
-
-def _test_equip(advname, confs):
-    adv_module, advname = core.simulate.load_adv_module(advname)
-    equip_manager = EquipManager(advname, debug=True)
-    for conf in confs:
-        run_res = core.simulate.test(advname, adv_module, conf, 180)
-        adv = run_res[0][0]
-        real_d = run_res[0][1]
-        equip_manager.accept_new_entry(adv, real_d)
-    return equip_manager
-
-
-def test_equip_simple():
-    basic_conf = {
-        "slots.a": [
-            "Candy_Couriers",
-            "Me_and_My_Bestie",
-            "Memory_of_a_Friend",
-            "The_Plaguebringer",
-            "To_the_Extreme",
-        ],
-        "slots.d": "Gala_Mars",
-        "acl": [
-            "`dragon(s-s)",
-            "`s3, not buff(s3) and x=5",
-            "`s1",
-            "`s4,cancel",
-            "`s2, x=5",
-        ],
-        "coabs": ["Blade", "Joe", "Marth"],
-        "share": ["Weapon", "Durant"],
-    }
-    higher_team_conf = {**basic_conf, "share": ["Weapon", "Karl"]}
-    higher_dps_conf = {**basic_conf, "share": ["Weapon", "Formal_Joachim"]}
-    _test_equip("Xania", (basic_conf, higher_team_conf))
-
-
-def test_equip_afflictions():
-    basic_conf = {
-        "slots.a": [
-            "An_Ancient_Oath",
-            "Dragon_and_Tamer",
-            "Memory_of_a_Friend",
-            "Entwined_Flames",
-            "The_Plaguebringer",
-        ],
-        "slots.d": "Gala_Cat_Sith",
-        "acl": [
-            "`fs, x=5",
-            "`s3, not buff(s3)",
-            "`s2",
-            "`s4",
-            "`dragon(c3-s-end), cancel",
-            "`s1(all)",
-        ],
-        "coabs": ["Ieyasu", "Wand", "Forte"],
-        "share": ["Weapon", "Gala_Mym"],
-    }
-    basic_on_conf = {**basic_conf, "sim_afflict": {"poison": 1}}
-    afflic_conf = {
-        "slots.a": [
-            "An_Ancient_Oath",
-            "Dragon_and_Tamer",
-            "Memory_of_a_Friend",
-            "Dueling_Dancers",
-            "The_Plaguebringer",
-        ],
-        "slots.d": "Gala_Cat_Sith",
-        "acl": [
-            "`dragon(c3-s-end), s4",
-            "`s3, not buff(s3)",
-            "`s2",
-            "`s4, x=5 or fsc",
-            "`s1(all), cancel or s",
-            "`fs, x=5",
-        ],
-        "coabs": ["Ieyasu", "Wand", "Forte"],
-        "share": ["Weapon", "Gala_Mym"],
-    }
-    afflic_on_conf = {**afflic_conf, "sim_afflict": {"poison": 1}}
-    _test_equip("Lathna", (afflic_conf, basic_conf, afflic_on_conf, basic_on_conf))
-
-
-def test_equip_monoele():
-    base_conf = {
-        "slots.a": [
-            "A_Man_Unchanging",
-            "Memory_of_a_Friend",
-            "Moonlight_Party",
-            "From_Whence_He_Comes",
-            "Bellathorna",
-        ],
-        "slots.d": "Epimetheus",
-        "acl": ["`dragon(s), s=1", "`s3, not buff(s3)", "`s1", "`s2", "`s4, x=5"],
-        "coabs": ["Axe2", "Dagger2", "Tobias"],
-        "share": ["Weapon", "Formal_Joachim"],
-    }
-    monoele_conf = {
-        "slots.a": [
-            "A_Man_Unchanging",
-            "Memory_of_a_Friend",
-            "Moonlight_Party",
-            "From_Whence_He_Comes",
-            "Bellathorna",
-        ],
-        "slots.d": "Epimetheus",
-        "acl": ["`dragon(s), s=1", "`s3, not buff(s3)", "`s1", "`s2", "`s4, x=5"],
-        "coabs": ["Dagger", "Forte", "Cleo"],
-        "share": ["Weapon", "Gala_Mym"],
-    }
-    _test_equip("Durant", (monoele_conf, base_conf))
-
-
-def test_repair():
-    equip_manager = EquipManager("Aeleen")
-    equip_manager.debug = True
-    equip_manager.repair_entries()
-
-
-if __name__ == "__main__":
-    # test_repair()
-    print(get_adv_coability("Peony"))
+        conditions = tuple((cond_enum.get_condition(adv) for cond_enum in EquipManager.ALL_COND_ENUMS))
+        new_build = build_from_sim(adv, real_d, coab_only=(conditions.mono == MonoCondition.MONO))
+        changed = self[conditions].accept_new_build(new_build)

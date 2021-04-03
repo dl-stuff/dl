@@ -6,16 +6,7 @@ import argparse
 from copy import deepcopy
 from time import monotonic, time_ns
 import core.simulate
-from conf import (
-    ROOT_DIR,
-    load_equip_json,
-    load_adv_json,
-    list_advs,
-    ELEMENTS,
-    WEAPON_TYPES,
-    DURATIONS,
-    ELE_AFFLICT,
-)
+from conf import ROOT_DIR, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS
 from conf.equip import EquipManager
 
 ADV_DIR = "adv"

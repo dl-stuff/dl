@@ -584,7 +584,7 @@ class Dragon_Buff(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
-        if adv.nihilism:
+        if adv.nihilism and buff.mod_order = "passive":
             return
 
         self.dc_level = 0

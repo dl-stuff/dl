@@ -41,7 +41,7 @@ def save_json(fn, data, indent=None):
     froot = os.path.join(ROOT_DIR, "conf")
     fpath = os.path.join(froot, fn)
     with open(fpath, "w", encoding="utf8") as f:
-        return json.dump(data, f, ensure_ascii=False, indent=indent)
+        return json.dump(data, f, ensure_ascii=False, default=str, indent=indent)
 
 
 def load_json(fn):
@@ -89,34 +89,6 @@ def load_adv_json(adv):
         aconf = load_json(f"adv/{adv}.json")
         advconfs[adv] = aconf
         return aconf
-
-
-advequip = {}
-
-
-def load_equip_json(adv):
-    try:
-        return advequip[adv]
-    except KeyError:
-        try:
-            equip = load_json(f"equip/{adv}.json")
-        except:
-            equip = {}
-        advequip[adv] = equip
-        return equip
-
-
-def load_all_equip_json():
-    froot = os.path.join(ROOT_DIR, "conf", "equip")
-    for root, _, files in os.walk(froot):
-        for fn in files:
-            load_equip_json(os.path.splitext(fn)[0])
-    return advequip
-
-
-def save_equip_json(adv, equip):
-    advequip[adv] = equip
-    save_json(f"equip/{adv}.json", equip, indent=2)
 
 
 def get_icon(adv):
