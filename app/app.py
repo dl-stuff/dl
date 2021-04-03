@@ -34,7 +34,7 @@ SIMULATED_BUFFS = {
     "doublebuff_interval": (0.5, 600.0, 1),
     "count": (0, float("inf"), 1),
     "echo": (0, float("inf"), 1),
-    "dprep": (0, 100, 100),
+    "dprep": (0, 100, 1),
 }
 RARITY_MAP = {1: "formA", 2: "formB", 3: "formC"}
 
