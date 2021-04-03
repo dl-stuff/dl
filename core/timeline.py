@@ -1,7 +1,6 @@
 import heapq as hq
 import itertools
 from core.ctx import *
-import core.log
 
 
 def now():
@@ -133,15 +132,17 @@ class Timer(object):
         self.timeline = timeline or _g_timeline
 
         self.began = None
+        self._elapsed = None
         self.timing = 0
         self.online = 0
         self.canceled = False
         # self.on()
 
     def elapsed(self):
-        if not self.began:
-            return 0
+        if self.began is None:
+            return self._elapsed or 0
         else:
+            self._elapsed = _g_now - self.began
             return _g_now - self.began
 
     def on(self, timeout=None):
@@ -165,7 +166,8 @@ class Timer(object):
                 self.timeline.rm(self)
             except:
                 pass
-        self.began = None
+            self._elapsed = _g_now - self.began
+            self.began = None
         return self
 
     def add(self, time=0):
@@ -197,6 +199,8 @@ class Timer(object):
         if self.timing <= _g_now:
             if self.online:
                 self.online = 0
+                self._elapsed = _g_now - self.began
+                self.began = None
                 # self.timeline.rm(self)
 
     def callback(self):
