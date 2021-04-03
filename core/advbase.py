@@ -892,11 +892,12 @@ class Adv(object):
             for b in self.sab:
                 b.act_on(e)
 
-    def actmods(self, name, base, group, aseq, attr):
+    def actmods(self, name, base=None, group=None, aseq=None, attr=None):
         mods = []
         for m in self.extra_actmods:
-            if isinstance(m, Modifier) and name == m.mod_name:
-                mods.append(m)
+            if isinstance(m, Modifier):
+                if name == m.mod_name:
+                    mods.append(m)
             else:
                 modifier = m(name, base, group, aseq, attr)
                 if modifier:
