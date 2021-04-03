@@ -584,7 +584,11 @@ class Dragon_Buff(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
-        if adv.nihilism:
+        try:
+            mod_order = self.buff_args[1]
+        except IndexError:
+            mod_order = None
+        if adv.nihilism and mod_order != "passive":
             return
 
         self.dc_level = 0
@@ -592,7 +596,7 @@ class Dragon_Buff(Ability):
         def l_dc_buff(t):
             if self.dc_level < len(self.dc_values):
                 buff = adv.Buff(self.name, self.dc_values[self.dc_level], -1, *self.buff_args)
-                if buff.mod_order == "passive":
+                if buff.mod_order == mod_order:
                     buff.hidden = True
                 buff.on()
                 self.dc_level += 1
