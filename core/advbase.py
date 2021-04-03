@@ -1079,7 +1079,7 @@ class Adv(object):
 
                     Timer(proc_sim_doublebuff, interval, True).on()
             if "dprep" in self.conf.sim_buffbot:
-                if self.condition(f"team dprep {self.conf.sim_buffbot.dprep:.0%}"):
+                if self.condition(f"team dprep {self.conf.sim_buffbot.dprep}%"):
                     self.dragonform.charge_gauge(self.conf.sim_buffbot.dprep, percent=True, dhaste=False)
 
     def config_slots(self):

@@ -139,7 +139,7 @@ class Timer(object):
         # self.on()
 
     def elapsed(self):
-        if not self.began:
+        if not self.online:
             return 0
         else:
             return _g_now - self.began
