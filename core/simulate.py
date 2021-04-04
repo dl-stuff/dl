@@ -27,14 +27,13 @@ DOT_AFFLICT = ["poison", "paralysis", "burn", "frostbite"]
 S_ALT = "†"
 
 
-def run_once(name, module, conf, duration, cond, equip_key=None, mono=False):
+def run_once(name, module, conf, duration, cond, equip_conditions=None):
     adv = module(
         name=name,
         conf=conf,
         duration=duration,
         cond=cond,
-        equip_key=equip_key,
-        mono=mono,
+        equip_conditions=equip_conditions,
     )
     real_d = adv.run()
     return adv, real_d
@@ -44,14 +43,13 @@ def run_once(name, module, conf, duration, cond, equip_key=None, mono=False):
 import multiprocessing
 
 
-def run_once_mass(name, module, conf, duration, cond, equip_key, idx, mono):
+def run_once_mass(name, module, conf, duration, cond, equip_conditions, idx):
     adv = module(
         name=name,
         conf=conf,
         duration=duration,
         cond=cond,
-        equip_key=equip_key,
-        mono=mono,
+        equip_conditions=equip_conditions,
     )
     real_d = adv.run()
     return adv.logs, real_d
@@ -92,14 +90,13 @@ def run_mass(
     conf,
     duration,
     cond,
-    equip_key=None,
-    mono=False,
+    equip_conditions=None,
 ):
     mass = 1000 if mass == 1 else mass
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
         for log, real_d in pool.starmap(
             run_once_mass,
-            [(name, module, conf, duration, cond, equip_key, mono, idx) for idx in range(mass - 1)],
+            [(name, module, conf, duration, cond, equip_conditions, idx) for idx in range(mass - 1)],
         ):
             base_log = sum_logs(base_log, log)
             base_d += real_d
@@ -108,38 +105,38 @@ def run_mass(
     return base_log, base_d
 
 
-def run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, variant, deploy_mono, manager):
-    adv, real_d = run_once(name, module, conf, duration, cond, equip_key=equip_key)
-    if mass:
-        adv.logs, real_d = run_mass(
-            mass,
-            adv.logs,
-            real_d,
-            name,
-            module,
-            conf,
-            duration,
-            cond,
-            equip_key=equip_key,
-        )
-    run_results.append((adv, real_d, variant, None))
-    if deploy_mono:
-        if manager.has_different_mono(180, adv.equip_key):
-            adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
-            if mass:
-                adv.logs, real_d = run_mass(
-                    mass,
-                    adv.logs,
-                    real_d,
-                    name,
-                    module,
-                    conf,
-                    duration,
-                    cond,
-                    equip_key=None,
-                )
-        run_results.append((adv, real_d, variant, "mono"))
-    return adv, real_d
+# def run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_conditions, variant, deploy_mono, manager):
+#     adv, real_d = run_once(name, module, conf, duration, cond, equip_conditions=equip_conditions)
+#     if mass:
+#         adv.logs, real_d = run_mass(
+#             mass,
+#             adv.logs,
+#             real_d,
+#             name,
+#             module,
+#             conf,
+#             duration,
+#             cond,
+#             equip_conditions=equip_conditions,
+#         )
+#     run_results.append((adv, real_d, variant, None))
+#     if deploy_mono:
+#         if manager.has_different_mono(180, adv.equip_key):
+#             adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
+#             if mass:
+#                 adv.logs, real_d = run_mass(
+#                     mass,
+#                     adv.logs,
+#                     real_d,
+#                     name,
+#                     module,
+#                     conf,
+#                     duration,
+#                     cond,
+#                     equip_conditions=adv.equip_conditions.to_any(),
+#                 )
+#         run_results.append((adv, real_d, variant, "mono"))
+#     return adv, real_d
 
 
 def test(
@@ -161,7 +158,7 @@ def test(
         output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
         return
     run_results = []
-    adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None)
+    adv, real_d = run_once(name, module, conf, duration, cond)
     if verbose == 255:
         output.write(str(adv.slots))
         output.write("\n")
@@ -173,49 +170,49 @@ def test(
         act_sum(adv.logs.act_seq, output)
         return
     if mass:
-        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond, equip_key=None)
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond)
     run_results.append((adv, real_d, True, None))
 
-    deploy_mono = not special and duration == 180 and verbose == -5
-    is_buffer = adv.equip_key == "buffer"
+    # deploy_mono = not special and duration == 180 and verbose == -5
+    # is_buffer = adv.equip_key == "buffer"
 
-    manager = None
-    if deploy_mono:
-        from conf.equip import EquipManager
+    # manager = None
+    # if deploy_mono:
+    #     from conf.equip import EquipManager
 
-        manager = EquipManager(name)
-        if manager.has_different_mono(180, adv.equip_key):
-            adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
-            if mass:
-                adv.logs, real_d = run_mass(
-                    mass,
-                    adv.logs,
-                    real_d,
-                    name,
-                    module,
-                    conf,
-                    duration,
-                    cond,
-                    equip_key=None,
-                )
-        run_results.append((adv, real_d, True, "mono"))
+    #     manager = EquipManager(name)
+    #     if manager.has_different_mono(180, adv.equip_key):
+    #         adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
+    #         if mass:
+    #             adv.logs, real_d = run_mass(
+    #                 mass,
+    #                 adv.logs,
+    #                 real_d,
+    #                 name,
+    #                 module,
+    #                 conf,
+    #                 duration,
+    #                 cond,
+    #                 equip_key=None,
+    #             )
+    #     run_results.append((adv, real_d, True, "mono"))
 
-    aff_name = ELE_AFFLICT[adv.slots.c.ele]
+    # aff_name = ELE_AFFLICT[adv.slots.c.ele]
 
-    if -10 <= verbose <= -5:
-        aff_name = ELE_AFFLICT[adv.slots.c.ele]
-        conf[f"sim_afflict.{aff_name}"] = 1
-        if verbose < -5:
-            for aff_name in DOT_AFFLICT[: (-verbose - 6)]:
-                conf[f"sim_afflict.{aff_name}"] = 1
-        equip_key = "buffer" if is_buffer else "affliction"
-        adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, "affliction", deploy_mono, manager)
+    # if -10 <= verbose <= -5:
+    #     aff_name = ELE_AFFLICT[adv.slots.c.ele]
+    #     conf[f"sim_afflict.{aff_name}"] = 1
+    #     if verbose < -5:
+    #         for aff_name in DOT_AFFLICT[: (-verbose - 6)]:
+    #             conf[f"sim_afflict.{aff_name}"] = 1
+    #     equip_key = "buffer" if is_buffer else "affliction"
+    #     adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, "affliction", deploy_mono, manager)
 
-    if verbose == -5:
-        for afflic in AFFLICT_LIST:
-            conf[f"afflict_res.{afflic}"] = 999
-        equip_key = "buffer" if is_buffer else "noaffliction"
-        adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, "noaffliction", deploy_mono, manager)
+    # if verbose == -5:
+    #     for afflic in AFFLICT_LIST:
+    #         conf[f"afflict_res.{afflic}"] = 999
+    #     equip_key = "buffer" if is_buffer else "noaffliction"
+    #     adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, "noaffliction", deploy_mono, manager)
 
     for a, d, c, m in run_results:
         if verbose == -2:

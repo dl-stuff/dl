@@ -1018,7 +1018,7 @@ class Adv(object):
     def afflic_condition(self):
         if "afflict_res" in self.conf and not self.berserk_mode:
             res_conf = self.conf.afflict_res
-            if all((value >= 200 for value in res_conf.values())):
+            if all((value >= 300 for value in res_conf.values())):
                 self.condition("999 all affliction res")
                 self.afflics.set_resist("immune")
             else:
@@ -1027,12 +1027,20 @@ class Adv(object):
                         vars(self.afflics)[afflic].resist = resist
 
     def sim_affliction(self):
-        if "sim_afflict" in self.conf and not self.berserk_mode:
-            for aff_type in AFFLICT_LIST:
+        if self.berserk_mode:
+            return
+        if "sim_afflict" in self.conf:
+            if self.conf.sim_afflict["onele"]:
+                aff_type = globalconf.ELE_AFFLICT[self.conf.c.ele]
                 aff = vars(self.afflics)[aff_type]
-                if self.conf.sim_afflict[aff_type]:
-                    aff.get_override = min(self.conf.sim_afflict[aff_type], 1.0)
-                    self.sim_afflict.add(aff_type)
+                aff.get_override = 1
+                self.sim_afflict.add(aff_type)
+            else:
+                for aff_type in AFFLICT_LIST:
+                    aff = vars(self.afflics)[aff_type]
+                    if self.conf.sim_afflict[aff_type]:
+                        aff.get_override = min(self.conf.sim_afflict[aff_type], 1.0)
+                        self.sim_afflict.add(aff_type)
 
     def sim_buffbot(self):
         if "sim_buffbot" in self.conf:
@@ -1089,13 +1097,13 @@ class Adv(object):
         self.slots.set_slots(self.conf.slots)
         self.element = self.slots.c.ele
 
-    def pre_conf(self, equip_key=None, mono=False):
+    def pre_conf(self, equip_conditions):
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
         if not self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
         equip = EquipManager(self.name)
-        equip_conf, self.equip_key = equip.get_conf(self.duration, equip_key, mono)
+        equip_conf, self.equip_conditions = equip.get_preferred_entry(equip_conditions)
         if equip_conf:
             self.conf.update(equip_conf)
         self.conf.update(self.conf_init)
@@ -1105,7 +1113,7 @@ class Adv(object):
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf["flask_env"]))
 
-    def __init__(self, name=None, conf=None, duration=180, cond=None, equip_key=None, mono=None):
+    def __init__(self, name=None, conf=None, duration=180, cond=None, equip_conditions=None):
         if not name:
             raise ValueError("Adv module must have a name")
         self.name = name
@@ -1129,8 +1137,8 @@ class Adv(object):
         self.buff_sources = set()
         self.buffskill_event = Event("buffskill")
 
-        self.equip_key = None
-        self.pre_conf(equip_key=equip_key, mono=mono)
+        self.equip_conditions = None
+        self.pre_conf(equip_conditions=equip_conditions)
 
         # set afflic
         self.afflics = Afflics()

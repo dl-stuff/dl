@@ -37,16 +37,19 @@ ELE_AFFLICT = {
 ROOT_DIR = os.getenv("ROOT_DIR", os.path.realpath(os.path.join(__file__, "../..")))
 
 
-def save_json(fn, data, indent=None):
+def get_conf_json_path(fn):
     froot = os.path.join(ROOT_DIR, "conf")
-    fpath = os.path.join(froot, fn)
+    return os.path.join(froot, fn)
+
+
+def save_json(fn, data, indent=None):
+    fpath = get_conf_json_path(fn)
     with open(fpath, "w", encoding="utf8") as f:
         return json.dump(data, f, ensure_ascii=False, default=str, indent=indent)
 
 
 def load_json(fn):
-    froot = os.path.join(ROOT_DIR, "conf")
-    fpath = os.path.join(froot, fn)
+    fpath = get_conf_json_path(fn)
     with open(fpath, "r", encoding="utf8") as f:
         return json.load(f, parse_float=float, parse_int=int)
 
