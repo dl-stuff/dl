@@ -1,5 +1,7 @@
 import json
 import itertools
+import os
+import shutil
 from enum import Enum
 from pprint import pprint
 
@@ -187,7 +189,11 @@ def compare_build_personal(entry_a, entry_b):
 
 
 def compare_build_teambuff(entry_a, entry_b):
-    return entry_a["team"] > entry_b["team"] or (round(entry_a["team"], 5) == round(entry_b["team"], 5) and entry_a["dps"] > entry_b["dps"])
+    return (
+        entry_a["team"] > 0
+        and entry_a["team"] > entry_b["team"]
+        or (round(entry_a["team"], 5) == round(entry_b["team"], 5) and entry_a["dps"] > entry_b["dps"])
+    )
 
 
 OPT_COMPARE = {
@@ -288,7 +294,8 @@ class EquipEntry(dict):
             if not build:
                 build = self._default.get_build(opt)
             elif dps_only(build):
-                build.update(self._default[opt])
+                build = dict(build)
+                build.update(self._default.get_build(opt))
         return build
 
     @property
@@ -311,10 +318,12 @@ class EquipEntry(dict):
             self.pref = OpimizationMode.TEAMBUFF
             return
 
-        if personal_build["team"] != teambuff_build["team"]:
+        if personal_build["team"] < teambuff_build["team"]:
             self.tdps = (personal_build["dps"] - teambuff_build["dps"]) / (teambuff_build["team"] - personal_build["team"])
         else:
             self.tdps = None
+            if same_build(personal_build, teambuff_build) and self._default is not None:
+                self[OpimizationMode.TEAMBUFF] = None
 
         if teambuff_build["team"] > BUFFER_TEAM_THRESHOLD or (self.tdps is not None and self.tdps < BUFFER_TDPS_THRESHOLD):
             self.pref = OpimizationMode.TEAMBUFF
@@ -322,10 +331,12 @@ class EquipEntry(dict):
             self.pref = OpimizationMode.PERSONAL
 
     def set_build(self, opt, build):
+        print(f"ACCEPTED {self._conditions}.{opt}")
+        pprint(build)
         if self._conditions.mono == MonoCondition.MONO:
             self[opt] = coab_only_build(build)
         else:
-            self[opt] = build
+            self[opt] = dict(build)
 
     def accept_new_build(self, new_build):
         changed = False
@@ -333,7 +344,7 @@ class EquipEntry(dict):
         for opt, existing_build in self.builds():
             if not existing_build or same_build_different_dps(new_build, existing_build) or OPT_COMPARE[opt](new_build, existing_build):
                 self.set_build(opt, new_build)
-                if existing_build:
+                if existing_build and OPT_COMPARE[OPT_KICK[opt]](existing_build, new_build):
                     kicked[OPT_KICK[opt]] = existing_build
                 changed = True
         for opt, kicked_build in kicked.items():
@@ -343,17 +354,15 @@ class EquipEntry(dict):
         if self._downgrade:
             changed = self._downgrade.accept_new_build(new_build) or changed
             for opt, reference_build in self._downgrade.builds():
-                print(f"CHECK {self._conditions}.{opt}")
-                pprint(self[opt])
-                print(f"AGAINST {self._downgrade._conditions}.{opt}")
-                pprint(reference_build)
                 if self[opt]:
                     if same_coab_build(self[opt], reference_build) or OPT_COMPARE[opt](reference_build, self[opt]):
+                        print(f"DELETED {self._conditions}.{opt}, {self[opt]}")
                         self[opt] = None
                         changed = True
         if self._default:
             for opt, reference_build in self._default.builds():
                 if self[opt] and not dps_only(self[opt]) and same_build(self[opt], reference_build):
+                    print(f"DPS ONLY {self._conditions}.{opt}, {self[opt]}")
                     self[opt] = dps_only_build(self[opt])
                     changed = True
         if changed:
@@ -378,10 +387,19 @@ class EquipManager(dict):
     EQUIP_DIR = "equip.new"
     ALL_COND_ENUMS = (AfflictionCondition, NihilismCondition, MonoCondition)
 
-    def __init__(self, advname, debug=False):
+    def __init__(self, advname, variant=None):
         self._advname = advname
-        self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
-        self.debug = debug
+        self._variant = variant
+        if variant:
+            self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.{variant}.json")
+            if not os.path.exists(self._equip_file):
+                basefile = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
+                try:
+                    shutil.copyfile(basefile, self._equip_file)
+                except FileNotFoundError:
+                    pass
+        else:
+            self._equpi_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
         for conditions in map(ConditionTuple, itertools.product(*EquipManager.ALL_COND_ENUMS)):
             self[conditions] = EquipEntry(conditions)
         try:
@@ -435,6 +453,21 @@ class EquipManager(dict):
             self.save_equip_json()
 
 
+EQUIP_MANAGERS = {}
+
+
+def get_equip_manager(advname, variant=None):
+    try:
+        return EQUIP_MANAGERS[advname][variant]
+    except KeyError:
+        manager = EquipManager(advname, variant)
+        try:
+            EQUIP_MANAGERS[advname][variant] = manager
+        except KeyError:
+            EQUIP_MANAGERS[advname] = {variant: manager}
+        return manager
+
+
 def _test_equip(advname, confs=None):
     import core.simulate
 
@@ -447,16 +480,6 @@ def _test_equip(advname, confs=None):
         real_d = run_res[0][1]
         equip_manager.accept_new_entry(adv, real_d)
     return equip_manager
-
-    # "base": BaseEntry,
-    # "buffer": BufferEntry,
-    # "affliction": AfflictionEntry,
-    # "noaffliction": NoAfflictionEntry,
-    # # 'affbuff' ?
-    # "mono_base": MonoBaseEntry,
-    # "mono_buffer": MonoBufferEntry,
-    # "mono_affliction": MonoAfflictionEntry,
-    # "mono_noaffliction": MonoNoAfflictionEntry,
 
 
 OLD_KEY_TO_COND = {

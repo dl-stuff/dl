@@ -17,7 +17,7 @@ from core.slots import Slots
 import core.acl
 from core.acl import allow_acl
 import conf as globalconf
-from conf.equip import EquipManager
+from conf.equip import get_equip_manager
 from ctypes import c_float
 
 
@@ -696,10 +696,6 @@ class Adv(object):
     _acl_dragonbattle = core.acl.build_acl("`dragon")
     _acl = None
 
-    @property
-    def variant(self):
-        return self.__class__.__name__.replace(self.name, "").strip("_")
-
     def dmg_proc(self, name, amount):
         pass
 
@@ -1102,8 +1098,7 @@ class Adv(object):
         self.conf.update(globalconf.get_adv(self.name))
         if not self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
-        equip = EquipManager(self.name)
-        equip_conf, self.equip_conditions = equip.get_preferred_entry(equip_conditions)
+        equip_conf, self.equip_conditions = self.equip_manager.get_preferred_entry(equip_conditions)
         if equip_conf:
             self.conf.update(equip_conf)
         self.conf.update(self.conf_init)
@@ -1117,6 +1112,7 @@ class Adv(object):
         if not name:
             raise ValueError("Adv module must have a name")
         self.name = name
+        self.variant = self.__class__.__name__.replace(self.name, "").strip("_") or None
 
         self.Event = Event
         self.Buff = Buff
@@ -1137,6 +1133,7 @@ class Adv(object):
         self.buff_sources = set()
         self.buffskill_event = Event("buffskill")
 
+        self.equip_manager = get_equip_manager(self.name, variant=self.variant)
         self.equip_conditions = None
         self.pre_conf(equip_conditions=equip_conditions)
 

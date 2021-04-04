@@ -1,17 +1,27 @@
 import os
-import sys
 import hashlib
 import json
 import argparse
-from copy import deepcopy
 from time import monotonic, time_ns
 import core.simulate
 from conf import ROOT_DIR, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS
-from conf.equip import EquipManager
+from conf.equip import get_equip_manager
 
 ADV_DIR = "adv"
 CHART_DIR = "www/dl-sim"
 SKIP_VARIANT = ("RNG", "mass")
+
+
+def printlog(prefix, delta, advname, variant, err=None, color=None):
+    if variant:
+        logstr = f"{delta:.4f}s - {prefix}:{advname}.{variant}"
+    else:
+        logstr = f"{delta:.4f}s - {prefix}:{advname}"
+    if err:
+        logstr += f" {err!r}"
+    if color:
+        logstr = f"\033[{color}m{logstr}\033[0m"
+    print(logstr, flush=True)
 
 
 def sha256sum(filename):
@@ -30,8 +40,8 @@ def sim_adv(name, variants, sanity_test=False):
     t_start = monotonic()
     is_mass = "mass" in variants
     msg = []
-    for v, adv_module in variants.items():
-        if v in SKIP_VARIANT:
+    for variant, adv_module in variants.items():
+        if variant in SKIP_VARIANT:
             continue
         verbose = -5
         outfile = None
@@ -41,12 +51,12 @@ def sim_adv(name, variants, sanity_test=False):
             durations = (30,)
             outpath = os.devnull
         else:
-            if v is None:
+            if variant is None:
                 durations = DURATIONS
                 outfile = f"{name}.csv"
             else:
                 durations = (180,)
-                outfile = f"{name}.{v}.csv"
+                outfile = f"{name}.{variant}.csv"
             outpath = os.path.join(ROOT_DIR, CHART_DIR, "chara", outfile)
         sha_before = sha256sum(outpath)
         output = open(outpath, "w")
@@ -59,20 +69,17 @@ def sim_adv(name, variants, sanity_test=False):
                     duration=d,
                     verbose=verbose,
                     mass=mass,
-                    special=v is not None,
+                    special=variant is not None,
                     output=output,
                 )
             output.close()
             if not sanity_test:
-                print(f"{monotonic() - t_start:.4f}s - sim:{name}", flush=True)
+                printlog("sim", monotonic() - t_start, name, variant)
                 if sha_before != sha256sum(outpath):
                     msg.append(name)
         except Exception as e:
             output.close()
-            print(
-                f"\033[91m{monotonic()-t_start:.4f}s - sim:{name} {e}\033[0m",
-                flush=True,
-            )
+            printlog("sim", monotonic() - t_start, name, variant, err=e, color=91)
     return msg
 
 
@@ -150,7 +157,7 @@ def get_sim_target_module_dict(advs=None, conds=None, mass=None):
                 if (mass and "mass" not in target_modules[name]) or (not mass and "mass" in target_modules[name]):
                     del target_modules[name]
         except Exception as e:
-            print(f"\033[93m{0:.4f}s - load:{adv} {e}\033[0m", flush=True)
+            printlog("load", monotonic() - t_start, adv, None, err=e, color=93)
     return target_modules
 
 
@@ -174,73 +181,25 @@ def get_sim_target_modules(targets):
     if "slow" in target_kind:
         return get_sim_target_module_dict(target_advs, target_filters, mass=True)
     return get_sim_target_module_dict(target_advs, target_filters)
-    # target_modules = {}
-    # if all([cmd not in targets for cmd in ('all', 'quick', 'slow')]):
-    #     for adv in targets:
-    #         try:
-    #             core.simulate.load_adv_module(adv, in_place=target_modules)
-    #         except Exception as e:
-    #             print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
-    #     return target_modules
-
-    # for adv in list_advs():
-    #     try:
-    #         core.simulate.load_adv_module(adv, in_place=target_modules)
-    #     except Exception as e:
-    #         print(f'\033[93m{0:.4f}s - load:{adv} {e}\033[0m', flush=True)
-    # if 'all' in targets:
-    #     return target_modules
-    # if 'quick' in targets:
-    #     for adv, variants in target_modules.copy().items():
-    #         if 'mass' in variants:
-    #             del target_modules[adv]
-    #     return target_modules
-    # if 'slow' in targets:
-    #     for adv, variants in target_modules.copy().items():
-    #         if not 'mass' in variants:
-    #             del target_modules[adv]
-    #     return target_modules
 
 
 def main(targets, do_combine, is_repair, sanity_test):
-    # do_combine = False
-    # is_repair = False
-    # sanity_test = False
-    # if '-c' in arguments:
-    #     do_combine = True
-    #     arguments.remove('-c')
-    # if '-san' in arguments:
-    #     sanity_test = True
-    #     arguments.remove('-san')
-    # if '-rp' in arguments:
-    #     is_repair = True
-    #     arguments.remove('-rp')
-
     target_modules = get_sim_target_modules(targets)
     if not target_modules:
         exit()
 
-    message = []
     if is_repair:
-        for advname in target_modules.keys():
-            # EquipManager(advname).repair_entries()
-            t_start = monotonic()
-            # try:
-            manager = EquipManager(advname)
-            manager.repair_entries()
-            print(
-                "{:.4f}s - repair:{}".format(monotonic() - t_start, advname),
-                flush=True,
-            )
-            # except Exception as e:
-            #     print(
-            #         f"\033[91m{monotonic()-t_start:.4f}s - repair:{advname} {e}\033[0m",
-            #         flush=True,
-            #     )
+        for advname, variants in target_modules.items():
+            for variant, advmodule in variants.items():
+                t_start = monotonic()
+                manager = get_equip_manager(advname, variant)
+                manager.repair_entries(advmodule)
+                printlog("sim", monotonic() - t_start, advname, variant)
         return
-    else:
-        for name, variants in target_modules.items():
-            message.extend(sim_adv(name, variants, sanity_test=sanity_test))
+
+    message = []
+    for name, variants in target_modules.items():
+        message.extend(sim_adv(name, variants, sanity_test=sanity_test))
 
     if sanity_test:
         return
