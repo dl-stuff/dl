@@ -33,6 +33,8 @@ ELE_AFFLICT = {
     "light": "paralysis",
     "shadow": "poison",
 }
+SKIP_VARIANT = ("RNG", "mass")
+
 
 ROOT_DIR = os.getenv("ROOT_DIR", os.path.realpath(os.path.join(__file__, "../..")))
 

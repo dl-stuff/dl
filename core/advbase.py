@@ -771,8 +771,6 @@ class Adv(object):
                 if aff is not None:
                     aff = aff[0]
                     res = int(getattr(self.afflics, aff).resist * 100)
-                    if res < 100:
-                        self.use_afflict.add(aff)
                     if not "999 all affliction res" in self.condition:
                         self.condition(f"{res} {aff} res")
         if conf.get("energizable"):
@@ -1098,9 +1096,12 @@ class Adv(object):
         self.conf.update(globalconf.get_adv(self.name))
         if not self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
-        equip_conf, self.equip_conditions = self.equip_manager.get_preferred_entry(equip_conditions)
+        equip_conf, self.real_equip_conditions = self.equip_manager.get_preferred_entry(equip_conditions)
+        equip_conditions = equip_conditions or self.real_equip_conditions
+        self.equip_conditions = equip_conditions
         if equip_conf:
             self.conf.update(equip_conf)
+            self.conf.update(self.equip_conditions.get_conf())
         self.conf.update(self.conf_init)
         if self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
@@ -1108,11 +1109,14 @@ class Adv(object):
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf["flask_env"]))
 
-    def __init__(self, name=None, conf=None, duration=180, cond=None, equip_conditions=None):
+    def __init__(self, name=None, conf=None, duration=180, equip_conditions=None, opt_mode=None):
         if not name:
             raise ValueError("Adv module must have a name")
         self.name = name
-        self.variant = self.__class__.__name__.replace(self.name, "").strip("_") or None
+        if self.__class__.__name__.startswith(self.name):
+            self.variant = self.__class__.__name__.replace(self.name, "").strip("_")
+        else:
+            self.variant = None
 
         self.Event = Event
         self.Buff = Buff
@@ -1125,7 +1129,7 @@ class Adv(object):
         self.conf_base = Conf(self.conf or {})
         self.conf_init = Conf(conf or {})
         self.ctx = Ctx().on()
-        self.condition = Condition(cond, self)
+        self.condition = Condition(None, self)
         self.duration = duration
 
         self.damage_sources = set()
@@ -1135,7 +1139,10 @@ class Adv(object):
 
         self.equip_manager = get_equip_manager(self.name, variant=self.variant)
         self.equip_conditions = None
+        self.real_equip_conditions = None
+        self.equip_manager.set_pref_override(opt_mode)
         self.pre_conf(equip_conditions=equip_conditions)
+        self.equip_manager.set_pref_override(None)
 
         # set afflic
         self.afflics = Afflics()
@@ -1147,7 +1154,6 @@ class Adv(object):
             self.berserk_mode = False
             self.afflics.set_resist(self.conf.c.ele)
         self.sim_afflict = set()
-        self.use_afflict = set()
         self.afflic_condition()
         self.sim_affliction()
 
@@ -1305,6 +1311,9 @@ class Adv(object):
         #     print(dict(self.all_modifiers['att']))
         #     exit()
         return cc * att * k
+
+    def uses_affliction(self):
+        return bool(self.afflics.get_uptimes()) or any((vars(self.afflics)[afflic].get() > 0 for afflic in AFFLICT_LIST))
 
     def build_rates(self, as_list=True):
         rates = {}
@@ -1662,7 +1671,7 @@ class Adv(object):
                         self.conf[dst_sn] = src_snconf
                         self.conf[dst_sn].owner = owner
                         self.conf[dst_sn].sp = shared_sp
-                    owner_module, _ = load_adv_module(owner)
+                    owner_module = load_adv_module(owner)[0]
                     preruns[dst_key] = owner_module.prerun_skillshare
                     for sfn in ("before", "proc"):
                         self.rebind_function(owner_module, f"{src_key}_{sfn}", f"{dst_key}_{sfn}")

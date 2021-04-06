@@ -38,11 +38,22 @@
                     <label for="input-variant">Variant</label><select id="input-variant" class="form-control"></select>
                 </div>
                 <div class="col-sm">
-                    <label for="input-equip">Setup</label><select id="input-equip" class="form-control">
-                        <option id="equip-base" value="base">Personal DPS</option>
-                        <option id="equip-buffer" value="buffer">Team Buff</option>
-                        <option id="equip-affliction" value="affliction">Affliction</option>
-                        <option id="equip-noaffliction" value="noaffliction">No Affliction</option>
+                    <label for="input-opt">Optimize</label><select id="input-opt" class="form-control">
+                        <option id="opt-PERSONAL" value="PERSONAL">Personal DPS</option>
+                        <option id="opt-TEAMBUFF" value="TEAMBUFF">Team Buff</option>
+                    </select>
+                </div>
+                <div class="col-sm">
+                    <label for="input-aff">Affliction</label><select id="input-aff" class="form-control">
+                        <option id="aff-SELF" value="SELF">Self</option>
+                        <option id="aff-ALWAYS" value="ALWAYS">100% Affliction</option>
+                        <option id="aff-IMMUNE" value="IMMUNE">0% Affliction</option>
+                    </select>
+                </div>
+                <div class="col-sm">
+                    <label for="input-sit">Situation</label><select id="input-sit" class="form-control">
+                        <option id="sit-NORMAL" value="NORMAL">Normal</option>
+                        <option id="sit-NIHILISM" value="NIHILISM">Curse of Nihility</option>
                     </select>
                 </div>
                 <div class="col-sm">
@@ -50,9 +61,6 @@
                 </div>
                 <div class="col-sm">
                     <label for="input-t">Simulation Time (s)</label><input id="input-t" class="form-control" type="text" />
-                </div>
-                <div class="col-sm">
-                    <label for="input-hp">HP</label><input id="input-hp" class="form-control" type="text" />
                 </div>
             </div>
             <div class="collapse" id="basic-inputs">
@@ -186,17 +194,17 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-sm col-4">
+                    <div class="col-sm col-3">
                         <label for="input-specialmode">Special Mode</label>
                         <select id="input-specialmode" class="form-control">
                             <option value="">None</option>
-                            <option value="dragonbattle">Dragon Battle</option>
-                            <option value="berserk10">Berserk Solo (FS 10x)</option>
-                            <option value="berserk5">Berserk Coop (FS 5x)</option>
-                            <option value="nihilism">Curse of Nihility</option>
+                            <option id="input-specialmode-dragonbattle" value="dragonbattle">Dragon Battle</option>
+                            <option id="input-specialmode-berserk10" value="berserk10">Berserk Solo (FS 10x)</option>
+                            <option id="input-specialmode-berserk5" value="berserk5">Berserk Coop (FS 5x)</option>
+                            <option id="input-specialmode-nihilism" value="nihilism">Curse of Nihility</option>
                         </select>
                     </div>
-                    <div class="col-sm col-4">
+                    <div class="col-sm col-3">
                         <label for="input-classbane">Class Bane</label>
                         <select id="input-classbane" class="form-control">
                             <option value="">None</option>
@@ -211,7 +219,10 @@
                             <option value="dragon">Dragon</option> -->
                         </select>
                     </div>
-                    <div class="col-sm col-4">
+                    <div class="col-sm col-3">
+                        <label for="input-hp">HP</label><input id="input-hp" class="form-control" type="text" />
+                    </div>
+                    <div class="col-sm col-3">
                         <label for="input-dumb">Dumb</label>
                         <input id="input-dumb" class="form-control" type="text" />
                     </div>

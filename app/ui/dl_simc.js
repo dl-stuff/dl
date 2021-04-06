@@ -1,22 +1,11 @@
-// const APP_URL = 'http://127.0.0.1:5000/';
-const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
 const DEFAULT_SHARE = 'Ranzal';
 const DEFAULT_SHARE_ALT = 'Curran';
 const SIMULATED_BUFFS = ['str_buff', 'def_down', 'critr', 'critd', 'doublebuff_interval', 'count', 'dprep', 'echo'];
-const ELE_AFFLICT = {
-    'flame': 'burn',
-    'water': 'frostbite',
-    'wind': 'poison',
-    'light': 'paralysis',
-    'shadow': 'poison'
-}
-const SECONDARY_COAB = {
-    'Gala_Laxi': 'Dagger2',
-    'Valentines_Melody': 'Axe2'
-}
 const AFFLICT_COLORS = {
     poison: 'darkslateblue',
     paralysis: 'goldenrod',
@@ -34,53 +23,6 @@ const AFFLICT_COLORS = {
 };
 
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
-const speshul = {
-    Lily: 'https://cdn.discordapp.com/emojis/664261164208750592.png'
-}
-
-function slotsIconFmt(data) {
-    const adv = data[2];
-    const img_urls = [];
-    if (speshul.hasOwnProperty(data[1]) && Math.random() < 0.1) {
-        img_urls.push('<img src="' + speshul[data[1]] + '" class="slot-icon character"/>');
-    } else {
-        img_urls.push('<img src="/dl-sim/pic/character/' + adv + '.png" class="slot-icon character"/>');
-    }
-    img_urls.push('<img src="/dl-sim/pic/dragon/' + data[7] + '.png" class="slot-icon dragon"/>');
-    img_urls.push('<img src="/dl-sim/pic/weapon/' + data[9] + '.png" class="slot-icon weapon"/>');
-    for (const w of Array(7).keys()) {
-        if (data[11 + w * 2]) {
-            img_urls.push('<img src="/dl-sim/pic/amulet/' + data[11 + w * 2] + '.png" class="slot-icon"/>');
-        }
-    }
-    img_urls.push(' | ');
-    for (const c of Array(3).keys()) {
-        const c_name = data[24 + c * 2];
-        const c_icon = data[25 + c * 2];
-        if (c_icon) {
-            img_urls.push('<img src="/dl-sim/pic/character/' + c_icon + '.png" class="slot-icon coab unique"/>');
-        } else if (c_name) {
-            img_urls.push('<img src="/dl-sim/pic/coabs/' + c_name + '.png" class="slot-icon coab generic"/>');
-        }
-    }
-    img_urls.push(' | ');
-    if (data[31]) {
-        img_urls.push('<img src="/dl-sim/pic/character/' + data[31] + '.png" class="slot-icon skillshare"/>');
-    } else {
-        img_urls.push('<img src="/dl-sim/pic/icons/weaponskill.png" class="slot-icon skillshare"/>');
-    }
-    img_urls.push('<img src="/dl-sim/pic/character/' + data[33] + '.png" class="slot-icon skillshare"/>');
-    return img_urls;
-}
-function slotsTextFmt(data) {
-    const amulet = [];
-    for (const w of Array(7).keys()) {
-        if (data[10 + w * 2]) {
-            amulet.push(data[10 + w * 2]);
-        }
-    }
-    return `[${data[6]}][${data[8]}][${amulet.join('+')}][${data[24]}|${data[26]}|${data[28]}][S3:${data[30]}|S4:${data[32]}]`
-}
 function populateAdvSelect(data) {
     let options = [];
     for (let d of Object.keys(data)) {
@@ -139,90 +81,93 @@ function populateSelect(id, data, allowNone) {
     $(id).empty();
     $(id).append(options);
 }
-function statsIconFmt(stat_str) {
-    if (!stat_str) {
-        return [[], 0];
-    }
-    const stats = [];
-    let team = 0;
-    for (const part of stat_str.split(';')) {
-        const subparts = part.split(':');
-        const name = subparts[0];
-        if (name === 'team') {
-            team = parseFloat(subparts[1]);
-        } else {
-            const value = subparts[1];
-            stats.push('<img src="/dl-sim/pic/icons/' + name + '.png" class="stat-icon"/>');
-            stats.push(value);
-        }
-    }
-    return [stats, parseFloat(team)];
+function getIcon(icon, category, css) {
+    return $('<img/>').attr({ src: `/dl-sim/pic/${category}/${icon}.png`, class: css !== undefined ? `slot-icon ${css}` : 'slot-icon' });
 }
-function createDpsBar(res_div, arr) {
-    let copy_txt = '';
-    const total = arr[0];
-    let slots = ' ' + slotsTextFmt(arr);
-    const cond = arr[34] || '';
-    const comment = arr[35] || '';
-    let cond_comment = [];
-    let cond_comment_str = '';
-    let cond_cpy_str = '';
-    if (cond != undefined && !cond.startsWith('!')) {
-        if (cond != '') {
-            cond_comment.push(cond);
-        }
-        if (comment != '') {
-            cond_comment.push(comment);
-        }
-        if (cond_comment.length > 0) {
-            joined = cond_comment.join(' | ');
-            cond_comment_str = '<br/>' + joined;
-            cond_cpy_str = '\n' + joined;
-        }
-    } else {
-        slots = '';
+function slotsTextFmt(result) {
+    return `[${result.drg.name}][${result.wep.name}][${result.wps.map((wp) => wp.name).join('+')}][${result.coabs.map((coab) => coab.name).join('|')}][${result.share.map((ss, i) => `S${i + 3}:${ss.name}`).join('|')}]`;
+}
+
+function makeVisualResultItem(result) {
+    console.log(result);
+    const visualResult = $('<div></div>').attr({ class: 'test-result-item' });
+    const iconRow = $('<h4 class="test-result-slot-grid"></h4>');
+    const charaDiv = $('<div></div>');
+    charaDiv.append(getIcon(result.adv.icon, "character", "character"));
+    iconRow.append(charaDiv);
+    iconRow.append(`<div>${result.adv.name}</div>`);
+    const iconDiv = $('<div></div>');
+    iconDiv.append(getIcon(result.drg.icon, "dragon", "dragon"));
+    iconDiv.append(getIcon(result.wep.icon, "weapon", "weapon"));
+    for (const wp of result.wps) {
+        iconDiv.append(getIcon(wp.icon, "amulet"));
     }
-    let stat_str = arr[36] || '';
-    const stats = statsIconFmt(stat_str);
-    const stats_display = stats[0].join('');
-    const team = stats[1];
-    if (stat_str) { stat_str = ' (' + stat_str.replace(/;/g, ', ') + ')'; }
-
-    let total_dps = parseInt(arr[0]);
-
-    res_div.data('team', team);
-    const dpsnum = $('<span class="dps-num">' + total_dps + '</span>').data('total', total_dps);
-    const dpshead = $('<h6>DPS:</h6>');
-    dpshead.append(dpsnum);
-    dpshead.append(slots + cond_comment_str + stats_display);
-    res_div.append(dpshead);
-    copy_txt += slots + '```DPS: ' + total + stat_str + cond_cpy_str + '\n';
-
-    let res_bar = $('<div></div>').attr({ class: 'result-bar' });
-    let damage_txt_arr = [];
-    for (let i = 37; i < arr.length; i++) {
-        const dmg = arr[i].split(':')
-        if (dmg.length == 2) {
-            const dmg_val = parseInt(dmg[1]);
-            if (dmg_val > 0) {
-                // const portion = 100 * (dmg_val / total_dps);
-                let damage_txt = dmg[0] + ': ' + dmg[1];
-                damage_txt_arr.push(damage_txt);
-                const damage_slice = $('<a>' + damage_txt + '</a>')
-                    .data('dmg', dmg_val)
-                    .addClass('result-slice')
-                    .addClass('c-' + dmg[0].split('_')[0])
-                    .css('width', 0)
-                    .attr({
-                        'data-toggle': 'tooltip',
-                        'data-placement': 'top',
-                        'title': damage_txt
-                    }).tooltip();
-                res_bar.append(damage_slice);
-            }
+    if (result.coabs.length > 0) {
+        iconDiv.append(' | ');
+    }
+    for (const coab of result.coabs) {
+        if (coab.icon) {
+            iconDiv.append(getIcon(coab.icon, "character", "coab unique"));
+        } else {
+            iconDiv.append(getIcon(coab.name, "coabs", "coab generic"));
         }
     }
-    const team_slice = $('<a>team</a>')
+    iconDiv.append(' | ');
+    for (const ss of result.share) {
+        if (ss.icon) {
+            iconDiv.append(getIcon(ss.icon, "character", "skillshare"));
+        } else {
+            iconDiv.append(getIcon("weaponskill", "icons", "skillshare"));
+        }
+    }
+    iconRow.append(iconDiv);
+    visualResult.append(iconRow);
+
+    const metaRow = $('<h6>DPS:</h6>');
+    const totalDPS = $(`<span class="dps-num">${result.dps}</span>`).data('total', result.dps);
+    metaRow.append(totalDPS);
+    metaRow.append(` - ${Math.round(result.real * 100) / 100}s`);
+    if (result.stats) {
+        metaRow.append(' |');
+    }
+    for (const stat in result.stats) {
+        const value = result.stats[stat];
+        metaRow.append(`<img src="/dl-sim/pic/icons/${stat}.png" class="stat-icon"/>`);
+        metaRow.append(value);
+    }
+    if (result.cond) {
+        metaRow.append(' | ');
+        metaRow.append(result.cond);
+    }
+    if (result.comment) {
+        if (result.cond) {
+            metaRow.append(' | ');
+        }
+        metaRow.append(result.comment);
+    }
+    metaRow.append('<br/>');
+    metaRow.append(slotsTextFmt(result));
+    visualResult.append(metaRow);
+
+    const DPSRow = $('<div></div>').attr({ class: 'result-bar' });
+
+    for (const sliceInfo of result.slices) {
+        const slice = sliceInfo[0];
+        const value = sliceInfo[1];
+        const dmgTxt = `${slice}: ${Math.floor(value)}`;
+        const dmgSlice = $('<a>' + dmgTxt + '</a>')
+            .data('dmg', value)
+            .addClass('result-slice')
+            .addClass('c-' + slice.split('_')[0])
+            .css('width', 0)
+            .attr({
+                'data-toggle': 'tooltip',
+                'data-placement': 'top',
+                'title': dmgTxt
+            }).tooltip();
+        DPSRow.append(dmgSlice);
+    }
+    const teamSlice = $('<a>team</a>')
         .data('dmg', 0)
         .addClass('team-result-slice')
         .addClass('c-team')
@@ -232,12 +177,41 @@ function createDpsBar(res_div, arr) {
             'data-placement': 'top',
             'title': 'team'
         }).tooltip();
-    res_bar.append(team_slice);
+    DPSRow.append(teamSlice);
+    visualResult.append(DPSRow);
+    visualResult.data("team", result.team);
 
-    copy_txt += damage_txt_arr.join('|') + '```';
-    // copy_txt += damage_txtBar.join('') + '```';
-    res_div.append(res_bar);
-    return copy_txt;
+    return visualResult
+}
+// **Tiki 180s**  [Gala Reborn Poseidon][Futsu no Mitama][Memory of a Friend+Sisters' Day Out+Twinfold Bonds+A Passion for Produce+His Clever Brother][Blade|Xander|Yurius][S3:Weapon|S4:Summer Julietta]```DPS: 86185 (frostbite:100.0%, bog:2.2%)
+// 70 bog res & 0 frostbite res & hit15 | dragon damage does not work on divine_dragon
+// x: 64|x_ddrive: 32797|fs: 27|s1: 171|s1_ddrive: 27974|s1_ddrive_frostbite: 3337|s2_ddrive: 20313|s4: 1303|dx: 193```
+function makeTextResultItem(result) {
+    let copyText = `**${result.adv.name} ${result.real}s**\n${slotsTextFmt(result)}`;
+    copyText += '```';
+    copyText += `DPS: ${result.dps} `;
+    if (result.team > 0) {
+        copyText += `team:${result.team} `;
+    }
+    if (result.stats) {
+        copyText += `(${Object.keys(result.stats).map((stat) => `${stat}:${result.stats[stat]}`).join(', ')})`;
+    }
+    if (result.cond) {
+        copyText += '\n';
+        copyText += result.cond;
+    }
+    if (result.comment) {
+        if (result.cond) {
+            copyText += ' | ';
+        } else {
+            copyText += '\n';
+        }
+        copyText += result.comment;
+    }
+    copyText += '\n';
+    copyText += result.slices.map((sliceInfo) => `${sliceInfo[0]}: ${sliceInfo[1]}`).join('|')
+    copyText += '```';
+    return $('<textarea>' + copyText + '</textarea>').attr({ class: 'copy-txt', rows: (copyText.match(/\n/g) || [0]).length + 1 });
 }
 function trimAcl(acl_str) {
     if (typeof acl_str === 'string' || acl_str instanceof String) {
@@ -290,14 +264,6 @@ function serConf(no_conf) {
     if (afflict_res != null) {
         requestJson['afflict_res'] = afflict_res;
     }
-    // if (!isNaN(parseInt($('#input-teamdps').val()))) {
-    //     const dps = $('#input-teamdps').val();
-    //     requestJson['teamdps'] = dps;
-    //     localStorage.setItem('teamdps', dps);
-    // }
-    // if (!isNaN(parseInt($('#input-missile').val()))) {
-    //     requestJson['missile'] = $('#input-missile').val();
-    // }
     if ($('#input-specialmode').val()) {
         requestJson['specialmode'] = $('#input-specialmode').val();
     }
@@ -323,10 +289,6 @@ function serConf(no_conf) {
     if (sim_buff != null) {
         requestJson['sim_buff'] = sim_buff;
     }
-    // const condition = readConditionList();
-    // if (condition !== null) {
-    //     requestJson['condition'] = condition;
-    // }
 
     if (!no_conf) {
         const urlVars = { conf: btoa(JSON.stringify(requestJson)) };
@@ -471,7 +433,36 @@ function selectSkillShare(basename, pref_share) {
             break;
     }
 }
-function loadAdvSlots(no_conf, set_equip, set_mono) {
+function readEquipCondition() {
+    return {
+        'aff': $('#input-aff').val(),
+        'sit': $('#input-sit').val(),
+        'mono': $('#input-mono').prop('checked') ? "MONO" : "ANY",
+        'opt': $('#input-opt').val()
+    }
+}
+function setSlotUI(ui) {
+    if (ui.afflict_res) {
+        for (const key in ui.afflict_res) {
+            const res = ui.afflict_res[key];
+            if (res > 100) {
+                $('#input-res-' + key).val(res);
+            } else {
+                $('#input-res-' + key).val('');
+                $('#input-res-' + key).attr('placeholder', res);
+            }
+        }
+    }
+    if (ui.sim_afflict) {
+        for (const aff in ui.sim_afflict) {
+            $('#input-sim-' + aff).val(ui.sim_afflict[aff]);
+        }
+    }
+    if (ui.specialmode) {
+        $('#input-specialmode-' + ui.specialmode).prop('selected', true);
+    }
+}
+function loadAdvSlots(no_conf) {
     if ($('#input-adv').val() == '') {
         return false;
     }
@@ -486,12 +477,7 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
     const requestJson = {
         'adv': adv_name
     };
-    if (set_equip) {
-        requestJson['equip'] = $('#input-equip').val();
-    }
-    if (set_mono) {
-        requestJson['mono'] = $('#input-mono').prop('checked');
-    }
+    requestJson['equip'] = readEquipCondition();
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {
         requestJson['t'] = t;
@@ -549,40 +535,17 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
                         $('#input-acl').val(acl);
                     }
                     $('#input-toggle-affliction').prop('checked', false);
-                    if (requestJson['equip'] == 'noaffliction') {
-                        for (const key in slots.afflict_res) {
-                            $('#input-res-' + key).val(slots.afflict_res[key]);
-                        }
-                    } else {
-                        for (const key in slots.afflict_res) {
-                            $('#input-res-' + key).val('');
-                            $('#input-res-' + key).attr('placeholder', slots.afflict_res[key]);
-                        }
-                    }
                     $('.input-wp > div > select').prop('disabled', false);
                     $('#input-edit-acl').prop('disabled', false);
                     $('input.coab-check').prop('disabled', false);
 
-                    if (requestJson['equip'] === 'affliction') {
-                        $('#input-sim-' + ELE_AFFLICT[slots.adv.ele]).val(100);
-                    } else if (!urlVars.conf) {
+                    if (!urlVars.conf) {
                         const simAff = $('#affliction-sim > div > input[type="text"]');
                         simAff.each(function (idx, res) { $(res).val(''); });
                     }
-
-                    if (!set_equip && slots.adv.equip) {
-                        $('#input-equip').data('pref', slots.adv.equip);
+                    if (slots.ui) {
+                        setSlotUI(slots.ui);
                     }
-                    if (slots.adv.tdps && slots.adv.equip != $('#input-equip').data('pref')) {
-                        $('#input-teamdps').data('original', $('#input-teamdps').val());
-                        $('#input-teamdps').val(slots.adv.tdps);
-                    } else if ($('#input-teamdps').data('original')) {
-                        $('#input-teamdps').val($('#input-teamdps').data('original'));
-                        $('#input-teamdps').data('original', '');
-                    }
-
-                    $('#equip-' + (slots.adv.equip || 'base')).prop('selected', true);
-
                     runAdvTest(no_conf);
                 }
             }
@@ -593,33 +556,6 @@ function loadAdvSlots(no_conf, set_equip, set_mono) {
         }
     });
 }
-// function buildConditionList(conditions) {
-//     const conditionDiv = $('#input-conditions');
-//     conditionDiv.empty();
-//     for (cond in conditions) {
-//         if (cond.startsWith('hp')) {
-//             continue;
-//         }
-//         const newCondCheck = $('<div></div>').attr({ class: 'custom-control custom-checkbox custom-control-inline' });
-//         const newCondCheckInput = $('<input/>').attr({ id: 'input-cond-' + cond, type: 'checkbox', class: 'custom-control-input' }).prop('checked', conditions[cond]).data('cond', cond);
-//         const newCondCheckLabel = $('<label>' + cond + '</label>').attr({ for: 'input-cond-' + cond, class: 'custom-control-label' });
-//         newCondCheck.append(newCondCheckInput);
-//         newCondCheck.append(newCondCheckLabel);
-//         conditionDiv.append(newCondCheck);
-//     }
-// }
-// function readConditionList() {
-//     let conditions = {};
-//     const condCheckList = $('#input-conditions > div > input[type="checkbox"]');
-//     if (condCheckList.length === 0) {
-//         return null;
-//     } else {
-//         condCheckList.each(function (idx, condCheck) {
-//             conditions[$(condCheck).data('cond')] = $(condCheck).prop('checked');
-//         });
-//         return conditions;
-//     }
-// }
 function readResistDict() {
     let resists = {};
     const resistList = $('#affliction-resist input[type="text"]');
@@ -674,9 +610,6 @@ function coabSelection(add, debounce) {
 }
 
 function buildCoab(coab, basename, weapontype) {
-    if (SECONDARY_COAB[basename]) {
-        weapontype = SECONDARY_COAB[basename];
-    }
     $('#input-coabs > div').empty();
     $('#input-coabs').data('max', 3);
     let found_basename = null;
@@ -925,17 +858,8 @@ function runAdvTest(no_conf) {
                 if (res.hasOwnProperty('error')) {
                     $('#test-error').html('Error: ' + res.error);
                 } else {
-                    // buildConditionList(res.condition);
-                    const result = res.test_output.split('\n');
-                    const cond_true = result[1].split(',');
-                    const name = cond_true[1];
-                    const icon_urls = slotsIconFmt(cond_true);
-                    let copy_txt = '**' + name + ' ' + requestJson['t'] + 's** ';
-                    let new_result_item = $('<div></div>').attr({ class: 'test-result-item' });
-                    new_result_item.append($(
-                        '<h4 class="test-result-slot-grid"><div>' +
-                        icon_urls[0] + '</div><div>' + name + '</div><div>' + icon_urls.slice(1).join('') + '</div></h4>'));
-                    copy_txt += createDpsBar(new_result_item, cond_true, undefined);
+                    $('#test-results').prepend(makeVisualResultItem(res.test_output));
+                    $('#copy-results').prepend(makeTextResultItem(res.test_output));
                     const logs = ['dragon', 'misc', 'summation', 'action', 'timeline'].map(key => {
                         if (res.logs[key] !== undefined && res.logs[key] !== "") {
                             return res.logs[key];
@@ -944,11 +868,9 @@ function runAdvTest(no_conf) {
                         }
                     }).filter(l => (l));
                     $('#damage-log').html(logs.join('<hr class="log-divider">'));
-                    $('#test-results').prepend(new_result_item);
-                    $('#copy-results').prepend($('<textarea>' + copy_txt + '</textarea>').attr({ class: 'copy-txt', rows: (copy_txt.match(/\n/g) || [0]).length + 1 }));
                     graphData = res.chart;
                     graphData.duration = requestJson['t'];
-                    update_teamdps();
+                    updateTeamdps();
                 }
             }
             toggleInputDisabled(false);
@@ -1027,7 +949,6 @@ function clearResults() {
     $('#input-specialmode').val('');
     $('#input-classbane').val('');
     $('#input-dumb').val('');
-    $('#input-equip').val($('#input-equip').data('pref') || 'base');
     // $('#input-mono').prop('checked', false);
     $('#input-toggle-affliction').prop('checked', false);
     clearAllGraphs();
@@ -1036,7 +957,7 @@ function resetTest() {
     updateUrl();
     clearResults();
     populateVariantSelect($('#adv-' + $('#input-adv').val()).data('variants'));
-    loadAdvSlots(true, false, true);
+    loadAdvSlots(true);
 }
 function weaponSelectChange() {
     const weapon = $('#input-wep').val();
@@ -1082,13 +1003,13 @@ function loadGithubCommits() {
         }
     });
 }
-function update_teamdps() {
+function updateTeamdps() {
     const tdps = $('#input-teamdps').val();
     if (!$('#input-teamdps').data('original')) {
         localStorage.setItem('simc-teamdps', tdps);
     }
     $('.test-result-item').each((_, ri) => {
-        const team_p = $(ri).data('team') / 100;
+        const team_p = $(ri).data('team');
         const team_v = tdps * team_p;
         const dps_num = $(ri).find('.dps-num')[0];
         const new_total = $(dps_num).data('total') + team_v;
@@ -1108,9 +1029,9 @@ function update_teamdps() {
         $(trs).attr('data-original-title', tdps_txt);
     });
 }
-function changeEquip() {
+function reloadSlots() {
     updateUrl();
-    loadAdvSlots(true, true, true);
+    loadAdvSlots(true);
 }
 function toggleAffRes() {
     const newVal = $(this).prop('checked') ? 999 : '';
@@ -1118,8 +1039,9 @@ function toggleAffRes() {
 }
 window.onload = function () {
     $('#input-adv').change(debounce(resetTest, 100));
-    $('#input-equip').change(debounce(changeEquip, 100));
-    $('#input-mono').change(debounce(changeEquip, 100));
+    for (const ekey of ["opt", "aff", "sit", "mono"]) {
+        $(`#input-${ekey}`).change(debounce(reloadSlots, 100));
+    }
     $('#run-test').click(debounce(runAdvTest, 100));
     if (!localStorage.getItem('displayMode')) {
         localStorage.setItem('displayMode', 'Markdown');
@@ -1130,7 +1052,7 @@ window.onload = function () {
     $('#reset-test').click(resetTest);
     $('#input-edit-acl').change(editAcl);
     $('#input-toggle-affliction').change(toggleAffRes);
-    $('#input-teamdps').change(update_teamdps);
+    $('#input-teamdps').change(updateTeamdps);
     // $('#input-wep').change(weaponSelectChange);
     clearResults();
     loadAdvWPList();

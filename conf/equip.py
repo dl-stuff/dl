@@ -7,6 +7,7 @@ from pprint import pprint
 
 from core.afflic import AFFLICT_LIST
 from conf import (
+    SKIP_VARIANT,
     get_conf_json_path,
     ELE_AFFLICT,
     load_json,
@@ -49,6 +50,7 @@ DEFAULT_MONO_COABS = {
 }
 BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
 BUILD_META_KEYS = ("dps", "team")
+DEBUG = True
 
 
 class ValueEnum(Enum):
@@ -63,8 +65,7 @@ class AfflictionCondition(ValueEnum):
 
     @classmethod
     def get_condition(cls, adv):
-        affres = adv.afflics.get_resist()
-        if all((value >= 300 for value in affres.values())):
+        if not adv.uses_affliction() or all((value >= 300 for value in adv.afflics.get_resist().values())):
             return cls.IMMUNE
         if not adv.sim_afflict:
             return cls.SELF
@@ -81,7 +82,7 @@ class AfflictionCondition(ValueEnum):
         return {}
 
 
-class NihilismCondition(ValueEnum):
+class SituationCondition(ValueEnum):
     NORMAL = "NORMAL"
     NIHILISM = "NIHILISM"
 
@@ -92,13 +93,13 @@ class NihilismCondition(ValueEnum):
         return cls.NORMAL
 
     def get_conf(self):
-        if self == NihilismCondition.NIHILISM:
+        if self == SituationCondition.NIHILISM:
             return {"nihilism": True}
         return {}
 
 
-def all_monoele_coabs(adv):
-    return all((coab in mono_elecoabs[adv.slots.c.ele] for coab in adv.slots.c.coab_list))
+def all_monoele_coabs(ele, coab_list):
+    return all((coab in mono_elecoabs[ele] for coab in coab_list))
 
 
 class MonoCondition(ValueEnum):
@@ -107,7 +108,7 @@ class MonoCondition(ValueEnum):
 
     @classmethod
     def get_condition(cls, adv):
-        if all_monoele_coabs(adv):
+        if all_monoele_coabs(adv.slots.c.ele, adv.slots.c.coab_list):
             return cls.MONO
         return cls.ANY
 
@@ -121,12 +122,17 @@ class ConditionTuple(tuple):
     def __str__(self):
         return ConditionTuple.SEPARATOR.join(map(str, self))
 
+    @staticmethod
+    def from_str(key):
+        aff, sit, mono = key.split(ConditionTuple.SEPARATOR)
+        return ConditionTuple((AfflictionCondition(aff), SituationCondition(sit), MonoCondition(mono)))
+
     @property
     def aff(self):
         return self[0]
 
     @property
-    def nihil(self):
+    def sit(self):
         return self[1]
 
     @property
@@ -134,22 +140,29 @@ class ConditionTuple(tuple):
         return self[2]
 
     def reduced(self):
-        aff, nihil, mono = self
+        aff, sit, mono = self
         return (
-            ConditionTuple((AfflictionCondition.SELF, nihil, mono)),
-            ConditionTuple((aff, NihilismCondition.NORMAL, mono)),
-            ConditionTuple((AfflictionCondition.SELF, NihilismCondition.NORMAL, mono)),
+            ConditionTuple((AfflictionCondition.SELF, sit, mono)),
+            ConditionTuple((aff, SituationCondition.NORMAL, mono)),
+            ConditionTuple((AfflictionCondition.SELF, SituationCondition.NORMAL, mono)),
         )
 
+    def aff_to_self(self):
+        _, sit, mono = self
+        return ConditionTuple((AfflictionCondition.SELF, sit, mono))
+
     def mono_to_any(self):
-        aff, nihil, _ = self
-        return ConditionTuple((aff, nihil, MonoCondition.ANY))
+        aff, sit, _ = self
+        return ConditionTuple((aff, sit, MonoCondition.ANY))
 
     def get_conf(self):
         conf = {}
         for value in self:
             conf.update(value.get_conf())
         return conf
+
+
+DEFAULT_CONDITONS = ConditionTuple((AfflictionCondition.SELF, SituationCondition.NORMAL, MonoCondition.ANY))
 
 
 def dps_weight(entry):
@@ -161,7 +174,24 @@ class OpimizationMode(ValueEnum):
     TEAMBUFF = "TEAMBUFF"
 
 
-def equivalent(a, b):
+def build_equip_condition(equip):
+    if equip is None:
+        return None
+    aff = equip["aff"] or "SELF"
+    sit = equip["sit"] or "NORMAL"
+    mono = equip["mono"] or "ANY"
+    try:
+        opt = OpimizationMode(equip["opt"])
+    except ValueError:
+        opt = None
+    return ConditionTuple((AfflictionCondition(aff), SituationCondition(sit), MonoCondition(mono))), opt
+
+
+def equivalent(entry_a, entry_b, key):
+    a = entry_a.get(key)
+    b = entry_b.get(key)
+    if key == "acl":
+        return a == b
     try:
         return set(a) == set(b)
     except (ValueError, TypeError):
@@ -169,15 +199,7 @@ def equivalent(a, b):
 
 
 def same_build(entry_a, entry_b):
-    return all((equivalent(entry_a.get(k), entry_b.get(k)) for k in BUILD_CONF_KEYS))
-
-
-def same_coab_build(entry_a, entry_b):
-    return set(entry_a["coabs"]) == set(entry_b["coabs"])
-
-
-def dps_only(entry_a):
-    return set(entry_a.keys()) == {"dps", "team"}
+    return all((equivalent(entry_a, entry_b, key) for key in BUILD_CONF_KEYS))
 
 
 def same_build_different_dps(entry_a, entry_b):
@@ -192,7 +214,7 @@ def compare_build_teambuff(entry_a, entry_b):
     return (
         entry_a["team"] > 0
         and entry_a["team"] > entry_b["team"]
-        or (round(entry_a["team"], 5) == round(entry_b["team"], 5) and entry_a["dps"] > entry_b["dps"])
+        or (round(entry_a["team"], 5) == round(entry_b["team"], 5) and entry_a["dps"] >= entry_b["dps"])
     )
 
 
@@ -212,8 +234,8 @@ def build_from_sim(adv, real_d):
     build = {"dps": ndps, "team": nteam}
     build["slots.a"] = adv.slots.a.qual_lst
     build["slots.d"] = adv.slots.d.qual
-    if adv.slots.w.qual != adv.slots.DEFAULT_WEAPON:
-        build["slots.w"] = adv.slots.w.qual
+    if adv.slots.w.series != adv.slots.DEFAULT_WEAPON:
+        build["slots.w"] = adv.slots.w.series
     acl_list = adv.conf.acl
     if not isinstance(acl_list, list):
         acl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
@@ -231,41 +253,67 @@ def dps_only_build(build):
     return {"dps": build["dps"], "team": build["team"]}
 
 
+def difference_of_builds(entry_a, entry_b):
+    build_diff = {}
+    for key in BUILD_CONF_KEYS:
+        b_val = entry_b.get(key)
+        if b_val and not equivalent(entry_a, entry_b, key):
+            build_diff[key] = b_val
+    return build_diff
+
+
 def validate_sim(adv):
     adv.duration = int(adv.duration)
+    if not adv.duration == 180:
+        return False, "Duration not 180s"
+    if not all([not k in adv.conf for k in ABNORMAL_COND]):
+        return False, "Has an abnormal condition"
     wp_qual_lst = adv.slots.a.qual_lst
-    return (
-        adv.duration == 180
-        and all([not k in adv.conf for k in ABNORMAL_COND])
-        and all([not wp in BANNED_PRINTS for wp in wp_qual_lst])
-        and all([not ss in BANNED_SHARES for ss in adv.skillshare_list])
-        and len(adv.slots.c.coab_list) == 3
-        and ((len(wp_qual_lst) > 5 and adv.slots.c.ele in HAS_7SLOT and adv.slots.w.qual == "Agito") or len(wp_qual_lst) == 5)
-    )
+    if not all([not wp in BANNED_PRINTS for wp in wp_qual_lst]):
+        return False, "Using a banned print"
+    if not len(adv.slots.c.coab_list) == 3:
+        return False, "Less than 3 coabilities"
+    if adv.slots.c.ele in HAS_7SLOT and adv.slots.w.series == "agito":
+        if not len(wp_qual_lst) == 7:
+            return False, "Less than 7 wyrmprints"
+    elif not len(wp_qual_lst) == 5:
+        return False, "Less than 5 wyrmprints"
+    return True, None
 
 
 class EquipEntry(dict):
     def __init__(self, conditions):
-        converted = {
-            OpimizationMode.PERSONAL: None,
-            OpimizationMode.TEAMBUFF: None,
-            "META": {"tdps": None, "pref": OpimizationMode.PERSONAL},
-        }
+        super().__init__({})
+        self.reset()
         self._conditions = conditions
-        super().__init__(converted)
-        self._downgrade = None
+        self._mono_to_any = None
+        self._aff_to_self = None
         self._default = None
+        self._pref_override = None
+
+    def reset(self):
+        self[OpimizationMode.TEAMBUFF] = None
+        self[OpimizationMode.PERSONAL] = None
+        self["META"] = {
+            "tdps": None,
+            "pref": OpimizationMode.PERSONAL,
+            "partial": {OpimizationMode.PERSONAL: None, OpimizationMode.TEAMBUFF: None},
+        }
 
     def from_dict(self, builds):
+        self.reset()
         for k, v in builds.items():
             if k == "META":
                 v["pref"] = OpimizationMode(v["pref"])
-                self[k] = v
+                for opt, based_on in v.get("partial", {}).items():
+                    v["partial"][opt] = ConditionTuple.from_str(based_on)
+                self[k].update(v)
             else:
                 self[OpimizationMode(k)] = v
 
     def builds(self):
         for opt in OpimizationMode:
+            build = self.get_build(opt)
             yield opt, self.get_build(opt)
 
     @property
@@ -278,29 +326,49 @@ class EquipEntry(dict):
 
     @property
     def pref(self):
-        return self["META"]["pref"]
+        return self._pref_override or self["META"]["pref"]
 
     @pref.setter
     def pref(self, pref):
         self["META"]["pref"] = pref
 
-    def get_build(self, opt):
-        build = self[opt]
-        if not build:
-            build = self[OPT_KICK[opt]]
-        if not build and self._downgrade:
-            build = self._downgrade.get_build(opt)
-        if self._default:
-            if not build:
-                build = self._default.get_build(opt)
-            elif dps_only(build):
-                build = dict(build)
-                build.update(self._default.get_build(opt))
-        return build
+    def get_partial_base(self, opt):
+        based_on = self["META"]["partial"][opt]
+        if self._mono_to_any and based_on == self._mono_to_any._conditions:
+            base_build = self._mono_to_any.get_build(opt)
+            if base_build:
+                return base_build, based_on
+        if self._default and based_on == self._default._conditions:
+            base_build = self._default.get_build(opt)
+            if base_build:
+                return base_build, based_on
+        return None, None
+
+    def get_build(self, opt, with_conditions=False):
+        original_opt = opt
+        while True:
+            build = self[opt]
+            if build:
+                base_build, based_on = self.get_partial_base(opt)
+                if base_build:
+                    if with_conditions:
+                        conditions = based_on if set(build.keys()) == BUILD_META_KEYS else self._conditions
+                        return {**base_build, **build}, conditions
+                    else:
+                        return {**base_build, **build}
+            else:
+                if self._mono_to_any:
+                    return self._mono_to_any.get_build(opt, with_conditions=with_conditions)
+                if self._default:
+                    return self._default.get_build(opt, with_conditions=with_conditions)
+            if build or original_opt != opt:
+                break
+            opt = OPT_KICK[opt]
+        return build, self._conditions
 
     @property
     def preferred(self):
-        return self.get_build(self.pref)
+        return self.get_build(self.pref, with_conditions=True)
 
     @property
     def empty(self):
@@ -331,66 +399,118 @@ class EquipEntry(dict):
             self.pref = OpimizationMode.PERSONAL
 
     def set_build(self, opt, build):
-        print(f"ACCEPTED {self._conditions}.{opt}")
-        pprint(build)
-        if self._conditions.mono == MonoCondition.MONO:
-            self[opt] = coab_only_build(build)
-        else:
-            self[opt] = dict(build)
+        if DEBUG:
+            print(f"ACCEPTED {self._conditions}.{opt}", flush=True)
+        self[opt] = {**build}
+        self["META"]["partial"][opt] = None
 
-    def accept_new_build(self, new_build):
+    def set_build_diff(self, opt, build_diff, based_on):
+        if DEBUG:
+            print(f"DIFF ONLY {self._conditions}.{opt}, {build_diff}", flush=True)
+        self[opt] = {"dps": self[opt]["dps"], "team": self[opt]["dps"], **build_diff}
+        self["META"]["partial"][opt] = based_on
+
+    def delete_build(self, opt):
+        if DEBUG:
+            print(f"DELETED {self._conditions}.{opt}", flush=True)
+        self[opt] = None
+        self["META"]["partial"][opt] = None
+
+    def accept_new_build(self, new_build, adv):
+        if DEBUG:
+            print("-" * 100)
+            print(f"CHECKING {self._conditions}:")
+            pprint(new_build)
+
+        # in the case where we have aff -> self downgrading and this sim did not use afflictions, send build off to that
+        if self._aff_to_self and not bool(adv.uses_affliction()):
+            if DEBUG:
+                print(f"PASSED from {self._conditions} to {self._aff_to_self._conditions} (_aff_to_self)")
+            changed, accepted = self._aff_to_self.accept_new_build(new_build, adv)
+            if accepted:
+                return changed, accepted
+
         changed = False
+        accepted = False
         kicked = {}
+        # check against current builds
         for opt, existing_build in self.builds():
             if not existing_build or same_build_different_dps(new_build, existing_build) or OPT_COMPARE[opt](new_build, existing_build):
                 self.set_build(opt, new_build)
                 if existing_build and OPT_COMPARE[OPT_KICK[opt]](existing_build, new_build):
                     kicked[OPT_KICK[opt]] = existing_build
                 changed = True
+                accepted = True
+
+        # check kicked build against the other opt mode
         for opt, kicked_build in kicked.items():
             if not self[opt] or same_build_different_dps(kicked_build, self[opt]) or OPT_COMPARE[opt](kicked_build, self[opt]):
+                if DEBUG:
+                    print("KICK")
                 self.set_build(opt, kicked_build)
                 changed = True
-        if self._downgrade:
-            changed = self._downgrade.accept_new_build(new_build) or changed
-            for opt, reference_build in self._downgrade.builds():
-                if self[opt]:
-                    if same_coab_build(self[opt], reference_build) or OPT_COMPARE[opt](reference_build, self[opt]):
-                        print(f"DELETED {self._conditions}.{opt}, {self[opt]}")
-                        self[opt] = None
-                        changed = True
+
+        # check mono build against the any build
+        if self._mono_to_any:
+            if DEBUG:
+                print(f"PASSED from {self._conditions} to {self._mono_to_any._conditions} (_mono_to_any)")
+            changed = self._mono_to_any.accept_new_build(new_build, adv)[0] or changed
+            for opt, reference_build in self._mono_to_any.builds():
+                if not self[opt]:
+                    continue
+                # check if any build is also a mono build, and is equal/better than this build
+                if all_monoele_coabs(adv.slots.c.ele, reference_build["coabs"]) and OPT_COMPARE[opt](reference_build, self[opt]):
+                    self.delete_build(opt)
+                    changed = True
+                    continue
+                # check if the builds are different, and store only the parts that are not the same
+                build_diff = difference_of_builds(reference_build, self[opt])
+                if not build_diff:
+                    self.delete_build(opt)
+                    changed = True
+                    continue
+                self.set_build_diff(opt, build_diff, self._mono_to_any._conditions)
+
+        # check build against the default build
         if self._default:
             for opt, reference_build in self._default.builds():
-                if self[opt] and not dps_only(self[opt]) and same_build(self[opt], reference_build):
-                    print(f"DPS ONLY {self._conditions}.{opt}, {self[opt]}")
-                    self[opt] = dps_only_build(self[opt])
-                    changed = True
+                if self[opt]:
+                    # check if the builds are different, and store only the parts that are not the same
+                    build_diff = difference_of_builds(reference_build, self[opt])
+                    self.set_build_diff(opt, build_diff, self._default._conditions)
+
         if changed:
             self.update_meta()
-        return changed
+        print("-" * 100)
+        return changed, accepted
 
 
-def encodable(data):
+def encodable(data, key=None):
     if isinstance(data, EquipEntry) and data.empty:
         return None
     if isinstance(data, dict):
         output = {}
         for k, v in data.items():
-            encodable_v = encodable(v)
+            encodable_v = encodable(v, key=k)
             if encodable_v is not None:
                 output[str(k)] = encodable_v
+        if key == "partial":
+            if not output:
+                return None
+            for k, v in output.items():
+                output[k] = str(v)
         return output
     return data
 
 
 class EquipManager(dict):
     EQUIP_DIR = "equip.new"
-    ALL_COND_ENUMS = (AfflictionCondition, NihilismCondition, MonoCondition)
+    ALL_COND_ENUMS = (AfflictionCondition, SituationCondition, MonoCondition)
 
     def __init__(self, advname, variant=None):
         self._advname = advname
         self._variant = variant
-        if variant:
+        if variant and variant not in SKIP_VARIANT:
             self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.{variant}.json")
             if not os.path.exists(self._equip_file):
                 basefile = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
@@ -399,34 +519,37 @@ class EquipManager(dict):
                 except FileNotFoundError:
                     pass
         else:
-            self._equpi_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
+            self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
         for conditions in map(ConditionTuple, itertools.product(*EquipManager.ALL_COND_ENUMS)):
             self[conditions] = EquipEntry(conditions)
         try:
             for key, value in self.load_equip_json():
-                aff, nihil, mono = key.split(ConditionTuple.SEPARATOR)
-                conditions = ConditionTuple((AfflictionCondition(aff), NihilismCondition(nihil), MonoCondition(mono)))
+                conditions = ConditionTuple.from_str(key)
                 self[conditions].from_dict(value)
         except (FileNotFoundError, json.decoder.JSONDecodeError):
             pass
 
-        self._default_conditions = ConditionTuple((AfflictionCondition.SELF, NihilismCondition.NORMAL, MonoCondition.ANY))
         for key, value in self.items():
+            if key == DEFAULT_CONDITONS:
+                continue
+            if key.aff != AfflictionCondition.SELF:
+                value._aff_to_self = self.get(key.aff_to_self())
             if key.mono == MonoCondition.MONO:
-                value._downgrade = self.get(key.mono_to_any())
-            if key != self._default_conditions:
-                value._default = self.get(self._default_conditions)
+                value._mono_to_any = self.get(key.mono_to_any())
+            value._default = self.get(DEFAULT_CONDITONS)
 
     def get_preferred_entry(self, conditions):
         if conditions is None:
-            return self[self._default_conditions].preferred, self._default_conditions
-        conditions = ConditionTuple(conditions)
-        preferred = self[conditions].preferred
+            return self[DEFAULT_CONDITONS].preferred
+        if not isinstance(conditions, ConditionTuple):
+            conditions = ConditionTuple(conditions)
+
+        preferred, p_cond = self[conditions].preferred
         if preferred:
-            return preferred, conditions
+            return preferred, p_cond
 
         for r_cond in conditions.reduced():
-            preferred = self[r_cond].preferred
+            preferred, r_cond = self[r_cond].preferred
             if preferred:
                 return preferred, r_cond
 
@@ -441,16 +564,51 @@ class EquipManager(dict):
             return json.dump(encodable(self), f, ensure_ascii=False, default=str, indent=2)
 
     def accept_new_entry(self, adv, real_d):
-        if not validate_sim(adv):
+        valid, failure = validate_sim(adv)
+        if not valid:
+            if DEBUG:
+                print(f"INVALID SIM: {failure!r}")
             return
         try:
             conditions = ConditionTuple((cond_enum.get_condition(adv) for cond_enum in EquipManager.ALL_COND_ENUMS))
         except ValueError:
             return
         new_build = build_from_sim(adv, real_d)
-        changed = self[conditions].accept_new_build(new_build)
+        changed = self[conditions].accept_new_build(new_build, adv)
         if changed:
             self.save_equip_json()
+
+    def repair_entries(self, advmodule):
+        import core.simulate
+
+        for conditions, entry in self.items():
+            if entry.empty:
+                continue
+            for opt in OpimizationMode:
+                if entry[opt] is None:
+                    continue
+                entry._pref_override = opt
+                with open(os.devnull, "w") as output:
+                    run_res = core.simulate.test(
+                        self._advname,
+                        advmodule,
+                        duration=180,
+                        verbose=0,
+                        output=output,
+                        equip_conditions=conditions,
+                    )
+                adv = run_res[0][0]
+                real_d = run_res[0][1]
+                entry[opt] = build_from_sim(adv, real_d)
+            entry.update_meta()
+            self.save_equip_json()
+
+    def set_pref_override(self, pref_override):
+        for entry in self.values():
+            entry._pref_override = pref_override
+
+    def not_pref(self, conditions, opt):
+        return self[conditions].pref != opt
 
 
 EQUIP_MANAGERS = {}
@@ -471,50 +629,50 @@ def get_equip_manager(advname, variant=None):
 def _test_equip(advname, confs=None):
     import core.simulate
 
-    adv_module, advname = core.simulate.load_adv_module(advname)
-    equip_manager = EquipManager(advname)
-    equip_manager.save_equip_json()
+    advmodule, advname, variant = core.simulate.load_adv_module(advname)
+    equip_manager = get_equip_manager(advname)
     for conf in confs:
-        run_res = core.simulate.test(advname, adv_module, conf, 180)
-        adv = run_res[0][0]
-        real_d = run_res[0][1]
+        adv, real_d, _ = core.simulate.test(advname, advmodule, conf, 180, 5)
         equip_manager.accept_new_entry(adv, real_d)
     return equip_manager
 
 
 OLD_KEY_TO_COND = {
-    "base": ConditionTuple((AfflictionCondition.SELF, NihilismCondition.NORMAL, MonoCondition.ANY)),
-    "buffer": ConditionTuple((AfflictionCondition.SELF, NihilismCondition.NORMAL, MonoCondition.ANY)),
-    "affliction": ConditionTuple((AfflictionCondition.ALWAYS, NihilismCondition.NORMAL, MonoCondition.ANY)),
-    "noaffliction": ConditionTuple((AfflictionCondition.IMMUNE, NihilismCondition.NORMAL, MonoCondition.ANY)),
-    "mono_base": ConditionTuple((AfflictionCondition.SELF, NihilismCondition.NORMAL, MonoCondition.MONO)),
-    "mono_buffer": ConditionTuple((AfflictionCondition.SELF, NihilismCondition.NORMAL, MonoCondition.MONO)),
-    "mono_affliction": ConditionTuple((AfflictionCondition.ALWAYS, NihilismCondition.NORMAL, MonoCondition.MONO)),
-    "mono_noaffliction": ConditionTuple((AfflictionCondition.IMMUNE, NihilismCondition.NORMAL, MonoCondition.MONO)),
+    "base": ConditionTuple((AfflictionCondition.SELF, SituationCondition.NORMAL, MonoCondition.ANY)),
+    "buffer": ConditionTuple((AfflictionCondition.SELF, SituationCondition.NORMAL, MonoCondition.ANY)),
+    "affliction": ConditionTuple((AfflictionCondition.ALWAYS, SituationCondition.NORMAL, MonoCondition.ANY)),
+    "noaffliction": ConditionTuple((AfflictionCondition.IMMUNE, SituationCondition.NORMAL, MonoCondition.ANY)),
+    "mono_base": ConditionTuple((AfflictionCondition.SELF, SituationCondition.NORMAL, MonoCondition.MONO)),
+    "mono_buffer": ConditionTuple((AfflictionCondition.SELF, SituationCondition.NORMAL, MonoCondition.MONO)),
+    "mono_affliction": ConditionTuple((AfflictionCondition.ALWAYS, SituationCondition.NORMAL, MonoCondition.MONO)),
+    "mono_noaffliction": ConditionTuple((AfflictionCondition.IMMUNE, SituationCondition.NORMAL, MonoCondition.MONO)),
 }
 
 
 def convert_from_existing(advname):
+    import core.simulate
+
     old_equip = load_json(f"equip/{advname}.json")
     old_180s = old_equip["180"]
-    confs = []
+    advmodule, advname, variant = core.simulate.load_adv_module(advname)
+    equip_manager = get_equip_manager(advname)
     for key, conf in old_180s.items():
         if isinstance(conf, str):
             continue
-        conf = dict(conf)
         condition = OLD_KEY_TO_COND[key]
+        if DEBUG:
+            print(f"CONVERT {key} -> {condition}")
         if condition.mono == MonoCondition.MONO:
             try:
-                baseconf = dict(old_180s[key.split("_")[-1]])
-                baseconf.update(conf)
-                conf = baseconf
+                conf = {**old_180s[key.split("_")[-1]], **conf}
             except KeyError:
-                pass
-        pprint(f"CONF {condition}: {condition.get_conf()}")
+                continue
         conf.update(condition.get_conf())
-        confs.append(conf)
-    _test_equip(advname, confs)
+        pprint(conf)
+        adv, real_d, _ = core.simulate.test(advname, advmodule, conf, 180, 5)
+        equip_manager.accept_new_entry(adv, real_d)
+        print("=" * 100)
 
 
 if __name__ == "__main__":
-    convert_from_existing("Xania")
+    convert_from_existing("Elisanne")

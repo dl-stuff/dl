@@ -42,6 +42,12 @@ class SlotBase:
     def icon(self):
         return self.conf.icon
 
+    def name_icon(self):
+        return {
+            "name": self.escaped,
+            "icon": self.icon,
+        }
+
     @property
     def att(self):
         return self.conf.att + self.att_augment
@@ -651,9 +657,10 @@ class Arsene(DragonBase):
 
 
 class WeaponBase(EquipBase):
-    def __init__(self, conf, c, qual):
-        super().__init__(conf.w, c, qual)
+    def __init__(self, conf, c, series):
+        super().__init__(conf.w, c, f"{c.wt}-{c.ele}-{series}")
         self.s3_conf = {sn: sconf for sn, sconf in conf.find(r"s3.*")}
+        self.series = series
 
     @property
     def s3(self):
@@ -851,21 +858,8 @@ class AmuletStack:
     def name_lst(self):
         return (a.name for a in self.an)
 
-    @property
-    def name_icon_lst(self):
-        return chain(*((a.name, a.icon) for a in self.an))
-
-    @property
-    def escaped_icon_lst(self):
-        # return chain(*((a.escaped, a.icon) for a in self.an))
-        escaped_icon_lst = []
-        for a in self.an:
-            escaped_icon_lst.append(a.escaped)
-            escaped_icon_lst.append(a.icon)
-        for _ in range(len(self.an), 7):
-            escaped_icon_lst.append("")
-            escaped_icon_lst.append("")
-        return escaped_icon_lst
+    def name_icons(self):
+        return [a.name_icon() for a in self.an]
 
     @staticmethod
     def sort_ab(a):
@@ -999,22 +993,6 @@ class Slots:
                 self.d.name,
                 self.w.name,
                 *self.a.name_lst,
-            ]
-        )
-
-    def full_slot_icons(self):
-        return ",".join(
-            [
-                self.c.escaped,
-                self.c.icon,
-                self.c.ele,
-                self.c.wt,
-                str(round(self.att)),
-                self.d.escaped,
-                self.d.icon,
-                self.w.escaped,
-                self.w.icon,
-                *self.a.escaped_icon_lst,
             ]
         )
 

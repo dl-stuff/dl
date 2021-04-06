@@ -4,12 +4,11 @@ import json
 import argparse
 from time import monotonic, time_ns
 import core.simulate
-from conf import ROOT_DIR, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS
+from conf import ROOT_DIR, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS, SKIP_VARIANT
 from conf.equip import get_equip_manager
 
 ADV_DIR = "adv"
 CHART_DIR = "www/dl-sim"
-SKIP_VARIANT = ("RNG", "mass")
 
 
 def printlog(prefix, delta, advname, variant, err=None, color=None):
@@ -40,7 +39,7 @@ def sim_adv(name, variants, sanity_test=False):
     t_start = monotonic()
     is_mass = "mass" in variants
     msg = []
-    for variant, adv_module in variants.items():
+    for variant, advmodule in variants.items():
         if variant in SKIP_VARIANT:
             continue
         verbose = -5
@@ -53,33 +52,29 @@ def sim_adv(name, variants, sanity_test=False):
         else:
             if variant is None:
                 durations = DURATIONS
-                outfile = f"{name}.csv"
+                outfile = f"{name}.json"
             else:
                 durations = (180,)
-                outfile = f"{name}.{variant}.csv"
+                outfile = f"{name}.{variant}.json"
             outpath = os.path.join(ROOT_DIR, CHART_DIR, "chara", outfile)
         sha_before = sha256sum(outpath)
-        output = open(outpath, "w")
-        try:
-            for d in durations:
-                run_results = core.simulate.test(
-                    name,
-                    adv_module,
-                    {},
-                    duration=d,
-                    verbose=verbose,
-                    mass=mass,
-                    special=variant is not None,
-                    output=output,
-                )
-            output.close()
-            if not sanity_test:
-                printlog("sim", monotonic() - t_start, name, variant)
-                if sha_before != sha256sum(outpath):
-                    msg.append(name)
-        except Exception as e:
-            output.close()
-            printlog("sim", monotonic() - t_start, name, variant, err=e, color=91)
+        with open(outpath, "w") as output:
+            try:
+                for d in durations:
+                    core.simulate.test(
+                        name,
+                        advmodule,
+                        duration=d,
+                        verbose=verbose,
+                        mass=mass,
+                        output=output,
+                    )
+                if not sanity_test:
+                    printlog("sim", monotonic() - t_start, name, variant)
+                    if sha_before != sha256sum(outpath):
+                        msg.append(name)
+            except Exception as e:
+                printlog("sim", monotonic() - t_start, name, variant, err=e, color=91)
     return msg
 
 

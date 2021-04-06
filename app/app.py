@@ -13,15 +13,20 @@ from core.afflic import AFFLICT_LIST, Afflics
 from conf import (
     ROOT_DIR,
     TRIBE_TYPES,
+    SKIP_VARIANT,
     skillshare,
     wyrmprints,
     weapons,
     dragons,
     mono_elecoabs,
-    load_equip_json,
     list_advs,
 )
-from conf.equip import initialize_equip_managers
+from conf.equip import (
+    AfflictionCondition,
+    MonoCondition,
+    SituationCondition,
+    build_equip_condition,
+)
 
 app = Flask(__name__)
 
@@ -54,20 +59,8 @@ def set_teamdps_res(result, logs, real_d, suffix=""):
     return result
 
 
-def run_adv_test(
-    adv_name,
-    wp=None,
-    dra=None,
-    wep=None,
-    acl=None,
-    conf=None,
-    cond=None,
-    vkey=None,
-    t=180,
-    log=5,
-    mass=0,
-):
-    adv_module = ADV_MODULES[adv_name][vkey]
+def run_adv_test(advname, variant, wp=None, dra=None, wep=None, acl=None, conf=None, t=180, log=5, mass=0):
+    advmodule = ADV_MODULES[advname][variant]
 
     if conf is None:
         conf = {}
@@ -84,17 +77,14 @@ def run_adv_test(
 
     result = {}
 
-    fn = io.StringIO()
     try:
-        run_res = core.simulate.test(adv_name, adv_module, conf, t, log, mass, output=fn, cond=cond)
-        result["test_output"] = fn.getvalue()
+        adv, real_d, report = core.simulate.test(advname, advmodule, conf, t, log, mass, output=None)
+        result["test_output"] = report
     except Exception as e:
         result["error"] = traceback.format_exc(limit=-1)
         return result
 
-    adv = run_res[0][0]
-    real_d = run_res[0][1]
-    if vkey is None:
+    if variant not in SKIP_VARIANT:
         adv.equip_manager.accept_new_entry(adv, real_d)
 
     result["logs"] = {}
@@ -125,7 +115,8 @@ def simc_adv_test():
     if not request.method == "POST":
         return "Wrong request method."
     params = request.get_json(silent=True)
-    adv_name = "Patia" if not "adv" in params or params["adv"] is None else params["adv"]
+    advname = "Patia" if not "adv" in params or params["adv"] is None else params["adv"]
+    variant = params.get("variant")
     wp = params.get("wp")
     dra = params.get("dra")
     wep = params.get("wep")
@@ -136,7 +127,6 @@ def simc_adv_test():
     mass = 0
     coab = params.get("coab")
     share = params.get("share")
-    vkey = params.get("variant")
     # latency = 0 if 'latency' not in params else abs(float(params['latency']))
     # print(params, flush=True)
 
@@ -178,14 +168,13 @@ def simc_adv_test():
             pass
 
     result = run_adv_test(
-        adv_name,
+        advname,
+        variant,
         wp=wp,
         dra=dra,
         wep=wep,
         acl=acl,
         conf=conf,
-        cond=cond,
-        vkey=vkey,
         t=t,
         log=log,
         mass=mass,
@@ -199,28 +188,20 @@ def summarize_coab(coab):
     return (coab["category"].lower(), "|".join(map(str, coab["chain"][0])))
 
 
-@app.route("/simc_adv_slotlist", methods=["GET", "POST"])
+@app.route("/simc_adv_slotlist", methods=["POST"])
 def get_adv_slotlist():
+    if not request.method == "POST":
+        return "Wrong request method."
     result = {}
     result["adv"] = {}
-    if request.method == "GET":
-        advname = request.args.get("adv", default=None)
-        variant = request.args.get("variant", default=None)
-        equip_key = request.args.get("equip", default=None)
-        mono = bool(request.args.get("mono", default=None))
-        duration = request.args.get("t", default=180)
-    elif request.method == "POST":
-        params = request.get_json(silent=True)
-        advname = params.get("adv", None)
-        variant = params.get("variant", None)
-        equip_key = params.get("equip", None)
-        mono = bool(params.get("mono", None))
-        duration = params.get("t", 180)
-    else:
-        return "Wrong request method."
+    params = request.get_json(silent=True)
+    advname = params.get("adv", None)
+    variant = params.get("variant", None)
+    equip_cond, opt_mode = build_equip_condition(params.get("equip", None))
+    duration = params.get("t", 180)
     duration = max(min(((int(duration) // 60) * 60), 180), 60)
     if advname is not None:
-        adv = ADV_MODULES[advname][variant](name=advname, duration=duration, equip_key=equip_key, mono=mono)
+        adv = ADV_MODULES[advname][variant](name=advname, duration=duration, equip_conditions=equip_cond, opt_mode=opt_mode)
         adv.config_slots()
         result["adv"]["basename"] = adv.name
         result["adv"]["ele"] = adv.slots.c.ele
@@ -231,10 +212,10 @@ def get_adv_slotlist():
         result["adv"]["pref_coab"] = adv.conf["coabs"] or []
         result["adv"]["pref_share"] = adv.conf["share"] or []
         result["adv"]["acl"] = adv.conf.acl
-        if adv.conf["tdps"] and 0 <= adv.conf["tdps"] <= 200000:
-            result["adv"]["tdps"] = int(adv.conf.tdps) + 1
-        if adv.equip_key:
-            result["adv"]["equip"] = adv.equip_key
+        if adv.equip_manager[equip_cond] != opt_mode:
+            tdps = adv.equip_manager[equip_cond].tdps
+            if tdps and 0 <= tdps <= 200000:
+                result["adv"]["tdps"] = tdps
 
         available_wpn = {
             **weapons[adv.slots.c.wt]["any"],
@@ -246,14 +227,21 @@ def get_adv_slotlist():
         result["dragons"] = {drg: data["d"]["name"] for drg, data in dragons[adv.slots.c.ele].items()}
         # gold fafu lul
         result["dragons"]["Gold_Fafnir"] = "Gold Fafnir"
-        if mono:
+
+        if equip_cond.mono == MonoCondition.MONO:
             result["coabilities"] = {k: (get_fullname(k), *summarize_coab(v)) for k, v in mono_elecoabs[adv.slots.c.ele].items()}
         else:
             result["coabilities"] = {k: (get_fullname(k), *summarize_coab(v)) for k, v in adv.slots.c.valid_coabs.items()}
-        if equip_key == "noaffliction":
-            result["afflict_res"] = Afflics.RESIST_PROFILES["immune"]
+
+        result["ui"] = {}
+        if equip_cond.aff == AfflictionCondition.IMMUNE:
+            result["ui"]["afflict_res"] = Afflics.RESIST_PROFILES["immune"]
         else:
-            result["afflict_res"] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
+            result["ui"]["afflict_res"] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
+        if equip_cond.aff == AfflictionCondition.ALWAYS:
+            result["ui"]["sim_afflict"] = {aff: 100 for aff in adv.sim_afflict}
+        if equip_cond.sit == SituationCondition.NIHILISM:
+            result["ui"]["specialmode"] = "nihilism"
     return jsonify(result)
 
 

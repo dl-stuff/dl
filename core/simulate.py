@@ -1,17 +1,20 @@
 import sys
 import os
 import re
-from itertools import chain
+import json
+from itertools import product
 from collections import defaultdict, Counter
-
-from conf import (
-    get_icon,
-    get_fullname,
-    ELE_AFFLICT,
+from conf.equip import (
+    AfflictionCondition,
+    MonoCondition,
+    SituationCondition,
+    ConditionTuple,
+    DEFAULT_CONDITONS,
 )
+
+from conf import get_icon, get_fullname
 import core.acl
 import core.advbase
-from core.afflic import AFFLICT_LIST
 
 BR = 64
 
@@ -27,12 +30,11 @@ DOT_AFFLICT = ["poison", "paralysis", "burn", "frostbite"]
 S_ALT = "†"
 
 
-def run_once(name, module, conf, duration, cond, equip_conditions=None):
+def run_once(name, module, conf, duration, equip_conditions=None):
     adv = module(
         name=name,
         conf=conf,
         duration=duration,
-        cond=cond,
         equip_conditions=equip_conditions,
     )
     real_d = adv.run()
@@ -48,7 +50,6 @@ def run_once_mass(name, module, conf, duration, cond, equip_conditions, idx):
         name=name,
         conf=conf,
         duration=duration,
-        cond=cond,
         equip_conditions=equip_conditions,
     )
     real_d = adv.run()
@@ -89,14 +90,13 @@ def run_mass(
     module,
     conf,
     duration,
-    cond,
     equip_conditions=None,
 ):
     mass = 1000 if mass == 1 else mass
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
         for log, real_d in pool.starmap(
             run_once_mass,
-            [(name, module, conf, duration, cond, equip_conditions, idx) for idx in range(mass - 1)],
+            [(name, module, conf, duration, equip_conditions, idx) for idx in range(mass - 1)],
         ):
             base_log = sum_logs(base_log, log)
             base_d += real_d
@@ -139,97 +139,80 @@ def run_mass(
 #     return adv, real_d
 
 
-def test(
-    name,
-    module,
-    conf={},
-    duration=180,
-    verbose=0,
-    mass=None,
-    output=None,
-    cond=True,
-    special=False,
-):
-    output = output or sys.stdout
+def run_once_and_mass(name, module, conf, duration, mass, equip_conditions, result_by_cond):
+    adv, real_d = run_once(name, module, conf, duration, equip_conditions=equip_conditions)
+    if mass:
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, equip_conditions=equip_conditions)
+    result_by_cond[str(equip_conditions)] = report(adv, real_d)
+    return adv, real_d
+
+
+def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.stdout, equip_conditions=None):
     if verbose == 2:
         # output.write(adv._acl_str)
         adv = module(name=name)
         output.write(str(core.acl.build_acl(adv.conf.acl)._acl_str))
         output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
         return
-    run_results = []
-    adv, real_d = run_once(name, module, conf, duration, cond)
-    if verbose == 255:
-        output.write(str(adv.slots))
-        output.write("\n")
-        act_sum(adv.logs.act_seq, output)
-        output.write("\n\n")
-        return
+    if verbose == -5:
+        equip_conditions = DEFAULT_CONDITONS
+    adv, real_d = run_once(name, module, conf, duration, equip_conditions=equip_conditions)
     if verbose == 1:
         adv.logs.write_logs(output=output)
         act_sum(adv.logs.act_seq, output)
         return
+    if verbose == 5:
+        return adv, real_d, report(adv, real_d)
     if mass:
-        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, cond)
-    run_results.append((adv, real_d, True, None))
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, equip_conditions=equip_conditions)
+    if verbose == -2:
+        report(adv, real_d, output)
+        return
+    if verbose == -5 or verbose == -25:
+        result_by_cond = {str(DEFAULT_CONDITONS): report(adv, real_d)}
+        for sit in SituationCondition:
+            aff = AfflictionCondition.SELF
+            econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
+            if econd_base != DEFAULT_CONDITONS:
+                adv, real_d = run_once_and_mass(name, module, conf, duration, mass, econd_base, result_by_cond)
+            econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
+            if not adv.equip_manager[econd_mono].empty:
+                run_once_and_mass(name, module, conf, duration, mass, econd_mono, result_by_cond)
+            else:
+                result_by_cond[str(econd_mono)] = result_by_cond[str(econd_base)]
 
-    # deploy_mono = not special and duration == 180 and verbose == -5
-    # is_buffer = adv.equip_key == "buffer"
+            if adv.afflics.get_uptimes():
+                for aff in (AfflictionCondition.ALWAYS, AfflictionCondition.IMMUNE):
+                    econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
+                    if econd_base != DEFAULT_CONDITONS:
+                        run_once_and_mass(name, module, conf, duration, mass, econd_base, result_by_cond)
+                    econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
+                    if not adv.equip_manager[econd_mono].empty:
+                        run_once_and_mass(name, module, conf, duration, mass, econd_mono, result_by_cond)
+                    else:
+                        result_by_cond[str(econd_mono)] = result_by_cond[str(econd_base)]
+            else:
+                for aff in (AfflictionCondition.ALWAYS, AfflictionCondition.IMMUNE):
+                    aff_econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
+                    result_by_cond[str(aff_econd_base)] = result_by_cond[str(econd_base)]
+                    aff_econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
+                    result_by_cond[str(aff_econd_mono)] = result_by_cond[str(econd_mono)]
 
-    # manager = None
-    # if deploy_mono:
-    #     from conf.equip import EquipManager
-
-    #     manager = EquipManager(name)
-    #     if manager.has_different_mono(180, adv.equip_key):
-    #         adv, real_d = run_once(name, module, conf, duration, cond, equip_key=None, mono=True)
-    #         if mass:
-    #             adv.logs, real_d = run_mass(
-    #                 mass,
-    #                 adv.logs,
-    #                 real_d,
-    #                 name,
-    #                 module,
-    #                 conf,
-    #                 duration,
-    #                 cond,
-    #                 equip_key=None,
-    #             )
-    #     run_results.append((adv, real_d, True, "mono"))
-
-    # aff_name = ELE_AFFLICT[adv.slots.c.ele]
-
-    # if -10 <= verbose <= -5:
-    #     aff_name = ELE_AFFLICT[adv.slots.c.ele]
-    #     conf[f"sim_afflict.{aff_name}"] = 1
-    #     if verbose < -5:
-    #         for aff_name in DOT_AFFLICT[: (-verbose - 6)]:
-    #             conf[f"sim_afflict.{aff_name}"] = 1
-    #     equip_key = "buffer" if is_buffer else "affliction"
-    #     adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, "affliction", deploy_mono, manager)
-
-    # if verbose == -5:
-    #     for afflic in AFFLICT_LIST:
-    #         conf[f"afflict_res.{afflic}"] = 999
-    #     equip_key = "buffer" if is_buffer else "noaffliction"
-    #     adv, real_d = run_variants_with_conf(run_results, name, module, conf, duration, cond, mass, equip_key, "noaffliction", deploy_mono, manager)
-
-    for a, d, c, m in run_results:
-        if verbose == -2:
-            report(d, a, output, cond=c, web=False)
-        elif abs(verbose) == 5:
-            page = "sp" if special else m or int(duration)
-            if c:
-                output.write("-,{},{}\n".format(page, c if isinstance(c, str) else "_"))
-            report(d, a, output, cond=c, web=True)
-        else:
-            if c == "affliction":
-                output.write("-" * BR + "\n")
-                output.write(" & ".join(adv.sim_afflict))
+        if verbose == -25:
+            # json.dump(result_by_cond, output, indent=4)
+            for cond, report_dict in result_by_cond.items():
+                condstr = str(cond)
+                width = BR - 3 - len(condstr)
+                output.write("\n={")
+                output.write(str(cond))
+                output.write("}")
+                output.write("=" * width)
                 output.write("\n")
-            summation(d, a, output, cond=c)
-
-    return run_results
+                write_readable_report(report_dict, output)
+        else:
+            json.dump(result_by_cond, output, separators=(",", ":"))
+        return
+    summation(adv, real_d, output)
 
 
 def slots(adv):
@@ -241,24 +224,6 @@ def slots(adv):
     except:
         slots += "]"
     return slots
-
-
-def slots_csv(adv, web):
-    padded_coab = adv.slots.c.coab_list.copy()
-    if len(padded_coab) < 3:
-        padded_coab.extend([""] * (3 - len(padded_coab)))
-    padded_share = adv.skillshare_list.copy()
-    if len(padded_share) < 2:
-        padded_share.extend([""] * (2 - len(padded_share)))
-    if not web:
-        return (str(adv.slots), *padded_coab, *padded_share)
-    icon_lst = []
-    for name in chain(padded_coab, padded_share):
-        if not name:
-            icon_lst.extend(("", ""))
-        else:
-            icon_lst.extend((get_fullname(name), get_icon(name)))
-    return (adv.slots.full_slot_icons(), *icon_lst)
 
 
 def append_condensed(condensed, act):
@@ -361,7 +326,7 @@ def act_sum(actions, output):
             output.write("*{}".format(cnt))
 
 
-def dps_sum(real_d, damage):
+def dps_sum(damage, real_d):
     res = {"dps": 0}
     for k, v in damage.items():
         ds = dict_sum(v)
@@ -462,63 +427,59 @@ def damage_counts(real_d, damage, counts, output, res=None):
     #             output.write('{}: {:d}, '.format(k2, int(v2)))
 
 
-def compile_stats(real_d, adv, do_buffs=True):
-    # aff uptimes
-    stat_str = adv.stats or []
+def compile_stats(adv, real_d, do_buffs=True):
+    stats = {}
     for aff, up in adv.afflics.get_uptimes().items():
-        stat_str.append(f"{aff}:{up:.1%}")
+        stats[aff] = f"{up:.1%}"
     if not do_buffs:
-        return ";".join(stat_str)
-    if adv.logs.team_buff > 0:
-        stat_str.append(f"team:{adv.logs.team_buff/real_d:.5%}")
+        return stats
     if adv.logs.team_doublebuffs > 0:
-        stat_str.append(f"doublebuff:every {real_d/adv.logs.team_doublebuffs:.2f}s")
+        stats["doublebuff"] = f"every {real_d / adv.logs.team_doublebuffs}s"
     for k, v in adv.logs.team_tension.items():
-        stat_str.append(f"{k}:{int(v)}")
-    return ";".join(stat_str)
+        stats[k] = int(v)
+    return stats
 
 
-def summation(real_d, adv, output, cond=True):
-    res = dps_sum(real_d, adv.logs.damage)
-    if cond:
-        output.write("=" * BR + "\n")
-        output.write("DPS - {}".format(round(res["dps"])))
-        if adv.logs.team_buff > 0:
-            output.write(" (team: {:.2f})".format(adv.logs.team_buff / real_d))
-        if adv.logs.team_doublebuffs > 0:
-            output.write(" (dbiv: {:.1f}s)".format(real_d / adv.logs.team_doublebuffs))
-        for k, v in adv.logs.team_tension.items():
-            output.write(" ({}: {})".format(k, int(v)))
-        # if no_cond_dps:
-        #     output.write(' | {}'.format(no_cond_dps['dps']))
-        #     if no_cond_dps['team_buff'] > 0:
-        #         output.write(' (team: {:.2f})'.format(no_cond_dps['team_buff']))
-        #     for k, v in no_cond_dps['team_tension'].items():
-        #         output.write(' ({}: {})'.format(k, int(v)))
-        output.write(", duration {:.2f}s".format(real_d))
+def summation(adv, real_d, output):
+    res = dps_sum(adv.logs.damage, real_d)
+    output.write("=" * BR + "\n")
+    output.write("DPS - {}".format(round(res["dps"])))
+    if adv.logs.team_buff > 0:
+        output.write(" (team: {:.2f})".format(adv.logs.team_buff / real_d))
+    if adv.logs.team_doublebuffs > 0:
+        output.write(" (dbiv: {:.1f}s)".format(real_d / adv.logs.team_doublebuffs))
+    for k, v in adv.logs.team_tension.items():
+        output.write(" ({}: {})".format(k, int(v)))
+    # if no_cond_dps:
+    #     output.write(' | {}'.format(no_cond_dps['dps']))
+    #     if no_cond_dps['team_buff'] > 0:
+    #         output.write(' (team: {:.2f})'.format(no_cond_dps['team_buff']))
+    #     for k, v in no_cond_dps['team_tension'].items():
+    #         output.write(' ({}: {})'.format(k, int(v)))
+    output.write(", duration {:.2f}s".format(real_d))
 
-        if adv.logs.heal:
-            output.write("\nHealing - ")
-            for k, v in adv.logs.heal.items():
-                output.write("{}: {}; ".format(k, int(v)))
+    if adv.logs.heal:
+        output.write("\nHealing - ")
+        for k, v in adv.logs.heal.items():
+            output.write("{}: {}; ".format(k, int(v)))
 
+    output.write("\n")
+    output.write(adv.slots.c.name)
+    output.write(" ")
+    output.write(slots(adv))
+    output.write("\n")
+    cond_comment = []
+    if adv.condition.exist():
+        cond_comment.append("<{}>".format(adv.condition.cond_str()))
+    if len(adv.comment) > 0:
+        cond_comment.append(adv.comment)
+    stats = compile_stats(adv, real_d, do_buffs=False)
+    if stats:
+        cond_comment.append("|")
+        cond_comment.append(";".join((f"{k}:{v}" for k, v in stats.items())))
+    if len(cond_comment) > 0:
+        output.write(" ".join(cond_comment))
         output.write("\n")
-        output.write(adv.slots.c.name)
-        output.write(" ")
-        output.write(slots(adv))
-        output.write("\n")
-        cond_comment = []
-        if adv.condition.exist():
-            cond_comment.append("<{}>".format(adv.condition.cond_str()))
-        if len(adv.comment) > 0:
-            cond_comment.append(adv.comment)
-        affstr = compile_stats(real_d, adv, do_buffs=False)
-        if affstr:
-            cond_comment.append("|")
-            cond_comment.append(affstr)
-        if len(cond_comment) > 0:
-            output.write(" ".join(cond_comment))
-            output.write("\n")
     output.write("-" * BR)
     damage_counts(real_d, adv.logs.damage, adv.logs.counts, output, res=res)
     output.write("\n")
@@ -527,20 +488,36 @@ def summation(real_d, adv, output, cond=True):
 XN_PATTERN = re.compile(r"^x\d")
 
 
-def report(real_d, adv, output, cond=True, web=False):
-    name = adv.name
-    dmg = adv.logs.damage
-    res = dps_sum(real_d, dmg)
-    report_csv = [res["dps"]]
-    report_csv.extend(
-        [
-            *slots_csv(adv, web),
-            adv.condition.cond_str(),
-            adv.comment if not web else adv.comment.replace(",", "&comma;"),
-            compile_stats(real_d, adv),
-        ]
-    )
+def write_readable_report(report_dict, output):
+    for key, value in report_dict.items():
+        key = key.ljust(9)
+        output.write(key)
+        output.write(f"{value!r}")
+        output.write("\n")
 
+
+def report(adv, real_d, output=None):
+    report_dict = {
+        "equip": str(adv.real_equip_conditions),
+        # "adv": adv.slots.c.name_icon(),
+        # "drg": adv.slots.d.name_icon(),
+        # "wep": adv.slots.w.name_icon(),
+        # "wps": adv.slots.a.name_icons(),
+        # "coabs": [{"name": get_fullname(name), "icon": get_icon(name)} for name in adv.slots.c.coab_list],
+        # "share": [{"name": get_fullname(name), "icon": get_icon(name)} for name in adv.skillshare_list],
+        "adv": adv.slots.c.qual,
+        "drg": adv.slots.d.qual,
+        "wep": adv.slots.w.qual,
+        "wps": adv.slots.a.qual_lst,
+        "coabs": adv.slots.c.coab_list,
+        "share": adv.skillshare_list,
+        "cond": adv.condition.cond_str(),
+        "comment": adv.comment,
+        "real": round(real_d, 2),
+    }
+    dmg = adv.logs.damage
+    report_dict["dps"] = int(dps_sum(dmg, real_d)["dps"])
+    report_dict["team"] = adv.logs.team_buff / real_d
     dps_mappings = {}
     for k in sorted(dmg["x"]):
         base_k = XN_PATTERN.sub("x", k)
@@ -552,14 +529,6 @@ def report(real_d, adv, output, cond=True, web=False):
         dps_mappings[k] = dmg["f"][k] / real_d
     for k in sorted(dmg["s"]):
         dps_mappings[k] = dmg["s"][k] / real_d
-    # if buff > 0:
-    #     dps_mappings['team_buff'] = buff*team_dps
-    #     report_csv[0] += dps_mappings['team_buff']
-    # for tension, count in adv.logs.team_tension.items():
-    #     dmg_val = count*skill_efficiency(real_d, team_dps, tension_efficiency[tension])
-    #     if dmg_val > 0:
-    #         dps_mappings['team_{}'.format(tension)] = dmg_val
-    #         report_csv[0] += dmg_val
     for k in sorted(dmg["o"]):
         dmg_val = dmg["o"][k]
         if dmg_val > 0:
@@ -569,17 +538,19 @@ def report(real_d, adv, output, cond=True, web=False):
         if dmg_val > 0:
             if k.startswith("dx") or k == "dshift":
                 k = "dx"
+            if k == "ds_final":
+                k = "ds"
             try:
                 dps_mappings[k] += dmg_val / real_d
             except:
                 dps_mappings[k] = dmg_val / real_d
+    report_dict["slices"] = [(k, int(v)) for k, v in dps_mappings.items()]
+    report_dict["stats"] = compile_stats(adv, real_d)
 
-    report_csv[0] = round(report_csv[0])
-    report_csv.extend(["{}:{}".format(k, int(v)) for k, v in dps_mappings.items()])
-
-    output.write(",".join([str(s) for s in report_csv]))
-    output.write("\n")
-    return report_csv
+    if output:
+        write_readable_report(report_dict, output)
+    else:
+        return report_dict
 
 
 CAP_SNEK = re.compile(r"(^[a-z]|_[a-z])")
@@ -603,19 +574,19 @@ def load_adv_module(name, in_place=None):
             loaded = advmodule.variants[vkey]
         except KeyError:
             loaded = advmodule.variants[None]
-        return loaded, name
+        return loaded, name, vkey
     except ModuleNotFoundError:
         if in_place is not None:
             in_place[name] = {None: core.advbase.Adv}
             return name
-        return core.advbase.Adv, name
+        return core.advbase.Adv, name, None
 
 
 def test_with_argv(*argv):
     if argv[0] is not None and not isinstance(argv[0], str):
         module = argv[0]
     else:
-        module, name = load_adv_module(argv[1])
+        module, name, variant = load_adv_module(argv[1])
     try:
         verbose = int(argv[2])
     except:

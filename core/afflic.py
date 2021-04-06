@@ -396,7 +396,7 @@ class Afflics(object):
             "flashburn": 0,
             "stormlash": 0,
             "shadowblight": 0,
-            "scorchrend": 0
+            "scorchrend": 0,
         },
         "shadow": {  # Legend Kai Yan
             "poison": 0,
@@ -411,7 +411,7 @@ class Afflics(object):
             "flashburn": 0,
             "stormlash": 0,
             "shadowblight": 0,
-            "scorchrend": 0
+            "scorchrend": 0,
         },
         "wind": {  # Master Ciella
             "poison": 0,
@@ -426,7 +426,7 @@ class Afflics(object):
             "flashburn": 0,
             "stormlash": 0,
             "shadowblight": 0,
-            "scorchrend": 0
+            "scorchrend": 0,
         },
         "water": {  # Master Ayaha & Otoha
             "poison": 99,
@@ -435,13 +435,13 @@ class Afflics(object):
             "paralysis": 100,
             "blind": 100,
             "stun": 100,
-            "bog": 70, # bog at 70 for ~2 bogs
+            "bog": 70,  # bog at 70 for ~2 bogs
             "sleep": 100,
             "frostbite": 0,
             "flashburn": 0,
             "stormlash": 0,
             "shadowblight": 0,
-            "scorchrend": 0
+            "scorchrend": 0,
         },
         "light": {  # Master Lilith
             "poison": 100,
@@ -456,7 +456,7 @@ class Afflics(object):
             "flashburn": 0,
             "stormlash": 100,
             "shadowblight": 100,
-            "scorchrend": 100
+            "scorchrend": 100,
         },
     }
 
