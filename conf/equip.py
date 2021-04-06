@@ -50,7 +50,7 @@ DEFAULT_MONO_COABS = {
 }
 BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
 BUILD_META_KEYS = ("dps", "team")
-DEBUG = True
+DEBUG = False
 
 
 class ValueEnum(Enum):
@@ -65,7 +65,7 @@ class AfflictionCondition(ValueEnum):
 
     @classmethod
     def get_condition(cls, adv):
-        if not adv.uses_affliction() or all((value >= 300 for value in adv.afflics.get_resist().values())):
+        if all((value >= 300 for value in adv.afflics.get_resist().values())):
             return cls.IMMUNE
         if not adv.sim_afflict:
             return cls.SELF
@@ -147,13 +147,17 @@ class ConditionTuple(tuple):
             ConditionTuple((AfflictionCondition.SELF, SituationCondition.NORMAL, mono)),
         )
 
-    def aff_to_self(self):
+    def aff_to(self, value):
         _, sit, mono = self
-        return ConditionTuple((AfflictionCondition.SELF, sit, mono))
+        return ConditionTuple((value, sit, mono))
 
-    def mono_to_any(self):
+    def sit_to(self, value):
+        aff, _, mono = self
+        return ConditionTuple((aff, value, mono))
+
+    def mono_to(self, value):
         aff, sit, _ = self
-        return ConditionTuple((aff, sit, MonoCondition.ANY))
+        return ConditionTuple((aff, sit, value))
 
     def get_conf(self):
         conf = {}
@@ -305,15 +309,19 @@ class EquipEntry(dict):
         for k, v in builds.items():
             if k == "META":
                 v["pref"] = OpimizationMode(v["pref"])
-                for opt, based_on in v.get("partial", {}).items():
-                    v["partial"][opt] = ConditionTuple.from_str(based_on)
+                try:
+                    converted = {}
+                    for opt, based_on in v["partial"].items():
+                        converted[OpimizationMode(opt)] = ConditionTuple.from_str(based_on)
+                    v["partial"] = converted
+                except KeyError:
+                    pass
                 self[k].update(v)
             else:
                 self[OpimizationMode(k)] = v
 
     def builds(self):
         for opt in OpimizationMode:
-            build = self.get_build(opt)
             yield opt, self.get_build(opt)
 
     @property
@@ -344,7 +352,7 @@ class EquipEntry(dict):
                 return base_build, based_on
         return None, None
 
-    def get_build(self, opt, with_conditions=False):
+    def get_build(self, opt, with_conditions=False, flexible_opt=False):
         original_opt = opt
         while True:
             build = self[opt]
@@ -354,34 +362,43 @@ class EquipEntry(dict):
                     if with_conditions:
                         conditions = based_on if set(build.keys()) == BUILD_META_KEYS else self._conditions
                         return {**base_build, **build}, conditions
-                    else:
-                        return {**base_build, **build}
+                    return {**base_build, **build}
             else:
                 if self._mono_to_any:
                     return self._mono_to_any.get_build(opt, with_conditions=with_conditions)
+                if self._aff_to_self:
+                    return self._aff_to_self.get_build(opt, with_conditions=with_conditions)
                 if self._default:
                     return self._default.get_build(opt, with_conditions=with_conditions)
-            if build or original_opt != opt:
+            if build or original_opt != opt or not flexible_opt:
                 break
             opt = OPT_KICK[opt]
-        return build, self._conditions
+        if with_conditions:
+            return build, self._conditions
+        return build
 
     @property
     def preferred(self):
-        return self.get_build(self.pref, with_conditions=True)
+        return self.get_build(self.pref, with_conditions=True, flexible_opt=True)
 
     @property
     def empty(self):
         return not any((self[opt] for opt in OpimizationMode))
 
     def update_meta(self):
+        if DEBUG:
+            print(f"UPDATE META {self._conditions}")
         personal_build = self.get_build(OpimizationMode.PERSONAL)
         teambuff_build = self.get_build(OpimizationMode.TEAMBUFF)
         if not teambuff_build:
+            if DEBUG:
+                print("NO TEAMBUFF BUILD")
             self.tdps = None
             self.pref = OpimizationMode.PERSONAL
             return
         if not personal_build:
+            if DEBUG:
+                print("NO PERSONAL BUILD")
             self.tdps = None
             self.pref = OpimizationMode.TEAMBUFF
             return
@@ -406,8 +423,8 @@ class EquipEntry(dict):
 
     def set_build_diff(self, opt, build_diff, based_on):
         if DEBUG:
-            print(f"DIFF ONLY {self._conditions}.{opt}, {build_diff}", flush=True)
-        self[opt] = {"dps": self[opt]["dps"], "team": self[opt]["dps"], **build_diff}
+            print(f"DIFF ONLY {self._conditions}.{opt} BASED ON {based_on}, {build_diff}", flush=True)
+        self[opt] = {"dps": self[opt]["dps"], "team": self[opt]["team"], **build_diff}
         self["META"]["partial"][opt] = based_on
 
     def delete_build(self, opt):
@@ -422,7 +439,7 @@ class EquipEntry(dict):
             print(f"CHECKING {self._conditions}:")
             pprint(new_build)
 
-        # in the case where we have aff -> self downgrading and this sim did not use afflictions, send build off to that
+        # in the case where we have aff -> self downgrading and this sim did not use afflictions, send build off to that first
         if self._aff_to_self and not bool(adv.uses_affliction()):
             if DEBUG:
                 print(f"PASSED from {self._conditions} to {self._aff_to_self._conditions} (_aff_to_self)")
@@ -432,25 +449,14 @@ class EquipEntry(dict):
 
         changed = False
         accepted = False
-        kicked = {}
         # check against current builds
         for opt, existing_build in self.builds():
             if not existing_build or same_build_different_dps(new_build, existing_build) or OPT_COMPARE[opt](new_build, existing_build):
                 self.set_build(opt, new_build)
-                if existing_build and OPT_COMPARE[OPT_KICK[opt]](existing_build, new_build):
-                    kicked[OPT_KICK[opt]] = existing_build
                 changed = True
                 accepted = True
 
-        # check kicked build against the other opt mode
-        for opt, kicked_build in kicked.items():
-            if not self[opt] or same_build_different_dps(kicked_build, self[opt]) or OPT_COMPARE[opt](kicked_build, self[opt]):
-                if DEBUG:
-                    print("KICK")
-                self.set_build(opt, kicked_build)
-                changed = True
-
-        # check mono build against the any build
+        # check against downgrade targets
         if self._mono_to_any:
             if DEBUG:
                 print(f"PASSED from {self._conditions} to {self._mono_to_any._conditions} (_mono_to_any)")
@@ -471,17 +477,29 @@ class EquipEntry(dict):
                     continue
                 self.set_build_diff(opt, build_diff, self._mono_to_any._conditions)
 
-        # check build against the default build
+        if self._aff_to_self:
+            for opt, reference_build in self._aff_to_self.builds():
+                if self[opt] and same_build(reference_build, self[opt]):
+                    self.delete_build(opt)
+                    changed = True
+
+        # check against default
         if self._default:
             for opt, reference_build in self._default.builds():
                 if self[opt]:
                     # check if the builds are different, and store only the parts that are not the same
                     build_diff = difference_of_builds(reference_build, self[opt])
+                    if not build_diff:
+                        self.delete_build(opt)
+                        changed = True
+                        continue
                     self.set_build_diff(opt, build_diff, self._default._conditions)
+                    changed = True
 
         if changed:
             self.update_meta()
-        print("-" * 100)
+        if DEBUG:
+            print("-" * 100)
         return changed, accepted
 
 
@@ -533,9 +551,9 @@ class EquipManager(dict):
             if key == DEFAULT_CONDITONS:
                 continue
             if key.aff != AfflictionCondition.SELF:
-                value._aff_to_self = self.get(key.aff_to_self())
+                value._aff_to_self = self.get(key.aff_to(AfflictionCondition.SELF))
             if key.mono == MonoCondition.MONO:
-                value._mono_to_any = self.get(key.mono_to_any())
+                value._mono_to_any = self.get(key.mono_to(MonoCondition.ANY))
             value._default = self.get(DEFAULT_CONDITONS)
 
     def get_preferred_entry(self, conditions):
@@ -574,7 +592,11 @@ class EquipManager(dict):
         except ValueError:
             return
         new_build = build_from_sim(adv, real_d)
-        changed = self[conditions].accept_new_build(new_build, adv)
+        if conditions.aff == AfflictionCondition.SELF and not adv.uses_affliction():
+            for aff in (AfflictionCondition.IMMUNE, AfflictionCondition.ALWAYS):
+                changed = self[conditions.aff_to(aff)].accept_new_build(new_build, adv)
+        else:
+            changed = self[conditions].accept_new_build(new_build, adv)
         if changed:
             self.save_equip_json()
 
@@ -668,10 +690,12 @@ def convert_from_existing(advname):
             except KeyError:
                 continue
         conf.update(condition.get_conf())
-        pprint(conf)
+        if DEBUG:
+            pprint(conf)
         adv, real_d, _ = core.simulate.test(advname, advmodule, conf, 180, 5)
         equip_manager.accept_new_entry(adv, real_d)
-        print("=" * 100)
+        if DEBUG:
+            print("=" * 100)
 
 
 if __name__ == "__main__":
