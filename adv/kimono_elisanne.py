@@ -27,7 +27,7 @@ class Kimono_Elisanne(Adv):
 
     def s1_proc(self, e):
         try:
-            add_lv = min(3 - self.ny_buff.level, int(e.group[-1]))
+            add_lv = min(4 - self.ny_buff.level, int(e.group[-1]))
         except ValueError:
             add_lv = 1
         for _ in range(add_lv):

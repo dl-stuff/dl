@@ -1237,6 +1237,7 @@ class MultiLevelBuff:
             log("resume", self.pause_by, self.pause_time, now() + self.pause_time)
         self.pause_time = -1
 
+    @allow_acl
     def timeleft(self, level=None):
         level = level or self.level
         if len(self.buffs) + 1 > level > 0:
@@ -1333,6 +1334,7 @@ class AmpBuff:
             return self.buffs[level - 1].get()
         return False
 
+    @allow_acl
     def timeleft(self, kind=TEAM_AMP):
         level = self.level(kind, adjust=False)
         if level > 0:
