@@ -2137,7 +2137,7 @@ class Adv(object):
             amp_id = amp_data[0][0]
             try:
                 amp_buff = self.active_buff_dict.get_amp(amp_id)
-                amp_buff.on(amp_data, self.conf["fleet"])
+                amp_buff.on(amp_data, self.conf["fleet"] or 0)
             except KeyError:
                 amp_buff = AmpBuff(*amp_data, source=name)
                 self.active_buff_dict.add_amp(base, group, aseq, amp_buff.on(amp_data), amp_id)
