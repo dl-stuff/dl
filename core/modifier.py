@@ -1237,9 +1237,10 @@ class MultiLevelBuff:
             log("resume", self.pause_by, self.pause_time, now() + self.pause_time)
         self.pause_time = -1
 
-    def timeleft(self):
-        if self.level > 0:
-            return self.buffs[self.level - 1].timeleft()
+    def timeleft(self, level=None):
+        level = level or self.level
+        if len(self.buffs) + 1 > level > 0:
+            return self.buffs[level - 1].timeleft()
         return 0
 
 
