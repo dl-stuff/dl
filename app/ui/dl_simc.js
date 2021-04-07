@@ -21,8 +21,9 @@ const AFFLICT_COLORS = {
     stormlash: 'olivedrab',
     scorchrend: 'coral'
 };
-
 const GITHUB_COMMIT_LOG = 'https://api.github.com/repos/dl-stuff/dl/commits?page=1'
+let PIC_INDEX = null;
+
 function populateAdvSelect(data) {
     let options = [];
     for (let d of Object.keys(data)) {
@@ -81,44 +82,35 @@ function populateSelect(id, data, allowNone) {
     $(id).empty();
     $(id).append(options);
 }
-function getIcon(icon, category, css) {
-    return $('<img/>').attr({ src: `/dl-sim/pic/${category}/${icon}.png`, class: css !== undefined ? `slot-icon ${css}` : 'slot-icon' });
+function getIcon(qual, css) {
+    return $('<img/>').attr({ src: `/dl-sim/pic/${PIC_INDEX[qual].icon}`, class: css !== undefined ? `slot-icon ${css}` : 'slot-icon' });
 }
 function slotsTextFmt(result) {
-    return `[${result.drg.name}][${result.wep.name}][${result.wps.map((wp) => wp.name).join('+')}][${result.coabs.map((coab) => coab.name).join('|')}][${result.share.map((ss, i) => `S${i + 3}:${ss.name}`).join('|')}]`;
+    return `[${PIC_INDEX[result.drg].name}][${PIC_INDEX[result.wep].name}][${result.wps.map((wp) => PIC_INDEX[wp].name).join('+')}][${result.coabs.map((coab) => PIC_INDEX[coab].name).join('|')}][${result.share.map((ss, i) => `S${i + 3}:${PIC_INDEX[ss].name}`).join('|')}]`;
 }
-
 function makeVisualResultItem(result) {
     console.log(result);
     const visualResult = $('<div></div>').attr({ class: 'test-result-item' });
     const iconRow = $('<h4 class="test-result-slot-grid"></h4>');
     const charaDiv = $('<div></div>');
-    charaDiv.append(getIcon(result.adv.icon, "character", "character"));
+    charaDiv.append(getIcon(result.adv, "character"));
     iconRow.append(charaDiv);
-    iconRow.append(`<div>${result.adv.name}</div>`);
+    iconRow.append(`<div>${PIC_INDEX[result.adv].name}</div > `);
     const iconDiv = $('<div></div>');
-    iconDiv.append(getIcon(result.drg.icon, "dragon", "dragon"));
-    iconDiv.append(getIcon(result.wep.icon, "weapon", "weapon"));
+    iconDiv.append(getIcon(result.drg, "dragon"));
+    iconDiv.append(getIcon(result.wep, "weapon"));
     for (const wp of result.wps) {
-        iconDiv.append(getIcon(wp.icon, "amulet"));
+        iconDiv.append(getIcon(wp, "amulet"));
     }
     if (result.coabs.length > 0) {
         iconDiv.append(' | ');
     }
     for (const coab of result.coabs) {
-        if (coab.icon) {
-            iconDiv.append(getIcon(coab.icon, "character", "coab unique"));
-        } else {
-            iconDiv.append(getIcon(coab.name, "coabs", "coab generic"));
-        }
+        iconDiv.append(getIcon(coab, "coab"));
     }
     iconDiv.append(' | ');
     for (const ss of result.share) {
-        if (ss.icon) {
-            iconDiv.append(getIcon(ss.icon, "character", "skillshare"));
-        } else {
-            iconDiv.append(getIcon("weaponskill", "icons", "skillshare"));
-        }
+        iconDiv.append(getIcon(ss, "skillshare"));
     }
     iconRow.append(iconDiv);
     visualResult.append(iconRow);
@@ -127,7 +119,7 @@ function makeVisualResultItem(result) {
     const totalDPS = $(`<span class="dps-num">${result.dps}</span>`).data('total', result.dps);
     metaRow.append(totalDPS);
     metaRow.append(` - ${Math.round(result.real * 100) / 100}s`);
-    if (result.stats) {
+    if (result.stats.length > 0) {
         metaRow.append(' |');
     }
     for (const stat in result.stats) {
@@ -183,9 +175,6 @@ function makeVisualResultItem(result) {
 
     return visualResult
 }
-// **Tiki 180s**  [Gala Reborn Poseidon][Futsu no Mitama][Memory of a Friend+Sisters' Day Out+Twinfold Bonds+A Passion for Produce+His Clever Brother][Blade|Xander|Yurius][S3:Weapon|S4:Summer Julietta]```DPS: 86185 (frostbite:100.0%, bog:2.2%)
-// 70 bog res & 0 frostbite res & hit15 | dragon damage does not work on divine_dragon
-// x: 64|x_ddrive: 32797|fs: 27|s1: 171|s1_ddrive: 27974|s1_ddrive_frostbite: 3337|s2_ddrive: 20313|s4: 1303|dx: 193```
 function makeTextResultItem(result) {
     let copyText = `**${result.adv.name} ${result.real}s**\n${slotsTextFmt(result)}`;
     copyText += '```';
@@ -401,7 +390,7 @@ function loadAdvWPList() {
                 populateSelect('#input-wp7', advwp.wyrmprints.formC, true);
                 populateSkillShare(advwp.skillshare);
                 clearResults();
-                loadAdvSlots(true);
+                loadAdvSlots(true, true);
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -442,6 +431,7 @@ function readEquipCondition() {
     }
 }
 function setSlotUI(ui) {
+    console.log(ui);
     if (ui.afflict_res) {
         for (const key in ui.afflict_res) {
             const res = ui.afflict_res[key];
@@ -458,11 +448,13 @@ function setSlotUI(ui) {
             $('#input-sim-' + aff).val(ui.sim_afflict[aff]);
         }
     }
-    if (ui.specialmode) {
-        $('#input-specialmode-' + ui.specialmode).prop('selected', true);
+    for (const selKey of ['specialmode', 'aff', 'sit', 'opt']) {
+        if (ui[selKey]) {
+            $(`#input-${selKey}-${ui[selKey]}`).prop('selected', true);
+        }
     }
 }
-function loadAdvSlots(no_conf) {
+function loadAdvSlots(no_conf, default_equip) {
     if ($('#input-adv').val() == '') {
         return false;
     }
@@ -477,7 +469,9 @@ function loadAdvSlots(no_conf) {
     const requestJson = {
         'adv': adv_name
     };
-    requestJson['equip'] = readEquipCondition();
+    if (!default_equip) {
+        requestJson['equip'] = readEquipCondition();
+    }
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {
         requestJson['t'] = t;
@@ -957,7 +951,7 @@ function resetTest() {
     updateUrl();
     clearResults();
     populateVariantSelect($('#adv-' + $('#input-adv').val()).data('variants'));
-    loadAdvSlots(true);
+    loadAdvSlots(true, true);
 }
 function weaponSelectChange() {
     const weapon = $('#input-wep').val();
@@ -1038,6 +1032,10 @@ function toggleAffRes() {
     $('#affliction-resist input[type="text"]').each(function (idx, res) { $(res).val(newVal); });
 }
 window.onload = function () {
+    PIC_INDEX = $.getJSON("/dl-sim/pic/index.json", function (data) {
+        PIC_INDEX = data;
+    });
+
     $('#input-adv').change(debounce(resetTest, 100));
     for (const ekey of ["opt", "aff", "sit", "mono"]) {
         $(`#input-${ekey}`).change(debounce(reloadSlots, 100));

@@ -30,13 +30,8 @@ DOT_AFFLICT = ["poison", "paralysis", "burn", "frostbite"]
 S_ALT = "†"
 
 
-def run_once(name, module, conf, duration, equip_conditions=None):
-    adv = module(
-        name=name,
-        conf=conf,
-        duration=duration,
-        equip_conditions=equip_conditions,
-    )
+def run_once(name, module, conf, duration, equip_conditions=None, opt_mode=None):
+    adv = module(name=name, conf=conf, duration=duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     real_d = adv.run()
     return adv, real_d
 
@@ -45,13 +40,8 @@ def run_once(name, module, conf, duration, equip_conditions=None):
 import multiprocessing
 
 
-def run_once_mass(name, module, conf, duration, cond, equip_conditions, idx):
-    adv = module(
-        name=name,
-        conf=conf,
-        duration=duration,
-        equip_conditions=equip_conditions,
-    )
+def run_once_mass(name, module, conf, duration, equip_conditions, opt_mode, idx):
+    adv = module(name=name, conf=conf, duration=duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     real_d = adv.run()
     return adv.logs, real_d
 
@@ -82,21 +72,12 @@ def avg_logs(log, mass):
     return log
 
 
-def run_mass(
-    mass,
-    base_log,
-    base_d,
-    name,
-    module,
-    conf,
-    duration,
-    equip_conditions=None,
-):
+def run_mass(mass, base_log, base_d, name, module, conf, duration, equip_conditions=None, opt_mode=None):
     mass = 1000 if mass == 1 else mass
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
         for log, real_d in pool.starmap(
             run_once_mass,
-            [(name, module, conf, duration, equip_conditions, idx) for idx in range(mass - 1)],
+            [(name, module, conf, duration, equip_conditions, opt_mode, idx) for idx in range(mass - 1)],
         ):
             base_log = sum_logs(base_log, log)
             base_d += real_d
@@ -139,15 +120,16 @@ def run_mass(
 #     return adv, real_d
 
 
-def run_once_and_mass(name, module, conf, duration, mass, equip_conditions, result_by_cond):
-    adv, real_d = run_once(name, module, conf, duration, equip_conditions=equip_conditions)
+def run_once_and_mass(name, module, conf, duration, mass, equip_conditions, opt_mode, result_by_cond):
+    adv, real_d = run_once(name, module, conf, duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     if mass:
-        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, equip_conditions=equip_conditions)
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
+    new_build = adv.equip_manager.accept_new_entry(adv, real_d)
     result_by_cond[str(equip_conditions)] = report(adv, real_d)
-    return adv, real_d
+    return adv, real_d, new_build
 
 
-def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.stdout, equip_conditions=None):
+def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.stdout, equip_conditions=None, opt_mode=None):
     if verbose == 2:
         # output.write(adv._acl_str)
         adv = module(name=name)
@@ -156,15 +138,17 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
         return
     if verbose == -5:
         equip_conditions = DEFAULT_CONDITONS
-    adv, real_d = run_once(name, module, conf, duration, equip_conditions=equip_conditions)
+    adv, real_d = run_once(name, module, conf, duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     if verbose == 1:
         adv.logs.write_logs(output=output)
         act_sum(adv.logs.act_seq, output)
         return
+    if verbose == 4:
+        return adv, real_d
     if verbose == 5:
         return adv, real_d, report(adv, real_d)
     if mass:
-        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, equip_conditions=equip_conditions)
+        adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     if verbose == -2:
         report(adv, real_d, output)
         return
@@ -174,29 +158,29 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
             aff = AfflictionCondition.SELF
             econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
             if econd_base != DEFAULT_CONDITONS:
-                adv, real_d = run_once_and_mass(name, module, conf, duration, mass, econd_base, result_by_cond)
+                adv, real_d, new_build = run_once_and_mass(name, module, conf, duration, mass, econd_base, opt_mode, result_by_cond)
             econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
             if not adv.equip_manager[econd_mono].empty:
-                run_once_and_mass(name, module, conf, duration, mass, econd_mono, result_by_cond)
+                run_once_and_mass(name, module, conf, duration, mass, econd_mono, opt_mode, result_by_cond)
             else:
                 result_by_cond[str(econd_mono)] = result_by_cond[str(econd_base)]
 
-            if adv.afflics.get_uptimes():
-                for aff in (AfflictionCondition.ALWAYS, AfflictionCondition.IMMUNE):
-                    econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
-                    if econd_base != DEFAULT_CONDITONS:
-                        run_once_and_mass(name, module, conf, duration, mass, econd_base, result_by_cond)
-                    econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
-                    if not adv.equip_manager[econd_mono].empty:
-                        run_once_and_mass(name, module, conf, duration, mass, econd_mono, result_by_cond)
-                    else:
-                        result_by_cond[str(econd_mono)] = result_by_cond[str(econd_base)]
-            else:
+            if new_build.equip_metadata.noaff:
                 for aff in (AfflictionCondition.ALWAYS, AfflictionCondition.IMMUNE):
                     aff_econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
                     result_by_cond[str(aff_econd_base)] = result_by_cond[str(econd_base)]
                     aff_econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
                     result_by_cond[str(aff_econd_mono)] = result_by_cond[str(econd_mono)]
+            else:
+                for aff in (AfflictionCondition.ALWAYS, AfflictionCondition.IMMUNE):
+                    econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
+                    if econd_base != DEFAULT_CONDITONS:
+                        run_once_and_mass(name, module, conf, duration, mass, econd_base, opt_mode, result_by_cond)
+                    econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
+                    if not adv.equip_manager[econd_mono].empty:
+                        run_once_and_mass(name, module, conf, duration, mass, econd_mono, opt_mode, result_by_cond)
+                    else:
+                        result_by_cond[str(econd_mono)] = result_by_cond[str(econd_base)]
 
         if verbose == -25:
             # json.dump(result_by_cond, output, indent=4)

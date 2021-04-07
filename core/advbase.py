@@ -1024,6 +1024,7 @@ class Adv(object):
         if self.berserk_mode:
             return
         if "sim_afflict" in self.conf:
+            print("self.conf.sim_afflict", self.conf.sim_afflict)
             if self.conf.sim_afflict["onele"]:
                 aff_type = globalconf.ELE_AFFLICT[self.conf.c.ele]
                 aff = vars(self.afflics)[aff_type]
@@ -1313,7 +1314,7 @@ class Adv(object):
         return cc * att * k
 
     def uses_affliction(self):
-        return bool(self.afflics.get_uptimes()) or any((vars(self.afflics)[afflic].get() > 0 for afflic in AFFLICT_LIST))
+        return bool(self.afflics.get_attempts()) or any((self.mod(f"{afflic}_killer") > 1 for afflic in AFFLICT_LIST))
 
     def build_rates(self, as_list=True):
         rates = {}

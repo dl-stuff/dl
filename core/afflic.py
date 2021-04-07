@@ -101,6 +101,8 @@ class AfflicBase:
 
         self.c_uptime = (0, 0)
         self.last_afflict = 0
+        self.attempts = 0
+
         self.event = Event(self.name)
 
         self.get_override = 0
@@ -182,6 +184,7 @@ class AfflicUncapped(AfflicBase):
         self.update()
 
     def on(self):
+        self.attempts += 1
         if self.states is None:
             self.states = defaultdict(lambda: 0.0)
             self.states[self.resist] = 1.0
@@ -238,6 +241,7 @@ class AfflicCapped(AfflicBase):
             log("cc", self.name, self.get() or "end")
 
     def on(self):
+        self.attempts += 1
         timer = Timer(self.stack_end, self.duration).on()
         if self.states is None:
             self.states = defaultdict(lambda: 0.0)
@@ -493,4 +497,12 @@ class Afflics(object):
             rate, t = aff.c_uptime
             if rate > 0:
                 uptimes[atype] = rate / t
-        return dict(sorted(uptimes.items(), key=lambda u: u[1], reverse=True))
+        return uptimes.items()
+
+    def get_attempts(self):
+        attempts = {}
+        for atype in AFFLICT_LIST:
+            aff = self.__dict__[atype]
+            if aff.attempts > 0:
+                attempts[atype] = aff.attempts
+        return attempts

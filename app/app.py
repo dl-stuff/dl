@@ -26,6 +26,7 @@ from conf.equip import (
     MonoCondition,
     SituationCondition,
     build_equip_condition,
+    get_equip_manager,
 )
 
 app = Flask(__name__)
@@ -212,7 +213,7 @@ def get_adv_slotlist():
         result["adv"]["pref_coab"] = adv.conf["coabs"] or []
         result["adv"]["pref_share"] = adv.conf["share"] or []
         result["adv"]["acl"] = adv.conf.acl
-        if adv.equip_manager[equip_cond] != opt_mode:
+        if opt_mode is not None and adv.equip_manager[equip_cond] != opt_mode:
             tdps = adv.equip_manager[equip_cond].tdps
             if tdps and 0 <= tdps <= 200000:
                 result["adv"]["tdps"] = tdps
@@ -242,6 +243,12 @@ def get_adv_slotlist():
             result["ui"]["sim_afflict"] = {aff: 100 for aff in adv.sim_afflict}
         if equip_cond.sit == SituationCondition.NIHILISM:
             result["ui"]["specialmode"] = "nihilism"
+        result["ui"]["aff"] = str(equip_cond.aff)
+        result["ui"]["sit"] = str(equip_cond.sit)
+        if opt_mode is None:
+            result["ui"]["opt"] = str(adv.equip_manager[equip_cond].pref)
+        else:
+            result["ui"]["opt"] = str(opt_mode)
     return jsonify(result)
 
 
@@ -272,17 +279,8 @@ def get_adv_wp_list():
 
 @app.route("/simc_adv_equip", methods=["GET"])
 def get_adv_equip():
-    return (
-        "<pre>"
-        + json.dumps(
-            load_equip_json(request.args.get("adv", default=None)),
-            ensure_ascii=False,
-            indent=4,
-        )
-        .replace(">", "&gt;")
-        .replace("<", "&lt;")
-        + "</pre>"
-    )
+    equip_manager = get_equip_manager(request.args.get("adv", default=None), request.args.get("variant", default=None))
+    return "<pre>" + equip_manager.display_json().replace(">", "&gt;").replace("<", "&lt;") + "</pre>"
 
 
 @app.route("/simc_git_diff", methods=["GET"])
