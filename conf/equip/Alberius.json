@@ -3,8 +3,8 @@
     "pref": "base",
     "mono_pref": "mono_base",
     "affliction": {
-      "dps": 84574.60075892376,
-      "team": 0.0974277159600595,
+      "dps": 93179.5627142296,
+      "team": 0.09320079333675647,
       "tdps": null,
       "slots.a": [
         "Memory_of_a_Friend",
@@ -15,11 +15,11 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c5-s-end)",
+        "`dragon(c5-s-end), cancel",
         "`s3, not buff(s3)",
-        "`s1,cancel",
-        "`s2",
-        "`s4, fsc",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc and not have_buff(s4_00)",
         "`fs, x=4"
       ],
       "coabs": [
@@ -33,11 +33,11 @@
       ]
     },
     "base": {
-      "dps": 78588.12411774562,
+      "dps": 89474.23807552745,
       "team": 0.0,
       "tdps": null,
       "slots.a": [
-        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
         "The_Red_Impulse",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
@@ -45,13 +45,12 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c5-s-end), fsc and dragonform.shift_count<2",
-        "`dragon(c5-s-c5-end), fsc and dragonform.shift_count>=2",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`fs, x=3"
+        "`dragon(c5-s-end), cancel",
+        "`s3, not buff(s3) and cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
       ],
       "coabs": [
         "Cleo",
@@ -64,15 +63,15 @@
       ]
     },
     "buffer": {
-      "dps": 73483.757686304,
-      "team": 0.1041534756734828,
-      "tdps": 49008.12381378053,
+      "dps": 70991.15655066748,
+      "team": 0.19361263997616315,
+      "tdps": 95464.22964500425,
       "slots.a": [
         "An_Ancient_Oath",
-        "Holywyrms_Advent",
+        "The_Red_Impulse",
         "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Beautiful_Nothingness",
+        "Dueling_Dancers"
       ],
       "slots.d": "Ramiel",
       "acl": [
@@ -91,27 +90,26 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "noaffliction": {
-      "dps": 68599.1544401184,
-      "team": 0.08675634879439058,
+      "dps": 79699.93364179447,
+      "team": 0.09320079333675647,
       "tdps": null,
       "slots.a": [
         "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
+        "Memory_of_a_Friend",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Entwined_Flames"
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c5-s-end), fsc and dragonform.shift_count<2",
-        "`dragon(c5-s-c5-end), fsc and dragonform.shift_count>=2",
+        "`dragon(c5-s-end), cancel",
         "`s3, not buff(s3)",
         "`s1, cancel",
-        "`s2, fsc",
+        "`s2, cancel",
         "`s4, fsc",
         "`fs, x=4"
       ],
@@ -123,6 +121,16 @@
       "share": [
         "Weapon",
         "Dragonyule_Lily"
+      ]
+    },
+    "mono_noaffliction": {
+      "dps": 78311.83272315652,
+      "team": 0.09320079333675647,
+      "tdps": null,
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
       ]
     }
   }

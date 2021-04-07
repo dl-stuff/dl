@@ -232,6 +232,8 @@ class Buff(object):
         self.buffevent = Event("buff")
         self.pause_time = -1
         self.refresh_time = -1
+
+        self.extra_effect_off_list = []
         # self.on()
 
     def logwrapper(self, *args):
@@ -339,12 +341,18 @@ class Buff(object):
         else:
             return self.modifier and self.modifier.off()
 
+    def extra_effect_off(self, callback):
+        self.extra_effect_off_list.append(callback)
+
     def buff_end_proc(self, e):
         self.logwrapper(
             self.name,
             f"{self.mod_type}({self.mod_order}): {self.value():.02f}",
             "buff end <timeout>",
         )
+        for extra in self.extra_effect_off_list:
+            extra()
+        self.effect_off()
         self.__active = 0
 
         if self.__stored:
@@ -357,7 +365,6 @@ class Buff(object):
                 f"{self.mod_type}({self.mod_order}): {value:.02f}",
                 f"buff stack <{stack}>",
             )
-        self.effect_off()
 
     def count_team_buff(self):
         if self.bufftype == "self":
@@ -467,7 +474,10 @@ class Buff(object):
     def timeleft(self):
         return -1 if self.duration == -1 else (self.buff_end_timer.timing - now())
 
-    def add_time(self, delta):
+    def add_time(self, delta, capped=False):
+        if capped:
+            elapsed = self.buff_end_timer.elapsed()
+            delta = min(elapsed + delta, self.duration) - elapsed
         self.buff_end_timer.add(delta)
 
     def pause(self):
@@ -1067,6 +1077,10 @@ class MultiBuffManager:
                     self.pause_by = b.name
                     self.pause_time = -1
 
+    def extra_effect_off(self, effect_off):
+        for b in self.buffs:
+            b.extra_effect_off(effect_off)
+
     def on(self, duration=None):
         # print([(b.name, b.get()) for b in self.buffs])
         for b in self.buffs:
@@ -1177,6 +1191,13 @@ class MultiLevelBuff:
     def __init__(self, name, buffs):
         self.name = name
         self.buffs = buffs or []
+        for buff in self.buffs:
+            buff.extra_effect_off(self.effect_off)
+
+    def effect_off(self):
+        level = self.level - 2
+        if level >= 0:
+            self.buffs[level].on()
 
     @property
     def level(self):
@@ -1224,9 +1245,11 @@ class MultiLevelBuff:
             log("resume", self.pause_by, self.pause_time, now() + self.pause_time)
         self.pause_time = -1
 
-    def timeleft(self):
-        if self.level > 0:
-            return self.buffs[self.level - 1].timeleft()
+    @allow_acl
+    def timeleft(self, level=None):
+        level = level or self.level
+        if len(self.buffs) + 1 > level > 0:
+            return self.buffs[level - 1].timeleft()
         return 0
 
 
@@ -1235,37 +1258,37 @@ class AmpBuff:
     TEAM_AMP = "team"
 
     def __init__(self, meta_args, amp_values, source=None):
-        self.amp_id, self.publish_level, self.max_team_level, self.mod_type, self.mod_order = meta_args
+        self.amp_id, self.publish_level, self.max_team_level, self.extend_time, self.mod_type, self.mod_order = meta_args
         self.publish_level -= 1
         self.buffs = []
-        self.name = f"{source}_{self.mod_type}_amp"
+        self.name = f"{self.mod_type}_amp"
         for idx, buffargs in enumerate(amp_values):
-            buff = Teambuff(f"{self.name}_lv{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
+            buff = Teambuff(f"{self.name}_seq{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
             buff.hidden = True
             buff.modifier.buff_capped = False
             self.buffs.append(buff)
         self.max_len = self.publish_level + self.max_team_level
 
-    def iterate_buffs(self, kind=None):
+    def iterate_buffs(self, kind=None, adjust=True):
+        base = 0
         if kind == AmpBuff.SELF_AMP:
             idx_range = range(0, self.publish_level)
         elif kind == AmpBuff.TEAM_AMP:
-            idx_range = range(self.publish_level, self.max_len)
+            idx_range = range(self.publish_level, self.publish_level + self.max_team_level)
+            base = self.publish_level if adjust else 0
         else:
             idx_range = range(0, self.max_len)
         for idx in idx_range:
-            yield idx, self.buffs[idx]
+            yield idx - base, self.buffs[idx]
 
     def level(self, kind=None, adjust=True):
         level = -1
-        for idx, buff in self.iterate_buffs(kind):
+        for idx, buff in self.iterate_buffs(kind, adjust=adjust):
             if buff.get():
                 level = idx
-        if adjust and level >= self.publish_level:
-            level -= self.publish_level
         return min(level + 1, len(self.buffs))
 
-    def toggle_buffs(self, kind, level=-1):
+    def toggle_buffs(self, kind, level):
         buff_value = 0
         buff_time = 0
         for idx, b in self.iterate_buffs(kind):
@@ -1280,17 +1303,20 @@ class AmpBuff:
         if level < 0:
             return " lv0"
         else:
-            if level >= self.publish_level:
-                level -= self.publish_level
             return f" lv{level + 1}({buff_value:.2f}/{buff_time:.2f}s)"
 
-    def on(self, duration=None):
+    def on(self, amp_data, fleet=0):
+        # update max team level to new incoming amp
+        self.max_team_level = max(amp_data[0][2], self.max_team_level)
+
         self_level = self.level(AmpBuff.SELF_AMP)
         team_level = self.level(AmpBuff.TEAM_AMP)
         if self_level >= self.publish_level:
             self_level = -1
+            # more amp from fleet
+            team_level += fleet
             team_level = min(team_level, self.max_team_level - 1)
-            team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, self.publish_level + team_level)
+            team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level)
         else:
             if team_level > 0:
                 buff_value = self.buffs[self.publish_level + team_level - 1].get()
@@ -1319,6 +1345,7 @@ class AmpBuff:
             return self.buffs[level - 1].get()
         return False
 
+    @allow_acl
     def timeleft(self, kind=TEAM_AMP):
         level = self.level(kind, adjust=False)
         if level > 0:
