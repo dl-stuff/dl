@@ -11,7 +11,6 @@ class Kimono_Elisanne(Adv):
                 ElementalTeambuff("ny_prayer_lv3", 0.40, 60, "att", "buff", "flame"),
             ],
         )
-        self.ny_level = 0
         self.ny_haste = Modifier("a1_haste", "sp", "passive", 0).on()
         self.ny_haste.get = self.get_a1_haste
         self.s2_autocharge = self.s2.autocharge_init(276)
@@ -28,7 +27,7 @@ class Kimono_Elisanne(Adv):
 
     def s1_proc(self, e):
         try:
-            add_lv = 3 - self.ny_buff.level + int(e.group[-1])
+            add_lv = min(3 - self.ny_buff.level, int(e.group[-1]))
         except ValueError:
             add_lv = 1
         for _ in range(add_lv):
