@@ -1305,7 +1305,7 @@ class AmpBuff:
         else:
             return f" lv{level + 1}({buff_value:.2f}/{buff_time:.2f}s)"
 
-    def on(self, amp_data):
+    def on(self, amp_data, fleet=0):
         # update max team level to new incoming amp
         self.max_team_level = max(amp_data[0][2], self.max_team_level)
 
@@ -1313,6 +1313,8 @@ class AmpBuff:
         team_level = self.level(AmpBuff.TEAM_AMP)
         if self_level >= self.publish_level:
             self_level = -1
+            # more amp from fleet
+            team_level += fleet
             team_level = min(team_level, self.max_team_level - 1)
             team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level)
         else:
