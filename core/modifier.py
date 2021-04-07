@@ -345,6 +345,7 @@ class Buff(object):
             f"{self.mod_type}({self.mod_order}): {self.value():.02f}",
             "buff end <timeout>",
         )
+        self.effect_off()
         self.__active = 0
 
         if self.__stored:
@@ -357,7 +358,6 @@ class Buff(object):
                 f"{self.mod_type}({self.mod_order}): {value:.02f}",
                 f"buff stack <{stack}>",
             )
-        self.effect_off()
 
     def count_team_buff(self):
         if self.bufftype == "self":
@@ -1177,6 +1177,19 @@ class MultiLevelBuff:
     def __init__(self, name, buffs):
         self.name = name
         self.buffs = buffs or []
+        for buff in self.buffs:
+            self.override_effect_off(buff)
+
+    def override_effect_off(self, buff):
+        o_effect_off = buff.effect_off
+
+        def effect_off():
+            level = self.level - 2
+            if level >= 0:
+                self.buffs[level].on()
+            o_effect_off()
+
+        buff.effect_off = effect_off
 
     @property
     def level(self):
