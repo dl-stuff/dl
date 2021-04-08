@@ -11,6 +11,7 @@ from conf import (
     SKIP_VARIANT,
     get_conf_json_path,
     ELE_AFFLICT,
+    list_advs,
     load_json,
     mono_elecoabs,
 )
@@ -52,7 +53,7 @@ DEFAULT_MONO_COABS = {
 BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
 BUILD_META_KEY = "EQMT"
 
-DEBUG = True
+DEBUG = False
 
 
 def dprint(msg, pretty=False):
@@ -176,6 +177,7 @@ class ConditionTuple(tuple):
         return conf
 
 
+ALL_COND_ENUMS = (AfflictionCondition, SituationCondition, MonoCondition)
 DEFAULT_CONDITONS = ConditionTuple((AfflictionCondition.SELF, SituationCondition.NORMAL, MonoCondition.ANY))
 
 
@@ -256,6 +258,10 @@ class EquipBuild(dict):
         return self[BUILD_META_KEY]["noaff"]
 
     @property
+    def nihil(self):
+        return self[BUILD_META_KEY]["nihil"]
+
+    @property
     def equip_metadata(self):
         return self[BUILD_META_KEY]
 
@@ -263,7 +269,7 @@ class EquipBuild(dict):
 def build_from_sim(adv, real_d):
     ndps = sum(map(lambda v: sum(v.values()), adv.logs.damage.values())) / real_d
     nteam = adv.logs.team_buff / real_d
-    build = {BUILD_META_KEY: {"dps": ndps, "team": nteam, "noaff": not bool(adv.uses_affliction())}}
+    build = {BUILD_META_KEY: {"dps": ndps, "team": nteam, "noaff": not bool(adv.uses_affliction()), "nihil": adv.nihilism}}
     build["slots.a"] = adv.slots.a.qual_lst
     build["slots.d"] = adv.slots.d.qual
     if adv.slots.w.series != adv.slots.DEFAULT_WEAPON:
@@ -407,7 +413,10 @@ class EquipEntry(dict):
     def builds(self, skip_none=False, **kwargs):
         for opt in OpimizationMode:
             build = self.get_build(opt, **kwargs)
-            if not skip_none or not build is None:
+            if kwargs.get("with_conditions"):
+                if not skip_none or not build[0] is None:
+                    yield opt, build
+            elif not skip_none or not build is None:
                 yield opt, build
 
     @property
@@ -479,7 +488,7 @@ class EquipEntry(dict):
             changed = self._aff_to_self.accept_new_build(new_build, adv) or changed
 
         # check against current builds
-        for opt, existing_buildcond in self.builds(with_conditions=True):
+        for opt, existing_buildcond in self.builds(strict=True, with_conditions=True):
             existing_build, existing_cond = existing_buildcond
             if (
                 not existing_build
@@ -581,7 +590,6 @@ def encodable(data, key=None):
 
 class EquipManager(dict):
     EQUIP_DIR = "equip.new"
-    ALL_COND_ENUMS = (AfflictionCondition, SituationCondition, MonoCondition)
 
     def __init__(self, advname, variant=None):
         self._advname = advname
@@ -596,7 +604,7 @@ class EquipManager(dict):
                     pass
         else:
             self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
-        for conditions in map(ConditionTuple, itertools.product(*EquipManager.ALL_COND_ENUMS)):
+        for conditions in map(ConditionTuple, itertools.product(*ALL_COND_ENUMS)):
             self[conditions] = EquipEntry(conditions)
         try:
             for key, value in self.load_equip_json():
@@ -649,7 +657,7 @@ class EquipManager(dict):
             dprint(f"INVALID SIM: {failure!r}")
             return
         try:
-            conditions = ConditionTuple((cond_enum.get_condition(adv) for cond_enum in EquipManager.ALL_COND_ENUMS))
+            conditions = ConditionTuple((cond_enum.get_condition(adv) for cond_enum in ALL_COND_ENUMS))
             dprint(f"ELIGABLE FOR {conditions}")
         except ValueError:
             return
@@ -765,7 +773,7 @@ def convert_from_existing(advname):
         adv, real_d = core.simulate.test(advname, advmodule, conf, 180, 4)
         equip_manager.accept_new_entry(adv, real_d)
         dprint("=" * 100)
-    print(equip_manager.display_json())
+    dprint(equip_manager.display_json())
 
 
 def sha256sum(filename):
@@ -783,16 +791,20 @@ def sha256sum(filename):
 
 
 def n_pass_test(advname):
+    from time import monotonic
+
     new_equip_file = f"./conf/equip.new/{advname}.json"
     try:
         os.remove(new_equip_file)
     except FileNotFoundError:
         pass
-
+    t_start = monotonic()
     equilibrium = 0
+    max_equilibrium = 3
     convert_from_existing(advname)
     sha256 = sha256sum(new_equip_file)
-    while True:
+    print(advname, end="\t", flush=True)
+    while equilibrium < max_equilibrium:
         dprint("")
         dprint("=" * 100)
         dprint("")
@@ -802,7 +814,11 @@ def n_pass_test(advname):
         if sha256 == next_sha256:
             break
         sha256 = next_sha256
-    dprint(f"It took {equilibrium} iterations to achieve equilibrium")
+    print(monotonic() - t_start, flush=True)
+    if equilibrium == max_equilibrium and sha256 != next_sha256:
+        print(f"Failed to achieve equilibrium for {advname}")
+    else:
+        dprint(f"It took {equilibrium} iterations to achieve equilibrium")
     # convert_from_existing(advname)
     # second_pass = sha256sum(new_equip_file)
     # if first_pass != second_pass:
@@ -810,6 +826,10 @@ def n_pass_test(advname):
 
 
 if __name__ == "__main__":
-    advname = sys.argv[1]
+    # advname = sys.argv[1]
     # convert_from_existing(advname)
-    n_pass_test(advname)
+    # n_pass_test("alberius")
+    # python deploy.py lea valerio gala_notte sophie_persona patia chelsea hunter_sarisse noelle hildegarde gala_chelle -c
+    # advlist = ["lea", "valerio", "gala_notte", "sophie_persona", "patia", "chelsea", "hunter_sarisse", "noelle", "hildegarde", "gala_chelle"]
+    for advname in list_advs():
+        n_pass_test(advname)

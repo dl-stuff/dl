@@ -10,6 +10,7 @@ from conf.equip import (
     SituationCondition,
     ConditionTuple,
     DEFAULT_CONDITONS,
+    all_monoele_coabs,
 )
 
 from conf import get_icon, get_fullname
@@ -126,7 +127,7 @@ def run_once_and_mass(name, module, conf, duration, mass, equip_conditions, opt_
         adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     new_build = adv.equip_manager.accept_new_entry(adv, real_d)
     result_by_cond[str(equip_conditions)] = report(adv, real_d)
-    return adv, real_d, new_build
+    return adv, real_d
 
 
 def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.stdout, equip_conditions=None, opt_mode=None):
@@ -158,29 +159,27 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
             aff = AfflictionCondition.SELF
             econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
             if econd_base != DEFAULT_CONDITONS:
-                adv, real_d, new_build = run_once_and_mass(name, module, conf, duration, mass, econd_base, opt_mode, result_by_cond)
+                adv, real_d = run_once_and_mass(name, module, conf, duration, mass, econd_base, opt_mode, result_by_cond)
             econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
-            if not adv.equip_manager[econd_mono].empty:
+            if adv.equip_manager[econd_mono].empty:
+                if all_monoele_coabs(adv.slots.c.ele, result_by_cond[str(econd_base)]["coabs"]):
+                    result_by_cond[str(econd_mono)] = result_by_cond[str(econd_base)]
+            else:
                 run_once_and_mass(name, module, conf, duration, mass, econd_mono, opt_mode, result_by_cond)
-            else:
-                result_by_cond[str(econd_mono)] = result_by_cond[str(econd_base)]
 
-            if new_build.equip_metadata.noaff:
-                for aff in (AfflictionCondition.ALWAYS, AfflictionCondition.IMMUNE):
-                    aff_econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
+            noaff = adv.uses_affliction()
+            for aff in (AfflictionCondition.ALWAYS, AfflictionCondition.IMMUNE):
+                aff_econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
+                if adv.equip_manager[aff_econd_base].empty and noaff:
                     result_by_cond[str(aff_econd_base)] = result_by_cond[str(econd_base)]
-                    aff_econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
-                    result_by_cond[str(aff_econd_mono)] = result_by_cond[str(econd_mono)]
-            else:
-                for aff in (AfflictionCondition.ALWAYS, AfflictionCondition.IMMUNE):
-                    econd_base = ConditionTuple((aff, sit, MonoCondition.ANY))
-                    if econd_base != DEFAULT_CONDITONS:
-                        run_once_and_mass(name, module, conf, duration, mass, econd_base, opt_mode, result_by_cond)
-                    econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
-                    if not adv.equip_manager[econd_mono].empty:
-                        run_once_and_mass(name, module, conf, duration, mass, econd_mono, opt_mode, result_by_cond)
-                    else:
-                        result_by_cond[str(econd_mono)] = result_by_cond[str(econd_base)]
+                else:
+                    run_once_and_mass(name, module, conf, duration, mass, aff_econd_base, opt_mode, result_by_cond)
+                aff_econd_mono = ConditionTuple((aff, sit, MonoCondition.MONO))
+                if adv.equip_manager[aff_econd_mono].empty:
+                    if all_monoele_coabs(adv.slots.c.ele, result_by_cond[str(aff_econd_base)]["coabs"]):
+                        result_by_cond[str(aff_econd_mono)] = result_by_cond[str(aff_econd_base)]
+                else:
+                    run_once_and_mass(name, module, conf, duration, mass, aff_econd_mono, opt_mode, result_by_cond)
 
         if verbose == -25:
             # json.dump(result_by_cond, output, indent=4)
@@ -413,12 +412,12 @@ def damage_counts(real_d, damage, counts, output, res=None):
 
 def compile_stats(adv, real_d, do_buffs=True):
     stats = {}
-    for aff, up in adv.afflics.get_uptimes().items():
+    for aff, up in adv.afflics.get_uptimes():
         stats[aff] = f"{up:.1%}"
     if not do_buffs:
         return stats
     if adv.logs.team_doublebuffs > 0:
-        stats["doublebuff"] = f"every {real_d / adv.logs.team_doublebuffs}s"
+        stats["doublebuff"] = f"every {real_d / adv.logs.team_doublebuffs:2f}s"
     for k, v in adv.logs.team_tension.items():
         stats[k] = int(v)
     return stats
@@ -483,13 +482,10 @@ def write_readable_report(report_dict, output):
 def report(adv, real_d, output=None):
     report_dict = {
         "equip": str(adv.real_equip_conditions),
-        # "adv": adv.slots.c.name_icon(),
-        # "drg": adv.slots.d.name_icon(),
-        # "wep": adv.slots.w.name_icon(),
-        # "wps": adv.slots.a.name_icons(),
-        # "coabs": [{"name": get_fullname(name), "icon": get_icon(name)} for name in adv.slots.c.coab_list],
-        # "share": [{"name": get_fullname(name), "icon": get_icon(name)} for name in adv.skillshare_list],
         "adv": adv.slots.c.qual,
+        "ele": adv.slots.c.ele,
+        "wt": adv.slots.c.wt,
+        "variant": adv.variant,
         "drg": adv.slots.d.qual,
         "wep": adv.slots.w.qual,
         "wps": adv.slots.a.qual_lst,
@@ -499,6 +495,8 @@ def report(adv, real_d, output=None):
         "comment": adv.comment,
         "real": round(real_d, 2),
     }
+    if not report_dict["variant"]:
+        del report_dict["variant"]
     dmg = adv.logs.damage
     report_dict["dps"] = int(dps_sum(dmg, real_d)["dps"])
     report_dict["team"] = adv.logs.team_buff / real_d
@@ -529,7 +527,9 @@ def report(adv, real_d, output=None):
             except:
                 dps_mappings[k] = dmg_val / real_d
     report_dict["slices"] = [(k, int(v)) for k, v in dps_mappings.items()]
-    report_dict["stats"] = compile_stats(adv, real_d)
+    stats = compile_stats(adv, real_d)
+    if stats:
+        report_dict["stats"] = stats
 
     if output:
         write_readable_report(report_dict, output)

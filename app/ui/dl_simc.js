@@ -357,6 +357,7 @@ function populateSkillShare(skillshare) {
 }
 function loadAdvWPList() {
     let selectedAdv = 'Patia';
+    let selectedVariant = null;
     if (localStorage.getItem('selectedAdv')) {
         selectedAdv = localStorage.getItem('selectedAdv');
     }
@@ -367,6 +368,7 @@ function loadAdvWPList() {
             selectedAdv = conf.adv;
         } else if (urlVars.adv_name) {
             selectedAdv = urlVars.adv_name;
+            selectedVariant = urlVars.variant;
         }
         updateUrl(urlVars);
     }
@@ -381,6 +383,9 @@ function loadAdvWPList() {
                 populateAdvSelect(advwp.adv);
                 $('#adv-' + selectedAdv).prop('selected', true);
                 populateVariantSelect($('#adv-' + selectedAdv).data('variants'));
+                if (selectedVariant != null) {
+                    $('#variant-' + selectedVariant).prop('selected', true);
+                }
                 populateSelect('#input-wp1', advwp.wyrmprints.formA);
                 populateSelect('#input-wp2', advwp.wyrmprints.formA);
                 populateSelect('#input-wp3', advwp.wyrmprints.formA);

@@ -1024,7 +1024,6 @@ class Adv(object):
         if self.berserk_mode:
             return
         if "sim_afflict" in self.conf:
-            print("self.conf.sim_afflict", self.conf.sim_afflict)
             if self.conf.sim_afflict["onele"]:
                 aff_type = globalconf.ELE_AFFLICT[self.conf.c.ele]
                 aff = vars(self.afflics)[aff_type]

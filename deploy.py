@@ -5,7 +5,8 @@ import argparse
 from time import monotonic, time_ns
 import core.simulate
 from conf import ROOT_DIR, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS, SKIP_VARIANT
-from conf.equip import get_equip_manager
+from conf.equip import get_equip_manager, ALL_COND_ENUMS, ConditionTuple
+import itertools
 
 ADV_DIR = "adv"
 CHART_DIR = "www/dl-sim"
@@ -95,29 +96,48 @@ def msg_sort(adv):
 def combine():
     t_start = monotonic()
 
-    dst_dict = {}
-    pages = [str(d) for d in DURATIONS] + ["mono", "sp"]
-    aff = ["_", "affliction", "noaffliction"]
-    for p in pages:
-        dst_dict[p] = {}
-        for a in aff:
-            dst_dict[p][a] = open(os.path.join(ROOT_DIR, CHART_DIR, "page/{}_{}.csv".format(p, a)), "w")
+    # dst_dict = {}
+    # pages = [str(d) for d in DURATIONS] + ["mono", "sp"]
+    # aff = ["_", "affliction", "noaffliction"]
+    # for p in pages:
+    #     dst_dict[p] = {}
+    #     for a in aff:
+    #         dst_dict[p][a] = open(os.path.join(ROOT_DIR, CHART_DIR, "page/{}_{}.json".format(p, a)), "w")
 
+    # for fn in os.listdir(os.path.join(ROOT_DIR, CHART_DIR, "chara")):
+    #     if not fn.endswith(".csv"):
+    #         continue
+    #     with open(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn), "r", encoding="utf8") as chara:
+    #         for line in chara:
+    #             if line[0] == "-":
+    #                 _, c_page, c_aff = line.strip().split(",")
+    #             else:
+    #                 dst_dict[c_page][c_aff].write(line.strip())
+    #                 dst_dict[c_page][c_aff].write("\n")
+
+    # for p in pages:
+    #     for a in aff:
+    #         dst_dict[p][a].close()
+    #         dst_dict[p][a].close()
+    data_by_cond = {str(ConditionTuple(cond)): {} for cond in itertools.product(*ALL_COND_ENUMS)}
+    # ConditionTuple
     for fn in os.listdir(os.path.join(ROOT_DIR, CHART_DIR, "chara")):
-        if not fn.endswith(".csv"):
+        name, ext = os.path.splitext(fn)
+        if not ext == ".json":
             continue
-        with open(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn), "r", encoding="utf8") as chara:
-            for line in chara:
-                if line[0] == "-":
-                    _, c_page, c_aff = line.strip().split(",")
-                else:
-                    dst_dict[c_page][c_aff].write(line.strip())
-                    dst_dict[c_page][c_aff].write("\n")
 
-    for p in pages:
-        for a in aff:
-            dst_dict[p][a].close()
-            dst_dict[p][a].close()
+        with open(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn), "r", encoding="utf8") as chara:
+            try:
+                chara_sim = json.load(chara)
+            except json.JSONDecodeError as e:
+                print(name)
+                raise e
+            for condstr, result in chara_sim.items():
+                data_by_cond[condstr][name] = result
+
+    for condstr, results in data_by_cond.items():
+        with open(os.path.join(ROOT_DIR, CHART_DIR, f"page/{condstr}.json"), "w") as f:
+            json.dump(results, f, separators=(",", ":"))
 
     with open(os.path.join(ROOT_DIR, CHART_DIR, "page/lastmodified.json"), "r+") as f:
         try:
@@ -128,7 +148,7 @@ def combine():
         f.seek(0)
         lastmod["timestamp"] = time_ns() // 1000000
         try:
-            sort_message = [load_adv_json(adv)["c"]["icon"] for adv in sorted(set(lastmod["changed"]), key=msg_sort)]
+            sort_message = sorted(set(lastmod["changed"]), key=msg_sort)
             lastmod["message"] = list(sort_message)
             del lastmod["changed"]
         except KeyError:

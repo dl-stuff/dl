@@ -61,7 +61,7 @@ class Sinoa(Adv):
     def s1_proc(self, e):
         if e.name != "s1" or self.nihilism:
             # use RNG variant when shared/in nihilism
-            buff_args = random.choice(self.s1_buff_args)
+            buff_args = random.choice(self.s1_buffs)
             if buff_args:
                 Teambuff(e.name, *buff_args).on()
             return

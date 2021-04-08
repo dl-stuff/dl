@@ -586,8 +586,8 @@ class Gala_Cat_Sith(DragonBase):
 
     def oninit(self, adv):
         super().oninit(adv)
+        adv.trickery = Gala_Cat_Sith.MAX_TRICKERY
         if not adv.nihilism:
-            adv.trickery = Gala_Cat_Sith.MAX_TRICKERY
             threshold = 25
             self.trickery_buff = SingleActionBuff("d_trickery_buff", 1.80, 1, "s", "buff").on()
 
