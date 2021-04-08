@@ -969,7 +969,8 @@ class Adv(object):
     def set_hp(self, hp, percent=True, can_die=False, ignore_dragon=False):
         max_hp = self.max_hp
         if self.conf["flask_env"] and "hp" in self.conf:
-            hp = self.conf["hp"] * max_hp
+            hp = self.conf["hp"]
+            percent=True
         old_hp = self._hp
         if percent:
             hp = max_hp * hp / 100
@@ -1737,13 +1738,14 @@ class Adv(object):
 
         self.sim_buffbot()
 
-        self.set_hp(100)
         if "hp" in self.conf:
             self.set_hp(self.conf["hp"])
             if self.hp == 0:
-                self.condition(f"starting hp=1")
+                self.condition(f"force hp=1")
             else:
-                self.condition(f"starting hp={self.hp}%")
+                self.condition(f"force hp={self.hp}%")
+        else:
+            self.set_hp(100)
 
         for dst_key, prerun in preruns_ss.items():
             prerun(self, dst_key)
