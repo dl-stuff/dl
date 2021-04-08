@@ -283,7 +283,7 @@ function serConf(no_conf) {
         const urlVars = { conf: btoa(JSON.stringify(requestJson)) };
         updateUrl(urlVars);
     }
-
+    console.log(requestJson);
     return requestJson;
 }
 function deserConf(confStr) {
