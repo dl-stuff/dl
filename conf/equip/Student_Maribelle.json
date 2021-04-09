@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 81704.75466797377,
-      "team": 0.04174305567528844,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 56148.53903792181,
+        "team": 0.11122292181271334,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
@@ -25,80 +28,123 @@
         "Gala_Sarisse",
         "Kimono_Elisanne",
         "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 95229.7751585905,
-      "team": 0.04174305567528826,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "buffer": {
-      "dps": 41459.541887509746,
-      "team": 0.11286465629987849,
-      "tdps": 565864.834691999,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Emma",
-        "Panther"
       ],
       "share": [
         "Weapon",
         "Elisanne"
       ]
     },
-    "noaffliction": {
-      "dps": 44585.410924103155,
-      "team": 0.11096473670996025,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81704.75466797377,
+        "team": 0.04174305567528844,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 367821.88928666146,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44128.41401023923,
+        "team": 0.04341504475952409,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 95229.7751585905,
+        "team": 0.04174305567528826,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "tdps": 562482.8931502176,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44585.410924103155,
+        "team": 0.11096473670996025,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Honest_Repose",
@@ -106,16 +152,6 @@
         "Chariot_Drift",
         "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
       "coabs": [
         "Dagger",
         "Emma",
@@ -126,15 +162,12 @@
         "Elisanne"
       ]
     },
-    "mono_buffer": {
-      "dps": 81704.75466797377,
-      "team": 0.04174305567528844,
-      "tdps": null,
-      "coabs": [
-        "Gala_Sarisse",
-        "Kimono_Elisanne",
-        "Marth"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

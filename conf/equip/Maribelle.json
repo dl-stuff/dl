@@ -1,9 +1,46 @@
 {
-  "180": {
-    "base": {
-      "dps": 82377.49725027877,
-      "team": 0.04723887789877951,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 56433.846105070406,
+        "team": 0.11240705610138861,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Lin_You",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 82377.49725027877,
+        "team": 0.04723887789877951,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -31,89 +68,24 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 54139.75352710354,
-      "team": 0.11240705610138849,
-      "tdps": 433305.7099645107,
+    "META": {
+      "tdps": 398103.0598177697,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47384.61934907055,
+        "team": 0.04091187771196635,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Akasha",
-        "Blade",
-        "Lin_You"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "affliction": {
-      "dps": 88909.85035165216,
-      "team": 0.04114005523850942,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Lin_You",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 82377.49725027877,
-      "team": 0.04723887789877951,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Lin_You",
-        "Mona"
-      ]
-    },
-    "noaffliction": {
-      "dps": 63557.127591028235,
-      "team": 0.04499199861640341,
-      "tdps": null,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -135,6 +107,62 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88909.85035165216,
+        "team": 0.04114005523850942,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "META": {
+      "tdps": 455694.83566548565,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64017.779210371285,
+        "team": 0.044991998616403225,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

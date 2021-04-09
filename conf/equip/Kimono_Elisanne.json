@@ -1,11 +1,44 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 55289.026799787396,
-      "team": 0.3883861027768728,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5874.768205728986,
+        "team": 0.7831014304526376,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s1(3), not have_buff(ny_prayer_lv3)",
+        "`s3",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Emma",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55289.026799787396,
+        "team": 0.3883861027768728,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -33,43 +66,23 @@
         "Formal_Joachim"
       ]
     },
-    "buffer": {
-      "dps": 5874.768205728986,
-      "team": 0.7831014304526376,
+    "META": {
       "tdps": 125189.61167540292,
-      "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s1(3), not have_buff(ny_prayer_lv3)",
-        "`s3",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Emma",
-        "Templar_Hope"
-      ]
-    },
-    "affliction": {
-      "dps": 57687.223467662996,
-      "team": 0.2670270335100516,
-      "tdps": null,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31587.163175902562,
+        "team": 0.38989089835364954,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
@@ -77,9 +90,10 @@
       "acl": [
         "`dragon(c1-s-c3-c3-s-c3-end), s=4",
         "`s3, not buff(s3)",
-        "`s1(3), not have_buff(ny_prayer_lv3)",
-        "`s4",
+        "`s1(3), ny_buff.level=0",
+        "`s1(1), ny_buff.timeleft(3)<2",
         "`s2",
+        "`s4",
         "`fs, x=5"
       ],
       "coabs": [
@@ -92,10 +106,51 @@
         "Formal_Joachim"
       ]
     },
-    "noaffliction": {
-      "dps": 34555.29038946899,
-      "team": 0.3940488227614912,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57687.223467662996,
+        "team": 0.2670270335100516,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(c1-s-c3-c3-s-c3-end), s=4",
+        "`s3, not buff(s3)",
+        "`s1(3), not have_buff(ny_prayer_lv3)",
+        "`s4",
+        "`s2",
+        "`fs, x=5"
+      ]
+    },
+    "META": {
+      "tdps": 100397.25971466515,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34542.97835020685,
+        "team": 0.26718408408373384,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -103,7 +158,6 @@
         "Snipers_Allure",
         "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
       "acl": [
         "`dragon(c1-s-c3-c3-s-c3-end), s=4",
         "`s3, not buff(s3)",
@@ -111,26 +165,15 @@
         "`s2",
         "`s4",
         "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Laxi",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 55289.026799787396,
-      "team": 0.3883861027768728,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Gala_Laxi",
-        "Serena"
-      ]
+    "META": {
+      "tdps": 55567.44766627565,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

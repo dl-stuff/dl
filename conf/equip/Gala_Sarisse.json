@@ -1,72 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 51074.376941128736,
-      "team": 0.10819471764286696,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=1 and not s4.check()",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Kimono_Elisanne",
-        "Serena",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 65758.12909567176,
-      "team": 0.1431688815946707,
-      "tdps": null,
-      "slots.a": [
-        "Forest_Bonds",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-c3-c2-s-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, cancel",
-        "`s4, fscf",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 12749.260937615301,
-      "team": 0.44193619521249144,
-      "tdps": 114834.74059803708,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 12749.260937615301,
+        "team": 0.44193619521249144,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
         "Honest_Repose",
@@ -94,27 +34,19 @@
         "Patia"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 7274.107003821481,
-      "team": 0.35642211871292784,
-      "tdps": 176452.19564195035,
-      "coabs": [
-        "Nadine",
-        "The_Prince",
-        "Verica"
-      ]
-    },
-    "noaffliction": {
-      "dps": 33574.21283078541,
-      "team": 0.23172850767530292,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51074.376941128736,
+        "team": 0.10819471764286696,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
+        "A_Man_Unchanging",
         "Forest_Bonds",
-        "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Amaterasu_Oblation",
-        "The_Plaguebringer"
+        "Chariot_Drift",
+        "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -127,6 +59,137 @@
         "`dodge, fscf"
       ],
       "coabs": [
+        "Kimono_Elisanne",
+        "Serena",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 114834.74059803708,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11681.846776568174,
+        "team": 0.40060919560227704,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Nadine",
+        "The_Prince",
+        "Verica"
+      ]
+    },
+    "META": {
+      "tdps": 134714.70509756575,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17102.78873560133,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=1 and not s4.check()",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Serena",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61360.587494376196,
+        "team": 0.1082483758444025,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s-c3-c2-s-c3-c3-end), s=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, fscf",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Serena"
+      ]
+    },
+    "META": {
+      "tdps": 145679.0560974539,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33574.21283078541,
+        "team": 0.23172850767530292,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Amaterasu_Oblation",
+        "The_Plaguebringer"
+      ],
+      "coabs": [
         "Blade",
         "Ezelith",
         "Marth"
@@ -136,15 +199,13 @@
         "Emma"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 44932.47137760384,
-      "team": 0.1424855422175685,
-      "tdps": null,
-      "coabs": [
-        "Kimono_Elisanne",
-        "Serena",
-        "Wand"
-      ]
+    "META": {
+      "tdps": 99068.46004138596,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

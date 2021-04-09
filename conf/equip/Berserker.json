@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 55701.5447891023,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<=1",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
-        "`s4, cancel",
-        "`s1, buff(s3) or cancel",
-        "`fs, x=4 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Alex",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 64705.38224240116,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<=1",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "buffer": {
-      "dps": 31745.873483879917,
-      "team": 0.050361261753734926,
-      "tdps": 475676.5512024878,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31745.873483879917,
+        "team": 0.0492333341389829,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -91,13 +33,15 @@
         "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 43016.59641644369,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55701.5447891023,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Jewels_of_the_Sun",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "Luck_of_the_Draw",
@@ -121,6 +65,114 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 486574.223017212,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11799.643554529071,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, buff(s3) or cancel",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Alex",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64705.38224240116,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "tdps": 669455.1432466147,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43016.59641644369,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

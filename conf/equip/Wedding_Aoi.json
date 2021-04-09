@@ -1,68 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 70322.85941931237,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Hastened_Squall"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), x=5",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Ku_Hai",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 75901.63322855446,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c2-s-c3-end), x=5",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
-    },
-    "buffer": {
-      "dps": 9403.435046489647,
-      "team": 0.1147263876314662,
-      "tdps": 530997.4943908567,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9539.74710670861,
+        "team": 0.09866987223280416,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Sisters_Day_Out",
@@ -86,13 +30,15 @@
         "Mikoto"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 58290.27794468161,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70322.85941931237,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "A_Dogs_Day",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
@@ -115,6 +61,112 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 616025.0432795795,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39338.68329347132,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Hastened_Squall"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), x=5",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Ku_Hai",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76993.62219709273,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c2-s-c3-end), x=5",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "META": {
+      "tdps": 683631.9290171143,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58661.47207300739,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Hastened_Squall"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

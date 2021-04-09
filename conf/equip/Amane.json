@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 61815.773108171015,
-      "team": 0.03331190637488843,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61815.773108171015,
+        "team": 0.03331190637488843,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -34,81 +37,17 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 55325.92930832194,
-      "team": 0.18268882009763215,
-      "tdps": 43446.09644228411,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61815.773108171015,
+        "team": 0.03331190637488843,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s), buff(s3, 1) and cancel",
-        "queue prep",
-        "`s2;s3;s1;s4",
-        "end",
-        "`s1",
-        "`s4",
-        "`s3",
-        "`s2"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Cleo"
-      ]
-    },
-    "affliction": {
-      "dps": 76877.98783317309,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
-        "queue prep and not buff(s3)",
-        "`s2;s3;s4;s1",
-        "end",
-        "`s4, cancel",
-        "`s1, cancel or s",
-        "`s2, x=1"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 46148.88082722486,
-      "team": 0.033324286406690336,
-      "tdps": null,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
@@ -134,6 +73,144 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31799.12932061862,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(c3-s), buff(s3, 1) and cancel",
+        "queue prep",
+        "`s2;s3;s1;s4",
+        "end",
+        "`s1",
+        "`s4",
+        "`s3",
+        "`s2"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76877.98783317309,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "queue prep and not buff(s3)",
+        "`s2;s3;s4;s1",
+        "end",
+        "`s4, cancel",
+        "`s1, cancel or s",
+        "`s2, x=1"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 452157.09228687215,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46148.88082722486,
+        "team": 0.033324286406690336,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46148.88082722486,
+        "team": 0.033324286406690336,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

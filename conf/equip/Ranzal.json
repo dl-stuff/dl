@@ -1,38 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 68431.99618649966,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, x>2"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 31974.249802087194,
-      "team": 0.1362508088957582,
-      "tdps": 267578.2014058008,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39017.79249528775,
+        "team": 0.14595547593552227,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -48,19 +22,22 @@
         "`s4, x>2"
       ],
       "coabs": [
-        "Blade",
-        "Sylas",
-        "Templar_Hope"
+        "Dragonyule_Xainfried",
+        "Eleonora",
+        "Mona"
       ],
       "share": [
         "Patia",
         "Vixel"
       ]
     },
-    "affliction": {
-      "dps": 71379.30854193048,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68431.99618649966,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -69,46 +46,6 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), aff(frostbite)",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s4, (x>1 and dgauge<=400) or dgauge>=500",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_noaffliction": {
-      "dps": 44346.744316591634,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ]
-    },
-    "noaffliction": {
-      "dps": 40961.55335551475,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -125,15 +62,88 @@
         "Jurota"
       ]
     },
-    "mono_buffer": {
-      "dps": 54175.12199793156,
-      "team": 0.005828109797648794,
-      "tdps": 2446226.0807645875,
+    "META": {
+      "tdps": 201528.60660196136,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38390.94541241814,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x>2"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Eleonora",
         "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71379.30854193048,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), aff(frostbite)",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4, (x>1 and dgauge<=400) or dgauge>=500",
+        "`fsf, x=4"
+      ]
+    },
+    "META": {
+      "tdps": 221721.83564348661,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40961.55335551475,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Midgardsormr_Zero"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

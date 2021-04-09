@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 47656.8112797016,
-      "team": 0.08418130252032753,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47656.8112797016,
+        "team": 0.08418130252032753,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -32,64 +35,79 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 6729.250448636286,
-      "team": 0.3770205568090896,
-      "tdps": 139761.18376092977,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47656.8112797016,
+        "team": 0.08418130252032753,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
-        "Proper_Maintenance",
-        "A_Game_of_Cat_and_Boar",
-        "Seaside_Memory"
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Tie_Shan_Gongzhu",
+      "slots.d": "Daikokuten",
       "acl": [
-        "`fs, fs_prep_c and x=3",
+        "`dragon, buff(s3, 1)",
         "`s3",
         "`s4",
-        "`s2"
+        "`s2",
+        "`s1",
+        "`fsf, x=4"
       ],
       "coabs": [
+        "Cleo",
         "Dagger2",
-        "Malora",
-        "Tobias"
+        "Peony"
       ],
       "share": [
-        "Mikoto",
-        "Patia"
+        "Weapon",
+        "Gala_Mym"
       ]
     },
-    "mono_base": {
-      "dps": 41631.655445731754,
-      "team": 0.04162156969590103,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44034.329329417196,
+        "team": 0.07497046996488588,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Peony",
         "Raemond"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 38074.59601227026,
-      "team": 0.07983318255958792,
-      "tdps": 93088.44005487727,
-      "coabs": [
-        "Blade",
-        "Malora",
-        "Peony"
-      ]
-    },
-    "affliction": {
-      "dps": 51941.392225992764,
-      "team": 0.08418130252032753,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12160.196281824066,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
         "Crown_of_Light",
@@ -114,10 +132,18 @@
         "Gala_Mym"
       ]
     },
-    "noaffliction": {
-      "dps": 51941.392225992764,
-      "team": 0.08418130252032753,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51941.392225992764,
+        "team": 0.08418130252032753,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -126,25 +152,14 @@
         "Such_High_Spirits",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s3",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Cleo",
-        "Dagger2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

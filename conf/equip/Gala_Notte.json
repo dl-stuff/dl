@@ -1,11 +1,43 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 73039.9029006407,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44306.99701673595,
+        "team": 0.0942984015511663,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Beautiful_Nothingness"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`s3, not buff (s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72312.04437866894,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
@@ -37,38 +69,125 @@
         "Formal_Joachim"
       ]
     },
-    "buffer": {
-      "dps": 44807.85631401958,
-      "team": 0.0942984015511663,
-      "tdps": 299390.5105729966,
+    "META": {
+      "tdps": 296983.2669617147,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71598.6828952537,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ]
+    },
+    "META": {
+      "tdps": 289418.3297869507,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41176.850376711,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Sweet_Surprise",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Beautiful_Nothingness"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon",
         "`s3, not buff (s3)",
         "`s1",
         "`s2",
-        "`s4"
+        "`s4",
+        "end"
       ],
       "coabs": [
-        "Blade",
+        "Joker",
         "Mona",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Formal_Joachim"
       ]
     },
-    "noaffliction": {
-      "dps": 53092.47321478768,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81161.05724276748,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon, cancel",
+        "`s3, not buff (s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Luca"
+      ]
+    },
+    "META": {
+      "tdps": 390823.80634028587,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52883.85166883977,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
@@ -76,7 +195,6 @@
         "A_Passion_for_Produce",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "if metamorphosis.get()",
         "`s1",
@@ -94,76 +212,15 @@
         "Blade",
         "Mona",
         "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
-    "mono_affliction": {
-      "dps": 81898.59699526764,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
-    },
-    "affliction": {
-      "dps": 81881.40446862046,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "if metamorphosis.get()",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`dragon, cancel",
-        "`s3, not buff (s3)",
-        "`s4",
-        "`s1",
-        "`s2",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Joker",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Luca"
-      ]
-    },
-    "mono_base": {
-      "dps": 72384.74939878799,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 27851.41276254693,
-      "team": 0.037479357202926736,
-      "tdps": 1188209.7228914984,
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Lowen",
-        "Templar_Hope"
-      ]
+    "META": {
+      "tdps": 90954.40125196632,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 53433.20202865073,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8143.902224521582,
+        "team": 0.3834211198292181,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s4, xf",
+        "`s3",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Wand"
+      ],
+      "share": [
+        "Yuya",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53433.20202865073,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -40,46 +74,25 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 8143.902224521582,
-      "team": 0.39961887931093243,
-      "tdps": 113331.2317031218,
-      "slots.a": [
-        "Once_in_a_Lifetime",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(s-end)",
-        "`s4, xf",
-        "`s3",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Wand"
-      ],
-      "share": [
-        "Yuya",
-        "Gala_Elisanne"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 52496.67620669745,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 118118.94927515138,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32814.24719093248,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Valiant_Crown",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -109,6 +122,33 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36453.92662081144,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

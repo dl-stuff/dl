@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 62816.953367202084,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 62816.953367202084,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -30,11 +33,89 @@
         "Summer_Julietta"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 67875.06393438265,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62816.953367202084,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=1 and not s2.check()",
+        "`s3, not buff(s3)",
+        "`s4, s1.check() and s2.check()",
+        "`s1, cancel",
+        "`s2, s=1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Renee",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28562.749027100963,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=1 and not s2.check()",
+        "`s3, not buff(s3)",
+        "`s4, s1.check() and s2.check()",
+        "`s1, cancel",
+        "`s2, s=1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67875.06393438265,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -42,7 +123,6 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if  s=1 and not s2.check()",
         "`dragon(c3-s-c3-c1-end), dragonform.shift_count=0",
@@ -66,35 +146,82 @@
         "Gala_Mym"
       ]
     },
-    "noaffliction": {
-      "dps": 30116.3733121039,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 67875.06393438265,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "if  s=1 and not s2.check()",
+        "`dragon(c3-s-c3-c1-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s4, xf or fscf",
+        "`s1, (xf or fscf or s=2) and buff(s3)",
+        "`s2, s=1",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29924.100232860856,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
         "The_Prince_of_Dragonyule",
         "Chariot_Drift",
         "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=1 and not s2.check()",
-        "`s3, not buff(s3)",
-        "`s4, s1.check() and s2.check()",
-        "`s1, cancel",
-        "`s2, s=1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Summer_Estelle"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

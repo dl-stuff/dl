@@ -1,69 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 83499.98235227467,
-      "team": 0.08688700628812826,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "Amaterasu_Oblation",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-end), s=1 and not s4.check()",
-        "`s3, not buff(s3)",
-        "`s4, s=1",
-        "`s2",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 100046.28846569727,
-      "team": 0.08406604086475848,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "Amaterasu_Oblation",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-end), s=1",
-        "`s3, not buff(s3) and xf=3",
-        "`s4, xf>1",
-        "`s2",
-        "`s1",
-        "`fs, xf>3 and charged_in(fs,s1)"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 59174.29270854581,
-      "team": 0.20834184349917043,
-      "tdps": 200285.88570301322,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59174.29270854581,
+        "team": 0.20834184349917043,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -89,23 +32,25 @@
         "Cleo"
       ]
     },
-    "mono_pref": "mono_buffer",
-    "noaffliction": {
-      "dps": 70546.01576872525,
-      "team": 0.08809508184931583,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 83499.98235227467,
+        "team": 0.08688700628812826,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "Twinfold_Bonds",
         "Amaterasu_Oblation",
-        "Lord_of_the_Skies"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-s-c3-end), s=1",
+        "`dragon(s-s-c3-end), s=1 and not s4.check()",
         "`s3, not buff(s3)",
-        "`s4, xf>1",
+        "`s4, s=1",
         "`s2",
         "`s1"
       ],
@@ -116,8 +61,117 @@
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 200285.88570301322,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22619.481783051688,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "Amaterasu_Oblation",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-c3-end), s=1 and not s4.check()",
+        "`s3, not buff(s3)",
+        "`s4, s=1",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 100046.28846569727,
+        "team": 0.08406604086475848,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Amaterasu_Oblation",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(s-s-c3-end), s=1",
+        "`s3, not buff(s3) and xf=3",
+        "`s4, xf>1",
+        "`s2",
+        "`s1",
+        "`fs, xf>3 and charged_in(fs,s1)"
+      ]
+    },
+    "META": {
+      "tdps": 328881.36620920943,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70546.01576872525,
+        "team": 0.08809508184931583,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "Amaterasu_Oblation",
+        "Lord_of_the_Skies"
+      ],
+      "acl": [
+        "`dragon(s-s-c3-end), s=1",
+        "`s3, not buff(s3)",
+        "`s4, xf>1",
+        "`s2",
+        "`s1"
+      ],
+      "share": [
+        "Weapon",
         "Julietta"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

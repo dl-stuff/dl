@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 55026.06861334843,
-      "team": 0.09992952747656736,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55026.06861334843,
+        "team": 0.09992952747656736,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -32,22 +35,26 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 22166.814574917058,
-      "team": 0.2264247014260625,
-      "tdps": 259766.85918113255,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55026.06861334843,
+        "team": 0.09992952747656736,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Seaside_Memory",
-        "The_Bustling_Hut"
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "PopStar_Siren",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(s), buff(s3, 1) and cancel",
-        "`s3, cancel",
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2, cancel",
         "`s4, cancel",
@@ -55,34 +62,56 @@
       ],
       "coabs": [
         "Blade",
-        "Malora",
-        "Peony"
+        "Peony",
+        "Sharena"
       ],
       "share": [
         "Weapon",
-        "Patia"
+        "Gala_Mym"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 55026.06861334843,
-      "team": 0.09992952747656736,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27677.81841123828,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`fs, c_fs(xihe) and x=5"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
-    "mono_affliction": {
-      "dps": 60284.90038731912,
-      "team": 0.09992952747656736,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Sharena"
-      ]
+    "META": {
+      "pref": "PERSONAL"
     }
   }
 }

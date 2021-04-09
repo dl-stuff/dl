@@ -1,9 +1,41 @@
 {
-  "180": {
-    "base": {
-      "dps": 48052.158855129725,
-      "team": 0.04784525944010616,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4806.395147154845,
+        "team": 0.18247045930412842,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s4",
+        "`s3"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Karl"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48052.158855129725,
+        "team": 0.04784525944010616,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -29,64 +61,48 @@
         "Jurota"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 4806.395147154845,
-      "team": 0.19939525044307194,
-      "tdps": 285356.4254393692,
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s4",
-        "`s3"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Karl"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 48052.158855129725,
-      "team": 0.04784525944010616,
-      "tdps": null,
+    "META": {
+      "tdps": 321230.82269630884,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4240.346201291949,
+        "team": 0.14228199164142535,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Heinwald",
         "Ieyasu",
         "Wand"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 50379.664702438284,
-      "team": 0.049539483631317494,
-      "tdps": null,
-      "coabs": [
-        "Heinwald",
-        "Ieyasu",
-        "Wand"
-      ]
-    },
-    "affliction": {
-      "dps": 46255.90801882575,
-      "team": 0.047845259440106355,
-      "tdps": null,
+    "META": {
+      "tdps": 463927.6649306356,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11915.037911822637,
+        "team": 0.04719380847000913,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Chariot_Drift"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -106,34 +122,72 @@
         "Jurota"
       ]
     },
-    "noaffliction": {
-      "dps": 29170.36671712923,
-      "team": 0.04874507690117558,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11915.037911822637,
+        "team": 0.04719380847000913,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Heinwald",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29170.36671712923,
+        "team": 0.04729244677793622,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
-      ],
-      "coabs": [
-        "Heinwald",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

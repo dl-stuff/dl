@@ -1,49 +1,12 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 74490.46132836441,
-      "team": 0.07871902682712872,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gozu_Tenno",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
-        "`s2",
-        "end",
-        "if not have_buff(shikigami)",
-        "`s1",
-        "end",
-        "`s4",
-        "if not have_buff(gozu_tenno_buff)",
-        "`fst(3),x=1",
-        "else",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Ezelith",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 50911.03853878116,
-      "team": 0.21494140216541638,
-      "tdps": 173095.07877121746,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53716.68380152764,
+        "team": 0.2152252201608582,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -61,21 +24,24 @@
         "`fst(3.1), self.shikigami_gauge<7"
       ],
       "coabs": [
-        "Gala_Laxi",
-        "Nobunaga",
-        "Yuya"
+        "Blade",
+        "Ezelith",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
-    "affliction": {
-      "dps": 76543.82245843962,
-      "team": 0.06610962566515008,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74490.46132836441,
+        "team": 0.07871902682712872,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Me_and_My_Bestie",
+        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "The_Plaguebringer",
@@ -99,34 +65,33 @@
         "end"
       ],
       "coabs": [
-        "Marth",
-        "Nobunaga",
-        "Yuya"
+        "Blade",
+        "Ezelith",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
         "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 74490.46132836441,
-      "team": 0.07871902682712872,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Ezelith",
-        "Kimono_Elisanne"
-      ]
-    },
-    "noaffliction": {
-      "dps": 53966.9682310757,
-      "team": 0.07877073082389945,
-      "tdps": null,
+    "META": {
+      "tdps": 152181.9414892713,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38752.975643639395,
+        "team": 0.012324920422764753,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
@@ -155,6 +120,63 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76543.82245843962,
+        "team": 0.06610962566515008,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "coabs": [
+        "Marth",
+        "Nobunaga",
+        "Yuya"
+      ]
+    },
+    "META": {
+      "tdps": 153083.5103740206,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54060.267050943236,
+        "team": 0.07871902682712872,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

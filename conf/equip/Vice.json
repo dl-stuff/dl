@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 67142.41667088689,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 60629.50178754114,
+        "team": 0.037021397684585865,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67142.41667088689,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -29,18 +64,25 @@
         "Xander"
       ]
     },
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 38888.031850960346,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 175922.98753370525,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 19002.284856602684,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "Jewels_of_the_Sun",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -60,44 +102,32 @@
         "Xander"
       ]
     },
-    "mono_affliction": {
-      "dps": 73521.2225761531,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Wand"
-      ]
-    },
-    "buffer": {
-      "dps": 60629.50178754114,
-      "team": 0.037021397684585865,
-      "tdps": 175922.98753370525,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37487.36701004203,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Seimei"
+        "Snipers_Allure"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

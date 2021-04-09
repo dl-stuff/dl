@@ -1,82 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 82480.47266769843,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sisters_Day_Out",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if divine_dragon.get()",
-        "`s1, aff_timeleft(frostbite)<15",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3)",
-        "`s4, s=2",
-        "`dragon, s=4",
-        "`s2, x=4",
-        "`s1, cancel",
-        "`fs, fs_prep_c and x=4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Xander",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Celliera"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 86184.97235178253,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sisters_Day_Out",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if divine_dragon.get()",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3)",
-        "`s4, s=2",
-        "`dragon, s=4",
-        "`s2, x=4",
-        "`s1, cancel",
-        "`fs, fs_prep_c and x=4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Xander",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "buffer": {
-      "dps": 61455.45178980378,
-      "team": 0.04999118211093306,
-      "tdps": 420574.58915932453,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61455.45178980378,
+        "team": 0.04999118211093306,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sisters_Day_Out",
@@ -109,23 +39,25 @@
         "Cleo"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 42963.56264003934,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 82480.47266769843,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sisters_Day_Out",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Chariot_Drift"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if divine_dragon.get()",
-        "`s1",
-        "`s2",
+        "`s1, aff_timeleft(frostbite)<15",
+        "`s2, cancel",
         "`dodge, x=3",
         "else",
         "`s3, not buff(s3)",
@@ -143,28 +75,134 @@
       ],
       "share": [
         "Weapon",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "tdps": 420574.58915932453,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57618.03578171332,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1, aff_timeleft(frostbite)<15",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, fs_prep_c and x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Xander",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86184.97235178253,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, fs_prep_c and x=4",
+        "end"
+      ],
+      "share": [
+        "Weapon",
         "Summer_Julietta"
       ]
     },
-    "mono_buffer": {
-      "dps": 50758.819966238894,
-      "team": 0.049985676326750286,
-      "tdps": 253867.14131692264,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Hunter_Sarisse"
+    "META": {
+      "tdps": 494677.6514926701,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47215.69590837153,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Chariot_Drift"
+      ],
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1",
+        "`s2",
+        "`dodge, x=3",
+        "else",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, fs_prep_c and x=4",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
       ]
     },
-    "mono_base": {
-      "dps": 63448.540722103964,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Yurius"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

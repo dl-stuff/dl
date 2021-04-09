@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 43771.768809583504,
-      "team": 0.08913853230625812,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43771.768809583504,
+        "team": 0.08913853230625812,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -32,23 +35,30 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 11285.686523236725,
-      "team": 0.14106098003111056,
-      "tdps": 625665.4628167205,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43771.768809583504,
+        "team": 0.08913853230625812,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
-        "Dear_Diary",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Petal_Queen",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife"
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Daikokuten",
       "acl": [
-        "`s4",
+        "`dragon",
         "`s2",
-        "`s3, not buff(s3)"
+        "`s4",
+        "`s1, buff(s3)",
+        "`s3, cancel",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
@@ -57,30 +67,49 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Gala_Mym"
       ]
     },
-    "mono_base": {
-      "dps": 42296.90981207284,
-      "team": 0.08913853230625812,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42296.90981207284,
+        "team": 0.08913853230625812,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Gala_Zena",
         "Peony"
       ]
     },
-    "mono_pref": "mono_base",
-    "affliction": {
-      "dps": 48122.96179286007,
-      "team": 0.08929855295806811,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16755.490904901,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Entwined_Flames",
+        "Such_High_Spirits",
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
@@ -103,40 +132,18 @@
         "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 41303.200012440844,
-      "team": 0.08913853230625812,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 41303.200012440844,
-      "team": 0.08913853230625812,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 41303.200012440844,
-      "team": 0.08913853230625812,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 48122.96179286007,
-      "team": 0.08929855295806811,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48122.96179286007,
+        "team": 0.08929855295806811,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -145,25 +152,64 @@
         "Entwined_Flames",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon",
-        "`s2",
-        "`s4",
-        "`s1, buff(s3)",
-        "`s3, cancel",
-        "`fs, x=5"
-      ],
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40102.46816071674,
+        "team": 0.08929855295806811,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "tdps": 22930169.371036492,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38408.70255654232,
+        "team": 0.08929855295806811,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
-        "Dagger2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+        "Peony",
+        "Wand"
       ]
+    },
+    "META": {
+      "tdps": 24298159.0910364,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

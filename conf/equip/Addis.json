@@ -1,9 +1,42 @@
 {
-  "180": {
-    "base": {
-      "dps": 54200.92911747949,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4499.141531861787,
+        "team": 0.4054084775813902,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Valiant_Crown",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s4",
+        "`s3",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Mona",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Tobias"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54200.92911747949,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
@@ -30,74 +63,24 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 71049.88830623079,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 122596.81366835632,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15618.867031309626,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, not charged_in(3, s2) and (bleed_stack<3 and buff(s2))",
-        "`s4, xf>1",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "buffer": {
-      "dps": 4436.471577052071,
-      "team": 0.4219314958599544,
-      "tdps": 117944.40099571287,
-      "slots.a": [
-        "A_Dogs_Day",
+        "Sweet_Surprise",
         "Valiant_Crown",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Mona",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Tobias"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 44928.79765670244,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "A_Small_Courage",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -119,15 +102,75 @@
         "Formal_Joachim"
       ]
     },
-    "mono_affliction": {
-      "dps": 57485.16062391226,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72051.43312350777,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(2, s1)",
+        "`s1, not charged_in(3, s2) and (bleed_stack<3 and buff(s2))",
+        "`s4, xf>1",
+        "`fsf, xf=5"
+      ],
       "coabs": [
+        "Akasha",
         "Dragonyule_Xainfried",
-        "Lin_You",
         "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
       ]
+    },
+    "META": {
+      "tdps": 166627.72321549224,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45218.540266928736,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "tdps": 100440.42240555289,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

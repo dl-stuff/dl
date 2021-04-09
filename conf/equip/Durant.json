@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 110994.07000412609,
-      "team": 0.17794913714266686,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47380.84713190981,
+        "team": 0.36414174523726706,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5",
+        "`s4"
+      ],
+      "coabs": [
+        "Axe2",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 110994.07000412609,
+        "team": 0.17794913714266686,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -29,39 +63,55 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 47380.84713190981,
-      "team": 0.36414174523726706,
+    "META": {
       "tdps": 341652.78376623767,
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Luck_of_the_Draw",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Fatalis",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x=5",
-        "`s4"
-      ],
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34585.20164369445,
+        "team": 0.331197336619608,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
-        "Axe2",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
+        "Cleo",
+        "Forte",
+        "Joker"
       ]
     },
-    "affliction": {
-      "dps": 119397.579434958,
-      "team": 0.1962638718299208,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79600.75060553581,
+        "team": 0.1597231610592969,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Forte",
+        "Grace",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 262520.8653999823,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 13357.464551529745,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -71,10 +121,10 @@
       ],
       "slots.d": "Epimetheus",
       "acl": [
-        "`dragon(s), s=1",
+        "`dragon(c5-s), s",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2",
+        "`s2, cancel or s",
         "`s4, x=5"
       ],
       "coabs": [
@@ -84,51 +134,73 @@
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 119397.579434958,
+        "team": 0.1962638718299208,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(s), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, x=5"
+      ],
+      "share": [
+        "Weapon",
         "Mikoto"
       ]
     },
-    "mono_base": {
-      "dps": 79600.75060553581,
-      "team": 0.1597231610592969,
-      "tdps": null,
-      "coabs": [
-        "Forte",
-        "Grace",
-        "Wand"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 62967.83978144617,
-      "team": 0.18430062467371877,
-      "tdps": 676754.570163602,
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Joker"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 87853.56582875905,
-      "team": 0.18220318538891797,
-      "tdps": null,
+    "META": {
+      "tdps": 428982.8721400564,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88680.12423294682,
+        "team": 0.16656840400766443,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Delphi",
         "Forte",
         "Joker"
       ]
     },
-    "noaffliction": {
-      "dps": 76852.4915290461,
-      "team": 0.2261613004828259,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
+    "META": {
+      "tdps": 328586.9727210263,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59117.30117618932,
+        "team": 0.2253598203971405,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.d": "Fatalis",
       "acl": [
         "`dragon(s), s=1",
@@ -137,15 +209,17 @@
         "`s2",
         "`s4, x=5"
       ],
-      "coabs": [
-        "Axe2",
-        "Dagger2",
-        "Tobias"
-      ],
       "share": [
         "Weapon",
         "Mikoto"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

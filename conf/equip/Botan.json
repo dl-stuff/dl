@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 59171.69389323424,
-      "team": 0.20787035345848234,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7359.685596724616,
+        "team": 1.192589822101225,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Wily_Warriors_Flash_and_Heat",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`s3, not buff(s3) and prep",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59171.69389323424,
+        "team": 0.20787035345848234,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -30,85 +64,47 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 7359.685596724616,
-      "team": 1.192589822101225,
+    "META": {
       "tdps": 52616.00886994048,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Wily_Warriors_Flash_and_Heat",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`s3, not buff(s3) and prep",
-        "`s2",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
-    },
-    "affliction": {
-      "dps": 62582.335310446026,
-      "team": 0.19254281178756746,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<=1",
-        "`s3, not buff(s3) and prep",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 59171.69389323424,
-      "team": 0.20787035345848234,
-      "tdps": null,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6976.165943072496,
+        "team": 0.9054150785584295,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Delphi",
         "Ieyasu",
         "Wand"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 40505.930684613755,
-      "team": 0.22801433151831324,
-      "tdps": null,
+    "META": {
+      "tdps": 74827.50004694387,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18326.27274619936,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -129,6 +125,76 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62582.335310446026,
+        "team": 0.18686249847992892,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3) and prep",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "tdps": 54908.17283842171,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40505.930684613755,
+        "team": 0.2273694441571031,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "tdps": 34340.598111375584,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

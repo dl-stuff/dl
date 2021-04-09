@@ -1,71 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 66433.08544595417,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s2, s4.check() or s1",
-        "`s1, buff(s3)",
-        "`s4",
-        "`fs, xf=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 71967.51102083772,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), xf>1",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(5,s1) or dgauge>=500",
-        "`s1, buff(s3)",
-        "`s4",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "buffer": {
-      "dps": 38645.41602676204,
-      "team": 0.062454155180422265,
-      "tdps": 444929.07379688387,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39181.70649307119,
+        "team": 0.062454155180422265,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Levins_Champion",
         "Memory_of_a_Friend",
@@ -93,16 +34,18 @@
         "Elisanne"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 37625.5136705278,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66433.08544595417,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "A_Dogs_Day",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Valiant_Crown",
-        "Snipers_Allure",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -125,15 +68,114 @@
         "Jurota"
       ]
     },
-    "mono_buffer": {
-      "dps": 52923.008525188205,
-      "team": 0.017541608476034965,
-      "tdps": 770173.2106963393,
+    "META": {
+      "tdps": 436342.1276639984,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20018.356324113167,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, s4.check() or s1",
+        "`s1, buff(s3)",
+        "`s4",
+        "`fs, xf=5",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Humanoid_Midgardsormr"
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72969.59028821648,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), xf>1",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(5,s1) or dgauge>=500",
+        "`s1, buff(s3)",
+        "`s4",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Akasha",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 541002.9756632894,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37625.5136705278,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

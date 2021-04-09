@@ -1,68 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 27154.931221391653,
-      "team": 0.10331105073788978,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not buff(s1)",
-        "`s2"
-      ],
-      "coabs": [
-        "Blade",
-        "Forte",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 32095.506710211164,
-      "team": 0.059917281452330017,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not buff(s1)",
-        "`s2"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "buffer": {
-      "dps": 6461.445761371017,
-      "team": 0.4230813647050885,
-      "tdps": 64713.591462850185,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6461.445761371017,
+        "team": 0.4230813647050885,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -88,17 +32,19 @@
         "Karl"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 21392.86260936783,
-      "team": 0.11080436111147686,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27154.931221391653,
+        "team": 0.10331105073788978,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
+        "A_Man_Unchanging",
         "An_Ancient_Oath",
-        "Levins_Champion",
         "Memory_of_a_Friend",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "The_Plaguebringer"
       ],
       "slots.d": "Ramiel",
       "acl": [
@@ -118,25 +64,105 @@
         "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 27154.931221391653,
-      "team": 0.10331105073788978,
-      "tdps": null,
+    "META": {
+      "tdps": 64713.591462850185,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10941.985294161852,
+        "team": 0.041657027693314266,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, not buff(s1)",
+        "`s2"
+      ],
       "coabs": [
         "Blade",
         "Forte",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
-    "mono_affliction": {
-      "dps": 31508.892811837417,
-      "team": 0.05998229639091176,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32095.506710211164,
+        "team": 0.059917281452330017,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
       "coabs": [
         "Blade",
-        "Bow",
+        "Dagger",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
       ]
+    },
+    "META": {
+      "tdps": 70585.34180815205,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21392.86260936783,
+        "team": 0.10331105073788978,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Levins_Champion",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,41 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 62148.37995394967,
-      "team": 0.17852263820652733,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon, buff(s3, 1) and cancel",
-        "`s3",
-        "`s4",
-        "`s1, not buff(s1) and x=5",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Peony",
-        "Raemond"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 7278.087302666103,
-      "team": 0.6490467662202198,
-      "tdps": 116615.25814397092,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7278.087302666103,
+        "team": 0.6490467662202198,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -63,14 +34,17 @@
         "Chitose"
       ]
     },
-    "affliction": {
-      "dps": 64330.75769475085,
-      "team": 0.17852263820652733,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62148.37995394967,
+        "team": 0.17852263820652733,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
         "Crown_of_Light",
@@ -85,7 +59,7 @@
         "`s2, x=5"
       ],
       "coabs": [
-        "Blade",
+        "Dagger2",
         "Peony",
         "Raemond"
       ],
@@ -94,35 +68,93 @@
         "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 43732.16782706667,
-      "team": 0.1598233518636348,
-      "tdps": -832569.8008062958,
+    "META": {
+      "tdps": 116615.25814397092,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6652.549778493725,
+        "team": 0.564061113164114,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Dagger",
         "Gala_Zena",
         "Hunter_Vanessa"
       ]
     },
-    "mono_pref": "mono_buffer",
-    "mono_base": {
-      "dps": 59533.80010043936,
-      "team": 0.17880270021144867,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59533.80010043936,
+        "team": 0.17852263820652733,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Peony",
         "Raemond"
       ]
     },
-    "noaffliction": {
-      "dps": 64330.75769475085,
-      "team": 0.17852263820652733,
-      "tdps": null,
+    "META": {
+      "tdps": 137162.0571144375,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3652.740758180776,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "#`dragon(s-end)",
+        "#`s2",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Chitose"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10360.56770728218,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
         "Crown_of_Light",
@@ -137,7 +169,7 @@
         "`s2, x=5"
       ],
       "coabs": [
-        "Blade",
+        "Dagger2",
         "Peony",
         "Raemond"
       ],
@@ -145,6 +177,41 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64330.75769475085,
+        "team": 0.17852263820652733,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Raemond"
+      ]
+    },
+    "META": {
+      "tdps": 121253.44269364332,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,41 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 61167.40006382572,
-      "team": 0.3699796454729959,
-      "tdps": null,
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Luck_of_the_Draw",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-end), fscf",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 9734.983509677733,
-      "team": 1.2264680760980775,
-      "tdps": 60050.33426617523,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9734.983509677733,
+        "team": 1.2264680760980775,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -62,57 +33,19 @@
         "Karl"
       ]
     },
-    "affliction": {
-      "dps": 67526.20313912284,
-      "team": 0.31028775463401265,
-      "tdps": null,
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-end), fscf",
-        "`s3, fscf and not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 9344.645074686536,
-      "team": 1.127728188819516,
-      "tdps": 68390.4382848025,
-      "coabs": [
-        "Audric",
-        "Bow",
-        "Joker"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 49933.67070516557,
-      "team": 0.37496323977288354,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61167.40006382572,
+        "team": 0.3699796454729959,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Brothers_in_Arms",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
         "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -133,6 +66,133 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 60050.33426617523,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9344.645074686536,
+        "team": 1.127728188819516,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Audric",
+        "Bow",
+        "Joker"
+      ]
+    },
+    "META": {
+      "tdps": 68390.4382848025,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11044.46772039814,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67526.20313912284,
+        "team": 0.31028775463401265,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(s-end), fscf",
+        "`s3, fscf and not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "META": {
+      "tdps": 63078.43366150256,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49933.67070516557,
+        "team": 0.36997964547299583,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

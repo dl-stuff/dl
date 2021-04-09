@@ -1,66 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 57258.316218443346,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Taiko_Tandem",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2"
-      ],
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 59862.55220025771,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2, not buff(s2)"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Joker"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    },
-    "buffer": {
-      "dps": 43025.94986674367,
-      "team": 0.11903322366412199,
-      "tdps": 119566.33546159665,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43025.94986674367,
+        "team": 0.11903322366412199,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
@@ -85,24 +31,16 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 32161.732190631188,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Ieyasu"
-      ]
-    },
-    "noaffliction": {
-      "dps": 42760.88963982721,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57258.316218443346,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
+        "A_Man_Unchanging",
         "Candy_Couriers",
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "Taiko_Tandem",
         "The_Queen_of_the_Knife"
@@ -123,6 +61,105 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 119566.33546159665,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16554.73012532494,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Taiko_Tandem",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60569.4675355438,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, not buff(s2)"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "META": {
+      "tdps": 147383.3701950555,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42760.88963982721,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Taiko_Tandem",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

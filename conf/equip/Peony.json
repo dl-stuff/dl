@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 67466.26212595144,
-      "team": 0.15633894080652677,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 67466.26212595144,
+        "team": 0.15633894080652677,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -32,51 +35,75 @@
         "Gala_Luca"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 9785.544610192246,
-      "team": 0.6423024104024049,
-      "tdps": 118693.52559303655,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67466.26212595144,
+        "team": 0.15633894080652677,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "The_Cutie_Competition",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Tie_Shan_Gongzhu",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), buff(s3, 1)",
         "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
         "`s3",
         "`s2, not c_fs(peonydreams)",
-        "`s1, cancel",
-        "`s4"
+        "`s1",
+        "`s4, cancel"
       ],
       "coabs": [
         "Blade",
-        "Bow",
-        "Wand"
+        "Dagger2",
+        "Sharena"
       ],
       "share": [
-        "Templar_Hope",
-        "Patia"
+        "Weapon",
+        "Gala_Luca"
       ]
     },
-    "mono_base": {
-      "dps": 64328.11100367934,
-      "team": 0.19045962536515704,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66483.57477804871,
+        "team": 0.15633894080652677,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Gala_Zena",
         "Sharena"
       ]
     },
-    "mono_pref": "mono_base",
-    "affliction": {
-      "dps": 77049.59348411416,
-      "team": 0.15633894080652677,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20148.92430458784,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -105,15 +132,60 @@
         "Gala_Luca"
       ]
     },
-    "mono_affliction": {
-      "dps": 73592.04617062409,
-      "team": 0.1563759301512967,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 73595.5814476947,
+        "team": 0.15633894080652677,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Raemond",
         "Sharena"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77049.59348411416,
+        "team": 0.15633894080652677,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73595.5814476947,
+        "team": 0.15633894080652677,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Raemond",
+        "Sharena"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
+      }
     }
   }
 }

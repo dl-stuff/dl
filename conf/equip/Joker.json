@@ -1,11 +1,44 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 81993.59603069854,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51774.28059186259,
+        "team": 0.11439012729967919,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, s2.check() and not dragondrive.get()",
+        "`s4",
+        "`s2, cancel",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Verica"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81993.59603069854,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
@@ -32,53 +65,70 @@
         "Formal_Joachim"
       ]
     },
-    "affliction": {
-      "dps": 89778.2451613015,
-      "team": 0.11134417136237768,
-      "tdps": null,
+    "META": {
+      "tdps": 264177.653720652,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21868.15275226448,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get() and dgauge>=1900",
-        "`s2, dragondrive.get() or xf>2",
-        "`s1",
-        "`s4, not energy()=5 and xf=6"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "buffer": {
-      "dps": 51774.28059186259,
-      "team": 0.11439012729967919,
-      "tdps": 264177.653720652,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Snipers_Allure"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get()",
-        "`s4",
+        "`dragon, not dragondrive.get()",
+        "`s4, not buff(s4)",
         "`s2, cancel",
-        "`s1, cancel"
+        "`s1, cancel",
+        "`fs"
+      ],
+      "coabs": [
+        "Gala_Alex",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 89778.2451613015,
+        "team": 0.11134417136237768,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, s2.check() and not dragondrive.get() and dgauge>=1900",
+        "`s2, dragondrive.get() or xf>2",
+        "`s1",
+        "`s4, not energy()=5 and xf=6"
       ],
       "coabs": [
         "Bow",
@@ -87,13 +137,26 @@
       ],
       "share": [
         "Weapon",
-        "Verica"
+        "Dragonyule_Lily"
       ]
     },
-    "noaffliction": {
-      "dps": 57317.38481003782,
-      "team": 0.11134417136237768,
-      "tdps": null,
+    "META": {
+      "tdps": 12476859.597354354,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57317.38481003782,
+        "team": 0.11134417136237768,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -118,6 +181,13 @@
         "Weapon",
         "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,41 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 84260.452686554,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-end), x=5",
-        "`s3, not buff(s3)",
-        "`s1, c_s(1, a) or c_s(1, c)",
-        "`s2, energy()=3 and (c_s(2, b) or c_s(2, d))",
-        "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Nadine"
-      ]
-    },
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "buffer": {
-      "dps": 77749.76473242819,
-      "team": 0.03702674771525517,
-      "tdps": 175837.42445311716,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 77749.76473242819,
+        "team": 0.03702674771525517,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -62,12 +33,15 @@
         "Seimei"
       ]
     },
-    "noaffliction": {
-      "dps": 52252.57359075964,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84260.452686554,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "A_Dogs_Day",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
@@ -92,15 +66,71 @@
         "Nadine"
       ]
     },
-    "mono_affliction": {
-      "dps": 88296.67352477869,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 175837.42445311716,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21417.554011323897,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-end), x=5",
+        "`s3, not buff(s3)",
+        "`s1, c_s(1, a) or c_s(1, c)",
+        "`s2, energy()=3 and (c_s(2, b) or c_s(2, d))",
+        "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
+        "`s4"
+      ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
         "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Nadine"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52581.3487337694,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

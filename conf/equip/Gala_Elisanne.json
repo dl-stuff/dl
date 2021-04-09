@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 45329.31254703193,
-      "team": 0.3220863695267781,
-      "tdps": null,
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Chariot_Drift",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon",
-        "`s2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Summer_Estelle"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "pref": "buffer",
-    "buffer": {
-      "dps": 12328.284197624604,
-      "team": 1.516738745235462,
-      "tdps": 27623.959086701412,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 12328.284197624604,
+        "team": 1.516738745235462,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Gentle_Winds",
         "Sisters_Day_Out",
@@ -61,16 +34,19 @@
         "Mikoto"
       ]
     },
-    "affliction": {
-      "dps": 60317.85177927285,
-      "team": 0.22474127285244144,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45329.31254703193,
+        "team": 0.3220863695267781,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "An_Ancient_Oath",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Chariot_Drift",
+        "From_Whence_He_Comes"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -78,34 +54,91 @@
         "`s2",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1",
-        "`fsf, x=4"
+        "`s1"
       ],
       "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
+        "Blade",
+        "Dagger",
+        "Summer_Estelle"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Summer_Julietta"
       ]
     },
-    "mono_buffer": {
-      "dps": 10956.610821369526,
-      "team": 1.3608563236193472,
-      "tdps": 33089.81126209905,
+    "META": {
+      "tdps": 27623.959086701412,
+      "pref": "TEAMBUFF"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 10956.610821369526,
+        "team": 1.332836654977891,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Bow",
         "Renee",
         "Summer_Estelle"
       ]
     },
-    "mono_pref": "mono_buffer",
-    "noaffliction": {
-      "dps": 60317.85177927285,
-      "team": 0.22474127285244144,
-      "tdps": null,
+    "META": {
+      "tdps": 34007.1155263848,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25391.128213660108,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Chariot_Drift",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60317.85177927285,
+        "team": 0.22474127285244144,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -113,7 +146,6 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon",
         "`s2",
@@ -131,6 +163,56 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "tdps": 37143.70082561698,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50264.876482727384,
+        "team": 0.22474127285244144,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 29362.744971265893,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

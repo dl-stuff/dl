@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 66333.20214821327,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 66333.20214821327,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -32,15 +35,17 @@
         "Ilia"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 74046.5029409453,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66333.20214821327,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "Worthy_Rivals",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
@@ -65,36 +70,100 @@
         "Ilia"
       ]
     },
-    "buffer": {
-      "dps": 43807.173371849014,
-      "team": 0.07219528936843816,
-      "tdps": 312015.2155829162,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25441.92913256069,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon, energy()>3",
-        "`s3, not buff(s3)",
-        "`s4",
+        "`dragon(s-end), energy()=5",
+        "`s3, x=5 and not buff(s3)",
+        "`s4, not energy()=5 or not inspiration()=5",
         "`s1",
-        "`s2, energy()<5",
+        "`s2, fsc and energy()<5",
         "`fs, x=5"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Lucretia",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Odetta"
+        "Ilia"
       ]
     },
-    "mono_pref": "mono_base"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74046.5029409453,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 74046.5029409453,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

@@ -1,11 +1,12 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 80211.02137651738,
-      "team": 0.08587653309952223,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 80211.02137651738,
+        "team": 0.08587653309952223,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -34,10 +35,93 @@
         "Dragonyule_Lily"
       ]
     },
-    "affliction": {
-      "dps": 88808.98767587895,
-      "team": 0.08587653309952223,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80211.02137651738,
+        "team": 0.08587653309952223,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, x>2",
+        "`s4, cancel",
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43148.21597106802,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, x>2",
+        "`s4, cancel",
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88808.98767587895,
+        "team": 0.08587653309952223,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -46,60 +130,50 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s2, x>2",
-        "`s4, cancel",
-        "`fs, s1.check()",
-        "`s1, timeleft(fs)>4"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
-    "buffer": {
-      "dps": 48056.91742264593,
-      "team": 0.15298625488133893,
-      "tdps": 479127.3618807278,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 88808.98767587895,
+        "team": 0.08587653309952223,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Dragon_and_Tamer",
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Taiko_Tandem",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "PopStar_Siren",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2, x>2",
-        "`s4",
-        "`fs, s1.check()",
-        "`s1, timeleft(fs)>4"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ]
     },
-    "noaffliction": {
-      "dps": 66037.57515486504,
-      "team": 0.08587653309952223,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66037.57515486504,
+        "team": 0.08587653309952223,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -108,35 +182,14 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s2, x>2",
-        "`s4, cancel",
-        "`fs, s1.check()",
-        "`s1, timeleft(fs)>4"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
-    "mono_buffer": {
-      "dps": 80211.02137651738,
-      "team": 0.08587653309952223,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

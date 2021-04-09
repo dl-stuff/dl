@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 49509.64338787665,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49509.64338787665,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -31,15 +34,17 @@
         "Sharena"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 68532.28321454795,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49509.64338787665,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
+        "Worthy_Rivals",
         "A_Passion_for_Produce",
         "A_Small_Courage",
         "Crown_of_Light",
@@ -60,28 +65,37 @@
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Sharena"
       ]
     },
-    "buffer": {
-      "dps": 32941.67678815027,
-      "team": 0.02220820719842759,
-      "tdps": 746028.9996258429,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27846.959320623093,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "Seaside_Princess",
+        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Twinfold_Bonds",
+        "Worthy_Rivals",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, s",
+        "`dragon(c3-s-c3-c3-end)",
         "`s3, not buff(s3)",
-        "`s4",
         "`s2",
-        "`s1",
-        "`fs, x=4"
+        "`s1, cancel and buff(s3)",
+        "`s4, cancel"
       ],
       "coabs": [
         "Blade",
@@ -90,9 +104,71 @@
       ],
       "share": [
         "Weapon",
-        "Rodrigo"
+        "Sharena"
       ]
     },
-    "mono_pref": "mono_base"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68532.28321454795,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 68532.28321454795,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

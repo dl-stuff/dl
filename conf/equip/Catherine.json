@@ -1,9 +1,41 @@
 {
-  "180": {
-    "base": {
-      "dps": 74615.68183005479,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 13583.224322579432,
+        "team": 0.6976775591141647,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Renee"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74666.6645625176,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -29,11 +61,42 @@
         "Mikoto"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 13583.224322579432,
-      "team": 0.7109250804019285,
-      "tdps": 85849.35204841847,
+    "META": {
+      "tdps": 87552.53690185377,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72399.88638373374,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Tiki"
+      ]
+    },
+    "META": {
+      "tdps": 84303.50280412247,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7452.136458843015,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Gentle_Winds",
         "Study_Rabbits",
@@ -48,18 +111,96 @@
       ],
       "coabs": [
         "Blade",
-        "Hunter_Sarisse",
-        "Renee"
+        "Dagger",
+        "Hunter_Sarisse"
       ],
       "share": [
         "Templar_Hope",
         "Gala_Elisanne"
       ]
     },
-    "affliction": {
-      "dps": 84780.9634774475,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15644.935644057512,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 7452.136458843015,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84780.96347744748,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -67,7 +208,6 @@
         "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c2-end), s=1",
         "`s2, (s1.check() and ((duration-now)>45)) or (duration-now)<3",
@@ -79,51 +219,15 @@
         "Blade",
         "Hunter_Sarisse",
         "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
       ]
     },
-    "mono_base": {
-      "dps": 72398.29140568036,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Tiki"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 84780.9634774475,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "From_Whence_He_Comes",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c2-end), s=1",
-        "`s2, (s1.check() and ((duration-now)>45)) or (duration-now)<3",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
-      ]
+    "META": {
+      "tdps": 102049.63342273358,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

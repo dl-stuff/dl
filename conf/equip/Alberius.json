@@ -1,71 +1,12 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "affliction": {
-      "dps": 93179.5627142296,
-      "team": 0.09320079333675647,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Welcome_to_the_Opera",
-        "Entwined_Flames",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c5-s-end), cancel",
-        "`s3, not buff(s3)",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s4, fsc and not have_buff(s4_00)",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "base": {
-      "dps": 89959.97914029646,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c5-s-c5-end), cancel",
-        "`s3, not buff(s3) and cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s4, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 70991.15655066748,
-      "team": 0.19361263997616315,
-      "tdps": 97973.05894885969,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70991.15655066748,
+        "team": 0.19361263997616315,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "The_Red_Impulse",
@@ -93,21 +34,24 @@
         "Dragonyule_Lily"
       ]
     },
-    "noaffliction": {
-      "dps": 79699.93364179447,
-      "team": 0.09320079333675647,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 89959.97914029646,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Red_Impulse",
+        "Welcome_to_the_Opera",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "The_Plaguebringer"
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c5-s-end), cancel",
-        "`s3, not buff(s3)",
+        "`dragon(c5-s-c5-end), cancel",
+        "`s3, not buff(s3) and cancel",
         "`s1, cancel",
         "`s2, cancel",
         "`s4, fsc",
@@ -120,18 +64,123 @@
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 97973.05894885969,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36151.74876608058,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-c5-end), cancel",
+        "`s3, not buff(s3) and cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 93179.5627142296,
+        "team": 0.09320079333675647,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Welcome_to_the_Opera",
+        "Entwined_Flames",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c5-s-end), cancel",
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc and not have_buff(s4_00)",
+        "`fs, x=4"
+      ],
+      "share": [
+        "Weapon",
         "Dragonyule_Lily"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 78311.83272315652,
-      "team": 0.09320079333675647,
-      "tdps": null,
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
+    "META": {
+      "tdps": 220973.98769334322,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79699.93364179447,
+        "team": 0.09320079333675647,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c5-s-end), cancel",
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,68 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 80510.28117344192,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, x=5 or hp<90",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Summer_Patia"
-      ],
-      "share": [
-        "Weapon",
-        "Valentines_Chelsea"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 79326.88020711973,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, x=5 or hp<90",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Curran",
-        "Summer_Patia"
-      ],
-      "share": [
-        "Weapon",
-        "Valentines_Chelsea"
-      ]
-    },
-    "buffer": {
-      "dps": 48802.554045573226,
-      "team": 0.09568254876334714,
-      "tdps": 331384.6415848706,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48802.554045573226,
+        "team": 0.08729606445550868,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -88,36 +32,18 @@
         "Patia"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 33755.46812219271,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Ieyasu"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 45181.32312522803,
-      "team": 0.01208216675922107,
-      "tdps": 2924058.138930333,
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Summer_Patia"
-      ]
-    },
-    "noaffliction": {
-      "dps": 53770.73108051849,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80510.28117344192,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -137,6 +63,71 @@
         "Weapon",
         "Valentines_Chelsea"
       ]
+    },
+    "META": {
+      "tdps": 363220.5795947292,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16621.841836878313,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, x=5 or hp<90",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Valentines_Chelsea"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53770.73108051849,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

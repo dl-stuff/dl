@@ -1,17 +1,18 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "affliction": {
-      "dps": 87417.78653353946,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54612.41277246617,
+        "team": 0.07035745196044109,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
         "Rivalry_of_Kings",
         "The_Cutie_Competition",
-        "Enter_the_Blue_Rose",
-        "The_Plaguebringer"
+        "Blessed_Days",
+        "Enter_the_Blue_Rose"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -19,27 +20,25 @@
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
-        "`s2",
-        "if xf=1",
-        "`fs, c_fs(counter)",
-        "`fs, c_fs(sigilcounter)",
-        "`dodge, xf=1",
-        "end"
+        "`dodge, xf=1"
       ],
       "coabs": [
         "Blade",
-        "Marth",
+        "Dagger",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Seimei"
       ]
     },
-    "base": {
-      "dps": 83421.74263971944,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 83421.74263971944,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Rivalry_of_Kings",
         "Sweet_Surprise",
@@ -70,45 +69,25 @@
         "Formal_Joachim"
       ]
     },
-    "buffer": {
-      "dps": 54612.41277246617,
-      "team": 0.07035745196044109,
+    "META": {
       "tdps": 409470.90982560726,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39191.651191954435,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "Memory_of_a_Friend",
         "Rivalry_of_Kings",
-        "The_Cutie_Competition",
-        "Blessed_Days",
-        "Enter_the_Blue_Rose"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-c3-c3-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`dodge, xf=1"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Seimei"
-      ]
-    },
-    "noaffliction": {
-      "dps": 45779.0261304587,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Honest_Repose",
-        "Rivalry_of_Kings",
+        "Sweet_Surprise",
         "The_Cutie_Competition",
         "Enter_the_Blue_Rose",
-        "Snipers_Allure"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -132,6 +111,58 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 87417.78653353946,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer"
+      ]
+    },
+    "META": {
+      "tdps": 466267.22325757786,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45779.0261304587,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

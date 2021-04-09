@@ -1,40 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 49407.0542712107,
-      "team": 0.04368525109900476,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s), buff(s3)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 31721.67355304547,
-      "team": 0.07903191832940579,
-      "tdps": 500340.8271248371,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31721.67355304547,
+        "team": 0.07628511742763468,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -61,15 +33,18 @@
         "Curran"
       ]
     },
-    "affliction": {
-      "dps": 53116.3760852675,
-      "team": 0.04548866812276584,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49407.0542712107,
+        "team": 0.04368525109900476,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -88,19 +63,79 @@
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 49407.0542712107,
-      "team": 0.04368525109900476,
-      "tdps": null,
+    "META": {
+      "tdps": 542498.5654813418,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12303.92939963572,
+        "team": 0.0483428981677623,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), buff(s3)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Forte",
         "Ieyasu",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53116.3760852675,
+        "team": 0.04365223100128934,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "tdps": 655617.840625632,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

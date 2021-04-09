@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 64005.721515054785,
-      "team": 0.16325157324264028,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, cancel",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 70845.27633073363,
-      "team": 0.16325157324264028,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, cancel",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 5517.449904884876,
-      "team": 0.46896593935465763,
-      "tdps": 191316.72598185693,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5517.449904884876,
+        "team": 0.46896593935465763,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Study_Rabbits",
@@ -89,13 +31,15 @@
         "Templar_Hope"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 41532.0550674569,
-      "team": 0.11722213509614636,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64005.721515054785,
+        "team": 0.16325157324264028,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "A_Dogs_Day",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
         "Dueling_Dancers",
@@ -120,15 +64,97 @@
         "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 64005.721515054785,
-      "team": 0.16325157324264028,
-      "tdps": null,
+    "META": {
+      "tdps": 191316.72598185693,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35578.60704523656,
+        "team": 0.0978952661360472,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`fsf, x=4"
+      ],
       "coabs": [
         "Akasha",
         "Dragonyule_Xainfried",
         "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70845.27633073363,
+        "team": 0.16325157324264028,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`fsf, x=4"
+      ]
+    },
+    "META": {
+      "tdps": 213689.09566360342,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41532.0550674569,
+        "team": 0.11722213509614636,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

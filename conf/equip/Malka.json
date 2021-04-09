@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 46380.93124482632,
-      "team": 0.11089964702019342,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46380.93124482632,
+        "team": 0.11089964702019342,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -31,11 +34,113 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 49052.695438345356,
-      "team": 0.09991780095574666,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46380.93124482632,
+        "team": 0.11089964702019342,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1) and cancel",
+        "`s2",
+        "`s4",
+        "`s1",
+        "`s3"
+      ],
+      "coabs": [
+        "Cleo",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43636.66008448062,
+        "team": 0.11089964702019342,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12131.907483085357,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1) and cancel",
+        "`s2",
+        "`s4",
+        "`s1",
+        "`s3"
+      ],
+      "coabs": [
+        "Cleo",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49052.695438345356,
+        "team": 0.09991780095574666,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -64,47 +169,13 @@
         "Ilia"
       ]
     },
-    "mono_base": {
-      "dps": 43636.66008448062,
-      "team": 0.11089964702019342,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "buffer": {
-      "dps": 46380.93124482632,
-      "team": 0.11089964702019342,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s), buff(s3, 1) and cancel",
-        "`s2",
-        "`s4",
-        "`s1",
-        "`s3"
-      ],
-      "coabs": [
-        "Cleo",
-        "Dagger2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
+    "META": {
+      "tdps": 243289.1681270922,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

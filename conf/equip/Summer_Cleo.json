@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 59582.30618870348,
-      "team": 0.05155562483927271,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61149.16459070232,
+        "team": 0.051528753952883456,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Memory_of_a_Friend",
@@ -32,81 +35,19 @@
         "Xander"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 18992.642554202626,
-      "team": 0.2834502366076499,
-      "tdps": 175034.9580137849,
-      "slots.a": [
-        "Forest_Bonds",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "A_Game_of_Cat_and_Boar",
-        "The_Bustling_Hut"
-      ],
-      "slots.d": "PopStar_Siren",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s2, s1.charged<(s1.sp/3)",
-        "`s1",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Sharena"
-      ],
-      "share": [
-        "Patia",
-        "Halloween_Lowen"
-      ]
-    },
-    "affliction": {
-      "dps": 68483.28490369754,
-      "team": 0.04125420544010604,
-      "tdps": null,
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2, s1.charged<(s1.sp/3)",
-        "`s1",
-        "`s4",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 29475.35049999827,
-      "team": 0.04196538230820025,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61149.16459070232,
+        "team": 0.051528753952883456,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Game_of_Cat_and_Boar",
-        "Snipers_Allure",
+        "His_Clever_Brother",
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
@@ -129,15 +70,119 @@
         "Xander"
       ]
     },
-    "mono_buffer": {
-      "dps": 59582.30618870348,
-      "team": 0.05155562483927271,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28178.190820376105,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Game_of_Cat_and_Boar",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, s1.charged<s1.sp/3",
+        "`s1",
+        "`s4, cancel",
+        "`fs,x=5"
+      ],
       "coabs": [
         "Lucretia",
         "Peony",
         "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66642.45477596771,
+        "team": 0.03701090096351038,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, s1.charged<(s1.sp/3)",
+        "`s1",
+        "`s4",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Mitsuhide",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 378381.7200302567,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29475.35049999827,
+        "team": 0.03434155109647303,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Game_of_Cat_and_Boar",
+        "Snipers_Allure",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

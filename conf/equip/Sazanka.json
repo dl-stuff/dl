@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 56743.80665023115,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dragonyule_Dreaming",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-end), trickery<=1 and cancel",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2",
-        "`fs, x=4 and c_fs(enhanced)",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 61001.88622075311,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2",
-        "`dragon(c3-s-end), cancel"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "buffer": {
-      "dps": 37527.65996927285,
-      "team": 0.04161321307180204,
-      "tdps": 461779.9314799739,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37514.89579915651,
+        "team": 0.062483610335390016,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -92,16 +34,18 @@
         "Pinon"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 47127.798481908074,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56743.80665023115,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragonyule_Dreaming",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Snipers_Allure",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -123,6 +67,109 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 307743.274562091,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 13548.261924590939,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-c3-end), trickery<=1 and cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`fs, x=4 and c_fs(enhanced)",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61001.88622075311,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2",
+        "`dragon(c3-s-end), cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "tdps": 375890.4182317044,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47048.69550219462,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

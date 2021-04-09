@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 66161.92002033618,
-      "team": 0.02921270862197427,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 66161.92002033618,
+        "team": 0.02921270862197427,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Levins_Champion",
         "Memory_of_a_Friend",
@@ -33,58 +36,19 @@
         "Jurota"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 28230.90518710603,
-      "team": 0.14664311653544784,
-      "tdps": 323008.4567293586,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66161.92002033618,
+        "team": 0.02921270862197427,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "Levins_Champion",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "PopStar_Siren",
-      "acl": [
-        "`dragon, not buff(s3, 1)",
-        "`s3",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 60944.090277662464,
-      "team": 0.02923839999884907,
-      "tdps": 203096539.67171165,
-      "coabs": [
-        "Blade",
-        "Malora",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 32485.403671227275,
-      "team": 0.02919852316789661,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife",
+        "Snipers_Allure",
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
@@ -95,7 +59,8 @@
         "`s3, not buff(s3)",
         "`s2, cancel",
         "`s4",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
         "Blade",
@@ -107,15 +72,83 @@
         "Jurota"
       ]
     },
-    "mono_affliction": {
-      "dps": 67486.73955346094,
-      "team": 0.02919852316789649,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38083.15143274719,
+        "team": 0.026308469872732877,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Levins_Champion",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "His_Clever_Brother",
+        "Snipers_Allure",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s), cancel",
+        "`s1",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
       "coabs": [
         "Blade",
         "Malora",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32485.403671227275,
+        "team": 0.02919852316789661,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c3-s), cancel",
+        "`s1",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s4",
+        "`fs, x=5"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

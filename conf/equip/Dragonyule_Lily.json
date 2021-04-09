@@ -1,11 +1,45 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 50963.99079053348,
-      "team": 0.10893396250151545,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 10974.166770069305,
+        "team": 0.5006547399253332,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon",
+        "`fs, c_fs(dragonyulelily) and cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, not buff(s1, default, 0)",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50963.99079053348,
+        "team": 0.10893396250151545,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "The_Bridal_Dragon",
@@ -32,10 +66,42 @@
         "Gala_Mym"
       ]
     },
-    "buffer": {
-      "dps": 10974.166770069305,
-      "team": 0.5006547399253332,
+    "META": {
       "tdps": 102087.57442855182,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11251.092884865113,
+        "team": 0.4634021189481159,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Renee"
+      ]
+    },
+    "META": {
+      "tdps": 112035.1636202644,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7787.081517444209,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -62,26 +128,19 @@
         "Gala_Elisanne"
       ]
     },
-    "mono_buffer": {
-      "dps": 36870.55820683777,
-      "team": 0.13679270283266595,
-      "tdps": 505889.08242692536,
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Renee"
-      ]
-    },
-    "affliction": {
-      "dps": 55651.067350977304,
-      "team": 0.13678171766168964,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23741.435983627034,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "The_Bridal_Dragon",
         "The_Fires_of_Hate",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Mana_Fount"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -102,45 +161,33 @@
         "Gala_Mym"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 50963.99079053348,
-      "team": 0.10893396250151545,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56209.321183343156,
+        "team": 0.10893396250151563,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "The_Bridal_Dragon",
+        "The_Fires_of_Hate",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ]
     },
-    "noaffliction": {
-      "dps": 10974.166770069305,
-      "team": 0.5006547399253332,
-      "tdps": null,
-      "slots.a": [
-        "Once_in_a_Lifetime",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon",
-        "`fs, c_fs(dragonyulelily) and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, not buff(s1, default, 0)",
-        "`s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Gala_Elisanne"
-      ]
+    "META": {
+      "tdps": 115478.05738252231,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

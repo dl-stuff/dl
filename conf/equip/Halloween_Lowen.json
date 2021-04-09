@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 28514.260107914317,
-      "team": 0.07679199043660669,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon",
-        "`s2, prep or (x=5 and mod(maxhp)<1.3)",
-        "`s1, x=5",
-        "`s3, x=5",
-        "`s4, x=5"
-      ],
-      "coabs": [
-        "Gala_Laxi",
-        "Nobunaga",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 4250.246848864282,
-      "team": 0.5064401576315068,
-      "tdps": 56474.14585162938,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4250.246848864282,
+        "team": 0.5064401576315068,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Honest_Repose",
         "Study_Rabbits",
@@ -59,16 +32,19 @@
         "Templar_Hope"
       ]
     },
-    "affliction": {
-      "dps": 30272.89337888887,
-      "team": 0.07815016439963578,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28514.260107914317,
+        "team": 0.07679199043660669,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Me_and_My_Bestie",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -79,36 +55,57 @@
         "`s4, x=5"
       ],
       "coabs": [
-        "Blade",
+        "Gala_Laxi",
         "Nobunaga",
         "Yuya"
       ],
       "share": [
         "Weapon",
-        "Gala_Luca"
+        "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 4862.4430877188315,
-      "team": 0.20303885333015415,
-      "tdps": 187345.7801493168,
+    "META": {
+      "tdps": 56474.14585162938,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4173.148322469316,
+        "team": 0.4368948681068401,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Emma",
         "Gala_Sarisse"
       ]
     },
-    "noaffliction": {
-      "dps": 30272.89337888887,
-      "team": 0.07815016439963578,
-      "tdps": null,
+    "META": {
+      "tdps": 67594.88272608456,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 19135.506053873316,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Me_and_My_Bestie",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -119,6 +116,35 @@
         "`s4, x=5"
       ],
       "coabs": [
+        "Gala_Laxi",
+        "Nobunaga",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30272.89337888887,
+        "team": 0.07815016439963578,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Me_and_My_Bestie",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "coabs": [
         "Blade",
         "Nobunaga",
         "Yuya"
@@ -127,6 +153,48 @@
         "Weapon",
         "Gala_Luca"
       ]
+    },
+    "META": {
+      "tdps": 60759.408207644585,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23286.841060683746,
+        "team": 0.07815016439963578,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Me_and_My_Bestie",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "coabs": [
+        "Blade",
+        "Nobunaga",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Luca"
+      ]
+    },
+    "META": {
+      "tdps": 44447.90798909299,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

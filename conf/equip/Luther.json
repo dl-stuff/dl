@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 69432.59345027621,
-      "team": 0.010216619688751904,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3) and x=5",
-        "`s1",
-        "`s4",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 40769.0139277133,
-      "team": 0.15665732137715624,
-      "tdps": 195735.05993950443,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40496.14037705719,
+        "team": 0.15665732137715624,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Red_Impulse",
@@ -59,46 +32,19 @@
         "Gala_Elisanne"
       ]
     },
-    "affliction": {
-      "dps": 71755.29373080615,
-      "team": 0.010228598121121018,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69432.59345027621,
+        "team": 0.010216619688751904,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "Dueling_Dancers",
         "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 56307.85473729728,
-      "team": 0.010900971201500454,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "Snipers_Allure"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -118,25 +64,95 @@
         "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 64439.63518057053,
-      "team": 0.01169120526920754,
-      "tdps": null,
+    "META": {
+      "tdps": 197598.43226366007,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41105.18268791565,
+        "team": 0.010233329712196456,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3) and x=5",
+        "`s1",
+        "`s4",
+        "`s2, x=5"
+      ],
       "coabs": [
-        "Blade",
-        "Pipple",
-        "Xander"
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
-    "mono_base": {
-      "dps": 64439.63518057053,
-      "team": 0.01169120526920754,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Pipple",
-        "Xander"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71755.29373080615,
+        "team": 0.010228598121121018,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, x=5"
       ]
+    },
+    "META": {
+      "tdps": 213476.92350694982,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55930.89838759153,
+        "team": 0.010216619688751904,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 45179.83986100316,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), fsc",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel and buff(s3)",
-        "`s2",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 53683.343502503376,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel and buff(s3)",
-        "`s2, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
-    },
-    "buffer": {
-      "dps": 18125.37190283971,
-      "team": 0.02310047984373752,
-      "tdps": 1171164.7611293166,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18125.37190283971,
+        "team": 0.020433142179027745,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Castle_Cheer_Corps",
         "Jewels_of_the_Sun",
@@ -91,17 +33,19 @@
         "Curran"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 27835.390118366304,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45179.83986100316,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -121,6 +65,114 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 1324048.3387783465,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11187.357463780065,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), fsc",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel and buff(s3)",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53683.343502503376,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel and buff(s3)",
+        "`s2, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "META": {
+      "tdps": 1740210.6483730047,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27835.390118366304,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

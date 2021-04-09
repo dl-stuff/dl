@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 37946.37657798657,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8977.52029486304,
+        "team": 0.26638619656827034,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Karl",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37946.37657798657,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -29,39 +63,19 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 63414.068072984315,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Me_and_My_Bestie",
-        "Pecorines_Grand_Adventure",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Gala_Laxi",
-        "Marth",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "buffer": {
-      "dps": 8977.52029486304,
-      "team": 0.28172289743581147,
-      "tdps": 102827.48241904574,
+    "META": {
+      "tdps": 108747.58773658641,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6977.523873540559,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Honest_Repose",
         "Memory_of_a_Friend",
@@ -86,16 +100,76 @@
         "Templar_Hope"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_noaffliction": {
-      "dps": 37946.37657798657,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18108.624302451728,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`fsf, x=4 and s1.charged=sp_val(4)"
+      ],
       "coabs": [
         "Blade",
         "Gala_Mym",
         "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63414.068072984315,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Me_and_My_Bestie",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Marth",
+        "Yuya"
+      ]
+    },
+    "META": {
+      "tdps": 204351.98399692643,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

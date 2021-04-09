@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 43300.08372930439,
-      "team": 0.05994348486810924,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8324.707721682367,
+        "team": 0.9075127022142049,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Renee",
+        "Summer_Estelle",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43300.08372930439,
+        "team": 0.05994348486810924,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -31,11 +65,42 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 8324.707721682367,
-      "team": 0.9075127022142049,
+    "META": {
       "tdps": 41265.509992371764,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7995.922121079134,
+        "team": 0.8124565419580914,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Summer_Estelle"
+      ]
+    },
+    "META": {
+      "tdps": 46915.015328436675,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4491.934194545459,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -60,26 +125,29 @@
         "Templar_Hope"
       ]
     },
-    "affliction": {
-      "dps": 47403.09367152389,
-      "team": 0.0724208585258763,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16429.485624116543,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Mana_Fount"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-sf-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
         "`dragon(c3-s-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-end), dragonform.shift_count=2",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=3",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=3",
+        "`s3, not buff(s3) and x=5",
         "`s4",
-        "`s1, not buff(s1)"
+        "`s1, not buff(s1) and x=5"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -91,26 +159,42 @@
         "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 28237.81637426975,
-      "team": 0.07181583878674398,
-      "tdps": 1268684.159709309,
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Summer_Estelle"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48761.14803143043,
+        "team": 0.059956416465966826,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-sf-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, not buff(s1)"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_noaffliction": {
-      "dps": 43300.08372930439,
-      "team": 0.05994348486810924,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ]
+    "META": {
+      "tdps": 47709.44536627445,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

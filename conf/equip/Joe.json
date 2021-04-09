@@ -1,43 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 63877.92502917523,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Forest_Bonds",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=1",
-        "queue prep",
-        "`s4;s1",
-        "end",
-        "`s3, x=5 and not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Kimono_Elisanne",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 50602.63573122285,
-      "team": 0.005845170915018714,
-      "tdps": 2271155.025397556,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50602.63573122285,
+        "team": 0.005845170915018714,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
         "Me_and_My_Bestie",
@@ -67,46 +36,18 @@
         "Formal_Joachim"
       ]
     },
-    "affliction": {
-      "dps": 73897.75194366669,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63877.92502917523,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s), s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 36429.775310007826,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Forest_Bonds",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
@@ -130,6 +71,106 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 2271155.025397556,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38110.91873666249,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=1",
+        "queue prep",
+        "`s4;s1",
+        "end",
+        "`s3, x=5 and not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73897.75194366669,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(s-s), s=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Marth"
+      ]
+    },
+    "META": {
+      "tdps": 3985361.0016071294,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36429.775310007826,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

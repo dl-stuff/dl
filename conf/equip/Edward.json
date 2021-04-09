@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 32357.9462764088,
-      "team": 0.16106158440429758,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, not buff(s1)"
-      ],
-      "coabs": [
-        "Blade",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 4641.137757255571,
-      "team": 0.4588801070158698,
-      "tdps": 93066.10037584092,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4641.137757255571,
+        "team": 0.4567225721725076,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -60,63 +33,16 @@
         "Patia"
       ]
     },
-    "affliction": {
-      "dps": 37880.01827446676,
-      "team": 0.1803923095771435,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32357.9462764088,
+        "team": 0.16106158440429758,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Dragons_Nest",
-        "Dueling_Dancers"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, not buff(s1)"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 36046.28900829886,
-      "team": 0.17621460154103655,
-      "tdps": null,
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 32357.9462764088,
-      "team": 0.16106158440429758,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Forte",
-        "Ieyasu"
-      ]
-    },
-    "noaffliction": {
-      "dps": 24143.739366779613,
-      "team": 0.17621460154103655,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "Dueling_Dancers",
         "Entwined_Flames"
@@ -138,6 +64,128 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 93745.23412227261,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 13868.743170839029,
+        "team": 0.04160047338010661,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Blade",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35565.52923784644,
+        "team": 0.1686584811510932,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Dragons_Nest",
+        "Dueling_Dancers"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 107352.46927494332,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34493.944743288455,
+        "team": 0.1686584811510932,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Ieyasu"
+      ]
+    },
+    "META": {
+      "tdps": 103632.51761155351,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24797.327763554564,
+        "team": 0.16106158440429758,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

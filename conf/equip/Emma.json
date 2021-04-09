@@ -1,69 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 44012.956727579134,
-      "team": 0.2863847165509172,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1, fsc",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "The_Prince",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "buffer",
-    "affliction": {
-      "dps": 50356.859724325324,
-      "team": 0.28638471655091713,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1, fsc",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "The_Prince",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "buffer": {
-      "dps": 5751.227417817288,
-      "team": 1.454891237174952,
-      "tdps": 32744.129908088464,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5751.227417817288,
+        "team": 1.454891237174952,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Castle_Cheer_Corps",
         "Dragonyule_Dreaming",
@@ -91,20 +34,136 @@
         "Mikoto"
       ]
     },
-    "mono_buffer": {
-      "dps": 35726.744432032305,
-      "team": 0.37745746968876404,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44012.956727579134,
+        "team": 0.2863847165509172,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "The_Prince",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 32744.129908088464,
+      "pref": "TEAMBUFF"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5097.677120157241,
+        "team": 1.1383150032660652,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Gala_Sarisse",
         "Halloween_Lowen"
       ]
     },
-    "noaffliction": {
-      "dps": 8997.52881268145,
-      "team": 1.4510843018903106,
-      "tdps": null,
+    "META": {
+      "tdps": 45678.94840019185,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 19515.842751830223,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "The_Prince",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50356.859724325324,
+        "team": 0.28638471655091713,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "tdps": 38173.19930973653,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8997.52881268145,
+        "team": 1.4510843018903106,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Castle_Cheer_Corps",
         "Dragonyule_Dreaming",
@@ -131,15 +190,36 @@
         "Mikoto"
       ]
     },
-    "mono_base": {
-      "dps": 35726.744432032305,
-      "team": 0.37745746968876404,
-      "tdps": null,
+    "META": {
+      "tdps": 852733.5381719988,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 5097.677120157241,
+        "team": 1.1383150032660652,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.w": "void",
       "coabs": [
         "Blade",
         "Gala_Sarisse",
         "Halloween_Lowen"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
     }
   }
 }

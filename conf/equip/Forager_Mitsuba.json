@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 73774.53852858773,
-      "team": 0.07229231728604625,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3503.3641355931027,
+        "team": 0.5668329575200295,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73774.53852858773,
+        "team": 0.07229231728604625,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
@@ -35,26 +70,62 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 78177.47938163353,
-      "team": 0.07232307661317539,
-      "tdps": null,
+    "META": {
+      "tdps": 142093.83147914204,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3543.094472400282,
+        "team": 0.46488554123244374,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Mona"
+      ]
+    },
+    "META": {
+      "tdps": 178891.1264188718,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34070.466578674495,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Liber_Grimortis"
+        "Sweet_Surprise",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), fs",
-        "`s3, not buff(s3) and cancel",
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
         "`s2, not c_fs(foragermitsuba) and cancel",
         "`s4, cancel",
         "`s1, cancel",
-        "`fs, s2.charged>=8000 and xf=5"
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -63,53 +134,58 @@
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78031.59057357155,
+        "team": 0.07227626572656869,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), fs",
+        "`s3, not buff(s3) and cancel",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`fs, s2.charged>=8000 and xf=5"
+      ],
+      "share": [
+        "Weapon",
         "Ilia"
       ]
     },
-    "buffer": {
-      "dps": 3501.1457410469684,
-      "team": 0.572171786176187,
-      "tdps": 140580.6742644692,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s2, new_dish=3",
-        "`s3",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Tobias"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 73774.53852858773,
-      "team": 0.07229231728604625,
-      "tdps": null,
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Lin_You",
-        "Mona"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 55312.40984621932,
-      "team": 0.07237142771065859,
-      "tdps": null,
+    "META": {
+      "tdps": 150697.0336761782,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54787.20889333842,
+        "team": 0.07229231728604625,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -140,6 +216,28 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54787.20889333842,
+        "team": 0.07229231728604625,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

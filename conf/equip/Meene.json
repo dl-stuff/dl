@@ -1,9 +1,45 @@
 {
-  "180": {
-    "base": {
-      "dps": 66066.12707398909,
-      "team": 0.08774524040126193,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42409.54464322118,
+        "team": 0.23683209843381164,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Hastened_Squall",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Pazuzu",
+      "acl": [
+        "`dragon(c2-s-end), fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s4",
+        "`s2, butterflies>=9",
+        "`s1, butterflies=9",
+        "`fs, xf=2 or butterflies=6"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Verica"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66066.12707398909,
+        "team": 0.08774524040126193,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -30,41 +66,57 @@
         "Pinon"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 31768.236071634074,
-      "team": 0.23192958139381548,
-      "tdps": 237875.2835866298,
+    "META": {
+      "tdps": 158676.51074652758,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41493.24661555376,
+        "team": 0.09626339440503194,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "Hastened_Squall",
+        "His_Clever_Brother",
         "The_Plaguebringer"
       ],
-      "slots.d": "Pazuzu",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c2-s-end), fsc",
+        "`dragon(c3-s-c3-c3-end), fsc",
         "`s3, not buff(s3) and fsc",
         "`s4",
-        "`s2, butterflies>=9",
-        "`s1, butterflies=9",
+        "`s2, butterflies>=6",
+        "`s1, butterflies>=6",
         "`fs, xf=2 or butterflies=6"
       ],
       "coabs": [
-        "Lowen",
-        "Ranzal",
-        "Templar_Hope"
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
         "Weapon",
-        "Verica"
+        "Pinon"
       ]
     },
-    "affliction": {
-      "dps": 74759.90916056086,
-      "team": 0.09457445986324643,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74759.90916056086,
+        "team": 0.09457445986324643,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Forest_Bonds",
@@ -72,7 +124,6 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-end), fsc",
         "`s3, not buff(s3) and fsc",
@@ -80,22 +131,25 @@
         "`s2, butterflies>=9",
         "`s1, butterflies>=9",
         "`fs, xf=2 or butterflies=6"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 51689.43214944556,
-      "team": 0.09519112191640228,
-      "tdps": null,
+    "META": {
+      "tdps": 227406.8713807073,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52011.55636493286,
+        "team": 0.09457445986324643,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -103,7 +157,6 @@
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-end), fsc",
         "`s3, not buff(s3) and fsc",
@@ -111,26 +164,14 @@
         "`s2, butterflies>=9",
         "`s1, butterflies>=9",
         "`fs, xf=2 or butterflies=6"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
       ]
     },
-    "mono_buffer": {
-      "dps": 48551.785285829224,
-      "team": 0.0878047477349256,
-      "tdps": 294322408.85048497,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

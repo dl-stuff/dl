@@ -1,9 +1,42 @@
 {
-  "180": {
-    "base": {
-      "dps": 116289.88224968364,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17657.409850069493,
+        "team": 0.16614906653121345,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Konohana_Sakuya",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Serena",
+        "Verica",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 116289.88224968364,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Sweet_Surprise",
@@ -31,14 +64,22 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 127540.42356335743,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 593638.4384144862,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28718.029758716,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
+        "Sweet_Surprise",
         "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer"
@@ -63,38 +104,43 @@
         "Formal_Joachim"
       ]
     },
-    "buffer": {
-      "dps": 17938.461977475567,
-      "team": 0.16415976139716001,
-      "tdps": 599120.1463448859,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 127540.42356335743,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Honest_Repose",
-        "Jewels_of_the_Sun",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Konohana_Sakuya",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Sword"
-      ],
-      "share": [
-        "Summer_Cleo",
-        "Cleo"
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 112284.71754310757,
-      "team": 0.03907163512027999,
-      "tdps": null,
+    "META": {
+      "tdps": 661351.9775186029,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 89827.7740344861,
+        "team": 0.03907163512027999,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -102,45 +148,18 @@
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`fs, x=5",
-        "`dragon(s-end), dragonform.shift_count<=1",
-        "`dragon(c3-s-end), dragonform.shift_count>=2"
-      ],
-      "coabs": [
-        "Serena",
-        "Verica",
-        "Yuya"
-      ],
       "share": [
         "Weapon",
         "Sha_Wujing"
       ]
     },
-    "mono_affliction": {
-      "dps": 125811.57837703064,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Marth",
-        "Verica",
-        "Yuya"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 91422.14300117224,
-      "team": 0.08988232451479206,
-      "tdps": 276669.9613383817,
-      "coabs": [
-        "Serena",
-        "Verica",
-        "Yuya"
-      ]
+    "META": {
+      "tdps": 567924.3228566486,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

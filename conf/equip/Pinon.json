@@ -1,72 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 76925.71416925019,
-      "team": 0.04995987574349766,
-      "tdps": null,
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3,1)",
-        "`dragon(c3-s)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
-        "`dodge, fsc",
-        "`fs2, not buff(a1)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Grace"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 87416.31287454523,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs2, not buff(locked_sigil)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Grace"
-      ],
-      "share": [
-        "Weapon",
-        "Hunter_Sarisse"
-      ]
-    },
-    "buffer": {
-      "dps": 28249.61709687885,
-      "team": 0.24407118315992773,
-      "tdps": 250763.84122201463,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28249.61709687885,
+        "team": 0.24407118315992773,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -92,37 +32,19 @@
         "Elisanne"
       ]
     },
-    "mono_affliction": {
-      "dps": 76735.2291600431,
-      "team": 0.06080290096684913,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Xander"
-      ]
-    },
-    "mono_base": {
-      "dps": 73019.85698911668,
-      "team": 0.04995987574349766,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Catherine",
-        "Dragonyule_Cleo"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 39904.053110441804,
-      "team": 0.07314959306108379,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76925.71416925019,
+        "team": 0.04995987574349766,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
         "Flowers_Under_the_Moon",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -143,6 +65,157 @@
         "Weapon",
         "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "tdps": 250763.84122201463,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73019.85698911668,
+        "team": 0.04995987574349766,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Catherine",
+        "Dragonyule_Cleo"
+      ]
+    },
+    "META": {
+      "tdps": 230642.10162776106,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51741.77324670339,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3,1)",
+        "`dragon(c3-s)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc and aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
+        "`fs2, not buff(a1)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 87416.31287454523,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, not buff(locked_sigil)"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
+      ]
+    },
+    "META": {
+      "tdps": 242415.7371290218,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76735.2291600431,
+        "team": 0.04995217218269529,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Xander"
+      ]
+    },
+    "META": {
+      "tdps": 249772.6102099859,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39652.10067408151,
+        "team": 0.04995987574349766,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

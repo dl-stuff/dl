@@ -1,43 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 75794.16386360516,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, energy()<5 and cancel",
-        "`s4, energy()<5",
-        "if not buff(s3)",
-        "`fs, x=5",
-        "else",
-        "`fs, x=4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 26353.271421979985,
-      "team": 0.1867513990264207,
-      "tdps": 264741.75133022974,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27347.645093399806,
+        "team": 0.18336413777574573,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -55,8 +24,8 @@
         "`fs, x=2"
       ],
       "coabs": [
+        "Blade",
         "Bow",
-        "Dagger",
         "Wand"
       ],
       "share": [
@@ -64,57 +33,15 @@
         "Ricardt"
       ]
     },
-    "affliction": {
-      "dps": 90665.39551049493,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75794.16386360516,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
-        "`s3, not buff(s3)",
-        "`s2, energy()<5 and cancel",
-        "`s1",
-        "`s4, energy()<5",
-        "if not buff(s3)",
-        "`fs, x=5",
-        "else",
-        "`fs, x=4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Luca"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 16120.174699834937,
-      "team": 0.015276779822362004,
-      "tdps": 3906188.9912440847,
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 60017.91797558071,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "Luck_of_the_Draw",
@@ -141,6 +68,109 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 264209.34517443884,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10161.966954113112,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 90665.39551049493,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`s3, not buff(s3)",
+        "`s2, energy()<5 and cancel",
+        "`s1",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "META": {
+      "tdps": 345311.5270257083,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60017.91797558071,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

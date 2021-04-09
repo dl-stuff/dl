@@ -1,9 +1,45 @@
 {
-  "180": {
-    "base": {
-      "dps": 42793.82225538452,
-      "team": 0.12082826325307293,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3575.0217644645086,
+        "team": 0.8005648892418672,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Gentle_Winds",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s3",
+        "`s2",
+        "`s4",
+        "`fs, x=4 and fs_prep_c",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Tobias",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42793.82225538452,
+        "team": 0.12082826325307293,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -29,41 +65,55 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 3541.3518655728153,
-      "team": 0.8040151331623541,
-      "tdps": 57454.95430119134,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Gentle_Winds",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s3",
-        "`s2",
-        "`s4",
-        "`fs, x=4 and fs_prep_c",
-        "`fsf, x=4"
-      ],
+    "META": {
+      "tdps": 57697.053522560294,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3168.504848529852,
+        "team": 0.8005648892418672,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Bow",
-        "Dagger2",
+        "Ku_Hai",
         "Tobias"
-      ],
-      "share": [
-        "Tobias",
-        "Templar_Hope"
       ]
     },
-    "affliction": {
-      "dps": 43530.61508966042,
-      "team": 0.12173664443145533,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40865.934759894,
+        "team": 0.13428529892696145,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Eleonora"
+      ]
+    },
+    "META": {
+      "tdps": 56578.99545376604,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23004.971918718955,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -74,7 +124,7 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "#`s1, cancel and buff(s3)",
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s2"
@@ -89,66 +139,79 @@
         "Formal_Joachim"
       ]
     },
-    "mono_base": {
-      "dps": 40309.935647514496,
-      "team": 0.13428529892696134,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Eleonora"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44131.037366759185,
+        "team": 0.12096012266697331,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "#`s1, cancel and buff(s3)",
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2"
       ]
     },
-    "mono_buffer": {
-      "dps": 34842.60692297274,
-      "team": 0.1593330227724206,
-      "tdps": 218276.46928217355,
-      "coabs": [
-        "Bow",
-        "Ku_Hai",
-        "Tobias"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 41634.83249742436,
-      "team": 0.12065486391543838,
-      "tdps": null,
+    "META": {
+      "tdps": 59675.88456845427,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42209.10604911297,
+        "team": 0.12065486391543848,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
         "Ku_Hai"
       ]
     },
-    "noaffliction": {
-      "dps": 3541.3518655728153,
-      "team": 0.8040151331623541,
-      "tdps": null,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Gentle_Winds",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s3",
-        "`s2",
-        "`s4",
-        "`fs, x=4 and fs_prep_c",
-        "`fsf, x=4"
-      ],
+    "META": {
+      "tdps": 57420.24642428165,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26455.751579591364,
+        "team": 0.14505630584189977,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Bow",
-        "Dagger2",
+        "Ku_Hai",
         "Tobias"
-      ],
-      "share": [
-        "Tobias",
-        "Templar_Hope"
       ]
+    },
+    "META": {
+      "tdps": 34905.30924316801,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

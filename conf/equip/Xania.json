@@ -1,68 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 78352.26576663148,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s)",
-        "`s3, not buff(s3) and x=5",
-        "`s1",
-        "`s4, cancel",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Joe",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 86960.9343806348,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s), s",
-        "`s3, not buff(s3) and x=5",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 32505.092039472813,
-      "team": 0.13851729110236174,
-      "tdps": 330985.2030912042,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32505.092039472805,
+        "team": 0.13729800370592682,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Me_and_My_Bestie",
@@ -88,16 +32,18 @@
         "Cleo"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 44861.75800108123,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78352.26576663148,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "An_Ancient_Oath",
         "Candy_Couriers",
-        "Honest_Repose",
-        "Snipers_Allure",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
@@ -118,15 +64,107 @@
         "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 57532.44819020433,
-      "team": 0.005845843516403018,
-      "tdps": 3561473.6381513164,
+    "META": {
+      "tdps": 333924.5472596741,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44422.58350421476,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s)",
+        "`s3, not buff(s3) and x=5",
+        "`s1",
+        "`s4, cancel",
+        "`s2, x=5"
+      ],
       "coabs": [
         "Joe",
         "Kimono_Elisanne",
         "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86960.9343806348,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s-s), s",
+        "`s3, not buff(s3) and x=5",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Marth"
+      ]
+    },
+    "META": {
+      "tdps": 396625.1574771533,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44861.75800108123,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Candy_Couriers",
+        "Honest_Repose",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

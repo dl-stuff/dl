@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 55618.165677283694,
-      "team": 0.06244845807515126,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55618.165677283694,
+        "team": 0.06244845807515126,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Pecorines_Grand_Adventure",
@@ -32,47 +35,21 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 10758.124091699648,
-      "team": 0.212037721703487,
-      "tdps": 299888.1102659997,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "PopStar_Siren",
-      "acl": [
-        "`dragon(s-s-end)",
-        "`s3",
-        "`s4",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
-      ],
-      "share": [
-        "Mikoto",
-        "Patia"
-      ]
-    },
-    "affliction": {
-      "dps": 63405.28502537412,
-      "team": 0.06244845807515135,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55618.165677283694,
+        "team": 0.06244845807515126,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Pecorines_Grand_Adventure",
-        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
         "Dueling_Dancers",
-        "Entwined_Flames",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -93,26 +70,96 @@
         "Gala_Mym"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_base": {
-      "dps": 53773.81237723663,
-      "team": 0.06244845807515126,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53773.81237723663,
+        "team": 0.06244845807515126,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Gala_Prince",
         "Peony"
       ]
     },
-    "mono_affliction": {
-      "dps": 61321.62335335655,
-      "team": 0.06244845807515135,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 13614.02360637092,
+        "team": 0.035071728538461334,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(c3-s), buff(s3, 1) and buff(s2)",
+        "`s3, cancel",
+        "`s4",
+        "`s2",
+        "`s1, x>1",
+        "`fsf, x=4"
+      ],
       "coabs": [
-        "Blade",
+        "Dagger2",
         "Gala_Prince",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63405.28502537412,
+        "team": 0.06244845807515135,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 35876.60938651144,
-      "team": 0.17705341054469856,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4257.649509419467,
+        "team": 0.5548189291375222,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`fs, fs_prep_c"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35876.60938651144,
+        "team": 0.17705341054469856,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Brothers_in_Arms",
         "Forest_Bonds",
@@ -30,11 +64,147 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 4257.649509419467,
-      "team": 0.5628570974199396,
-      "tdps": 81956.08531682262,
+    "META": {
+      "tdps": 83699.96286286949,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36086.70535269389,
+        "team": 0.1487570912155367,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 78384.75047583657,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 5527.107442974172,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, buff(s3)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Tobias",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40347.615805285066,
+        "team": 0.16574623527284083,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "META": {
+      "tdps": 92758.92876825124,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29349.572146668037,
+        "team": 0.17705341054469856,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "tdps": 66421.9506606002,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 4257.649509419467,
+        "team": 0.5548189291375222,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Sisters_Day_Out",
@@ -59,86 +229,12 @@
         "Karl"
       ]
     },
-    "affliction": {
-      "dps": 40347.615805285066,
-      "team": 0.16574623527284083,
-      "tdps": null,
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-end)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    },
-    "mono_base": {
-      "dps": 36086.70535269389,
-      "team": 0.1487570912155367,
-      "tdps": null,
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Wand"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 29349.572146668037,
-      "team": 0.17854718732622585,
-      "tdps": null,
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon, buff(s3)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Tobias",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 24988.432689798683,
-      "team": 0.24811908019312995,
-      "tdps": 111695.35530732923,
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Wand"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

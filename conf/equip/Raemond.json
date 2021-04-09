@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 49981.98398988832,
-      "team": 0.07644794279813659,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49981.98398988833,
+        "team": 0.07644794279813659,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -31,39 +34,113 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 33518.581967512255,
-      "team": 0.09449070417037651,
-      "tdps": 912465.7630126498,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49981.98398988833,
+        "team": 0.07644794279813659,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
-        "Spirit_of_the_Season",
-        "The_Shining_Overlord",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
         "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Daikokuten",
       "acl": [
         "`dragon(s), buff(s3, 1)",
         "`s4",
         "`s3",
-        "`fs, x=2"
+        "`fs, x=4 or hits=0",
+        "`s1"
       ],
       "coabs": [
+        "Cleo",
         "Dagger2",
-        "Halloween_Elisanne",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Elisanne"
+        "Gala_Mym"
       ]
     },
-    "affliction": {
-      "dps": 55669.00677830688,
-      "team": 0.04172197812678355,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47179.46430655066,
+        "team": 0.07644794279813659,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14062.398417475517,
+        "team": 0.05095059672894615,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1)",
+        "`s4",
+        "`s3",
+        "`fs, x=4 or hits=0",
+        "`s1"
+      ],
+      "coabs": [
+        "Cleo",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55669.00677830688,
+        "team": 0.04022265974456674,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -92,26 +169,13 @@
         "Ilia"
       ]
     },
-    "mono_base": {
-      "dps": 47179.46430655066,
-      "team": 0.07775058817903781,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 47972.07608702941,
-      "team": 0.07775058817903781,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Halloween_Elisanne",
-        "Peony"
-      ]
+    "META": {
+      "tdps": 156990.43068921223,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

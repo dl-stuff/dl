@@ -1,76 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 106259.51638628777,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s2, (duration-now)<1.5",
-        "`s3, not buff(s3)",
-        "if dragondrive.get()",
-        "`s4, dgauge>500 and x=3",
-        "`s1, dgauge>1100 and x=3",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Berserker",
-        "Curran",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 117994.57975343207,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s2, (duration-now)<1.1",
-        "`s3, not buff(s3) and x=4",
-        "if dragondrive.get()",
-        "`s4, x=3 or hp>0",
-        "`s1, x=3 and dgauge>=900",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Berserker",
-        "Curran",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Valentines_Chelsea"
-      ]
-    },
-    "buffer": {
-      "dps": 47813.93432899793,
-      "team": 0.11770732909144029,
-      "tdps": 496533.07494460867,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47813.93432899793,
+        "team": 0.11770732909144029,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -100,14 +36,16 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 73811.39848078253,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 106259.51638628777,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Seaside_Princess",
+        "Sweet_Surprise",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "The_Plaguebringer"
@@ -131,18 +69,114 @@
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 496533.07494460867,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47123.546655874234,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 117994.57975343207,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`s2, (duration-now)<1.1",
+        "`s3, not buff(s3) and x=4",
+        "if dragondrive.get()",
+        "`s4, x=3 or hp>0",
+        "`s1, x=3 and dgauge>=900",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Valentines_Chelsea"
+      ]
+    },
+    "META": {
+      "tdps": 596230.0390820584,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73811.39848078253,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "share": [
+        "Weapon",
         "Veronica"
       ]
     },
-    "mono_base": {
-      "dps": 41420.84293543955,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Curran",
-        "Grace",
-        "Patia"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

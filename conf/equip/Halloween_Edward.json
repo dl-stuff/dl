@@ -1,9 +1,48 @@
 {
-  "180": {
-    "base": {
-      "dps": 68921.25876903509,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57661.81455391132,
+        "team": 0.09087707553929482,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`fs, charged_in(fs,s2) and xf=5",
+        "`s4, xf",
+        "`s1, xf=5",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68921.25876903509,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragonyule_Dreaming",
         "Extreme_Teamwork",
@@ -33,15 +72,23 @@
         "Ilia"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 75096.27306794646,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 123897.51924020975,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39479.73373927327,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
+        "Dragonyule_Dreaming",
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
@@ -49,67 +96,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`fs, charged_in(fs,s2) and xf=5",
-        "`s4, xf",
-        "`s1, xf=5",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Halloween_Elisanne",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "buffer": {
-      "dps": 6293.08554783918,
-      "team": 0.33866576386889347,
-      "tdps": 184926.20129574405,
-      "slots.a": [
-        "Gentle_Winds",
-        "Jewels_of_the_Sun",
-        "The_Chocolatiers",
-        "A_Game_of_Cat_and_Boar",
-        "Chariot_Drift"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`s3",
-        "`s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Chitose",
-        "Templar_Hope"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 57661.81455391132,
-      "team": 0.10948750395532098,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
+        "`dragon(c3-s-c3-c3-end), bleed_stack>0 and aff(flashburn)",
         "`s3, not buff(s3)",
         "`s2",
         "`fs, charged_in(fs,s2) and xf=5",
@@ -124,8 +111,91 @@
       ],
       "share": [
         "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75096.27306794646,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`fs, charged_in(fs,s2) and xf=5",
+        "`s4, xf",
+        "`s1, xf=5",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Halloween_Elisanne",
+        "Peony",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 191846.6060948073,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57661.81455391132,
+        "team": 0.09087707553929482,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`fs, charged_in(fs,s2) and xf=5",
+        "`s4, xf",
+        "`s1, xf=5",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Weapon",
         "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

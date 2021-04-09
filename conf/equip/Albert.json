@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 74154.88293986894,
-      "team": 0.09152818010884617,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 74154.88293986894,
+        "team": 0.09152818010884617,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -41,39 +44,111 @@
         "Dragonyule_Lily"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 10190.915322739513,
-      "team": 0.37739038169000916,
-      "tdps": 223758.04588130745,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74154.88293986894,
+        "team": 0.09152818010884617,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Shining_Overlord",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "PopStar_Siren",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(s-s-end)",
-        "`s4",
-        "`s3, fsc",
-        "`fs1, x=2"
+        "if electrified",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`s3, duration-now<2",
+        "if x=2",
+        "`fs2, not have_buff(affself_paralysis_crit)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel",
+        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
+        "end"
       ],
       "coabs": [
         "Blade",
-        "Bow",
-        "Peony"
+        "Peony",
+        "Wand"
       ],
       "share": [
-        "Yuya",
-        "Chitose"
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
-    "affliction": {
-      "dps": 86158.28914942533,
-      "team": 0.09152818010884617,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35632.615851157214,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Shining_Overlord",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`s3, duration-now<2",
+        "if x=2",
+        "`fs2, not have_buff(affself_paralysis_crit)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel",
+        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86158.28914942533,
+        "team": 0.09152818010884617,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -82,40 +157,50 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 47571.78402097435,
-      "team": 0.10646806684955931,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 86158.28914942533,
+        "team": 0.09152818010884617,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47571.78402097435,
+        "team": 0.09994470332141683,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -124,44 +209,40 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
-    "mono_buffer": {
-      "dps": 74154.88293986894,
-      "team": 0.09152818010884617,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47571.78402097435,
+        "team": 0.09994470332141683,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "The_Shining_Overlord",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

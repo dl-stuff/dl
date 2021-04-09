@@ -1,72 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 62928.6556722947,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if aff(frostbite)",
-        "`dragon, not dragondrive.get()",
-        "else",
-        "`dragon, dragondrive.get()",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Catherine",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Chelle"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 70541.21438152116,
-      "team": 0.1155745184386169,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, not dragondrive.get() and x=5",
-        "`s2, not (not dragondrive.get() and dgauge>=1500) and (energy()=5 or energy()<3)",
-        "`s1",
-        "`s4, cancel and not energy()=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "buffer": {
-      "dps": 44913.583858561644,
-      "team": 0.19492008276606615,
-      "tdps": 92422.86150347006,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44913.583858561644,
+        "team": 0.19492008276606615,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -96,16 +36,18 @@
         "Gala_Elisanne"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 30355.698442704022,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62928.6556722947,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
-        "Snipers_Allure",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
@@ -130,15 +72,115 @@
         "Gala_Chelle"
       ]
     },
-    "mono_buffer": {
-      "dps": 47355.39434163392,
-      "team": 0.14574057883248284,
-      "tdps": 106856.04143620838,
+    "META": {
+      "tdps": 92422.86150347006,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29521.742079773314,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get()",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
+      ],
       "coabs": [
         "Catherine",
         "Hunter_Sarisse",
         "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Chelle"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70541.21438152116,
+        "team": 0.1155745184386169,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, not dragondrive.get() and x=5",
+        "`s2, not (not dragondrive.get() and dgauge>=1500) and (energy()=5 or energy()<3)",
+        "`s1",
+        "`s4, cancel and not energy()=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 322987.563831514,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30165.380584129078,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

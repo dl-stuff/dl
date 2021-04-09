@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 77629.07372791423,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 77629.07372791423,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -31,88 +34,19 @@
         "Pinon"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 84429.58226594843,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, not energy()=5 and cancel"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "buffer": {
-      "dps": 56700.211802375445,
-      "team": 0.148847968102233,
-      "tdps": 140605.62728786634,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77629.07372791423,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Chariot_Drift"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s)",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4, x=5",
-        "`s1, not energy()=5 and cancel"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Malora",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Verica"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 69891.95161981741,
-      "team": 0.022220157393522198,
-      "tdps": 348202.8489299726,
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ]
-    },
-    "noaffliction": {
-      "dps": 45881.749862658566,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Snipers_Allure",
+        "His_Clever_Brother",
         "Crown_of_Light",
         "Mask_of_Determination_Lance"
       ],
@@ -133,6 +67,148 @@
         "Weapon",
         "Pinon"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14838.915883693315,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5 and cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, not energy()=5 and cancel"
+      ],
+      "coabs": [
+        "Lucretia",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84429.58226594843,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, not energy()=5 and cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 84429.58226594843,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, not energy()=5 and cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45881.749862658566,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

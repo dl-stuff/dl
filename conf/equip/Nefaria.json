@@ -1,74 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 59840.94776760859,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3) and x=4",
-        "`fs, c_fs(enhanced) and x=4",
-        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
-        "`s4, x>=4",
-        "`s2",
-        "`dodge, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Gala_Alex",
-        "Heinwald",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 66110.92061750645,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3) and x=4",
-        "`fs, c_fs(enhanced) and x=4",
-        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
-        "`s4, fsc",
-        "`s2",
-        "`dodge, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "buffer": {
-      "dps": 30465.765575776702,
-      "team": 0.026951149292729838,
-      "tdps": 1089941.7265205807,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30465.765575776702,
+        "team": 0.026951149292729838,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Forest_Bonds",
@@ -97,10 +35,131 @@
         "Alex"
       ]
     },
-    "noaffliction": {
-      "dps": 33554.559488865576,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59840.94776760859,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Gala_Alex",
+        "Heinwald",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "META": {
+      "tdps": 1089941.7265205807,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25456.18942620596,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Gala_Alex",
+        "Heinwald",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66110.92061750645,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, fsc",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "tdps": 1322583.8592102318,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33508.7440961772,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Forest_Bonds",
@@ -108,7 +167,6 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Arsene",
       "acl": [
         "`dragon(c3-s-end), fs",
         "`s3, not buff(s3) and x=3",
@@ -128,6 +186,13 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,9 +1,42 @@
 {
-  "180": {
-    "base": {
-      "dps": 72485.35046691546,
-      "team": 0.04497641726643925,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4558.09933042873,
+        "team": 0.4327871191710138,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s4",
+        "`s3",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Tobias"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72485.35046691546,
+        "team": 0.04497641726643925,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
@@ -33,87 +66,47 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 73450.43362557239,
-      "team": 0.04562035110912597,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=4",
-        "`s3, fsc and not buff(s3)",
-        "`s4, fsc",
-        "`s2, fsc",
-        "if buff(s2)",
-        "`fs, x=1",
-        "else",
-        "`fs, x=2",
-        "end"
-      ],
-      "coabs": [
-        "Akasha",
-        "Blade",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Yue"
-      ]
-    },
-    "buffer": {
-      "dps": 4493.593243671086,
-      "team": 0.4357841993489025,
-      "tdps": 173977.49057335206,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`fs, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Tobias"
-      ]
-    },
-    "mono_base": {
-      "dps": 69930.24057067072,
-      "team": 0.047538484482855,
-      "tdps": null,
+    "META": {
+      "tdps": 175155.69014183898,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70926.17957967466,
+        "team": 0.04497641726643925,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Akasha",
         "Blade",
         "Mona"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 53630.25115020451,
-      "team": 0.044528651542353394,
-      "tdps": null,
+    "META": {
+      "tdps": 171135.2469730879,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39441.41724453971,
+        "team": 0.04490158113112255,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "A_Dogs_Day",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "The_Lurker_in_the_Woods",
-        "Snipers_Allure",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -137,6 +130,118 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74496.27769691171,
+        "team": 0.04562035110912564,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=4",
+        "`s3, fsc and not buff(s3)",
+        "`s4, fsc",
+        "`s2, fsc",
+        "if buff(s2)",
+        "`fs, x=1",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Akasha",
+        "Blade",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Yue"
+      ]
+    },
+    "META": {
+      "tdps": 180640.9644003936,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53968.42842425447,
+        "team": 0.0445286515423532,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "tdps": 127261.43333229996,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 4558.09933042873,
+        "team": 0.4327871191710138,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s4",
+        "`s3",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Tobias"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

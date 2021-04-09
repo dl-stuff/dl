@@ -1,11 +1,12 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 70937.90885797222,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70937.90885797222,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
@@ -31,22 +32,24 @@
         "Formal_Joachim"
       ]
     },
-    "affliction": {
-      "dps": 80217.76106216584,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70937.90885797222,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
         "Sweet_Surprise",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`dodge, x=2 and not have_buff(dodge_att_buff)",
-        "`fsf, x=2",
+        "`dodge, x=2",
         "`s4",
         "`dragon(c3-s-c3-c3-c2-end), s=4",
         "`s2"
@@ -61,10 +64,119 @@
         "Formal_Joachim"
       ]
     },
-    "noaffliction": {
-      "dps": 67198.28668438809,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42816.94157669083,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dodge, x=2",
+        "`s4",
+        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`s2"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80217.76106216584,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dodge, x=2 and not have_buff(dodge_att_buff)",
+        "`fsf, x=2",
+        "`s4",
+        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`s2"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 80217.76106216584,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dodge, x=2 and not have_buff(dodge_att_buff)",
+        "`fsf, x=2",
+        "`s4",
+        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`s2"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57929.55748654189,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
@@ -72,7 +184,6 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
         "`dodge, x=2 and not have_buff(dodge_att_buff)",
@@ -90,6 +201,13 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

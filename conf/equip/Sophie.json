@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 46746.146979697915,
-      "team": 0.12211929260460837,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon, buff(s1)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, cancel",
-        "`s1, (x=5 or s) and timeleft(s1)<5"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 3337.6621666019587,
-      "team": 0.582360374323775,
-      "tdps": 94316.84075430554,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3373.5148652697217,
+        "team": 0.5747544472475252,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Summertime_Feeling_Feline",
@@ -59,64 +32,17 @@
         "Tobias"
       ]
     },
-    "affliction": {
-      "dps": 50828.90283163395,
-      "team": 0.11995192758931712,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46746.146979697915,
+        "team": 0.12211929260460837,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon, buff(s1)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, cancel",
-        "`s1, (x=5 or s) and timeleft(s1)<5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "mono_base": {
-      "dps": 44403.65546320608,
-      "team": 0.13777869534123624,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 38530.45745505406,
-      "team": 0.13850312277174434,
-      "tdps": 8107365.5701202005,
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Tobias"
-      ]
-    },
-    "noaffliction": {
-      "dps": 34476.89660485882,
-      "team": 0.1385083605868845,
-      "tdps": null,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
+        "Springtime_Breeze",
         "Hastened_Squall",
         "The_Queen_of_the_Knife"
       ],
@@ -138,15 +64,182 @@
         "Formal_Joachim"
       ]
     },
-    "mono_affliction": {
-      "dps": 49161.98732932298,
-      "team": 0.13205903411325623,
-      "tdps": null,
+    "META": {
+      "tdps": 95822.50001912641,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3092.3886264972434,
+        "team": 0.5747544472475252,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46732.30537332857,
+        "team": 0.12211929260460837,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
         "Dragonyule_Xainfried",
-        "Gala_Notte",
         "Mona"
       ]
+    },
+    "META": {
+      "tdps": 96413.00791419699,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16894.85844771502,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon, buff(s1)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, cancel",
+        "`s1, (x=5 or s) and timeleft(s1)<5"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53047.00899925538,
+        "team": 0.11995192758931729,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "tdps": 109219.91850730324,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35823.039277500524,
+        "team": 0.12568511081778636,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "tdps": 72259.49709729922,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 3092.3886264972434,
+        "team": 0.5747544472475252,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Summertime_Feeling_Feline",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "#`dragon(c3-s-end), s4.check() and buff(s1)",
+        "`s3",
+        "`s4",
+        "`s1, timeleft(s1)<5 and x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
     }
   }
 }

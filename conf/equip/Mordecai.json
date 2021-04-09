@@ -1,9 +1,47 @@
 {
-  "180": {
-    "base": {
-      "dps": 61196.81547193026,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44013.17944613438,
+        "team": 0.09987741711672525,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, charged_in(5,s2) or xf=5",
+        "`s2, buff(s1)",
+        "`s4, xf or s",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Hildegarde",
+        "Sha_Wujing"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61196.81547193026,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -32,14 +70,22 @@
         "Ilia"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 52993.997221645746,
-      "team": 0.09958145864428686,
-      "tdps": 82372.94735343911,
+    "META": {
+      "tdps": 172047.26075078233,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33576.58429849227,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Worthy_Rivals",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
@@ -62,13 +108,21 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Ilia"
       ]
     },
-    "affliction": {
-      "dps": 68497.45114081685,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68497.45114081685,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -77,31 +131,25 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1, charged_in(5,s2) or xf=5",
-        "`s2, buff(s1)",
-        "`s4, xf or s",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Halloween_Elisanne",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 52993.997221645746,
-      "team": 0.09958145864428686,
-      "tdps": null,
+    "META": {
+      "tdps": 245143.22057475778,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52993.997221645746,
+        "team": 0.09288547360744884,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -111,34 +159,18 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1, charged_in(5,s2) or xf=5",
-        "`s2, buff(s1)",
-        "`s4, xf or s",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Halloween_Elisanne",
-        "Peony",
-        "Wand"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 31572.246926283067,
-      "team": 0.04545624565875432,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Hildegarde",
-        "Sha_Wujing"
-      ]
+    "META": {
+      "tdps": 1284452.2790546368,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

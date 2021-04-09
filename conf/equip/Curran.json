@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 85706.92582792863,
-      "team": 0.05392399940760232,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 66886.64418589813,
+        "team": 0.05963124772890244,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 85706.92582792863,
+        "team": 0.05392399940760232,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Summer_Paladyns",
@@ -29,11 +64,56 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 90511.37953430138,
-      "team": 0.05040288937922017,
-      "tdps": null,
+    "META": {
+      "tdps": 3297610.4389554975,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16431.54989598947,
+        "team": 0.038003618026290084,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Patia",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 90511.37953430138,
+        "team": 0.05040288937922017,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -41,7 +121,6 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), trickery<1",
         "`s3, not buff(s3)",
@@ -59,74 +138,37 @@
         "Jurota"
       ]
     },
-    "mono_pref": "mono_base",
-    "buffer": {
-      "dps": 66886.64418589813,
-      "team": 0.05963124772890244,
-      "tdps": 3297610.4389554975,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Summer_Paladyns",
-        "Sweet_Surprise",
-        "Beautiful_Nothingness",
-        "Beautys_Secret"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "noaffliction": {
-      "dps": 45718.899827378234,
-      "team": 0.055866731692164266,
-      "tdps": null,
+    "META": {
+      "tdps": 2560014.9510033545,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45718.899827378234,
+        "team": 0.05397363066737651,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 66886.64418589813,
-      "team": 0.05963124772890244,
-      "tdps": 3297610.4389554975,
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Wand"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

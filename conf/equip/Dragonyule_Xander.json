@@ -1,72 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 48244.65710372635,
-      "team": 0.08305760055672959,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Catherine",
-        "Hunter_Sarisse"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 56725.31280732778,
-      "team": 0.08095456482364806,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if s=2",
-        "`dragon(s-c3-end), dragonform.shift_count=0",
-        "`dragon(s-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=2",
-        "end",
-        "`s3, not buff(s3)",
-        "`s2, dgauge>=500 or dgauge<=450",
-        "`s4",
-        "`s1, x>2"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "buffer": {
-      "dps": 20160.537739031683,
-      "team": 0.33850870648522996,
-      "tdps": 109939.31407192766,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20160.537739031683,
+        "team": 0.3330232292436752,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -92,27 +32,19 @@
         "Summer_Cleo"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 48244.65710372635,
-      "team": 0.08305760055672959,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Catherine",
-        "Hunter_Sarisse"
-      ]
-    },
-    "noaffliction": {
-      "dps": 42973.05891810881,
-      "team": 0.08305760055672969,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48244.65710372635,
+        "team": 0.08305760055672959,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -131,6 +63,116 @@
         "Weapon",
         "Pinon"
       ]
+    },
+    "META": {
+      "tdps": 112351.92419141324,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26150.82993659859,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Catherine",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56725.31280732778,
+        "team": 0.06653797114081852,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "if s=2",
+        "`dragon(s-c3-end), dragonform.shift_count=0",
+        "`dragon(s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=2",
+        "end",
+        "`s3, not buff(s3)",
+        "`s2, dgauge>=500 or dgauge<=450",
+        "`s4",
+        "`s1, x>2"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 137211.24886459194,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42702.61801868712,
+        "team": 0.08305760055672959,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 63228.00406517749,
-      "team": 0.025802493636990876,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22442.01020209458,
+        "team": 0.4404661061244592,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Valiant_Crown",
+        "Blessed_Days",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s4",
+        "`s3",
+        "`s1"
+      ],
+      "coabs": [
+        "Renee",
+        "Summer_Estelle",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63228.00406517749,
+        "team": 0.025802493636990876,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -31,42 +65,42 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 72184.68189869955,
-      "team": 0.025802493636990876,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, xf=5 or fsc",
-        "`s2, xf>2",
-        "`fs, charged_in(fs,s1) and xf",
-        "`fsf, xf=5"
-      ],
+    "META": {
+      "tdps": 98359.23055417727,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23738.098200344175,
+        "team": 0.36058760302653153,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Summer_Celliera",
         "Tiki",
         "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
     },
-    "buffer": {
-      "dps": 22442.01020209458,
-      "team": 0.4404661061244592,
-      "tdps": 98359.23055417727,
+    "META": {
+      "tdps": 117955.98058958072,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17486.725638161246,
+        "team": 0.05603396628906389,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Prince_of_Dragonyule",
@@ -82,36 +116,28 @@
         "`s1"
       ],
       "coabs": [
-        "Renee",
-        "Summer_Estelle",
-        "Tobias"
+        "Dagger",
+        "Tobias",
+        "Wand"
       ],
       "share": [
         "Yuya",
         "Gala_Elisanne"
       ]
     },
-    "mono_buffer": {
-      "dps": 63228.00406517749,
-      "team": 0.025802493636990876,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 72184.68189869955,
-      "team": 0.025802493636990876,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33538.56999229491,
+        "team": 0.020667792651367586,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Valiant_Crown",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -133,25 +159,34 @@
         "Gala_Mym"
       ]
     },
-    "mono_affliction": {
-      "dps": 58448.095928856266,
-      "team": 0.032833540411018054,
-      "tdps": null,
-      "coabs": [
-        "Dagger",
-        "Hunter_Sarisse",
-        "Yurius"
+    "META": {
+      "tdps": 453875.63038553414,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72184.68189869955,
+        "team": 0.025802493636990876,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 58448.095928856266,
-      "team": 0.032833540411018054,
-      "tdps": null,
-      "coabs": [
-        "Dagger",
-        "Hunter_Sarisse",
-        "Yurius"
-      ]
+    "META": {
+      "tdps": 119959.09503177895,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

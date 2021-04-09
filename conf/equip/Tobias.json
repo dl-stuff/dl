@@ -1,69 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 36434.76814381367,
-      "team": 0.9309303621201724,
-      "tdps": null,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s1",
-        "`s4",
-        "`s3, not speed()>=1.57 and not duration-now<5",
-        "`fs, xf=5"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Dragonyule_Xainfried",
-        "Joker"
-      ],
-      "share": [
-        "Mikoto",
-        "Gala_Mym"
-      ]
-    },
-    "pref": "buffer",
-    "affliction": {
-      "dps": 36596.91858862734,
-      "team": 0.4952823004315966,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3",
-        "`s4",
-        "`s1, xf or fscf",
-        "`fs, xf=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Dragonyule_Xainfried"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Ilia"
-      ]
-    },
-    "buffer": {
-      "dps": 6037.342878644821,
-      "team": 1.989509594001541,
-      "tdps": 28715.3047685857,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6037.342878644821,
+        "team": 1.989509594001541,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Jewels_of_the_Sun",
@@ -89,36 +32,114 @@
         "Summer_Cleo"
       ]
     },
-    "mono_base": {
-      "dps": 27160.937626637133,
-      "team": 1.1244556030620105,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36434.76814381367,
+        "team": 0.9309303621201724,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s1",
+        "`s4",
+        "`s3, not speed()>=1.57 and not duration-now<5",
+        "`fs, xf=5"
+      ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Mona"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 6746.232764072075,
-      "team": 1.7602100844546424,
-      "tdps": null,
-      "coabs": [
-        "Blade",
+        "Dagger2",
         "Dragonyule_Xainfried",
-        "Ku_Hai"
+        "Joker"
+      ],
+      "share": [
+        "Mikoto",
+        "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 27160.937626637133,
-      "team": 1.1244556030620105,
-      "tdps": null,
+    "META": {
+      "tdps": 28715.3047685857,
+      "pref": "TEAMBUFF"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6145.07926802216,
+        "team": 1.9059913348756221,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Bow",
         "Mona"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34443.73748572174,
+        "team": 0.8797040289275359,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Mona"
+      ]
+    },
+    "META": {
+      "tdps": 27573.816857802034,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14305.849582214052,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s1",
+        "`s4",
+        "`s3, not speed()>=1.57 and not duration-now<5",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Dragonyule_Xainfried",
+        "Joker"
+      ],
+      "share": [
+        "Mikoto",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
     }
   }
 }

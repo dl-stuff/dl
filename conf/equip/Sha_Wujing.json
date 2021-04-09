@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 43622.62686594537,
-      "team": 0.13757879497689857,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43622.62686594537,
+        "team": 0.13757879497689857,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -32,11 +35,93 @@
         "Pinon"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 50693.096770938144,
-      "team": 0.1371646996128568,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43622.62686594537,
+        "team": 0.13757879497689857,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, xf",
+        "`s1, x=5",
+        "`s4, x=5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22348.13837304075,
+        "team": 0.0586486651583359,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, xf",
+        "`s1, x=5",
+        "`s4, x=5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50693.096770938144,
+        "team": 0.1371646996128568,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -46,7 +131,6 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Daikokuten",
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
@@ -59,92 +143,33 @@
         "Blade",
         "Dagger2",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
       ]
     },
-    "buffer": {
-      "dps": 14280.66391292557,
-      "team": 0.24907541949688217,
-      "tdps": 263164.58528985176,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Blessed_Days",
-        "The_Bustling_Hut"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s2, xf",
-        "`s1, x=5",
-        "`s4, x=5",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
+    "META": {
+      "tdps": 17074496.647297733,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48424.25800015233,
+        "team": 0.1371646996128568,
+        "noaff": false,
+        "nihil": false
+      }
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 43622.62686594537,
-      "team": 0.13757879497689857,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 14280.66391292557,
-      "team": 0.24907541949688217,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Blessed_Days",
-        "The_Bustling_Hut"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s2, xf",
-        "`s1, x=5",
-        "`s4, x=5",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 43622.62686594537,
-      "team": 0.13757879497689857,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
+    "META": {
+      "tdps": 11595471.843347158,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

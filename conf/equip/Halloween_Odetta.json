@@ -1,9 +1,45 @@
 {
-  "180": {
-    "base": {
-      "dps": 51778.3110090478,
-      "team": 0.3089469685582921,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11980.428996267823,
+        "team": 1.6436391711872418,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "#`s1, not buff(s1) and fsc",
+        "`dragon(c3-s-end), fsc",
+        "`s4",
+        "`s2",
+        "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51778.3110090478,
+        "team": 0.3089469685582921,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
@@ -30,11 +66,42 @@
         "Pinon"
       ]
     },
-    "pref": "buffer",
-    "affliction": {
-      "dps": 54559.701307743126,
-      "team": 0.31016721030326866,
-      "tdps": null,
+    "META": {
+      "tdps": 29818.02241324996,
+      "pref": "TEAMBUFF"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 12640.029676954251,
+        "team": 1.4943513786543459,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Renee"
+      ]
+    },
+    "META": {
+      "tdps": 33016.817719551225,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24624.79978210616,
+        "team": 0.040973961683787995,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
@@ -45,26 +112,64 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4",
+        "`s1, fsc",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54559.701307743126,
+        "team": 0.31016721030326866,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
         "`s1",
         "`fs, x=2"
       ],
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Summer_Estelle"
-      ],
       "share": [
         "Weapon",
         "Fjorm"
       ]
     },
-    "buffer": {
-      "dps": 11980.428996267823,
-      "team": 1.6436391711872418,
-      "tdps": 29818.02241324996,
+    "META": {
+      "tdps": 31931.134332400237,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11980.428996267823,
+        "team": 1.6436391711872418,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Once_in_a_Lifetime",
@@ -91,56 +196,34 @@
         "Gala_Elisanne"
       ]
     },
-    "mono_buffer": {
-      "dps": 51778.3110090478,
-      "team": 0.3089469685582921,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Summer_Estelle"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 11980.428996267823,
-      "team": 1.6436391711872418,
-      "tdps": null,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "#`s1, not buff(s1) and fsc",
-        "`dragon(c3-s-end), fsc",
-        "`s4",
-        "`s2",
-        "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Gala_Elisanne"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 12640.029676954251,
-      "team": 1.5174898475406937,
-      "tdps": null,
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12640.029676954251,
+        "team": 1.4943513786543459,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Bow",
         "Renee"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
     }
   }
 }

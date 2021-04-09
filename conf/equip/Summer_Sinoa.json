@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 79513.50960352774,
-      "team": 0.15661753268263529,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18523.953876849977,
+        "team": 0.8317047864525322,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s3, overload<3",
+        "`s4",
+        "`s2, overload=3",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Eleonora",
+        "Mona",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79513.50960352774,
+        "team": 0.15661753268263529,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Candy_Couriers",
@@ -31,61 +66,58 @@
         "Xander"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 18523.953876849977,
-      "team": 0.8317047864525322,
+    "META": {
       "tdps": 90343.21917069703,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42443.700071606625,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "A_Dogs_Day",
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Freyja",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`s3, overload<3",
+        "`dragon, s=1",
+        "`s3, not buff(s3) and x=5",
+        "`s2, overload>2 and x>=2",
         "`s4",
-        "`s2, overload=3",
         "`s1",
+        "`dodge, fsc",
         "`fs, x=5"
       ],
       "coabs": [
+        "Blade",
         "Eleonora",
-        "Mona",
-        "Tobias"
+        "Mona"
       ],
       "share": [
-        "Templar_Hope",
-        "Tobias"
+        "Weapon",
+        "Xander"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 80627.72193166714,
-      "team": 0.15661753268263529,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Eleonora",
-        "Mona"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 52264.11110549517,
-      "team": 0.17095104860013927,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Eleonora",
-        "Mona"
-      ]
-    },
-    "noaffliction": {
-      "dps": 38910.89725678242,
-      "team": 0.3208216299234032,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29116.25028561222,
+        "team": 0.30097131136607735,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Brothers_in_Arms",
         "Candy_Couriers",
@@ -102,25 +134,46 @@
         "`dodge, fsc",
         "`fs, x=5"
       ],
-      "coabs": [
-        "Eleonora",
-        "Mona",
-        "Tobias"
+      "share": [
+        "Weapon",
+        "Halloween_Melsa"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31714.971292283808,
+        "team": 0.2552716204342541,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Candy_Couriers",
+        "Felyne_Hospitality",
+        "From_Whence_He_Comes",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ariel",
+      "acl": [
+        "`s3, not buff(s3) and x=5",
+        "`s2, overload>2 and x>=2",
+        "`s4",
+        "`s1",
+        "`dodge, fsc",
+        "`fs, x=5"
       ],
       "share": [
         "Weapon",
         "Halloween_Melsa"
       ]
     },
-    "mono_buffer": {
-      "dps": 79513.50960352774,
-      "team": 0.15661753268263529,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Eleonora",
-        "Mona"
-      ]
+    "META": {
+      "tdps": 56865.17684656713,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

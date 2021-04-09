@@ -1,41 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 6328.31752156761,
-      "team": 1.4975517942748358,
-      "tdps": null,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Gentle_Winds",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Ariel",
-      "slots.w": "void",
-      "acl": [
-        "`s1",
-        "`s4, s1.charged<(s1.sp/2)",
-        "`s3, x>1",
-        "`fs, fs_prep_c=3 and x=1",
-        "`fs, fs_prep_c=1 and x=5",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Mikoto",
-        "Summer_Cleo"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 4344.996671041519,
-      "team": 1.5452704548936693,
-      "tdps": 41562.79377513198,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4344.996671041519,
+        "team": 1.5452704548936693,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Gentle_Winds",
@@ -63,62 +34,162 @@
         "Summer_Cleo"
       ]
     },
-    "affliction": {
-      "dps": 21940.839901306084,
-      "team": 0.5518077466153127,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 6328.31752156761,
+        "team": 1.4975517942748358,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
-        "A_Man_Unchanging",
-        "Candy_Couriers",
+        "Gentle_Winds",
+        "Sisters_Day_Out",
         "Bellathorna",
         "From_Whence_He_Comes"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Ariel",
       "slots.w": "void",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
         "`s1",
-        "`s2",
-        "`s4",
+        "`s4, s1.charged<(s1.sp/2)",
+        "`s3, x>1",
+        "`fs, fs_prep_c=3 and x=1",
+        "`fs, fs_prep_c=1 and x=5",
         "`fs, x=5"
       ],
       "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+        "Bow",
+        "Joker",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Mikoto"
+        "Mikoto",
+        "Summer_Cleo"
       ]
     },
-    "mono_buffer": {
-      "dps": 5632.684545785212,
-      "team": 0.7906988129155598,
-      "tdps": -1313.1253251561443,
+    "META": {
+      "tdps": 41562.79377513198,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4558.470721454898,
+        "team": 1.459993616253024,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Bow",
         "Mona",
         "Tobias"
       ]
     },
-    "mono_pref": "mono_buffer",
-    "mono_base": {
-      "dps": 6481.371479420181,
-      "team": 1.4370095019079074,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 6541.583291438683,
+        "team": 1.4258163448649128,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Bow",
         "Tobias"
       ]
     },
-    "noaffliction": {
-      "dps": 21940.839901306084,
-      "team": 0.5518077466153127,
-      "tdps": null,
+    "META": {
+      "tdps": 58024.30941498809,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 1340.8429023001995,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Gentle_Winds",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s4, s1.charged<(s1.sp/2)",
+        "`s3, x>1",
+        "`fs, fs_prep_c=3 and x=1",
+        "`fs, fs_prep_c=1 and x=5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 2024.103391080274,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Gentle_Winds",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Ariel",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s4, s1.charged<(s1.sp/2)",
+        "`s3, x>1",
+        "`fs, fs_prep_c=3 and x=1",
+        "`fs, fs_prep_c=1 and x=5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21940.839901306084,
+        "team": 0.5518077466153127,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "A_Man_Unchanging",
@@ -127,7 +198,6 @@
         "From_Whence_He_Comes"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -145,6 +215,14 @@
         "Weapon",
         "Mikoto"
       ]
+    },
+    "META": {
+      "tdps": 17711.629317981828,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

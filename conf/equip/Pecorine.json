@@ -1,142 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 105647.57360868028,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Lurker_in_the_Woods",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if gourmand_mode.get()",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs, dodge",
-        "else",
-        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
-        "`dragon(c3-s-end), dragonform.shift_count=1",
-        "`s2",
-        "`fs, x=1",
-        "end"
-      ],
-      "coabs": [
-        "Grace",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 59969.64289067152,
-      "team": 0.10407826126530483,
-      "tdps": 438880.6092904609,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Cupid",
-      "acl": [
-        "`dragon(c3-s-end), not gourmand_mode.get()",
-        "`s3, not buff(s3)",
-        "if gourmand_mode.get()",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs",
-        "else",
-        "`s2",
-        "`fs, x=1",
-        "end"
-      ],
-      "coabs": [
-        "Gala_Zena",
-        "Halloween_Elisanne",
-        "Lucretia"
-      ],
-      "share": [
-        "Weapon",
-        "Jiang_Ziya"
-      ]
-    },
-    "affliction": {
-      "dps": 121680.87498607239,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "The_Lurker_in_the_Woods",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if gourmand_mode.get()",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs, dodge",
-        "else",
-        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
-        "`dragon(c3-s-end), dragonform.shift_count=1",
-        "`s2",
-        "`fs, x=1",
-        "end"
-      ],
-      "coabs": [
-        "Grace",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
-      ]
-    },
-    "mono_base": {
-      "dps": 80402.11885158325,
-      "team": 0.029369537837036656,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 80402.11885158325,
-      "team": 0.029369537837036656,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ]
-    },
-    "noaffliction": {
-      "dps": 94761.75249007116,
-      "team": 0.011104936443289115,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 94761.75249007116,
+        "team": 0.011104936443289115,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -170,6 +40,187 @@
         "Weapon",
         "Mikoto"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 105647.57360868028,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Grace",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "META": {
+      "tdps": 980268.6556740801,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 103632.04511835337,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39891.7586443133,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Grace",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45993.618861844705,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Grace",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 121680.87498607239,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "tdps": 2424068.128032275,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

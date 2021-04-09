@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 44590.43697781971,
-      "team": 0.10537454559749848,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44590.43697781971,
+        "team": 0.10537454559749848,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -31,85 +34,18 @@
         "Xander"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 4341.701789718688,
-      "team": 0.7434674900021981,
-      "tdps": 63076.602775557316,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44590.43697781971,
+        "team": 0.10537454559749848,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`s2",
-        "`s4",
-        "`s3, cancel"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Chitose"
-      ]
-    },
-    "affliction": {
-      "dps": 50826.6607553219,
-      "team": 0.08354988771392699,
-      "tdps": null,
-      "slots.a": [
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Malora",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 44590.43697781971,
-      "team": 0.10537454559749848,
-      "tdps": null,
-      "coabs": [
-        "Malora",
-        "Peony",
-        "Sharena"
-      ]
-    },
-    "noaffliction": {
-      "dps": 33826.09682863314,
-      "team": 0.11105598027056814,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
         "Worthy_Rivals",
-        "Entwined_Flames",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Tutelarys_Destiny"
@@ -131,6 +67,113 @@
         "Weapon",
         "Xander"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23100.463597568934,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), s=2",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`s3, cancel"
+      ],
+      "coabs": [
+        "Malora",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50826.6607553219,
+        "team": 0.08354988771392699,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1",
+        "`s4"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 285742.109258744,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33826.09682863314,
+        "team": 0.10537454559749848,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "Entwined_Flames",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

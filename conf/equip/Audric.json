@@ -1,71 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 78470.69334834708,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c5-s-end), fsc",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s4",
-        "`s2, fsc or aff_timeleft(poison)<4",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 88697.95626906866,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c5-s-end), fsc and dragonform.shift_count<2",
-        "`dragon(c5-s-c5-end), fsc and dragonform.shift_count>=2",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s4",
-        "`s2, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "buffer": {
-      "dps": 55930.14447441294,
-      "team": 0.12174156873309877,
-      "tdps": 185150.80024433654,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55930.144474412926,
+        "team": 0.1127510504972552,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -93,27 +34,19 @@
         "Sha_Wujing"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 63717.59390211038,
-      "team": 0.10397161148029853,
-      "tdps": 141895.45815621267,
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
-      ]
-    },
-    "noaffliction": {
-      "dps": 65255.901698708636,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78470.69334834708,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "The_Plaguebringer"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -133,6 +66,99 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "tdps": 199914.31365406993,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28430.794592561782,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-end), fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc or aff_timeleft(poison)<4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88697.95626906866,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c5-s-end), fsc and dragonform.shift_count<2",
+        "`dragon(c5-s-c5-end), fsc and dragonform.shift_count>=2",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc",
+        "`fs, x=4"
+      ]
+    },
+    "META": {
+      "tdps": 290620.9002057451,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65255.901698708636,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

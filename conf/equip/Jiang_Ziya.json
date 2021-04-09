@@ -1,38 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 39526.32777411472,
-      "team": 0.12943298632324965,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s1, (x=5 or s) and timeleft(s1)<5",
-        "`s3, not buff(s3)",
-        "`s4"
-      ],
-      "coabs": [
-        "Eugene",
-        "Summer_Celliera",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 6448.538030936567,
-      "team": 0.8009773739224975,
-      "tdps": 49256.296909025354,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6448.538030936567,
+        "team": 0.8009773739224975,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -58,36 +32,131 @@
         "Templar_Hope"
       ]
     },
-    "mono_buffer": {
-      "dps": 39526.32777411472,
-      "team": 0.12943298632324965,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39526.32777411472,
+        "team": 0.12943298632324965,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s3, not buff(s3)",
+        "`s4"
+      ],
+      "coabs": [
+        "Eugene",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 49256.296909025354,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8191.539444211302,
+        "team": 0.6780592943382127,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Eugene",
         "Summer_Celliera",
         "Tiki"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_noaffliction": {
-      "dps": 39526.32777411472,
-      "team": 0.12943298632324965,
-      "tdps": null,
+    "META": {
+      "tdps": 57114.9940717914,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4104.770378667831,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "#`s2",
+        "`dragon(s-end)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s3",
+        "`s4"
+      ],
       "coabs": [
-        "Eugene",
-        "Summer_Celliera",
-        "Tiki"
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
       ]
     },
-    "mono_affliction": {
-      "dps": 39526.32777411472,
-      "team": 0.12943298632324965,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16939.435141311627,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s3, not buff(s3)",
+        "`s4"
+      ],
       "coabs": [
         "Eugene",
         "Summer_Celliera",
         "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
     }
   }
 }

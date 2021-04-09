@@ -1,72 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 67999.08651338995,
-      "team": 0.22245007644456688,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Beautiful_Nothingness",
-        "Beautys_Secret"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-c5-end), s=2",
-        "`s3, not buff(s3)",
-        "`s1, fsc",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Gala_Alex",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 77498.74973673848,
-      "team": 0.22691844192199,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Beautiful_Nothingness",
-        "Beautys_Secret"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c5-s-c5-c1-end), s=2",
-        "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "buffer": {
-      "dps": 57513.566484266536,
-      "team": 0.28505944409178663,
-      "tdps": 167475.25846619916,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57513.566484266536,
+        "team": 0.28505944409178663,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Kung_Fu_Masters",
@@ -94,23 +34,15 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 77456.48045085848,
-      "team": 0.2213323958649626,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Gala_Alex",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 60885.831461098256,
-      "team": 0.2245141655126022,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67999.08651338995,
+        "team": 0.22245007644456688,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Jewels_of_the_Sun",
+        "A_Man_Unchanging",
         "Kung_Fu_Masters",
         "Summer_Paladyns",
         "Beautiful_Nothingness",
@@ -135,6 +67,105 @@
         "Weapon",
         "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "tdps": 167475.25846619916,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35641.29815461779,
+        "team": 0.0534950554549128,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Kung_Fu_Masters",
+        "Summer_Paladyns",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-c5-end), s=2",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Gala_Alex",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77498.74973673848,
+        "team": 0.22598528920332228,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c5-s-c5-c1-end), s=2",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 338306.71450493374,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60885.831461098256,
+        "team": 0.21989935349205847,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Kung_Fu_Masters",
+        "Summer_Paladyns",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

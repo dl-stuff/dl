@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 90682.23870639833,
-      "team": 0.04153718564392554,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Lurker_in_the_Woods",
-        "Enter_the_Blue_Rose",
-        "Taiko_Tandem"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1,not have_buff(s1_res_down) and energy()<5",
-        "`s2",
-        "`s4",
-        "`fs"
-      ],
-      "coabs": [
-        "Hunter_Sarisse",
-        "Summer_Estelle",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Luca"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 15050.609420307865,
-      "team": 0.8257818508066788,
-      "tdps": 96438.81896269544,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15050.609420307865,
+        "team": 0.8257818508066788,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Dazzling_Duet",
         "Gentle_Winds",
@@ -59,16 +32,19 @@
         "Gala_Elisanne"
       ]
     },
-    "affliction": {
-      "dps": 100676.51174022662,
-      "team": 0.1634030816181054,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 90682.23870639833,
+        "team": 0.04153718564392554,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
         "The_Lurker_in_the_Woods",
         "Enter_the_Blue_Rose",
-        "His_Clever_Brother"
+        "Taiko_Tandem"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -79,74 +55,122 @@
         "`fs"
       ],
       "coabs": [
-        "Blade",
         "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 100676.51174022662,
-      "team": 0.1634030816181054,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Lurker_in_the_Woods",
-        "Enter_the_Blue_Rose",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1,not have_buff(s1_res_down) and energy()<5",
-        "`s2",
-        "`s4",
-        "`fs"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 85290.64163866619,
-      "team": 0.0416628093848982,
-      "tdps": 42918615.74879933,
-      "coabs": [
-        "Blade",
         "Summer_Estelle",
         "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 89121.51489592771,
-      "team": 0.17208517627304615,
-      "tdps": null,
+    "META": {
+      "tdps": 96438.81896269544,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8751.200675785985,
+        "team": 0.04164354293268913,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dazzling_Duet",
+        "Gentle_Winds",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s4",
+        "`s3",
+        "`s1, not s1_res_down.get()",
+        "`fs"
+      ],
       "coabs": [
         "Blade",
-        "Xander",
-        "Yurius"
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
       ]
     },
-    "mono_affliction": {
-      "dps": 89121.51489592771,
-      "team": 0.17208517627304615,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22256.857330709572,
+        "team": 0.04164352443472729,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Lurker_in_the_Woods",
+        "Enter_the_Blue_Rose",
+        "Taiko_Tandem"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1,not have_buff(s1_res_down) and energy()<5",
+        "`s2",
+        "`s4",
+        "`fs"
+      ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Wand",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "META": {
+      "tdps": 730115932213.1339,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 100676.51174022662,
+        "team": 0.1634030816181054,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Lurker_in_the_Woods",
+        "Enter_the_Blue_Rose",
+        "His_Clever_Brother"
+      ],
       "coabs": [
         "Blade",
-        "Xander",
-        "Yurius"
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "tdps": 129270.30017102165,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

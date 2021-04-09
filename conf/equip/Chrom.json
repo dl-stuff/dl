@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 62508.52071444382,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28796.786357229023,
+        "team": 0.10962303703888135,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62508.52071444382,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -30,73 +65,21 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 77378.93575620351,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 307524.1780179639,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24180.93306383293,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s2.flames=3 and (s2.count=3 and aff())",
-        "`s1",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Marth",
-        "Nobunaga",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 28796.786357229023,
-      "team": 0.11956516470496925,
-      "tdps": 281952.81159357366,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Cleo"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 32652.460623451698,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Honest_Repose",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "Chariot_Drift",
@@ -112,7 +95,7 @@
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
-        "Dagger",
+        "Ezelith",
         "Halloween_Mym",
         "Serena"
       ],
@@ -120,6 +103,76 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77378.93575620351,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s2.flames=3 and (s2.count=3 and aff())",
+        "`s1",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Marth",
+        "Nobunaga",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 443174.6347416307,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32652.460623451698,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "coabs": [
+        "Dagger",
+        "Halloween_Mym",
+        "Serena"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

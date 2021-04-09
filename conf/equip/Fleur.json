@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 64954.71920899592,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64954.71920899592,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -32,46 +35,83 @@
         "Ilia"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 25569.861709234683,
-      "team": 0.0887656082532932,
-      "tdps": 443695.0106552113,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64954.71920899592,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "PopStar_Siren",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(s), buff(s3, 1) and (s=1 and not s2.check())",
+        "`dragon",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2, s=1",
-        "`s3",
-        "`s4, xf or fscf"
+        "`s4, xf or fscf",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Dagger2",
+        "Blade",
         "Peony",
         "Sharena"
       ],
       "share": [
         "Weapon",
-        "Rodrigo"
+        "Ilia"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 44334.78835268878,
-      "team": 0.036192016092010566,
-      "tdps": 569737.0050865725,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35733.39954110827,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, s=1",
+        "`s4, xf or fscf",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
     }
   }
 }

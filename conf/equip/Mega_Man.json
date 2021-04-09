@@ -1,9 +1,42 @@
 {
-  "180": {
-    "base": {
-      "dps": 52306.295964283134,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7809.0653759865345,
+        "team": 0.2752941735013611,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3",
+        "`s4",
+        "`fs, x=5 and fs_prep_c"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Karl",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53983.60736925734,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -33,16 +66,24 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 63865.181995592844,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 167728.00312478284,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34425.06187184401,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "Me_and_My_Bestie",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Plaguebringer",
+        "Chariot_Drift",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
@@ -67,56 +108,49 @@
         "Formal_Joachim"
       ]
     },
-    "buffer": {
-      "dps": 7809.0653759865345,
-      "team": 0.2792038648081265,
-      "tdps": 159371.82896402897,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61344.02638149074,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s3",
-        "`s4",
-        "`fs, x=5 and fs_prep_c"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Karl",
-        "Templar_Hope"
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 47618.069241627556,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 194464.56248824138,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47086.86978726899,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Dragonyule_Dreaming",
         "Memory_of_a_Friend",
         "Catch_Me_in_the_Sunflowers",
         "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=4",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if bleed_stack>=3",
-        "`s2, c_x(metalblade) or c_x(default)",
-        "`s1, c_x(metalblade)",
-        "else",
-        "`s1, c_x(default) and s1.check_full()",
-        "end"
       ],
       "coabs": [
         "Blade",
@@ -127,6 +161,14 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "tdps": 142675.75630723714,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

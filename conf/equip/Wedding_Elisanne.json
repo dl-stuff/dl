@@ -1,69 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 50580.892938105004,
-      "team": 0.08821375525907155,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 66468.1407862218,
-      "team": 0.07837630448663971,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "` dragon(c3-s-c3-c3-c1-end), s=2",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, buff(s3)",
-        "`s4, cancel",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "buffer": {
-      "dps": 23417.933319619475,
-      "team": 0.28007073114519765,
-      "tdps": 141579.21281219248,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23752.84325708378,
+        "team": 0.2796880222381535,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Red_Impulse",
@@ -90,21 +33,148 @@
         "Patia"
       ]
     },
-    "mono_buffer": {
-      "dps": 50580.892938105004,
-      "team": 0.08821375525907155,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50580.892938105004,
+        "team": 0.08821375525907155,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=2",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 140113.08205688087,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26734.96250525073,
+        "team": 0.2630941957957332,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
         "Mona"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 26901.61846220688,
-      "team": 0.08822270767801856,
-      "tdps": null,
+    "META": {
+      "tdps": 136355.6173559344,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44568.02221927531,
+        "team": 0.08821375525907155,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=2",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67418.52115382066,
+        "team": 0.07837630448663971,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "` dragon(c3-s-c3-c3-c1-end), s=2",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, buff(s3)",
+        "`s4, cancel",
+        "`fs, x=4"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "tdps": 216905.79358443004,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27286.35007937815,
+        "team": 0.08822270767801876,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Brothers_in_Arms",
         "Memory_of_a_Friend",
@@ -129,6 +199,13 @@
         "Weapon",
         "Lapis"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

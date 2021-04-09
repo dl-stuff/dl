@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 55411.514815366274,
-      "team": 0.0962736474398345,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6633.1251511352975,
+        "team": 0.5173660325757719,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "PopStar_Siren",
+      "slots.w": "chimeratech",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Peony"
+      ],
+      "share": [
+        "Chitose",
+        "Yuya"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55411.514815366274,
+        "team": 0.0962736474398345,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -30,15 +65,78 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 58282.0129029937,
-      "team": 0.1481215247255553,
-      "tdps": null,
+    "META": {
+      "tdps": 115837.73866745252,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52718.182095735494,
+        "team": 0.0962736474398345,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Raemond"
+      ]
+    },
+    "META": {
+      "tdps": 109441.67734052704,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4198.340134795803,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "PopStar_Siren",
+      "slots.w": "chimeratech",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Peony"
+      ],
+      "share": [
+        "Chitose",
+        "Yuya"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10927.08995643002,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
         "Crown_of_Light",
@@ -52,7 +150,7 @@
         "`s3, xf>3"
       ],
       "coabs": [
-        "Blade",
+        "Dagger2",
         "Peony",
         "Raemond"
       ],
@@ -61,10 +159,18 @@
         "Gala_Mym"
       ]
     },
-    "buffer": {
-      "dps": 6633.1251511352975,
-      "team": 0.5173660325757719,
-      "tdps": 115837.73866745252,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 4198.340134795803,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -90,45 +196,44 @@
         "Yuya"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_base": {
-      "dps": 52718.182095735494,
-      "team": 0.0962736474398345,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56766.08217971421,
+        "team": 0.0962736474398345,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Raemond"
       ]
     },
-    "noaffliction": {
-      "dps": 6633.1251511352975,
-      "team": 0.5173660325757719,
-      "tdps": null,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "PopStar_Siren",
-      "slots.w": "chimeratech",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4",
-        "`s1, not buff(s1)"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
-      ],
-      "share": [
-        "Chitose",
-        "Yuya"
-      ]
+    "META": {
+      "tdps": 119054.5324451663,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

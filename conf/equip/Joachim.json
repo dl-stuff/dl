@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 58655.575532487455,
-      "team": 0.05828430975279667,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43057.21324931544,
+        "team": 0.0882730983334674,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Hastened_Squall",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ariel",
+      "acl": [
+        "`dragon(c3-s-end), s1.check()",
+        "`s3, not buff(s3)",
+        "`s2, s=1",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Curran"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58655.575532487455,
+        "team": 0.05828430975279667,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
         "Memory_of_a_Friend",
@@ -29,85 +64,24 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 66033.16832886316,
-      "team": 0.05831767179858474,
-      "tdps": null,
+    "META": {
+      "tdps": 520139.7929500205,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32261.906576545938,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and not s2.check()",
-        "`s3, not buff(s3)",
-        "`s2, s=1",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
-    },
-    "buffer": {
-      "dps": 41084.329137720364,
-      "team": 0.0921353839641998,
-      "tdps": 519075.0014322444,
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Hastened_Squall",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ariel",
-      "acl": [
-        "`dragon(c3-s-end), s1.check()",
-        "`s3, not buff(s3)",
-        "`s2, s=1",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Akasha",
-        "Blade",
-        "Dragonyule_Xainfried"
-      ],
-      "share": [
-        "Weapon",
-        "Curran"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 58655.575532487455,
-      "team": 0.05828430975279667,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
-    },
-    "noaffliction": {
-      "dps": 27856.959383425135,
-      "team": 0.06556572297714651,
-      "tdps": null,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -127,6 +101,69 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66992.30932134944,
+        "team": 0.05831767179858465,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=1 and not s2.check()",
+        "`s3, not buff(s3)",
+        "`s2, s=1",
+        "`s1",
+        "`s4"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "META": {
+      "tdps": 799023.7109180153,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28036.08395595714,
+        "team": 0.05822277475327392,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,38 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 72664.08165363812,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 29560.978677818843,
-      "team": 0.12171384885028749,
-      "tdps": 354134.74623448704,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29560.978677818843,
+        "team": 0.11651762408667059,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -59,14 +33,17 @@
         "Cleo"
       ]
     },
-    "affliction": {
-      "dps": 77486.6487480901,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72664.08165363812,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
-        "Me_and_My_Bestie",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
@@ -87,6 +64,70 @@
         "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_base"
+    "META": {
+      "tdps": 369927.75396585,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15400.285168529846,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77486.6487480901,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "tdps": 411316.9183283567,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

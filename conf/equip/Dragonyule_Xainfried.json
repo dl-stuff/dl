@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 85948.36122200647,
-      "team": 0.20192470234593812,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "An_Ancient_Oath",
-        "Candy_Couriers",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s1, cancel or dgauge>=500",
-        "`s4"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Humanoid_Midgardsormr",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 6895.15747536212,
-      "team": 1.202513292916146,
-      "tdps": 79006.70114736578,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6895.15747536212,
+        "team": 1.202513292916146,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -61,10 +34,13 @@
         "Tobias"
       ]
     },
-    "affliction": {
-      "dps": 86912.19268273932,
-      "team": 0.31465876221279016,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 85948.36122200647,
+        "team": 0.20192470234593812,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "An_Ancient_Oath",
@@ -74,13 +50,11 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "if s=1",
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "end",
+        "`dragon(c2-s-c3-c3-c3-end), s=1",
         "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, x>1 or dgauge>=500"
+        "`s2, cancel",
+        "`s1, cancel or dgauge>=500",
+        "`s4"
       ],
       "coabs": [
         "Gala_Notte",
@@ -89,14 +63,22 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 86912.19268273932,
-      "team": 0.31465876221279016,
-      "tdps": null,
+    "META": {
+      "tdps": 79006.70114736578,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27257.19071433337,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "An_Ancient_Oath",
@@ -106,13 +88,11 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "if s=1",
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "end",
+        "`dragon(c2-s-c3-c3-c3-end), s=1",
         "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, x>1 or dgauge>=500"
+        "`s2, cancel",
+        "`s1, cancel or dgauge>=500",
+        "`s4"
       ],
       "coabs": [
         "Gala_Notte",
@@ -121,18 +101,73 @@
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86912.19268273932,
+        "team": 0.31465876221279016,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "if s=1",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "end",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, x>1 or dgauge>=500"
+      ],
+      "share": [
+        "Weapon",
         "Dragonyule_Lily"
       ]
     },
-    "mono_buffer": {
-      "dps": 6646.8699850031635,
-      "team": 1.202900834956911,
-      "tdps": 79224.15795284865,
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Tobias"
+    "META": {
+      "tdps": 90124.03771143447,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67202.98680296673,
+        "team": 0.31465876221279016,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "if s=1",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "end",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, x>1 or dgauge>=500"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "tdps": 67925.34952750527,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

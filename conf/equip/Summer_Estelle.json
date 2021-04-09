@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 45152.58150473035,
-      "team": 0.1299709026086579,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 12150.551973281114,
+        "team": 0.8671424471554946,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s2",
+        "`s3",
+        "`s4, x>2",
+        "`s1, x=5"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45152.58150473035,
+        "team": 0.1299709026086579,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Candy_Couriers",
@@ -33,11 +68,19 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 10719.853583917364,
-      "team": 0.8507738540352784,
-      "tdps": 47769.95967159038,
+    "META": {
+      "tdps": 44768.45284598804,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7196.726224905833,
+        "team": 0.03591687597376314,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -54,25 +97,28 @@
         "`s1, x=5"
       ],
       "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Wand"
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Gala_Elisanne",
         "Templar_Hope"
       ]
     },
-    "affliction": {
-      "dps": 50809.54208746655,
-      "team": 0.12997090260865812,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22339.277388174887,
+        "team": 0.03473794520443196,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -96,49 +142,34 @@
         "Gala_Mym"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 50809.54208746655,
-      "team": 0.12997090260865812,
-      "tdps": null,
+    "META": {
+      "tdps": 12844309.061387494,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50495.032648718094,
+        "team": 0.1299709026086579,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "Dueling_Dancers",
         "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if s=2",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
-        "end",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, x>3",
-        "`s2, dgauge>=500 or (dgauge<=450 and x>2)"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 45152.58150473035,
-      "team": 0.1299709026086579,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ]
+    "META": {
+      "tdps": 52015.682047261565,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

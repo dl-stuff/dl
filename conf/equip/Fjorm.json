@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 69373.4608534042,
-      "team": 0.14633965477563451,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7781.172458290391,
+        "team": 0.8505481520678554,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3",
+        "`s4",
+        "`dodge, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69373.4608534042,
+        "team": 0.14633965477563451,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -32,40 +67,42 @@
         "Dragonyule_Lily"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 7781.172458290391,
-      "team": 0.8664275275250142,
-      "tdps": 85534.4059051394,
-      "slots.a": [
-        "Once_in_a_Lifetime",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(s-end)",
-        "`s3",
-        "`s4",
-        "`dodge, fscf",
-        "`fs, x=5"
-      ],
+    "META": {
+      "tdps": 87463.14285036986,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8105.584313047576,
+        "team": 0.7509598731979054,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
-        "Bow",
+        "Blade",
         "Renee",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Gala_Elisanne"
+        "Summer_Estelle"
       ]
     },
-    "affliction": {
-      "dps": 76327.4249779677,
-      "team": 0.14878062315751045,
-      "tdps": null,
+    "META": {
+      "tdps": 101332.82790349351,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41073.7082036858,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -75,12 +112,12 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c1-end)",
+        "`dragon(c3-s-c3-c3-end), s=4",
         "queue prep",
         "`s3, x=1;s4;s1",
         "end",
+        "`s4, cancel",
         "`s1",
-        "`s4, fscf",
         "`dodge, fscf",
         "`fs, x=5"
       ],
@@ -94,26 +131,72 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 57947.82165379372,
-      "team": 0.1698009223930048,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Summer_Estelle"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76327.4249779677,
+        "team": 0.14878062315751045,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c1-end)",
+        "queue prep",
+        "`s3, x=1;s4;s1",
+        "end",
+        "`s1",
+        "`s4, fscf",
+        "`dodge, fscf",
+        "`fs, x=5"
       ]
     },
-    "mono_base": {
-      "dps": 57947.82165379372,
-      "team": 0.1698009223930048,
-      "tdps": null,
+    "META": {
+      "tdps": 97676.58048543669,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30029.55160590016,
+        "team": 0.029499296933423055,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "A_Small_Courage",
+        "Dueling_Dancers"
+      ],
+      "acl": [
+        "dragon;s1;s2;s3;s4"
+      ],
       "coabs": [
         "Blade",
         "Renee",
         "Summer_Estelle"
+      ],
+      "share": [
+        "Weapon"
       ]
+    },
+    "META": {
+      "tdps": 27097.509494690163,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

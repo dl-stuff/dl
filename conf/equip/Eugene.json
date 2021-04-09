@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 44030.83427664577,
-      "team": 0.21590189692828538,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6660.424586229844,
+        "team": 0.8557779210006278,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end), s",
+        "`s3",
+        "`s1",
+        "`s2, now>(duration-1)",
+        "`s4"
+      ],
+      "coabs": [
+        "Renee",
+        "Summer_Estelle",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Yuya"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44500.6505560794,
+        "team": 0.2159211348934675,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -30,11 +65,42 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 6809.88095831797,
-      "team": 0.8557779210006278,
-      "tdps": 58169.0076172001,
+    "META": {
+      "tdps": 59138.5866204008,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9074.869146809213,
+        "team": 0.6818785697384081,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "tdps": 76027.93465686202,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 13151.831374775076,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Once_in_a_Lifetime",
         "Sisters_Day_Out",
@@ -51,25 +117,28 @@
         "`s4"
       ],
       "coabs": [
-        "Renee",
-        "Summer_Estelle",
-        "Tobias"
+        "Dagger",
+        "Tobias",
+        "Wand"
       ],
       "share": [
         "Gala_Elisanne",
         "Yuya"
       ]
     },
-    "affliction": {
-      "dps": 48138.65651456844,
-      "team": 0.22929400102927144,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18027.83526789681,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Such_High_Spirits"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -81,7 +150,7 @@
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
-        "Hunter_Sarisse",
+        "Blade",
         "Tiki",
         "Yurius"
       ],
@@ -90,55 +159,38 @@
         "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 44030.83427664577,
-      "team": 0.21590189692828538,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_noaffliction": {
-      "dps": 44030.83427664577,
-      "team": 0.21590189692828538,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ]
-    },
-    "noaffliction": {
-      "dps": 6809.88095831797,
-      "team": 0.8557779210006278,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50217.38012534356,
+        "team": 0.21572598002586124,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(s-end), s",
-        "`s3",
-        "`s1",
-        "`s2, now>(duration-1)",
-        "`s4"
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "coabs": [
-        "Renee",
-        "Summer_Estelle",
-        "Tobias"
-      ],
-      "share": [
-        "Gala_Elisanne",
-        "Yuya"
+        "Hunter_Sarisse",
+        "Tiki",
+        "Yurius"
       ]
+    },
+    "META": {
+      "tdps": 68052.2200632322,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

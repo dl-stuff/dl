@@ -1,9 +1,49 @@
 {
-  "180": {
-    "base": {
-      "dps": 104392.55468539738,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32025.75123300145,
+        "team": 0.09997142298360746,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Zephyr",
+      "slots.w": "void",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s1.check()",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs",
+        "`dodge, fsc",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Cleo",
+        "Ranzal"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 104392.55468539738,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Summer_Paladyns",
@@ -33,11 +73,60 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 107777.94629118303,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 723874.8963717568,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44724.904047167445,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s1.check()",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs",
+        "`dodge, fsc",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 107777.94629118303,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -45,7 +134,6 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-c1-end)",
         "`s3, not buff(s3)",
@@ -58,55 +146,28 @@
         "end",
         "`fsf, x=4 and speed()=1"
       ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Valentines_Melody"
-      ],
       "share": [
         "Weapon",
         "Karina"
       ]
     },
-    "buffer": {
-      "dps": 29835.214578919153,
-      "team": 0.09997142298360746,
-      "tdps": 745786.5246021712,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Zephyr",
-      "slots.w": "void",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s1.check()",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs",
-        "`dodge, fsc",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Cleo",
-        "Ranzal"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 81962.18821179407,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 757738.4896342113,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 81962.18821179407,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -115,46 +176,36 @@
         "Hastened_Squall"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s1.check()",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs",
-        "`dodge, fsc",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Valentines_Melody"
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81962.18821179407,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "From_Whence_He_Comes",
+        "Hastened_Squall"
       ],
       "share": [
         "Weapon",
         "Mikoto"
       ]
     },
-    "mono_affliction": {
-      "dps": 101682.47702067326,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 50782.74096604139,
-      "team": 0.08297969984841565,
-      "tdps": 646059.3834068873,
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Valentines_Melody"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

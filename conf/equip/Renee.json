@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 57114.472662063796,
-      "team": 0.04088570404800749,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=1",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s1, xf or dgauge>=500",
-        "`s2, xf=5"
-      ],
-      "coabs": [
-        "Eugene",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 22772.177615056546,
-      "team": 0.42109764187952875,
-      "tdps": 90324.08409602579,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22619.055176796035,
+        "team": 0.4210976418795285,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Study_Rabbits",
         "Twinfold_Bonds",
@@ -59,16 +32,19 @@
         "Gala_Elisanne"
       ]
     },
-    "affliction": {
-      "dps": 65270.87679225168,
-      "team": 0.04088570404800769,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57114.472662063796,
+        "team": 0.04088570404800749,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -79,7 +55,7 @@
         "`s2, xf=5"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Eugene",
         "Tiki",
         "Yurius"
       ],
@@ -88,16 +64,76 @@
         "Gala_Mym"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 57114.472662063796,
-      "team": 0.04088570404800749,
-      "tdps": null,
+    "META": {
+      "tdps": 90726.81326632445,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32966.79411484649,
+        "team": 0.03708147536657084,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=1",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, xf or dgauge>=500",
+        "`s2, xf=5"
+      ],
       "coabs": [
         "Eugene",
         "Tiki",
         "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64833.916947617334,
+        "team": 0.04088570404800749,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "tdps": 111029.81671640067,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

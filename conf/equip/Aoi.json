@@ -1,69 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 68028.54380469081,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "Valiant_Crown",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buff(s3)",
-        "`s2",
-        "`fsf, x=5"
-      ],
-      "coabs": [
-        "Joe",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 80514.18918510876,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-end), s=4",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Kimono_Elisanne",
-        "Wand",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 57349.01593122283,
-      "team": 0.11137412324768733,
-      "tdps": 95888.7716648287,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57349.01593122283,
+        "team": 0.0867816659630535,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
@@ -90,16 +33,18 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 37612.3981106421,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68028.54380469081,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Honest_Repose",
         "Me_and_My_Bestie",
+        "Sweet_Surprise",
         "Valiant_Crown",
-        "Snipers_Allure",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
@@ -120,6 +65,109 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 123062.02877016318,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28286.392284450187,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buff(s3)",
+        "`s2",
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Joe",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80514.18918510876,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "`dragon(s-s-c3-end), s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Wand",
+        "Yuya"
+      ]
+    },
+    "META": {
+      "tdps": 266936.25890690193,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37612.3981106421,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Me_and_My_Bestie",
+        "Valiant_Crown",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

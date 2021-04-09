@@ -1,11 +1,43 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 56414.52739549478,
-      "team": 0.19425277332262264,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3262.7014134395276,
+        "team": 0.6498307479621851,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Candy_Couriers",
+        "Sisters_Day_Out",
+        "From_Whence_He_Comes",
+        "Rogues_Banquet"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s1",
+        "`s3",
+        "`s4, s=1",
+        "`fs, fs_prep_c"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Cleo",
+        "Tobias"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56414.52739549478,
+        "team": 0.19425277332262264,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -31,56 +63,63 @@
         "Formal_Joachim"
       ]
     },
-    "buffer": {
-      "dps": 3262.7014134395276,
-      "team": 0.6498307479621851,
+    "META": {
       "tdps": 116668.99837312622,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Candy_Couriers",
-        "Sisters_Day_Out",
-        "From_Whence_He_Comes",
-        "Rogues_Banquet"
-      ],
-      "slots.d": "Freyja",
-      "acl": [
-        "`s1",
-        "`s3",
-        "`s4, s=1",
-        "`fs, fs_prep_c"
-      ],
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3390.5637884803964,
+        "team": 0.612599066662196,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
+        "Blade",
         "Bow",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Cleo",
-        "Tobias"
+        "Lin_You"
       ]
     },
-    "mono_base": {
-      "dps": 53714.554215458345,
-      "team": 0.1333305185779412,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53714.554215458345,
+        "team": 0.1333305185779412,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Dagger",
         "Mona"
       ]
     },
-    "noaffliction": {
-      "dps": 27716.063324171013,
-      "team": 0.34122371650271055,
-      "tdps": null,
+    "META": {
+      "tdps": 105001.6543504354,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33292.37359169352,
+        "team": 0.09996553934571187,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Candy_Couriers",
-        "Gentle_Winds",
         "Memory_of_a_Friend",
-        "Entwined_Flames",
-        "Seaside_Memory"
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Ariel",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -89,34 +128,40 @@
         "`s4"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Dagger2"
+        "Dagger2",
+        "Joker",
+        "Mona"
       ],
       "share": [
         "Weapon",
-        "Tobias"
+        "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 3480.9276584369454,
-      "team": 0.44599996891161836,
-      "tdps": 160660.4882677622,
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Lin_You"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 15907.304225349966,
-      "team": 0.2171551875765,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35801.660768726375,
+        "team": 0.19957710133189105,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Akasha",
         "Bow",
         "Gala_Ranzal"
       ]
+    },
+    "META": {
+      "tdps": 72268.06400971758,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

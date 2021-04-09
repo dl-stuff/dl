@@ -1,43 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 77618.12233020767,
-      "team": 0.04995685670347471,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s2, cancel",
-        "`s4, fsc",
-        "if not buff(s1, default)",
-        "`fs, x=2 and s1.charged!=2235",
-        "`fs, x=3",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Xainfried",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 40819.49747366885,
-      "team": 0.14743779763137715,
-      "tdps": 377495.58535504213,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40830.02978968828,
+        "team": 0.14743779763137715,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Brothers_in_Arms",
         "Felyne_Hospitality",
@@ -64,61 +33,19 @@
         "Patia"
       ]
     },
-    "affliction": {
-      "dps": 79379.64231908198,
-      "team": 0.09999111190116432,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77618.12233020767,
+        "team": 0.04995685670347471,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "Dueling_Dancers",
         "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=1",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s2, cancel",
-        "`s4",
-        "if not buff(s1, default)",
-        "`fs, x=2 and s1.charged!=2235",
-        "`fs, x=3",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Xainfried",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_pref": "mono_buffer",
-    "mono_buffer": {
-      "dps": 73263.52701562844,
-      "team": 0.09996651677057702,
-      "tdps": -174318.7674328665,
-      "coabs": [
-        "Dagger",
-        "Hunter_Sarisse",
-        "Pipple"
-      ]
-    },
-    "noaffliction": {
-      "dps": 65771.22775356479,
-      "team": 0.09746508640177116,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "Snipers_Allure"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -142,15 +69,104 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_base": {
-      "dps": 58666.86103120171,
-      "team": 0.016231034932408434,
-      "tdps": null,
+    "META": {
+      "tdps": 377387.5404806373,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40962.773753333335,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
       "coabs": [
         "Blade",
-        "Renee",
-        "Summer_Estelle"
+        "Xainfried",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79379.64231908198,
+        "team": 0.09999111190116432,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=1",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, cancel",
+        "`s4",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ]
+    },
+    "META": {
+      "tdps": 812482.7253180783,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65479.08604408922,
+        "team": 0.04995685670347471,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 87914.432755975,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, buff(s3) and cancel"
-      ],
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Gala_Alex"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 70628.48633100564,
-      "team": 0.12335184962804814,
-      "tdps": 140135.2835575059,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70628.48633100564,
+        "team": 0.11770876538856503,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Howling_to_the_Heavens",
@@ -59,45 +32,18 @@
         "Akasha"
       ]
     },
-    "affliction": {
-      "dps": 90437.73739098401,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 87914.432755975,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), x=5 and trickery<=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, buff(s3) and cancel"
-      ],
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Gala_Alex"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 46489.72293338481,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -117,6 +63,96 @@
         "Weapon",
         "Fjorm"
       ]
+    },
+    "META": {
+      "tdps": 146853.51908931517,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 9898.939332848864,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, buff(s3) and cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 90437.73739098401,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, buff(s3) and cancel"
+      ]
+    },
+    "META": {
+      "tdps": 168290.36473695582,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46489.72293338481,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

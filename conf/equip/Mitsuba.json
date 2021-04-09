@@ -1,79 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 65496.88287575373,
-      "team": 0.030150077144643017,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
-        "`s3, not buff(s3)",
-        "if xf=2 and hits>19",
-        "`s2",
-        "`s4",
-        "`s1(sashimi), aff_timeleft(frostbite)<6",
-        "`s1(tempura)",
-        "`fsf",
-        "else",
-        "`fs, x=2",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Estelle",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Chelle"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 72453.81101384803,
-      "team": 0.023017542077199367,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`tempura",
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if xf=2 and hits>19",
-        "`s2(tempura)",
-        "`s1(tempura)",
-        "`fsf",
-        "end",
-        "`fs, x=2 and hits<20"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "buffer": {
-      "dps": 8151.691957002103,
-      "team": 0.8332927636600407,
-      "tdps": 71400.99994878334,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8151.691957002103,
+        "team": 0.8332927636600407,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Sisters_Day_Out",
         "Study_Rabbits",
@@ -103,27 +36,19 @@
         "Templar_Hope"
       ]
     },
-    "mono_buffer": {
-      "dps": 65496.88287575373,
-      "team": 0.030150077144643017,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Summer_Estelle",
-        "Xander"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 41401.62385794643,
-      "team": 0.030150077144642892,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65496.88287575373,
+        "team": 0.030150077144643017,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -148,6 +73,147 @@
         "Weapon",
         "Gala_Chelle"
       ]
+    },
+    "META": {
+      "tdps": 71400.99994878334,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9092.253338369133,
+        "team": 0.7280071378823145,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Summer_Estelle",
+        "Xander"
+      ]
+    },
+    "META": {
+      "tdps": 80825.47660657318,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29999.383073264107,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "if xf=2 and hits>19",
+        "`s2",
+        "`s4",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "`s1(tempura)",
+        "`fsf",
+        "else",
+        "`fs, x=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Chelle"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72453.81101384803,
+        "team": 0.023017542077199367,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`tempura",
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if xf=2 and hits>19",
+        "`s2(tempura)",
+        "`s1(tempura)",
+        "`fsf",
+        "end",
+        "`fs, x=2 and hits<20"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 79358.36780400889,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41140.44328542514,
+        "team": 0.030150077144643017,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "tdps": 41074.58348597013,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

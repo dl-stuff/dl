@@ -1,42 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 92347.46612880717,
-      "team": 0.1542406245506681,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), s=2",
-        "`s3, not buff(s3)",
-        "if x=5 or s=4 or not buff(s3)",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
-        "end",
-        "`fs, hits=0 or x=4 and not buff(s3)"
-      ],
-      "coabs": [
-        "Delphi",
-        "Heinwald",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 42303.175711168995,
-      "team": 0.238376057296539,
-      "tdps": 594806.3590377645,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42303.175711168995,
+        "team": 0.238376057296539,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -65,52 +35,13 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 54671.32250870459,
-      "team": 0.13839793667487799,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "if x=5 or s=4 or not buff(s3)",
-        "`s4",
-        "`s1, sr.count>1",
-        "end",
-        "`fs, hits=0 or x=4 and not buff(s3)"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 92536.78152598364,
-      "team": 0.1542406245506681,
-      "tdps": null,
-      "coabs": [
-        "Delphi",
-        "Heinwald",
-        "Wand"
-      ]
-    },
-    "affliction": {
-      "dps": 83504.18050586729,
-      "team": 0.15165246497103144,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 92347.46612880717,
+        "team": 0.1542406245506681,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -118,7 +49,7 @@
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), s=2",
         "`s3, not buff(s3)",
@@ -138,6 +69,88 @@
         "Weapon",
         "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "tdps": 594806.3590377645,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17661.444111359153,
+        "team": 0.04542428967229218,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), s=2",
+        "`s3, not buff(s3)",
+        "if x=5 or s=4 or not buff(s3)",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, hits=0 or x=4 and not buff(s3)"
+      ],
+      "coabs": [
+        "Delphi",
+        "Heinwald",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54671.32250870459,
+        "team": 0.13839793667487799,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "if x=5 or s=4 or not buff(s3)",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, hits=0 or x=4 and not buff(s3)"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 42107.862224014476,
-      "team": 0.06894295080164771,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42107.862224014476,
+        "team": 0.06894295080164771,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Extreme_Teamwork",
@@ -31,45 +34,19 @@
         "Ilia"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 12216.666232744034,
-      "team": 0.20035124759976883,
-      "tdps": 227468.10300107193,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42107.862224014476,
+        "team": 0.06894295080164771,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Gentle_Winds",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`s1",
-        "`s2",
-        "`s3",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Malora",
-        "Peony"
-      ],
-      "share": [
-        "Malka",
-        "Patia"
-      ]
-    },
-    "affliction": {
-      "dps": 44905.95565831638,
-      "team": 0.06894295080164771,
-      "tdps": null,
-      "slots.a": [
+        "An_Ancient_Oath",
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
         "A_Small_Courage",
+        "Dueling_Dancers",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
@@ -82,8 +59,8 @@
         "`s4"
       ],
       "coabs": [
+        "Blade",
         "Bow",
-        "Dagger2",
         "Peony"
       ],
       "share": [
@@ -91,37 +68,26 @@
         "Ilia"
       ]
     },
-    "mono_affliction": {
-      "dps": 38813.77752984088,
-      "team": 0.0647628725957259,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 42107.862224014476,
-      "team": 0.06894295080164771,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
-      ]
-    },
-    "noaffliction": {
-      "dps": 31586.436415274213,
-      "team": 0.07436692642824418,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 19701.854444316094,
+        "team": 0.05043574748394804,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
+        "An_Ancient_Oath",
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Pecorines_Grand_Adventure",
-        "Twinfold_Bonds",
-        "Chariot_Drift",
-        "Dueling_Dancers"
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -138,8 +104,65 @@
       ],
       "share": [
         "Weapon",
-        "Nadine"
+        "Ilia"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44905.95565831638,
+        "team": 0.06894295080164771,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42249.23105114145,
+        "team": 0.0627708109428911,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 22904.34603914664,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

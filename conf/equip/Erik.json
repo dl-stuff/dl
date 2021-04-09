@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 64878.854521065296,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 13201.865350336922,
+        "team": 0.037055965547269865,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Auspexs_Prayer",
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s3",
+        "`s4, s=1",
+        "`s1",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64878.854521065296,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -30,85 +64,25 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 69559.93514457179,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-end), trickery<=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, aff(poison) and x=5 or s=1",
-        "`s1, aff(poison) and cancel"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
-    },
-    "buffer": {
-      "dps": 13201.865350336922,
-      "team": 0.03909557049539458,
-      "tdps": 1321811.8706520952,
-      "slots.a": [
-        "Auspexs_Prayer",
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Fatalis",
-      "acl": [
-        "`s3",
-        "`s4, s=1",
-        "`s1",
-        "`fs, xf=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Mikoto",
-        "Summer_Cleo"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 40499.603571987536,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 32768.808737976724,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 1394565.9870826313,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17564.185574496532,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
         "Chariot_Drift",
-        "Snipers_Allure"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -128,6 +102,75 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69559.93514457179,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, aff(poison) and x=5 or s=1",
+        "`s1, aff(poison) and cancel"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "META": {
+      "tdps": 1520890.6032239958,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32768.808737976724,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Chariot_Drift",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "tdps": 528037.6074043878,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

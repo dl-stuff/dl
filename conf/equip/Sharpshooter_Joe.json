@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 69846.90022710977,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 69846.90022710977,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -32,20 +35,21 @@
         "Karina"
       ]
     },
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 42374.037160123415,
-      "team": 0.10391448202936933,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69846.90022710977,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Worthy_Rivals",
         "A_Game_of_Cat_and_Boar",
-        "A_Small_Courage",
+        "His_Clever_Brother",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -55,6 +59,129 @@
         "`s2, xf",
         "`s4, xf",
         "`dodge, xf"
+      ],
+      "coabs": [
+        "Malora",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21653.049507075164,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "A_Game_of_Cat_and_Boar",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(s), buff(s3, 1)",
+        "`s3, not buff(s3)",
+        "`s1, xf",
+        "`s2, xf",
+        "`s4, xf",
+        "`dodge, xf"
+      ],
+      "coabs": [
+        "Malora",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77412.40456113551,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Proper_Maintenance",
+        "Spirit_of_the_Season",
+        "Enter_the_Blue_Rose",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 77412.40456113551,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Proper_Maintenance",
+        "Spirit_of_the_Season",
+        "Enter_the_Blue_Rose",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42374.037160123415,
+        "team": 0.10391448202936933,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "A_Game_of_Cat_and_Boar",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "coabs": [
         "Blade",
@@ -66,58 +193,30 @@
         "Dragonyule_Lily"
       ]
     },
-    "affliction": {
-      "dps": 77412.40456113551,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Proper_Maintenance",
-        "Spirit_of_the_Season",
-        "Enter_the_Blue_Rose",
-        "His_Clever_Brother",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3, not buff(s3)",
-        "`s1, xf",
-        "`s2, xf",
-        "`s4, xf",
-        "`dodge, xf"
-      ],
-      "coabs": [
-        "Malora",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
-    "buffer": {
-      "dps": 15817.870543596306,
-      "team": 0.12324107242838635,
-      "tdps": 438401.1646353449,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42374.037160123415,
+        "team": 0.10391448202936933,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Worthy_Rivals",
         "A_Game_of_Cat_and_Boar",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gold_Fafnir",
-      "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3, not buff(s3)",
-        "`s1, xf",
-        "`s2, xf",
-        "`s4, xf",
-        "`fsf, xf and have_buff(dodge_crit_chance)",
-        "`dodge, xf and not have_buff(dodge_crit_chance)"
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "coabs": [
         "Blade",
@@ -126,18 +225,15 @@
       ],
       "share": [
         "Weapon",
-        "Verica"
+        "Dragonyule_Lily"
       ]
     },
-    "mono_buffer": {
-      "dps": 66510.01723525878,
-      "team": 0.022207866892560175,
-      "tdps": 150256.79899805557,
-      "coabs": [
-        "Malora",
-        "Peony",
-        "Sharena"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,66 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 88497.09260514176,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2, hp>30",
-        "`s1, buff(s3)",
-        "`s4, xf"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Valentines_Chelsea"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 92952.0154439505,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2, hp=100",
-        "`s1, buff(s3) and ((x=5 and hp=100) or hp<100)",
-        "`s4"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Valentines_Chelsea"
-      ]
-    },
-    "buffer": {
-      "dps": 57114.53177973347,
-      "team": 0.03438222834511378,
-      "tdps": 912755.2906229306,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59060.86062602741,
+        "team": 0.03440409868288179,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -86,16 +32,18 @@
         "Summer_Cleo"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 49510.892783632786,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88497.09260514176,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -114,6 +62,94 @@
         "Weapon",
         "Valentines_Chelsea"
       ]
+    },
+    "META": {
+      "tdps": 855602.4748807251,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 5679.319394933767,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2, hp>30",
+        "`s1, buff(s3)",
+        "`s4, xf"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Valentines_Chelsea"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 92952.0154439505,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2, hp=100",
+        "`s1, buff(s3) and ((x=5 and hp=100) or hp<100)",
+        "`s4"
+      ]
+    },
+    "META": {
+      "tdps": 985090.617554416,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49510.892783632786,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 65811.35169811679,
-      "team": 0.07783346581030466,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 65811.35169811679,
+        "team": 0.07783346581030466,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -32,11 +35,13 @@
         "Jurota"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 70910.2524496958,
-      "team": 0.08545443943926267,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65811.35169811679,
+        "team": 0.07783346581030466,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -47,6 +52,76 @@
         "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29550.901407520447,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70910.2524496958,
+        "team": 0.07756063091742416,
+        "noaff": false,
+        "nihil": false
+      },
       "acl": [
         "`dragon(c3-s-c3-c3-end), s=1 or s=4",
         "`s3, not buff(s3)",
@@ -59,57 +134,25 @@
         "Blade",
         "Peony",
         "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
       ]
     },
-    "buffer": {
-      "dps": 14013.644655050892,
-      "team": 0.45989045910429177,
-      "tdps": 135575.8642093703,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Jewels_of_the_Sun",
-        "Wily_Warriors_Flash_and_Heat",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`dragon, xf",
-        "`s3, not buff(s3)",
-        "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
-        "`s4",
-        "`s1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Chitose"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 65811.35169811679,
-      "team": 0.07783346581030466,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 45625.36541100979,
-      "team": 0.0778334658103047,
-      "tdps": null,
+    "META": {
+      "tdps": 18688594.76787012,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45625.36541100979,
+        "team": 0.0778334658103047,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
@@ -118,25 +161,14 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
-        "`s3, not buff(s3)",
-        "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
-        "`s4",
-        "`s1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

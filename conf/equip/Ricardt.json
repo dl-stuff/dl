@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 43331.531624664596,
-      "team": 0.09984117487769706,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8108.352811850523,
+        "team": 0.66466543895331,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Once_in_a_Lifetime",
+        "Warrior_Maiden",
+        "From_Whence_He_Comes",
+        "Rogues_Banquet"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43331.531624664596,
+        "team": 0.09984117487769706,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -28,11 +63,42 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 8108.352811850523,
-      "team": 0.66466543895331,
+    "META": {
       "tdps": 62361.306078909445,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7620.328243595791,
+        "team": 0.5887657446612006,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Dagger",
+        "Karina",
+        "Xander"
+      ]
+    },
+    "META": {
+      "tdps": 73040.31253099385,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4745.385761962065,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Gentle_Winds",
         "Once_in_a_Lifetime",
@@ -58,20 +124,23 @@
         "Gala_Elisanne"
       ]
     },
-    "affliction": {
-      "dps": 49601.46075885001,
-      "team": 0.13441803387961102,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15120.979631328117,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Such_High_Spirits"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
+        "`dragon(c3-s)",
         "`s3, not buff(s3)",
         "`s4",
         "`s1, not buff(s1)"
@@ -86,55 +155,39 @@
         "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 29641.833500769866,
-      "team": 0.1335743604744055,
-      "tdps": 405822.86794848467,
-      "coabs": [
-        "Dagger",
-        "Karina",
-        "Xander"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_noaffliction": {
-      "dps": 43331.531624664596,
-      "team": 0.09984117487769706,
-      "tdps": null,
-      "coabs": [
-        "Eugene",
-        "Summer_Celliera",
-        "Tiki"
-      ]
-    },
-    "noaffliction": {
-      "dps": 8108.352811850523,
-      "team": 0.66466543895331,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49601.46075885001,
+        "team": 0.09994280495367597,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Gentle_Winds",
-        "Once_in_a_Lifetime",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Rogues_Banquet"
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(s-end)",
-        "`s3",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
         "`s4",
-        "`s2",
         "`s1, not buff(s1)"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Gala_Elisanne"
       ]
+    },
+    "META": {
+      "tdps": 73475.19906033442,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

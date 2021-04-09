@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 44996.34143645279,
-      "team": 0.1049057035358097,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Blessed_Days",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=2",
-        "`s3, not buff(s3) and fsc",
-        "`s4",
-        "`s2",
-        "`s1, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 59107.93478052714,
-      "team": 0.09061877733074351,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s=4",
-        "`s3, not buff(s3) and fsc",
-        "`s4, cancel",
-        "`s2",
-        "`s1, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 30669.12949667277,
-      "team": 0.13182606974651015,
-      "tdps": 532207.1708699553,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30669.12949667277,
+        "team": 0.13126472128859215,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -91,17 +33,19 @@
         "Summer_Luca"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 35643.247936081396,
-      "team": 0.1064523608444703,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44996.34143645279,
+        "team": 0.1049057035358097,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
         "The_Red_Impulse",
         "Blessed_Days",
-        "Dueling_Dancers"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -119,18 +63,111 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 44996.34143645279,
-      "team": 0.1049057035358097,
-      "tdps": null,
+    "META": {
+      "tdps": 543541.1923977194,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22023.80227532256,
+        "team": 0.10478005161536326,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Blessed_Days",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=2",
+        "`s3, not buff(s3) and fsc",
+        "`s4",
+        "`s2",
+        "`s1, fsc",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Marth",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59107.93478052714,
+        "team": 0.08936792381959924,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon, s=4",
+        "`s3, not buff(s3) and fsc",
+        "`s4, cancel",
+        "`s2",
+        "`s1, fsc",
+        "`fs, x=5"
+      ]
+    },
+    "META": {
+      "tdps": 678782.3175482907,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35643.247936081396,
+        "team": 0.09955265584500249,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Blessed_Days",
+        "Dueling_Dancers"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

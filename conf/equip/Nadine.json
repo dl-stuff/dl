@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 88299.47216310201,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37142.168773166144,
+        "team": 0.12042050007777916,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Lord_of_the_Skies",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Cerberus",
+      "acl": [
+        "`dragon(s), s=1",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Joe",
+        "Wand"
+      ],
+      "share": [
+        "Ranzal",
+        "Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88219.33719327998,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Dragon_and_Tamer",
@@ -30,54 +65,22 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 39420.68499057529,
-      "team": 0.12042050007777916,
-      "tdps": 405900.8818345389,
+    "META": {
+      "tdps": 424156.7539341165,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26913.060313210884,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
+        "A_Man_Unchanging",
         "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Lord_of_the_Skies",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Cerberus",
-      "acl": [
-        "`dragon(s), s=1",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Joe",
-        "Wand"
-      ],
-      "share": [
-        "Ranzal",
-        "Cleo"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 94188.94343489864,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Serena",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 50691.81004811041,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Honest_Repose",
         "Me_and_My_Bestie",
         "Amaterasu_Oblation",
         "To_the_Extreme"
@@ -100,6 +103,33 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50251.01008230524,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Honest_Repose",
+        "Me_and_My_Bestie",
+        "Amaterasu_Oblation",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

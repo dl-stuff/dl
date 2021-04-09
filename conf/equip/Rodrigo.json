@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 73006.992852023,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), fsc",
-        "`s3, fsc and not buff(s3)",
-        "`s4",
-        "`s1, cancel and buff(s3)",
-        "`s2, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 78059.27430816526,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, (x>1 or fsc) and buff(s3)",
-        "`s2, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "buffer": {
-      "dps": 54791.015490157406,
-      "team": 0.06249250170098182,
-      "tdps": 291490.6087297735,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54791.015490157406,
+        "team": 0.06249250170098182,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
@@ -91,26 +33,18 @@
         "Fjorm"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 42196.99827697602,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 50932.0022836845,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73006.992852023,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "An_Ancient_Oath",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Snipers_Allure",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -131,6 +65,98 @@
         "Weapon",
         "Fjorm"
       ]
+    },
+    "META": {
+      "tdps": 291490.6087297735,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16055.533747787704,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), fsc",
+        "`s3, fsc and not buff(s3)",
+        "`s4",
+        "`s1, cancel and buff(s3)",
+        "`s2, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78059.27430816526,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, (x>1 or fsc) and buff(s3)",
+        "`s2, fsc",
+        "`fs, x=4"
+      ]
+    },
+    "META": {
+      "tdps": 372336.81137207994,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50932.0022836845,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

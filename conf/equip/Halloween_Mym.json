@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 54679.801968779684,
-      "team": 0.23005754271522283,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Honest_Repose",
-        "Pecorines_Grand_Adventure",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(c3-c3-c3-s-c3-c3-c1-end)",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Nobunaga",
-        "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 7087.191161729006,
-      "team": 0.7630973616697648,
-      "tdps": 89285.28247738544,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7087.191161729006,
+        "team": 0.7630973616697648,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Gentle_Winds",
         "Honest_Repose",
@@ -59,27 +32,30 @@
         "Karl"
       ]
     },
-    "affliction": {
-      "dps": 63768.95983507328,
-      "team": 0.22985237811042913,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54679.801968779684,
+        "team": 0.23005754271522283,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Honest_Repose",
-        "Me_and_My_Bestie",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "Such_High_Spirits"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-c3-c3-s-c3-c3)",
+        "`dragon(c3-c3-c3-s-c3-c3-c1-end)",
         "`s3, not buff(s3)",
-        "`s1, cancel",
         "`s2",
-        "`s4"
+        "`s4",
+        "`s1, cancel"
       ],
       "coabs": [
-        "Gala_Laxi",
+        "Dagger2",
         "Nobunaga",
         "Yuya"
       ],
@@ -88,31 +64,125 @@
         "Gala_Mym"
       ]
     },
-    "mono_base": {
-      "dps": 52380.72715242982,
-      "team": 0.23005754271522283,
-      "tdps": null,
-      "coabs": [
-        "Kimono_Elisanne",
-        "Nobunaga",
-        "Yuya"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 27601.07057285551,
-      "team": 0.24251563976595056,
-      "tdps": 1989040.2586105096,
+    "META": {
+      "tdps": 89285.28247738544,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5966.699463874992,
+        "team": 0.6960875427802742,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Gala_Sarisse",
         "Nadine",
         "Yukata_Cassandra"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 63768.95983507328,
-      "team": 0.22985237811042913,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52380.72715242982,
+        "team": 0.23005754271522283,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Kimono_Elisanne",
+        "Nobunaga",
+        "Yuya"
+      ]
+    },
+    "META": {
+      "tdps": 99594.50610921202,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4709.018657084939,
+        "team": 0.1926032417365613,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Honest_Repose",
+        "Summertime_Feeling_Feline",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "void",
+      "acl": [
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Gala_Sarisse",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Karl"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22170.40303077098,
+        "team": 0.0979536748262132,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Honest_Repose",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(c3-c3-c3-s-c3-c3-c1-end)",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Nobunaga",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 184484.56705803453,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63768.95983507328,
+        "team": 0.22985237811042913,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Honest_Repose",
@@ -120,7 +190,6 @@
         "Dueling_Dancers",
         "Such_High_Spirits"
       ],
-      "slots.d": "Gala_Mars",
       "acl": [
         "`dragon(c3-c3-c3-s-c3-c3)",
         "`s3, not buff(s3)",
@@ -132,11 +201,15 @@
         "Gala_Laxi",
         "Nobunaga",
         "Yuya"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
+    },
+    "META": {
+      "tdps": 106295.92480177007,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

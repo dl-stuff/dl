@@ -1,73 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 60314.62561291959,
-      "team": 0.5048843698316354,
-      "tdps": null,
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
-      ],
-      "coabs": [
-        "Bow",
-        "Dragonyule_Victor",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 65682.21711186902,
-      "team": 0.49933016414394404,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), x=5 and trickery<=1",
-        "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4, x>=4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
-      ],
-      "coabs": [
-        "Bow",
-        "Dragonyule_Victor",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "buffer": {
-      "dps": 8049.969266254906,
-      "team": 0.7815298911448345,
-      "tdps": 188922.8356149465,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8049.969266254906,
+        "team": 0.7815298911448345,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Sisters_Day_Out",
@@ -97,26 +36,18 @@
         "Karl"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 51191.23864173522,
-      "team": 0.5048843698316354,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Dragonyule_Victor",
-        "Ieyasu"
-      ]
-    },
-    "noaffliction": {
-      "dps": 41332.8535351661,
-      "team": 0.5048843698316354,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60314.62561291959,
+        "team": 0.5048843698316354,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Snipers_Allure",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -138,6 +69,135 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 188922.8356149465,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8687.69734830362,
+        "team": 0.7178990308474067,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Bow",
+        "Dragonyule_Victor",
+        "Ieyasu"
+      ]
+    },
+    "META": {
+      "tdps": 242363.2627840278,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11418.700222754742,
+        "team": 0.09873461592808286,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Bow",
+        "Dragonyule_Victor",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65682.21711186902,
+        "team": 0.49933016414394404,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4, x>=4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "tdps": 204225.0304708206,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41332.8535351661,
+        "team": 0.5048843698316354,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

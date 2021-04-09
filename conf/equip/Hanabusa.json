@@ -1,102 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 51656.068790631,
-      "team": 0.19305989717708605,
-      "tdps": null,
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, charged_in(5,s1)",
-        "`s4, xf",
-        "`fsf,xf=5"
-      ],
-      "coabs": [
-        "Gala_Zena",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 6396.963171558561,
-      "team": 0.6682245895860284,
-      "tdps": 95249.30269886501,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "affliction": {
-      "dps": 57638.55135791971,
-      "team": 0.19305989717708605,
-      "tdps": null,
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, charged_in(5,s1)",
-        "`s4, xf",
-        "`fsf,xf=5"
-      ],
-      "coabs": [
-        "Gala_Zena",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 46119.63092517466,
-      "team": 0.30043228565039004,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46119.63092517466,
+        "team": 0.2748657176047761,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -125,15 +35,141 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_buffer": {
-      "dps": 51656.068790631,
-      "team": 0.19305989717708605,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51656.068790631,
+        "team": 0.17317064320360082,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, charged_in(5,s1)",
+        "`s4, xf",
+        "`fsf,xf=5"
+      ],
       "coabs": [
         "Gala_Zena",
         "Peony",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
       ]
+    },
+    "META": {
+      "tdps": 54441.55381228921,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25080.169930457138,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, charged_in(5,s1)",
+        "`s4, xf",
+        "`fsf,xf=5"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57638.55135791971,
+        "team": 0.17317064320360082,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
+      "tdps": 113269.20699525958,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46119.63092517466,
+        "team": 0.2748657176047761,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

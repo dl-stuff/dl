@@ -1,11 +1,46 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_base",
-    "base": {
-      "dps": 62024.127952692674,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53819.32342688187,
+        "team": 0.14148828695894838,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon, self.sr.count=1",
+        "`s3, not buff(s3)",
+        "if self.sr.count=2 and cancel",
+        "`s2, not s2_autocharge_buff.get()",
+        "`s1",
+        "end",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62024.127952692674,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -34,61 +69,19 @@
         "Gala_Mym"
       ]
     },
-    "buffer": {
-      "dps": 53819.32342688187,
-      "team": 0.14148828695894838,
+    "META": {
       "tdps": 57989.28449951024,
-      "slots.a": [
-        "Gentle_Winds",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon, self.sr.count=1",
-        "`s3, not buff(s3)",
-        "if self.sr.count=2 and cancel",
-        "`s2, not s2_autocharge_buff.get()",
-        "`s1",
-        "end",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 74428.95354323121,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 74428.95354323121,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ]
-    },
-    "affliction": {
-      "dps": 69846.12997671482,
-      "team": 0.0,
-      "tdps": null,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33686.240717819775,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -100,8 +93,12 @@
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
         "`s3, not buff(s3)",
-        "`s4, x=4",
-        "`s2, self.sr.count=2 and cancel"
+        "`s4",
+        "if s2_autocharge_buff.get()",
+        "`s1, self.sr.count=2 and cancel",
+        "else",
+        "`s2, self.sr.count=2",
+        "end"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -113,33 +110,56 @@
         "Gala_Mym"
       ]
     },
-    "noaffliction": {
-      "dps": 69846.12997671482,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69846.12997671482,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
         "`s3, not buff(s3)",
         "`s4, x=4",
         "`s2, self.sr.count=2 and cancel"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
+    },
+    "META": {
+      "tdps": 113273.02700670187,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58205.108313929006,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
+        "`s3, not buff(s3)",
+        "`s4, x=4",
+        "`s2, self.sr.count=2 and cancel"
+      ]
+    },
+    "META": {
+      "tdps": 30997.512100203978,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

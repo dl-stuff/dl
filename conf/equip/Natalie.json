@@ -1,99 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 104590.18056750396,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-c3-c3-end), xf=5",
-        "`s3, not buff(s3) and cancel",
-        "`s1, hp<=20",
-        "`s2, xf=5",
-        "`s4, xf=5"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 117661.52299334196,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-c3-c3-end), xf=5 and trickery<=5",
-        "`s3, not buff(s3)",
-        "`s1, hp<=30 or xf=5",
-        "`s2, xf=5 and (hp=0 or hp=100)",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Valentines_Chelsea"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 80280.65378640725,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-c3-c3-end), xf=5",
-        "`s3, not buff(s3) and cancel",
-        "`s1, hp<=20",
-        "`s2, xf=5",
-        "`s4, xf=5"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Veronica"
-      ]
-    },
-    "buffer": {
-      "dps": 25641.699697502074,
-      "team": 0.11389010992975535,
-      "tdps": 693198.7414771607,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25641.699697502074,
+        "team": 0.11389010992975535,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -119,6 +32,157 @@
         "Weapon",
         "Cleo"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 104590.18056750396,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s-c3-c3-end), xf=5",
+        "`s3, not buff(s3) and cancel",
+        "`s1, hp<=20",
+        "`s2, xf=5",
+        "`s4, xf=5"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 693198.7414771607,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17470.730321404655,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s-c3-c3-end), xf=5",
+        "`s3, not buff(s3) and cancel",
+        "`s1, hp<=20",
+        "`s2, xf=5",
+        "`s4, xf=5"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 117661.52299334196,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(s-c3-c3-end), xf=5 and trickery<=5",
+        "`s3, not buff(s3)",
+        "`s1, hp<=30 or xf=5",
+        "`s2, xf=5 and (hp=0 or hp=100)",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Weapon",
+        "Valentines_Chelsea"
+      ]
+    },
+    "META": {
+      "tdps": 807970.2737366351,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 80280.65378640725,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "share": [
+        "Weapon",
+        "Veronica"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80280.65378640725,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "share": [
+        "Weapon",
+        "Veronica"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

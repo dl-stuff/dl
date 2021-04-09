@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 53923.88363038862,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 34948.80015019587,
-      "team": 0.029310568340322526,
-      "tdps": 647380.2643426992,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34948.80015019587,
+        "team": 0.029310568340322526,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Forest_Bonds",
@@ -59,16 +32,18 @@
         "Sha_Wujing"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 38148.69170687912,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53923.88363038862,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "An_Ancient_Oath",
+        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -89,20 +64,56 @@
         "Pinon"
       ]
     },
-    "mono_affliction": {
-      "dps": 58095.46364007298,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 647380.2643426992,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32756.130012030204,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, cancel"
+      ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
         "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
       ]
     },
-    "affliction": {
-      "dps": 53896.83611968495,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54596.08794450718,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Forest_Bonds",
@@ -110,7 +121,6 @@
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-end), cancel",
         "`s3, not buff(s3)",
@@ -129,6 +139,38 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "tdps": 670314.1189958622,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38395.08637491908,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

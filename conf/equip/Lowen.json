@@ -1,9 +1,42 @@
 {
-  "180": {
-    "base": {
-      "dps": 46252.80478434271,
-      "team": 0.13072295669968004,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4113.664163883736,
+        "team": 0.4184845407234132,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Astounding_Trick",
+        "Jewels_of_the_Sun",
+        "Dragons_Nest",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s4",
+        "`s3, not buff(s3)",
+        "`s1, x<=4 and timeleft(s1)<5"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Patia",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46252.80478434271,
+        "team": 0.13072295669968004,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -28,44 +61,48 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 4113.664163883736,
-      "team": 0.4184845407234132,
+    "META": {
       "tdps": 146437.6864737565,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Astounding_Trick",
-        "Jewels_of_the_Sun",
-        "Dragons_Nest",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "acl": [
-        "`s4",
-        "`s3, not buff(s3)",
-        "`s1, x<=4 and timeleft(s1)<5"
-      ],
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3758.5599691827633,
+        "team": 0.41347013118534215,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
+        "Dragonyule_Xainfried",
         "Humanoid_Midgardsormr",
-        "Joker",
         "Tobias"
-      ],
-      "share": [
-        "Patia",
-        "Templar_Hope"
       ]
     },
-    "affliction": {
-      "dps": 46101.52660701396,
-      "team": 0.1267765723255243,
-      "tdps": null,
+    "META": {
+      "tdps": 150290.60818188582,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24434.128469114345,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Springtime_Breeze",
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
@@ -81,14 +118,50 @@
       ],
       "share": [
         "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47557.61362094547,
+        "team": 0.1267765723255243,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "share": [
+        "Weapon",
         "Fjorm"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 6242.475445673097,
-      "team": 0.339682831250515,
-      "tdps": null,
+    "META": {
+      "tdps": 148929.59453820714,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 6242.475445673097,
+        "team": 0.339682831250515,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Astounding_Trick",
@@ -97,12 +170,6 @@
         "From_Whence_He_Comes"
       ],
       "slots.d": "Freyja",
-      "acl": [
-        "`dragon(s)",
-        "`s4",
-        "`s3, not buff(s3)",
-        "`s1, x<=4 and timeleft(s1)<5"
-      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Humanoid_Midgardsormr",
@@ -113,15 +180,13 @@
         "Yuya"
       ]
     },
-    "mono_buffer": {
-      "dps": 3949.3169994135037,
-      "team": 0.42122022910221024,
-      "tdps": 145624.38894886075,
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Humanoid_Midgardsormr",
-        "Tobias"
-      ]
+    "META": {
+      "tdps": 27014.785542457186,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 69186.18726636414,
-      "team": 0.08986455133877709,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 69186.18726636414,
+        "team": 0.08986455133877709,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -33,63 +36,13 @@
         "Dragonyule_Lily"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 40469.11722394676,
-      "team": 0.1349168559536213,
-      "tdps": 637416.2273810836,
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "A_Game_of_Cat_and_Boar",
-        "FirstRate_Hospitality"
-      ],
-      "slots.d": "Cupid",
-      "acl": [
-        "`dragon(c3-s-end), energy()=0 and dragonform.shift_count=0",
-        "`dragon(c7-s-end), dragonform.shift_count>=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, x>2",
-        "`fs, c_fs(enhanced) or (charged_in(fs, s1) and x>1)"
-      ],
-      "coabs": [
-        "Hildegarde",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_pref": "mono_buffer",
-    "mono_buffer": {
-      "dps": 69186.18726636414,
-      "team": 0.08986455133877709,
-      "tdps": -372787.24454454053,
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 79007.37497829257,
-      "team": 0.08986455133877709,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ]
-    },
-    "noaffliction": {
-      "dps": 72459.512481237,
-      "team": 0.07481103128128858,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69186.18726636414,
+        "team": 0.08986455133877709,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -99,14 +52,15 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c3-s)",
+        "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c7-s-end), dragonform.shift_count>=1 and energy()>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
-        "`s4",
-        "`fs, c_fs(enhanced)"
+        "`s4, x>2 and energy()<5",
+        "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
       ],
       "coabs": [
         "Blade",
@@ -118,10 +72,18 @@
         "Dragonyule_Lily"
       ]
     },
-    "affliction": {
-      "dps": 72459.512481237,
-      "team": 0.07481103128128858,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28382.809173827052,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -131,14 +93,15 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c3-s)",
+        "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
+        "`dragon(c7-s-end), dragonform.shift_count>=1 and energy()>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
-        "`s4",
-        "`fs, c_fs(enhanced)"
+        "`s4, x>2 and energy()<5",
+        "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
       ],
       "coabs": [
         "Blade",
@@ -150,15 +113,61 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_base": {
-      "dps": 35685.828790550026,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Hildegarde",
-        "Sharena"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72459.512481237,
+        "team": 0.07481103128128858,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, c_fs(enhanced)"
       ]
+    },
+    "META": {
+      "tdps": 217445.83342448983,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60822.40779177831,
+        "team": 0.07481103128128858,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, c_fs(enhanced)"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

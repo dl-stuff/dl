@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 37479.044010323305,
-      "team": 0.06245526654878585,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4972.537186973761,
+        "team": 0.28579328126250747,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37479.044010323305,
+        "team": 0.06245526654878585,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -30,67 +65,61 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 4972.537186973761,
-      "team": 0.28579328126250747,
+    "META": {
       "tdps": 145548.47218919237,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(c3-s-end), fscf",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, x=4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "The_Prince",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 5234.14979921319,
-      "team": 0.26627503127491964,
-      "tdps": 28868.61359606795,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5234.14979921319,
+        "team": 0.26627503127491964,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Bow",
         "Curran",
         "Lathna"
       ]
     },
-    "mono_pref": "mono_buffer",
-    "mono_affliction": {
-      "dps": 5125.642590951505,
-      "team": 0.2648230030805922,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33747.3270264454,
+        "team": 0.06240713658058508,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
-        "Bow",
-        "Joker",
-        "Patia"
+        "Cleo",
+        "Forte",
+        "Ieyasu"
       ]
     },
-    "noaffliction": {
-      "dps": 27450.593897250743,
-      "team": 0.07120744837640441,
-      "tdps": null,
+    "META": {
+      "tdps": 139861.04712555595,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 5203.63455533685,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Synthetic_Dragon",
-        "Blessed_Days",
-        "Dueling_Dancers"
+        "Dueling_Dancers",
+        "The_Plaguebringer"
       ],
       "slots.d": "Ramiel",
       "acl": [
@@ -103,7 +132,7 @@
       ],
       "coabs": [
         "Audric",
-        "Blade",
+        "Dagger2",
         "Ieyasu"
       ],
       "share": [
@@ -111,15 +140,37 @@
         "Gala_Mym"
       ]
     },
-    "mono_base": {
-      "dps": 10047.617401730762,
-      "team": 0.09953797663599542,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27525.47953994291,
+        "team": 0.07119900386561588,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Synthetic_Dragon",
+        "Blessed_Days",
+        "Dueling_Dancers"
+      ],
       "coabs": [
-        "Cleo",
-        "Forte",
+        "Audric",
+        "Blade",
         "Ieyasu"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

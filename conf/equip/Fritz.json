@@ -1,40 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 47568.304998897234,
-      "team": 0.05110112779394814,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 32302.986015513114,
-      "team": 0.11962747873307558,
-      "tdps": 222765.67735154083,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32302.986015513114,
+        "team": 0.11962747873307558,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Levins_Champion",
         "Memory_of_a_Friend",
@@ -61,10 +33,113 @@
         "Jiang_Ziya"
       ]
     },
-    "affliction": {
-      "dps": 59061.830768878426,
-      "team": 0.018776966741035298,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47568.304998897234,
+        "team": 0.05110112779394814,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1)",
+        "`s3",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "META": {
+      "tdps": 222765.67735154083,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46175.76576966055,
+        "team": 0.05110112779394814,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Peony"
+      ]
+    },
+    "META": {
+      "tdps": 202444.45478310602,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20118.28675072702,
+        "team": 0.023676435508457112,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1)",
+        "`s3",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59061.830768878426,
+        "team": 0.018776966741035298,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -93,21 +168,23 @@
         "Ilia"
       ]
     },
-    "mono_base": {
-      "dps": 46175.76576966054,
-      "team": 0.05152585729479953,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Peony"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 45780.90227218908,
-      "team": 0.05152585729479953,
-      "tdps": null,
+    "META": {
+      "tdps": 265331.76901945006,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45780.90227218911,
+        "team": 0.05110112779394814,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -116,23 +193,14 @@
         "Snipers_Allure",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

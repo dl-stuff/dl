@@ -1,40 +1,43 @@
 {
-  "180": {
-    "affliction": {
-      "dps": 107545.3198681417,
-      "team": 0.09999991666673685,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9468.939654995678,
+        "team": 0.6099049429182516,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Me_and_My_Bestie",
-        "Rivalry_of_Kings",
-        "The_Cutie_Competition",
-        "Dueling_Dancers",
-        "The_Warrioresses"
+        "Dazzling_Duet",
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Horus",
+      "slots.w": "core",
       "acl": [
-        "`dragon(c2-s-c3-c3-s-c3-end), s=1 or s=2",
-        "`s3, not buff(s3)",
-        "`s4, s",
-        "`s2",
-        "`s1",
+        "`s3",
+        "`s4",
         "`fs"
       ],
       "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Serena"
+        "Bow",
+        "Grace",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Karl",
+        "Templar_Hope"
       ]
     },
-    "pref": "base",
-    "base": {
-      "dps": 101433.65153044506,
-      "team": 0.09999991666673687,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 101433.65153044506,
+        "team": 0.09999991666673687,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
@@ -61,49 +64,113 @@
         "Dragonyule_Lily"
       ]
     },
-    "buffer": {
-      "dps": 9468.939654995678,
-      "team": 0.6099049429182516,
+    "META": {
       "tdps": 180356.55100620064,
-      "slots.a": [
-        "Dazzling_Duet",
-        "Honest_Repose",
-        "Jewels_of_the_Sun",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Horus",
-      "slots.w": "core",
-      "acl": [
-        "`s3",
-        "`s4",
-        "`fs"
-      ],
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9607.01320574152,
+        "team": 0.4868508747570075,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
-        "Bow",
-        "Grace",
-        "Tobias"
-      ],
-      "share": [
-        "Karl",
-        "Templar_Hope"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 55739.26431854531,
-      "team": 0.11425533133622105,
-      "tdps": 3205405.684179452,
-      "coabs": [
-        "Ezelith",
+        "Dagger",
         "Halloween_Mym",
         "Serena"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 76262.79145253227,
-      "team": 0.0764166778286931,
-      "tdps": null,
+    "META": {
+      "tdps": 237369.55125564412,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40754.96493004695,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Dueling_Dancers",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon(c2-s-c3-c3-s-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s4, s",
+        "`s2",
+        "`s1",
+        "`fs"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 107545.3198681417,
+        "team": 0.09999991666673685,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Dueling_Dancers",
+        "The_Warrioresses"
+      ],
+      "acl": [
+        "`dragon(c2-s-c3-c3-s-c3-end), s=1 or s=2",
+        "`s3, not buff(s3)",
+        "`s4, s",
+        "`s2",
+        "`s1",
+        "`fs"
+      ]
+    },
+    "META": {
+      "tdps": 192342.44646329305,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 76245.29327657731,
+        "team": 0.0764166778286931,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -129,6 +196,34 @@
         "Weapon",
         "Dragonyule_Lily"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76245.29327657731,
+        "team": 0.0764166778286931,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Mars",
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

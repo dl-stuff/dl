@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 50544.57083321322,
-      "team": 0.08327081083286636,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19927.064513962396,
+        "team": 0.4611612332989819,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Proper_Maintenance",
+        "The_Prince_of_Dragonyule",
+        "Valiant_Crown",
+        "Beach_Battle",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Summer_Estelle",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50544.57083321322,
+        "team": 0.08327081083286636,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -30,46 +65,48 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 19927.064513962396,
-      "team": 0.4611612332989819,
+    "META": {
       "tdps": 81022.18129647415,
-      "slots.a": [
-        "Proper_Maintenance",
-        "The_Prince_of_Dragonyule",
-        "Valiant_Crown",
-        "Beach_Battle",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
-      ],
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19795.753989107638,
+        "team": 0.32036218387997933,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Summer_Celliera",
-        "Summer_Estelle",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Elisanne"
+        "Tiki",
+        "Yurius"
       ]
     },
-    "affliction": {
-      "dps": 58304.88036536502,
-      "team": 0.08327081083286628,
-      "tdps": null,
+    "META": {
+      "tdps": 129691.8417946629,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26620.0970334853,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Mana_Fount"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -77,7 +114,7 @@
         "`dragon(c3-s-c3-c3-c2-end), s=1",
         "`s3, not buff(s3) and xf=5",
         "`s4",
-        "`s1, dgauge<=300 and cancel",
+        "`s1, dgauge<=300 and xf",
         "`s2, xf=5"
       ],
       "coabs": [
@@ -90,16 +127,41 @@
         "Gala_Mym"
       ]
     },
-    "mono_buffer": {
-      "dps": 50544.57083321322,
-      "team": 0.08327081083286636,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58304.88036536502,
+        "team": 0.08327081083286628,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s1, dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end), s=1",
+        "`s3, not buff(s3) and xf=5",
+        "`s4",
+        "`s1, dgauge<=300 and cancel",
+        "`s2, xf=5"
       ]
     },
-    "mono_pref": "mono_base"
+    "META": {
+      "tdps": 101558.05378963755,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

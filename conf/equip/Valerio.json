@@ -1,75 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 60635.21357651748,
-      "team": 0.07219322162402937,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s2(entree), dgauge>=500",
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2(entree), dgauge<=400",
-        "`s1(dessert), aff_timeleft(frostbite)>10",
-        "`s1(appetizer)"
-      ],
-      "coabs": [
-        "Pipple",
-        "Summer_Celliera",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 62860.68295073599,
-      "team": 0.069208026906248,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s2(entree), dgauge>=500",
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2(entree), dgauge<=400",
-        "`s1(dessert), aff_timeleft(frostbite)>10 and xf=3",
-        "`s1(appetizer), xf=3",
-        "`fsf, xf=5 and hits<=20",
-        "`fsf, x=3 and hits>20",
-        "`entree"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "buffer": {
-      "dps": 8575.938276643832,
-      "team": 0.6373625999346962,
-      "tdps": 92112.69629554717,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8521.16817228126,
+        "team": 0.6373625999346961,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Once_in_a_Lifetime",
         "Study_Rabbits",
@@ -94,27 +31,19 @@
         "Yuya"
       ]
     },
-    "mono_buffer": {
-      "dps": 60635.21357651748,
-      "team": 0.07219322162402937,
-      "tdps": null,
-      "coabs": [
-        "Pipple",
-        "Summer_Celliera",
-        "Tiki"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 53866.922775285995,
-      "team": 0.07270395624709827,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60635.21357651748,
+        "team": 0.07219322162402937,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Valiant_Crown",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -135,6 +64,132 @@
         "Weapon",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "tdps": 92209.6054814735,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11419.802445398549,
+        "team": 0.4725242370256245,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Pipple",
+        "Summer_Celliera",
+        "Tiki"
+      ]
+    },
+    "META": {
+      "tdps": 122936.79289811736,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30776.512059598117,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s2(entree), dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
+        "`s1(dessert), aff_timeleft(frostbite)>10",
+        "`s1(appetizer)"
+      ],
+      "coabs": [
+        "Pipple",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62460.95347966461,
+        "team": 0.0692080269062476,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`s2(entree), dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
+        "`s1(dessert), aff_timeleft(frostbite)>10 and xf=3",
+        "`s1(appetizer), xf=3",
+        "`fsf, xf=5 and hits<=20",
+        "`fsf, x=3 and hits>20",
+        "`entree"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "tdps": 94938.57458519918,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53524.3843945611,
+        "team": 0.07219322162402937,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ]
+    },
+    "META": {
+      "tdps": 79627.83892644326,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

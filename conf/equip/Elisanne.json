@@ -1,9 +1,47 @@
 {
-  "180": {
-    "base": {
-      "dps": 46113.65483104526,
-      "team": 0.35181874189527956,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19151.35031571582,
+        "team": 1.737886612373719,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-c3-sf-end), dragonform.shift_count=0 and s=4",
+        "`s3, (xf>1 or fscf) and not speed()>=1.5",
+        "`s4, s=1",
+        "`s1",
+        "`fs, fs_prep_c=3 and xf=2",
+        "`fs, fs_prep_c=1 and x=4",
+        "`fs, x=5",
+        "`s2, duration-now <= 3"
+      ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46113.65483104526,
+        "team": 0.35181874189527956,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -29,17 +67,83 @@
         "Gala_Mym"
       ]
     },
-    "pref": "buffer",
-    "affliction": {
-      "dps": 53294.8589899224,
-      "team": 0.36451159931987687,
-      "tdps": null,
+    "META": {
+      "tdps": 19452.369605842363,
+      "pref": "TEAMBUFF"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19503.034628621026,
+        "team": 1.6153924697317033,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Hunter_Sarisse",
+        "Renee",
+        "Summer_Estelle"
+      ]
+    },
+    "META": {
+      "tdps": 21059.80807941357,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4405.172841127591,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-c3-sf-end), dragonform.shift_count=0 and s=4",
+        "`s3, (xf>1 or fscf) and not speed()>=1.5",
+        "`s4, s=1",
+        "`s1",
+        "`fs, fs_prep_c=3 and xf=2",
+        "`fs, fs_prep_c=1 and x=4",
+        "`fs, x=5",
+        "`s2, duration-now <= 3"
+      ],
+      "coabs": [
+        "Dagger",
+        "Hunter_Sarisse",
+        "Tobias"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21115.346878217028,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Such_High_Spirits"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -59,90 +163,33 @@
         "Gala_Mym"
       ]
     },
-    "buffer": {
-      "dps": 19151.35031571582,
-      "team": 1.737886612373719,
-      "tdps": 19452.369605842363,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53294.85898992241,
+        "team": 0.36451159931987687,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Gentle_Winds",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(c3-c3-sf-end), dragonform.shift_count=0 and s=4",
-        "`s3, (xf>1 or fscf) and not speed()>=1.5",
-        "`s4, s=1",
-        "`s1",
-        "`fs, fs_prep_c=3 and xf=2",
-        "`fs, fs_prep_c=1 and x=4",
-        "`fs, x=5",
-        "`s2, duration-now <= 3"
-      ],
-      "coabs": [
-        "Hunter_Sarisse",
-        "Renee",
-        "Tobias"
-      ],
-      "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ]
     },
-    "mono_buffer": {
-      "dps": 19503.034628621026,
-      "team": 1.6385466464580751,
-      "tdps": 20680.844884191734,
-      "coabs": [
-        "Hunter_Sarisse",
-        "Renee",
-        "Summer_Estelle"
-      ]
-    },
-    "mono_pref": "mono_buffer",
-    "mono_noaffliction": {
-      "dps": 46113.65483104526,
-      "team": 0.35181874189527956,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ]
-    },
-    "noaffliction": {
-      "dps": 19151.35031571582,
-      "team": 1.737886612373719,
-      "tdps": null,
-      "slots.a": [
-        "Gentle_Winds",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(c3-c3-sf-end), dragonform.shift_count=0 and s=4",
-        "`s3, (xf>1 or fscf) and not speed()>=1.5",
-        "`s4, s=1",
-        "`s1",
-        "`fs, fs_prep_c=3 and xf=2",
-        "`fs, fs_prep_c=1 and x=4",
-        "`fs, x=5",
-        "`s2, duration-now <= 3"
-      ],
-      "coabs": [
-        "Hunter_Sarisse",
-        "Renee",
-        "Tobias"
-      ],
-      "share": [
-        "Mikoto",
-        "Summer_Cleo"
-      ]
+    "META": {
+      "tdps": 24861.023645890386,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

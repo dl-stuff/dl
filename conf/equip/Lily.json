@@ -1,9 +1,41 @@
 {
-  "180": {
-    "base": {
-      "dps": 70802.47879417166,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8419.71150008688,
+        "team": 0.523328308407784,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Renee"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Yuya"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70802.47879417166,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -33,37 +65,60 @@
         "Gala_Chelle"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 8419.71150008688,
-      "team": 0.523328308407784,
+    "META": {
       "tdps": 119203.88462050355,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43745.766075470914,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "Once_in_a_Lifetime",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "queue prep",
         "`s3",
-        "`s4"
+        "end",
+        "`s2, x>=3",
+        "`s4, x>=3",
+        "`s1, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
-        "Hunter_Sarisse",
-        "Renee"
+        "Dagger",
+        "Xander"
       ],
       "share": [
-        "Gala_Elisanne",
-        "Yuya"
+        "Weapon",
+        "Gala_Chelle"
       ]
     },
-    "affliction": {
-      "dps": 75416.12850879961,
-      "team": 0.12244572079792997,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75416.12850879961,
+        "team": 0.12244572079792997,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Candy_Couriers",
@@ -71,7 +126,6 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), s=1",
         "queue prep",
@@ -93,11 +147,23 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 45064.43529393917,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 167122.29236036268,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43637.02277458538,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -105,7 +171,6 @@
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), s=4",
         "queue prep",
@@ -116,16 +181,15 @@
         "`s1, cancel",
         "`dodge, fsc",
         "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Chelle"
       ]
+    },
+    "META": {
+      "tdps": 67294.8715150657,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

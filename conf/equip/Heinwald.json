@@ -1,48 +1,16 @@
 {
-  "180": {
-    "base": {
-      "dps": 66592.05272540273,
-      "team": 0.22238575351556575,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), s=2 and trickery<=1",
-        "queue prep",
-        "`s3",
-        "`s1",
-        "`s4",
-        "`s2",
-        "end",
-        "`s4",
-        "`s1",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Alex",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 17423.6732711196,
-      "team": 0.6413756964852186,
-      "tdps": 117349.78435471507,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17969.96903476562,
+        "team": 0.6369724081266954,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
+        "Springtime_Breeze",
         "Luck_of_the_Draw",
         "Seaside_Memory"
       ],
@@ -66,56 +34,17 @@
         "Karl"
       ]
     },
-    "affliction": {
-      "dps": 70013.4908610871,
-      "team": 0.15832500909150915,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66592.05272540273,
+        "team": 0.22238575351556575,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Springtime_Breeze",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), s=2",
-        "queue prep",
-        "`s3;s2;s1;s4",
-        "end",
-        "`s4",
-        "`s1",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 66592.05272540273,
-      "team": 0.22238575351556575,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Gala_Alex",
-        "Wand"
-      ]
-    },
-    "noaffliction": {
-      "dps": 38816.97558779928,
-      "team": 0.2223857535155657,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
       ],
@@ -141,6 +70,142 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 117278.45831468748,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20350.530906448064,
+        "team": 0.5423806743622802,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Gala_Alex",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 144507.0493512786,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14904.330525615223,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), s=2 and trickery<=1",
+        "queue prep",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s2",
+        "end",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Alex",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70013.4908610871,
+        "team": 0.15832500909150915,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), s=2",
+        "queue prep",
+        "`s3;s2;s1;s4",
+        "end",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "tdps": 108730.39722189249,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40718.36558903267,
+        "team": 0.2223857535155657,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

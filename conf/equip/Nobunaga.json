@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 75057.05048313679,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2, burning_ambition",
-        "`fs, xf=5"
-      ],
-      "coabs": [
-        "Marth",
-        "Serena",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 87657.03814308961,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c2-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, burning_ambition or fsc",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Kimono_Elisanne",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 36430.5077116034,
-      "team": 0.11714291371246159,
-      "tdps": 329738.6205225004,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37549.904253754794,
+        "team": 0.11714291371246159,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Crystalian_Envoy",
         "Valiant_Crown",
@@ -82,8 +24,8 @@
         "`fs, xf=5"
       ],
       "coabs": [
-        "Gala_Laxi",
-        "Halloween_Mym",
+        "Marth",
+        "Serena",
         "Wand"
       ],
       "share": [
@@ -91,15 +33,17 @@
         "Cleo"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 51799.72223231883,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75057.05048313679,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Honest_Repose",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "A_Small_Courage",
         "To_the_Extreme"
       ],
@@ -122,15 +66,109 @@
         "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 52027.28145559452,
-      "team": 0.00583187603013167,
-      "tdps": 3948946.9440972162,
+    "META": {
+      "tdps": 320182.8009967965,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34736.31182740231,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, burning_ambition",
+        "`fs, xf=5"
+      ],
       "coabs": [
         "Marth",
         "Serena",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 87657.03814308961,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "`dragon(s-s-c2-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, burning_ambition or fsc",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Marth",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 427743.6193223564,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51799.72223231883,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Honest_Repose",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

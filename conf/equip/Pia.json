@@ -1,40 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 59888.34707646386,
-      "team": 0.07203765374913332,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, cancel",
-        "`s1, buff(s3)",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 14025.250785446415,
-      "team": 0.4575530569021784,
-      "tdps": 118965.66496672595,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14025.250785446415,
+        "team": 0.4575530569021784,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Astounding_Trick",
@@ -61,10 +33,90 @@
         "Dragonyule_Xainfried"
       ]
     },
-    "affliction": {
-      "dps": 65152.76546741147,
-      "team": 0.07200872036681923,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59888.34707646386,
+        "team": 0.07203765374913332,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, cancel",
+        "`s1, buff(s3)",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 118965.66496672595,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22737.226052705293,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, cancel",
+        "`s1, buff(s3)",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65152.76546741147,
+        "team": 0.07200872036681923,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Dragon_and_Tamer",
@@ -72,7 +124,6 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-end), s=2",
         "`s3, not buff(s3)",
@@ -81,31 +132,41 @@
         "`s1, buff(s3)",
         "`fs, x=5"
       ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
       "share": [
         "Weapon",
         "Jurota"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_noaffliction": {
-      "dps": 45986.11813354638,
-      "team": 0.07203765374913315,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+    "META": {
+      "tdps": 132611.24554808764,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27222.692504552237,
+        "team": 0.27186110947686837,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.d": "Gala_Reborn_Zephyr",
+      "share": [
+        "Weapon",
+        "Dragonyule_Xainfried"
       ]
     },
-    "noaffliction": {
-      "dps": 27222.692504552237,
-      "team": 0.27186110947686837,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30706.091859221127,
+        "team": 0.1975932599424692,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "A_Dogs_Day",
         "Astounding_Trick",
@@ -113,7 +174,6 @@
         "From_Whence_He_Comes",
         "Seaside_Memory"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
@@ -122,25 +182,18 @@
         "`s1, buff(s3)",
         "`fs, x=5"
       ],
-      "coabs": [
-        "Bow",
-        "Dragonyule_Xainfried",
-        "Tobias"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Xainfried"
       ]
     },
-    "mono_base": {
-      "dps": 14025.250785446415,
-      "team": 0.4575530569021784,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Dragonyule_Xainfried",
-        "Tobias"
-      ]
+    "META": {
+      "tdps": 46903.19399992133,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,39 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 79689.47472271316,
-      "team": 0.09374447676390982,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Amaterasu_Oblation"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-end), s=1",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s1, cancel",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Sarisse",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 46597.875573842124,
-      "team": 0.24876798636400413,
-      "tdps": 213461.81127130735,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46597.875573842124,
+        "team": 0.2439433420482873,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Felyne_Hospitality",
         "Honest_Repose",
@@ -59,12 +32,15 @@
         "Patia"
       ]
     },
-    "affliction": {
-      "dps": 92973.7159809906,
-      "team": 0.2056642159191734,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79689.47472271316,
+        "team": 0.09374447676390982,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Me_and_My_Bestie",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
@@ -72,61 +48,167 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-s-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x=5",
-        "`s4, x=5"
+        "`dragon(s-s-end), s=1",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2, x=5"
       ],
       "coabs": [
         "Blade",
-        "Halloween_Mym",
+        "Gala_Sarisse",
         "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Formal_Joachim"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 92973.7159809906,
-      "team": 0.2056642159191734,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Amaterasu_Oblation"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x=5",
-        "`s4, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 79689.47472271316,
-      "team": 0.09374447676390982,
-      "tdps": null,
+    "META": {
+      "tdps": 220318.56955921336,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49135.90667072159,
+        "team": 0.20303698440724552,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Gala_Sarisse",
         "Kimono_Elisanne"
       ]
+    },
+    "META": {
+      "tdps": 279557.75478864333,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32733.11995725729,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Amaterasu_Oblation"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-end), s=1",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 92973.7159809906,
+        "team": 0.2056642159191734,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Amaterasu_Oblation"
+      ],
+      "acl": [
+        "`dragon(s-s-c3-c3-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5",
+        "`s4, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 1211517.740784486,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72849.40800646126,
+        "team": 0.2056642159191734,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Amaterasu_Oblation"
+      ],
+      "acl": [
+        "`dragon(s-s-c3-c3-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5",
+        "`s4, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 685792.3648537275,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

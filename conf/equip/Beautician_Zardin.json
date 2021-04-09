@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 62225.804975751525,
-      "team": 0.04448817903629872,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 62225.804975751525,
+        "team": 0.04448817903629872,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -35,11 +38,99 @@
         "Ilia"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 77159.55496877544,
-      "team": 0.041787661416533575,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62225.804975751525,
+        "team": 0.04448817903629872,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "queue s2.check() and dgauge>=500 and energy()>2",
+        "`s2",
+        "`dragon (c3-s-end), cancel",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, charged_in(5,s1)",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25630.919651251712,
+        "team": 0.04357138148566784,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "queue s2.check() and dgauge>=500 and energy()>2",
+        "`s2",
+        "`dragon (c3-s-end), cancel",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, charged_in(5,s1)",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69600.92816623322,
+        "team": 0.04448817903629872,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -48,69 +139,50 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "queue s2.check() and dgauge>=500 and energy()>2",
-        "`s2",
-        "`dragon (c3-s-end), cancel",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, charged_in(5,s1)",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Gala_Zena",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
       ]
     },
-    "buffer": {
-      "dps": 6493.159241055122,
-      "team": 0.11560804745911649,
-      "tdps": 783643.8251454273,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 69600.92816623322,
+        "team": 0.04448817903629872,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gold_Fafnir",
-      "acl": [
-        "s1;s3;s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Emma",
-        "Templar_Hope"
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ]
     },
-    "mono_buffer": {
-      "dps": 62225.804975751525,
-      "team": 0.04448817903629872,
-      "tdps": null,
-      "coabs": [
-        "Gala_Zena",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 56144.2744365921,
-      "team": 0.041787661416533575,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50685.53178774909,
+        "team": 0.04448817903629872,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
@@ -119,28 +191,14 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "queue s2.check() and dgauge>=500 and energy()>2",
-        "`s2",
-        "`dragon (c3-s-end), cancel",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, charged_in(5,s1)",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Gala_Zena",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

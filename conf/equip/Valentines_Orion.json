@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 65921.35233808283,
-      "team": 0.09977183843414089,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 10006.921563829224,
+        "team": 0.6021810921240965,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s2",
+        "`s3",
+        "`s4",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Gala_Sarisse",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Karl"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65921.35233808283,
+        "team": 0.09977183843414089,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Me_and_My_Bestie",
         "Sweet_Surprise",
@@ -30,86 +64,48 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 72044.83312547722,
-      "team": 0.09999067864673501,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s), s",
-        "`s3, fsc and not buff(s3)",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`s2",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Joe",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 10006.921563829224,
-      "team": 0.6143302546991997,
-      "tdps": 108664.88431014416,
-      "slots.a": [
-        "Honest_Repose",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s2",
-        "`s3",
-        "`s4",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Gala_Sarisse",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Karl"
-      ]
-    },
-    "mono_buffer": {
-      "dps": 63998.55735007603,
-      "team": 0.10776644602196567,
-      "tdps": 240511.4906371488,
+    "META": {
+      "tdps": 111292.59734686188,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9621.35565247764,
+        "team": 0.5387980653187888,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Joe",
         "Yuya"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 37802.321179384744,
-      "team": 0.11102539259976942,
-      "tdps": null,
+    "META": {
+      "tdps": 128238.34485951507,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28071.81448615648,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Honest_Repose",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
         "The_Shining_Overlord",
         "FirstRate_Hospitality",
-        "Snipers_Allure"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -129,6 +125,67 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72044.83312547722,
+        "team": 0.09999067864673501,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s-s), s",
+        "`s3, fsc and not buff(s3)",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`s2",
+        "`fs, x=4"
+      ]
+    },
+    "META": {
+      "tdps": 123534.63924584581,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37802.321179384744,
+        "team": 0.09999711119456567,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Honest_Repose",
+        "The_Shining_Overlord",
+        "FirstRate_Hospitality",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "tdps": 55349.036749652754,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

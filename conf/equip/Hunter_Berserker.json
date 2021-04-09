@@ -1,72 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 64291.35699934924,
-      "team": 0.043613447536725004,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-c3-c3-end), fsc",
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`s2, fsc",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Grace",
-        "Halloween_Mym",
-        "Nobunaga"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 68303.29589387239,
-      "team": 0.04515449288227764,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s1, fsc or prep",
-        "`s2, fsc",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Nobunaga"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 41504.43381783662,
-      "team": 0.14537980609975784,
-      "tdps": 223914.1058329082,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42947.193683410194,
+        "team": 0.14562121558197497,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
@@ -86,35 +26,27 @@
         "`fs3"
       ],
       "coabs": [
-        "Grace",
-        "Nobunaga",
-        "Valentines_Hildegarde"
+        "Blade",
+        "Ezelith",
+        "Halloween_Mym"
       ],
       "share": [
         "Weapon",
         "Cleo"
       ]
     },
-    "mono_buffer": {
-      "dps": 62868.51011908648,
-      "team": 0.043613447536725004,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Ezelith",
-        "Halloween_Mym"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 52288.29026726357,
-      "team": 0.04557643949723985,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64291.35699934924,
+        "team": 0.043613447536725004,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
         "The_Shining_Overlord",
-        "Snipers_Allure",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
@@ -137,15 +69,167 @@
         "Formal_Joachim"
       ]
     },
-    "mono_base": {
-      "dps": 62868.51011908648,
-      "team": 0.043613447536725004,
-      "tdps": null,
+    "META": {
+      "tdps": 209240.56789940663,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62868.51011908648,
+        "team": 0.043613447536725004,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Ezelith",
         "Halloween_Mym"
       ]
+    },
+    "META": {
+      "tdps": 195292.15095500692,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36992.41615545148,
+        "team": 0.03793193898710003,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-c3-c3-end), fsc",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Grace",
+        "Halloween_Mym",
+        "Nobunaga"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68303.29589387239,
+        "team": 0.04515449288227764,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s-s-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, fsc or prep",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Nobunaga"
+      ]
+    },
+    "META": {
+      "tdps": 252383.09291976716,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52288.29026726357,
+        "team": 0.043613447536725004,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "tdps": 91572.4043654178,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41394.88547798574,
+        "team": 0.14562121558197497,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon(s-c3-c3-end), fsc",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fst(4, 3), not have_buff(gozu_tenno_buff)",
+        "`fs3"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

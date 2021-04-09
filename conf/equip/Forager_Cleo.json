@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 53031.288210178434,
-      "team": 0.11863412959951829,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14768.42138961994,
+        "team": 0.47438984566674214,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`fs, fs_prep_c",
+        "`s1, not buff(s1)",
+        "`s2",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53031.288210178434,
+        "team": 0.11863412959951829,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -32,46 +67,48 @@
         "Seimei"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 13907.461809405979,
-      "team": 0.7298837682999705,
-      "tdps": 64006.29779340516,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`fs, fs_prep_c",
-        "`s1, not buff(s1)",
-        "`s2",
-        "`s3",
-        "`s4"
-      ],
+    "META": {
+      "tdps": 107553.76538581974,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 16084.014965317612,
+        "team": 0.4169784746012265,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
+        "Blade",
         "Hunter_Sarisse",
-        "Renee",
-        "Tobias"
-      ],
-      "share": [
-        "Gala_Elisanne",
-        "Templar_Hope"
+        "Xander"
       ]
     },
-    "affliction": {
-      "dps": 58851.53943044588,
-      "team": 0.11863412959951833,
-      "tdps": null,
+    "META": {
+      "tdps": 123841.03759248152,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20140.307534164527,
+        "team": 0.12280247631171763,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -94,11 +131,43 @@
         "Seimei"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 42994.46101483358,
-      "team": 0.13840835547020572,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58851.53943044588,
+        "team": 0.11863412959951833,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "tdps": 123914.01191849289,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36200.69607031356,
+        "team": 0.10693459483446494,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
@@ -106,36 +175,18 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "queue s4.check() and s2.check() and dgauge>=500",
-        "`s4;s2;dragon(c3-s-c3-c3-c2-end)",
-        "end",
-        "`s1, buff(s3)",
-        "`s2, dgauge<=500",
-        "`s4, dgauge<=450",
-        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
       "share": [
         "Weapon",
         "Sha_Wujing"
       ]
     },
-    "mono_buffer": {
-      "dps": 53031.288210178434,
-      "team": 0.11863412959951829,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Xander"
-      ]
+    "META": {
+      "tdps": 58326.21695335702,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

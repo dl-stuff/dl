@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 69313.25190068966,
-      "team": 0.12919183294431066,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 69313.25190068966,
+        "team": 0.12919183294431066,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -32,14 +35,16 @@
         "Hunter_Sarisse"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 77927.15513325117,
-      "team": 0.12919183294431066,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69313.25190068966,
+        "team": 0.12919183294431066,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
         "Rogues_Banquet",
         "The_Queen_of_the_Knife",
@@ -65,74 +70,43 @@
         "Hunter_Sarisse"
       ]
     },
-    "buffer": {
-      "dps": 30570.64102039654,
-      "team": 0.2762084925559883,
-      "tdps": 263525.31055069476,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`dragon(s), fsc",
-        "`s3, not buff(s3)",
-        "`s4, x>2",
-        "`fs5, c_fs(auspex) and x=1",
-        "`s1, cancel",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Axe2",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
-    },
-    "mono_base": {
-      "dps": 68513.2500408779,
-      "team": 0.12919183294431066,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68513.2500408779,
+        "team": 0.12919183294431066,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Mitsuhide",
         "Peony"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 43115.778742410526,
-      "team": 0.14312381917318867,
-      "tdps": 1822961.2692139966,
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Sophie_Persona"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 77028.10202617764,
-      "team": 0.14379433409318493,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ]
-    },
-    "noaffliction": {
-      "dps": 77927.15513325117,
-      "team": 0.12919183294431066,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24258.04629778295,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
         "Rogues_Banquet",
         "The_Queen_of_the_Knife",
@@ -158,15 +132,66 @@
         "Hunter_Sarisse"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 57637.580944941576,
-      "team": 0.13414218953738188,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77927.15513325117,
+        "team": 0.12919183294431066,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Lurker_in_the_Woods",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48031.31745411797,
+        "team": 0.13414218953738188,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Lurker_in_the_Woods",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
       "coabs": [
         "Blade",
         "Gala_Prince",
         "Lucretia"
       ]
+    },
+    "META": {
+      "tdps": 4299070.995483236,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

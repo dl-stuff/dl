@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 66666.91691299474,
-      "team": 0.14397930022040994,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 66666.91691299474,
+        "team": 0.14397930022040994,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -35,11 +38,121 @@
         "Summer_Luca"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 76720.10575044407,
-      "team": 0.14471671035878356,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66666.91691299474,
+        "team": 0.14397930022040994,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "if energy()>3 and not s2.check()",
+        "`dragon(c6-s-end), dragonform.shift_count=0",
+        "`dragon(c8-s), dragonform.shift_count=1 and cancel",
+        "end",
+        "`s3, not buff(s3)",
+        "`s2, energy()<4",
+        "`s4, energy()<5",
+        "`s1, energy()=5 or energy()<2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Axe2",
+        "Blade",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65721.0877425272,
+        "team": 0.14397930022040994,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 13178.043456375508,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "if energy()>3 and not s2.check()",
+        "`dragon(c6-s-end), dragonform.shift_count=0",
+        "`dragon(c8-s), dragonform.shift_count=1 and cancel",
+        "end",
+        "`s3, not buff(s3)",
+        "`s2, energy()<4",
+        "`s4, energy()<5",
+        "`s1, energy()=5 or energy()<2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Axe2",
+        "Blade",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76720.10575044407,
+        "team": 0.14397930022040994,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
@@ -48,123 +161,75 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "if energy()>3 and not s2.check()",
-        "`dragon(c6-s-end), dragonform.shift_count=0",
-        "`dragon(c8-s), dragonform.shift_count=1 and cancel",
-        "end",
-        "`s3, not buff(s3)",
-        "`s2, energy()<4",
-        "`s4, energy()<5",
-        "`s1, energy()=5 or energy()<2",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Axe2",
-        "Blade",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Luca"
       ]
     },
-    "buffer": {
-      "dps": 32915.211709347765,
-      "team": 0.26325621072781763,
-      "tdps": 282969.3111606108,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Sisters_Day_Out",
-        "A_Game_of_Cat_and_Boar",
-        "Taiko_Tandem"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4, x=5",
-        "`s1, energy()<2 or energy()=5",
-        "`s2, energy()<4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Peony"
-      ],
-      "share": [
-        "Patia",
-        "Mikoto"
-      ]
-    },
-    "mono_base": {
-      "dps": 65721.0877425272,
-      "team": 0.14471671035878356,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65274.981406066756,
+        "team": 0.14397930022040994,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Gala_Zena",
         "Peony"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 65274.981406066756,
-      "team": 0.14471671035878356,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "if energy()>3 and not s2.check()",
-        "`dragon(c6-s-end), dragonform.shift_count=0",
-        "`dragon(c8-s), dragonform.shift_count=1 and cancel",
-        "end",
-        "`s3, not buff(s3)",
-        "`s2, energy()<4",
-        "`s4, energy()<5",
-        "`s1, energy()=5 or energy()<2",
-        "`fs, x=5"
-      ],
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 65274.981406066756,
+        "team": 0.14397930022040994,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
         "Gala_Zena",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Luca"
       ]
     },
-    "mono_affliction": {
-      "dps": 64666.40368531687,
-      "team": 0.14471671035878356,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 13178.043456375508,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      }
     },
-    "mono_buffer": {
-      "dps": 38750.12796595202,
-      "team": 0.15235284431785467,
-      "tdps": 3532017.6310599996,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Vixel"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

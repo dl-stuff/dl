@@ -589,7 +589,7 @@ def encodable(data, key=None):
 
 
 class EquipManager(dict):
-    EQUIP_DIR = "equip.new"
+    EQUIP_DIR = "equip"
 
     def __init__(self, advname, variant=None):
         self._advname = advname

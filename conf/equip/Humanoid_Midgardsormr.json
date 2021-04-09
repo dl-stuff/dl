@@ -1,11 +1,46 @@
 {
-  "180": {
-    "pref": "base",
-    "mono_pref": "mono_buffer",
-    "base": {
-      "dps": 84902.90264675258,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 71453.66436174228,
+        "team": 0.09182296098295789,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2",
+        "`fs, xf=4",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84902.90264675258,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
         "Sweet_Surprise",
@@ -33,10 +68,81 @@
         "Formal_Joachim"
       ]
     },
-    "affliction": {
-      "dps": 92732.03507732984,
-      "team": 0.04998858038652498,
-      "tdps": null,
+    "META": {
+      "tdps": 146469.22884033815,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79573.22632866367,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ]
+    },
+    "META": {
+      "tdps": 88426.27029233311,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39349.575612054075,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2",
+        "`fs, xf=4",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Cleo",
+        "Dragonyule_Xainfried",
+        "Gala_Notte"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 92732.03507732984,
+        "team": 0.04998858038652498,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Forest_Bonds",
@@ -44,7 +150,6 @@
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end)",
         "`s3, not buff(s3)",
@@ -64,61 +169,35 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 57940.66154141987,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
-      ]
-    },
-    "buffer": {
-      "dps": 70905.1934845366,
-      "team": 0.09182296098295789,
-      "tdps": 152442.3631341394,
-      "slots.a": [
-        "Forest_Bonds",
-        "Sweet_Surprise",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), s",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1",
-        "`s2",
-        "`fs, xf=4",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Cleo",
-        "Dragonyule_Xainfried",
-        "Gala_Notte"
-      ],
+    "META": {
+      "tdps": 508633.5787030131,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 58634.308708731936,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "share": [
         "Weapon",
-        "Cleo"
+        "Formal_Joachim"
       ]
     },
-    "mono_base": {
-      "dps": 63628.16041124038,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
-    },
-    "noaffliction": {
-      "dps": 59047.99296068508,
-      "team": 0.029382460598512128,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59047.99296068508,
+        "team": 0.029382460598512128,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
         "Sweet_Surprise",
@@ -126,35 +205,39 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), s",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1",
-        "`s2",
-        "`fs, xf=4",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Cleo",
-        "Dragonyule_Xainfried",
-        "Gala_Notte"
-      ],
       "share": [
         "Weapon",
         "Sha_Wujing"
       ]
     },
-    "mono_buffer": {
-      "dps": 78577.93466879833,
-      "team": 0.049980310534333314,
-      "tdps": -299113.2727614488,
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58634.308708731936,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Dragonyule_Xainfried",
         "Gala_Notte",
         "Mona"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
     }
   }
 }

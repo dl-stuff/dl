@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 84048.01694674946,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), fscf or x=5",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4, x=5 or fsc",
-        "`s1(all), cancel or s",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Gala_Alex",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 100470.65575976604,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-end), xf or fscf",
-        "`s3, not buff(s3) and fscf",
-        "`s2",
-        "`s4",
-        "`s1(all), (xf or fscf) and buff(s3)",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "buffer": {
-      "dps": 46386.30882438563,
-      "team": 0.10133501899148249,
-      "tdps": 371655.4109051818,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47419.05436643434,
+        "team": 0.09213605868989809,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
@@ -91,11 +33,120 @@
         "Cleo"
       ]
     },
-    "mono_pref": "mono_buffer",
-    "noaffliction": {
-      "dps": 37689.00214497979,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86131.58346853619,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), fscf or x=5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, x=5 or fsc",
+        "`s1(all), cancel or s",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 420166.9753684215,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20314.60998855252,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), fscf or x=5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, x=5 or fsc",
+        "`s1(all), cancel or s",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 100470.65575976604,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(s-end), xf or fscf",
+        "`s3, not buff(s3) and fscf",
+        "`s2",
+        "`s4",
+        "`s1(all), (xf or fscf) and buff(s3)",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 575796.2967776518,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38220.72590510795,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -103,7 +154,6 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), fscf or x=5",
         "`s3, not buff(s3)",
@@ -112,35 +162,17 @@
         "`s1(all), fsc",
         "`fs, x=5"
       ],
-      "coabs": [
-        "Cleo",
-        "Ieyasu",
-        "Wand"
-      ],
       "share": [
         "Weapon",
         "Gala_Mym"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 37824.993806037215,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ]
-    },
-    "mono_base": {
-      "dps": 44860.327971737854,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

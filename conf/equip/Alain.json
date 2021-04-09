@@ -1,70 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 62705.44510140745,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Joe",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 75684.50915020886,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s1",
-        "`s2, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Sarisse",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 5567.809536249604,
-      "team": 0.35509773851354287,
-      "tdps": 160906.78528209977,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5567.809536249604,
+        "team": 0.3407002501193042,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Honest_Repose",
         "Sisters_Day_Out",
@@ -89,16 +31,18 @@
         "Yuya"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 35671.94038510306,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62705.44510140745,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dragon_and_Tamer",
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "The_Plaguebringer",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
@@ -119,6 +63,104 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 167706.46791468383,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38823.63567688642,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Joe",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75684.50915020886,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(s-s-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1",
+        "`s2, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 205801.72626643578,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35671.94038510306,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "tdps": 88359.57953747256,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

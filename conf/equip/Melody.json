@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 54570.591028748175,
-      "team": 0.2746302784855301,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5821.842406872919,
+        "team": 1.5365499498510227,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Summertime_Feeling_Feline",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s3, xf=5 or fscf",
+        "`s4, s1.charged<(s1.sp/3)",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Dragonyule_Xainfried",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54570.591028748175,
+        "team": 0.2746302784855301,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
@@ -30,66 +65,106 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "buffer",
-    "buffer": {
-      "dps": 5821.842406872919,
-      "team": 1.5365499498510227,
+    "META": {
       "tdps": 38630.62739098553,
+      "pref": "TEAMBUFF"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6014.091096367622,
+        "team": 1.4308031806886843,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Bow",
+        "Mona",
+        "Tobias"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48704.38838772939,
+        "team": 0.3288128153343199,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Bow",
+        "Mona",
+        "Tobias"
+      ]
+    },
+    "META": {
+      "tdps": 38739.26545413485,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26610.823093954223,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "A_Dogs_Day",
-        "Summertime_Feeling_Feline",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
         "`s1",
-        "`s3, xf=5 or fscf",
-        "`s4, s1.charged<(s1.sp/3)",
+        "`s2",
+        "`s4",
         "`fs, xf=5"
       ],
       "coabs": [
-        "Bow",
-        "Joker",
-        "Tobias"
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Joker"
       ],
       "share": [
-        "Dragonyule_Xainfried",
-        "Templar_Hope"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
-    "mono_buffer": {
-      "dps": 8957.117470585164,
-      "team": 1.4599447020148886,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31571.561873627747,
+        "team": 0.3288128153343199,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Bow",
         "Mona",
         "Tobias"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_affliction": {
-      "dps": 7639.737231588392,
-      "team": 1.0105849199720618,
-      "tdps": null,
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
-    },
-    "mono_base": {
-      "dps": 8957.117470585164,
-      "team": 1.4599447020148886,
-      "tdps": null,
-      "coabs": [
-        "Bow",
-        "Mona",
-        "Tobias"
-      ]
+    "META": {
+      "tdps": 21320.632388321017,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

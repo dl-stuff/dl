@@ -1,68 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 67508.92462998614,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2",
-        "`dragon, not dragondrive.get()",
-        "`s4",
-        "`s1, x=5 or s"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 76405.1534583797,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2",
-        "`dragon, not dragondrive.get()",
-        "`s4",
-        "`s1, x=5 or s"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Chelle"
-      ]
-    },
-    "buffer": {
-      "dps": 3750.5009334575175,
-      "team": 0.3362301739191619,
-      "tdps": 189627.31081909902,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3750.5009334575175,
+        "team": 0.3330096350403557,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Jewels_of_the_Sun",
         "Study_Rabbits",
@@ -86,14 +30,16 @@
         "Karl"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 47562.42014393526,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67508.92462998614,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
+        "A_Man_Unchanging",
         "Howling_to_the_Heavens",
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Liber_Grimortis"
@@ -115,6 +61,101 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 191461.19807855433,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11422.822782684421,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2",
+        "`dragon, not dragondrive.get()",
+        "`s4",
+        "`s1, x=5 or s"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 76405.1534583797,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Chelle"
+      ]
+    },
+    "META": {
+      "tdps": 218175.8270030762,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50355.4735166723,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ]
+    },
+    "META": {
+      "tdps": 139950.8232774315,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

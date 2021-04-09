@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 46799.31694720517,
-      "team": 0.03745870801752855,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6927.142417026739,
+        "team": 1.0305971499661954,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46799.31694720517,
+        "team": 0.03745870801752855,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -34,11 +69,141 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 6927.142417026739,
-      "team": 1.0305971499661954,
+    "META": {
       "tdps": 40147.6499610105,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8962.39971367403,
+        "team": 0.8138229426558585,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "tdps": 48736.03850537693,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3821.4047157127943,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18491.328158963173,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if s=2",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s2, dgauge>=500",
+        "`s4",
+        "`s1, (xf or fscf) and buff(s3)",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52559.92195623452,
+        "team": 0.03745870801752855,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ]
+    },
+    "META": {
+      "tdps": 45948.05478445716,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 6927.142417026739,
+        "team": 1.0305971499661954,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "Gentle_Winds",
         "Once_in_a_Lifetime",
@@ -64,50 +229,29 @@
         "Templar_Hope"
       ]
     },
-    "affliction": {
-      "dps": 52559.92195623452,
-      "team": 0.03745870801752855,
-      "tdps": null,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if s=2",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
-        "end",
-        "`s3, not buff(s3) and fscf",
-        "`s2, dgauge>=500",
-        "`s4",
-        "`s1, (xf or fscf) and buff(s3)",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8962.39971367403,
+        "team": 0.8138229426558585,
+        "noaff": true,
+        "nihil": false
+      }
     },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 46799.31694720517,
-      "team": 0.03745870801752855,
-      "tdps": null,
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
     }
   }
 }

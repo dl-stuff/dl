@@ -1,9 +1,44 @@
 {
-  "180": {
-    "base": {
-      "dps": 46942.039366774516,
-      "team": 0.3745524331904707,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4954.739551129756,
+        "team": 0.6132487427399139,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(s-end)",
+        "`s1",
+        "`s3",
+        "`s4",
+        "`fs, x=2 and c_fs(delphi)"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Karl",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46942.039366774516,
+        "team": 0.3745524331904707,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "An_Ancient_Oath",
@@ -32,71 +67,42 @@
         "Dragonyule_Lily"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 4954.739551129756,
-      "team": 0.6132487427399139,
+    "META": {
       "tdps": 175902.59311046268,
-      "slots.a": [
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(s-end)",
-        "`s1",
-        "`s3",
-        "`s4",
-        "`fs, x=2 and c_fs(delphi)"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Karl",
-        "Templar_Hope"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "mono_buffer": {
-      "dps": 46942.039366774516,
-      "team": 0.3745524331904707,
-      "tdps": null,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5740.493185002616,
+        "team": 0.5468998435376358,
+        "noaff": false,
+        "nihil": false
+      },
       "coabs": [
         "Forte",
         "Gala_Alex",
         "Ieyasu"
       ]
     },
-    "mono_affliction": {
-      "dps": 47294.84791723062,
-      "team": 0.3745524331904707,
-      "tdps": null,
-      "coabs": [
-        "Forte",
-        "Gala_Alex",
-        "Ieyasu"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 21747.62587880775,
-      "team": 0.3745524331904707,
-      "tdps": null,
-      "coabs": [
-        "Forte",
-        "Gala_Alex",
-        "Ieyasu"
-      ]
-    },
-    "affliction": {
-      "dps": 40321.756326210525,
-      "team": 0.2957519492345222,
-      "tdps": null,
+    "META": {
+      "tdps": 239061.011121538,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15990.915883663802,
+        "team": 0.17836801481455267,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "An_Ancient_Oath",
@@ -104,7 +110,7 @@
         "Dueling_Dancers",
         "The_Warrioresses"
       ],
-      "slots.d": "High_Chthonius",
+      "slots.d": "Ramiel",
       "acl": [
         "queue buff(s3) and (s=1 and dgauge>=500)",
         "`dragon(c3-s);fs",
@@ -124,6 +130,9 @@
         "Weapon",
         "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
     }
   }
 }

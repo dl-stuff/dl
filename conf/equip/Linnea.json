@@ -1,71 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 58391.33290725693,
-      "team": 0.041643627774510986,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Nothingness",
-        "Beautys_Secret"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(c3-s-c3-end), s=2 and buff(s3)",
-        "`s3, not buff(s3) and fsc",
-        "`s4",
-        "`s2",
-        "`s1, buff(s3)",
-        "`fs3",
-        "`fs, hits=0 or x=5"
-      ],
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Grace"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 65057.264792341215,
-      "team": 0.13286401631831327,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "An_Ancient_Oath",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Nothingness",
-        "Beautys_Secret"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(c3-s-end), buff(s3)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs3"
-      ],
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Grace"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "buffer": {
-      "dps": 44860.963024988145,
-      "team": 0.1599092693294453,
-      "tdps": 114406.59945165849,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44860.963024988145,
+        "team": 0.1599092693294453,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Moonlight_Party",
@@ -93,11 +34,129 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 52203.91829550927,
-      "team": 0.09041587501855367,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58391.33290725693,
+        "team": 0.041643627774510986,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(c3-s-c3-end), s=2 and buff(s3)",
+        "`s3, not buff(s3) and fsc",
+        "`s4",
+        "`s2",
+        "`s1, buff(s3)",
+        "`fs3",
+        "`fs, hits=0 or x=5"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 114406.59945165849,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12722.32327195205,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(c3-s-c3-end), s=2 and buff(s3)",
+        "`s3, not buff(s3) and fsc",
+        "`s4",
+        "`s2",
+        "`s1, buff(s3)",
+        "`fs3",
+        "`fs, hits=0 or x=5"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65057.264792341215,
+        "team": 0.13286401631831327,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), buff(s3)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs3"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 746759.5795476611,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34352.06464411936,
+        "team": 0.09041587501855367,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "A_Man_Unchanging",
         "An_Ancient_Oath",
@@ -114,35 +173,17 @@
         "`s1",
         "`fs3"
       ],
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Grace"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
-    "mono_buffer": {
-      "dps": 58391.33290725693,
-      "team": 0.041643627774510986,
-      "tdps": null,
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Grace"
-      ]
-    },
-    "mono_affliction": {
-      "dps": 62881.05057469618,
-      "team": 0.13286401631831327,
-      "tdps": null,
-      "coabs": [
-        "Dagger",
-        "Forte",
-        "Grace"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

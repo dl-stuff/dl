@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 75398.58183179512,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 10422.104440471545,
+        "team": 0.734538505236701,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Crystalian_Envoy",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s2(low)",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tiki"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75398.58183179512,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -30,39 +64,57 @@
         "Summer_Julietta"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 10489.624866313681,
-      "team": 0.7345385052367006,
-      "tdps": 88366.99029762221,
+    "META": {
+      "tdps": 88458.91253908502,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42684.07533364669,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
-        "Crystalian_Envoy",
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Chariot_Drift",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon(c3-s), cancel",
         "`s3, not buff(s3)",
-        "`s2(low)",
-        "`s4, cancel"
+        "`s1(low), aff_timeleft(frostbite)<5",
+        "`s1(high)",
+        "`s2(high)",
+        "`s4"
       ],
       "coabs": [
         "Blade",
-        "Bow",
-        "Tiki"
+        "Wand",
+        "Xander"
       ],
       "share": [
-        "Templar_Hope",
-        "Gala_Elisanne"
+        "Weapon",
+        "Summer_Julietta"
       ]
     },
-    "affliction": {
-      "dps": 79182.79333514792,
-      "team": 0.055858112499413366,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79182.79333514792,
+        "team": 0.055858112499413366,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -70,7 +122,6 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), s=2",
         "`s3, not buff(s3) and x=1",
@@ -90,11 +141,23 @@
         "Gala_Mym"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 51700.721214925754,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 101315.27244709006,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51369.30633534289,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
@@ -102,7 +165,6 @@
         "Chariot_Drift",
         "Snipers_Allure"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s), cancel",
         "`s3, not buff(s3)",
@@ -114,21 +176,14 @@
         "Blade",
         "Wand",
         "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 46875.220487220366,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Summer_Estelle",
-        "Xander"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

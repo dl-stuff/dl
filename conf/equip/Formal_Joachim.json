@@ -1,40 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 77847.80702826835,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
-        "`s3, not buff(s3)",
-        "`s2, s1.check()",
-        "`s1, s=2",
-        "`s4",
-        "`dodge, xf=1"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "pref": "base",
-    "buffer": {
-      "dps": 30956.683488658757,
-      "team": 0.10963454194764259,
-      "tdps": 427703.92165274936,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30956.683488658757,
+        "team": 0.10963454194764259,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
@@ -61,41 +33,13 @@
         "Dragonyule_Lily"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 36388.164506380075,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Dogs_Day",
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "Dueling_Dancers",
-        "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon, xf",
-        "`s3, not buff(s3)",
-        "`s2, s1.check()",
-        "`s1, xf and s2.charged<s2.sp*0.71",
-        "`s4",
-        "`dodge, xf=1"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
-    "affliction": {
-      "dps": 78518.81890312368,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77847.80702826835,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
@@ -113,8 +57,8 @@
         "`dodge, xf=1"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
+        "Eleonora",
         "Mona"
       ],
       "share": [
@@ -122,15 +66,106 @@
         "Summer_Julietta"
       ]
     },
-    "mono_affliction": {
-      "dps": 77633.80598999154,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 427703.92165274936,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42105.30018910287,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2, s1.check()",
+        "`s1, s=2",
+        "`s4",
+        "`dodge, xf=1"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Lin_You",
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78518.81890312368,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
         "Mona"
       ]
+    },
+    "META": {
+      "tdps": 433824.3638321474,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23199.23845244595,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ],
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s2, s1.check()",
+        "`s1, xf and s2.charged<s2.sp*0.71",
+        "`s4",
+        "`dodge, xf=1"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

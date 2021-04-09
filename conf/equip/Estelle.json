@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 51860.77063544508,
-      "team": 0.0960620340852526,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51860.77063544508,
+        "team": 0.0960620340852526,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -31,15 +34,17 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 53881.1033770322,
-      "team": 0.09360332096032088,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51860.77063544508,
+        "team": 0.0960620340852526,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
         "Crown_of_Light",
@@ -50,7 +55,8 @@
         "`dragon(s), buff(s3, 1)",
         "`s3",
         "`s4",
-        "`s1, not buff(s1)"
+        "`s1, not buff(s1)",
+        "`s2"
       ],
       "coabs": [
         "Dagger2",
@@ -62,63 +68,102 @@
         "Gala_Mym"
       ]
     },
-    "buffer": {
-      "dps": 4041.9757471700614,
-      "team": 0.44939195268466914,
-      "tdps": 135337.5198959276,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`s4",
-        "`s1",
-        "`s3"
-      ],
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49235.677060595255,
+        "team": 0.0960620340852526,
+        "noaff": true,
+        "nihil": false
+      },
       "coabs": [
         "Blade",
-        "Bow",
-        "Ryozen"
+        "Peony",
+        "Raemond"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8259.8798456327,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1)",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)",
+        "`s2"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Peony",
+        "Raemond"
       ],
       "share": [
-        "Chitose",
-        "Templar_Hope"
+        "Weapon",
+        "Gala_Mym"
       ]
     },
-    "mono_pref": "mono_base",
-    "mono_base": {
-      "dps": 47684.950880640885,
-      "team": 0.09360332096032088,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Raemond"
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53881.1033770322,
+        "team": 0.08499291804380085,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(s), buff(s3, 1)",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)"
       ]
     },
-    "mono_affliction": {
-      "dps": 51294.69959340248,
-      "team": 0.09360332096032088,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Raemond"
-      ]
-    },
-    "mono_noaffliction": {
-      "dps": 42745.58299450205,
-      "team": 0.09360332096032088,
-      "tdps": null,
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Raemond"
-      ]
+    "META": {
+      "tdps": 182519.79056153717,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

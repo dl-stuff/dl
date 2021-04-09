@@ -1,68 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 59285.28578688538,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s1, cancel",
-        "`s2, s=1"
-      ],
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 68423.1876125644,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s1, cancel",
-        "`s2"
-      ],
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "buffer": {
-      "dps": 48906.63325338317,
-      "team": 0.06223809040904862,
-      "tdps": 166757.24568813722,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48906.63325338317,
+        "team": 0.049983011329815676,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
@@ -88,17 +32,19 @@
         "Karl"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 35732.87696640499,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59285.28578688538,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -117,6 +63,96 @@
         "Weapon",
         "Formal_Joachim"
       ]
+    },
+    "META": {
+      "tdps": 207643.6024436003,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34742.34098569282,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2, s=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68423.1876125644,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2"
+      ]
+    },
+    "META": {
+      "tdps": 390463.75638314727,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35732.87696640499,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

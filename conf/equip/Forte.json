@@ -1,9 +1,48 @@
 {
-  "180": {
-    "base": {
-      "dps": 105306.56803714832,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 79225.02326268046,
+        "team": 0.18259986176740048,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
+        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
+        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
+        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4, cancel",
+        "`s1, xf or fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Lowen"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 105306.56803714832,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Dragon_and_Tamer",
@@ -31,11 +70,58 @@
         "Formal_Joachim"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 114483.67771255688,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 142834.41686112047,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17542.779103732977,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c2-s-c3-end), dragonform.shift_count<=2",
+        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Cleo",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 114483.67771255688,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
@@ -67,44 +153,23 @@
         "Gala_Mym"
       ]
     },
-    "buffer": {
-      "dps": 79225.02326268046,
-      "team": 0.18259986176740048,
-      "tdps": 142834.41686112047,
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and buff(s3)",
-        "`dragon(s-c3-c3-c3-c1-end), dragonform.shift_count=1 and s=2",
-        "`dragon(s-c3-c3-c3-c3-end), dragonform.shift_count=2 and s=2",
-        "`dragon(s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=3 and s=2",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4, cancel",
-        "`s1, xf or fscf",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Cleo"
-      ],
-      "share": [
-        "Weapon",
-        "Lowen"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 116688.0295479612,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "tdps": 193092.4487488913,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61397.598621649704,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
@@ -136,15 +201,12 @@
         "Gala_Mym"
       ]
     },
-    "mono_noaffliction": {
-      "dps": 84662.05010616765,
-      "team": 0.0,
-      "tdps": null,
-      "coabs": [
-        "Alberius",
-        "Cleo",
-        "Wand"
-      ]
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

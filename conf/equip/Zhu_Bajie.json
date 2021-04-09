@@ -1,9 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 62960.25301493108,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 62960.25301493108,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
         "Sweet_Surprise",
@@ -32,19 +35,21 @@
         "Valentines_Chelsea"
       ]
     },
-    "pref": "base",
-    "affliction": {
-      "dps": 74292.84519883983,
-      "team": 0.0,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62960.25301493108,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
         "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "The_Warrioresses",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -65,50 +70,26 @@
         "Valentines_Chelsea"
       ]
     },
-    "buffer": {
-      "dps": 22351.200501823096,
-      "team": 0.20183240060053348,
-      "tdps": 201201.85060614414,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11532.739915688873,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "The_Synthetic_Dragon",
-        "Hanetsuki_Rally",
-        "The_Warrioresses"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`dragon(c3-s-end), energy()=5 and buff(s3)",
-        "`s3, fsc and not buff(s3)",
-        "`s2, fsc and hp>30",
-        "`s4, fsc and hp<=30",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Dragonyule_Lily"
-      ]
-    },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 74292.84519883983,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
         "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "The_Warrioresses",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -128,6 +109,87 @@
         "Weapon",
         "Valentines_Chelsea"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74292.84519883983,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Sweet_Surprise",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 74292.84519883983,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Sweet_Surprise",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59591.36690918125,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Sweet_Surprise",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -1,9 +1,43 @@
 {
-  "180": {
-    "base": {
-      "dps": 71706.15339989885,
-      "team": 0.0,
-      "tdps": null,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 13779.3935188648,
+        "team": 0.25490006569092166,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s1",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Renee"
+      ],
+      "share": [
+        "Patia",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71706.15339989885,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Candy_Couriers",
@@ -30,45 +64,25 @@
         "Gala_Mym"
       ]
     },
-    "pref": "base",
-    "buffer": {
-      "dps": 13779.3935188648,
-      "team": 0.25490006569092166,
+    "META": {
       "tdps": 227252.82445110456,
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`s1",
-        "`s3",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Renee"
-      ],
-      "share": [
-        "Patia",
-        "Templar_Hope"
-      ]
-    },
-    "affliction": {
-      "dps": 81148.09967360468,
-      "team": 0.0,
-      "tdps": null,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28801.410572701774,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
       "slots.a": [
         "An_Ancient_Oath",
+        "Candy_Couriers",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -89,36 +103,33 @@
         "Gala_Mym"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 81148.09967360468,
-      "team": 0.0,
-      "tdps": null,
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81148.09967360468,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=0 and x=4",
-        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=1 and s=2",
-        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count>=2 and x>1",
-        "`s3, not buff(s3)",
-        "`s2, x=5 or energy()<5",
-        "`s4, not energy()=5 and x>3"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
+    },
+    "META": {
+      "tdps": 264294.58137695264,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

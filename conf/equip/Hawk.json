@@ -1,76 +1,12 @@
 {
-  "180": {
-    "base": {
-      "dps": 80524.49461549558,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "# queue self.duration<=60",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Formal_Noelle",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "pref": "base",
-    "affliction": {
-      "dps": 81698.77438548692,
-      "team": 0.0,
-      "tdps": null,
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "# queue self.duration<=60",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "buffer": {
-      "dps": 53631.37824249655,
-      "team": 0.11365628773960208,
-      "tdps": 236617.93736052557,
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53631.37824249655,
+        "team": 0.11365628773960208,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
@@ -100,17 +36,19 @@
         "Verica"
       ]
     },
-    "mono_pref": "mono_base",
-    "noaffliction": {
-      "dps": 35989.943569656025,
-      "team": 0.09782749620160493,
-      "tdps": null,
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80524.49461549558,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
       "slots.a": [
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses"
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
@@ -125,6 +63,111 @@
         "`s1, fsc or (s=1 or s=4)"
       ],
       "coabs": [
+        "Dragonyule_Xainfried",
+        "Formal_Noelle",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 236617.93736052557,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38850.876052063366,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "# queue self.duration<=60",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and duration>=120",
+        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
+        "`s4, s or x=5",
+        "`s1, fsc or (s=1 or s=4)"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Formal_Noelle",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 82463.085769965,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Sylas"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "tdps": 253674.54894818287,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36550.05910668448,
+        "team": 0.04996655571870545,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses"
+      ],
+      "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
         "Mona"
@@ -133,6 +176,13 @@
         "Weapon",
         "Dragonyule_Lily"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }
