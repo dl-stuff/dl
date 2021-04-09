@@ -455,7 +455,7 @@ function setSlotUI(ui) {
             $('#input-sim-' + aff).val(ui.sim_afflict[aff]);
         }
     }
-    if (ui.mono){
+    if (ui.mono) {
         $('#input-mono').prop('checked', ui.mono == "MONO");
     }
     for (const selKey of ['specialmode', 'aff', 'sit', 'opt']) {

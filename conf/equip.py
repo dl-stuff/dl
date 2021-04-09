@@ -318,6 +318,7 @@ class EquipEntry(dict):
         super().__init__({})
         self.reset()
         self._conditions = conditions
+        self._equip_manager = None
         self._mono_to_any = None
         self._aff_to_self = None
         self._default = None
@@ -377,19 +378,28 @@ class EquipEntry(dict):
 
     def get_partial_base(self, opt):
         based_on = self["META"]["partial"][opt]
-        if self._aff_to_self and based_on == self._aff_to_self._conditions:
-            base_build = self._aff_to_self.get_build(opt, flexible_opt=False)
-            if base_build:
-                return base_build, based_on
-        if self._mono_to_any and based_on == self._mono_to_any._conditions:
-            base_build = self._mono_to_any.get_build(opt, flexible_opt=False)
-            if base_build:
-                return base_build, based_on
+        if not based_on:
+            return None, None
+        base_build = self._equip_manager[based_on].get_build(opt, flexible_opt=False)
+        if base_build:
+            return base_build, based_on
         return None, None
+
+    @staticmethod
+    def restore_build(build, base_build):
+        dprint(build, pretty=True)
+        dprint(base_build, pretty=True)
+        new_build = {**base_build}
+        for k, v in build.items():
+            if v:
+                new_build[k] = v
+        dprint(new_build, pretty=True)
+        return EquipBuild(new_build)
 
     def get_build(self, opt, with_conditions=False, strict=False, flexible_opt=False):
         original_opt = opt
         while True:
+            dprint(f"GET BUILD {self._conditions}.{opt}")
             build = self[opt]
             base_build, based_on = self.get_partial_base(opt)
             if base_build:
@@ -397,8 +407,8 @@ class EquipEntry(dict):
                     dprint(f"RESTORE FROM PARTIAL {based_on}")
                     if with_conditions:
                         conditions = based_on if set(build.keys()) == {BUILD_META_KEY} else self._conditions
-                        return EquipBuild({**base_build, **build}), conditions
-                    return EquipBuild({**base_build, **build})
+                        return self.restore_build(build, base_build), conditions
+                    return self.restore_build(build, base_build)
                 elif not strict:
                     if with_conditions:
                         return base_build, based_on
@@ -616,6 +626,7 @@ class EquipManager(dict):
             pass
 
         for key, value in self.items():
+            value._equip_manager = self
             if key == DEFAULT_CONDITONS:
                 continue
             if key.aff != AfflictionCondition.SELF:
