@@ -7,7 +7,7 @@ class Ilia(Adv):
         self.alchemy = 0
         self.cartridge = 0
         o_s2_check = self.a_s_dict["s2"].check
-        self.a_s_dict["s2"].check = lambda: o_s2_check() and (self.alchemy > 33 or self.cartridge > 0)
+        self.a_s_dict["s2"].check = lambda: o_s2_check() and (self.alchemy > 33 or self.cartridge > 0) and not self.nihilism
         self.cartridge_fs = [
             FSAltBuff("s2_cartridge", "cartridge1", uses=1),
             FSAltBuff("s2_cartridge", "cartridge2", uses=1),
@@ -38,9 +38,8 @@ class Ilia(Adv):
         if self.cartridge > 0:
             prev_cartridge = self.cartridge
             self.cartridge -= consume
-            if not self.nihilism:
-                for i in range(min(3, prev_cartridge - self.cartridge)):
-                    Selfbuff("a3_crit", 0.3, 15, "crit", "chance").ex_bufftime().on()
+            for i in range(min(3, prev_cartridge - self.cartridge)):
+                Selfbuff("a3_crit", 0.3, 15, "crit", "chance").ex_bufftime().on()
             if self.cartridge > 0:
                 self.current_s["s1"] = "cartridge"
                 self.current_s["s2"] = "cartridge"
@@ -80,7 +79,7 @@ class Ilia(Adv):
     def s2_before(self, e):
         if e.group == "cartridge":
             self.a_deplete_cartridge(e.name)
-        else:
+        elif not self.nihilism:
             self.cartridge = self.alchemy_bars()
             self.alchemy = 0
             self.cartridge_fs[self.cartridge - 1].on()
