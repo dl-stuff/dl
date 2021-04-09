@@ -78,7 +78,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42868.54344608808,
+        "dps": 54184.84656293665,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -95,11 +95,11 @@
         "`ex",
         "`dragon(c1-s-s-c3-end), x=4",
         "queue prep",
-        "`s2;s1;s4",
+        "`s4;s2;s1;s3",
         "end",
-        "`s3, not buff(s3) and x=4",
         "`s1, x=4 or s",
         "`s2, x=4",
+        "`s3, x=4",
         "`s4, x=4 or s"
       ],
       "coabs": [
@@ -108,7 +108,7 @@
         "Kimono_Elisanne"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -141,6 +141,35 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58270.1824936422,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`ex",
+        "`dragon(c1-s-s-c3-end), x=4",
+        "queue prep",
+        "`s4;s2;s1;s3",
+        "end",
+        "`s1, x=4 or s",
+        "`s2, x=4",
+        "`s3, x=4 or s",
+        "`s4, x=4 or s"
+      ]
+    },
+    "META": {
+      "tdps": -54429.4581212116,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

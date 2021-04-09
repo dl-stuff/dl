@@ -1698,7 +1698,7 @@ class Adv(object):
             phase_up = True
             if self.nihilism:
                 # agito weapon skills can phase up
-                phase_up = self.slots.w.qual == "agito" and sn.startswith("s3") and snconf.owner is None
+                phase_up = self.slots.w.series == "agito" and sn.startswith("s3") and snconf.owner is None
             self.a_s_dict[s.base].add_action(s.group, s, phase_up=phase_up)
             self.hitattr_check(sn, snconf)
 

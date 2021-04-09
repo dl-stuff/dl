@@ -55,7 +55,6 @@ class Strength(Ability):
             super().__init__(name, [("att", "ex", value)])
         else:
             super().__init__(name, [("att", "passive", value, cond)])
-            self.BYPASS_NIHIL = True
 
 
 ability_dict["a"] = Strength
@@ -68,6 +67,7 @@ class Resist(Ability):
             super().__init__(name, [(name, "passive", value, cond)])
         else:
             super().__init__(name, [(name, "buff", value, cond)])
+            self.BYPASS_NIHIL = True
 
 
 ability_dict["res"] = Resist

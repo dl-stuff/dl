@@ -110,57 +110,57 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 20223.64289714625,
+        "dps": 51557.52807630469,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dear_Diary",
+        "Forest_Bonds",
         "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "From_Whence_He_Comes"
+        "Snipers_Allure",
+        "The_Warrioresses"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
-        "`s1, fsc",
-        "`s2, not buff(s2) and fsc",
+        "`dragon(c3-s-c3-end), fsc",
+        "`s3, fsc",
         "`s4, fsc",
+        "`s1, fsc",
         "`dodge, fsc",
         "`fs4"
       ],
       "coabs": [
         "Blade",
-        "Grace",
-        "Xander"
+        "Dragonyule_Cleo",
+        "Summer_Estelle"
       ],
       "share": [
-        "Weapon",
-        "Gala_Elisanne"
+        "Summer_Celliera",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37436.81679112563,
+        "dps": 54376.259562830994,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dear_Diary",
+        "Forest_Bonds",
         "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "Snipers_Allure"
+        "Snipers_Allure",
+        "The_Warrioresses"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
-        "`s1, fsc",
-        "`s2, not buff(s2) and fsc",
+        "`dragon(c3-s-c3-end), fsc",
+        "`s3, fsc",
         "`s4, fsc",
+        "`s1, fsc",
         "`dodge, fsc",
         "`fs4"
       ],
@@ -170,12 +170,34 @@
         "Grace"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Dragonyule_Lily"
       ]
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51557.52807630469,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Summer_Estelle"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -205,6 +227,59 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59066.22130140578,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Warrioresses"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Summer_Estelle"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59066.22130140578,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Warrioresses"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

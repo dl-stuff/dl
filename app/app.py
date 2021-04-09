@@ -241,8 +241,12 @@ def get_adv_slotlist():
             result["ui"]["afflict_res"] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
         if equip_cond.aff == AfflictionCondition.ALWAYS:
             result["ui"]["sim_afflict"] = {aff: 100 for aff in adv.sim_afflict}
+        else:
+            result["ui"]["sim_afflict"] = {aff: '' for aff in AFFLICT_LIST}
         if equip_cond.sit == SituationCondition.NIHILISM:
             result["ui"]["specialmode"] = "nihilism"
+        else:
+            result["ui"]["specialmode"] = "none"
         result["ui"]["aff"] = str(equip_cond.aff)
         result["ui"]["sit"] = str(equip_cond.sit)
         if opt_mode is None:

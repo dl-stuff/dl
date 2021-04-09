@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100051.16858897898,
+        "dps": 95032.01919755523,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -74,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 263451.58345889713,
+      "tdps": 213241.48523091534,
       "pref": "PERSONAL"
     }
   },
@@ -104,7 +104,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26829.65183862789,
+        "dps": 44719.75653159445,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -120,12 +120,10 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dragonform.shift_count=0",
-        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dragonform.shift_count=1",
-        "`s3, not buff(s3) or duration-now<=2.4",
-        "`s2, charged_in(5, s1)",
+        "`dragon",
         "`s1",
         "`s4, xf or fsc",
+        "`s3, xf=5",
         "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
         "`fsf, xf=5"
       ],
@@ -135,12 +133,46 @@
         "Wand"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Ilia"
       ]
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38060.06079172254,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`s3, xf=5",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Linus",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -166,6 +198,33 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49975.37400438426,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
+      "tdps": -237491.97666564418,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

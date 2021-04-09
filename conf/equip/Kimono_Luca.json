@@ -72,7 +72,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50769.83180815044,
+        "dps": 60746.00081946884,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -87,7 +87,7 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-end), s=1",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s4",
         "`s1",
         "`fs"
@@ -98,7 +98,7 @@
         "Mona"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -141,6 +141,24 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61923.93839553159,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -116681.74732086592,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -173,6 +191,100 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34420.12691275476,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Warrioresses"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34420.12691275476,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34420.12691275476,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

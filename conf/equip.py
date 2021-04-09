@@ -301,6 +301,8 @@ def validate_sim(adv):
     wp_qual_lst = adv.slots.a.qual_lst
     if not all([not wp in BANNED_PRINTS for wp in wp_qual_lst]):
         return False, "Using a banned print"
+    if not all([not ss in BANNED_SHARES for ss in adv.skillshare_list]):
+        return False, "Using a banned share"
     if not len(adv.slots.c.coab_list) == 3:
         return False, "Less than 3 coabilities"
     if adv.slots.c.ele in HAS_7SLOT and adv.slots.w.series == "agito":
@@ -676,7 +678,7 @@ class EquipManager(dict):
         if not valid:
             self[conditions].delete_build(opt)
             return
-        self[conditions] = build_from_sim(adv, real_d)
+        self[conditions][opt] = build_from_sim(adv, real_d)
         return self[conditions]
 
     def repair_entries(self, advmodule):
@@ -701,7 +703,6 @@ class EquipManager(dict):
                     if aff == conditions.aff:
                         continue
                     affcond = conditions.aff_to(aff)
-                    print("affcond", str(affcond), affcond.get_conf())
                     adv, real_d = core.simulate.test(
                         self._advname,
                         advmodule,

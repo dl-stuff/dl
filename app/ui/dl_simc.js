@@ -1,6 +1,6 @@
 // const APP_URL = 'http://127.0.0.1:5000/';
-const APP_URL = 'http://localhost:5000/';
-// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+// const APP_URL = 'http://localhost:5000/';
+const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
@@ -176,7 +176,7 @@ function makeVisualResultItem(result) {
     return visualResult
 }
 function makeTextResultItem(result) {
-    let copyText = `**${result.adv.name} ${result.real}s**\n${slotsTextFmt(result)}`;
+    let copyText = `**${PIC_INDEX[result.adv].name} ${result.real}s**\n${slotsTextFmt(result)}`;
     copyText += '```';
     copyText += `DPS: ${result.dps} `;
     if (result.team > 0) {
@@ -280,6 +280,7 @@ function serConf(no_conf) {
     }
 
     if (!no_conf) {
+        requestJson['ui'] = readEquipCondition();
         const urlVars = { conf: btoa(JSON.stringify(requestJson)) };
         updateUrl(urlVars);
     }
@@ -330,6 +331,9 @@ function loadConf(conf, slots) {
                 res.val(conf.sim_buff[key]);
             }
         }
+    }
+    if (conf.ui) {
+        slots.ui = conf.ui;
     }
     return slots;
 }
@@ -451,6 +455,9 @@ function setSlotUI(ui) {
             $('#input-sim-' + aff).val(ui.sim_afflict[aff]);
         }
     }
+    if (ui.mono){
+        $('#input-mono').prop('checked', ui.mono == "MONO");
+    }
     for (const selKey of ['specialmode', 'aff', 'sit', 'opt']) {
         if (ui[selKey]) {
             $(`#input-${selKey}-${ui[selKey]}`).prop('selected', true);
@@ -472,12 +479,10 @@ function loadAdvSlots(no_conf, default_equip) {
     const requestJson = {
         'adv': adv_name
     };
-    if (!default_equip) {
-        requestJson['equip'] = readEquipCondition();
-        const variant = $('#input-variant').val();
-        if (variant && variant !== 'Default') {
-            requestJson['variant'] = variant;
-        }
+    requestJson['equip'] = readEquipCondition();
+    const variant = $('#input-variant').val();
+    if (variant && variant !== 'Default') {
+        requestJson['variant'] = variant;
     }
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {
@@ -950,7 +955,6 @@ function clearResults() {
     $('#input-specialmode').val('');
     $('#input-classbane').val('');
     $('#input-dumb').val('');
-    // $('#input-mono').prop('checked', false);
     $('#input-toggle-affliction').prop('checked', false);
     clearAllGraphs();
 }
@@ -958,7 +962,7 @@ function resetTest() {
     updateUrl();
     clearResults();
     populateVariantSelect($('#adv-' + $('#input-adv').val()).data('variants'));
-    loadAdvSlots(true, true);
+    loadAdvSlots(true);
 }
 function weaponSelectChange() {
     const weapon = $('#input-wep').val();
