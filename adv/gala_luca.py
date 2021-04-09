@@ -6,9 +6,13 @@ class Gala_Luca(Adv):
         self.crit_mod = self.custom_crit_mod
         self.a1_buff_types = 3
         self.a1_states = {(None,) * self.a1_buff_types: 1.0}
-
         self.all_icon_avg = (0, 0)
         self.s1_icon_avg = (0, 0)
+
+        if self.nihilism:
+            self.gluca_crit_mod = Modifier("s1", "crit", "chance", 0).off()
+            self.share_dst = "s1"
+            self.extra_actmods.append(self.get_gluca_crit_mod)
 
     def update_icon_avg(self, n_avg, count, c_avg):
         return count + 1, (count * c_avg + n_avg) / (count + 1)
@@ -37,17 +41,21 @@ class Gala_Luca(Adv):
         return min(icon_count, 7)
 
     def custom_crit_mod(self, name):
+        in_s1 = name[0:2] == "s1" or name == "ds"
+        base_icon_count = self.buff_icon_count()
+
         if name == "test" or self.nihilism:
+            if self.nihilism:
+                self.all_icon_avg = self.update_icon_avg(base_icon_count, *self.all_icon_avg)
+                if in_s1:
+                    self.s1_icon_avg = self.update_icon_avg(base_icon_count, *self.s1_icon_avg)
             return self.solid_crit_mod(name)
 
         base_rate, crit_dmg = self.combine_crit_mods()
         crit_dmg -= 1
         new_states = defaultdict(lambda: 0.0)
         t = round(now() * 4) / 4
-        base_icon_count = self.buff_icon_count()
         mean_rate = 0.0
-
-        in_s1 = name[0] == "s" or name == "ds"
 
         icon_avg = 0
         for start_state, state_p in self.a1_states.items():
