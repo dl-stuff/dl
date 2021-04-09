@@ -6,6 +6,7 @@ class Ability:
     def __init__(self, name, mod=None):
         self.name = name
         self.mod = mod or []
+        self.BYPASS_NIHIL = False
 
     def check_ele_wt(self, m, adv):
         cond = m[3]
@@ -33,7 +34,7 @@ class Ability:
                 if not is_ele_wt:
                     continue
             mod_name = "{}{}_{}".format(afrom, self.name, idx)
-            if m[1] == "buff" and adv.nihilism:
+            if m[1] == "buff" and adv.nihilism and not self.BYPASS_NIHIL:
                 continue
             self.mod_object = adv.Modifier(mod_name, *m)
             if m[1] == "buff":
@@ -54,6 +55,7 @@ class Strength(Ability):
             super().__init__(name, [("att", "ex", value)])
         else:
             super().__init__(name, [("att", "passive", value, cond)])
+            self.BYPASS_NIHIL = True
 
 
 ability_dict["a"] = Strength
