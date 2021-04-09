@@ -124,8 +124,10 @@ class AclInterpreter(Interpreter):
         self._inst = self._adv
         try:
             n_actcond = self._queue.popleft()
+            log("acl", str(n_actcond))
             if not self.visit(n_actcond):
                 self._queue.appendleft(n_actcond)
+            return False
         except IndexError:
             pass
         return self.visit(self._tree)

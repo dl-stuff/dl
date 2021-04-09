@@ -964,7 +964,7 @@ class Adv(object):
         max_hp = self.max_hp
         if self.conf["flask_env"] and "hp" in self.conf:
             hp = self.conf["hp"]
-            percent=True
+            percent = True
         old_hp = self._hp
         if percent:
             hp = max_hp * hp / 100

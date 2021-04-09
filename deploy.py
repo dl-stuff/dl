@@ -40,6 +40,7 @@ def sim_adv(name, variants, sanity_test=False):
     t_start = monotonic()
     is_mass = "mass" in variants
     msg = []
+    duration = 180
     for variant, advmodule in variants.items():
         if variant in SKIP_VARIANT:
             continue
@@ -48,34 +49,33 @@ def sim_adv(name, variants, sanity_test=False):
         outpath = None
         mass = 1000 if is_mass and not sanity_test else None
         if sanity_test:
-            durations = (30,)
+            duration = 90
             outpath = os.devnull
         else:
             if variant is None:
-                durations = DURATIONS
                 outfile = f"{name}.json"
             else:
-                durations = (180,)
                 outfile = f"{name}.{variant}.json"
             outpath = os.path.join(ROOT_DIR, CHART_DIR, "chara", outfile)
         sha_before = sha256sum(outpath)
         with open(outpath, "w") as output:
             try:
-                for d in durations:
-                    core.simulate.test(
-                        name,
-                        advmodule,
-                        duration=d,
-                        verbose=verbose,
-                        mass=mass,
-                        output=output,
-                    )
-                if not sanity_test:
-                    printlog("sim", monotonic() - t_start, name, variant)
-                    if sha_before != sha256sum(outpath):
-                        msg.append(name)
+                core.simulate.test(
+                    name,
+                    advmodule,
+                    duration=duration,
+                    verbose=verbose,
+                    mass=mass,
+                    output=output,
+                )
             except Exception as e:
                 printlog("sim", monotonic() - t_start, name, variant, err=e, color=91)
+                return []
+        if not sanity_test:
+            sha_after = sha256sum(outpath)
+            printlog("sim", monotonic() - t_start, name, variant)
+            if sha_before != sha_after:
+                msg.append(name)
     return msg
 
 

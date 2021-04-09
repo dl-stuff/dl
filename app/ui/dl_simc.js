@@ -1,4 +1,5 @@
-const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'http://127.0.0.1:5000/';
+const APP_URL = 'http://localhost:5000/';
 // const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
@@ -89,7 +90,6 @@ function slotsTextFmt(result) {
     return `[${PIC_INDEX[result.drg].name}][${PIC_INDEX[result.wep].name}][${result.wps.map((wp) => PIC_INDEX[wp].name).join('+')}][${result.coabs.map((coab) => PIC_INDEX[coab].name).join('|')}][${result.share.map((ss, i) => `S${i + 3}:${PIC_INDEX[ss].name}`).join('|')}]`;
 }
 function makeVisualResultItem(result) {
-    console.log(result);
     const visualResult = $('<div></div>').attr({ class: 'test-result-item' });
     const iconRow = $('<h4 class="test-result-slot-grid"></h4>');
     const charaDiv = $('<div></div>');
@@ -119,13 +119,13 @@ function makeVisualResultItem(result) {
     const totalDPS = $(`<span class="dps-num">${result.dps}</span>`).data('total', result.dps);
     metaRow.append(totalDPS);
     metaRow.append(` - ${Math.round(result.real * 100) / 100}s`);
-    if (result.stats.length > 0) {
+    if (result.stats) {
         metaRow.append(' |');
-    }
-    for (const stat in result.stats) {
-        const value = result.stats[stat];
-        metaRow.append(`<img src="/dl-sim/pic/icons/${stat}.png" class="stat-icon"/>`);
-        metaRow.append(value);
+        for (const stat in result.stats) {
+            const value = result.stats[stat];
+            metaRow.append(`<img src="/dl-sim/pic/icons/${stat}.png" class="stat-icon"/>`);
+            metaRow.append(value);
+        }
     }
     if (result.cond) {
         metaRow.append(' | ');
@@ -283,7 +283,6 @@ function serConf(no_conf) {
         const urlVars = { conf: btoa(JSON.stringify(requestJson)) };
         updateUrl(urlVars);
     }
-    console.log(requestJson);
     return requestJson;
 }
 function deserConf(confStr) {
@@ -436,7 +435,6 @@ function readEquipCondition() {
     }
 }
 function setSlotUI(ui) {
-    console.log(ui);
     if (ui.afflict_res) {
         for (const key in ui.afflict_res) {
             const res = ui.afflict_res[key];
@@ -476,6 +474,10 @@ function loadAdvSlots(no_conf, default_equip) {
     };
     if (!default_equip) {
         requestJson['equip'] = readEquipCondition();
+        const variant = $('#input-variant').val();
+        if (variant && variant !== 'Default') {
+            requestJson['variant'] = variant;
+        }
     }
     const t = $('#input-t').val();
     if (!isNaN(parseInt(t))) {
@@ -1042,7 +1044,7 @@ window.onload = function () {
     });
 
     $('#input-adv').change(debounce(resetTest, 100));
-    for (const ekey of ["opt", "aff", "sit", "mono"]) {
+    for (const ekey of ["variant", "opt", "aff", "sit", "mono"]) {
         $(`#input-${ekey}`).change(debounce(reloadSlots, 100));
     }
     $('#run-test').click(debounce(runAdvTest, 100));

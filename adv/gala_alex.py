@@ -121,18 +121,7 @@ class Gala_Alex_BK(Gala_Alex):
 
     def __init__(self, **kwargs):
         super().__init__(altchain="break", **kwargs)
-
-    def prerun(self):
-        super().prerun()
-        self.duration = 10
-        self.sr.charged = 1129 * 3
-        Selfbuff("agito_s3_spd", 0.30, -1, "spd", "buff").on()
-        Selfbuff("agito_s3_crit", 0.05, -1, "crit", "chance").on()
-        # EchoBuff("dylily_s4_echo", 0.4, 30).on()
-        # Selfbuff("dylily_s4_att", 0.15, 60, "att", "buff").on()
-        Debuff("sha_s4_defdown", -0.15, 10, 1, "defb").on()
-        self.hits = 100
-        if "poison" in self.conf.sim_afflict:
+        if "poison" in self.sim_afflict:
             self.conf.acl = """
                 queue
                 `s1; fs, x=4
@@ -154,6 +143,17 @@ class Gala_Alex_BK(Gala_Alex):
                 end
             """
             self.bk_chain = "s2 s1 s2 s1 s2"
+
+    def prerun(self):
+        super().prerun()
+        self.duration = 10
+        self.sr.charged = 1129 * 3
+        Selfbuff("agito_s3_spd", 0.30, -1, "spd", "buff").on()
+        Selfbuff("agito_s3_crit", 0.05, -1, "crit", "chance").on()
+        # EchoBuff("dylily_s4_echo", 0.4, 30).on()
+        # Selfbuff("dylily_s4_att", 0.15, 60, "att", "buff").on()
+        Debuff("sha_s4_defdown", -0.15, 10, 1, "defb").on()
+        self.hits = 100
 
     def post_run(self, end):
         self.comment = f"{now():.02f}s sim; {self.bk_chain} on bk; no bk def adjustment"

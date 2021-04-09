@@ -7,7 +7,8 @@ class Eugene(RngCritAdv):
         self.checkmate = 0
         o_s2_check = self.a_s_dict["s2"].check
         self.a_s_dict["s2"].check = lambda: not self.a_s_dict["s2"]._static.silence and self.checkmate > 0
-        self.config_rngcrit(cd=10)
+        if not self.nihilism:
+            self.config_rngcrit(cd=10)
 
     @staticmethod
     def prerun_skillshare(adv, dst):
@@ -17,8 +18,6 @@ class Eugene(RngCritAdv):
         return self.inspiration() >= 5
 
     def rngcrit_cb(self):
-        if self.nihilism:
-            return
         self.inspiration.add(1)
 
     def s1_proc(self, e):
