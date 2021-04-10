@@ -238,11 +238,11 @@ def get_adv_slotlist():
         if equip_cond.aff == AfflictionCondition.IMMUNE:
             result["ui"]["afflict_res"] = Afflics.RESIST_PROFILES["immune"]
         else:
-            result["ui"]["afflict_res"] = Afflics.RESIST_PROFILES[adv.slots.c.ele]
+            result["ui"]["afflict_res"] = Afflics.RESIST_PROFILES[(adv.slots.c.ele, equip_cond.sit == SituationCondition.NIHILISM)]
         if equip_cond.aff == AfflictionCondition.ALWAYS:
             result["ui"]["sim_afflict"] = {aff: 100 for aff in adv.sim_afflict}
         else:
-            result["ui"]["sim_afflict"] = {aff: '' for aff in AFFLICT_LIST}
+            result["ui"]["sim_afflict"] = {aff: "" for aff in AFFLICT_LIST}
         if equip_cond.sit == SituationCondition.NIHILISM:
             result["ui"]["specialmode"] = "nihilism"
         else:

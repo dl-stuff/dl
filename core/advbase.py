@@ -801,6 +801,7 @@ class Adv(object):
         self.nihilism = bool(self.conf["nihilism"])
         if self.nihilism:
             self.condition("Curse of Nihility")
+        self.afflics.set_resist((self.conf.c.ele, self.nihilism))
 
         # init actions
         for xn, xconf in self.conf.find(r"^x\d+(_[A-Za-z0-9]+)?$"):
@@ -1152,8 +1153,9 @@ class Adv(object):
             self.condition(f"Agito Berserk Phase ODPS (FS {self.conf.berserk:.0f}x)")
             self.afflics.set_resist("immune")
         else:
+            self.nihilism = bool(self.conf["nihilism"])
             self.berserk_mode = False
-            self.afflics.set_resist(self.conf.c.ele)
+            self.afflics.set_resist((self.conf.c.ele, self.nihilism))
         self.sim_afflict = set()
         self.afflic_condition()
         self.sim_affliction()
