@@ -213,9 +213,10 @@ def main(targets, do_combine, is_repair, sanity_test):
         for advname, variants in target_modules.items():
             for variant, advmodule in variants.items():
                 t_start = monotonic()
-                manager = get_equip_manager(advname, variant)
-                manager.repair_entries(advmodule)
-                printlog("sim", monotonic() - t_start, advname, variant)
+                manager = get_equip_manager(advname, variant, advmodule.SAVE_VARIANT)
+                if manager._save:
+                    manager.repair_entries(advmodule)
+                    printlog("repair", monotonic() - t_start, advname, variant)
         return
 
     message = []

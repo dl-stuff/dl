@@ -97,43 +97,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5824.9035117704125,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Honest_Repose",
-        "Jewels_of_the_Sun",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Horus",
-      "slots.w": "high_dragon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Joker",
-        "Tobias",
-        "Valentines_Hildegarde"
-      ],
-      "share": [
-        "Cleo",
-        "Patia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 13870.591083169831,
+        "dps": 14744.660958084949,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -146,6 +112,7 @@
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
+      "slots.w": "high_dragon",
       "acl": [
         "`dragon(s), s=1 and not s4.check()",
         "`s3, not buff(s3)",
@@ -167,49 +134,6 @@
     },
     "META": {
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 13870.591083169831,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=1 and not s4.check()",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Kimono_Elisanne",
-        "Serena",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -248,6 +172,24 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14744.660958084949,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.w": "high_dragon"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

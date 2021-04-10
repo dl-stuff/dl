@@ -84,45 +84,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 49279.88192636216,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sisters_Day_Out",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Siren",
-      "acl": [
-        "if divine_dragon.get()",
-        "`s1, aff_timeleft(frostbite)<15",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3)",
-        "`s4, s=2",
-        "`dragon, s=4",
-        "`s2, x=4",
-        "`s1, cancel",
-        "`fs, fs_prep_c and x=4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Xander",
-        "Yurius"
-      ],
-      "share": [
-        "Pinon",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57605.22581336093,
@@ -167,6 +128,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63407.24888150224,
+        "team": 0.04999118211093306,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 86184.97235178253,
@@ -194,7 +163,6 @@
       ]
     },
     "META": {
-      "tdps": 494677.6514926701,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -205,7 +173,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64041.13250014404,
+        "dps": 63174.076982306055,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -221,7 +189,6 @@
       ]
     },
     "META": {
-      "tdps": 51722.735913755736,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -232,7 +199,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47215.69590837153,
+        "dps": 74271.57909802996,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -244,6 +211,7 @@
         "A_Passion_for_Produce",
         "Chariot_Drift"
       ],
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if divine_dragon.get()",
         "`s1",
@@ -257,6 +225,11 @@
         "`s1, cancel",
         "`fs, fs_prep_c and x=4",
         "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Xander",
+        "Yurius"
       ],
       "share": [
         "Weapon",

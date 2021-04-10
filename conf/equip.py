@@ -445,16 +445,23 @@ class EquipEntry(dict):
     def dps_only(self):
         return all((set(self[opt].keys()) == {BUILD_META_KEY} for opt in OpimizationMode))
 
+    def acceptable_conditions(self, build, conditions):
+        if conditions.sit != self._conditions.sit:
+            return False
+        if conditions.aff != self._conditions.aff and not build.noaff:
+            return False
+        return True
+
     def update_meta(self):
         dprint(f"UPDATE META {self._conditions}")
-        personal_build = self.get_build(OpimizationMode.PERSONAL, strict=True, flexible_opt=False)
-        teambuff_build = self.get_build(OpimizationMode.TEAMBUFF, strict=True, flexible_opt=False)
-        if not teambuff_build:
+        personal_build, personal_conditions = self.get_build(OpimizationMode.PERSONAL, with_conditions=True, flexible_opt=False)
+        teambuff_build, teambuff_conditions = self.get_build(OpimizationMode.TEAMBUFF, with_conditions=True, flexible_opt=False)
+        if not teambuff_build or not self.acceptable_conditions(teambuff_build, teambuff_conditions):
             dprint("NO TEAMBUFF BUILD")
             self.tdps = None
             self.pref = OpimizationMode.PERSONAL
             return
-        if not personal_build:
+        if not personal_build or not self.acceptable_conditions(personal_build, personal_conditions):
             dprint("NO PERSONAL BUILD")
             self.tdps = None
             self.pref = OpimizationMode.TEAMBUFF
@@ -642,7 +649,7 @@ class EquipManager(dict):
                     except FileNotFoundError:
                         pass
         else:
-            self._save = True
+            self._save = self._variant not in SKIP_VARIANT
             self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{self._advname}.json")
 
     def get_preferred_entry(self, conditions):
