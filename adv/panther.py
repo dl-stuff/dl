@@ -2,6 +2,8 @@ from core.advbase import *
 
 
 class Panther(Adv):
+    comment = "s2 ddrive always dispel"
+
     def prerun(self):
         self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, s1=True, s2=True), drain=75)
         self.a3_buffcount = 0
@@ -20,12 +22,9 @@ class Panther(Adv):
             self.a3_buffcount = min(3, self.a3_buffcount + e.rate)
             self.a3_mod.mod_value = self.a3_buffcount * 0.10
 
-
-class Panther_DISPEL(Panther):
-    comment = "s2 always dispel"
-
     def s2_proc(self, e):
-        self.s2_res_down.on()
+        if e.group == "ddrive":
+            self.s2_res_down.on()
 
 
-variants = {None: Panther, "DISPEL": Panther_DISPEL}
+variants = {None: Panther}

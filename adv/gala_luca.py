@@ -2,6 +2,7 @@ from core.advbase import *
 
 
 class Gala_Luca(Adv):
+    SAVE_VARIANT = False
     def prerun(self):
         self.crit_mod = self.custom_crit_mod
         self.a1_buff_types = 3

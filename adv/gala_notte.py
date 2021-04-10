@@ -3,6 +3,7 @@ from module.template import DivineShiftAdv
 
 
 class Gala_Notte(DivineShiftAdv):
+    SAVE_VARIANT = False
     def prerun(self):
         self.configure_divine_shift("metamorphosis", max_gauge=1800, shift_cost=560, drain=65)
 

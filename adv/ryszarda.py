@@ -34,6 +34,7 @@ class Ryszarda(SigilAdv):
 
 
 class Ryszarda_UNLOCKED(Ryszarda):
+    SAVE_VARIANT = False
     def prerun(self):
         super().prerun()
         self.a_update_sigil(-300)

@@ -1,5 +1,4 @@
 import os
-import hashlib
 import json
 import argparse
 from time import monotonic, time_ns
@@ -24,16 +23,12 @@ def printlog(prefix, delta, advname, variant, err=None, color=None):
     print(logstr, flush=True)
 
 
-def sha256sum(filename):
-    if not os.path.exists(filename):
-        return None
-    h = hashlib.sha256()
-    b = bytearray(128 * 1024)
-    mv = memoryview(b)
-    with open(filename, "rb", buffering=0) as f:
-        for n in iter(lambda: f.readinto(mv), 0):
-            h.update(mv[:n])
-    return h.hexdigest()
+def dps_values(filename):
+    dps = {}
+    with open(filename, "r") as f:
+        for k, v in json.load(f).items():
+            dps[k] = v.get("dps", 0)
+    return dict(sorted(dps.items()))
 
 
 def sim_adv(name, variants, sanity_test=False):
@@ -57,7 +52,7 @@ def sim_adv(name, variants, sanity_test=False):
             else:
                 outfile = f"{name}.{variant}.json"
             outpath = os.path.join(ROOT_DIR, CHART_DIR, "chara", outfile)
-        sha_before = sha256sum(outpath)
+        dps_before = dps_values(outpath)
         with open(outpath, "w") as output:
             try:
                 core.simulate.test(
@@ -72,9 +67,9 @@ def sim_adv(name, variants, sanity_test=False):
                 printlog("sim", monotonic() - t_start, name, variant, err=e, color=91)
                 return []
         if not sanity_test:
-            sha_after = sha256sum(outpath)
+            dps_after = dps_values(outpath)
             printlog("sim", monotonic() - t_start, name, variant)
-            if sha_before != sha_after:
+            if dps_before != dps_after:
                 msg.append(name)
     return msg
 
@@ -130,7 +125,6 @@ def combine():
             try:
                 chara_sim = json.load(chara)
             except json.JSONDecodeError as e:
-                print(name)
                 raise e
             for condstr, result in chara_sim.items():
                 data_by_cond[condstr][name] = result
@@ -158,7 +152,7 @@ def combine():
     print(f"{monotonic() - t_start:.4f}s - combine", flush=True)
 
 
-def get_sim_target_module_dict(advs=None, conds=None, mass=None):
+def get_sim_target_module_dict(advs=None, conds=None, mass=None, special=False):
     target_modules = {}
     advs = advs or list_advs()
     for adv in advs:
@@ -168,9 +162,14 @@ def get_sim_target_module_dict(advs=None, conds=None, mass=None):
                 adv_data = load_adv_json(name)
                 if not all([cond(adv_data) for cond in conds]):
                     del target_modules[name]
+                    continue
             if mass is not None:
                 if (mass and "mass" not in target_modules[name]) or (not mass and "mass" in target_modules[name]):
                     del target_modules[name]
+                    continue
+            if special and all((variant == None or variant in SKIP_VARIANT for variant in target_modules[name].keys())):
+                del target_modules[name]
+                continue
         except Exception as e:
             printlog("load", monotonic() - t_start, adv, None, err=e, color=93)
     return target_modules
@@ -181,7 +180,7 @@ def get_sim_target_modules(targets):
     target_advs = set()
     target_kind = set()
     for target in targets:
-        if target in ("all", "quick", "slow"):
+        if target in ("all", "quick", "slow", "special"):
             target_kind.add(target)
         elif target in ELEMENTS:
             element = str(target)
@@ -191,11 +190,12 @@ def get_sim_target_modules(targets):
             target_filters.add(lambda d: d["c"]["wt"] == weapontype)
         else:
             target_advs.add(target)
+    special = "special" in target_kind
     if "quick" in target_kind:
-        return get_sim_target_module_dict(target_advs, target_filters, mass=False)
+        return get_sim_target_module_dict(target_advs, target_filters, mass=False, special=special)
     if "slow" in target_kind:
-        return get_sim_target_module_dict(target_advs, target_filters, mass=True)
-    return get_sim_target_module_dict(target_advs, target_filters)
+        return get_sim_target_module_dict(target_advs, target_filters, mass=True, special=special)
+    return get_sim_target_module_dict(target_advs, target_filters, special=special)
 
 
 def main(targets, do_combine, is_repair, sanity_test):
@@ -246,6 +246,7 @@ if __name__ == "__main__":
     all: all advs
     quick: not mass sim advs
     slow: mass sim advs
+    special: variant sims
     [element]: [element] attribute advs
     [weapon]: [weapon] type advs
     [qual_name]: adv names""",

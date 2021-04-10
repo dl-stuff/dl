@@ -8,6 +8,8 @@ class Tiki(DivineShiftAdv):
 
 
 class Tiki_DDAMAGE(Tiki):
+    SAVE_VARIANT = False
+
     def prerun(self):
         self.configure_divine_shift(
             "divine_dragon",

@@ -2,9 +2,7 @@ from core.advbase import *
 
 
 class Zena(Adv):
-    comment = (
-        "40 extra hits s2 on Agito size enemy (max 100 without roll & 120 with roll)"
-    )
+    comment = "40 extra hits s2 on Agito size enemy (max 100 without roll & 120 with roll)"
 
     def prerun(self):
         self.s2_extra_hit_rate = 8  # number of hits per second
@@ -35,6 +33,8 @@ class Zena(Adv):
 
 
 class Zena_ALL(Zena):
+    SAVE_VARIANT = False
+
     comment = "100 extra hits on s2"
 
     def prerun(self):

@@ -11,6 +11,7 @@ class Gala_Prince(Adv):
 
 
 class Gala_Prince_70MC(Adv):
+    SAVE_VARIANT = False
     comment = "70MC"
     conf = {
         "c": {

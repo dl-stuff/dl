@@ -1,6 +1,5 @@
-// const APP_URL = 'http://127.0.0.1:5000/';
-// const APP_URL = 'http://localhost:5000/';
-const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = 'http://127.0.0.1:5000/';
+// const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
@@ -430,13 +429,16 @@ function selectSkillShare(basename, pref_share) {
             break;
     }
 }
-function readEquipCondition() {
-    return {
+function readEquipCondition(ignore_opt) {
+    const equip_conds = {
         'aff': $('#input-aff').val(),
         'sit': $('#input-sit').val(),
-        'mono': $('#input-mono').prop('checked') ? "MONO" : "ANY",
-        'opt': $('#input-opt').val()
+        'mono': $('#input-mono').prop('checked') ? "MONO" : "ANY"
     }
+    if (!ignore_opt) {
+        equip_conds['opt'] = $('#input-opt').val();
+    }
+    return equip_conds;
 }
 function setSlotUI(ui) {
     if (ui.afflict_res) {
@@ -479,7 +481,7 @@ function loadAdvSlots(no_conf, default_equip) {
     const requestJson = {
         'adv': adv_name
     };
-    requestJson['equip'] = readEquipCondition();
+    requestJson['equip'] = readEquipCondition(default_equip);
     const variant = $('#input-variant').val();
     if (variant && variant !== 'Default') {
         requestJson['variant'] = variant;

@@ -6,6 +6,8 @@ import shutil
 from enum import Enum
 from pprint import pprint
 
+from lark.tree import Tree
+
 from core.afflic import AFFLICT_LIST
 from conf import (
     SKIP_VARIANT,
@@ -198,7 +200,7 @@ def build_equip_condition(equip):
     mono = equip["mono"] or "ANY"
     try:
         opt = OpimizationMode(equip["opt"])
-    except ValueError:
+    except (ValueError, KeyError):
         opt = None
     return ConditionTuple((AfflictionCondition(aff), SituationCondition(sit), MonoCondition(mono))), opt
 
@@ -603,19 +605,10 @@ def encodable(data, key=None):
 class EquipManager(dict):
     EQUIP_DIR = "equip"
 
-    def __init__(self, advname, variant=None):
+    def __init__(self, advname, variant=None, save_variant_build=False):
         self._advname = advname
         self._variant = variant
-        if variant and variant not in SKIP_VARIANT:
-            self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.{variant}.json")
-            if not os.path.exists(self._equip_file):
-                basefile = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
-                try:
-                    shutil.copyfile(basefile, self._equip_file)
-                except FileNotFoundError:
-                    pass
-        else:
-            self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{advname}.json")
+        self.set_save_variant_build(save_variant_build)
         for conditions in map(ConditionTuple, itertools.product(*ALL_COND_ENUMS)):
             self[conditions] = EquipEntry(conditions)
         try:
@@ -634,6 +627,23 @@ class EquipManager(dict):
             if key.mono == MonoCondition.MONO:
                 value._mono_to_any = self.get(key.mono_to(MonoCondition.ANY))
             value._default = self.get(DEFAULT_CONDITONS)
+
+    def set_save_variant_build(self, save_variant_build):
+        if self._variant and self._variant not in SKIP_VARIANT:
+            self._save = save_variant_build
+            if not self._save:
+                self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{self._advname}.json")
+            else:
+                self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{self._advname}.{self._variant}.json")
+                if not os.path.exists(self._equip_file):
+                    basefile = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{self._advname}.json")
+                    try:
+                        shutil.copyfile(basefile, self._equip_file)
+                    except FileNotFoundError:
+                        pass
+        else:
+            self._save = True
+            self._equip_file = get_conf_json_path(f"{EquipManager.EQUIP_DIR}/{self._advname}.json")
 
     def get_preferred_entry(self, conditions):
         if conditions is None:
@@ -665,6 +675,9 @@ class EquipManager(dict):
         return json.dumps(encodable(self), ensure_ascii=False, default=str, indent=2)
 
     def accept_new_entry(self, adv, real_d):
+        if not self._save:
+            return
+
         valid, failure = validate_sim(adv)
         if not valid:
             dprint(f"INVALID SIM: {failure!r}")
@@ -685,6 +698,9 @@ class EquipManager(dict):
         return new_build
 
     def accept_new_entry_with_faith(self, adv, real_d, conditions, opt):
+        if not self._save:
+            return
+
         valid, failure = validate_sim(adv)
         if not valid:
             self[conditions].delete_build(opt)
@@ -693,6 +709,9 @@ class EquipManager(dict):
         return self[conditions]
 
     def repair_entries(self, advmodule):
+        if not self._save:
+            return
+
         import core.simulate
 
         for opt in OpimizationMode:
@@ -739,11 +758,13 @@ class EquipManager(dict):
 EQUIP_MANAGERS = {}
 
 
-def get_equip_manager(advname, variant=None):
+def get_equip_manager(advname, variant=None, save_variant_build=None):
     try:
+        if variant is not None and save_variant_build is not None:
+            EQUIP_MANAGERS[advname][variant].set_save_variant_build(save_variant_build)
         return EQUIP_MANAGERS[advname][variant]
     except KeyError:
-        manager = EquipManager(advname, variant)
+        manager = EquipManager(advname, variant, save_variant_build)
         try:
             EQUIP_MANAGERS[advname][variant] = manager
         except KeyError:

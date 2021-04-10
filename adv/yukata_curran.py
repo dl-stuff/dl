@@ -21,6 +21,8 @@ class Yukata_Curran(Adv):
 
 
 class Yukata_Curran_ALL(Yukata_Curran):
+    SAVE_VARIANT = False
+
     conf = {"attenuation.hits": 5}
 
 

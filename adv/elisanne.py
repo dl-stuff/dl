@@ -2,6 +2,7 @@ from core.advbase import *
 
 
 class Elisanne_55MC(Adv):
+    SAVE_VARIANT = False
     comment = "55MC"
     conf = {
         "c": {"att": 497, "hp": 812, "spiral": False, "a": [["bt", 0.25]]},

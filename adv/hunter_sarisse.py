@@ -7,6 +7,7 @@ class Hunter_Sarisse(Adv):
 
 
 class Hunter_Sarisse_ALL(Hunter_Sarisse):
+    SAVE_VARIANT = False
     comment = "20hit FS"
     conf = {"attenuation.hits": -1}
 

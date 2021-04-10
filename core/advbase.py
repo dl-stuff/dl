@@ -686,6 +686,7 @@ class Dodge(Action):
 class Adv(object):
 
     BASE_CTIME = 2
+    SAVE_VARIANT = True
 
     Timer = Timer
     Event = Event
@@ -1139,7 +1140,7 @@ class Adv(object):
         self.buff_sources = set()
         self.buffskill_event = Event("buffskill")
 
-        self.equip_manager = get_equip_manager(self.name, variant=self.variant)
+        self.equip_manager = get_equip_manager(self.name, variant=self.variant, save_variant_build=self.SAVE_VARIANT)
         self.equip_conditions = None
         self.real_equip_conditions = None
         self.equip_manager.set_pref_override(opt_mode)
