@@ -82,8 +82,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38752.975643639395,
-        "team": 0.012324920422764753,
+        "dps": 27041.1351747278,
+        "team": 0.024575199249571737,
         "noaff": false,
         "nihil": true
       },
@@ -158,7 +158,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54060.267050943236,
+        "dps": 57441.52193100801,
         "team": 0.07871902682712872,
         "noaff": false,
         "nihil": false
@@ -169,6 +169,32 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "To_the_Extreme"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
+        "`s2",
+        "end",
+        "if not have_buff(shikigami)",
+        "`s1",
+        "end",
+        "`s4",
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Ezelith",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

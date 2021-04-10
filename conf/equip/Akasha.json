@@ -133,32 +133,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51355.63565666481,
-        "team": 0.14212460190932466,
+        "dps": 51006.717898982264,
+        "team": 0.14538671570723632,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon",
-        "`s1, prep or (timeleft(s1)<5 and x=5)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
+      }
     },
     "META": {
-      "tdps": 82174.4668362005,
+      "tdps": 82029.17465229376,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -166,11 +148,29 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23938.411530918347,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 26472.938671846165,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 5357.371978467034,
-        "team": 0.7018880594549239,
+        "dps": 5559.468581384027,
+        "team": 0.5971701827867418,
         "noaff": true,
         "nihil": false
       },
@@ -190,38 +190,17 @@
         "`s2",
         "`fs, fs_prep_c and x=2"
       ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
       "share": [
         "Tobias",
         "Templar_Hope"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 1929.9150187830244,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 5559.468581384027,
-        "team": 0.5971701827867418,
-        "noaff": true,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   }

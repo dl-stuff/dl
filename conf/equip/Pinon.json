@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76925.71416925019,
-        "team": 0.04995987574349766,
+        "dps": 79116.3548916713,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -43,18 +43,18 @@
         "Dear_Diary",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
+        "Chariot_Drift",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3,1)",
-        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
+        "`s1, fsc",
         "`dodge, fsc",
-        "`fs2, not buff(a1)"
+        "`fs2, not buff(locked_sigil)"
       ],
       "coabs": [
         "Blade",
@@ -63,19 +63,19 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Hunter_Sarisse"
       ]
     },
     "META": {
-      "tdps": 250763.84122201463,
+      "tdps": 208409.43669069692,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73019.85698911668,
-        "team": 0.04995987574349766,
+        "dps": 75209.4070681851,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -86,7 +86,7 @@
       ]
     },
     "META": {
-      "tdps": 230642.10162776106,
+      "tdps": 192402.0253572329,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -95,9 +95,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19730.350147597124,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Proper_Maintenance",
+        "Beach_Battle",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Elisanne"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51741.77324670339,
+        "dps": 56607.39465152187,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -120,12 +152,12 @@
         "`fs2, not buff(a1)"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Cleo",
-        "Grace"
+        "Grace",
+        "Summer_Ranzal"
       ],
       "share": [
-        "Weapon",
+        "Hunter_Sarisse",
         "Dragonyule_Lily"
       ]
     },
@@ -133,13 +165,117 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51179.68080491088,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Catherine",
+        "Dragonyule_Cleo"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29008.907350775124,
+        "team": 0.24407118315992773,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 87416.31287454523,
         "team": 0.0,
         "noaff": false,
         "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 239304.7993932927,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81135.17514457731,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Xander"
+      ]
+    },
+    "META": {
+      "tdps": 216680.87712364297,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20208.20930952474,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58950.684578009,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53419.514483055835,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "Dear_Diary",
@@ -157,48 +293,29 @@
         "`dodge, fsc",
         "`fs2, not buff(locked_sigil)"
       ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Yurius"
+      ],
       "share": [
         "Weapon",
         "Hunter_Sarisse"
       ]
     },
     "META": {
-      "tdps": 242415.7371290218,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 76735.2291600431,
-        "team": 0.04995217218269529,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Xander"
-      ]
-    },
-    "META": {
-      "tdps": 249772.6102099859,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39652.10067408151,
-        "team": 0.04995987574349766,
+        "dps": 67453.87478352024,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -208,6 +325,25 @@
         "The_Lurker_in_the_Woods",
         "Flowers_Under_the_Moon",
         "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, not buff(locked_sigil)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     },
     "META": {

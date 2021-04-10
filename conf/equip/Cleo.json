@@ -129,6 +129,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4929.833769617091,
+        "team": 0.4999431803362998,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50187.20087933184,
@@ -156,7 +164,7 @@
       ]
     },
     "META": {
-      "tdps": 148037.73077135987,
+      "tdps": 147391.80857193551,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -165,10 +173,18 @@
     }
   },
   "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6578.126164937775,
+        "team": 0.47258304720806416,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49650.44842457829,
-        "team": 0.19288834772240596,
+        "dps": 47647.809713819646,
+        "team": 0.2253758265312413,
         "noaff": false,
         "nihil": false
       },
@@ -179,7 +195,7 @@
       ]
     },
     "META": {
-      "tdps": 154713.61058367178,
+      "tdps": 166134.6437876618,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,10 +203,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16668.275680027735,
+        "team": 0.062455327092426835,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 27284.815691974112,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31502.13776409223,
+        "dps": 31823.326290783854,
         "team": 0.222485844278636,
         "noaff": false,
         "nihil": false
@@ -201,6 +235,22 @@
         "Memory_of_a_Friend",
         "Dueling_Dancers",
         "Entwined_Flames"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s4",
+        "`dragon(s)"
+      ],
+      "coabs": [
+        "Audric",
+        "Blade",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {

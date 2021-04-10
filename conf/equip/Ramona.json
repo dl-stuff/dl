@@ -72,7 +72,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 21920.13096163892,
+        "dps": 18191.979465061017,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -107,6 +107,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 56155.41333330773,
+        "team": 0.024995267562674683,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 74795.814939385,
@@ -131,7 +139,7 @@
       ]
     },
     "META": {
-      "tdps": 1468657.5745777467,
+      "tdps": 745757.2342179243,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -139,10 +147,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20182.706152518153,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -716280.3801741502,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49125.09239233894,
+        "dps": 51785.54109163796,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -153,6 +179,23 @@
         "Summer_Paladyns",
         "Snipers_Allure",
         "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), not s4.check()",
+        "`s3, not buff(s3)",
+        "`s2, s1.check()",
+        "`s4, s=1",
+        "`s1(all)"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

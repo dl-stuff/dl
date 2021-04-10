@@ -119,32 +119,24 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54035.1574817234,
+        "team": 0.11365628773960208,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82463.085769965,
+        "dps": 82336.391092478,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Sylas"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
+      }
     },
     "META": {
-      "tdps": 253674.54894818287,
+      "tdps": 249007.19681779123,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -152,10 +144,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40365.66066453044,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -116717.85029930936,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36550.05910668448,
+        "dps": 64517.68270134875,
         "team": 0.04996655571870545,
         "noaff": false,
         "nihil": false
@@ -166,6 +176,18 @@
         "Moonlight_Party",
         "The_Queen_of_the_Knife",
         "The_Warrioresses"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "# queue self.duration<=60",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-end), s and duration>=120",
+        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
+        "`s4, s or x=5",
+        "`s1, fsc or (s=1 or s=4)"
       ],
       "coabs": [
         "Blade",

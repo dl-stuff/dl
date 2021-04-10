@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25153.698394560775,
+        "dps": 25731.106614669712,
         "team": 0.08233886590618762,
         "noaff": false,
         "nihil": false
@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72512.97249932504,
+        "dps": 74729.21234239645,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -66,14 +66,14 @@
       ]
     },
     "META": {
-      "tdps": 575175.2053364789,
+      "tdps": 595078.7054020454,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39450.21721081619,
+        "dps": 40462.32152546647,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -108,39 +108,24 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32377.700658711943,
+        "team": 0.0823849980621776,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77572.00422856084,
+        "dps": 75152.77364171504,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, x=5"
-      ],
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
+      }
     },
     "META": {
-      "tdps": 636616.8061353018,
+      "tdps": 519209.4918873447,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -148,10 +133,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41567.03072957295,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 199338.8195765609,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 56522.621404888094,
+        "dps": 32377.441278882372,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -164,6 +167,19 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "chimeratech",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, cancel",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Mona"
+      ],
       "share": [
         "Weapon",
         "Formal_Joachim"
@@ -171,7 +187,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56522.621404888094,
+        "dps": 58750.423994458666,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -182,6 +198,23 @@
         "Valiant_Crown",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, cancel",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

@@ -117,43 +117,36 @@
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
+  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 97801.40815448172,
+        "dps": 64679.72189114578,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
       "acl": [
-        "`dragon(c2-s-end), fsc",
-        "`s3, fsc and not buff(s3)",
+        "`dragon(c3-s-c3-end)",
+        "`s3, fsc",
         "`s2, fsc",
-        "`s1, gauges[x]>=1000 and gauges[fs]>=1000",
+        "`s4",
+        "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel))",
         "if gauges[fs]<1000",
         "`fs, x=4 or hits=0",
         "else",
-        "`s4, x=5",
         "`dodge, x=5",
         "end"
       ],
       "share": [
-        "Weapon",
-        "Pinon"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 379775.821883234,
+      "tdps": 177372.6701693585,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -161,7 +154,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68206.93432466529,
+        "dps": 84648.51604661427,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -173,6 +166,7 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-end)",
         "`s3, not buff(s3)",
@@ -184,6 +178,15 @@
         "else",
         "`dodge, x=5",
         "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

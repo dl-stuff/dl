@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46942.039366774516,
-        "team": 0.3745524331904707,
+        "dps": 47226.508220172414,
+        "team": 0.3847726908377718,
         "noaff": false,
         "nihil": false
       },
@@ -68,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 175902.59311046268,
+      "tdps": 185016.19017448687,
       "pref": "PERSONAL"
     }
   },
@@ -87,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 239061.011121538,
+      "tdps": 255885.66963838754,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -133,6 +133,156 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47604.766165987196,
+        "team": 0.3847726908377718,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 186671.7595116916,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27451.229832276185,
+        "team": 0.2564016497034317,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "The_Warrioresses"
+      ],
+      "acl": [
+        "queue (s=1 and dgauge>=500)",
+        "`dragon(c3-s);fs",
+        "end",
+        "`s3",
+        "`s1",
+        "`s4, s=1",
+        "`s2, fscf",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Grace",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 63042.38067268353,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47226.508220172414,
+        "team": 0.3847726908377718,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "queue buff(s3) and (s=1 and dgauge>=500)",
+        "`dragon(c3-s);fs",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, s=1",
+        "`s2, fscf",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Forte",
+        "Gala_Alex",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15990.915883663802,
+        "team": 0.17836801481455267,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "queue buff(s3) and (s=1 and dgauge>=500)",
+        "`dragon(c3-s);fs",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, s=1",
+        "`s2, fscf",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Forte",
+        "Gala_Alex",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

@@ -72,7 +72,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16621.841836878313,
+        "dps": 31672.190266027777,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -84,9 +84,9 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
+        "`dragon(c3-s-c3-end)",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, x=5 or hp<90",
@@ -106,10 +106,54 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49487.82518705139,
+        "team": 0.08729606445550868,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81320.40113362469,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 364650.7565389399,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32782.876008661806,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -183509.7393774952,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53770.73108051849,
+        "dps": 57927.81612140366,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -120,6 +164,23 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, x=5 or hp<90",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Valentines_Chelsea"
       ]
     },
     "META": {

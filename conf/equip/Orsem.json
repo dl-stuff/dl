@@ -74,15 +74,15 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28071.96725114517,
+        "dps": 41530.97845252786,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Bridal_Dragon",
+        "Twinfold_Bonds",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
@@ -96,12 +96,12 @@
         "`s2, dgauge<=400"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Blade",
         "Tiki",
         "Yurius"
       ],
       "share": [
-        "Weapon",
+        "The_Prince",
         "Gala_Mym"
       ]
     },
@@ -110,6 +110,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32074.03195825304,
+        "team": 0.07499071781559469,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 62771.487961158076,
@@ -133,7 +141,7 @@
       ]
     },
     "META": {
-      "tdps": 430432.9710989179,
+      "tdps": 409350.07554390084,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -141,10 +149,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43468.6024472183,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 173029.30733607218,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42647.540700095626,
+        "dps": 46586.845354341924,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -155,6 +181,24 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s2, dgauge>=500",
+        "`dragon(c3-s), aff_timeleft(frostbite)>18",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, x=5 or aff(frostbite)",
+        "`s2, dgauge<=400"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {

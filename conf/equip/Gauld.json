@@ -73,7 +73,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28562.749027100963,
+        "dps": 27558.064484417402,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -109,6 +109,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64279.69784077172,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 67875.06393438265,
@@ -154,48 +162,19 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 67875.06393438265,
+        "dps": 29145.92929218101,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "if  s=1 and not s2.check()",
-        "`dragon(c3-s-c3-c1-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
-        "end",
-        "`s3, not buff(s3) and fscf",
-        "`s4, xf or fscf",
-        "`s1, (xf or fscf or s=2) and buff(s3)",
-        "`s2, s=1",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -203,7 +182,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29924.100232860856,
+        "dps": 56087.86688971139,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -214,6 +193,24 @@
         "The_Prince_of_Dragonyule",
         "Chariot_Drift",
         "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=1 and not s2.check()",
+        "`s3, not buff(s3)",
+        "`s4, s1.check() and s2.check()",
+        "`s1, cancel",
+        "`s2, s=1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Renee",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
       ]
     },
     "META": {

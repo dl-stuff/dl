@@ -98,41 +98,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 3821.4047157127943,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Gentle_Winds",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(s-end)",
-        "`s3",
-        "`s2",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger",
-        "Tobias"
-      ],
-      "share": [
-        "Gala_Elisanne",
-        "Templar_Hope"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 18491.328158963173,
+        "dps": 20612.404467823108,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -146,13 +114,8 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "if s=2",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
-        "end",
+        "`dragon(c3-s-c3-c3-c2-end)",
         "`s3, not buff(s3) and fscf",
-        "`s2, dgauge>=500",
         "`s4",
         "`s1, (xf or fscf) and buff(s3)",
         "`fs, x=5"
@@ -196,11 +159,45 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26614.981181044404,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 19103.331272227413,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 6927.142417026739,
-        "team": 1.0305971499661954,
+        "dps": 8962.39971367403,
+        "team": 0.8138229426558585,
         "noaff": true,
         "nihil": false
       },
@@ -219,38 +216,17 @@
         "`s4",
         "`fs, x=5"
       ],
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Tobias"
-      ],
       "share": [
         "Gala_Elisanne",
         "Templar_Hope"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 9388.835147410271,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 8962.39971367403,
-        "team": 0.8138229426558585,
-        "noaff": true,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   }

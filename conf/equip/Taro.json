@@ -32,7 +32,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41520.09747795652,
+        "dps": 42307.748746831625,
         "team": 0.062442081500403666,
         "noaff": false,
         "nihil": false
@@ -62,14 +62,14 @@
       ]
     },
     "META": {
-      "tdps": 293370329.1858764,
+      "tdps": 317036990.76225996,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 9329.99298932783,
+        "dps": 9274.655686645352,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -103,9 +103,17 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34740.776046111656,
+        "team": 0.06247536254709177,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52584.19350536701,
+        "dps": 54371.71143892011,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -137,7 +145,7 @@
       ]
     },
     "META": {
-      "tdps": 333375.6988484847,
+      "tdps": 314218.83111140545,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -145,10 +153,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11283.481805201973,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -327696.2824310795,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37936.03937765823,
+        "dps": 38900.67062796777,
         "team": 0.062442081500403666,
         "noaff": false,
         "nihil": false
@@ -159,6 +185,22 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-c3-c3-end), buff(s3)",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {

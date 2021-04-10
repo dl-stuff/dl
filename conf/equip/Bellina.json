@@ -80,7 +80,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47123.546655874234,
+        "dps": 39907.32459937122,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -119,6 +119,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61350.49582474862,
+        "team": 0.11770732909144029,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 117994.57975343207,
@@ -143,10 +151,28 @@
       ]
     },
     "META": {
-      "tdps": 596230.0390820584,
+      "tdps": 481228.18150669115,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40447.61425701962,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -62581.66019769107,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -165,6 +191,23 @@
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Ieyasu"
       ],
       "share": [
         "Weapon",

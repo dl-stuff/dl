@@ -75,7 +75,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 14838.915883693315,
+        "dps": 12969.457610491581,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -112,6 +112,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 81962.87295030412,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 84429.58226594843,
@@ -148,13 +156,13 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 84429.58226594843,
+        "dps": 32975.217085767494,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
@@ -166,21 +174,26 @@
         "Mask_of_Determination_Bow"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3",
         "`s2",
         "`s4",
-        "`s1, not energy()=5 and cancel"
+        "`s1, xf"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Ilia"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -188,7 +201,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45881.749862658566,
+        "dps": 70984.35230730452,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -201,6 +214,23 @@
         "Snipers_Allure",
         "Crown_of_Light",
         "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5 and cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, not energy()=5 and cancel"
+      ],
+      "coabs": [
+        "Lucretia",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
       ]
     },
     "META": {

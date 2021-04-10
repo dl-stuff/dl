@@ -80,15 +80,15 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39479.73373927327,
+        "dps": 48316.50731955099,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragonyule_Dreaming",
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
@@ -96,21 +96,20 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), bleed_stack>0 and aff(flashburn)",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`fs, charged_in(fs,s2) and xf=5",
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3",
         "`s4, xf",
+        "`s2",
         "`s1, xf=5",
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Gala_Zena",
+        "Malora",
         "Peony",
         "Wand"
       ],
       "share": [
-        "Weapon",
+        "Sharena",
         "Ilia"
       ]
     },
@@ -155,6 +154,28 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53007.95614524959,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": -51210.47724130846,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

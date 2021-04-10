@@ -74,7 +74,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35188.274990999824,
+        "dps": 30447.373816234965,
         "team": 0.023385705298796567,
         "noaff": false,
         "nihil": true
@@ -109,10 +109,54 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64061.374117443585,
+        "team": 0.16438275298037408,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 96986.8941191881,
+        "team": 0.023383437697561755,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 233515.46023967187,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32722.768391970985,
+        "team": 0.023385705298796567,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -187155.39246228454,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73218.68228890195,
+        "dps": 74924.19065400865,
         "team": 0.023293536142426855,
         "noaff": false,
         "nihil": false
@@ -124,6 +168,7 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
+      "slots.d": "Gala_Mars",
       "acl": [
         "`dragon(c3-s-s-end), s=1",
         "`s3, not buff(s3)",

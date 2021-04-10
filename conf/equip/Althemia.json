@@ -72,7 +72,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 9898.939332848864,
+        "dps": 37361.719491450334,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -82,6 +82,110 @@
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s4",
+        "`s3",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 73357.51570289025,
+        "team": 0.11770876538856503,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 90626.21866697844,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 146707.02650803427,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47500.388330251975,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), x=5",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Ieyasu"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "tdps": -196485.77507720995,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65247.549741657436,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
@@ -100,51 +204,6 @@
       "share": [
         "Weapon",
         "Fjorm"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 90437.73739098401,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon(c3-s-end), x=5 and trickery<=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, buff(s3) and cancel"
-      ]
-    },
-    "META": {
-      "tdps": 168290.36473695582,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 46489.72293338481,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
       ]
     },
     "META": {

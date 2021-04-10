@@ -74,7 +74,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 20314.60998855252,
+        "dps": 20146.84902502632,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -110,6 +110,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 67972.37309974224,
+        "team": 0.09213605868989809,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 100470.65575976604,
@@ -131,7 +139,7 @@
       ]
     },
     "META": {
-      "tdps": 575796.2967776518,
+      "tdps": 352720.56480517716,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -139,10 +147,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23854.122406791594,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -255762.31819243683,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38220.72590510795,
+        "dps": 60757.05647212704,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -154,6 +180,7 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), fscf or x=5",
         "`s3, not buff(s3)",
@@ -161,6 +188,11 @@
         "`s2",
         "`s1(all), fsc",
         "`fs, x=5"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
       ],
       "share": [
         "Weapon",

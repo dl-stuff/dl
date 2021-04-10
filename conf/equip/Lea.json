@@ -74,7 +74,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35455.38877214921,
+        "dps": 30134.140935601583,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -110,6 +110,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63708.59144804198,
+        "team": 0.08243758813252614,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 75482.57693914726,
@@ -127,7 +135,7 @@
       ]
     },
     "META": {
-      "tdps": 210407.71122402244,
+      "tdps": 142823.02233512086,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -135,10 +143,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33285.28014200554,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -301461.9073934657,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41151.61687107764,
+        "dps": 61260.88286347677,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -149,6 +175,24 @@
         "The_Shining_Overlord",
         "Snipers_Allure",
         "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3) and fsc",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`s2, fsc",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

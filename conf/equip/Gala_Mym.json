@@ -72,21 +72,21 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28718.029758716,
-        "team": 0.0,
+        "dps": 34337.46415861855,
+        "team": 0.03703518527777307,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Sweet_Surprise",
-        "The_Red_Impulse",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Such_High_Spirits"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`s3, not buff(s3)",
+        "`s3",
         "`s1",
         "`s2, fsc",
         "`s4, fsc",
@@ -95,13 +95,13 @@
         "`dragon(c3-s-end), dragonform.shift_count>=2"
       ],
       "coabs": [
-        "Serena",
-        "Verica",
+        "Nobunaga",
+        "Wand",
         "Yuya"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Ranzal",
+        "Seimei"
       ]
     },
     "META": {
@@ -133,6 +133,43 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42680.55495412791,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`s3",
+        "`s1",
+        "`s2, fsc",
+        "`fs, x=5",
+        "`dragon(s-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-end), dragonform.shift_count>=2"
+      ],
+      "share": [
+        "Gala_Leonidas",
+        "Lapis"
+      ]
+    },
+    "META": {
+      "tdps": 150606.59458690046,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -158,6 +195,50 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34337.46415861855,
+        "team": 0.03703518527777307,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3",
+        "`s1",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dragon(s-end), dragonform.shift_count<=1",
+        "`dragon(c3-s-end), dragonform.shift_count>=2"
+      ],
+      "coabs": [
+        "Nobunaga",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Ranzal",
+        "Seimei"
+      ]
+    },
+    "META": {
+      "tdps": 127660.17413720101,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

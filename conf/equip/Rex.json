@@ -74,7 +74,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34014.11987140034,
+        "dps": 32809.88033477569,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -110,6 +110,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32031.391447080023,
+        "team": 0.1421410662629378,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 61771.667787878556,
@@ -143,7 +151,7 @@
       ]
     },
     "META": {
-      "tdps": 221152.70038535117,
+      "tdps": 209230.71088958817,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -151,10 +159,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34507.526960569485,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 29342.257815046716,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38024.63051711984,
+        "dps": 47304.99262894465,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -165,6 +191,24 @@
         "Summer_Paladyns",
         "Chariot_Drift",
         "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s), s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Xander",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
       ]
     },
     "META": {

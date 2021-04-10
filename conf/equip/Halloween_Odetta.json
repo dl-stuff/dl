@@ -162,54 +162,30 @@
       }
     }
   },
-  "IMMUNE-NORMAL-ANY": {
+  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 11980.428996267823,
-        "team": 1.6436391711872418,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "#`s1, not buff(s1) and fsc",
-        "`dragon(c3-s-end), fsc",
-        "`s4",
-        "`s2",
-        "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Gala_Elisanne"
-      ]
+        "dps": 25625.413128355136,
+        "team": 0.040973961683787995,
+        "noaff": false,
+        "nihil": true
+      }
     },
     "META": {
+      "tdps": 8513.93294817629,
       "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
+  "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 12640.029676954251,
-        "team": 1.4943513786543459,
-        "noaff": true,
+        "dps": 48131.234844509265,
+        "team": 0.3242444683662879,
+        "noaff": false,
         "nihil": false
       },
       "coabs": [
@@ -219,10 +195,11 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 27399.538417843127,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

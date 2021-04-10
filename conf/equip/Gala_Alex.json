@@ -76,10 +76,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 17661.444111359153,
-        "team": 0.04542428967229218,
+        "dps": 36958.99691403948,
+        "team": 0.07922546292363083,
         "noaff": false,
         "nihil": true
       },
@@ -90,29 +90,117 @@
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-end), s=2",
-        "`s3, not buff(s3)",
-        "if x=5 or s=4 or not buff(s3)",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
+        "`dragon(c3-s-end)",
+        "`s4, fsc",
+        "`s3, fsc",
+        "if sr.count>1",
+        "`s1, x=4 and sr.chain_status=1",
+        "`s1, fsc",
         "end",
-        "`fs, hits=0 or x=4 and not buff(s3)"
+        "`fs, x=4"
       ],
       "coabs": [
-        "Delphi",
-        "Heinwald",
+        "Blade",
+        "Bow",
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55858.67772462131,
+        "team": 0.04620592372600943,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s4, fsc",
+        "`s3, fsc",
+        "if sr.count>1",
+        "`s1, x=4 and sr.chain_status=1",
+        "`s1, fsc",
+        "end",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 572378.6966701002,
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42379.1144627581,
+        "team": 0.238376057296539,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 92536.78152598364,
+        "team": 0.1542406245506681,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 596153.9083625515,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54075.67380628394,
+        "team": 0.07922546292363083,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59611.273417550496,
+        "team": 0.04620592372600943,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 167646.17998258784,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "IMMUNE-NORMAL-ANY": {
@@ -130,6 +218,7 @@
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
       ],
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
@@ -143,6 +232,10 @@
         "Forte",
         "Ieyasu",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {

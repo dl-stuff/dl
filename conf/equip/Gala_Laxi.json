@@ -78,7 +78,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54184.84656293665,
+        "dps": 37800.75204152205,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -117,9 +117,17 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 69078.7976992627,
+        "team": 0.12498832285020786,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110884.15283018255,
+        "dps": 110860.80508110463,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -137,7 +145,7 @@
       ]
     },
     "META": {
-      "tdps": 366521.6286422736,
+      "tdps": 334287.28723654884,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -148,25 +156,19 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58270.1824936422,
+        "dps": 42363.470149241526,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`ex",
-        "`dragon(c1-s-s-c3-end), x=4",
-        "queue prep",
-        "`s4;s2;s1;s3",
-        "end",
-        "`s1, x=4 or s",
-        "`s2, x=4",
-        "`s3, x=4 or s",
-        "`s4, x=4 or s"
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Yuya"
       ]
     },
     "META": {
-      "tdps": -54429.4581212116,
+      "tdps": -181695.0456710506,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -177,7 +179,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70589.17025719052,
+        "dps": 76719.24477763695,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -188,6 +190,27 @@
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Amaterasu_Oblation"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`ex",
+        "`dragon(c1-s-s-c3-end), x=4",
+        "queue prep",
+        "`s2;s1;s4",
+        "end",
+        "`s3, not buff(s3) and x=4",
+        "`s1, x=4 or s",
+        "`s2, x=4",
+        "`s4, x=4 or s"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

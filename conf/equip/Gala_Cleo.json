@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8049.969266254906,
-        "team": 0.7815298911448345,
+        "dps": 13491.152204012362,
+        "team": 1.0317073660073568,
         "noaff": false,
         "nihil": false
       },
@@ -71,15 +71,15 @@
       ]
     },
     "META": {
-      "tdps": 188922.8356149465,
+      "tdps": 88878.9474810422,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8687.69734830362,
-        "team": 0.7178990308474067,
+        "dps": 15767.585733920107,
+        "team": 0.9422843963506065,
         "noaff": false,
         "nihil": false
       },
@@ -90,7 +90,7 @@
       ]
     },
     "META": {
-      "tdps": 242363.2627840278,
+      "tdps": 101845.07813939828,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -101,7 +101,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 11418.700222754742,
+        "dps": 9944.638175823306,
         "team": 0.09873461592808286,
         "noaff": false,
         "nihil": true
@@ -138,6 +138,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14000.443398302274,
+        "team": 1.0317073660073568,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 65682.21711186902,
@@ -168,7 +176,7 @@
       ]
     },
     "META": {
-      "tdps": 204225.0304708206,
+      "tdps": 97077.3608123555,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -176,10 +184,57 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 16106.420511248241,
+        "team": 0.9422843963506065,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 111920.8103140799,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23625.506644235968,
+        "team": 0.08609298715367789,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ]
+    },
+    "META": {
+      "tdps": 10717.216940492146,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41332.8535351661,
+        "dps": 52008.2790901708,
         "team": 0.5048843698316354,
         "noaff": false,
         "nihil": false
@@ -190,6 +245,25 @@
         "Sweet_Surprise",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Bow",
+        "Dragonyule_Victor",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

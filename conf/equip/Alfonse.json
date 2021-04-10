@@ -2,17 +2,17 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 68598.91048645825,
-        "team": 0.0,
+        "dps": 63164.15976493376,
+        "team": 0.08612977601742068,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Dueling_Dancers",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
@@ -26,13 +26,13 @@
         "`fs, x=4 or hits=3"
       ],
       "coabs": [
+        "Blade",
         "Peony",
-        "Sharena",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -71,13 +71,14 @@
       ]
     },
     "META": {
+      "tdps": 63099.557119773,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34169.12925364472,
+        "dps": 37211.14063104999,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -114,10 +115,70 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64643.87607977272,
+        "team": 0.08612977601742068,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73977.44939517514,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 108366.39484020714,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46635.96720556672,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c2-end), fsc and aff(flashburn)",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`s1, cancel",
+        "`fs, x=4 or hits=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53052.091002023015,
+        "dps": 63164.15976493376,
         "team": 0.08612977601742068,
         "noaff": false,
         "nihil": false
@@ -130,6 +191,15 @@
         "Dueling_Dancers",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c2-end), fsc",
+        "`s3, (not buff(s3)) or duration-now<1.4",
+        "`s2",
+        "`s4, fsc",
+        "`s1, cancel and not s4.check()",
+        "`fs, x=4 or hits=3"
       ],
       "coabs": [
         "Blade",
@@ -145,41 +215,6 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 53052.091002023015,
-        "team": 0.08612977601742068,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

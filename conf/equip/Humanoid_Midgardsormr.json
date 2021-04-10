@@ -76,19 +76,19 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79573.22632866367,
+        "dps": 84801.53949013026,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
+        "Gala_Notte",
         "Mona"
       ]
     },
     "META": {
-      "tdps": 88426.27029233311,
+      "tdps": 145365.33112742155,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -99,22 +99,22 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39349.575612054075,
+        "dps": 53132.04774215488,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Forest_Bonds",
+        "Pecorines_Grand_Adventure",
         "Sweet_Surprise",
-        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c2-s-c3-c3-c3-end), s",
-        "`s3, not buff(s3)",
+        "`s3, cancel",
         "`s4, cancel",
         "`s1",
         "`s2",
@@ -122,12 +122,12 @@
         "`dodge, fsc"
       ],
       "coabs": [
-        "Cleo",
-        "Dragonyule_Xainfried",
-        "Gala_Notte"
+        "Blade",
+        "Mona",
+        "Wand"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -136,6 +136,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 86300.0860742279,
+        "team": 0.09182296098295789,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 92732.03507732984,
@@ -170,7 +178,7 @@
       ]
     },
     "META": {
-      "tdps": 508633.5787030131,
+      "tdps": 153747.9200457045,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -178,14 +186,66 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57359.346060330725,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ]
+    },
+    "META": {
+      "tdps": -153494.48711447485,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58634.308708731936,
+        "dps": 84801.53949013026,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Forest_Bonds",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2",
+        "`fs, xf=4",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
       "share": [
         "Weapon",
         "Formal_Joachim"
@@ -193,7 +253,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59047.99296068508,
+        "dps": 71737.24341239643,
         "team": 0.029382460598512128,
         "noaff": false,
         "nihil": false
@@ -204,6 +264,21 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2",
+        "`fs, xf=4",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Cleo",
+        "Dragonyule_Xainfried",
+        "Gala_Notte"
       ],
       "share": [
         "Weapon",
@@ -221,15 +296,36 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58634.308708731936,
+        "dps": 84801.53949013026,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Forest_Bonds",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2",
+        "`fs, xf=4",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Gala_Notte",
         "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

@@ -80,7 +80,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38110.91873666249,
+        "dps": 32460.163760405696,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -119,6 +119,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54972.95756426915,
+        "team": 0.005845170915018714,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 73897.75194366669,
@@ -141,7 +149,7 @@
       ]
     },
     "META": {
-      "tdps": 3985361.0016071294,
+      "tdps": 3237680.2414402887,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -149,10 +157,68 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33078.335997484064,
+        "team": 0.024686468732411874,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Mars",
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43926.991022946626,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s), s=1",
+        "queue prep",
+        "`s4;s1",
+        "end",
+        "`s3, x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "tdps": 439457.5483053564,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36429.775310007826,
+        "dps": 58396.88808385047,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -163,6 +229,27 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=1",
+        "queue prep",
+        "`s4;s1",
+        "end",
+        "`s3, x=5 and not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

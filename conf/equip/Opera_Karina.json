@@ -97,7 +97,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16004.389551721233,
+        "dps": 15827.902130463435,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -133,32 +133,24 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 59768.21502042028,
-        "team": 0.0269030962613607,
+        "dps": 5517.836152453307,
+        "team": 0.40375312038039474,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c1-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62046.59188028784,
+        "team": 0.026883542597450592,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
-      "tdps": 144302.805959981,
+      "tdps": 149995.5397312328,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -166,10 +158,46 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5699.423629881729,
+        "team": 0.3388800230572216,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 170420.95167068002,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17059.34633371866,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 28907.88115461522,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34267.48437453261,
+        "dps": 55220.42914680757,
         "team": 0.026883542597450592,
         "noaff": false,
         "nihil": false
@@ -180,6 +208,24 @@
         "Welcome_to_the_Opera",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c2-s-c3-c2-end), dragonform.shift_count = 0",
+        "`dragon(c2-s-c3-c3-end), dragonform.shift_count > 0",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

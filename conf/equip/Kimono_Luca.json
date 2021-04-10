@@ -70,6 +70,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40772.34697634957,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-end), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1(all)",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 60746.00081946884,
@@ -142,6 +174,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52547.63880876009,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 61923.93839553159,
@@ -151,11 +191,10 @@
       }
     },
     "META": {
-      "tdps": -116681.74732086592,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -174,12 +213,18 @@
         "His_Clever_Brother",
         "The_Warrioresses"
       ],
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-end), s",
         "`s3, not buff(s3)",
         "`s4",
         "`s1(all)",
         "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -195,64 +240,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 34420.12691275476,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Warrioresses"
-      ],
-      "acl": [
-        "`dragon(c3-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`fs"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 34420.12691275476,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`fs"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 34420.12691275476,
-        "team": 0.0,
+        "dps": 40764.10662333706,
+        "team": 0.049358259032032455,
         "noaff": false,
         "nihil": true
       },
@@ -277,14 +268,15 @@
         "Mona"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

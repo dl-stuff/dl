@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37514.89579915651,
+        "dps": 37922.454564665364,
         "team": 0.062483610335390016,
         "noaff": false,
         "nihil": false
@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56743.80665023115,
+        "dps": 58495.18938460883,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -69,14 +69,14 @@
       ]
     },
     "META": {
-      "tdps": 307743.274562091,
+      "tdps": 329250.09789793304,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 13548.261924590939,
+        "dps": 13636.808328927693,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -115,7 +115,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61001.88622075311,
+        "dps": 64567.06685841143,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -140,7 +140,7 @@
       ]
     },
     "META": {
-      "tdps": 375890.4182317044,
+      "tdps": 422303.0713519401,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -148,10 +148,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14946.846925595173,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -367706.1475120471,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47048.69550219462,
+        "dps": 48357.203781488766,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -162,6 +180,25 @@
         "Summer_Paladyns",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-c3-end), trickery<=1 and cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`fs, x=4 and c_fs(enhanced)",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

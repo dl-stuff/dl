@@ -79,7 +79,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 21443.624200183887,
+        "dps": 21428.712083418894,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -118,6 +118,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61651.1768523022,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 65262.12248970282,
@@ -153,38 +161,46 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 65262.12248970282,
+        "dps": 38435.47476459209,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Spirit_of_the_Season",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife",
+        "A_Small_Courage",
+        "Snipers_Allure",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), s=1",
-        "`s2",
+        "`dragon(c3-s-c3-c3-c3-end), aff(flashburn)",
         "`s1",
-        "`s4, cancel",
+        "`s4",
         "`fs, light=sun and not illuminating_sun.get()",
         "`fs, light=wave and not celestial_wave.get()"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

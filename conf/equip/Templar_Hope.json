@@ -94,6 +94,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21567.131753469548,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 29992.585859511408,
@@ -134,41 +168,35 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65819.85790946955,
-        "team": 0.20715727192320854,
+        "dps": 63833.036604976405,
+        "team": 0.20701924636858154,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "FirstRate_Hospitality",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, fsc",
-        "`s2, cancel",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Humanoid_Midgardsormr",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
+      }
     },
     "META": {
-      "tdps": 67896.61572800868,
+      "tdps": 65730.5767147349,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30956.50331230074,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 24543.45786382936,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

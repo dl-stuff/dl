@@ -2,14 +2,14 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 62960.25301493108,
+        "dps": 68949.67143298818,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "Spirit_of_the_Season",
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
@@ -19,32 +19,32 @@
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, fsc and not buff(s3)",
-        "`s1, fsc and buff(s3) and hp<30",
+        "`s1, fsc and hp<30",
         "`s4, fsc",
         "`s2, fsc",
         "`dodge, fsc",
         "`fs3"
       ],
       "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
+        "Peony",
+        "Sharena",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Valentines_Chelsea"
+        "Sharena"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62960.25301493108,
+        "dps": 68949.67143298818,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "Spirit_of_the_Season",
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
@@ -54,20 +54,20 @@
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, fsc and not buff(s3)",
-        "`s1, fsc and buff(s3) and hp<30",
+        "`s1, fsc and hp<30",
         "`s4, fsc",
         "`s2, fsc",
         "`dodge, fsc",
         "`fs3"
       ],
       "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
+        "Peony",
+        "Sharena",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Valentines_Chelsea"
+        "Sharena"
       ]
     },
     "META": {
@@ -77,37 +77,37 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 11532.739915688873,
+        "dps": 43733.96996494258,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
+        "Spirit_of_the_Season",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`s3, fsc and not buff(s3)",
-        "`s1, fsc and buff(s3) and hp<30",
+        "`s3, fsc",
+        "`s1, fsc",
         "`s4, fsc",
-        "`s2, fsc",
+        "`s2, fsc and hp=100",
         "`dodge, fsc",
         "`fs3"
       ],
       "coabs": [
         "Blade",
-        "Lucretia",
-        "Peony"
+        "Peony",
+        "Wand"
       ],
       "share": [
-        "Weapon",
-        "Valentines_Chelsea"
+        "Sharena",
+        "Ilia"
       ]
     },
     "META": {
@@ -117,20 +117,11 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74292.84519883983,
+        "dps": 72128.23087713547,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Sweet_Surprise",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -140,28 +131,45 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 74292.84519883983,
+        "dps": 53505.686326898525,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Sweet_Surprise",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "The_Warrioresses",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`s1, fsc and hp<30",
+        "`s4, fsc",
+        "`s3, fsc",
+        "`s2, fsc and hp>50",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Mitsuhide",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -169,7 +177,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59591.36690918125,
+        "dps": 65006.01083677743,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -182,6 +190,24 @@
         "The_Warrioresses",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, fsc and not buff(s3)",
+        "`s1, fsc and hp<30",
+        "`s4, fsc",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Peony",
+        "Sharena",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Sharena"
       ]
     },
     "META": {

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 61149.16459070232,
-        "team": 0.051528753952883456,
+        "dps": 58320.51962384658,
+        "team": 0.051553024036779985,
         "noaff": false,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Thor",
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61149.16459070232,
-        "team": 0.051528753952883456,
+        "dps": 58320.51962384658,
+        "team": 0.051553024036779985,
         "noaff": false,
         "nihil": false
       },
@@ -51,7 +51,7 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Gala_Thor",
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
@@ -77,7 +77,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28178.190820376105,
+        "dps": 30786.18977428142,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -117,10 +117,27 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66642.45477596771,
-        "team": 0.03701090096351038,
+        "dps": 69958.83942248377,
+        "team": 0.06014889996458254,
         "noaff": false,
         "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41967.04635245902,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
@@ -129,32 +146,31 @@
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Tutelarys_Destiny"
       ],
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2, s1.charged<(s1.sp/3)",
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s2, s=1",
         "`s1",
+        "`s3",
         "`s4",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`fs,x=5"
       ],
       "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Sharena"
+        "Blade",
+        "Lucretia",
+        "Peony"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Ilia"
       ]
     },
     "META": {
-      "tdps": 378381.7200302567,
-      "pref": "PERSONAL",
+      "tdps": -344875.4937492599,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -162,8 +178,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29475.35049999827,
-        "team": 0.03434155109647303,
+        "dps": 58942.94826517178,
+        "team": 0.051594095267089954,
         "noaff": false,
         "nihil": false
       },
@@ -175,6 +191,24 @@
         "Snipers_Allure",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, s1.charged<s1.sp/3",
+        "`s1",
+        "`s4, cancel",
+        "`fs,x=5"
+      ],
+      "coabs": [
+        "Lucretia",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
       ]
     },
     "META": {

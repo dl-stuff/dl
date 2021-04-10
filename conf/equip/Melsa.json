@@ -72,7 +72,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34742.34098569282,
+        "dps": 29319.60463186788,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -107,6 +107,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55504.73803518034,
+        "team": 0.049983011329815676,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 68423.1876125644,
@@ -123,7 +131,7 @@
       ]
     },
     "META": {
-      "tdps": 390463.75638314727,
+      "tdps": 258456.80829714242,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -131,10 +139,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33182.10595759024,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -314597.43775807664,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35732.87696640499,
+        "dps": 54552.448286834064,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -145,6 +171,23 @@
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2, s=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

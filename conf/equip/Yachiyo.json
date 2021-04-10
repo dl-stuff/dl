@@ -2,17 +2,17 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 57424.26801297733,
-        "team": 0.0,
+        "dps": 51510.22937649952,
+        "team": 0.0498563527684844,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
+        "The_Bridal_Dragon",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Dueling_Dancers",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
@@ -33,7 +33,7 @@
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -73,13 +73,14 @@
       ]
     },
     "META": {
+      "tdps": 118621.56592040643,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 22948.952790502477,
+        "dps": 26025.61909581531,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -118,6 +119,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 56099.46976873575,
+        "team": 0.0498563527684844,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 67836.95261388188,
@@ -136,6 +145,7 @@
       ]
     },
     "META": {
+      "tdps": 235426.02283105077,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -143,28 +153,19 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 67836.95261388188,
+        "dps": 32578.795184440427,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ]
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -172,7 +173,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38832.02211081922,
+        "dps": 51510.22937649952,
         "team": 0.0498563527684844,
         "noaff": false,
         "nihil": false
@@ -185,6 +186,21 @@
         "Dueling_Dancers",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4, xf or fsc",
+        "`s2, not c_fs(enhanced) and xf=5",
+        "`fs, c_fs(enhanced) and xf=3",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Peony",
+        "Sharena",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -195,36 +211,6 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 38832.02211081922,
-        "team": 0.0498563527684844,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

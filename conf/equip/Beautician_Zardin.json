@@ -2,21 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 62225.804975751525,
-        "team": 0.04448817903629872,
+        "dps": 49051.45056744422,
+        "team": 0.0680869663136885,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Worthy_Rivals",
+        "Moonlight_Party",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Cupid",
       "acl": [
         "queue s2.check() and dgauge>=500 and energy()>2",
         "`s2",
@@ -40,15 +40,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62225.804975751525,
-        "team": 0.04448817903629872,
+        "dps": 69124.46246067675,
+        "team": 0.041787661416533575,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Worthy_Rivals",
+        "Moonlight_Party",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
@@ -77,14 +77,15 @@
       ]
     },
     "META": {
+      "tdps": 763252.5639643059,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25630.919651251712,
-        "team": 0.04357138148566784,
+        "dps": 27596.29946231197,
+        "team": 0.0435856712114659,
         "noaff": false,
         "nihil": true
       },
@@ -126,8 +127,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69600.92816623322,
-        "team": 0.04448817903629872,
+        "dps": 77159.55496877544,
+        "team": 0.041787661416533575,
         "noaff": false,
         "nihil": false
       },
@@ -149,37 +150,11 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 69600.92816623322,
-        "team": 0.04448817903629872,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50685.53178774909,
-        "team": 0.04448817903629872,
+        "dps": 69124.46246067675,
+        "team": 0.041787661416533575,
         "noaff": false,
         "nihil": false
       },
@@ -191,6 +166,27 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "queue s2.check() and dgauge>=500 and energy()>2",
+        "`s2",
+        "`dragon (c3-s-end), cancel",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, charged_in(5,s1)",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
       ]
     },
     "META": {

@@ -73,7 +73,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 17470.730321404655,
+        "dps": 16268.7645291998,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -108,6 +108,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33334.20960675271,
+        "team": 0.11389010992975535,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 117661.52299334196,
@@ -129,7 +137,7 @@
       ]
     },
     "META": {
-      "tdps": 807970.2737366351,
+      "tdps": 740427.0084434926,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,10 +145,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18817.050816112795,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -59923.10381997662,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 80280.65378640725,
+        "dps": 44895.44676340069,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -153,6 +179,19 @@
         "Liber_Grimortis"
       ],
       "slots.d": "Gala_Cat_Sith",
+      "slots.w": "chimeratech",
+      "acl": [
+        "`dragon(s-c3-c3-end), xf=5",
+        "`s3, not buff(s3) and cancel",
+        "`s1, hp<=20",
+        "`s2, xf=5",
+        "`s4, xf=5"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Wand"
+      ],
       "share": [
         "Weapon",
         "Veronica"
@@ -171,6 +210,19 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s-c3-c3-end), xf=5",
+        "`s3, not buff(s3) and cancel",
+        "`s1, hp<=20",
+        "`s2, xf=5",
+        "`s4, xf=5"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Wand"
       ],
       "share": [
         "Weapon",

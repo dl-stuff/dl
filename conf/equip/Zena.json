@@ -70,7 +70,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16554.73012532494,
+        "dps": 16178.539125946883,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -104,6 +104,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55205.316079818425,
+        "team": 0.11903322366412199,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 60569.4675355438,
@@ -130,7 +138,7 @@
       ]
     },
     "META": {
-      "tdps": 147383.3701950555,
+      "tdps": 45064.321460884654,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -138,10 +146,36 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34524.85831591744,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2"
+      ]
+    },
+    "META": {
+      "tdps": -71417.80495514348,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42760.88963982721,
+        "dps": 45076.97752758397,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -152,6 +186,22 @@
         "Memory_of_a_Friend",
         "Taiko_Tandem",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

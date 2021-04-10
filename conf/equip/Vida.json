@@ -71,7 +71,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18359.043967609698,
+        "dps": 22959.65114007993,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -93,12 +93,12 @@
         "`fs, xf=3"
       ],
       "coabs": [
-        "Cleo",
-        "Forte",
+        "Bow",
+        "Grace",
         "Ieyasu"
       ],
       "share": [
-        "Weapon",
+        "Hunter_Sarisse",
         "Formal_Joachim"
       ]
     },
@@ -107,6 +107,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5310.215545131603,
+        "team": 0.3372295235230047,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 67376.99664652141,
@@ -127,7 +135,7 @@
       ]
     },
     "META": {
-      "tdps": 382194.24399223144,
+      "tdps": 381540.9953370659,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -135,10 +143,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23527.651784163198,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 54335.998186612815,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48622.56949330597,
+        "dps": 49777.72313218481,
         "team": 0.06243804971419562,
         "noaff": false,
         "nihil": false
@@ -149,6 +175,24 @@
         "Memory_of_a_Friend",
         "A_Passion_for_Produce",
         "The_Warrioresses"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), not buff(s2) and buff(s3)",
+        "`s3, not buff(s3) and fsc",
+        "`s2, not buff(s2)",
+        "`s1, fsc and buff(s3)",
+        "`s4, fsc",
+        "`fs, xf=3"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

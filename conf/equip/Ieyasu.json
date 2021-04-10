@@ -100,7 +100,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 9406.713536217476,
+        "dps": 8551.8428320366,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -138,6 +138,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63926.8873740487,
+        "team": 0.10917329068240163,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 83916.70340743792,
@@ -173,7 +181,7 @@
       ]
     },
     "META": {
-      "tdps": 385433.60659225937,
+      "tdps": 183101.70837977232,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -204,10 +212,49 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45951.933929166604,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(s), duration-now<12",
+        "`s3",
+        "`s1, (bleed_stack<3 or (bleed_stack=3 and (xf>1 or fscf)))",
+        "`s2, xf=5",
+        "`s4",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fs, xf=5"
+      ],
+      "share": [
+        "Eugene",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 37685.8265174108,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41504.32048417058,
+        "dps": 68024.758050201,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -219,6 +266,7 @@
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(s), duration-now<12",
         "`s3, not buff(s3)",
@@ -241,7 +289,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51182.496836485,
+        "dps": 59333.069450621624,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -252,6 +300,26 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), duration-now<12",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2, xf=5",
+        "`s4",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
+        "`fs, xf=5 and buff(s3)"
+      ],
+      "coabs": [
+        "Axe2",
+        "Delphi",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -265,15 +333,37 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41504.32048417058,
+        "dps": 68024.758050201,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), duration-now<12",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2, xf=5",
+        "`s4",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
+        "`fs, xf=5 and buff(s3)"
+      ],
       "coabs": [
         "Bow",
         "Joker",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39703.02136988053,
+        "dps": 42245.67736302661,
         "team": 0.24713631446059275,
         "noaff": false,
         "nihil": false
@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 107007.52118094216,
+        "dps": 112639.93852115661,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -65,14 +65,14 @@
       ]
     },
     "META": {
-      "tdps": 272337.5557249143,
+      "tdps": 284839.8112263455,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28874.062176080944,
+        "dps": 60123.49479242877,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -84,9 +84,9 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(s-end),  trickery = 0",
+        "`dragon(s-end)",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, hp <= 50",
@@ -98,7 +98,7 @@
         "Delphi"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -107,9 +107,17 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59661.008077595456,
+        "team": 0.24713631446059275,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 120299.00696673343,
+        "dps": 127176.34232370989,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -132,7 +140,7 @@
       ]
     },
     "META": {
-      "tdps": 326119.5578349712,
+      "tdps": 273190.66561899433,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -140,26 +148,102 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60555.97471452276,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 74089.8697605844,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66000.17902437385,
+        "dps": 92676.17327908549,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), duration-now<10",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, x=5 and (hp>=50 or hp=0)"
+      ],
+      "coabs": [
+        "Blade",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Valentines_Chelsea"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60123.49479242877,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, hp <= 50",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Delphi"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

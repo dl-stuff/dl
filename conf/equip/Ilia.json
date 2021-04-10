@@ -159,17 +159,17 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38867.484177145525,
-        "team": 0.048954533669408926,
+        "dps": 44379.57240604095,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Spirit_of_the_Season",
         "A_Small_Courage",
-        "Enter_the_Blue_Rose",
+        "Snipers_Allure",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
@@ -190,12 +190,12 @@
         "Wand"
       ],
       "share": [
-        "Gala_Mym",
-        "Sha_Wujing"
+        "Summer_Julietta",
+        "Sharena"
       ]
     },
     "META": {
-      "tdps": 309167.4105039017,
+      "tdps": 145392.21662534727,
       "pref": "PERSONAL"
     }
   },
@@ -238,14 +238,77 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50742.19125590931,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`s3",
+        "`dragon(c3-s-c3-end)",
+        "`dodge, hits<21",
+        "if (xf=1)",
+        "`s1",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "tdps": 253677.86931773115,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 69129.58873354286,
+        "dps": 87729.68618204903,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-end), fscf",
+        "`dodge, hits<21",
+        "if (xf=1)",
+        "`fs, c_fs(cartridge3)",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
       "coabs": [
         "Blade",
         "Peony",
@@ -258,7 +321,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75089.7894045627,
+        "dps": 77793.44864120777,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -272,6 +335,7 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "`dragon(c3-s-end), fscf",
@@ -283,6 +347,15 @@
         "`s4",
         "`dodge",
         "end"
+      ],
+      "coabs": [
+        "Axe2",
+        "Blade",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     },
     "META": {
@@ -296,15 +369,41 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69129.58873354286,
+        "dps": 87729.68618204903,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-end), fscf",
+        "`dodge, hits<21",
+        "if (xf=1)",
+        "`fs, c_fs(cartridge3)",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     },
     "META": {

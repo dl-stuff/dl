@@ -106,23 +106,24 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25125.454552428484,
+        "team": 0.29465870337185596,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 65927.54718330665,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
-        "`s3, not buff(s3) and xf=5",
-        "`s4",
-        "`s2, (charged_in(5, s1) and dgauge<=450) or dgauge>=500",
-        "`s1, xf or buff(s2)"
-      ]
+      }
     },
     "META": {
-      "tdps": 141621.11627703425,
+      "tdps": 138472.38233240438,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -130,10 +131,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30567.775496355818,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 21618.648057633978,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50251.830958625374,
+        "dps": 55579.99157898076,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -144,6 +163,23 @@
         "Valiant_Crown",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, (charged_in(5, s1) and dgauge<=450) or dgauge>=500",
+        "`s1, xf or buff(s2)"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {

@@ -57,9 +57,9 @@
         "`fs4"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Cleo",
-        "Grace"
+        "Grace",
+        "Summer_Ranzal"
       ],
       "share": [
         "Weapon",
@@ -110,7 +110,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51557.52807630469,
+        "dps": 49489.624813029244,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -143,7 +143,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54376.259562830994,
+        "dps": 52233.181385027056,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -181,7 +181,7 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51557.52807630469,
+        "dps": 49489.624813029244,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -214,11 +214,6 @@
         "The_Lurker_in_the_Woods",
         "Chariot_Drift",
         "His_Clever_Brother"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Grace",
-        "Summer_Ranzal"
       ]
     },
     "META": {
@@ -233,7 +228,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59066.22130140578,
+        "dps": 56744.436388579255,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -249,6 +244,10 @@
         "Blade",
         "Dragonyule_Cleo",
         "Summer_Estelle"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Yukata_Cassandra"
       ]
     },
     "META": {
@@ -259,26 +258,44 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 59066.22130140578,
+        "dps": 20223.64289714625,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
         "Dear_Diary",
-        "Forest_Bonds",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Warrioresses"
+        "The_Lurker_in_the_Woods",
+        "Chariot_Drift",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s2, not buff(s2) and fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs4"
+      ],
+      "coabs": [
+        "Blade",
+        "Grace",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Elisanne"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64000.33823463996,
-        "team": 0.00584747209936435,
+        "dps": 64609.072253092905,
+        "team": 0.0058360583567668226,
         "noaff": false,
         "nihil": false
       },
@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89646.56374832448,
+        "dps": 91776.52955461852,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -73,14 +73,50 @@
       ]
     },
     "META": {
-      "tdps": 4385865.392409892,
+      "tdps": 4655103.777368051,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27499.751809083915,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;s3;s4;s1",
+        "end",
+        "`dragon(s-c3-c3-s-c1-end), s=4",
+        "`s2",
+        "`s1",
+        "`s4, cancel or dgauge>=500",
+        "`fs, x=4",
+        "`fs, cancel and charged_in(fs, s2)"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49138.34453914709,
+        "dps": 31876.98486011063,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -119,6 +155,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70697.34370572823,
+        "team": 0.0058360583567668226,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 100928.83363011906,
@@ -146,7 +190,7 @@
       ]
     },
     "META": {
-      "tdps": 6315292.278092855,
+      "tdps": 5180121.252443932,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -154,10 +198,47 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35977.17692658795,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;s3;s4;s1",
+        "end",
+        "`dragon(s-c3-c3-s-c1-end), s=4",
+        "`s2, naveed_bauble<5",
+        "`s1",
+        "`s4, cancel or dgauge>=500",
+        "`fs, x=4",
+        "`fs, cancel and charged_in(fs, s2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Ranzal",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60955.85211510149,
+        "dps": 66842.54769862704,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -168,6 +249,27 @@
         "The_Shining_Overlord",
         "Snipers_Allure",
         "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;s3;s4;s1",
+        "end",
+        "`dragon(s-c3-c3-s-c1-end), s=4",
+        "`s2",
+        "`s1",
+        "`s4, cancel or dgauge>=500",
+        "`fs, x=4",
+        "`fs, cancel and charged_in(fs, s2)"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

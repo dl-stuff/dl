@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53923.88363038862,
+        "dps": 47214.08227317959,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -65,14 +65,14 @@
       ]
     },
     "META": {
-      "tdps": 647380.2643426992,
+      "tdps": 418459.37549120747,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32756.130012030204,
+        "dps": 30219.828722830596,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -107,6 +107,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35820.51578044482,
+        "team": 0.029310568340322526,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54596.08794450718,
@@ -141,7 +149,7 @@
       ]
     },
     "META": {
-      "tdps": 670314.1189958622,
+      "tdps": 640573.4595815673,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -149,10 +157,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33112.80358337194,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -62639.4051970037,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38395.08637491908,
+        "dps": 42076.50450429884,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -163,6 +189,23 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
       ]
     },
     "META": {

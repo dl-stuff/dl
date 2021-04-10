@@ -73,9 +73,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 36151.74876608058,
+        "dps": 42954.431778350525,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -90,11 +90,11 @@
       "slots.d": "Arsene",
       "acl": [
         "`dragon(c5-s-c5-end), cancel",
-        "`s3, not buff(s3) and cancel",
+        "`s4, fsc",
+        "`s3",
         "`s1, cancel",
         "`s2, cancel",
-        "`s4, fsc",
-        "`fs, x=4"
+        "`fs, x=2"
       ],
       "coabs": [
         "Cleo",
@@ -102,7 +102,40 @@
         "Ieyasu"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55135.009187161355,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-c5-end), cancel",
+        "`s4, fsc",
+        "`s3",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -147,11 +180,71 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59711.92973618845,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c5-s-c5-end), cancel",
+        "`s3, cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59942.1684729945,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c5-s-c5-end), cancel",
+        "`s3, cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, x=2"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79699.93364179447,
-        "team": 0.09320079333675647,
+        "dps": 82617.12625109468,
+        "team": 0.0932007933367564,
         "noaff": false,
         "nihil": false
       },
@@ -162,6 +255,7 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
+      "slots.d": "Arsene",
       "acl": [
         "`dragon(c5-s-end), cancel",
         "`s3, not buff(s3)",
@@ -169,6 +263,11 @@
         "`s2, cancel",
         "`s4, fsc",
         "`fs, x=4"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Ieyasu"
       ],
       "share": [
         "Weapon",
@@ -179,6 +278,48 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42954.431778350525,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-c5-end), cancel",
+        "`s4, fsc",
+        "`s3",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

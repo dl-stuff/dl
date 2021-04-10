@@ -72,7 +72,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16431.54989598947,
+        "dps": 28041.158417634775,
         "team": 0.038003618026290084,
         "noaff": false,
         "nihil": true
@@ -84,9 +84,8 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-end), trickery<1",
         "`s3, not buff(s3)",
         "`s4",
         "`s1",
@@ -107,6 +106,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70615.87626803288,
+        "team": 0.05963124772890244,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 90511.37953430138,
@@ -139,7 +146,7 @@
       ]
     },
     "META": {
-      "tdps": 2560014.9510033545,
+      "tdps": 2155909.264940226,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -147,10 +154,44 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44561.33487830437,
+        "team": 0.035056464512551344,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c5-s-s5-end)",
+        "`s3",
+        "`s4",
+        "`s1",
+        "`s2"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": -908464.1402956253,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45718.899827378234,
+        "dps": 65398.97179519039,
         "team": 0.05397363066737651,
         "noaff": false,
         "nihil": false
@@ -161,6 +202,23 @@
         "Summer_Paladyns",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Patia",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

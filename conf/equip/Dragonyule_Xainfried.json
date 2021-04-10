@@ -111,30 +111,35 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 86912.19268273932,
-        "team": 0.31465876221279016,
+        "dps": 88864.17920596784,
+        "team": 0.20192470234593812,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "if s=1",
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "end",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, x>1 or dgauge>=500"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
+      }
     },
     "META": {
-      "tdps": 90124.03771143447,
+      "tdps": 81920.80391791578,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30338.232090616348,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 19495.064839078637,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

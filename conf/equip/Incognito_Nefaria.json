@@ -71,7 +71,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34225.60038199172,
+        "dps": 27301.18978458029,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -136,41 +136,10 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 76537.69053883586,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "acl": [
-        "`dragon(s-s-c3-end), s=1 and energy()<5",
-        "`s3, not buff(s3) and x=5",
-        "`s4, energy()<4",
-        "`s1",
-        "`s2, energy()=5 and s=1"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56000.89742339541,
+        "dps": 58100.561407833986,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -181,6 +150,23 @@
         "Memory_of_a_Friend",
         "Chariot_Drift",
         "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-c3-c3-s-c3-end), s=1 and energy()<5",
+        "`s3, not buff(s3) and x=5",
+        "`s2, energy()=5",
+        "`s4, energy()<5",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

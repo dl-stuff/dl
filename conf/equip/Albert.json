@@ -95,7 +95,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35632.615851157214,
+        "dps": 40381.8790547758,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -142,6 +142,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 82448.12358796684,
+        "team": 0.09152818010884617,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 86158.28914942533,
@@ -167,28 +175,49 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 86158.28914942533,
-        "team": 0.09152818010884617,
+        "dps": 49602.71048515807,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Worthy_Rivals",
+        "A_Small_Courage",
         "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s4",
+        "`s3",
+        "if x=2",
+        "`fs2, not have_buff(affself_paralysis_crit)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3, x=5",
+        "`s2, charged_in(2, s1)",
+        "`s4",
+        "end"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -268247.13902880176,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -196,8 +225,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47571.78402097435,
-        "team": 0.09994470332141683,
+        "dps": 69388.41210989199,
+        "team": 0.09152818010884617,
         "noaff": false,
         "nihil": false
       },
@@ -209,38 +238,39 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`s3, duration-now<2",
+        "if x=2",
+        "`fs2, not have_buff(affself_paralysis_crit)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2, s1)",
+        "`s4, cancel",
+        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 47571.78402097435,
-        "team": 0.09994470332141683,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

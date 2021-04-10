@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68431.99618649966,
+        "dps": 58797.859609488085,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -63,14 +63,14 @@
       ]
     },
     "META": {
-      "tdps": 201528.60660196136,
+      "tdps": 135521.24020984615,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38390.94541241814,
+        "dps": 34031.8753753876,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -104,23 +104,24 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40278.04652660704,
+        "team": 0.14595547593552227,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71379.30854193048,
+        "dps": 60596.30476340971,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), aff(frostbite)",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s4, (x>1 and dgauge<=400) or dgauge>=500",
-        "`fsf, x=4"
-      ]
+      }
     },
     "META": {
-      "tdps": 221721.83564348661,
+      "tdps": 139208.60527205246,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -128,15 +129,55 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36092.87724200763,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -20039.777435772558,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40961.55335551475,
+        "dps": 54728.83076691666,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.d": "Midgardsormr_Zero"
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x>2"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66433.08544595417,
+        "dps": 55120.60960028876,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -69,14 +69,14 @@
       ]
     },
     "META": {
-      "tdps": 436342.1276639984,
+      "tdps": 255209.65036148613,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 20018.356324113167,
+        "dps": 15688.708464924612,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -113,9 +113,17 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40563.068177315756,
+        "team": 0.062454155180422265,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72969.59028821648,
+        "dps": 62337.16930145708,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -146,7 +154,7 @@
       ]
     },
     "META": {
-      "tdps": 541002.9756632894,
+      "tdps": 348641.3523846197,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -154,10 +162,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20231.77076171745,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -303421.53659127635,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37625.5136705278,
+        "dps": 46167.3140123519,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -168,6 +194,25 @@
         "Valiant_Crown",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, s4.check() or s1",
+        "`s1, buff(s3)",
+        "`s4",
+        "`fs, xf=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Jurota"
       ]
     },
     "META": {

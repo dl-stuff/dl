@@ -66,7 +66,7 @@
         "`dodge, fscf"
       ],
       "coabs": [
-        "Eugene",
+        "Summer_Celliera",
         "Tiki",
         "Yurius"
       ],
@@ -104,17 +104,51 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 40411.95556897794,
-        "team": 0.0,
+        "dps": 40055.316178634115,
+        "team": 0.024687036421815495,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3) and fscf",
+        "`s1, fscf or dgauge>=500",
+        "`s4, dgauge>=500 and s=1",
+        "`s2",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Seimei",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40980.93097895155,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Moonlight_Party",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
@@ -134,17 +168,18 @@
         "`dodge, fscf"
       ],
       "coabs": [
-        "Eugene",
+        "Dagger",
         "Tiki",
         "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Summer_Julietta"
+        "Gala_Mym",
+        "Xander"
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "tdps": 37493.96179038655,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -170,11 +205,6 @@
         "`fs, x=5",
         "`dodge, fscf"
       ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
       "share": [
         "Weapon",
         "Mikoto"
@@ -186,6 +216,59 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 41001.47170751508,
+        "team": 0.024687036421815495,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49346.71830351999,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c2-end), dragonform.shift_count>=2",
+        "`s2",
+        "`s4",
+        "`s3",
+        "`s1, fscf",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 338041.6528502534,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

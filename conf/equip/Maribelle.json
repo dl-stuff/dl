@@ -113,27 +113,24 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 88909.85035165216,
-        "team": 0.04114005523850942,
+        "dps": 73363.99993659156,
+        "team": 0.11240705610138861,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84742.23656841705,
+        "team": 0.04723887789877951,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
-      "tdps": 455694.83566548565,
+      "tdps": 174598.04686346056,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -141,10 +138,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48480.165812950574,
+        "team": 0.04091187771196635,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -111247.78581287633,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64017.779210371285,
+        "dps": 67705.5401542666,
         "team": 0.044991998616403225,
         "noaff": false,
         "nihil": false
@@ -155,6 +170,25 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Lin_You",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

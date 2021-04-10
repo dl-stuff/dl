@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 77749.76473242819,
+        "dps": 77156.12485476132,
         "team": 0.03702674771525517,
         "noaff": false,
         "nihil": false
@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 84260.452686554,
+        "dps": 82944.42035713233,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -67,14 +67,14 @@
       ]
     },
     "META": {
-      "tdps": 175837.42445311716,
+      "tdps": 156327.40814517197,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 21417.554011323897,
+        "dps": 20876.31368696595,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -109,10 +109,54 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 81474.88595624169,
+        "team": 0.03702674771525517,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86895.03101346664,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 146384.58389343828,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33402.101899145506,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -1197719.6370128738,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52581.3487337694,
+        "dps": 69162.3755614258,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -123,6 +167,24 @@
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-end), x=5",
+        "`s3, not buff(s3)",
+        "`s1, c_s(1, a) or c_s(1, c)",
+        "`s2, energy()=3 and (c_s(2, b) or c_s(2, d))",
+        "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Nadine"
       ]
     },
     "META": {

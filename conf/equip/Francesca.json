@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53193.30243757932,
-        "team": 0.02338097318653906,
+        "dps": 49286.19723014363,
+        "team": 0.11026950932991897,
         "noaff": false,
         "nihil": false
       },
@@ -45,7 +45,7 @@
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "His_Clever_Brother"
+        "The_Warrioresses"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
@@ -53,7 +53,8 @@
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
-        "`s1"
+        "`s1",
+        "`fs, xf=2"
       ],
       "coabs": [
         "Blade",
@@ -62,18 +63,17 @@
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 44966.86652642346,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32957.95663898854,
+        "dps": 30244.11978119791,
         "team": 0.02337592762401378,
         "noaff": false,
         "nihil": true
@@ -110,21 +110,32 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58369.16321757381,
-        "team": 0.026306029936577588,
+        "dps": 54289.356243754046,
+        "team": 0.11026950932991897,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Warrioresses"
+      ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s",
+        "`dragon(s)",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
-        "`s1"
+        "`s1",
+        "`fs, xf=2"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 108177.57974129992,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -132,10 +143,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33083.75115871845,
+        "team": 0.02337592762401378,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -186463.09374451856,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37721.00053470625,
+        "dps": 41178.489647196206,
         "team": 0.026288999522670584,
         "noaff": false,
         "nihil": false
@@ -146,6 +175,23 @@
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(s)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
       ]
     },
     "META": {

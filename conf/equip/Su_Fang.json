@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75098.81169357688,
+        "dps": 63880.14429616068,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -67,14 +67,14 @@
       ]
     },
     "META": {
-      "tdps": 372613.1684445889,
+      "tdps": 279771.91981808917,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30515.82687520911,
+        "dps": 42464.677264118916,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -89,6 +89,114 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, fscf",
+        "`s4",
+        "`s1, cancel",
+        "`s2, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35720.438388543465,
+        "team": 0.12083710164809275,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73539.10380594338,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-end), x=5",
+        "`s3, not buff(s3) and cancel",
+        "`s4, cancel",
+        "`s1, cancel and buff(s3)",
+        "`s2, x=5"
+      ]
+    },
+    "META": {
+      "tdps": 312972.2982560202,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50394.20542665589,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3",
+        "`s4",
+        "`s1, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ]
+    },
+    "META": {
+      "tdps": 168167.63036087304,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58968.55847155365,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
         "`s3, not buff(s3) and fscf",
         "`s4",
         "`s1, cancel and buff(s3)",
@@ -103,51 +211,6 @@
       "share": [
         "Weapon",
         "Jurota"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 89048.74547238213,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon(c3-s-c3-end), x=5",
-        "`s3, not buff(s3) and cancel",
-        "`s4, cancel",
-        "`s1, cancel and buff(s3)",
-        "`s2, x=5"
-      ]
-    },
-    "META": {
-      "tdps": 488057.2960224819,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 45631.853293392,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Snipers_Allure"
       ]
     },
     "META": {

@@ -108,24 +108,24 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7172.684876350343,
+        "team": 0.46896593935465763,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 70845.27633073363,
         "team": 0.16325157324264028,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, cancel",
-        "`fsf, x=4"
-      ]
+      }
     },
     "META": {
-      "tdps": 213689.09566360342,
+      "tdps": 208274.77708735774,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -133,11 +133,29 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39793.349522513374,
+        "team": 0.0978952661360472,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 92370.27362018285,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41532.0550674569,
-        "team": 0.11722213509614636,
+        "dps": 56725.027123171305,
+        "team": 0.17773053674251105,
         "noaff": false,
         "nihil": false
       },
@@ -147,6 +165,24 @@
         "Summer_Paladyns",
         "Dueling_Dancers",
         "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Akasha",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

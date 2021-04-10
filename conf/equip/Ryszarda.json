@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 80211.02137651738,
-        "team": 0.08587653309952223,
+        "dps": 62529.74233226343,
+        "team": 0.11815521974220045,
         "noaff": false,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Cupid",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-c3-end)",
         "`s3, not buff(s3)",
@@ -71,13 +71,14 @@
       ]
     },
     "META": {
+      "tdps": 547769.469061239,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43148.21597106802,
+        "dps": 57009.50635792818,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -85,7 +86,7 @@
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
@@ -93,8 +94,8 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-c3-end), cancel",
+        "`s3",
         "`s2, x>2",
         "`s4, cancel",
         "`fs, s1.check()",
@@ -106,8 +107,8 @@
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Sharena",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -140,28 +141,41 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 88808.98767587895,
-        "team": 0.08587653309952223,
+        "dps": 57029.98713875495,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "His_Clever_Brother",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=1 and aff(frostbite)",
+        "`s3, xf",
+        "`s2, xf>2",
+        "`s4, xf",
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
+      ],
+      "share": [
+        "Xander",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -269934.4442666072,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

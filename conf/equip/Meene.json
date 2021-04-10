@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66066.12707398909,
+        "dps": 55713.879394917174,
         "team": 0.08774524040126193,
         "noaff": false,
         "nihil": false
@@ -67,14 +67,14 @@
       ]
     },
     "META": {
-      "tdps": 158676.51074652758,
+      "tdps": 89238.81640051259,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41493.24661555376,
+        "dps": 35867.93822366268,
         "team": 0.09626339440503194,
         "noaff": false,
         "nihil": true
@@ -110,9 +110,17 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47681.86550072814,
+        "team": 0.23683209843381164,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74759.90916056086,
+        "dps": 64473.39411758187,
         "team": 0.09457445986324643,
         "noaff": false,
         "nihil": false
@@ -134,7 +142,7 @@
       ]
     },
     "META": {
-      "tdps": 227406.8713807073,
+      "tdps": 118036.04211048735,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -142,10 +150,40 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47632.12125320202,
+        "team": 0.09768629070718222,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), fsc",
+        "`s3, fsc",
+        "`s4",
+        "`s2, butterflies>=6",
+        "`s1, butterflies>=6",
+        "`fs, xf=2 or butterflies=6"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "tdps": 37533.12223564284,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52011.55636493286,
+        "dps": 52993.453302318245,
         "team": 0.09457445986324643,
         "noaff": false,
         "nihil": false
@@ -157,6 +195,7 @@
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-end), fsc",
         "`s3, not buff(s3) and fsc",
@@ -164,6 +203,15 @@
         "`s2, butterflies>=9",
         "`s1, butterflies>=9",
         "`fs, xf=2 or butterflies=6"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
       ]
     },
     "META": {

@@ -102,7 +102,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 14904.330525615223,
+        "dps": 14318.794901847099,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -142,6 +142,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18378.166717861204,
+        "team": 0.6369724081266954,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 70013.4908610871,
@@ -176,7 +184,7 @@
       ]
     },
     "META": {
-      "tdps": 108730.39722189249,
+      "tdps": 107877.582218785,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -184,11 +192,29 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14566.776503862278,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -5342.762869292825,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40718.36558903267,
-        "team": 0.2223857535155657,
+        "dps": 52887.18098783326,
+        "team": 0.22238575351556575,
         "noaff": false,
         "nihil": false
       },
@@ -198,6 +224,28 @@
         "Springtime_Breeze",
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), s=2 and trickery<=1",
+        "queue prep",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s2",
+        "end",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Alex",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

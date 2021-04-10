@@ -1,0 +1,163 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11384.495494121114,
+        "team": 0.4242215622829289,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Dazzling_Duet",
+        "Jewels_of_the_Sun",
+        "Amaterasu_Oblation",
+        "Seaside_Memory"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3",
+        "`s4",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Patia",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 102674.16652465836,
+        "team": 0.04451852895884044,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s2, x=5 and not dragondrive.get()",
+        "`s1, x=5 or s",
+        "`dodge, x=5",
+        "`dragon, not dragondrive.get() and cancel",
+        "`dragon, dragondrive.get() and s2.check() and not s1.check()"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Laxi",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 240423.86554394112,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12291.112580703862,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s2, x=5 and not dragondrive.get()",
+        "`s1, x=5 or s",
+        "`dodge, x=5",
+        "`dragon, not dragondrive.get() and cancel",
+        "`dragon, dragondrive.get() and s2.check() and not s1.check()"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Laxi",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 108348.02627632869,
+        "team": 0.04451852895884044,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "tdps": 255366.75315270963,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 89076.44310299538,
+        "team": 0.04451852895884044,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "tdps": 204612.39650556532,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  }
+}

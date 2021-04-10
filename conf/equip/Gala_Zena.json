@@ -2,14 +2,14 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 69313.25190068966,
-        "team": 0.12919183294431066,
-        "noaff": true,
+        "dps": 48031.31745411797,
+        "team": 0.13414218953738188,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Spirit_of_the_Season",
         "The_Lurker_in_the_Woods",
         "Rogues_Banquet",
         "The_Queen_of_the_Knife",
@@ -26,9 +26,9 @@
         "`s2, cancel"
       ],
       "coabs": [
-        "Grace",
-        "Mitsuhide",
-        "Peony"
+        "Blade",
+        "Gala_Prince",
+        "Lucretia"
       ],
       "share": [
         "Weapon",
@@ -71,6 +71,7 @@
       ]
     },
     "META": {
+      "tdps": 4299070.995483236,
       "pref": "PERSONAL"
     }
   },
@@ -89,6 +90,7 @@
       ]
     },
     "META": {
+      "tdps": 4137466.1000032853,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -99,7 +101,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24258.04629778295,
+        "dps": 27838.22620300603,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -115,15 +117,15 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-c3-c3-c3), cancel",
+        "`dragon(c3-s-c3-c3-c3), cancel",
         "`s3, not buff(s3)",
         "`s4, x>2",
         "`fs5, c_fs(auspex) and x=1",
-        "`s1, cancel",
-        "`s2, cancel"
+        "`s1",
+        "`s2"
       ],
       "coabs": [
-        "Grace",
+        "Blade",
         "Mitsuhide",
         "Peony"
       ],
@@ -137,6 +139,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57637.580944941576,
+        "team": 0.13414218953738188,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 77927.15513325117,
@@ -155,6 +165,7 @@
       ]
     },
     "META": {
+      "tdps": 4098608.61674247,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -162,34 +173,41 @@
       }
     }
   },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 48031.31745411797,
-        "team": 0.13414218953738188,
+        "dps": 36305.486105610886,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "The_Lurker_in_the_Woods",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
+        "A_Small_Courage",
+        "The_Warrioresses",
         "Crown_of_Light",
-        "Mask_of_Determination_Lance"
+        "Mask_of_Determination_Bow"
       ],
-      "coabs": [
-        "Blade",
-        "Gala_Prince",
-        "Lucretia"
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4, x>2",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1",
+        "`s2"
+      ],
+      "share": [
+        "Ilia",
+        "Hunter_Sarisse"
       ]
     },
     "META": {
-      "tdps": 4299070.995483236,
-      "pref": "PERSONAL",
+      "tdps": -255494.213858759,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -116,37 +116,16 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 90759.39689822707,
-        "team": 0.05113911313142372,
+        "dps": 33326.27081742523,
+        "team": 0.1961146658679105,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-end), s=4",
-        "`s3, not buff(s3) and cancel",
-        "`s4, cancel",
-        "`s2(shielding), s2.check() and fsc",
-        "`s1(striking), s1.check()",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
+      }
     },
     "META": {
-      "tdps": 414641.077196288,
+      "tdps": 377003.0953298678,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -154,10 +133,49 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56426.99584273128,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`s1(striking), s1.check()",
+        "`s2(shielding), s2.check() and fsc",
+        "`fs, xf=2 and (hits>5 and stance='striking')",
+        "`fs, x=1 and (hits>5 and stance='shielding')",
+        "`fs, x=2 or hits=0"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 131455.8408173934,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66629.72190772067,
+        "dps": 68446.06841256205,
         "team": 0.05061529706867599,
         "noaff": false,
         "nihil": false
@@ -168,6 +186,22 @@
         "The_Shining_Overlord",
         "Dueling_Dancers",
         "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3) and cancel",
+        "`s4, fsc",
+        "`s1(striking), s1.check()",
+        "`s2(shielding), s2.check() and fsc",
+        "`fs, xf=2 and (hits>5 and stance='striking')",
+        "`fs, x=1 and (hits>5 and stance='shielding')",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
         "Weapon",

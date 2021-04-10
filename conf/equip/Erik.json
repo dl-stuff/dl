@@ -72,24 +72,24 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 17564.185574496532,
+        "dps": 41629.589226247415,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "Chariot_Drift",
-        "The_Plaguebringer"
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-c3-end), trickery<=1",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c5-end), s=2",
         "`s4",
-        "`s2, aff(poison) and cancel",
+        "`s3",
+        "`s2, aff(poison) or cancel",
         "`s1, aff(poison) or cancel",
         "`fsf, x=4"
       ],
@@ -99,7 +99,7 @@
         "Wand"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -148,10 +148,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45147.25446325999,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 862084.9205014623,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32768.808737976724,
+        "dps": 54687.86975954991,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -165,7 +183,7 @@
       ]
     },
     "META": {
-      "tdps": 528037.6074043878,
+      "tdps": 1119549.9509057999,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

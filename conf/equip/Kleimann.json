@@ -74,7 +74,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18123.90301211994,
+        "dps": 16391.83896273743,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -110,6 +110,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63409.81469482295,
+        "team": 0.06249592841697135,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 90363.39154539941,
@@ -124,7 +132,7 @@
       ]
     },
     "META": {
-      "tdps": 469299.3798661626,
+      "tdps": 431285.3258334341,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -132,10 +140,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 16709.767524460454,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -709235.3805029246,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49132.36840932192,
+        "dps": 59978.34879441467,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -146,6 +172,24 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, madness_status<5 and madness"
+      ],
+      "coabs": [
+        "Curran",
+        "Delphi",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
       ]
     },
     "META": {

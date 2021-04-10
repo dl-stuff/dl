@@ -77,7 +77,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 10161.966954113112,
+        "dps": 9953.953363416958,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -116,6 +116,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27958.54786886131,
+        "team": 0.18336413777574573,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 90665.39551049493,
@@ -141,7 +149,7 @@
       ]
     },
     "META": {
-      "tdps": 345311.5270257083,
+      "tdps": 341979.8898644187,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -149,10 +157,47 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30654.870182222152,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`s3",
+        "`s1",
+        "`s4",
+        "`fs, x=2",
+        "`dragon(c5-s-c5-end), cancel"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 18036.379026672497,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60017.91797558071,
+        "dps": 62106.547541653614,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -163,6 +208,27 @@
         "The_Shining_Overlord",
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

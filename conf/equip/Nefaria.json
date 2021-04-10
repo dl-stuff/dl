@@ -116,6 +116,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34263.55407272197,
+        "team": 0.026951149292729838,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 66110.92061750645,
@@ -144,7 +152,7 @@
       ]
     },
     "META": {
-      "tdps": 1322583.8592102318,
+      "tdps": 1181670.0727258192,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -152,10 +160,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27851.15686887376,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -97012.88351395987,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33508.7440961772,
+        "dps": 55382.393637025845,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -167,6 +193,7 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
+      "slots.d": "Arsene",
       "acl": [
         "`dragon(c3-s-end), fs",
         "`s3, not buff(s3) and x=3",

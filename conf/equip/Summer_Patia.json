@@ -113,6 +113,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64266.92216070182,
+        "team": 0.28505944409178663,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 77498.74973673848,
@@ -136,7 +144,7 @@
       ]
     },
     "META": {
-      "tdps": 338306.71450493374,
+      "tdps": 223986.74345861006,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -144,10 +152,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37786.58903420552,
+        "team": 0.0534950554549128,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -85190.03101550188,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60885.831461098256,
+        "dps": 62115.47610628402,
         "team": 0.21989935349205847,
         "noaff": false,
         "nihil": false
@@ -158,6 +184,25 @@
         "Summer_Paladyns",
         "Beautiful_Nothingness",
         "Beautys_Secret"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-c5-end), s=2",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Gala_Alex",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {

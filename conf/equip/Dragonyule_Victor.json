@@ -73,7 +73,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 10889.886604542404,
+        "dps": 10723.599275866158,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -109,6 +109,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24469.49537272472,
+        "team": 0.1398174707684072,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 62632.979029054346,
@@ -149,10 +157,28 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12013.421534888541,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -48701.11850785855,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40235.490338531774,
+        "dps": 41551.42550295256,
         "team": 0.0699479776951256,
         "noaff": false,
         "nihil": false
@@ -163,6 +189,24 @@
         "Summer_Paladyns",
         "Chariot_Drift",
         "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), trickery<3",
+        "`s3, not buff(s3)",
+        "`fs, s1.check() and c_fs(dragonyulevictor)",
+        "`s4",
+        "`s2",
+        "`s1, s or fsc or not c_fs(dragonyulevictor)"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

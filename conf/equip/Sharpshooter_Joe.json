@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 69846.90022710977,
-        "team": 0.0,
+        "dps": 55720.54710187993,
+        "team": 0.10391448202936933,
         "noaff": false,
         "nihil": false
       },
@@ -12,9 +12,9 @@
         "Spirit_of_the_Season",
         "Worthy_Rivals",
         "A_Game_of_Cat_and_Boar",
-        "His_Clever_Brother",
+        "A_Small_Courage",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -26,13 +26,13 @@
         "`dodge, xf"
       ],
       "coabs": [
-        "Malora",
+        "Blade",
         "Peony",
-        "Sharena"
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -71,13 +71,14 @@
       ]
     },
     "META": {
+      "tdps": 135942.10209542606,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 21653.049507075164,
+        "dps": 24349.580088700026,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -115,6 +116,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61817.00632453781,
+        "team": 0.10391448202936933,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 77412.40456113551,
@@ -133,6 +142,7 @@
       ]
     },
     "META": {
+      "tdps": 150079.16059467028,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -140,28 +150,44 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 77412.40456113551,
+        "dps": 36467.05585696131,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Proper_Maintenance",
         "Spirit_of_the_Season",
-        "Enter_the_Blue_Rose",
+        "A_Small_Courage",
         "His_Clever_Brother",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), aff(flashburn) and aff(frostbite)",
+        "`s3, xf",
+        "`s4, xf",
+        "`s1, xf",
+        "`dodge, xf"
+      ],
+      "coabs": [
+        "Malora",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Xander",
+        "Ilia"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -169,7 +195,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42374.037160123415,
+        "dps": 55720.54710187993,
         "team": 0.10391448202936933,
         "noaff": false,
         "nihil": false
@@ -182,6 +208,15 @@
         "A_Small_Courage",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(s), buff(s3, 1)",
+        "`s3, not buff(s3)",
+        "`s1, xf",
+        "`s2, xf",
+        "`s4, xf",
+        "`dodge, xf"
       ],
       "coabs": [
         "Blade",
@@ -197,41 +232,6 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42374.037160123415,
-        "team": 0.10391448202936933,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "A_Game_of_Cat_and_Boar",
-        "A_Small_Courage",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

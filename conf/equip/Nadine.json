@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37142.168773166144,
+        "dps": 39928.095923644774,
         "team": 0.12042050007777916,
         "noaff": false,
         "nihil": false
@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88219.33719327998,
+        "dps": 84764.90958795251,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -66,14 +66,14 @@
       ]
     },
     "META": {
-      "tdps": 424156.7539341165,
+      "tdps": 372335.3883711478,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26913.060313210884,
+        "dps": 22149.094366517107,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -108,10 +108,54 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40580.06512315627,
+        "team": 0.12042050007777916,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 90662.39371806139,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 415895.3713242938,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23689.85240881226,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": -144079.55711138953,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50251.01008230524,
+        "dps": 73651.04547315944,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -122,6 +166,24 @@
         "Me_and_My_Bestie",
         "Amaterasu_Oblation",
         "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Serena",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
