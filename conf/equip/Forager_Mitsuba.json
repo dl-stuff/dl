@@ -99,45 +99,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 25131.019517671415,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Valiant_Crown",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
-      "acl": [
-        "#15% skill haste from A3 active",
-        "`dragon(c3-s-c3-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, not c_fs(foragermitsuba) and cancel",
-        "`s4, cancel",
-        "`s1, cancel",
-        "if have_buff(s2_31)",
-        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
-        "else",
-        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Lin_You",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 34070.466578674495,
@@ -180,6 +141,53 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34070.466578674495,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -195,6 +203,23 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35210.092766305745,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },

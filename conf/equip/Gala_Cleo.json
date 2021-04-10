@@ -99,10 +99,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 9944.638175823306,
-        "team": 0.09873461592808286,
+        "dps": 21750.94667219161,
+        "team": 0.08638821179042594,
         "noaff": false,
         "nihil": true
       },
@@ -113,8 +113,44 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Bow",
+        "Dragonyule_Victor",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22395.147365315628,
+        "team": 0.08609298715367789,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon",
         "`s3, not buff(s3)",
         "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
         "if x=5 or (x=4 or (fsc or s))",
@@ -134,6 +170,7 @@
       ]
     },
     "META": {
+      "tdps": 2182069.559708805,
       "pref": "PERSONAL"
     }
   },
@@ -184,24 +221,6 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 16106.420511248241,
-        "team": 0.9422843963506065,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 111920.8103140799,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -209,25 +228,14 @@
         "team": 0.08609298715367789,
         "noaff": false,
         "nihil": true
-      },
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
-      ]
+      }
     },
     "META": {
-      "tdps": 10717.216940492146,
-      "pref": "TEAMBUFF",
+      "tdps": 6349605.482431726,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -76,6 +76,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24217.3739830207,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, charged_in(5,s1)",
+        "`s4, xf",
+        "`fsf,xf=5"
+      ],
+      "coabs": [
+        "Gala_Zena",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28707.32670029681,
@@ -173,11 +208,10 @@
       ]
     },
     "META": {
-      "tdps": -39023.729900457736,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -107,6 +107,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2334.457604578502,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Summertime_Feeling_Feline",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s3, xf=5 or fscf",
+        "`s4, s1.charged<(s1.sp/3)",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Dragonyule_Xainfried",
+        "Templar_Hope"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 26610.823093954223,
@@ -172,11 +204,10 @@
       }
     },
     "META": {
-      "tdps": 14845.824396037238,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

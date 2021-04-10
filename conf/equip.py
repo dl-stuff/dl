@@ -447,8 +447,8 @@ class EquipEntry(dict):
 
     def update_meta(self):
         dprint(f"UPDATE META {self._conditions}")
-        personal_build = self.get_build(OpimizationMode.PERSONAL)
-        teambuff_build = self.get_build(OpimizationMode.TEAMBUFF)
+        personal_build = self.get_build(OpimizationMode.PERSONAL, strict=True, flexible_opt=False)
+        teambuff_build = self.get_build(OpimizationMode.TEAMBUFF, strict=True, flexible_opt=False)
         if not teambuff_build:
             dprint("NO TEAMBUFF BUILD")
             self.tdps = None

@@ -144,36 +144,26 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57029.98713875495,
+        "dps": 62539.06942071777,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "His_Clever_Brother",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and aff(frostbite)",
-        "`s3, xf",
+        "`dragon(c3-s-c3-c3-end), timeleft(fs)>10",
+        "`s3",
         "`s2, xf>2",
-        "`s4, xf",
+        "`s4, cancel",
         "`fs, s1.check()",
         "`s1, timeleft(fs)>4"
       ],
       "share": [
-        "Xander",
+        "Summer_Celliera",
         "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": -269934.4442666072,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -183,7 +173,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66037.57515486504,
+        "dps": 69131.73101854042,
         "team": 0.08587653309952223,
         "noaff": false,
         "nihil": false
@@ -196,6 +186,24 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, x>2",
+        "`s4, cancel",
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {

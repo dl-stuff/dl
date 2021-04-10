@@ -94,40 +94,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 21567.131753469548,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "Sisters_of_the_Anvil"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
-      "acl": [
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, cancel",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 29992.585859511408,
@@ -163,6 +129,48 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29992.585859511408,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {

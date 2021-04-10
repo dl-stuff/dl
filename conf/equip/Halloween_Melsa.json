@@ -74,19 +74,19 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3203.2600430403118,
-        "team": 1.057880897153569,
+        "dps": 5528.6688259805005,
+        "team": 1.2370035236395338,
         "noaff": true,
         "nihil": false
       },
       "coabs": [
         "Blade",
-        "Dragonyule_Xainfried",
-        "Eleonora"
+        "Eleonora",
+        "Tobias"
       ]
     },
     "META": {
-      "tdps": 65208.536311562464,
+      "tdps": 48739.83775212273,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -97,36 +97,35 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14621.549377774787,
+        "dps": 1185.8369686262256,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "From_Whence_He_Comes",
-        "The_Queen_of_the_Knife"
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Freyja",
       "slots.w": "void",
       "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, cancel",
-        "`fs, x=5"
+        "`fs, fs_prep_c>1",
+        "`s3, x=5 or fs_prep_c=1",
+        "`s1, xf or (s=4 or fscf)",
+        "`s4, s1.charged<(s1.sp/3.5)",
+        "`fs, xf>1 and charged_in(fs, s1)"
       ],
       "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+        "Bow",
+        "Joker",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Mikoto",
+        "Summer_Cleo"
       ]
     },
     "PERSONAL": {
@@ -166,6 +165,48 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22314.308395736065,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "From_Whence_He_Comes",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -194,11 +235,10 @@
       }
     },
     "META": {
-      "tdps": 14973.056278230342,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

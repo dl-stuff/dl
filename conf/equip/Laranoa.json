@@ -95,6 +95,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4531.790036938831,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tobias",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 34284.89589853555,
@@ -165,18 +197,42 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35231.66044009753,
+        "dps": 44006.528254953744,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s2, s=1",
+        "`s1",
+        "`s3, cancel",
+        "`s4",
+        "`dodge, fsc and speed()=1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
     },
     "META": {
-      "tdps": 20844.51149490396,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

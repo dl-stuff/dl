@@ -25,9 +25,12 @@ def printlog(prefix, delta, advname, variant, err=None, color=None):
 
 def dps_values(filename):
     dps = {}
-    with open(filename, "r") as f:
-        for k, v in json.load(f).items():
-            dps[k] = v.get("dps", 0)
+    try:
+        with open(filename, "r") as f:
+            for k, v in json.load(f).items():
+                dps[k] = v.get("dps", 0)
+    except Exception:
+        return dps
     return dict(sorted(dps.items()))
 
 
@@ -71,6 +74,8 @@ def sim_adv(name, variants, sanity_test=False):
             printlog("sim", monotonic() - t_start, name, variant)
             if dps_before != dps_after:
                 msg.append(name)
+                print(dps_before)
+                print(dps_after)
     return msg
 
 
@@ -121,10 +126,11 @@ def combine():
         if not ext == ".json":
             continue
 
-        with open(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn), "r", encoding="utf8") as chara:
+        with open(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn), "r") as chara:
             try:
                 chara_sim = json.load(chara)
             except json.JSONDecodeError as e:
+                print(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn))
                 raise e
             for condstr, result in chara_sim.items():
                 data_by_cond[condstr][name] = result

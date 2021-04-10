@@ -106,6 +106,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2143.4243969003205,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Summertime_Feeling_Feline",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "#`dragon(c3-s-end), s4.check() and buff(s1)",
+        "`s3",
+        "`s4",
+        "`s1, timeleft(s1)<5 and x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 16894.85844771502,
@@ -170,11 +202,10 @@
       }
     },
     "META": {
-      "tdps": 24691.49521106673,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

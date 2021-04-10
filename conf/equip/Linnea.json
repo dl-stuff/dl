@@ -74,6 +74,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7428.729397786256,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-end), s=2 and buff(s3)",
+        "`s3, not buff(s3) and fsc",
+        "`s4",
+        "`s2",
+        "`s1, buff(s3)",
+        "`fs3",
+        "`fs, hits=0 or x=5"
+      ],
+      "coabs": [
+        "Forte",
+        "Gala_Alex",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 10906.270312395225,
@@ -167,11 +201,10 @@
       }
     },
     "META": {
-      "tdps": -210360.1555698519,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -105,6 +105,37 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2702.781710576768,
+        "team": 0.28178277024483883,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Candy_Couriers",
+        "Sisters_Day_Out",
+        "From_Whence_He_Comes",
+        "Rogues_Banquet"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s1",
+        "`s3",
+        "`s4, s=1",
+        "`fs, fs_prep_c"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Cleo",
+        "Tobias"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 33292.37359169352,
@@ -138,7 +169,48 @@
       ]
     },
     "META": {
+      "tdps": 168243.63526957462,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 2702.781710576768,
+        "team": 0.28178277024483883,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Candy_Couriers",
+        "Sisters_Day_Out",
+        "From_Whence_He_Comes",
+        "Rogues_Banquet"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s1",
+        "`s3",
+        "`s4, s=1",
+        "`fs, fs_prep_c"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Cleo",
+        "Tobias"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -169,11 +241,11 @@
       }
     },
     "META": {
-      "tdps": 60290.34951229042,
+      "tdps": 185414.13895859907,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -197,6 +269,46 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 2702.781710576768,
+        "team": 0.28178277024483883,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Candy_Couriers",
+        "Sisters_Day_Out",
+        "From_Whence_He_Comes",
+        "Rogues_Banquet"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s1",
+        "`s3",
+        "`s4, s=1",
+        "`fs, fs_prep_c"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Cleo",
+        "Tobias"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

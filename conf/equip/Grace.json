@@ -107,6 +107,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2003.8747572339842,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 5203.63455533685,
@@ -171,44 +203,20 @@
     }
   },
   "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 5101.070933292737,
-        "team": 0.28579328126250747,
+        "dps": 37151.472274896536,
+        "team": 0.06240713658058508,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(c3-s-end), fscf",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, x=4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "The_Prince",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
+      }
     },
     "META": {
-      "tdps": 139157.70243315562,
+      "tdps": 144050.72048556138,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -222,11 +230,10 @@
       }
     },
     "META": {
-      "tdps": 5360.53891970301,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -96,6 +96,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3713.9572431393403,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Sisters_Day_Out",
+        "The_Chocolatiers",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-sf-end), dragonform.shift_count=0 and s=4",
+        "`s1",
+        "`s4, cancel",
+        "`s3, s=1",
+        "`fs, fs_prep_c=3 and x=5",
+        "`fs, fs_prep_c=2 and x=5",
+        "`fs, fs_prep_c=1 and x=4"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tobias",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Mikoto"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 24722.469509156253,
@@ -150,11 +184,52 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36651.67157248106,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 10956.610821369526,
-        "team": 1.332836654977891,
+        "dps": 12328.284197624604,
+        "team": 1.516738745235462,
         "noaff": true,
         "nihil": false
       },
@@ -176,9 +251,9 @@
         "`fs, fs_prep_c=1 and x=4"
       ],
       "coabs": [
-        "Bow",
         "Renee",
-        "Summer_Estelle"
+        "Summer_Estelle",
+        "Tobias"
       ],
       "share": [
         "Summer_Cleo",
@@ -186,8 +261,7 @@
       ]
     },
     "META": {
-      "tdps": -7458.715528104813,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
