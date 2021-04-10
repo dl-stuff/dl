@@ -532,7 +532,7 @@ class Afflics(object):
             "stun": 100,
             "bog": 100,
             "sleep": 100,
-            "frostbite": 0,
+            "frostbite": 100,
             "flashburn": 0,
             "stormlash": 100,
             "shadowblight": 100,
