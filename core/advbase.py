@@ -778,6 +778,9 @@ class Adv(object):
             self.energy.extra_tensionable.add(name)
 
     def doconfig(self):
+        # comment
+        if self.conf.c["comment"]:
+            self.comment = self.conf.c["comment"]
         # set act
         self.action = Action()
         self.action._static.spd_func = self.speed
