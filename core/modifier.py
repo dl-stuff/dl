@@ -1383,7 +1383,14 @@ class ActiveBuffDict(defaultdict):
     def has(self, k, group, seq):
         return k in self and group in self[k] and seq in self[k][group]
 
-    def timeleft(self, k, group="default", seq=0):
+    def timeleft(self, k, group="default", seq=None):
+        if seq is None:
+            try:
+                return max((b.timeleft() for b in self[k][group].values()))
+            except KeyError:
+                pass
+            except ValueError:
+                return 0
         try:
             return self[k][group][seq].timeleft()
         except KeyError:
