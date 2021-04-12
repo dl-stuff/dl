@@ -74,10 +74,26 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s4",
+        "`s3"
+      ],
       "coabs": [
         "Heinwald",
         "Ieyasu",
         "Wand"
+      ],
+      "share": [
+        "Yuya",
+        "Karl"
       ]
     },
     "META": {
@@ -202,6 +218,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18639.70665937375,
+        "team": 0.0458746308402283,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 33609.71418446729,
@@ -242,9 +266,22 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4240.346201291949,
+        "team": 0.14228199164142535,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Heinwald",
+        "Ieyasu",
+        "Wand"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36141.58389668178,
+        "dps": 29170.36671712923,
         "team": 0.04729244677793622,
         "noaff": false,
         "nihil": false
@@ -255,30 +292,62 @@
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "tdps": 262450.15229480865,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 12836.232837056254,
+        "team": 0.0458746308402283,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22636.70826446246,
+        "team": 0.04582929556579962,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), trickery<=1",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-end)",
         "`s4",
-        "`s2",
-        "`s1"
+        "`s1",
+        "`s3",
+        "`s2"
       ],
       "coabs": [
-        "Heinwald",
+        "Bow",
         "Ieyasu",
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Jurota"
+        "Gala_Chelle",
+        "Summer_Celliera"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

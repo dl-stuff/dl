@@ -169,13 +169,37 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56725.027123171305,
-        "team": 0.17773053674251105,
+        "dps": 41532.0550674569,
+        "team": 0.11722213509614636,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23112.97072697913,
+        "team": 0.0978952661360472,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
         "Dueling_Dancers",
@@ -200,10 +224,36 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29008.80242703023,
+        "team": 0.09768520991250754,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s), s=1",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "META": {
+      "tdps": 28067874.40381624,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -203,14 +203,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 85030.80930736245,
+        "dps": 47075.210126380065,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -224,7 +224,7 @@
       ]
     },
     "META": {
-      "tdps": 173603.41944175836,
+      "tdps": 84132.25023308813,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -233,34 +233,35 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14818.630483346415,
+        "team": 0.02497687418970906,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 8038.140061529438,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 14818.630483346415,
+        "team": 0.02497687418970906,
+        "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Dazzling_Duet",
-        "Jewels_of_the_Sun",
-        "Amaterasu_Oblation",
-        "Seaside_Memory"
-      ],
-      "slots.d": "Horus",
       "acl": [
-        "`s3",
-        "`s4",
-        "`fs"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s2, x=5 and not dragondrive.get()",
+        "`s1, x=5 or s",
+        "`s2",
+        "`dodge, x=5",
+        "`dragon, not dragondrive.get() and cancel",
+        "`dragon, dragondrive.get() and s2.check() and not s1.check()"
       ],
       "share": [
-        "Patia",
-        "Templar_Hope"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {

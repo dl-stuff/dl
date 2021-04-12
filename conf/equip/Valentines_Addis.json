@@ -173,9 +173,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36084.43572160312,
+        "team": 0.03440409868288179,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70433.77895127835,
+        "dps": 49510.892783632786,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -186,28 +194,48 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2, hp>30",
-        "`s1, buff(s3)",
-        "`s4, xf"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Valentines_Chelsea"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34415.93671977936,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3",
+        "`s2, hp>30",
+        "`s1",
+        "`s4, xf"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Veronica"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

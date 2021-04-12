@@ -148,13 +148,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
       "acl": [
         "`dragon(c3-s-c3-end), cancel",
         "`s3, fsc",
@@ -164,10 +157,6 @@
         "`fs, xf=2 and (hits>5 and stance='striking')",
         "`fs, x=1 and (hits>5 and stance='shielding')",
         "`fs, x=2 or hits=0"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -179,9 +168,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25430.55384052643,
+        "team": 0.1961146658679105,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68446.06841256205,
+        "dps": 66629.72190772067,
         "team": 0.05061529706867599,
         "noaff": false,
         "nihil": false
@@ -193,22 +190,6 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
-        "`s4, fsc",
-        "`s1(striking), s1.check()",
-        "`s2(shielding), s2.check() and fsc",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
       "share": [
         "Weapon",
         "Gala_Mym"
@@ -218,6 +199,42 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9091.843237302026,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28165.438430133036,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "Beautiful_Nothingness",
+        "The_Queen_of_the_Knife"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

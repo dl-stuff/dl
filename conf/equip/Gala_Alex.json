@@ -177,6 +177,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44523.130543817126,
+        "team": 0.10908327606454633,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 63173.59106036442,
@@ -209,6 +217,14 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22365.24698523683,
+        "team": 0.238376057296539,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54671.32250870459,
@@ -223,7 +239,6 @@
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
@@ -237,10 +252,6 @@
         "Forte",
         "Ieyasu",
         "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "META": {
@@ -248,6 +259,59 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 12448.034538000702,
+        "team": 0.048658104114598644,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), s=2",
+        "`s3, not buff(s3)",
+        "if x=5 or s=4 or not buff(s3)",
+        "`s2, aff_timeleft(poison)<4",
+        "`s4",
+        "`s1, sr.count>1",
+        "end",
+        "`fs, hits=0 or x=4 and not buff(s3)"
+      ],
+      "coabs": [
+        "Delphi",
+        "Heinwald",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29324.18098671187,
+        "team": 0.10908327606454633,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Ramiel"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

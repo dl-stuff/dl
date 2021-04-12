@@ -185,5 +185,71 @@
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37208.585083474165,
+        "team": 0.04368525109900476,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 10704.35175766865,
+        "team": 0.06143977139609737,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10704.35175766865,
+        "team": 0.06143977139609737,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), trickery",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, x>=3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Curran"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

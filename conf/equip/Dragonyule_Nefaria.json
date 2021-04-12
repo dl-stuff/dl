@@ -184,9 +184,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17767.79403075775,
+        "team": 0.1288486882682705,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62863.915783569886,
+        "dps": 42039.14892755773,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -197,11 +205,35 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29272.74154889534,
+        "team": 0.024648615955257407,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s1, cancel",
         "`s4, cancel",
         "`fs, x=5",
@@ -209,18 +241,36 @@
       ],
       "coabs": [
         "Blade",
-        "Pipple",
-        "Xander"
+        "Dragonyule_Cleo",
+        "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Summer_Julietta"
+        "Seimei",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30031.067753366096,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Yurius"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 30765.467961660896,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

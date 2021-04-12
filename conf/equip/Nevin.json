@@ -76,10 +76,28 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
       "coabs": [
         "Audric",
         "Blade",
         "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "META": {
@@ -223,9 +241,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8223.741420207556,
+        "team": 0.6820378852268965,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42033.04385095931,
+        "dps": 41712.94379200121,
         "team": 0.2784311286521545,
         "noaff": false,
         "nihil": false
@@ -236,8 +262,71 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8223.741420207556,
+        "team": 0.6820378852268965,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Ramiel",
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Audric",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 6980.561884579492,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
       "acl": [
         "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
         "`s3, not buff(s3)",
@@ -258,7 +347,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -155,38 +155,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38723.197813109015,
+        "dps": 43831.32600980889,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Pecorines_Grand_Adventure",
-        "Spirit_of_the_Season",
-        "The_Bridal_Dragon",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
-        "`s3",
-        "`s1",
-        "`s4, xf or fsc",
-        "`s2, not c_fs(enhanced) and xf=5",
-        "`fs, c_fs(enhanced) and xf=3",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "The_Prince",
-        "Gala_Mym"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -197,9 +170,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38832.02211081922,
+        "team": 0.0498563527684844,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51510.22937649952,
+        "dps": 38832.02211081922,
         "team": 0.0498563527684844,
         "noaff": false,
         "nihil": false
@@ -213,21 +194,6 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s4, xf or fsc",
-        "`s2, not c_fs(enhanced) and xf=5",
-        "`fs, c_fs(enhanced) and xf=3",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Peony",
-        "Sharena",
-        "Wand"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
@@ -237,6 +203,53 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26142.41589364518,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3",
+        "`s1",
+        "`s4, xf or fsc",
+        "`s2, not c_fs(enhanced) and xf=5",
+        "`fs, c_fs(enhanced) and xf=3",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26142.41589364518,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

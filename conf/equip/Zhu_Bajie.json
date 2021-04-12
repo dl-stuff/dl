@@ -140,41 +140,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 51498.04318667561,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`s2, fsc and hp>50",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Mitsuhide",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Ilia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 53505.686326898525,
@@ -213,50 +178,74 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 65006.01083677743,
+        "dps": 47686.26873580662,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Sweet_Surprise",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s3, fsc and not buff(s3)",
-        "`s1, fsc and hp<30",
-        "`s4, fsc",
-        "`s2, fsc",
-        "`dodge, fsc",
-        "`fs3"
-      ],
-      "coabs": [
-        "Peony",
-        "Sharena",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Sharena"
-      ]
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47686.26873580662,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35500.359128302705,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`s1, fsc and hp<30",
+        "`s4, fsc",
+        "`s3, fsc",
+        "`s2, fsc and hp>50",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Mitsuhide",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

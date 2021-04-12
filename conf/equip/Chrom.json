@@ -189,7 +189,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48977.350255233985,
+        "dps": 32652.460623451698,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -201,29 +201,64 @@
         "Chariot_Drift",
         "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s2.flames=3 and (s2.count=3 and aff())",
-        "`s1",
-        "`fs, x=4 or hits=0"
-      ],
       "coabs": [
         "Dagger",
         "Halloween_Mym",
         "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14296.874378801554,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14296.874378801554,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

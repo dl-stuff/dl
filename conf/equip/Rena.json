@@ -176,5 +176,81 @@
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20313.899511390697,
+        "team": 0.14847572001253898,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50576.39318567683,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15524.91892088524,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon(s), s=1 and not s2.check() and dragonform.shift_count=0",
+        "`dragon(c3-s), s=1 and not s2.check() and dragonform.shift_count>0",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, s=1",
+        "`s4, x=5",
+        "`fst(3), x=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Serena",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15524.91892088524,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

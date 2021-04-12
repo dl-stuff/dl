@@ -212,9 +212,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59772.67533815929,
+        "team": 0.13398315460250146,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69131.73101854042,
+        "dps": 66037.57515486504,
         "team": 0.08587653309952223,
         "noaff": false,
         "nihil": false
@@ -227,8 +235,34 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35169.58259352316,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Daikokuten",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-c3-end)",
         "`s3, not buff(s3)",
@@ -237,21 +271,29 @@
         "`fs, s1.check()",
         "`s1, timeleft(fs)>4"
       ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38629.78822128122,
+        "team": 0.03920666755289187,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Daikokuten",
+      "share": [
+        "Summer_Celliera",
+        "Sha_Wujing"
+      ]
+    },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

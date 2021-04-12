@@ -83,10 +83,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Lin_You",
         "Mona"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
       ]
     },
     "META": {
@@ -99,6 +118,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2183.4356433646185,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 34070.466578674495,
@@ -144,7 +195,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34070.466578674495,
+        "dps": 25131.019517671415,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -157,6 +208,7 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
       "acl": [
         "#15% skill haste from A3 active",
         "`dragon(c3-s-c3-end), cancel",
@@ -225,7 +277,7 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28408.387984762037,
+        "dps": 26834.51208314346,
         "team": 0.06763203093845166,
         "noaff": false,
         "nihil": false
@@ -238,7 +290,6 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
       "acl": [
         "#15% skill haste from A3 active",
         "`dragon(c3-s-c3-end), cancel",
@@ -264,7 +315,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57715.701883162474,
+        "dps": 54787.20889333842,
         "team": 0.07229231728604625,
         "noaff": false,
         "nihil": false
@@ -275,29 +326,6 @@
         "Valiant_Crown",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "#15% skill haste from A3 active",
-        "`dragon(c3-s-c3-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, not c_fs(foragermitsuba) and cancel",
-        "`s4, cancel",
-        "`s1, cancel",
-        "if have_buff(s2_31)",
-        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
-        "else",
-        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Lin_You",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -305,6 +333,23 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24118.45518754593,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

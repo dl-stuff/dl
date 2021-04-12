@@ -199,6 +199,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30187.737808273687,
+        "team": 0.0058360583567668226,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 53040.09739390842,
@@ -241,9 +249,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42671.796907300704,
+        "team": 0.0058360583567668226,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66842.54769862704,
+        "dps": 63604.27458803671,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -254,27 +270,6 @@
         "The_Shining_Overlord",
         "Snipers_Allure",
         "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "queue prep and not buff(s3)",
-        "`fs;s2;s3;s4;s1",
-        "end",
-        "`dragon(s-c3-c3-s-c1-end), s=4",
-        "`s2",
-        "`s1",
-        "`s4, cancel or dgauge>=500",
-        "`fs, x=4",
-        "`fs, cancel and charged_in(fs, s2)"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Kimono_Elisanne",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -282,6 +277,32 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25008.624149432108,
+        "team": 0.0058360583567668226,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25008.624149432108,
+        "team": 0.0058360583567668226,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Apollo"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

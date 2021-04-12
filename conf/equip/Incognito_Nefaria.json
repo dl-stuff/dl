@@ -192,9 +192,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52643.4532488888,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58100.561407833986,
+        "dps": 56000.89742339541,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -205,29 +213,47 @@
         "Memory_of_a_Friend",
         "Chariot_Drift",
         "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-c3-c3-s-c3-end), s=1 and energy()<5",
-        "`s3, not buff(s3) and x=5",
-        "`s2, energy()=5",
-        "`s4, energy()<5",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25247.850397071084,
+        "team": 0.024682549097169208,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s-c3-c3-s-c3-end), s=1 and energy()<5",
+        "`s3",
+        "`s2, energy()=5",
+        "`s4, energy()<5",
+        "`s1"
+      ],
+      "share": [
+        "Seimei",
+        "Panther"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -166,9 +166,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6077.364180867044,
+        "team": 0.4230813647050885,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 23066.22918028989,
+        "dps": 21392.86260936783,
         "team": 0.10331105073788978,
         "noaff": false,
         "nihil": false
@@ -179,29 +187,37 @@
         "Memory_of_a_Friend",
         "Dueling_Dancers",
         "Snipers_Allure"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, not buff(s1)",
-        "`s2"
-      ],
-      "coabs": [
-        "Blade",
-        "Forte",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3842.646818108232,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8070.486901310547,
+        "team": 0.041657027693314266,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -79,10 +79,31 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, not buff(locked_sigil)"
+      ],
       "coabs": [
         "Blade",
         "Catherine",
         "Dragonyule_Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     },
     "META": {
@@ -182,6 +203,7 @@
         "Chariot_Drift",
         "His_Clever_Brother"
       ],
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
         "`dragon(c3-s-c3-c3-c3-end), fsc",
@@ -289,14 +311,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57652.139070327925,
+        "dps": 57284.36856031064,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -320,14 +342,22 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22766.866126771103,
+        "team": 0.24407118315992773,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67453.87478352024,
+        "dps": 39578.66598779519,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -338,8 +368,104 @@
         "The_Lurker_in_the_Woods",
         "Flowers_Under_the_Moon",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22766.866126771103,
+        "team": 0.24407118315992773,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Proper_Maintenance",
+        "Beach_Battle",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Elisanne"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15745.038709426119,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Proper_Maintenance",
+        "Beach_Battle",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24230.02840794996,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
       "acl": [
         "`s3, not buff(s3)",
         "`dragon(c3-s-c3-c3-c3-end), fsc",
@@ -362,8 +488,49 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15745.038709426119,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Proper_Maintenance",
+        "Beach_Battle",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Elisanne"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

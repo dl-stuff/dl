@@ -180,38 +180,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 48360.23666043585,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "acl": [
-        "`dragon, s=2",
-        "`s3",
-        "`s4",
-        "`s1",
-        "`s2, burning_ambition",
-        "`fs, xf=5"
-      ],
-      "coabs": [
-        "Wand",
-        "Wand2",
-        "Yuya"
-      ],
-      "share": [
-        "Gala_Leonidas",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 51155.45517075723,
@@ -249,9 +217,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37264.40463255977,
+        "team": 0.11714291371246159,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54291.145516414996,
+        "dps": 51799.72223231883,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -262,15 +238,50 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17852.430432963818,
+        "team": 0.005837604764683386,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Crystalian_Envoy",
+        "Valiant_Crown",
+        "Warrior_Maiden",
+        "One_with_the_Shadows",
+        "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2, burning_ambition",
-        "`fs, xf=5"
+      "slots.d": "Cerberus",
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24357.915136948508,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "To_the_Extreme"
       ],
       "coabs": [
         "Marth",
@@ -283,10 +294,11 @@
       ]
     },
     "META": {
+      "tdps": 1114409.9277398626,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

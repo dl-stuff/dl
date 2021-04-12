@@ -138,43 +138,43 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 61284.387889056285,
+        "dps": 61344.07997686025,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dodge, x=2 and not have_buff(dodge_att_buff)",
-        "`fsf, x=2",
-        "`s4",
-        "`dragon(c3-s-c3-c3-c2-end), s=4",
-        "`s2"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61344.07997686025,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35902.71368730012,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

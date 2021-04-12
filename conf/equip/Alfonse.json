@@ -176,6 +176,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39959.13050563183,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 46635.96720556672,
@@ -205,14 +213,22 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53052.091002023015,
+        "team": 0.08612977601742068,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63164.15976493376,
+        "dps": 53052.091002023015,
         "team": 0.08612977601742068,
         "noaff": false,
         "nihil": false
@@ -225,15 +241,6 @@
         "Dueling_Dancers",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), fsc",
-        "`s3, (not buff(s3)) or duration-now<1.4",
-        "`s2",
-        "`s4, fsc",
-        "`s1, cancel and not s4.check()",
-        "`fs, x=4 or hits=3"
       ],
       "coabs": [
         "Blade",
@@ -250,6 +257,36 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26097.451069663894,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26097.451069663894,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Malora",
+        "Peony",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

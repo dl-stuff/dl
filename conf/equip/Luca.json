@@ -214,9 +214,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38706.80754677853,
+        "team": 0.04992300208977686,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50049.1654918417,
+        "dps": 38706.80754677853,
         "team": 0.04992300208977686,
         "noaff": false,
         "nihil": false
@@ -229,15 +237,6 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, x>2 or fsc",
-        "`s3, not buff(s3)",
-        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
@@ -257,47 +256,28 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
+  "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 50049.1654918417,
-        "team": 0.04992300208977686,
+        "dps": 25592.74209569737,
+        "team": 0.029387213321774994,
         "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, x>2 or fsc",
-        "`s3, not buff(s3)",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Elisanne",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27830.46833335857,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -76,10 +76,27 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Dazzling_Duet",
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3",
+        "`s4",
+        "`fs"
+      ],
       "coabs": [
         "Dagger",
         "Halloween_Mym",
         "Serena"
+      ],
+      "share": [
+        "Karl",
+        "Templar_Hope"
       ]
     },
     "META": {
@@ -239,7 +256,7 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36878.07584830837,
+        "dps": 29662.6373135795,
         "team": 0.09333332851852226,
         "noaff": false,
         "nihil": false
@@ -273,7 +290,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96719.46198828073,
+        "dps": 76245.29327657731,
         "team": 0.0764166778286931,
         "noaff": false,
         "nihil": false
@@ -286,25 +303,14 @@
         "Entwined_Flames"
       ],
       "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(c2-s-c3-c3-s-c3-end), s",
-        "`s3, not buff(s3)",
-        "`s4, s",
-        "`s2",
-        "`s1",
-        "`fs"
-      ],
       "coabs": [
         "Blade",
         "Halloween_Mym",
         "Kimono_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "META": {
+      "tdps": 2753657.140358453,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -313,44 +319,62 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 37431.08837062749,
+        "dps": 9189.649942000244,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Cutie_Competition",
-        "The_Plaguebringer",
-        "The_Warrioresses"
+        "Dazzling_Duet",
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Horus",
       "acl": [
-        "`dragon(c2-s-c3-c3-s-c3-end), s",
-        "`s3, not buff(s3)",
-        "`s4, s",
-        "`s2",
-        "`s1",
+        "`s3",
+        "`s4",
         "`fs"
       ],
       "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Serena"
+        "Bow",
+        "Grace",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Karl",
+        "Templar_Hope"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32530.0687371062,
+        "team": 0.05882349346407479,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-end), s=4",
+        "`s1",
+        "`s4, s",
+        "`s3",
+        "`s2, s",
+        "`fs"
+      ],
+      "share": [
+        "Ranzal",
+        "Sha_Wujing"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

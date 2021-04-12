@@ -245,13 +245,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
       "acl": [
         "`dragon(c3-s-c3-c3-end), cancel",
         "`s3, cancel",
@@ -276,45 +269,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 17889.85097509093,
-        "team": 0.12280247631171763,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "queue s4.check() and s2.check() and dgauge>=500",
-        "`s4;s2;dragon(c3-s-c3-c3-c2-end)",
-        "end",
-        "`s1, buff(s3)",
-        "`s2, dgauge<=500",
-        "`s4, dgauge<=450",
-        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
-      ],
-      "share": [
-        "Weapon",
-        "Seimei"
-      ]
-    },
-    "META": {
-      "tdps": 535577.6961072047,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -344,6 +298,45 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17889.85097509093,
+        "team": 0.12280247631171763,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "queue s4.check() and s2.check() and dgauge>=500",
+        "`s4;s2;dragon(c3-s-c3-c3-c2-end)",
+        "end",
+        "`s1, buff(s3)",
+        "`s2, dgauge<=500",
+        "`s4, dgauge<=450",
+        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
+    },
+    "META": {
+      "tdps": 1520525.3690407493,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

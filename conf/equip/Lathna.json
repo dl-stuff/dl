@@ -189,9 +189,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24959.60163885208,
+        "team": 0.09213605868989809,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60757.05647212704,
+        "dps": 38220.72590510795,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -203,7 +211,6 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c3-s-end), fscf or x=5",
         "`s3, not buff(s3)",
@@ -211,11 +218,6 @@
         "`s2",
         "`s1(all), fsc",
         "`fs, x=5"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
       ],
       "share": [
         "Weapon",
@@ -226,6 +228,48 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15952.891093798047,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15952.891093798047,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "coabs": [
+        "Audric",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

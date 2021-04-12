@@ -162,41 +162,60 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30332.68781291719,
+        "team": 0.14595547593552227,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54728.83076691666,
+        "dps": 40961.55335551475,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, x>2"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
+      "slots.d": "Midgardsormr_Zero"
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33921.281969836506,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -179,5 +179,81 @@
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40036.97486266429,
+        "team": 0.08086670346640448,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40036.97486266429,
+        "team": 0.08086670346640448,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19688.537683153423,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Malora",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 19688.537683153423,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

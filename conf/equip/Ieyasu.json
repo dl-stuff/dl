@@ -82,10 +82,32 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), duration-now<12",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2, xf=5",
+        "`s4",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
+        "`fs, xf=5 and buff(s3)"
+      ],
       "coabs": [
         "Delphi",
         "Gala_Alex",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -252,44 +274,9 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 68024.758050201,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s), duration-now<12",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2, xf=5",
-        "`s4",
-        "`fs, xf=2 and charged_in(fs, s1)",
-        "`fsf, xf=5 and not buff(s3)",
-        "`fs, xf=5 and buff(s3)"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59333.069450621624,
+        "dps": 51182.496836485,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -300,26 +287,6 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s), duration-now<12",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2, xf=5",
-        "`s4",
-        "`fs, xf=2 and charged_in(fs, s1)",
-        "`fsf, xf=5 and not buff(s3)",
-        "`fs, xf=5 and buff(s3)"
-      ],
-      "coabs": [
-        "Axe2",
-        "Delphi",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -333,21 +300,19 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68024.758050201,
-        "team": 0.0,
+        "dps": 41837.648236174755,
+        "team": 0.10917329068240163,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), duration-now<12",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
         "`s2, xf=5",
@@ -357,8 +322,42 @@
         "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
-        "Bow",
-        "Joker",
+        "Blade",
+        "Delphi",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 7167.271744184862,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "coabs": [
+        "Axe2",
+        "Delphi",
         "Wand"
       ],
       "share": [
@@ -369,8 +368,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

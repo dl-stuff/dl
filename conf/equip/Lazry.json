@@ -214,14 +214,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53782.24350817965,
+        "dps": 51369.30633534289,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -233,7 +233,6 @@
         "Chariot_Drift",
         "Snipers_Allure"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s), cancel",
         "`s3, not buff(s3)",
@@ -245,10 +244,6 @@
         "Blade",
         "Wand",
         "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
       ]
     },
     "META": {
@@ -256,6 +251,59 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6370.368696001819,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Crystalian_Envoy",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s2(low)",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tiki"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31155.856848359734,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Staff",
+        "Tiki",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

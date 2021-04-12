@@ -91,10 +91,36 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-end), fscf",
+        "`dodge, hits<21",
+        "if (xf=1)",
+        "`fs, c_fs(cartridge3)",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -104,10 +130,36 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-end), fscf",
+        "`dodge, hits<21",
+        "if (xf=1)",
+        "`fs, c_fs(cartridge3)",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
       "coabs": [
         "Blade",
         "Halloween_Elisanne",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     },
     "META": {
@@ -244,24 +296,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "Enter_the_Blue_Rose",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-end)",
-        "if (xf=1)",
-        "`s1",
-        "`s3",
-        "`s4",
-        "`dodge",
-        "end"
-      ],
       "share": [
         "Summer_Julietta",
         "Summer_Celliera"
@@ -278,33 +312,11 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 87729.68618204903,
+        "dps": 69129.58873354286,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Small_Courage",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-end), fscf",
-        "`dodge, hits<21",
-        "if (xf=1)",
-        "`fs, c_fs(cartridge3)",
-        "`s1",
-        "`s2, alchemy=100",
-        "`s4",
-        "`dodge",
-        "end"
-      ],
       "coabs": [
         "Blade",
         "Peony",
@@ -317,7 +329,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77793.44864120777,
+        "dps": 75089.7894045627,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -331,11 +343,70 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "`dragon(c3-s-end), fscf",
         "`dodge, hits<15",
+        "if (xf=1)",
+        "`fs, c_fs(cartridge3)",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69129.58873354286,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21555.150452316717,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-end), fscf",
+        "`dodge, hits<21",
         "if (xf=1)",
         "`fs, c_fs(cartridge3)",
         "`s1",
@@ -351,62 +422,50 @@
       ],
       "share": [
         "Weapon",
-        "Hunter_Sarisse"
+        "Dragonyule_Lily"
       ]
     },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 87729.68618204903,
-        "team": 0.0,
+        "dps": 27338.607734320158,
+        "team": 0.05875772728584079,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "A_Small_Courage",
-        "The_Warrioresses",
+        "Enter_the_Blue_Rose",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`s3, not buff(s3)",
         "`dragon(c3-s-c3-end), fscf",
         "`dodge, hits<21",
         "if (xf=1)",
-        "`fs, c_fs(cartridge3)",
         "`s1",
-        "`s2, alchemy=100",
+        "`s3",
         "`s4",
         "`dodge",
         "end"
       ],
       "coabs": [
-        "Blade",
+        "Bow",
         "Peony",
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Hunter_Sarisse"
+        "Gala_Mym",
+        "Sha_Wujing"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

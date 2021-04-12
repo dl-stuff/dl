@@ -171,7 +171,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84648.51604661427,
+        "dps": 68206.93432466529,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -183,13 +183,41 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-end)",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
         "`s1, gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)",
+        "if gauges[fs]<1000",
+        "`fs, x=4 or hits=0",
+        "else",
+        "`dodge, x=5",
+        "end"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37942.42591223169,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4",
+        "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel))",
         "if gauges[fs]<1000",
         "`fs, x=4 or hits=0",
         "else",
@@ -209,7 +237,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

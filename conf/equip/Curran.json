@@ -195,9 +195,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33537.05984603151,
+        "team": 0.05963124772890244,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65398.97179519039,
+        "dps": 45718.899827378234,
         "team": 0.05397363066737651,
         "noaff": false,
         "nihil": false
@@ -208,29 +216,55 @@
         "Summer_Paladyns",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24676.650815419496,
+        "team": 0.046570088055327814,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Chariot_Drift",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`s3",
+        "`s4",
+        "`s1",
+        "`s2"
+      ],
+      "share": [
+        "Eugene",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24676.650815419496,
+        "team": 0.046570088055327814,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

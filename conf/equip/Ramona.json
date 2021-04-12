@@ -188,7 +188,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51785.54109163796,
+        "dps": 49125.09239233894,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -199,29 +199,60 @@
         "Summer_Paladyns",
         "Snipers_Allure",
         "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), not s4.check()",
-        "`s3, not buff(s3)",
-        "`s2, s1.check()",
-        "`s4, s=1",
-        "`s1(all)"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17141.439684891982,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17141.439684891982,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "FirstRate_Hospitality",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(c3-s-s-end), s=1 and not s4.check()",
+        "`s3, not buff(s3)",
+        "`s2, s1.check()",
+        "`s4, s=1",
+        "`s1(all)"
+      ],
+      "coabs": [
+        "Dagger",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

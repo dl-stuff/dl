@@ -180,6 +180,25 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon, s=4",
+        "`s3",
+        "`s4, fsc",
+        "`s2, fsc",
+        "if buff(s2)",
+        "`fs, x=1",
+        "else",
+        "`fs, x=2 or hits=0",
+        "end"
+      ],
       "coabs": [
         "Akasha",
         "Blade",
@@ -216,10 +235,18 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43210.596027489875,
+        "team": 0.04543866501227758,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40980.78187241732,
-        "team": 0.04490158113112255,
+        "dps": 44941.27112573085,
+        "team": 0.04374799125972313,
         "noaff": false,
         "nihil": true
       }
@@ -228,14 +255,31 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44497.421776931995,
+        "team": 0.04404180819919938,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55789.059422026694,
+        "dps": 53968.42842425447,
         "team": 0.0445286515423532,
         "noaff": false,
         "nihil": false
@@ -249,7 +293,7 @@
       ]
     },
     "META": {
-      "tdps": 131950.6575207432,
+      "tdps": 127261.43333229996,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -257,42 +301,45 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29979.685163585054,
+        "team": 0.04543866501227758,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 4558.09933042873,
-        "team": 0.4327871191710138,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`fs, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Tobias"
-      ]
+        "dps": 31346.93251162823,
+        "team": 0.04374799125972313,
+        "noaff": false,
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30839.134072675533,
+        "team": 0.04404180819919938,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

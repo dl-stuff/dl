@@ -165,7 +165,7 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40972.769670782596,
+        "dps": 29116.25028561222,
         "team": 0.30097131136607735,
         "noaff": false,
         "nihil": false
@@ -186,11 +186,6 @@
         "`dodge, fsc",
         "`fs, x=5"
       ],
-      "coabs": [
-        "Eleonora",
-        "Mona",
-        "Tobias"
-      ],
       "share": [
         "Weapon",
         "Halloween_Melsa"
@@ -198,7 +193,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44622.257448226745,
+        "dps": 31714.971292283808,
         "team": 0.2552716204342541,
         "noaff": false,
         "nihil": false
@@ -219,11 +214,6 @@
         "`dodge, fsc",
         "`fs, x=5"
       ],
-      "coabs": [
-        "Blade",
-        "Eleonora",
-        "Mona"
-      ],
       "share": [
         "Weapon",
         "Halloween_Melsa"
@@ -235,6 +225,75 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8906.838829095725,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s3, overload<3",
+        "`s4",
+        "`s2, overload=3",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Eleonora",
+        "Mona",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32187.197776363606,
+        "team": 0.029399996540600444,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon, s=1",
+        "`s3",
+        "`s2, overload>1",
+        "`s4",
+        "`s1",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Sha_Wujing",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

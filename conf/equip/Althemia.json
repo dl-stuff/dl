@@ -172,23 +172,30 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44940.32799647707,
+        "team": 0.11770876538856503,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65247.549741657436,
-        "team": 0.0,
+        "dps": 44940.32799647707,
+        "team": 0.11770876538856503,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Candy_Couriers",
-        "Jewels_of_the_Sun",
+        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "His_Clever_Brother",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
+        "`dragon(c3-s-c3-end), x=5",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
@@ -197,17 +204,57 @@
       "coabs": [
         "Bow",
         "Delphi",
-        "Gala_Alex"
+        "Heinwald"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Akasha"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32458.9387775301,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), x=5",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Ieyasu"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -172,26 +172,47 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 60975.62224441114,
+        "team": 0.04192414120127459,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=2",
+        "`s3",
+        "`s4, cancel",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48480.165812950574,
-        "team": 0.04091187771196635,
+        "dps": 60975.62224441114,
+        "team": 0.04192414120127459,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67705.5401542666,
+        "dps": 64017.779210371285,
         "team": 0.044991998616403225,
         "noaff": false,
         "nihil": false
@@ -202,25 +223,6 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Lin_You",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -228,6 +230,44 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 41332.64172287871,
+        "team": 0.04192414120127459,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=2",
+        "`s3",
+        "`s4, cancel",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41332.64172287871,
+        "team": 0.04192414120127459,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

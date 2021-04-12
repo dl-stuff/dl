@@ -235,42 +235,137 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28814.381221142703,
+        "team": 0.0018429126311027431,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44228.86961984654,
-        "team": 0.0,
+        "dps": 48300.226336214066,
+        "team": 0.11156322306575824,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "Rogues_Banquet"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), trickery<=1",
+        "`dragon(c3-s-end), sim_afflict",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2, xf=4 or x=5",
-        "`s1, buff(s3) and cancel"
+        "`s4, cancel",
+        "`s2, x=4 or x=5",
+        "`s1, buff(s3)"
       ],
       "coabs": [
+        "Axe2",
         "Blade",
-        "Ieyasu",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44125.51080112732,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31665.195072099054,
+        "team": 0.022391345869963934,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Chariot_Drift"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, xf=4 or x=5",
+        "`s1"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Curran",
+        "Fritz"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32222.51650464402,
+        "team": 0.017509569620724332,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Chariot_Drift"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Curran",
+        "Ranzal"
+      ]
+    },
+    "META": {
+      "tdps": 114163.65767107332,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

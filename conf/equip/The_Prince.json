@@ -168,6 +168,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35903.761240781096,
+        "team": 0.02335985139770694,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 46730.184031675926,
@@ -187,14 +195,22 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48251.105627628844,
+        "team": 0.16438275298037408,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74924.19065400865,
+        "dps": 73218.68228890195,
         "team": 0.023293536142426855,
         "noaff": false,
         "nihil": false
@@ -206,7 +222,6 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Gala_Mars",
       "acl": [
         "`dragon(c3-s-s-end), s=1",
         "`s3, not buff(s3)",
@@ -230,6 +245,38 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26757.184115998596,
+        "team": 0.02335985139770694,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34933.11795045389,
+        "team": 0.023381165342590802,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -173,39 +173,45 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45076.97752758397,
-        "team": 0.0,
+        "dps": 43025.94986674367,
+        "team": 0.11903322366412199,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Candy_Couriers",
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Taiko_Tandem",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2"
-      ],
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Ieyasu"
-      ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11285.881355535645,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11909.6448441563,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

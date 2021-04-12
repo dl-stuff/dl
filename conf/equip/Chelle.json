@@ -93,6 +93,37 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 1889.1015446649517,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`fs, fs_prep_c"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 5327.470732086062,
@@ -222,17 +253,17 @@
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31181.45415259663,
+        "dps": 29349.572146668037,
         "team": 0.17705341054469856,
         "noaff": false,
         "nihil": false
@@ -246,7 +277,7 @@
       ]
     },
     "META": {
-      "tdps": 71271.20745024143,
+      "tdps": 66421.9506606002,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -297,39 +328,14 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 5327.470732086062,
+        "dps": 4336.170460884247,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon, buff(s3)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Tobias",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
+      }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

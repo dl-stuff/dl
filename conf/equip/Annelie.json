@@ -150,38 +150,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42443.65378443202,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon(s-end)",
-        "`s3, x=5 and not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2, fsc",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Ryszarda",
-        "Sharpshooter_Joe"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47986.2223724771,
+        "dps": 42760.02536421933,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -203,7 +174,53 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53761.928349740534,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36287.91660383945,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, x=5 and not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, fsc",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Ryszarda",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

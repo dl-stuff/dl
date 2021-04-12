@@ -79,10 +79,30 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Summertime_Feeling_Feline",
+        "The_Cutie_Competition",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`s1",
+        "`s4, s=1",
+        "`s3, x>3",
+        "`fsf, x=5"
+      ],
       "coabs": [
         "Blade",
         "Bow",
         "Peony"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
       ]
     },
     "PERSONAL": {
@@ -108,39 +128,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 9046.706062237274,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Crystalian_Envoy",
-        "Holywyrms_Advent",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s1",
-        "`s4, s=1",
-        "`s3, x>3",
-        "`fsf, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 10088.258602766206,
@@ -254,42 +241,44 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36634.129468014864,
-        "team": 0.2811498717572377,
+        "dps": 5852.777956851341,
+        "team": 0.9882919424072273,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s1",
-        "`s3",
-        "`s4"
-      ],
       "coabs": [
         "Blade",
         "Bow",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 330016.30820723117,
+      "tdps": 48876.33669621797,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2270.5007773929083,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Dagger"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

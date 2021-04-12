@@ -179,15 +179,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53963.270663724164,
+        "dps": 39910.103405353075,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "share": [
-        "Veronica",
-        "Ranzal"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {
@@ -217,39 +213,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 44895.44676340069,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "slots.w": "chimeratech",
-      "acl": [
-        "`dragon(s-c3-c3-end), xf=5",
-        "`s3, not buff(s3) and cancel",
-        "`s1, hp<=20",
-        "`s2, xf=5",
-        "`s4, xf=5"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Veronica"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 80280.65378640725,
@@ -264,19 +227,6 @@
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(s-c3-c3-end), xf=5",
-        "`s3, not buff(s3) and cancel",
-        "`s1, hp<=20",
-        "`s2, xf=5",
-        "`s4, xf=5"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
       "share": [
         "Weapon",
         "Veronica"
@@ -287,6 +237,42 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29407.03954305097,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41612.870026674565,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife"
+      ],
+      "share": [
+        "Ranzal",
+        "Veronica"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

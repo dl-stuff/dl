@@ -282,58 +282,7 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 103799.86235791293,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "TEAMBUFF",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 50817.084071920704,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), xf and aff(flashburn)",
-        "`s1",
-        "`s4, xf",
-        "`s3",
-        "`fsf, xf=5",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1"
-      ],
-      "coabs": [
-        "Dagger",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Ryszarda"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 51319.76939861545,
@@ -419,9 +368,9 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81826.65928622228,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 73399.0184146666,
+        "team": 0.09996294706762016,
+        "noaff": true,
         "nihil": false
       },
       "coabs": [
@@ -431,11 +380,102 @@
       ]
     },
     "META": {
-      "tdps": 84307.64717105408,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21947.24322930591,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Hildegarde",
+        "Lucretia",
+        "Pecorine"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33314.880016137715,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26479.39277303847,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dragonform.shift_count=1",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

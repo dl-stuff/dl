@@ -77,10 +77,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s4",
+        "`s3, not speed()>=1.57 and not duration-now<5",
+        "`fs, xf=5"
+      ],
       "coabs": [
         "Blade",
         "Bow",
         "Mona"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
       ]
     },
     "PERSONAL": {
@@ -90,10 +109,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s1",
+        "`s4",
+        "`s3, not speed()>=1.57 and not duration-now<5",
+        "`fs, xf=5"
+      ],
       "coabs": [
         "Blade",
         "Bow",
         "Mona"
+      ],
+      "share": [
+        "Mikoto",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -237,6 +275,113 @@
       "share": [
         "Formal_Joachim",
         "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 6037.342878644821,
+        "team": 1.989509594001541,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s4",
+        "`s3, not speed()>=1.57 and not duration-now<5",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Mona"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 6145.07926802216,
+        "team": 1.9059913348756221,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 1499.941934370159,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 1499.941934370159,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s1",
+        "`s4",
+        "`s3, not speed()>=1.57 and not duration-now<5",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Mona"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
       ]
     },
     "META": {

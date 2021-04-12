@@ -78,10 +78,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Bow",
         "Curran",
         "Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "PERSONAL": {
@@ -91,10 +110,30 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s), buff(s3) and buffstack(ro_att)=3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
+        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Cleo",
         "Forte",
         "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -107,6 +146,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2003.8747572339842,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 5203.63455533685,
@@ -205,7 +276,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
@@ -230,40 +301,15 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6038.838298779818,
-        "team": 0.06245452723238161,
-        "noaff": true,
+        "dps": 4651.706601534752,
+        "team": 0.28579328126250747,
+        "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Gentle_Winds",
-        "Jewels_of_the_Sun",
-        "Springtime_Breeze",
-        "Odd_Sparrows",
-        "Rogues_Banquet"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s), buff(s3) and buffstack(ro_att)=3",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
-        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Axe",
-        "Dagger2",
-        "Patia"
-      ],
-      "share": [
-        "Weapon",
-        "Templar_Hope"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 27813.667407556793,
+        "dps": 27525.47953994291,
         "team": 0.07119900386561588,
         "noaff": false,
         "nihil": false
@@ -286,6 +332,88 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4651.706601534752,
+        "team": 0.28579328126250747,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 2003.8747572339842,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

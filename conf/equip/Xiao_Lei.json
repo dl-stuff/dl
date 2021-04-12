@@ -175,9 +175,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28951.462063392224,
+        "team": 0.10537454559749848,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41234.739872104576,
+        "dps": 33826.09682863314,
         "team": 0.10537454559749848,
         "noaff": false,
         "nihil": false
@@ -190,29 +198,37 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=2",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`s3, cancel"
-      ],
-      "coabs": [
-        "Malora",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20197.359643385178,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20197.359643385178,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

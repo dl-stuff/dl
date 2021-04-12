@@ -195,7 +195,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33078.335997484064,
+        "dps": 31445.98907186503,
         "team": 0.024686468732411874,
         "noaff": false,
         "nihil": true
@@ -238,7 +238,7 @@
       ]
     },
     "META": {
-      "tdps": 550132.7370011761,
+      "tdps": 616255.880951524,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -247,9 +247,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23256.58984556024,
+        "team": 0.005845170915018714,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58396.88808385047,
+        "dps": 36429.775310007826,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -260,27 +268,6 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=1",
-        "queue prep",
-        "`s4;s1",
-        "end",
-        "`s3, x=5 and not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Kimono_Elisanne",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -288,6 +275,60 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18053.744978007926,
+        "team": 0.024686468732411874,
+        "noaff": false,
+        "nihil": true
+      },
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23956.240877690005,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s-s), s=2",
+        "`s3",
+        "`s4",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Leonidas",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 239098.42933235934,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

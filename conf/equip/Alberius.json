@@ -149,38 +149,33 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59942.1684729945,
+        "dps": 60045.79092159378,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon(c5-s-c5-end), cancel",
-        "`s3, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s4, fsc",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Wand"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 56835.912473587545,
+        "team": 0.19361263997616315,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82617.12625109468,
-        "team": 0.0932007933367564,
+        "dps": 79699.93364179447,
+        "team": 0.09320079333675647,
         "noaff": false,
         "nihil": false
       },
@@ -191,7 +186,6 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Arsene",
       "acl": [
         "`dragon(c5-s-end), cancel",
         "`s3, not buff(s3)",
@@ -199,11 +193,6 @@
         "`s2, cancel",
         "`s4, fsc",
         "`fs, x=4"
-      ],
-      "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
       ],
       "share": [
         "Weapon",
@@ -219,41 +208,49 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 42954.431778350525,
+        "dps": 36967.67950431327,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Entwined_Flames"
       ],
       "slots.d": "Arsene",
       "acl": [
         "`dragon(c5-s-c5-end), cancel",
         "`s4, fsc",
-        "`s3",
+        "`s3, fsc",
+        "`s2, fsc",
         "`s1, cancel",
-        "`s2, cancel",
         "`fs, x=2"
       ],
       "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
+        "Ieyasu",
+        "Joker",
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36967.67950431327,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

@@ -198,8 +198,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 22511.42528000226,
-        "team": 0.062458992201675494,
+        "dps": 27509.66255571529,
+        "team": 0.04162755368954974,
         "noaff": false,
         "nihil": true
       },
@@ -244,18 +244,26 @@
       ]
     },
     "META": {
-      "tdps": 420507.21407030453,
+      "tdps": 510868.8271055216,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 12849.075443708456,
+        "team": 0.026951149292729838,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55382.393637025845,
+        "dps": 33508.7440961772,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -267,7 +275,6 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Arsene",
       "acl": [
         "`dragon(c3-s-end), fs",
         "`s3, not buff(s3) and x=3",
@@ -293,6 +300,63 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 12689.020637371117,
+        "team": 0.04162755368954974,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Ramiel",
+      "share": [
+        "Weapon",
+        "Karina"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20514.858074788965,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Ieyasu",
+        "Ranzal"
+      ]
+    },
+    "META": {
+      "tdps": 187996.57303384753,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

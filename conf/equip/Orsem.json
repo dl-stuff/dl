@@ -166,9 +166,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22419.3709673415,
+        "team": 0.09979663663157501,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46586.845354341924,
+        "dps": 48903.27500949965,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -176,33 +184,64 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
+        "Twinfold_Bonds",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s2, dgauge>=500",
-        "`dragon(c3-s), aff_timeleft(frostbite)>18",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3) and x=4",
         "`s4",
-        "`s1, x=5 or aff(frostbite)",
-        "`s2, dgauge<=400"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+        "`s1, xf",
+        "`s2, xf"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31705.063558502436,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31705.063558502436,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

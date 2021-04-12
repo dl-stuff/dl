@@ -219,6 +219,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50941.39997533802,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 51052.245454341166,
@@ -255,7 +263,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58602.94510638158,
+        "dps": 52883.85166883977,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -287,11 +295,70 @@
       ]
     },
     "META": {
-      "tdps": 151603.29183192624,
+      "tdps": 90954.40125196632,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26573.548254432844,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Beautiful_Nothingness"
+      ],
+      "acl": [
+        "`s3, not buff (s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34221.59405376613,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

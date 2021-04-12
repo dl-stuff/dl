@@ -213,79 +213,59 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 23831.050414909863,
-        "team": 1.3515231180517389,
-        "noaff": true,
+        "dps": 66371.05465573627,
+        "team": 0.37232651258753263,
+        "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "The_Shining_Overlord",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "acl": [
-        "`fs, fs_prep_c and x=2",
-        "`dragon(c3-s-end)",
-        "`s3, cancel",
-        "`s2, cancel",
-        "`s4",
-        "`fs, x=4 or hits=0"
-      ],
-      "coabs": [
-        "Renee",
-        "Summer_Estelle",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Gala_Elisanne"
-      ]
+      }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
+  "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44407.68540910401,
-        "team": 0.05714981210671439,
+        "dps": 37831.54410168623,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
+        "The_Bridal_Dragon",
         "The_Shining_Overlord",
-        "A_Small_Courage",
-        "Dueling_Dancers"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "dragon;s1;s2;s3;s4"
+        "`dragon(c3-s-c3-c3-c2-end), fsc",
+        "`s3",
+        "`s4",
+        "`s1",
+        "`s2, cancel",
+        "`fs, x=4"
       ],
       "coabs": [
-        "Renee",
-        "Summer_Estelle",
-        "Tiki"
+        "Blade",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Weapon"
+        "The_Prince",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 16622.493030383823,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

@@ -140,9 +140,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32574.27032657059,
+        "team": 0.005840810878138792,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44988.24830152747,
+        "dps": 42708.437439967296,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -153,29 +161,41 @@
         "Summer_Paladyns",
         "Chariot_Drift",
         "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3)",
-        "`s2, x=5",
-        "`s4, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21266.454008668672,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

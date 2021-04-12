@@ -207,7 +207,6 @@
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Ramiel",
       "acl": [
         "`dragon(s-c3-c3-c3-c3-c3-c3-c3-end), s=2",
         "`s3",
@@ -258,14 +257,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37308.346611374756,
+        "dps": 27835.390118366304,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -276,24 +275,6 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), fsc",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel and buff(s3)",
-        "`s2",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -301,6 +282,75 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15138.356633988147,
+        "team": 0.06245166934699971,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(s-c3-c3-c3-c3-c3-c3-c3-end), s=2",
+        "`s3",
+        "`s4",
+        "`s1, cancel and buff(s3)",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Alberius",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21699.78646628788,
+        "team": 0.011693911321544676,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, cancel",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Curran",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "tdps": 129269.49667495502,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

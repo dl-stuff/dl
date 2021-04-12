@@ -179,9 +179,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45510.8607542755,
+        "team": 0.12513627348219564,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63828.91703394495,
+        "dps": 49336.31086900521,
         "team": 0.09127722971117029,
         "noaff": false,
         "nihil": false
@@ -194,14 +202,6 @@
         "A_Small_Courage",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4, cancel"
       ],
       "coabs": [
         "Blade",
@@ -221,13 +221,21 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
+  "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58494.60887887593,
-        "team": 0.12513627348219564,
+        "dps": 28902.873812924026,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28902.873812924026,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
@@ -259,7 +267,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -117,8 +117,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 62764.21343272193,
-        "team": 0.0778334658103047,
+        "dps": 70270.1338033562,
+        "team": 0.07783346581030466,
         "noaff": false,
         "nihil": false
       }
@@ -191,9 +191,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44927.67515085478,
+        "team": 0.07783346581030466,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58270.96795193263,
+        "dps": 45625.36541100979,
         "team": 0.0778334658103047,
         "noaff": false,
         "nihil": false
@@ -206,30 +214,50 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
-        "`s3, not buff(s3)",
-        "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
-        "`s4",
-        "`s1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32870.44647725733,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3",
+        "`s4",
+        "`s1, fscf",
+        "`s2, (not charged_in(s2, s3) or not charged_in(s2, s4)) and cancel",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

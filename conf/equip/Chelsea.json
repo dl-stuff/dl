@@ -128,5 +128,79 @@
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28183.16570694584,
+        "team": 0.11651762408667059,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46416.29835626488,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8056.505877730883,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8056.505877730883,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "Taiko_Tandem"
+      ],
+      "acl": [
+        "`dragon(s-s), hp<30",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, fscf or s=2",
+        "`s4",
+        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
+      ],
+      "coabs": [
+        "Dagger",
+        "Marth",
+        "Valentines_Hildegarde"
+      ],
+      "share": [
+        "Sylas",
+        "Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

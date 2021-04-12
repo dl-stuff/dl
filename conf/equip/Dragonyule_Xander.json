@@ -199,40 +199,82 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43757.19655672336,
-        "team": 0.08305760055672959,
+        "dps": 47271.09400610648,
+        "team": 0.06653797114081852,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s)",
+        "if s=2",
+        "`dragon(s-c3-end), dragonform.shift_count=0",
+        "`dragon(s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=2",
+        "end",
         "`s3, not buff(s3)",
+        "`s2, dgauge>=500 or dgauge<=450",
         "`s4",
-        "`s1, cancel",
-        "`s2, x=5"
+        "`s1, x>2"
       ],
       "coabs": [
         "Blade",
-        "Catherine",
-        "Hunter_Sarisse"
+        "Summer_Celliera",
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Gala_Mym"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31597.442140032723,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not duration-now<10",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

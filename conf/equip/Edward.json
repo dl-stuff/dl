@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4641.137757255571,
-        "team": 0.4567225721725076,
+        "dps": 5154.883981840957,
+        "team": 0.4882359200054343,
         "noaff": false,
         "nihil": false
       },
@@ -110,8 +110,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4796.169819654205,
-        "team": 0.4567225721725076,
+        "dps": 5331.355336965606,
+        "team": 0.4882359200054343,
         "noaff": false,
         "nihil": false
       }
@@ -155,16 +155,46 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4813.100777261355,
+        "team": 0.4882359200054343,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26238.316638029686,
+        "dps": 26857.316306929966,
         "team": 0.16106158440429758,
         "noaff": false,
         "nihil": false
       },
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Ieyasu"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 10333.968298043048,
+        "team": 0.04160047338010661,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.a": [
+        "A_Man_Unchanging",
         "An_Ancient_Oath",
-        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "Dueling_Dancers",
         "Entwined_Flames"
@@ -187,10 +217,18 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10333.968298043048,
+        "team": 0.04160047338010661,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

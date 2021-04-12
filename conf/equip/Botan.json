@@ -205,44 +205,15 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39386.426036013654,
-        "team": 0.02046626356415969,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-end), cancel",
-        "`s1, bleed_stack<3",
-        "`s2",
-        "`s4",
-        "`s3",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Gala_Chelle",
-        "Maribelle"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41901.9810896102,
+        "dps": 43483.345873129336,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-end), cancel",
-        "`s1, bleed_stack<3",
-        "`s2",
-        "`s4",
-        "`s3",
-        "`fs, x=5"
-      ]
+      }
     },
     "META": {
-      "tdps": 122912.27686531698,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -253,7 +224,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43214.63693394301,
+        "dps": 40505.930684613755,
         "team": 0.2273694441571031,
         "noaff": false,
         "nihil": false
@@ -267,11 +238,59 @@
       ]
     },
     "META": {
-      "tdps": 37146.906713250195,
+      "tdps": 34340.598111375584,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28427.526417931007,
+        "team": 0.020465240582629416,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28427.526417931007,
+        "team": 0.020465240582629416,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4, cancel",
+        "`s1, bleed_stack<3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Ranzal",
+        "Curran"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

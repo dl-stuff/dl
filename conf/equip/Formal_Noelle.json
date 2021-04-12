@@ -78,10 +78,30 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s1, x=5 or s",
+        "`s4",
+        "`s3",
+        "`fs, fs_prep_c",
+        "`dodge, fscf and fs_prep_c"
+      ],
       "coabs": [
         "Blade",
         "Mona",
         "Wand"
+      ],
+      "share": [
+        "Tobias",
+        "Templar_Hope"
       ]
     },
     "META": {
@@ -206,6 +226,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24320.898662908017,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35089.5993274091,
@@ -218,49 +246,62 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 2784.982796229471,
         "team": 0.49751264265778605,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s1, x=5 or s",
-        "`s4",
-        "`s3",
-        "`fs, fs_prep_c",
-        "`dodge, fscf and fs_prep_c"
-      ],
       "coabs": [
         "Blade",
         "Mona",
         "Wand"
-      ],
-      "share": [
-        "Tobias",
-        "Templar_Hope"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35024.185221481,
+        "team": 0.13053251596700105,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14074.859297323384,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20421.144012870467,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -211,9 +211,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24250.187898068383,
+        "team": 0.16229177064205697,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57128.693804979725,
+        "dps": 30165.380584129078,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -224,33 +232,34 @@
         "Welcome_to_the_Opera",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if aff(frostbite)",
-        "`dragon, not dragondrive.get()",
-        "else",
-        "`dragon, dragondrive.get()",
-        "end",
-        "`s2, cancel",
-        "`s4, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Catherine",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Chelle"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15091.147191015563,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Catherine",
+        "Hunter_Sarisse",
+        "Xander"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

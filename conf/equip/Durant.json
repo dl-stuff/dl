@@ -76,10 +76,28 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5",
+        "`s4"
+      ],
       "coabs": [
         "Cleo",
         "Forte",
         "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "PERSONAL": {
@@ -89,10 +107,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Epimetheus",
+      "acl": [
+        "`dragon(c5-s), s",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, cancel or s",
+        "`s4, x=5"
+      ],
       "coabs": [
         "Delphi",
         "Forte",
         "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -186,19 +223,6 @@
         "nihil": false
       }
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 88680.12423294682,
-        "team": 0.16656840400766443,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Delphi",
-        "Forte",
-        "Joker"
-      ]
-    },
     "META": {
       "pref": "PERSONAL",
       "partial": {
@@ -248,21 +272,26 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 59117.30117618932,
-        "team": 0.2253598203971405,
+        "dps": 34585.20164369445,
+        "team": 0.331197336619608,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Fatalis",
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Joker"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78930.07515629307,
+        "team": 0.1962638718299208,
+        "noaff": false,
+        "nihil": false
+      },
       "acl": [
         "`dragon(s), s=1",
         "`s3, not buff(s3)",
@@ -270,20 +299,96 @@
         "`s2",
         "`s4, x=5"
       ],
-      "coabs": [
-        "Axe2",
-        "Dagger2",
-        "Tobias"
-      ],
       "share": [
         "Weapon",
         "Mikoto"
       ]
     },
     "META": {
+      "tdps": 328642.51712291205,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34585.20164369445,
+        "team": 0.331197336619608,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5",
+        "`s4"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20150.308885156624,
+        "team": 0.06249889711837153,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(c5-s), s",
+        "`s3, x=5",
+        "`s4, x=5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Dagger2",
+        "Joker"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -192,9 +192,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42374.037160123415,
+        "team": 0.10391448202936933,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55720.54710187993,
+        "dps": 42374.037160123415,
         "team": 0.10391448202936933,
         "noaff": false,
         "nihil": false
@@ -207,15 +215,6 @@
         "A_Small_Courage",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3, not buff(s3)",
-        "`s1, xf",
-        "`s2, xf",
-        "`s4, xf",
-        "`dodge, xf"
       ],
       "coabs": [
         "Blade",
@@ -231,6 +230,48 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24883.264013881017,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), aff(flashburn)",
+        "`s3, xf",
+        "`s4, xf",
+        "`s1, xf",
+        "`dodge, xf"
+      ],
+      "coabs": [
+        "Malora",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Ryszarda"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

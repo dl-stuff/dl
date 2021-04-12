@@ -168,9 +168,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43550.99067795939,
+        "team": 0.04995378165113219,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54801.039237983874,
+        "dps": 48952.67435705683,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -181,31 +189,42 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c2-end), cancel",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31714.687941468615,
+        "team": 0.01461903270053358,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c2-end), cancel",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Curran",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

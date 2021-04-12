@@ -115,8 +115,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 81962.87295030412,
-        "team": 0.0,
+        "dps": 64464.0543309318,
+        "team": 0.03492285928415899,
         "noaff": false,
         "nihil": false
       }
@@ -199,9 +199,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40591.80297308488,
+        "team": 0.03492285928415899,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70984.35230730452,
+        "dps": 45881.749862658566,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -214,29 +222,50 @@
         "Snipers_Allure",
         "Crown_of_Light",
         "Mask_of_Determination_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5 and cancel",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, not energy()=5 and cancel"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11145.915866544292,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 11145.915866544292,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Taiko_Tandem",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "share": [
+        "Weapon",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

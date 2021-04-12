@@ -185,6 +185,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25558.22157759338,
+        "team": 0.06247884072635189,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 30419.884810133986,
@@ -202,9 +210,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27569.011013086507,
+        "team": 0.06247536254709177,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38199.68185365123,
+        "dps": 37936.03937765823,
         "team": 0.062442081500403666,
         "noaff": false,
         "nihil": false
@@ -215,16 +231,38 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6847.126351305781,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
       ],
-      "slots.d": "Ramiel",
       "acl": [
         "`dragon(c2-s-c3-c3-c3-c3-c3-end), buff(s3)",
         "`s3, not buff(s3) and x=5",
-        "`s4",
-        "`s2, x=5"
+        "`s4"
       ],
       "coabs": [
-        "Cleo",
+        "Alberius",
         "Forte",
         "Wand"
       ],
@@ -233,11 +271,37 @@
         "Gala_Mym"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 19693.972692698382,
+        "team": 0.06247884072635189,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Entwined_Flames",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-c3-c3-end)",
+        "`s2, x=5",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Wand"
+      ]
+    },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

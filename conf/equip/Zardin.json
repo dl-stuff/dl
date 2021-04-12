@@ -161,19 +161,61 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30153.291617986495,
+        "team": 0.2255739645844164,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54429.78671737976,
+        "dps": 54689.125508574274,
         "team": 0.0,
         "noaff": false,
         "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, fsc",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Tiki",
+        "Xainfried",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29329.876477599224,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "The_Shining_Overlord",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -194,10 +236,18 @@
         "Summer_Julietta"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29329.876477599224,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

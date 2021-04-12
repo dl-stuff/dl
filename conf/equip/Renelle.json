@@ -160,9 +160,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15465.334909268993,
+        "team": 0.03796012496776807,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53305.26251937268,
+        "dps": 40144.278804322676,
         "team": 0.02630197071051697,
         "noaff": false,
         "nihil": false
@@ -173,6 +181,30 @@
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21425.9983154726,
+        "team": 0.023389641527108603,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -182,20 +214,23 @@
         "`s4, cancel",
         "`s1, cancel"
       ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Serena"
-      ],
       "share": [
         "Weapon",
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21425.9983154726,
+        "team": 0.023389641527108603,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

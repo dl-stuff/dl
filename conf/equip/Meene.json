@@ -179,9 +179,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31787.194592815194,
+        "team": 0.23683209843381164,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52993.453302318245,
+        "dps": 52011.55636493286,
         "team": 0.09457445986324643,
         "noaff": false,
         "nihil": false
@@ -193,7 +201,6 @@
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-c3-end), fsc",
         "`s3, not buff(s3) and fsc",
@@ -201,21 +208,37 @@
         "`s2, butterflies>=9",
         "`s1, butterflies>=9",
         "`fs, xf=2 or butterflies=6"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19540.968336741484,
+        "team": 0.10830212079691884,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31682.683880341145,
+        "team": 0.09626339440503194,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

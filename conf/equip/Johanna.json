@@ -157,9 +157,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28579.63519570978,
+        "team": 0.014596829781101344,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46332.51045142161,
+        "dps": 37446.97249987318,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -170,29 +178,37 @@
         "Summer_Paladyns",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15843.029237508403,
+        "team": 0.014605118077954263,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20903.97267070914,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

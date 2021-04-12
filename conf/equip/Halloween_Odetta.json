@@ -205,7 +205,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48131.234844509265,
+        "dps": 38168.20694128868,
         "team": 0.3242444683662879,
         "noaff": false,
         "nihil": false
@@ -217,10 +217,50 @@
       ]
     },
     "META": {
-      "tdps": 27399.538417843127,
+      "tdps": 19848.32733451911,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32763.06688856607,
+        "team": 0.042962945548277745,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`s3",
+        "`s4, cancel",
+        "`s1",
+        "`fs, x=4 or hits=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

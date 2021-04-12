@@ -142,13 +142,37 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44456.88950052476,
+        "dps": 42212.82706002009,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Dogs_Day",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "FirstRate_Hospitality",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25831.061629996628,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "FirstRate_Hospitality",
@@ -172,10 +196,18 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25831.061629996628,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

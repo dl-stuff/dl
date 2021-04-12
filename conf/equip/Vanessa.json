@@ -189,33 +189,44 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37558.496636005206,
-        "team": 0.01752733721257697,
-        "noaff": true,
+        "dps": 47422.07739199375,
+        "team": 0.02040945048875337,
+        "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "Hanetsuki_Rally"
-      ],
-      "coabs": [
-        "Blade",
-        "Emma",
-        "Hunter_Berserker"
-      ],
-      "share": [
-        "Weapon",
-        "Yukata_Cassandra"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22043.180039711653,
+        "team": 0.02041254208289766,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(end)",
+        "`fs, buff(s1) and buff(s2)",
+        "`s3",
+        "`s4",
+        "`s1, fsc or not buff(s1)",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fsf, x=4"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

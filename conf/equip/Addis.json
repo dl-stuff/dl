@@ -168,38 +168,58 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 4499.141531861787,
-        "team": 0.4054084775813902,
-        "noaff": true,
+        "dps": 48241.79974051018,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Dogs_Day",
-        "Valiant_Crown",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "A_Man_Unchanging",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
-      "slots.d": "Freyja",
       "acl": [
-        "`s4",
-        "`s3",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(2, s1)",
+        "`s1, not charged_in(3, s2) and (bleed_stack<3 and buff(s2))",
+        "`s4, xf>1",
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Bow",
-        "Mona",
-        "Tobias"
+        "Akasha",
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
-        "Yuya",
-        "Tobias"
+        "Weapon",
+        "Ilia"
       ]
+    },
+    "META": {
+      "tdps": 107897.73926191904,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 9876.657113712885,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

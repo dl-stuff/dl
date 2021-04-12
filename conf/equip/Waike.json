@@ -204,7 +204,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45744.94758372952,
+        "dps": 38274.43981493523,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -215,11 +215,34 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25920.856109082906,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s)",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s4",
         "`s1, cancel",
         "`s2, cancel",
@@ -228,18 +251,18 @@
       ],
       "coabs": [
         "Blade",
-        "Xander",
+        "Dragonyule_Cleo",
         "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Summer_Julietta"
+        "The_Prince",
+        "Gala_Mym"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

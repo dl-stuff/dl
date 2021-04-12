@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4113.664163883736,
-        "team": 0.4184845407234132,
+        "dps": 4951.770024051509,
+        "team": 0.4409943421389739,
         "noaff": true,
         "nihil": false
       },
@@ -32,8 +32,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46252.80478434271,
-        "team": 0.13072295669968004,
+        "dps": 47597.42599636576,
+        "team": 0.14418596823619564,
         "noaff": false,
         "nihil": false
       },
@@ -62,15 +62,15 @@
       ]
     },
     "META": {
-      "tdps": 146437.6864737565,
+      "tdps": 143680.77090130598,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3758.5599691827633,
-        "team": 0.41347013118534215,
+        "dps": 4538.326804860628,
+        "team": 0.4321259546019991,
         "noaff": true,
         "nihil": false
       },
@@ -81,7 +81,7 @@
       ]
     },
     "META": {
-      "tdps": 150290.60818188582,
+      "tdps": 149541.92272830836,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -128,8 +128,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47207.26693534652,
-        "team": 0.13072295669968004,
+        "dps": 48689.95364255134,
+        "team": 0.14418596823619564,
         "noaff": false,
         "nihil": false
       }
@@ -162,34 +162,33 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 6242.475445673097,
-        "team": 0.339682831250515,
-        "noaff": true,
+        "dps": 34351.7535245551,
+        "team": 0.14418596823619564,
+        "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Astounding_Trick",
-        "Jewels_of_the_Sun",
-        "Dragons_Nest",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Humanoid_Midgardsormr",
-        "Mona"
-      ],
-      "share": [
-        "Patia",
-        "Yuya"
-      ]
+      }
     },
     "META": {
-      "tdps": 27014.785542457186,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17650.147265485324,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -155,9 +155,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25776.88692666137,
+        "team": 0.10278302254956101,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48993.180187838036,
+        "dps": 39038.54868123544,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -167,6 +175,30 @@
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23032.660974476355,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
@@ -189,10 +221,18 @@
         "Pinon"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23032.660974476355,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

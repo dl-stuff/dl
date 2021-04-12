@@ -160,9 +160,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37782.097673396966,
+        "team": 0.06249250170098182,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57852.14430677196,
+        "dps": 50932.0022836845,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -173,30 +181,57 @@
         "The_Shining_Overlord",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), fsc",
-        "`s3, fsc and not buff(s3)",
-        "`s4",
-        "`s1, cancel and buff(s3)",
-        "`s2, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32476.1979847636,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-c5-end), s=2",
+        "`s3",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`fs, x=4"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32476.1979847636,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

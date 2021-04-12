@@ -191,9 +191,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32007.462569810323,
+        "team": 0.062483610335390016,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49140.23616744209,
+        "dps": 47048.69550219462,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -204,10 +212,34 @@
         "Summer_Paladyns",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26066.461049841797,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-c3-end), trickery<=1 and cancel",
+        "`dragon(c3-s-c3-end)",
         "`s3, not buff(s3)",
         "`s4",
         "`s1",
@@ -216,19 +248,19 @@
         "`fsf, x=4"
       ],
       "coabs": [
-        "Bow",
         "Ieyasu",
+        "Joker",
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Gala_Chelle",
+        "Summer_Julietta"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -189,9 +189,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33167.82155948963,
+        "team": 0.14743779763137715,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69279.62572360887,
+        "dps": 65479.08604408922,
         "team": 0.04995685670347471,
         "noaff": false,
         "nihil": false
@@ -202,27 +210,6 @@
         "The_Shining_Overlord",
         "Dueling_Dancers",
         "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s2, cancel",
-        "`s4, fsc",
-        "if not buff(s1, default)",
-        "`fs, x=2 and s1.charged!=2235",
-        "`fs, x=3",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Xainfried",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "META": {
@@ -234,40 +221,44 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 40962.773753333335,
+        "dps": 18527.1697565693,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39979.44227750688,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3) and fsc",
         "`s1",
         "`s2, cancel",
-        "`s4, fsc",
+        "`s3, cancel",
+        "`s4",
         "if not buff(s1, default)",
-        "`fs, x=2 and s1.charged!=2235",
-        "`fs, x=3",
+        "`fs, x=2",
         "end"
       ],
       "coabs": [
         "Blade",
-        "Xainfried",
+        "Dagger",
         "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {

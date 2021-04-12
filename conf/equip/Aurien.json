@@ -153,5 +153,73 @@
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15471.550912476014,
+        "team": 0.24143299019492004,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39625.611730300545,
+        "team": 0.0997810692472857,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11940.453109238753,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(s), s=2",
+        "`s3, not buff(s3) and x=5",
+        "`s4, cancel",
+        "`s2",
+        "`s1, not buff(s1)",
+        "`dodge, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Serena",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18138.112921553762,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

@@ -153,19 +153,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32479.64346751427,
+        "dps": 32605.365429662703,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon",
-        "`s3, fsc",
-        "`s2",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`fs, x=4 or hits=0"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -176,9 +168,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20780.3707102372,
+        "team": 0.04923333413898283,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47398.51782787865,
+        "dps": 43016.59641644369,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -189,30 +189,55 @@
         "The_Shining_Overlord",
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<=1",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
-        "`s4, cancel",
-        "`s1, buff(s3) or cancel",
-        "`fs, x=4 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Alex",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24162.36066021548,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(s)",
+        "`s3, fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24162.36066021548,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

@@ -251,9 +251,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39780.29346065317,
+        "team": 0.1127510504972552,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70530.56960252539,
+        "dps": 65255.901698708636,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -264,8 +272,31 @@
         "The_Red_Impulse",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30184.040310014003,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Chariot_Drift",
+        "Dueling_Dancers"
       ],
-      "slots.d": "Arsene",
       "acl": [
         "`dragon(c5-s-end), fsc",
         "`s3, not buff(s3) and fsc",
@@ -275,20 +306,20 @@
         "`fs, x=4"
       ],
       "coabs": [
-        "Cleo",
-        "Forte",
-        "Ieyasu"
+        "Ieyasu",
+        "Lathna",
+        "Wand"
       ],
       "share": [
-        "Weapon",
+        "Summer_Julietta",
         "Gala_Mym"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

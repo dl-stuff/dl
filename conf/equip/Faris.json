@@ -179,9 +179,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42851.97869224853,
+        "team": 0.07035745196044109,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64401.15241092684,
+        "dps": 45779.0261304587,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -192,34 +200,60 @@
         "The_Cutie_Competition",
         "Enter_the_Blue_Rose",
         "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-c3-c3-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2",
-        "if xf=1",
-        "`fs, c_fs(counter)",
-        "`fs, c_fs(sigilcounter)",
-        "`dodge, xf=1",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25890.06435990885,
+        "team": 0.05613005155692957,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25890.06435990885,
+        "team": 0.05613005155692957,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Blessed_Days",
+        "Enter_the_Blue_Rose"
+      ],
+      "acl": [
+        "`dragon(s-c3-c3-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`dodge, xf=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

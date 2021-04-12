@@ -145,9 +145,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52089.859192228,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60482.95919384713,
+        "dps": 57667.08381085792,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -158,31 +166,29 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Liber_Grimortis"
-      ],
-      "slots.d": "Gozu_Tenno",
-      "acl": [
-        "`fst(3), not have_buff(gozu_tenno_buff) and xf=5",
-        "`dragon(c3-s-c3-c3-end), xf=5",
-        "`s3, healed=1 and not buff(s3)",
-        "`s2, not buff(s2)",
-        "`s1",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Wand",
-        "Yukata_Cassandra"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15391.929722662038,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

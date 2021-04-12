@@ -206,7 +206,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65245.945567126284,
+        "dps": 61869.9408512005,
         "team": 0.11479689983670062,
         "noaff": false,
         "nihil": false
@@ -220,10 +220,40 @@
       ]
     },
     "META": {
-      "tdps": 51148.881390531635,
+      "tdps": 47991.93512406364,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27785.175790055477,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2",
+        "`s4, cancel",
+        "`dodge, fsc and speed()=1",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

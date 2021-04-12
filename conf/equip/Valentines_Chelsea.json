@@ -169,7 +169,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48714.15610136379,
+        "dps": 54319.13920416107,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -179,14 +179,22 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44214.7701720809,
+        "team": 0.08000844329693294,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61750.48831725075,
+        "dps": 45473.05833445998,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -198,14 +206,31 @@
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
+      "slots.d": "Menoetius"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26752.014459299415,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "slots.d": "Menoetius",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, cancel",
-        "`s4",
-        "`fs, x=4"
+        "`s2, s=1",
+        "`s4"
       ],
       "coabs": [
         "Blade",
@@ -214,14 +239,27 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28421.356492165414,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Gala_Notte",
+        "Mona"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

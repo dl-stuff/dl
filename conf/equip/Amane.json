@@ -143,14 +143,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 49382.78637878345,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 56622.60701140206,
@@ -171,24 +163,28 @@
         "Blade",
         "Mitsuhide",
         "Peony"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Ilia"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46148.88082722486,
+        "team": 0.033324286406690336,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58249.63314710002,
+        "dps": 46905.84737592476,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -201,21 +197,6 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
-        "queue prep and not buff(s3)",
-        "`s2;s3;s4;s1",
-        "end",
-        "`s4, cancel",
-        "`s1, cancel or s",
-        "`s2, x=1"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Sharena"
       ],
       "share": [
         "Weapon",
@@ -230,49 +211,33 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 63345.6466590232,
-        "team": 0.033324286406690336,
+        "dps": 36132.2279468234,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3-s), buff(s3, 1) and cancel",
-        "queue prep",
-        "`s2;s3;s1;s4",
+        "`dragon(c3-s-c3-c3-end)",
+        "queue now=0",
+        "`s4;s1;s3",
         "end",
-        "`s1",
-        "`s4",
-        "`s3",
-        "`s2"
+        "`s4, cancel",
+        "`s1, cancel or s",
+        "`s3"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Mitsuhide",
+        "Peony"
       ]
     },
     "META": {
-      "tdps": 22715.16153299919,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

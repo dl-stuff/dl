@@ -150,21 +150,45 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 41178.489647196206,
-        "team": 0.026288999522670584,
+        "dps": 37944.59462529958,
+        "team": 0.11026950932991897,
         "noaff": false,
         "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37944.59462529958,
+        "team": 0.11026950932991897,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23025.854826722694,
+        "team": 0.02337592762401378,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
-        "A_Dogs_Day",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(s)",
         "`s3, not buff(s3)",
@@ -172,20 +196,23 @@
         "`s2",
         "`s1"
       ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
       "share": [
         "Weapon",
         "Pinon"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23025.854826722694,
+        "team": 0.02337592762401378,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

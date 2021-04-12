@@ -209,7 +209,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37952.83622490482,
+        "dps": 30029.55160590016,
         "team": 0.029499296933423055,
         "noaff": false,
         "nihil": false
@@ -235,10 +235,46 @@
       ]
     },
     "META": {
-      "tdps": 36747.70822459079,
+      "tdps": 27097.509494690163,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25951.685581015925,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=4",
+        "queue prep",
+        "`s3, x=1;s4;s1",
+        "end",
+        "`s4, cancel",
+        "`s1",
+        "`dodge, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

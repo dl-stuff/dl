@@ -181,32 +181,71 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44585.410924103155,
-        "team": 0.11096473670996025,
-        "noaff": true,
+        "dps": 60605.2979945155,
+        "team": 0.04174305567528844,
+        "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Honest_Repose",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "coabs": [
-        "Dagger",
-        "Emma",
-        "Panther"
-      ],
-      "share": [
-        "Weapon",
-        "Elisanne"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32624.487763121233,
+        "team": 0.04341504475952409,
+        "noaff": false,
+        "nihil": true
+      },
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37131.89367399987,
+        "team": 0.04166349556701078,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
+        "`s3, cancel",
+        "`s4",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Leonidas"
+      ]
+    },
+    "META": {
+      "tdps": 2573382.4263370703,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

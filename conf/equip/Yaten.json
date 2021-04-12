@@ -193,9 +193,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25906.591628538154,
+        "team": 0.18336413777574573,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62106.547541653614,
+        "dps": 60017.91797558071,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -206,8 +214,24 @@
         "The_Shining_Overlord",
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8009.007623923722,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
       "acl": [
         "`s3, not buff(s3)",
         "`s1",
@@ -219,11 +243,6 @@
         "`fs, x=4",
         "end"
       ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
       "share": [
         "Weapon",
         "Formal_Joachim"
@@ -232,7 +251,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

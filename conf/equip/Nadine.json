@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40202.14347855441,
+        "dps": 38358.74854866223,
         "team": 0.12042050007777916,
         "noaff": false,
         "nihil": false
@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89118.42041609657,
+        "dps": 84524.62963611782,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -111,7 +111,7 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41303.795053298796,
+        "dps": 40653.16302384734,
         "team": 0.12042050007777916,
         "noaff": false,
         "nihil": false
@@ -119,7 +119,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92035.48181879525,
+        "dps": 94061.35898525386,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -169,9 +169,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28025.549155748035,
+        "team": 0.12042050007777916,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69656.07747478703,
+        "dps": 50835.36188020229,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -182,30 +190,37 @@
         "Me_and_My_Bestie",
         "Amaterasu_Oblation",
         "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Serena",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15741.24735586318,
+        "team": 0.0029209686595719044,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17281.87260085143,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

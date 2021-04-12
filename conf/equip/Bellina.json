@@ -206,23 +206,6 @@
         "A_Passion_for_Produce",
         "The_Plaguebringer"
       ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s2, (duration-now)<1.5",
-        "`s3, not buff(s3)",
-        "if dragondrive.get()",
-        "`s4, dgauge>500 and x=3",
-        "`s1, dgauge>1100 and x=3",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Berserker",
-        "Curran",
-        "Ieyasu"
-      ],
       "share": [
         "Weapon",
         "Veronica"
@@ -232,6 +215,31 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 13418.359461374703,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30922.216623663728,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

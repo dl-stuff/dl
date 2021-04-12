@@ -78,10 +78,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Felyne_Hospitality",
+        "Summer_Paladyns",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s4",
+        "`s3",
+        "`s2",
+        "`s1"
+      ],
       "coabs": [
         "Halloween_Odetta",
         "Renee",
         "Summer_Estelle"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Patia"
       ]
     },
     "PERSONAL": {
@@ -91,10 +110,30 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Felyne_Hospitality",
+        "Summer_Paladyns",
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s4",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-c2-s-end), dragonform.shift_count=1"
+      ],
       "coabs": [
         "Halloween_Odetta",
         "Renee",
         "Summer_Estelle"
+      ],
+      "share": [
+        "Summer_Luca",
+        "Summer_Cleo"
       ]
     },
     "META": {
@@ -205,35 +244,11 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43219.399234451455,
+        "dps": 44955.18358702228,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end)",
-        "`s4",
-        "`s3",
-        "`s2, x=4",
-        "`s1, x=4",
-        "fsf, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "The_Prince",
-        "Gala_Mym"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -244,9 +259,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45896.71180518522,
+        "team": 0.4219017829873313,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63297.681790654686,
+        "dps": 58995.44229586827,
         "team": 0.10306175928724133,
         "noaff": false,
         "nihil": false
@@ -258,23 +281,10 @@
         "FirstRate_Hospitality",
         "From_Whence_He_Comes"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`s2",
-        "`s1",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-c2-s-end), dragonform.shift_count=1"
-      ],
       "coabs": [
         "Blade",
         "Renee",
         "Summer_Estelle"
-      ],
-      "share": [
-        "Summer_Luca",
-        "Summer_Cleo"
       ]
     },
     "META": {
@@ -282,6 +292,48 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46723.72455994047,
+        "team": 0.38040958519424894,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25424.59287880943,
+        "team": 0.029236959333775257,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36304.79724260453,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

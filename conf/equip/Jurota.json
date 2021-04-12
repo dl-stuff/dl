@@ -148,9 +148,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17596.93174256383,
+        "team": 0.29465870337185596,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55579.99157898076,
+        "dps": 50251.830958625374,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -161,6 +169,30 @@
         "Valiant_Crown",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22462.590402708465,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -180,10 +212,18 @@
         "Gala_Mym"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22462.590402708465,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

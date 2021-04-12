@@ -84,10 +84,31 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Luck_of_the_Draw",
+        "Seaside_Memory"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), x=5",
+        "queue prep",
+        "`s3;s1;s4;s2",
+        "end",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
       "coabs": [
         "Blade",
         "Gala_Alex",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "META": {
@@ -246,10 +267,18 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17240.200225893394,
+        "team": 0.6369724081266954,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52887.18098783326,
-        "team": 0.22238575351556575,
+        "dps": 40718.36558903267,
+        "team": 0.2223857535155657,
         "noaff": false,
         "nihil": false
       },
@@ -259,34 +288,68 @@
         "Springtime_Breeze",
         "Luck_of_the_Draw",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), s=2 and trickery<=1",
-        "queue prep",
-        "`s3",
-        "`s1",
-        "`s4",
-        "`s2",
-        "end",
-        "`s4",
-        "`s1",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Alex",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18294.197320530013,
+        "team": 0.5423806743622802,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25331.27299789682,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c5-s-c5-end), cancel and aff(shadowblight)",
+        "`s3",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Chelle"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

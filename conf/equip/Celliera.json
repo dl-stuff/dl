@@ -156,8 +156,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42518.09384476575,
-        "team": 0.0,
+        "dps": 46920.37816326484,
+        "team": 0.03921103323189963,
         "noaff": false,
         "nihil": true
       }
@@ -173,7 +173,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62776.255724117356,
+        "dps": 52694.6199895732,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -184,8 +184,44 @@
         "Valiant_Crown",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5939.874100729313,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Bow",
+        "Dagger",
+        "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29643.426335154825,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dragonform.shift_count=0",
@@ -204,11 +240,6 @@
         "`s1, buff(s2) and cancel",
         "`fsf, xf=5"
       ],
-      "coabs": [
-        "Eugene",
-        "Tiki",
-        "Yurius"
-      ],
       "share": [
         "Weapon",
         "Gala_Mym"
@@ -217,7 +248,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

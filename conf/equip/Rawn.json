@@ -141,45 +141,43 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 39925.72589900928,
-        "team": 0.031091805767384587,
+        "dps": 43195.52641476251,
+        "team": 0.06731843943931103,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3",
-        "`s2, cancel",
-        "`s1, x>3 or fsc",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
-      ]
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43195.52641476251,
+        "team": 0.06731843943931103,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15705.556861572912,
+        "team": 0.037216874023389274,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

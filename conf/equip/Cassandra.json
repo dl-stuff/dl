@@ -149,9 +149,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37002.504715510855,
+        "team": 0.08729606445550868,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57927.81612140366,
+        "dps": 53770.73108051849,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -162,10 +170,34 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24817.47438661756,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
+        "`dragon(c3-s-c3-end)",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, x=5 or hp<90",
@@ -181,10 +213,18 @@
         "Valentines_Chelsea"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24817.47438661756,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

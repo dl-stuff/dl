@@ -190,6 +190,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14733.29524627656,
+        "team": 0.041617638776097414,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 25145.84529144263,
@@ -223,32 +231,40 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42008.44261433106,
+        "team": 0.1599092693294453,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 34352.06464411936,
-        "team": 0.09041587501855367,
+        "dps": 42008.44261433106,
+        "team": 0.1599092693294453,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "An_Ancient_Oath",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
         "Beautiful_Nothingness",
         "Beautys_Secret"
       ],
-      "slots.d": "Fatalis",
       "acl": [
-        "`dragon(c3-s-end), buff(s3)",
-        "`s3, not buff(s3)",
+        "`dragon(s-end), s=2 and buff(s3)",
+        "`s3, not buff(s3) and fsc",
         "`s4",
         "`s2",
-        "`s1",
-        "`fs3"
+        "`s1, buff(s3)",
+        "`fs3",
+        "`fs, hits=0 or x=5"
       ],
       "coabs": [
-        "Cleo",
         "Forte",
+        "Gala_Alex",
         "Grace"
       ],
       "share": [
@@ -261,6 +277,80 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7428.729397786256,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "acl": [
+        "`dragon(s-end), s=2 and buff(s3)",
+        "`s3, not buff(s3) and fsc",
+        "`s4",
+        "`s2",
+        "`s1, buff(s3)",
+        "`fs3",
+        "`fs, hits=0 or x=5"
+      ],
+      "coabs": [
+        "Forte",
+        "Gala_Alex",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10815.674856621838,
+        "team": 0.041617638776097414,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`fs, hits=0 or x=5",
+        "`s3, not buff(s3) and fsc",
+        "`s4",
+        "`fs3",
+        "`s2"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

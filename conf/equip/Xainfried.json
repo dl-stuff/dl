@@ -274,7 +274,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91641.15021974157,
+        "dps": 86466.84165473367,
         "team": 0.11107009744920102,
         "noaff": false,
         "nihil": false
@@ -307,11 +307,63 @@
       ]
     },
     "META": {
-      "tdps": 44035.33593318883,
+      "tdps": 40353.03392326269,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30788.99440127604,
+        "team": 0.024687036421815495,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38289.9449059648,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c2-end), dragonform.shift_count>=2",
+        "`s2",
+        "`s4",
+        "`s3",
+        "`s1, fscf",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

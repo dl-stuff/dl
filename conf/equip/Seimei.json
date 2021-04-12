@@ -199,51 +199,89 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53528.464641854895,
+        "team": 0.2152252201608582,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57441.52193100801,
-        "team": 0.07871902682712872,
+        "dps": 53528.464641854895,
+        "team": 0.2152252201608582,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "To_the_Extreme"
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "Lord_of_the_Skies"
       ],
-      "slots.d": "Gozu_Tenno",
       "acl": [
-        "`dragon",
+        "`dragon(c3-s)",
         "`s3, not buff(s3)",
-        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
-        "`s2",
-        "end",
-        "if not have_buff(shikigami)",
-        "`s1",
-        "end",
+        "`s2, self.shikigami.timeleft()<6",
+        "`s1,not have_buff(shikigami)",
         "`s4",
-        "if not have_buff(gozu_tenno_buff)",
-        "`fst(3),x=1",
-        "else",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Ezelith",
-        "Kimono_Elisanne"
+        "`fst(3.1), self.shikigami_gauge<7"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28938.544750148812,
+        "team": 0.024600033135014646,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28938.544750148812,
+        "team": 0.024600033135014646,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "Lord_of_the_Skies"
+      ],
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s2, self.shikigami.timeleft()<6",
+        "`s1,not have_buff(shikigami)",
+        "`s4",
+        "`fst(3.1), self.shikigami_gauge<7"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

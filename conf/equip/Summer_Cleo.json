@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60018.35085504249,
-        "team": 0.05991495588767189,
+        "dps": 60293.76122135459,
+        "team": 0.06013373467566836,
         "noaff": false,
         "nihil": false
       },
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60560.75931679251,
-        "team": 0.051552597747651085,
+        "dps": 59405.65112299047,
+        "team": 0.05152400384412562,
         "noaff": false,
         "nihil": false
       },
@@ -116,18 +116,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 67867.66043547327,
-        "team": 0.06019698279925328,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69585.83546616638,
-        "team": 0.06019090472538671,
+        "dps": 71032.77073908522,
+        "team": 0.060164577242406155,
         "noaff": false,
         "nihil": false
       }
@@ -184,10 +176,18 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29475.35049999827,
+        "team": 0.03434155109647303,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59255.8146950451,
-        "team": 0.051380204349490005,
+        "dps": 29475.35049999827,
+        "team": 0.03434155109647303,
         "noaff": false,
         "nihil": false
       },
@@ -199,30 +199,55 @@
         "Snipers_Allure",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s2, s1.charged<s1.sp/3",
-        "`s1",
-        "`s4, cancel",
-        "`fs,x=5"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Xander"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22390.87294895419,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s2, s=1",
+        "`s1",
+        "`s3",
+        "`s4",
+        "`fs,x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

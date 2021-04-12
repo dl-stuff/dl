@@ -180,43 +180,85 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28842.50624854058,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56087.86688971139,
+        "dps": 35352.35743660023,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "Chariot_Drift",
-        "Snipers_Allure"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=1 and not s2.check()",
-        "`s3, not buff(s3)",
-        "`s4, s1.check() and s2.check()",
-        "`s1, cancel",
+        "if  s=1 and not s2.check()",
+        "`dragon(c3-s-c3-c1-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s4, xf or fscf",
+        "`s1, (xf or fscf or s=2) and buff(s3)",
         "`s2, s=1",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "coabs": [
-        "Blade",
-        "Renee",
-        "Summer_Estelle"
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Mym"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14934.236657511452,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14934.236657511452,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

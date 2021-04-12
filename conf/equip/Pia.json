@@ -162,51 +162,53 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27222.692504552237,
-        "team": 0.27186110947686837,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.d": "Gala_Reborn_Zephyr",
-      "share": [
-        "Weapon",
-        "Dragonyule_Xainfried"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 30706.091859221127,
-        "team": 0.1975932599424692,
-        "noaff": true,
+        "dps": 46258.8229852059,
+        "team": 0.07203765374913332,
+        "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Astounding_Trick",
-        "Brothers_in_Arms",
-        "From_Whence_He_Comes",
-        "Seaside_Memory"
-      ],
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, buff(s3)",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Xainfried"
-      ]
+      }
     },
     "META": {
-      "tdps": 46903.19399992133,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31445.36312668838,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3",
+        "`s4",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

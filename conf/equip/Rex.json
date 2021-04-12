@@ -176,9 +176,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19510.651960410363,
+        "team": 0.1421410662629378,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47304.99262894465,
+        "dps": 38024.63051711984,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -189,6 +197,30 @@
         "Summer_Paladyns",
         "Chariot_Drift",
         "Snipers_Allure"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23590.339417249197,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Chariot_Drift",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -209,10 +241,18 @@
         "Summer_Julietta"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23590.339417249197,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

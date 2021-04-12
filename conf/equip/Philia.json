@@ -191,8 +191,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 18544.583296945882,
-        "team": 0.02935406277237823,
+        "dps": 35632.426709323176,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       }
@@ -225,9 +225,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30981.58151380914,
+        "team": 0.029310568340322526,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42076.50450429884,
+        "dps": 38395.08637491908,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -238,23 +246,6 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
       ]
     },
     "META": {
@@ -262,6 +253,42 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22083.50766880773,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25961.125825505223,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

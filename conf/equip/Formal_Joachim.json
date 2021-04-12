@@ -157,9 +157,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19317.15725611082,
+        "team": 0.10963454194764259,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31655.337120494918,
+        "dps": 23199.23845244595,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -171,7 +179,6 @@
         "Dueling_Dancers",
         "Snipers_Allure"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon, xf",
         "`s3, not buff(s3)",
@@ -179,11 +186,6 @@
         "`s1, xf and s2.charged<s2.sp*0.71",
         "`s4",
         "`dodge, xf=1"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
       ],
       "share": [
         "Weapon",
@@ -194,6 +196,43 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11000.495668606105,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18757.74907249389,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2, s1.check()",
+        "`s1, s=2",
+        "`s4",
+        "`dodge, xf=1"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

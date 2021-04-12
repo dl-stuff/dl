@@ -192,9 +192,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34200.3118887183,
+        "team": 0.04999118211093306,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74271.57909802996,
+        "dps": 47215.69590837153,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -206,7 +214,6 @@
         "A_Passion_for_Produce",
         "Chariot_Drift"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if divine_dragon.get()",
         "`s1",
@@ -221,11 +228,6 @@
         "`fs, fs_prep_c and x=4",
         "end"
       ],
-      "coabs": [
-        "Blade",
-        "Xander",
-        "Yurius"
-      ],
       "share": [
         "Weapon",
         "Summer_Julietta"
@@ -235,6 +237,32 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32012.536360349477,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Xander",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

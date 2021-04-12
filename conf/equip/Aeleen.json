@@ -135,7 +135,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30901.705239898074,
+        "dps": 23818.581802755296,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -148,6 +148,7 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
@@ -211,7 +212,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44340.60770651857,
+        "dps": 41926.17458393325,
         "team": 0.06241796891818156,
         "noaff": false,
         "nihil": false
@@ -225,10 +226,27 @@
       ]
     },
     "META": {
-      "tdps": 61291.81684207533,
+      "tdps": 57727.58841321522,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21594.931071853567,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

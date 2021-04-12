@@ -190,24 +190,54 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54939.759538101396,
-        "team": 0.14048139330985285,
+        "dps": 54829.7710801224,
+        "team": 0.21135917931099213,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Chariot_Drift",
-        "Snipers_Allure"
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s4, x=4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 62694.111320651515,
+      "tdps": 70110.27274516287,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30987.736384342046,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "share": [
+        "Catherine",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

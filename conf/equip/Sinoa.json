@@ -132,7 +132,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17001.344410433583,
+        "dps": 12304.753805755901,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -145,6 +145,7 @@
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
+      "slots.w": "void",
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
@@ -205,7 +206,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46008.197255168925,
+        "dps": 43271.257289540146,
         "team": 0.16761396815714752,
         "noaff": false,
         "nihil": false
@@ -219,10 +220,28 @@
       ]
     },
     "META": {
-      "tdps": 93649.53253926878,
+      "tdps": 87328.77747419247,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12304.753805755901,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.w": "void"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

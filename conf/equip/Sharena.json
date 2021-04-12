@@ -180,16 +180,16 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40316.694828259024,
-        "team": 0.029234714972784286,
+        "dps": 48155.009317521675,
+        "team": 0.029239442823586696,
         "noaff": false,
         "nihil": true
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46096.639781108286,
-        "team": 0.02919721924516009,
+        "dps": 48242.89230144231,
+        "team": 0.029147680462711646,
         "noaff": false,
         "nihil": true
       }
@@ -203,46 +203,52 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 59647.98534596765,
-        "team": 0.02919852316789661,
+        "dps": 32800.66890784427,
+        "team": 0.02921270862197427,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s), cancel",
-        "`s1",
-        "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Malora",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Jurota"
-      ]
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32800.66890784427,
+        "team": 0.02921270862197427,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25206.69756227841,
+        "team": 0.029239442823586696,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25281.78798630606,
+        "team": 0.029147680462711646,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

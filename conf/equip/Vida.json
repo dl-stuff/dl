@@ -160,17 +160,53 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4847.503873053774,
+        "team": 0.3372295235230047,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49777.72313218481,
-        "team": 0.06243804971419562,
+        "dps": 52282.06165032516,
+        "team": 0.1745555727289152,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "An_Ancient_Oath",
-        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
+        "A_Passion_for_Produce",
+        "The_Warrioresses"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17517.7036175649,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "A_Passion_for_Produce",
         "The_Warrioresses"
       ],
@@ -184,19 +220,27 @@
         "`fs, xf=3"
       ],
       "coabs": [
-        "Cleo",
-        "Forte",
+        "Bow",
+        "Grace",
         "Ieyasu"
       ],
       "share": [
-        "Weapon",
+        "Hunter_Sarisse",
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17517.7036175649,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

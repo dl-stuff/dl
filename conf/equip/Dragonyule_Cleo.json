@@ -77,10 +77,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Once_in_a_Lifetime",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, x=5 or s",
+        "`s2, x=5"
+      ],
       "coabs": [
         "Catherine",
         "Hunter_Sarisse",
         "Summer_Estelle"
+      ],
+      "share": [
+        "Weapon",
+        "Elisanne"
       ]
     },
     "META": {
@@ -214,19 +233,75 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 54307.84584131383,
-        "team": 0.06836361087749794,
+        "dps": 34837.68045740417,
+        "team": 0.20740252805545534,
         "noaff": false,
         "nihil": false
+      },
+      "coabs": [
+        "Catherine",
+        "Hunter_Sarisse",
+        "Summer_Estelle"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59048.33850735854,
+        "team": 0.057015460853452556,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, x>1"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 160988.96334905017,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27575.218619813208,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -239,17 +314,25 @@
       "coabs": [
         "Catherine",
         "Hunter_Sarisse",
-        "Summer_Estelle"
+        "Wand"
       ],
       "share": [
         "Weapon",
         "Jurota"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27575.218619813208,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

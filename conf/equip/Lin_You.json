@@ -183,40 +183,11 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42498.418101467534,
-        "team": 0.0,
+        "dps": 29624.932744290643,
+        "team": 0.09997142298360746,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "From_Whence_He_Comes",
-        "Hastened_Squall"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s1.check()",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs",
-        "`dodge, fsc",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Valentines_Melody"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {
@@ -232,23 +203,6 @@
         "From_Whence_He_Comes",
         "Hastened_Squall"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s1.check()",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs",
-        "`dodge, fsc",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Valentines_Melody"
-      ],
       "share": [
         "Weapon",
         "Mikoto"
@@ -258,6 +212,77 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25607.956171139995,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs",
+        "`dodge, fsc",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Ranzal",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38059.16711723768,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs",
+        "`dodge, fsc",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Ranzal",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

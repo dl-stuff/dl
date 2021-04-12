@@ -188,9 +188,17 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15330.226860574716,
+        "team": 0.355595652384401,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52834.96009671212,
+        "dps": 41144.63011711067,
         "team": 0.019199979172182875,
         "noaff": false,
         "nihil": false
@@ -201,30 +209,37 @@
         "Memory_of_a_Friend",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9935.753180099115,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22837.60671166129,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
