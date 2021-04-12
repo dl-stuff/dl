@@ -298,7 +298,7 @@ def validate_sim(adv):
     adv.duration = int(adv.duration)
     if not adv.duration == 180:
         return False, "Duration not 180s"
-    if not all([not k in adv.conf for k in ABNORMAL_COND]):
+    if any((k in adv.conf and not k in adv.conf_base for k in ABNORMAL_COND)):
         return False, "Has an abnormal condition"
     wp_qual_lst = adv.slots.a.qual_lst
     if not all([not wp in BANNED_PRINTS for wp in wp_qual_lst]):

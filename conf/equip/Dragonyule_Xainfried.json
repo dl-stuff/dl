@@ -72,26 +72,25 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 27257.19071433337,
+        "dps": 36647.25307147227,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "An_Ancient_Oath",
-        "Candy_Couriers",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
+        "`dragon(c2-s-c3-c3-c3-end)",
+        "`s3",
         "`s2, cancel",
-        "`s1, cancel or dgauge>=500",
         "`s4"
       ],
       "coabs": [
@@ -100,7 +99,38 @@
         "Mona"
       ],
       "share": [
-        "Weapon",
+        "Eugene",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37418.45969321287,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end)",
+        "`s3",
+        "`s2, cancel",
+        "`s4"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Humanoid_Midgardsormr",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -126,6 +156,31 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43668.64186935926,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), aff(stormlash)",
+        "`s3, cancel",
+        "`s2, cancel",
+        "`s4"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 44794.99036667459,
@@ -145,17 +200,13 @@
         "`s3, cancel",
         "`s2, cancel",
         "`s4"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
