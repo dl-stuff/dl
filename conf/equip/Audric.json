@@ -73,19 +73,19 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 36446.71220551994,
+        "dps": 38142.109222290834,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Chariot_Drift",
+        "Dueling_Dancers"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -103,6 +103,39 @@
       ],
       "share": [
         "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42295.60931089131,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc or aff_timeleft(poison)<4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Formal_Joachim",
         "Gala_Mym"
       ]
     },
@@ -141,6 +174,79 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43742.51708848859,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Chariot_Drift",
+        "Dueling_Dancers"
+      ],
+      "acl": [
+        "`dragon(c5-s-end), fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc or aff_timeleft(poison)<4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Lathna",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43779.90267785548,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c5-s-end), fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc or aff_timeleft(poison)<4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

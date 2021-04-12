@@ -195,9 +195,9 @@ class OpimizationMode(ValueEnum):
 def build_equip_condition(equip):
     if equip is None:
         return DEFAULT_CONDITONS, None
-    aff = equip["aff"] or "SELF"
-    sit = equip["sit"] or "NORMAL"
-    mono = equip["mono"] or "ANY"
+    aff = equip.get("aff") or "SELF"
+    sit = equip.get("sit") or "NORMAL"
+    mono = equip.get("mono") or "ANY"
     try:
         opt = OpimizationMode(equip["opt"])
     except (ValueError, KeyError):

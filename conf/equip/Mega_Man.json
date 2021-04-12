@@ -32,7 +32,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54598.6328785638,
+        "dps": 54185.20304908036,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -67,14 +67,50 @@
       ]
     },
     "META": {
-      "tdps": 169962.06969249906,
+      "tdps": 168460.29497556557,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25409.65118076648,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`dragon(s), s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if bleed_stack>=3",
+        "`s2, c_x(metalblade) or c_x(default)",
+        "`s1, c_x(metalblade)",
+        "else",
+        "`s1, c_x(default) and s1.check_full()",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Laxi",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 29290.348522840693,
+        "dps": 27680.319708982533,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -115,7 +151,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60441.53790675341,
+        "dps": 63426.046531451786,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -129,10 +165,49 @@
       ]
     },
     "META": {
-      "tdps": 191186.29305282646,
+      "tdps": 202027.454660933,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36332.621340511985,
+        "team": 0.023329041385643803,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(s), s=4",
+        "`s3",
+        "`s4",
+        "if bleed_stack>=3",
+        "`s2, c_x(metalblade) or c_x(default)",
+        "`s1, c_x(metalblade)",
+        "else",
+        "`s1, c_x(default) and s1.check_full()",
+        "end"
+      ],
+      "share": [
+        "Panther",
+        "Seimei"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

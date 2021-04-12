@@ -111,7 +111,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 2024.103391080274,
+        "dps": 5206.766764467045,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -124,9 +124,8 @@
         "From_Whence_He_Comes"
       ],
       "slots.d": "Ariel",
-      "slots.w": "void",
       "acl": [
-        "`s1",
+        "`s2",
         "`s4, s1.charged<(s1.sp/2)",
         "`s3, x>1",
         "`fs, fs_prep_c=3 and x=1",
@@ -145,6 +144,47 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31544.087283953464,
+        "team": 0.014618029799602254,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s4",
+        "`s3, x>1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Curran",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

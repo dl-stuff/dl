@@ -94,40 +94,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 21019.36756017798,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "slots.w": "void",
-      "acl": [
-        "`dragon(c1-s-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, fsc",
-        "`s4, cancel",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28201.478439607654,
@@ -163,6 +129,48 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28201.478439607654,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(c1-s-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, fsc",
+        "`s4, cancel",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -201,17 +209,65 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30345.484962026563,
-        "team": 0.0,
+        "dps": 41295.56933073409,
+        "team": 0.014604038470530696,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(c1-s-s-end), s=1",
+        "`s3",
+        "`s1",
+        "`s2, fsc",
+        "`s4, cancel",
+        "`fs, x=2 or hits=0"
+      ],
+      "share": [
+        "Student_Maribelle",
+        "Gala_Leonidas"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36581.457063219386,
+        "team": 0.04934746003071647,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "META": {
+      "tdps": 135683.59291696368,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },

@@ -93,39 +93,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 12304.753805755901,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Amaterasu_Oblation",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "slots.w": "void",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 17001.344410433583,
@@ -160,6 +127,47 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17001.344410433583,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Amaterasu_Oblation",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {

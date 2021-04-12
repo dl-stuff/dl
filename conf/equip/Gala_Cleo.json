@@ -99,78 +99,39 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 21750.94667219161,
-        "team": 0.08638821179042594,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
-      ],
-      "coabs": [
-        "Bow",
-        "Dragonyule_Victor",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 22395.147365315628,
-        "team": 0.08609298715367789,
+        "dps": 29868.559275504,
+        "team": 0.09887316836102185,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "Welcome_to_the_Opera",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
+        "`dragon(c3-s-c3-c3-end)",
         "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
+        "`s1",
+        "`s3",
+        "`s2"
       ],
       "coabs": [
         "Bow",
-        "Dragonyule_Victor",
+        "Dagger",
         "Ieyasu"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Gala_Chelle",
+        "Ranzal"
       ]
     },
     "META": {
-      "tdps": 2182069.559708805,
       "pref": "PERSONAL"
     }
   },
@@ -220,45 +181,39 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 16106.420511248241,
-        "team": 0.9422843963506065,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 23073.59403871311,
-        "team": 0.08638821179042594,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 23625.506644235968,
-        "team": 0.08609298715367789,
+        "dps": 35635.83980690485,
+        "team": 0.08665216928407796,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "`dragon(c5-s-c5-end)",
+        "`s3, cancel",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Dagger",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Chelle"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

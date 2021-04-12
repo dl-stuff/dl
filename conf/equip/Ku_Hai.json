@@ -95,10 +95,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 39441.41724453971,
-        "team": 0.04490158113112255,
+        "dps": 41851.45876252612,
+        "team": 0.04543866501227758,
         "noaff": false,
         "nihil": true
       },
@@ -112,7 +112,7 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon, s=4",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s4, fsc",
         "`s2, fsc",
         "if buff(s2)",
@@ -127,12 +127,75 @@
         "Mona"
       ],
       "share": [
-        "Weapon",
+        "Raemond",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43368.9710729148,
+        "team": 0.04374799125972313,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon, s=4",
+        "`s3",
+        "`s4, fsc",
+        "`s2, fsc",
+        "if buff(s2)",
+        "`fs, x=1",
+        "else",
+        "`fs, x=2 or hits=0",
+        "end"
+      ],
+      "coabs": [
+        "Akasha",
+        "Grace",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 897578.440604442,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43042.18368446568,
+        "team": 0.04404180819919938,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Akasha",
+        "Blade",
+        "Mona"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {

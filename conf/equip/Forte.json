@@ -78,23 +78,22 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 17355.563802135122,
+        "dps": 45300.26886412387,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "A_Man_Unchanging",
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c2-s-c3-end), dragonform.shift_count<=2",
-        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery=1",
-        "`s3, not buff(s3) and fsc",
+        "`dragon(c5-s-c5-end)",
+        "`s3",
         "`s2",
         "`s1, cancel",
         "`s4, cancel",
@@ -102,11 +101,11 @@
       ],
       "coabs": [
         "Bow",
-        "Cleo",
-        "Ieyasu"
+        "Ieyasu",
+        "Wand"
       ],
       "share": [
-        "Weapon",
+        "Ranzal",
         "Formal_Joachim"
       ]
     },
@@ -172,11 +171,35 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 19917.816622457613,
+        "dps": 56738.580797731,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c5-s-c5-c5-end)",
+        "`s3",
+        "`s2",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

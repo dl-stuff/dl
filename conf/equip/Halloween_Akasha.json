@@ -164,6 +164,50 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29378.900546692792,
+        "team": 0.02234500147857805,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, xf=5 or fsc",
+        "`s2, xf>2",
+        "`fs, charged_in(fs,s1) and xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Pipple",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 2480114.2100596335,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -186,6 +230,40 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39838.31481475508,
+        "team": 0.02581553509428956,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "coabs": [
+        "Dagger",
+        "Pipple",
+        "Xander"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 739667.4245769283,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

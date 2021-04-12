@@ -97,9 +97,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 38560.389869566,
+        "dps": 42135.10229347048,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -107,7 +107,7 @@
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Worthy_Rivals",
+        "Spirit_of_the_Season",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
         "Crown_of_Light",
@@ -115,8 +115,8 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c1-end), have_buff(s2_base2_00)",
-        "`s3, not buff(s3)",
+        "`dragon(c3-c3-c3-c3-c1-end), have_buff(s2_base2_00) and aff_timeleft(flashburn)>8",
+        "`s3, x=2",
         "`s4, x=2",
         "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
         "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
@@ -128,8 +128,43 @@
         "Peony"
       ],
       "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Mym",
+        "Yachiyo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45636.5678798764,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-c3-c3-c3-c1-end), have_buff(s2_base2_00)",
+        "`s3, x=2",
+        "`s4, x=2",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`fsf, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Amane"
       ]
     },
     "META": {

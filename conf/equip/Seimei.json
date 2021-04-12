@@ -154,6 +154,50 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49810.80310770617,
+        "team": 0.024663194027289732,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
+        "`s2",
+        "end",
+        "if not have_buff(shikigami)",
+        "`s1",
+        "end",
+        "`s4",
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {

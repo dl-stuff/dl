@@ -77,17 +77,17 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28536.13661302414,
-        "team": 0.0,
+        "dps": 33309.888929965964,
+        "team": 0.05876113161900011,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Me_and_My_Bestie",
         "Rivalry_of_Kings",
-        "Sweet_Surprise",
         "The_Cutie_Competition",
-        "Enter_the_Blue_Rose",
-        "The_Plaguebringer"
+        "Beautiful_Nothingness",
+        "Enter_the_Blue_Rose"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -108,8 +108,8 @@
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Gala_Mym",
+        "Sha_Wujing"
       ]
     },
     "META": {
@@ -136,6 +136,44 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48299.27004813036,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(s-c3-c3-s-end), s=1",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

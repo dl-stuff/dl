@@ -75,6 +75,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23058.430906997968,
+        "team": 0.06862169057070029,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "The_Bustling_Hut",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, xf",
+        "`s1, x=5",
+        "`s4, x=5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "The_Prince"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 23714.054686814154,
@@ -111,7 +146,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "tdps": 33399.025833118154,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -154,6 +190,28 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28256.03682739476,
+        "team": 0.1131804406185508,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
+        "Chariot_Drift",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "share": [
+        "Seimei",
+        "Summer_Celliera"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 33202.037535286996,
@@ -185,10 +243,11 @@
       ]
     },
     "META": {
+      "tdps": 90875.83368213131,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -72,41 +72,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42653.82141503485,
-        "team": 0.09341842747253112,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Lurker_in_the_Woods",
-        "Dueling_Dancers",
-        "Enter_the_Blue_Rose"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon, s",
-        "`s2",
-        "`s4, s",
-        "`s3, s",
-        "`s1, s",
-        "`fs"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Sha_Wujing"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 47533.92224716852,
-        "team": 0.07904520706230451,
+        "dps": 35605.85408605961,
+        "team": 0.09913597465950376,
         "noaff": false,
         "nihil": true
       },
@@ -117,9 +84,8 @@
         "Enter_the_Blue_Rose",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon, s",
         "`s2",
         "`s4, s",
         "`s3, s",
@@ -136,8 +102,41 @@
         "Seimei"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49457.702262433304,
+        "team": 0.0458718933524022,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Lurker_in_the_Woods",
+        "Enter_the_Blue_Rose",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s",
+        "`s2",
+        "`s4, s",
+        "`s3, s",
+        "`s1, s",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Jurota"
+      ]
+    },
     "META": {
-      "tdps": 339527.3079275579,
+      "tdps": 260059.83462868555,
       "pref": "PERSONAL"
     }
   },
@@ -176,15 +175,68 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 51948.47178665047,
-        "team": 0.07904520706230451,
+        "dps": 47709.70983789441,
+        "team": 0.11215739679732782,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Lurker_in_the_Woods",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s1, not have_buff(s1_res_down) or (s4.check() and dgauge>=500)",
+        "`s2, def_mod()!=1",
+        "`s3",
+        "`s4, s=1",
+        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`fs"
+      ],
+      "share": [
+        "Eugene",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53201.27174163193,
+        "team": 0.09673143663788127,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Lurker_in_the_Woods",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s1, not have_buff(s1_res_down) or (s4.check() and dgauge>=500)",
+        "`s2",
+        "`s3",
+        "`s4, s=1",
+        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Pipple"
+      ],
+      "share": [
+        "Eugene",
+        "Seimei"
+      ]
     },
     "META": {
+      "tdps": 355994.81957527273,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

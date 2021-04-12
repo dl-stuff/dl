@@ -94,37 +94,40 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9189.649942000244,
-        "team": 0.0,
+        "dps": 49704.533229051376,
+        "team": 0.05882349346407479,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dazzling_Duet",
-        "Honest_Repose",
-        "Jewels_of_the_Sun",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "The_Warrioresses"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
+        "`dragon(s-s-end), s=4",
+        "`s1",
+        "`s4, s",
         "`s3",
-        "`s4",
+        "`s2, s",
         "`fs"
       ],
       "coabs": [
-        "Bow",
-        "Grace",
-        "Tobias"
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
       ],
       "share": [
-        "Karl",
-        "Templar_Hope"
+        "Ranzal",
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57770.34480552577,
+        "dps": 62441.5903098475,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -133,7 +136,7 @@
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
         "The_Cutie_Competition",
-        "The_Plaguebringer",
+        "Enter_the_Blue_Rose",
         "The_Warrioresses"
       ],
       "slots.d": "Gozu_Tenno",
@@ -152,10 +155,11 @@
       ],
       "share": [
         "Ranzal",
-        "Formal_Joachim"
+        "Gala_Luca"
       ]
     },
     "META": {
+      "tdps": 216530.10269740297,
       "pref": "PERSONAL"
     }
   },
@@ -188,6 +192,47 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64595.07273866705,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "The_Warrioresses"
+      ],
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4, s",
+        "`s2",
+        "`s1",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

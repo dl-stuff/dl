@@ -78,6 +78,42 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26898.953403018404,
+        "team": 0.0058360583567668226,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Apollo",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`fs;s2;s3;s4;s1",
+        "end",
+        "`dragon(s-c3-c3-s-c1-end), s=4",
+        "`s2",
+        "`s1",
+        "`s4, cancel or dgauge>=500",
+        "`fs, x=4",
+        "`fs, cancel and charged_in(fs, s2)"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 31876.98486011063,
@@ -115,6 +151,7 @@
       ]
     },
     "META": {
+      "tdps": 852978.3550433958,
       "pref": "PERSONAL"
     }
   },
@@ -164,20 +201,25 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35977.17692658795,
+        "dps": 53040.09739390842,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
       "acl": [
-        "queue prep and not buff(s3)",
-        "`fs;s2;s3;s4;s1",
-        "end",
         "`dragon(s-c3-c3-s-c1-end), s=4",
+        "`s3, cancel",
         "`s2, naveed_bauble<5",
         "`s1",
-        "`s4, cancel or dgauge>=500",
-        "`fs, x=4",
+        "`s4, cancel or dgauge<=500",
+        "`fs, x=2",
         "`fs, cancel and charged_in(fs, s2)"
       ],
       "coabs": [
@@ -186,15 +228,15 @@
         "Wand"
       ],
       "share": [
-        "Ranzal",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Gala_Leonidas"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

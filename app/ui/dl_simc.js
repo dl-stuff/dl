@@ -964,7 +964,7 @@ function resetTest() {
     updateUrl();
     clearResults();
     populateVariantSelect($('#adv-' + $('#input-adv').val()).data('variants'));
-    loadAdvSlots(true);
+    loadAdvSlots(true, true);
 }
 function weaponSelectChange() {
     const weapon = $('#input-wep').val();

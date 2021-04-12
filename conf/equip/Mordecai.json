@@ -76,7 +76,7 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 33841.671847144666,
         "team": 0.0,
@@ -111,6 +111,41 @@
         "Ilia"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39175.13488378252,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1, charged_in(5,s2) or xf=5",
+        "`s2, buff(s1)",
+        "`s4, xf or s",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Halloween_Elisanne",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
     "META": {
       "pref": "PERSONAL"
     }
@@ -138,6 +173,45 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48103.43009580426,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), aff(flashburn)",
+        "`s1, charged_in(5,s2) or xf=5",
+        "`s2",
+        "`s3, xf>2",
+        "`s4, xf or s",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Peony",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

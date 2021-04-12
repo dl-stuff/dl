@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6448.538030936567,
-        "team": 0.8009773739224975,
+        "dps": 8220.468486318994,
+        "team": 0.8981593906940677,
         "noaff": true,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       "acl": [
         "#`s2",
         "`dragon(s-end)",
-        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s1, (x=5 or s) and not buff(s1)",
         "`s3",
         "`s4"
       ],
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39526.32777411472,
-        "team": 0.12943298632324965,
+        "dps": 40830.59401891654,
+        "team": 0.09870248268040599,
         "noaff": true,
         "nihil": false
       },
@@ -64,7 +64,7 @@
       ]
     },
     "META": {
-      "tdps": 49256.296909025354,
+      "tdps": 40790.348054682494,
       "pref": "PERSONAL"
     }
   },
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 57114.9940717914,
+      "tdps": 56336.706357710485,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -92,6 +92,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4104.770378667831,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "#`s2",
+        "`dragon(s-end)",
+        "`s1, (x=5 or s) and not buff(s1)",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 16939.435141311627,

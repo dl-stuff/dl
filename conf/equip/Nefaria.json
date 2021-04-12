@@ -76,10 +76,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 25456.18942620596,
-        "team": 0.0,
+        "dps": 42014.17869135592,
+        "team": 0.014615969239527711,
         "noaff": false,
         "nihil": true
       },
@@ -87,7 +87,7 @@
         "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Arsene",
@@ -102,16 +102,52 @@
         "`fs, x=4"
       ],
       "coabs": [
-        "Gala_Alex",
-        "Heinwald",
+        "Delphi",
+        "Joker",
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Karina"
+        "Curran",
+        "Meene"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44275.65466703936,
+        "team": 0.014604963259579159,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3) and x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Wand"
+      ],
+      "share": [
+        "Curran",
+        "Ranzal"
       ]
     },
     "META": {
+      "tdps": 205477021.24251607,
       "pref": "PERSONAL"
     }
   },
@@ -175,19 +211,40 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33302.10295998071,
+        "dps": 48775.882084367695,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, x=4",
+        "`fs, c_fs(enhanced) and x=4",
+        "`s1, fsc or (x=1 or (s=4))",
+        "`s4, x>=4",
+        "`s2",
+        "`dodge, fsc",
+        "`fs, x=4"
+      ],
       "coabs": [
         "Delphi",
         "Ieyasu",
         "Wand"
+      ],
+      "share": [
+        "Ieyasu",
+        "Ranzal"
       ]
     },
     "META": {
-      "tdps": 172764.19774971943,
+      "tdps": 420507.21407030453,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

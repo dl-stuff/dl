@@ -80,7 +80,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25284.693572743647,
+        "dps": 27453.971958104165,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -105,9 +105,9 @@
         "`s1, cancel"
       ],
       "coabs": [
-        "Catherine",
-        "Hunter_Sarisse",
-        "Xander"
+        "Blade",
+        "Gun",
+        "Staff"
       ],
       "share": [
         "Weapon",
@@ -169,7 +169,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48455.20811173815,
+        "dps": 48470.700113728024,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -180,6 +180,17 @@
         "Moonlight_Party",
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`s3, cancel",
+        "if aff(frostbite)",
+        "`dragon, not dragondrive.get()",
+        "else",
+        "`dragon, dragondrive.get()",
+        "end",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, cancel"
       ],
       "coabs": [
         "Blade",

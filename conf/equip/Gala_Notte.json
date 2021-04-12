@@ -98,6 +98,44 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46381.01484528918,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47228.980850068634,
@@ -177,6 +215,40 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51052.245454341166,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon",
+        "`s3, cancel",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

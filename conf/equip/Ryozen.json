@@ -95,33 +95,67 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 12183.35383234997,
+        "dps": 27640.336032742784,
         "team": 0.0,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "Dragon_Brethren",
         "Memory_of_a_Friend",
         "The_Bridal_Dragon",
+        "A_Small_Courage",
         "Dueling_Dancers",
-        "Such_High_Spirits",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon, buff(s3, 1)",
+        "`dragon(c3-s-c3-c3-c3-c3-c2-end)",
         "`s3",
-        "`s4, cancel",
-        "`s2, x=5",
+        "`s4",
+        "`s2, fscf",
         "`fs, x=5"
       ],
       "coabs": [
-        "Cleo",
-        "Dagger2",
+        "Blade",
+        "Bow",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29023.52325770635,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_Brethren",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-c2-end)",
+        "`s3",
+        "`s4",
+        "`s2, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
         "Peony"
       ],
       "share": [
@@ -156,6 +190,48 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34084.3987461608,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c2-end), aff(flashburn)",
+        "`s3",
+        "`s4",
+        "`s2, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
+      ],
+      "share": [
+        "Ilia",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

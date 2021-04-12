@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 62529.74233226343,
-        "team": 0.11815521974220045,
+        "dps": 75690.85666055302,
+        "team": 0.13398315460250146,
         "noaff": false,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Cupid",
+      "slots.d": "Daikokuten",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-c3-end)",
         "`s3, not buff(s3)",
@@ -71,11 +71,46 @@
       ]
     },
     "META": {
-      "tdps": 547769.469061239,
+      "tdps": 93961.38358384675,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47102.0033095602,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-end), cancel",
+        "`s3",
+        "`s2, x>2",
+        "`s4, cancel",
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57009.50635792818,
@@ -142,31 +177,37 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57339.80392798745,
+        "team": 0.03920666755289187,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Daikokuten",
+      "share": [
+        "Summer_Celliera",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62539.06942071777,
+        "dps": 63503.869741895374,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), timeleft(fs)>10",
-        "`s3",
-        "`s2, xf>2",
-        "`s4, cancel",
-        "`fs, s1.check()",
-        "`s1, timeleft(fs)>4"
-      ],
       "share": [
         "Summer_Celliera",
         "Summer_Julietta"
       ]
     },
     "META": {
+      "tdps": 157219.83526379213,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

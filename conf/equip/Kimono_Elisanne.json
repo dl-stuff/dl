@@ -72,6 +72,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4583.473014262694,
+        "team": 0.36828881148009274,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s1(3), not have_buff(ny_prayer_lv3)",
+        "`s3",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Emma",
+        "Templar_Hope"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 23946.881563426556,
@@ -140,6 +172,39 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39051.74741292644,
+        "team": 0.46164001224627393,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "coabs": [
+        "Blade",
+        "Ezelith",
+        "Serena"
+      ],
+      "share": [
+        "Seimei",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

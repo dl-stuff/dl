@@ -93,25 +93,24 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 15787.65254984407,
-        "team": 0.0,
+        "dps": 33387.28300691452,
+        "team": 0.020465240582629416,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
+        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and prep",
-        "`s2",
+        "`dragon",
+        "`s3",
         "`s4, cancel",
         "`s1, bleed_stack<3",
         "`fs, x=5"
@@ -122,11 +121,44 @@
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Ranzal",
+        "Curran"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39120.13092386516,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s1, bleed_stack<3",
+        "`s4",
+        "`s3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Ranzal"
       ]
     },
     "META": {
+      "tdps": 280126.0944773155,
       "pref": "PERSONAL"
     }
   },
@@ -173,19 +205,48 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39386.426036013654,
+        "team": 0.02046626356415969,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "`s1, bleed_stack<3",
+        "`s2",
+        "`s4",
+        "`s3",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Maribelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 16033.487723030705,
+        "dps": 41901.9810896102,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "`s1, bleed_stack<3",
+        "`s2",
+        "`s4",
+        "`s3",
+        "`fs, x=5"
+      ]
     },
     "META": {
+      "tdps": 122912.27686531698,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

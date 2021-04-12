@@ -67,38 +67,70 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 9329.99298932783,
-        "team": 0.0,
+        "dps": 24920.095522131247,
+        "team": 0.06247884072635189,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Entwined_Flames",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-c3-c3-end)",
+        "`s2, x=5",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29858.57600984018,
+        "team": 0.0624449227351736,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
         "The_Bridal_Dragon",
+        "Valiant_Crown",
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-c3-c3-end), buff(s3)",
-        "`s3, not buff(s3) and x=5",
+        "`dragon(c2-s-c3-c3-c3-c3-c3-end)",
         "`s4",
-        "`s2, x=5"
+        "`s3",
+        "`s2, bleed_stack<3"
       ],
       "coabs": [
-        "Cleo",
-        "Forte",
+        "Delphi",
+        "Joker",
         "Wand"
       ],
       "share": [
-        "Weapon",
+        "Formal_Joachim",
         "Gala_Mym"
       ]
     },
     "META": {
+      "tdps": 145600618.31935412,
       "pref": "PERSONAL"
     }
   },
@@ -155,8 +187,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 11662.491236659795,
-        "team": 0.0,
+        "dps": 30419.884810133986,
+        "team": 0.0624449227351736,
         "noaff": false,
         "nihil": true
       }
@@ -165,7 +197,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

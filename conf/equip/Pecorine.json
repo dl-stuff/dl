@@ -112,9 +112,9 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36377.1090887995,
+        "dps": 52837.448123177055,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
@@ -126,7 +126,7 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Cupid",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -142,13 +142,13 @@
         "end"
       ],
       "coabs": [
-        "Grace",
+        "Blade",
         "Mitsuhide",
         "Peony"
       ],
       "share": [
-        "Weapon",
-        "Mikoto"
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
     "PERSONAL": {
@@ -271,14 +271,54 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44302.83046811299,
+        "dps": 44849.491688865135,
         "team": 0.0,
         "noaff": true,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "coabs": [
+        "Grace",
+        "Mitsuhide",
+        "Peony"
+      ],
       "share": [
         "Weapon",
         "Mikoto"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42359.95707799481,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ]
     },
     "META": {

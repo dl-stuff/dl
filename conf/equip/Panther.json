@@ -73,32 +73,38 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8038.140061529438,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 17008.954154653864,
+        "team": 0.02497687418970906,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Castle_Cheer_Corps",
-        "Dazzling_Duet",
-        "Jewels_of_the_Sun",
-        "Amaterasu_Oblation",
-        "Seaside_Memory"
+        "Dragon_and_Tamer",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Mars",
       "acl": [
-        "`s3",
-        "`s4",
-        "`fs"
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s2, x=5 and not dragondrive.get()",
+        "`s1, x=5 or s",
+        "`s2",
+        "`dodge, x=5",
+        "`dragon, not dragondrive.get() and cancel",
+        "`dragon, dragondrive.get() and s2.check() and not s1.check()"
       ],
       "coabs": [
         "Blade",
-        "Bow",
-        "Wand"
+        "Gala_Laxi",
+        "Kimono_Elisanne"
       ],
       "share": [
-        "Patia",
-        "Templar_Hope"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "PERSONAL": {
@@ -135,6 +141,7 @@
       ]
     },
     "META": {
+      "tdps": 863480.9405831782,
       "pref": "PERSONAL"
     }
   },
@@ -159,6 +166,43 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45891.18087912306,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`s4",
+        "`s3",
+        "`s2, x=5 and not dragondrive.get()",
+        "`s1, x=5 or s",
+        "`dodge, x=5",
+        "`dragon, not dragondrive.get() and cancel",
+        "`dragon, dragondrive.get() and s2.check() and not s1.check()"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

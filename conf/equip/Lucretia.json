@@ -83,7 +83,7 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65721.0877425272,
+        "dps": 63788.11457362933,
         "team": 0.14397930022040994,
         "noaff": false,
         "nihil": false
@@ -105,7 +105,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 14994.015939178555,
+        "dps": 29917.990286438708,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -119,21 +119,17 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Thor",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "if energy()>3 and not s2.check()",
-        "`dragon(c6-s-end), dragonform.shift_count=0",
-        "`dragon(c8-s), dragonform.shift_count=1 and cancel",
-        "end",
-        "`s3, not buff(s3)",
-        "`s2, energy()<4",
-        "`s4, energy()<5",
-        "`s1, energy()=5 or energy()<2",
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1",
         "`fs, x=5"
       ],
       "coabs": [
-        "Axe2",
         "Blade",
+        "Dagger",
         "Peony"
       ],
       "share": [
@@ -167,6 +163,36 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39494.40287945236,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

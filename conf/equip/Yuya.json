@@ -129,6 +129,47 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24006.596795648893,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Amaterasu_Oblation"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-end), s=1",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -166,6 +207,45 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43709.551659501936,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Beautiful_Nothingness"
+      ],
+      "acl": [
+        "`dragon(s-s-end), s=1",
+        "`s3",
+        "`s4",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

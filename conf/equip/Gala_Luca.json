@@ -282,48 +282,27 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
+  "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50149.52669915033,
+        "dps": 103799.86235791293,
         "team": 0.0,
         "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "Snipers_Allure",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end)",
-        "`s1",
-        "`s3",
-        "`s4, xf or fsc",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
-        "`fsf, xf=5"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Ilia"
-      ]
+        "nihil": false
+      }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "PERSONAL": {
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 49825.253116339714,
+        "dps": 50817.084071920704,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -333,17 +312,17 @@
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "Chariot_Drift",
+        "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), xf and aff(flashburn)",
         "`s1",
-        "`s4, xf or fsc",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`s4, xf",
         "`s3",
-        "`fsf, xf=5"
+        "`fsf, xf=5",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1"
       ],
       "coabs": [
         "Dagger",
@@ -351,15 +330,49 @@
         "Wand"
       ],
       "share": [
-        "Summer_Celliera",
-        "Ilia"
+        "Summer_Julietta",
+        "Ryszarda"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51319.76939861545,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), xf and aff(flashburn)",
+        "`s1",
+        "`s4",
+        "`s3",
+        "`fsf, xf=5",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1"
+      ],
+      "coabs": [
+        "Dagger",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Ryszarda"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

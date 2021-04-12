@@ -74,29 +74,28 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 10906.270312395225,
-        "team": 0.0,
+        "dps": 14090.716864366459,
+        "team": 0.041617638776097414,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Sweet_Surprise",
+        "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
         "Beautiful_Nothingness",
         "Beautys_Secret"
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-c3-end), s=2 and buff(s3)",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`fs, hits=0 or x=5",
         "`s3, not buff(s3) and fsc",
         "`s4",
-        "`s2",
-        "`s1, buff(s3)",
         "`fs3",
-        "`fs, hits=0 or x=5"
+        "`s2"
       ],
       "coabs": [
         "Cleo",
@@ -108,7 +107,41 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18528.66394044134,
+        "team": 0.04159356366776697,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Beautiful_Nothingness"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`fs, x=5",
+        "`s3, not buff(s3) and fsc",
+        "`s4",
+        "`fs3",
+        "`s2"
+      ],
+      "coabs": [
+        "Dagger",
+        "Grace",
+        "Wand"
+      ],
+      "share": [
+        "Hunter_Sarisse",
+        "Formal_Joachim"
+      ]
+    },
     "META": {
+      "tdps": 184337574.52556595,
       "pref": "PERSONAL"
     }
   },
@@ -159,17 +192,33 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 11222.424251784685,
-        "team": 0.0,
+        "dps": 25145.84529144263,
+        "team": 0.06248603722570151,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "coabs": [
+        "Dagger",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Summer_Julietta"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

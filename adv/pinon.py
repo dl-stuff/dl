@@ -18,6 +18,7 @@ class Pinon(SigilAdv):
 
 
 class Pinon_UNLOCKED(Pinon):
+    SAVE_VARIANT = False
     def prerun(self):
         super().prerun()
         self.a_update_sigil(-300)

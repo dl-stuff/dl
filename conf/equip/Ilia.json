@@ -159,7 +159,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44503.98346697467,
+        "dps": 46914.78820709443,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -169,13 +169,13 @@
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "Snipers_Allure",
+        "Enter_the_Blue_Rose",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-end)",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-end)",
         "if (xf=1)",
         "`s1",
         "`s3",
@@ -194,7 +194,7 @@
       ]
     },
     "META": {
-      "tdps": 147509.57321282208,
+      "tdps": 188539.15096336772,
       "pref": "PERSONAL"
     }
   },
@@ -233,6 +233,45 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51787.04503376156,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-end)",
+        "if (xf=1)",
+        "`s1",
+        "`s3",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -152,6 +152,56 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42862.590346229095,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
+        "`s3, cancel",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
+        "`s1",
+        "`s4, xf>2",
+        "`s2, xf>3",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Leonidas"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {

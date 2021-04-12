@@ -100,15 +100,15 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16146.805014526544,
+        "dps": 19199.371479129775,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
+        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
@@ -124,7 +124,7 @@
         "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
-        "Axe2",
+        "Bow",
         "Delphi",
         "Wand"
       ],
@@ -213,30 +213,34 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45951.933929166604,
+        "dps": 53605.16864989442,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
       "acl": [
-        "`dragon(s), duration-now<12",
+        "`dragon(c5-s-c5-end), xf and aff(shadowblight)",
         "`s3",
-        "`s1, (bleed_stack<3 or (bleed_stack=3 and (xf>1 or fscf)))",
-        "`s2, xf=5",
+        "`s1",
+        "`s2",
         "`s4",
-        "`fs, xf=2 and charged_in(fs, s1)",
-        "`fs, xf=5"
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Delphi",
+        "Joker",
+        "Wand"
       ],
       "share": [
-        "Eugene",
-        "Ilia"
+        "Summer_Julietta",
+        "Gala_Chelle"
       ]
     },
     "META": {

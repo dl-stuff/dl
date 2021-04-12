@@ -50,7 +50,7 @@
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
         "`s3, not buff(s3) and x=5",
-        "`s1",
+        "`s1, fs",
         "`s4",
         "`s2, x=5"
       ],
@@ -70,27 +70,57 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 49214.699297117346,
-        "team": 0.008746054137503647,
+        "dps": 31832.592994897204,
+        "team": 0.013144099274425884,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
+        "Moonlight_Party",
         "Twinfold_Bonds",
-        "Dueling_Dancers",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Siren",
+      "acl": [
+        "`s3",
+        "`s1",
+        "`s2"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50391.86029228666,
+        "team": 0.010211273495093683,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3) and x=5",
+        "`s3",
         "`s1",
         "`s4",
-        "`s2, x=5"
+        "`s2"
       ],
       "coabs": [
         "Blade",
@@ -103,6 +133,7 @@
       ]
     },
     "META": {
+      "tdps": 6328117.895095483,
       "pref": "PERSONAL"
     }
   },
@@ -146,13 +177,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
         "`s3, x=5",
@@ -165,7 +189,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
