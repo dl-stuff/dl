@@ -805,7 +805,8 @@ class Adv(object):
         self.nihilism = bool(self.conf["nihilism"])
         if self.nihilism:
             self.condition("Curse of Nihility")
-        self.afflics.set_resist((self.conf.c.ele, self.nihilism))
+            self.afflics.set_resist((self.conf.c.ele, self.nihilism))
+        self.afflic_condition()
 
         # init actions
         for xn, xconf in self.conf.find(r"^x\d+(_[A-Za-z0-9]+)?$"):
@@ -1016,9 +1017,9 @@ class Adv(object):
         return float_ceil(self.base_hp, self.max_hp_mod())
 
     def afflic_condition(self):
-        if "afflict_res" in self.conf and not self.berserk_mode:
+        if "afflict_res" in self.conf:
             res_conf = self.conf.afflict_res
-            if all((value >= 300 for value in res_conf.values())):
+            if self.berserk_mode or all((value >= 300 for value in res_conf.values())):
                 self.condition("999 all affliction res")
                 self.afflics.set_resist("immune")
             else:
@@ -1161,7 +1162,6 @@ class Adv(object):
             self.berserk_mode = False
             self.afflics.set_resist((self.conf.c.ele, self.nihilism))
         self.sim_afflict = set()
-        self.afflic_condition()
         self.sim_affliction()
 
         self.default_slot()
