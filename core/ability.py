@@ -583,14 +583,14 @@ class Dragon_Buff(Ability):
     def __init__(self, name, *args):
         self.buff_args = name.split("_")[1:]
         self.dc_values = args
+        try:
+            self.mod_order = self.buff_args[1]
+        except IndexError:
+            self.mod_order = None
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
-        try:
-            mod_order = self.buff_args[1]
-        except IndexError:
-            mod_order = None
-        if adv.nihilism and mod_order != "passive":
+        if adv.nihilism and self.mod_order != "passive":
             return
 
         self.dc_level = 0
@@ -598,7 +598,7 @@ class Dragon_Buff(Ability):
         def l_dc_buff(t):
             if self.dc_level < len(self.dc_values):
                 buff = adv.Buff(self.name, self.dc_values[self.dc_level], -1, *self.buff_args)
-                if buff.mod_order == mod_order:
+                if buff.mod_order == "passive":
                     buff.hidden = True
                 buff.on()
                 self.dc_level += 1
@@ -607,6 +607,28 @@ class Dragon_Buff(Ability):
 
 
 ability_dict["dshift"] = Dragon_Buff
+
+
+class Dragon_AltSkill(Ability):
+    def __init__(self, name, shift_req, *args):
+        self.shift_req = shift_req
+        self.buff_args = args
+        super().__init__(name)
+
+    def oninit(self, adv, afrom=None):
+        if adv.nihilism:
+            return
+
+        from core.modifier import SAltBuff
+
+        def l_dc_buff(t):
+            if adv.dragonform.shift_count == self.shift_req:
+                SAltBuff(self.name, *self.buff_args).on()
+
+        adv.Event("dragon").listener(l_dc_buff)
+
+
+ability_dict["dsalt"] = Dragon_AltSkill
 
 
 class Resilient_Offense(BuffingAbility):

@@ -57,6 +57,8 @@ class Skill(object):
             self.act_base = act
         if isinstance(group, int):
             self.enable_phase_up = phase_up
+        if act.conf['sp_regen'] and not self.autocharge_sp:
+            self.autocharge_init(act.conf['sp_regen']).on()
 
     def set_enabled(self, enabled):
         for ac in self.act_dict.values():

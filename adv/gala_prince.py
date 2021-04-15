@@ -3,7 +3,6 @@ from core.advbase import *
 
 class Gala_Prince(Adv):
     def prerun(self):
-        self.s2.autocharge_init(32000).on()
         if self.condition("draconic charge"):
             self.dragonform.dragon_gauge += 500
         Modifier("dragonlight_dt", "dt", "hecc", 1 / 0.7 - 1).on()
@@ -60,11 +59,10 @@ class Gala_Prince_70MC(Adv):
                     "iv": 2.6,
                 },
             ],
-        }
+        },
     }
 
     def prerun(self):
-        self.s2.autocharge_init(32000).on()
         if self.condition("draconic charge"):
             self.dragonform.dragon_gauge += 500
         Modifier("dragonlight_dt", "dt", "hecc", 1 / 0.6 - 1).on()

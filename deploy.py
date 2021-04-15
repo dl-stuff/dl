@@ -47,7 +47,7 @@ def sim_adv(name, variants, sanity_test=False):
         outpath = None
         mass = 1000 if is_mass and not sanity_test else None
         if sanity_test:
-            duration = 90
+            duration = 10
             outpath = os.devnull
         else:
             if variant is None:

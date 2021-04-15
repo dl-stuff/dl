@@ -1,12 +1,7 @@
 from core.advbase import *
 
 
-class Gala_Elisanne(Adv):
-    def prerun(self):
-        self.s2.autocharge_init(960).on()
-
-
-class Gala_Elisanne_70MC(Gala_Elisanne):
+class Gala_Elisanne_70MC(Adv):
     SAVE_VARIANT = False
     comment = "70MC"
     conf = {
@@ -45,4 +40,4 @@ class Gala_Elisanne_70MC(Gala_Elisanne):
     }
 
 
-variants = {None: Gala_Elisanne, "70MC": Gala_Elisanne_70MC}
+variants = {None: Adv, "70MC": Gala_Elisanne_70MC}
