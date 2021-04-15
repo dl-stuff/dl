@@ -1430,13 +1430,13 @@ class Adv(object):
     def zonecount(self):
         return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
 
-    def add_one_att_amp(self):
+    def add_one_att_amp(self, max=2):
         self.hitattr_make(
             "amp_proc",
             "amp",
             "proc",
             0,
-            {"amp": [[2, 3, 2, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]]},
+            {"amp": [[2, 3, max, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]]},
         )
 
     @allow_acl

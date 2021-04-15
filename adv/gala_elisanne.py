@@ -42,7 +42,7 @@ class Gala_Elisanne_70MC(Gala_Elisanne):
     def s2_proc(self, e):
         if not self.s2_cd:
             # y tho
-            self.add_one_att_amp()
+            self.add_one_att_amp(max=3)
             self.s2_cd = True
             self.s2_timer.on()
 

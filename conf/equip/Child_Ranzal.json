@@ -2,17 +2,17 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42196.81224507023,
-        "team": 0.09346060698455082,
+        "dps": 51247.922025738764,
+        "team": 0.09334136735630608,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
         "Summer_Paladyns",
-        "The_Red_Impulse",
-        "A_Small_Courage",
-        "Dueling_Dancers"
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -23,7 +23,7 @@
         "`dragon"
       ],
       "coabs": [
-        "Axe2",
+        "Halloween_Mym",
         "Nobunaga",
         "Wand"
       ],
@@ -65,8 +65,68 @@
       ]
     },
     "META": {
-      "tdps": 75906893.65527876,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26363.978846332095,
+        "team": 0.06654695184963046,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, s=1",
+        "`s4",
+        "`dragon"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Nobunaga",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58860.80509192757,
+        "team": 0.09334136735630608,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Summer_Paladyns",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "The_Plaguebringer"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

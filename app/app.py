@@ -147,6 +147,8 @@ def simc_adv_test():
         conf["classbane"] = params["classbane"]
     if "dumb" in params:
         conf["dumb"] = params["dumb"]
+    if "fleet" in params:
+        conf["fleet"] = min(3, abs(params["fleet"]))
     if coab is not None:
         conf["coabs"] = coab
     if share is not None:

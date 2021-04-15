@@ -105,7 +105,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44987.56156431878,
+        "dps": 45578.6257931062,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -119,9 +119,11 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon(c1-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`dragon(AB10-end), dragonform.shift_count>=2",
         "`s3",
-        "`s1",
+        "`s1, cancel",
         "`s2, fsc",
         "`s4, fsc",
         "`fs, x=5"
@@ -137,8 +139,8 @@
       ]
     },
     "META": {
-      "tdps": 15717.888386494997,
-      "pref": "TEAMBUFF"
+      "tdps": 66304.43254057628,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -223,7 +225,7 @@
       "acl": [
         "`dragon(c1-s-end), dragonform.shift_count=0",
         "`dragon(c3-s-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-end), dragonform.shift_count>=2",
+        "`dragon(AB10-end), dragonform.shift_count>=2",
         "`s3",
         "`s1, cancel",
         "`s2, fsc",

@@ -88,13 +88,20 @@ function getIcon(qual, css) {
 function slotsTextFmt(result) {
     return `[${PIC_INDEX[result.drg].name}][${PIC_INDEX[result.wep].name}][${result.wps.map((wp) => PIC_INDEX[wp].name).join('+')}][${result.coabs.map((coab) => PIC_INDEX[coab].name).join('|')}][${result.share.map((ss, i) => `S${i + 3}:${PIC_INDEX[ss].name}`).join('|')}]`;
 }
+function advNameVariant(result){
+    if (result.variant) {
+        return `${PIC_INDEX[result.adv].name} ${result.variant}`;
+    } else {
+        return PIC_INDEX[result.adv].name;
+    }
+}
 function makeVisualResultItem(result) {
     const visualResult = $('<div></div>').attr({ class: 'test-result-item' });
     const iconRow = $('<h4 class="test-result-slot-grid"></h4>');
     const charaDiv = $('<div></div>');
     charaDiv.append(getIcon(result.adv, "character"));
     iconRow.append(charaDiv);
-    iconRow.append(`<div>${PIC_INDEX[result.adv].name}</div > `);
+    iconRow.append(`<div>${advNameVariant(result)}</div > `);
     const iconDiv = $('<div></div>');
     iconDiv.append(getIcon(result.drg, "dragon"));
     iconDiv.append(getIcon(result.wep, "weapon"));
@@ -175,7 +182,7 @@ function makeVisualResultItem(result) {
     return visualResult
 }
 function makeTextResultItem(result) {
-    let copyText = `**${PIC_INDEX[result.adv].name} ${result.real}s**\n${slotsTextFmt(result)}`;
+    let copyText = `**${advNameVariant(result)} ${result.real}s**\n${slotsTextFmt(result)}`;
     copyText += '```';
     copyText += `DPS: ${result.dps} `;
     if (result.team > 0) {
@@ -263,6 +270,9 @@ function serConf(no_conf) {
     }
     if (!isNaN(parseInt($('#input-hp').val()))) {
         requestJson['hp'] = parseInt($('#input-hp').val());
+    }
+    if (!isNaN(parseInt($('#input-fleet').val()))) {
+        requestJson['fleet'] = parseInt($('#input-fleet').val());
     }
     if ($('#input-edit-acl').prop('checked')) {
         requestJson['acl'] = $('#input-acl').val();
