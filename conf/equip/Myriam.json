@@ -2,14 +2,14 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3262.7014134395276,
-        "team": 0.6498307479621851,
+        "dps": 3270.1852538845314,
+        "team": 0.6669055263350905,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "A_Dogs_Day",
-        "Candy_Couriers",
+        "Astounding_Trick",
         "Sisters_Day_Out",
         "From_Whence_He_Comes",
         "Rogues_Banquet"
@@ -64,7 +64,7 @@
       ]
     },
     "META": {
-      "tdps": 116668.99837312622,
+      "tdps": 112438.44831727528,
       "pref": "PERSONAL"
     }
   },
@@ -84,19 +84,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53714.554215458345,
-        "team": 0.1333305185779412,
+        "dps": 53249.66230099844,
+        "team": 0.19967740048584914,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
         "Blade",
-        "Dagger",
+        "Eleonora",
         "Mona"
       ]
     },
     "META": {
-      "tdps": 105001.6543504354,
+      "tdps": 120747.11161129693,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -107,39 +107,39 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6137.482342253202,
-        "team": 0.31599138882571576,
-        "noaff": true,
+        "dps": 15964.668558755491,
+        "team": 0.3744130745587636,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Dogs_Day",
         "Candy_Couriers",
-        "Sisters_Day_Out",
-        "From_Whence_He_Comes",
-        "Rogues_Banquet"
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Ariel",
       "acl": [
+        "`s3, not buff(s3)",
         "`s1",
-        "`s3",
-        "`s4, s=1",
-        "`fs, fs_prep_c"
+        "`s2",
+        "`s4"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Tobias"
+        "Dagger2",
+        "Joker",
+        "Mona"
       ],
       "share": [
-        "Lapis",
-        "Summer_Cleo"
+        "Sha_Wujing",
+        "Yuya"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33292.37359169352,
-        "team": 0.09996553934571187,
+        "dps": 40275.25858245115,
+        "team": 0.13330288103073343,
         "noaff": false,
         "nihil": true
       },
@@ -159,58 +159,18 @@
         "`s4"
       ],
       "coabs": [
-        "Dagger2",
-        "Joker",
+        "Blade",
+        "Eleonora",
         "Mona"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 125702.04591165775,
+      "tdps": 100827.71560991443,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 6137.482342253202,
-        "team": 0.31599138882571576,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Candy_Couriers",
-        "Sisters_Day_Out",
-        "From_Whence_He_Comes",
-        "Rogues_Banquet"
-      ],
-      "slots.d": "Ariel",
-      "acl": [
-        "`s1",
-        "`s3",
-        "`s4, s=1",
-        "`fs, fs_prep_c"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Tobias"
-      ],
-      "share": [
-        "Lapis",
-        "Summer_Cleo"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -231,19 +191,48 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19955.83569844437,
+        "team": 0.3744130745587636,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36414.26702557519,
-        "team": 0.09996553934571187,
+        "dps": 42194.214023886634,
+        "team": 0.13330288103073343,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42194.214023886634,
+        "team": 0.13330288103073343,
+        "noaff": false,
+        "nihil": true
+      },
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -262,7 +251,7 @@
       ]
     },
     "META": {
-      "tdps": 72268.06400971758,
+      "tdps": 69611.59170794956,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -271,10 +260,35 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29140.207196164265,
+        "team": 0.13330288103073343,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26179.90051950611,
-        "team": 0.09996553934571187,
+        "dps": 29140.207196164265,
+        "team": 0.13330288103073343,
         "noaff": false,
         "nihil": true
       }

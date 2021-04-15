@@ -74,18 +74,50 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 32624.487763121233,
-        "team": 0.04341504475952409,
+        "dps": 23053.338069203743,
+        "team": 0.049743611107103056,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3) and x=5",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Joe",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Alain"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44800.571589560364,
+        "team": 0.04144306451815703,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
@@ -99,16 +131,17 @@
         "`fs, x=5"
       ],
       "coabs": [
-        "Gala_Sarisse",
+        "Joe",
         "Kimono_Elisanne",
         "Marth"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Gala_Leonidas",
+        "Alain"
       ]
     },
     "META": {
+      "tdps": 2619976.0807701237,
       "pref": "PERSONAL"
     }
   },
@@ -144,13 +177,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Candy_Couriers",
-        "Me_and_My_Bestie",
-        "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "To_the_Extreme"
-      ],
       "acl": [
         "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
         "`s3, cancel",
@@ -174,11 +200,23 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 60605.2979945155,
+        "team": 0.04174305567528844,
+        "noaff": false,
+        "nihil": false
+      },
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 60605.2979945155,
@@ -188,7 +226,7 @@
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -215,13 +253,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Candy_Couriers",
-        "Me_and_My_Bestie",
-        "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "To_the_Extreme"
-      ],
       "acl": [
         "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
         "`s3, cancel",
@@ -246,7 +277,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

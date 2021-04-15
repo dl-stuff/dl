@@ -132,7 +132,7 @@ def run_once_and_mass(name, module, conf, duration, mass, equip_conditions, opt_
     adv, real_d = run_once(name, module, conf, duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     if mass:
         adv.logs, real_d = run_mass(mass, adv.logs, real_d, name, module, conf, duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
-    # new_build = adv.equip_manager.accept_new_entry(adv, real_d)
+    adv.equip_manager.accept_new_entry(adv, real_d)
     result_by_cond[str(equip_conditions)] = report(adv, real_d)
     return adv, real_d
 
@@ -161,6 +161,7 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
         report(adv, real_d, output)
         return
     if verbose == -5 or verbose == -25:
+        adv.equip_manager.accept_new_entry(adv, real_d)
         result_by_cond = {str(DEFAULT_CONDITONS): report(adv, real_d)}
         for sit in SituationCondition:
             aff = AfflictionCondition.SELF

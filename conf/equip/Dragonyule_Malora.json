@@ -83,32 +83,10 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s)",
-        "`s3, not buff(s3)",
-        "`s1, cancel",
-        "`s2, def_mod()!=1",
-        "`s4, cancel",
-        "`fsf, x=4"
-      ],
       "coabs": [
         "Blade",
         "Halloween_Elisanne",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Karina"
       ]
     },
     "META": {
@@ -121,6 +99,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28547.803887205177,
+        "team": 0.18437414942691552,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon()",
+        "`s4",
+        "`s1",
+        "`s3",
+        "`s2, def_mod()!=1",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Eirene",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 29703.888522963185,
@@ -157,6 +170,7 @@
       ]
     },
     "META": {
+      "tdps": 41612.3153159551,
       "pref": "PERSONAL"
     }
   },
@@ -213,6 +227,19 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33718.843989063054,
+        "team": 0.18437414942691552,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Bow",
+        "Peony",
+        "Wand"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 39682.18179826705,
@@ -239,10 +266,11 @@
       ]
     },
     "META": {
+      "tdps": 112936.11886050929,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -314,28 +342,7 @@
         "team": 0.15659187807334968,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon()",
-        "`s4",
-        "`s1",
-        "`s3",
-        "`s2, def_mod()!=1",
-        "`fsf, x=4"
-      ],
-      "share": [
-        "Eirene",
-        "Sha_Wujing"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {
@@ -363,11 +370,10 @@
       ]
     },
     "META": {
-      "tdps": 186965.7582534973,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

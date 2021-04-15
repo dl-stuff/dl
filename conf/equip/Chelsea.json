@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72664.08165363812,
+        "dps": 82164.21821622574,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -57,7 +57,7 @@
       "coabs": [
         "Blade",
         "Halloween_Mym",
-        "Kimono_Elisanne"
+        "Yukata_Cassandra"
       ],
       "share": [
         "Weapon",
@@ -65,14 +65,14 @@
       ]
     },
     "META": {
-      "tdps": 369927.75396585,
+      "tdps": 451461.65612919163,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 10293.58645579094,
+        "dps": 14940.509245172365,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -84,12 +84,18 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gozu_Tenno",
       "acl": [
+        "`dragon",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
-        "`s1"
+        "`s1",
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
       ],
       "coabs": [
         "Blade",

@@ -173,6 +173,17 @@
         "A_Passion_for_Produce",
         "The_Plaguebringer"
       ],
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
       "coabs": [
         "Ieyasu",
         "Joker",
@@ -192,6 +203,26 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 68593.79591042703,
+        "team": 0.07496947515754274,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "One_with_the_Shadows"
+      ],
+      "slots.d": "Arsene",
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 73811.39848078253,
@@ -212,6 +243,7 @@
       ]
     },
     "META": {
+      "tdps": 69596.3598436711,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

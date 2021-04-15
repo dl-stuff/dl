@@ -79,30 +79,10 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "#`s1, not aff(shadowblight)",
-        "`fs, fs_prep_c and x=1",
-        "`dragon(s-end)",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4"
-      ],
       "coabs": [
         "Forte",
         "Ieyasu",
         "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
       ]
     },
     "META": {
@@ -176,39 +156,29 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5699.423629881729,
-        "team": 0.3388800230572216,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41572.083085381586,
+        "dps": 45354.92506682097,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon(c5-s-end)",
+        "`s3",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`s4, xf"
+      ],
       "coabs": [
-        "Dagger",
         "Ieyasu",
+        "Joker",
         "Wand"
       ],
       "share": [
         "Summer_Celliera",
-        "Veronica"
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -248,23 +218,6 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5191.141599082305,
-        "team": 0.3388800230572216,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

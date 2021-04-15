@@ -83,33 +83,10 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Wily_Warriors_Flash_and_Heat",
-        "Blessed_Days",
-        "Luck_of_the_Draw"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(c3-s-end), cancel",
-        "queue s1.charged>=s1.sp and c_fs(galacleo)",
-        "`fs;s1, fsc",
-        "end",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, fsc",
-        "`fs, x=3 and (not c_fs(galacleo) and fs_prep_c)"
-      ],
       "coabs": [
         "Bow",
         "Dragonyule_Victor",
         "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
       ]
     },
     "META": {
@@ -204,40 +181,20 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 16106.420511248241,
-        "team": 0.9422843963506065,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35635.83980690485,
-        "team": 0.08665216928407796,
+        "dps": 38629.82984725571,
+        "team": 0.08662568332665307,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c5-s-c5-end)",
-        "`s3, cancel",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
+        "`dragon(c5-s-c5-c4-end), xf",
+        "`s1, xf",
+        "`s2, xf",
+        "`s3, xf",
+        "`s4"
       ],
       "coabs": [
         "Dagger",
@@ -245,7 +202,7 @@
         "Joker"
       ],
       "share": [
-        "Summer_Celliera",
+        "Summer_Julietta",
         "Gala_Chelle"
       ]
     },
@@ -286,23 +243,6 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 14930.40287941487,
-        "team": 0.9422843963506065,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

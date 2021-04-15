@@ -69,6 +69,49 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34354.82264576531,
+        "team": 0.024962383075504208,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Halloween_Maritimus",
+      "acl": [
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=0 and x=4",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=1 and s=2",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count>=2 and x>1",
+        "`s3, not buff(s3)",
+        "`s2, x=5 or energy()<5",
+        "`s4, not energy()=5 and x>3"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 1496304.6853802474,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -135,7 +178,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41000.62123365582,
+        "dps": 41115.182895192534,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -148,13 +191,13 @@
         "His_Clever_Brother"
       ],
       "acl": [
-        "`dragon(c3-c3-c3-s-c2-end)",
+        "`dragon(c3-c3-c3-s-c3-end)",
         "`s3, x>3",
         "`s4"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Joker",
         "Tiki"
       ]
     },

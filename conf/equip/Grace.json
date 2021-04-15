@@ -146,68 +146,35 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 2003.8747572339842,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(c3-s-end), fscf",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, x=4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "The_Prince",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 5203.63455533685,
+        "dps": 15041.577628904297,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Synthetic_Dragon",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Springtime_Breeze",
+        "The_Lurker_in_the_Woods",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Ramiel",
+      "slots.d": "High_Chthonius",
       "acl": [
-        "`dragon(s), buff(s3) and buffstack(ro_att)=3",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s)",
+        "`s3",
         "`s4",
-        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
-        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
+        "`fs",
         "`dodge, fsc"
       ],
       "coabs": [
-        "Audric",
-        "Dagger2",
-        "Ieyasu"
+        "Delphi",
+        "Ieyasu",
+        "Wand"
       ],
       "share": [
-        "Weapon",
+        "Formal_Joachim",
         "Gala_Mym"
       ]
     },
@@ -284,17 +251,39 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 6504.543194171061,
+        "dps": 18221.606551091936,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Summer_Julietta"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -186,7 +186,120 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34521.07395318571,
+        "team": 0.029739789857611817,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "The_Warrioresses",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(c1-s-c3-c3-s-c2-c3-end), s=1",
+        "`fs, buff(s1) and buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, fsc or not buff(s1)",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Student_Maribelle"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38273.193118963,
+        "team": 0.014609559763678117,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Summer_Paladyns",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(c1-s-c3-c3-s-c2-c3-end), s=1",
+        "`fs, buff(s1) and buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, fsc or not buff(s1)",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Gala_Leonidas",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 247988.24224633953,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47422.07739199375,
+        "team": 0.02040945048875337,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "The_Warrioresses",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(c1-s-c3-c3-s-c2-c3-end), s=1",
+        "`fs, buff(s1) and buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, fsc or not buff(s1)",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47422.07739199375,
@@ -196,7 +309,7 @@
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

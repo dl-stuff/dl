@@ -98,44 +98,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 46381.01484528918,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "if metamorphosis.get()",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`dragon",
-        "`s3",
-        "`s1",
-        "`s2",
-        "`s4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47228.980850068634,
@@ -181,28 +143,15 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81161.05724276748,
+        "dps": 81351.66786863813,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "acl": [
-        "if metamorphosis.get()",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`dragon, cancel",
-        "`s3, not buff (s3)",
-        "`s4",
-        "`s1",
-        "`s2",
-        "end"
-      ],
       "coabs": [
         "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -210,7 +159,7 @@
       ]
     },
     "META": {
-      "tdps": 390823.80634028587,
+      "tdps": 392845.16219293233,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -219,17 +168,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 50941.39997533802,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51052.245454341166,
+        "dps": 51227.78885698425,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -238,13 +179,13 @@
         "if metamorphosis.get()",
         "`s1, cancel",
         "`s2, cancel",
-        "`dodge, x=3",
+        "`dodge, x=2",
         "else",
         "`dragon",
-        "`s3, cancel",
+        "`s4",
         "`s1",
         "`s2",
-        "`s4",
+        "`s3, cancel",
         "end"
       ],
       "share": [
@@ -256,46 +197,25 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52883.85166883977,
+        "dps": 54437.27252799586,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "acl": [
-        "if metamorphosis.get()",
-        "`s1",
-        "`s2",
-        "`dodge, x=3",
-        "else",
-        "`dragon, xf=2",
-        "`s3, not buff (s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
+      "share": [
+        "Weapon",
+        "Gala_Luca"
       ]
     },
     "META": {
-      "tdps": 90954.40125196632,
+      "tdps": 107427.86033083737,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -303,13 +223,13 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 26573.548254432844,
-        "team": 0.0,
+        "dps": 44306.99701673595,
+        "team": 0.0942984015511663,
         "noaff": true,
-        "nihil": true
+        "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
@@ -329,13 +249,30 @@
         "Dragonyule_Lily"
       ]
     },
-    "PERSONAL": {
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 34221.59405376613,
+        "dps": 34599.6893206616,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "if metamorphosis.get()",
         "`s1, cancel",
@@ -351,7 +288,39 @@
       ],
       "share": [
         "Summer_Celliera",
-        "Formal_Joachim"
+        "Yukata_Cassandra"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35718.01746769928,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {

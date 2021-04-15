@@ -71,42 +71,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 37647.53922755588,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=4",
-        "queue prep",
-        "`s3",
-        "end",
-        "`s2, x>=3",
-        "`s4, x>=3",
-        "`s1, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Chelle"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 38079.75838657592,
@@ -193,31 +157,46 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 39775.58788851694,
+        "dps": 47105.60894078611,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), s=4",
+        "queue prep",
+        "`s3",
+        "end",
+        "`s2, x>=3",
+        "`s4, x>=3",
+        "`s1, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Joker"
+      ],
       "share": [
-        "Karina",
-        "Gala_Chelle"
+        "The_Prince",
+        "Gala_Mym"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 39775.58788851694,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -258,18 +237,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28459.06450159134,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "share": [
-        "Karina",
-        "Gala_Chelle"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28459.06450159134,
@@ -279,10 +246,10 @@
       }
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64609.072253092905,
-        "team": 0.0058360583567668226,
+        "dps": 65174.012824005375,
+        "team": 0.005844958000119132,
         "noaff": false,
         "nihil": false
       },
@@ -14,7 +14,7 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Apollo",
+      "slots.d": "Cerberus",
       "acl": [
         "queue prep and not buff(s3)",
         "`fs;s2;s3;s4;s1",
@@ -73,85 +73,49 @@
       ]
     },
     "META": {
-      "tdps": 4655103.777368051,
+      "tdps": 4551361.4862708915,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 26898.953403018404,
-        "team": 0.0058360583567668226,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Apollo",
-      "acl": [
-        "queue prep and not buff(s3)",
-        "`fs;s2;s3;s4;s1",
-        "end",
-        "`dragon(s-c3-c3-s-c1-end), s=4",
-        "`s2",
-        "`s1",
-        "`s4, cancel or dgauge>=500",
-        "`fs, x=4",
-        "`fs, cancel and charged_in(fs, s2)"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Kimono_Elisanne",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31876.98486011063,
-        "team": 0.0,
+        "dps": 42035.12514407561,
+        "team": 0.059910516333831695,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "The_Cutie_Competition",
         "The_Shining_Overlord",
-        "The_Plaguebringer",
+        "Snipers_Allure",
         "To_the_Extreme"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "queue prep and not buff(s3)",
+        "queue prep",
         "`fs;s2;s3;s4;s1",
         "end",
         "`dragon(s-c3-c3-s-c1-end), s=4",
         "`s2",
         "`s1",
+        "`s3",
         "`s4, cancel or dgauge>=500",
         "`fs, x=4",
         "`fs, cancel and charged_in(fs, s2)"
       ],
       "coabs": [
-        "Gala_Sarisse",
-        "Kimono_Elisanne",
+        "Halloween_Mym",
+        "Nobunaga",
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": 852978.3550433958,
       "pref": "PERSONAL"
     }
   },
@@ -199,14 +163,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 30187.737808273687,
-        "team": 0.0058360583567668226,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 53040.09739390842,
@@ -244,7 +200,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

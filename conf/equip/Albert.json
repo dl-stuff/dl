@@ -94,6 +94,49 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54725.948156193845,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s4",
+        "if x=2",
+        "`fs2, not aff(paralysis)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s4",
+        "`s2, charged_in(2, s1)",
+        "`s3",
+        "`s1, not s2.charged>(s2.sp*(4/5))",
+        "end"
+      ],
+      "coabs": [
+        "Bow",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57170.041487617316,
@@ -197,6 +240,34 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 60988.551238119166,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s3",
+        "if x=2",
+        "`fs2, not aff(paralysis)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3",
+        "`s2, charged_in(2, s1)",
+        "`s4",
+        "`s1, not s2.charged>(s2.sp*(4/5))",
+        "end"
+      ],
+      "share": [
+        "Ilia",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 60988.551238119166,
@@ -206,10 +277,10 @@
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

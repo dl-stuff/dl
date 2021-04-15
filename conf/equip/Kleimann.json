@@ -74,7 +74,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16391.83896273743,
+        "dps": 31963.182435381394,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -86,9 +86,9 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`dragon(c3-s-end), x=5",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -142,11 +142,35 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16709.767524460454,
+        "dps": 47301.044356416634,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), x=5",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, madness_status<5 and madness"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Summer_Julietta"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -191,22 +215,39 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10661.652648902796,
+        "dps": 22606.204244796347,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "coabs": [
+        "Curran",
+        "Delphi",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 11341.423510022863,
+        "dps": 22606.204244796347,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

@@ -71,7 +71,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35902.71368730012,
+        "dps": 51942.35623870365,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -79,26 +79,27 @@
       "slots.a": [
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "The_Prince_of_Dragonyule",
+        "Beautiful_Gunman",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
+        "`s3",
         "`dodge, x=2",
         "`s4",
         "`dragon(c3-s-c3-c3-c2-end), s=4",
-        "`s2"
+        "`s2",
+        "`s1"
       ],
       "coabs": [
         "Blade",
-        "Tiki",
-        "Xander"
+        "Dagger",
+        "Tiki"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Pinon",
+        "Summer_Celliera"
       ]
     },
     "META": {
@@ -137,6 +138,41 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53354.00928245313,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s3",
+        "`s4",
+        "`dragon(c3-s-c3-c3-c2-end), x=2 or dodge",
+        "`s2, x=2 or dodge",
+        "`dodge, x=2"
+      ],
+      "share": [
+        "The_Prince",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -165,14 +201,46 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35902.71368730012,
+        "dps": 45060.25567254468,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Prince_of_Dragonyule",
+        "Beautiful_Gunman",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s3",
+        "`dodge, x=2",
+        "`s4",
+        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Tiki"
+      ],
+      "share": [
+        "Pinon",
+        "Summer_Celliera"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45060.25567254468,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

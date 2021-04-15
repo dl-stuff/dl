@@ -109,14 +109,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 24469.49537272472,
-        "team": 0.1398174707684072,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 62632.979029054346,
@@ -160,19 +152,34 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26574.31495757728,
+        "dps": 40709.200416098414,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`fs, s1.check() and c_fs(dragonyulevictor)",
+        "`dragon(c5-s-c5-c5-end)",
+        "`s3",
         "`s4",
         "`s2",
-        "`s1, s or fsc or not c_fs(dragonyulevictor)"
+        "`s1"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -210,11 +217,24 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 7948.614623226798,
+        "dps": 8920.744136371974,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), trickery<3",
+        "`s3, not buff(s3)",
+        "`fs, s1.check() and c_fs(dragonyulevictor)",
+        "`s4",
+        "`s2",
+        "`s1, s or fsc or not c_fs(dragonyulevictor)"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
@@ -225,7 +245,7 @@
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

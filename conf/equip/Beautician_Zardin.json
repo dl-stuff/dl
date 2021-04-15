@@ -82,43 +82,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28487.080970801595,
-        "team": 0.03314942196713428,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "queue s2.check() and dgauge>=500",
-        "`dragon (c3-s-end), cancel",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1",
-        "#`s2, charged_in(5,s1)",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Gala_Zena",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 30845.146274312232,
@@ -188,30 +151,46 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 30845.146274312232,
-        "team": 0.034957149950207066,
+        "dps": 40126.68086114552,
+        "team": 0.04895447908391571,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
       "acl": [
-        "queue s2.check() and dgauge>=500",
-        "`s2",
+        "queue s2.check() and dgauge>=500 and energy()>2",
         "`dragon (c3-s-end), cancel",
         "end",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, charged_in(5,s1)",
         "`s4, xf",
         "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Ryszarda"
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -243,8 +222,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 26089.87616023029,
-        "team": 0.034957149950207066,
+        "dps": 17934.447880854703,
+        "team": 0.037721088523588873,
         "noaff": false,
         "nihil": true
       },
@@ -272,7 +251,7 @@
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

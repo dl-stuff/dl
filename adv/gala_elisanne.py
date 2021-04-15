@@ -34,8 +34,9 @@ class Gala_Elisanne_70MC(Gala_Elisanne):
         # procs doublebuff for some reason kms
         self.divine_revelation = Selfbuff("divine_revelation", 0.2, 13, "defense", "buff", source="a1")
         self.s2_timer = Timer(self.s2_cd_end, 30)
+        self.s2_cd = False
 
-    def s2_cd_end(self):
+    def s2_cd_end(self, t):
         self.s2_cd = False
 
     def s2_proc(self, e):

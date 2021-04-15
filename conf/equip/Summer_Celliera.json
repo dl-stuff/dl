@@ -98,36 +98,34 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 17649.296408758968,
+        "dps": 43013.559100471146,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Brothers_in_Arms",
         "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
         "The_Shining_Overlord",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "His_Clever_Brother",
+        "Snipers_Allure"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c2-s-end), self.dragonform.shift_count=0 and s",
-        "`dragon(c3-c3-s-end), self.dragonform.shift_count>=1 and s",
-        "`s3, not buff(s3)",
-        "`s2",
+        "`dragon(c3-s-c3-end), cancel",
+        "`s1",
+        "`s3, fsc",
         "`s4, cancel",
-        "`s1, cancel",
-        "`fs, x=4"
+        "`fs, x=3"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
-        "Wand"
+        "Tiki",
+        "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Summer_Cleo"
+        "Pinon",
+        "Karina"
       ]
     },
     "META": {
@@ -171,7 +169,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45397.85292202347,
+        "dps": 45606.093589354714,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -183,9 +181,8 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), fsc",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
         "`s3",
         "`s4",
         "`s1",
@@ -194,13 +191,30 @@
       ],
       "coabs": [
         "Blade",
-        "Tiki",
+        "Joker",
         "Yurius"
       ],
       "share": [
         "The_Prince",
         "Gala_Mym"
       ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45288.36157712164,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",

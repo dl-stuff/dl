@@ -109,14 +109,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 64279.69784077172,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 67875.06393438265,
@@ -165,11 +157,23 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29145.92929218101,
+        "dps": 38144.037431282246,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=1 and not s2.check()",
+        "`s3",
+        "`s4, s1.check() and s2.check()",
+        "`s1, cancel",
+        "`s2, s=1",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -180,14 +184,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28842.50624854058,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35352.35743660023,

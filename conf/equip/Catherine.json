@@ -90,6 +90,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15644.935644057512,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 18282.96127755859,
@@ -166,17 +198,68 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 21939.553533070313,
+        "dps": 31041.139427136055,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
+        "`s3",
+        "`s4",
+        "`s1"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Dragonyule_Lily"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15644.935644057512,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Hunter_Sarisse"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

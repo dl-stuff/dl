@@ -203,17 +203,24 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44330.53729049797,
-        "team": 0.017509569620724332,
+        "dps": 47090.025107877074,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
+        "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
-        "Chariot_Drift"
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c5-s-c5-c5-end)",
+        "`s3",
+        "`s4",
+        "`s2, xf=4 or x=5",
+        "`s1"
       ],
       "coabs": [
         "Ieyasu",
@@ -221,12 +228,12 @@
         "Wand"
       ],
       "share": [
-        "Curran",
-        "Ranzal"
+        "Gala_Chelle",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 241069.6774487358,
+      "tdps": 175797.2060286226,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -237,16 +244,29 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28814.381221142703,
-        "team": 0.0018429126311027431,
+        "dps": 44125.51080112732,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, xf=4 or x=5",
+        "`s1, buff(s3) and cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48300.226336214066,
-        "team": 0.11156322306575824,
+        "dps": 48535.602569099414,
+        "team": 0.14363944620174882,
         "noaff": false,
         "nihil": false
       },
@@ -300,7 +320,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
       }
     }
   },

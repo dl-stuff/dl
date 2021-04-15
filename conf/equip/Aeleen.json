@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 2821.1047676266885,
-        "team": 0.7398249227024224,
+        "dps": 3995.0210779739086,
+        "team": 0.7547252088072276,
         "noaff": true,
         "nihil": false
       },
@@ -15,7 +15,6 @@
         "From_Whence_He_Comes"
       ],
       "slots.d": "Freyja",
-      "slots.w": "void",
       "acl": [
         "`s4",
         "`s2",
@@ -25,7 +24,7 @@
       ],
       "coabs": [
         "Bow",
-        "Dagger2",
+        "Joker",
         "Tobias"
       ],
       "share": [
@@ -67,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 76369.02814557821,
+      "tdps": 73030.08486475515,
       "pref": "PERSONAL"
     }
   },
@@ -135,7 +134,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 23818.581802755296,
+        "dps": 30901.705239898074,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -148,7 +147,6 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
       "acl": [
         "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
@@ -209,6 +207,23 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31935.343841208964,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -226,7 +241,7 @@
       ]
     },
     "META": {
-      "tdps": 57727.58841321522,
+      "tdps": 54789.47975762676,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -248,6 +263,23 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21594.931071853567,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

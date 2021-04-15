@@ -75,6 +75,43 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29957.12886925219,
+        "team": 0.049016429944595964,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "Enter_the_Blue_Rose"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon(s-c3-c3-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 33309.888929965964,
@@ -117,6 +154,42 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 71075.68745070645,
+        "team": 0.0851074183525387,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Rivalry_of_Kings",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "Enter_the_Blue_Rose"
+      ],
+      "acl": [
+        "`dragon(s-c3-c3-s-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Marth",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 87417.78653353946,
@@ -133,6 +206,7 @@
       ]
     },
     "META": {
+      "tdps": 192017.32820915178,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -174,7 +248,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

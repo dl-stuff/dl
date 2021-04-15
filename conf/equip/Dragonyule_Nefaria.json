@@ -71,6 +71,39 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35275.37199844104,
+        "team": 0.024671213978477956,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Yurius"
+      ],
+      "share": [
+        "Seimei",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 48118.80297953998,
@@ -105,6 +138,7 @@
       ]
     },
     "META": {
+      "tdps": 568343118.145837,
       "pref": "PERSONAL"
     }
   },
@@ -160,14 +194,22 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51195.44689707564,
+        "dps": 51441.73456112003,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3",
+        "`s1, cancel",
+        "`s4, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Joker",
         "Yurius"
       ],
       "share": [
@@ -179,7 +221,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -223,31 +265,7 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Yurius"
-      ],
-      "share": [
-        "Seimei",
-        "Gala_Mym"
-      ]
+      "slots.d": "Gala_Reborn_Poseidon"
     },
     "PERSONAL": {
       "EQMT": {
@@ -271,7 +289,7 @@
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

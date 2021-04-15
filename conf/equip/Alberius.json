@@ -73,6 +73,39 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28107.73782306302,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Giovanni",
+      "acl": [
+        "`dragon(c5-s-c5-end), cancel",
+        "`s4, fsc",
+        "`s3, fsc",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 56154.278197765205,
@@ -149,17 +182,25 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60045.79092159378,
+        "dps": 60566.1795534712,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "`dragon(c5-s-c5-c4-end), cancel",
+        "`s4 , fsc",
+        "`s3, fsc",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`fs, x=2"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

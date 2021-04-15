@@ -84,9 +84,48 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54646.674984352554,
+        "team": 0.009793127366019554,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sisters_Day_Out",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`fs, fs_prep_c and x=4",
+        "`s3",
+        "`s4",
+        "`dragon, s=3",
+        "`s2",
+        "`s1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61345.85430500634,
+        "dps": 61505.45929274672,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -119,11 +158,12 @@
         "Yurius"
       ],
       "share": [
-        "Pinon",
+        "Xander",
         "Summer_Julietta"
       ]
     },
     "META": {
+      "tdps": 700367.1097133843,
       "pref": "PERSONAL"
     }
   },
@@ -187,7 +227,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

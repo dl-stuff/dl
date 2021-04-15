@@ -84,31 +84,10 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Luck_of_the_Draw",
-        "Seaside_Memory"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(c3-s-end), x=5",
-        "queue prep",
-        "`s3;s1;s4;s2",
-        "end",
-        "`s4",
-        "`s1",
-        "`s2, cancel"
-      ],
       "coabs": [
         "Blade",
         "Gala_Alex",
         "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
       ]
     },
     "META": {
@@ -210,27 +189,10 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 20678.86561380929,
-        "team": 0.5423806743622802,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42735.24936716753,
+        "dps": 42758.0272947625,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -243,10 +205,11 @@
         "The_Queen_of_the_Knife"
       ],
       "acl": [
-        "`dragon(c5-s-c5-end), cancel and aff(shadowblight)",
+        "`dragon(c5-s-c3-end)",
         "`s3",
         "`s1",
-        "`s4"
+        "`s4",
+        "`s2, fsc"
       ],
       "coabs": [
         "Ieyasu",
@@ -295,23 +258,6 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 18294.197320530013,
-        "team": 0.5423806743622802,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

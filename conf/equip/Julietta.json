@@ -79,38 +79,37 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52842.89848128116,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 49676.840965585485,
+        "team": 0.019602994663241464,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Crystalian_Envoy",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
         "A_Small_Courage",
-        "The_Bustling_Hut",
+        "The_Warrioresses",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), aff(flashburn)",
-        "`s4",
-        "`s2",
-        "`s1",
+        "`dragon(c3-s-c3-c3-c3-c2-end), buff(s2) and fs",
         "`s3",
-        "`fs, c_fs(enhanced) and x=4 and aff(flashburn)",
-        "`fsf, x=4"
+        "`s2",
+        "`s1, cancel",
+        "`s4, x>2",
+        "`fs, c_fs(enhanced) and (x>3 or (charged_in(fs, s1) and x>1))"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
-        "Sharena",
-        "Ilia"
+        "Gala_Mym",
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
@@ -150,6 +149,7 @@
       ]
     },
     "META": {
+      "tdps": 188614.75096277698,
       "pref": "PERSONAL"
     }
   },
@@ -179,14 +179,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 56836.50593610436,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 59192.35264590239,
@@ -195,7 +187,7 @@
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), buff(s2) and fs",
+        "`dragon(c3-s-c3-c3-c3-c2-end), (buff(s2) and fs) or aff(flashburn)",
         "`s3",
         "`s2",
         "`s1, cancel",
@@ -213,6 +205,7 @@
       ]
     },
     "META": {
+      "tdps": 485411.1243604994,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -246,17 +239,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 36653.1814094832,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50977.24487180642,
+        "dps": 51363.91343797929,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -266,7 +251,7 @@
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "A_Small_Courage",
-        "The_Warrioresses",
+        "Snipers_Allure",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
@@ -289,6 +274,7 @@
       ]
     },
     "META": {
+      "tdps": 86061.97682425105,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

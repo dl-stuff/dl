@@ -96,6 +96,42 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32311.077346583523,
+        "team": 0.04892503846184817,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Leviathan",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=4",
+        "queue prep",
+        "`s3, x=1;s4;s1",
+        "end",
+        "`s4, cancel",
+        "`s2",
+        "`s1",
+        "`dodge, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Pipple"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 43115.131822414245,
@@ -202,7 +238,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

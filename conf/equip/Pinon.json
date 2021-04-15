@@ -79,31 +79,10 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs2, not buff(locked_sigil)"
-      ],
       "coabs": [
         "Blade",
         "Catherine",
         "Dragonyule_Cleo"
-      ],
-      "share": [
-        "Weapon",
-        "Hunter_Sarisse"
       ]
     },
     "META": {
@@ -116,40 +95,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 44575.14870510915,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Leviathan",
-      "acl": [
-        "`s3, not buff(s3,1)",
-        "`dragon(c3-s)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
-        "`dodge, fsc",
-        "`fs2, not buff(a1)"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Grace",
-        "Summer_Ranzal"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57617.66959045388,
@@ -191,36 +136,35 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51880.426892622425,
+        "dps": 55948.08805125875,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dear_Diary",
+        "Forest_Bonds",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
-        "`s2, fsc",
-        "`s4, fsc",
+        "`dragon(c1-s-c3-end), fsc",
         "`s1, fsc",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`s4, fsc",
         "`dodge, fsc",
         "`fs2, not buff(locked_sigil)"
       ],
       "coabs": [
         "Blade",
         "Dragonyule_Cleo",
-        "Yurius"
+        "Summer_Estelle"
       ],
       "share": [
-        "Gala_Mym",
-        "Hunter_Sarisse"
+        "Summer_Julietta",
+        "Karina"
       ]
     },
     "META": {
@@ -311,14 +255,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57284.36856031064,
+        "dps": 59740.93305548523,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -331,18 +275,13 @@
         "`s1, fsc",
         "`dodge, fsc",
         "`fs2, not buff(locked_sigil)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Summer_Estelle"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
