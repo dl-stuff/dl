@@ -11,7 +11,7 @@ class Ability:
     def check_ele_wt(self, m, adv):
         cond = m[3]
         if "_" in cond:
-            classifier, cond = cond.split("_")
+            classifier, cond = cond.split("_", 1)
         else:
             classifier = cond
             cond = None
@@ -1152,7 +1152,7 @@ class Skill_Recharge(Ability):
 
             def l_skill_charge(e):
                 try:
-                    adv.charge_p("scharge", self.value, target=e.base)
+                    adv.charge_p("scharge", self.value, target=e.base, no_autocharge=True)
                 except AttributeError:
                     pass
 

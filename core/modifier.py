@@ -1268,6 +1268,7 @@ class AmpBuff:
             buff.modifier.buff_capped = False
             self.buffs.append(buff)
         self.max_len = self.publish_level + self.max_team_level
+        self.amp_event = Event("amp")
 
     def iterate_buffs(self, kind=None, adjust=True):
         base = 0

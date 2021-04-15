@@ -57,8 +57,8 @@ class Skill(object):
             self.act_base = act
         if isinstance(group, int):
             self.enable_phase_up = phase_up
-        if act.conf['sp_regen'] and not self.autocharge_sp:
-            self.autocharge_init(act.conf['sp_regen']).on()
+        if act.conf["sp_regen"] and not self.autocharge_sp:
+            self.autocharge_init(act.conf["sp_regen"]).on()
 
     def set_enabled(self, enabled):
         for ac in self.act_dict.values():
@@ -138,6 +138,11 @@ class Skill(object):
             log("silence", "start")
         return 1
 
+    def autocharge(self, t):
+        if self.charged < self.sp * self.maxcharge:
+            self.charge(self.autocharge_sp)
+            log("sp", self.name + "_autocharge", int(self.autocharge_sp))
+
     def autocharge_init(self, sp, iv=1):
         if callable(sp):
             self.autocharge_timer = Timer(sp, iv, 1)
@@ -145,13 +150,7 @@ class Skill(object):
             if sp < 1:
                 sp = int(sp * self.sp)
             self.autocharge_sp = sp
-
-            def autocharge(t):
-                if self.charged < self.sp * self.maxcharge:
-                    self.charge(self.autocharge_sp)
-                    log("sp", self.name + "_autocharge", int(self.autocharge_sp))
-
-            self.autocharge_timer = Timer(autocharge, iv, 1)
+            self.autocharge_timer = Timer(self.autocharge, iv, 1)
         return self.autocharge_timer
 
 
@@ -1431,10 +1430,19 @@ class Adv(object):
     def zonecount(self):
         return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
 
+    def add_one_att_amp(self):
+        self.hitattr_make(
+            "amp_proc",
+            "amp",
+            "proc",
+            0,
+            {"amp": [[2, 3, 2, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]]},
+        )
+
     @allow_acl
     def amp_lvl(self, kind=None, key=2):
         try:
-            self.active_buff_dict.get_amp(key).level(kind, adjust=kind is None)
+            return self.active_buff_dict.get_amp(key).level(kind, adjust=kind is None)
         except KeyError:
             return 0
 
@@ -2063,7 +2071,7 @@ class Adv(object):
             if self.berserk_mode and "odmg" in attr:
                 hitmods.append(Modifier(name, "att", "odgauge", attr["odmg"] - 1))
             if "crit" in attr:
-                hitmods.append(Modifier(name, "crit", "chance", attr["crit"]))
+                hitmods.append(Modifier("hitattr_crit", "crit", "chance", attr["crit"]))
             for m in hitmods:
                 m.on()
             if "extra" in attr:

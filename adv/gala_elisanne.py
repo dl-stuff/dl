@@ -1,7 +1,50 @@
 from core.advbase import *
 
 
-class Gala_Elisanne_70MC(Adv):
+class Gala_Elisanne(Adv):
+    def prerun(self):
+        self.s2.autocharge_init(self.s2_autocharge).on()
+        self.divine_revelation = Selfbuff("divine_revelation", 1, 13, "kb", "res", source="a1")
+        self.ahits = 0
+        Event("fs").listener(self.dr_proc)
+        Event("s").listener(self.dr_proc)
+
+    def dr_proc(self, e):
+        self.divine_revelation.on()
+
+    def add_combo(self, name="#"):
+        result = super().add_combo(name)
+        a_hits = self.hits // 10
+        if a_hits > 0 and a_hits != self.ahits:
+            self.ahits = a_hits
+            self.divine_revelation.on()
+        return result
+
+    def s2_autocharge(self, t):
+        if self.divine_revelation.get():
+            log("sp", "s2_autocharge", 960)
+            self.s2.charge(960)  # 2496 - 1536
+        elif self.s2.charged < self.s2.sp:
+            self.s2.charge(-1536)
+
+
+class Gala_Elisanne_70MC(Gala_Elisanne):
+    def prerun(self):
+        super().prerun()
+        # procs doublebuff for some reason kms
+        self.divine_revelation = Selfbuff("divine_revelation", 0.2, 13, "defense", "buff", source="a1")
+        self.s2_timer = Timer(self.s2_cd_end, 30)
+
+    def s2_cd_end(self):
+        self.s2_cd = False
+
+    def s2_proc(self, e):
+        if not self.s2_cd:
+            # y tho
+            self.add_one_att_amp()
+            self.s2_cd = True
+            self.s2_timer.on()
+
     SAVE_VARIANT = False
     comment = "70MC"
     conf = {
@@ -40,4 +83,4 @@ class Gala_Elisanne_70MC(Adv):
     }
 
 
-variants = {None: Adv, "70MC": Gala_Elisanne_70MC}
+variants = {None: Gala_Elisanne, "70MC": Gala_Elisanne_70MC}

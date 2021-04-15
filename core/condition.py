@@ -42,8 +42,17 @@ class Condition(dict):
         elif key == "zone":
             return self.adv.zonecount > 0 and self.global_cond
         elif key.startswith("amp"):
-            amptype = int(key.split("_")[-1])
-            return self.adv.amp_lvl(key=amptype) > 0 and self.global_cond
+            parts = key.split("_")
+            amptype = int(parts[1])
+            if len(parts) > 2:
+                kind = parts[2]
+            else:
+                kind = "team"
+            if len(parts) > 3:
+                level = int(parts[3])
+            else:
+                level = 1
+            return self.adv.amp_lvl(key=amptype, kind=kind) >= level and self.global_cond
         return self.cond_set_value(key, cond)
 
     def cond_set_value(self, key, cond=True):

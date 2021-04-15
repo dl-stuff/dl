@@ -388,7 +388,7 @@ class Gaibhne_and_Creidhne(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         if not adv.nihilism:
-            charge_timer = Timer(lambda _: adv.charge_p("ds", 0.091, no_autocharge=True), 0.9, True)
+            charge_timer = Timer(lambda _: adv.charge_p("ds", 0.091, no_autocharge=False), 0.9, True)
             ds_buff = EffectBuff(
                 "ds_sp_regen_zone",
                 10,
