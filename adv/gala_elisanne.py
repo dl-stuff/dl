@@ -46,8 +46,8 @@ class Gala_Elisanne_70MC(Gala_Elisanne):
             self.s2_cd = True
             self.s2_timer.on()
 
-    SAVE_VARIANT = False
-    comment = "70MC"
+    SAVE_VARIANT = True
+    comment = "70MC; divine oath can doublebuff"
     conf = {
         "c": {
             "name": "Gala Elisanne",

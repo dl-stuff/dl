@@ -86,32 +86,24 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53265.1089991001,
-        "team": 0.12771707475519686,
+        "dps": 56297.734387847486,
+        "team": 0.2001757184187824,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Holywyrms_Advent",
-        "The_Red_Impulse",
+        "Dragon_Brethren",
+        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
         "Dueling_Dancers",
-        "Pipe_Down",
+        "Entwined_Flames",
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-end)",
-        "`s4",
-        "`s2, cancel",
-        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
-        "`s1, fsc",
-        "`fs, x=2"
-      ],
+      "slots.d": "Daikokuten",
       "coabs": [
-        "Alfonse",
-        "Gala_Zena",
+        "Blade",
+        "Dagger",
         "Peony"
       ]
     },
@@ -129,6 +121,7 @@
       ]
     },
     "META": {
+      "tdps": 1693244.6797982834,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -139,7 +132,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42198.24446923459,
+        "dps": 43871.95363552694,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -153,7 +146,7 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "if (s=2 or fsc)",
         "`dragon(c3-s-end), dragonform.shift_count=0",
@@ -168,8 +161,8 @@
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Dagger2",
+        "Peony"
       ],
       "share": [
         "Gala_Mym",
@@ -178,6 +171,28 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43107.154624823,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -248,7 +263,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47593.32980470183,
+        "dps": 46920.69208524003,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -262,7 +277,6 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-c3-end), aff(flashburn)",
         "`s4, cancel",
@@ -276,7 +290,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

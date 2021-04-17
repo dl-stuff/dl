@@ -78,7 +78,7 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 39907.32459937122,
         "team": 0.0,
@@ -93,6 +93,42 @@
         "The_Plaguebringer"
       ],
       "slots.d": "Arsene",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40117.20159391133,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
@@ -227,7 +263,7 @@
       "EQMT": {
         "dps": 73811.39848078253,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
@@ -235,7 +271,7 @@
         "Seaside_Princess",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "FirstRate_Hospitality"
       ],
       "share": [
         "Weapon",
@@ -254,11 +290,23 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 13418.359461374703,
+        "dps": 30922.216623663728,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
@@ -269,7 +317,7 @@
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

@@ -2264,7 +2264,7 @@ class Adv(object):
             bargs = attrbuff[1:]
             bname = f"{name}_{aseq}{bseq}"
             try:
-                if self.conf["fleet"] and btype in ("team", "zone", "debuff"):
+                if self.conf["fleet"] and btype in ("team", "nearby", "zone", "debuff"):
                     for _ in range(self.conf["fleet"] + 1 if stackable else 1):
                         buff = bufftype_dict[btype](bname, *bargs, source=name)
                         buff.bufftype = "self"

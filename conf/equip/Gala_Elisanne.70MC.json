@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12328.284197624604,
-        "team": 1.516738745235462,
+        "dps": 13071.187706936847,
+        "team": 1.5172082803598004,
         "noaff": true,
         "nihil": false
       },
@@ -36,40 +36,40 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49725.17960413653,
-        "team": 0.2241635337737229,
+        "dps": 89078.71204617372,
+        "team": 0.2263944299983768,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Felyne_Hospitality",
+        "Kung_Fu_Masters",
         "Summer_Paladyns",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "FirstRate_Hospitality",
+        "Halidom_Grooms"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon",
-        "`s2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`fsf, x=4"
+        "`dragon, fsc",
+        "`s3, fsc and not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`fs, x=1"
       ],
       "coabs": [
-        "Summer_Celliera",
-        "Tiki",
+        "Renee",
+        "Tobias",
         "Yurius"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Karina"
       ]
     },
     "META": {
-      "tdps": 28932.08462834497,
-      "pref": "TEAMBUFF"
+      "tdps": 58883.41244398255,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
@@ -87,8 +87,8 @@
       ]
     },
     "META": {
-      "tdps": 34968.43933643771,
-      "pref": "TEAMBUFF",
+      "tdps": 46867.583538673294,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -98,40 +98,41 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6900.904190720832,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 21068.95730105759,
+        "team": 0.12996279284297166,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Once_in_a_Lifetime",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Felyne_Hospitality",
+        "Kung_Fu_Masters",
+        "Summer_Paladyns",
+        "FirstRate_Hospitality",
+        "Halidom_Grooms"
       ],
-      "slots.d": "Halloween_Maritimus",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon",
-        "`s2",
-        "`s3",
-        "`s4",
-        "`s1"
+        "`dragon, fsc",
+        "`s3, fsc and not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`fs, x=1"
       ],
       "coabs": [
-        "Blade",
-        "Lance",
-        "Nurse_Aeleen"
+        "Renee",
+        "Tobias",
+        "Yurius"
       ],
       "share": [
-        "Cleo",
-        "Yukata_Cassandra"
+        "Weapon",
+        "Karina"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 24722.469509156253,
-        "team": 0.0,
+        "dps": 30368.061933569243,
+        "team": 0.1678983367259322,
         "noaff": false,
         "nihil": true
       },
@@ -167,14 +168,30 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60317.85177927285,
-        "team": 0.22474127285244144,
+        "dps": 96391.09190859266,
+        "team": 0.2263944299983768,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Felyne_Hospitality",
+        "Kung_Fu_Masters",
+        "Summer_Paladyns",
+        "FirstRate_Hospitality",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon, fsc",
+        "`s2, fsc",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`fs, x=1"
+      ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 64548.35000285015,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -225,65 +242,17 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 12328.284197624604,
-        "team": 1.516738745235462,
-        "noaff": true,
+        "dps": 85768.92101309223,
+        "team": 0.2263944299983768,
+        "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Gentle_Winds",
-        "Sisters_Day_Out",
-        "The_Chocolatiers",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(c3-sf-end), dragonform.shift_count=0 and s=4",
-        "`s1",
-        "`s4, cancel",
-        "`s3, s=1",
-        "`fs, fs_prep_c=3 and x=5",
-        "`fs, fs_prep_c=2 and x=5",
-        "`fs, fs_prep_c=1 and x=4"
-      ],
-      "coabs": [
-        "Renee",
-        "Summer_Estelle",
-        "Tobias"
-      ],
-      "share": [
-        "Summer_Cleo",
-        "Mikoto"
-      ]
+      }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 10956.610821369526,
-        "team": 1.332836654977891,
-        "noaff": true,
-        "nihil": false
-      },
-      "coabs": [
-        "Bow",
-        "Renee",
-        "Summer_Estelle"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

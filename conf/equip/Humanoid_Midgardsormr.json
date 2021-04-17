@@ -74,6 +74,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50853.52969849567,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), s",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`s1",
+        "`s2",
+        "`fs, xf=4",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 53132.04774215488,
@@ -100,16 +134,38 @@
       ],
       "coabs": [
         "Blade",
-        "Mona",
-        "Wand"
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
+        "Formal_Joachim",
+        "Summer_Celliera"
       ]
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49954.50249753596,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -153,7 +209,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57359.346060330725,
+        "dps": 57492.646752815635,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -165,17 +221,21 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), cancel",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`s1",
+        "`s2",
+        "`fs, xf=5",
+        "`dodge, fsc"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

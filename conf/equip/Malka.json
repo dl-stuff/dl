@@ -95,42 +95,99 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 12635.31108685982,
+        "dps": 31569.744359125707,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
+        "Spirit_of_the_Season",
         "Dueling_Dancers",
-        "Such_High_Spirits",
+        "Entwined_Flames",
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), buff(s3, 1) and cancel",
-        "`s2",
+        "`dragon(s)",
         "`s4",
         "`s1",
-        "`s3"
+        "`s3",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Cleo",
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Ilia",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33936.833382037585,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(s)",
+        "`s4",
+        "`s1",
+        "`s3",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
         "Dagger2",
         "Peony"
       ],
       "share": [
-        "Weapon",
+        "Ilia",
         "Gala_Mym"
       ]
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31569.744359125707,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Daikokuten",
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -186,19 +243,33 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36662.45327720346,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Peony"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 12758.61889478757,
+        "dps": 36662.45327720346,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -260,25 +331,31 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 11694.025128486845,
+        "dps": 24756.221448325257,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Peony"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 11694.025128486845,
+        "dps": 24756.221448325257,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

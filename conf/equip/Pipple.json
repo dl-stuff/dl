@@ -3,7 +3,7 @@
     "TEAMBUFF": {
       "EQMT": {
         "dps": 12884.059180683345,
-        "team": 0.29841035718913944,
+        "team": 0.2984103571891395,
         "noaff": true,
         "nihil": false
       },
@@ -65,7 +65,7 @@
       ]
     },
     "META": {
-      "tdps": 197118.13883836707,
+      "tdps": 197118.13883836704,
       "pref": "PERSONAL"
     }
   },
@@ -113,6 +113,39 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28801.410572701774,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=0 and x=4",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=1 and s=2",
+        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count>=2 and x>1",
+        "`s3, not buff(s3)",
+        "`s2, x=5 or energy()<5",
+        "`s4, not energy()=5 and x>3"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 33317.871180882,
@@ -167,7 +200,7 @@
       ]
     },
     "META": {
-      "tdps": 228758.95171980912,
+      "tdps": 228758.95171980906,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -176,9 +209,38 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 41569.751810411355,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Tiki"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41115.182895192534,
+        "dps": 41966.4754191815,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -192,12 +254,43 @@
       ],
       "acl": [
         "`dragon(c3-c3-c3-s-c3-end)",
-        "`s3, x>3",
+        "`s3",
         "`s4"
       ],
       "coabs": [
         "Blade",
         "Joker",
+        "Tiki"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41569.751810411355,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
         "Tiki"
       ]
     },
@@ -205,7 +298,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },

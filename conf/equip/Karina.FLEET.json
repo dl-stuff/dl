@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 127969.77116531612,
-        "team": 0.10073933654399819,
+        "dps": 238346.02000736207,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 127969.77116531612,
-        "team": 0.10073933654399819,
+        "dps": 238346.02000736207,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -71,8 +71,8 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 112017.76260784763,
-        "team": 0.07726144730283874,
+        "dps": 181604.00410452456,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -109,43 +109,56 @@
       }
     }
   },
-  "ALWAYS-NORMAL-ANY": {
+  "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 137760.32828493745,
-        "team": 0.1007393365439982,
+        "dps": 15449.761768970502,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "Felyne_Hospitality",
         "Kung_Fu_Masters",
         "Summer_Paladyns",
         "FirstRate_Hospitality",
-        "His_Clever_Brother"
+        "Odd_Sparrows"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s4",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`dragon(s-end)"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tobias",
+        "Wand"
+      ],
+      "share": [
+        "Patia",
+        "Summer_Cleo"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "pref": "PERSONAL"
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 124506.80963410056,
-        "team": 0.1007393365439982,
+        "dps": 232651.78161727643,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 124506.80963410056,
-        "team": 0.1007393365439982,
+        "dps": 232651.78161727643,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       }
@@ -161,8 +174,8 @@
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 108986.23672902583,
-        "team": 0.07726144730283875,
+        "dps": 177248.4422107799,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -174,8 +187,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108986.23672902583,
-        "team": 0.07726144730283875,
+        "dps": 177248.4422107799,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       }
@@ -184,6 +197,36 @@
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15157.694707585773,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Dagger",
+        "Tobias",
+        "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15157.694707585773,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

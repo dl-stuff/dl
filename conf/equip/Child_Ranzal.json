@@ -2,62 +2,64 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51247.922025738764,
-        "team": 0.09334136735630608,
+        "dps": 53199.79430505615,
+        "team": 0.1260915523759751,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
         "Summer_Paladyns",
+        "Sweet_Surprise",
         "The_Cutie_Competition",
-        "Chariot_Drift",
-        "The_Plaguebringer"
+        "Beautiful_Nothingness",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2, s=1",
         "`s4",
-        "`dragon"
+        "`s1",
+        "`s2",
+        "`dragon(s-s-c3-end)",
+        "`fsf, x=4"
       ],
       "coabs": [
+        "Blade",
         "Halloween_Mym",
-        "Nobunaga",
-        "Wand"
+        "Yuya"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51247.922025738764,
-        "team": 0.09334136735630608,
+        "dps": 57081.47448404214,
+        "team": 0.09351486382885185,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
         "Summer_Paladyns",
+        "Sweet_Surprise",
         "The_Cutie_Competition",
-        "Chariot_Drift",
+        "Beautiful_Nothingness",
         "The_Plaguebringer"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
         "`s3, not buff(s3)",
+        "`s4",
         "`s1",
         "`s2, s=1",
-        "`s4",
-        "`dragon"
+        "`fsf, x=4",
+        "`dragon, s=1 and s2.charged = 0"
       ],
       "coabs": [
+        "Blade",
         "Halloween_Mym",
-        "Nobunaga",
-        "Wand"
+        "Yuya"
       ],
       "share": [
         "Weapon",
@@ -65,14 +67,15 @@
       ]
     },
     "META": {
+      "tdps": 119155.14903766265,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26363.978846332095,
-        "team": 0.06654695184963046,
+        "dps": 32795.17431277504,
+        "team": 0.1287991814161022,
         "noaff": false,
         "nihil": true
       },
@@ -85,9 +88,9 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`s3, not buff(s3)",
+        "`s3",
         "`s1",
-        "`s2, s=1",
+        "`s2",
         "`s4",
         "`dragon"
       ],
@@ -97,7 +100,7 @@
         "Wand"
       ],
       "share": [
-        "Weapon",
+        "Gala_Mym",
         "Formal_Joachim"
       ]
     },
@@ -106,10 +109,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 58860.80509192757,
-        "team": 0.09334136735630608,
+        "dps": 61812.067060959904,
+        "team": 0.13019156127043346,
         "noaff": false,
         "nihil": false
       },
@@ -118,8 +121,122 @@
         "Summer_Paladyns",
         "The_Cutie_Competition",
         "Beautiful_Nothingness",
-        "The_Plaguebringer"
+        "His_Clever_Brother"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "The_Prince",
+        "Yuya"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65566.17817601886,
+        "team": 0.1260915523759751,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Summer_Paladyns",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`dragon(s-s-c3-end)",
+        "`fsf, x=4"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 915634.8709713968,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20361.625241510206,
+        "team": 0.18689487868125762,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Horus",
+      "acl": [
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45884.126349664235,
+        "team": 0.12848938984693592,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Summer_Paladyns",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`dragon(s-s-c3-end)",
+        "`fsf, x=4"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 436988.05741620396,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33655.96606005877,
+        "team": 0.09334136735630608,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33655.96606005877,
+        "team": 0.09334136735630608,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
       "pref": "PERSONAL",

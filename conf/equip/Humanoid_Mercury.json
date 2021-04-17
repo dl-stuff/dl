@@ -2,94 +2,169 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 59345.124143938854,
-        "team": 0.03332714374213714,
-        "noaff": false,
+        "dps": 14172.880242521733,
+        "team": 0.5277776384315694,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "Castle_Cheer_Corps",
+        "Dazzling_Duet",
+        "Jewels_of_the_Sun",
+        "From_Whence_He_Comes",
+        "Seaside_Memory"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
         "`s2",
-        "`s4"
+        "`s3",
+        "`s4",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Yurius"
+        "Hunter_Sarisse",
+        "Joker",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Patia",
+        "Mikoto"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63774.22573268399,
-        "team": 0.03330985173840501,
+        "dps": 76453.48169413373,
+        "team": 0.08316289559896398,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Twinfold_Bonds",
         "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "tdps": 256135821.9299973,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 44733.80175993637,
-        "team": 0.0333269271573353,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Holywyrms_Advent",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon",
-        "`s3",
+        "`dragon(c3-c3-c3-c1-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1 and x=4",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2, cancel",
+        "`s4, x>2 or fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 140077.67950929204,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64321.634226142975,
+        "team": 0.15983925605150884,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-c3-c3-c1-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1 and x=4",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2, cancel",
+        "`s4, x>2 or fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Pipple",
+        "Tiki",
+        "Xainfried"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 158221.4830801624,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27480.38524813417,
+        "team": 0.06658854720270657,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Once_in_a_Lifetime",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s1",
+        "`s2"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47534.07998013974,
+        "team": 0.03333000588774546,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
         "`s1",
         "`s2",
+        "`s3, cancel",
         "`s4"
       ],
       "coabs": [
@@ -98,57 +173,26 @@
         "Yurius"
       ],
       "share": [
-        "The_Prince",
+        "Formal_Joachim",
         "Gala_Mym"
       ]
     },
     "META": {
+      "tdps": 602963.7482322342,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 68700.95588342554,
-        "team": 0.0832690450045316,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74604.2913449251,
-        "team": 0.03330985173840501,
+        "dps": 78556.99362721987,
+        "team": 0.08316289559896398,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "coabs": [
-        "Eugene",
-        "Summer_Celliera",
-        "Yurius"
-      ]
+      }
     },
     "META": {
-      "tdps": 118163.14627126198,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -156,55 +200,74 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 41506.8814113408,
-        "team": 0.05801353019940909,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon",
-        "`s1",
-        "`s2",
-        "`s3",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Xander",
-        "Yurius"
-      ],
-      "share": [
-        "Seimei",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46371.76922484052,
-        "team": 0.03329404451114101,
+        "dps": 48587.36332339859,
+        "team": 0.03332073809433361,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon",
+        "`dragon(c3-s-c3-c3-c3-end)",
         "`s1",
-        "`s2",
+        "`s4",
         "`s3",
-        "`s4"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Mym"
+        "`s2, cancel"
       ]
     },
     "META": {
-      "tdps": 196803.76342977915,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57923.979545075366,
+        "team": 0.03331069316554511,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39570.13179121205,
+        "team": 0.03329404081616342,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Holywyrms_Advent",
+        "Pecorines_Grand_Adventure",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "Lord_of_the_Skies"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, cancel",
+        "`s4"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

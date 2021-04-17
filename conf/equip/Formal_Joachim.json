@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77847.80702826835,
+        "dps": 85478.09865760281,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -52,7 +52,7 @@
         "`dragon(c3-s-c3-c3-end), xf",
         "`s3, not buff(s3)",
         "`s2, s1.check()",
-        "`s1, s=2",
+        "`s1, s2.charged < 3270 or s=2",
         "`s4",
         "`dodge, xf=1"
       ],
@@ -67,7 +67,7 @@
       ]
     },
     "META": {
-      "tdps": 427703.92165274936,
+      "tdps": 497301.43621142197,
       "pref": "PERSONAL"
     }
   },
@@ -120,15 +120,18 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78518.81890312368,
+        "dps": 85998.43002235945,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2, s1.check()",
+        "`s1, s2.charged < 3270 or s=2",
+        "`s4",
+        "`dodge, xf=1"
       ]
     },
     "META": {
@@ -218,14 +221,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 11000.495668606105,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 18757.74907249389,
