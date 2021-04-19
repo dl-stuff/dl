@@ -2172,6 +2172,8 @@ class Adv(object):
                 amp_buff.on(amp_data, self.conf["fleet"] or 0)
             except KeyError:
                 amp_buff = AmpBuff(*amp_data, source=name)
+                if self.conf['amp_level_override']:
+                    amp_buff.max_team_level = self.conf['amp_level_override']
                 self.active_buff_dict.add_amp(base, group, aseq, amp_buff.on(amp_data), amp_id)
 
         # coei: _CurseOfEmptinessInvalid

@@ -1289,15 +1289,21 @@ class AmpBuff:
                 level = idx
         return min(level + 1, len(self.buffs))
 
-    def toggle_buffs(self, kind, level):
+    def toggle_buffs(self, kind, level, own_max_level=None):
         buff_value = 0
         buff_time = 0
         for idx, b in self.iterate_buffs(kind):
             if idx == level:
                 b.bufftype = kind
-                b.on()
+                if kind == AmpBuff.TEAM_AMP and own_max_level < level:
+                    if b.get():
+                        b.add_time(self.extend_time)
+                    else:
+                        b.on()
+                else:
+                    b.on()
                 buff_value = b.get()
-                buff_time = b.duration
+                buff_time = b.timeleft()
             else:
                 b.off()
 
@@ -1308,6 +1314,7 @@ class AmpBuff:
 
     def on(self, amp_data, fleet=0):
         # update max team level to new incoming amp
+        own_max_level = amp_data[0][2]
         self.max_team_level = max(amp_data[0][2], self.max_team_level)
 
         self_level = self.level(AmpBuff.SELF_AMP)
@@ -1317,7 +1324,7 @@ class AmpBuff:
             # more amp from fleet
             team_level += fleet
             team_level = min(team_level, self.max_team_level - 1)
-            team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level)
+            team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level, own_max_level=own_max_level - 1)
         else:
             if team_level > 0:
                 buff_value = self.buffs[self.publish_level + team_level - 1].get()
