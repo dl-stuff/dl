@@ -95,6 +95,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55948.08805125875,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c1-s-c3-end), fsc",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs2, not buff(locked_sigil)"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Karina"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57617.66959045388,
@@ -223,6 +257,23 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59740.93305548523,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`s3, cancel",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, not buff(locked_sigil)"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 61911.71847235741,
@@ -255,7 +306,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -281,7 +332,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },

@@ -120,14 +120,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 70697.34370572823,
-        "team": 0.0058360583567668226,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 100928.83363011906,
@@ -239,26 +231,63 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25008.624149432108,
-        "team": 0.0058360583567668226,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 25008.624149432108,
-        "team": 0.0058360583567668226,
+        "dps": 27189.4526270909,
+        "team": 0.044266502971751304,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Apollo",
+      "acl": [
+        "queue prep",
+        "`fs;s2;s3;s4;s1",
+        "end",
+        "`dragon(s-c3-c3-s-c1-end), s=4",
+        "`s2",
+        "`s1",
+        "`s3",
+        "`s4, cancel or dgauge>=500",
+        "`fs, x=4",
+        "`fs, cancel and charged_in(fs, s2)"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Nobunaga",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27306.282559629555,
+        "team": 0.04065811720265996,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ],
       "slots.d": "Apollo"
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 32377.339900681985,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

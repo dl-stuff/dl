@@ -129,7 +129,7 @@
       "slots.d": "Daikokuten",
       "acl": [
         "`dragon, s=1",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s2, xf",
         "`s1, x=5",
         "`s4, x=5",
@@ -151,6 +151,23 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48370.6560681856,
+        "team": 0.13757879497689857,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50693.096770938144,
@@ -182,10 +199,28 @@
       ]
     },
     "META": {
+      "tdps": 5608468.252540656,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48370.6560681856,
+        "team": 0.13757879497689857,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
       }
     }
   },

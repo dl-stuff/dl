@@ -92,7 +92,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 15644.935644057512,
+        "dps": 17585.069409310945,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -107,10 +107,10 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), cancel",
-        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4"
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3, cancel",
+        "`s4, cancel"
       ],
       "coabs": [
         "Blade",
@@ -124,7 +124,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 18282.96127755859,
+        "dps": 37826.39743937813,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -132,26 +132,26 @@
       "slots.a": [
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "The_Prince_of_Dragonyule",
         "His_Clever_Brother",
-        "The_Warrioresses"
+        "Snipers_Allure"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), cancel",
-        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4"
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3, cancel",
+        "`s4, cancel"
       ],
       "coabs": [
         "Blade",
-        "Tiki",
-        "Yurius"
+        "Dragonyule_Cleo",
+        "Wand"
       ],
       "share": [
-        "Weapon",
-        "Lapis"
+        "Summer_Julietta",
+        "Karina"
       ]
     },
     "META": {
@@ -195,45 +195,10 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 31041.139427136055,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "Chariot_Drift",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), cancel",
-        "`s2, (s1.check() and ((duration-now)>45 and energy()=5)) or (duration-now)<3.1",
-        "`s3",
-        "`s4",
-        "`s1"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 15644.935644057512,
+        "dps": 17585.069409310945,
         "team": 0.0,
         "noaff": true,
         "nihil": true

@@ -2,20 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33878.3240196186,
-        "team": 0.15146039784417575,
+        "dps": 36130.48378311127,
+        "team": 0.23877180730835781,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "Honest_Repose",
         "Memory_of_a_Friend",
-        "Seaside_Princess",
         "Valiant_Crown",
-        "One_with_the_Shadows",
-        "To_the_Extreme"
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
       "slots.d": "Horus",
-      "slots.w": "high_dragon",
       "acl": [
         "`dragon(s), s=1",
         "`s3, not buff(s3)",
@@ -24,13 +23,13 @@
         "`s1"
       ],
       "coabs": [
-        "Halloween_Lowen",
+        "Gala_Sarisse",
         "Halloween_Mym",
-        "Serena"
+        "Tobias"
       ],
       "share": [
-        "Cleo",
-        "Chelle"
+        "Yuya",
+        "Emma"
       ]
     },
     "PERSONAL": {
@@ -76,15 +75,15 @@
       ]
     },
     "META": {
-      "tdps": 399789.9050547677,
+      "tdps": 244166.9264365743,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 31083.773424463136,
-        "team": 0.0,
+        "dps": 30287.446271793633,
+        "team": 0.014616944223094428,
         "noaff": false,
         "nihil": true
       },
@@ -120,10 +119,53 @@
       ],
       "share": [
         "Gala_Mym",
-        "Formal_Joachim"
+        "Student_Maribelle"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38207.35124636588,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
+        "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
+        "`s1",
+        "`s4, xf>2",
+        "`s2, xf>3",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Gala_Leonidas"
       ]
     },
     "META": {
+      "tdps": 541830.4163779308,
       "pref": "PERSONAL"
     }
   },
@@ -144,7 +186,7 @@
       ]
     },
     "META": {
-      "tdps": 459791.3652890236,
+      "tdps": 282227.7223938439,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -153,10 +195,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 42862.590346229095,
-        "team": 0.0,
+        "dps": 41661.48269118796,
+        "team": 0.01752250361111054,
         "noaff": false,
         "nihil": true
       },
@@ -190,15 +232,57 @@
         "Yuya"
       ],
       "share": [
-        "Summer_Celliera",
+        "Student_Maribelle",
+        "Gala_Leonidas"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44454.33770217309,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
+        "`s3, cancel",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
+        "`s1",
+        "`s4, xf>2",
+        "`s2, xf>3",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Julietta",
         "Gala_Leonidas"
       ]
     },
     "META": {
+      "tdps": 159386.75619471763,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -216,7 +300,7 @@
       ]
     },
     "META": {
-      "tdps": 595263.8693450614,
+      "tdps": 188296.78302627584,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,21 +311,33 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28789.247694059348,
+        "dps": 38523.00432603133,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

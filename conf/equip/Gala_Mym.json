@@ -108,8 +108,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46151.545268881826,
-        "team": 0.011691542183382576,
+        "dps": 46212.74773063355,
+        "team": 0.01168054223120617,
         "noaff": false,
         "nihil": true
       },
@@ -122,10 +122,10 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
-        "`dragon(AB10), dragonform.shift_count>=2",
+        "`dragon(c3-s-end),      dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon(AB10),         dragonform.shift_count>=3",
         "`s3",
         "`s1, cancel",
         "`s2, fsc",
@@ -144,7 +144,7 @@
       ]
     },
     "META": {
-      "tdps": 55785.06823520817,
+      "tdps": 58176.184725968924,
       "pref": "PERSONAL"
     }
   },
@@ -166,7 +166,6 @@
       "acl": [
         "`dragon(c3-s-end), dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=1 and aff(frostbite)",
-        "`dragon( AB10 ), dragonform.shift_count>=2 and aff(frostbite)",
         "`s3, not buff(s3)",
         "`s1",
         "`s4, xf",
@@ -196,8 +195,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53040.07122574092,
-        "team": 0.011695871938401516,
+        "dps": 53074.973640270146,
+        "team": 0.011684863841278134,
         "noaff": false,
         "nihil": true
       },
@@ -209,12 +208,12 @@
         "To_the_Extreme"
       ],
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
         "`dragon( AB10 ),  dragonform.shift_count>=3",
         "`s3",
-        "`s1, cancel",
+        "`s1,cancel",
         "`s2, fsc",
         "`s4, fsc",
         "`fs, x=5"
@@ -275,32 +274,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40868.9052056425,
-        "team": 0.02338373621338084,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Holywyrms_Advent",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Yuya"
-      ],
-      "share": [
-        "Student_Maribelle",
-        "Summer_Julietta"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 41079.82569953088,
-        "team": 0.02044797544498589,
+        "dps": 37409.32781261837,
+        "team": 0.0370210643256605,
         "noaff": false,
         "nihil": true
       },
@@ -310,6 +285,54 @@
         "Moonlight_Party",
         "Dueling_Dancers",
         "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon(AB10), dragonform.shift_count>=2",
+        "`s3",
+        "`s1, cancel",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42490.14113231812,
+        "team": 0.02044339494414964,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon( AB10 ), dragonform.shift_count>=3",
+        "`s3",
+        "`s1, cancel",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Blade",
@@ -322,7 +345,7 @@
       ]
     },
     "META": {
-      "tdps": 71845.25938184427,
+      "tdps": 306485.381193957,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

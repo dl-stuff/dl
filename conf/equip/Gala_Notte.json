@@ -59,9 +59,9 @@
         "end"
       ],
       "coabs": [
+        "Dragonyule_Xainfried",
         "Joker",
-        "Mona",
-        "Wand"
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -97,6 +97,44 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39156.66273836756,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Hastened_Squall"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon",
+        "`s3, not buff (s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Ranzal",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47228.980850068634,
@@ -142,7 +180,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81351.66786863813,
+        "dps": 81298.59229326808,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -158,7 +196,7 @@
       ]
     },
     "META": {
-      "tdps": 392845.16219293233,
+      "tdps": 392282.3151616255,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -203,19 +241,14 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54463.07451227234,
+        "dps": 67802.64889166424,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "share": [
-        "Weapon",
-        "Gala_Luca"
-      ]
+      }
     },
     "META": {
-      "tdps": 107701.48092092211,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

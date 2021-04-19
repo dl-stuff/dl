@@ -96,7 +96,40 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12595.436840812878,
+        "dps": 9041.978038096475,
+        "team": 0.10241621741924228,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Warrior_Maiden",
+        "Blessed_Days",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Peony"
+      ],
+      "share": [
+        "Ranzal",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26621.779328138404,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -112,56 +145,46 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`s1, dgauge>=500 and not buff(s1)",
-        "`dragon, xf and buff(s3,1)",
-        "`s4, xf>2",
-        "`s3, xf>3"
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s4",
+        "`s3"
       ],
       "coabs": [
-        "Dagger2",
-        "Peony",
-        "Raemond"
+        "Blade",
+        "Dagger",
+        "Peony"
       ],
       "share": [
         "Weapon",
         "Gala_Mym"
       ]
     },
-    "PERSONAL": {
+    "META": {
+      "tdps": 171650.56211828985,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 22339.0843364281,
-        "team": 0.0,
+        "dps": 8274.486762976208,
+        "team": 0.09416815278500851,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s1, dgauge>=500 and not buff(s1)",
-        "`dragon, xf and buff(s3,1)",
-        "`s4, xf>2",
-        "`s3, xf>3"
-      ],
       "coabs": [
-        "Blade",
+        "Bow",
         "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Ilia",
-        "Gala_Mym"
+        "Sha_Wujing"
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "tdps": 194835.4302653696,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -199,30 +222,66 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26685.218366048048,
+        "dps": 34960.10129745059,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Dueling_Dancers",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), aff(flashburn)",
+        "`s4, x=5",
+        "`s3"
+      ],
+      "share": [
+        "Ilia",
+        "Summer_Celliera"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5699.845431585898,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Dragons_Nest",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Peony"
+      ],
+      "share": [
+        "Chitose",
+        "Yuya"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 12595.436840812878,
@@ -255,6 +314,48 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 5699.845431585898,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Dragons_Nest",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Peony"
+      ],
+      "share": [
+        "Chitose",
+        "Yuya"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

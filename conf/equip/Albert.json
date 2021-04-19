@@ -94,49 +94,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 54725.948156193845,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4",
-        "if x=2",
-        "`fs2, not aff(paralysis)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s4",
-        "`s2, charged_in(2, s1)",
-        "`s3",
-        "`s1, not s2.charged>(s2.sp*(4/5))",
-        "end"
-      ],
-      "coabs": [
-        "Bow",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57170.041487617316,
@@ -185,33 +142,25 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 82448.12358796684,
-        "team": 0.09152818010884617,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82448.12358796684,
-        "team": 0.09152818010884617,
+        "dps": 87878.40246098096,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "The_Shining_Overlord",
-        "Rogues_Banquet",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "if electrified",
-        "`s1, cancel",
+        "`s1, fsc",
         "`s4, fsc",
         "`s3, duration-now<2",
         "if x=2",
@@ -222,13 +171,9 @@
         "`dragon(c3-s-end), cancel",
         "`s3, not buff(s3) and x=5",
         "`s2, charged_in(2, s1)",
-        "`s4, cancel",
+        "`s4",
         "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
         "end"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "META": {
@@ -269,19 +214,11 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 46808.334893006475,
-        "team": 0.09994470332141683,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47571.78402097435,

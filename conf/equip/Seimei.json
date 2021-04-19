@@ -80,18 +80,18 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 27041.1351747278,
-        "team": 0.024575199249571737,
+        "dps": 42742.59086638774,
+        "team": 0.0281160411911103,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
+        "The_Cutie_Competition",
+        "Blessed_Days",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
@@ -117,11 +117,53 @@
         "Kimono_Elisanne"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44682.99018414149,
+        "team": 0.024663194027289684,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
+        "`s2",
+        "end",
+        "if not have_buff(shikigami)",
+        "`s1",
+        "end",
+        "`s4",
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Ezelith",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
       ]
     },
     "META": {
+      "tdps": 561970.8100855163,
       "pref": "PERSONAL"
     }
   },
@@ -184,17 +226,13 @@
         "else",
         "`fs,x=5",
         "end"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -243,18 +281,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28938.544750148812,
-        "team": 0.024600033135014646,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28938.544750148812,
-        "team": 0.024600033135014646,
+        "dps": 32757.590773519238,
+        "team": 0.024690491114114466,
         "noaff": false,
         "nihil": true
       },
@@ -274,7 +304,7 @@
         "`fst(3.1), self.shikigami_gauge<7"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Dragonyule_Lily"
       ]
     },
@@ -282,7 +312,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

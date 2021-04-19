@@ -76,6 +76,33 @@
     }
   },
   "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30643.47792792753,
+        "team": 0.17795562301347922,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Lurker_in_the_Woods",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "PopStar_Siren",
+      "coabs": [
+        "Gala_Prince",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 68513.2500408779,
@@ -90,7 +117,7 @@
       ]
     },
     "META": {
-      "tdps": 4137466.1000032853,
+      "tdps": 776596.1599628399,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -99,6 +126,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27729.012516062252,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "The_Lurker_in_the_Woods",
+        "Flower_in_the_Fray",
+        "Rogues_Banquet",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-sc3-c3-c3), fsc",
+        "`s3, not buff(s3)",
+        "`s4, x>2",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1, cancel",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28194.747934863768,
@@ -168,38 +230,38 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37419.54104667583,
+        "dps": 37791.67130828518,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
+        "The_Lurker_in_the_Woods",
         "A_Small_Courage",
-        "The_Warrioresses",
+        "Beautiful_Nothingness",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Lance"
       ],
       "acl": [
-        "`dragon(c3-s), aff(flashburn)",
-        "`s3, cancel",
-        "`s4, cancel",
-        "`fs5, c_fs(auspex) and x=1",
-        "`s1",
-        "`s2"
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`fs5, c_fs(auspex) and x=1 and aff(flashburn)",
+        "`s4",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3, cancel"
       ],
       "share": [
-        "Summer_Julietta",
-        "Ryszarda"
+        "Gala_Mym",
+        "Ilia"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

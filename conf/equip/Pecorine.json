@@ -90,11 +90,24 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 103632.04511835337,
+        "dps": 103645.33920570076,
         "team": 0.0,
         "noaff": true,
         "nihil": false
       },
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end)",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
       "coabs": [
         "Blade",
         "Mitsuhide",

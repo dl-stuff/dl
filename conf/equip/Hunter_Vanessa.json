@@ -77,9 +77,44 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25346.32401307032,
+        "team": 0.017538375983565235,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-end), cancel",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Malora",
+        "Peony"
+      ],
+      "share": [
+        "Hunter_Berserker",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26925.395236712055,
+        "dps": 27373.040018650256,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -108,11 +143,12 @@
         "Peony"
       ],
       "share": [
-        "Summer_Celliera",
+        "Hunter_Sarisse",
         "Ilia"
       ]
     },
     "META": {
+      "tdps": 115558.93245070809,
       "pref": "PERSONAL"
     }
   },
@@ -144,7 +180,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33446.1518517835,
+        "dps": 32875.06854045537,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -176,7 +212,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -206,53 +242,23 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 19688.537683153423,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-end), cancel",
-        "`s3, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs2, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Malora",
-        "Peony"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Ilia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 19688.537683153423,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
