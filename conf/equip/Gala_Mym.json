@@ -125,7 +125,7 @@
         "`dragon(c3-s-end),      dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
-        "`dragon(AB10),         dragonform.shift_count>=3",
+        "`dragon( AB10 ),         dragonform.shift_count>=3",
         "`s3",
         "`s1, cancel",
         "`s2, fsc",
@@ -168,10 +168,11 @@
         "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=1 and aff(frostbite)",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4, xf",
+        "`s4, cancel",
         "`s2, fscf",
         "`fs, x=5",
-        "`dodge, fscf"
+        "`dodge, fscf",
+        "`dragon( AB10 ), dragonform.shift_count>=2 and aff(frostbite)"
       ],
       "coabs": [
         "Serena",

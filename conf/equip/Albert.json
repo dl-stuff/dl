@@ -46,7 +46,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79263.9182225324,
+        "dps": 80545.18690024092,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -55,10 +55,10 @@
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Rogues_Banquet",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -89,7 +89,7 @@
       ]
     },
     "META": {
-      "tdps": 55819.259998262285,
+      "tdps": 69817.88507946483,
       "pref": "PERSONAL"
     }
   },
@@ -142,21 +142,21 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 87878.40246098096,
-        "team": 0.0,
+        "dps": 78786.76767305873,
+        "team": 0.09998402679426502,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
+        "Worthy_Rivals",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Tutelarys_Destiny"
       ],
       "acl": [
         "if electrified",
@@ -176,7 +176,33 @@
         "end"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 87878.40246098096,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "if electrified",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`s3, duration-now<2",
+        "if x=2",
+        "`fs2, not have_buff(affself_paralysis_crit)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2, s1)",
+        "`s4",
+        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
+        "end"
+      ]
+    },
     "META": {
+      "tdps": 90930.87245455608,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

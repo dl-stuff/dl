@@ -3,7 +3,7 @@
     "TEAMBUFF": {
       "EQMT": {
         "dps": 14617.948315315985,
-        "team": 0.6099049429182519,
+        "team": 0.6099049429182515,
         "noaff": false,
         "nihil": false
       },
@@ -64,7 +64,7 @@
       ]
     },
     "META": {
-      "tdps": 170258.57511807795,
+      "tdps": 170258.5751180781,
       "pref": "PERSONAL"
     }
   },
@@ -127,7 +127,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62441.5903098475,
+        "dps": 62749.56130535528,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -136,7 +136,7 @@
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
         "The_Cutie_Competition",
-        "Enter_the_Blue_Rose",
+        "Dueling_Dancers",
         "The_Warrioresses"
       ],
       "slots.d": "Gozu_Tenno",
@@ -159,15 +159,15 @@
       ]
     },
     "META": {
-      "tdps": 216530.10269740297,
+      "tdps": 221765.6128205116,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 108022.94679214872,
-        "team": 0.0764166778286931,
+        "dps": 108017.87346597383,
+        "team": 0.09607204685053246,
         "noaff": false,
         "nihil": false
       },
@@ -176,13 +176,15 @@
         "Rivalry_of_Kings",
         "The_Cutie_Competition",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "The_Warrioresses"
       ],
-      "slots.d": "Gala_Mars",
-      "coabs": [
-        "Gala_Mym",
-        "Kimono_Elisanne",
-        "Marth"
+      "acl": [
+        "`dragon(c2-s-c3-c3-s-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s=1",
+        "`s1",
+        "`fs"
       ]
     },
     "META": {
@@ -210,6 +212,9 @@
       ],
       "acl": [
         "`dragon, s",
+        "queue prep",
+        "`s1;s4;s3;s1",
+        "end",
         "`s3",
         "`s4, s",
         "`s2",

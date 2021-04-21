@@ -2,19 +2,20 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34948.80015019587,
-        "team": 0.029310568340322526,
+        "dps": 5642.330561814429,
+        "team": 0.21721075319724178,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "The_Warrioresses"
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Freyja",
+      "slots.w": "void",
       "acl": [
         "`dragon(c3-s-c3-c3-end), cancel",
         "`s3, not buff(s3)",
@@ -24,12 +25,12 @@
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Xainfried",
-        "Lin_You"
+        "Joker",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Sha_Wujing"
+        "Yuya",
+        "Tobias"
       ]
     },
     "PERSONAL": {
@@ -65,8 +66,42 @@
       ]
     },
     "META": {
-      "tdps": 418459.37549120747,
+      "tdps": 191389.013202377,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47214.08227317959,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Pinon"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -106,15 +141,48 @@
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
+  "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35820.51578044482,
-        "team": 0.029310568340322526,
+        "dps": 38236.16315888347,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
-      }
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`s3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
     },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 54596.08794450718,
@@ -156,6 +224,48 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54596.08794450718,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Forest_Bonds",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`fs, x=1",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -181,6 +291,34 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40131.83523431265,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -216,7 +354,63 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38395.08637491908,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25961.125825505223,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 25961.125825505223,

@@ -93,7 +93,7 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-end)",
-        "`s3",
+        "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
         "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel))",
@@ -223,6 +223,11 @@
         "else",
         "`dodge, x=5",
         "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
         "Weapon",

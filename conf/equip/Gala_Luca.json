@@ -102,6 +102,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 41616.800116242186,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`s3, xf=5",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Peony",
+        "Sharena",
+        "Wand"
+      ],
+      "share": [
+        "Sharena",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 44719.75653159445,
@@ -324,9 +359,9 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67334.74441912935,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 73399.0184146666,
+        "team": 0.09996294706762016,
+        "noaff": true,
         "nihil": false
       },
       "coabs": [
@@ -336,8 +371,7 @@
       ]
     },
     "META": {
-      "tdps": -60665.21819764939,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-ANY"

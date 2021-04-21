@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48104.64803114694,
-        "team": 0.18146122871279677,
+        "dps": 36832.65420150817,
+        "team": 0.20175088390915594,
         "noaff": true,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Crown_of_Light",
         "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
         "`dragon(c3-c3-c3-c3), cancel",
         "`s3, not buff(s3)",
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 405755.6732333543,
+      "tdps": 447643.6401424032,
       "pref": "PERSONAL"
     }
   },
@@ -126,41 +126,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27729.012516062252,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "The_Lurker_in_the_Woods",
-        "Flower_in_the_Fray",
-        "Rogues_Banquet",
-        "Crown_of_Light",
-        "Mask_of_Determination_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-sc3-c3-c3), fsc",
-        "`s3, not buff(s3)",
-        "`s4, x>2",
-        "`fs5, c_fs(auspex) and x=1",
-        "`s1, cancel",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Hunter_Sarisse"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28194.747934863768,
@@ -219,7 +184,7 @@
       ]
     },
     "META": {
-      "tdps": 570553.8903528823,
+      "tdps": 566359.4049990154,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -261,7 +226,30 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 68513.2500408779,
+        "team": 0.12919183294431066,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   }

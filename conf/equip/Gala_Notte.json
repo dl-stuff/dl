@@ -83,8 +83,8 @@
       },
       "coabs": [
         "Blade",
-        "Mona",
-        "Wand"
+        "Dragonyule_Xainfried",
+        "Mona"
       ]
     },
     "META": {
@@ -97,44 +97,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39156.66273836756,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Hastened_Squall"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "if metamorphosis.get()",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`dragon",
-        "`s3, not buff (s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Ranzal",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47228.980850068634,
@@ -276,6 +238,11 @@
         "`s2",
         "`s4"
       ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
@@ -290,39 +257,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 34599.6893206616,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "if metamorphosis.get()",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`dragon",
-        "`s3",
-        "`s1",
-        "`s2",
-        "`s4",
-        "end"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Yukata_Cassandra"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35718.01746769928,
@@ -359,7 +293,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }
