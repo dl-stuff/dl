@@ -408,7 +408,7 @@ class EquipEntry(dict):
                 if build:
                     dprint(f"RESTORE FROM PARTIAL {based_on}")
                     if with_conditions:
-                        conditions = based_on if set(build.keys()) == {BUILD_META_KEY} else self._conditions
+                        conditions = self._conditions if BUILD_META_KEY in build else based_on
                         return self.restore_build(build, base_build), conditions
                     return self.restore_build(build, base_build)
                 elif not strict:

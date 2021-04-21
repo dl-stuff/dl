@@ -182,35 +182,24 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 32448.623813730843,
-        "team": 0.09351486382885185,
+        "dps": 33350.90590507604,
+        "team": 0.18866289520257015,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Summer_Paladyns",
-        "Sweet_Surprise",
-        "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "The_Plaguebringer"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, s=2",
+        "`s2",
+        "`fsf, x=4",
+        "`dragon, s=1 and s2.charged = 0"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 33655.96606005877,
-        "team": 0.09334136735630608,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -218,33 +207,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28359.597175473114,
-        "team": 0.09719594354858663,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Moonlight_Party",
-        "Pecorines_Grand_Adventure",
-        "Summer_Paladyns",
-        "Entwined_Flames",
-        "Such_High_Spirits"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`s2, s=1",
-        "`fsf, x=4",
-        "`dragon, s=1 and s2.charged = 0"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Summer_Julietta"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28912.12409410286,
