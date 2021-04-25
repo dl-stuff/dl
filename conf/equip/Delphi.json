@@ -96,10 +96,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 23249.364543313415,
-        "team": 0.1665937062350938,
+        "dps": 26558.542089156203,
+        "team": 0.23214572061284033,
         "noaff": false,
         "nihil": true
       },
@@ -112,10 +112,45 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "queue buff(s3) and (s=1 and dgauge>=500)",
+        "queue (s=1 and dgauge>=500)",
         "`dragon(c3-s);fs",
         "end",
-        "`s3, not buff(s3)",
+        "`s3",
+        "`s1",
+        "`s4, s=1",
+        "`s2, fscf",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Grace",
+        "Joker"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29855.333759600013,
+        "team": 0.16660655509079295,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "The_Warrioresses"
+      ],
+      "slots.d": "High_Chthonius",
+      "acl": [
+        "queue (s=1 and dgauge>=500)",
+        "`dragon(c3-s);fs",
+        "end",
+        "`s3",
         "`s1",
         "`s4, s=1",
         "`s2, fscf",
@@ -132,6 +167,7 @@
       ]
     },
     "META": {
+      "tdps": 50302.6189635382,
       "pref": "PERSONAL"
     }
   },
@@ -160,17 +196,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.d": "High_Chthonius",
-      "acl": [
-        "queue (s=1 and dgauge>=500)",
-        "`dragon(c3-s);fs",
-        "end",
-        "`s3",
-        "`s1",
-        "`s4, s=1",
-        "`s2, fscf",
-        "`fs, x=2"
-      ],
       "coabs": [
         "Grace",
         "Ieyasu",
@@ -181,7 +206,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -222,8 +247,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 5148.051540330316,
-        "team": 0.17836801481455267,
+        "dps": 8640.535836386924,
+        "team": 0.16662240064889397,
         "noaff": false,
         "nihil": true
       },
@@ -245,11 +270,11 @@
       ]
     },
     "META": {
-      "tdps": 3172453.475028224,
+      "tdps": 508344.97735032876,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -219,6 +219,20 @@
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1, cancel",
+        "`s2",
+        "`dodge, x=3",
+        "else",
+        "`s3, not buff(s3)",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, fs_prep_c and x=4",
+        "end"
+      ],
       "share": [
         "Formal_Joachim",
         "Summer_Celliera"

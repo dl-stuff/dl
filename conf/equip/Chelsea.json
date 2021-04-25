@@ -70,18 +70,18 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 14940.509245172365,
-        "team": 0.0,
+        "dps": 19232.21785933886,
+        "team": 0.024645345165267823,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
+        "The_Cutie_Competition",
+        "The_Warrioresses",
         "To_the_Extreme"
       ],
       "slots.d": "Gozu_Tenno",
@@ -100,14 +100,52 @@
       "coabs": [
         "Blade",
         "Halloween_Mym",
-        "Kimono_Elisanne"
+        "Yuya"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Seimei",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23555.867447434706,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1",
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3),x=1",
+        "else",
+        "`fs,x=5",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Leonidas"
       ]
     },
     "META": {
+      "tdps": 175434.7345960111,
       "pref": "PERSONAL"
     }
   },
@@ -132,6 +170,30 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26626.014476712884,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

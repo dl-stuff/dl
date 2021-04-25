@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 83355.39647753877,
-        "team": 0.01679572951577091,
+        "dps": 89136.77488537262,
+        "team": 0.025749673540928976,
         "noaff": true,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Cupid",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -38,7 +38,7 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Summer_Cleo"
       ]
     },
     "PERSONAL": {
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 1327252.6870720037,
+      "tdps": 641204.1961255869,
       "pref": "PERSONAL"
     }
   },
@@ -187,7 +187,7 @@
       ]
     },
     "META": {
-      "tdps": 2281858.5207952196,
+      "tdps": 1263864.570903048,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -198,7 +198,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66362.77067710058,
+        "dps": 70307.8327734704,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -220,10 +220,9 @@
         "`dodge, fsc",
         "`fs, dodge",
         "else",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
         "`s2",
         "`s4",
-        "`s3",
+        "`s3, fsc",
         "`fs, x=1",
         "end"
       ]

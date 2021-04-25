@@ -114,7 +114,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 27373.040018650256,
+        "dps": 32154.441311788665,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -131,11 +131,11 @@
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon(c3-s-c3-end), cancel",
-        "`s3, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
+        "`s3",
+        "`s4",
+        "`s1",
         "`dodge, fsc",
-        "`fs2, x=5"
+        "`fs2, charged_in(fs2, s1) or charged_in(fs2, s3)"
       ],
       "coabs": [
         "Blade",
@@ -148,7 +148,7 @@
       ]
     },
     "META": {
-      "tdps": 115558.93245070809,
+      "tdps": 388184.02029344445,
       "pref": "PERSONAL"
     }
   },
@@ -170,9 +170,44 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27183.300009487342,
+        "team": 0.024604207189026943,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Spirit_of_the_Season",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s2, timeleft(s2)<3",
+        "`s3, not buff(s3) and fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 32875.06854045537,
+        "dps": 36045.805444628146,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -181,26 +216,31 @@
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Chariot_Drift",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon(c3-s-c3-c3-end), aff(flashburn)",
-        "`s3, fsc",
         "`s4",
-        "`s1, xf",
+        "`s1, fsc or x=5",
+        "`s3, fsc",
         "`dodge, fsc",
         "`fs2, x=5"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
-        "Peony"
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
     "META": {
+      "tdps": 360202.8452716546,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

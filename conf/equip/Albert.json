@@ -144,7 +144,7 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 78786.76767305873,
+        "dps": 81802.48978747948,
         "team": 0.09998402679426502,
         "noaff": false,
         "nihil": false
@@ -156,7 +156,7 @@
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "if electrified",
@@ -202,7 +202,7 @@
       ]
     },
     "META": {
-      "tdps": 90930.87245455608,
+      "tdps": 60768.833465806965,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -213,27 +213,29 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62238.83286642966,
+        "dps": 64655.41490016138,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
         "if electrified",
-        "`s1, cancel",
-        "`s4",
+        "`s1",
         "`s3",
-        "if x=2",
-        "`fs2, not aff(paralysis)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
         "`s4",
+        "`fs1, x=2",
+        "else",
+        "`dragon(c3-s-end)",
         "`s2",
         "`s3",
         "`s1",
+        "`s4, x>1",
         "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
       ]
     },
     "META": {

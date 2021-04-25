@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58085.35834641084,
-        "team": 0.18956694547925004,
+        "dps": 61638.7393208706,
+        "team": 0.20077767985730569,
         "noaff": false,
         "nihil": false
       },
@@ -48,17 +48,17 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-c3-c3-s-c3-c2-end), aff(frostbite)",
+        "`dragon(c3-c3-c3-s-c3-c2-end), s and aff(frostbite)",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1, x>1",
+        "`s4, cancel",
+        "`s1, cancel",
         "`s2, x=4",
-        "`fsf, x=4"
+        "`dodge, x=4"
       ],
       "coabs": [
         "Gala_Laxi",
         "Nobunaga",
-        "Yuya"
+        "Serena"
       ],
       "share": [
         "Weapon",
@@ -66,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 79353.06810503778,
+      "tdps": 86863.01635933586,
       "pref": "PERSONAL"
     }
   },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 102895.4383301452,
+      "tdps": 112398.4075916813,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -204,38 +204,6 @@
       }
     }
   },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 60678.043048417014,
-        "team": 0.20743669360433842,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Honest_Repose",
-        "Me_and_My_Bestie",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
-      ],
-      "acl": [
-        "`dragon(c3-c3-c3-s-c3-c3)",
-        "`s3, not buff(s3)",
-        "`s1, cancel",
-        "`s2",
-        "`s4"
-      ]
-    },
-    "META": {
-      "tdps": 86209.50531007988,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -288,37 +256,33 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 10249.401894763363,
-        "team": 0.7923912293283403,
+        "dps": 38213.1698178693,
+        "team": 0.2718134232983248,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Kung_Fu_Masters",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
-      "slots.d": "Horus",
       "acl": [
-        "`s4",
-        "`s3, cancel",
-        "`s2",
-        "`s1",
-        "`fs, fs_prep_c and x=5"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Joker",
-        "Tobias"
+        "`dragon(c3-c3-c3-s-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s4, s=1",
+        "`s1, x>1",
+        "`s2, x=4",
+        "`fsf, x=4"
       ],
       "share": [
-        "Valentines_Orion",
-        "Karl"
+        "Weapon",
+        "Summer_Cleo"
       ]
     },
     "META": {
+      "tdps": 53716.788536109045,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -326,20 +290,22 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 36079.74550918705,
-        "team": 0.10782517816862076,
+        "dps": 23334.346064328627,
+        "team": 0.10782374674728615,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.w": "void"
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 219691.4172418678,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

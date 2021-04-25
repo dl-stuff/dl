@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55026.06861334843,
-        "team": 0.09992952747656736,
+        "dps": 39410.359562165155,
+        "team": 0.12954240332230518,
         "noaff": false,
         "nihil": false
       },
@@ -16,7 +16,7 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Cupid",
       "acl": [
         "`dragon(c3-s)",
         "`s3, not buff(s3)",
@@ -71,10 +71,46 @@
       ]
     },
     "META": {
+      "tdps": 527328.3531302428,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30281.576790750594,
+        "team": 0.019548586662714165,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
+        "Blessed_Days",
+        "Dueling_Dancers",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`fs, c_fs(xihe) and x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Rawn",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 31268.661372508803,
@@ -111,6 +147,7 @@
       ]
     },
     "META": {
+      "tdps": 50493.91031633587,
       "pref": "PERSONAL"
     }
   },
@@ -168,7 +205,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -211,7 +248,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

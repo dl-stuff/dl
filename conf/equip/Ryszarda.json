@@ -76,6 +76,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54803.68594691563,
+        "team": 0.020423310758008583,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-end), cancel",
+        "`s3",
+        "`s2, x>2",
+        "`s4, cancel",
+        "`fs, s1.check()",
+        "`s1, timeleft(fs)>4"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Sharena",
+        "Raemond"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57009.50635792818,
@@ -112,6 +147,7 @@
       ]
     },
     "META": {
+      "tdps": 108005.0358704735,
       "pref": "PERSONAL"
     }
   },
@@ -144,21 +180,29 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63503.869741895374,
+        "dps": 64852.62767885057,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s3, x=5",
+        "`s2, x>3",
+        "`s4, x=5",
+        "`fs, s1.check() and xf",
+        "`s1, timeleft(fs)>2"
+      ],
       "share": [
         "Summer_Celliera",
-        "Summer_Julietta"
+        "Gala_Luca"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

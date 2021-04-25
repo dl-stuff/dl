@@ -139,10 +139,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 53354.00928245313,
-        "team": 0.0,
+        "dps": 57333.76336085583,
+        "team": 0.03697418298009238,
         "noaff": false,
         "nihil": true
       },
@@ -154,18 +154,59 @@
         "His_Clever_Brother"
       ],
       "acl": [
-        "`s3",
-        "`s4",
-        "`dragon(c3-s-c3-c3-c2-end), x=2 or dodge",
-        "`s2, x=2 or dodge",
-        "`dodge, x=2"
+        "`dragon(c3-s-c3-c3-c2-end), x=2 and def_mod()!=1",
+        "`s3, x=2",
+        "`s4, x=2",
+        "`s1, x=2 and def_mod()!=1",
+        "`s2, x=2",
+        "`fsf, x=2",
+        "`dodge, hits<15 and x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
-        "The_Prince",
-        "Gala_Mym"
+        "Gala_Mym",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61643.4687450271,
+        "team": 0.03685450078957101,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), x=2 and def_mod()!=1",
+        "`s3, x=2",
+        "`s1, x=2",
+        "`s4, x=2",
+        "`s2, x=2",
+        "`fsf, x=2",
+        "`dodge, hits<15 and x=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Seimei"
       ]
     },
     "META": {
+      "tdps": 36009579.7494775,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
