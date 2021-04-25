@@ -73,8 +73,8 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5966.699463874992,
-        "team": 0.6960875427802742,
+        "dps": 8978.06309736779,
+        "team": 0.6626338583600901,
         "noaff": true,
         "nihil": false
       },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 112398.4075916813,
+      "tdps": 114019.6422059672,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -96,33 +96,33 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4709.018657084939,
-        "team": 0.1926032417365613,
+        "dps": 6724.26259291696,
+        "team": 0.20528329539257167,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Gentle_Winds",
         "Honest_Repose",
+        "Sisters_Day_Out",
         "Summertime_Feeling_Feline",
         "Bellathorna",
         "From_Whence_He_Comes"
       ],
       "slots.d": "Horus",
-      "slots.w": "void",
       "acl": [
-        "`s3",
+        "`s4",
+        "`s3, cancel",
         "`s2",
         "`s1",
-        "`s4"
+        "`fs, fs_prep_c and x=5"
       ],
       "coabs": [
-        "Gala_Laxi",
         "Gala_Sarisse",
+        "Joker",
         "Tobias"
       ],
       "share": [
-        "Templar_Hope",
+        "Valentines_Orion",
         "Karl"
       ]
     },
@@ -159,15 +159,15 @@
       ]
     },
     "META": {
-      "tdps": 370033.53853396093,
+      "tdps": 301211.2664644809,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36079.74550918705,
-        "team": 0.10782517816862076,
+        "dps": 23334.346064328627,
+        "team": 0.10782374674728615,
         "noaff": false,
         "nihil": true
       },
@@ -179,6 +179,7 @@
         "Such_High_Spirits"
       ],
       "slots.d": "Gala_Mars",
+      "slots.w": "void",
       "acl": [
         "`dragon(c3-c3-c3-s-c3-c3-c1-end)",
         "`s3",
@@ -232,8 +233,8 @@
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42062.802525216444,
-        "team": 0.10782517816862076,
+        "dps": 27225.157094030885,
+        "team": 0.10782374674728615,
         "noaff": false,
         "nihil": true
       },
@@ -301,11 +302,53 @@
       "slots.w": "void"
     },
     "META": {
-      "tdps": 219691.4172418678,
+      "tdps": 170430.5396679585,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6724.26259291696,
+        "team": 0.20528329539257167,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Summertime_Feeling_Feline",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s4",
+        "`s3, cancel",
+        "`s2",
+        "`s1",
+        "`fs, fs_prep_c and x=5"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Valentines_Orion",
+        "Karl"
+      ]
+    },
+    "META": {
+      "tdps": 170430.5396679585,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

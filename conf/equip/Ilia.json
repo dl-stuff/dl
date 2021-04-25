@@ -91,10 +91,36 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-end), fscf",
+        "`dodge, hits<21",
+        "if (xf=1)",
+        "`fs, c_fs(cartridge3)",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -104,10 +130,36 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-end), fscf",
+        "`dodge, hits<21",
+        "if (xf=1)",
+        "`fs, c_fs(cartridge3)",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "end"
+      ],
       "coabs": [
         "Blade",
         "Halloween_Elisanne",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     },
     "META": {
@@ -289,6 +341,14 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61933.14804047159,
+        "team": 0.11808275839369184,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 75089.7894045627,
@@ -319,6 +379,7 @@
       ]
     },
     "META": {
+      "tdps": 111418.81798040686,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -329,22 +390,26 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69129.58873354286,
-        "team": 0.0,
+        "dps": 58326.66478345891,
+        "team": 0.11808275839369184,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Dagger",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

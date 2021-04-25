@@ -221,11 +221,26 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18179.788421626617,
+        "dps": 22613.2293485044,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "# queue self.duration<=60",
+        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
+        "# end",
+        "`dragon(c3-s-end), s and duration>=120",
+        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
+        "`s3, s or x=5",
+        "`s4, s or x=5",
+        "`s1, fsc or (s=1 or s=4)"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

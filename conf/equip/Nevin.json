@@ -76,10 +76,28 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ],
       "coabs": [
         "Audric",
         "Blade",
         "Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "PERSONAL": {
@@ -89,10 +107,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, xf",
+        "`s2, cancel"
+      ],
       "coabs": [
         "Berserker",
         "Cleo",
         "Forte"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -200,6 +237,7 @@
       ]
     },
     "META": {
+      "tdps": 113043.94682693882,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -312,6 +350,7 @@
       ]
     },
     "META": {
+      "tdps": 82471.44154836865,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "IMMUNE-NORMAL-ANY",
@@ -322,8 +361,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 20369.808446313364,
-        "team": 0.04165739865248054,
+        "dps": 5347.818684128224,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -364,11 +403,51 @@
       ]
     },
     "META": {
-      "tdps": 40474262.32011832,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8086.667311218605,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, xf",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

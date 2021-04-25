@@ -214,21 +214,38 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37625.5136705278,
+        "dps": 40720.42686966524,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Dogs_Day",
+        "A_Man_Unchanging",
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), xf>1",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(5,s1) or dgauge>=500",
+        "`s1, buff(s3)",
+        "`s4",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Akasha",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
       ]
     },
     "META": {
-      "tdps": 232269.3955080023,
+      "tdps": 281824.35610584606,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -237,9 +254,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 15688.708464924612,
+        "dps": 25765.954860633818,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -247,32 +264,30 @@
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s2, s4.check() or s1",
-        "`s1, buff(s3)",
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3, cancel",
+        "`s1",
         "`s4",
         "`fs, xf=5",
         "`dodge, fsc"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
+        "Dagger",
+        "Mona",
+        "Wand"
       ],
       "share": [
-        "Weapon",
-        "Jurota"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

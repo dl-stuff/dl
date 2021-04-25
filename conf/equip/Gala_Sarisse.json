@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12749.260937615301,
+        "dps": 12868.854746397155,
         "team": 0.44193619521249144,
         "noaff": true,
         "nihil": false
@@ -69,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 114834.74059803708,
+      "tdps": 114476.39793816525,
       "pref": "PERSONAL"
     }
   },
@@ -201,7 +201,7 @@
       ]
     },
     "META": {
-      "tdps": 145679.0560974539,
+      "tdps": 145320.6558147935,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -308,11 +308,86 @@
       ]
     },
     "META": {
-      "tdps": 99068.46004138596,
+      "tdps": 98499.5283805936,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5824.9035117704125,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Honest_Repose",
+        "Jewels_of_the_Sun",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Horus",
+      "slots.w": "high_dragon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Joker",
+        "Tobias",
+        "Valentines_Hildegarde"
+      ],
+      "share": [
+        "Cleo",
+        "Patia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23518.593721042525,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Nobunaga"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

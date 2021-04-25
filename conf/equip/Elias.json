@@ -83,10 +83,32 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s4",
+        "`s1, buff(s3)",
+        "`s3, cancel",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "PERSONAL": {
@@ -152,6 +174,19 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46090.4430678508,
+        "team": 0.08929855295806811,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 48122.96179286007,
@@ -196,10 +231,11 @@
       ]
     },
     "META": {
+      "tdps": 2681953.8382009696,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
       }
     }
   },
@@ -249,6 +285,33 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22951.204765464132,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

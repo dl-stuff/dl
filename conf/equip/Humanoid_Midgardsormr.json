@@ -188,46 +188,19 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55929.030577639205,
+        "dps": 57288.91495660425,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), cancel",
-        "`s3, cancel",
-        "`s4, cancel",
-        "`s1",
-        "`s2",
-        "`fs, xf=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56209.736903150915,
+        "dps": 58439.61785592398,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), cancel",
-        "`s3, cancel",
-        "`s4, cancel",
-        "`s1",
-        "`s2",
-        "`fs, xf=5",
-        "`dodge, fsc"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -248,16 +221,28 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52849.11401788208,
-        "team": 0.0,
+        "dps": 63725.39438048829,
+        "team": 0.04998858038652498,
         "noaff": false,
         "nihil": false
       },
-      "slots.d": "Midgardsormr_Zero"
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s2, xf or fsc",
+        "`s1, xf or fsc",
+        "`fs, xf=4",
+        "`dodge, fsc"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
     },
     "META": {
-      "tdps": -62460.364974288685,
-      "pref": "TEAMBUFF",
+      "tdps": 122888.98827461414,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -265,24 +250,27 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37828.306872172485,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 38134.13525550733,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

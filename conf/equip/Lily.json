@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8419.71150008688,
-        "team": 0.523328308407784,
+        "dps": 8077.520960440342,
+        "team": 0.4078230576611513,
         "noaff": true,
         "nihil": false
       },
@@ -66,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 119203.88462050355,
+      "tdps": 153804.34395606862,
       "pref": "PERSONAL"
     }
   },
@@ -146,7 +146,7 @@
       ]
     },
     "META": {
-      "tdps": 167573.6846281875,
+      "tdps": 236685.2114856359,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -174,32 +174,41 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44742.03472347377,
-        "team": 0.0,
+        "dps": 51676.08582867558,
+        "team": 0.12280792492082186,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=4",
+        "`dragon(c3-s-c3-c3-c2-end), s=1",
         "queue prep",
         "`s3;fs;s1;s4",
         "end",
-        "`s2, x>=3",
-        "`s4, x>=3",
+        "`s2, cancel",
+        "`s4, fsc",
         "`s1, cancel",
         "`dodge, fsc",
         "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 69406.37958970123,
+      "tdps": 152969.2983282992,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

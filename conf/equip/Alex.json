@@ -74,10 +74,26 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "His_Clever_Brother",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s4",
+        "`s3"
+      ],
       "coabs": [
         "Heinwald",
         "Ieyasu",
         "Wand"
+      ],
+      "share": [
+        "Yuya",
+        "Karl"
       ]
     },
     "META": {
@@ -290,15 +306,33 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4240.346201291949,
-        "team": 0.14228199164142535,
+        "dps": 27047.47250991248,
+        "team": 0.16374319706228033,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Taiko_Tandem"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), trickery<=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
       "coabs": [
         "Heinwald",
         "Ieyasu",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -317,8 +351,8 @@
       ]
     },
     "META": {
-      "tdps": 262450.15229480865,
-      "pref": "PERSONAL",
+      "tdps": 18229.974491647004,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -328,16 +362,33 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12836.232837056254,
-        "team": 0.0458746308402283,
+        "dps": 24655.0595075024,
+        "team": 0.04655174723127028,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-c3-end)",
+        "`s4",
+        "`s1, xf",
+        "`s3",
+        "`s2"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Chelle",
+        "Summer_Julietta"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 22636.70826446246,
-        "team": 0.04582929556579962,
+        "dps": 24818.620463941887,
+        "team": 0.045710444400022414,
         "noaff": false,
         "nihil": true
       },
@@ -349,24 +400,24 @@
         "The_Plaguebringer"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon(c5-s-c3-end)",
         "`s4",
         "`s1",
         "`s3",
-        "`s2"
+        "`s2, xf"
       ],
       "coabs": [
-        "Bow",
         "Ieyasu",
+        "Joker",
         "Wand"
       ],
       "share": [
         "Gala_Chelle",
-        "Summer_Celliera"
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 216177701.60018855,
+      "tdps": 194413.89041432922,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

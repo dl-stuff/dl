@@ -82,10 +82,32 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s), duration-now<12",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2, xf=5",
+        "`s4",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
+        "`fs, xf=5 and buff(s3)"
+      ],
       "coabs": [
         "Delphi",
         "Gala_Alex",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -319,6 +341,14 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4376.702625850504,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 13880.482111154386,
@@ -349,6 +379,48 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 4376.702625850504,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2, xf=5",
+        "`s4",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5 and not buff(s3)",
+        "`fs, xf=5 and buff(s3)"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

@@ -107,6 +107,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53315.11594358636,
+        "team": 0.11940601364292526,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 117661.52299334196,
@@ -128,6 +136,7 @@
       ]
     },
     "META": {
+      "tdps": 538887.4905595519,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -199,17 +208,22 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41612.870026674565,
+        "dps": 43217.58092722989,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife"
+      "acl": [
+        "`dragon(c5-s-c4-end), xf=5",
+        "`s3",
+        "`s1, hp<=20",
+        "`s2, xf=5",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Wand"
       ],
       "share": [
         "Ranzal",

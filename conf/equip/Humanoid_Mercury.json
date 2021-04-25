@@ -86,6 +86,7 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`dragon(c3-c3-c3-c1-end), dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1 and x=4",
@@ -200,6 +201,47 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14172.880242521733,
+        "team": 0.5277776384315694,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Dazzling_Duet",
+        "Jewels_of_the_Sun",
+        "From_Whence_He_Comes",
+        "Seaside_Memory"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s2",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Patia",
+        "Mikoto"
+      ]
+    },
+    "META": {
+      "tdps": 161711.48882392782,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -248,6 +290,47 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14172.880242521733,
+        "team": 0.5277776384315694,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Dazzling_Duet",
+        "Jewels_of_the_Sun",
+        "From_Whence_He_Comes",
+        "Seaside_Memory"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s2",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Patia",
+        "Mikoto"
+      ]
+    },
+    "META": {
+      "tdps": 112131.01698366276,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

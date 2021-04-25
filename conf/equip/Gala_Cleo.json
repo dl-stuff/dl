@@ -83,10 +83,33 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "Luck_of_the_Draw"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "queue s1.charged>=s1.sp and c_fs(galacleo)",
+        "`fs;s1, fsc",
+        "end",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, fsc",
+        "`fs, x=3 and (not c_fs(galacleo) and fs_prep_c)"
+      ],
       "coabs": [
         "Bow",
         "Dragonyule_Victor",
         "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "META": {
@@ -182,6 +205,24 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 16106.420511248241,
+        "team": 0.9422843963506065,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 111920.8103140799,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -226,25 +267,57 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41332.8535351661,
-        "team": 0.5048843698316354,
+        "dps": 41742.717976873886,
+        "team": 0.49933016414394416,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Snipers_Allure",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4, x>=4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "share": [
+        "Weapon",
+        "Fjorm"
       ]
     },
     "META": {
-      "tdps": 54213.92534205714,
+      "tdps": 54418.19620271801,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14930.40287941487,
+        "team": 0.9422843963506065,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 60530.66693569734,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -283,20 +356,17 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 24535.914466250004,
-        "team": 0.08665216928407796,
+        "dps": 26463.38934778199,
+        "team": 0.08662568332665307,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c5-s-c5-end)",
-        "`s3, cancel",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
+        "`dragon(c5-s-c5-c4-end), xf",
+        "`s1, xf",
+        "`s2, xf",
+        "`s3, xf",
+        "`s4"
       ],
       "coabs": [
         "Dagger",
@@ -304,12 +374,12 @@
         "Joker"
       ],
       "share": [
-        "Summer_Celliera",
+        "Summer_Julietta",
         "Gala_Chelle"
       ]
     },
     "META": {
-      "tdps": 119855.56231901194,
+      "tdps": 276973.565469154,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

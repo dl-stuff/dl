@@ -183,10 +183,18 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 40237.58500670535,
         "team": 0.0867816659630535,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42858.290232898114,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -197,13 +205,22 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+      "acl": [
+        "`dragon(s-s-c3-end), s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Marth",
+        "Wand"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 30198.835169959846,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

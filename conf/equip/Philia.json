@@ -73,7 +73,7 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 47214.08227317959,
+        "dps": 22700.655315084037,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -86,6 +86,14 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, cancel"
+      ],
       "coabs": [
         "Blade",
         "Dragonyule_Xainfried",
@@ -144,7 +152,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38236.16315888347,
+        "dps": 25515.131419503494,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -157,6 +165,7 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
       "acl": [
         "`dragon(c3-s-c3-c3-end), cancel",
         "`s2",
@@ -183,6 +192,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5768.9882335484945,
+        "team": 0.21721075319724178,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54596.08794450718,
@@ -217,6 +234,7 @@
       ]
     },
     "META": {
+      "tdps": 224791.35582491365,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,7 +245,7 @@
   "ALWAYS-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54596.08794450718,
+        "dps": 27593.258458924025,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -297,7 +315,7 @@
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40131.83523431265,
+        "dps": 27925.373618386213,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -325,15 +343,15 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30981.58151380914,
-        "team": 0.029310568340322526,
+        "dps": 4980.441654351044,
+        "team": 0.21721075319724178,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38395.08637491908,
+        "dps": 39875.345599025524,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -341,13 +359,31 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`fs, x=1",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 252929.4135491461,
+      "tdps": 160649.98362667428,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -358,7 +394,7 @@
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38395.08637491908,
+        "dps": 20126.232851397435,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -366,9 +402,27 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`fs, x=1",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -382,7 +436,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25961.125825505223,
+        "dps": 17651.85568264326,
         "team": 0.0,
         "noaff": false,
         "nihil": true

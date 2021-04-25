@@ -77,10 +77,30 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(s-end)",
+        "`s1, (x=5 or (s or prep)) and timeleft(s1)<5",
+        "`s4",
+        "`s3",
+        "`fs, fs_prep_c>=3",
+        "`dodge, fscf and fs_prep_c"
+      ],
       "coabs": [
         "Audric",
         "Blade",
         "Ieyasu"
+      ],
+      "share": [
+        "Yuya",
+        "Patia"
       ]
     },
     "META": {
@@ -173,6 +193,14 @@
     }
   },
   "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7381.339293027798,
+        "team": 0.5101722393690357,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 51065.53593072625,
@@ -187,6 +215,7 @@
       ]
     },
     "META": {
+      "tdps": 150254.9822975921,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -273,6 +302,14 @@
     }
   },
   "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6382.969274358935,
+        "team": 0.5101722393690357,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 38902.22232995278,
@@ -287,6 +324,7 @@
       ]
     },
     "META": {
+      "tdps": 111852.3440575879,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -297,11 +335,28 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 12672.1930147205,
-        "team": 0.062455327092426835,
+        "dps": 16036.850867330028,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Arsene",
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Chelle"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

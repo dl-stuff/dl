@@ -76,10 +76,28 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Luck_of_the_Draw",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Fatalis",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5",
+        "`s4"
+      ],
       "coabs": [
         "Cleo",
         "Forte",
         "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "PERSONAL": {
@@ -89,6 +107,14 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Epimetheus",
       "acl": [
         "`dragon(c5-s), s",
         "`s3, not buff(s3)",
@@ -100,6 +126,10 @@
         "Delphi",
         "Forte",
         "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -186,16 +216,16 @@
     }
   },
   "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 88680.12423294682,
-        "team": 0.16656840400766443,
+        "dps": 43231.50205461804,
+        "team": 0.331197336619608,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-MONO"
@@ -325,6 +355,37 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 20553.247996123293,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s)",
+        "`s3",
+        "`s4, x=5",
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Chelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 20150.308885156624,
@@ -361,6 +422,46 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 20553.247996123293,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s)",
+        "`s3",
+        "`s4, x=5",
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Chelle"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

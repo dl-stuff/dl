@@ -219,35 +219,40 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 17934.447880854703,
-        "team": 0.037721088523588873,
+        "dps": 30028.462522735692,
+        "team": 0.04645806923240803,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
       "acl": [
-        "queue s2.check() and dgauge>=500",
-        "`s2",
-        "`dragon (c3-s-end), cancel",
-        "end",
-        "`s3, not buff(s3)",
+        "`dragon (c3-s-c3-c3-end), aff(flashburn) and xf",
         "`s1",
-        "`s2, charged_in(5,s1)",
         "`s4, xf",
+        "`s3, xf",
         "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 26089.87616023029,
-        "team": 0.034957149950207066,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "META": {
-      "tdps": 2950654.6773205027,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

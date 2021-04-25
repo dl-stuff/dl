@@ -93,6 +93,14 @@
         "Mask_of_Determination_Lance"
       ],
       "slots.d": "PopStar_Siren",
+      "acl": [
+        "`dragon(c3-c3-c3-c3), cancel",
+        "`s3, not buff(s3)",
+        "`s4, x>2",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1, cancel",
+        "`s2, cancel"
+      ],
       "coabs": [
         "Gala_Prince",
         "Peony",
@@ -126,6 +134,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17252.004687014076,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`dragon(c3-c3-c3-c3), cancel",
+        "`s3, not buff(s3)",
+        "`s4, x>2",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1, cancel",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Grace",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28194.747934863768,
@@ -192,6 +235,51 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36832.65420150817,
+        "team": 0.20175088390915594,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`dragon(c3-c3-c3-c3), cancel",
+        "`s3, not buff(s3)",
+        "`s4, x>2",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1, cancel",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Grace",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "META": {
+      "tdps": 600642.3670429448,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -226,16 +314,16 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 68513.2500408779,
+        "dps": 64190.08502181469,
         "team": 0.12919183294431066,
-        "noaff": true,
+        "noaff": false,
         "nihil": false
       },
       "slots.d": "Gala_Reborn_Jeanne",
@@ -250,6 +338,40 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25942.663966973403,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-c3-c3-c3), cancel",
+        "`s3, not buff(s3)",
+        "`s4, x>2",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1, cancel",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Grace",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Hunter_Sarisse"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

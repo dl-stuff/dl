@@ -78,10 +78,29 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Bow",
         "Curran",
         "Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "PERSONAL": {
@@ -91,10 +110,30 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Synthetic_Dragon",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s), buff(s3) and buffstack(ro_att)=3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
+        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Cleo",
         "Forte",
         "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -176,6 +215,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5178.867454775802,
+        "team": 0.2998466342431797,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 40291.484326934515,
@@ -185,6 +232,7 @@
       }
     },
     "META": {
+      "tdps": 147910.25138437637,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -226,9 +274,10 @@
       ]
     },
     "META": {
+      "tdps": 157565.71239674283,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
@@ -268,15 +317,15 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4651.706601534752,
-        "team": 0.28579328126250747,
+        "dps": 4556.171553068903,
+        "team": 0.2998466342431797,
         "noaff": false,
         "nihil": false
       }
@@ -302,11 +351,53 @@
       ]
     },
     "META": {
-      "tdps": 106590.78711639254,
+      "tdps": 100457.23171915226,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4556.171553068903,
+        "team": 0.2998466342431797,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Lathna",
+        "The_Prince",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "tdps": 115980.94728436759,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

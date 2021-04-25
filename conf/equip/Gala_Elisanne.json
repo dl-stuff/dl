@@ -166,14 +166,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60317.85177927285,
-        "team": 0.22474127285244144,
+        "dps": 59670.21552496383,
+        "team": 0.2241635337737229,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 37143.70082561698,
+      "tdps": 36626.055418316035,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -225,9 +225,52 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38506.03130630127,
-        "team": 0.2948824893280022,
-        "noaff": false,
+        "dps": 12328.284197624604,
+        "team": 1.516738745235462,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Gentle_Winds",
+        "Sisters_Day_Out",
+        "The_Chocolatiers",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-sf-end), dragonform.shift_count=0 and s=4",
+        "`s1",
+        "`s4, cancel",
+        "`s3, s=1",
+        "`fs, fs_prep_c=3 and x=5",
+        "`fs, fs_prep_c=2 and x=5",
+        "`fs, fs_prep_c=1 and x=4"
+      ],
+      "coabs": [
+        "Renee",
+        "Summer_Estelle",
+        "Tobias"
+      ],
+      "share": [
+        "Summer_Cleo",
+        "Mikoto"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 10956.610821369526,
+        "team": 1.332836654977891,
+        "noaff": true,
         "nihil": false
       },
       "coabs": [
@@ -237,41 +280,39 @@
       ]
     },
     "META": {
-      "tdps": 21424.57182022179,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 6900.904190720832,
+        "dps": 9729.469378652375,
         "team": 0.0,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
         "Study_Rabbits",
         "Warrior_Maiden",
         "Bellathorna",
         "From_Whence_He_Comes"
       ],
-      "slots.d": "Halloween_Maritimus",
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`dragon",
         "`s2",
-        "`s3",
         "`s4",
         "`s1"
       ],
       "coabs": [
-        "Blade",
-        "Lance",
-        "Nurse_Aeleen"
+        "Bow",
+        "Renee",
+        "Summer_Estelle"
       ],
       "share": [
         "Cleo",

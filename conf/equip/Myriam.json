@@ -71,8 +71,8 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3390.5637884803964,
-        "team": 0.612599066662196,
+        "dps": 3365.438126840902,
+        "team": 0.6129718110407603,
         "noaff": true,
         "nihil": false
       },
@@ -96,7 +96,7 @@
       ]
     },
     "META": {
-      "tdps": 98907.05132567526,
+      "tdps": 98882.58178445719,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -176,11 +176,18 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32600.923394440666,
+        "dps": 34693.24793795103,
         "team": 0.13328470662953146,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
       "slots.d": "Midgardsormr_Zero",
       "acl": [
         "`dragon",
@@ -229,18 +236,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 19819.45572155317,
-        "team": 0.374474124131711,
+        "dps": 19844.741014840296,
+        "team": 0.37447412413171094,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "A_Mothers_Love",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {
@@ -251,7 +251,7 @@
       }
     },
     "META": {
-      "tdps": 86953.47695038191,
+      "tdps": 86848.74806825303,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -259,22 +259,35 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36359.99603447451,
+        "team": 0.13328470662953146,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "tdps": 18079785.193431694,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33654.194137657156,
-        "team": 0.1331872269453743,
+        "dps": 39421.072881111235,
+        "team": 0.19772687621133656,
         "noaff": false,
         "nihil": false
-      },
-      "coabs": [
-        "Akasha",
-        "Bow",
-        "Gala_Ranzal"
-      ]
+      }
     },
     "META": {
-      "tdps": 62908.592611805994,
+      "tdps": 86359.01951606589,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -283,6 +296,31 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24973.097659047322,
+        "team": 0.13328470662953146,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28260.350604035353,
@@ -292,6 +330,7 @@
       }
     },
     "META": {
+      "tdps": 13346288.537859246,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -193,6 +193,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36874.03963982086,
+        "team": 0.024671213978477956,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 53675.542346021764,
@@ -219,6 +227,7 @@
       ]
     },
     "META": {
+      "tdps": 681016.4558930002,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -237,21 +246,38 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42039.14892755773,
+        "dps": 46205.77313737057,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Forest_Bonds",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, x>3 or fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 188370.9894373593,
+      "tdps": 220708.3322990707,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -262,33 +288,40 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29272.74154889534,
-        "team": 0.024648615955257407,
+        "dps": 19388.662490084927,
+        "team": 0.024671213978477956,
         "noaff": false,
         "nihil": true
-      },
-      "slots.d": "Gala_Reborn_Poseidon"
+      }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 30031.067753366096,
+        "dps": 32777.776691227984,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3",
+        "`s1",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Tiki",
         "Yurius"
       ],
       "share": [
-        "The_Prince",
-        "Gala_Mym"
+        "Humanoid_Mercury",
+        "Summer_Celliera"
       ]
     },
     "META": {
-      "tdps": 30765.467961660896,
-      "pref": "TEAMBUFF",
+      "tdps": 542701.8797219752,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

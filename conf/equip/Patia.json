@@ -80,10 +80,30 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`fs, fs_prep_c and x=2",
+        "`dragon(s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Audric",
         "Bow",
         "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "META": {
@@ -179,6 +199,24 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 9740.76487005379,
+        "team": 1.127728188819516,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 70690.70216308345,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -254,38 +292,56 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8625.467753122886,
+        "team": 1.127728188819516,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 54514.39440531176,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25108.203150464837,
-        "team": 0.020437249642414577,
+        "dps": 27659.720090701285,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Dragonyule_Dreaming",
         "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(s-c3)",
-        "`s3",
+        "`dragon(c5-s-c5)",
+        "`s3,xf",
         "`s4",
         "`s2",
         "`fs, x=5",
         "`dodge, fscf"
       ],
       "coabs": [
-        "Blade",
-        "Delphi",
+        "Ieyasu",
+        "Joker",
         "Wand"
       ],
       "share": [
-        "Ranzal",
-        "Curran"
+        "Summer_Julietta",
+        "Gala_Chelle"
       ]
     },
     "META": {

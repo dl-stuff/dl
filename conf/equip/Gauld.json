@@ -109,6 +109,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64279.69784077172,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 67875.06393438265,
@@ -196,6 +204,14 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28842.50624854058,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35352.35743660023,
@@ -244,11 +260,35 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 14934.236657511452,
+        "dps": 22266.234238908815,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-AB10-end), s=1 and not s2.check()",
+        "`s3",
+        "`s4, s1.check() and s2.check()",
+        "`s1, cancel",
+        "`s2, s=1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

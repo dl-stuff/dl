@@ -80,10 +80,31 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s), buff(s3, 1) and cancel",
+        "`s2",
+        "`s4",
+        "`s1",
+        "`s3"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -175,11 +196,31 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
       "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s)",
+        "`s4",
+        "`s1",
+        "`s3",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Wand"
+      ],
+      "share": [
+        "Ilia",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -258,6 +299,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33928.828255871966,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 36662.45327720346,
@@ -274,14 +323,40 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33928.828255871966,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42358.61838580646,
+        "dps": 38393.041581016725,
         "team": 0.11089964702019342,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -307,11 +382,20 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42358.61838580646,
+        "dps": 38393.041581016725,
         "team": 0.11089964702019342,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -322,6 +406,14 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22290.06081744923,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 24756.221448325257,
@@ -335,6 +427,23 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22290.06081744923,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

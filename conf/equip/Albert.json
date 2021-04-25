@@ -247,25 +247,33 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46808.334893006475,
+        "team": 0.09994470332141683,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47571.78402097435,
-        "team": 0.09994470332141683,
+        "dps": 49983.28777520883,
+        "team": 0.049980891144143426,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "Rogues_Banquet",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "if electrified",
-        "`s1, cancel",
+        "`s1, fsc",
         "`s4, fsc",
         "`s3, duration-now<2",
         "if x=2",
@@ -276,7 +284,7 @@
         "`dragon(c3-s-end), cancel",
         "`s3, not buff(s3) and x=5",
         "`s2, charged_in(2, s1)",
-        "`s4, cancel",
+        "`s4",
         "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
         "end"
       ],
@@ -286,6 +294,7 @@
       ]
     },
     "META": {
+      "tdps": 63545.04878325756,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
