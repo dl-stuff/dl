@@ -34,7 +34,6 @@ class Faris(SigilAdv):
 
     @staticmethod
     def prerun_skillshare(adv, dst):
-        adv.unlocked = True
         adv.uriel_wrath = Faris.setup_uriel_wrath()
         adv.current_s[dst] = "sigil"
 
@@ -57,7 +56,7 @@ class Faris(SigilAdv):
             Timer(self.a1_cd_end).on(10)
 
     def s1_proc(self, e):
-        if self.unlocked:
+        if self.unlocked or not isinstance(self, Faris):
             self.uriel_wrath.on()
 
     def s2_proc(self, e):

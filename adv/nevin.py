@@ -14,7 +14,6 @@ class Nevin(SigilAdv):
 
     @staticmethod
     def prerun_skillshare(adv, dst):
-        adv.unlocked = True
         adv.zone = ZoneTeambuff()
 
     def x_sword_dmg(self, e):
@@ -27,7 +26,7 @@ class Nevin(SigilAdv):
             self.sword.on()
 
     def s2_proc(self, e):
-        if self.unlocked:
+        if self.unlocked or not isinstance(self, Nevin):
             for aseq in range(self.zonecount):
                 self.hitattr_make(e.name, e.base, e.group, aseq + 1, self.conf[e.name].extra_self)
         else:
