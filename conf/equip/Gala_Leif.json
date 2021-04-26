@@ -76,6 +76,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48284.52695841943,
+        "team": 0.05113925434063381,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3) and cancel",
+        "`s4, fsc",
+        "`s1(striking), s1.check()",
+        "`s2(shielding), s2.check() and fsc",
+        "`fs, xf=2 and (hits>5 and stance='striking')",
+        "`fs, x=1 and (hits>5 and stance='shielding')",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Xander"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 63486.95045983758,
@@ -112,6 +147,7 @@
       ]
     },
     "META": {
+      "tdps": 29098399.217718948,
       "pref": "PERSONAL"
     }
   },
@@ -164,7 +200,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

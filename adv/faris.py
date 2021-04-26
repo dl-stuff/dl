@@ -56,7 +56,7 @@ class Faris(SigilAdv):
             Timer(self.a1_cd_end).on(10)
 
     def s1_proc(self, e):
-        if self.unlocked or not isinstance(self, Faris):
+        if not isinstance(self, Faris) or self.unlocked:
             self.uriel_wrath.on()
 
     def s2_proc(self, e):

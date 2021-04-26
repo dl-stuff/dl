@@ -26,7 +26,7 @@ class Nevin(SigilAdv):
             self.sword.on()
 
     def s2_proc(self, e):
-        if self.unlocked or not isinstance(self, Nevin):
+        if not isinstance(self, Nevin) or self.unlocked:
             for aseq in range(self.zonecount):
                 self.hitattr_make(e.name, e.base, e.group, aseq + 1, self.conf[e.name].extra_self)
         else:
