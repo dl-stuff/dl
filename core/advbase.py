@@ -50,6 +50,8 @@ class Skill(object):
         self.maxcharge = 1
         self.autocharge_sp = 0
 
+        self.p_max = 0
+
     def add_action(self, group, act, phase_up=True):
         act.cast = self.cast
         self.act_dict[group] = act
@@ -88,10 +90,9 @@ class Skill(object):
         return self.act_base.conf["owner"] or None
 
     def phase_up(self):
-        p_max = self.act_base.conf.p_max
-        if p_max:
+        if self.p_max:
             cur_s = self._static.current_s[self.name]
-            cur_s = (cur_s + 1) % p_max
+            cur_s = (cur_s + 1) % self.p_max
             self._static.current_s[self.name] = cur_s
 
     def __call__(self, *args):
@@ -1701,13 +1702,12 @@ class Adv(object):
             s = S(sn, snconf)
             if s.group != "default" and self.conf[s.base]:
                 snconf.update(self.conf[s.base], rebase=True)
-            self.conf[s.base].p_max = 0
             if s.group.startswith("phase"):
                 s.group = int(s.group[5:])
                 try:
-                    self.conf[s.base].p_max = max(self.conf[s.base].p_max, s.group)
+                    self.a_s_dict[s.base].p_max = max(self.a_s_dict[s.base].p_max, s.group)
                 except ValueError:
-                    self.conf[s.base].p_max = s.group
+                    self.a_s_dict[s.base].p_max = s.group
                 self.current_s[s.base] = 0
                 s.group -= 1
                 s.act_event.group = s.group
@@ -2172,8 +2172,8 @@ class Adv(object):
                 amp_buff.on(amp_data, self.conf["fleet"] or 0)
             except KeyError:
                 amp_buff = AmpBuff(*amp_data, source=name)
-                if self.conf['amp_level_override']:
-                    amp_buff.max_team_level = self.conf['amp_level_override']
+                if self.conf["amp_level_override"]:
+                    amp_buff.max_team_level = self.conf["amp_level_override"]
                 self.active_buff_dict.add_amp(base, group, aseq, amp_buff.on(amp_data), amp_id)
 
         # coei: _CurseOfEmptinessInvalid
