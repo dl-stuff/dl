@@ -124,7 +124,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38207.35124636588,
+        "dps": 43232.914692618695,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -138,34 +138,27 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
-        "if s=1",
         "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
         "`dragon(c3-s-s-c3-end)",
-        "end",
         "`s3, not buff(s3) and fsc",
-        "queue dragonform.shift_count=3 and prep",
-        "`s4;s1",
-        "end",
         "`s1",
         "`s4, xf>2",
-        "`s2, xf>3",
         "`fs, charged_in(fs, s1) and xf",
         "`fs, xf=5 and (s3.check() and not buff(s3))",
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Bow",
+        "Gala_Laxi",
         "Halloween_Mym",
         "Kimono_Elisanne"
       ],
       "share": [
-        "Gala_Mym",
+        "Summer_Julietta",
         "Gala_Leonidas"
       ]
     },
     "META": {
-      "tdps": 541830.4163779308,
+      "tdps": 885648.0686552478,
       "pref": "PERSONAL"
     }
   },
@@ -238,7 +231,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44454.33770217309,
+        "dps": 49736.85849946877,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -251,34 +244,17 @@
         "Liber_Grimortis"
       ],
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
-        "if s=1",
         "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
         "`dragon(c3-s-s-c3-end)",
-        "end",
-        "`s3, cancel",
-        "queue dragonform.shift_count=3 and prep",
-        "`s4;s1",
-        "end",
+        "`s3, fsc",
         "`s1",
         "`s4, xf>2",
-        "`s2, xf>3",
         "`fs, charged_in(fs, s1) and xf",
-        "`fs, xf=5",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Yuya"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
+        "`fs, xf=5 and (s3.check() and not buff(s3))"
       ]
     },
     "META": {
-      "tdps": 159386.75619471763,
+      "tdps": 460857.4201211999,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -309,6 +285,40 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35807.672234215,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Valiant_Crown",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf>2",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 38523.00432603133,

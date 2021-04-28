@@ -74,51 +74,19 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 6869.709573967276,
-        "team": 0.028406783211302612,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Once_in_a_Lifetime",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(s-end)",
-        "`s2",
-        "`s3",
-        "`s4, x>2",
-        "`s1, x=5"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Elisanne",
-        "Templar_Hope"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 22339.277388174887,
-        "team": 0.03473794520443196,
-        "noaff": true,
+        "dps": 26459.29218667428,
+        "team": 0.03635433079262826,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -133,12 +101,12 @@
         "`s2, dgauge>=500 or (dgauge<=450 and x>2)"
       ],
       "coabs": [
-        "Summer_Celliera",
-        "Tiki",
+        "Blade",
+        "Dagger",
         "Yurius"
       ],
       "share": [
-        "Weapon",
+        "Humanoid_Mercury",
         "Gala_Mym"
       ]
     },
@@ -167,6 +135,73 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36828.284982997575,
+        "team": 0.038520790871237325,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Tiki"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31460.74848768269,
+        "team": 0.03559616152199051,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "`s3",
+        "`s4",
+        "`s1, x>3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Tiki"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
