@@ -56,6 +56,8 @@ class Child_Ranzal(Adv):
                 return cdmg
             else:
                 return 1
+        elif name == "s1_enhanced":
+            self.add_one_att_amp()
         average = chance * (cdmg - 1) + 1
         return average
 

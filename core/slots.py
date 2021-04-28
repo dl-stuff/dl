@@ -381,6 +381,11 @@ class Gozu_Tenno(DragonBase):
         Event("repeat").listener(fs_end, order=0)
 
 
+class Gala_Reborn_Agni(Gala_Reborn):
+    def oninit(self, adv):
+        super().oninit(adv, "gagni_buff", "flame")
+
+
 ### FLAME DRAGONS ###
 
 ### WATER DRAGONS ###
