@@ -44,14 +44,10 @@ ABNORMAL_COND = (
     "dumb",
     "fleet",
 )
-HAS_7SLOT = ("light",)
-DEFAULT_MONO_COABS = {
-    "flame": ("Blade", "Wand", "Dagger", "Bow"),
-    "water": ("Blade", "Wand", "Dagger", "Bow"),
-    "wind": ("Blade", "Mona", "Dragonyule_Xainfried", "Dagger"),
-    "light": ("Blade", "Peony", "Wand", "Dagger"),
-    "shadow": ("Blade", "Wand", "Dagger", "Bow"),
-}
+HAS_7SLOT = (
+    "light",
+    "flame",
+)
 BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
 BUILD_META_KEY = "EQMT"
 
