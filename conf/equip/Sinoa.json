@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5457.164074755161,
-        "team": 0.6006223567832205,
+        "dps": 8557.22361688699,
+        "team": 0.6125122931440066,
         "noaff": true,
         "nihil": false
       },
@@ -15,7 +15,6 @@
         "From_Whence_He_Comes"
       ],
       "slots.d": "Horus",
-      "slots.w": "void",
       "acl": [
         "`s1",
         "`s3",
@@ -65,7 +64,7 @@
       ]
     },
     "META": {
-      "tdps": 116949.50510232545,
+      "tdps": 106856.00404147847,
       "pref": "PERSONAL"
     }
   },
@@ -129,47 +128,6 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 17001.344410433583,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Amaterasu_Oblation",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -194,11 +152,81 @@
       ]
     },
     "META": {
-      "tdps": 130497.36222299364,
+      "tdps": 120612.8083524594,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 37088.278171789505,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37088.278171789505,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -219,7 +247,7 @@
       ]
     },
     "META": {
-      "tdps": 87328.77747419247,
+      "tdps": 78026.89226505517,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

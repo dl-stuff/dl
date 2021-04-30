@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77237.48740495437,
+        "dps": 82460.69291506681,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -62,7 +62,7 @@
       "coabs": [
         "Axe2",
         "Delphi",
-        "Wand"
+        "Vania"
       ],
       "share": [
         "Weapon",
@@ -70,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 324253.6608314029,
+      "tdps": 372096.91514263715,
       "pref": "PERSONAL"
     }
   },
@@ -98,6 +98,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44257.96797743947,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(s), duration-now<12",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Wand"
+      ],
+      "share": [
+        "Ranzal",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47350.72045425228,
@@ -147,7 +181,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83916.70340743792,
+        "dps": 89500.06626651692,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -172,7 +206,7 @@
       "coabs": [
         "Axe2",
         "Dagger",
-        "Wand"
+        "Vania"
       ],
       "share": [
         "Weapon",
@@ -180,7 +214,7 @@
       ]
     },
     "META": {
-      "tdps": 183101.70837977232,
+      "tdps": 234243.91380547194,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -191,19 +225,29 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78520.34216462926,
+        "dps": 81441.23977254226,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "acl": [
+        "`dragon(s), duration-now<12",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3) and (bleed_stack<3 or (bleed_stack=3 and (xf>1 or fscf)))",
+        "`s2, xf=5",
+        "`s4, xf>3",
+        "`fsf, xf=5 and not buff(s3)",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fs, xf=5 and buff(s3)"
+      ],
       "coabs": [
         "Dagger",
-        "Wand",
-        "Yaten"
+        "Joker",
+        "Vania"
       ]
     },
     "META": {
-      "tdps": 133672.39092421136,
+      "tdps": 160427.08146853372,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -230,9 +274,8 @@
         "`dragon(c5-s-c5-c4-end), xf and aff(shadowblight)",
         "`s3",
         "`s1",
-        "`s2",
         "`s4",
-        "`fsf, x=5"
+        "`s2"
       ],
       "coabs": [
         "Delphi",
@@ -248,14 +291,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51182.496836485,
+        "dps": 54380.52419077605,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -325,7 +368,8 @@
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.d": "Arsene"
     },
     "PERSONAL": {
       "EQMT": {

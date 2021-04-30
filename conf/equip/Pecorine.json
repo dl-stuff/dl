@@ -123,6 +123,47 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28565.788082369294,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Liger",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Hildegarde",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Ranzal"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 64520.40716179594,

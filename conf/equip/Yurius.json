@@ -129,24 +129,25 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70541.21438152116,
-        "team": 0.1155745184386169,
+        "dps": 75363.59216423317,
+        "team": 0.11121581983682825,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Bloody_Little_Queen",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Snipers_Allure"
       ],
       "acl": [
         "`s3, not buff(s3)",
         "`dragon, not dragondrive.get() and x=5",
-        "`s2, not (not dragondrive.get() and dgauge>=1500) and (energy()=5 or energy()<3)",
+        "`s2, not (not dragondrive.get() and dgauge>=1500)",
         "`s1",
-        "`s4, cancel and not energy()=5"
+        "`s4, cancel and not energy()=5",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
@@ -159,7 +160,7 @@
       ]
     },
     "META": {
-      "tdps": 413784.77506844053,
+      "tdps": 472955.1600822899,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -170,11 +171,26 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48470.700113728024,
+        "dps": 51198.21041202317,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "His_Clever_Brother",
+        "Snipers_Allure"
+      ],
+      "acl": [
+        "`s3",
+        "`dragon, not dragondrive.get() and x=5",
+        "`s2, not (not dragondrive.get() and dgauge>=1500)",
+        "`s1",
+        "`s4",
+        "`fs, x=5"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

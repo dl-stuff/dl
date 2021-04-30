@@ -72,7 +72,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18538.77774140938,
+        "dps": 19993.56254369789,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -84,7 +84,7 @@
         "Amaterasu_Oblation",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(s-s-c3-end), s=1 and not s4.check()",
         "`s3, not buff(s3)",
@@ -141,7 +141,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33968.28845840795,
+        "dps": 40603.90665524083,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -154,7 +154,7 @@
         "Beautiful_Nothingness"
       ],
       "acl": [
-        "`dragon(s-s-c3-end)",
+        "`dragon(c3-s-c3-c3-end)",
         "`s3, cancel",
         "`s4",
         "`s1"
@@ -178,6 +178,38 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29732.144952185958,
+        "team": 0.09802535388755712,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Seaside_Princess",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Lord_of_the_Skies"
+      ],
+      "slots.d": "Konohana_Sakuya",
+      "acl": [
+        "`dragon(s-s-c3-end), s=1 and not s4.check()",
+        "`s3, not buff(s3)",
+        "`s4, s=1",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Gala_Leonidas",
+        "Halloween_Lowen",
+        "The_Prince"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 70546.01576872525,
@@ -205,6 +237,7 @@
       ]
     },
     "META": {
+      "tdps": 4110045.5918393624,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -215,22 +248,11 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16813.991600477366,
+        "dps": 19651.444116472354,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon(s-s-c3-end), s=1 and not s4.check()",
-        "`s3, not buff(s3)",
-        "`s4, xf>1",
-        "`s2",
-        "`s1"
-      ],
-      "share": [
-        "Weapon",
-        "Cleo"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",

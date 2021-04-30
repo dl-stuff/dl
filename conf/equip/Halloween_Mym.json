@@ -96,8 +96,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6724.26259291696,
-        "team": 0.20528329539257167,
+        "dps": 8264.225054065182,
+        "team": 0.22383460694556817,
         "noaff": true,
         "nihil": true
       },
@@ -112,14 +112,13 @@
       "acl": [
         "`s4",
         "`s3, cancel",
-        "`s2",
         "`s1",
         "`fs, fs_prep_c and x=5"
       ],
       "coabs": [
-        "Gala_Sarisse",
-        "Joker",
-        "Tobias"
+        "Bow",
+        "Kimono_Elisanne",
+        "Yuya"
       ],
       "share": [
         "Valentines_Orion",
@@ -159,28 +158,84 @@
       ]
     },
     "META": {
-      "tdps": 301211.2664644809,
+      "tdps": 239769.480363558,
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
+  "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42062.802525216444,
-        "team": 0.10782517816862076,
+        "dps": 70366.46635296069,
+        "team": 0.2007776798573058,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Me_and_My_Bestie",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ]
+    },
+    "META": {
+      "tdps": 101615.42870670962,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30923.09959717748,
+        "team": 0.22455023555228393,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Honest_Repose",
         "Me_and_My_Bestie",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(c3-c3-c3-s-c3-c3-c1-end)",
+        "`s4, charged_in(2, s1)",
+        "`s3",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "Bow",
+        "The_Prince",
+        "Yuya"
+      ],
+      "share": [
+        "Raemond",
+        "Sha_Wujing"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44067.018652439336,
+        "team": 0.0783365460119878,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Pecorines_Grand_Adventure",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits"
       ]
     },
     "META": {
-      "tdps": 362602.3253773143,
+      "tdps": 89895.26970140115,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -191,8 +246,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38213.1698178693,
-        "team": 0.2718134232983248,
+        "dps": 42748.6850317053,
+        "team": 0.21649613632711107,
         "noaff": true,
         "nihil": false
       },
@@ -203,6 +258,7 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c3-c3-c3-s-c3-c2-end)",
         "`s3, not buff(s3)",
@@ -217,7 +273,7 @@
       ]
     },
     "META": {
-      "tdps": 53716.788536109045,
+      "tdps": 56432.644646396686,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -228,15 +284,30 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 23334.346064328627,
-        "team": 0.10782374674728615,
-        "noaff": false,
+        "dps": 23661.13155646889,
+        "team": 0.2069348147167219,
+        "noaff": true,
         "nihil": true
       },
-      "slots.w": "void"
+      "slots.d": "Horus",
+      "acl": [
+        "`dragon(c3-c3-c3-s-c3-c3-c1-end)",
+        "`s3",
+        "`s4",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Kimono_Elisanne",
+        "The_Prince"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Sha_Wujing"
+      ]
     },
     "META": {
-      "tdps": 170430.5396679585,
+      "tdps": 911070.7571968081,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -32,7 +32,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97999.55685286713,
+        "dps": 102040.7764798714,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -44,7 +44,7 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
@@ -57,7 +57,7 @@
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Gala_Laxi",
         "Kimono_Elisanne"
       ],
       "share": [
@@ -66,31 +66,8 @@
       ]
     },
     "META": {
-      "tdps": 204174.11338695523,
+      "tdps": 213700.3138121685,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 93373.2029915815,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Kimono_Elisanne"
-      ]
-    },
-    "META": {
-      "tdps": 193268.60015375432,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -130,7 +107,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43846.76053304298,
+        "dps": 46515.79252915282,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -142,7 +119,7 @@
         "Snipers_Allure",
         "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`s4, x=5",
         "`s3, x=5",
@@ -163,14 +140,14 @@
       ]
     },
     "META": {
-      "tdps": 58066.303947249806,
+      "tdps": 103465.09069605907,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 103448.97438548291,
+        "dps": 107705.62886527406,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -184,7 +161,7 @@
       ]
     },
     "META": {
-      "tdps": 217019.80068132564,
+      "tdps": 227053.83680359193,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -195,7 +172,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47297.50265712616,
+        "dps": 54649.64587746384,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -208,16 +185,21 @@
         "To_the_Extreme"
       ],
       "acl": [
-        "`s4",
-        "`s3",
         "`s2, x=5 and not dragondrive.get()",
+        "`s3, (x=5 or s) and aff_timeleft(scorchrend)<5",
         "`s1, x=5 or s",
+        "`s4, x=5 or s",
         "`dodge, x=5",
         "`dragon, not dragondrive.get() and cancel",
         "`dragon, dragondrive.get() and s2.check() and not s1.check()"
       ],
+      "coabs": [
+        "Blade",
+        "Gala_Laxi",
+        "Kimono_Elisanne"
+      ],
       "share": [
-        "Summer_Celliera",
+        "Gala_Leonidas",
         "Summer_Julietta"
       ]
     },
@@ -232,14 +214,21 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47075.210126380065,
+        "dps": 59029.62077337218,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ]
     },
     "META": {
-      "tdps": 84132.25023308813,
+      "tdps": 112311.88962402336,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -247,53 +236,15 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 11384.495494121114,
-        "team": 0.4242215622829289,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Dazzling_Duet",
-        "Jewels_of_the_Sun",
-        "Amaterasu_Oblation",
-        "Seaside_Memory"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s3",
-        "`s4",
-        "`fs"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Patia",
-        "Templar_Hope"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34450.46608151447,
+        "dps": 37227.96438974753,
         "team": 0.05879082211772648,
         "noaff": false,
         "nihil": true
       },
+      "slots.d": "Gala_Reborn_Agni",
       "coabs": [
         "Blade",
         "Gala_Laxi",

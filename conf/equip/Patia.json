@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61167.40006382572,
+        "dps": 64386.390655509415,
         "team": 0.3699796454729959,
         "noaff": false,
         "nihil": false
@@ -60,7 +60,7 @@
       "coabs": [
         "Blade",
         "Bow",
-        "Wand"
+        "Vania"
       ],
       "share": [
         "Weapon",
@@ -68,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 60050.33426617523,
+      "tdps": 63808.692787532505,
       "pref": "PERSONAL"
     }
   },
@@ -87,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 68390.4382848025,
+      "tdps": 72638.53697129729,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -96,6 +96,39 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2283.9297733456096,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`fs, fs_prep_c and x=2",
+        "`dragon(s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 10749.139615672975,
@@ -179,24 +212,6 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 9740.76487005379,
-        "team": 1.127728188819516,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 70690.70216308345,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -235,7 +250,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -328,7 +343,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

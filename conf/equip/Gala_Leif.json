@@ -58,7 +58,7 @@
         "`s2(shielding), s2.check() and fsc",
         "`fs, xf=2 and (hits>5 and stance='striking')",
         "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
+        "`fs, xf=2 or hits=0"
       ],
       "coabs": [
         "Blade",
@@ -78,8 +78,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48284.52695841943,
-        "team": 0.05113925434063381,
+        "dps": 63683.92523194766,
+        "team": 0.05113864533520177,
         "noaff": false,
         "nihil": true
       },
@@ -93,43 +93,8 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
-        "`s4, fsc",
-        "`s1(striking), s1.check()",
-        "`s2(shielding), s2.check() and fsc",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Xander"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 63486.95045983758,
-        "team": 0.05061680554928721,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
-        "`s4, fsc",
+        "`s3, fsc",
+        "`s4, cancel",
         "`s1(striking), s1.check()",
         "`s2(shielding), s2.check() and fsc",
         "`fs, xf=2 and (hits>5 and stance='striking')",
@@ -146,8 +111,43 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66194.60102121139,
+        "team": 0.05072611284134394,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`s3, fsc",
+        "`s4, cancel or s=3",
+        "`dragon(c3-s-c3-end), fsc",
+        "`s1(striking), s1.check() and fsc",
+        "`s2(shielding), s2.check() and fsc",
+        "`shielding, fsc",
+        "`striking, s=2",
+        "`fs, xf=2 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "META": {
-      "tdps": 29098399.217718948,
+      "tdps": 6086007.348863484,
       "pref": "PERSONAL"
     }
   },
@@ -180,20 +180,20 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64701.26559369359,
-        "team": 0.04925178799091656,
+        "dps": 67431.3963759921,
+        "team": 0.05091100391239919,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-end), cancel",
+        "`dragon(c3-s-c3-end), fsc",
         "`s3, fsc",
-        "`s4, fsc",
-        "`s1(striking), s1.check()",
+        "`s4, cancel",
+        "`s1(striking), s1.check() and fsc",
         "`s2(shielding), s2.check() and fsc",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
+        "`shielding, fsc",
+        "`striking, s=2",
+        "`fs, xf=2 or hits=0"
       ]
     },
     "META": {
@@ -244,37 +244,72 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10312.03754875931,
-        "team": 0.050705747516082554,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 33165.62963686831,
-        "team": 0.04879732564254493,
+        "dps": 45112.95398745879,
+        "team": 0.05105290938694287,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Sweet_Surprise",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Shining_Overlord",
-        "Beautiful_Nothingness",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
+      "acl": [
+        "`striking",
+        "`dragon(c3-s-c3-end), fsc",
+        "`s3, fsc",
+        "`s4, cancel",
+        "`s1(striking), fsc",
+        "`s2(shielding), fsc",
+        "`fs, xf=2 and (hits>5 and stance='striking')",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Joker",
+        "Summer_Julietta"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48390.56705427187,
+        "team": 0.0441109930615463,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Worthy_Rivals",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), fsc",
+        "`s3, fsc",
+        "`s4, cancel",
+        "`s1(striking), fsc",
+        "`s2(shielding), fsc",
+        "`striking, not s2.check() and fsc",
+        "`fs, xf=2"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 11975125.838264208,
+      "tdps": 472148.16675651004,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

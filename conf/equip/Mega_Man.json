@@ -32,7 +32,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48864.24351445304,
+        "dps": 49414.98504531299,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -44,7 +44,7 @@
         "Catch_Me_in_the_Sunflowers",
         "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(s), s=4",
         "`s3, not buff(s3)",
@@ -67,42 +67,26 @@
       ]
     },
     "META": {
-      "tdps": 149132.02708325218,
+      "tdps": 151132.5835202275,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 7809.0653759865345,
-        "team": 0.2752941735013611,
+        "dps": 44655.212373003626,
+        "team": 0.0,
         "noaff": true,
         "nihil": false
       },
-      "slots.a": [
-        "Honest_Repose",
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s3",
-        "`s4",
-        "`fs, x=5 and fs_prep_c"
-      ],
       "coabs": [
         "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Karl",
-        "Templar_Hope"
+        "Marth",
+        "Serena"
       ]
     },
     "META": {
+      "tdps": 133842.8145005216,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -113,8 +97,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30095.99868150449,
-        "team": 0.011690456731502194,
+        "dps": 26411.93745626447,
+        "team": 0.008762974065066886,
         "noaff": false,
         "nihil": true
       },
@@ -149,8 +133,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33907.04297293168,
-        "team": 0.008770382339321961,
+        "dps": 33981.901696086454,
+        "team": 0.008764702840141768,
         "noaff": true,
         "nihil": true
       },
@@ -184,14 +168,14 @@
       ]
     },
     "META": {
-      "tdps": 1431501.7883916753,
+      "tdps": 1328171.5273648954,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53785.249345621196,
+        "dps": 54109.82471697833,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -205,7 +189,7 @@
       ]
     },
     "META": {
-      "tdps": 167007.4719885321,
+      "tdps": 168186.4848504063,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -216,8 +200,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37223.905801948364,
-        "team": 0.02331826731183209,
+        "dps": 45288.97599736014,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -225,15 +209,16 @@
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Chariot_Drift",
+        "Catch_Me_in_the_Sunflowers",
         "To_the_Extreme"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(s), s=4",
-        "`s3",
-        "`s4",
+        "`dragon(c5-s-c5-c5-c5-c5-end), bleed_stack>=3 and aff(scorchrend)",
+        "`s3, not aff(scorchrend)",
+        "`s4, not aff(scorchrend)",
         "if bleed_stack>=3",
-        "`s2, c_x(metalblade) or c_x(default)",
+        "`s2, (c_x(metalblade) or c_x(default)) and aff(scorchrend)",
         "`s1, c_x(metalblade)",
         "else",
         "`s1, c_x(default) and s1.check_full()",
@@ -241,7 +226,7 @@
       ],
       "share": [
         "Panther",
-        "Seimei"
+        "Gala_Leonidas"
       ]
     },
     "META": {
@@ -255,14 +240,14 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30277.234895884274,
-        "team": 0.011686130984180266,
+        "dps": 29765.78774784657,
+        "team": 0.01168396736542896,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 1244897.45830742,
+      "tdps": 1444238.4072149508,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

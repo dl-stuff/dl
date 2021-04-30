@@ -109,7 +109,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59259.732049552855,
+        "dps": 60411.35901184344,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -121,20 +121,41 @@
         "The_Plaguebringer",
         "To_the_Extreme"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(s-s), s=2",
         "`s3, not buff(s3)",
         "`s2, x=5",
         "`s4, cancel",
-        "`s1, cancel",
-        "`fst(3),x=1 and not have_buff(gozu_tenno_buff)"
+        "`s1, cancel"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29113.52141515381,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Agni",
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

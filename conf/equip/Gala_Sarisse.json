@@ -99,15 +99,53 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 14744.660958084949,
+        "dps": 19645.921467609027,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Forest_Bonds",
         "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s), s=1 and not s4.check()",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Leonidas"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18450.420534716297,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
         "Chariot_Drift",
         "To_the_Extreme"
       ],
@@ -116,24 +154,27 @@
       "acl": [
         "`dragon(s), s=1 and not s4.check()",
         "`s3, not buff(s3)",
-        "`s2",
         "`s1",
         "`s4",
         "`fs, x=5",
         "`dodge, fscf"
       ],
       "coabs": [
+        "Blade",
         "Kimono_Elisanne",
-        "Serena",
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Gala_Leonidas"
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -178,7 +219,126 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28713.660941277212,
+        "dps": 34141.7904830028,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Nobunaga"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34141.7904830028,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Nobunaga"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34473.677548905885,
+        "team": 0.22601271192701639,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Amaterasu_Oblation",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "coabs": [
+        "Blade",
+        "Ezelith",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Emma"
+      ]
+    },
+    "META": {
+      "tdps": 100057.77265988587,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23518.593721042525,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -216,42 +376,8 @@
       }
     }
   },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 33574.21283078541,
-        "team": 0.23172850767530292,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Amaterasu_Oblation",
-        "The_Plaguebringer"
-      ],
-      "coabs": [
-        "Blade",
-        "Ezelith",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Emma"
-      ]
-    },
-    "META": {
-      "tdps": 98499.5283805936,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 22087.431493290165,
         "team": 0.0,
@@ -286,8 +412,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

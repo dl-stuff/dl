@@ -72,28 +72,28 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 42779.659141582255,
-        "team": 0.028881448300316605,
+        "dps": 32279.331191487694,
+        "team": 0.03721776517909892,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
         "The_Shining_Overlord",
         "Chariot_Drift",
         "To_the_Extreme"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c1-s-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, fsc",
+        "`dragon, s=1 and aff(scorchrend)",
+        "`s3, cancel",
         "`s4, cancel",
-        "`fs, x=2 or hits=0"
+        "`s1, cancel",
+        "`s2, fsc",
+        "`fs, x=2"
       ],
       "coabs": [
         "Halloween_Mym",
@@ -105,7 +105,41 @@
         "Student_Maribelle"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 50287.26883437635,
+        "team": 0.01751145276007332,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`s2, fsc",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Gala_Leonidas"
+      ]
+    },
     "META": {
+      "tdps": 913815.6982380308,
       "pref": "PERSONAL"
     }
   },
@@ -138,36 +172,30 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47683.09145846649,
-        "team": 0.017542321772247446,
+        "dps": 54010.21490990287,
+        "team": 0.020406597192834115,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
       "acl": [
-        "`dragon(c1-s-s-end), s=1",
-        "`s3, cancel",
+        "`dragon(c3-s-c3-c3-end), aff(scorchrend)",
+        "`s3",
+        "`s4",
         "`s1",
         "`s2, fsc",
-        "`s4, cancel",
         "`fs, x=2 or hits=0"
       ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -182,8 +210,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73218.68228890195,
-        "team": 0.023293536142426855,
+        "dps": 73391.55766969362,
+        "team": 0.020464679012109032,
         "noaff": false,
         "nihil": false
       },
@@ -194,8 +222,9 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-s-end), s=1",
+        "`dragon(c3-s-c3-s-end), s=1",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s2, fsc",
@@ -213,7 +242,7 @@
       ]
     },
     "META": {
-      "tdps": 176963.03956347323,
+      "tdps": 174685.85667432167,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -222,25 +251,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 29195.607003468947,
-        "team": 0.026574181134601308,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Shining_Overlord",
-        "Blessed_Days",
-        "To_the_Extreme"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37008.26633408144,
-        "team": 0.02888144830031673,
+        "dps": 39005.44511329383,
+        "team": 0.02575323741085807,
         "noaff": false,
         "nihil": true
       },
@@ -256,7 +270,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

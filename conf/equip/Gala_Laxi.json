@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103511.14815709877,
+        "dps": 103587.01404545753,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -51,7 +51,7 @@
       "slots.d": "Gala_Mars",
       "acl": [
         "`ex",
-        "`dragon(c1-s-s-c3-end), x=4",
+        "`dragon",
         "queue prep",
         "`s2;s1;s4",
         "end",
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 307532.0806192959,
+      "tdps": 308139.0644288929,
       "pref": "PERSONAL"
     }
   },
@@ -193,8 +193,43 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30447.436888276898,
-        "team": 0.017543094575276027,
+        "dps": 44309.149213129545,
+        "team": 0.017543842105280694,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`ex",
+        "`dragon(c1-s-c3-c3-s-c3-end), cancel",
+        "queue prep",
+        "`s2;s4;s1",
+        "end",
+        "`s3, not buff(s3) and x=4",
+        "`s1, x=4 or s",
+        "`s2, x=4",
+        "`s4, x=4 or s"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Student_Maribelle",
+        "Xander"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52306.02451669543,
+        "team": 0.01169589603639649,
         "noaff": false,
         "nihil": true
       },
@@ -205,27 +240,17 @@
         "A_Passion_for_Produce",
         "Beautiful_Nothingness"
       ],
-      "slots.d": "Horus",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
+        "`ex",
+        "`dragon(c3-s-c3-c3-c1-end), x=4",
+        "queue prep",
+        "`s4;s2;s1;s3",
+        "end",
         "`s1, x=4 or s",
         "`s2, x=4",
         "`s3, x=4",
         "`s4, x=4 or s"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 49318.53537103531,
-        "team": 0.011689617418577306,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "The_Cutie_Competition",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Beautiful_Nothingness"
       ],
       "coabs": [
         "Blade",
@@ -238,7 +263,7 @@
       ]
     },
     "META": {
-      "tdps": 3223912.5527571794,
+      "tdps": 1367467.3482568036,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

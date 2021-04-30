@@ -214,7 +214,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41003.04355491643,
+        "dps": 45541.90555942658,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -226,6 +226,7 @@
         "Beautiful_Nothingness",
         "To_the_Extreme"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c2-s)",
         "`s3, fsc",
@@ -254,7 +255,74 @@
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41003.04355491643,
+        "dps": 45541.90555942658,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(c2-s)",
+        "`s3, fsc",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48193.61816744817,
+        "team": 0.1332805172261463,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Reborn_Agni"
+    },
+    "META": {
+      "tdps": 62265.837114223956,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27062.199872302772,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -286,51 +354,48 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 46158.710865418434,
-        "team": 0.14996129332395688,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Honest_Repose",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "To_the_Extreme"
-      ]
-    },
-    "META": {
-      "tdps": 60654.540035059414,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 16122.439154500966,
+        "dps": 27062.199872302772,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.w": "void"
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "Beautiful_Nothingness",
+        "To_the_Extreme"
+      ],
+      "acl": [
+        "`dragon(c2-s)",
+        "`s3, fsc",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Wand",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

@@ -152,6 +152,9 @@ function makeVisualResultItem(result) {
     for (const sliceInfo of result.slices) {
         const slice = sliceInfo[0];
         const value = sliceInfo[1];
+        if (value == 0){
+            continue;
+        }
         const dmgTxt = `${slice}: ${Math.floor(value)}`;
         const dmgSlice = $('<a>' + dmgTxt + '</a>')
             .data('dmg', value)

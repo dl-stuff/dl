@@ -35,9 +35,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37479.40908802089,
-        "team": 0.07151165166476221,
-        "noaff": true,
+        "dps": 38548.975753353494,
+        "team": 0.07275363843960167,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -47,7 +47,7 @@
         "Dueling_Dancers",
         "Such_High_Spirits"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon, s",
         "`s3, not buff(s3)",
@@ -66,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 81651.77681313286,
+      "tdps": 84988.59567685018,
       "pref": "PERSONAL"
     }
   },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 93161.16613037378,
+      "tdps": 96962.6447580282,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -130,22 +130,44 @@
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
+  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40477.17761320241,
-        "team": 0.07646231944376171,
+        "dps": 21877.26837244164,
+        "team": 0.0,
         "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Agni",
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8724.252654213866,
+        "team": 0.42367981696526363,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Honest_Repose",
+        "Sisters_Day_Out",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Horus",
       "acl": [
         "`dragon, s",
         "`s3, not buff(s3) and fsc",
@@ -156,12 +178,15 @@
       ],
       "coabs": [
         "Blade",
-        "Serena",
-        "Yuya"
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Emma"
       ]
     },
     "META": {
-      "tdps": 91449.66825014974,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -231,7 +231,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49736.85849946877,
+        "dps": 56078.81257393267,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -243,18 +243,22 @@
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
-        "`dragon(c3-s-s-c3-end)",
-        "`s3, fsc",
-        "`s1",
-        "`s4, xf>2",
-        "`fs, charged_in(fs, s1) and xf",
-        "`fs, xf=5 and (s3.check() and not buff(s3))"
+        "`dragon(c3-s-c3-c3-c1-end), aff(scorchrend)",
+        "`s4",
+        "`s3",
+        "`s1, xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Wand"
       ]
     },
     "META": {
-      "tdps": 460857.4201211999,
+      "tdps": 822789.3800291803,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -265,18 +269,43 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61219.698957695044,
-        "team": 0.10552887680602041,
+        "dps": 63966.14385774435,
+        "team": 0.11477013742621868,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "To_the_Extreme"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-c3-c3-end)",
+        "end",
+        "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
+        "`s1",
+        "`s4, xf>2",
+        "`s2, xf>3",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
       "share": [
         "Weapon",
         "Cleo"
       ]
     },
     "META": {
-      "tdps": 188296.78302627584,
+      "tdps": 224478.10663429182,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -285,43 +314,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 35807.672234215,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "Valiant_Crown",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "acl": [
-        "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
-        "`dragon(c3-s-s-c3-end)",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s4, xf>2",
-        "`fs, charged_in(fs, s1) and xf",
-        "`fs, xf=5 and (s3.check() and not buff(s3))",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Gala_Laxi",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38523.00432603133,
+        "dps": 39287.29854940166,
         "team": 0.0,
         "noaff": false,
         "nihil": true
