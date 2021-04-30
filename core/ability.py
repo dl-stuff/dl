@@ -1192,7 +1192,7 @@ ability_dict["eextra"] = Energy_Extra
 
 
 class Damaged_Buff(BuffingAbility):
-    def __init__(self, name, value, duration=15, cooldown=None):
+    def __init__(self, name, value, duration=15, cooldown=5):
         super().__init__(name, value, duration, cooldown)
 
     def oninit(self, adv, afrom=None):
