@@ -70,10 +70,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 27301.18978458029,
-        "team": 0.0,
+        "dps": 26576.86356438743,
+        "team": 0.02467221375749413,
         "noaff": false,
         "nihil": true
       },
@@ -82,14 +82,16 @@
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "Chariot_Drift",
-        "To_the_Extreme"
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-c3-s-c3-end), s=1 and energy()<5",
+        "`dragon(s-c3-c3-s-c3-end)",
         "`s3, not buff(s3) and x=5",
-        "`s2, energy()=5",
-        "`s4, energy()<5",
+        "`s2",
+        "`s4",
         "`s1"
       ],
       "coabs": [
@@ -98,28 +100,65 @@
         "Marth"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27503.204508873223,
+        "team": 0.012339207783374858,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(s-c3-c3-s-c3-end)",
+        "`s3, not buff(s3) and x=5",
+        "`s2",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
+      "tdps": 75110.71886527207,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76537.69053883586,
+        "dps": 83319.44189602364,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Candy_Couriers",
+        "A_Man_Unchanging",
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon(s-s-c3-end), s=1 and energy()<5",
@@ -166,25 +205,31 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46414.684586452255,
+        "dps": 57109.255756733604,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
         "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "To_the_Extreme"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and energy()<5",
+        "`dragon(c2-s-c3-c3-c2-end), s=1 and energy()<5",
         "`s3, not buff(s3) and x=5",
         "`s2, energy()=5",
         "`s4, energy()<5",
         "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Gala_Leonidas",
@@ -192,11 +237,11 @@
       ]
     },
     "META": {
-      "tdps": 607972.2012479483,
+      "tdps": 958255.9829631523,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

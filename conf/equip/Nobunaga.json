@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76148.39846747206,
+        "dps": 90065.49991766951,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -45,7 +45,9 @@
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
-        "To_the_Extreme"
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -67,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 329499.1817299417,
+      "tdps": 448303.6489327834,
       "pref": "PERSONAL"
     }
   },
@@ -107,17 +109,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50458.76454179542,
+        "dps": 56519.11386070679,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Cutie_Competition",
-        "Valiant_Crown",
         "A_Small_Courage",
-        "To_the_Extreme"
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
@@ -139,14 +143,14 @@
       ]
     },
     "META": {
-      "tdps": 303837.31439852476,
+      "tdps": 458514.29395923915,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 87657.03814308961,
+        "dps": 100678.74697228854,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -156,7 +160,9 @@
         "Me_and_My_Bestie",
         "Sweet_Surprise",
         "A_Small_Courage",
-        "Liber_Grimortis"
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon(s-s-c2-c3-end), s=2",
@@ -176,10 +182,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 57868.154111577074,
-        "team": 0.0,
+        "dps": 47412.42906321613,
+        "team": 0.03921026218824052,
         "noaff": false,
         "nihil": true
       },
@@ -188,7 +194,9 @@
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "A_Small_Courage",
-        "Liber_Grimortis"
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon(c3-s-s), s=2",
@@ -203,9 +211,39 @@
         "Kimono_Elisanne",
         "Wand",
         "Yuya"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Sha_Wujing"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67235.91379295885,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, s=2",
+        "`s3",
+        "`s4",
+        "`s1",
+        "`s2, burning_ambition",
+        "`fs, xf=5"
       ]
     },
     "META": {
+      "tdps": 505568.7879508223,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -256,35 +294,41 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 17852.430432963818,
-        "team": 0.005837604764683386,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38937.297904934094,
-        "team": 0.0,
+        "dps": 44459.319061295835,
+        "team": 0.014614080439108041,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Honest_Repose",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Valiant_Crown",
         "A_Small_Courage",
-        "To_the_Extreme"
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, burning_ambition",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Marth",
+        "Wand"
       ],
       "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+        "Summer_Julietta",
+        "Student_Maribelle"
       ]
     },
     "META": {
-      "tdps": 3611903.9095504535,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

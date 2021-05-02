@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92297.05599024131,
+        "dps": 96474.69796428569,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -51,7 +51,7 @@
         "`dragon(c3-s-c3-end), s",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1",
+        "`s1, fsc",
         "`fs"
       ],
       "coabs": [
@@ -65,14 +65,46 @@
       ]
     },
     "META": {
-      "tdps": 187865.32649761866,
+      "tdps": 229753.9681455902,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 56887.27891264818,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Warrioresses"
+      ],
+      "slots.d": "Midgardsormr_Zero",
+      "acl": [
+        "`dragon(c3-s-end), fsc",
+        "`s3",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60746.00081946884,
+        "dps": 62978.630432969236,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -86,16 +118,16 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-end), s=1",
+        "`dragon(c3-s-end), fsc",
         "`s3",
-        "`s4",
-        "`s1",
+        "`s4, fsc",
+        "`s1, fsc",
         "`fs"
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -107,34 +139,23 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 94890.17403865233,
-        "team": 0.0997320946607178,
+        "dps": 90586.73390341674,
+        "team": 0.12097280136486763,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "The_Queen_of_the_Knife",
-        "The_Warrioresses"
-      ],
       "acl": [
         "`dragon(c3-s-end), s",
         "`s3, not buff(s3)",
         "`s4",
-        "`s1(all)",
+        "`s1, fsc",
         "`fs"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -144,18 +165,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62365.58082057108,
+        "dps": 64086.717144206494,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-end), s=1",
-        "`s3, cancel",
-        "`s4",
-        "`s1",
-        "`fs"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -166,32 +180,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 70828.03551064455,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Nothingness",
-        "Beautys_Secret"
-      ],
-      "acl": [
-        "`dragon(c3-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1",
-        "`fs"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 73560.85346451415,

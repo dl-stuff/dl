@@ -32,17 +32,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101219.3558908855,
+        "dps": 116242.1523520958,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "An_Ancient_Oath",
         "Sweet_Surprise",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "The_Plaguebringer",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -66,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 502933.5872020546,
+      "tdps": 593351.1668782429,
       "pref": "PERSONAL"
     }
   },
@@ -108,34 +110,35 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46212.74773063355,
-        "team": 0.01168054223120617,
+        "dps": 52940.152554024935,
+        "team": 0.011691732286635895,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "Holywyrms_Advent",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Snipers_Allure",
-        "To_the_Extreme"
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c3-s-end),      dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end),      dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
         "`dragon( AB10 ),         dragonform.shift_count>=3",
         "`s3",
         "`s1, cancel",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`fs, x=5",
-        "`dodge, fsc"
+        "`s2, fscf",
+        "`s4, fscf",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
-        "Wand",
+        "Kimono_Elisanne",
         "Yuya"
       ],
       "share": [
@@ -144,36 +147,38 @@
       ]
     },
     "META": {
-      "tdps": 58176.184725968924,
+      "tdps": 323813.81404352066,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 112622.59130273572,
+        "dps": 130350.53004864696,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "An_Ancient_Oath",
         "Me_and_My_Bestie",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "acl": [
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=1 and aff(frostbite)",
-        "`s3, fsc",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1 and aff(frostbite)",
+        "`dragon(c3-s-c3-c3-c3-c3-end ), dragonform.shift_count>=2 and aff(frostbite)",
+        "`dragon( AB10 ), dragonform.shift_count>=3 and aff(frostbite)",
         "`s3, not buff(s3)",
         "`s1",
         "`s4, cancel",
-        "`s2, fscf",
+        "`s2,fscf",
         "`fs, x=5",
-        "`dodge, fscf",
-        "`dragon( AB10 ), dragonform.shift_count>=2 and aff(frostbite)"
+        "`dodge, fscf"
       ],
       "coabs": [
         "Serena",
@@ -186,7 +191,7 @@
       ]
     },
     "META": {
-      "tdps": 571566.1450004335,
+      "tdps": 678265.1419675986,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -197,26 +202,28 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53074.973640270146,
-        "team": 0.011684863841278134,
+        "dps": 60471.122966359355,
+        "team": 0.011653931308591152,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_and_Tamer",
         "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "To_the_Extreme"
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "acl": [
         "`dragon(c3-s-end), dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
         "`dragon( AB10 ),  dragonform.shift_count>=3",
         "`s3",
         "`s1,cancel",
-        "`s2, fsc",
+        "`s2, fscf",
         "`s4, fsc",
         "`fs, x=5"
       ]
@@ -232,27 +239,31 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 89012.37705203854,
+        "dps": 105765.74032013821,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
         "The_Red_Impulse",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "acl": [
+        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon( AB10 ), dragonform.shift_count>=3",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2, fsc",
-        "`s4, fsc",
+        "`s4, fscf",
+        "`s1, cancel",
+        "`s2, fscf or dragonform.shift_count=5",
         "`fs, x=5",
-        "`dragon(c1-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-end), dragonform.shift_count=1",
-        "`dragon(AB10-end), dragonform.shift_count>=2"
+        "`dodge, fscf"
       ],
       "coabs": [
         "Serena",
@@ -265,7 +276,7 @@
       ]
     },
     "META": {
-      "tdps": 429463.5455479012,
+      "tdps": 530296.8732208696,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -312,34 +323,31 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42490.14113231812,
-        "team": 0.02044339494414964,
+        "dps": 47398.50298508293,
+        "team": 0.0204271736983774,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "Holywyrms_Advent",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon(c3-s-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
         "`dragon( AB10 ), dragonform.shift_count>=3",
         "`s3",
         "`s1, cancel",
-        "`s2, fsc",
-        "`s4, fsc",
+        "`s2, fscf",
+        "`s4, fscf",
         "`fs, x=5",
         "`dodge, fsc"
-      ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Yuya"
       ],
       "share": [
         "Student_Maribelle",
@@ -347,7 +355,7 @@
       ]
     },
     "META": {
-      "tdps": 306485.381193957,
+      "tdps": 601979.0895837715,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

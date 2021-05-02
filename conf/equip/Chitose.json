@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5670.44751680794,
-        "team": 1.2449924535817578,
+        "dps": 5526.321153871801,
+        "team": 1.2500908226390806,
         "noaff": false,
         "nihil": false
       },
@@ -13,8 +13,8 @@
         "The_Cutie_Competition",
         "Bellathorna",
         "From_Whence_He_Comes",
-        "Crown_of_Light",
-        "Mask_of_Determination_Lance"
+        "Mask_of_Determination_Bow",
+        "Savage_Hawk_Bow"
       ],
       "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
@@ -67,7 +67,7 @@
       ]
     },
     "META": {
-      "tdps": 36224.79501576649,
+      "tdps": 36183.50693586526,
       "pref": "TEAMBUFF"
     }
   },
@@ -108,11 +108,11 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 10088.258602766206,
+        "dps": 22888.266370257003,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
@@ -126,19 +126,52 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, buff(s3, 1)",
+        "`dragon",
         "`s1",
         "`s3",
         "`s4"
       ],
       "coabs": [
-        "Bow",
+        "Blade",
+        "Malora",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Celliera"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25006.956718230977,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon",
+        "`s1",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
         "Dagger2",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Summer_Celliera"
       ]
     },
     "META": {
@@ -148,35 +181,15 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 2270.5007773929083,
+        "dps": 22888.266370257003,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Summertime_Feeling_Feline",
-        "The_Cutie_Competition",
-        "Bellathorna",
-        "From_Whence_He_Comes",
-        "Crown_of_Light",
-        "Mask_of_Determination_Lance"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`s1",
-        "`s4, s=1",
-        "`s3, x>3",
-        "`fsf, x=5"
-      ],
       "coabs": [
         "Blade",
-        "Bow",
-        "Dagger"
-      ],
-      "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Malora",
+        "Peony"
       ]
     },
     "META": {
@@ -215,6 +228,32 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28930.144756132486,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

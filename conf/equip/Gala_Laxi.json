@@ -164,25 +164,34 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110860.80508110463,
+        "dps": 122365.07761494587,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Me_and_My_Bestie",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
       "acl": [
         "`ex",
-        "`dragon(c1-s-c3-c3-s-c3-end), cancel",
+        "`dragon(s-c3-c3-s-c3-end), aff(stormlash) and x=4 and not fig.get()",
         "queue prep",
         "`s2;s4;s1",
         "end",
-        "`s3, not buff(s3) and x=4",
-        "`s1, x=4 or s",
-        "`s2, x=4",
-        "`s4, x=4 or s"
+        "`s3, x=4 and not buff(s3)",
+        "`s2, x=4 or fig.get()",
+        "`s4",
+        "`s1, x=4"
       ]
     },
     "META": {
-      "tdps": 334287.28723654884,
+      "tdps": 426330.0658857873,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,43 +202,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 44309.149213129545,
-        "team": 0.017543842105280694,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`ex",
-        "`dragon(c1-s-c3-c3-s-c3-end), cancel",
-        "queue prep",
-        "`s2;s4;s1",
-        "end",
-        "`s3, not buff(s3) and x=4",
-        "`s1, x=4 or s",
-        "`s2, x=4",
-        "`s4, x=4 or s"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Student_Maribelle",
-        "Xander"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 52306.02451669543,
-        "team": 0.01169589603639649,
+        "dps": 38297.145456845996,
+        "team": 0.017543846978566636,
         "noaff": false,
         "nihil": true
       },
@@ -240,7 +214,7 @@
         "A_Passion_for_Produce",
         "Beautiful_Nothingness"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Apollo",
       "acl": [
         "`ex",
         "`dragon(c3-s-c3-c3-c1-end), x=4",
@@ -251,6 +225,32 @@
         "`s2, x=4",
         "`s3, x=4",
         "`s4, x=4 or s"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63788.80563285633,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`ex",
+        "`dragon(c2-s-c3-c3-c2-end), aff(scorchrend) and x=4 and not fig.get()",
+        "`s2, x=4 or fig.get()",
+        "`s4",
+        "`s3, cancel",
+        "`s1, x=4"
       ],
       "coabs": [
         "Blade",
@@ -258,12 +258,12 @@
         "Yuya"
       ],
       "share": [
-        "Student_Maribelle",
+        "Summer_Julietta",
         "Gala_Leonidas"
       ]
     },
     "META": {
-      "tdps": 1367467.3482568036,
+      "tdps": 1453025.679439268,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

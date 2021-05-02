@@ -72,6 +72,39 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28408.318202532097,
+        "team": 0.09558666767594927,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "Beautiful_Nothingness",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, s=1",
+        "`fsf, x=4",
+        "`dragon, s=1 and s2.charged = 0"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 38529.54127619332,
@@ -111,17 +144,19 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65632.80101101205,
-        "team": 0.1260915523759751,
+        "dps": 70874.70297535972,
+        "team": 0.12609155237597514,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Me_and_My_Bestie",
-        "Summer_Paladyns",
+        "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "His_Clever_Brother"
+        "A_Small_Courage",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`s3, not buff(s3)",
@@ -147,33 +182,39 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46408.76631839937,
-        "team": 0.06663443945474495,
+        "dps": 51594.10723687384,
+        "team": 0.0666577062799354,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Me_and_My_Bestie",
-        "Summer_Paladyns",
+        "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "To_the_Extreme"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`s3",
+        "`dragon(c2-s-c3-c3-c2-end), aff(scorchrend)",
         "`s1",
         "`s2",
-        "`s4",
-        "`dragon(s-s-c3-end)",
+        "`s3, cancel",
+        "`s4, x=4",
         "`fsf, x=4"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

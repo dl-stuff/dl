@@ -1408,9 +1408,9 @@ class Adv(object):
         if len(args) > 1:
             return self._is_cd(tuple(args))
         target_key = args[0]
+        if isinstance(target_key, str):
+            return self._is_cd(key)
         for key in self._cooldowns:
-            if key == target_key:
-                return self._is_cd(key)
             if isinstance(key, tuple) and key[0] == target_key:
                 return self._is_cd(key)
         return False
