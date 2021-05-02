@@ -1074,14 +1074,9 @@ class Slots:
                 else:
                     acat = name
                 try:
-                    self.abilities[f"{kind}_{aidx}_{name}"] = (
-                        kind,
-                        ability_dict[acat](*ab),
-                    )
+                    self.abilities[f"ab_{kind}{aidx}"] = ability_dict[acat](*ab)
                 except:
                     pass
 
-        for name, val in self.abilities.items():
-            kind, abi = val
-            abi.oninit(adv, kind)
-            self.abilities[name] = abi
+        for key, ab in self.abilities.items():
+            ab.oninit(adv, key)

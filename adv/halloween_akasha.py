@@ -16,7 +16,6 @@ class Halloween_Akasha(Adv):
         if self.nihilism:
             return
         self.a1_debuff_rate = Selfbuff("a1_debuff_rate", 0.5, 5.0, "debuff_rate", "passive")
-        self.a1_cd = False
         # make this less potato maybe
         Event("s").listener(self.a1_proc)
 
@@ -34,13 +33,8 @@ class Halloween_Akasha(Adv):
                     self.debuffing_actions.add(name)
 
     def a1_proc(self, e):
-        if not self.a1_cd and e.name in self.debuffing_actions:
+        if e.name in self.debuffing_actions and not self.is_set_cd("a1", 5):
             self.a1_debuff_rate.on()
-            self.a1_cd = True
-            Timer(self.a1_cd_off).on()
-
-    def a1_cd_off(self, t):
-        self.a1_cd = False
 
 
 class Halloween_Akasha_RNG(Halloween_Akasha):

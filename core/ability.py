@@ -1,3 +1,5 @@
+import random
+
 from core.log import log
 from conf import ELEMENTS, WEAPON_TYPES
 
@@ -24,16 +26,12 @@ class Ability:
             return True, m
 
     def oninit(self, adv, afrom=None):
-        if afrom is not None:
-            afrom += "_"
-        else:
-            afrom = ""
         for idx, m in enumerate(self.mod):
             if len(m) > 3 and m[3] is not None:
                 is_ele_wt, m = self.check_ele_wt(m, adv)
                 if not is_ele_wt:
                     continue
-            mod_name = "{}{}_{}".format(afrom, self.name, idx)
+            mod_name = "{}_{}".format(afrom, idx)
             if m[1] == "buff" and adv.nihilism and not self.BYPASS_NIHIL:
                 continue
             self.mod_object = adv.Modifier(mod_name, *m)
@@ -524,40 +522,32 @@ class Doublebuff(BuffingAbility):
         if adv.nihilism:
             return
 
-        self.is_cd = False
-
-        def cd_end(t):
-            self.is_cd = False
-
         if self.name == "bc_energy":
 
             def defchain(e):
-                if not self.cooldown or not self.is_cd:
-                    if hasattr(e, "rate"):
-                        adv.energy.add(self.buff_args[1] * e.rate)
-                    else:
-                        adv.energy.add(self.buff_args[1])
-                    if self.cooldown:
-                        self.is_cd = True
-                        adv.Timer(cd_end).on(self.cooldown)
+                if adv.is_set_cd(afrom, self.cooldown):
+                    return
+                if hasattr(e, "rate"):
+                    adv.energy.add(self.buff_args[1] * e.rate)
+                else:
+                    adv.energy.add(self.buff_args[1])
 
             adv.Event("defchain").listener(defchain)
         else:
 
             def defchain(e):
-                if not self.cooldown or not self.is_cd:
-                    if hasattr(e, "rate"):
-                        adv.Buff(
-                            self.buff_args[0],
-                            self.buff_args[1] * e.rate,
-                            *self.buff_args[2:],
-                            source=e.source,
-                        ).on()
-                    else:
-                        adv.Buff(*self.buff_args, source=e.source).on()
-                    if self.cooldown:
-                        self.is_cd = True
-                        adv.Timer(cd_end).on(self.cooldown)
+                if adv.is_set_cd(afrom, self.cooldown):
+                    return
+                adv.set_cd(afrom, self.cooldown)
+                if hasattr(e, "rate"):
+                    adv.Buff(
+                        self.buff_args[0],
+                        self.buff_args[1] * e.rate,
+                        *self.buff_args[2:],
+                        source=e.source,
+                    ).on()
+                else:
+                    adv.Buff(*self.buff_args, source=e.source).on()
 
             adv.Event("defchain").listener(defchain)
 
@@ -704,23 +694,17 @@ ability_dict["prep"] = Skill_Prep
 
 class Primed(BuffingAbility):
     def __init__(self, name, value, duration=10, cooldown=15):
-        self.is_cd = False
         super().__init__(name, value, duration, cooldown)
 
     def oninit(self, adv, afrom=None):
         if adv.nihilism:
             return
 
-        def pm_cd_end(t):
-            self.is_cd = False
-
         primed_buff = adv.Buff(*self.buff_args).no_bufftime()
 
         def l_primed(e):
-            if not self.is_cd:
+            if not adv.is_set_cd(afrom, self.cooldown):
                 primed_buff.on()
-                self.is_cd = True
-                adv.Timer(pm_cd_end).on(self.cooldown)
 
         adv.Event("s1_charged").listener(l_primed)
 
@@ -824,30 +808,22 @@ ability_dict["energized"] = Energized_Buff
 class Energy_Buff(BuffingAbility):
     def __init__(self, name, value, duration=15, cooldown=15):
         super().__init__(name, value, duration, cooldown)
-        self.is_cd = False
 
     def oninit(self, adv, afrom=None):
         if adv.nihilism:
             return
 
-        def cd_end(t):
-            self.is_cd = False
-
         if self.name == "energy_inspiration":
 
             def l_energy(e):
-                if not self.is_cd:
+                if not adv.is_set_cd(afrom, self.cooldown):
                     adv.inspiration.add(self.buff_args[1])
-                    self.is_cd = True
-                    adv.Timer(cd_end).on(self.cooldown)
 
         else:
 
             def l_energy(e):
-                if not self.is_cd:
+                if not adv.is_set_cd(afrom, self.cooldown):
                     adv.Buff(*self.buff_args).on()
-                    self.is_cd = True
-                    adv.Timer(cd_end).on(self.cooldown)
 
         adv.Event("energy").listener(l_energy)
 
@@ -856,49 +832,40 @@ ability_dict["energy"] = Energy_Buff
 
 
 class Affliction_Selfbuff(Ability):
-    def __init__(self, name, value, duration=15, cd=10, is_rng=False):
+    def __init__(self, name, value, duration=15, cooldown=10, is_rng=False):
         nameparts = name.split("_")
         self.atype = nameparts[1].strip()
         self.value = value
         self.duration = duration
         self.buff_args = nameparts[2:]
-        self.cd = cd - 0.001
+        self.cooldown = cooldown
         self.is_rng = is_rng
-        self.is_cd = False
         super().__init__(name)
 
-    def oninit(self, adv, afrom=None):
+    def oninit(self, adv, afrom=None, bufftype=None):
         if adv.nihilism:
             return
 
-        def cd_end(t):
-            self.is_cd = False
+        bufftype = bufftype or adv.Buff
 
         def l_afflict(e):
-            if not self.is_cd:
-                if self.is_rng:
-                    import random
-
-                    if random.random() < e.rate:
-                        adv.Buff(
-                            self.name,
-                            self.value,
-                            self.duration,
-                            *self.buff_args,
-                            source=e.source,
-                        ).on()
-                        self.is_cd = True
-                        adv.Timer(cd_end).on(self.cd)
-                else:
-                    adv.Buff(
+            if self.is_rng:
+                if random.random() < e.rate and not adv.is_set_cd(afrom, self.cooldown):
+                    bufftype(
                         self.name,
-                        self.value * e.rate,
+                        self.value,
                         self.duration,
                         *self.buff_args,
                         source=e.source,
                     ).on()
-                    self.is_cd = True
-                    adv.Timer(cd_end).on(self.cd)
+            elif e.rate > 0 and adv.is_set_cd(afrom, self.cooldown):
+                bufftype(
+                    self.name,
+                    self.value * e.rate,
+                    self.duration,
+                    *self.buff_args,
+                    source=e.source,
+                ).on()
 
         adv.Event(self.atype).listener(l_afflict)
 
@@ -908,25 +875,7 @@ ability_dict["affself"] = Affliction_Selfbuff
 
 class Affliction_Teambuff(Affliction_Selfbuff):
     def oninit(self, adv, afrom=None):
-        if adv.nihilism:
-            return
-
-        def cd_end(t):
-            self.is_cd = False
-
-        def l_afflict(e):
-            if not self.is_cd and e.rate > 0:
-                adv.Teambuff(
-                    self.name,
-                    self.value * e.rate,
-                    self.duration,
-                    *self.buff_args,
-                    source=e.source,
-                ).on()
-                self.is_cd = True
-                adv.Timer(cd_end).on(self.cd)
-
-        adv.Event(self.atype).listener(l_afflict)
+        super().oninit(adv, afrom=afrom, bufftype=adv.Teambuff)
 
 
 ability_dict["affteam"] = Affliction_Teambuff
@@ -937,11 +886,8 @@ class AntiAffliction_Selfbuff(Affliction_Selfbuff):
         if adv.nihilism:
             return
 
-        def cd_end(t):
-            self.is_cd = False
-
         def l_afflict(e):
-            if not self.is_cd and e.rate < 1:
+            if e.rate < 1 and adv.is_set_cd(afrom, self.cooldown):
                 adv.Buff(
                     self.name,
                     self.value * (1 - e.rate),
@@ -949,8 +895,6 @@ class AntiAffliction_Selfbuff(Affliction_Selfbuff):
                     *self.buff_args,
                     source=e.source,
                 ).on()
-                self.is_cd = True
-                adv.Timer(cd_end).on(self.cd)
 
         adv.Event(self.atype).listener(l_afflict)
 
@@ -963,14 +907,9 @@ class Potent_Affres(Affliction_Selfbuff):
         if adv.nihilism:
             return
 
-        def cd_end(t):
-            self.is_cd = False
-
         def l_afflict(e):
-            if not self.is_cd and e.atype == self.atype:
+            if e.atype == self.atype and adv.is_set_cd(afrom, self.cooldown):
                 adv.Buff(self.name, self.value, self.duration, *self.buff_args, source=None).on()
-                self.is_cd = True
-                adv.Timer(cd_end).on(self.cd)
 
         adv.Event("selfaff").listener(l_afflict)
 
@@ -1175,8 +1114,6 @@ class Energy_Extra(Ability):
         if self.use_rng:
 
             def l_energy(e):
-                import random
-
                 if random.random() < self.value:
                     adv.energy.add_extra(1)
 
@@ -1209,16 +1146,10 @@ class Damaged_Buff(BuffingAbility):
                     self.damaged_buff.on()
 
         else:
-            self.is_cd = False
-
-            def cd_end(t):
-                self.is_cd = False
 
             def l_damaged_buff(e):
-                if not self.is_cd and e.delta < 0:
+                if e.delta < 0 and not adv.is_set_cd(afrom, self.cooldown):
                     adv.Buff(*self.buff_args).on()
-                    self.is_cd = True
-                    adv.Timer(cd_end).on(self.cooldown)  # ycass
 
         adv.Event("hp").listener(l_damaged_buff)
 
@@ -1265,14 +1196,9 @@ class Dodge_Buff(BuffingAbility):
         if not self.cond or adv.condition(f"dodge {self.cond}"):
             self.dodge_buff = adv.Buff(*self.buff_args, source="dodge")
 
-            def cd_end(t):
-                self.is_cd = False
-
             def l_dodge_buff(e):
-                if not self.is_cd:
+                if not adv.is_set_cd(afrom, self.cooldown):
                     self.dodge_buff.on()
-                    self.is_cd = True
-                    adv.Timer(cd_end).on(self.cooldown)
 
             adv.Event("dodge").listener(l_dodge_buff)
 
@@ -1283,20 +1209,14 @@ ability_dict["dodge"] = Dodge_Buff
 class Healed_Buff(BuffingAbility):
     def __init__(self, name, value, duration=None, cooldown=None):
         super().__init__(name, value, duration or 15, cooldown or 10)
-        self.is_cd = False
 
     def oninit(self, adv, afrom=None):
         if adv.nihilism:
             return
 
-        def cd_end(t):
-            self.is_cd = False
-
         def l_heal_buff(e):
-            if not self.is_cd:
+            if not adv.is_set_cd(afrom, self.cooldown):
                 adv.Buff(*self.buff_args, source="heal").on()
-                self.is_cd = True
-                adv.Timer(cd_end).on(self.cooldown)
 
         adv.heal_event.listener(l_heal_buff)
 

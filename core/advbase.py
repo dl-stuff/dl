@@ -874,6 +874,7 @@ class Adv(object):
         self.tension = [self.energy, self.inspiration]
         self.sab = []
         self.extra_actmods = []
+        self._cooldowns = {}
 
         self.disable_echo()
         self.bleed = None
@@ -1377,6 +1378,42 @@ class Adv(object):
                 1.0,
             )
         return total
+
+    def set_cd(self, key, timeout, proc=None):
+        if not timeout or timeout <= 0:
+            return
+        if key is None:
+            raise ValueError('Cooldown key cannot be None')
+        log("set_cd", str(key), timeout)
+        timeout -= 0.0001 # avoid race cond
+        try:
+            self._cooldowns[key].on(timeout=timeout)
+        except KeyError:
+            self._cooldowns[key] = Timer(proc=proc, timeout=timeout).on()
+
+    def _is_cd(self, key):
+        try:
+            return bool(self._cooldowns[key].online)
+        except KeyError:
+            return False
+
+    def is_set_cd(self, key, timeout, proc=None):
+        if self._is_cd(key):
+            return True
+        self.set_cd(key, timeout, proc=proc)
+        return False
+
+    @allow_acl
+    def is_cd(self, *args):
+        if len(args) > 1:
+            return self._is_cd(tuple(args))
+        target_key = args[0]
+        for key in self._cooldowns:
+            if key == target_key:
+                return self._is_cd(key)
+            if isinstance(key, tuple) and key[0] == target_key:
+                return self._is_cd(key)
+        return False
 
     @allow_acl
     def def_mod(self):
@@ -2323,6 +2360,9 @@ class Adv(object):
             else:
                 if not cond_eval:
                     return
+        if "cd" in attr and self.is_set_cd((e.name, aseq), attr["cd"]):
+            return
+
         spd = self.speed()
         iv = attr.get("iv", 0) / spd
         msl = attr.get("msl", 0)

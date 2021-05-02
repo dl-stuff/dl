@@ -93,24 +93,16 @@ class Gala_Ranzal_70MC(Gala_Ranzal):
             "sp": 5800,
             "startup": 0.1,
             "recovery": 1.0,
-            "attr": [{"buff": ["fsAlt", "enhanced", -1, 3, "-refresh"], "coei": 1}, {"buff": ["team", 0.2, 15.0, "defense", "buff"], "iv": 0.16667}],
+            "attr": [
+                {"buff": ["fsAlt", "enhanced", -1, 3, "-refresh"], "coei": 1},
+                {"buff": ["team", 0.2, 15.0, "defense", "buff"], "iv": 0.16667},
+                {
+                    "amp": [[2, 3, 3, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]],
+                    "cd": 30.0,
+                },
+            ],
         },
     }
-
-    def prerun(self):
-        super().prerun()
-        self.s2_timer = Timer(self.s2_cd_end, 30)
-        self.s2_cd = False
-
-    def s2_cd_end(self, t):
-        self.s2_cd = False
-
-    def s2_proc(self, e):
-        if not self.s2_cd:
-            # y tho
-            self.add_one_att_amp(max=3)
-            self.s2_cd = True
-            self.s2_timer.on()
 
 
 variants = {None: Gala_Ranzal, "70MC": Gala_Ranzal_70MC}

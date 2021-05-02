@@ -33,18 +33,6 @@ class Gala_Elisanne_70MC(Gala_Elisanne):
         super().prerun()
         # procs doublebuff for some reason kms
         self.divine_revelation = Selfbuff("divine_revelation", 0.2, 13, "defense", "buff", source="a1")
-        self.s2_timer = Timer(self.s2_cd_end, 30)
-        self.s2_cd = False
-
-    def s2_cd_end(self, t):
-        self.s2_cd = False
-
-    def s2_proc(self, e):
-        if not self.s2_cd:
-            # y tho
-            self.add_one_att_amp(max=3)
-            self.s2_cd = True
-            self.s2_timer.on()
 
     SAVE_VARIANT = True
     comment = "70MC; divine oath can doublebuff"
@@ -79,7 +67,16 @@ class Gala_Elisanne_70MC(Gala_Elisanne):
             "sp": 38400,
             "startup": 0.1,
             "recovery": 2.06667,
-            "attr": [{"dmg": 13.75, "iv": 0.2}, {"dmg": 13.75, "iv": 0.53333}, {"dmg": 13.75, "iv": 1.43333}, {"buff": ["energy", 3], "iv": 1.43333}],
+            "attr": [
+                {"dmg": 13.75, "iv": 0.2},
+                {"dmg": 13.75, "iv": 0.53333},
+                {"dmg": 13.75, "iv": 1.43333},
+                {"buff": ["energy", 3], "iv": 1.43333},
+                {
+                    "amp": [[2, 3, 3, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]],
+                    "cd": 30.0,
+                },
+            ],
         },
     }
 

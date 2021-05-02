@@ -211,9 +211,9 @@ class Timer(object):
         # return f'{self.timing}: {self.process}'
         return f"{hex(id(self))}: {self.process}"
 
-    def _process(self):
+    def _process(self, _):
         # sample plain _process
-        print("-- plain timer ", "@", t.timing)
+        # print("-- plain timer ", "@", t.timing)
         return 1
 
 

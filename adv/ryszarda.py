@@ -7,19 +7,13 @@ class Ryszarda(SigilAdv):
     def prerun(self):
         self.config_sigil(duration=300, x=True)
         self.heal_event.listener(self.a1_healed)
-        self.a1_heal_cd = False
         self.x5_level = 0
 
-    def a1_heal_cd_off(self, t):
-        self.a1_heal_cd = False
-
     def a1_healed(self, e):
-        if not self.a1_heal_cd:
+        if not self.is_set_cd("a1", 20):
             self.a_update_sigil(-30)
             if e.delta >= 1000:
                 self.a_update_sigil(-15)
-            self.a1_heal_cd = True
-            Timer(self.a1_heal_cd_off).on(20)
 
     @allow_acl
     def x5_sigil_lvl(self, lvl):
@@ -35,6 +29,7 @@ class Ryszarda(SigilAdv):
 
 class Ryszarda_UNLOCKED(Ryszarda):
     SAVE_VARIANT = False
+
     def prerun(self):
         super().prerun()
         self.a_update_sigil(-300)

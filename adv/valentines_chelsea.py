@@ -20,7 +20,6 @@ class Valentines_Chelsea(Adv):
         self.romance_gauge = 0
         Event("buffskill").listener(self.l_buffed_romance_gauge)
 
-        self.is_cd = False
         Event("selfaff").listener(self.a2_proc)
         self.a2_buff = FSAltBuff("a2_fs", "ablaze", 8, 3)
         self.a2_spd_mod = Modifier("a2_spd", "spd", "buff", 0.15, get=self.a2_buff.get)
@@ -28,15 +27,10 @@ class Valentines_Chelsea(Adv):
         self.full_gauge_at = None
         self.a_s_dict["s2"].enable_phase_up = True
 
-    def a2_cd_end(self, t):
-        self.is_cd = False
-
     def a2_proc(self, e):
-        if not self.is_cd and e.atype == "burn":
+        if e.atype == "burn" and not self.is_set_cd("a2", 5):
             self.charge_p("a3", 0.25, target="s2")
             self.a2_buff.on()
-            self.is_cd = True
-            Timer(self.a2_cd_end).on(4.9999)
 
     @property
     def romance(self):

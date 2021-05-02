@@ -29,31 +29,19 @@ class Faris(SigilAdv):
         if self.ALLOWED_DODGE_PER_S2:
             self.s2_counter = FSAltBuff("fs_counter", "counter", uses=self.ALLOWED_DODGE_PER_S2, hidden=True)
             self.s2_sigilcounter = FSAltBuff("fs_sigilcounter", "sigilcounter", uses=self.ALLOWED_DODGE_PER_S2, hidden=True)
-        self.a1_cd = False
-        self.a1_sigil_cd = False
 
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.uriel_wrath = Faris.setup_uriel_wrath()
         adv.current_s[dst] = "sigil"
 
-    def a1_cd_end(self, t):
-        self.a1_cd = False
-
-    def a1_sigil_cd_end(self, t):
-        self.a1_sigil_cd = False
-
     def fs_counter_proc(self, e):
-        if not self.a1_cd:
+        if not self.is_set_cd("a1", 10):
             self.a_update_sigil(-36)
-            self.a1_cd = True
-            Timer(self.a1_cd_end).on(10)
 
     def fs_sigilcounter_proc(self, e):
-        if not self.a1_cd:
+        if not self.is_set_cd("a1", 10):
             self.uriel_wrath.on()
-            self.a1_cd = True
-            Timer(self.a1_cd_end).on(10)
 
     def s1_proc(self, e):
         if not isinstance(self, Faris) or self.unlocked:
@@ -69,6 +57,7 @@ class Faris(SigilAdv):
 
 class Faris_UNLOCKED(Faris):
     SAVE_VARIANT = False
+
     def prerun(self):
         super().prerun()
         self.a_update_sigil(-300)
