@@ -9,20 +9,23 @@
         "spiral": true,
         "a": [["fs", 0.4], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["lo_att", 0.6]]
     },
-    "fs_scarlet": {
+    "fs_vanessa": {
         "charge": 0.675,
         "startup": 0.46667,
         "recovery": 0.55897,
         "attr": [
-            {"dmg": 8.448, "killer": [0.3, ["debuff_def"]], "sp": 300}
-        ]
+            {"dmg": 8.448, "killer": [0.3, ["debuff_def"]], "odmg": 3.08, "sp": 300}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
     },
     "s1": {
         "sp": 3033,
         "startup": 0.1,
         "recovery": 1.5,
         "attr": [
-            {"dmg": 8.42, "buff": ["fsAlt", "scarlet", -1, 1, "-refresh"], "iv": 0.4},
+            {"buff": ["fsAlt", "vanessa", -1, 1, "-refresh"], "coei": 1},
+            {"dmg": 8.42, "iv": 0.4},
             {"dmg": 8.42, "iv": 1.06667}
         ]
     },
@@ -31,7 +34,7 @@
         "startup": 0.1,
         "recovery": 1.73333,
         "attr": [
-            {"dmg": 5.47, "buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 0.56667, "coei": 1},
+            {"dmg": 5.47, "buff": ["debuff", -0.05, 10.0, 1.0, "def"], "coei": 1, "iv": 0.56667},
             {"dmg": 5.47, "iv": 1.2}
         ]
     }

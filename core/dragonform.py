@@ -36,7 +36,7 @@ class DragonForm(Action):
 
         self.c_act_name = None
         self.c_act_conf = None
-        self.dracolith_mod = self.adv.Modifier("dracolith", "att", "dragon", 0)
+        self.dracolith_mod = self.adv.Modifier("dracolith", "ex", "dragon", 0)
         self.dracolith_mod.get = self.ddamage
         self.dracolith_mod.off()
         self.shift_mods = [self.dracolith_mod]

@@ -9,14 +9,7 @@ from pprint import pprint
 from lark.tree import Tree
 
 from core.afflic import AFFLICT_LIST
-from conf import (
-    SKIP_VARIANT,
-    get_conf_json_path,
-    ELE_AFFLICT,
-    list_advs,
-    load_json,
-    mono_elecoabs,
-)
+from conf import SKIP_VARIANT, get_conf_json_path, ELE_AFFLICT, list_advs, load_json, mono_elecoabs, wyrmprints
 
 
 TDPS_WEIGHT = 15000
@@ -297,9 +290,13 @@ def validate_sim(adv):
     if any((k in adv.conf and not k in adv.conf_base for k in ABNORMAL_COND)):
         return False, "Has an abnormal condition"
     wp_qual_lst = adv.slots.a.qual_lst
-    if not all([not wp in BANNED_PRINTS for wp in wp_qual_lst]):
-        return False, "Using a banned print"
-    if not all([not ss in BANNED_SHARES for ss in adv.skillshare_list]):
+    for wp in wp_qual_lst:
+        if wp in BANNED_PRINTS:
+            return False, "Using a banned print"
+        for ab in wyrmprints[wp]["a"]:
+            if ab[0].startswith("sls") or ab[0].startswith("sts"):
+                return False, "No slayer/strikers"
+    if any((ss in BANNED_SHARES for ss in adv.skillshare_list)):
         return False, "Using a banned share"
     if not len(adv.slots.c.coab_list) == 3:
         return False, "Less than 3 coabilities"

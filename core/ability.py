@@ -560,13 +560,31 @@ class Slayer_Strength(BuffingAbility):
         super().__init__(name, value, -1)
 
     def oninit(self, adv, afrom=None):
-        pass
-        # for _ in range(5):
-        #     adv.Buff(*self.buff_args).on()
+        if adv.nihilism:
+            return
+
+        self.stacks = 0
+        self.slayed = 0
+
+        def l_slayed(e):
+            if self.stacks >= 5:
+                return
+            need_count = 5
+            if self.name.startswith("sts"):
+                # if not e.name.startswith("fs"):
+                #     return
+                need_count = 3
+            self.slayed += e.count
+            while self.slayed >= need_count and self.stacks < 5:
+                adv.Buff(*self.buff_args).on()
+                self.stacks += 1
+                self.slayed -= need_count
+
+        adv.Event("slayed").listener(l_slayed)
 
 
-ability_dict["sts"] = Slayer_Strength
 ability_dict["sls"] = Slayer_Strength
+ability_dict["sts"] = Slayer_Strength
 
 
 class Dragon_Buff(Ability):

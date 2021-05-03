@@ -1383,9 +1383,9 @@ class Adv(object):
         if not timeout or timeout <= 0:
             return
         if key is None:
-            raise ValueError('Cooldown key cannot be None')
+            raise ValueError("Cooldown key cannot be None")
         log("set_cd", str(key), timeout)
-        timeout -= 0.0001 # avoid race cond
+        timeout -= 0.0001  # avoid race cond
         try:
             self._cooldowns[key].on(timeout=timeout)
         except KeyError:
@@ -1724,6 +1724,12 @@ class Adv(object):
                     for src_sn, src_snconf in owner_conf.find(f"^{src_key}(_[A-Za-z0-9]+)?$"):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
+                        try:
+                            self.conf[dst_sn]["attr"] = [
+                                attr for attr in self.conf[dst_sn]["attr"] if not isinstance(attr, dict) or "from_ab" not in attr
+                            ]
+                        except KeyError:
+                            pass
                         self.conf[dst_sn].owner = owner
                         self.conf[dst_sn].sp = shared_sp
                     owner_module = load_adv_module(owner)[0]
@@ -2000,11 +2006,12 @@ class Adv(object):
 
     def dmg_formula(self, name, dmg_coef):
         dmg_mod = self.dmg_mod(name)
-        att = 1.0 * self.att_mod(name) * self.base_att
+        att = self.att_mod(name) * self.base_att
         armor = 10 * self.def_mod()
+        ex = self.mod("ex")
         # to allow dragon overriding
         ele = (self.mod(self.element) + 0.5) * (self.mod(f"{self.slots.c.ele}_resist"))
-        return 5.0 / 3 * dmg_coef * dmg_mod * att / armor * ele  # true formula
+        return 5.0 / 3 * dmg_coef * dmg_mod * ex * att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
         log("dmg", e.dname, e.count, e.comment)
@@ -2097,16 +2104,16 @@ class Adv(object):
             if "crisis" in attr:
                 hitmods.append(CrisisModifier(name, attr["crisis"], self.hp))
             if "bufc" in attr:
-                hitmods.append(Modifier(f"{name}_bufc", "att", "bufc", attr["bufc"] * self.buffcount))
+                hitmods.append(Modifier(f"{name}_bufc", "ex", "bufc", attr["bufc"] * self.buffcount))
             if "drg" in attr:
                 # base 0.2 + any ability ddamage, no dracolith
-                hitmods.append(Modifier(f"{name}_drg", "att", "dragon", 0.2 + self.mod("da", operator=operator.add, initial=0)))
+                hitmods.append(Modifier(f"{name}_drg", "ex", "dragon", 0.2 + self.mod("da", operator=operator.add, initial=0)))
             if "fade" in attr:
                 attenuation = (attr["fade"], self.conf.attenuation.hits, hitmods)
             else:
                 attenuation = None
             if self.berserk_mode and "odmg" in attr:
-                hitmods.append(Modifier(name, "att", "odgauge", attr["odmg"] - 1))
+                hitmods.append(Modifier(name, "ex", "odgauge", attr["odmg"] - 1))
             if "crit" in attr:
                 hitmods.append(Modifier("hitattr_crit", "crit", "chance", attr["crit"]))
             for m in hitmods:
