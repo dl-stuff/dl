@@ -82,17 +82,24 @@ function populateSelect(id, data, allowNone) {
     $(id).empty();
     $(id).append(options);
 }
+function pic(qual) {
+    if (PIC_INDEX[qual]) {
+        return PIC_INDEX[qual];
+    } else {
+        return { icon: qual, name: qual };
+    }
+}
 function getIcon(qual, css) {
-    return $('<img/>').attr({ src: `/dl-sim/pic/${PIC_INDEX[qual].icon}`, class: css !== undefined ? `slot-icon ${css}` : 'slot-icon' });
+    return $('<img/>').attr({ src: `/dl-sim/pic/${pic(qual).icon}`, class: css !== undefined ? `slot-icon ${css}` : 'slot-icon' });
 }
 function slotsTextFmt(result) {
-    return `[${PIC_INDEX[result.drg].name}][${PIC_INDEX[result.wep].name}][${result.wps.map((wp) => PIC_INDEX[wp].name).join('+')}][${result.coabs.map((coab) => PIC_INDEX[coab].name).join('|')}][${result.share.map((ss, i) => `S${i + 3}:${PIC_INDEX[ss].name}`).join('|')}]`;
+    return `[${pic(result.drg).name}][${pic(result.wep).name}][${result.wps.map((wp) => pic(wp).name).join('+')}][${result.coabs.map((coab) => pic(coab).name).join('|')}][${result.share.map((ss, i) => `S${i + 3}:${pic(ss).name}`).join('|')}]`;
 }
-function advNameVariant(result){
+function advNameVariant(result) {
     if (result.variant) {
-        return `${PIC_INDEX[result.adv].name} ${result.variant}`;
+        return `${pic(result.adv).name} ${result.variant}`;
     } else {
-        return PIC_INDEX[result.adv].name;
+        return pic(result.adv).name;
     }
 }
 function makeVisualResultItem(result) {
@@ -152,7 +159,7 @@ function makeVisualResultItem(result) {
     for (const sliceInfo of result.slices) {
         const slice = sliceInfo[0];
         const value = sliceInfo[1];
-        if (value == 0){
+        if (value == 0) {
             continue;
         }
         const dmgTxt = `${slice}: ${Math.floor(value)}`;
