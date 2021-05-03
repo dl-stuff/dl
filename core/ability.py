@@ -571,8 +571,8 @@ class Slayer_Strength(BuffingAbility):
                 return
             need_count = 5
             if self.name.startswith("sts"):
-                # if not e.name.startswith("fs"):
-                #     return
+                if not e.name.startswith("fs"):
+                    return
                 need_count = 3
             self.slayed += e.count
             while self.slayed >= need_count and self.stacks < 5:
