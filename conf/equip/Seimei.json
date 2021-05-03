@@ -82,8 +82,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43293.9161164242,
-        "team": 0.0281160411911103,
+        "dps": 40098.57970201528,
+        "team": 0.0334595998578018,
         "noaff": false,
         "nihil": true
       },
@@ -91,8 +91,10 @@
         "Candy_Couriers",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Blessed_Days",
-        "To_the_Extreme"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
@@ -117,23 +119,25 @@
         "Kimono_Elisanne"
       ],
       "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
+        "Alain",
+        "Student_Maribelle"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45250.977219461965,
+        "dps": 49719.450113369014,
         "team": 0.024663194027289684,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Cutie_Competition",
-        "Chariot_Drift",
-        "To_the_Extreme"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gozu_Tenno",
       "acl": [
@@ -158,20 +162,20 @@
         "Kimono_Elisanne"
       ],
       "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
+        "Gala_Leonidas",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 566796.3307336927,
+      "tdps": 1093727.4378566972,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 72731.22636923446,
-        "team": 0.06610962566515008,
+        "dps": 80194.37056369164,
+        "team": 0.06610962566514982,
         "noaff": false,
         "nihil": false
       },
@@ -180,7 +184,9 @@
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "The_Plaguebringer",
-        "To_the_Extreme"
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "coabs": [
         "Marth",
@@ -199,21 +205,22 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50458.647152926824,
-        "team": 0.024663194027289732,
+        "dps": 57352.551183539465,
+        "team": 0.024661583273152918,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
         "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "To_the_Extreme"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon",
-        "`s3",
+        "`dragon(c3-s-c3-c1-end), aff(scorchrend)",
         "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
         "`s2",
         "end",
@@ -221,8 +228,9 @@
         "`s1",
         "end",
         "`s4",
+        "`s3",
         "if not have_buff(gozu_tenno_buff)",
-        "`fst(3),x=1",
+        "`fst(3), x>3",
         "else",
         "`fs,x=5",
         "end"

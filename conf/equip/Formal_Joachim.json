@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85478.09865760281,
+        "dps": 87430.74338367558,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -51,14 +51,14 @@
       "acl": [
         "`dragon(c3-s-c3-c3-end), xf",
         "`s3, not buff(s3)",
-        "`s2, s1.check()",
-        "`s1, s2.charged < 3270 or s=2",
-        "`s4",
+        "`s2, s1.check() and xf",
+        "`s1, s2.charged < 3763 or s=2",
+        "`s4, xf",
         "`dodge, xf=1"
       ],
       "coabs": [
+        "Blade",
         "Dragonyule_Xainfried",
-        "Eleonora",
         "Mona"
       ],
       "share": [
@@ -67,15 +67,15 @@
       ]
     },
     "META": {
-      "tdps": 497301.43621142197,
+      "tdps": 515111.9245062997,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 47955.68349837968,
-        "team": 0.049355384134435444,
+        "dps": 38771.064255458,
+        "team": 0.049369081954583,
         "noaff": false,
         "nihil": true
       },
@@ -88,11 +88,11 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
+        "`dragon(c3-s-c3-c3-c2-end), xf",
         "`s3",
-        "`s2, s1.check()",
-        "`s1, s=2",
-        "`s4",
+        "`s2, s1.check() and xf",
+        "`s1",
+        "`s4, xf",
         "`dodge, xf=1"
       ],
       "coabs": [
@@ -105,7 +105,41 @@
         "Summer_Celliera"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59931.77392147902,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Rivalry_of_Kings",
+        "Sweet_Surprise",
+        "Beautiful_Nothingness",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), xf",
+        "`s3",
+        "`s4, xf",
+        "`s2, s1.check() and xf",
+        "`s1, s2.charged <= 3270 or s=2",
+        "`dodge, xf=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
+    },
     "META": {
+      "tdps": 428622.7093606436,
       "pref": "PERSONAL"
     }
   },
@@ -120,14 +154,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85998.43002235945,
+        "dps": 88451.75625634307,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 481462.3461240173,
+      "tdps": 503839.65705541376,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -138,34 +172,22 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57685.766488022615,
+        "dps": 59941.656401156935,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3",
-        "`s4",
-        "`s2, s1.check()",
-        "`s1",
-        "`dodge, xf=1"
-      ],
       "coabs": [
         "Blade",
         "Mona",
         "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
