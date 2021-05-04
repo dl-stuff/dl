@@ -34,17 +34,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66043.50171248017,
+        "dps": 76806.24737981848,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
         "Dueling_Dancers",
-        "Sisters_of_the_Anvil"
+        "Sisters_of_the_Anvil",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -66,11 +68,46 @@
       ]
     },
     "META": {
-      "tdps": 249928.21907703808,
+      "tdps": 322416.4728226969,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27619.411273513833,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Breakfast_at_Valerios",
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=1 and not s2.check()",
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s2, s=1",
+        "`s4, x=5",
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Ezelith",
+        "Joe",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 29921.570994210677,
@@ -120,7 +157,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88599.63009772147,
+        "dps": 88599.63009772146,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -145,7 +182,7 @@
       ]
     },
     "META": {
-      "tdps": 389885.19608341675,
+      "tdps": 389885.19608341664,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -156,7 +193,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48338.62781818748,
+        "dps": 48338.62781818747,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -192,7 +229,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -207,14 +244,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47114.01631490416,
+        "dps": 56509.214116465366,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 180501.6793402326,
+      "tdps": 243779.35060370766,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -143,7 +143,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56748.34675865013,
+        "dps": 56748.346758650114,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -175,8 +175,30 @@
       ]
     },
     "META": {
-      "tdps": 199277.34271801563,
+      "tdps": 199277.34271801513,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54263.313183260114,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -236,34 +258,31 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37436.81679112563,
+        "dps": 46934.43654627521,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dear_Diary",
+        "Forest_Bonds",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "Snipers_Allure"
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
       ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1, fsc",
-        "`s2, not buff(s2) and fsc",
-        "`s4, fsc",
-        "`dodge, fsc",
-        "`fs4"
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Summer_Julietta",
+        "Pinon"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50905.63815235607,
+        "dps": 50905.638152356056,
         "team": 0.029319482719928146,
         "noaff": false,
         "nihil": true
@@ -285,6 +304,23 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46934.43654627521,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

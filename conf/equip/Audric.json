@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78965.12870730978,
+        "dps": 78965.12870730979,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -68,11 +68,45 @@
       ]
     },
     "META": {
-      "tdps": 204299.50879666183,
+      "tdps": 204299.50879666198,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19854.59915939687,
+        "team": 0.02939753303350168,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c2-end), dragonform.shift_count=0 and (cancel and buff(s3))",
+        "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Delphi"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 42295.60931089131,
@@ -107,6 +141,7 @@
       ]
     },
     "META": {
+      "tdps": 763363.7191910109,
       "pref": "PERSONAL"
     }
   },
@@ -182,7 +217,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -256,7 +291,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

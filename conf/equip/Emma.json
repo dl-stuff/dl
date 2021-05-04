@@ -2,20 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5751.227417817288,
-        "team": 1.4548912371749516,
-        "noaff": true,
+        "dps": 9501.158818817828,
+        "team": 1.5555459473125952,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Castle_Cheer_Corps",
-        "Dragonyule_Dreaming",
+        "Honest_Repose",
         "Jewels_of_the_Sun",
-        "Amaterasu_Oblation",
-        "Seaside_Memory"
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Mask_of_Determination_Bow",
+        "Savage_Hawk_Bow"
       ],
       "slots.d": "Horus",
-      "slots.w": "void",
       "acl": [
         "`fs, fs_prep_c>1",
         "`fs, fs_prep_c=1 and x=5",
@@ -67,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 32744.129908088475,
+      "tdps": 27192.60332908948,
       "pref": "TEAMBUFF"
     }
   },
@@ -173,23 +174,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 9439.731478124722,
-        "team": 1.49611708259566,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Amaterasu_Oblation",
-        "Seaside_Memory",
-        "Beneath_the_Boughs",
-        "Savage_Hawk_Bow"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50356.859724325324,
@@ -206,8 +190,7 @@
       ]
     },
     "META": {
-      "tdps": 33823.289675203465,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -217,7 +200,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37542.60395148204,
+        "dps": 38219.32309766546,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -226,26 +209,22 @@
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`dragon(c2-s-c3-c3-end)",
         "`s3",
         "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
+        "`fs, x=5",
+        "`dodge, fscf"
       ],
       "share": [
-        "Gala_Leonidas",
-        "Summer_Julietta"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -253,48 +232,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 37542.60395148204,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end)",
-        "`s3",
-        "`s4",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Gala_Leonidas",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -308,8 +245,7 @@
       }
     },
     "META": {
-      "tdps": 23172.037199282015,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
