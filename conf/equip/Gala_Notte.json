@@ -166,6 +166,44 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56007.887904650095,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "else",
+        "`dragon",
+        "`s3, not buff (s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "end"
+      ],
+      "coabs": [
+        "Joker",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -221,7 +259,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35718.01746769928,
+        "dps": 40803.881413338466,
         "team": 0.0,
         "noaff": false,
         "nihil": true

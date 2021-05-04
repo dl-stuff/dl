@@ -834,7 +834,7 @@ function populateAllGraphs() {
     const tdps = $('#input-teamdps').val();
     killGraph(simcDamageGraph);
     const datasets = [makeDataset('Damage', windows(graphData.dmg), 'mediumslateblue')];
-    if (Object.keys(graphData.team).length > 1) {
+    if (graphData.team && Object.keys(graphData.team).length > 1) {
         datasets.push(makeDataset('Team', scaled(graphData.team, tdps), 'seagreen'));
     }
     simcDamageGraph = makeGraph('damage-graph', datasets, 5000);
