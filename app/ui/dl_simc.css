@@ -11,12 +11,14 @@ body {
     min-height: 150px;
 }
 
-#test-results>.test-result-item:not(:first-child), #copy-results>.copy-txt:not(:first-child) {
+#test-results>.test-result-item:not(:first-child),
+#copy-results>.copy-txt:not(:first-child) {
     opacity: 0.50;
     /*transition: opacity 0.01s linear 0s;*/
 }
 
-#test-results>.test-result-item:not(:first-child):hover, #copy-results>.copy-txt:not(:first-child):hover {
+#test-results>.test-result-item:not(:first-child):hover,
+#copy-results>.copy-txt:not(:first-child):hover {
     opacity: 1;
 }
 
@@ -58,7 +60,8 @@ body {
 .error {
     color: red;
     font-weight: 600;
-    overflow: visible;;
+    overflow: visible;
+    ;
     margin: 0 1rem;
 }
 
@@ -91,11 +94,25 @@ body {
 }
 
 .slot-icon {
-    width: 1.7em;
+    display: inline-block;
+    position: relative;
 }
 
-.slot-icon.character {
-    width: 3em;
+.slot-icon img {
+    height: 1.7em;
+    z-index: 1;
+}
+
+.slot-icon.character img {
+    height: 3em;
+}
+
+.slot-icon img.deco {
+    height: 0.8em;
+    position: absolute;
+    display: inline-block;
+    z-index: 2;
+    top: 0.45em;
 }
 
 /* .slot-icon.coab.generic {
@@ -154,7 +171,7 @@ body {
     margin-left: 40px;
 }
 
-#commitsTitle > a {
+#commitsTitle>a {
     text-decoration: none;
 }
 
@@ -168,7 +185,7 @@ body {
     text-decoration: none;
 }
 
-.commit-entry > span {
+.commit-entry>span {
     color: black;
     font-size: 0.75em;
 }
@@ -177,14 +194,52 @@ body {
     color: gray !important;
 }
 
-.result-slice {border-right: solid 1px white; background-color: darkslategray;}
-.c-attack, .c-x {background-color: firebrick !important;}
-.c-fs, .c-fs1, .c-fs2, .c-fs3, .c-fs4 {background-color: darkred !important;}
-.c-s1 {background-color: mediumslateblue !important;}
-.c-s2 {background-color: cornflowerblue !important;}
-.c-s3 {background-color: darkcyan !important;}
-.c-s4 {background-color: cadetblue !important;}
-.c-team {background-color: seagreen !important;}
-.c-dx {background-color: blueviolet !important;}
-.c-ds {background-color:  mediumpurple !important;}
-.c-other {background-color: orange !important;}
+.result-slice {
+    border-right: solid 1px white;
+    background-color: darkslategray;
+}
+
+.c-attack,
+.c-x {
+    background-color: firebrick !important;
+}
+
+.c-fs,
+.c-fs1,
+.c-fs2,
+.c-fs3,
+.c-fs4 {
+    background-color: darkred !important;
+}
+
+.c-s1 {
+    background-color: mediumslateblue !important;
+}
+
+.c-s2 {
+    background-color: cornflowerblue !important;
+}
+
+.c-s3 {
+    background-color: darkcyan !important;
+}
+
+.c-s4 {
+    background-color: cadetblue !important;
+}
+
+.c-team {
+    background-color: seagreen !important;
+}
+
+.c-dx {
+    background-color: blueviolet !important;
+}
+
+.c-ds {
+    background-color: mediumpurple !important;
+}
+
+.c-other {
+    background-color: orange !important;
+}

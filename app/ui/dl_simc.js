@@ -90,7 +90,15 @@ function pic(qual) {
     }
 }
 function getIcon(qual, css) {
-    return $('<img/>').attr({ src: `/dl-sim/pic/${pic(qual).icon}`, class: css !== undefined ? `slot-icon ${css}` : 'slot-icon' });
+    const picInfo = pic(qual);
+    const boxEle = $('<span></span>').attr({class: css !== undefined ? `slot-icon ${css}` : 'slot-icon'});
+    const picEle = $('<img/>').attr({ src: `/dl-sim/pic/${picInfo.icon}`, alt: picInfo.name});
+    if (picInfo.deco) {
+        const decoEle = $('<img/>').attr({ src: `/dl-sim/pic/${picInfo.deco}`, class: 'deco'});
+        boxEle.append(decoEle);
+    }
+    boxEle.append(picEle);
+    return boxEle;
 }
 function slotsTextFmt(result) {
     return `[${pic(result.drg).name}][${pic(result.wep).name}][${result.wps.map((wp) => pic(wp).name).join('+')}][${result.coabs.map((coab) => pic(coab).name).join('|')}][${result.share.map((ss, i) => `S${i + 3}:${pic(ss).name}`).join('|')}]`;
