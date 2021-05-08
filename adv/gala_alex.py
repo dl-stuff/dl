@@ -9,9 +9,10 @@ class Skill_Reservoir(Skill):
         self.altchain = altchain or "base"
 
     def chain_on(self, skill, timeout=3):
-        log("debug", "chain on", f"s{skill}")
+        timeout += self.ac.getrecovery()
         self.chain_status = skill
         self.chain_timer.on(timeout)
+        log("skill_chain", f"s{skill}", timeout)
         self._static.current_s[f"s{skill}"] = f"chain{skill}"
         self._static.current_s[f"s{3-skill}"] = f"{self.altchain}{3-skill}"
 
