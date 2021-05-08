@@ -46,7 +46,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90251.36406731942,
+        "dps": 103989.7130561895,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -63,7 +63,7 @@
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "if electrified",
-        "`s1, cancel",
+        "`s1, cancel and buff(s2)",
         "`s4, fsc",
         "`s3, duration-now<2",
         "if x=2",
@@ -79,8 +79,8 @@
         "end"
       ],
       "coabs": [
-        "Blade",
         "Peony",
+        "Sharena",
         "Wand"
       ],
       "share": [
@@ -89,11 +89,55 @@
       ]
     },
     "META": {
-      "tdps": 175863.6641557648,
+      "tdps": 325963.32715061854,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50071.13919667079,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "if electrified",
+        "`s1, cancel and buff(s2)",
+        "`s4, fsc",
+        "`s3, duration-now<2",
+        "if x=2",
+        "`fs2, not aff(paralysis)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s2, charged_in(2, s1)",
+        "`s4",
+        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
+        "end"
+      ],
+      "coabs": [
+        "Peony",
+        "Sharena",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57170.041487617316,
@@ -178,7 +222,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94577.65523729312,
+        "dps": 109596.26362324406,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -202,7 +246,7 @@
       ]
     },
     "META": {
-      "tdps": 127772.06379275779,
+      "tdps": 277982.14101693686,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -247,33 +291,25 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 46808.334893006475,
         "team": 0.09994470332141683,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 49983.28777520883,
-        "team": 0.049980891144143426,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "A_Small_Courage",
+        "The_Shining_Overlord",
+        "Rogues_Banquet",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Tutelarys_Destiny"
       ],
       "acl": [
         "if electrified",
-        "`s1, fsc",
+        "`s1, cancel",
         "`s4, fsc",
         "`s3, duration-now<2",
         "if x=2",
@@ -284,9 +320,14 @@
         "`dragon(c3-s-end), cancel",
         "`s3, not buff(s3) and x=5",
         "`s2, charged_in(2, s1)",
-        "`s4",
+        "`s4, cancel",
         "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
         "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -294,7 +335,6 @@
       ]
     },
     "META": {
-      "tdps": 63545.04878325756,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

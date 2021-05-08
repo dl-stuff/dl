@@ -169,7 +169,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56007.887904650095,
+        "dps": 60197.50002756878,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -177,22 +177,18 @@
       "acl": [
         "if metamorphosis.get()",
         "`s1, cancel",
-        "`s2, cancel",
+        "`s2, aff(stormlash)",
         "else",
         "`dragon",
-        "`s3, not buff (s3)",
+        "`s4",
         "`s1",
         "`s2",
-        "`s4",
+        "`s3, cancel",
+        "`fs, xf=2 and charged_in(fs,s1)",
         "end"
       ],
-      "coabs": [
-        "Joker",
-        "Mona",
-        "Wand"
-      ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },

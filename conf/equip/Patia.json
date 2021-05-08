@@ -254,6 +254,36 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7884.401768030625,
+        "team": 1.0492087072601057,
+        "noaff": true,
+        "nihil": false
+      },
+      "acl": [
+        "`fs, fs_prep_c and x=2",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Joker"
+      ]
+    },
+    "META": {
+      "tdps": 65534.21226671771,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {

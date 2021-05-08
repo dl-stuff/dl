@@ -234,6 +234,39 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32092.819132699304,
+        "team": 0.06492434239913046,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Valiant_Crown",
+        "A_Small_Courage",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, xf=5 or fsc",
+        "`s2, xf>2",
+        "`fs, charged_in(fs,s1) and xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Sha_Wujing",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47494.57690685595,
@@ -259,45 +292,11 @@
       ]
     },
     "META": {
-      "tdps": 912880.4235902458,
+      "tdps": 393818.1406071727,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 34899.070874617166,
-        "team": 0.03123535336822291,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "His_Clever_Brother"
-      ],
-      "coabs": [
-        "Dagger",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Fritz",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "tdps": 2323972.0218696226,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

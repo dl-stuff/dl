@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36832.65420150817,
+        "dps": 36832.65420150818,
         "team": 0.20175088390915594,
         "noaff": true,
         "nihil": false
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 447643.6401424032,
+      "tdps": 447643.6401424031,
       "pref": "PERSONAL"
     }
   },
@@ -219,7 +219,7 @@
       ]
     },
     "META": {
-      "tdps": 578655.9316903035,
+      "tdps": 578655.9316903034,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -319,6 +319,43 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 22978.912013010697,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "The_Lurker_in_the_Woods",
+        "Chariot_Drift",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.w": "high_dragon",
+      "acl": [
+        "`dragon(c3-c3-c3-c3), cancel",
+        "`s3, not buff(s3) and x>2",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1, cancel",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Fritz",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }
