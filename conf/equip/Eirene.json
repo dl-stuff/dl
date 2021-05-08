@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65160.70677580046,
-        "team": 0.11746857376112431,
+        "dps": 70915.77124275478,
+        "team": 0.1204221792919879,
         "noaff": false,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c1-end), have_buff(s2_base2_00)",
+        "`dragon(c3-c3-c3-c3-c1-end), timeleft(s2_base2_00)>12",
         "`s3, not buff(s3)",
         "`s4, x=2",
         "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
@@ -27,7 +27,7 @@
       ],
       "coabs": [
         "Blade",
-        "Pecorine",
+        "Dagger2",
         "Peony"
       ],
       "share": [
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74465.92996166101,
-        "team": 0.10161920553348933,
+        "dps": 74912.89433009058,
+        "team": 0.10410429551531127,
         "noaff": false,
         "nihil": false
       },
@@ -53,7 +53,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c1-end), have_buff(s2_base2_00)",
+        "`dragon(c3-c3-c3-c3-c1-end), aff_timeleft(flashburn)>11",
         "`s3, not buff(s3)",
         "`s4, x=2",
         "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
@@ -71,15 +71,15 @@
       ]
     },
     "META": {
-      "tdps": 587103.7288184108,
+      "tdps": 244953.52105944898,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68383.88751746598,
-        "team": 0.10161920553348933,
+        "dps": 68908.75461485583,
+        "team": 0.10410429551531127,
         "noaff": false,
         "nihil": false
       },
@@ -90,7 +90,6 @@
       ]
     },
     "META": {
-      "tdps": 203363.357792746,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -174,8 +173,8 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70060.40300078735,
-        "team": 0.10161920553348933,
+        "dps": 70603.03008102084,
+        "team": 0.10410429551531127,
         "noaff": false,
         "nihil": false
       },
@@ -229,11 +228,19 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51235.372503703606,
-        "team": 0.10161920553348933,
+        "dps": 51737.33562866729,
+        "team": 0.10410429551531127,
         "noaff": false,
         "nihil": false
       },
+      "acl": [
+        "`dragon(c3-c3-c3-c3-c1-end), aff_timeleft(flashburn)>11",
+        "`s3, not buff(s3)",
+        "`s4, x=2",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`fsf, x=2"
+      ],
       "coabs": [
         "Blade",
         "Peony",
@@ -242,8 +249,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57540.26453342146,
-        "team": 0.10161920553348933,
+        "dps": 58130.72937312081,
+        "team": 0.10410429551531127,
         "noaff": false,
         "nihil": false
       }
@@ -259,8 +266,8 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51235.372503703606,
-        "team": 0.10161920553348933,
+        "dps": 51737.33562866729,
+        "team": 0.10410429551531127,
         "noaff": false,
         "nihil": false
       },
@@ -279,14 +286,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28586.976092524823,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 32298.934973438285,

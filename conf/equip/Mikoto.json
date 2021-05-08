@@ -81,6 +81,59 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 103559.67386374276,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
+        "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
+        "`s1",
+        "`s4, xf>2",
+        "`s2, xf>3",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -126,17 +179,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48300.62579207904,
+        "dps": 55996.40484132248,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Cutie_Competition",
-        "Valiant_Crown",
-        "Chariot_Drift",
-        "To_the_Extreme"
+        "Snipers_Allure",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
@@ -147,9 +202,9 @@
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Gala_Laxi",
         "Halloween_Mym",
-        "Kimono_Elisanne"
+        "Kimono_Elisanne",
+        "Wand"
       ],
       "share": [
         "Summer_Julietta",
@@ -157,7 +212,7 @@
       ]
     },
     "META": {
-      "tdps": 1232349.200034916,
+      "tdps": 1758846.3208958064,
       "pref": "PERSONAL"
     }
   },
@@ -245,11 +300,6 @@
         "To_the_Extreme",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Wand"
       ]
     },
     "META": {

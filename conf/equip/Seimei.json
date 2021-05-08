@@ -207,7 +207,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57352.551183539465,
+        "dps": 57592.0835465356,
         "team": 0.024661583273152918,
         "noaff": false,
         "nihil": true
@@ -222,7 +222,10 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c1-end), aff(scorchrend)",
+        "if aff(scorchrend)",
+        "`dragon(s-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c1-end), dragonform.shift_count>=1",
+        "end",
         "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
         "`s2",
         "end",
@@ -232,10 +235,15 @@
         "`s4",
         "`s3",
         "if not have_buff(gozu_tenno_buff)",
-        "`fst(3), x>3",
+        "`fst(3), x=4",
         "else",
-        "`fs,x=5",
+        "`fs, x=5",
         "end"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Nobunaga",
+        "Wand"
       ]
     },
     "META": {

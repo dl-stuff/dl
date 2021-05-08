@@ -178,25 +178,47 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 67431.3963759921,
-        "team": 0.05091100391239919,
+        "dps": 65363.91352532856,
+        "team": 0.051139193305092895,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-end), fsc",
-        "`s3, fsc",
-        "`s4, cancel",
-        "`s1(striking), s1.check() and fsc",
-        "`s2(shielding), s2.check() and fsc",
-        "`shielding, fsc",
-        "`striking, s=2",
+        "`striking",
+        "`dragon(c3-s-c3-c3-end), fsc and aff(stormlash)",
+        "`s4",
+        "`s2(shielding)",
+        "`s1(striking)",
+        "`s3, xf>1 or fsc",
         "`fs, xf=2 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67884.46377750703,
+        "team": 0.050240409732840455,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`striking",
+        "`dragon(c3-s-c3-c3-end), xf=1",
+        "`s4",
+        "`s1(striking)",
+        "`s3",
+        "`s2(shielding), fsc",
+        "`fs, (xf=2 and hits>5) or x=4"
       ]
     },
     "META": {
+      "tdps": 2804401.782580122,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -215,7 +237,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66629.72190772067,
+        "dps": 66629.72190772068,
         "team": 0.05061529706867599,
         "noaff": false,
         "nihil": false
@@ -233,7 +255,7 @@
       ]
     },
     "META": {
-      "tdps": 283157.0226537711,
+      "tdps": 283157.02265377116,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

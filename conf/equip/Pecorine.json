@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89136.77488537262,
-        "team": 0.025749673540928976,
+        "dps": 37662.04025521973,
+        "team": 0.10108764300879597,
         "noaff": true,
         "nihil": false
       },
@@ -11,12 +11,11 @@
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "The_Lurker_in_the_Woods",
-        "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Odd_Sparrows",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Cupid",
+      "slots.w": "chimeratech",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -38,24 +37,24 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Cleo"
+        "Jiang_Ziya"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 105647.57360868028,
+        "dps": 107023.77381310251,
         "team": 0.0,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "Levins_Champion",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
         "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
+        "A_Small_Courage",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -83,14 +82,54 @@
       ]
     },
     "META": {
-      "tdps": 641204.1961255869,
+      "tdps": 686154.4249463546,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 104956.31060908377,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Levins_Champion",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end)",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103645.33920570074,
+        "dps": 104956.31060908377,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -123,6 +162,47 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 58654.91560163269,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Halloween_Elisanne",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 64520.40716179594,
@@ -171,7 +251,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 121680.87498607239,
+        "dps": 121957.18441677165,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -181,13 +261,26 @@
         "Spirit_of_the_Season",
         "The_Lurker_in_the_Woods",
         "A_Game_of_Cat_and_Boar",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "A_Small_Courage",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end)",
+        "`s2",
+        "`fs, x=1",
+        "end"
       ]
     },
     "META": {
-      "tdps": 1263864.570903048,
+      "tdps": 833881.7846827938,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -231,11 +324,77 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70599.3119686464,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`s2",
+        "`s4",
+        "`s3, fsc",
+        "`fs, x=1",
+        "end"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29953.430231841354,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Study_Rabbits",
+        "The_Lurker_in_the_Woods",
+        "The_Shining_Overlord",
+        "From_Whence_He_Comes",
+        "The_Maid_Crusade",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "coabs": [
+        "Hildegarde",
+        "Ryszarda",
+        "Sophie_Persona"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Zena"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54451.919209829306,
@@ -257,7 +416,33 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54451.919209829306,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

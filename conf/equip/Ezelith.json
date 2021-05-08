@@ -74,23 +74,25 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 20132.401170746158,
+        "dps": 22269.883410908107,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "Amaterasu_Oblation",
-        "The_Plaguebringer"
+        "The_Cutie_Competition",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Gala_Mars",
       "acl": [
         "`dragon(s-s-c3-end), s=1 and not s4.check()",
-        "`s3, not buff(s3)",
-        "`s4, s=1",
+        "`s3",
+        "`s4",
         "`s1"
       ],
       "coabs": [
@@ -142,6 +144,19 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39555.17944782952,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Agni",
+      "share": [
+        "Gala_Mym",
+        "Gala_Leonidas"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 40603.90665524083,
@@ -176,7 +191,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -249,16 +264,35 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 19761.42986332567,
+        "dps": 22269.883410908107,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(s-s-c3-end), s=1 and not s4.check()",
+        "`s3",
+        "`s4",
+        "`s1"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
