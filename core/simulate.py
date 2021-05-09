@@ -283,7 +283,7 @@ def act_sum(actions, output):
     for idx, ac in enumerate(condensed):
         act, cnt = ac
         idx = idx - idx_offset
-        if start > idx > 0 and idx % 24 == 0:
+        if start > idx > 0 and idx % 12 == 0:
             output.write("\n")
         elif freq >= 0 and start < idx and (idx - start) % seqlen == 0:
             output.write("\n")
@@ -310,7 +310,7 @@ def act_sum(actions, output):
                     if parts[1][:5] == "phase":
                         act = parts[0] + "-" + parts[1][-1]
                     else:
-                        act = parts[0] + "-" + parts[1][0]
+                        act = parts[0] + "-" + parts[1]
                 output.write("[" + act + "]")
                 p_type = "s"
         if cnt > 1:

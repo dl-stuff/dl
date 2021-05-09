@@ -124,7 +124,6 @@ class AclInterpreter(Interpreter):
         self._inst = self._adv
         try:
             n_actcond = self._queue.popleft()
-            log("acl", str(n_actcond))
             if not self.visit(n_actcond):
                 self._queue.appendleft(n_actcond)
             return False
@@ -301,10 +300,7 @@ class AclRegenerator(Interpreter):
                     result = f"`{result}"
                 childres.append(result)
             elif isinstance(result, list):
-                result = (
-                    f"`{res}" if not res.startswith("`") and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res
-                    for res in result
-                )
+                result = (f"`{res}" if not res.startswith("`") and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res for res in result)
                 childres.extend(result)
         return "\n".join(childres)
 
@@ -337,10 +333,7 @@ class AclRegenerator(Interpreter):
                 if_else_list.append(self.visit(else_block))
         if if_else_list:
             if_else_list.append("end")
-            if_else_list = (
-                f"`{res}" if not res.startswith("`") and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res
-                for res in if_else_list
-            )
+            if_else_list = (f"`{res}" if not res.startswith("`") and not any((res.startswith(ctrl) for ctrl in AclRegenerator.CTRL)) else res for res in if_else_list)
             return "\n".join(if_else_list)
         return False
 

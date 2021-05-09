@@ -16,8 +16,8 @@ class Skill_Reservoir(Skill):
         self._static.current_s[f"s{skill}"] = f"chain{skill}"
         self._static.current_s[f"s{3-skill}"] = f"{self.altchain}{3-skill}"
 
-    def chain_off(self, t=None):
-        log("debug", "chain off")
+    def chain_off(self, t=None, reason="timeout"):
+        log("skill_chain", "chain off", reason)
         self.chain_status = 0
         self._static.current_s["s1"] = "base1"
         self._static.current_s["s2"] = "base2"
@@ -41,7 +41,7 @@ class Skill_Reservoir(Skill):
         if casted:
             if self.count == 0 and self.chain_timer.online:
                 self.chain_timer.off()
-                self.chain_off()
+                self.chain_off(reason="reservoir below 1")
             else:
                 self.chain_on(call)
         return casted
@@ -127,7 +127,7 @@ class Gala_Alex_BK(Gala_Alex):
                 queue
                 `s1; fs, x=4
                 `s2; fs, x=4
-                `s1; fs, x=4
+                `s1;
                 `s2;
                 `s1;
                 end
@@ -136,9 +136,9 @@ class Gala_Alex_BK(Gala_Alex):
         else:
             self.conf.acl = """
                 queue
-                `s2; fs, x=4
-                `s1; fs, x=4
-                `s2; fs, x=4
+                `s2; fs, x=4;
+                `s1; fs, x=4;
+                `s2;
                 `s1;
                 `s2;
                 end
