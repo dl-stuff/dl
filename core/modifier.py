@@ -739,13 +739,7 @@ class SingleActionBuff(Buff):
         pass
 
     def act_on(self, e):
-        if (
-            self.get()
-            and (e.name.startswith(self.mod_type) or (e.name == "ds" and self.mod_type == "s"))
-            and self.uses > 0
-            and not e.name in self.active
-            and e.name in self._static.adv.damage_sources
-        ):
+        if self.get() and (e.name.startswith(self.mod_type) or (e.name == "ds" and self.mod_type == "s")) and self.uses > 0 and not e.name in self.active and e.name in self._static.adv.damage_sources:
             self.active.add(e.name)
             self.logwrapper(self.name, e.name, str(self.active), "act_on")
             self.uses -= 1
@@ -1319,7 +1313,8 @@ class AmpBuff:
 
         self_level = self.level(AmpBuff.SELF_AMP)
         team_level = self.level(AmpBuff.TEAM_AMP)
-        if self_level >= self.publish_level:
+        publish = self_level >= self.publish_level
+        if publish:
             self_level = -1
             # more amp from fleet
             team_level += fleet
@@ -1333,12 +1328,7 @@ class AmpBuff:
             else:
                 team_description = " lv0"
         self_description = self.toggle_buffs(AmpBuff.SELF_AMP, self_level)
-        log(
-            "amp",
-            self.name,
-            f"self{self_description}",
-            f"team{team_description}",
-        )
+        log("amp", self.name, f"self{self_description}", f"team{team_description}", publish)
         return self
 
     def off(self):

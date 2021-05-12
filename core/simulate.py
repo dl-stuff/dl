@@ -418,14 +418,14 @@ def damage_counts(real_d, damage, counts, output, res=None):
     #             output.write('{}: {:d}, '.format(k2, int(v2)))
 
 
-def compile_stats(adv, real_d, do_buffs=True):
+def compile_stats(adv, real_d):
     stats = {}
     for aff, up in adv.afflics.get_uptimes():
         stats[aff] = f"{up:.1%}"
-    if not do_buffs:
-        return stats
     if adv.logs.team_doublebuffs > 0:
-        stats["doublebuff"] = f"every {real_d / adv.logs.team_doublebuffs:2f}s"
+        stats["doublebuff"] = f"every {real_d / adv.logs.team_doublebuffs:.2f}s"
+    for amp_name, count in adv.logs.team_amp_publish.items():
+        stats[f"team_{amp_name}"] = f"every {(real_d / count):.2f}s"
     for k, v in adv.logs.team_tension.items():
         stats[k] = int(v)
     return stats
@@ -435,18 +435,6 @@ def summation(adv, real_d, output):
     res = dps_sum(adv.logs.damage, real_d)
     output.write("=" * BR + "\n")
     output.write("DPS - {}".format(round(res["dps"])))
-    if adv.logs.team_buff > 0:
-        output.write(" (team: {:.2f})".format(adv.logs.team_buff / real_d))
-    if adv.logs.team_doublebuffs > 0:
-        output.write(" (dbiv: {:.1f}s)".format(real_d / adv.logs.team_doublebuffs))
-    for k, v in adv.logs.team_tension.items():
-        output.write(" ({}: {})".format(k, int(v)))
-    # if no_cond_dps:
-    #     output.write(' | {}'.format(no_cond_dps['dps']))
-    #     if no_cond_dps['team_buff'] > 0:
-    #         output.write(' (team: {:.2f})'.format(no_cond_dps['team_buff']))
-    #     for k, v in no_cond_dps['team_tension'].items():
-    #         output.write(' ({}: {})'.format(k, int(v)))
     output.write(", duration {:.2f}s".format(real_d))
 
     if adv.logs.heal:
@@ -464,7 +452,7 @@ def summation(adv, real_d, output):
         cond_comment.append("<{}>".format(adv.condition.cond_str()))
     if len(adv.comment) > 0:
         cond_comment.append(adv.comment)
-    stats = compile_stats(adv, real_d, do_buffs=False)
+    stats = compile_stats(adv, real_d)
     if stats:
         cond_comment.append("|")
         cond_comment.append(";".join((f"{k}:{v}" for k, v in stats.items())))

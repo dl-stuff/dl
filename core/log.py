@@ -18,6 +18,7 @@ class Log:
         self.p_buff = None
         self.team_buff = 0
         self.team_doublebuffs = 0
+        self.team_amp_publish = {}
         self.team_tension = {}
         self.act_seq = []
         self.hitattr_set = set()
@@ -116,6 +117,8 @@ class Log:
                 heal_value = float(args[2])
                 self.update_dict(self.heal, args[3], heal_value)
                 self.update_dict(self.datasets[f"heal_{args[3]}"], time_now, heal_value)
+            elif category == "amp" and args[-1]:
+                self.update_dict(self.team_amp_publish, args[1], 1)
         if self.DEBUG:
             self.write_log_entry(n_rec, sys.stdout, flush=True)
         self.record.append(n_rec)
