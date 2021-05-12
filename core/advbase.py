@@ -1409,7 +1409,7 @@ class Adv(object):
             return self._is_cd(tuple(args))
         target_key = args[0]
         if isinstance(target_key, str):
-            return self._is_cd(key)
+            return self._is_cd(target_key)
         for key in self._cooldowns:
             if isinstance(key, tuple) and key[0] == target_key:
                 return self._is_cd(key)
@@ -1468,7 +1468,7 @@ class Adv(object):
     def zonecount(self):
         return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
 
-    def add_one_att_amp(self, max=2):
+    def add_one_att_amp(self, max=3):
         self.hitattr_make(
             "amp_proc",
             "amp",
@@ -1725,9 +1725,7 @@ class Adv(object):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
                         try:
-                            self.conf[dst_sn]["attr"] = [
-                                attr for attr in self.conf[dst_sn]["attr"] if not isinstance(attr, dict) or "from_ab" not in attr
-                            ]
+                            self.conf[dst_sn]["attr"] = [attr for attr in self.conf[dst_sn]["attr"] if not isinstance(attr, dict) or "from_ab" not in attr]
                         except KeyError:
                             pass
                         self.conf[dst_sn].owner = owner

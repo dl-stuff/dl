@@ -158,6 +158,14 @@ class Gala_Alex_70MC(Gala_Alex):
         "x5": {"attr": [{"dmg": 2.08, "sp": 391}]},
     }
 
+    def prerun(self):
+        super().prerun()
+        Event("buff").listener(self.l_debuff_amp)
+
+    def l_debuff_amp(self, e):
+        if isinstance(e.buff, Debuff) and e.buff.mod_type in ("def", "defb") and not self.is_set_cd("a3", 30):
+            self.add_one_att_amp()
+
 
 class Gala_Alex_BK(Gala_Alex):
     conf = {}
