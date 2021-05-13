@@ -80,10 +80,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 45409.48880835286,
-        "team": 0.03918874836431472,
+        "dps": 45376.74260888688,
+        "team": 0.03920062016949134,
         "noaff": false,
         "nihil": true
       },
@@ -108,9 +108,9 @@
         "end",
         "end",
         "`s2, not buff(s2)",
-        "`s4, cancel",
-        "`s3, buff(s2)",
-        "`s1, buff(s2) and cancel",
+        "`s4",
+        "`s3",
+        "`s1, cancel",
         "`fsf, xf=5",
         "`fs, fs_prep_c and x=2"
       ],
@@ -124,7 +124,45 @@
         "Sha_Wujing"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49867.96505681909,
+        "team": 0.024635479283126288,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Valiant_Crown",
+        "A_Small_Courage",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if dgauge>=500 and xf=5",
+        "queue",
+        "`fs;dragon(c3-s-c3-c3-end);s2, x=2",
+        "end",
+        "end",
+        "`s1, cancel",
+        "`s2, not buff(s2)",
+        "`s3",
+        "`s4, cancel",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Seimei"
+      ]
+    },
     "META": {
+      "tdps": 308354.2056319279,
       "pref": "PERSONAL"
     }
   },
@@ -162,13 +200,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "His_Clever_Brother"
-      ],
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dragonform.shift_count=0",
@@ -181,9 +212,9 @@
         "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
         "end",
         "end",
+        "`s1, buff(s2) and cancel",
         "`s2, not buff(s2)",
         "`s3",
-        "`s1, buff(s2) and cancel",
         "`s4, xf=5",
         "`fsf, xf=5"
       ],
@@ -201,7 +232,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

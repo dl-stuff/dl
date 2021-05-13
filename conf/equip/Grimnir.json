@@ -1,0 +1,174 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47845.86861846867,
+        "team": 0.04997224874453049,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "dragon;s1;s2;s3;s4"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 82596.84425940226,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1",
+        "`s2, cancel",
+        "`fs, x=3 and brewing_storm.level<5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 695405.480321458,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58703.19947927231,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=3 and brewing_storm.level<5",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 93258.83653839595,
+        "team": 0.049999083350138536,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, xf or fsc",
+        "`s2, cancel",
+        "`fs, x=3 and brewing_storm.level<5",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62936.21811429875,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
+        "`s3, cancel",
+        "`s4",
+        "`s1, xf or fsc",
+        "`s2, cancel",
+        "`fs, x=3 and brewing_storm.level<5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Notte"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  }
+}

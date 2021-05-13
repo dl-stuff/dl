@@ -1,0 +1,267 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23745.60246051146,
+        "team": 0.3542993019997991,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Dragons_Nest",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64545.50969021026,
+        "team": 0.22585543874142253,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c2-s-c3-end), cancel",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 317647.77385764284,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34199.5503792778,
+        "team": 0.16589595407584215,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Snipers_Allure",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36922.0122501888,
+        "team": 0.14499195477588261,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Seaside_Memory",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-c5-end), cancel",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 130236.41226950624,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24173.604343029823,
+        "team": 0.3542993019997991,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65579.3536610426,
+        "team": 0.22585543874142253,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 322364.5588635194,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42629.618592934174,
+        "team": 0.1676170308295211,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Bloody_Little_Queen",
+        "Candy_Couriers",
+        "Beautiful_Nothingness",
+        "Beautys_Secret"
+      ],
+      "acl": [
+        "`dragon(c5-s-c5-end), x=4",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`s3, x>3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Joker"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43751.621150872495,
+        "team": 0.22585543874142253,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 21534.640760327642,
+        "team": 0.12382543540433462,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Shinobi",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Meene",
+        "Althemia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  }
+}

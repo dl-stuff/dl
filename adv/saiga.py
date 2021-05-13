@@ -3,13 +3,6 @@ from functools import partial
 
 
 class Saiga(Adv):
-    conf = {
-        "acl": """
-            `fs, enemy_insight=3
-            `s1
-        """
-    }
-
     def prerun(self):
         self.enemy_insight = 0
         self.calculated_shots = EffectBuff(
