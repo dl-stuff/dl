@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 93455.05650732214,
-        "team": 0.0,
+        "dps": 75488.27324354471,
+        "team": 0.095917731300012,
         "noaff": false,
         "nihil": false
       },
@@ -20,10 +20,7 @@
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
-        "if xf=2",
-        "`dodge, (enemy_insight=3 or calculated_shots.get())",
-        "`fs",
-        "end"
+        "`fsf, xf=2"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -32,12 +29,12 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 93455.05650732214,
+        "dps": 89893.12581056112,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -55,10 +52,7 @@
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
-        "if xf=2",
-        "`dodge, (enemy_insight=3 or calculated_shots.get())",
-        "`fs",
-        "end"
+        "`dodge, xf=2"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -71,7 +65,132 @@
       ]
     },
     "META": {
+      "tdps": 150179.24602450026,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 58617.214859055704,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s1",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62598.51363428413,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s2, xf=2 and enemy_insight=3",
+        "`s1",
+        "`s3",
+        "`s4",
+        "`fsf, xf=2"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 104827.24915984154,
+        "team": 0.09096745735396493,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1,cancel",
+        "`s4,cancel",
+        "`dodge, xf=2"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Dragonyule_Xainfried",
+        "Gala_Notte"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66461.48067909914,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Gala_Notte",
+        "Mona"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   }
 }

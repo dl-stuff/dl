@@ -108,11 +108,19 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78049.84528626394,
+        "dps": 78110.71764798695,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), aff(frostbite) and x=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, x=2",
+        "`fsf, x=2 and hits>=15",
+        "`dodge, x=2"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -155,41 +163,8 @@
         "Seimei"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 58224.07440296228,
-        "team": 0.0493536631929834,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), x=2 and def_mod()<1",
-        "`s3, x=2",
-        "`s4, x=2",
-        "`s2, x=2",
-        "`fsf, x=2",
-        "`dodge, hits<15 and x=1"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Seimei"
-      ]
-    },
     "META": {
-      "tdps": 4106080.1410260564,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
