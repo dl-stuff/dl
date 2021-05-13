@@ -19,6 +19,10 @@ class Saiga(Adv):
         self.saiga_fs_odaccel = Modifier("saiga_fs_odaccel", "odaccel", "passive", 3).off()
         self.extra_actmods.append(self.get_saiga_fs_odaccel)
 
+    @staticmethod
+    def prerun_skillshare(adv, dst):
+        adv.enemy_insight = 0
+
     def get_saiga_x_mods(self, name, base, group, aseq, attr):
         if name.startswith("x"):
             return self.saiga_x_mods
