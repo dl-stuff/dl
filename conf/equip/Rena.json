@@ -73,60 +73,26 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 27619.411273513833,
+        "dps": 38988.18763160445,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Breakfast_at_Valerios",
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Sisters_of_the_Anvil",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon, s=1 and not s2.check()",
-        "`s3, not buff(s3)",
-        "`s1, cancel",
-        "`s2, s=1",
-        "`s4, x=5",
-        "`fsf, x=5"
-      ],
-      "coabs": [
-        "Ezelith",
-        "Joe",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 29921.570994210677,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "The_Cutie_Competition",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "Sisters_of_the_Anvil"
-      ],
-      "slots.d": "Gozu_Tenno",
-      "acl": [
-        "`dragon(s), s=1 and not s2.check() and dragonform.shift_count=0",
-        "`dragon(c3-s), s=1 and not s2.check() and dragonform.shift_count>0",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s)",
+        "`s3",
         "`s1",
         "`s2, s=1",
         "`s4, x=5",
@@ -134,11 +100,11 @@
       ],
       "coabs": [
         "Ezelith",
-        "Joe",
+        "Halloween_Mym",
         "Wand"
       ],
       "share": [
-        "Alain",
+        "Summer_Julietta",
         "Gala_Leonidas"
       ]
     },
@@ -198,16 +164,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c2-s-c3-c3-c2-end), aff(scorchrend)",
         "`s4",
@@ -219,17 +175,13 @@
         "Halloween_Mym",
         "Kimono_Elisanne",
         "Yuya"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

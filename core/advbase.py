@@ -1588,7 +1588,6 @@ class Adv(object):
 
     @allow_acl
     def dooodge(self):
-        self.dumb_count = now() // self.dumb_cd
         self.last_c = 0
         return self.a_dooodge()
 

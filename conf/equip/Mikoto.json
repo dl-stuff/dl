@@ -84,8 +84,8 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 103559.67386374276,
-        "team": 0.0,
+        "dps": 67682.91504298167,
+        "team": 0.02747096273253277,
         "noaff": false,
         "nihil": false
       },
@@ -98,7 +98,7 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Gala_Mars",
       "acl": [
         "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
         "if s=1",
@@ -123,10 +123,11 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Summer_Cleo"
       ]
     },
     "META": {
+      "tdps": 1522800.6445538097,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -357,6 +358,60 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 68041.61351524222,
+        "team": 0.11489609690547349,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-c3-c3-end)",
+        "end",
+        "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
+        "`s1",
+        "`s4, xf>2",
+        "`s2, xf>3",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Halloween_Mym",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
+    },
+    "META": {
+      "tdps": 25939236.19428628,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

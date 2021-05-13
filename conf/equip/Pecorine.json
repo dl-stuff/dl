@@ -42,7 +42,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 107023.77381310251,
+        "dps": 107907.07517613894,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -53,7 +53,7 @@
         "The_Lurker_in_the_Woods",
         "A_Game_of_Cat_and_Boar",
         "A_Small_Courage",
-        "Crown_of_Light",
+        "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
@@ -82,14 +82,14 @@
       ]
     },
     "META": {
-      "tdps": 686154.4249463546,
+      "tdps": 694892.4005954613,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 104956.31060908377,
+        "dps": 104974.60182346564,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -100,23 +100,10 @@
         "The_Lurker_in_the_Woods",
         "A_Game_of_Cat_and_Boar",
         "A_Small_Courage",
-        "Crown_of_Light",
+        "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if gourmand_mode.get()",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs, dodge",
-        "else",
-        "`dragon(c3-s-end)",
-        "`s2",
-        "`fs, x=1",
-        "end"
-      ],
       "coabs": [
         "Blade",
         "Mitsuhide",
@@ -129,24 +116,11 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104956.31060908377,
+        "dps": 104974.60182346564,
         "team": 0.0,
         "noaff": true,
         "nihil": false
       },
-      "acl": [
-        "`s3, not buff(s3)",
-        "if gourmand_mode.get()",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs, dodge",
-        "else",
-        "`dragon(c3-s-end)",
-        "`s2",
-        "`fs, x=1",
-        "end"
-      ],
       "coabs": [
         "Blade",
         "Mitsuhide",
@@ -164,7 +138,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58654.91560163269,
+        "dps": 59025.235591662014,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -176,16 +150,16 @@
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Daikokuten",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
         "`s4, fsc",
         "`s1, fsc",
         "`dodge, fsc",
-        "`fs, dodge",
+        "`fs, dodge or s",
         "else",
         "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
         "`dragon(c3-s-end), dragonform.shift_count=1",
@@ -194,7 +168,7 @@
         "end"
       ],
       "coabs": [
-        "Halloween_Elisanne",
+        "Blade",
         "Mitsuhide",
         "Peony"
       ],
@@ -205,7 +179,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64520.40716179594,
+        "dps": 65271.67804152606,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -217,7 +191,7 @@
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -226,7 +200,7 @@
         "`s4, fsc",
         "`s1, fsc",
         "`dodge, fsc",
-        "`fs, dodge",
+        "`fs, dodge or s",
         "else",
         "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
         "`dragon(c3-s-end), dragonform.shift_count=1",
@@ -324,7 +298,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -364,37 +338,11 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 29953.430231841354,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Study_Rabbits",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "From_Whence_He_Comes",
-        "The_Maid_Crusade",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "coabs": [
-        "Hildegarde",
-        "Ryszarda",
-        "Sophie_Persona"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Zena"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54451.919209829306,
@@ -416,7 +364,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -442,7 +390,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }
