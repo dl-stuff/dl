@@ -904,7 +904,10 @@ class Adv(object):
             else:
                 modifier = m(name, base, group, aseq, attr)
                 if modifier:
-                    mods.append(modifier)
+                    if isinstance(modifier, list):
+                        mods.extend(modifier)
+                    else:
+                        mods.append(modifier)
         for t in chain(self.tension, self.sab):
             if name in t.active:
                 mods.append(t.modifier)

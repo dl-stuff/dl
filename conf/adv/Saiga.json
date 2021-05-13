@@ -1,0 +1,83 @@
+{
+    "c": {
+        "name": "Saiga",
+        "icon": "110389_01_r05",
+        "att": 504,
+        "hp": 755,
+        "ele": "wind",
+        "wt": "gun",
+        "spiral": false,
+        "a": [["affres_freeze", 100.0], ["a", 0.13, "hp70"]],
+        "gun": [2]
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.06667,
+        "recovery": 0.76666,
+        "attr": [
+            {"dmg": 0.4, "odmg": 2.0, "sp": 400},
+            {"dmg": 0.4, "odmg": 2.0},
+            {"dmg": 0.4, "odmg": 2.0},
+            {"dmg": 0.4, "odmg": 2.0},
+            {"dmg": 0.4, "odmg": 2.0},
+            {"dmg": 0.4, "odmg": 2.0},
+            {"dmg": 0.4, "odmg": 2.0},
+            {"dmg": 0.4, "odmg": 2.0},
+            {"dmg": 0.4, "odmg": 2.0},
+            {"dmg": 0.4, "odmg": 2.0}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
+    },
+    "s1": {
+        "sp": 4080,
+        "startup": 0.1,
+        "recovery": 1.93333,
+        "attr": [
+            {"cond": ["var<=", ["enemy_insight", 2]], "dmg": 2.25, "afflic": ["stormlash", 120, 0.41], "iv": 0.96667},
+            {"cond": ["var<=", ["enemy_insight", 2]], "dmg": 2.25, "iv": 0.96667}, 4,
+            {"cond": ["var=", ["enemy_insight", 3]], "dmg": 4.0, "killer": [0.2, ["stormlash"]], "afflic": ["stormlash", 120, 0.41], "iv": 0.96667},
+            {"cond": ["var=", ["enemy_insight", 3]], "dmg": 4.0, "killer": [0.2, ["stormlash"]], "iv": 0.96667}, 4
+        ]
+    },
+    "s2": {
+        "sp": 4080,
+        "startup": 0.1,
+        "recovery": 2.0,
+        "attr": [
+            {"dispel": 100, "iv": 0.6}
+        ]
+    },
+    "x1": {
+        "startup": 0.1,
+        "recovery": 0.36667,
+        "attr": [
+            {"dmg": 0.48, "sp": 340},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.06667, "dodge": 0.0}
+    },
+    "x2": {
+        "startup": 0.1,
+        "recovery": 0.8,
+        "attr": [
+            {"dmg": 0.48, "sp": 340},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48},
+            {"dmg": 0.48}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    }
+}
