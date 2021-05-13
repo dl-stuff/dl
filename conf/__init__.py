@@ -143,6 +143,9 @@ def get_adv(name):
             if int(xn[-1]) == target:
                 baseconf[xn.split("_")[0]] = xconf
             del baseconf[xn]
+        # ban fsf on gun2
+        if conf.c.gun[0] == 2:
+            baseconf.cannot_fsf = True
 
     conf.update(baseconf, rebase=True)
 

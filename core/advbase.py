@@ -600,7 +600,7 @@ class Fs(Action):
             try:
                 # check if it's 2 X in a row, maybe (???)
                 prevprev_rec = 0
-                if isinstance(prev, X) and prev.index > 1:
+                if isinstance(prev, X) and prev.index > 2:
                     prevprev = prev.getprev()
                     if isinstance(prevprev, X):
                         prevprev_rec = prevprev.getrecovery()
@@ -842,8 +842,9 @@ class Adv(object):
         self.current_fs = None
         self.alt_fs_buff = None
 
-        self.a_fsf = Fs("fsf", self.conf.fsf)
-        self.a_fsf.act_event = Event("none")
+        if not self.conf["cannot_fsf"]:
+            self.a_fsf = Fs("fsf", self.conf.fsf)
+            self.a_fsf.act_event = Event("none")
 
         self.a_dodge = Dodge("dodge", self.conf.dodge)
         self.a_dooodge = Dodge("dooodge", self.conf.dooodge)
@@ -1596,7 +1597,10 @@ class Adv(object):
 
     @allow_acl
     def fsf(self):
-        return self.a_fsf()
+        try:
+            return self.a_fsf()
+        except AttributeError:
+            return False
 
     def l_dodge(self, e):
         log("dodge", "-")
