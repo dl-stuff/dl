@@ -9,7 +9,7 @@ class Armored_Yachiyo(Adv):
             Timer(self.unrelenting_blade).on(45)
 
     def unrelenting_blade(self, t):
-        Modifier("a1_unrelenting_blade", "att", "passive", 0.2)
+        Modifier("a1_unrelenting_blade", "att", "passive", 0.2).on()
 
 
 variants = {None: Armored_Yachiyo}
