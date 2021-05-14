@@ -183,7 +183,7 @@ class CharaBase(SlotBase):
         coabs = list(self.coabs.items())
         self.coabs = {}
         self.coab_list = []
-        seen_base_id = set()
+        seen_base_id = {self.icon.split("_")[0]}
         for key, coab in coabs:
             # alt check
             icon = get_icon(key)
