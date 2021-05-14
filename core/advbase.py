@@ -1040,10 +1040,10 @@ class Adv(object):
             return
         if "sim_afflict" in self.conf:
             if self.conf.sim_afflict["onele"]:
-                aff_type = globalconf.ELE_AFFLICT[self.conf.c.ele]
-                aff = vars(self.afflics)[aff_type]
-                aff.get_override = 1
-                self.sim_afflict.add(aff_type)
+                for aff_type in globalconf.ELE_AFFLICT[self.conf.c.ele]:
+                    aff = vars(self.afflics)[aff_type]
+                    aff.get_override = 1
+                    self.sim_afflict.add(aff_type)
             else:
                 for aff_type in AFFLICT_LIST:
                     aff = vars(self.afflics)[aff_type]

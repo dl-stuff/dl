@@ -402,9 +402,9 @@ class Afflics(object):
             "shadowblight": 0,
             "scorchrend": 0,
         },
-        ("flame", True): {  # Flame Advantage Diablos
+        ("flame", True): {  # Master Jaldabaoth (flame side)
             "poison": 100,
-            "burn": 0,
+            "burn": 60,
             "freeze": 100,
             "paralysis": 100,
             "blind": 100,
@@ -448,7 +448,7 @@ class Afflics(object):
             "scorchrend": 100,
         },
         ("wind", False): {  # Legend Ciella
-            "poison": 0,  # actually 85
+            "poison": 85,
             "burn": 100,
             "freeze": 100,
             "paralysis": 100,
@@ -458,12 +458,12 @@ class Afflics(object):
             "sleep": 100,
             "frostbite": 100,
             "flashburn": 100,
-            "stormlash": 0,  # actually 20
+            "stormlash": 20,
             "shadowblight": 100,
             "scorchrend": 100,
         },
-        ("wind", True): {  # Wind Advantage Dominion
-            "poison": 0,
+        ("wind", True): {  # Master Jaldabaoth (wind side)
+            "poison": 60,
             "burn": 100,
             "freeze": 100,
             "paralysis": 100,
@@ -492,7 +492,7 @@ class Afflics(object):
             "shadowblight": 0,
             "scorchrend": 0,
         },
-        ("water", True): {  # Master Lilith pt2
+        ("water", True): {  # Master Lilith (water side)
             "poison": 100,
             "burn": 100,
             "freeze": 100,
@@ -522,7 +522,7 @@ class Afflics(object):
             "shadowblight": 0,
             "scorchrend": 0,
         },
-        ("light", True): {  # Master Lilith pt1
+        ("light", True): {  # Master Lilith (light side)
             "poison": 100,
             "burn": 100,
             "freeze": 100,

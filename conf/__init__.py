@@ -27,11 +27,11 @@ TRIBE_TYPES = (
 )
 DURATIONS = (180,)
 ELE_AFFLICT = {
-    "flame": "burn",
-    "water": "frostbite",
-    "wind": "poison",
-    "light": "paralysis",
-    "shadow": "poison",
+    "flame": ("burn", "scorchrend"),
+    "water": ("frostbite",), # sadness
+    "wind": ("poison", "stormlash"),
+    "light": ("paralysis", "flashburn"),
+    "shadow": ("poison", "shadowblight"),
 }
 SKIP_VARIANT = ("RNG", "mass")
 
