@@ -78,8 +78,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63683.92523194766,
-        "team": 0.05113864533520177,
+        "dps": 60644.36183221446,
+        "team": 0.050860928279297654,
         "noaff": false,
         "nihil": true
       },
@@ -90,21 +90,21 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Midgardsormr_Zero",
       "acl": [
-        "`dragon(c3-s-c3-end)",
         "`s3, fsc",
-        "`s4, cancel",
-        "`s1(striking), s1.check()",
+        "`s4, cancel or s=3",
+        "`dragon(c3-s-c3-end), fsc",
+        "`s1(striking), s1.check() and fsc",
         "`s2(shielding), s2.check() and fsc",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
+        "`shielding, fsc",
+        "`striking, s=2",
+        "`fs, xf=2 or hits=0"
       ],
       "coabs": [
         "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -113,8 +113,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66194.60102121139,
-        "team": 0.05072611284134394,
+        "dps": 61737.028564572036,
+        "team": 0.05067550854124844,
         "noaff": false,
         "nihil": true
       },
@@ -147,7 +147,7 @@
       ]
     },
     "META": {
-      "tdps": 6086007.348863484,
+      "tdps": 5892936.447076505,
       "pref": "PERSONAL"
     }
   },
@@ -162,14 +162,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 91305.3333764014,
-        "team": 0.051080072342569484,
+        "dps": 82382.35353987933,
+        "team": 0.04993207103019661,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 399760.230643497,
+      "tdps": 335580.87251710246,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,33 +193,10 @@
         "`s1(striking)",
         "`s3, xf>1 or fsc",
         "`fs, xf=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 67884.46377750703,
-        "team": 0.050240409732840455,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`striking",
-        "`dragon(c3-s-c3-c3-end), xf=1",
-        "`s4",
-        "`s1(striking)",
-        "`s3",
-        "`s2(shielding), fsc",
-        "`fs, (xf=2 and hits>5) or x=4"
       ]
     },
     "META": {
-      "tdps": 2804401.782580122,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
