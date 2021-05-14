@@ -4,10 +4,13 @@ from module.template import RngCritAdv
 
 class Mikoto(RngCritAdv):
     def prerun(self):
-        self.config_rngcrit(cd=15, ev=20)
-        self.a1_stack = 0
+        if not self.nihilism:
+            self.config_rngcrit(cd=15, ev=20)
+            self.a1_stack = 0
 
     def charge(self, name, sp, target=None):
+        if self.nihilism:
+            return super().charge(name, sp, target=target)
         sp_s1 = self.sp_convert(self.sp_mod(name) + 0.1 * self.a1_stack, sp)
         sp = self.sp_convert(self.sp_mod(name), sp)
         targets = self.get_targets(target)

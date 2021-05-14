@@ -325,6 +325,7 @@ class Buff(object):
         elif self.mod_type == "regen" and value != 0:
             self.set_hp_event = Event("set_hp")
             self.set_hp_event.delta = value
+            self.set_hp_event.source = 'dot'
             self.regen_timer = Timer(self.hp_regen, 3.9, True).on()
         elif self.mod_type == "heal" and value != 0:
             self.set_hp_event = Event("heal_make")

@@ -1160,13 +1160,13 @@ class Damaged_Buff(BuffingAbility):
             self.damaged_buff = SingleActionBuff(*self.buff_args)
 
             def l_damaged_buff(e):
-                if e.delta < 0:
+                if e.delta < 0 and getattr(e, "source", None) != "dot":
                     self.damaged_buff.on()
 
         else:
 
             def l_damaged_buff(e):
-                if e.delta < 0 and not adv.is_set_cd(afrom, self.cooldown):
+                if e.delta < 0 and getattr(e, "source", None) != "dot" and adv.is_set_cd(afrom, self.cooldown):
                     adv.Buff(*self.buff_args).on()
 
         adv.Event("hp").listener(l_damaged_buff)

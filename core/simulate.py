@@ -10,6 +10,7 @@ from conf.equip import (
     SituationCondition,
     ConditionTuple,
     DEFAULT_CONDITONS,
+    str_to_equip_condition,
     all_monoele_coabs,
 )
 
@@ -576,10 +577,10 @@ def test_with_argv(*argv):
     except:
         duration = 180
     try:
-        mass = int(argv[4])
+        equip = str_to_equip_condition(argv[4])
     except:
-        mass = 0
-    test(name, module, verbose=verbose, duration=duration, mass=mass)
+        equip = None
+    test(name, module, verbose=verbose, duration=duration, equip_conditions=equip)
 
 
 if __name__ == "__main__":

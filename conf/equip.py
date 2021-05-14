@@ -194,6 +194,11 @@ def build_equip_condition(equip):
     return ConditionTuple((AfflictionCondition(aff), SituationCondition(sit), MonoCondition(mono))), opt
 
 
+def str_to_equip_condition(equip):
+    parts = equip.split("-")
+    return ConditionTuple((AfflictionCondition(parts[0]), SituationCondition(parts[1]), MonoCondition(parts[2])))
+
+
 def equivalent(entry_a, entry_b, key):
     a = entry_a.get(key)
     b = entry_b.get(key)
@@ -504,11 +509,7 @@ class EquipEntry(dict):
         # check against current builds
         for opt, existing_buildcond in self.builds(strict=True, with_conditions=True):
             existing_build, existing_cond = existing_buildcond
-            if (
-                not existing_build
-                or (existing_cond == self._conditions and same_build_different_dps(new_build, existing_build))
-                or OPT_COMPARE[opt](new_build, existing_build)
-            ):
+            if not existing_build or (existing_cond == self._conditions and same_build_different_dps(new_build, existing_build)) or OPT_COMPARE[opt](new_build, existing_build):
                 if existing_build:
                     dprint(f"EXISTING DPS {existing_build.dps}, TEAM {existing_build.team}")
                     dprint(f"NEW DPS {new_build.dps}, TEAM {new_build.team}")
