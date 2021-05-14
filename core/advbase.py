@@ -937,9 +937,9 @@ class Adv(object):
         except AttributeError:
             ignore_dragon = False
         try:
-            self.add_hp(e.delta, can_die=can_die, ignore_dragon=ignore_dragon)
+            self.add_hp(e.delta, can_die=can_die, ignore_dragon=ignore_dragon, source=getattr(e, "source"))
         except AttributeError:
-            self.set_hp(e.hp, can_die=can_die, ignore_dragon=ignore_dragon)
+            self.set_hp(e.hp, can_die=can_die, ignore_dragon=ignore_dragon, source=getattr(e, "source"))
 
     def l_heal_make(self, e):
         self.heal_make(e.name, e.delta, target=e.target, fixed=True)
@@ -965,15 +965,15 @@ class Adv(object):
             self.slots.c.set_need_healing()
         self.add_hp(heal_value, percent=False)
 
-    def add_hp(self, delta, percent=True, can_die=False, ignore_dragon=False):
+    def add_hp(self, delta, percent=True, can_die=False, ignore_dragon=False, source=None):
         if percent:
             delta = self.max_hp * delta / 100
         if delta > 0:
             delta *= self.sub_mod("getrecovery", "buff") + 1
         new_hp = self._hp + delta
-        self.set_hp(new_hp, percent=False, can_die=can_die, ignore_dragon=ignore_dragon)
+        self.set_hp(new_hp, percent=False, can_die=can_die, ignore_dragon=ignore_dragon, source=source)
 
-    def set_hp(self, hp, percent=True, can_die=False, ignore_dragon=False):
+    def set_hp(self, hp, percent=True, can_die=False, ignore_dragon=False, source=None):
         max_hp = self.max_hp
         if self.conf["flask_env"] and "hp" in self.conf:
             hp = self.conf["hp"]
@@ -1005,6 +1005,7 @@ class Adv(object):
             self.hp_event.real_hp = self._hp
             self.hp_event.delta = (delta / max_hp) * 100
             self.hp_event.real_delta = delta
+            self.hp_event.source = source
             self.hp_event()
 
             if self._hp < max_hp:
