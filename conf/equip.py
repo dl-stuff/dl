@@ -72,8 +72,9 @@ class AfflictionCondition(ValueEnum):
         if not adv.sim_afflict:
             return cls.SELF
         eleaff = ELE_AFFLICT[adv.slots.c.ele]
-        if adv.sim_afflict == {eleaff} and getattr(adv.afflics, eleaff).get_override == 1:
-            return cls.ALWAYS
+        if adv.sim_afflict == set(eleaff):
+            if all((getattr(adv.afflics, aff).get_override == 1 for aff in eleaff)):
+                return cls.ALWAYS
         raise ValueError("Invalid affliction condition")
 
     def get_conf(self):
