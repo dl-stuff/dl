@@ -543,6 +543,8 @@ class Fs(Action):
         if self.conf["repeat"]:
             self.act_repeat = Repeat(self.conf.repeat, self)
 
+        self.last_buffer = 0
+
     def can_interrupt(self, target, endcheck=True):
         if self.act_repeat and endcheck:
             result = super().can_interrupt(target)
@@ -567,6 +569,7 @@ class Fs(Action):
             self.act_repeat()
         else:
             super()._cb_act_end(e)
+            self.last_buffer = 0
 
     @property
     def _charge(self):
@@ -590,28 +593,28 @@ class Fs(Action):
     def speed(self):
         return self._static.f_spd_func() - 1 + super().speed()
 
-    def getstartup(self):
-        prev = self.getprev()
-        if prev == self:
-            buffer = self._buffer
-        elif prev == self.nop:
-            buffer = 0
-        else:
-            try:
-                # check if it's 2 X in a row, maybe (???)
-                prevprev_rec = 0
-                if isinstance(prev, X) and prev.index > 2:
-                    prevprev = prev.getprev()
-                    if isinstance(prevprev, X):
-                        prevprev_rec = prevprev.getrecovery()
-                bufferable = prev.startup_timer.elapsed() + prev.recovery_timer.elapsed() + prevprev_rec
-                buffer = max(0, self._buffer - bufferable)
-                log("bufferable", bufferable)
-            except AttributeError:
-                buffer = 0
+    def getstartup(self, include_buffer=True):
+        buffer = 0
+        if include_buffer:
+            prev = self.getprev()
+            if prev == self:
+                buffer = self._buffer
+            elif prev != self.nop:
+                try:
+                    # check if it's 2 X in a row, maybe (???)
+                    prevprev_rec = 0
+                    if isinstance(prev, X) and prev.index > 2:
+                        prevprev = prev.getprev()
+                        if isinstance(prevprev, X):
+                            prevprev_rec = prevprev.getrecovery()
+                    bufferable = prev.startup_timer.elapsed() + prev.recovery_timer.elapsed() + prevprev_rec
+                    buffer = max(0, self._buffer - bufferable)
+                    log("bufferable", prev.name, bufferable, buffer)
+                except AttributeError:
+                    buffer = 0
         charge = self._charge / self.charge_speed()
         startup = self._startup / self.speed()
-        # log('fs_startup', buffer, charge, startup)
+        self.last_buffer = buffer
         return buffer + charge + startup
 
 
@@ -1542,8 +1545,10 @@ class Adv(object):
     @allow_acl
     def fst(self, t=None, n=None):
         fsn = "fs" if n is None else f"fs{n}"
+        if self.current_fs != "default":
+            fsn += f"_{self.current_fs}"
         fs_act = self.a_fs_dict[fsn]
-        delta = fs_act.getstartup() + fs_act.getrecovery()
+        delta = fs_act.getstartup(include_buffer=False) + fs_act.getrecovery()
         if delta < t:
             fs_act.extra_charge = t - delta
         result = self.fs(n=n)
