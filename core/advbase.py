@@ -518,7 +518,6 @@ class X(Action):
 class Fs(Action):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
-        self.extra_charge = 0
         parts = name.split("_")
         self.act_event = Event("fs")
         self.act_event.name = self.name
@@ -543,6 +542,7 @@ class Fs(Action):
         if self.conf["repeat"]:
             self.act_repeat = Repeat(self.conf.repeat, self)
 
+        self.extra_charge = 0
         self.last_buffer = 0
 
     def can_interrupt(self, target, endcheck=True):
@@ -569,7 +569,8 @@ class Fs(Action):
             self.act_repeat()
         else:
             super()._cb_act_end(e)
-            self.last_buffer = 0
+        self.extra_charge = 0
+        self.last_buffer = 0
 
     @property
     def _charge(self):

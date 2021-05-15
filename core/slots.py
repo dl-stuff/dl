@@ -373,7 +373,7 @@ class Gozu_Tenno(DragonBase):
                 fs_action = adv.action.getprev()
             if isinstance(fs_action, Repeat):
                 fs_action = fs_action.parent
-            fs_elapsed = now() - fs_action.startup_start - fs_action.last_buffer
+            fs_elapsed = now() - fs_action.startup_start - fs_action.last_buffer + 0.0001  # float shenanigans
             if fs_elapsed >= 3.0:
                 adv.gozu_tenno_buff.on(30)
 
