@@ -81,7 +81,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 44952.83468947855,
+        "dps": 41628.85136459404,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -117,7 +117,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50329.260536827605,
+        "dps": 46990.75742566908,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -157,7 +157,7 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44952.83468947855,
+        "dps": 41628.85136459404,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -285,25 +285,26 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82010.12458981836,
+        "dps": 67842.59093676797,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "From_Whence_He_Comes",
-        "Hastened_Squall"
-      ],
-      "share": [
-        "Weapon",
-        "Mikoto"
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s1.check() and cancel",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs",
+        "`dodge, fsc",
+        "`buff(s2)",
+        "end"
       ]
     },
     "META": {
-      "tdps": 524001.66249626584,
+      "tdps": 382285.8278084524,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83542.8357920193,
+        "dps": 75948.03253819935,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -70,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 382009.07287085446,
+      "tdps": 312442.5771982622,
       "pref": "PERSONAL"
     }
   },
@@ -147,24 +147,24 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89222.43303179892,
-        "team": 0.0,
+        "dps": 82445.2454074574,
+        "team": 0.08513676530562991,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
       "acl": [
         "`dragon(s), duration-now<10",
         "`s3, not buff(s3)",
+        "`s2, xf=5 or s",
         "`s1, buff(s3) and (bleed_stack<3 or (bleed_stack=3 and (xf>1 or fscf)))",
-        "`s2, xf=5",
-        "`s4, xf>3",
+        "`s4, xf=5 or s",
         "`fsf, xf=5 and not buff(s3)",
         "`fs, xf=2 and charged_in(fs, s1)",
         "`fs, xf=5 and buff(s3)"
@@ -176,11 +176,11 @@
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 231700.86290920767,
+      "tdps": 770425.7476126051,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -191,7 +191,7 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81661.85650219489,
+        "dps": 74238.05136563162,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -213,7 +213,7 @@
       ]
     },
     "META": {
-      "tdps": 162447.87545828737,
+      "tdps": 94447.67971297434,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -224,11 +224,18 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56658.190270659084,
+        "dps": 56149.38439110161,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
       "acl": [
         "`s1",
         "`s4, xf or fsc or s",

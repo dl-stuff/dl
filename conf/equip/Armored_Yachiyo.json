@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89419.79946784598,
-        "team": 0.04999430898116092,
+        "dps": 65375.84153473295,
+        "team": 0.02941163888942715,
         "noaff": false,
         "nihil": false
       },
@@ -11,30 +11,28 @@
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
+        "Flowers_Under_the_Moon",
         "To_the_Extreme",
         "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Mask_of_Determination_Lance"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Gozu_Tenno",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "if not c_fs(enhanced)",
-        "`s1, cancel",
-        "end",
+        "`s1, fsc or not c_fs(enhanced)",
         "`s2, fsc",
         "`s4, fsc",
         "`fs2, c_fs(enhanced)"
       ],
       "coabs": [
+        "Dagger",
         "Grace",
-        "Kimono_Elisanne",
-        "Marth"
+        "Serena"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
@@ -63,7 +61,7 @@
         "end",
         "`s2, fsc",
         "`s4, fsc",
-        "`fs2, c_fs(enhanced) and x=1"
+        "`fs2, c_fs(enhanced) and cancel"
       ],
       "coabs": [
         "Grace",
@@ -76,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 220864.93860534768,
+      "tdps": 1192927.3322292338,
       "pref": "PERSONAL"
     }
   },
@@ -96,7 +94,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97635.21035448993,
+        "dps": 99021.23211546535,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -108,7 +106,7 @@
       ]
     },
     "META": {
-      "tdps": 1101370.2322609455,
+      "tdps": 1148495.1737232746,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -119,37 +117,38 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39874.59839273337,
-        "team": 0.029407436911416923,
+        "dps": 43730.12572635258,
+        "team": 0.036863567329066434,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "The_Lurker_in_the_Woods",
+        "Valiant_Crown",
+        "Beautiful_Nothingness",
         "Flowers_Under_the_Moon",
-        "To_the_Extreme",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Dreadking_Rathalos",
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1, fsc or not c_fs(enhanced)",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "end",
+        "`fs2, c_fs(enhanced) and x=1",
         "`s2, fsc",
-        "`s4, fsc",
-        "`fs2, c_fs(enhanced)"
+        "`s3, fsc",
+        "`s4, fsc"
       ],
       "coabs": [
         "Ezelith",
-        "Grace",
-        "Serena"
+        "Halloween_Mym",
+        "Wand2"
       ],
       "share": [
-        "Weapon",
-        "Sha_Wujing"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "PERSONAL": {
@@ -190,15 +189,15 @@
       ]
     },
     "META": {
-      "tdps": 5239483.584689123,
+      "tdps": 1714474.2472898744,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 98914.47957957347,
-        "team": 0.0987491906324402,
+        "dps": 98971.01021870832,
+        "team": 0.09892277710284961,
         "noaff": false,
         "nihil": false
       },
@@ -211,6 +210,7 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c2-s-c3-c3-c2-end), s=4",
         "`s3, not buff(s3)",
@@ -219,12 +219,22 @@
         "end",
         "`s2, fsc",
         "`s4, fsc",
-        "`fs2, c_fs(enhanced) and xf"
+        "`fs2, c_fs(enhanced) and xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Grace",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110757.55364705822,
+        "dps": 110753.02780488186,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -240,7 +250,7 @@
       ]
     },
     "META": {
-      "tdps": 119930.84694300438,
+      "tdps": 119103.18261611092,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -251,24 +261,19 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 99504.47634169483,
+        "dps": 105460.14437915312,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
+        "The_Warrioresses",
         "To_the_Extreme",
         "Crown_of_Light",
         "Tutelarys_Destiny"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Marth"
       ]
     },
     "META": {
@@ -318,7 +323,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59625.46672994219,
+        "dps": 57933.156031147984,
         "team": 0.0,
         "noaff": false,
         "nihil": false
