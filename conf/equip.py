@@ -50,7 +50,8 @@ DEBUG = False
 def dprint(msg, pretty=False):
     if DEBUG:
         if pretty:
-            pprint(msg)
+            # pprint(msg)
+            pass
         else:
             print(msg, flush=True)
 
@@ -67,7 +68,7 @@ class AfflictionCondition(ValueEnum):
 
     @classmethod
     def get_condition(cls, adv):
-        if all((value >= 3 for value in adv.afflics.get_resist().values())):
+        if all((value >= 300 for value in adv.afflics.get_resist().values())):
             return cls.IMMUNE
         if not adv.sim_afflict:
             return cls.SELF
