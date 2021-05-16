@@ -156,7 +156,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 122253.45408612196,
+        "dps": 129696.88609368003,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -164,18 +164,33 @@
       "slots.a": [
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
+        "The_Cutie_Competition",
+        "His_Clever_Brother",
         "To_the_Extreme",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
+        "`dragon(c3-s-s-c3-end), s=1",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4, xf",
+        "`s2",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 1979825.8794195266,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

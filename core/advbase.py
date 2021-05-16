@@ -1546,8 +1546,8 @@ class Adv(object):
     @allow_acl
     def fst(self, t=None, n=None):
         fsn = "fs" if n is None else f"fs{n}"
-        if self.current_fs != "default":
-            fsn += f"_{self.current_fs}"
+        if self.current_fs is not None:
+            fsn += "_" + self.current_fs
         fs_act = self.a_fs_dict[fsn]
         delta = fs_act.getstartup(include_buffer=False) + fs_act.getrecovery()
         if delta < t:

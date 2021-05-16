@@ -1,40 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 3949.1961499644676,
-        "team": 0.631436305826467,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Summertime_Feeling_Feline",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "#`dragon(c3-s-end), s4.check() and buff(s1)",
-        "`s3",
-        "`s4",
-        "`s1, timeleft(s1)<5 and x=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Tobias"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50997.73022670061,
+        "dps": 40745.380392434265,
         "team": 0.09869298085551516,
         "noaff": false,
         "nihil": false
@@ -72,15 +40,29 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3620.096470800762,
-        "team": 0.631436305826467,
-        "noaff": true,
+        "dps": 21518.341894308727,
+        "team": 0.11808160016953176,
+        "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "The_Red_Impulse",
+        "A_Small_Courage",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "dragon;s1;s2;s3;s4"
+      ],
       "coabs": [
         "Blade",
         "Bow",
         "Tobias"
+      ],
+      "share": [
+        "Weapon"
       ]
     },
     "META": {
@@ -130,27 +112,54 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21518.341894308727,
+        "team": 0.11808160016953176,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "The_Red_Impulse",
+        "A_Small_Courage",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "dragon;s1;s2;s3;s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Weapon"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52994.36323847696,
+        "dps": 49321.95063797444,
         "team": 0.09869298085551516,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 92061.53280510216,
+      "tdps": 1434016.9505296168,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18803.929852993253,
+        "dps": 19214.340014384754,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -172,6 +181,34 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21322.108178832594,
+        "team": 0.11808160016953176,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "The_Red_Impulse",
+        "A_Small_Courage",
+        "Dueling_Dancers"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "dragon;s1;s2;s3;s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Weapon"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 36447.786828616874,
@@ -181,11 +218,10 @@
       }
     },
     "META": {
-      "tdps": 61002.34232014903,
+      "tdps": 780131.8085011594,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
