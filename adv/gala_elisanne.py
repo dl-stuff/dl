@@ -29,13 +29,8 @@ class Gala_Elisanne(Adv):
 
 
 class Gala_Elisanne_70MC(Gala_Elisanne):
-    def prerun(self):
-        super().prerun()
-        # procs doublebuff for some reason kms
-        self.divine_revelation = Selfbuff("divine_revelation", 0.2, 13, "defense", "buff", source="a1")
-
-    SAVE_VARIANT = True
-    comment = "70MC; divine oath can doublebuff"
+    SAVE_VARIANT = False
+    comment = "70MC"
     conf = {
         "c": {
             "name": "Gala Elisanne",
