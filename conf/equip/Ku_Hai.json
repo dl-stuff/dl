@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4558.09933042873,
+        "dps": 4265.995935372373,
         "team": 0.4327871191710138,
         "noaff": true,
         "nihil": false
@@ -32,8 +32,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71760.23925433602,
-        "team": 0.045010474790092944,
+        "dps": 58371.98178537109,
+        "team": 0.04501047479009296,
         "noaff": false,
         "nihil": false
       },
@@ -67,15 +67,15 @@
       ]
     },
     "META": {
-      "tdps": 173301.1538928406,
+      "tdps": 139528.73808678717,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70137.5255127772,
-        "team": 0.045010474790092944,
+        "dps": 56918.81245960233,
+        "team": 0.04501047479009296,
         "noaff": false,
         "nihil": false
       },
@@ -86,7 +86,7 @@
       ]
     },
     "META": {
-      "tdps": 169116.49304471383,
+      "tdps": 135781.299073051,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -179,6 +179,25 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon, s=4",
+        "`s3",
+        "`s4, fsc",
+        "`s2, fsc",
+        "if buff(s2)",
+        "`fs, x=1",
+        "else",
+        "`fs, x=2 or hits=0",
+        "end"
+      ],
       "coabs": [
         "Akasha",
         "Blade",
@@ -200,14 +219,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74114.81421615097,
+        "dps": 72827.37254611155,
         "team": 0.045010474790092944,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 179373.141455614,
+      "tdps": 176806.3590322628,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -218,22 +237,21 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43210.596027489875,
-        "team": 0.04543866501227758,
+        "dps": 46953.402076565835,
+        "team": 0.044169842250306936,
         "noaff": false,
         "nihil": true
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44988.10553945588,
-        "team": 0.04431164926215487,
+        "dps": 47246.50906515286,
+        "team": 0.04696494146638867,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 1577182.4943639599,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -244,8 +262,8 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43989.27721600597,
-        "team": 0.0431217920077143,
+        "dps": 46953.402076565835,
+        "team": 0.044169842250306936,
         "noaff": false,
         "nihil": true
       }
@@ -254,7 +272,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },
@@ -268,28 +286,10 @@
       }
     },
     "META": {
-      "tdps": 111531.02030213081,
+      "tdps": 112284.29773461439,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 46484.795137645706,
-        "team": 0.045010474790092944,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 108120.73500236783,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

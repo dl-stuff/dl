@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53631.37824249655,
-        "team": 0.11365628773960208,
+        "dps": 26399.669565960274,
+        "team": 0.11374491778919651,
         "noaff": false,
         "nihil": false
       },
@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74766.99997009554,
+        "dps": 48945.707358722095,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -63,8 +63,8 @@
         "`s1, fsc or (s=1 or s=4)"
       ],
       "coabs": [
+        "Blade",
         "Dragonyule_Xainfried",
-        "Formal_Noelle",
         "Mona"
       ],
       "share": [
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 185960.86629208596,
+      "tdps": 198215.78168922148,
       "pref": "PERSONAL"
     }
   },
@@ -121,22 +121,22 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54035.1574817234,
-        "team": 0.11365628773960208,
+        "dps": 47462.3882414996,
+        "team": 0.11374491778919661,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76572.41710295722,
+        "dps": 78165.51102184849,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 198293.11751646272,
+      "tdps": 269929.62302940845,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -147,26 +147,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55679.48317459493,
+        "dps": 58250.00599662497,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "# queue self.duration<=60",
-        "# s2; s3; fs; s1, fsc; fs; s1, fsc; s1, cancel; s2, cancel",
-        "# end",
-        "`dragon(c3-s-end), s and duration>=120",
-        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
-        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
-        "`s3, s or x=5",
-        "`s4, s or x=5",
-        "`s1, fsc or (s=1 or s=4)"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -179,8 +164,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 18109.215095980777,
-        "team": 0.11365628773960208,
+        "dps": 18123.33680155462,
+        "team": 0.11374491778919661,
         "noaff": false,
         "nihil": false
       }
@@ -194,7 +179,7 @@
       }
     },
     "META": {
-      "tdps": 116686.31470441593,
+      "tdps": 116471.2403089301,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

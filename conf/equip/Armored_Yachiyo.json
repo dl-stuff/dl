@@ -193,6 +193,47 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51684.15089823525,
+        "team": 0.024645365664799957,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "end",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`fs2, c_fs(enhanced) and x=1"
+      ],
+      "coabs": [
+        "Ezelith",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -234,7 +275,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110753.02780488186,
+        "dps": 113036.02920943429,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -250,7 +291,7 @@
       ]
     },
     "META": {
-      "tdps": 119103.18261611092,
+      "tdps": 142181.80486484544,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -287,7 +328,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74624.1401315909,
+        "dps": 76248.17224097805,
         "team": 0.024680339624179176,
         "noaff": false,
         "nihil": true

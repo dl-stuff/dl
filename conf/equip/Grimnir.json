@@ -2,36 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 47845.86861846867,
-        "team": 0.04997224874453049,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "dragon;s1;s2;s3;s4"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 82596.84425940226,
-        "team": 0.0,
+        "dps": 78394.78653266293,
+        "team": 0.049999083350138536,
         "noaff": false,
         "nihil": false
       },
@@ -39,15 +11,15 @@
         "Dragon_and_Tamer",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Plaguebringer",
+        "Taiko_Tandem",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
         "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1",
+        "`s4, fsc",
+        "`s1, xf or fsc",
         "`s2, cancel",
         "`fs, x=3 and brewing_storm.level<5",
         "`fs, x=5"
@@ -59,11 +31,44 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78394.78653266293,
+        "team": 0.049999083350138536,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Taiko_Tandem",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, xf or fsc",
+        "`s2, cancel",
+        "`fs, x=3 and brewing_storm.level<5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 695405.480321458,
       "pref": "PERSONAL"
     }
   },
@@ -109,23 +114,17 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 93258.83653839595,
+        "dps": 94624.7139136043,
         "team": 0.049999083350138536,
         "noaff": false,
         "nihil": false
       },
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
-        "`s3, not buff(s3)",
-        "`s4, fsc",
-        "`s1, xf or fsc",
-        "`s2, cancel",
-        "`fs, x=3 and brewing_storm.level<5",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ]
     },
     "META": {
@@ -139,7 +138,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62936.21811429875,
+        "dps": 64116.33054472607,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -172,12 +171,29 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 76892.49859337522,
-        "team": 0.04998982984683888,
+        "dps": 63723.25425734145,
+        "team": 0.049999083350138536,
         "noaff": false,
         "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35100.265233301885,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
@@ -186,28 +202,6 @@
         "Taiko_Tandem",
         "The_Queen_of_the_Knife"
       ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel",
-        "`fs, x=3 and brewing_storm.level<5",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 94624.7139136043,
-        "team": 0.049999083350138536,
-        "noaff": false,
-        "nihil": false
-      },
       "acl": [
         "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
         "`s3, not buff(s3)",
@@ -225,7 +219,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

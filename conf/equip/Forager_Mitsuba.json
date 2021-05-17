@@ -2,9 +2,9 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3503.3641355931027,
-        "team": 0.5668329575200295,
-        "noaff": false,
+        "dps": 3143.202368261498,
+        "team": 0.5262267036785544,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61628.91911100575,
+        "dps": 53892.413864489725,
         "team": 0.07236774908500553,
         "noaff": false,
         "nihil": false
@@ -71,16 +71,16 @@
       ]
     },
     "META": {
-      "tdps": 117552.36563433711,
+      "tdps": 111817.14271050668,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3543.094472400282,
-        "team": 0.46488554123244374,
-        "noaff": false,
+        "dps": 3081.5569178571927,
+        "team": 0.4550209739095472,
+        "noaff": true,
         "nihil": false
       },
       "coabs": [
@@ -90,7 +90,7 @@
       ]
     },
     "META": {
-      "tdps": 147982.6540367046,
+      "tdps": 132785.64938249477,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -99,6 +99,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2183.4356433646185,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 31181.433937348847,
@@ -144,7 +176,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34070.466578674495,
+        "dps": 22932.124634919892,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -157,6 +189,7 @@
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
       "acl": [
         "#15% skill haste from A3 active",
         "`dragon(c3-s-c3-end), cancel",
@@ -191,13 +224,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64968.60895282755,
+        "dps": 69660.17316900133,
         "team": 0.07236774908500553,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
+      "tdps": 146558.6833255472,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -208,7 +242,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40586.186974854456,
+        "dps": 43582.65977420975,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -229,7 +263,7 @@
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40586.18697485446,
+        "dps": 26861.332744315412,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -248,44 +282,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 69660.17316900133,
-        "team": 0.07236774908500553,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Valiant_Crown",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "#15% skill haste from A3 active",
-        "`dragon(c3-s-c3-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, not c_fs(foragermitsuba) and cancel",
-        "`s4, cancel",
-        "`s1, cancel",
-        "if have_buff(s2_31)",
-        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
-        "else",
-        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Lin_You",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45341.5484747805,
@@ -295,6 +291,7 @@
       }
     },
     "META": {
+      "tdps": 92976.78426177474,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -303,44 +300,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 24118.45518754593,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Valiant_Crown",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "#15% skill haste from A3 active",
-        "`dragon(c3-s-c3-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, not c_fs(foragermitsuba) and cancel",
-        "`s4, cancel",
-        "`s1, cancel",
-        "if have_buff(s2_31)",
-        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
-        "else",
-        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
-        "end"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Lin_You",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 24118.45518754593,
@@ -353,7 +312,48 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2183.4356433646185,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

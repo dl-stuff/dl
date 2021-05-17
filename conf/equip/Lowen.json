@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5063.700056445949,
+        "dps": 4751.70078256886,
         "team": 0.44805076554330736,
         "noaff": true,
         "nihil": false
@@ -32,7 +32,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47597.42599636576,
+        "dps": 38744.79188926832,
         "team": 0.14418596823619564,
         "noaff": false,
         "nihil": false
@@ -62,14 +62,14 @@
       ]
     },
     "META": {
-      "tdps": 139975.82581746578,
+      "tdps": 111869.13195589137,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4702.726070186269,
+        "dps": 4429.996437303565,
         "team": 0.42330619457680696,
         "noaff": true,
         "nihil": false
@@ -81,7 +81,7 @@
       ]
     },
     "META": {
-      "tdps": 153678.2213476531,
+      "tdps": 122939.12161740048,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -90,6 +90,36 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2727.529103048175,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s4",
+        "`s3, not buff(s3)",
+        "`s1, x<=4 and timeleft(s1)<5"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Patia",
+        "Yuya"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 21439.0262166866,
@@ -128,14 +158,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48689.953642551336,
+        "dps": 46557.47503961181,
         "team": 0.14418596823619564,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 143571.26581534542,
+      "tdps": 137580.18246118346,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -146,7 +176,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25049.658282610024,
+        "dps": 24388.59754880003,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -156,7 +186,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -170,7 +200,7 @@
       }
     },
     "META": {
-      "tdps": 96385.14802525198,
+      "tdps": 97411.91807772948,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -191,7 +221,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

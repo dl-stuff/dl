@@ -149,20 +149,27 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 129550.33905962076,
+        "dps": 134250.2129413298,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
-      "slots.d": "Gala_Cat_Sith",
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
       "acl": [
+        "`dragon(c5-s), s=1 and duration-now<15",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4",
+        "`s4, hp>0 or x>2",
         "`fs, charged_in(fs,s1) and x=4"
       ],
       "coabs": [
-        "Blade",
+        "Berserker",
         "Curran",
         "Summer_Patia"
       ],
@@ -172,7 +179,7 @@
       ]
     },
     "META": {
-      "tdps": 282796.6870614215,
+      "tdps": 301814.02124788915,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

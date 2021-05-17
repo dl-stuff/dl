@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30956.683488658757,
+        "dps": 21525.935812240543,
         "team": 0.10963454194764259,
         "noaff": false,
         "nihil": false
@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87430.74338367558,
+        "dps": 67873.18467259356,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -67,7 +67,7 @@
       ]
     },
     "META": {
-      "tdps": 515111.9245062997,
+      "tdps": 422743.12490388984,
       "pref": "PERSONAL"
     }
   },
@@ -146,7 +146,7 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33213.52624001545,
+        "dps": 40272.84115419547,
         "team": 0.10963454194764259,
         "noaff": false,
         "nihil": false
@@ -154,14 +154,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88451.75625634307,
+        "dps": 86706.2835220994,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 503839.65705541376,
+      "tdps": 423529.3142381972,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -170,9 +170,17 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55551.764657458225,
+        "team": 0.049369081954583,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59547.617479662345,
+        "dps": 60067.33850990444,
         "team": 0.023387523853483815,
         "noaff": false,
         "nihil": true
@@ -184,6 +192,7 @@
       ]
     },
     "META": {
+      "tdps": 173799.1938310727,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -220,22 +229,27 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 19255.13216465886,
-        "team": 0.0,
+        "dps": 25014.00551560573,
+        "team": 0.049369081954583,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
-        "`s3, not buff(s3)",
-        "`s2, s1.check()",
-        "`s1, s=2",
-        "`s4",
+        "`dragon(c3-s-c3-c3-c2-end), xf",
+        "`s3",
+        "`s2, s1.check() and xf",
+        "`s1",
+        "`s4, xf",
         "`dodge, xf=1"
       ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Eleonora",
+        "Mona"
+      ],
       "share": [
-        "Weapon",
-        "Summer_Julietta"
+        "Seimei",
+        "Summer_Celliera"
       ]
     },
     "META": {

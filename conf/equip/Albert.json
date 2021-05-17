@@ -176,34 +176,8 @@
         "end"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 110009.64393428566,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "if electrified",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
-      ]
-    },
     "META": {
-      "tdps": 282116.6045337165,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
