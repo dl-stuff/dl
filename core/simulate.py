@@ -2,7 +2,6 @@ import sys
 import os
 import re
 import json
-from itertools import product
 from collections import defaultdict, Counter
 from conf.equip import (
     AfflictionCondition,
@@ -425,8 +424,15 @@ def compile_stats(adv, real_d):
         stats[aff] = f"{up:.1%}"
     if adv.logs.team_doublebuffs > 0:
         stats["doublebuff"] = f"every {real_d / adv.logs.team_doublebuffs:.2f}s"
-    for amp_name, count in adv.logs.team_amp_publish.items():
-        stats[f"team_{amp_name}"] = f"every {(real_d / count):.2f}s"
+    for amp_name, timings in adv.logs.team_amp_publish.items():
+        amp_key = f"team_{amp_name}"
+        first_time = min(timings)
+        stats[amp_key] = f"from {first_time:.2f}s"
+        if len(timings) > 1:
+            avg_iv = (max(timings) - first_time) / len(timings)
+            stats[amp_key] = f"every {avg_iv:.2f}s " + stats[amp_key]
+        else:
+            stats[amp_key] = "1 time " + stats[amp_key]
     for k, v in adv.logs.team_tension.items():
         stats[k] = int(v)
     return stats
