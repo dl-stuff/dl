@@ -429,7 +429,7 @@ def compile_stats(adv, real_d):
         first_time = min(timings)
         stats[amp_key] = f"from {first_time:.2f}s"
         if len(timings) > 1:
-            avg_iv = (max(timings) - first_time) / len(timings)
+            avg_iv = (max(timings) - first_time) / len(timings) - 1
             stats[amp_key] = f"every {avg_iv:.2f}s " + stats[amp_key]
         else:
             stats[amp_key] = "1 time " + stats[amp_key]

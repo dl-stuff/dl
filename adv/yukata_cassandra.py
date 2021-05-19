@@ -18,4 +18,34 @@ class Yukata_Cassandra(Adv):
             pass
 
 
-variants = {None: Yukata_Cassandra}
+class Yukata_Cassandra_70MC(Yukata_Cassandra):
+    SAVE_VARIANT = False
+    conf = {
+        "c": {
+            "name": "Yukata Cassandra",
+            "icon": "110337_03_r05",
+            "att": 562,
+            "hp": 965,
+            "ele": "flame",
+            "wt": "staff",
+            "spiral": True,
+            "a": [["prep", 100.0], ["a", 0.2, "hp100"], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["a", 0.35]],
+        },
+        "s1": {"sp": 7734, "startup": 0.1, "recovery": 1.66667, "attr": [{"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 1.0}, {"heal": [100, "team"], "iv": 1.0}], "energizable": True},
+        "s2": {
+            "sp": 13188,
+            "startup": 0.1,
+            "recovery": 1.93333,
+            "attr": [
+                {"amp": [[2, 3, 2, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]], "cd": 30.0},
+                {"buff": ["team", 35.0, 20.0, "heal", "buff"], "coei": 1, "iv": 1.0},
+            ],
+            "energizable": True,
+        },
+    }
+
+    def prerun(self):
+        self.a3_att_mod = Modifier("a3_att", "att", "passive", 0.35, get=self.a3_get)
+
+
+variants = {None: Yukata_Cassandra, "70MC": Yukata_Cassandra_70MC}
