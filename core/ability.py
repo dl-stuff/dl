@@ -133,7 +133,7 @@ ability_dict["rcv"] = Recovery_Potency
 class Buff_Time(Ability):
     def __init__(self, name, value, cond=None):
         if cond == "ex":
-            super().__init__(name, [("buff", "ex", value, cond)])
+            super().__init__(name, [("buff", "ex", value)])
         else:
             super().__init__(name, [("buff", "passive", value, cond)])
 
