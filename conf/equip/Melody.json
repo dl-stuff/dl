@@ -1,5 +1,36 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15825.954391540674,
+        "team": 0.30353348356223175,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "high_dragon",
+      "acl": [
+        "`s1",
+        "`s2",
+        "`s3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 44153.48874342325,
@@ -34,8 +65,8 @@
       ]
     },
     "META": {
-      "tdps": 38630.62739098553,
-      "pref": "TEAMBUFF"
+      "tdps": 980082.8066198411,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
@@ -46,22 +77,6 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "Dueling_Dancers"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "dragon;s1;s2;s3;s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Mona",
-        "Tobias"
-      ],
       "share": [
         "Weapon"
       ]
@@ -73,34 +88,14 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon, s",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`fs, xf=5"
-      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Lin_You",
         "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 40464.565135999816,
+      "tdps": 315744.3176101641,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -147,34 +142,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28116.86530600925,
-        "team": 0.29020509174739384,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "Dueling_Dancers"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "dragon;s1;s2;s3;s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Mona",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Weapon"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 58434.1199079791,
@@ -189,10 +156,10 @@
       ]
     },
     "META": {
-      "tdps": 595986.3282405352,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -221,22 +188,6 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "Dueling_Dancers"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "dragon;s1;s2;s3;s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Mona",
-        "Tobias"
-      ],
       "share": [
         "Weapon",
         "Weapon"
@@ -259,11 +210,62 @@
       "tdps": 164327.0211546776,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36144.51882240298,
+        "team": 0.2393360480036017,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Lin_You",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19138.770826167245,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, xf=5"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 19138.770826167245,

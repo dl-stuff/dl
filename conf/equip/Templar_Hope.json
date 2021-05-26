@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 2624.9767566652363,
-        "team": 0.9904718152261309,
+        "dps": 4833.671701183332,
+        "team": 1.0188245103070999,
         "noaff": true,
         "nihil": false
       },
@@ -15,12 +15,11 @@
         "From_Whence_He_Comes"
       ],
       "slots.d": "Freyja",
-      "slots.w": "void",
       "acl": [
         "`s1",
         "`s4",
         "`s3, fsc",
-        "`fs, x=2"
+        "`fs, x=3"
       ],
       "coabs": [
         "Bow",
@@ -66,7 +65,7 @@
       ]
     },
     "META": {
-      "tdps": 57399.95261964534,
+      "tdps": 52738.36783821227,
       "pref": "PERSONAL"
     }
   },
@@ -131,49 +130,6 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 19629.67504451118,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "slots.w": "void",
-      "acl": [
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, cancel",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -189,7 +145,7 @@
       ]
     },
     "META": {
-      "tdps": 66603.70973053473,
+      "tdps": 61625.02306110194,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -230,40 +186,6 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27580.622281562602,
-        "team": 0.023355421226655862,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3), cancel and aff(stormlash)",
-        "`s3, cancel",
-        "`s4",
-        "`s2, cancel",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Raemond",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "tdps": 705349.170658905,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -279,7 +201,7 @@
       ]
     },
     "META": {
-      "tdps": 48828.68554296539,
+      "tdps": 44462.41113748187,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -317,40 +239,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 14433.409186433153,
-        "team": 0.026313568900842126,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3), cancel and aff(stormlash)",
-        "`s3, cancel",
-        "`s4",
-        "`s2, cancel",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Raemond",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "tdps": 363275.20745571464,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

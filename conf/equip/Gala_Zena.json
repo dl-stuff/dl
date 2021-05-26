@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36832.65420150818,
+        "dps": 33594.97709127501,
         "team": 0.20175088390915594,
         "noaff": true,
         "nihil": false
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 363639.4999718186,
+      "tdps": 408260.77143527556,
       "pref": "PERSONAL"
     }
   },
@@ -126,30 +126,30 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 28194.747934863768,
+        "dps": 27954.266980834887,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
+        "Best_Buds",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
         "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Lance"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3), cancel",
+        "`dragon(c3-c3-c3-c3), cancel",
         "`s3, not buff(s3)",
         "`s4, x>2",
         "`fs5, c_fs(auspex) and x=1",
-        "`s1",
-        "`s2"
+        "`s1, cancel",
+        "`s2, cancel"
       ],
       "coabs": [
         "Blade",
@@ -157,8 +157,43 @@
         "Peony"
       ],
       "share": [
-        "Ilia",
+        "Weapon",
         "Hunter_Sarisse"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33749.47215546221,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Rogues_Banquet",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`fs5, c_fs(auspex) and cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3, cancel",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
       ]
     },
     "META": {
@@ -168,23 +203,28 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78819.37944013493,
-        "team": 0.12919183294431066,
+        "dps": 74256.55757529955,
+        "team": 0.11875460923067485,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Extreme_Teamwork",
         "Spirit_of_the_Season",
         "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
-        "Rogues_Banquet",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
+      ],
+      "coabs": [
+        "Blade",
+        "Grace",
+        "Peony"
       ]
     },
     "META": {
-      "tdps": 578655.9316903034,
+      "tdps": 489920.5493444527,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -195,7 +235,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38540.54207690903,
+        "dps": 37302.67071594046,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -256,11 +296,20 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25942.663966973403,
+        "dps": 27954.266980834887,
         "team": 0.0,
         "noaff": true,
         "nihil": true
       },
+      "slots.a": [
+        "Best_Buds",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Rogues_Banquet",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "`dragon(c3-c3-c3-c3), cancel",
         "`s3, not buff(s3)",
@@ -268,11 +317,6 @@
         "`fs5, c_fs(auspex) and x=1",
         "`s1, cancel",
         "`s2, cancel"
-      ],
-      "coabs": [
-        "Grace",
-        "Mitsuhide",
-        "Peony"
       ],
       "share": [
         "Weapon",
@@ -284,43 +328,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 22978.912013010697,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.w": "high_dragon",
-      "acl": [
-        "`dragon(c3-c3-c3-c3), cancel",
-        "`s3, not buff(s3) and x>2",
-        "`fs5, c_fs(auspex) and x=1",
-        "`s1, cancel",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Fritz",
-        "Peony"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

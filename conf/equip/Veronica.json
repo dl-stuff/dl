@@ -2,14 +2,14 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42245.67736302661,
+        "dps": 42976.496825693364,
         "team": 0.24713631446059275,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Bloody_Little_Queen",
         "Candy_Couriers",
-        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
         "Luck_of_the_Draw",
         "The_Plaguebringer"
@@ -64,7 +64,7 @@
       ]
     },
     "META": {
-      "tdps": 310706.2142878981,
+      "tdps": 307749.0630320745,
       "pref": "PERSONAL"
     }
   },
@@ -141,7 +141,7 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 59661.008077595456,
+        "dps": 60697.53367064496,
         "team": 0.24713631446059275,
         "noaff": false,
         "nihil": false
@@ -179,7 +179,7 @@
       ]
     },
     "META": {
-      "tdps": 301814.02124788915,
+      "tdps": 297619.87602357497,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -198,7 +198,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70874.42160854075,
+        "dps": 72798.07967389669,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -211,24 +211,23 @@
         "The_Queen_of_the_Knife"
       ],
       "acl": [
-        "`dragon(c5-s-end)",
-        "`s3",
-        "`s4",
-        "`s2, hp <= 50",
-        "`s1"
+        "`s1",
+        "`s3, x=5",
+        "`s4, hp>0 or x>2",
+        "`fs, charged_in(fs,s1) and x>3"
       ],
       "coabs": [
+        "Blade",
         "Bow",
-        "Ieyasu",
         "Joker"
       ],
       "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
+        "Summer_Celliera",
+        "Valentines_Chelsea"
       ]
     },
     "META": {
-      "tdps": 534019.1858154759,
+      "tdps": 580240.480162132,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

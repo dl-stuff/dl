@@ -157,11 +157,20 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79288.56269723896,
+        "dps": 89656.8792837629,
         "team": 0.08986455133877709,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -174,7 +183,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63119.42229599146,
+        "dps": 71013.26565866136,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -184,25 +193,25 @@
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "The_Warrioresses",
+        "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), aff(flashburn)",
+        "`dragon(c3-s-c3-c3-end)",
         "`s4",
         "`s2",
         "`s1",
         "`s3, x=4",
-        "`fs, c_fs(enhanced) and aff(flashburn) and x>1"
+        "`fs, c_fs(enhanced) and x=1"
       ],
       "share": [
         "Summer_Celliera",
-        "Ilia"
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 685741.2125716088,
+      "tdps": 1088426.7970079517,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -230,7 +239,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51363.91343797929,
+        "dps": 51781.30767755993,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -245,12 +254,13 @@
         "Mask_of_Determination_Bow"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), buff(s2) and fs",
+        "`dragon(c3-s-c3-c3-c3-end), buff(s2) and fs",
         "`s3",
         "`s2",
         "`s1, cancel",
         "`s4, x>2",
-        "`fs, c_fs(enhanced) and (x>3 or (charged_in(fs, s1) and x>1))"
+        "`fs, c_fs(enhanced) and (x>3 or (charged_in(fs, s1) and x>1))",
+        "#There can be only one"
       ],
       "coabs": [
         "Blade",
@@ -263,7 +273,7 @@
       ]
     },
     "META": {
-      "tdps": 86061.97682425105,
+      "tdps": 107354.34805380205,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

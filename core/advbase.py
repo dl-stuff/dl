@@ -932,14 +932,9 @@ class Adv(object):
                 b.act_off(e)
 
     def l_set_hp(self, e):
-        try:
-            can_die = e.can_die
-        except AttributeError:
-            can_die = False
-        try:
-            ignore_dragon = e.ignore_dragon
-        except AttributeError:
-            ignore_dragon = False
+        can_die = getattr(e, "can_die", None)
+        ignore_dragon = getattr(e, "ignore_dragon", False)
+        source = getattr(e, "source", None)
         try:
             self.add_hp(e.delta, can_die=can_die, ignore_dragon=ignore_dragon, source=getattr(e, "source"))
         except AttributeError:

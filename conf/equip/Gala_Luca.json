@@ -81,7 +81,7 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 94559.92587965523,
+        "dps": 94248.14156211003,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -93,7 +93,7 @@
       ]
     },
     "META": {
-      "tdps": 212045.45031563728,
+      "tdps": 208927.34853241523,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -102,41 +102,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 41616.80011624218,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "Snipers_Allure",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s1",
-        "`s4, xf or fsc",
-        "`s3, xf=5",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Peony",
-        "Sharena",
-        "Wand"
-      ],
-      "share": [
-        "Sharena",
-        "Ilia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 44719.756531594445,
@@ -179,7 +144,7 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41616.80011624218,
+        "dps": 40898.42800038761,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -222,7 +187,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 109205.56094615589,
+        "dps": 113215.36955707164,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -235,10 +200,24 @@
         "Chariot_Drift",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dragonform.shift_count=1",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf",
+        "`fs, charged_in(fs, s1) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 358513.94872128515,
+      "tdps": 398615.3607439182,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -249,7 +228,7 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 101983.92491007845,
+        "dps": 106490.49293606018,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -265,7 +244,7 @@
       ]
     },
     "META": {
-      "tdps": 286291.5984146208,
+      "tdps": 331361.0166222508,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -276,7 +255,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51349.12618551163,
+        "dps": 54655.84406947037,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -312,15 +291,15 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 83494.91602516733,
-        "team": 0.08974504893834277,
+        "dps": 82887.25297298079,
+        "team": 0.08996878656155669,
         "noaff": true,
         "nihil": false
       },
@@ -348,7 +327,7 @@
       ]
     },
     "META": {
-      "tdps": 989374.0194336108,
+      "tdps": 950832.0702942084,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -359,9 +338,9 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73399.0184146666,
-        "team": 0.09996294706762016,
-        "noaff": true,
+        "dps": 67212.27337247966,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "coabs": [
@@ -371,8 +350,8 @@
       ]
     },
     "META": {
-      "tdps": 1456193.092853101,
-      "pref": "PERSONAL",
+      "tdps": -61453.75811455914,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -382,7 +361,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 24016.206836597285,
+        "dps": 24074.750830424546,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -400,7 +379,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38851.63814041196,
+        "dps": 38562.57352052666,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -444,7 +423,7 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24016.206836597285,
+        "dps": 24074.750830424546,
         "team": 0.0,
         "noaff": false,
         "nihil": true

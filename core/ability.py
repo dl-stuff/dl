@@ -1252,6 +1252,7 @@ class Corrosion(Ability):
         self.set_hp_event.delta = -1
         self.set_hp_event.ignore_dragon = True
         self.set_hp_event.can_die = True
+        self.set_hp_event.source = 'dot'
         self.heal_to_reset = 3000
 
         def l_degen(t):

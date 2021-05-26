@@ -120,11 +120,23 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 97487.63608588617,
-        "team": 0.0999698590874853,
+        "dps": 98087.5094355626,
+        "team": 0.0999200528554877,
         "noaff": false,
         "nihil": false
       },
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4",
+        "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel))",
+        "if gauges[fs]<1000",
+        "`fs, x=4 or hits=0",
+        "else",
+        "`dodge, x=5",
+        "end"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"

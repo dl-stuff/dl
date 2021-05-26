@@ -94,16 +94,50 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 32257.86785611988,
-        "team": 0.04755142701560149,
+        "dps": 20359.08594460429,
+        "team": 0.04995014735600728,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`s2(entree), dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2(entree), dgauge<=400",
+        "`s1(dessert), aff_timeleft(frostbite)>10",
+        "`s1(appetizer)"
+      ],
+      "coabs": [
+        "Eugene",
+        "Pipple",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33884.95449154892,
+        "team": 0.04755142701560149,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
         "Valiant_Crown",
         "Dueling_Dancers",
         "His_Clever_Brother"
@@ -119,8 +153,8 @@
         "`s1(appetizer)"
       ],
       "coabs": [
+        "Eugene",
         "Pipple",
-        "Summer_Celliera",
         "Tiki"
       ],
       "share": [
@@ -129,6 +163,7 @@
       ]
     },
     "META": {
+      "tdps": 5638785.11350618,
       "pref": "PERSONAL"
     }
   },
@@ -158,13 +193,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
       "acl": [
         "`s2(entree), dgauge>=500",
         "`dragon(c3-s-c3-c3-c2-end)",
@@ -188,7 +216,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -220,22 +248,17 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28024.17056753306,
+        "dps": 29519.11876738904,
         "team": 0.04755142701560149,
         "noaff": false,
         "nihil": true
-      },
-      "coabs": [
-        "Eugene",
-        "Pipple",
-        "Tiki"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

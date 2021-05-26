@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61026.58245682699,
+        "dps": 63759.32777360232,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -48,19 +48,19 @@
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "if metamorphosis.get()",
-        "`s1, cancel",
+        "`s1",
         "`s2, cancel",
         "else",
         "`dragon",
-        "`s3, not buff (s3)",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2",
-        "`s4",
+        "`s4, cancel",
         "end"
       ],
       "coabs": [
-        "Joker",
-        "Mona",
+        "Humanoid_Midgardsormr",
+        "Lin_You",
         "Wand"
       ],
       "share": [
@@ -69,37 +69,14 @@
       ]
     },
     "META": {
-      "tdps": 212601.0666621597,
+      "tdps": 241580.82954066983,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 60468.50940092598,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ]
-    },
-    "META": {
-      "tdps": 206682.9063675952,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44401.022512455515,
+        "dps": 46135.38458960466,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -119,20 +96,20 @@
         "`dodge, x=3",
         "else",
         "`dragon",
-        "`s3, not buff (s3)",
         "`s1",
         "`s2",
+        "`s3",
         "`s4",
         "end"
       ],
       "coabs": [
-        "Blade",
+        "Humanoid_Midgardsormr",
         "Mona",
         "Wand"
       ],
       "share": [
-        "Ranzal",
-        "Formal_Joachim"
+        "Formal_Joachim",
+        "Ranzal"
       ]
     },
     "META": {
@@ -142,7 +119,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73023.11126989657,
+        "dps": 76596.16599434108,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -154,14 +131,26 @@
         "A_Passion_for_Produce",
         "The_Plaguebringer"
       ],
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1",
+        "`s2",
+        "else",
+        "`dragon",
+        "`s3, not buff (s3)",
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4",
+        "end"
+      ],
       "coabs": [
-        "Blade",
+        "Lin_You",
         "Mona",
         "Wand"
       ]
     },
     "META": {
-      "tdps": 339819.8595126437,
+      "tdps": 377710.79579225567,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -172,7 +161,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54196.63947960095,
+        "dps": 52138.33927542352,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -206,14 +195,14 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45835.99309523249,
+        "dps": 52032.27411864264,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 51510.43191420915,
+      "tdps": 117219.72201334253,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -221,44 +210,10 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 40978.64170251238,
-        "team": 0.0942984015511663,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Beautiful_Nothingness"
-      ],
-      "acl": [
-        "`s3, not buff (s3)",
-        "`s1",
-        "`s2",
-        "`s4"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35264.9211812066,
+        "dps": 35580.41250795732,
         "team": 0.0,
         "noaff": false,
         "nihil": true

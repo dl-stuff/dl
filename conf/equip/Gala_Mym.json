@@ -32,7 +32,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104073.88138241055,
+        "dps": 104728.35593152134,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -50,12 +50,13 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, fsc",
+        "`s2, fscf",
         "`s4, fsc",
         "`fs, x=5",
-        "`dragon(c1-s-end), dragonform.shift_count=0",
+        "`dodge, fsc and not buff(s3)",
+        "`dragon(c1-s-end), dragonform.shift_count=0 and cancel",
         "`dragon(c3-s-end), dragonform.shift_count=1",
-        "`dragon(AB10-end), dragonform.shift_count>=2"
+        "`dragon(AB10-end), dragonform.shift_count>=2 and aff(stormlash)"
       ],
       "coabs": [
         "The_Prince",
@@ -68,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 520114.0959531452,
+      "tdps": 524053.1764594316,
       "pref": "PERSONAL"
     }
   },
@@ -154,7 +155,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 122905.7235463129,
+        "dps": 123860.7136743227,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -169,9 +170,10 @@
         "Tutelarys_Destiny"
       ],
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1 and aff(poison)",
-        "`dragon(c3-s-c3-c3-c3-c3-end ), dragonform.shift_count>=2 and aff(poison)",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0 and cancel",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-end ), dragonform.shift_count>=2",
+        "`dragon( AB10 ), dragonform.shift_count>=3",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
         "`s4, cancel",
@@ -180,13 +182,13 @@
         "`dodge, fscf"
       ],
       "coabs": [
-        "Serena",
         "Verica",
+        "Wand",
         "Yuya"
       ]
     },
     "META": {
-      "tdps": 633457.1472086546,
+      "tdps": 639204.9383214646,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -197,8 +199,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62381.853228867476,
-        "team": 0.011653931308591152,
+        "dps": 66040.25736996731,
+        "team": 0.00876855505341031,
         "noaff": false,
         "nihil": true
       },
@@ -206,21 +208,26 @@
         "Me_and_My_Bestie",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
-        "Chariot_Drift",
-        "To_the_Extreme",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
         "`dragon( AB10 ),  dragonform.shift_count>=3",
-        "`s3",
+        "`s3, fsc",
         "`s1,cancel",
         "`s2, fscf",
         "`s4, fsc",
         "`fs, x=5"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Student_Maribelle"
       ]
     },
     "META": {
@@ -258,7 +265,8 @@
         "`s1, cancel",
         "`s2, fscf or dragonform.shift_count=5",
         "`fs, x=5",
-        "`dodge, fscf"
+        "`dodge, fscf",
+        "#There can be only one"
       ],
       "coabs": [
         "Serena",

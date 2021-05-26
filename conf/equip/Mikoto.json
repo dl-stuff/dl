@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 109416.3484026391,
-        "team": 0.0,
+        "dps": 72522.68694992576,
+        "team": 0.024947136341615488,
         "noaff": false,
         "nihil": false
       },
@@ -40,7 +40,7 @@
         "Yuya"
       ],
       "share": [
-        "Weapon",
+        "Templar_Hope",
         "Formal_Joachim"
       ]
     },
@@ -62,7 +62,6 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
         "if s=1",
         "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
         "`dragon(c3-s-s-c3-end)",
@@ -89,6 +88,7 @@
       ]
     },
     "META": {
+      "tdps": 1478873.6048702027,
       "pref": "PERSONAL"
     }
   },
@@ -156,7 +156,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 129696.88609368003,
+        "dps": 131016.79285042972,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -172,7 +172,7 @@
       ],
       "acl": [
         "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(c3-s-s-c3-end), s=1",
+        "`dragon(s-s-c3-c2-end), s=1",
         "`s3, not buff(s3) and fsc",
         "`s1",
         "`s4, xf",
@@ -197,7 +197,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63841.482091450715,
+        "dps": 64925.56539483344,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -213,10 +213,10 @@
       ]
     },
     "META": {
-      "tdps": 1265800.8177666478,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -264,6 +264,58 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38872.56075242645,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Sweet_Surprise",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
+        "`dragon(c3-s-s-c3-end)",
+        "end",
+        "`s3, not buff(s3) and fsc",
+        "queue dragonform.shift_count=3 and prep",
+        "`s4;s1",
+        "end",
+        "`s1",
+        "`s4, xf>2",
+        "`s2, xf>3",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5 and (s3.check() and not buff(s3))",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

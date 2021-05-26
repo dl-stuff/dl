@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 91168.20197811653,
+        "dps": 93821.08612579602,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -47,7 +47,7 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Snipers_Allure",
+        "FirstRate_Hospitality",
         "To_the_Extreme",
         "Crown_of_Light",
         "Tutelarys_Destiny"
@@ -75,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 679593.3766175027,
+      "tdps": 734175.3516797287,
       "pref": "PERSONAL"
     }
   },
@@ -158,17 +158,17 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 102474.00426275865,
-        "team": 0.0,
+        "dps": 96772.77907939773,
+        "team": 0.1453763870622857,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Me_and_My_Bestie",
-        "Sweet_Surprise",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
         "A_Small_Courage",
         "FirstRate_Hospitality",
         "Crown_of_Light",
@@ -178,15 +178,54 @@
         "queue prep and not buff(s3)",
         "`s2;s3;s4;s1",
         "end",
-        "`dragon(s-c3-c3-s-c1-end), s=4",
+        "`dragon(s-c3-c3-s-end)",
         "`s2, naveed_bauble<5 or (naveed_bauble=5 and cancel)",
         "`s1",
-        "`s4, cancel or dgauge>=500",
+        "`s4, fsc",
+        "`fs, x=4",
+        "`fs, cancel and charged_in(fs, s2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 110329.43564615966,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`s2;s3;s4;s1",
+        "end",
+        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`s2, naveed_bauble<5 or (naveed_bauble=5 and cancel)",
+        "`s1",
+        "`s4, fsc",
         "`fs, x=4",
         "`fs, cancel and charged_in(fs, s2)"
       ]
     },
     "META": {
+      "tdps": 93252.12189345203,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -197,7 +236,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68164.52553287541,
+        "dps": 63458.31259207166,
         "team": 0.0,
         "noaff": false,
         "nihil": true

@@ -1,5 +1,37 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40745.380392434265,
+        "team": 0.09869298085551516,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon, buff(s1)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, cancel",
+        "`s1, (x=5 or s) and timeleft(s1)<5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 40745.380392434265,
@@ -33,7 +65,6 @@
       ]
     },
     "META": {
-      "tdps": 88313.69980900556,
       "pref": "PERSONAL"
     }
   },
@@ -52,7 +83,6 @@
         "A_Small_Courage",
         "Dueling_Dancers"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "dragon;s1;s2;s3;s4"
       ],
@@ -66,7 +96,7 @@
       ]
     },
     "META": {
-      "tdps": 88931.44509784921,
+      "tdps": 991666.2030816062,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -126,7 +156,6 @@
         "A_Small_Courage",
         "Dueling_Dancers"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "dragon;s1;s2;s3;s4"
       ],
@@ -152,7 +181,8 @@
       "tdps": 1434016.9505296168,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -195,7 +225,6 @@
         "A_Small_Courage",
         "Dueling_Dancers"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "dragon;s1;s2;s3;s4"
       ],
@@ -221,7 +250,8 @@
       "tdps": 780131.8085011594,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

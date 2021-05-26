@@ -75,6 +75,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15845.211752317267,
+        "team": 0.01458144150065944,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "Valiant_Crown",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c2-end), aff(poison) and xf=5",
+        "`s3, healed=1 and not buff(s3)",
+        "`s2, not buff(s2)",
+        "`s1, xf",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Halloween_Mym",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Student_Maribelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 18861.481301016247,
@@ -111,19 +146,67 @@
       ]
     },
     "META": {
+      "tdps": 206856.74654063318,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 85824.55882131626,
+        "team": 0.09991872721748941,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-c2-end),xf=5",
+        "`s3, healed=1 and not buff(s3)",
+        "`s2, not buff(s2)",
+        "`s1, buff(s2) and xf",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90373.88628956872,
+        "dps": 100788.36661741097,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-c2-end),xf=5 and aff(poison)",
+        "`s3, healed=1 and not buff(s3)",
+        "`s2, not buff(s2)",
+        "`s1, buff(s2) and xf",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ]
     },
     "META": {
+      "tdps": 149759.7919109152,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -141,10 +224,11 @@
       }
     },
     "META": {
+      "tdps": 594914.7029538583,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -185,10 +269,11 @@
       ]
     },
     "META": {
+      "tdps": 182839.2877563059,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

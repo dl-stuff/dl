@@ -95,34 +95,69 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 24135.71247099537,
+        "dps": 7858.771511286115,
         "team": 0.0,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon",
+        "`fs, c_fs(dragonyulelily) and cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, not buff(s1, default, 0)",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34745.57406527809,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Pecorines_Grand_Adventure",
+        "Springtime_Breeze",
         "The_Bridal_Dragon",
-        "The_Fires_of_Hate",
         "Dueling_Dancers",
         "Mana_Fount"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s3, not buff(s3) and x=5",
-        "`dragon(c3-s-c3-c3-c2-end)",
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`fs, c_fs(dragonyulelily) and x=5",
+        "`s3",
         "`s4",
+        "`s2, starfall_strength>=3",
         "`s1, x=5"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Blade",
         "Tiki",
         "Yurius"
       ],
       "share": [
-        "Weapon",
+        "Humanoid_Mercury",
         "Gala_Mym"
       ]
     },
@@ -133,7 +168,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56209.321183343156,
+        "dps": 55068.36564363685,
         "team": 0.10893396250151563,
         "noaff": false,
         "nihil": false
@@ -147,11 +182,53 @@
       ]
     },
     "META": {
-      "tdps": 205139.3671653848,
+      "tdps": 200054.98523051364,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 7858.771511286115,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon",
+        "`fs, c_fs(dragonyulelily) and cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, not buff(s1, default, 0)",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Gala_Elisanne"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

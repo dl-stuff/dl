@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 22632.28554175185,
-        "team": 0.42028730744578957,
+        "dps": 21343.531504821436,
+        "team": 0.3921594994571557,
         "noaff": false,
         "nihil": false
       },
@@ -65,15 +65,15 @@
       ]
     },
     "META": {
-      "tdps": 82337.64432528452,
+      "tdps": 92599.52987968466,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35940.61283972829,
-        "team": 0.044830445973263466,
+        "dps": 29016.204609251145,
+        "team": 0.045271012872132546,
         "noaff": false,
         "nihil": true
       },
@@ -84,39 +84,7 @@
         "A_Passion_for_Produce",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=1",
-        "`s1",
-        "`s4",
-        "`s2",
-        "`s3"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Pipple"
-      ],
-      "share": [
-        "Karina",
-        "Summer_Celliera"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 35454.59656105091,
-        "team": 0.04342185126118777,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Once_in_a_Lifetime",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Siren",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), s=1",
         "`s1",
@@ -134,15 +102,70 @@
         "Summer_Celliera"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36626.20125519649,
+        "team": 0.041716846580595865,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=1",
+        "`s1",
+        "`s4",
+        "`s2",
+        "`s3, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Yurius"
+      ],
+      "share": [
+        "Jurota",
+        "Summer_Celliera"
+      ]
+    },
     "META": {
-      "tdps": -345036.27942858695,
-      "pref": "TEAMBUFF"
+      "tdps": 2141148.168577976,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36397.41033530864,
+        "team": 0.04075177800050753,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "tdps": 1633286.5929146481,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64833.916947617334,
+        "dps": 61147.556434146405,
         "team": 0.04088570404800749,
         "noaff": false,
         "nihil": false
@@ -169,18 +192,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39941.66340181296,
-        "team": 0.044830445973263466,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42327.712016949125,
-        "team": 0.04375498560869472,
+        "dps": 40545.123777821864,
+        "team": 0.040985569745868415,
         "noaff": false,
         "nihil": true
       },
@@ -189,19 +204,34 @@
         "`s1",
         "`s4",
         "`s2",
-        "`s3"
+        "`s3, cancel"
       ],
-      "coabs": [
-        "Blade",
-        "Joker",
-        "Pipple"
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
       ]
     },
     "META": {
-      "tdps": 2218629.987440737,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39919.91198366568,
+        "team": 0.04075177800050753,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
@@ -235,7 +265,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32889.89851455832,
+        "dps": 30918.757336459767,
         "team": 0.044830445973263466,
         "noaff": false,
         "nihil": true
@@ -243,8 +273,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31571.078050567918,
-        "team": 0.04375498560869472,
+        "dps": 32000.588398180924,
+        "team": 0.04146909902188624,
         "noaff": false,
         "nihil": true
       },
@@ -262,8 +292,8 @@
       ]
     },
     "META": {
-      "tdps": -1226284.5823418575,
-      "pref": "TEAMBUFF",
+      "tdps": 321844.5097665101,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -291,8 +321,8 @@
       ]
     },
     "META": {
-      "tdps": -678307.1333953498,
-      "pref": "TEAMBUFF",
+      "tdps": 148691.0698488846,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "IMMUNE-NIHILISM-ANY"

@@ -74,40 +74,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 43161.73292340906,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Midgardsormr_Zero",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=3",
-        "`s3, fsc",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2",
-        "`fs, xf=4",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Ranzal"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45683.2698379559,
@@ -149,23 +115,43 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 78485.14609041224,
-        "team": 0.04998731988318955,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 81293.22313811656,
-        "team": 0.049958309790479764,
+        "dps": 49858.15142927264,
+        "team": 0.0948885208013865,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
         "`s3, not buff(s3)",
-        "`s4, fsc",
+        "`s4, xf",
+        "`s2, xf or fsc",
+        "`s1, xf or fsc",
+        "`fs, xf=4",
+        "`dodge, fscf"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 82322.83089043145,
+        "team": 0.04998647865752307,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Sweet_Surprise",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s3, not buff(s3)",
+        "`s4",
         "`s2, xf or fsc",
         "`s1, xf or fsc",
         "`fs, xf=4",
@@ -177,7 +163,7 @@
       ]
     },
     "META": {
-      "tdps": 96796555.4538527,
+      "tdps": 723011.2019659135,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -186,15 +172,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 48307.295916911695,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Vayu"
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 52505.778046520725,
@@ -207,7 +184,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -251,14 +228,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 31941.18545296388,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 33864.519123479906,
@@ -271,7 +240,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

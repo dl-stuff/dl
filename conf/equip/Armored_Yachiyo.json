@@ -2,37 +2,40 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65375.84153473295,
-        "team": 0.02941163888942715,
+        "dps": 73706.735176338,
+        "team": 0.049996633560006866,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "The_Lurker_in_the_Woods",
+        "Valiant_Crown",
         "Flowers_Under_the_Moon",
         "To_the_Extreme",
         "Crown_of_Light",
-        "Mask_of_Determination_Lance"
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Gozu_Tenno",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon",
+        "`dragon(c3-s-c3-c3-end)",
         "`s3, not buff(s3)",
-        "`s1, fsc or not c_fs(enhanced)",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "`fsf, xf=5",
+        "end",
         "`s2, fsc",
         "`s4, fsc",
-        "`fs2, c_fs(enhanced)"
+        "`fs2, c_fs(enhanced) and x=1"
       ],
       "coabs": [
-        "Dagger",
         "Grace",
-        "Serena"
+        "Hunter_Berserker",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
-        "Sha_Wujing"
+        "Ricardt"
       ]
     },
     "PERSONAL": {
@@ -61,7 +64,7 @@
         "end",
         "`s2, fsc",
         "`s4, fsc",
-        "`fs2, c_fs(enhanced) and cancel"
+        "`fs2, c_fs(enhanced) and xf"
       ],
       "coabs": [
         "Grace",
@@ -74,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 1192927.3322292338,
+      "tdps": 535137.1156447357,
       "pref": "PERSONAL"
     }
   },
@@ -153,7 +156,51 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64606.18991605673,
+        "dps": 65011.97329094275,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "`fsf, x=5",
+        "end",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`fs2, c_fs(enhanced) and x=1"
+      ],
+      "coabs": [
+        "Dagger",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Gala_Notte"
+      ]
+    },
+    "META": {
+      "tdps": 577313.8387453272,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61301.60991542049,
         "team": 0.024687202345629888,
         "noaff": false,
         "nihil": true
@@ -181,52 +228,11 @@
       "coabs": [
         "Ezelith",
         "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
+        "Wand"
       ]
     },
     "META": {
-      "tdps": 1714474.2472898744,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 51684.15089823525,
-        "team": 0.024645365664799957,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), cancel",
-        "if not c_fs(enhanced)",
-        "`s1, cancel",
-        "end",
-        "`s2, fsc",
-        "`s3, fsc",
-        "`s4, fsc",
-        "`fs2, c_fs(enhanced) and x=1"
-      ],
-      "coabs": [
-        "Ezelith",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ]
-    },
-    "META": {
+      "tdps": 150295.01211096367,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -251,7 +257,6 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c2-s-c3-c3-c2-end), s=4",
         "`s3, not buff(s3)",
@@ -275,7 +280,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 113036.02920943429,
+        "dps": 113057.96489249759,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -288,10 +293,21 @@
         "The_Warrioresses",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end), cancel and aff(poison)",
+        "`s3, not buff(s3)",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "`fsf, xf=5",
+        "end",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs2, c_fs(enhanced) and cancel"
       ]
     },
     "META": {
-      "tdps": 142181.80486484544,
+      "tdps": 142403.5503890385,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -302,7 +318,7 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 105460.14437915312,
+        "dps": 107631.61184614,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -328,8 +344,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76248.17224097805,
-        "team": 0.024680339624179176,
+        "dps": 78818.88296003704,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -343,14 +359,12 @@
         "Tutelarys_Destiny"
       ],
       "acl": [
-        "`dragon",
-        "`s4, fsc",
+        "`dragon(c2-s-c2-c2-c2-c2-c1-end), fsc",
+        "`s2, fsc or s",
         "`s3, fsc",
-        "`s2, fsc",
-        "if not c_fs(enhanced)",
+        "`s4, fsc",
         "`s1, cancel",
-        "end",
-        "`fs2, c_fs(enhanced)"
+        "`fs2, c_fs(enhanced) and cancel"
       ]
     },
     "META": {
@@ -364,7 +378,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57933.156031147984,
+        "dps": 62064.26014346956,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -381,7 +395,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31835.806836467113,
+        "dps": 39508.1291645911,
         "team": 0.0,
         "noaff": false,
         "nihil": true

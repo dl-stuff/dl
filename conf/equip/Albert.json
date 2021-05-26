@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 74154.88293986894,
-        "team": 0.09152818010884617,
+        "dps": 57873.017760988296,
+        "team": 0.09999460029158432,
         "noaff": false,
         "nihil": false
       },
@@ -46,7 +46,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80897.7534286789,
+        "dps": 81123.34471937969,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -55,8 +55,8 @@
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
+        "A_Game_of_Cat_and_Boar",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
@@ -89,14 +89,57 @@
       ]
     },
     "META": {
-      "tdps": 73669.88484629843,
+      "tdps": 232515.82476047133,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42356.57980754339,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "His_Clever_Brother",
+        "Rogues_Banquet",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s3",
+        "if x=2",
+        "`fs2, not aff(paralysis)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon(c3-s-end), cancel",
+        "`s3",
+        "`s2, charged_in(2, s1)",
+        "`s4",
+        "`s1, not s2.charged>(s2.sp*(4/5))",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53952.94580178054,
+        "dps": 52384.47075863603,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -144,40 +187,36 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 81802.48978747948,
-        "team": 0.09998402679426502,
+        "dps": 63037.62631746857,
+        "team": 0.09999460029158432,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 95574.32257636526,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "A_Game_of_Cat_and_Boar",
+        "His_Clever_Brother",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Tutelarys_Destiny"
       ],
-      "acl": [
-        "if electrified",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
+      "share": [
+        "Weapon",
+        "Xander"
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 325384.5324049465,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -187,44 +226,57 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64655.41490016138,
+        "dps": 63598.1919627657,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Rogues_Banquet",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "if electrified",
         "`s1",
-        "`s3",
         "`s4",
+        "`s3, fsc",
         "`fs1, x=2",
         "else",
-        "`dragon(c3-s-end)",
-        "`s2",
-        "`s3",
+        "`dragon(c3-s-c3-end)",
+        "`s2, charged_in(4,s1)",
         "`s1",
-        "`s4, x>1",
+        "`s4, x",
+        "`s3, x>2",
         "end"
       ],
       "coabs": [
         "Blade",
         "Peony",
         "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46808.334893006475,
-        "team": 0.09994470332141683,
+        "dps": 44301.58335828447,
+        "team": 0.09999460029158432,
         "noaff": false,
         "nihil": false
       },
@@ -275,7 +327,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31348.04776537662,
+        "dps": 29525.38741584839,
         "team": 0.0,
         "noaff": false,
         "nihil": true

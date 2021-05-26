@@ -39,7 +39,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 84131.95678365204,
+        "dps": 84148.10048611567,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -59,7 +59,7 @@
         "`s2, s1.check() and cancel",
         "`s1, cancel",
         "if hits<=44 and c_fs(enhanced)",
-        "`fs",
+        "`fs, x=1",
         "`dodge, fsc",
         "end"
       ],
@@ -74,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 564645.6497461543,
+      "tdps": 564807.132917863,
       "pref": "PERSONAL"
     }
   },
@@ -169,7 +169,6 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -202,16 +201,39 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35178.107068338846,
-        "team": 0.09997142298360746,
+        "dps": 102793.80451584775,
+        "team": 0.09998792090366633,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, charged_in(4,s1) and cancel",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs",
+        "`dodge, fsc",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103969.17924846933,
-        "team": 0.0,
+        "dps": 102793.80451584775,
+        "team": 0.09998792090366633,
         "noaff": false,
         "nihil": false
       },
@@ -219,17 +241,19 @@
         "`dragon",
         "`s3, not buff(s3)",
         "`s4",
-        "`s2, s1.check() and cancel",
+        "`s2, charged_in(4,s1) and cancel",
         "`s1, cancel",
         "if hits<=44 and c_fs(enhanced)",
         "`fs",
         "`dodge, fsc",
-        "`buff(s2)",
         "end"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 688107.3623550433,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -238,44 +262,45 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 51163.82765157587,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59185.03563561263,
-        "team": 0.0,
+        "dps": 60345.32382629887,
+        "team": 0.014610635320479733,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s3",
+        "`s4",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=1",
+        "`dodge, fsc",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Curran"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 51163.82765157587,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },
