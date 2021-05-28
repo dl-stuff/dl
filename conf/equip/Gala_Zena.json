@@ -233,6 +233,35 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32083.306766789694,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Beautiful_Nothingness",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c2-end), fsc and aff(flashburn)",
+        "`fs5, c_fs(auspex) and cancel and aff(flashburn)",
+        "`s4",
+        "`s1, cancel and not duration-now<10",
+        "`s2, cancel",
+        "`s3, x=5 or fsc"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 37302.67071594046,
@@ -266,7 +295,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -74,6 +74,44 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42828.50361304754,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Crystalian_Envoy",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Beautiful_Nothingness"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "if metamorphosis.get()",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`dragon",
+        "`s1",
+        "`s2",
+        "`s3",
+        "`s4",
+        "end"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Gala_Luca"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 46135.38458960466,
@@ -161,7 +199,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52138.33927542352,
+        "dps": 54732.38422984978,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -169,15 +207,19 @@
       "acl": [
         "if metamorphosis.get()",
         "`s1, cancel",
-        "`s2, aff(stormlash)",
+        "`s2",
         "else",
         "`dragon",
-        "`s4",
         "`s1",
         "`s2",
         "`s3, cancel",
-        "`fs, xf=2 and charged_in(fs,s1)",
+        "`s4, cancel",
         "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -188,7 +230,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
