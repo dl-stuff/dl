@@ -706,6 +706,7 @@ class EquipManager(dict):
 
         valid, failure = validate_sim(adv)
         if not valid:
+            dprint(f"INVALID SIM: {failure!r}")
             self[conditions].delete_build(opt)
             return
         self[conditions][opt] = build_from_sim(adv, real_d)

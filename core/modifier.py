@@ -325,7 +325,7 @@ class Buff(object):
         elif self.mod_type == "regen" and value != 0:
             self.set_hp_event = Event("set_hp")
             self.set_hp_event.delta = value
-            self.set_hp_event.source = 'dot'
+            self.set_hp_event.source = "dot"
             self.regen_timer = Timer(self.hp_regen, 3.9, True).on()
         elif self.mod_type == "heal" and value != 0:
             self.set_hp_event = Event("heal_make")
@@ -566,15 +566,7 @@ bufftype_dict["fsAlt"] = FSAltBuff
 
 
 class XAltBuff(ModeAltBuff):
-    def __init__(
-        self,
-        name=None,
-        group=None,
-        duration=-1,
-        hidden=False,
-        deferred=False,
-        source=None,
-    ):
+    def __init__(self, name=None, group=None, duration=-1, hidden=False, deferred=False, source=None):
         self.default_x = self.adv.current_x
         self.group = group
         self.x_max = self.adv.conf[f"{group}.x_max"]
@@ -606,17 +598,7 @@ bufftype_dict["xAlt"] = XAltBuff
 
 
 class SAltBuff(ModeAltBuff):
-    def __init__(
-        self,
-        name=None,
-        group=None,
-        base=None,
-        duration=-1,
-        uses=-1,
-        hidden=False,
-        source=None,
-        timed_mode=False,
-    ):
+    def __init__(self, name=None, group=None, base=None, duration=-1, uses=-1, hidden=False, source=None, timed_mode=False):
         if base not in ("s1", "s2", "s3", "s4"):
             raise ValueError(f"{base} is not a skill")
         if group not in self.adv.a_s_dict[base].act_dict.keys():
@@ -1132,15 +1114,11 @@ class ModeManager(MultiBuffManager):
         for k, buffclass in ModeManager.ALT_CLASS.items():
             if kwargs.get(k, False):
                 if k in ("s1", "s2"):
-                    self.alt[k] = buffclass(group=group, duration=duration, base=k, timed_mode=timed_mode)
+                    self.alt[k] = buffclass(group=group, duration=duration, base=k, timed_mode=timed_mode, hidden=True)
                 elif k in ("x"):
-                    self.alt[k] = buffclass(
-                        group=group,
-                        duration=duration,
-                        deferred=(kwargs.get("deferred", False)),
-                    )
+                    self.alt[k] = buffclass(group=group, duration=duration, deferred=(kwargs.get("deferred", False)), hidden=True)
                 else:
-                    self.alt[k] = buffclass(group=group, duration=duration)
+                    self.alt[k] = buffclass(group=group, duration=duration, hidden=True)
         buffs.extend(self.alt.values())
         super().__init__(name, buffs, duration, timed_mode=timed_mode)
         if timed_mode:
@@ -1151,8 +1129,12 @@ class ModeManager(MultiBuffManager):
             if "dragon" in pause:
                 self.l_dragon = Listener("dragon", self.pause, order=0).on()
                 self.l_dragon_end = Listener("dragon_end", self.resume, order=0).on()
-            for b in self.buffs:
-                b.no_bufftime()
+            if not kwargs.get("source"):
+                for b in self.buffs:
+                    b.no_bufftime()
+            else:
+                for b in self.buffs:
+                    b.source = kwargs.get("source")
 
     def on_except(self, exclude=None):
         for b in self.buffs:

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51708.55101394145,
-        "team": 0.14148828695894838,
+        "dps": 54222.04544795187,
+        "team": 0.1414882869589486,
         "noaff": true,
         "nihil": false
       },
@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59663.242048405766,
+        "dps": 62488.631511314874,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -70,14 +70,14 @@
       ]
     },
     "META": {
-      "tdps": 56221.55165941265,
+      "tdps": 58425.93928472308,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47188.48977119017,
+        "dps": 47541.66765721157,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -117,7 +117,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67191.78917690324,
+        "dps": 70369.21312195336,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -130,7 +130,7 @@
       ]
     },
     "META": {
-      "tdps": 109431.2362934617,
+      "tdps": 131888.38814216576,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -141,7 +141,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51551.908598152324,
+        "dps": 51937.98488472056,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -184,21 +184,39 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55993.157647419386,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 54222.04544795187,
+        "team": 0.1414882869589486,
+        "noaff": true,
         "nihil": false
       },
+      "slots.a": [
+        "Gentle_Winds",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife"
+      ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
+        "`dragon, self.sr.count=1",
         "`s3, not buff(s3)",
-        "`s4, x=4",
-        "`s2, self.sr.count=2 and cancel"
+        "if self.sr.count=2 and cancel",
+        "`s2, not s2_autocharge_buff.get()",
+        "`s1",
+        "end",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Xander"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 30282.41224463394,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -208,7 +226,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33176.49457490973,
+        "dps": 33424.9559447239,
         "team": 0.0,
         "noaff": false,
         "nihil": true

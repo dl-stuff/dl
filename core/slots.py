@@ -186,12 +186,13 @@ class CharaBase(SlotBase):
         seen_base_id = {self.icon.split("_")[0]}
         for key, coab in coabs:
             # alt check
-            icon = get_icon(key)
-            if icon:
-                key_base_id = icon.split("_")[0]
-                if key_base_id in seen_base_id:
-                    continue
-                seen_base_id.add(key_base_id)
+            if key != self.coab_qual:
+                icon = get_icon(key)
+                if icon:
+                    key_base_id = icon.split("_")[0]
+                    if key_base_id in seen_base_id:
+                        continue
+                    seen_base_id.add(key_base_id)
             self.coabs[key] = coab
             if key != self.coab_qual:
                 self.coab_list.append(key)
