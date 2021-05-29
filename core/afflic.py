@@ -477,20 +477,21 @@ class Afflics(object):
             "shadowblight": 100,
             "scorchrend": 100,
         },
-        ("water", False): {  # Master Ayaha & Otoha
-            "poison": 99,
+        ("water", False): {  # Legend Ayaha & Otoha
+            "poison": 100,
             "burn": 0,
             "freeze": 100,
             "paralysis": 100,
             "blind": 100,
             "stun": 100,
-            "bog": 70,  # bog at 70 for ~2 bogs
+            "curse": 100,
+            "bog": 100,
             "sleep": 100,
             "frostbite": 0,
-            "flashburn": 0,
-            "stormlash": 0,
-            "shadowblight": 0,
-            "scorchrend": 0,
+            "flashburn": 100,
+            "stormlash": 100,
+            "shadowblight": 100,
+            "scorchrend": 100,
         },
         ("water", True): {  # Master Lilith (water side)
             "poison": 100,
