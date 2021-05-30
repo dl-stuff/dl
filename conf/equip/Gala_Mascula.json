@@ -104,8 +104,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43491.91586396421,
-        "team": 0.06663739280412749,
+        "dps": 47117.42153440583,
+        "team": 0.033301471713931,
         "noaff": false,
         "nihil": true
       },
@@ -118,24 +118,24 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon, not buff(s2)",
-        "`s3",
-        "`s4",
+        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
         "`s2",
-        "`s1"
+        "`s1, masterctrl_buff.get() and cancel",
+        "`s4",
+        "`s3, x=4"
       ],
       "coabs": [
         "Renee",
-        "Summer_Estelle",
-        "Tiki"
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Xander",
-        "Summer_Celliera"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 100780324.26929581,
+      "tdps": 181086.1854849946,
       "pref": "PERSONAL"
     }
   },
@@ -162,26 +162,37 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80592.91641000302,
-        "team": 0.16155654329232785,
+        "dps": 87576.70199781429,
+        "team": 0.033322029865099835,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`s3, not buff(s3) and x=4",
+        "`s4, x=4",
+        "`s2",
+        "`s1, masterctrl_buff.get() and cancel"
       ],
       "coabs": [
-        "Dagger",
-        "Hunter_Sarisse",
-        "Summer_Estelle"
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 228126.66692990978,
+      "tdps": 84981.06058067107,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -190,22 +201,42 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45189.11454363643,
+        "team": 0.06666136086954566,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49511.799257937266,
-        "team": 0.06663739280412756,
+        "dps": 58007.0998624514,
+        "team": 0.033235460788933524,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "The_Prince_of_Dragonyule",
         "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`s2, cancel",
+        "`s1, masterctrl_buff.get() and cancel",
+        "`s4, x=4",
+        "`s3, x=4"
+      ],
+      "share": [
+        "Xander",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 383474.6495353083,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
