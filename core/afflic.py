@@ -484,7 +484,6 @@ class Afflics(object):
             "paralysis": 100,
             "blind": 100,
             "stun": 100,
-            "curse": 100,
             "bog": 100,
             "sleep": 100,
             "frostbite": 0,

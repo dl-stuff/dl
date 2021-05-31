@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60288.67434465882,
-        "team": 0.019787095045916532,
+        "dps": 40138.091838850705,
+        "team": 0.021649025056435598,
         "noaff": false,
         "nihil": false
       },
@@ -14,7 +14,7 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`dragon, x=2",
         "`s3, not buff(s3)",
@@ -65,6 +65,7 @@
       ]
     },
     "META": {
+      "tdps": 10822416.73530498,
       "pref": "PERSONAL"
     }
   },
@@ -131,30 +132,31 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63611.2795572444,
-        "team": 0.12669790141352866,
+        "dps": 71717.1666449012,
+        "team": 0.01882791014721739,
         "noaff": false,
         "nihil": false
       },
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), x=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
+        "`s3, not buff(s3) and x=2",
+        "`s4, x=2",
+        "`s2, x=2",
+        "`s1, x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
-        "Gala_Mascula",
         "Summer_Celliera",
-        "Tiki"
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 278037.5088158987,
+      "tdps": 92179.3567400671,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -163,56 +165,39 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 44225.12049129636,
-        "team": 0.0199226989876936,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Prince_of_Dragonyule",
-        "Beautiful_Gunman",
-        "His_Clever_Brother"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Tiki"
-      ],
-      "share": [
-        "Pinon",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44714.393494240205,
-        "team": 0.01840208787754923,
+        "dps": 49872.507203789864,
+        "team": 0.01773642613029797,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "Rivalry_of_Kings",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`s2, x=2",
+        "`s1, x=2",
+        "`s4, x=2",
+        "`s3, x=2",
+        "`dodge, x=2"
+      ],
       "coabs": [
         "Blade",
-        "Dagger",
-        "Tiki"
+        "Tiki",
+        "Yurius"
       ],
       "share": [
-        "Fjorm",
+        "Humanoid_Mercury",
         "Summer_Celliera"
       ]
     },
     "META": {
-      "tdps": 321760.77083732036,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
