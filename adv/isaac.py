@@ -15,7 +15,7 @@ class Isaac(Adv):
             True
         )
         verdure_scharge_self.name = "verdure_scharge"
-        verdure_scharge_zone = ZoneTeambuff("verdure_scharge_zone", 0, 10, 'scharge_p', source=dst)
+        verdure_scharge_zone = ZoneTeambuff("verdure_scharge_zone", 0, 10.001, 'scharge_p', source=dst)
         verdure_scharge_zone.modifier = Timer(
             lambda _: Isaac.verdure_zone_scharge(adv),
             1.0,
