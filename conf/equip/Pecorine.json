@@ -106,7 +106,7 @@
       "slots.d": "Gala_Reborn_Jeanne",
       "coabs": [
         "Blade",
-        "Mitsuhide",
+        "Fritz",
         "Peony"
       ],
       "share": [
@@ -123,7 +123,7 @@
       },
       "coabs": [
         "Blade",
-        "Mitsuhide",
+        "Fritz",
         "Peony"
       ]
     },
@@ -273,6 +273,62 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 127020.54836081651,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`dragon(c3-s-end)",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 118509.3982007044,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Lurker_in_the_Woods",
+        "A_Game_of_Cat_and_Boar",
+        "A_Small_Courage",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

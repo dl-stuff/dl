@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14787.176194290583,
-        "team": 0.7493652055353163,
+        "dps": 14881.262150987963,
+        "team": 0.7493652055353159,
         "noaff": true,
         "nihil": false
       },
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 91377.7139073846,
-        "team": 0.04153718564392554,
+        "dps": 93834.3267942609,
+        "team": 0.04166409815217122,
         "noaff": true,
         "nihil": false
       },
@@ -50,12 +50,12 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s1,not have_buff(s1_res_down) and energy()<5",
-        "`s2",
-        "`s4",
+        "`s2, energy()=5",
+        "`s4, fsc",
         "`fs"
       ],
       "coabs": [
-        "Catherine",
+        "Gala_Mascula",
         "Hunter_Sarisse",
         "Summer_Estelle"
       ],
@@ -65,15 +65,15 @@
       ]
     },
     "META": {
-      "tdps": 108205.00963616287,
+      "tdps": 111562.72587337956,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35605.85408605961,
-        "team": 0.09913597465950376,
+        "dps": 33154.36509651996,
+        "team": 0.11022838770336287,
         "noaff": false,
         "nihil": true
       },
@@ -84,22 +84,22 @@
         "Enter_the_Blue_Rose",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`s3, not buff(s3)",
+        "`s1,not have_buff(s1_res_down) and energy()<5",
         "`s2",
-        "`s4, s",
-        "`s3, s",
-        "`s1, s",
+        "`s4",
         "`fs"
       ],
       "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Wand"
+        "Bow",
+        "Gala_Elisanne",
+        "Staff"
       ],
       "share": [
-        "Xander",
-        "Seimei"
+        "Seimei",
+        "Ranzal"
       ]
     },
     "PERSONAL": {
@@ -136,15 +136,15 @@
       ]
     },
     "META": {
-      "tdps": 292166.8757512049,
+      "tdps": 279900.03529389645,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 101448.63667048872,
-        "team": 0.16340308161810527,
+        "dps": 104016.29089156118,
+        "team": 0.04165381453646487,
         "noaff": false,
         "nihil": false
       },
@@ -156,17 +156,13 @@
         "His_Clever_Brother"
       ],
       "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Xander"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Catherine",
+        "Gala_Mascula",
+        "Hunter_Sarisse"
       ]
     },
     "META": {
-      "tdps": 147896.01057634622,
+      "tdps": 125948.27478298695,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -189,7 +185,6 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s1, not have_buff(s1_res_down) or (s4.check() and dgauge>=500)",
         "`s2, def_mod()!=1",
@@ -205,8 +200,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53539.96987235312,
-        "team": 0.09927353295426776,
+        "dps": 53879.8342600326,
+        "team": 0.09927353295426779,
         "noaff": false,
         "nihil": true
       },
@@ -236,7 +231,7 @@
       ]
     },
     "META": {
-      "tdps": 452524.188820825,
+      "tdps": 478903.2620413608,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -247,8 +242,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33682.49791954461,
-        "team": 0.04079043714303891,
+        "dps": 23025.715211501134,
+        "team": 0.0416435244347271,
         "noaff": true,
         "nihil": true
       },
@@ -261,26 +256,25 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s1,not have_buff(s1_res_down) and energy()<5",
         "`s2",
-        "`s4, s",
-        "`s3, s",
-        "`s1, s",
+        "`s4",
         "`fs"
       ],
       "coabs": [
-        "Dagger",
-        "Pipple",
-        "Thaniel"
+        "Catherine",
+        "Hunter_Sarisse",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Templar_Hope"
+        "Summer_Luca"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41565.64357141305,
+        "dps": 41829.49657757907,
         "team": 0.11215739679732759,
         "noaff": false,
         "nihil": true

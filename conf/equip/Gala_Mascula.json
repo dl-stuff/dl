@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63541.803889922165,
-        "team": 0.1888973710417482,
+        "dps": 61100.15447498726,
+        "team": 0.18889737104174809,
         "noaff": true,
         "nihil": false
       },
@@ -34,25 +34,25 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70842.08443309076,
-        "team": 0.15581590458421193,
+        "dps": 70000.81387735988,
+        "team": 0.11818368443189303,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Valiant_Crown",
-        "Dueling_Dancers",
-        "Taiko_Tandem"
+        "Taiko_Tandem",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon, not buff(s2)",
-        "`s3, not buff(s3)",
-        "`s4",
+        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`s3, not buff(s3) and x=4",
+        "`s4, x=4",
         "`s2",
-        "`s1"
+        "`s1, masterctrl_buff.get() and cancel"
       ],
       "coabs": [
         "Renee",
@@ -65,15 +65,15 @@
       ]
     },
     "META": {
-      "tdps": 220675.8443595393,
+      "tdps": 125868.9771257403,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41076.406459013335,
-        "team": 0.06666136086954566,
+        "dps": 39671.857862683035,
+        "team": 0.06666136086954559,
         "noaff": false,
         "nihil": true
       },
@@ -104,16 +104,16 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47117.42153440583,
-        "team": 0.033301471713931,
+        "dps": 51381.00129618019,
+        "team": 0.033279621489390065,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
+        "The_Prince_of_Dragonyule",
         "Valiant_Crown",
-        "Dueling_Dancers",
+        "A_Small_Courage",
         "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
@@ -131,19 +131,19 @@
       ],
       "share": [
         "Xander",
-        "Dragonyule_Lily"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 181086.1854849946,
+      "tdps": 350764.92869805044,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 74355.74450442297,
-        "team": 0.1888973710417482,
+        "dps": 74828.08632402074,
+        "team": 0.18889737104174809,
         "noaff": false,
         "nihil": false
       },
@@ -162,8 +162,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87576.70199781429,
-        "team": 0.033322029865099835,
+        "dps": 83705.36128786675,
+        "team": 0.0333220298650998,
         "noaff": false,
         "nihil": false
       },
@@ -173,13 +173,6 @@
         "Valiant_Crown",
         "Dueling_Dancers",
         "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
-        "`s3, not buff(s3) and x=4",
-        "`s4, x=4",
-        "`s2",
-        "`s1, masterctrl_buff.get() and cancel"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -192,7 +185,7 @@
       ]
     },
     "META": {
-      "tdps": 84981.06058067107,
+      "tdps": 57060.93842832259,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -211,32 +204,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58007.0998624514,
+        "dps": 54890.53596958,
         "team": 0.033235460788933524,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "His_Clever_Brother"
-      ],
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
         "`s2, cancel",
         "`s1, masterctrl_buff.get() and cancel",
         "`s4, x=4",
         "`s3, x=4"
-      ],
-      "share": [
-        "Xander",
-        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 383474.6495353083,
+      "tdps": 290236.6548857913,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -245,19 +227,19 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 28145.907693502606,
-        "team": 0.06659274202186602,
-        "noaff": true,
+        "dps": 38865.57116255006,
+        "team": 0.06660851387322293,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
+        "The_Prince_of_Dragonyule",
         "Valiant_Crown",
-        "Dueling_Dancers",
-        "Taiko_Tandem"
+        "A_Small_Courage",
+        "Chariot_Drift"
       ],
       "acl": [
         "`dragon, not buff(s2)",
@@ -267,16 +249,39 @@
         "`s1"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Renee",
         "Tiki",
-        "Yurius"
+        "Xander"
       ],
       "share": [
-        "Weapon",
-        "Summer_Luca"
+        "Xander",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43843.10955434635,
+        "team": 0.06654184184390696,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Prince_of_Dragonyule",
+        "Valiant_Crown",
+        "A_Small_Courage",
+        "Chariot_Drift"
+      ],
+      "acl": [
+        "`dragon, not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
       ]
     },
     "META": {
+      "tdps": 74657070.48163919,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

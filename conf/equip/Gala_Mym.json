@@ -155,7 +155,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 138097.67764147176,
+        "dps": 141647.19232522734,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -170,16 +170,16 @@
         "Tutelarys_Destiny"
       ],
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0 and cancel",
-        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-end ), dragonform.shift_count>=2",
-        "`dragon( AB10 ), dragonform.shift_count>=3",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-end ), dragonform.shift_count>=2",
+        "`dragon( AB10 ), dragonform.shift_count>=3 or s",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s4, cancel",
+        "`s4,cancel",
         "`s2, fscf",
         "`fs, x=5",
-        "`dodge, fscf"
+        "`dodge, fscf and buff(s3) and dragonform.shift_count>=2 or fsc"
       ],
       "coabs": [
         "Serena",
@@ -188,7 +188,7 @@
       ]
     },
     "META": {
-      "tdps": 724892.8345244471,
+      "tdps": 746256.2689262212,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12420.823445146392,
-        "team": 1.5167387452354617,
+        "dps": 14031.718301270703,
+        "team": 1.557122713153346,
         "noaff": true,
         "nihil": false
       },
@@ -25,8 +25,8 @@
         "`fs, fs_prep_c=1 and x=4"
       ],
       "coabs": [
+        "Gala_Mascula",
         "Renee",
-        "Summer_Estelle",
         "Tobias"
       ],
       "share": [
@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50097.57537400316,
-        "team": 0.22416353377372258,
+        "dps": 50418.2495091661,
+        "team": 0.2241635337737229,
         "noaff": false,
         "nihil": false
       },
@@ -68,15 +68,15 @@
       ]
     },
     "META": {
-      "tdps": 29148.59545097505,
+      "tdps": 27297.55852300756,
       "pref": "TEAMBUFF"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 11038.85393846071,
-        "team": 1.332836654977891,
+        "dps": 11109.67440040034,
+        "team": 1.3328366549778912,
         "noaff": true,
         "nihil": false
       },
@@ -87,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 35230.15096922294,
+      "tdps": 35455.51376412134,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -98,41 +98,38 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3765.841132899626,
+        "dps": 9815.38136690791,
         "team": 0.0,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Gentle_Winds",
         "Sisters_Day_Out",
-        "The_Chocolatiers",
+        "Study_Rabbits",
+        "Warrior_Maiden",
         "Bellathorna",
         "From_Whence_He_Comes"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-sf-end), dragonform.shift_count=0 and s=4",
-        "`s1",
-        "`s4, cancel",
-        "`s3, s=1",
-        "`fs, fs_prep_c=3 and x=5",
-        "`fs, fs_prep_c=2 and x=5",
-        "`fs, fs_prep_c=1 and x=4"
+        "`dragon",
+        "`s2",
+        "`s4",
+        "`s1"
       ],
       "coabs": [
-        "Dagger",
-        "Tobias",
-        "Wand"
+        "Bow",
+        "Renee",
+        "Summer_Estelle"
       ],
       "share": [
-        "Summer_Cleo",
-        "Mikoto"
+        "Cleo",
+        "Yukata_Cassandra"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 25029.895046479123,
+        "dps": 25190.177373775314,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -169,14 +166,22 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59670.21552496383,
-        "team": 0.2241635337737229,
+        "dps": 61657.556383452065,
+        "team": 0.2248937626853267,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), energy()<5",
+        "`s2",
+        "`s3, not buff(s3)",
+        "`s4, energy()<5",
+        "`s1",
+        "`fsf, x=4"
+      ]
     },
     "META": {
-      "tdps": 36554.46248762914,
+      "tdps": 35748.988989805504,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -240,7 +245,7 @@
       ]
     },
     "META": {
-      "tdps": 21348.835212847254,
+      "tdps": 19389.584124374316,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -251,7 +256,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 9752.682660463615,
+        "dps": 9815.38136690791,
         "team": 0.0,
         "noaff": true,
         "nihil": true

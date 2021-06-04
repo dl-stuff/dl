@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76435.62871803288,
-        "team": 0.04999669466296393,
+        "dps": 77788.62542562463,
+        "team": 0.05749619886240851,
         "noaff": false,
         "nihil": false
       },
@@ -60,7 +60,7 @@
         "end"
       ],
       "coabs": [
-        "Blade",
+        "Gala_Mascula",
         "Xainfried",
         "Yurius"
       ],
@@ -70,14 +70,14 @@
       ]
     },
     "META": {
-      "tdps": 340586.28369628824,
+      "tdps": 379747.04217233864,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46637.88571634255,
+        "dps": 47134.13909960446,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -107,7 +107,7 @@
         "Yurius"
       ],
       "share": [
-        "Eugene",
+        "Summer_Celliera",
         "Dragonyule_Lily"
       ]
     },
@@ -118,26 +118,29 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 77934.34781044778,
-        "team": 0.049855038167355356,
+        "dps": 83257.05099671574,
+        "team": 0.1047669036924793,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=1",
+        "`dragon(c3-s-c3-c3-end), fsc or x=5",
         "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s2, cancel",
-        "`s4",
-        "if not buff(s1, default)",
-        "`fs, x=2 and s1.charged!=2235",
-        "`fs, x=3",
-        "end"
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4, energy()<5 and cancel",
+        "`fs, x=3 and not buff(s1, default)"
       ],
       "coabs": [
-        "Summer_Ranzal",
-        "Xainfried",
+        "Gala_Mascula",
+        "Hunter_Sarisse",
         "Yurius"
       ]
     },
@@ -152,7 +155,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48769.74092423041,
+        "dps": 49116.327915570124,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -196,8 +199,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64496.743387142196,
-        "team": 0.04999669466296393,
+        "dps": 65657.41548503606,
+        "team": 0.05749619886240851,
         "noaff": false,
         "nihil": false
       },
@@ -210,7 +213,7 @@
       ]
     },
     "META": {
-      "tdps": 321516.4943053676,
+      "tdps": 361229.8910652218,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -221,7 +224,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39432.764763621904,
+        "dps": 39712.9976096578,
         "team": 0.0,
         "noaff": false,
         "nihil": true

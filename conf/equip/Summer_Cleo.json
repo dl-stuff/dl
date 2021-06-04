@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62795.685295005074,
-        "team": 0.051598138924387076,
+        "dps": 61482.64572359064,
+        "team": 0.051540015380623916,
         "noaff": false,
         "nihil": false
       },
@@ -61,9 +61,9 @@
         "`fs,x=5"
       ],
       "coabs": [
-        "Lucretia",
         "Peony",
-        "Sharena"
+        "Sharena",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -71,14 +71,14 @@
       ]
     },
     "META": {
-      "tdps": 328306.330136355,
+      "tdps": 309661.5963672183,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 30786.18977428142,
+        "dps": 30724.279248888055,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -96,7 +96,7 @@
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
-        "`s2, s1.charged<s1.sp/3",
+        "`s2",
         "`s1",
         "`s4, cancel",
         "`fs,x=5"
@@ -105,6 +105,41 @@
         "Lucretia",
         "Peony",
         "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32808.49804272228,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, s1.charged<s1.sp/3",
+        "`s1",
+        "`s4, cancel",
+        "`fs,x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -131,8 +166,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69600.23823493958,
-        "team": 0.055538349862506615,
+        "dps": 69002.86252567208,
+        "team": 0.06007900772806663,
         "noaff": false,
         "nihil": false
       },
@@ -148,7 +183,7 @@
       "acl": [
         "`dragon(c3-s-c3-end), s=1",
         "`s3, not buff(s3)",
-        "`s2, s1.charged<s1.sp/3",
+        "`s2",
         "`s1",
         "`s4, cancel or buff(s2)",
         "`fs,x=5"
@@ -160,7 +195,7 @@
       ]
     },
     "META": {
-      "tdps": 338812.17586675455,
+      "tdps": 349926.83447080455,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -192,11 +227,6 @@
         "`s3, fsc",
         "`fs,x=5"
       ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
       "share": [
         "Summer_Celliera",
         "Ilia"
@@ -206,7 +236,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

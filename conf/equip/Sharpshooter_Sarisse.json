@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40138.091838850705,
-        "team": 0.021649025056435598,
+        "dps": 40392.882942355965,
+        "team": 0.021649025056435796,
         "noaff": false,
         "nihil": false
       },
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60288.67434465882,
-        "team": 0.019787095045916532,
+        "dps": 60671.37858298729,
+        "team": 0.01978709504591672,
         "noaff": false,
         "nihil": false
       },
@@ -65,22 +65,22 @@
       ]
     },
     "META": {
-      "tdps": 10822416.73530498,
+      "tdps": 10891115.95283756,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 41925.19867589151,
-        "team": 0.019349529722850253,
+        "dps": 42114.85875408987,
+        "team": 0.019442111090870576,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
+        "Seaside_Princess",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
@@ -94,15 +94,48 @@
       ],
       "coabs": [
         "Gala_Mascula",
-        "Renee",
-        "Tiki"
+        "Tiki",
+        "Yurius"
       ],
       "share": [
-        "Yukata_Cassandra",
+        "Dragonyule_Lily",
+        "Summer_Celliera"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43736.128749122916,
+        "team": 0.018057692213917086,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Seaside_Princess",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon, x=2",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
         "Summer_Celliera"
       ]
     },
     "META": {
+      "tdps": 1171083.4213708201,
       "pref": "PERSONAL"
     }
   },
@@ -132,8 +165,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71717.1666449012,
-        "team": 0.01882791014721739,
+        "dps": 72172.41738534701,
+        "team": 0.01882791014721757,
         "noaff": false,
         "nihil": false
       },
@@ -156,7 +189,7 @@
       ]
     },
     "META": {
-      "tdps": 92179.3567400671,
+      "tdps": 96045.38969852589,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -201,15 +234,15 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47395.762316426255,
-        "team": 0.018628059640749053,
+        "dps": 50073.0808591534,
+        "team": 0.01978709504591672,
         "noaff": false,
         "nihil": false
       }
@@ -219,6 +252,39 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28395.81918960154,
+        "team": 0.019662506116885203,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Rivalry_of_Kings",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "coabs": [
+        "Blade",
+        "Summer_Celliera",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

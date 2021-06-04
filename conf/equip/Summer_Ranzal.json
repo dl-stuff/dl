@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50933.45831985473,
+        "dps": 49958.86311820348,
         "team": 0.08327081083286628,
         "noaff": false,
         "nihil": false
@@ -66,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 82051.28249492112,
+      "tdps": 79472.24067827217,
       "pref": "PERSONAL"
     }
   },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 131332.0848859382,
+      "tdps": 127221.45365914285,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -96,7 +96,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26083.484123609203,
+        "dps": 26238.380741946643,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -142,8 +142,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58243.84852455554,
-        "team": 0.0832708108328662,
+        "dps": 57552.74100973831,
+        "team": 0.08327081083286636,
         "noaff": false,
         "nihil": false
       },
@@ -164,7 +164,7 @@
       ]
     },
     "META": {
-      "tdps": 90850.06940306627,
+      "tdps": 89021.21248124476,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -175,7 +175,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39078.797820844564,
+        "dps": 39310.03331090873,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -214,23 +214,39 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 19059.575526787827,
-        "team": 0.46116123329898184,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 49663.93413500513,
+        "dps": 49958.86311820348,
         "team": 0.08327081083286628,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Mana_Fount"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s1, dgauge>=500",
+        "`dragon(c3-s-c3-c3-c2-end), s=1",
+        "`s3, not buff(s3) and xf=5",
+        "`s4",
+        "`s1, dgauge<=300 and xf",
+        "`s2, xf=5"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
     },
     "META": {
-      "tdps": 80987.38890626823,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -240,7 +256,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32565.66485070381,
+        "dps": 32758.36109242394,
         "team": 0.0,
         "noaff": false,
         "nihil": true

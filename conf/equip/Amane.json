@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63345.6466590232,
+        "dps": 61579.08950839677,
         "team": 0.033324286406690336,
         "noaff": false,
         "nihil": false
@@ -39,29 +39,30 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72845.922659594,
-        "team": 0.0,
+        "dps": 61579.08950839677,
+        "team": 0.033324286406690336,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
-        "queue prep and not buff(s3)",
-        "`s2;s3;s4;s1",
+        "`dragon(c3-s), buff(s3, 1) and cancel",
+        "queue prep",
+        "`s2;s3;s1;s4",
         "end",
-        "`s4, cancel",
-        "`s1, cancel or s",
-        "`s2, x=1"
+        "`s1",
+        "`s4",
+        "`s3",
+        "`s2"
       ],
       "coabs": [
         "Blade",
@@ -74,7 +75,6 @@
       ]
     },
     "META": {
-      "tdps": 285085.6544872174,
       "pref": "PERSONAL"
     }
   },
@@ -118,10 +118,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 82269.2629967826,
-        "team": 0.10787901596864921,
+        "dps": 69983.87597596562,
+        "team": 0.14087108674268534,
         "noaff": false,
         "nihil": false
       },
@@ -134,12 +134,36 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
+      "slots.d": "Gala_Thor",
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78176.95078024716,
+        "team": 0.11935332347939039,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
     "META": {
+      "tdps": 380758.6645521519,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
