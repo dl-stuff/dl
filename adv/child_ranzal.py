@@ -52,12 +52,12 @@ class Child_Ranzal(Adv):
         # check for a1
         if name == "s1" and self.use_rng:
             if random.random() < chance:
-                self.add_one_att_amp()
+                self.add_one_att_amp(max=2)
                 return cdmg
             else:
                 return 1
         elif name == "s1_enhanced":
-            self.add_one_att_amp()
+            self.add_one_att_amp(max=2)
         average = chance * (cdmg - 1) + 1
         return average
 
