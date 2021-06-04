@@ -9,8 +9,8 @@ class Isaac(Adv):
     def setup_verdure(self, dst="s1"):
         verdure_scharge_self = Timer(lambda _: self.charge_p("verdure_scharge", 0.02, no_autocharge=False), 1.0, True)
         verdure_scharge_self.name = "verdure_scharge"
-        verdure_scharge_zone = ZoneTeambuff("verdure_scharge_zone", 0, 10, "scharge_p", source=dst)
-        verdure_scharge_zone.modifier = Timer(lambda _: self.verdure_zone_scharge(), 1.0, True)
+        verdure_scharge_zone = ZoneTeambuff("verdure_scharge_zone", 0, 10.001, "scharge_p", source=dst)
+        verdure_scharge_zone.modifier = Timer(lambda _: self.verdure_zone_scharge(self), 1.0, True)
         verdure_scharge_zone.name = "verdure_scharge_zone"
         return (
             (ZoneTeambuff("verdure_str_zone", 0.1, 10, "att", "buff", source=dst), Selfbuff("verdure_str", 0.05, 10, "att", "buff", source=dst)),
