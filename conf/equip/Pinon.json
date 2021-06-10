@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80244.3573193876,
-        "team": 0.0,
+        "dps": 85681.66819890158,
+        "team": 0.057176668059776184,
         "noaff": false,
         "nihil": false
       },
@@ -52,30 +52,30 @@
         "`dragon(c3-s-c3-c3-c3-end), fsc",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
         "`dodge, fsc",
-        "`fs2"
+        "`fs2, aff(frostbite)"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Cleo",
+        "Gala_Mascula",
         "Grace"
       ],
       "share": [
         "Weapon",
-        "Hunter_Sarisse"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 211382.64472034827,
+      "tdps": 305143.9098965714,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76281.70613803202,
-        "team": 0.0,
+        "dps": 80518.48180068178,
+        "team": 0.04971884179110972,
         "noaff": false,
         "nihil": false
       },
@@ -86,7 +86,7 @@
       ]
     },
     "META": {
-      "tdps": 195147.00751790538,
+      "tdps": 266868.5970663883,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -131,7 +131,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58438.25428006374,
+        "dps": 59496.07843068931,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -149,18 +149,18 @@
         "`dragon(c3-s)",
         "`s2, fsc",
         "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
+        "`s1, fsc",
         "`dodge, fsc",
         "`fs2, not buff(a1)"
       ],
       "coabs": [
         "Dragonyule_Cleo",
-        "Grace",
-        "Summer_Ranzal"
+        "Gala_Mascula",
+        "Grace"
       ],
       "share": [
         "Summer_Celliera",
-        "Dragonyule_Lily"
+        "Yukata_Cassandra"
       ]
     },
     "META": {
@@ -220,19 +220,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89354.68877216284,
-        "team": 0.0,
+        "dps": 86780.75290449033,
+        "team": 0.0570666569429738,
         "noaff": false,
         "nihil": false
-      },
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Grace"
-      ]
+      }
     },
     "META": {
-      "tdps": 247246.64599936045,
+      "tdps": 308932.8730294528,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -240,50 +235,32 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 82291.9609275116,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Xander"
-      ]
-    },
-    "META": {
-      "tdps": 218309.4820408304,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60591.570656494296,
+        "dps": 62448.877061277155,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`s3, cancel",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon(c3-s-c3-end), fsc",
         "`s2, fsc",
         "`s4, fsc",
+        "`s3, fsc",
         "`s1, fsc",
         "`dodge, fsc",
         "`fs2, not buff(locked_sigil)"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Gala_Mascula",
+        "Yurius"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63856.964031263145,
+        "dps": 66478.3857762694,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -297,17 +274,12 @@
       ],
       "acl": [
         "`s3, cancel",
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon(c3-s-c3-c3-end), fsc",
         "`s2, fsc",
         "`s4, fsc",
         "`s1, fsc and aff_timeleft(frostbite)<4",
         "`dodge, fsc",
         "`fs2, not buff(a1)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Grace"
       ],
       "share": [
         "Summer_Celliera",
@@ -325,19 +297,24 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60591.570656494296,
+        "dps": 62448.877061277155,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`s3, cancel",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon(c3-s-c3-end), fsc",
         "`s2, fsc",
         "`s4, fsc",
+        "`s3, fsc",
         "`s1, fsc",
         "`dodge, fsc",
         "`fs2, not buff(locked_sigil)"
+      ],
+      "coabs": [
+        "Dragonyule_Cleo",
+        "Gala_Mascula",
+        "Yurius"
       ]
     },
     "META": {
@@ -440,8 +417,8 @@
         "`fs2, not buff(locked_sigil)"
       ],
       "coabs": [
-        "Blade",
         "Dagger",
+        "Gala_Mascula",
         "Grace"
       ],
       "share": [

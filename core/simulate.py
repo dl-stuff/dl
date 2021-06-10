@@ -560,6 +560,7 @@ def load_adv_module(name, in_place=None):
         try:
             loaded = advmodule.variants[vkey]
         except KeyError:
+            vkey = None
             loaded = advmodule.variants[None]
         return loaded, name, vkey
     except ModuleNotFoundError:

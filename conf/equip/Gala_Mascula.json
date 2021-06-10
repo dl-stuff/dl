@@ -34,25 +34,25 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70000.81387735988,
-        "team": 0.11818368443189303,
-        "noaff": true,
+        "dps": 71508.6906433501,
+        "team": 0.03333160358382581,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "Valiant_Crown",
-        "Taiko_Tandem",
+        "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`dragon(c3-s-c3-c3-c2-end), (s2.charged>=s2.sp*(3/4) or duration-now<30) and aff(frostbite)",
         "`s3, not buff(s3) and x=4",
-        "`s4, x=4",
+        "`s4, x>3",
         "`s2",
-        "`s1, masterctrl_buff.get() and cancel"
+        "`s1, masterctrl_buff.get() and (x=4 or s)"
       ],
       "coabs": [
         "Renee",
@@ -61,11 +61,11 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Xander"
       ]
     },
     "META": {
-      "tdps": 125868.9771257403,
+      "tdps": 66907.62587712723,
       "pref": "PERSONAL"
     }
   },
@@ -104,8 +104,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51381.00129618019,
-        "team": 0.033279621489390065,
+        "dps": 52505.886189536286,
+        "team": 0.033168093922429545,
         "noaff": false,
         "nihil": true
       },
@@ -118,10 +118,10 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
-        "`s2",
+        "`dragon(c3-s-c3-c3-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`s2, cancel",
         "`s1, masterctrl_buff.get() and cancel",
-        "`s4",
+        "`s4, x=4",
         "`s3, x=4"
       ],
       "coabs": [
@@ -135,7 +135,7 @@
       ]
     },
     "META": {
-      "tdps": 350764.92869805044,
+      "tdps": 383182.3377252941,
       "pref": "PERSONAL"
     }
   },
@@ -174,6 +174,13 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), (s2.charged>=s2.sp*(3/4) or duration-now<30)",
+        "`s3, not buff(s3) and x=4",
+        "`s4, x=4",
+        "`s2",
+        "`s1, masterctrl_buff.get() and cancel"
+      ],
       "coabs": [
         "Summer_Celliera",
         "Tiki",
@@ -204,25 +211,54 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54890.53596958,
-        "team": 0.033235460788933524,
+        "dps": 55342.47450234686,
+        "team": 0.033168093922429545,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
-        "`s2, cancel",
-        "`s1, masterctrl_buff.get() and cancel",
-        "`s4, x=4",
-        "`s3, x=4"
-      ]
+      }
     },
     "META": {
-      "tdps": 290236.6548857913,
+      "tdps": 303146.30026213865,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70000.81387735988,
+        "team": 0.11818368443189303,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Valiant_Crown",
+        "Taiko_Tandem",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`s3, not buff(s3) and x=4",
+        "`s4, x=4",
+        "`s2",
+        "`s1, masterctrl_buff.get() and cancel"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 125868.9771257403,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

@@ -1105,7 +1105,7 @@ class Adv(object):
         self.slots.set_slots(self.conf.slots)
         self.element = self.slots.c.ele
 
-    def pre_conf(self, equip_conditions):
+    def pre_conf(self, equip_conditions=None):
         self.conf = Conf(self.conf_default)
         self.conf.update(globalconf.get_adv(self.name))
         if not self.conf["prefer_baseconf"]:
@@ -1700,7 +1700,7 @@ class Adv(object):
         if len(self.skillshare_list) < 2:
             self.skillshare_list.insert(0, "Weapon")
 
-        from conf import load_adv_json, skillshare
+        from conf import skillshare
         from core.simulate import load_adv_module
 
         self_data = skillshare.get(self.name, {})
@@ -1730,7 +1730,11 @@ class Adv(object):
                 src_key = f's{sdata["s"]}'
                 shared_sp = self.sp_convert(sdata["sp"], sp_modifier)
                 try:
-                    owner_conf = Conf(load_adv_json(owner))
+                    owner_module, _, variant = load_adv_module(f"{owner}.70MC")
+                    if variant is None:
+                        owner_conf = globalconf.get_adv(owner)
+                    else:
+                        owner_conf = Conf(owner_module.conf)
                     for src_sn, src_snconf in owner_conf.find(f"^{src_key}(_[A-Za-z0-9]+)?$"):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
@@ -1740,7 +1744,6 @@ class Adv(object):
                             pass
                         self.conf[dst_sn].owner = owner
                         self.conf[dst_sn].sp = shared_sp
-                    owner_module = load_adv_module(owner)[0]
                     preruns[dst_key] = owner_module.prerun_skillshare
                     for sfn in ("before", "proc"):
                         self.rebind_function(owner_module, f"{src_key}_{sfn}", f"{dst_key}_{sfn}")
