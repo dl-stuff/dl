@@ -241,7 +241,7 @@ class Gala_Laxi_70MC(Gala_Laxi):
                 {"dmg": 2.13, "iv": 0.93333}
             ]
         },
-        "s1_mode2": {
+        "s1_eden": {
             "sp": 2476,
             "startup": 0.1,
             "recovery": 2.0,
@@ -265,7 +265,7 @@ class Gala_Laxi_70MC(Gala_Laxi):
             "startup": 0.1,
             "recovery": 1.33333
         },
-        "s2_mode2": {
+        "s2_eden": {
             "sp": 3736,
             "startup": 0.1,
             "recovery": 1.16667,
