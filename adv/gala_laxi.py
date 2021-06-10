@@ -179,7 +179,6 @@ class Gala_Laxi(Adv):
 
 
 class Gala_Laxi_70MC(Gala_Laxi):
-    SAVE_VARIANT = False
     RESONANT_DEF = 0.25
     RESONANT_SD = 0.20
     RESONANT_STR = 0.20
