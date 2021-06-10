@@ -95,10 +95,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 19521.712312776468,
-        "team": 0.02107720939207738,
+        "dps": 18225.62967838037,
+        "team": 0.02129363405137932,
         "noaff": false,
         "nihil": true
       },
@@ -111,17 +111,51 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Daikokuten",
       "acl": [
         "`dragon(s), buff(s3, 1)",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27410.590024577195,
+        "team": 0.017590347066820642,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(s)",
         "`s3",
         "`s1",
         "`s4"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
-        "Peony"
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -129,6 +163,7 @@
       ]
     },
     "META": {
+      "tdps": 2480218.353180479,
       "pref": "PERSONAL"
     }
   },
@@ -248,20 +283,25 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 17542.465347579506,
-        "team": 0.02107720939207738,
+        "dps": 27410.590024577195,
+        "team": 0.017590347066820642,
         "noaff": false,
         "nihil": true
       },
-      "slots.d": "Daikokuten"
+      "acl": [
+        "`dragon(s)",
+        "`s3",
+        "`s1",
+        "`s4"
+      ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

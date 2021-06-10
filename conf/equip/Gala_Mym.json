@@ -32,7 +32,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 117020.95236714213,
+        "dps": 127912.86035170013,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -49,19 +49,21 @@
       "slots.d": "Gala_Mars",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2, fscf",
-        "`s4, fsc",
+        "`s1, buff(s3)",
+        "`s2, x=5 or dragonform.shift_count=4",
+        "`s4",
         "`fs, x=5",
-        "`dodge, fsc and not buff(s3)",
-        "`dragon(c1-s-end), dragonform.shift_count=0 and cancel",
-        "`dragon(c3-s-end), dragonform.shift_count=1",
-        "`dragon(AB10-end), dragonform.shift_count>=2 and aff(stormlash)"
+        "`dodge, fscf and not buff(s3) or dragonform.shift_count>=2 or s",
+        "`dragon(c3-s-end),      dragonform.shift_count=0 and cancel",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-end ), dragonform.shift_count=2",
+        "`dragon( c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count=3",
+        "`dragon( AB10 ),             dragonform.shift_count>=4"
       ],
       "coabs": [
-        "The_Prince",
-        "Verica",
-        "Yuya"
+        "Kimono_Elisanne",
+        "Serena",
+        "Verica"
       ],
       "share": [
         "Weapon",
@@ -69,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 598038.5240286968,
+      "tdps": 663593.5597081287,
       "pref": "PERSONAL"
     }
   },
@@ -135,7 +137,8 @@
         "`s1, cancel",
         "`s2, fscf",
         "`s4, fscf",
-        "`fs, x=5"
+        "`fs, x=5",
+        "`dodge, fsc and s"
       ],
       "coabs": [
         "Blade",
@@ -155,7 +158,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 141647.19232522734,
+        "dps": 141875.37313818987,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -170,25 +173,22 @@
         "Tutelarys_Destiny"
       ],
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-end ), dragonform.shift_count>=2",
-        "`dragon( AB10 ), dragonform.shift_count>=3 or s",
+        "`dragon(c3-s-c3-end),      dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-end ), dragonform.shift_count=2",
+        "`dragon( c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count=3",
+        "`dragon( AB10 )",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s4,cancel",
+        "`s4, cancel",
         "`s2, fscf",
         "`fs, x=5",
-        "`dodge, fscf and buff(s3) and dragonform.shift_count>=2 or fsc"
-      ],
-      "coabs": [
-        "Serena",
-        "Verica",
-        "Yuya"
+        "`fs, x<5 and charged_in(fs, s1)",
+        "`dodge, fscf and buff(s3) and dragonform.shift_count>=2 and s"
       ]
     },
     "META": {
-      "tdps": 746256.2689262212,
+      "tdps": 747629.6188807313,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -241,7 +241,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 105765.74032013821,
+        "dps": 106761.89953438155,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -262,10 +262,11 @@
         "`dragon( AB10 ), dragonform.shift_count>=3",
         "`s3, not buff(s3)",
         "`s4, fscf",
-        "`s1, cancel",
-        "`s2, fscf or dragonform.shift_count=5",
+        "`s1",
+        "`s2, fscf or x=5 or dragonform.shift_count=5",
         "`fs, x=5",
         "`dodge, fscf",
+        "`fs, xf<3 and charged_in(fs, s1)",
         "#There can be only one"
       ],
       "coabs": [
@@ -279,7 +280,7 @@
       ]
     },
     "META": {
-      "tdps": 530296.8732208696,
+      "tdps": 536292.4483693835,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -326,8 +327,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47398.50298508293,
-        "team": 0.0204271736983774,
+        "dps": 47519.34657583286,
+        "team": 0.020459088860206205,
         "noaff": false,
         "nihil": true
       },
@@ -345,9 +346,9 @@
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
         "`dragon( AB10 ), dragonform.shift_count>=3",
-        "`s3",
-        "`s1, cancel",
-        "`s2, fscf",
+        "`s3, not dragonform.shift_count =4",
+        "`s1, cancel or dragonform.shift_count =4",
+        "`s2, fscf or dragonform.shift_count=4",
         "`s4, fscf",
         "`fs, x=5",
         "`dodge, fsc"
@@ -358,7 +359,7 @@
       ]
     },
     "META": {
-      "tdps": 601979.0895837715,
+      "tdps": 610435.559713418,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

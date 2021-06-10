@@ -59,9 +59,9 @@
         "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
         "end",
         "`s3, not buff(s3) and fscf",
-        "`s1, fscf or dgauge>=500",
-        "`s4, dgauge>=500 and s=1",
-        "`s2",
+        "`s1, fscf or dgauge>500",
+        "`s4, dgauge>500 and s=1",
+        "`s2, fs",
         "`fs, x=5",
         "`dodge, fscf"
       ],
@@ -140,14 +140,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46820.76157304073,
+        "dps": 47684.977001455765,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Pecorines_Grand_Adventure",
+        "Memory_of_a_Friend",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother"
@@ -178,27 +178,27 @@
       ]
     },
     "META": {
-      "tdps": 280416.307901293,
+      "tdps": 315423.15982343565,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 104350.79039512621,
-        "team": 0.11105723806757059,
+        "dps": 104377.19799338942,
+        "team": 0.11103454559523958,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "if s=4",
+        "if buff(s4) and cancel",
         "queue dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-end);s1",
         "end",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=1",
         "end",
         "`s3, not buff(s3) and fscf",
-        "`s4, dgauge>=500 or dgauge<=300",
+        "`s4, dgauge>=500",
         "`s2",
         "`s1, fscf",
         "`fs, charged_in(fs, s2)",
@@ -211,7 +211,7 @@
       ]
     },
     "META": {
-      "tdps": 53792.98842220482,
+      "tdps": 53811.42756966704,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -235,13 +235,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end)",
         "`s4",
@@ -268,8 +261,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79123.88781452972,
-        "team": 0.11105723806757059,
+        "dps": 89130.41790832329,
+        "team": 0.11105723806757047,
         "noaff": false,
         "nihil": false
       },
@@ -302,8 +295,8 @@
       ]
     },
     "META": {
-      "tdps": 35995.340652959785,
-      "pref": "TEAMBUFF",
+      "tdps": 42650.079651301436,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

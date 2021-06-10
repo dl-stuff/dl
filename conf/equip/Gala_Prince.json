@@ -41,15 +41,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71228.19756078806,
-        "team": 0.18531893353603504,
+        "dps": 76643.3613279336,
+        "team": 0.16350680143681093,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
+        "Dragon_Brethren",
         "Memory_of_a_Friend",
-        "The_Red_Impulse",
         "Dueling_Dancers",
         "Entwined_Flames",
         "Crown_of_Light",
@@ -57,21 +57,17 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "if (s=2 or fsc) and buff(s3,1)",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(s-c3-s-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s), dragonform.shift_count>=2",
-        "end",
-        "`s4",
+        "`dragon, s and buff(s3, 1)",
+        "`s4, fsc",
         "`s2, fsc",
         "`s3, fsc",
         "`s1, fsc",
-        "`fs, x=2 or hits=0"
+        "`fs, x=4 or hits=0"
       ],
       "coabs": [
         "Cleo",
-        "Peony",
-        "Raemond"
+        "Dagger2",
+        "Peony"
       ],
       "share": [
         "Weapon",
@@ -79,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 520876.62224665744,
+      "tdps": 466136.3671361424,
       "pref": "PERSONAL"
     }
   },
@@ -109,19 +105,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68291.71810252436,
-        "team": 0.18531893353603504,
+        "dps": 69973.80226617577,
+        "team": 0.16350680143681093,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
         "Blade",
-        "Pecorine",
-        "Peony"
+        "Peony",
+        "Raemond"
       ]
     },
     "META": {
-      "tdps": 807306.8170089109,
+      "tdps": 372960.77997210063,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -132,83 +128,48 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41834.969326923994,
+        "dps": 44018.990770508986,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Holywyrms_Advent",
-        "Memory_of_a_Friend",
+        "Dragon_Brethren",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Dueling_Dancers",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "if (s=2 or fsc)",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s), dragonform.shift_count>=2",
-        "end",
+        "`dragon",
         "`s4, fsc",
-        "`s3, fsc",
         "`s2, fsc",
+        "`s3, fsc",
         "`s1, fsc",
-        "`fs, x=2"
+        "`fs, x=4 or hits=0"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Dagger",
         "Peony"
       ],
       "share": [
-        "Gala_Mym",
-        "Ilia"
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 41311.10552115495,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Holywyrms_Advent",
-        "Memory_of_a_Friend",
-        "Lord_of_the_Skies",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84333.86571345404,
-        "team": 0.18531893353603504,
+        "dps": 91229.45933989064,
+        "team": 0.17602758242510308,
         "noaff": false,
         "nihil": false
       },
@@ -230,32 +191,10 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 69073.96413188012,
-        "team": 0.18531893353603504,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Raemond"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47394.54304128592,
+        "dps": 51300.42055366534,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -280,7 +219,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -295,14 +234,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70937.37319952631,
-        "team": 0.18531893353603504,
+        "dps": 76366.72557873552,
+        "team": 0.16350680143681093,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 617095.4599396954,
+      "tdps": 520572.45250178705,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -382,107 +321,29 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 17176.30496774165,
+        "dps": 37851.760877432986,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
+        "Dragon_Brethren",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
         "Dueling_Dancers",
-        "Entwined_Flames",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "if (s=2 or fsc) and buff(s3,1)",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s), dragonform.shift_count>=2",
-        "end",
-        "`s4",
-        "`s2, cancel",
-        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
-        "`s1, fsc",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Albert",
-        "Cleo",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 30166.44301643624,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
       "slots.d": "Corsaint_Phoenix"
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 18004.20760800078,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "if (s=2 or fsc) and buff(s3,1)",
-        "`dragon(c3-s-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s), dragonform.shift_count>=2",
-        "end",
-        "`s4",
-        "`s2, cancel",
-        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
-        "`s1, fsc",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Albert",
-        "Cleo",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }
