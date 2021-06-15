@@ -1,0 +1,72 @@
+{
+    "c": {
+        "name": "Faeblessed Tobias",
+        "icon": "110352_03_r05",
+        "att": 508,
+        "hp": 752,
+        "ele": "water",
+        "wt": "lance",
+        "spiral": false,
+        "a": [["cc", 0.13, "hit15"], ["affres_stun", 100.0], ["od", 0.13]]
+    },
+    "s1": {
+        "sp": 2738,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"sp": [0.2, "%", "s2"]},
+            {"dmg": 10.0, "afflic": ["freeze", 160], "iv": 0.96667},
+            {"dmg": 10.0, "iv": 1.06667}
+        ]
+    },
+    "s2": {
+        "sp": 20000,
+        "startup": 0.1,
+        "recovery": 1.0,
+        "attr": [
+            {"sp": [1.0, "%", "s2"]},
+            {"buff": ["sAlt", "enhanced", "s2", 10.0, "-refresh"], "coei": 1, "iv": 0.66667}
+        ]
+    },
+    "s2_enhanced": {
+        "sp": 20000,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 17.5, "afflic": ["frostbite", 110, 0.31], "iv": 0.5},
+            {"dmg": 17.5, "iv": 1.06667}
+        ]
+    },
+    "s99": {
+        "sp": 2738,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 10.0, "afflic": ["freeze", 160], "iv": 0.96667},
+            {"dmg": 10.0, "iv": 1.06667}
+        ]
+    },
+    "x1_fae": {
+        "startup": 0.43333,
+        "recovery": 0.33334,
+        "attr": [
+            {"dmg": 1.25, "sp": 260},
+            {"dmg": 1.25, "iv": 0.2},
+            {"dmg": 1.25, "iv": 0.33334}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.26667, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    },
+    "x2_fae": {
+        "startup": 0.03333,
+        "recovery": 0.46667,
+        "attr": [
+            {"dmg": 3.0, "sp": 260, "msl": 0.93333, "msl_spd": 1},
+            {"dmg": 1.25, "iv": 0.1},
+            {"dmg": 1.25, "iv": 0.26667},
+            {"dmg": 1.25, "iv": 0.46667}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    }
+}

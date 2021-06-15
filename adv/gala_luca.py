@@ -3,6 +3,7 @@ from core.advbase import *
 
 class Gala_Luca(Adv):
     SAVE_VARIANT = False
+    CONNECTING_CALL_CRITR = 0.03
     def prerun(self):
         self.crit_mod = self.custom_crit_mod
         self.a1_buff_types = 3
@@ -65,7 +66,7 @@ class Gala_Luca(Adv):
             icon_count = min(base_icon_count + a1_buff_count, 7)
             current_rate = min(
                 1.0,
-                base_rate + 0.03 * a1_buff_count + min(0.28, 0.04 * icon_count) + 0.1 * icon_count * int(in_s1),
+                base_rate + CONNECTING_CALL_CRITR * a1_buff_count + min(0.28, 0.04 * icon_count) + 0.1 * icon_count * int(in_s1),
             )
             # current_rate += 0.03 * a1_buff_count # a1buff crit
             # current_rate += min(0.28, 0.04 * icon_count) # a1 icon crit
@@ -102,4 +103,41 @@ class Gala_Luca_MAX(Gala_Luca):
         return 7
 
 
-variants = {None: Gala_Luca, "MAX": Gala_Luca_MAX}
+class Gala_Luca_70MC(Gala_Luca):
+    CONNECTING_CALL_CRITR = 0.04
+    comment = "70 MC"
+    conf = {
+        "c": {
+            "name": "Gala Luca",
+            "icon": "100006_09_r05",
+            "att": 619,
+            "hp": 893,
+            "ele": "light",
+            "wt": "blade",
+            "spiral": True,
+            "a": [["resself_curse_crit_chance", 0.15, 10.0, 15.0], ["resself_poison_crit_chance", 0.15, 10.0, 15.0], ["affres_poison", 100.0], ["affres_curse", 100.0], ["cc", 0.13]]
+        },
+        "s1": {
+            "sp": 2870,
+            "startup": 0.1,
+            "recovery": 2.16667,
+            "attr": [
+                {"dmg": 5.07, "iv": 0.3},
+                {"dmg": 5.07, "iv": 2.0},
+                {"dmg": 5.07, "iv": 2.06667},
+                {"dmg": 5.07, "iv": 2.13333},
+            ]
+        },
+        "s2": {
+            "sp": 3899,
+            "startup": 0.1,
+            "recovery": 1.0,
+            "attr": [
+                {"amp": [[2, 3, 3, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]], "cd": 30.0},
+                {"buff": ["self", 0.8, 10.0, "crit", "damage"], "iv": 0.16667},
+            ]
+        }
+    }
+
+
+variants = {None: Gala_Luca, "MAX": Gala_Luca_MAX, "70MC": Gala_Luca_70MC}
