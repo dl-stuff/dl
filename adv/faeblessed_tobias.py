@@ -14,13 +14,12 @@ class Faeblessed_Tobias(Adv):
         Event("s").listener(self.interrupt_fae)
 
     def s2_proc(self, e):
-        if e.group == "enhanced":
-            self.s2_x_alt.off()
-        else:
+        if e.group != "enhanced":
             self.s2_x_alt.on(10)
 
     def interrupt_fae(self, e):
         if e.name != "s1" and self.s2_x_alt.get():
+            log("debug", "interrupt_fae", f"by {e.name}")
             self.s2_x_alt.off()
             self.current_s["s2"] = "default"
 
