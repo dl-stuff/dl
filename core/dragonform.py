@@ -297,10 +297,7 @@ class DragonForm(Action):
         self.shift_silence = True
         Timer(self.end_silence).on(10)
         self.status = Action.OFF
-        self._setprev()  # turn self from doing to prev
-        self._static.doing = self.nop
         self.end_event()
-        self.idle_event()
 
     def act_timer(self, act, time, next_action=None):
         if self.c_act_name == "dodge":
