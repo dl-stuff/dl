@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44183.18535561982,
-        "team": 0.11194385073289935,
+        "dps": 44351.97535826243,
+        "team": 0.14706478072313134,
         "noaff": false,
         "nihil": false
       },
@@ -49,7 +49,7 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(s-c3-c3-c3-end), not buff(s2)",
+        "`dragon(c3-s-c3-c3-c2-end), not buff(s2)",
         "`s1, prep or (timeleft(s1)<5 and x=5)",
         "`s2",
         "`s3, not buff(s3)",
@@ -66,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 61124.03633613089,
+      "tdps": 65046.575997143635,
       "pref": "PERSONAL"
     }
   },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 79966.97839758312,
+      "tdps": 86632.73854884342,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -133,18 +133,30 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55820.17878672357,
-        "team": 0.14375355537971748,
+        "dps": 58167.62187453954,
+        "team": 0.10943482449402717,
         "noaff": false,
         "nihil": false
       },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), not buff(s2) and cancel",
+        "`s2",
+        "`s4, cancel",
+        "`s3, not buff(s3)",
+        "`s1, (x=5 or s=3) and timeleft(s1)<5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Nino"
+      ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 84002.73429825691,
+      "tdps": 83150.06953953693,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,14 +199,14 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34639.874309637766,
-        "team": 0.11194385073289935,
+        "dps": 34802.709297676134,
+        "team": 0.14706478072313128,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 45865.31299654084,
+      "tdps": 48869.93909947429,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

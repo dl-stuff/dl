@@ -101,39 +101,32 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31181.433937348847,
+        "dps": 45443.56634571656,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Valiant_Crown",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "#15% skill haste from A3 active",
         "`dragon(c3-s-c3-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, not c_fs(foragermitsuba) and cancel",
         "`s4, cancel",
-        "`s1, cancel",
-        "if have_buff(s2_31)",
-        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
-        "else",
-        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
-        "end"
+        "`s3, cancel",
+        "`s1, cancel"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
-        "Lin_You",
-        "Mona"
+        "Eleonora",
+        "Mona",
+        "Nino"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -144,39 +137,32 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 31181.433937348847,
+        "dps": 45443.56634571656,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Valiant_Crown",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "#15% skill haste from A3 active",
         "`dragon(c3-s-c3-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, not c_fs(foragermitsuba) and cancel",
         "`s4, cancel",
-        "`s1, cancel",
-        "if have_buff(s2_31)",
-        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
-        "else",
-        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
-        "end"
+        "`s3, cancel",
+        "`s1, cancel"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
-        "Lin_You",
-        "Mona"
+        "Eleonora",
+        "Mona",
+        "Nino"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -191,14 +177,43 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69660.17316900133,
-        "team": 0.07236774908500553,
+        "dps": 70581.28965497286,
+        "team": 0.16779182686493835,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
+      ],
+      "acl": [
+        "#15% skill haste from A3 active",
+        "`dragon(c3-s-c3-c3-c2-end), xf=5",
+        "`s3, not buff(s3) and xf=5",
+        "`s2, not c_fs(foragermitsuba) and cancel",
+        "`s4, cancel",
+        "`s1, cancel",
+        "if have_buff(s2_31)",
+        "`fs, s2.charged>=8850 and (aff_timeleft(poison)<=8 and cancel)",
+        "else",
+        "`fs, s2.charged>=9000 and (aff_timeleft(poison)<=8 and cancel)",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
     },
     "META": {
-      "tdps": 146558.6833255472,
+      "tdps": 188145.99708102277,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -209,14 +224,15 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43582.65977420975,
+        "dps": 52011.697869805335,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Wand"
       ]
     },
     "META": {
@@ -230,14 +246,15 @@
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43582.65977420975,
+        "dps": 52011.697869805335,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Wand"
       ]
     },
     "META": {
@@ -269,7 +286,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24118.45518754593,
+        "dps": 31452.549357479802,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -286,7 +303,7 @@
   "IMMUNE-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 24118.45518754593,
+        "dps": 31452.549357479802,
         "team": 0.0,
         "noaff": false,
         "nihil": true

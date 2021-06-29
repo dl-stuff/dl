@@ -1,0 +1,175 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48401.84857237424,
+        "team": 0.09176118228975409,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end),not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4, not buff(s2)",
+        "`s2, not buff(s2) or duration - now < 1.2",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Renee",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70933.13756012809,
+        "team": 0.0619725083067316,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end),not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4, not buff(s2)",
+        "`s2, not buff(s2) or duration - now < 1.2",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Renee",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 756370.9952512536,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35064.1209656251,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "dragon, not buff(s2)",
+        "s3, not buff(s3)",
+        "s4, not buff(s2)",
+        "s2, not buff(s2)",
+        "s1"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Renee",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81408.59387359697,
+        "team": 0.061972491099783956,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), not buff(s2)",
+        "`s3, not buff(s3) and x=5",
+        "`s4, not buff(s2)",
+        "`s2, not buff(s2) or duration-now < 1.1",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54282.993890438614,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, not buff(s2)",
+        "`s3, not buff(s2)",
+        "`s4, not buff(s2)",
+        "`s2, not buff(s2) or duration-now < 1.2",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Yukata_Cassandra"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  }
+}

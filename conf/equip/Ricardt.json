@@ -34,17 +34,17 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43963.76433782934,
-        "team": 0.09984117487769706,
+        "dps": 45032.26189546128,
+        "team": 0.09996869868967663,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
+        "Springtime_Breeze",
         "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -54,9 +54,9 @@
         "`s1, not buff(s1)"
       ],
       "coabs": [
-        "Eugene",
         "Summer_Celliera",
-        "Tiki"
+        "Tiki",
+        "Xainfried"
       ],
       "share": [
         "Weapon",
@@ -64,7 +64,7 @@
       ]
     },
     "META": {
-      "tdps": 68551.90978195921,
+      "tdps": 70608.27898958341,
       "pref": "PERSONAL"
     }
   },
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 88727.72963609778,
+      "tdps": 91342.03186663172,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -92,19 +92,19 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 15341.603680827024,
+        "dps": 26900.91656105737,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "Blossoms_on_the_Waters_Edge",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
+        "Springtime_Breeze",
         "Dueling_Dancers",
-        "Such_High_Spirits"
+        "Entwined_Flames"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -114,17 +114,77 @@
         "`s1, not buff(s1)"
       ],
       "coabs": [
-        "Eugene",
-        "Summer_Celliera",
-        "Tiki"
+        "Sword",
+        "Tiki",
+        "Yurius"
       ],
       "share": [
-        "Weapon",
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29042.22941275428,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, not buff(s1)"
+      ],
+      "coabs": [
+        "The_Prince",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Humanoid_Mercury",
         "Gala_Mym"
       ]
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26900.91656105737,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Blossoms_on_the_Waters_Edge",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "coabs": [
+        "Sword",
+        "Tiki",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -155,6 +215,23 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32100.517351166585,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

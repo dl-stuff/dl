@@ -2,17 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54612.41277246617,
-        "team": 0.07035745196044109,
+        "dps": 67767.34486387412,
+        "team": 0.1203275576073703,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
         "The_Cutie_Competition",
-        "Blessed_Days",
-        "Enter_the_Blue_Rose"
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -20,16 +22,21 @@
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
-        "`dodge, xf=1"
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Marth",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Seimei"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -72,7 +79,7 @@
       ]
     },
     "META": {
-      "tdps": 519560.17869882553,
+      "tdps": 194469.1530954797,
       "pref": "PERSONAL"
     }
   },
@@ -161,42 +168,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 71075.68745070645,
-        "team": 0.0851074183525387,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Rivalry_of_Kings",
-        "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "Enter_the_Blue_Rose"
-      ],
-      "acl": [
-        "`dragon(s-c3-c3-s-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2",
-        "if xf=1",
-        "`fs, c_fs(counter)",
-        "`fs, c_fs(sigilcounter)",
-        "`dodge, xf=1",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 97964.56039957014,
@@ -215,7 +186,6 @@
       ]
     },
     "META": {
-      "tdps": 315940.41353107983,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

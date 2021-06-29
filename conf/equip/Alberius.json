@@ -75,21 +75,21 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40756.92782114583,
-        "team": 0.08319122272619627,
+        "dps": 39552.99845806602,
+        "team": 0.08325229902079626,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "The_Shining_Overlord",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c5-s-c5-end), cancel",
+        "`dragon, cancel",
         "`s4, fsc",
         "`s3, fsc",
         "`s2, fsc",
@@ -140,11 +140,39 @@
       ]
     },
     "META": {
-      "tdps": 133417.27569822498,
+      "tdps": 147780.61153770538,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 80887.31998000991,
+        "team": 0.18770845504288955,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Entwined_Flames",
+        "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c5-s-end), cancel",
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc and not have_buff(s4_00)",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Vania"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 97375.27215576783,
@@ -166,6 +194,7 @@
       ]
     },
     "META": {
+      "tdps": 174461.5397112077,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

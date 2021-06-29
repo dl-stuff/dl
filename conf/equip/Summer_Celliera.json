@@ -2,30 +2,30 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 23577.54164922624,
-        "team": 1.2900461049522018,
+        "dps": 21759.114061220258,
+        "team": 1.3421018383270795,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Once_in_a_Lifetime",
         "Sisters_Day_Out",
-        "The_Shining_Overlord",
+        "Study_Rabbits",
         "Bellathorna",
         "From_Whence_He_Comes"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`fs, fs_prep_c and x=2",
-        "`dragon(c3-s-end)",
+        "`dragon(s-end)",
         "`s3, cancel",
         "`s2, cancel",
         "`s4",
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
+        "Gala_Mascula",
         "Renee",
-        "Summer_Estelle",
         "Tobias"
       ],
       "share": [
@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70249.292169425,
-        "team": 0.39275380998397535,
+        "dps": 71281.0790305752,
+        "team": 0.3937734616866272,
         "noaff": false,
         "nihil": false
       },
@@ -49,7 +49,7 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-c3-end), s",
+        "`dragon(c3-s-end), s",
         "`s3, not buff(s3) and fsc",
         "`s2",
         "`s4, cancel",
@@ -59,7 +59,7 @@
       "coabs": [
         "Gala_Mascula",
         "Renee",
-        "Summer_Estelle"
+        "Yurius"
       ],
       "share": [
         "Weapon",
@@ -67,15 +67,15 @@
       ]
     },
     "META": {
-      "tdps": 52013.98784088681,
+      "tdps": 52220.27115205751,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25442.69656816017,
-        "team": 1.1142286292632868,
+        "dps": 23094.535254921615,
+        "team": 1.1303540443870443,
         "noaff": true,
         "nihil": false
       },
@@ -86,7 +86,7 @@
       ]
     },
     "META": {
-      "tdps": 62104.17107283465,
+      "tdps": 65419.24252061375,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -97,7 +97,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43638.36697285819,
+        "dps": 42275.49671526974,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -165,7 +165,7 @@
       ]
     },
     "META": {
-      "tdps": 58388.63104419301,
+      "tdps": 57255.36954753293,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -176,7 +176,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46176.5021647777,
+        "dps": 46104.67253819868,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -217,8 +217,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 23577.54164922624,
-        "team": 1.2900461049522018,
+        "dps": 25886.502135231825,
+        "team": 1.2786924613949955,
         "noaff": true,
         "nihil": false
       },
@@ -238,8 +238,8 @@
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
+        "Gala_Mascula",
         "Renee",
-        "Summer_Estelle",
         "Tobias"
       ],
       "share": [
@@ -248,10 +248,49 @@
       ]
     },
     "META": {
+      "tdps": 65091.13121285349,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18844.395958195204,
+        "team": 0.4286366717874447,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "acl": [
+        "`fs, fs_prep_c and x=2",
+        "`dragon(s-end)",
+        "`s3, cancel",
+        "`s2, cancel",
+        "`s4",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Renee",
+        "Summer_Estelle",
+        "Tiki"
+      ]
+    },
+    "META": {
+      "tdps": -6056.767956280231,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

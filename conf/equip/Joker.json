@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48742.60437413943,
-        "team": 0.11083231456916456,
+        "dps": 57317.38481003782,
+        "team": 0.11134417136237768,
         "noaff": false,
         "nihil": false
       },
@@ -17,10 +17,10 @@
       "slots.d": "Arsene",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get()",
-        "`s4",
-        "`s2, cancel",
-        "`s1, cancel"
+        "`dragon, s2.check() and not dragondrive.get() and dgauge>=1900",
+        "`s2, dragondrive.get() or xf>2",
+        "`s1",
+        "`s4, not energy()=5 and xf=6"
       ],
       "coabs": [
         "Bow",
@@ -29,12 +29,12 @@
       ],
       "share": [
         "Weapon",
-        "Verica"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81996.2337966338,
+        "dps": 81899.87381064432,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -65,14 +65,14 @@
       ]
     },
     "META": {
-      "tdps": 300035.5045526234,
+      "tdps": 220779.30707841908,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50523.677046542194,
+        "dps": 52064.92020486404,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -88,8 +88,8 @@
       "acl": [
         "`dragon, not dragondrive.get()",
         "`s4",
-        "`s3",
-        "`s2",
+        "`s3, cancel",
+        "`s2, dragondrive.get() or xf>3",
         "`s1"
       ],
       "coabs": [
@@ -144,7 +144,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60271.03077603773,
+        "dps": 60173.838547700245,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -155,13 +155,6 @@
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
         "The_Plaguebringer"
-      ],
-      "acl": [
-        "`dragon, not dragondrive.get()",
-        "`s4",
-        "`s3, cancel",
-        "`s2, dragondrive.get() or xf>3",
-        "`s1"
       ]
     },
     "META": {
@@ -216,34 +209,29 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 16144.768096228727,
+        "dps": 40071.68746405027,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "Moonlight_Party",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "Lord_of_the_Skies"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`s3, not buff(s3)",
         "`dragon, not dragondrive.get()",
-        "`s4, not buff(s4)",
-        "`s2, cancel",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Gala_Alex",
-        "Ieyasu",
-        "Wand"
+        "`s4",
+        "`s3, cancel",
+        "`fs, x=3",
+        "`s2, dragondrive.get() or xf>3",
+        "`s1"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {

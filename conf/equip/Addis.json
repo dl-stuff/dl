@@ -109,14 +109,31 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62957.141161792126,
-        "team": 0.0,
+        "dps": 76191.68789129889,
+        "team": 0.09950987516651996,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(2, s1)",
+        "`s1, not charged_in(3, s2) and (bleed_stack<3 and buff(s2))",
+        "`s4, cancel",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
     },
     "META": {
-      "tdps": 144195.30637021337,
+      "tdps": 234367.02813766117,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -127,7 +144,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40562.561230679035,
+        "dps": 42011.333651572735,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -147,8 +164,8 @@
         "`fsf, x=5"
       ],
       "coabs": [
-        "Dagger",
         "Mona",
+        "Nino",
         "Wand"
       ],
       "share": [

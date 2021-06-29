@@ -108,37 +108,77 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 15022.32824368253,
+        "dps": 35269.54521885542,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Dogs_Day",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "Valiant_Crown",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s4",
-        "`s3, not speed()>=1.57 and not duration-now<5",
-        "`fs, xf=5"
+        "`dragon",
+        "`s3",
+        "`s4, aff_timeleft(stormlash)<1",
+        "`fsf, xf=5"
       ],
       "coabs": [
-        "Dagger2",
-        "Dragonyule_Xainfried",
-        "Joker"
+        "Blade",
+        "Eleonora",
+        "Mona"
       ],
       "share": [
-        "Mikoto",
-        "Gala_Mym"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35269.54521885542,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4, aff_timeleft(stormlash)<1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Eleonora",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -152,8 +192,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47649.659397253774,
-        "team": 0.6579619217571955,
+        "dps": 55193.879991123635,
+        "team": 0.7739506391217293,
         "noaff": false,
         "nihil": false
       },
@@ -166,7 +206,7 @@
       ]
     },
     "META": {
-      "tdps": 29890.866459125766,
+      "tdps": 38949.43479196911,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,7 +267,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41057.920591401074,
+        "dps": 42289.33063676767,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -246,9 +286,9 @@
         "`fs, xf=5"
       ],
       "coabs": [
-        "Gala_Notte",
         "Humanoid_Midgardsormr",
-        "Mona"
+        "Mona",
+        "Nino"
       ],
       "share": [
         "Formal_Joachim",
@@ -260,6 +300,45 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42289.33063676767,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Mana_Fount"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), aff(stormlash)",
+        "`s3",
+        "`s4",
+        "`fs, xf=5"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },

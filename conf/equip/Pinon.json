@@ -97,7 +97,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 56744.72019218576,
+        "dps": 52011.088441668704,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -131,7 +131,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59876.527295595435,
+        "dps": 54345.460254936384,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -170,7 +170,7 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 56744.72019218576,
+        "dps": 52011.088441668704,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -220,14 +220,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86780.75290449033,
-        "team": 0.0570666569429738,
+        "dps": 91157.39060481223,
+        "team": 0.057195979537102024,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=0 and buff(s2)",
+        "`s2, fsc or x=7",
+        "`s4, fsc or x=5",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite) and buff(s3)"
+      ]
     },
     "META": {
-      "tdps": 308932.8730294528,
+      "tdps": 332566.77209820057,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -235,32 +244,42 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 62448.877061277155,
-        "team": 0.0,
+        "dps": 82223.58576522526,
+        "team": 0.055658617628116115,
         "noaff": false,
-        "nihil": true
+        "nihil": false
       },
       "acl": [
-        "`dragon(c3-s-c3-end), fsc",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`s1, fsc",
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=0 and buff(s2)",
+        "`s2, fsc or x=7",
+        "`s4, fsc or x=8",
+        "`s1, fsc or x=8",
         "`dodge, fsc",
-        "`fs2, not buff(locked_sigil)"
+        "`fs2, aff(frostbite) and buff(s3) and not dragonform.shift_count>=1"
       ],
       "coabs": [
         "Dragonyule_Cleo",
         "Gala_Mascula",
-        "Yurius"
+        "Tiki"
       ]
     },
+    "META": {
+      "tdps": 282436.9927995347,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66478.3857762694,
+        "dps": 66326.31679634626,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -297,19 +316,19 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62448.877061277155,
+        "dps": 62980.44660152915,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-end), fsc",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`s1, fsc",
+        "`dragon(c3-s-c3-end), fsc and buff(s2)",
+        "`s2",
+        "`s4, fsc and aff(frostbite)",
+        "`s3, buff(s2)",
+        "`s1, fsc and aff(frostbite)",
         "`dodge, fsc",
-        "`fs2, not buff(locked_sigil)"
+        "`fs2, buff(s2)"
       ],
       "coabs": [
         "Dragonyule_Cleo",

@@ -2,21 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54153.68575746988,
-        "team": 0.0978412002396823,
+        "dps": 44910.70456301473,
+        "team": 0.10997662943781183,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Kung_Fu_Masters",
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
         "Spirit_of_the_Season",
-        "Beautiful_Nothingness",
+        "A_Small_Courage",
         "The_Bustling_Hut",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Cupid",
       "acl": [
         "`dragon(c3-s-end), energy()=5 and dragonform.shift_count=0",
         "`dragon(c7-s-end), dragonform.shift_count>=1 and energy()>=4",
@@ -28,8 +28,8 @@
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Lucretia",
+        "Peony"
       ],
       "share": [
         "Weapon",
@@ -38,17 +38,17 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69434.26649725904,
-        "team": 0.08986455133877709,
+        "dps": 69868.11634958166,
+        "team": 0.08986455133877695,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "The_Red_Impulse",
         "A_Small_Courage",
-        "FirstRate_Hospitality",
+        "Sisters_of_the_Anvil",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 1915664.2005460558,
+      "tdps": 1240916.6105895618,
       "pref": "PERSONAL"
     }
   },
@@ -115,7 +115,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57601.899125310825,
+        "dps": 58047.36883838937,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -124,8 +124,8 @@
         "Extreme_Teamwork",
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "A_Game_of_Cat_and_Boar",
         "A_Small_Courage",
+        "Lord_of_the_Skies",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
@@ -150,7 +150,7 @@
       ]
     },
     "META": {
-      "tdps": 404277.93282962043,
+      "tdps": 427002.50735158694,
       "pref": "PERSONAL"
     }
   },
@@ -220,15 +220,39 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53324.621586561814,
+        "team": 0.09462343075306462,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "A_Small_Courage",
+        "Sisters_of_the_Anvil",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Peony"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66290.40715470738,
-        "team": 0.08986455133877709,
+        "dps": 69617.00252426013,
+        "team": 0.08986455133877695,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
+      "tdps": 3423575.0729012825,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -236,20 +260,38 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 69617.00252426013,
+        "team": 0.08986455133877695,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.d": "Gala_Thor"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51781.30767755993,
+        "dps": 53740.528911065994,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Worthy_Rivals",
         "A_Small_Courage",
-        "Snipers_Allure",
+        "Lord_of_the_Skies",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
@@ -262,18 +304,13 @@
         "`fs, c_fs(enhanced) and (x>3 or (charged_in(fs, s1) and x>1))",
         "#There can be only one"
       ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ],
       "share": [
-        "Gala_Mym",
-        "Gala_Luca"
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 107354.34805380205,
+      "tdps": 207299.34457925093,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

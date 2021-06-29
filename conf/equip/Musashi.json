@@ -2,51 +2,17 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25944.45019620654,
-        "team": 0.062454155180422286,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Levins_Champion",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Vayu",
-      "acl": [
-        "`dragon(c3-s-end), s1.check()",
-        "`s3, not buff(s3)",
-        "`s2, s4.check() or s1",
-        "`s1, buff(s3)",
-        "`s4",
-        "`fs, xf=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Akasha",
-        "Eleonora",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Elisanne"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 39759.16726816884,
-        "team": 0.0,
+        "dps": 43380.637083593756,
+        "team": 0.09999938889262314,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
@@ -55,28 +21,60 @@
         "`s2, s4.check() or s1",
         "`s1, buff(s3)",
         "`s4",
-        "`fs, xf=5",
-        "`dodge, fsc"
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
+        "Mona",
+        "Nino"
       ],
       "share": [
         "Weapon",
-        "Jurota"
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 46223.941009086426,
+        "team": 0.09986488281355312,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Valiant_Crown",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), timeleft(s2)>13 and xf",
+        "`s3, not buff(s3)",
+        "`s2, charged_in(5,s1)",
+        "`s1, buff(s3)",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 221197.72546843847,
+      "tdps": 21138850.713301286,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 15688.70846492461,
+        "dps": 35295.70888428894,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -84,28 +82,28 @@
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Liber_Grimortis"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s2, s4.check() or s1",
-        "`s1, buff(s3)",
+        "`dragon",
+        "`s3",
+        "# S1 is DPS loss",
+        "#`s1",
         "`s4",
         "`fs, xf=5",
         "`dodge, fsc"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Eleonora",
-        "Mona"
+        "Mona",
+        "Wand"
       ],
       "share": [
-        "Weapon",
-        "Jurota"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -115,34 +113,25 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59333.1285776672,
-        "team": 0.0,
+        "dps": 72871.26459914987,
+        "team": 0.09986313756996003,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), xf>1",
+        "`dragon(c3-s-c3-c3-c2-end), timeleft(s2)>13 and xf",
         "`s3, not buff(s3)",
-        "`s2, charged_in(5,s1) or dgauge>=500",
+        "`s2, charged_in(5,s1)",
         "`s1, buff(s3)",
-        "`s4",
+        "`s4, xf>1",
         "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
       ]
     },
     "META": {
@@ -161,13 +150,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
       "acl": [
         "`dragon(c3-s-c3-c3-end), cancel",
         "`s3, cancel",
@@ -180,10 +162,6 @@
         "Dagger",
         "Mona",
         "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -252,13 +230,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
       "acl": [
         "`dragon(c3-s-c3-c3-end), cancel",
         "`s3, cancel",
@@ -271,10 +242,6 @@
         "Dagger",
         "Mona",
         "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
       ]
     },
     "META": {

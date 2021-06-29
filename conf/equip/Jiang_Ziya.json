@@ -49,7 +49,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end)",
-        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s1, (x=5 or s=3) and timeleft(s1)<5",
         "`s3, not buff(s3)",
         "`s4"
       ],
@@ -92,9 +92,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 4836.430656004537,
+        "team": 0.14414798213878519,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "#`s2",
+        "`dragon(s-end)",
+        "`s1, (x=5 or s) and not buff(s1)",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26405.339873653065,
+        "dps": 26326.327068450624,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -124,7 +156,33 @@
       ]
     },
     "META": {
+      "tdps": 149082.186885944,
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 48150.30910675,
+        "team": 0.09870248268040599,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Springtime_Breeze",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ]
+    },
+    "META": {
+      "tdps": 56706.76472118456,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
@@ -137,10 +195,11 @@
       }
     },
     "META": {
+      "tdps": 146878.0101145925,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

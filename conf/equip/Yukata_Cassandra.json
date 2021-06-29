@@ -73,7 +73,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 18480.641246743056,
+        "dps": 23851.805830131583,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -81,9 +81,11 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "Pecorines_Grand_Adventure",
+        "A_Small_Courage",
+        "Amaterasu_Oblation",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -94,9 +96,9 @@
         "`fsf, x=4 and s1.charged=sp_val(4)"
       ],
       "coabs": [
-        "Gala_Mym",
-        "Marth",
-        "Nobunaga"
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
       ],
       "share": [
         "Weapon",
@@ -105,17 +107,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26562.579223329,
+        "dps": 36277.60533511741,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "The_Bridal_Dragon",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "The_Cutie_Competition",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Amaterasu_Oblation",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
@@ -126,12 +130,12 @@
         "`fsf, x=4 and s1.charged=sp_val(4)"
       ],
       "coabs": [
-        "Blade",
-        "Gala_Mym",
-        "Naveed"
+        "Joker",
+        "Nobunaga",
+        "The_Prince"
       ],
       "share": [
-        "The_Prince",
+        "Gala_Leonidas",
         "Gala_Mym"
       ]
     },
@@ -139,10 +143,45 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 23851.805830131583,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
+        "A_Small_Courage",
+        "Amaterasu_Oblation",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81380.20342214804,
+        "dps": 82344.39873566854,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -164,7 +203,7 @@
         "`s4"
       ],
       "coabs": [
-        "Gala_Laxi",
+        "Kimono_Elisanne",
         "Marth",
         "Yuya"
       ],
@@ -174,7 +213,7 @@
       ]
     },
     "META": {
-      "tdps": 271795.9265908488,
+      "tdps": 275415.46591361315,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -182,28 +221,52 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
+  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18480.641246743056,
+        "dps": 52373.69807063078,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
+      "slots.d": "Gala_Reborn_Agni",
       "coabs": [
-        "Gala_Mym",
-        "Marth",
-        "Nobunaga"
+        "Joker",
+        "Kimono_Elisanne",
+        "Yuya"
       ],
       "share": [
-        "Weapon",
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27445.638043102856,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "share": [
+        "Yuya",
         "Gala_Mym"
       ]
     },

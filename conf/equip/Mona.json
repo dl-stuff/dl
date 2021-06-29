@@ -37,7 +37,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75401.55697530265,
+        "dps": 77343.48158903602,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -61,8 +61,8 @@
         "`fs, x=4"
       ],
       "coabs": [
-        "Gala_Notte",
         "Humanoid_Midgardsormr",
+        "Nino",
         "Wand"
       ],
       "share": [
@@ -71,14 +71,14 @@
       ]
     },
     "META": {
-      "tdps": 235174.02784513752,
+      "tdps": 253844.57200636258,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54358.48656531167,
+        "dps": 57101.53871667437,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -102,8 +102,8 @@
         "`fs, x=4"
       ],
       "coabs": [
-        "Gala_Notte",
-        "Humanoid_Midgardsormr",
+        "Blade",
+        "Nino",
         "Wand"
       ],
       "share": [
@@ -126,14 +126,33 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92548.3184510835,
-        "team": 0.0,
+        "dps": 100553.66177346588,
+        "team": 0.07738715193205324,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`s3, not buff(s3)",
+        "if s2.check() and not dragondrive.get()",
+        "`dragon",
+        "end",
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4, fsc",
+        "`fs, x=4 or hits=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Humanoid_Midgardsormr",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
     },
     "META": {
-      "tdps": 155145.39819597974,
+      "tdps": 906813.69493869,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -144,7 +163,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67551.18956851414,
+        "dps": 67555.62284755574,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -174,7 +193,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60598.92737137883,
+        "dps": 62093.785245084655,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -191,7 +210,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41956.584298567126,
+        "dps": 43569.22111776662,
         "team": 0.0,
         "noaff": false,
         "nihil": true

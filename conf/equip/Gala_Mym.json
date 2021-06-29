@@ -183,7 +183,7 @@
         "`s4, cancel",
         "`s2, fscf",
         "`fs, x=5",
-        "`fs, x<5 and charged_in(fs, s1)",
+        "`fs, x<4 and charged_in(fs, s1)",
         "`dodge, fscf and buff(s3) and dragonform.shift_count>=2 and s"
       ]
     },
@@ -256,7 +256,7 @@
         "Tutelarys_Destiny"
       ],
       "acl": [
-        "`dragon(c3-s-end), dragonform.shift_count=0",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and cancel",
         "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
         "`dragon( AB10 ), dragonform.shift_count>=3",

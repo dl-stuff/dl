@@ -107,7 +107,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55728.39142057414,
+        "dps": 55728.391420574124,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -139,18 +139,31 @@
       ]
     },
     "META": {
-      "tdps": 343480.70682610635,
+      "tdps": 343480.70682610606,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 86706.2835220994,
+        "dps": 87247.0898909114,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), xf",
+        "`s3, not buff(s3)",
+        "`s2, s1.check() and xf",
+        "`s1, s2.charged < 3763 or s=2",
+        "`s4, xf",
+        "`dodge, (xf=1 and hits >153)"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

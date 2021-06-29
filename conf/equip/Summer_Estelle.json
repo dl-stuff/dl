@@ -74,9 +74,45 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11184.673836714665,
+        "team": 0.0421113909004932,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Candy_Couriers",
+        "Once_in_a_Lifetime",
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Siren",
+      "acl": [
+        "if s=2",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c2-end), dragonform.shift_count>=2",
+        "end",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, x>3",
+        "`s2, dgauge>=500 or (dgauge<=450 and x>2)"
+      ],
+      "coabs": [
+        "Gala_Elisanne",
+        "Summer_Julietta",
+        "Zardin"
+      ],
+      "share": [
+        "Weapon",
+        "Ranzal"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28117.355382479065,
+        "dps": 27679.121779830195,
         "team": 0.03635433079262826,
         "noaff": false,
         "nihil": true
@@ -111,6 +147,7 @@
       ]
     },
     "META": {
+      "tdps": 2865081.766400499,
       "pref": "PERSONAL"
     }
   },
@@ -142,7 +179,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37887.98442782332,
+        "dps": 37810.61193873236,
         "team": 0.038520790871237325,
         "noaff": false,
         "nihil": true
@@ -165,7 +202,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -202,7 +239,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

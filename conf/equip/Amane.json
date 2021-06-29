@@ -2,23 +2,23 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 61579.08950839677,
-        "team": 0.033324286406690336,
+        "dps": 67938.34360121861,
+        "team": 0.18085841076161802,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Dueling_Dancers",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3-s), buff(s3, 1) and cancel",
+        "`dragon(c3-s-c3-c3), buff(s3, 1) and cancel",
         "queue prep",
         "`s2;s3;s1;s4",
         "end",
@@ -29,33 +29,33 @@
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Sharena"
+        "Malora",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61579.08950839677,
-        "team": 0.033324286406690336,
+        "dps": 68179.64773119136,
+        "team": 0.18019659647559325,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Dueling_Dancers",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3-s), buff(s3, 1) and cancel",
+        "`dragon(c3-s-c3-c3), buff(s3, 1) and cancel",
         "queue prep",
         "`s2;s3;s1;s4",
         "end",
@@ -66,22 +66,45 @@
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Sharena"
+        "Joker",
+        "Peony"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
+      "tdps": 364610.0349724348,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67938.34360121861,
+        "team": 0.18085841076161802,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Malora",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49644.94336195412,
+        "dps": 50155.161681462996,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -93,7 +116,7 @@
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -105,7 +128,7 @@
       ],
       "coabs": [
         "Blade",
-        "Malora",
+        "Joker",
         "Peony"
       ],
       "share": [
@@ -117,56 +140,72 @@
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 69983.87597596562,
-        "team": 0.14087108674268534,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Thor",
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
+  "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78176.95078024716,
-        "team": 0.11935332347939039,
+        "dps": 46625.15106085727,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Sharena"
       ]
     },
     "META": {
-      "tdps": 380758.6645521519,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78726.1794402175,
+        "team": 0.18019659647559305,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70068.06909567124,
+        "team": 0.1693567099259704,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Sharena"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -211,53 +250,75 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46148.88082722486,
-        "team": 0.033324286406690336,
+        "dps": 53609.21843913179,
+        "team": 0.1693567099259704,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46905.84737592476,
-        "team": 0.0,
+        "dps": 58042.75542885754,
+        "team": 0.18019659647559308,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
+        "Bloody_Little_Queen",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Worthy_Rivals",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Lord_of_the_Skies",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
       ]
     },
     "META": {
-      "tdps": 22715.16153299919,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53609.21843913179,
+        "team": 0.1693567099259704,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41194.900088955685,
+        "dps": 42756.55475070343,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -267,7 +328,7 @@
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Lord_of_the_Skies",
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
@@ -282,11 +343,11 @@
       ],
       "coabs": [
         "Blade",
-        "Mitsuhide",
+        "Fritz",
         "Peony"
       ],
       "share": [
-        "Julietta",
+        "Summer_Celliera",
         "Summer_Julietta"
       ]
     },
@@ -294,7 +355,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

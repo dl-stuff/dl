@@ -70,37 +70,36 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43579.899880440134,
-        "team": 0.08640597119942364,
-        "noaff": false,
+        "dps": 10282.153682058472,
+        "team": 0.16663892812027079,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
-        "Enter_the_Blue_Rose",
-        "The_Plaguebringer"
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Wily_Warriors_Flash_and_Heat",
+        "Dragons_Nest",
+        "Seaside_Memory"
       ],
-      "slots.d": "Fatalis",
+      "slots.d": "Azazel",
       "acl": [
-        "`s1, not aff(shadowblight)",
         "`s4",
         "`fs"
       ],
       "coabs": [
+        "Bow",
         "Grace",
-        "Ieyasu",
         "Joker"
       ],
       "share": [
-        "Summer_Celliera",
-        "Seimei"
+        "Yuya",
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51173.20692673686,
+        "dps": 51413.318364728664,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -114,7 +113,7 @@
       ],
       "slots.d": "High_Chthonius",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon(s-end)",
         "`s1, not aff(shadowblight)",
         "`s4",
         "`s3, not aff(poison)",
@@ -126,12 +125,12 @@
         "Ieyasu"
       ],
       "share": [
-        "Ranzal",
+        "Gala_Mym",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 87879.42477692297,
+      "tdps": 246828.06800691845,
       "pref": "PERSONAL"
     }
   },
@@ -152,9 +151,7 @@
       ],
       "slots.d": "Fatalis",
       "acl": [
-        "`dragon(c3-s-end), s and dragonform.shift_count<3",
         "`s3, not buff(s3)",
-        "`s1, not aff(shadowblight)",
         "`s4",
         "`fs"
       ],
@@ -184,7 +181,8 @@
       "slots.d": "Fatalis",
       "acl": [
         "`s4",
-        "`fs"
+        "`fs",
+        "`s3,s=3"
       ],
       "coabs": [
         "Blade",
@@ -192,11 +190,12 @@
         "Joker"
       ],
       "share": [
-        "Summer_Celliera",
+        "Yuya",
         "Seimei"
       ]
     },
     "META": {
+      "tdps": 557408.6518418408,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -207,32 +206,32 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63021.90512608255,
+        "dps": 65057.48844443074,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
         "Enter_the_Blue_Rose",
-        "Luck_of_the_Draw"
+        "Lord_of_the_Skies"
       ],
       "acl": [
-        "`dragon(s-end)",
+        "`dragon(s-end), s",
         "`s3, not buff(s3)",
-        "`s4",
+        "`s4, not buff(s4)",
         "`fs"
       ],
       "coabs": [
-        "Blade",
         "Dagger",
-        "Grace"
+        "Grace",
+        "Ieyasu"
       ]
     },
     "META": {
-      "tdps": 113769.12516804617,
+      "tdps": 118266.72763437941,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -243,21 +242,27 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32160.389414397006,
-        "team": 0.06170700906559537,
+        "dps": 39335.67872962944,
+        "team": 0.08640374919198825,
         "noaff": false,
         "nihil": true
       },
-      "slots.d": "Fatalis",
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Lurker_in_the_Woods",
+        "Enter_the_Blue_Rose",
+        "Lord_of_the_Skies"
+      ],
       "acl": [
-        "`s1, not aff(shadowblight)",
+        "`dragon(s-end), s",
         "`s4",
         "`fs"
       ],
       "coabs": [
+        "Dagger",
         "Grace",
-        "Ieyasu",
-        "Joker"
+        "Ieyasu"
       ],
       "share": [
         "Summer_Celliera",
@@ -265,6 +270,7 @@
       ]
     },
     "META": {
+      "tdps": 362104.5710328657,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

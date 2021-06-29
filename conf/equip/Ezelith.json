@@ -74,26 +74,28 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 22269.883410908107,
+        "dps": 22481.09885634474,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "Moonlight_Party",
+        "Sweet_Surprise",
+        "Amaterasu_Oblation",
+        "The_Plaguebringer",
         "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(s-s-c3-end), s=1 and not s4.check()",
+        "`dragon(s-s-c3-end), not s4.check()",
         "`s3",
         "`s4",
-        "`s1"
+        "`s2",
+        "`s1",
+        "`fs, x=5"
       ],
       "coabs": [
         "Blade",
@@ -101,7 +103,7 @@
         "Wand"
       ],
       "share": [
-        "Weapon",
+        "The_Prince",
         "Formal_Joachim"
       ]
     },
@@ -146,12 +148,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47821.874881871016,
+        "dps": 28385.035898921913,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
         "`s3, cancel",
@@ -245,7 +246,7 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 22269.883410908107,
         "team": 0.0,
@@ -261,6 +262,7 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Mars",
       "acl": [
         "`dragon(s-s-c3-end), s=1 and not s4.check()",
         "`s3",
@@ -273,7 +275,7 @@
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

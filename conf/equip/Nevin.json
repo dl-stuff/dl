@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8804.158231131756,
-        "team": 0.6820378852268965,
+        "dps": 8566.68616820751,
+        "team": 0.6902330762851718,
         "noaff": false,
         "nihil": false
       },
@@ -19,7 +19,8 @@
         "`dragon(s-end)",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4"
+        "`s4",
+        "`dodge, xf=6"
       ],
       "coabs": [
         "Audric",
@@ -33,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50499.664151601464,
-        "team": 0.27674691405574164,
+        "dps": 51996.35215695442,
+        "team": 0.27662364571625236,
         "noaff": false,
         "nihil": false
       },
@@ -51,7 +52,8 @@
         "`s3, not buff(s3)",
         "`s1",
         "`s4, xf",
-        "`s2, cancel"
+        "`s2, cancel",
+        "`dodge, xf=6"
       ],
       "coabs": [
         "Dagger2",
@@ -64,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 102877.95407823594,
+      "tdps": 105001.63385783887,
       "pref": "PERSONAL"
     }
   },
@@ -84,8 +86,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48254.87439880158,
-        "team": 0.27674691405574164,
+        "dps": 49693.34634978387,
+        "team": 0.27662364571625236,
         "noaff": false,
         "nihil": false
       },
@@ -96,7 +98,7 @@
       ]
     },
     "META": {
-      "tdps": 104521.48209104223,
+      "tdps": 108366.89859413508,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -144,22 +146,29 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9287.871488106564,
-        "team": 0.6820378852268965,
+        "dps": 9007.354372810454,
+        "team": 0.6902330762851718,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51833.76489102991,
-        "team": 0.27674691405574164,
+        "dps": 55554.83470844456,
+        "team": 0.27662364571625236,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ]
     },
     "META": {
-      "tdps": 104976.16880035597,
+      "tdps": 112539.69782944283,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -211,8 +220,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32947.92427557063,
-        "team": 0.04157734445578683,
+        "dps": 34757.88995058854,
+        "team": 0.04165095685996625,
         "noaff": false,
         "nihil": true
       },
@@ -227,7 +236,8 @@
         "`dragon(c5-s-c5-c5-c3-end)",
         "`s3,xf",
         "`s4",
-        "`s2, cancel"
+        "`s2, cancel",
+        "`fsf, xf=6"
       ],
       "coabs": [
         "Ieyasu",
@@ -254,12 +264,18 @@
         "team": 0.6820378852268965,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39478.60249785482,
-        "team": 0.27674691405574164,
+        "dps": 40810.28629333932,
+        "team": 0.27662364571625236,
         "noaff": false,
         "nihil": false
       },
@@ -269,10 +285,19 @@
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Snipers_Allure"
+      ],
+      "acl": [
+        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, xf",
+        "`s2, cancel",
+        "`dodge, xf=6",
+        "`fsf, xf=5 and have_buff(revelation_sword)"
       ]
     },
     "META": {
-      "tdps": 77117.0919187546,
+      "tdps": 80378.39251148506,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -324,34 +349,34 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8086.667311218605,
-        "team": 0.0,
+        "dps": 20866.938308839617,
+        "team": 0.04166607832260328,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "Holywyrms_Advent",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Snipers_Allure"
       ],
-      "slots.d": "Ramiel",
       "acl": [
         "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
         "`s3, not buff(s3)",
-        "`s1",
         "`s4, xf",
-        "`s2, cancel"
+        "`s1, s2.check()",
+        "`s2, cancel",
+        "`fsf, xf=6"
       ],
       "coabs": [
+        "Blade",
         "Dagger2",
-        "Forte",
-        "Ieyasu"
+        "Joker"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Joker",
+        "Gala_Mym"
       ]
     },
     "PERSONAL": {
@@ -386,6 +411,7 @@
       ]
     },
     "META": {
+      "tdps": 28437160.515827086,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

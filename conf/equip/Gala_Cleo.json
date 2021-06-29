@@ -52,6 +52,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon(c3-s-end), trickery<=1",
         "`s3, not buff(s3)",
         "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
         "if x=5 or (x=4 or (fsc or s))",
@@ -178,16 +179,16 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65675.98290981016,
-        "team": 0.4992735426065047,
+        "dps": 69455.07376452719,
+        "team": 0.4851846046897924,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "acl": [
@@ -195,18 +196,18 @@
         "`s3, not buff(s3)",
         "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
         "if x=5 or (x=4 or (fsc or s))",
-        "`s4, x>=4",
+        "`s4",
         "`s2",
         "end",
         "`s1, s or fsc"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 97055.32826866083,
+      "tdps": 101468.10762745571,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -217,8 +218,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40544.4322392814,
-        "team": 0.08662568332665307,
+        "dps": 41244.46846977085,
+        "team": 0.08691193955857851,
         "noaff": false,
         "nihil": true
       },
@@ -236,7 +237,7 @@
       ],
       "share": [
         "Summer_Julietta",
-        "Gala_Chelle"
+        "Summer_Celliera"
       ]
     },
     "META": {
@@ -258,16 +259,16 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41738.75598305278,
-        "team": 0.4992735426065048,
+        "dps": 47641.662255383315,
+        "team": 0.48518460468979224,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "An_Ancient_Oath",
         "Candy_Couriers",
         "Memory_of_a_Friend",
-        "His_Clever_Brother",
+        "Lord_of_the_Skies",
         "The_Queen_of_the_Knife"
       ],
       "acl": [
@@ -275,22 +276,67 @@
         "`s3, not buff(s3)",
         "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
         "if x=5 or (x=4 or (fsc or s))",
-        "`s4, x>=4",
+        "`s4",
         "`s2",
         "end",
         "`s1, s or fsc"
       ],
       "share": [
         "Weapon",
-        "Fjorm"
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 54404.967824945554,
+      "tdps": 63803.291960433045,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46224.63412063468,
+        "team": 0.522954814738901,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
+        "if x=5 or (x=4 or (fsc or s))",
+        "`s4",
+        "`s2",
+        "end",
+        "`s1, s or fsc"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "tdps": 37517.08377862392,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

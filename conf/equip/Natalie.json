@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41011.62764891258,
-        "team": 0.11940601364292526,
+        "dps": 26375.482737616225,
+        "team": 0.12492761597325472,
         "noaff": false,
         "nihil": false
       },
@@ -14,27 +14,27 @@
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
-      "slots.d": "Andromeda",
+      "slots.d": "Azazel",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=5",
-        "`s3, not buff(s3) and cancel",
-        "`s1, hp<=20",
-        "`s2, xf=5",
-        "`s4, xf=5"
+        "`dragon(s-c3-c3-end)",
+        "`s2",
+        "`s3",
+        "`s1",
+        "`s4, s=1"
       ],
       "coabs": [
         "Curran",
-        "Summer_Patia",
+        "Dagger",
         "Wand"
       ],
       "share": [
-        "Weapon",
-        "Cleo"
+        "Patia",
+        "Summer_Cleo"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104605.33304640309,
+        "dps": 106849.29105346368,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -48,7 +48,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=5",
+        "`dragon(s-c3-c3-end), xf=1 and trickery<=1",
         "`s3, not buff(s3) and cancel",
         "`s1, hp<=20",
         "`s2, xf=5",
@@ -65,7 +65,7 @@
       ]
     },
     "META": {
-      "tdps": 532583.7741109314,
+      "tdps": 644163.4837014402,
       "pref": "PERSONAL"
     }
   },
@@ -107,14 +107,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 53315.11594358636,
-        "team": 0.11940601364292526,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 122311.07739136892,
@@ -143,7 +135,6 @@
       ]
     },
     "META": {
-      "tdps": 577826.5209833552,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -194,7 +185,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 80296.5064294656,
+        "dps": 87305.35393051027,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -206,9 +197,17 @@
         "A_Small_Courage",
         "Liber_Grimortis"
       ],
+      "acl": [
+        "`dragon(s-c3-c3-end), xf=5 and trickery<=5",
+        "`s3, not buff(s3)",
+        "`s1, hp<=30 or xf=5",
+        "`s2, xf=5 and (hp=0 or hp=100)",
+        "`s4, xf or hp>0",
+        "`fsf, xf=5"
+      ],
       "share": [
         "Weapon",
-        "Veronica"
+        "Valentines_Chelsea"
       ]
     },
     "META": {

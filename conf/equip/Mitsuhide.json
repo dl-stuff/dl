@@ -2,19 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58859.07340092593,
-        "team": 0.12513627348219541,
+        "dps": 62685.23691237013,
+        "team": 0.12513627348219564,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
-        "Kicking_Back",
+        "A_Small_Courage",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Daikokuten",
       "acl": [
@@ -69,11 +69,45 @@
       ]
     },
     "META": {
-      "tdps": 288412.9077910258,
+      "tdps": 175410.20348197874,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36940.83972771461,
+        "team": 0.029407231091089114,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon(c3-s-c3-end), s",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3, cancel",
+        "`s4"
+      ],
+      "coabs": [
+        "Malora",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Sha_Wujing",
+        "Ranzal"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50791.58237648958,
@@ -109,6 +143,7 @@
       ]
     },
     "META": {
+      "tdps": 470997.85103440034,
       "pref": "PERSONAL"
     }
   },
@@ -137,6 +172,31 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 58518.017035135206,
+        "team": 0.0294090231313926,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), aff(flashburn)",
+        "`s1",
+        "`s2, hits>60",
+        "`s4, xf",
+        "`s3, xf"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 60454.70448923374,
@@ -158,10 +218,11 @@
       ]
     },
     "META": {
+      "tdps": 65853.51187782991,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -204,7 +265,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

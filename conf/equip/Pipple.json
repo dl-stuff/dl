@@ -2,13 +2,13 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 13064.313990572386,
-        "team": 0.29841035718913966,
+        "dps": 15995.118721301515,
+        "team": 0.6195418902611443,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
+        "Castle_Cheer_Corps",
         "Once_in_a_Lifetime",
         "Sisters_Day_Out",
         "Bellathorna",
@@ -16,18 +16,19 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`s1",
+        "`fs, fs_prep_c and x=3",
+        "`dragon (s-end), s",
+        "`s1, cancel",
         "`s3",
-        "`s4",
-        "`fs, x=5"
+        "`s4"
       ],
       "coabs": [
-        "Hunter_Sarisse",
-        "Joker",
+        "Gala_Mascula",
+        "Renee",
         "Tobias"
       ],
       "share": [
-        "Patia",
+        "Gala_Elisanne",
         "Templar_Hope"
       ]
     },
@@ -65,46 +66,44 @@
       ]
     },
     "META": {
-      "tdps": 207455.2086076431,
+      "tdps": 95192.88218875088,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34354.82264576531,
-        "team": 0.024962383075504208,
-        "noaff": true,
+        "dps": 31755.478139797477,
+        "team": 0.03743551939758864,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "Bloody_Little_Queen",
+        "Brothers_in_Arms",
+        "Felyne_Hospitality",
+        "Beach_Battle",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Halloween_Maritimus",
+      "slots.d": "Nimis",
       "acl": [
-        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=0 and x=4",
-        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count=1 and s=2",
-        "`dragon(c3-c3-c3-s-c2-end), dragonform.shift_count>=2 and x>1",
         "`s3, not buff(s3)",
-        "`s2, x=5 or energy()<5",
-        "`s4, not energy()=5 and x>3"
+        "`s1",
+        "`s2",
+        "`s4"
       ],
       "coabs": [
-        "Blade",
-        "Summer_Celliera",
+        "Karina",
+        "Nurse_Aeleen",
         "Tiki"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Yuya"
       ]
     },
     "META": {
-      "tdps": 1627099.2285996294,
+      "tdps": 1154401.4734549895,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -150,10 +149,35 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84697.52950933627,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ]
+    },
+    "META": {
+      "tdps": 110892.27680645755,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43076.514635881096,
+        "dps": 42987.05975680139,
         "team": 0.0,
         "noaff": false,
         "nihil": true

@@ -74,19 +74,40 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 49135.90667072159,
-        "team": 0.20303698440724552,
+        "dps": 83695.40825207984,
+        "team": 0.2056642159191734,
         "noaff": true,
         "nihil": false
       },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Passion_for_Produce",
+        "Amaterasu_Oblation",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(s-s-c3-c3-end), s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=5",
+        "`s4, x=5"
+      ],
       "coabs": [
         "Blade",
-        "Gala_Sarisse",
+        "Halloween_Mym",
         "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 422781.4259585859,
+      "tdps": 104068.69006836042,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -97,34 +118,35 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24006.596795648893,
+        "dps": 38360.71110478536,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Twinfold_Bonds",
+        "Moonlight_Party",
+        "The_Cutie_Competition",
         "A_Passion_for_Produce",
-        "Amaterasu_Oblation"
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
         "`dragon(s-s-end), s=1",
-        "`s3, not buff(s3) and x=5",
+        "`s3",
         "`s4",
-        "`s1, cancel",
-        "`s2, x=5"
+        "`s1, x>3"
       ],
       "coabs": [
         "Blade",
-        "Gala_Sarisse",
+        "Halloween_Mym",
         "Kimono_Elisanne"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Gala_Leonidas",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -174,7 +196,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57049.90578752043,
+        "dps": 57493.72689735787,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -186,7 +208,7 @@
         "A_Passion_for_Produce",
         "A_Small_Courage",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
@@ -194,15 +216,6 @@
         "`s4",
         "`s3",
         "`s1, x>3"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
       ]
     },
     "META": {
@@ -216,17 +229,19 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 72849.40800646126,
+        "dps": 83695.40825207984,
         "team": 0.2056642159191734,
-        "noaff": false,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Me_and_My_Bestie",
+        "Brothers_in_Arms",
         "Memory_of_a_Friend",
-        "Twinfold_Bonds",
+        "Moonlight_Party",
         "A_Passion_for_Produce",
-        "Amaterasu_Oblation"
+        "Amaterasu_Oblation",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "acl": [
         "`dragon(s-s-c3-c3-end), s=1",
@@ -246,10 +261,36 @@
       ]
     },
     "META": {
-      "tdps": 685792.3648537275,
+      "tdps": 969132.1727959325,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 34992.67974252277,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

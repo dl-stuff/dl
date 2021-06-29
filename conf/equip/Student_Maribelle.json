@@ -243,19 +243,56 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 48381.73412545956,
-        "team": 0.040419983501372415,
+        "dps": 41792.82528672202,
+        "team": 0.04798718279989468,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-s-end), aff(scorchrend)",
+        "`s4",
+        "`s1",
+        "`s3",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53219.78759405888,
+        "team": 0.042997493306401346,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Holywyrms_Advent",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
         "`dragon(s-s-c3-c3-end), s=1 or (s=2 or s=4)",
@@ -266,16 +303,44 @@
         "`dodge, fsc",
         "`fs, x=5"
       ],
+      "coabs": [
+        "Axe2",
+        "Blade",
+        "Kimono_Elisanne"
+      ],
       "share": [
         "Summer_Julietta",
         "Summer_Celliera"
       ]
     },
     "META": {
+      "tdps": 2290114.910404318,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41792.82528672202,
+        "team": 0.04798718279989468,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Kimono_Elisanne"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

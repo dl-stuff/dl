@@ -2,66 +2,72 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48391.68659618036,
-        "team": 0.11900952113817363,
+        "dps": 58215.773908255556,
+        "team": 0.1318953936403042,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "The_Shining_Overlord",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`s3, not buff(s3) and fsc",
+        "if dragondrive.get()",
+        "`s4",
+        "`s2, xf=5 or s",
+        "`s1, (xf=5 and dgauge>=800)",
+        "else",
+        "`dragon, fsc",
+        "`s1, fsc",
+        "`fs, x=4 or hits=2",
+        "end"
       ],
       "coabs": [
+        "Blade",
         "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Lowen"
+        "Mona"
       ],
       "share": [
         "Weapon",
-        "Halloween_Lowen"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74786.84015058182,
-        "team": 0.04140304654329862,
+        "dps": 68749.7096434869,
+        "team": 0.02045299048515565,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "The_Shining_Overlord",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`s3, not buff(s3) and fsc",
+        "if dragondrive.get()",
+        "`s4, xf=5",
+        "`s2, xf=5",
+        "`s1, (xf=5 and dgauge>=900) or duration-now < 13",
+        "else",
+        "`dragon",
+        "`s1, fsc",
+        "`fs, x=3",
+        "end"
       ],
       "coabs": [
         "Blade",
         "Mona",
-        "Nino"
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -69,130 +75,135 @@
       ]
     },
     "META": {
-      "tdps": 340115.35367623233,
+      "tdps": 94523.58740475246,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53854.92205227076,
-        "team": 0.042885580203598755,
+        "dps": 43097.41521743462,
+        "team": 0.026302233860278773,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "The_Shining_Overlord",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "if dragondrive.get()",
+        "`s4",
+        "`s2",
+        "`s3",
+        "`s1, xf=5 or duration-now < 11",
+        "`fs, x=4",
+        "else",
+        "`dragon",
+        "`s1, fsc",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
         "Blade",
-        "Mona",
-        "Nino"
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
-        "Summer_Celliera",
+        "Ranzal",
         "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60890.67787485215,
-        "team": 0.04230885545606686,
+        "dps": 54989.70200569744,
+        "team": 0.02046478628065157,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "The_Shining_Overlord",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon, s=2",
-        "`s3, cancel",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "if dragondrive.get()",
+        "`s3",
+        "`s4",
+        "`s2, xf=5 or s",
+        "`s1, xf=5 or duration-now < 11",
+        "else",
+        "`dragon",
+        "`s1, fsc",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
         "Blade",
-        "Mona",
-        "Nino"
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
-        "Summer_Celliera",
+        "Ranzal",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 12199503.927464535,
+      "tdps": 2037240.870439182,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 95197.12321931233,
-        "team": 0.19473532796309218,
+        "dps": 85966.63986016683,
+        "team": 0.1323455720295068,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), energy()=5 and cancel",
-        "queue prep and now=0",
-        "`s4;s3;s2;s1",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x>2 or fsc",
-        "`s4, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`s3, not buff(s3) and fsc",
+        "if dragondrive.get()",
+        "`s4",
+        "`s2, xf=5 or s",
+        "`s1, xf=5 or duration-now < 3",
+        "else",
+        "`dragon, fsc",
+        "`s1, fsc",
+        "`fs, x=4 or hits=2",
+        "end"
       ],
       "coabs": [
         "Blade",
         "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Wand"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95919.03892828079,
-        "team": 0.19373345432595884,
+        "dps": 86804.13911087158,
+        "team": 0.13164111901412548,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), energy()=5 and cancel",
-        "`s4, s=3",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x>2 or fsc",
-        "`s4, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
+        "`s3, not buff(s3) and fsc",
+        "if dragondrive.get()",
+        "`s4",
+        "`s2, xf=5 or s",
+        "`s1, xf=5 or duration-now < 8",
+        "else",
+        "`dragon, fsc",
+        "`s1, fsc",
+        "`fs, x=4 or hits=2",
+        "end"
       ],
       "share": [
         "Weapon",
@@ -200,7 +211,7 @@
       ]
     },
     "META": {
-      "tdps": 720565.6304462522,
+      "tdps": 1188864.5976643232,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -209,31 +220,24 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 69281.76123767739,
-        "team": 0.042885580203598755,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71920.25504629966,
-        "team": 0.04252234783911913,
+        "dps": 64501.94042286328,
+        "team": 0.018513454910268515,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
-        "`s3, cancel",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel"
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 7263928.181075589,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -244,8 +248,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60285.503278266864,
-        "team": 0.04140304654329867,
+        "dps": 55139.76510925071,
+        "team": 0.02045299048515565,
         "noaff": false,
         "nihil": false
       }
@@ -261,56 +265,66 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38223.86505200008,
-        "team": 0.04935465792635168,
+        "dps": 45075.55601454946,
+        "team": 0.023445573981788773,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Dogs_Day",
-        "Candy_Couriers",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Shining_Overlord",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
+      "acl": [
+        "if dragondrive.get()",
+        "`s3",
+        "`s4",
+        "`s2, xf=5 or s",
+        "`s1, xf=5 or duration-now < 11",
+        "else",
+        "`dragon",
+        "`s1, fsc",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Mona",
+        "Wand"
+      ],
       "share": [
         "Summer_Celliera",
-        "Seimei"
+        "Student_Maribelle"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48956.25845681175,
-        "team": 0.03972739505535258,
+        "dps": 46289.252870752214,
+        "team": 0.018513454910268515,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Bloody_Little_Queen",
-        "Candy_Couriers",
         "Memory_of_a_Friend",
-        "Entwined_Flames",
-        "Snipers_Allure"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
-        "`s3",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel"
+        "Moonlight_Party",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
-        "Mona"
+        "Mona",
+        "Wand"
       ],
       "share": [
         "Summer_Celliera",
-        "Summer_Julietta"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 1114791.7688153754,
+      "tdps": 246080.20175568247,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

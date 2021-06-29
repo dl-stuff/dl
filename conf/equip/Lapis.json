@@ -104,7 +104,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51165.373121616256,
+        "dps": 49493.61564198762,
         "team": 0.0458803857240682,
         "noaff": false,
         "nihil": true
@@ -136,15 +136,15 @@
       ]
     },
     "META": {
-      "tdps": 279900.03529389645,
+      "tdps": 253920.09142296537,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 104016.29089156118,
-        "team": 0.04165381453646487,
+        "dps": 108580.22149323048,
+        "team": 0.041633259830583996,
         "noaff": false,
         "nihil": false
       },
@@ -155,14 +155,16 @@
         "Enter_the_Blue_Rose",
         "His_Clever_Brother"
       ],
-      "coabs": [
-        "Catherine",
-        "Gala_Mascula",
-        "Hunter_Sarisse"
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1,not have_buff(s1_res_down) and energy()<5 and buff(s3)",
+        "`s4, energy()<4",
+        "`s2, energy()=5",
+        "`fs"
       ]
     },
     "META": {
-      "tdps": 125948.27478298695,
+      "tdps": 132393.28803921762,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -173,8 +175,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 47709.70983789441,
-        "team": 0.11215739679732782,
+        "dps": 30674.822461014097,
+        "team": 0.13667055781737297,
         "noaff": false,
         "nihil": true
       },
@@ -185,17 +187,22 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`s1, not have_buff(s1_res_down) or (s4.check() and dgauge>=500)",
-        "`s2, def_mod()!=1",
+        "`s2",
         "`s3",
         "`s4, s=1",
-        "`dragon(c3-s-c3-c3-c2-end), s=4",
         "`fs"
       ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Nurse_Aeleen",
+        "Xainfried"
+      ],
       "share": [
-        "Eugene",
-        "Seimei"
+        "Seimei",
+        "Eugene"
       ]
     },
     "PERSONAL": {
@@ -231,7 +238,7 @@
       ]
     },
     "META": {
-      "tdps": 478903.2620413608,
+      "tdps": 620504.2214978948,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
