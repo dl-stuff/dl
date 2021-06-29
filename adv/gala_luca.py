@@ -66,7 +66,7 @@ class Gala_Luca(Adv):
             icon_count = min(base_icon_count + a1_buff_count, 7)
             current_rate = min(
                 1.0,
-                base_rate + CONNECTING_CALL_CRITR * a1_buff_count + min(0.28, 0.04 * icon_count) + 0.1 * icon_count * int(in_s1),
+                base_rate + self.CONNECTING_CALL_CRITR * a1_buff_count + min(0.28, 0.04 * icon_count) + 0.1 * icon_count * int(in_s1),
             )
             # current_rate += 0.03 * a1_buff_count # a1buff crit
             # current_rate += min(0.28, 0.04 * icon_count) # a1 icon crit
