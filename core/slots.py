@@ -707,6 +707,11 @@ class Arsene(DragonBase):
         return super().ab if self.on_ele else [["s", 0.9]]
 
 
+class Gala_Reborn_Nidhogg(Gala_Reborn):
+    def oninit(self, adv):
+        super().oninit(adv, "gnidhogg_buff", "shadow")
+
+
 ### SHADOW DRAGONS ###
 
 
