@@ -43,6 +43,7 @@ ABNORMAL_COND = (
 HAS_7SLOT = (
     "light",
     "flame",
+    "shadow",
 )
 BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
 BUILD_META_KEY = "EQMT"
