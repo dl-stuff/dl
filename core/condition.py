@@ -63,7 +63,7 @@ class Condition(dict):
         return self[key] and self.global_cond
 
     def hp_cond_update(self):
-        current_hp = self.adv.hp
+        current_hp = round(self.adv.hp, 5)  # account for float shenanigans
         for hpt, hpt_key in self.hp_cond[">"].items():
             self[hpt_key] = current_hp >= hpt
         for hpt, hpt_key in self.hp_cond["<"].items():
