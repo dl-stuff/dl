@@ -46,7 +46,7 @@ class Skill(object):
         self.silence_end_event = Event("silence_end")
         self.skill_charged = Event("{}_charged".format(self.name))
 
-        self.enable_phase_up = None
+        self.enable_phase_up = False
         self.maxcharge = 1
         self.autocharge_sp = 0
 
@@ -58,7 +58,8 @@ class Skill(object):
         if group == "default":
             self.act_base = act
         if isinstance(group, int):
-            self.enable_phase_up = phase_up
+            # might need to distinguish which phase can up eventually
+            self.enable_phase_up = self.enable_phase_up or phase_up
         if act.conf["sp_regen"] and not self.autocharge_sp:
             self.autocharge_init(act.conf["sp_regen"]).on()
 
@@ -1767,8 +1768,7 @@ class Adv(object):
                 s.act_event.group = s.group
             phase_up = True
             if self.nihilism:
-                # agito weapon skills can phase up
-                phase_up = self.slots.w.series == "agito" and sn.startswith("s3") and snconf.owner is None
+                phase_up = snconf.get("phase_coei")
             self.a_s_dict[s.base].add_action(s.group, s, phase_up=phase_up)
             self.hitattr_check(sn, snconf)
 

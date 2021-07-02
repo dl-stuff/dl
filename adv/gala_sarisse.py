@@ -4,8 +4,6 @@ from core.advbase import *
 class Gala_Sarisse(Adv):
     def prerun(self):
         self.ahits = 0
-        # why tho
-        self.a_s_dict["s2"].enable_phase_up = True
 
     def add_combo(self, name="#"):
         result = super().add_combo(name)

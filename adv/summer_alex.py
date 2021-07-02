@@ -2,17 +2,6 @@ from core.advbase import *
 
 
 class Summer_Alex(Adv):
-    conf = {
-        "acl": """
-            `dragon(c2-s-c2-c2-c2-c2-end), cancel
-            `s3, not buff(s3)
-            `s2
-            `s1, s2.charged < 4000 or s=2
-            `s4, cancel
-            `fs, x=5
-        """
-    }
-
     def prerun(self):
         self.scorchbloom = 0
         self.sb_t = Timer(self.scorchbloom_proc)

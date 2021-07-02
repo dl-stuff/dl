@@ -433,8 +433,8 @@ class Afflics(object):
             "shadowblight": 0,
             "scorchrend": 0,
         },
-        ("shadow", True): {  # Shadow Advantage Dominion
-            "poison": 0,
+        ("shadow", True): {  # Master Asura (light Side)
+            "poison": 80,
             "burn": 100,
             "freeze": 100,
             "paralysis": 100,
@@ -445,7 +445,7 @@ class Afflics(object):
             "frostbite": 100,
             "flashburn": 100,
             "stormlash": 100,
-            "shadowblight": 0,
+            "shadowblight": 80,
             "scorchrend": 100,
         },
         ("wind", False): {  # Legend Ciella
