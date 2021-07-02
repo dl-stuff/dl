@@ -31,7 +31,7 @@ class Summer_Alex(Adv):
 
     def s1_hit2(self, name, base, group, aseq):
         if group == "enhanced":
-            self.scorchbloom_proc(e)
+            self.scorchbloom_proc()
 
 
 variants = {None: Summer_Alex}
