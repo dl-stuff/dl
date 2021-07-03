@@ -164,13 +164,14 @@ class KillerModifier(Modifier):
 
 
 class CrisisModifier(Modifier):
-    def __init__(self, name, scale, hp):
-        self.hp_scale = scale
-        self.hp_lost = 100 - hp
-        super().__init__("mod_{}_crisis".format(name), "att", "crisis", self.c_mod_value())
+    def __init__(self, name, modtype, adv):
+        self.adv = adv
+        self.passive = 0
+        self.per_hit = 0
+        super().__init__(name, modtype, "crisis", self.c_mod_value())
 
     def c_mod_value(self):
-        return self.hp_scale * (self.hp_lost ** 2) / 10000
+        return (max((self.passive, self.per_hit))) * ((100 - self.adv.hp) ** 2) / 10000
 
     def get(self):
         self.mod_value = self.c_mod_value()

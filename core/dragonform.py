@@ -56,6 +56,8 @@ class DragonForm(Action):
         self.shift_silence = False
 
         self.is_dragondrive = False
+        self.dd_end_reason = None
+        self.idle_event.listener(self.d_dragondrive_end_cb)
         self.can_end = True
 
         self.allow_end_cd = self.conf.allow_end + self.dstime()
@@ -291,13 +293,18 @@ class DragonForm(Action):
         return True
 
     def d_dragondrive_end(self, t):
-        self.dragon_gauge = 0
-        log("dragondrive", "end", t if isinstance(t, str) else "<timeout>")
-        self.dragondrive_buff.off()
-        self.shift_silence = True
-        Timer(self.end_silence).on(10)
-        self.status = Action.OFF
-        self.end_event()
+        self.dd_end_reason = t if isinstance(t, str) else "<timeout>"
+
+    def d_dragondrive_end_cb(self, e):
+        if self.dd_end_reason is not None:
+            self.dragon_gauge = 0
+            log("dragondrive", "end", self.dd_end_reason)
+            self.dragondrive_buff.off()
+            self.shift_silence = True
+            Timer(self.end_silence).on(10)
+            self.status = Action.OFF
+            self.end_event()
+            self.dd_end_reason = None
 
     def act_timer(self, act, time, next_action=None):
         if self.c_act_name == "dodge":

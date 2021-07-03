@@ -880,6 +880,11 @@ class Adv(object):
         self.tension = [self.energy, self.inspiration]
         self.sab = []
         self.extra_actmods = []
+        self.crisis_mods = {
+            "s": CrisisModifier("s_crisis_modifier", "s", self),
+            "x": CrisisModifier("x_crisis_modifier", "x", self),
+            "fs": CrisisModifier("fs_crisis_modifier", "fs", self),
+        }
         self._cooldowns = {}
 
         self.disable_echo()
@@ -2109,11 +2114,15 @@ class Adv(object):
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
         g_logs.log_hitattr(name, attr)
         hitmods = self.actmods(name, base, group, aseq, attr)
+        if name.startswith("fs"):
+            crisis_mod_key = "fs"
+        elif name.startswith("ds"):
+            crisis_mod_key = "s"
+        else:
+            crisis_mod_key = name[0]
         if "dmg" in attr:
             if "killer" in attr:
                 hitmods.append(KillerModifier(name, "hit", *attr["killer"]))
-            if "crisis" in attr:
-                hitmods.append(CrisisModifier(name, attr["crisis"], self.hp))
             if "bufc" in attr:
                 hitmods.append(Modifier(f"{name}_bufc", "ex", "bufc", attr["bufc"] * self.buffcount))
             if "drg" in attr:
@@ -2129,6 +2138,8 @@ class Adv(object):
                 hitmods.append(Modifier("hitattr_crit", "crit", "chance", attr["crit"]))
             for m in hitmods:
                 m.on()
+            if "crisis" in attr:
+                self.crisis_mods[crisis_mod_key].per_hit = attr["crisis"]
             if "extra" in attr:
                 for _ in range(min(attr["extra"], round(self.buffcount))):
                     self.add_combo(name)
@@ -2237,6 +2248,7 @@ class Adv(object):
 
         for m in hitmods:
             m.off()
+        self.crisis_mods[crisis_mod_key].per_hit = 0
 
     def hitattr_buff_outer(self, name, base, group, aseq, attr):
         bctrl = None

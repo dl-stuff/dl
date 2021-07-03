@@ -1284,18 +1284,11 @@ ability_dict["corrosion"] = Corrosion
 
 class CrisisPassive(Ability):
     def __init__(self, name, value):
-        modtype = name.split("_")[-1]
-        super().__init__(name, [(modtype, "crisispassive", value)])
+        self.modtype = name.split("_")[-1]
+        self.scale = value
 
     def oninit(self, adv, afrom=None):
-        super().oninit(adv, afrom=afrom)
-        self.adv = adv
-        self.mod_object.get = self.crisis_get
-
-    def crisis_get(self):
-        hp_lost = 100 - self.adv.hp
-        value = self.mod_object.mod_value * (hp_lost ** 2) / 10000
-        return value
+        adv.crisis_mods[self.modtype].passive += self.scale
 
 
 ability_dict["crisis"] = CrisisPassive
