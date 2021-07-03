@@ -2118,6 +2118,8 @@ class Adv(object):
             crisis_mod_key = "fs"
         elif name.startswith("ds"):
             crisis_mod_key = "s"
+        elif name.startswith("dx") or name.startswith("dshift"):
+            crisis_mod_key = "x"
         else:
             crisis_mod_key = name[0]
         if "dmg" in attr:
