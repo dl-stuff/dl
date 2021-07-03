@@ -922,6 +922,8 @@ class AmuletStack:
 
     @staticmethod
     def sort_ab(a):
+        if a[1] < 0:
+            return -10000
         try:
             if "hp" not in a[2]:
                 return -1 * a[1]
