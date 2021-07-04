@@ -2122,6 +2122,8 @@ class Adv(object):
             crisis_mod_key = "x"
         else:
             crisis_mod_key = name[0]
+            if not crisis_mod_key in self.crisis_mods:
+                crisis_mod_key = None
         if "dmg" in attr:
             if "killer" in attr:
                 hitmods.append(KillerModifier(name, "hit", *attr["killer"]))
@@ -2250,7 +2252,8 @@ class Adv(object):
 
         for m in hitmods:
             m.off()
-        self.crisis_mods[crisis_mod_key].per_hit = 0
+        if crisis_mod_key is not None:
+            self.crisis_mods[crisis_mod_key].per_hit = 0
 
     def hitattr_buff_outer(self, name, base, group, aseq, attr):
         bctrl = None
