@@ -1,0 +1,112 @@
+{
+    "c": {
+        "name": "Summer Mym",
+        "icon": "100010_10_r05",
+        "att": 506,
+        "hp": 752,
+        "ele": "shadow",
+        "wt": "gun",
+        "spiral": false,
+        "a": [["affres_paralysis", 100.0], ["prep", 100.0]],
+        "gun": [1]
+    },
+    "fs": {
+        "charge": 0.4,
+        "startup": 0.06667,
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 1.8, "odmg": 4.0, "sp": 400}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
+    },
+    "fs_ddrive": {
+        "charge": 0.4,
+        "startup": 0.06667,
+        "recovery": 0.83333,
+        "attr": [
+            {"dmg": 1.8, "odmg": 4.0, "sp": 400}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
+    },
+    "s1": {
+        "sp": 3950,
+        "startup": 0.1,
+        "recovery": 2.7,
+        "attr": [
+            {"dmg": 5.13, "utp": 300, "afflic": ["shadowblight", 120, 0.41], "iv": 0.33333},
+            {"dmg": 5.13, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_6"], "coei": 1, "iv": 1.66667}
+        ]
+    },
+    "s1_ddrive": {
+        "sp": 3950,
+        "startup": 0.1,
+        "recovery": 2.7,
+        "attr": [
+            {"sp": [1.0, "%", "s1"]},
+            {"utp": -850},
+            {"dmg": 6.24, "afflic": ["shadowblight", 120, 0.41], "iv": 0.33333},
+            {"dmg": 6.24, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_6"], "coei": 1, "iv": 1.66667}
+        ]
+    },
+    "s2": {
+        "sp": 9855,
+        "startup": 0.1,
+        "recovery": 1.66667,
+        "attr": [
+            {"amp": [[2, 3, 3, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]], "iv": 1.0},
+            {"dmg": 17.67, "iv": 1.0}
+        ]
+    },
+    "x1": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.67, "sp": 545},
+            {"dmg": 0.67, "iv": 0.23333},
+            {"dmg": 0.67, "iv": 0.46667},
+            {"dmg": 0.67, "iv": 0.7},
+            {"dmg": 0.67, "iv": 0.93333}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
+        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
+    },
+    "x2": {
+        "startup": 0.2,
+        "recovery": 1.26667,
+        "attr": [
+            {"dmg": 0.67, "sp": 545},
+            {"dmg": 0.67, "iv": 0.23333},
+            {"dmg": 0.67, "iv": 0.46667},
+            {"dmg": 0.67, "iv": 0.7},
+            {"dmg": 0.67, "iv": 0.93333}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
+        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
+    },
+    "x1_ddrive": {
+        "startup": 0.33333,
+        "recovery": 0.4,
+        "attr": [
+            {"dmg": 0.66, "sp": 480, "utp": 150, "cond": ["var=", ["enhanced_autos", 0]]},
+            {"dmg": 1.49, "cond": ["var=", ["enhanced_autos", 0]], "msl": 0.5},
+            {"dmg": 0.99, "sp": 480, "utp": 150, "cond": ["var=", ["enhanced_autos", 1]]},
+            {"dmg": 2.45, "cond": ["var=", ["enhanced_autos", 1]], "msl": 0.5}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
+        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
+    },
+    "x2_ddrive": {
+        "startup": 0.33333,
+        "recovery": 0.4,
+        "attr": [
+            {"dmg": 0.66, "sp": 480, "utp": 150, "cond": ["var=", ["enhanced_autos", 0]]},
+            {"dmg": 1.49, "cond": ["var=", ["enhanced_autos", 0]], "msl": 0.5},
+            {"dmg": 0.99, "sp": 480, "utp": 150, "cond": ["var=", ["enhanced_autos", 1]]},
+            {"dmg": 2.45, "cond": ["var=", ["enhanced_autos", 1]], "msl": 0.5}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
+        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
+    }
+}

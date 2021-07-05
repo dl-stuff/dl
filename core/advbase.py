@@ -2116,10 +2116,10 @@ class Adv(object):
         hitmods = self.actmods(name, base, group, aseq, attr)
         if name.startswith("fs"):
             crisis_mod_key = "fs"
-        elif name.startswith("ds"):
-            crisis_mod_key = "s"
         elif name.startswith("dx") or name.startswith("dshift"):
             crisis_mod_key = "x"
+        elif name.startswith("ds"):
+            crisis_mod_key = "s"
         else:
             crisis_mod_key = name[0]
             if not crisis_mod_key in self.crisis_mods:
