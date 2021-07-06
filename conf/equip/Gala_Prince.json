@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76643.3613279336,
-        "team": 0.16350680143681093,
+        "dps": 76640.03533118204,
+        "team": 0.16409425023645077,
         "noaff": false,
         "nihil": false
       },
@@ -57,8 +57,8 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, s and buff(s3, 1)",
-        "`s4, fsc",
+        "`dragon, cancel and buff(s3, 1)",
+        "`s4, cancel",
         "`s2, fsc",
         "`s3, fsc",
         "`s1, fsc",
@@ -75,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 466136.3671361424,
+      "tdps": 468640.13008122303,
       "pref": "PERSONAL"
     }
   },
@@ -109,19 +109,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69973.80226617577,
-        "team": 0.16350680143681093,
+        "dps": 70997.6945809537,
+        "team": 0.16409425023645077,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
         "Blade",
-        "Peony",
-        "Raemond"
+        "Dagger",
+        "Peony"
       ]
     },
     "META": {
-      "tdps": 175580.62197455432,
+      "tdps": 194104.90913585282,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -167,7 +167,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43957.05677959303,
+        "dps": 46177.2995430708,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -183,7 +183,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon",
+        "`dragon, cancel",
         "`s4, fsc",
         "`s2, fsc",
         "`s3, fsc",
@@ -192,7 +192,7 @@
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Dagger2",
         "Peony"
       ],
       "share": [
@@ -201,8 +201,31 @@
       ]
     },
     "META": {
-      "tdps": 126874.65941257139,
+      "tdps": 240130.85575029987,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44064.487053920035,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
+      ]
+    },
+    "META": {
+      "tdps": 132354.7557524583,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -225,7 +248,7 @@
       "acl": [
         "`dragon, s and buff(s3, 1)",
         "`s4, fsc",
-        "`s2, fsc and buff(s3)",
+        "`s2, fsc",
         "`s3, fsc",
         "`s1, fsc",
         "`fs, x=4 or hits=0"
@@ -239,33 +262,10 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 82382.27206704815,
-        "team": 0.10779838707444801,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Gala_Reborn_Jeanne",
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51213.28817037327,
+        "dps": 56043.2195721027,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -278,12 +278,6 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Daikokuten",
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
       ]
     },
     "META": {
@@ -305,14 +299,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76366.72557873552,
-        "team": 0.16350680143681093,
+        "dps": 76370.08557191365,
+        "team": 0.16409425023645077,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 465247.4961854238,
+      "tdps": 467808.31071591395,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -323,8 +317,8 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58851.02734536733,
-        "team": 0.22493529262492853,
+        "dps": 59833.20373975255,
+        "team": 0.17549317655966734,
         "noaff": false,
         "nihil": false
       },
@@ -348,15 +342,6 @@
         "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
         "`s1, fsc",
         "`fs, x=2"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Sha_Wujing"
       ]
     },
     "META": {
@@ -368,9 +353,31 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42813.11953029825,
+        "team": 0.019603675574043123,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, s4",
+        "`s4, fsc",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`s1, fsc",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37851.760877432986,
+        "dps": 46060.85875620831,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -383,14 +390,48 @@
         "Dueling_Dancers",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Corsaint_Phoenix"
+      ]
     },
     "META": {
+      "tdps": 165669.91295297365,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 42813.11953029825,
+        "team": 0.019603675574043123,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, s4",
+        "`s4, fsc",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`s1, fsc",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94256.34528678785,
+        "dps": 94876.35826861646,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -48,7 +48,7 @@
         "Memory_of_a_Friend",
         "Moonlight_Party",
         "A_Small_Courage",
-        "Lord_of_the_Skies",
+        "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
@@ -64,7 +64,7 @@
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Halloween_Elisanne",
+        "Axe2",
         "Lucretia",
         "Peony"
       ],
@@ -74,8 +74,52 @@
       ]
     },
     "META": {
-      "tdps": 209009.39258372728,
+      "tdps": 215210.03666833663,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73357.13950142832,
+        "team": 0.09999170624347659,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Hildegarde",
+        "Lucretia",
+        "Pecorine"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -289,19 +333,19 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81481.61853649301,
-        "team": 0.08996878656155669,
+        "dps": 83515.98207422116,
+        "team": 0.09132658498934061,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "Moonlight_Party",
+        "Worthy_Rivals",
         "A_Small_Courage",
-        "Seaside_Memory",
+        "Lord_of_the_Skies",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
@@ -318,7 +362,7 @@
       ]
     },
     "META": {
-      "tdps": 810590.0568793585,
+      "tdps": 1172383.1986706355,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

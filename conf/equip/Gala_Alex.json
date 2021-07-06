@@ -37,17 +37,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 84293.83185189866,
-        "team": 0.15148641370880142,
+        "dps": 94255.31529881446,
+        "team": 0.15148641370880125,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife"
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -71,15 +73,15 @@
       ]
     },
     "META": {
-      "tdps": 567883.8850355137,
+      "tdps": 684578.94101019,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43150.98427102398,
-        "team": 0.11357420676223191,
+        "dps": 37799.973172367754,
+        "team": 0.11484335879386512,
         "noaff": false,
         "nihil": true
       },
@@ -92,13 +94,45 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(c3-s-end)",
-        "`s4, fsc",
-        "`s3, fsc",
-        "if sr.count>1",
-        "`s1, x=4 and sr.chain_status=1",
-        "`s1, fsc",
-        "end",
+        "`dragon(c3-s-c5-end), fsc",
+        "`s3, cancel",
+        "`s4",
+        "`s2, aff_timeleft(poison)<3",
+        "`s1, sr.count>1 and cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60060.20364792124,
+        "team": 0.041498592795234934,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-c5-end), fsc",
+        "`s3, cancel",
+        "`s4, aff_timeleft(poison)<3",
+        "`s1, sr.count>1 and cancel",
         "`fs, x=4"
       ],
       "coabs": [
@@ -111,41 +145,8 @@
         "Formal_Joachim"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 59466.302977454994,
-        "team": 0.044864156209236304,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-c5-end), fsc",
-        "`s3, cancel",
-        "`s4",
-        "`s2, aff_timeleft(poison)<3",
-        "`s1, sr.count>1 and cancel",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Delphi",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "META": {
-      "tdps": 237451.70575659978,
+      "tdps": 303501.28154978674,
       "pref": "PERSONAL"
     }
   },
@@ -160,21 +161,28 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89779.48334642331,
-        "team": 0.15148641370880128,
+        "dps": 102529.952283312,
+        "team": 0.15148641370880125,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
         "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Vania"
       ]
     },
     "META": {
-      "tdps": 631256.9008210927,
+      "tdps": 780623.8795670433,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -183,27 +191,21 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 47491.79348875067,
-        "team": 0.11357420676223191,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68135.2034890303,
-        "team": 0.045008346686846175,
+        "dps": 75361.70022223137,
+        "team": 0.04374621935289655,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
         "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon(c5-s-c5-end), fsc",
@@ -215,11 +217,14 @@
       "coabs": [
         "Blade",
         "Joker",
-        "Vania"
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 301074.1785720027,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -238,17 +243,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55207.374027943224,
-        "team": 0.13683839452001448,
+        "dps": 65902.46756604023,
+        "team": 0.1368383945200145,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`dragon(c3-s-end)",
@@ -262,11 +269,11 @@
       "coabs": [
         "Forte",
         "Ieyasu",
-        "Wand"
+        "Vania"
       ]
     },
     "META": {
-      "tdps": 323447.7350043898,
+      "tdps": 428779.03026608966,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -285,21 +292,39 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40563.205147813795,
-        "team": 0.045008346686846175,
+        "dps": 48065.09031620608,
+        "team": 0.04326132164700762,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Welcome_to_the_Opera",
+        "Moonlight_Party",
+        "A_Small_Courage",
         "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c5-end), fsc",
+        "`s3, cancel",
+        "`s4",
+        "`s1, sr.count>1 and cancel",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 132799.26536134048,
+      "tdps": 236192.56965571604,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

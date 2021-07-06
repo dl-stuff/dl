@@ -1,0 +1,430 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63037.915356308826,
+        "team": 0.1714484684914803,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end), cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, s2.charged < 3570 or s=2",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75556.62086882463,
+        "team": 0.06664505145497818,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end), cancel",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, s2.charged < s2.sp-s1.sp and buff(s3)",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 119449.40219034694,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45396.00138652043,
+        "team": 0.09658175209434018,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Snipers_Allure",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end), cancel",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, s2.charged < s2.sp-s1.sp and buff(s3)",
+        "`s4, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Leonidas",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Cleo"
+      ]
+    },
+    "META": {
+      "tdps": 1007479.7435308476,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39753.021698483295,
+        "team": 0.10645621066661932,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end), cancel",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Seimei",
+        "Summer_Celliera"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49701.81495087883,
+        "team": 0.058314455728922854,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`s2",
+        "`s1, s2.charged < s2.sp-s1.sp",
+        "`s4, cancel",
+        "`s3, fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Seimei",
+        "Panther"
+      ]
+    },
+    "META": {
+      "tdps": 206656.22317406052,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 65503.063309001926,
+        "team": 0.1714484684914803,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86313.76694852952,
+        "team": 0.0666650481874413,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, s2.charged < s2.sp-s1.sp and buff(s3)",
+        "`s4, fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ]
+    },
+    "META": {
+      "tdps": 198606.83664594428,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 71579.03929822227,
+        "team": 0.1633234568393062,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end), s=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, s2.charged < 3570 or s=2",
+        "`s4, cancel",
+        "`fs, x=5"
+      ]
+    },
+    "META": {
+      "tdps": 152441.23978263902,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49484.867540462794,
+        "team": 0.10702864961001089,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c3-c2-c2-c2-end), cancel",
+        "`s1",
+        "`s2, cancel",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Panther",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 62153.74847298936,
+        "team": 0.033292167568135335,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "tdps": 171812.92871189336,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 56072.39719845459,
+        "team": 0.16398241824100396,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`s3, not buff(s3)",
+        "`s2, fsf",
+        "`s1, s2.charged < s2.sp-s1.sp and buff(s3)",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56076.65420457911,
+        "team": 0.1638004237153636,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, s2.charged < s2.sp-s1.sp and buff(s3)",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "tdps": 23390.847112212992,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 39244.68585707049,
+        "team": 0.058314455728922854,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  }
+}

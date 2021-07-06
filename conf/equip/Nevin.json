@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51996.35215695442,
-        "team": 0.27662364571625236,
+        "dps": 57507.36083448816,
+        "team": 0.2766236457162523,
         "noaff": false,
         "nihil": false
       },
@@ -44,7 +44,9 @@
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "The_Plaguebringer",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Ramiel",
       "acl": [
@@ -66,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 105001.63385783887,
+      "tdps": 118325.81911626816,
       "pref": "PERSONAL"
     }
   },
@@ -86,8 +88,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49693.34634978387,
-        "team": 0.27662364571625236,
+        "dps": 55630.49397185354,
+        "team": 0.2766236457162523,
         "noaff": false,
         "nihil": false
       },
@@ -98,7 +100,7 @@
       ]
     },
     "META": {
-      "tdps": 108366.89859413508,
+      "tdps": 124381.91083307295,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -107,39 +109,76 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 24279.68035430161,
-        "team": 0.06249568432579907,
+        "dps": 26414.5000932677,
+        "team": 0.06249798971289675,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Holywyrms_Advent",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Twinfold_Bonds",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Moonlight_Party",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s-c3-c3-c3-c3-c3-end), s=1",
+        "`dragon(s-c3-c3-c3-c3-c3-end)",
         "`s3",
-        "`s1",
         "`s4, xf",
-        "`s2, cancel"
+        "`s2, cancel",
+        "`fsf, xf=6"
       ],
       "coabs": [
-        "Alberius",
-        "Ieyasu",
-        "Zena"
+        "Blade",
+        "Dagger2",
+        "Joker"
       ],
       "share": [
-        "Rodrigo",
-        "Gala_Mym"
+        "Humanoid_Mercury",
+        "Summer_Celliera"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29777.374757194335,
+        "team": 0.06249328625475658,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Holywyrms_Advent",
+        "Memory_of_a_Friend",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s-c3-c3-c3-c3-c3-end)",
+        "`s3, xf",
+        "`s4",
+        "`s2, cancel",
+        "`fsf, xf=6"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Joker"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 714979184.1886536,
       "pref": "PERSONAL"
     }
   },
@@ -154,21 +193,35 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55554.83470844456,
-        "team": 0.27662364571625236,
+        "dps": 63111.70315094604,
+        "team": 0.3697813918414856,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Twinfold_Bonds",
         "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Crown_of_Light",
+        "Mask_of_Determination_Lance"
+      ],
+      "acl": [
+        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2, cancel",
+        "`dodge, xf=6"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 112539.69782944283,
+      "tdps": 168837.7730704158,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -218,20 +271,47 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 34757.88995058854,
-        "team": 0.04165095685996625,
+        "dps": 36175.00758728175,
+        "team": 0.06249889951963692,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Twinfold_Bonds",
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
+      "acl": [
+        "`dragon(c5-s-c5-c5-c3-end)",
+        "`s3,xf",
+        "`s4",
+        "`s2, cancel",
+        "`fsf, xf=6"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44092.42508791492,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`dragon(c5-s-c5-c5-c3-end)",
         "`s3,xf",
@@ -240,20 +320,21 @@
         "`fsf, xf=6"
       ],
       "coabs": [
+        "Dagger2",
         "Ieyasu",
-        "Joker",
-        "Wand"
+        "Joker"
       ],
       "share": [
         "Summer_Julietta",
-        "Gala_Chelle"
+        "Summer_Celliera"
       ]
     },
     "META": {
+      "tdps": 126680.91056780206,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -274,8 +355,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40810.28629333932,
-        "team": 0.27662364571625236,
+        "dps": 49142.88364710738,
+        "team": 0.419827508521106,
         "noaff": false,
         "nihil": false
       },
@@ -284,7 +365,9 @@
         "Memory_of_a_Friend",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "acl": [
         "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
@@ -294,10 +377,14 @@
         "`s2, cancel",
         "`dodge, xf=6",
         "`fsf, xf=5 and have_buff(revelation_sword)"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 80378.39251148506,
+      "tdps": 156054.62583508887,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -349,40 +436,36 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 20866.938308839617,
-        "team": 0.04166607832260328,
+        "dps": 24023.542961039904,
+        "team": 0.09387358928878113,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Holywyrms_Advent",
         "Memory_of_a_Friend",
-        "Twinfold_Bonds",
+        "Worthy_Rivals",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "acl": [
-        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
-        "`s3, not buff(s3)",
+        "`dragon(s-c3-c3-c3-c3-c3-end), s=1",
+        "`s3",
+        "`s1",
         "`s4, xf",
-        "`s1, s2.check()",
-        "`s2, cancel",
-        "`fsf, xf=6"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Joker"
+        "`s2, cancel"
       ],
       "share": [
-        "Joker",
+        "Sha_Wujing",
         "Gala_Mym"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 22871.32681275968,
-        "team": 0.041595593489815404,
+        "dps": 28173.291636980703,
+        "team": 0.06249798971289675,
         "noaff": false,
         "nihil": true
       },
@@ -391,31 +474,28 @@
         "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "Snipers_Allure"
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "acl": [
-        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
-        "`s3, not buff(s3)",
-        "`s1",
+        "`dragon(s-c3-c3-c3-c3-c3-end)",
+        "`s3",
         "`s4, xf",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Joker"
+        "`s2, cancel",
+        "`fsf, xf=6"
       ],
       "share": [
-        "Joker",
-        "Gala_Mym"
+        "Humanoid_Mercury",
+        "Summer_Celliera"
       ]
     },
     "META": {
-      "tdps": 28437160.515827086,
+      "tdps": 132260.37851178914,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

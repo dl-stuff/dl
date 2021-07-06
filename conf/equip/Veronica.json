@@ -71,57 +71,63 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48312.9253551973,
-        "team": 0.0416184378336238,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s-end)",
-        "`s3",
-        "`s4",
-        "`s2, hp <= 50",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Delphi"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 65941.28686484293,
-        "team": 0.0,
+        "dps": 45444.41568276578,
+        "team": 0.06171700827370185,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Bloody_Little_Queen",
-        "Candy_Couriers",
+        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "The_Plaguebringer"
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon(c3-s-c3-end)",
         "`s3",
         "`s4",
         "`s2, hp <= 50",
-        "`s1"
+        "`s1",
+        "`fs, charged_in(fs,s1) and x>3"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "The_Prince"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58598.70390794485,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3",
+        "`s4",
+        "`s2, hp <= 50",
+        "`s1",
+        "`fs, charged_in(fs,s1) and x>3"
       ],
       "coabs": [
         "Blade",
@@ -134,7 +140,7 @@
       ]
     },
     "META": {
-      "tdps": 423570.9562218013,
+      "tdps": 213138.78609997738,
       "pref": "PERSONAL"
     }
   },
@@ -149,7 +155,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 134250.2129413298,
+        "dps": 154701.13516606664,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -158,11 +164,13 @@
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "Welcome_to_the_Opera",
+        "A_Small_Courage",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "acl": [
-        "`dragon(c5-s), s=1 and duration-now<15",
+        "`dragon(c4-s), s=1 and duration-now<15",
         "`s3, not buff(s3)",
         "`s1",
         "`s4, hp>0 or x>2",
@@ -179,7 +187,7 @@
       ]
     },
     "META": {
-      "tdps": 297619.87602357497,
+      "tdps": 380371.4630146395,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -188,29 +196,24 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 48649.37732171697,
-        "team": 0.0416184378336238,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72798.07967389669,
+        "dps": 82650.35322992013,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
+        "`dragon(c3-s-end), cancel",
         "`s1",
         "`s3, x=5",
         "`s4, hp>0 or x>2",
@@ -227,7 +230,6 @@
       ]
     },
     "META": {
-      "tdps": 580240.480162132,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -238,7 +240,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82715.17500266744,
+        "dps": 90404.31220283883,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -247,12 +249,13 @@
         "Bloody_Little_Queen",
         "Candy_Couriers",
         "Memory_of_a_Friend",
+        "A_Small_Courage",
         "Lord_of_the_Skies",
-        "Snipers_Allure"
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), duration-now<10",
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
@@ -279,25 +282,69 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33118.078903544374,
-        "team": 0.0416184378336238,
+        "dps": 53905.18871055175,
+        "team": 0.07404798450086822,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.d": "Arsene",
+      "acl": [
+        "#`dragon(c3-s-c3-end)",
+        "`s3",
+        "`s4",
+        "`s2, hp <= 50",
+        "`s1",
+        "`fs, charged_in(fs,s1) and x>3"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45953.88946788782,
-        "team": 0.0,
+        "dps": 54217.44736535998,
+        "team": 0.07401634132783833,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
     },
     "META": {
-      "tdps": 308416.44310765824,
+      "tdps": 9868120.826986264,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54217.44736535998,
+        "team": 0.07401634132783833,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Delphi"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }

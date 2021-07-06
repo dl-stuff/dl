@@ -114,7 +114,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25581.985086118275,
+        "dps": 25605.616921551387,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -327,19 +327,93 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 17188.641244077913,
+        "dps": 15372.69868553211,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Sisters_of_the_Anvil",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Luca"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27699.789232451167,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Holywyrms_Advent",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27683.240200128777,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

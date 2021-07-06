@@ -2,17 +2,19 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9734.983509677733,
-        "team": 1.2264680760980775,
+        "dps": 10199.525990954855,
+        "team": 1.2473433056021361,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Jewels_of_the_Sun",
         "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Warrior_Maiden",
+        "Wily_Warriors_Flash_and_Heat",
         "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Azazel",
       "acl": [
@@ -35,17 +37,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64386.39065550941,
-        "team": 0.3699796454729959,
+        "dps": 72939.18452926508,
+        "team": 0.36997964547299567,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Brothers_in_Arms",
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
         "Luck_of_the_Draw",
-        "The_Plaguebringer"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -68,15 +72,15 @@
       ]
     },
     "META": {
-      "tdps": 63808.6927875325,
+      "tdps": 71509.29698760886,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9344.645074686536,
-        "team": 1.127728188819516,
+        "dps": 9807.599967309998,
+        "team": 1.142911547317364,
         "noaff": false,
         "nihil": false
       },
@@ -87,7 +91,7 @@
       ]
     },
     "META": {
-      "tdps": 72638.53697129729,
+      "tdps": 81678.06816009358,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -96,6 +100,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2312.2345270489336,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Wily_Warriors_Flash_and_Heat",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`fs, fs_prep_c and x=2",
+        "`dragon(s-end), fscf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, x=4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 15970.4759499209,
@@ -137,25 +176,27 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10088.686841231936,
-        "team": 1.2264680760980775,
+        "dps": 10611.66160595729,
+        "team": 1.2473433056021361,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71742.55247642306,
-        "team": 0.31028775463401265,
+        "dps": 86666.6875705915,
+        "team": 0.3102877546340123,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Brothers_in_Arms",
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
         "His_Clever_Brother",
-        "The_Plaguebringer"
+        "The_Plaguebringer",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "acl": [
         "`dragon(s-end), fscf",
@@ -171,7 +212,7 @@
       ]
     },
     "META": {
-      "tdps": 67294.46615560097,
+      "tdps": 81163.83909796765,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -217,7 +258,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -232,21 +273,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52397.14328091061,
-        "team": 0.36997964547299583,
+        "dps": 53853.227705557736,
+        "team": 0.36997964547299567,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Brothers_in_Arms",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ]
+      }
     },
     "META": {
-      "tdps": 50413.77120193232,
+      "tdps": 52113.83435816718,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -276,7 +310,7 @@
       ]
     },
     "META": {
-      "tdps": 65534.21226671771,
+      "tdps": 67677.94330910867,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "IMMUNE-NORMAL-ANY",
@@ -322,7 +356,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

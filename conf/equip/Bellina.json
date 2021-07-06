@@ -38,19 +38,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106016.53265322083,
+        "dps": 127195.35608713201,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
@@ -73,12 +75,12 @@
       ]
     },
     "META": {
-      "tdps": 597628.970107688,
+      "tdps": 775861.3937858627,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 52381.71096914576,
         "team": 0.0,
@@ -114,6 +116,42 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56771.3332190039,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Ieyasu"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "META": {
       "pref": "PERSONAL"
     }
@@ -121,17 +159,19 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 126526.49686183233,
+        "dps": 149904.28666710886,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`s2, (duration-now)<1.1",
@@ -160,17 +200,19 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67827.00507888991,
+        "dps": 83364.81757690545,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Twinfold_Bonds",
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
-        "The_Plaguebringer"
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
       "acl": [
         "`s2, (duration-now)<1.5",
@@ -189,15 +231,15 @@
         "Wand"
       ],
       "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
+        "Veronica",
+        "Summer_Celliera"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -228,7 +270,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73641.7122538928,
+        "dps": 80193.38748732487,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -246,7 +288,7 @@
       ]
     },
     "META": {
-      "tdps": 322085.10353100084,
+      "tdps": 400706.10062385583,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -257,11 +299,20 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45846.24243266693,
+        "dps": 54742.70003172187,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Seaside_Princess",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
       "coabs": [
         "Berserker",
         "Ieyasu",
@@ -272,7 +323,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

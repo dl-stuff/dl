@@ -2,30 +2,39 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 254897.96213815705,
+        "dps": 344411.0743237755,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Kung_Fu_Masters",
+        "Brothers_in_Arms",
         "Summer_Paladyns",
         "Super_Soaking_Androids",
-        "FirstRate_Hospitality",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Halidom_Grooms"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
+        "if prep",
+        "queue",
+        "`s2",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s1",
+        "end",
+        "end",
         "`s4",
         "`s3",
-        "`s2",
+        "`s2, s=1",
         "`s1",
-        "`dragon(s-end)"
+        "`dragon(s-end), s=1"
       ],
       "coabs": [
-        "Pipple",
         "Renee",
-        "Tobias"
+        "Tobias",
+        "Yurius"
       ],
       "share": [
         "Patia",
@@ -34,30 +43,39 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 254897.96213815705,
+        "dps": 344411.0743237755,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Kung_Fu_Masters",
+        "Brothers_in_Arms",
         "Summer_Paladyns",
         "Super_Soaking_Androids",
-        "FirstRate_Hospitality",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Halidom_Grooms"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
+        "if prep",
+        "queue",
+        "`s2",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s1",
+        "end",
+        "end",
         "`s4",
         "`s3",
-        "`s2",
+        "`s2, s=1",
         "`s1",
-        "`dragon(s-end)"
+        "`dragon(s-end), s=1"
       ],
       "coabs": [
-        "Pipple",
         "Renee",
-        "Tobias"
+        "Tobias",
+        "Yurius"
       ],
       "share": [
         "Patia",
@@ -71,13 +89,13 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 250835.34750888988,
+        "dps": 283107.29484913393,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
-        "Halloween_Odetta",
+        "Gala_Mascula",
         "Renee",
         "Summer_Estelle"
       ]
@@ -99,9 +117,9 @@
         "nihil": true
       },
       "slots.a": [
-        "Felyne_Hospitality",
         "Kung_Fu_Masters",
         "Summer_Paladyns",
+        "Super_Soaking_Androids",
         "FirstRate_Hospitality",
         "From_Whence_He_Comes"
       ],
@@ -127,6 +145,28 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 285887.9173594314,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Gala_Mascula",
+        "Renee",
+        "Yurius"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -136,9 +176,9 @@
         "nihil": true
       },
       "slots.a": [
-        "Felyne_Hospitality",
         "Kung_Fu_Masters",
         "Summer_Paladyns",
+        "Super_Soaking_Androids",
         "FirstRate_Hospitality",
         "His_Clever_Brother"
       ]
@@ -154,20 +194,20 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 222483.91467189978,
+        "dps": 281058.9931610294,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
-        "Halloween_Odetta",
+        "Gala_Mascula",
         "Renee",
-        "Summer_Estelle"
+        "Yurius"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 249627.60906958635,
+        "dps": 339130.12184562796,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -184,11 +224,16 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 222483.91467189978,
+        "dps": 281058.9931610294,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "coabs": [
+        "Gala_Mascula",
+        "Renee",
+        "Yurius"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

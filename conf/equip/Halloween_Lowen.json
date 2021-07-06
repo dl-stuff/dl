@@ -34,39 +34,40 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28643.03400525804,
-        "team": 0.13711442919981523,
-        "noaff": true,
+        "dps": 33537.36249908195,
+        "team": 0.07639859305668226,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Pecorines_Grand_Adventure",
-        "Warrior_Maiden",
-        "Dragons_Nest",
-        "Rogues_Banquet",
+        "Sisters_Day_Out",
+        "Dueling_Dancers",
+        "Entwined_Flames",
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
         "`dragon",
+        "`fs, fs_prep_c=1",
         "`s3, x=5",
         "`s1, x=5",
         "`s4, x=5"
       ],
       "coabs": [
+        "Dagger2",
         "Gala_Mym",
-        "Seimei",
         "The_Prince"
       ],
       "share": [
         "Gala_Mym",
-        "Dragonyule_Lily"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 66046.81255209466,
+      "tdps": 68102.9883220088,
       "pref": "PERSONAL"
     }
   },
@@ -84,8 +85,21 @@
         "Gala_Sarisse"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31444.347790025273,
+        "team": 0.0783254313998053,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Gala_Mym",
+        "The_Prince",
+        "Yuya"
+      ]
+    },
     "META": {
-      "tdps": 81626.02527371011,
+      "tdps": 76055.56044598858,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -94,39 +108,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 16407.123535849496,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "Warrior_Maiden",
-        "Dragons_Nest",
-        "Rogues_Banquet",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon",
-        "`s3, x=5",
-        "`s1, x=5",
-        "`s4, x=5"
-      ],
-      "coabs": [
-        "Gala_Mym",
-        "Seimei",
-        "The_Prince"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 19606.25168709234,
@@ -164,6 +145,48 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19606.25168709234,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Proper_Maintenance",
+        "Springtime_Breeze",
+        "The_Cutie_Competition",
+        "Dragons_Nest",
+        "Entwined_Flames",
+        "Beneath_the_Boughs",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3, x=5",
+        "`s1, x=5",
+        "`s4, x=5"
+      ],
+      "coabs": [
+        "Gala_Mym",
+        "Seimei",
+        "The_Prince"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Yukata_Cassandra"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -177,7 +200,24 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17312.083327337743,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

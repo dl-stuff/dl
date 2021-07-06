@@ -82,8 +82,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45297.129904946414,
-        "team": 0.05816413179381671,
+        "dps": 62312.67198211846,
+        "team": 0.06470583921571503,
         "noaff": false,
         "nihil": true
       },
@@ -96,7 +96,7 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Apollo",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`ex",
         "`dragon(c2-s-c3-c3-c2-end), not fig.get()",
@@ -112,7 +112,7 @@
       ],
       "share": [
         "Summer_Celliera",
-        "Summer_Julietta"
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
@@ -151,7 +151,7 @@
       ]
     },
     "META": {
-      "tdps": 804675.3808606142,
+      "tdps": 94516.19417444903,
       "pref": "PERSONAL"
     }
   },
@@ -216,15 +216,15 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78644.81007696739,
-        "team": 0.03333330555557866,
+        "dps": 78636.23932520745,
+        "team": 0.033320963851085905,
         "noaff": false,
         "nihil": true
       },
       "acl": [
         "`ex",
-        "`dragon(c2-s-c3-c3-c2-end), a1_cp == 100 and not fig.get()",
-        "`s2, x=4 or fig.get()",
+        "`dragon(c2-s-c3-c3-c2-end), not fig.get()",
+        "`s2, cancel or fig.get()",
         "`s1",
         "`s3, x=4",
         "`s4, x=4"
@@ -239,21 +239,67 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 95207.88533581067,
-        "team": 0.13088165335790797,
+        "dps": 93241.13791415484,
+        "team": 0.16646006047880135,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Proper_Maintenance",
+        "Worthy_Rivals",
         "A_Passion_for_Produce",
         "A_Small_Courage",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`ex",
+        "`dragon(c3-s-c2-c2-c2-end), dragonform.shift_count=0 and not fig.get() and energy()=5",
+        "`dragon(c3-s-c2-c2-c2-c2-end), dragonform.shift_count=1 and not fig.get() and energy()=4",
+        "`s3, x=4 and not buff(s3)",
+        "`s4, cancel",
+        "`s2, cancel or fig.get()",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Kimono_Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 103140.61342665179,
+        "team": 0.12906587504849296,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`ex",
+        "`dragon(c3-s-c2-c2-c2-end), dragonform.shift_count=0 and not fig.get() and energy()=5",
+        "`dragon(c3-s-c2-c2-c2-c2-end), dragonform.shift_count=1 and not fig.get() and energy()=4",
+        "`s3, x=4 and not buff(s3)",
+        "`s4, cancel",
+        "`s2, x=4 or fig.get()",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -261,6 +307,7 @@
       ]
     },
     "META": {
+      "tdps": 264733.0166061946,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -271,25 +318,27 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38853.379419450044,
-        "team": 0.03333330740742752,
+        "dps": 54247.66014939065,
+        "team": 0.033320963851085905,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "`ex",
-        "`dragon(c1-s-s-c3-end), x=4",
-        "queue prep",
-        "`s2;s1;s4",
-        "end",
-        "`s3, not buff(s3) and x=4",
-        "`s1, x=4 or s",
-        "`s2, x=4",
-        "`s4, x=4 or s"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "`dragon(c2-s-c3-c3-c2-end), not fig.get()",
+        "`s2, fig.get() or cancel",
+        "`s1",
+        "`s3, x=4",
+        "`s4, x=4"
       ]
     },
     "META": {

@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 68696.02155306777,
+        "dps": 79225.02326268048,
         "team": 0.18259986176740048,
         "noaff": false,
         "nihil": false
@@ -38,22 +38,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108691.05007916821,
+        "dps": 121283.47478525976,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "The_Plaguebringer",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c2-s-c3-end), dragonform.shift_count<=2",
-        "`dragon(c3-s-end), dragonform.shift_count>=3 and trickery=1",
+        "`dragon(c2-s-end)",
         "`s3, not buff(s3) and fsc",
         "`s2",
         "`s1, cancel",
@@ -71,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 219030.99016058922,
+      "tdps": 230331.2341832669,
       "pref": "PERSONAL"
     }
   },
@@ -111,19 +112,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47074.44837153141,
+        "dps": 40558.36719220514,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
         "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`dragon(c5-s-c5-end)",
         "`s3",
@@ -143,8 +146,8 @@
       ]
     },
     "META": {
-      "tdps": 51803.32517075345,
-      "pref": "PERSONAL"
+      "tdps": -10758.51130835508,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -158,7 +161,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 122528.62413865907,
+        "dps": 139131.46979773365,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -168,9 +171,10 @@
         "The_Red_Impulse",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "The_Plaguebringer",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Arsene",
       "acl": [
         "`dragon(c4-s-end), dragonform.shift_count=0 and x=1",
         "`dragon(end), dragonform.shift_count=1 and fscf",
@@ -190,7 +194,7 @@
       ]
     },
     "META": {
-      "tdps": 137758.64739126523,
+      "tdps": 228683.3912458013,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -201,7 +205,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60679.70547813813,
+        "dps": 60138.1260504412,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -213,8 +217,9 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c5-s-c5-c5-end)",
+        "`dragon(c3-s-c3-end)",
         "`s3",
         "`s2",
         "`s1",
@@ -235,7 +240,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -296,19 +301,52 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 31484.864783176632,
+        "dps": 31404.80468796722,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Lord_of_the_Skies",
+        "Such_High_Spirits"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-c5-c5-end)",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Chelle"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33804.25523375875,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_Brethren",
+        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "Entwined_Flames"
       ],
       "acl": [
         "`dragon(c5-s-c5-c5-end)",
@@ -332,7 +370,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
