@@ -26,11 +26,8 @@ BANNED_PRINTS = (
     # corrosion
     "Her_Beloved_Crown",
     "Her_Beloved_Sword",
-    # unclear what function is used
-    "Thunderswift_Lords_Blade_Axe",
-    "Thunderswift_Lords_Blade_Lance",
 )
-BANNED_SHARES = ("Durant", "Yue")
+BANNED_SHARES = ("Durant", "Yue", "Valentines_Chelsea")
 ABNORMAL_COND = (
     "sim_buffbot",
     "dragonbattle",
@@ -533,7 +530,7 @@ class EquipEntry(dict):
                     continue
                 ref_build, ref_cond = ref_buildcond
                 # check if any build is also a mono build, and is equal/better than this build
-                if all_monoele_coabs(adv.slots.c.ele, ref_build["coabs"]) and OPT_COMPARE[opt](ref_build, self[opt]):
+                if "coabs" in ref_build and all_monoele_coabs(adv.slots.c.ele, ref_build["coabs"]) and OPT_COMPARE[opt](ref_build, self[opt]):
                     dprint("ANY IS ALSO MONOELE")
                     self.delete_build(opt, ref_cond)
                     changed = True

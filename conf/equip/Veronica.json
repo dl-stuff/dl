@@ -1,73 +1,4 @@
 {
-  "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42976.496825693364,
-        "team": 0.24713631446059275,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Luck_of_the_Draw",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c1-s-end), trickery<1",
-        "`s3, not buff(s3)",
-        "`s4, x=5",
-        "`s2",
-        "`s1"
-      ],
-      "coabs": [
-        "Dagger",
-        "Gala_Alex",
-        "Heinwald"
-      ],
-      "share": [
-        "Cleo",
-        "Elisanne"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 119032.4660421409,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, hp <= 50",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Delphi"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "tdps": 307749.0630320745,
-      "pref": "PERSONAL"
-    }
-  },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -145,17 +76,9 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 60697.53367064496,
-        "team": 0.24713631446059275,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 154701.13516606664,
+        "dps": 129788.22722812014,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -169,6 +92,7 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c4-s), s=1 and duration-now<15",
         "`s3, not buff(s3)",
@@ -183,22 +107,26 @@
       ],
       "share": [
         "Weapon",
-        "Valentines_Chelsea"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 380371.4630146395,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "tdps": 279565.12060267077,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49425.53373039573,
+        "team": 0.06171700827370185,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82650.35322992013,
+        "dps": 77428.11507693178,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -226,10 +154,11 @@
       ],
       "share": [
         "Summer_Celliera",
-        "Valentines_Chelsea"
+        "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 453725.514729271,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -240,7 +169,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 90404.31220283883,
+        "dps": 77944.8045005453,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -268,13 +197,12 @@
       ],
       "share": [
         "Weapon",
-        "Valentines_Chelsea"
+        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -282,8 +210,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53905.18871055175,
-        "team": 0.07404798450086822,
+        "dps": 49040.40879047724,
+        "team": 0.06170667431237039,
         "noaff": false,
         "nihil": true
       },
@@ -319,32 +247,9 @@
       ]
     },
     "META": {
-      "tdps": 9868120.826986264,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 54217.44736535998,
-        "team": 0.07401634132783833,
-        "noaff": false,
-        "nihil": true
-      },
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Delphi"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }

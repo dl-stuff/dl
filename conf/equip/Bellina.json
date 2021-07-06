@@ -1,41 +1,5 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 35002.07761918535,
-        "team": 0.11882699565457686,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s2, (duration-now)<1.5",
-        "`s3, not buff(s3)",
-        "if dragondrive.get()",
-        "`s4, dgauge>500 and x=3",
-        "`s1, dgauge>1100 and x=3",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Berserker",
-        "Ieyasu",
-        "Summer_Patia"
-      ],
-      "share": [
-        "Weapon",
-        "Edward"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 127195.35608713201,
@@ -79,87 +43,10 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 52381.71096914576,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s2, (duration-now)<1.5",
-        "`s3, not buff(s3)",
-        "if dragondrive.get()",
-        "`s4, dgauge>500 and x=3",
-        "`s1, dgauge>1100 and x=3",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Berserker",
-        "Curran",
-        "Ieyasu"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 56771.3332190039,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`s2, (duration-now)<1.5",
-        "`s3, not buff(s3)",
-        "if dragondrive.get()",
-        "`s4, dgauge>500 and x=3",
-        "`s1, dgauge>1100 and x=3",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Berserker",
-        "Curran",
-        "Ieyasu"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 149904.28666710886,
+        "dps": 127355.65809498841,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -183,112 +70,9 @@
         "`s2",
         "`dragon",
         "end"
-      ],
-      "share": [
-        "Weapon",
-        "Valentines_Chelsea"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 83364.81757690545,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`s2, (duration-now)<1.5",
-        "`s3",
-        "if dragondrive.get()",
-        "`s4, dgauge>500 and x=3",
-        "`s1, dgauge>1100 and x=3",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Alberius",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Veronica",
-        "Summer_Celliera"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 46801.59226191119,
-        "team": 0.08333238544016747,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Synthetic_Dragon",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Snipers_Allure"
-      ],
-      "coabs": [
-        "Gala_Chelle",
-        "Grace",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Elisanne"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 80193.38748732487,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Seaside_Princess",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "FirstRate_Hospitality"
-      ],
-      "share": [
-        "Weapon",
-        "Veronica"
-      ]
-    },
-    "META": {
-      "tdps": 400706.10062385583,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -313,16 +97,31 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
       "coabs": [
         "Berserker",
         "Ieyasu",
         "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
