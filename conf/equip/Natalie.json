@@ -1,5 +1,39 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 124034.39809782608,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(s-c3-c3-end), xf=1 and trickery<=1",
+        "`s3, not buff(s3) and cancel",
+        "`s1, hp<=20",
+        "`s2, xf=5",
+        "`s4, xf=5"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 124034.39809782608,
@@ -35,7 +69,45 @@
       ]
     },
     "META": {
-      "tdps": 781723.9975276346,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33506.57373097483,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(s-c3-c3-end), xf=1",
+        "`s3, not buff(s3) and cancel",
+        "`s1, hp<=20",
+        "`s2, xf=5",
+        "`s4, xf=5"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL"
     }
   },
@@ -51,7 +123,50 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77006.76284670299,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c5-s-c5-end), xf=5",
+        "`s3, xf=5",
+        "`s1, hp<=20",
+        "`s2, hp>21",
+        "`s4"
+      ],
+      "coabs": [
+        "Dagger",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Veronica"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -67,7 +182,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -79,6 +195,7 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c5-s-c4-end), xf=5",
         "`s3",
@@ -99,7 +216,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

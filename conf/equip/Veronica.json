@@ -1,4 +1,69 @@
 {
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45262.045215010134,
+        "team": 0.07493746820548385,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "FirstRate_Hospitality",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "dragon;s1;s2;s3;s4"
+      ],
+      "coabs": [
+        "Grace",
+        "Patia",
+        "Sword"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45262.045215010134,
+        "team": 0.07493746820548385,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "FirstRate_Hospitality",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "dragon;s1;s2;s3;s4"
+      ],
+      "coabs": [
+        "Grace",
+        "Patia",
+        "Sword"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -37,7 +102,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58598.70390794485,
+        "dps": 62444.58073892829,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -53,13 +118,46 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-c3-end)",
+        "#`dragon(c3-s-c5-end)",
+        "`s4, aff_timeleft(poison)<3",
         "`s3",
-        "`s4",
-        "`s2, hp <= 50",
+        "`s2, hp < 50",
         "`s1",
         "`fs, charged_in(fs,s1) and x>3"
       ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Delphi"
+      ],
+      "share": [
+        "Francesca",
+        "Formal_Noelle"
+      ]
+    },
+    "META": {
+      "tdps": 275453.4857031693,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42212.84185266752,
+        "team": 0.04166245875833209,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Ramiel",
       "coabs": [
         "Blade",
         "Bow",
@@ -71,8 +169,12 @@
       ]
     },
     "META": {
-      "tdps": 213138.78609997738,
-      "pref": "PERSONAL"
+      "tdps": 485610.7750053186,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -92,7 +194,6 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon(c4-s), s=1 and duration-now<15",
         "`s3, not buff(s3)",
@@ -111,22 +212,47 @@
       ]
     },
     "META": {
-      "tdps": 279565.12060267077,
-      "pref": "PERSONAL"
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 49425.53373039573,
-        "team": 0.06171700827370185,
+        "dps": 74478.20699982387,
+        "team": 0.061724053162366566,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c3-s-end), cancel",
+        "`s3",
+        "`s4",
+        "`s1",
+        "`fs, charged_in(fs,s1) and x>3"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Joker"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77428.11507693178,
+        "dps": 78343.31850433808,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -143,8 +269,8 @@
       "acl": [
         "`dragon(c3-s-end), cancel",
         "`s1",
-        "`s3, x=5",
-        "`s4, hp>0 or x>2",
+        "`s3",
+        "`s4",
         "`fs, charged_in(fs,s1) and x>3"
       ],
       "coabs": [
@@ -154,11 +280,11 @@
       ],
       "share": [
         "Summer_Celliera",
-        "Formal_Joachim"
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 453725.514729271,
+      "tdps": 62619.210931384245,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -201,17 +327,14 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "pref": "PERSONAL"
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 49040.40879047724,
-        "team": 0.06170667431237039,
+        "dps": 53905.18871055177,
+        "team": 0.07404798450086822,
         "noaff": false,
         "nihil": true
       },
@@ -223,12 +346,17 @@
         "`s2, hp <= 50",
         "`s1",
         "`fs, charged_in(fs,s1) and x>3"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Delphi"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54217.44736535998,
-        "team": 0.07401634132783833,
+        "dps": 53282.16740016228,
+        "team": 0.0739222173057787,
         "noaff": false,
         "nihil": true
       },
@@ -247,7 +375,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -4953766.44081201,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

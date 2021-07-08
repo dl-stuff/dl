@@ -145,8 +145,48 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 29777.374757194335,
-        "team": 0.06249328625475658,
+        "dps": 32785.14564756072,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-c3-end)",
+        "`s3, xf",
+        "`s4",
+        "`s2, cancel",
+        "`fsf, xf=6"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 101933.60752175373,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27229.199909234703,
+        "team": 0.06248146383239617,
         "noaff": false,
         "nihil": true
       },
@@ -157,9 +197,8 @@
         "A_Passion_for_Produce",
         "A_Small_Courage",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Ramiel",
       "acl": [
         "`dragon(s-c3-c3-c3-c3-c3-end)",
         "`s3, xf",
@@ -168,18 +207,22 @@
         "`fsf, xf=6"
       ],
       "coabs": [
-        "Blade",
-        "Dagger2",
-        "Joker"
+        "Bow",
+        "Ieyasu",
+        "Wand"
       ],
       "share": [
-        "Gala_Mym",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 714979184.1886536,
-      "pref": "PERSONAL"
+      "tdps": 88921.50403565449,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -311,7 +354,6 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`dragon(c5-s-c5-c5-c3-end)",
         "`s3,xf",
@@ -464,8 +506,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28173.291636980703,
-        "team": 0.06249798971289675,
+        "dps": 30116.105827776042,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -491,52 +533,11 @@
       ]
     },
     "META": {
-      "tdps": 132260.37851178914,
+      "tdps": 64901.77815608743,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 8086.667311218605,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s-c3-c3-c3-c3-c3-end), buff(s3) and s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, xf",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

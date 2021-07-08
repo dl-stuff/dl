@@ -1,5 +1,38 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 85498.97565259234,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s2, hp>30",
+        "`s1, buff(s3)",
+        "`s4, xf"
+      ],
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 85498.97565259234,
@@ -34,17 +67,16 @@
       ]
     },
     "META": {
-      "tdps": 1028615.3515442415,
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 90333.71074061056,
+        "dps": 18283.792357363047,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
@@ -55,7 +87,7 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
         "`s3, not buff(s3)",
         "`s2, hp>30",
@@ -63,15 +95,20 @@
         "`s4, xf"
       ],
       "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Vania"
+        "Berserker",
+        "Ieyasu",
+        "Summer_Patia"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 98249.61377194508,
@@ -98,48 +135,51 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 8920.588077523265,
+        "dps": 67501.37780876823,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Dear_Diary",
         "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
         "A_Small_Courage",
-        "Snipers_Allure",
+        "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`s3, not buff(s3)",
+        "`dragon(c5-s)",
+        "`s3",
         "`s2, hp>30",
-        "`s1, buff(s3)",
-        "`s4, xf"
+        "`s1",
+        "`s4",
+        "`fs, xf=5"
       ],
       "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Vania"
+        "Ieyasu",
+        "Joker",
+        "Wand"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Veronica"
       ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -155,23 +195,31 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 5336.926107181181,
+        "dps": 8466.144505927765,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "slots.d": "Gala_Cat_Sith",
+      "coabs": [
+        "Curran",
+        "Summer_Patia",
+        "Vania"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

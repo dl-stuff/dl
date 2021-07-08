@@ -1,1 +1,175 @@
-{}
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43113.61164338778,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c4-s), s=1 and duration-now<15",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, hp>0 or x>2",
+        "`fs, charged_in(fs,s1) and x=4"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Veronica"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43113.61164338778,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c4-s), s=1 and duration-now<15",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, hp>0 or x>2",
+        "`fs, charged_in(fs,s1) and x=4"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Veronica"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27314.03285405484,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c4-s), s=1 and duration-now<15",
+        "`s3",
+        "`s1",
+        "`s4, hp>0 or x>2",
+        "`fs, charged_in(fs,s1) and x=4"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Ranzal",
+        "Veronica"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53442.34416717713,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57259.31944212015,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-c5-end)",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, charged_in(fs,s1) and x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Joker"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Veronica"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  }
+}
