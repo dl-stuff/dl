@@ -170,6 +170,15 @@ class CrisisModifier(Modifier):
         self.per_hit = None
         super().__init__(name, modtype, "crisis", self.c_mod_value())
 
+    def set_passive(self, value):
+        if self.passive is None:
+            self.passive = value
+        else:
+            self.passive = max(self.passive, value)
+
+    def set_per_hit(self, value):
+        self.per_hit = value
+
     def c_mod_value(self):
         mods = []
         if self.passive is not None:

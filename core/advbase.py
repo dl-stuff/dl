@@ -2143,7 +2143,7 @@ class Adv(object):
             for m in hitmods:
                 m.on()
             if "crisis" in attr:
-                self.crisis_mods[crisis_mod_key].per_hit = attr["crisis"]
+                self.crisis_mods[crisis_mod_key].set_per_hit(attr["crisis"])
             if "extra" in attr:
                 for _ in range(min(attr["extra"], round(self.buffcount))):
                     self.add_combo(name)
@@ -2253,7 +2253,7 @@ class Adv(object):
         for m in hitmods:
             m.off()
         if crisis_mod_key is not None:
-            self.crisis_mods[crisis_mod_key].per_hit = 0
+            self.crisis_mods[crisis_mod_key].set_per_hit(None)
 
     def hitattr_buff_outer(self, name, base, group, aseq, attr):
         bctrl = None

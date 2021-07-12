@@ -1288,7 +1288,7 @@ class CrisisPassive(Ability):
         self.scale = value
 
     def oninit(self, adv, afrom=None):
-        adv.crisis_mods[self.modtype].passive += self.scale
+        adv.crisis_mods[self.modtype].set_passive(self.scale)
 
 
 ability_dict["crisis"] = CrisisPassive
