@@ -1,5 +1,43 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49634.64887305459,
+        "team": 0.11770732909144044,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, (dgauge>1100 and x=3)",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 127195.35608713201,
@@ -39,7 +77,50 @@
       ]
     },
     "META": {
-      "tdps": 775861.3937858627,
+      "tdps": 658928.4440718616,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43274.871907665365,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s4, dgauge>500 and x=3",
+        "`s1, (dgauge>1100 and x=3)",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Berserker",
+        "Ieyasu",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL"
     }
   },
@@ -70,6 +151,71 @@
         "`s2",
         "`dragon",
         "end"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86463.53829678004,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Veronica",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 82709.2012059204,
+        "team": 0.05882157652105998,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Flash_of_Genius",
+        "Memory_of_a_Friend",
+        "Seaside_Princess",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
       ]
     },
     "META": {
@@ -121,8 +267,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }
