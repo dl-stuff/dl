@@ -166,12 +166,20 @@ class KillerModifier(Modifier):
 class CrisisModifier(Modifier):
     def __init__(self, name, modtype, adv):
         self.adv = adv
-        self.passive = 0
-        self.per_hit = 0
+        self.passive = None
+        self.per_hit = None
         super().__init__(name, modtype, "crisis", self.c_mod_value())
 
     def c_mod_value(self):
-        return (max((self.passive, self.per_hit))) * ((100 - self.adv.hp) ** 2) / 10000
+        mods = []
+        if self.passive is not None:
+            mods.append(self.passive)
+        if self.per_hit is not None:
+            mods.append(self.per_hit)
+        if mods:
+            return (max(mods)) * ((100 - self.adv.hp) ** 2) / 10000
+        else:
+            return 0
 
     def get(self):
         self.mod_value = self.c_mod_value()
