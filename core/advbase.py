@@ -1493,16 +1493,16 @@ class Adv(object):
         )
 
     @allow_acl
-    def amp_lvl(self, kind=None, key=2):
+    def amp_lvl(self, kind=None, key="10000"):
         try:
-            return self.active_buff_dict.get_amp(key).level(kind, adjust=kind is None)
+            return get_amp_buff(key).level(kind, adjust=kind is None)
         except KeyError:
             return 0
 
     @allow_acl
-    def amp_timeleft(self, kind=None, key=2):
+    def amp_timeleft(self, kind=None, key="10000"):
         try:
-            return self.active_buff_dict.get_amp(key).timeleft(kind)
+            return get_amp_buff(key).timeleft(kind)
         except KeyError:
             return 0
 
@@ -2245,16 +2245,9 @@ class Adv(object):
                     self.bleed.on()
 
         if "amp" in attr:
-            amp_data = attr["amp"]
-            amp_id = amp_data[0][0]
-            try:
-                amp_buff = self.active_buff_dict.get_amp(amp_id)
-                amp_buff.on(amp_data, self.conf["fleet"] or 0)
-            except KeyError:
-                amp_buff = AmpBuff(*amp_data, source=name)
-                if self.conf["amp_level_override"]:
-                    amp_buff.max_team_level = self.conf["amp_level_override"]
-                self.active_buff_dict.add_amp(base, group, aseq, amp_buff.on(amp_data), amp_id)
+            amp_id, amp_max_lvl, amp_target = attr["amp"]
+            amp_buff = get_amp_buff(amp_id)
+            amp_buff.on(amp_max_lvl, amp_target, fleet=self.conf["fleet"] or 0)
 
         # coei: _CurseOfEmptinessInvalid
         if "buff" in attr and (not self.nihilism or attr.get("coei")):

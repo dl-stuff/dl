@@ -1096,13 +1096,16 @@ class Skill_Recharge(Ability):
         if self.all:
 
             def l_skill_charge(e):
-                adv.charge_p("scharge", self.value)
+                # dform eats this sp
+                if not e.name.startswith("ds"):
+                    adv.charge_p("scharge", self.value)
 
         else:
 
             def l_skill_charge(e):
                 try:
-                    adv.charge_p("scharge", self.value, target=e.base, no_autocharge=True)
+                    if not e.name.startswith("ds"):
+                        adv.charge_p("scharge", self.value, target=e.base, no_autocharge=True)
                 except AttributeError:
                     pass
 

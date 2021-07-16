@@ -6,6 +6,7 @@ class Sha_Wujing(Adv):
         self.a1_count = 3
         Timer(self.a3_start).on(self.duration * 0.3)
         Event("s").listener(self.a1_check, order=2)
+        Event("ds").listener(self.a1_check, order=2)
 
     def a3_start(self, t):
         Modifier("a3", "att", "assailant", 0.08).on()

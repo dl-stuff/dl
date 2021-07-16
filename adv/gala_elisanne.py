@@ -8,6 +8,7 @@ class Gala_Elisanne(Adv):
         self.ahits = 0
         Event("fs").listener(self.dr_proc)
         Event("s").listener(self.dr_proc)
+        Event("ds").listener(self.dr_proc)
 
     def dr_proc(self, e):
         self.divine_revelation.on()
