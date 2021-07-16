@@ -35,14 +35,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111922.52257993649,
+        "dps": 128414.48264389538,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Forest_Bonds",
         "Sweet_Surprise",
         "Amaterasu_Oblation",
         "To_the_Extreme",
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 706859.1086345337,
+      "tdps": 848399.5853927234,
       "pref": "PERSONAL"
     }
   },
@@ -154,19 +154,36 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 133076.16450244724,
+        "dps": 156792.49131409015,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Forest_Bonds",
         "Me_and_My_Bestie",
-        "Sweet_Surprise",
         "The_Cutie_Competition",
         "The_Plaguebringer",
         "To_the_Extreme",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "acl": [
+        "if hp<5 and aff_timeleft(poison)>13",
+        "`dragon(c2-s-c2-c2-c2-end), dragonform.shift_count=0 and x=3",
+        "`dragon(c2-s-c2-c2-c2-end), dragonform.shift_count>=1 and x=1",
+        "end",
+        "`s3, not buff(s3) and fscf",
+        "`s2, xf or fsc",
+        "`s4, cancel or dgauge>=450",
+        "`s1, buff(s2)",
+        "`fs, x=5 and not buff(s2) or hp>=30",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Wand",
+        "Yukata_Cassandra"
       ]
     },
     "META": {

@@ -87,14 +87,14 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 61903.681576767915,
-        "team": 0.2619297048100797,
+        "dps": 69000.92462506366,
+        "team": 0.26335114884073174,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
@@ -104,21 +104,21 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "if dragondrive.get()",
-        "`s2",
+        "`s1, ((dgauge>1400) and cancel) or duration-now<4",
         "`s4",
-        "`s1, dgauge>1100 or duration-now<4",
+        "`s2, cancel",
         "else",
         "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`dragon",
+        "`s2, xf",
+        "`s1, xf",
+        "`dragon, xf",
         "`dodge, xf=1",
         "end"
       ],
       "coabs": [
+        "Delphi",
         "Ieyasu",
-        "Vania",
-        "Yaten"
+        "Vania"
       ],
       "share": [
         "Weapon",
@@ -126,7 +126,7 @@
       ]
     },
     "META": {
-      "tdps": 121312.59991121753,
+      "tdps": 70278.24657072197,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,8 +137,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 31498.622017942325,
-        "team": 0.17089502941236046,
+        "dps": 32591.466405836585,
+        "team": 0.14450718533422555,
         "noaff": false,
         "nihil": true
       },
@@ -177,8 +177,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42221.25080246024,
-        "team": 0.09438666085644337,
+        "dps": 44147.7281177744,
+        "team": 0.10086832911042315,
         "noaff": false,
         "nihil": true
       },
@@ -203,6 +203,7 @@
         "`s1",
         "`s2",
         "`dragon",
+        "`dodge, xf=1",
         "end"
       ],
       "coabs": [
@@ -216,15 +217,15 @@
       ]
     },
     "META": {
-      "tdps": 140149.7507645997,
+      "tdps": 264815.8708072317,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84504.37089516793,
-        "team": 0.27332640520968365,
+        "dps": 84983.88662959503,
+        "team": 0.27380346516646525,
         "noaff": false,
         "nihil": false
       },
@@ -241,9 +242,9 @@
       "acl": [
         "`s3, not buff(s3)",
         "if dragondrive.get()",
-        "`s4, cancel or s",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
-        "`s2, cancel",
+        "`s4, cancel",
+        "`s1, ((dgauge>1400) and cancel) or duration-now<2",
+        "`s2, not trickery=1",
         "else",
         "`dragon, xf",
         "`s4, xf",
@@ -252,8 +253,8 @@
         "end"
       ],
       "coabs": [
+        "Dagger",
         "Ieyasu",
-        "Joker",
         "Vania"
       ],
       "share": [
@@ -272,8 +273,8 @@
   "ALWAYS-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 83182.74503037326,
-        "team": 0.27612797828060404,
+        "dps": 83670.77654038704,
+        "team": 0.27707637029777743,
         "noaff": false,
         "nihil": false
       },
@@ -289,13 +290,13 @@
       "acl": [
         "`s3, not buff(s3)",
         "if dragondrive.get()",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4",
+        "`s4, cancel or s",
+        "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
         "`s2, cancel",
-        "`s4, cancel",
         "else",
-        "`dragon",
-        "`s1",
+        "`dragon, xf",
         "`s4, xf",
+        "`s1",
         "`s2, xf",
         "end"
       ],
@@ -306,7 +307,7 @@
       ]
     },
     "META": {
-      "tdps": 471744.20632208674,
+      "tdps": 401206.2789860125,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -528,15 +529,57 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 27087.39391982854,
-        "team": 0.10386000847219073,
+        "dps": 28684.3483460802,
+        "team": 0.2010981196428243,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "if dragondrive.get()",
+        "`s3",
+        "`s4",
+        "`s2",
+        "#`s1, self.enhanced_autos_buff.timeleft() < 1",
+        "else",
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1",
+        "`s2, xf",
+        "`dodge, xf=1",
+        "end"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Joker"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40323.036167199585,
+        "team": 0.10868883378766477,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
+        "Moonlight_Party",
+        "Worthy_Rivals",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
         "Crown_of_Light",
@@ -544,68 +587,31 @@
       ],
       "acl": [
         "if dragondrive.get()",
+        "`s4, cancel",
+        "`s3, cancel",
         "`s2",
-        "`s4",
-        "`s1, dgauge>1100 or duration-now<4",
+        "`s1, ((dgauge>1400) and cancel) or duration-now<2",
         "else",
-        "`s3, not buff(s3)",
-        "`s2",
+        "`dragon, xf",
         "`s1",
-        "`dragon",
-        "`dodge, xf=1",
+        "`s4, xf",
+        "`s3, xf",
+        "`s2, xf",
+        "`dodge, xf",
         "end"
       ],
       "coabs": [
-        "Delphi",
         "Ieyasu",
+        "Joker",
         "Vania"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 30266.65217640885,
-        "team": 0.08838453396533925,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Small_Courage",
-        "Lord_of_the_Skies",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "if dragondrive.get()",
-        "`s2",
-        "`s4, dgauge>500",
-        "`s1, (dgauge>1100)",
-        "else",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Dagger",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Summer_Celliera"
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 205438.49916671385,
+      "tdps": 125947.16768357703,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

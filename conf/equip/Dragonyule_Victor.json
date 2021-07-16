@@ -109,24 +109,61 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 62592.81853674444,
-        "team": 0.2275108880068514,
+        "dps": 65423.56155534243,
+        "team": 0.2336335510546105,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Summer_Paladyns",
+        "Welcome_to_the_Opera",
         "Rogues_Banquet",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), trickery<3 and s=2",
+        "`s3, not buff(s3)",
+        "`fs, x=4 and c_fs(dragonyulevictor)",
+        "`s4",
+        "`s2, fsc",
+        "`s1, s or fsc or not c_fs(dragonyulevictor)"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77148.44909416356,
+        "team": 0.2211419299298738,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "acl": [
         "`dragon(c3-s-end), trickery<3 and s=2",
         "`s3, not buff(s3)",
-        "`fs, s1.check() and c_fs(dragonyulevictor)",
+        "`fs, x=4 and c_fs(dragonyulevictor)",
         "`s4",
         "`s2",
         "`s1, s or fsc or not c_fs(dragonyulevictor)"
@@ -142,6 +179,7 @@
       ]
     },
     "META": {
+      "tdps": 938620.1696113537,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -2,40 +2,39 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 78892.34514068672,
-        "team": 0.0936833772295853,
-        "noaff": false,
+        "dps": 56743.31300641536,
+        "team": 0.1176185534142034,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Brothers_in_Arms",
+        "Super_Soaking_Androids",
         "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
-        "Beautiful_Gunman",
+        "Beautiful_Nothingness",
         "Enter_the_Blue_Rose",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`s3, not buff(s3)",
-        "`s1, not aff(shadowblight)",
+        "`s3, not buff(s3) and cancel",
         "`s4",
         "`fs"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Delphi",
         "Grace"
       ],
       "share": [
         "Weapon",
-        "Seimei"
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 93852.65497497973,
+        "dps": 94102.50607751062,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -52,7 +51,7 @@
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s3, not buff(s3) and cancel",
-        "`s1, not aff(shadowblight)",
+        "`s1, not aff(shadowblight) or duration-now<1.1",
         "`s4",
         "`fs"
       ],
@@ -67,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 159690.1208805752,
+      "tdps": 317630.1016008231,
       "pref": "PERSONAL"
     }
   },
@@ -106,7 +105,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57551.311312271544,
+        "dps": 57650.480714683756,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -122,8 +121,9 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "#`s3, not buff(s3)",
+        "`dragon(c3-s-end), s",
         "`s4, not aff(poison)",
+        "`s1, duration-now<0.8",
         "`fs"
       ],
       "coabs": [
@@ -132,25 +132,64 @@
         "Grace"
       ],
       "share": [
-        "Weapon",
+        "Gala_Mym",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 387784.52747905767,
+      "tdps": 389391.3694550968,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 86177.66225175346,
+        "team": 0.1517236953662141,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`s3, not buff(s3) and cancel",
+        "`s1, not aff(shadowblight)",
+        "`s4",
+        "`fs"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100793.61916015961,
+        "dps": 112119.44527408204,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "Beautiful_Gunman",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`s3, not buff(s3) and cancel",
+        "`s1, duration-now<1.1",
+        "`s4",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Grace"
+      ]
     },
     "META": {
+      "tdps": 170980.4322898486,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -161,7 +200,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62634.881417470664,
+        "dps": 62674.915571919584,
         "team": 0.07406996292192546,
         "noaff": false,
         "nihil": true
@@ -176,7 +215,7 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`s1, not aff(shadowblight)",
+        "`s1, duration-now < 0.1",
         "`s3",
         "`s4",
         "`fs"
@@ -202,30 +241,29 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65576.55786845244,
+        "dps": 72428.17312254063,
         "team": 0.0,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "Brothers_in_Arms",
         "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
+        "Super_Soaking_Androids",
+        "Flower_in_the_Fray",
+        "The_Warrioresses",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`s3, not buff(s3)",
+        "`s3, not buff(s3) and cancel",
+        "`s1, not buff(s3)",
+        "`s4",
         "`fs"
-      ],
-      "share": [
-        "Weapon",
-        "Seimei"
       ]
     },
     "META": {
+      "tdps": 133353.62203350474,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -252,19 +290,29 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48418.9296327601,
-        "team": 0.08640373959335063,
+        "dps": 50980.30166436195,
+        "team": 0.08638595222785277,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Worthy_Rivals",
+        "Beautiful_Gunman",
+        "Enter_the_Blue_Rose",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
+        "`s1, duration-now < 0.1",
         "`s4",
         "`fs"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
-        "Grace"
+        "Grace",
+        "Joker"
       ],
       "share": [
         "Gala_Mym",
@@ -272,7 +320,7 @@
       ]
     },
     "META": {
-      "tdps": 1019348.8964457196,
+      "tdps": 2419304.5339845605,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

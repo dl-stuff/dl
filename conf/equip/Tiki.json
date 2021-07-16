@@ -86,31 +86,30 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51097.048006718,
-        "team": 0.009793127366019554,
+        "dps": 53752.25352431551,
+        "team": 0.00979588567707703,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Gentle_Winds",
         "Memory_of_a_Friend",
-        "Sisters_Day_Out",
         "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Rogues_Banquet"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if divine_dragon.get()",
-        "`s1",
+        "`s1, x=3",
         "`s2, cancel",
         "`dodge, x=3",
         "else",
-        "`fs, fs_prep_c and x=4",
         "`s3",
-        "`s4",
-        "`dragon, s=3",
-        "`s2",
-        "`s1",
+        "`s4, s=2",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
         "end"
       ],
       "coabs": [
@@ -119,8 +118,8 @@
         "Yurius"
       ],
       "share": [
-        "Summer_Celliera",
-        "Sha_Wujing"
+        "Sha_Wujing",
+        "Gala_Mym"
       ]
     },
     "PERSONAL": {
@@ -163,7 +162,7 @@
       ]
     },
     "META": {
-      "tdps": 710042.4994384841,
+      "tdps": 438789.4322561149,
       "pref": "PERSONAL"
     }
   },
@@ -214,11 +213,29 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53446.7268201881,
-        "team": 0.009793127366019554,
+        "dps": 62521.452253719326,
+        "team": 0.01233436976575601,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "if divine_dragon.get()",
+        "`s1, cancel",
+        "`s2",
+        "`dodge, x=3",
+        "else",
+        "`s3",
+        "`s4",
+        "`dragon, s=4",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`fs, fs_prep_c and x=4",
+        "end"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
@@ -247,7 +264,7 @@
       ]
     },
     "META": {
-      "tdps": 1538361.2279500822,
+      "tdps": 159469.38148387268,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -73,42 +73,98 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 33506.57373097483,
+        "dps": 59416.81709952436,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
+        "Howling_to_the_Heavens",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Snipers_Allure",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(s-c3-c3-end), xf=1",
-        "`s3, not buff(s3) and cancel",
+        "`dragon(c5-s-end), xf=5",
+        "`s2, xf=5 and hp=100",
         "`s1, hp<=20",
-        "`s2, xf=5",
+        "`s3, xf=5",
         "`s4, xf=5"
       ],
       "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Vania"
+        "Delphi",
+        "Joker",
+        "Wand"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60529.33565393457,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c5-s-end), xf=5",
+        "`s2, xf=5 and hp=100",
+        "`s1, hp<=20",
+        "`s3, xf=5",
+        "`s4, xf=5"
+      ],
+      "coabs": [
+        "Axe2",
+        "Delphi",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59416.81709952436,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Delphi",
+        "Joker",
+        "Wand"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -166,7 +222,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -190,7 +246,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 22672.551081608584,
+        "dps": 23819.695813999366,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -217,7 +273,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

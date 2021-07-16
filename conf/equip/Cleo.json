@@ -172,32 +172,39 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52334.55191224651,
-        "team": 0.21883314560631317,
+        "dps": 66503.91622587376,
+        "team": 0.09727103647161159,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1, (x=5 or s) and timeleft(s1)<5 and not duration-now<1.5",
-        "`s4",
-        "`dragon(s), cancel"
+        "`s4, x=5",
+        "`s1, (x=5 or s) and timeleft(s1)<14 and not duration-now<10",
+        "`dragon(c3-s-c3-c3-c3-c3-end), aff(frostbite) and timeleft(s1)>14"
       ],
       "coabs": [
-        "Audric",
-        "Dagger2",
+        "Alberius",
+        "Forte",
         "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 133116.6046114453,
+      "tdps": 128836.67909901986,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -205,32 +212,10 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 51065.53593072625,
-        "team": 0.21943847487277174,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Audric",
-        "Forte",
-        "Ieyasu"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25589.474247135946,
+        "dps": 41233.26065254016,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -240,24 +225,34 @@
         "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Entwined_Flames",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`s3, x>1",
+        "`s4",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=3"
+      ],
       "coabs": [
+        "Audric",
         "Ieyasu",
-        "Joker",
-        "Wand"
+        "Joker"
       ],
       "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

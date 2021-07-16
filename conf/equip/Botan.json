@@ -165,28 +165,30 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65389.6355955106,
-        "team": 0.18686249847992892,
+        "dps": 82338.79033262927,
+        "team": 0.18686864683625984,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
       ],
       "acl": [
-        "`dragon(c3-s-end), trickery<=1",
+        "`dragon(c3-s-end), trickery<=1 and s=2",
         "`s3, not buff(s3) and prep",
-        "`s2, cancel",
-        "`s4, cancel",
+        "`s2, cancel or s=3",
+        "`s4, cancel or s=2",
         "`s1",
         "`fs, x=5"
       ],
       "coabs": [
-        "Dagger",
+        "Axe2",
         "Ieyasu",
         "Vania"
       ],
@@ -196,7 +198,7 @@
       ]
     },
     "META": {
-      "tdps": 57699.486367576326,
+      "tdps": 74552.57637998012,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -110,7 +110,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49201.30651000108,
+        "dps": 54878.3829201323,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -126,14 +126,14 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon, not dragondrive.get()",
+        "`dragon, not dragondrive.get() and cancel",
         "`s4",
         "`s3, cancel",
-        "`s2, dragondrive.get() or xf>3",
+        "`s2, dragondrive.get() or x>3",
         "`s1"
       ],
       "coabs": [
-        "Dagger",
+        "Delphi",
         "Ieyasu",
         "Wand"
       ],
@@ -143,7 +143,7 @@
       ]
     },
     "META": {
-      "tdps": 220405.7292034609,
+      "tdps": 378996.2738757546,
       "pref": "PERSONAL"
     }
   },
@@ -193,7 +193,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67114.74841169643,
+        "dps": 66916.20466419353,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -207,10 +207,21 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
+      "acl": [
+        "`dragon, not dragondrive.get() and xf=6",
+        "`s4, xf>3",
+        "`s3, xf>4",
+        "`s2, dragondrive.get() or cancel",
+        "`s1"
+      ],
       "coabs": [
         "Bow",
         "Ieyasu",
         "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -265,16 +276,50 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44176.911528890574,
+        "team": 0.02716946654091788,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon, not dragondrive.get() and cancel",
+        "`s4",
+        "`s3, cancel",
+        "`s2, dragondrive.get() or x>3",
+        "`s1"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44771.78936009293,
+        "dps": 45180.91932303673,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 36953.533579104194,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
