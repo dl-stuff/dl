@@ -164,7 +164,7 @@ class Gala_Alex_70MC(Gala_Alex):
 
     def l_debuff_amp(self, e):
         if isinstance(e.buff, Debuff) and e.buff.mod_type in ("def", "defb") and not self.is_set_cd("a1", 30):
-            self.add_one_att_amp()
+            self.add_amp(max_level=3)
 
 
 class Gala_Alex_BK(Gala_Alex):

@@ -1,0 +1,74 @@
+{
+    "c": {
+        "name": "Summer Ieyasu",
+        "icon": "110313_03_r05",
+        "att": 503,
+        "hp": 757,
+        "ele": "water",
+        "wt": "sword",
+        "spiral": false,
+        "a": [["cc_bleed", 0.15], ["affres_stun", 100.0], ["cd", 0.2]]
+    },
+    "s1_phase1": {
+        "sp": 2714,
+        "startup": 0.1,
+        "recovery": 1.83333,
+        "attr": [
+            {"sp": [1.0, "%", "s1"]},
+            {"dmg": 4.5, "iv": 0.6},
+            {"dmg": 4.5, "iv": 0.86667}
+        ]
+    },
+    "s1_phase2": {
+        "sp": 2714,
+        "startup": 0.1,
+        "recovery": 1.83333,
+        "attr": [
+            {"sp": [1.0, "%", "s1"]},
+            {"dmg": 4.5, "bleed": [80, 1.46], "iv": 0.66667},
+            {"dmg": 4.5, "iv": 0.93333}
+        ],
+        "phase_coei": true
+    },
+    "s1_phase3": {
+        "sp": 2714,
+        "startup": 0.1,
+        "recovery": 1.83333,
+        "attr": [
+            {"bleed": [80, 1.46], "iv": 0.66667},
+            {"dmg": 4.5, "afflic": ["frostbite", 120, 0.41], "iv": 0.66667},
+            {"dispel": 100, "iv": 0.7},
+            {"dmg": 4.5, "iv": 0.86667}
+        ],
+        "phase_coei": true
+    },
+    "s2": {
+        "sp": 3372,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"buff": ["sAlt", "enhanced", "s2", -1, 1, "-refresh"], "coei": 1, "iv": 0.16667},
+            {"dmg": 21.0, "killer": [0.2, ["bleed"]], "iv": 1.0}
+        ]
+    },
+    "s2_enhanced": {
+        "sp": 3372,
+        "startup": 0.1,
+        "recovery": 1.76667,
+        "attr": [
+            {"dmg": 21.0, "killer": [0.2, ["bleed"]], "iv": 1.0},
+            {"amp": ["10000", 3, 0], "iv": 1.66667}
+        ]
+    },
+    "s99": {
+        "sp": 2714,
+        "startup": 0.1,
+        "recovery": 1.83333,
+        "attr": [
+            {"bleed": [80, 1.46], "iv": 0.66667},
+            {"dmg": 4.5, "afflic": ["frostbite", 120, 0.41], "iv": 0.66667},
+            {"dispel": 100, "iv": 0.7},
+            {"dmg": 4.5, "iv": 0.86667}
+        ]
+    }
+}

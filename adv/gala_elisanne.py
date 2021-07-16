@@ -8,6 +8,7 @@ class Gala_Elisanne(Adv):
         self.ahits = 0
         Event("fs").listener(self.dr_proc)
         Event("s").listener(self.dr_proc)
+        Event("ds").listener(self.dr_proc)
 
     def dr_proc(self, e):
         self.divine_revelation.on()
@@ -68,7 +69,7 @@ class Gala_Elisanne_70MC(Gala_Elisanne):
                 {"dmg": 13.75, "iv": 1.43333},
                 {"buff": ["energy", 3], "iv": 1.43333},
                 {
-                    "amp": [[2, 3, 3, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]],
+                    "amp": ["10000", 3, 0],
                     "cd": 30.0,
                 },
             ],

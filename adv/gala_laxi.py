@@ -311,7 +311,7 @@ class Gala_Laxi_70MC(Gala_Laxi):
             a_hits = self.hits // 15
             if a_hits > 0 and a_hits != self.ahits and not self.is_set_cd("a3", 30):
                 self.ahits = a_hits
-                self.add_one_att_amp()
+                self.add_amp(max_level=3)
         return result
 
 

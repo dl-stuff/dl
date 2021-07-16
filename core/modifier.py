@@ -1,4 +1,5 @@
 from collections import defaultdict
+from conf import load_json
 from itertools import chain
 from functools import reduce
 import operator
@@ -1251,15 +1252,24 @@ class MultiLevelBuff:
 class AmpBuff:
     SELF_AMP = "self"
     TEAM_AMP = "team"
+    TYPE_BUFFARGS = {
+        1: ("maxhp", "buff"),
+        2: ("att", "buff"),
+        3: ("def", "buff"),
+    }
 
-    def __init__(self, meta_args, amp_values, source=None):
-        self.amp_id, self.publish_level, self.max_team_level, self.extend_time, self.mod_type, self.mod_order = meta_args
-        self.publish_level -= 1
+    def __init__(self, amp_id):
+        self.amp_id = amp_id
+        amp_data = load_json("amp.json")[amp_id]
+        self.publish_level = amp_data["publish"] - 1
+        self.max_team_level = 2
+        self.extend = amp_data["extend"]
+        self.amp_type = amp_data["type"]
+        self.mod_type, self.mod_order = AmpBuff.TYPE_BUFFARGS[amp_data["type"]]
         self.buffs = []
         self.name = f"{self.mod_type}_amp"
-        for idx, buffargs in enumerate(amp_values):
-            buff = Teambuff(f"{self.name}_seq{idx}", *buffargs, self.mod_type, self.mod_order, source=source).no_bufftime()
-            buff.hidden = True
+        for idx, buffargs in enumerate(amp_data["values"]):
+            buff = Teambuff(f"{self.name}_seq{idx}", *buffargs, self.mod_type, self.mod_order, source="amp").no_bufftime()
             buff.modifier.buff_capped = False
             self.buffs.append(buff)
         self.max_len = self.publish_level + self.max_team_level
@@ -1307,27 +1317,32 @@ class AmpBuff:
         else:
             return f" lv{level + 1}({buff_value:.2f}/{buff_time:.2f}s)"
 
-    def on(self, amp_data, fleet=0):
+    def on(self, own_max_level, target=0, fleet=0):
         # update max team level to new incoming amp
-        own_max_level = amp_data[0][2]
-        self.max_team_level = max(amp_data[0][2], self.max_team_level)
+        self.max_team_level = max(own_max_level, self.max_team_level)
 
         self_level = self.level(AmpBuff.SELF_AMP)
         team_level = self.level(AmpBuff.TEAM_AMP)
-        publish = self_level >= self.publish_level
-        if publish:
-            self_level = -1
-            # more amp from fleet
+        if target == 2:
+            # direct team amp
             team_level += fleet
             team_level = min(team_level, self.max_team_level - 1)
             team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level, own_max_level=own_max_level - 1)
         else:
-            if team_level > 0:
-                buff_value = self.buffs[self.publish_level + team_level - 1].get()
-                buff_time = self.buffs[self.publish_level + team_level - 1].timeleft()
-                team_description = f" lv{team_level}({buff_value:.2f}/{buff_time:.2f}s)"
+            publish = self_level >= self.publish_level
+            if publish:
+                self_level = -1
+                # more amp from fleet
+                team_level += fleet
+                team_level = min(team_level, self.max_team_level - 1)
+                team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level, own_max_level=own_max_level - 1)
             else:
-                team_description = " lv0"
+                if team_level > 0:
+                    buff_value = self.buffs[self.publish_level + team_level - 1].get()
+                    buff_time = self.buffs[self.publish_level + team_level - 1].timeleft()
+                    team_description = f" lv{team_level}({buff_value:.2f}/{buff_time:.2f}s)"
+                else:
+                    team_description = " lv0"
         self_description = self.toggle_buffs(AmpBuff.SELF_AMP, self_level)
         log("amp", self.name, f"self{self_description}", f"team{team_description}", publish)
         return self
@@ -1419,15 +1434,29 @@ class ActiveBuffDict(defaultdict):
         self[k][group][seq] = buff
         self.overwrite_buffs[overwrite_group] = buff
 
+    def add_amp(self, k, group, seq, buff, amp_id):
+        self[k][group][seq] = buff
+        self.amp_buffs[amp_id] = buff
+
     def get_amp(self, amp_id):
-        if isinstance(amp_id, str):
+        try:
             amp_id = {
                 "hp": 1,
                 "att": 2,
                 "defense": 3,
             }[amp_id.lower()]
-        return self.amp_buffs[amp_id]
-
-    def add_amp(self, k, group, seq, buff, amp_id):
-        self[k][group][seq] = buff
-        self.amp_buffs[amp_id] = buff
+        except (KeyError, AttributeError):
+            pass
+        if isinstance(amp_id, int):
+            # search amp types
+            # might lead to shenanigans if multiple id of same type exist
+            for amp_buff in self.amp_buffs.values():
+                if amp_buff.amp_type == amp_id:
+                    return amp_buff
+            raise ValueError(f'no amp of type {amp_id}')
+        else:
+            try:
+                return self.amp_buffs[amp_id]
+            except KeyError:
+                self.amp_buffs[amp_id] = AmpBuff(amp_id)
+                return self.amp_buffs[amp_id]

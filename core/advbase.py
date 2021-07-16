@@ -1342,7 +1342,12 @@ class Adv(object):
             if rate > 0:
                 rates[afflic] = rate
 
-        debuff_rates = {}
+        if self.bleed is None:
+            debuff_rates = {}
+        else:
+            rates["bleed"] = self.bleed.get()
+            debuff_rates = {"debuff": 1 - rates["bleed"]}
+
         for buff in self.all_buffs:
             if buff.get() and (buff.bufftype == "debuff" or buff.name == "simulated_def") and buff.val < 0:
                 dkey = f"debuff_{buff.mod_type}"
@@ -1478,27 +1483,27 @@ class Adv(object):
     def zonecount(self):
         return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
 
-    def add_one_att_amp(self, max=3):
+    def add_amp(self, amp_id="10000", max_level=3, target=0):
         self.hitattr_make(
             "amp_proc",
             "amp",
             "proc",
             0,
-            {"amp": [[2, 3, max, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]]},
+            {"amp": [amp_id, max_level, target]},
         )
 
     @allow_acl
-    def amp_lvl(self, kind=None, key=2):
+    def amp_lvl(self, kind=None, key="10000"):
         try:
             return self.active_buff_dict.get_amp(key).level(kind, adjust=kind is None)
-        except KeyError:
+        except (ValueError, KeyError):
             return 0
 
     @allow_acl
-    def amp_timeleft(self, kind=None, key=2):
+    def amp_timeleft(self, kind=None, key="10000"):
         try:
             return self.active_buff_dict.get_amp(key).timeleft(kind)
-        except KeyError:
+        except (ValueError, KeyError):
             return 0
 
     def l_idle(self, e):
@@ -2127,6 +2132,11 @@ class Adv(object):
         if "dmg" in attr:
             if "killer" in attr:
                 hitmods.append(KillerModifier(name, "hit", *attr["killer"]))
+            if "killer_hitcount" in attr:
+                for k in reversed(attr["killer_hitcount"][0]):
+                    if self.hits >= k[0]:
+                        hitmods.append(KillerModifier(name, "hit", k[1], attr["killer_hitcount"][1]))
+                        break
             if "bufc" in attr:
                 hitmods.append(Modifier(f"{name}_bufc", "ex", "bufc", attr["bufc"] * self.buffcount))
             if "drg" in attr:
@@ -2235,16 +2245,9 @@ class Adv(object):
                     self.bleed.on()
 
         if "amp" in attr:
-            amp_data = attr["amp"]
-            amp_id = amp_data[0][0]
-            try:
-                amp_buff = self.active_buff_dict.get_amp(amp_id)
-                amp_buff.on(amp_data, self.conf["fleet"] or 0)
-            except KeyError:
-                amp_buff = AmpBuff(*amp_data, source=name)
-                if self.conf["amp_level_override"]:
-                    amp_buff.max_team_level = self.conf["amp_level_override"]
-                self.active_buff_dict.add_amp(base, group, aseq, amp_buff.on(amp_data), amp_id)
+            amp_id, amp_max_lvl, amp_target = attr["amp"]
+            amp_buff = self.active_buff_dict.get_amp(amp_id)
+            amp_buff.on(amp_max_lvl, amp_target, fleet=self.conf["fleet"] or 0)
 
         # coei: _CurseOfEmptinessInvalid
         if "buff" in attr and (not self.nihilism or attr.get("coei")):
