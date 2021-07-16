@@ -2127,6 +2127,11 @@ class Adv(object):
         if "dmg" in attr:
             if "killer" in attr:
                 hitmods.append(KillerModifier(name, "hit", *attr["killer"]))
+            if "killer_hitcount" in attr:
+                for k in reversed(attr["killer_hitcount"][0]):
+                    if self.hits >= k[0]:
+                        hitmods.append(KillerModifier(name, "hit", k[1], attr["killer_hitcount"][1]))
+                        break
             if "bufc" in attr:
                 hitmods.append(Modifier(f"{name}_bufc", "ex", "bufc", attr["bufc"] * self.buffcount))
             if "drg" in attr:
