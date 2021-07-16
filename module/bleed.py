@@ -56,7 +56,7 @@ class Bleed(Dot):
             self._static["tick_event"].off()
 
     def get(self):
-        return self._static["stacks"]
+        return int(self._static["stacks"] > 0)
 
     def on(self):
         if self._static["stacks"] == 3:
@@ -85,12 +85,16 @@ class mBleed(Bleed):
     _static["all_bleeds"] = []
     _static["stacks"] = 0
     _static["cache"] = []
+    _static["get"] = 0
 
     def __init__(self, name, dmg_coef, chance=0.8, debufftime=1):
         super(mBleed, self).__init__(name, dmg_coef, debufftime=debufftime)
         self.end_index = None
         self.chance = chance
         self.bleed_event.rate = chance
+
+    def get(self):
+        return self._static["get"]
 
     def sum_bleeds(self, bleeds, active=None, probability=1.0, index=0):
         """Calculates the total damage from bleed during the current tick
@@ -141,24 +145,21 @@ class mBleed(Bleed):
             for bleed in active:
                 total += bleed.quickshot_event.dmg
 
+            if stacks == 0:
+                return 0
+            self._static["get"] += probability
             if stacks == 3:
                 return total * 2 * probability
-            elif stacks == 2:
+            if stacks == 2:
                 return total * 1.5 * probability
-            elif stacks == 1:
+            if stacks == 1:
                 return total * probability
-            else:
-                return 0
 
         if len(active) < 3:
             # still have room for another stack
             # add the damages from having it whiff and proc
             current = bleeds[index]
-            return self.sum_bleeds(
-                bleeds, active + [current], probability * current.chance, index + 1
-            ) + self.sum_bleeds(
-                bleeds, active, probability * (1.0 - current.chance), index + 1
-            )
+            return self.sum_bleeds(bleeds, active + [current], probability * current.chance, index + 1) + self.sum_bleeds(bleeds, active, probability * (1.0 - current.chance), index + 1)
         else:
             # stacks saturated, guaranteed whiff
             return self.sum_bleeds(bleeds, active, probability, index + 1)
@@ -170,6 +171,7 @@ class mBleed(Bleed):
         bleeds = self._static["all_bleeds"]
 
         dmg = 0
+        self._static["get"] = 0
         if cache:
             for cached in cache:
                 dmg += cached(bleeds)
@@ -213,4 +215,5 @@ class mBleed(Bleed):
         self._static["all_bleeds"] = []
         self._static["stacks"] = 0
         self._static["cache"] = []
+        self._static["get"] = 0
         return self
