@@ -305,19 +305,7 @@ ability_dict["ctime"] = Combo_Time
 
 class Bleed_Killer(Ability):
     def __init__(self, name, value, cond=None):
-        super().__init__(name, [("killer", "passive", value, cond)])
-
-    def oninit(self, adv, afrom=None):
-        super().oninit(adv, afrom=afrom)
-        value = self.mod_object.get()
-
-        def get_bleed():
-            try:
-                return value if adv.bleed.get() > 0 else 0
-            except AttributeError:
-                return 0
-
-        self.mod_object.get = get_bleed
+        super().__init__(name, [("bleed_killer", "passive", value, cond)])
 
 
 ability_dict["bleed"] = Bleed_Killer

@@ -1342,7 +1342,12 @@ class Adv(object):
             if rate > 0:
                 rates[afflic] = rate
 
-        debuff_rates = {}
+        if self.bleed is None:
+            debuff_rates = {}
+        else:
+            rates["bleed"] = self.bleed.get()
+            debuff_rates = {"debuff": 1 - rates["bleed"]}
+
         for buff in self.all_buffs:
             if buff.get() and (buff.bufftype == "debuff" or buff.name == "simulated_def") and buff.val < 0:
                 dkey = f"debuff_{buff.mod_type}"
