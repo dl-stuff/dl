@@ -1270,6 +1270,7 @@ class AmpBuff:
         self.name = f"{self.mod_type}_amp"
         for idx, buffargs in enumerate(amp_data["values"]):
             buff = Teambuff(f"{self.name}_seq{idx}", *buffargs, self.mod_type, self.mod_order, source="amp").no_bufftime()
+            buff.hidden = True
             buff.modifier.buff_capped = False
             self.buffs.append(buff)
         self.max_len = self.publish_level + self.max_team_level
@@ -1328,6 +1329,11 @@ class AmpBuff:
             team_level += fleet
             team_level = min(team_level, self.max_team_level - 1)
             team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level, own_max_level=own_max_level - 1)
+            if self_level == 0:
+                self_description = f" lv0"
+            else:
+                buff = self.buffs[self_level]
+                self_description = f" lv{self_level}({buff.get():.2f}/{buff.timeleft():.2f}s)"
         else:
             publish = self_level >= self.publish_level
             if publish:
@@ -1343,8 +1349,8 @@ class AmpBuff:
                     team_description = f" lv{team_level}({buff_value:.2f}/{buff_time:.2f}s)"
                 else:
                     team_description = " lv0"
-        self_description = self.toggle_buffs(AmpBuff.SELF_AMP, self_level)
-        log("amp", self.name, f"self{self_description}", f"team{team_description}", publish)
+            self_description = self.toggle_buffs(AmpBuff.SELF_AMP, self_level)
+        log("amp", self.name, f"self{self_description}", f"team{team_description}")
         return self
 
     def off(self):
@@ -1453,7 +1459,7 @@ class ActiveBuffDict(defaultdict):
             for amp_buff in self.amp_buffs.values():
                 if amp_buff.amp_type == amp_id:
                     return amp_buff
-            raise ValueError(f'no amp of type {amp_id}')
+            raise ValueError(f"no amp of type {amp_id}")
         else:
             try:
                 return self.amp_buffs[amp_id]
