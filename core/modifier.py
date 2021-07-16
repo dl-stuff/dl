@@ -1263,6 +1263,7 @@ class AmpBuff:
         self.buffs = []
         self.name = f"{self.mod_type}_amp"
         for idx, buffargs in enumerate(amp_data["values"]):
+            print(buffargs)
             buff = Teambuff(f"{self.name}_seq{idx}", *buffargs, self.mod_type, self.mod_order, source="amp").no_bufftime()
             buff.hidden = True
             buff.modifier.buff_capped = False
@@ -1320,6 +1321,7 @@ class AmpBuff:
         team_level = self.level(AmpBuff.TEAM_AMP)
         if target == 2:
             # direct team amp
+            team_level += fleet
             team_level = min(team_level, self.max_team_level - 1)
             team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level, own_max_level=own_max_level - 1)
         else:
@@ -1359,19 +1361,6 @@ class AmpBuff:
         if level > 0:
             return self.buffs[level - 1].timeleft()
         return 0
-
-
-all_amp_buffs = {}
-
-
-def get_amp_buff(amp_id):
-    if amp_id == "att":
-        amp_id = "10000"
-    try:
-        return all_amp_buffs[amp_id]
-    except KeyError:
-        all_amp_buffs[amp_id] = AmpBuff(amp_id)
-        return all_amp_buffs[amp_id]
 
 
 class ActiveBuffDict(defaultdict):
@@ -1444,3 +1433,12 @@ class ActiveBuffDict(defaultdict):
     def add_amp(self, k, group, seq, buff, amp_id):
         self[k][group][seq] = buff
         self.amp_buffs[amp_id] = buff
+
+    def get_amp(self, amp_id):
+        if amp_id == "att":
+            amp_id = "10000"
+        try:
+            return self.amp_buffs[amp_id]
+        except KeyError:
+            self.amp_buffs[amp_id] = AmpBuff(amp_id)
+            return self.amp_buffs[amp_id]

@@ -97,7 +97,7 @@ class Gala_Ranzal_70MC(Gala_Ranzal):
                 {"buff": ["fsAlt", "enhanced", -1, 3, "-refresh"], "coei": 1},
                 {"buff": ["team", 0.2, 15.0, "defense", "buff"], "iv": 0.16667},
                 {
-                    "amp": [[2, 3, 3, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]],
+                    "amp": ["10000", 3, 0],
                     "cd": 30.0,
                 },
             ],

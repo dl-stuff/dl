@@ -1483,26 +1483,26 @@ class Adv(object):
     def zonecount(self):
         return len([b for b in self.all_buffs if type(b) == ZoneTeambuff and b.get()])
 
-    def add_one_att_amp(self, max=3):
+    def add_amp(self, amp_id="10000", max_level=3, target=0):
         self.hitattr_make(
             "amp_proc",
             "amp",
             "proc",
             0,
-            {"amp": [[2, 3, max, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]]},
+            {"amp": [amp_id, max_level, target]},
         )
 
     @allow_acl
     def amp_lvl(self, kind=None, key="10000"):
         try:
-            return get_amp_buff(key).level(kind, adjust=kind is None)
+            return self.active_buff_dict.get_amp(key).level(kind, adjust=kind is None)
         except KeyError:
             return 0
 
     @allow_acl
     def amp_timeleft(self, kind=None, key="10000"):
         try:
-            return get_amp_buff(key).timeleft(kind)
+            return self.active_buff_dict.get_amp(key).timeleft(kind)
         except KeyError:
             return 0
 
@@ -2246,7 +2246,7 @@ class Adv(object):
 
         if "amp" in attr:
             amp_id, amp_max_lvl, amp_target = attr["amp"]
-            amp_buff = get_amp_buff(amp_id)
+            amp_buff = self.active_buff_dict.get_amp(amp_id)
             amp_buff.on(amp_max_lvl, amp_target, fleet=self.conf["fleet"] or 0)
 
         # coei: _CurseOfEmptinessInvalid

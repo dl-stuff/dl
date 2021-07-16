@@ -21,8 +21,8 @@ class Summer_Verica_70MC(Summer_Verica):
             "hp": 964,
             "ele": "shadow",
             "wt": "staff",
-            "spiral": true,
-            "a": [["rcv", 0.25, "hp100"], ["prep", 100.0], ["a", 0.15, "hp100"], ["affres_blind", 100.0], ["resself_blind_att", 0.15, 10.0, 15.0], ["rcv", 0.15]]
+            "spiral": True,
+            "a": [["rcv", 0.25, "hp100"], ["prep", 100.0], ["a", 0.15, "hp100"], ["affres_blind", 100.0], ["resself_blind_att", 0.15, 10.0, 15.0], ["rcv", 0.15]],
         },
         "s1": {
             "sp": 5916,
@@ -31,19 +31,19 @@ class Summer_Verica_70MC(Summer_Verica):
             "attr": [
                 {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.93333},
                 {"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 0.93333},
-                {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_8"], "iv": 0.96667}
+                {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_8"], "iv": 0.96667},
             ],
-            "energizable": true
+            "energizable": True,
         },
         "s2": {
             "sp": 63104,
             "startup": 0.1,
             "recovery": 1.93333,
             "attr": [
-                {"amp": [[2, 3, 2, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]], "cd": 30.0},
-                {"buff": ["drain", 0.05, 30.0], "coei": 1, "iv": 0.96667}
-            ]
-        }
+                {"amp": ["10000", 2, 0], "cd": 30.0},
+                {"buff": ["drain", 0.05, 30.0], "coei": 1, "iv": 0.96667},
+            ],
+        },
     }
 
     def post_run(self, end):

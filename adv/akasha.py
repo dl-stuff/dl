@@ -34,8 +34,8 @@ class Akasha_70MC(Akasha):
             "hp": 967,
             "ele": "wind",
             "wt": "staff",
-            "spiral": true,
-            "a": [["prep", 100.0], ["affres_bog", 100.0], ["resself_bog_att", 0.15, 10.0, 15.0], ["rcv", 0.17, "hp70"]]
+            "spiral": True,
+            "a": [["prep", 100.0], ["affres_bog", 100.0], ["resself_bog_att", 0.15, 10.0, 15.0], ["rcv", 0.17, "hp70"]],
         },
         "s1": {
             "sp": 5916,
@@ -44,26 +44,20 @@ class Akasha_70MC(Akasha):
             "attr": [
                 {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.93333},
                 {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_8"], "iv": 0.93333},
-                {"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 0.93333}
+                {"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 0.93333},
             ],
-            "energizable": true
+            "energizable": True,
         },
-        "s2": {
-            "sp": 15000,
-            "startup": 0.1,
-            "recovery": 1.96667,
-            "attr": [
-                {"dmg": 9.0, "hp": 100.0, "afflic": ["stormlash", 120, 0.41]}
-            ]
-        }
+        "s2": {"sp": 15000, "startup": 0.1, "recovery": 1.96667, "attr": [{"dmg": 9.0, "hp": 100.0, "afflic": ["stormlash", 120, 0.41]}]},
     }
 
     def prerun(self):
+        super().prerun()
         Event("s").listener(self.pursuer_amp)
 
     def pursuer_amp(self, e):
         if not self.is_set_cd("a1_pursuer", 30):
-            self.add_one_att_amp()
+            self.add_amp(max_level=2)
 
     def post_run(self, end):
         try:

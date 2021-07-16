@@ -37,7 +37,7 @@ class Yukata_Cassandra_70MC(Yukata_Cassandra):
             "startup": 0.1,
             "recovery": 1.93333,
             "attr": [
-                {"amp": [[2, 3, 2, 15.0, "att", "buff"], [[0.03, 60.0], [0.05, 60.0], [0.2, 30.0], [0.4, 30.0], [0.6, 60.0], [0.8, 60.0]]], "cd": 30.0},
+                {"amp": ["10000", 2, 0], "cd": 30.0},
                 {"buff": ["team", 35.0, 20.0, "heal", "buff"], "coei": 1, "iv": 1.0},
             ],
             "energizable": True,

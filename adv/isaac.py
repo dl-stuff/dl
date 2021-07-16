@@ -32,7 +32,7 @@ class Isaac(Adv):
 
     def s1_before(self, e):
         if self.name == "Isaac":
-            self.add_one_att_amp(max=2)
+            self.add_amp(max_level=2)
         self.verdure_buff = random.choice(self.setup_verdure(e.name))
         Timer(lambda _: self.verdure_buff[0].on(), 0.9).on()
 
