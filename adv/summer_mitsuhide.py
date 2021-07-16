@@ -19,6 +19,7 @@ class Summer_Mitsuhide(Adv):
     def s2_proc(self, e):
         if self.sunflowers < 3:
             self.sunflowers += 1
+        self.current_s["s1"] = "sunflower"
 
 
 variants = {None: Summer_Mitsuhide}
