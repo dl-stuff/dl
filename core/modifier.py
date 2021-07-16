@@ -1252,6 +1252,11 @@ class MultiLevelBuff:
 class AmpBuff:
     SELF_AMP = "self"
     TEAM_AMP = "team"
+    TYPE_BUFFARGS = {
+        1: ("maxhp", "buff"),
+        2: ("att", "buff"),
+        3: ("def", "buff"),
+    }
 
     def __init__(self, amp_id):
         self.amp_id = amp_id
@@ -1259,13 +1264,12 @@ class AmpBuff:
         self.publish_level = amp_data["publish"] - 1
         self.max_team_level = 2
         self.extend = amp_data["extend"]
-        self.mod_type, self.mod_order = amp_data["modargs"]
+        self.amp_type = amp_data["type"]
+        self.mod_type, self.mod_order = AmpBuff.TYPE_BUFFARGS[amp_data["type"]]
         self.buffs = []
         self.name = f"{self.mod_type}_amp"
         for idx, buffargs in enumerate(amp_data["values"]):
-            print(buffargs)
             buff = Teambuff(f"{self.name}_seq{idx}", *buffargs, self.mod_type, self.mod_order, source="amp").no_bufftime()
-            buff.hidden = True
             buff.modifier.buff_capped = False
             self.buffs.append(buff)
         self.max_len = self.publish_level + self.max_team_level
@@ -1435,10 +1439,24 @@ class ActiveBuffDict(defaultdict):
         self.amp_buffs[amp_id] = buff
 
     def get_amp(self, amp_id):
-        if amp_id == "att":
-            amp_id = "10000"
         try:
-            return self.amp_buffs[amp_id]
-        except KeyError:
-            self.amp_buffs[amp_id] = AmpBuff(amp_id)
-            return self.amp_buffs[amp_id]
+            amp_id = {
+                "hp": 1,
+                "att": 2,
+                "defense": 3,
+            }[amp_id.lower()]
+        except (KeyError, AttributeError):
+            pass
+        if isinstance(amp_id, int):
+            # search amp types
+            # might lead to shenanigans if multiple id of same type exist
+            for amp_buff in self.amp_buffs.values():
+                if amp_buff.amp_type == amp_id:
+                    return amp_buff
+            raise ValueError(f'no amp of type {amp_id}')
+        else:
+            try:
+                return self.amp_buffs[amp_id]
+            except KeyError:
+                self.amp_buffs[amp_id] = AmpBuff(amp_id)
+                return self.amp_buffs[amp_id]
