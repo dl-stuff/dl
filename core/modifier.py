@@ -1303,7 +1303,7 @@ class AmpBuff:
                 b.bufftype = kind
                 if kind == AmpBuff.TEAM_AMP and own_max_level < level:
                     if b.get():
-                        b.add_time(self.extend_time)
+                        b.add_time(self.extend)
                     else:
                         b.on()
                 else:
@@ -1326,6 +1326,7 @@ class AmpBuff:
         team_level = self.level(AmpBuff.TEAM_AMP)
         if target == 2:
             # direct team amp
+            publish = True
             team_level += fleet
             team_level = min(team_level, self.max_team_level - 1)
             team_description = self.toggle_buffs(AmpBuff.TEAM_AMP, team_level, own_max_level=own_max_level - 1)
@@ -1350,7 +1351,7 @@ class AmpBuff:
                 else:
                     team_description = " lv0"
             self_description = self.toggle_buffs(AmpBuff.SELF_AMP, self_level)
-        log("amp", self.name, f"self{self_description}", f"team{team_description}")
+        log("amp", self.name, f"self{self_description}", f"team{team_description}", publish)
         return self
 
     def off(self):
