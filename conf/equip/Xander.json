@@ -2,35 +2,38 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40183.358416243536,
-        "team": 0.15727018497748446,
+        "dps": 74726.9222984522,
+        "team": 0.1828205997351593,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Brothers_in_Arms",
-        "Super_Soaking_Androids",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
         "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "Odd_Sparrows"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon(c3-s-c3-c3-c2-end)",
         "`s3, not buff(s3) and fsc",
         "`s1",
-        "`s4",
         "`s2, cancel",
-        "`fs, x=2"
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
       ],
       "coabs": [
-        "Blade",
-        "Renee",
-        "Summer_Estelle"
+        "Gala_Mascula",
+        "Xainfried",
+        "Yurius"
       ],
       "share": [
-        "Templar_Hope",
-        "Patia"
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -70,8 +73,8 @@
       ]
     },
     "META": {
-      "tdps": 381294.1773263351,
-      "pref": "PERSONAL"
+      "tdps": 27924.937583877425,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -116,6 +119,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 76187.26008135374,
+        "team": 0.1828205997351593,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 83257.05099671574,
@@ -138,6 +149,7 @@
       ]
     },
     "META": {
+      "tdps": 90575.9915775957,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

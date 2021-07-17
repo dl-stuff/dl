@@ -97,36 +97,36 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52011.088441668704,
-        "team": 0.0,
+        "dps": 49727.46286918905,
+        "team": 0.033284015667673715,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Forest_Bonds",
+        "Dear_Diary",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "Flowers_Under_the_Moon",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c1-s-c3-end), fsc",
-        "`s1, fsc",
+        "`s3, not buff(s3,1)",
+        "`dragon(c3-s)",
         "`s2, fsc",
-        "`s3, fsc",
         "`s4, fsc",
+        "`s1, fsc",
         "`dodge, fsc",
-        "`fs2, not buff(locked_sigil)"
+        "`fs2, not buff(a1)"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Cleo",
-        "Summer_Estelle"
+        "Gala_Mascula",
+        "Grace"
       ],
       "share": [
-        "Summer_Julietta",
-        "Karina"
+        "Summer_Celliera",
+        "Yukata_Cassandra"
       ]
     },
     "PERSONAL": {
@@ -164,6 +164,7 @@
       ]
     },
     "META": {
+      "tdps": 138745.19925287904,
       "pref": "PERSONAL"
     }
   },
@@ -277,28 +278,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 62980.44660152915,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3-end), fsc and buff(s2)",
-        "`s2",
-        "`s4, fsc and aff(frostbite)",
-        "`s3, buff(s2)",
-        "`s1, fsc and aff(frostbite)",
-        "`dodge, fsc",
-        "`fs2, buff(s2)"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Yurius"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 66326.31679634626,
@@ -362,7 +341,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

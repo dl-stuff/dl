@@ -304,15 +304,42 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42126.93992705825,
+        "team": 0.04901958061003712,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-c3-c3-end), x=2",
+        "`s4, x=2",
+        "`s2, x=2 and not buff(s2)",
+        "`dodge, x=2"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52141.979627197026,
+        "dps": 52182.74718940806,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-c3-c3-end), x=2",
+        "`dragon(c3-c3-c3-end), s=1 or x=2",
         "`s3, x=2",
         "`s4, x=2",
         "`s1, x=2",
@@ -329,6 +356,7 @@
       ]
     },
     "META": {
+      "tdps": 205138.5821177509,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -339,13 +367,22 @@
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52141.979627197026,
-        "team": 0.0,
+        "dps": 47286.83220093252,
+        "team": 0.039170679164150304,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
       "acl": [
-        "`dragon(c3-c3-c3-end), x=2",
+        "`dragon(c3-c3-c3-end), s=4",
         "`s3, x=2",
         "`s4, x=2",
         "`s1, x=2",
@@ -355,13 +392,10 @@
         "Blade",
         "Peony",
         "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
       ]
     },
     "META": {
+      "tdps": 124989.28006733074,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NIHILISM-ANY",

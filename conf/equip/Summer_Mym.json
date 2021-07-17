@@ -318,8 +318,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 19472.06079675366,
-        "team": 0.23163609937422436,
+        "dps": 31301.35417225361,
+        "team": 0.16068374787645137,
         "noaff": false,
         "nihil": true
       },
@@ -370,7 +370,7 @@
       ]
     },
     "META": {
-      "tdps": 320810.3118913329,
+      "tdps": 531079.9667128593,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -507,11 +507,24 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41815.90859692713,
-        "team": 0.12098184361209578,
+        "dps": 56938.64579110505,
+        "team": 0.2733527237115692,
         "noaff": false,
         "nihil": false
       },
+      "acl": [
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s1, ((dgauge>1400) and cancel) or duration-now<4",
+        "`s2, cancel",
+        "`s4, cancel",
+        "else",
+        "`dragon",
+        "`s1",
+        "`s4, xf",
+        "`s2, xf",
+        "end"
+      ],
       "coabs": [
         "Ieyasu",
         "Joker",
@@ -519,8 +532,7 @@
       ]
     },
     "META": {
-      "tdps": -99249.52316548432,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"

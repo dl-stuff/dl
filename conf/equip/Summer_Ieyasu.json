@@ -1,0 +1,226 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 80252.63739236453,
+        "team": 0.25503137086401195,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "queue prep and not buff(s3)",
+        "`s3;fs;s4;fs;s1,fsc",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1, fsc and buff(s3)",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, charged_in(fs, s1) and buff(s3)",
+        "`fs, x=4 or hits=3"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Xander",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80252.63739236453,
+        "team": 0.25503137086401195,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "queue prep and not buff(s3)",
+        "`s3;fs;s4;fs;s1,fsc",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1, fsc and buff(s3)",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, charged_in(fs, s1) and buff(s3)",
+        "`fs, x=4 or hits=3"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Xander",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28242.670239486735,
+        "team": 0.1564872820569276,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s3, not buff(s3)",
+        "`s1, fsc and buff(s3)",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, charged_in(fs, s1) and buff(s3)",
+        "`fs, x=4 or hits=3"
+      ],
+      "coabs": [
+        "Faeblessed_Tobias",
+        "Gala_Mascula",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 57941.35036310579,
+        "team": 0.1199407695683991,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s1",
+        "`s2",
+        "`s3, fsc",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Humanoid_Mercury",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 812626.9266579429,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 83171.99399806574,
+        "team": 0.2524700165148165,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "queue prep and not buff(s3)",
+        "`s3;fs,x=1;s4;fs;s1,fsc",
+        "end",
+        "`s1,fsc",
+        "`s2, fsc",
+        "`s4, cancel",
+        "`fs, charged_in(fs, s1)",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Faeblessed_Tobias",
+        "Gala_Mascula",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 64823.65038222592,
+        "team": 0.17004475984505313,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(s-end), cancel",
+        "`s1, fsc",
+        "`s2",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`fs, charged_in(fs, s1)",
+        "`fs, x=4 or hits=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Student_Maribelle",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  }
+}
