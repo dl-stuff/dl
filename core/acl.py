@@ -119,16 +119,21 @@ class AclInterpreter(Interpreter):
         self._inst = self._adv
         self._queue = deque()
 
-    def __call__(self, e):
-        self._e = e
-        self._inst = self._adv
+    def checkqueue(self):
         try:
             n_actcond = self._queue.popleft()
             if not self.visit(n_actcond):
                 self._queue.appendleft(n_actcond)
-            return False
+            return True
         except IndexError:
             pass
+        return False
+
+    def __call__(self, e):
+        self._e = e
+        self._inst = self._adv
+        if self.checkqueue():
+            return False
         return self.visit(self._tree)
 
     def visit(self, t):
@@ -137,8 +142,8 @@ class AclInterpreter(Interpreter):
             t._visited = True
         else:
             t._visited = bool(result) or getattr(t, "_visited", False)
-        # if t.data == 'action':
-        #     log('visited', str(t._visited), str(t))
+        # if t.data == "action":
+        #     log("visited", str(t._visited), str(t))
         return result
 
     def start(self, t):
@@ -166,7 +171,7 @@ class AclInterpreter(Interpreter):
     def ifqueue(self, t):
         if self.visit(t.children[0]):
             self._queue.extend(t.children[1:])
-            return True
+            return self.checkqueue()
         return False
 
     def condition(self, t):
