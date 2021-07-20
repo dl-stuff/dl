@@ -32,7 +32,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54788.683636008565,
+        "dps": 60572.135543667486,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -60,8 +60,8 @@
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
-        "Marth"
+        "Gala_Laxi",
+        "Kimono_Elisanne"
       ],
       "share": [
         "Weapon",
@@ -69,31 +69,8 @@
       ]
     },
     "META": {
-      "tdps": 170652.42486793772,
+      "tdps": 191660.68608211968,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 47955.909354182826,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Marth",
-        "Serena"
-      ]
-    },
-    "META": {
-      "tdps": 145832.52332435508,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -137,51 +114,50 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36031.978878077636,
-        "team": 0.008767238864699963,
+        "dps": 40472.359006042,
+        "team": 0.008771893762331475,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Bloody_Little_Queen",
         "Dragonyule_Dreaming",
-        "Seaside_Princess",
-        "Beautiful_Nothingness",
-        "Lord_of_the_Skies",
-        "Mask_of_Determination_Bow",
-        "Savage_Hawk_Bow"
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(s), s=4",
-        "`s3, not buff(s3)",
+        "`dragon",
+        "`s3",
         "`s4",
-        "if bleed_stack>=3",
-        "`s2, c_x(metalblade) or c_x(default)",
-        "`s1, c_x(metalblade)",
+        "if bleed_stack=3",
+        "`s2, c_x(metalblade)",
         "else",
-        "`s1, c_x(default) and s1.check_full()",
+        "`s1, c_x(default)",
         "end"
       ],
       "coabs": [
         "Gala_Laxi",
         "Halloween_Mym",
-        "Yuya"
+        "Kimono_Elisanne"
       ],
       "share": [
-        "Gala_Mym",
+        "Summer_Celliera",
         "Student_Maribelle"
       ]
     },
     "META": {
-      "tdps": 151427.35647026033,
+      "tdps": 368223.8678368284,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68920.09622131978,
+        "dps": 69018.96842256299,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -197,7 +173,7 @@
       ]
     },
     "META": {
-      "tdps": 221984.46871608452,
+      "tdps": 222343.61980157864,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -208,7 +184,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51151.96439223819,
+        "dps": 52914.57221966375,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -223,14 +199,13 @@
         "Mask_of_Determination_Lance"
       ],
       "acl": [
-        "`dragon(c5-s-c5-c5-c5-c5-end)",
-        "`s3",
-        "`s4, cancel",
-        "if bleed_stack>=3",
-        "`s2, (c_x(metalblade) or c_x(default))",
-        "`s1, c_x(metalblade)",
+        "`dragon",
+        "`s3, cancel",
+        "`s4",
+        "if bleed_stack=3",
+        "`s2, c_x(metalblade)",
         "else",
-        "`s1, c_x(default) and s1.check_full()",
+        "`s1, c_x(default)",
         "end"
       ],
       "share": [

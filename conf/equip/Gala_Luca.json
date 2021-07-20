@@ -2,21 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 78360.76408205018,
-        "team": 0.09999170624347659,
+        "dps": 78469.88039353909,
+        "team": 0.11624289980421001,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
         "Moonlight_Party",
+        "Worthy_Rivals",
         "A_Small_Courage",
-        "Seaside_Memory",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Liber_Grimortis",
+        "Promised_Piety_Staff",
+        "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Daikokuten",
       "acl": [
         "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
         "`s3, not buff(s3) or duration-now<=2.4",
@@ -27,8 +27,8 @@
         "`fsf, xf=5"
       ],
       "coabs": [
+        "Axe2",
         "Lucretia",
-        "Pecorine",
         "Peony"
       ],
       "share": [
@@ -74,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 165169.6406335075,
+      "tdps": 141139.61285128893,
       "pref": "PERSONAL"
     }
   },
@@ -257,7 +257,7 @@
       ]
     },
     "META": {
-      "tdps": 348574.9647090891,
+      "tdps": 298904.1844452865,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -341,10 +341,42 @@
       ]
     },
     "META": {
-      "tdps": 561095.6679449489,
+      "tdps": 214208.88866375285,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73814.71684187224,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "coabs": [
+        "Lucretia",
+        "Pecorine",
+        "Peony"
+      ]
+    },
+    "META": {
+      "tdps": -45464.24309540695,
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

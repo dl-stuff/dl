@@ -137,9 +137,51 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 60587.09623513492,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Levins_Champion",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "if gourmand_mode.get()",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge or s",
+        "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s3",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Grace",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62943.84424234721,
+        "dps": 64159.34344832494,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -155,8 +197,8 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`s3, not buff(s3)",
         "if gourmand_mode.get()",
+        "`s3, fsc",
         "`s4, fsc",
         "`s1, fsc",
         "`dodge, fsc",
@@ -164,12 +206,13 @@
         "else",
         "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
         "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s3",
         "`s2",
         "`fs, x=1",
         "end"
       ],
       "coabs": [
-        "Blade",
+        "Grace",
         "Mitsuhide",
         "Peony"
       ],
@@ -199,7 +242,6 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -214,13 +256,34 @@
         "`fs, x=1",
         "end"
       ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58367.93659230913,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
       "coabs": [
         "Blade",
         "Mitsuhide",
         "Peony"
       ],
       "share": [
-        "Summer_Celliera",
+        "Sharena",
         "Ilia"
       ]
     },
@@ -228,7 +291,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -307,14 +370,14 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74535.30095368577,
+        "dps": 75034.30978636595,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Crystalian_Envoy",
         "Extreme_Teamwork",
+        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Warrioresses",
@@ -337,108 +400,82 @@
       ],
       "coabs": [
         "Blade",
-        "Grace",
+        "Mitsuhide",
         "Peony"
       ],
       "share": [
         "Summer_Celliera",
-        "Gala_Notte"
+        "Yukata_Cassandra"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 73055.0927850781,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "if gourmand_mode.get()",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs, dodge",
-        "else",
-        "`s2",
-        "`s3, fsc",
-        "`s4, fsc",
-        "`fs, x=1",
-        "end"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Gala_Notte"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54451.919209829306,
+        "dps": 57580.89142867489,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Levins_Champion",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife",
+        "A_Small_Courage",
+        "Flowers_Under_the_Moon",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Savage_Hawk_Lance"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Yukata_Cassandra"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54451.919209829306,
+        "dps": 57580.89142867489,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Levins_Champion",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife",
+        "A_Small_Courage",
+        "Flowers_Under_the_Moon",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Savage_Hawk_Lance"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Yukata_Cassandra"
       ]
     },
     "META": {

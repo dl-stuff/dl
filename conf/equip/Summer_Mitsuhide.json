@@ -2,55 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 75093.65185505414,
-        "team": 0.06664693760981079,
+        "dps": 48377.35593582378,
+        "team": 0.0923124848422544,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
+        "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "Having_a_Summer_Ball",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Horus",
-      "acl": [
-        "`dragon(c3-s-end), s1.check() and aff_timeleft(poison)>14",
-        "`s3, not buff(s3)",
-        "`s1, (sunflowers > 0 and x=4) or duration-now<4 or aff_timeleft(scorchrend) < 2",
-        "`s4, cancel",
-        "`s2"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 97209.86712136728,
-        "team": 0.03332464084570135,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Gala_Mars",
       "acl": [
         "`dragon(c2-s-c2-c2-c2-c2-end), s1.check() and aff_timeleft(poison)>14",
         "`s3, not buff(s3)",
@@ -64,12 +30,46 @@
         "Kimono_Elisanne"
       ],
       "share": [
+        "The_Prince",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 98149.62450949522,
+        "team": 0.03332464084570135,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end), s1.check() and aff_timeleft(poison)>14",
+        "`s3, not buff(s3)",
+        "`s1, (sunflowers > 0 and x=4) or duration-now<4 or aff_timeleft(scorchrend) < 2",
+        "`s4, cancel",
+        "`s2"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
         "Weapon",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 663706.209175051,
+      "tdps": 843771.6180401485,
       "pref": "PERSONAL"
     }
   },
@@ -110,7 +110,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72634.13009086359,
+        "dps": 79485.79625455338,
         "team": 0.06654687660359848,
         "noaff": false,
         "nihil": true
@@ -129,7 +129,7 @@
         "`dragon(s-s-end), s1.check()",
         "`s3",
         "`s4",
-        "`s1, sunflowers > 0 and x=5 or not afflics.scorchrend",
+        "`s1, (sunflowers > 0 and x=5) or not afflics.scorchrend",
         "`s2"
       ],
       "coabs": [
@@ -143,7 +143,7 @@
       ]
     },
     "META": {
-      "tdps": 769131.3773567872,
+      "tdps": 993207.2727724556,
       "pref": "PERSONAL"
     }
   },
@@ -261,7 +261,7 @@
       ],
       "acl": [
         "`dragon(c2-s-c2-c2-c2-c2-end), s1.check()",
-        "`s1, (sunflowers >1and x=5 and hits>29) or duration-now<3",
+        "`s1, (sunflowers >1 and x=5 and hits>29) or duration-now<3",
         "`s4, cancel",
         "`s3, x=5",
         "`s2"
@@ -318,20 +318,64 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 29699.89208973608,
-        "team": 0.06642304580106946,
+        "dps": 41154.795890288595,
+        "team": 0.10569794778253636,
         "noaff": false,
         "nihil": true
       },
-      "slots.d": "Gala_Mars",
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon(s-s-end), s1.check()",
+        "`s3",
+        "`s4",
+        "`s1, (sunflowers > 0 and x=5) or not afflics.scorchrend",
+        "`s2"
+      ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43053.724277000816,
+        "team": 0.06666189802735022,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon(s-s-end), s1.check()",
+        "`s3",
+        "`s4, cancel",
+        "`s1, (sunflowers > 0 and x=5) or not afflics.scorchrend",
+        "`s2"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
+      "tdps": 48645.50584962657,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

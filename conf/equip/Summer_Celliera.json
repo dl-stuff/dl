@@ -74,19 +74,34 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 23094.535254921615,
-        "team": 1.1303540443870443,
+        "dps": 24312.639702598197,
+        "team": 1.2226425681085764,
         "noaff": true,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "acl": [
+        "`fs, fs_prep_c and x=2",
+        "`dragon(c3-s-end), s=2 or s=4",
+        "`s2",
+        "`s3",
+        "`s4",
+        "`fs, x=4 or hits=0"
+      ],
       "coabs": [
-        "Renee",
+        "Gala_Mascula",
         "Summer_Estelle",
         "Tiki"
       ]
     },
     "META": {
-      "tdps": 65419.24252061375,
+      "tdps": 56665.6893881951,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -134,8 +149,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 83449.05456412195,
-        "team": 0.2646493480119621,
+        "dps": 83416.18090251052,
+        "team": 0.2779138504519722,
         "noaff": false,
         "nihil": false
       },
@@ -151,7 +166,7 @@
         "`s3, not buff(s3) and fsc",
         "`s2",
         "`s4, speed()<1.5 or fsc",
-        "`s1, cancel",
+        "`s1, cancel or have_buff(ds_sp_regen_zone)",
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
@@ -165,7 +180,7 @@
       ]
     },
     "META": {
-      "tdps": 57255.36954753293,
+      "tdps": 57938.13456248701,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -176,7 +191,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46104.67253819868,
+        "dps": 46963.90040839988,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -189,17 +204,12 @@
         "His_Clever_Brother"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon(c3-s-c3-c3-c2-end), fsc",
         "`s3",
-        "`s4",
         "`s1",
+        "`s4, fsc",
         "`s2, cancel",
         "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Yurius"
       ],
       "share": [
         "Humanoid_Mercury",
