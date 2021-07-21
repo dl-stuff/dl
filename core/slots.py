@@ -3,6 +3,7 @@ from collections import defaultdict, namedtuple
 import html
 
 from conf import (
+    load_json,
     wyrmprints,
     weapons,
     dragons,
@@ -68,36 +69,9 @@ class SlotBase:
 
 class CharaBase(SlotBase):
     AUGMENTS = 100
-    FAC_ELEMENT_ATT = {
-        "all": {"altar": 0.26, "slime": 0.04},
-        "flame": {"tree": 0.31, "arctos": 0.085},
-        "water": {"tree": 0.31, "yuletree": 0.085, "dragonata": 0.085},
-        "wind": {"tree": 0.31, "shrine": 0.085},
-        "light": {"tree": 0.26, "retreat": 0.085, "circus": 0.085},
-        "shadow": {"tree": 0.31, "library": 0.085},
-    }
-    FAC_ELEMENT_HP = FAC_ELEMENT_ATT.copy()
-    FAC_ELEMENT_HP["flame"]["arctos"] = 0.095
-    FAC_ELEMENT_HP["water"]["yuletree"] = 0.095
-    FAC_ELEMENT_HP["water"]["dragonata"] = 0.095
-    FAC_ELEMENT_HP["wind"]["shrine"] = 0.095
-    FAC_ELEMENT_HP["light"]["retreat"] = 0.095
-    FAC_ELEMENT_HP["light"]["circus"] = 0.095
-    FAC_ELEMENT_HP["shadow"]["library"] = 0.095
-
-    FAC_WEAPON_ATT = {
-        "all": {"dojo": 0.33, "weap": 0.225},
-        "dagger": 0.11,
-        "bow": 0.11,
-        "blade": 0.06,
-        "wand": 0.06,
-        "sword": 0.05,
-        "lance": 0.05,
-        "staff": 0.05,
-        "axe": 0.05,
-        "gun": 0.075,  # opera (0.05) + fount (0.05) - diff in weap (0.225 - 0.200 = 0.025)
-    }
-    FAC_WEAPON_HP = FAC_WEAPON_ATT.copy()
+    FORT = load_json("fort.json")
+    # album_false album_true None
+    FORT_KEY = "album_false"
 
     MAX_COAB = 3  # max allowed coab, excluding self
 
@@ -222,19 +196,19 @@ class CharaBase(SlotBase):
         self.coab_list = sorted(self.coab_list)
         return full_ab
 
+    def fort_mod(self, key):
+        if CharaBase.FORT_KEY == None:
+            return 1
+        fort_conf = CharaBase.FORT[CharaBase.FORT_KEY]
+        return 1 + (fort_conf["ele"][key][self.ele] + fort_conf["wep"][key][self.wt]) / 100
+
     @property
     def att(self):
-        FE = CharaBase.FAC_ELEMENT_ATT
-        FW = CharaBase.FAC_WEAPON_ATT
-        halidom_mods = 1 + sum(FE["all"].values()) + sum(FE[self.ele].values()) + sum(FW["all"].values()) + FW[self.wt]
-        return super().att * halidom_mods
+        return super().att * self.fort_mod("att")
 
     @property
     def hp(self):
-        FE = CharaBase.FAC_ELEMENT_HP
-        FW = CharaBase.FAC_WEAPON_HP
-        halidom_mods = 1 + sum(FE["all"].values()) + sum(FE[self.ele].values()) + sum(FW["all"].values()) + FW[self.wt]
-        return super().hp * halidom_mods
+        return super().att * self.fort_mod("hp")
 
     @property
     def ele(self):
