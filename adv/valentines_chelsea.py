@@ -28,7 +28,7 @@ class Valentines_Chelsea(Adv):
 
     def a2_proc(self, e):
         if e.atype == "burn" and not self.is_set_cd("a2", 5):
-            self.charge_p("a3", 0.25, target="s2")
+            self.charge_p("a2", 0.25, target="s2")
             self.a2_buff.on()
 
     @property
@@ -38,7 +38,7 @@ class Valentines_Chelsea(Adv):
     def add_romance_gauge(self, cp):
         gauge_before = self.romance_gauge
         if cp < 1:
-            cp = Adv.sp_convert(cp, 2000)
+            cp = float_ceil(2000, cp)
         self.romance_gauge = min(2000, self.romance_gauge + cp)
         delta = self.romance_gauge - gauge_before
         if delta > 0:
@@ -55,7 +55,8 @@ class Valentines_Chelsea(Adv):
 
     def l_buffed_romance_gauge(self, e):
         # 12.5% of 500% is actually 2.5% of 100%
-        self.add_romance_gauge(0.025)
+        if not self.is_set_cd("a1", 5):
+            self.add_romance_gauge(0.025)
 
     def s2_proc(self, e):
         if e.group != "romance":

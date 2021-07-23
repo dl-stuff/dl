@@ -2226,7 +2226,7 @@ class Adv(object):
             rate, mod = attr["bleed"]
             rate = max(min(100, rate + self.sub_mod("debuff_rate", "passive") * 100), 0)
             debufftime = self.mod("debuff", operator=operator.add)
-            if self.conf.mbleed or (rate < 100 and base[0] == "s" and self.a_s_dict[base].owner is not None):
+            if self.conf.mbleed and rate < 100:
                 from module.bleed import mBleed
 
                 if self.bleed is None:

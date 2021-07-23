@@ -207,6 +207,8 @@ class mBleed(Bleed):
         self.end_index = length - 1
         self._static["stacks"] -= 1
         log("debuff", "bleed", "stack_end", "stack <%d>" % self._static["stacks"])
+        if self._static["stacks"] == 0:
+            self._static["tick_event"].off()
         if self._static["stacks"] < 0:
             print("err in bleed dot_end_proc")
             exit()
