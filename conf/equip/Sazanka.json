@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70988.83828375438,
+        "dps": 71400.70887470861,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -73,14 +73,14 @@
       ]
     },
     "META": {
-      "tdps": 145815.20927049592,
+      "tdps": 149480.8561699379,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38019.23272213393,
+        "dps": 38239.8167495313,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -121,7 +121,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76928.24252758113,
+        "dps": 77374.6654893992,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -158,7 +158,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47119.88549459443,
+        "dps": 47393.27065701643,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -200,18 +200,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 54413.393520000514,
-        "team": 0.11235959225012426,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54471.55151930355,
-        "team": 0.11076892018821106,
+        "dps": 54729.16036322538,
+        "team": 0.11235959225012426,
         "noaff": false,
         "nihil": false
       },
@@ -224,14 +216,22 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
+      "acl": [
+        "`dragon(c3-s-c3-end), trickery<=1 and cancel",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4 and c_fs(enhanced)",
+        "`fsf, x=4"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 36561.90405022198,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

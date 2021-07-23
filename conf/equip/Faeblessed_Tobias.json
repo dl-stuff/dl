@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70933.13756012809,
+        "dps": 70844.08151799343,
         "team": 0.0619725083067316,
         "noaff": false,
         "nihil": false
@@ -69,14 +69,46 @@
       ]
     },
     "META": {
-      "tdps": 51832.63049376378,
+      "tdps": 50913.73101915356,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32252.503626707094,
+        "team": 0.033323504750737636,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "dragon, not buff(s2)",
+        "s3, not buff(s3)",
+        "s4, not buff(s2)",
+        "s2, not buff(s2)",
+        "s1"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Renee",
+        "Tiki"
+      ],
+      "share": [
+        "Weapon",
+        "Xander"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35064.1209656251,
+        "dps": 35020.09821488357,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -107,13 +139,14 @@
       ]
     },
     "META": {
+      "tdps": 83052.32624474207,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81408.59387359697,
+        "dps": 81306.38597168411,
         "team": 0.061972491099783956,
         "noaff": false,
         "nihil": false
@@ -146,11 +179,19 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54282.993890438614,
-        "team": 0.0,
+        "dps": 54194.36669546855,
+        "team": 0.06659258980967998,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, not buff(s2)",
         "`s3, not buff(s2)",
@@ -159,16 +200,58 @@
         "`s1",
         "`fs, x=5"
       ],
+      "coabs": [
+        "Gala_Mascula",
+        "Tiki",
+        "Yurius"
+      ],
       "share": [
-        "Summer_Celliera",
-        "Yukata_Cassandra"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33878.80867029603,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end),not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4, not buff(s2)",
+        "`s2, not buff(s2) or duration - now < 1.2",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

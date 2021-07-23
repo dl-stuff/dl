@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46684.87158781147,
-        "team": 0.07499717510640413,
+        "dps": 46893.507957963426,
+        "team": 0.07499717510640407,
         "noaff": true,
         "nihil": false
       },
@@ -66,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 53411.64831674154,
+      "tdps": 53698.193982677614,
       "pref": "PERSONAL"
     }
   },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 78849.20277873549,
+      "tdps": 79293.71708934926,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -96,7 +96,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 21073.823248546054,
+        "dps": 21168.002922565942,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -131,10 +131,43 @@
       "pref": "PERSONAL"
     }
   },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 53463.473939711126,
+        "team": 0.07492314966043416,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`s3, not buff(s3) and x=4",
+        "`s2, (dgauge<400 and x=4) or dgauge>=500",
+        "`s4",
+        "`s1, x>2",
+        "`fsf, x=4"
+      ]
+    },
+    "META": {
+      "tdps": 62715.15005287521,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32792.270499405175,
+        "dps": 32938.82033564428,
         "team": 0.0,
         "noaff": false,
         "nihil": true

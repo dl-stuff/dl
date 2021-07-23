@@ -33,8 +33,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71365.78375320273,
-        "team": 0.0,
+        "dps": 73668.88855399418,
+        "team": 0.09995499803866086,
         "noaff": false,
         "nihil": false
       },
@@ -45,7 +45,7 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dragonform.shift_count=0",
@@ -75,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 188529.5580721853,
+      "tdps": 277983.4279231866,
       "pref": "PERSONAL"
     }
   },
@@ -114,7 +114,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48362.921632091224,
+        "dps": 48229.795225711125,
         "team": 0.024635479283126337,
         "noaff": false,
         "nihil": true
@@ -150,7 +150,7 @@
       ]
     },
     "META": {
-      "tdps": 398321.63709587854,
+      "tdps": 392932.6169916787,
       "pref": "PERSONAL"
     }
   },
@@ -165,14 +165,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74047.24862078544,
-        "team": 0.0,
+        "dps": 76311.4257523125,
+        "team": 0.09995499803866086,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 191773.5786032038,
+      "tdps": 282434.3824667501,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -181,17 +181,18 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 54710.493629513454,
-        "team": 0.0,
+        "dps": 55108.80473699085,
+        "team": 0.0999948002703859,
         "noaff": false,
         "nihil": true
       },
+      "slots.d": "Summer_Marishiten",
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dragonform.shift_count=0",
-        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "`fs;dragon(c3-s-c3-end);s2, xf",
         "end",
         "queue dragonform.shift_count=1",
         "`fs;dragon(c3-s-c3-c3-end);s2, xf",
@@ -212,11 +213,48 @@
         "Yurius"
       ],
       "share": [
-        "Summer_Celliera",
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55290.601232180445,
+        "team": 0.09977031211313042,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "if dgauge>=500 and xf=5",
+        "queue dragonform.shift_count=0",
+        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "end",
+        "queue dragonform.shift_count=1",
+        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "end",
+        "queue dragonform.shift_count>=2",
+        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "end",
+        "end",
+        "`s1, buff(s2)",
+        "`s2, not buff(s2)",
+        "`s4",
+        "`s3, xf=5",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
         "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 809826.662627447,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -227,8 +265,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52871.206595805874,
-        "team": 0.0,
+        "dps": 52913.22377590599,
+        "team": 0.09995499803866086,
         "noaff": false,
         "nihil": false
       },
@@ -251,7 +289,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28461.907858695584,
+        "dps": 28281.28374383754,
         "team": 0.0,
         "noaff": false,
         "nihil": true

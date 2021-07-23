@@ -212,6 +212,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51985.872622460265,
+        "team": 0.058140859376866826,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 67031.09028338506,
@@ -230,6 +238,7 @@
       ]
     },
     "META": {
+      "tdps": 2083177.9461351354,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -238,21 +247,20 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 20714.92555750261,
-        "team": 0.16726789248060275,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56195.134876169315,
-        "team": 0.05022221541448405,
+        "dps": 66913.05295705757,
+        "team": 0.1750654895733909,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Worthy_Rivals",
+        "Lord_of_the_Skies",
+        "The_Queen_of_the_Knife"
+      ],
       "acl": [
         "`dragon(c3-s-c3-end)",
         "`s3, not buff(s3) and cancel",
@@ -262,10 +270,13 @@
         "`fs, x=3 and (hits>5 and stance='striking')",
         "`fs, x=1 and (hits>5 and stance='shielding')",
         "`fs, xf=2 and (hits<5 or hits=0)"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 303131.30914372904,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
