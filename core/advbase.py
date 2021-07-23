@@ -2223,20 +2223,22 @@ class Adv(object):
                     getattr(self.afflics, aff_type).on(name, *aff_args)
 
         if "bleed" in attr:
+            from module.bleed import Bleed, mBleed
+
             rate, mod = attr["bleed"]
             rate = max(min(100, rate + self.sub_mod("debuff_rate", "passive") * 100), 0)
             debufftime = self.mod("debuff", operator=operator.add)
-            if self.conf.mbleed and rate < 100:
-                from module.bleed import mBleed
-
+            if self.bleed is not None:
+                use_mbleed = isinstance(self.bleed, mBleed)
+            else:
+                use_mbleed = self.conf.mbleed and rate < 100
+            if use_mbleed:
                 if self.bleed is None:
                     self.bleed = mBleed("init", mod)
                     self.bleed.reset()
                 self.bleed = mBleed(base, mod, chance=rate / 100, debufftime=debufftime)
                 self.bleed.on()
             else:
-                from module.bleed import Bleed
-
                 if self.bleed is None:
                     self.bleed = Bleed("init", mod)
                     self.bleed.reset()
