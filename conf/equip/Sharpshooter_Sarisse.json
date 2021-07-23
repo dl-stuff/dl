@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 57457.8446610965,
-        "team": 0.23584177063585135,
+        "dps": 56133.12859727937,
+        "team": 0.23567152015728693,
         "noaff": false,
         "nihil": false
       },
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61572.10239667524,
-        "team": 0.12771198382509036,
+        "dps": 61416.748059257094,
+        "team": 0.1277119838250902,
         "noaff": false,
         "nihil": false
       },
@@ -72,7 +72,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 27804.185439797933,
+        "dps": 27734.03190210288,
         "team": 0.020807366301660305,
         "noaff": false,
         "nihil": true
@@ -140,6 +140,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57262.49580697806,
+        "team": 0.23567152015728693,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 71990.31708916884,
@@ -166,6 +174,7 @@
       ]
     },
     "META": {
+      "tdps": 67919.0928499432,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -174,6 +183,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28950.151133485677,
+        "team": 0.020807366301660305,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 49447.20722976684,
@@ -207,6 +224,7 @@
       ]
     },
     "META": {
+      "tdps": 6674521.466560591,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -215,15 +233,41 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 51529.91388832529,
-        "team": 0.1277119838250902,
+        "dps": 46730.03177625113,
+        "team": 0.23567152015728693,
         "noaff": false,
         "nihil": false
       }
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58748.92736175493,
+        "team": 0.01882791014721757,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), x=2",
+        "`s3, not buff(s3) and x=2",
+        "`s4, x=2",
+        "`s2, x=2",
+        "`s1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "META": {
+      "tdps": 55426.561036065075,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -232,31 +276,48 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23583.39990699024,
+        "team": 0.020807366301660305,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28324.172883824715,
-        "team": 0.019662506116885203,
+        "dps": 40401.473649142856,
+        "team": 0.01773642613029797,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
+        "The_Bridal_Dragon",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`s2, x=2",
+        "`s1, x=2",
+        "`s4, x=2",
+        "`s3, x=2",
+        "`dodge, x=2"
+      ],
       "coabs": [
         "Blade",
-        "Summer_Celliera",
-        "Tiki"
+        "Tiki",
+        "Yurius"
       ],
       "share": [
-        "Weapon",
-        "Summer_Luca"
+        "Humanoid_Mercury",
+        "Summer_Celliera"
       ]
     },
     "META": {
+      "tdps": 5476522.759703182,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

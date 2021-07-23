@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 23373.80358055499,
-        "team": 0.4021886439286906,
+        "dps": 23311.968121347167,
+        "team": 0.40218864392869075,
         "noaff": true,
         "nihil": false
       },
@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63065.42520271132,
+        "dps": 60436.71860120573,
         "team": 0.025918224150853257,
         "noaff": true,
         "nihil": false
@@ -66,15 +66,15 @@
       ]
     },
     "META": {
-      "tdps": 105486.95708153617,
+      "tdps": 98665.07843422356,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 22914.863636301612,
-        "team": 0.29652160455365606,
+        "dps": 23170.15611337203,
+        "team": 0.29652160455365634,
         "noaff": true,
         "nihil": false
       },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 148374.2054760889,
+      "tdps": 137716.54453230056,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -96,8 +96,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17949.50171958911,
-        "team": 0.058180206768450045,
+        "dps": 19111.121918467717,
+        "team": 0.11400833538338695,
         "noaff": true,
         "nihil": true
       },
@@ -127,7 +127,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43492.42058527477,
+        "dps": 42802.319804407125,
         "team": 0.024141987955778443,
         "noaff": false,
         "nihil": true
@@ -160,15 +160,15 @@
       ]
     },
     "META": {
-      "tdps": 750418.786783774,
+      "tdps": 263627.02573423006,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29401.756390223734,
-        "team": 0.028703576213324575,
+        "dps": 28836.605260895332,
+        "team": 0.028703576213324693,
         "noaff": false,
         "nihil": true
       },
@@ -179,6 +179,7 @@
         "A_Small_Courage",
         "His_Clever_Brother"
       ],
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end)",
         "`s3, not buff(s3)",
@@ -210,7 +211,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 71911.40656744754,
+        "dps": 68756.95864564084,
         "team": 0.025918224150853257,
         "noaff": false,
         "nihil": false
@@ -224,7 +225,7 @@
       ]
     },
     "META": {
-      "tdps": 128996.59509655525,
+      "tdps": 120777.47315647588,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -235,8 +236,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46675.191010809656,
-        "team": 0.1281877982839075,
+        "dps": 46551.73679246978,
+        "team": 0.1281877982839076,
         "noaff": false,
         "nihil": true
       },
@@ -302,7 +303,7 @@
       ]
     },
     "META": {
-      "tdps": 32227861.25527476,
+      "tdps": 33680792.88142929,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -313,25 +314,34 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39949.41769916577,
-        "team": 0.02591892021912427,
+        "dps": 38996.94522378638,
+        "team": 0.1281877982839076,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Dragonyule_Dreaming",
         "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
         "Valiant_Crown",
-        "A_Small_Courage",
-        "Chariot_Drift"
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon(c3-s-c3-end)",
+        "`s3",
+        "`s4, fsc",
+        "`s1, xf=5 or fsc",
+        "`s2, xf>2",
+        "`fs, charged_in(fs,s1) and xf",
+        "`fsf, xf=5"
       ],
       "share": [
-        "Summer_Julietta",
+        "Humanoid_Mercury",
         "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 681929.2822045386,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32680.854192969648,
-        "team": 0.24867998051063123,
+        "dps": 33062.52840252258,
+        "team": 0.2486799805106313,
         "noaff": false,
         "nihil": false
       },
@@ -72,15 +72,34 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34837.68045740417,
-        "team": 0.20740252805545534,
+        "dps": 35244.543878804514,
+        "team": 0.20740252805545542,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Once_in_a_Lifetime",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon(s-end)",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, x=5 or s",
+        "`s2, x=5"
+      ],
       "coabs": [
         "Catherine",
         "Hunter_Sarisse",
         "Summer_Estelle"
+      ],
+      "share": [
+        "Weapon",
+        "Elisanne"
       ]
     },
     "META": {
@@ -132,8 +151,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39217.02503156358,
-        "team": 0.24867998051063123,
+        "dps": 39675.03408302709,
+        "team": 0.2486799805106313,
         "noaff": false,
         "nihil": false
       }
@@ -172,11 +191,29 @@
       ]
     },
     "META": {
-      "tdps": 169406.47598771317,
+      "tdps": 167016.83677706143,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42293.45265456543,
+        "team": 0.20740252805545542,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 195447.5459283849,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -209,8 +246,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34837.68045740417,
-        "team": 0.20740252805545534,
+        "dps": 35244.543878804514,
+        "team": 0.20740252805545542,
         "noaff": false,
         "nihil": false
       },
@@ -254,7 +291,7 @@
       ]
     },
     "META": {
-      "tdps": 165578.39649836277,
+      "tdps": 162872.95494032072,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -265,11 +302,20 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 27897.264968657724,
+        "dps": 38248.70596867572,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
     },
     "META": {
       "pref": "PERSONAL",

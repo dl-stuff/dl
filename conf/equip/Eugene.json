@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 7962.055413553382,
+        "dps": 7952.925689150129,
         "team": 0.8264532394675035,
         "noaff": true,
         "nihil": false
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48234.134558097016,
-        "team": 0.18913963950124163,
+        "dps": 48431.36158647737,
+        "team": 0.18920545384738272,
         "noaff": false,
         "nihil": false
       },
@@ -66,15 +66,15 @@
       ]
     },
     "META": {
-      "tdps": 63190.36522471129,
+      "tdps": 63520.7164477421,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9377.08881739476,
-        "team": 0.6990625656137475,
+        "dps": 8814.108876464274,
+        "team": 0.6990625656137477,
         "noaff": true,
         "nihil": false
       },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 76201.80178392118,
+      "tdps": 77702.65785400511,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -96,40 +96,39 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 27711.921155096083,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 4326.92369428738,
+        "team": 0.06595272288980844,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon, s=3",
-        "`s1",
-        "`s2, fsc",
+        "`dragon(s-end), s",
         "`s3",
-        "`s4, fsc",
-        "`fs, x=4 or hits=0"
+        "`s1",
+        "`s2, now>(duration-1)",
+        "`s4"
       ],
       "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
+        "Renee",
+        "Summer_Estelle",
+        "Tobias"
       ],
       "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
+        "Gala_Elisanne",
+        "Yuya"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 30795.45107639006,
+        "dps": 30755.783256197195,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -159,21 +158,22 @@
       ]
     },
     "META": {
+      "tdps": 400724.31286978483,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52685.47642864063,
-        "team": 0.31673109655677817,
+        "dps": 50330.24229198909,
+        "team": 0.31672038218471993,
         "noaff": false,
         "nihil": false
       },
       "slots.d": "Summer_Marishiten"
     },
     "META": {
-      "tdps": 87740.78512598634,
+      "tdps": 83136.32522874503,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -184,14 +184,14 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42247.91261350555,
-        "team": 0.18913963950124169,
+        "dps": 44392.75576572738,
+        "team": 0.18905811728221222,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 53797.46674442095,
+      "tdps": 57169.9230324266,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -202,24 +202,22 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 20792.798617752975,
+        "dps": 24216.376820539906,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
+      "acl": [
+        "`dragon, s=3",
+        "`s1",
+        "`s2, fsc",
+        "`s3",
+        "`s4, fsc",
+        "`fs, x=4 or hits=0"
       ]
     },
     "META": {
+      "tdps": 301571.37195810926,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

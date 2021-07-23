@@ -209,7 +209,7 @@ class AclInterpreter(Interpreter):
             value = self.visit(last)
             self._inst = self._adv
         except AttributeError:
-            value = getattr(inst, last.value)
+            value = getattr(inst, last.value, None)
         return value
 
     def arithmetic(self, t):

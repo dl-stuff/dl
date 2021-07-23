@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 13860.857598455586,
-        "team": 0.7957088313310434,
+        "dps": 14136.585818038946,
+        "team": 0.7957088313310435,
         "noaff": true,
         "nihil": false
       },
@@ -66,15 +66,15 @@
       ]
     },
     "META": {
-      "tdps": 62621.713880410585,
+      "tdps": 62224.13457001139,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 13586.981716618446,
-        "team": 0.6667113166319384,
+        "dps": 13857.261838293769,
+        "team": 0.6667113166319385,
         "noaff": true,
         "nihil": false
       },
@@ -85,7 +85,7 @@
       ]
     },
     "META": {
-      "tdps": 77416.44423031107,
+      "tdps": 76937.66559279687,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -158,7 +158,7 @@
       ]
     },
     "META": {
-      "tdps": 94444.3100254583,
+      "tdps": 93953.83294102273,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -209,20 +209,20 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55916.36979356122,
-        "team": 0.21135917931099224,
+        "dps": 56196.757096242654,
+        "team": 0.23354552476051804,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`dragon(c3-s-c3-c3-c2-end), cancel and buff(s2)",
         "`s3, not buff(s3)",
         "`s2, cancel",
         "`s4, x=4",
         "`s1"
       ],
       "coabs": [
-        "Blade",
+        "Gala_Mascula",
         "Hunter_Sarisse",
         "Summer_Estelle"
       ],
@@ -232,7 +232,7 @@
       ]
     },
     "META": {
-      "tdps": 71969.77366157918,
+      "tdps": 74818.42159850591,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -243,14 +243,33 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31601.8413463782,
+        "dps": 37181.562842284904,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end)",
+        "`s4, cancel",
+        "`s3, x=4",
+        "`s2, dgauge<=400",
+        "`s1"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
       "share": [
-        "Catherine",
-        "Summer_Celliera"
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {

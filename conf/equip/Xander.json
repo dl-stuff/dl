@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 74621.37579803067,
+        "dps": 73180.67863080792,
         "team": 0.1828205997351596,
         "noaff": false,
         "nihil": false
@@ -121,7 +121,7 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79791.28044798216,
+        "dps": 78510.65706208769,
         "team": 0.20857684106678198,
         "noaff": false,
         "nihil": false
@@ -162,7 +162,7 @@
       ]
     },
     "META": {
-      "tdps": 40679.93994336703,
+      "tdps": 52336.625533403894,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -207,29 +207,48 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33167.82155948963,
-        "team": 0.14743779763137715,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 65564.67902248658,
-        "team": 0.0574961988624086,
+        "dps": 61590.25431923332,
+        "team": 0.20857684106678198,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "Snipers_Allure"
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), fsc or x=5",
+        "`s3, not buff(s3) and fsc",
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4, energy()<5 and cancel",
+        "`fs, x=3 and not buff(s1, default)"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Hunter_Sarisse",
+        "Yurius"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 66348.78211730058,
+        "team": 0.09871513329377285,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-end), fsc or x=5",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, cancel",
+        "`s4, energy()<5 and cancel",
+        "`fs, x=3 and not buff(s1, default)"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Hunter_Sarisse",
+        "Yurius"
       ]
     },
     "META": {
-      "tdps": 360198.81685908436,
+      "tdps": 43313.79781478637,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -240,36 +259,27 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39656.95104045062,
+        "dps": 40779.12683277147,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
+        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`s3",
         "`s1",
-        "`s2, cancel",
-        "`s3, cancel",
-        "`s4",
-        "if not buff(s1, default)",
-        "`fs, x=2",
-        "end"
+        "`s2",
+        "`s4, cancel",
+        "`fs, x=4 and not buff(s1, default)"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Tiki",
         "Yurius"
       ],
       "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
+        "Summer_Julietta",
+        "Gala_Mym"
       ]
     },
     "META": {

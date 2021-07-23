@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 82178.52416621843,
+        "dps": 77237.92970619757,
         "team": 0.33162332195976174,
         "noaff": true,
         "nihil": false
@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82178.52416621843,
+        "dps": 77237.92970619757,
         "team": 0.33162332195976174,
         "noaff": true,
         "nihil": false
@@ -71,7 +71,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 59169.954254042794,
+        "dps": 56159.87855325841,
         "team": 0.3113364882898264,
         "noaff": false,
         "nihil": true
@@ -103,7 +103,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59799.373199189286,
+        "dps": 56656.89757492357,
         "team": 0.28528225887562747,
         "noaff": false,
         "nihil": true
@@ -141,8 +141,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 93582.96320280187,
-        "team": 0.3318316414761002,
+        "dps": 87960.12526464833,
+        "team": 0.3318316414761006,
         "noaff": false,
         "nihil": false
       },
@@ -164,7 +164,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 93684.78364303296,
+        "dps": 88309.4461360128,
         "team": 0.33162332195976174,
         "noaff": false,
         "nihil": false
@@ -178,7 +178,7 @@
       ]
     },
     "META": {
-      "tdps": 488770.52914069593,
+      "tdps": 1676851.393972283,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -189,8 +189,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58909.917574628926,
-        "team": 0.32756270767747964,
+        "dps": 55572.06278147228,
+        "team": 0.32756270767747997,
         "noaff": false,
         "nihil": true
       },
@@ -202,7 +202,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66473.89282015196,
+        "dps": 62953.91368888037,
         "team": 0.2852822588756275,
         "noaff": false,
         "nihil": true
@@ -216,7 +216,7 @@
       ]
     },
     "META": {
-      "tdps": 178900.0698874249,
+      "tdps": 174592.5390244359,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -227,24 +227,24 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43150.15055328232,
-        "team": 0.11852781242228616,
+        "dps": 51354.50047594534,
+        "team": 0.3113364882898264,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
+        "The_Bridal_Dragon",
         "Valiant_Crown",
-        "A_Small_Courage",
-        "Lord_of_the_Skies"
+        "Dueling_Dancers",
+        "His_Clever_Brother"
       ],
       "acl": [
-        "`dragon, not buff(s2)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
+        "`dragon(c3-s-c3-c3-c3-c3-c3-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`s2, cancel",
+        "`s1, masterctrl_buff.get() and cancel",
+        "`s4, x=4",
+        "`s3, x=4"
       ]
     },
     "META": {

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28651.945123017565,
-        "team": 0.24407118315992762,
+        "dps": 28583.858841671008,
+        "team": 0.2440711831599276,
         "noaff": false,
         "nihil": false
       },
@@ -79,10 +79,31 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite)"
+      ],
       "coabs": [
         "Blade",
         "Catherine",
         "Dragonyule_Cleo"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
@@ -97,8 +118,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 49727.46286918905,
-        "team": 0.033284015667673715,
+        "dps": 49295.43610203269,
+        "team": 0.03328401566767375,
         "noaff": false,
         "nihil": true
       },
@@ -183,6 +204,7 @@
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon(c1-s-c3-end), fsc",
         "`s1, fsc",
@@ -213,8 +235,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29008.907350775124,
-        "team": 0.24407118315992773,
+        "dps": 29352.132810227762,
+        "team": 0.2440711831599276,
         "noaff": false,
         "nihil": false
       }
@@ -237,7 +259,7 @@
       ]
     },
     "META": {
-      "tdps": 357083.8196329966,
+      "tdps": 355092.2916911773,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -269,7 +291,7 @@
       ]
     },
     "META": {
-      "tdps": 329770.306825332,
+      "tdps": 327720.77811370254,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -278,6 +300,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59557.88216647667,
+        "team": 0.03328401566767375,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 66168.73807393588,
@@ -307,6 +337,7 @@
       ]
     },
     "META": {
+      "tdps": 198619.54078695588,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -346,39 +377,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 23036.23746131222,
-        "team": 0.2440711831599276,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 40142.34111689394,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "Snipers_Allure"
-      ]
-    },
-    "META": {
-      "tdps": 70086.53555128198,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
         "dps": 23036.23746131222,
@@ -414,37 +412,20 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25857.722371705975,
-        "team": 0.0,
+        "dps": 27043.63735034846,
+        "team": 0.03328401566767375,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`s3, cancel",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs2, not buff(locked_sigil)"
-      ],
-      "coabs": [
-        "Dagger",
-        "Gala_Mascula",
-        "Grace"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Nevin"
-      ]
+      "slots.d": "Summer_Marishiten"
     },
     "META": {
       "pref": "PERSONAL",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 21759.114061220258,
-        "team": 1.3421018383270795,
+        "dps": 21727.81884888647,
+        "team": 1.3421018383270789,
         "noaff": true,
         "nihil": false
       },
@@ -67,7 +67,7 @@
       ]
     },
     "META": {
-      "tdps": 52112.364091500094,
+      "tdps": 52145.36448788672,
       "pref": "PERSONAL"
     }
   },
@@ -180,7 +180,7 @@
       ]
     },
     "META": {
-      "tdps": 57825.904306720295,
+      "tdps": 57855.31190452293,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,38 +227,38 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25849.339396317428,
-        "team": 1.2786924613949955,
-        "noaff": true,
+        "dps": 69413.95567703962,
+        "team": 0.2779138504519721,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
         "The_Shining_Overlord",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "His_Clever_Brother"
       ],
       "acl": [
-        "`fs, fs_prep_c and x=2",
-        "`dragon(c3-s-end)",
-        "`s3, cancel",
-        "`s2, cancel",
-        "`s4",
+        "`dragon(c3-s-c3-end), s=2 or s=1",
+        "`s3, not buff(s3) and fsc",
+        "`s2",
+        "`s4, speed()<1.5 or fsc",
+        "`s1, cancel or have_buff(ds_sp_regen_zone)",
         "`fs, x=4 or hits=0"
       ],
       "coabs": [
         "Gala_Mascula",
-        "Renee",
-        "Tobias"
+        "Hunter_Sarisse",
+        "Summer_Estelle"
       ],
       "share": [
-        "Templar_Hope",
-        "Gala_Elisanne"
+        "Weapon",
+        "Summer_Luca"
       ]
     },
     "META": {
-      "tdps": 64505.05481985878,
+      "tdps": 44809.88074613523,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -266,47 +266,10 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 24277.73640524008,
-        "team": 1.222642568108577,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Once_in_a_Lifetime",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "acl": [
-        "`fs, fs_prep_c and x=2",
-        "`dragon(c3-s-end), s=2 or s=4",
-        "`s2",
-        "`s3",
-        "`s4",
-        "`fs, x=4 or hits=0"
-      ],
-      "coabs": [
-        "Gala_Mascula",
-        "Summer_Estelle",
-        "Tiki"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38502.23744159429,
+        "dps": 38796.36049751999,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -319,20 +282,15 @@
         "His_Clever_Brother"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon(c3-s-c3-c3-c2-end), fsc",
         "`s3",
-        "`s4",
         "`s1",
+        "`s4, fsc",
         "`s2, cancel",
         "`fs, x=4"
       ],
-      "coabs": [
-        "Blade",
-        "Joker",
-        "Yurius"
-      ],
       "share": [
-        "The_Prince",
+        "Humanoid_Mercury",
         "Gala_Mym"
       ]
     },
