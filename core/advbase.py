@@ -171,6 +171,53 @@ class ReservoirSkill(Skill):
         return super().__call__()
 
 
+class ReservoirChainSkill(Skill):
+    def __init__(self, name=None, altchain=None, sp=1129):
+        super().__init__(name)
+        self.chain_timer = Timer(self.chain_off)
+        self.chain_status = 0
+        self.altchain = altchain or "base"
+        self._sp = sp
+
+    def chain_on(self, skill, timeout=3):
+        timeout += self.ac.getrecovery()
+        self.chain_status = skill
+        self.chain_timer.on(timeout)
+        log("skill_chain", f"s{skill}", timeout)
+        self._static.current_s[f"s{skill}"] = f"chain{skill}"
+        self._static.current_s[f"s{3-skill}"] = f"{self.altchain}{3-skill}"
+
+    def chain_off(self, t=None, reason="timeout"):
+        log("skill_chain", "chain off", reason)
+        self.chain_status = 0
+        self._static.current_s["s1"] = "base1"
+        self._static.current_s["s2"] = "base2"
+
+    @property
+    def sp(self):
+        return self._sp
+
+    def charge(self, sp):
+        self.charged = min(self.sp * 3, self.charged + sp)
+        if self.charged >= self.sp * 3:
+            self.skill_charged()
+
+    @property
+    def count(self):
+        return self.charged // self.sp
+
+    def __call__(self, call=1):
+        self.name = f"s{call}"
+        casted = super().__call__()
+        if casted:
+            if self.count == 0 and self.chain_timer.online:
+                self.chain_timer.off()
+                self.chain_off(reason="reservoir below 1")
+            else:
+                self.chain_on(call)
+        return casted
+
+
 class Nop(object):
     name = "nop"
     index = 0

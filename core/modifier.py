@@ -1255,7 +1255,7 @@ class AmpBuff:
     TYPE_BUFFARGS = {
         1: ("maxhp", "buff"),
         2: ("att", "buff"),
-        3: ("def", "buff"),
+        3: ("def", "passive"),
     }
 
     def __init__(self, amp_id):

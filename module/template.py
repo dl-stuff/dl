@@ -4,7 +4,7 @@ import operator
 
 from core.log import log
 from core.timeline import now, Event
-from core.advbase import Adv, ReservoirSkill
+from core.advbase import Adv, ReservoirSkill, ReservoirChainSkill
 from core.modifier import ModeManager, EffectBuff
 from core.acl import allow_acl, CONTINUE
 
@@ -70,12 +70,7 @@ class StanceAdv(Adv):
         return stance not in (self.stance, self.next_stance) and not self.Skill._static.silence == 1
 
     def can_change_combo(self):
-        return (
-            self.has_alt_x
-            and self.hits >= self.hit_threshold
-            and not self.stance_dict[self.stance].alt["x"].get()
-            and not self.Skill._static.silence == 1
-        )
+        return self.has_alt_x and self.hits >= self.hit_threshold and not self.stance_dict[self.stance].alt["x"].get() and not self.Skill._static.silence == 1
 
     @allow_acl
     def s(self, n, stance=None):
@@ -286,3 +281,60 @@ class DivineShiftAdv(Adv):
         self.a_fs_dict["fs"].set_enabled(True)
         self.s3.set_enabled(True)
         self.s4.set_enabled(True)
+
+
+class SkillChainAdv(Adv):
+    def __init__(self, altchain=None, sp=1129, **kwargs):
+        super().__init__(**kwargs)
+        self.sr = ReservoirChainSkill("s1", altchain=altchain, sp=sp)
+        self.a_s_dict["s1"] = self.sr
+        self.a_s_dict["s2"] = self.sr
+
+    def prerun(self):
+        self.current_s["s1"] = "base1"
+        self.current_s["s2"] = "base2"
+        self.sr.enable_phase_up = False
+
+    @allow_acl
+    def s(self, n):
+        sn = f"s{n}"
+        if n == 1 or n == 2:
+            return self.a_s_dict[sn](call=n)
+        else:
+            return self.a_s_dict[sn]()
+
+    @property
+    def skills(self):
+        return (self.sr, self.s3, self.s4)
+
+    def charge_p(self, name, percent, target=None, no_autocharge=False):
+        percent = percent / 100 if percent > 1 else percent
+        targets = self.get_targets(target)
+        if not targets:
+            return
+        for s in targets:
+            if no_autocharge and hasattr(s, "autocharge_timer"):
+                continue
+            s.charge(self.sp_convert(percent, s.sp))
+        log(
+            "sp",
+            name if not target else f"{name}->{target}",
+            f"{percent*100:.0f}%",
+            f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
+        )
+        self.think_pin("prep")
+
+    def charge(self, name, sp, target=None):
+        sp = self.sp_convert(self.sp_mod(name), sp)
+        targets = self.get_targets(target)
+        if not targets:
+            return
+        for s in targets:
+            s.charge(sp)
+        log(
+            "sp",
+            name,
+            sp,
+            f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
+        )
+        self.think_pin("sp")
