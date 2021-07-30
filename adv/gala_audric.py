@@ -3,12 +3,6 @@ from module.template import SkillChainAdv
 
 
 class Gala_Audric(SkillChainAdv):
-    conf = {
-        "acl": """
-            `s1, sr.count>1
-        """
-    }
-
     def prerun(self):
         super().prerun()
         self.a1_count = 5
