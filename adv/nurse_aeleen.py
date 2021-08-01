@@ -21,7 +21,7 @@ class Nurse_Aeleen_70MC(Adv):
             "attr": [
                 {"amp": ["10000", 2, 0], "cd": 30.0},
                 {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.93333},
-                {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_MYPARTY8"], "iv": 0.96667},
+                {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.96667},
                 {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 1.0},
             ],
             "energizable": True,

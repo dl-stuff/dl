@@ -43,7 +43,7 @@ class Akasha_70MC(Akasha):
             "recovery": 1.8,
             "attr": [
                 {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.93333},
-                {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_MYPARTY8"], "iv": 0.93333},
+                {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.93333},
                 {"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 0.93333},
             ],
             "energizable": True,
