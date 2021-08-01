@@ -968,6 +968,22 @@ class AffResDebuff(Buff):
 bufftype_dict["affres"] = AffResDebuff
 
 
+class AffEdgeBuff(Buff):
+    def __init__(self, name, value=0, duration=0, affname=None, source=None):
+        super().__init__(name, value, duration, "effect", source=source)
+        self.aff_edge_mods = getattr(self._static.adv.afflics, affname).aff_edge_mods
+        self.mod_object = Modifier(name, "edge", affname, value)
+
+    def effect_on(self):
+        self.aff_edge_mods.append(self.mod_object)
+
+    def effect_off(self):
+        self.aff_edge_mods.remove(self.mod_object)
+
+
+bufftype_dict["affup"] = AffEdgeBuff
+
+
 class EchoBuff(Buff):
     def __init__(self, name, value=0, duration=0, source=None):
         super().__init__(name, 1, duration, "effect", source=source)
