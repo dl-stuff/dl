@@ -283,8 +283,8 @@ class Afflic_dot(AfflicUncapped):
         self.iv = iv
         self.dot = None
 
-    def on(self, name, rate, coef, duration=None, iv=None, dtype=None, dmg_override=None, time_override=None):
-        self.rate = rate + self.edge
+    def on(self, name, rate, coef, duration=None, iv=None, dtype=None, dmg_override=None, time_override=None, edge=None):
+        self.rate = rate + (edge or self.edge)
         self.coef = coef
         self.event.source = name
         if dtype is None and name[0] == "s":
@@ -403,7 +403,7 @@ class Afflics(object):
             "shadowblight": 0,
             "scorchrend": 0,
         },
-        ("flame", True): {  # Master Jaldabaoth (flame side)
+        ("flame", True): {  # Master Jaldabaoth (wind side)
             "poison": 100,
             "burn": 60,
             "freeze": 100,
@@ -463,7 +463,7 @@ class Afflics(object):
             "shadowblight": 100,
             "scorchrend": 100,
         },
-        ("wind", True): {  # Master Jaldabaoth (wind side)
+        ("wind", True): {  # Master Jaldabaoth (water side)
             "poison": 60,
             "burn": 100,
             "freeze": 100,
@@ -493,7 +493,7 @@ class Afflics(object):
             "shadowblight": 100,
             "scorchrend": 100,
         },
-        ("water", True): {  # Master Lilith (water side)
+        ("water", True): {  # Master Lilith (flame side)
             "poison": 100,
             "burn": 100,
             "freeze": 100,
@@ -508,22 +508,22 @@ class Afflics(object):
             "shadowblight": 100,
             "scorchrend": 100,
         },
-        ("light", False): {  # Master Tartarus
-            "poison": 90,
-            "burn": 0,
-            "freeze": 100,
-            "paralysis": 0,
-            "blind": 100,
-            "stun": 99,
-            "bog": 99,
-            "sleep": 99,
-            "frostbite": 0,
-            "flashburn": 0,
-            "stormlash": 0,
-            "shadowblight": 0,
-            "scorchrend": 0,
+        ("light", False): {  # Legend Tartarus
+            "poison": 200,
+            "burn": 200,
+            "freeze": 200,
+            "paralysis": 85,
+            "blind": 200,
+            "stun": 200,
+            "bog": 200,
+            "sleep": 200,
+            "frostbite": 200,
+            "flashburn": 20,
+            "stormlash": 200,
+            "shadowblight": 200,
+            "scorchrend": 200,
         },
-        ("light", True): {  # Master Lilith (light side)
+        ("light", True): {  # Master Lilith (shadow side)
             "poison": 100,
             "burn": 100,
             "freeze": 100,
