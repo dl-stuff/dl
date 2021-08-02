@@ -2,23 +2,22 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 72522.68694992576,
-        "team": 0.024947136341615488,
-        "noaff": false,
+        "dps": 56322.5815118855,
+        "team": 0.122863445865657,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Chariot_Drift",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "Lord_of_the_Skies",
         "To_the_Extreme",
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Horus",
       "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
         "if s=1",
         "`dragon(c3-s-s-c3-c1-end), dragonform.shift_count>=2",
         "`dragon(c3-s-s-c3-end)",
@@ -35,13 +34,13 @@
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Halloween_Mym",
+        "Bow",
         "Kimono_Elisanne",
-        "Yuya"
+        "Wand"
       ],
       "share": [
-        "Templar_Hope",
-        "Formal_Joachim"
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
@@ -88,30 +87,8 @@
       ]
     },
     "META": {
-      "tdps": 1536663.3044586491,
+      "tdps": 443870.46139954805,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 67784.27869827396,
-        "team": 0.02751210394512978,
-        "noaff": false,
-        "nihil": false
-      },
-      "share": [
-        "Weapon",
-        "Summer_Cleo"
-      ]
-    },
-    "META": {
-      "tdps": 1565629.3428174572,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -154,38 +131,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 111462.35687909367,
-        "team": 0.10119857063043482,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(s-s-c3-c2-end), s=1",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s4, xf",
-        "`s2",
-        "`fs, charged_in(fs, s1) and xf",
-        "`fs, xf=5 and (s3.check() and not buff(s3))",
-        "`fsf, xf=5"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 132319.4377297344,
@@ -219,7 +164,7 @@
       ]
     },
     "META": {
-      "tdps": 206100.54787046666,
+      "tdps": 618547.3285597605,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -294,6 +239,7 @@
       ]
     },
     "META": {
+      "tdps": 2066928.1159252482,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

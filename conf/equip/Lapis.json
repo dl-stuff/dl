@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 93597.76966788841,
-        "team": 0.04166409815217122,
+        "dps": 93800.77489585456,
+        "team": 0.04164867289743132,
         "noaff": true,
         "nihil": false
       },
@@ -44,14 +44,14 @@
         "Rivalry_of_Kings",
         "The_Lurker_in_the_Woods",
         "Enter_the_Blue_Rose",
-        "Taiko_Tandem"
+        "Flowers_Under_the_Moon"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`s1,not have_buff(s1_res_down) and energy()<5",
+        "`s1,not have_buff(s1_res_down)",
         "`s2, energy()=5",
-        "`s4, fsc",
+        "`s4, fsc and energy()<4",
         "`fs"
       ],
       "coabs": [
@@ -65,7 +65,7 @@
       ]
     },
     "META": {
-      "tdps": 111281.64288280864,
+      "tdps": 111566.06280377126,
       "pref": "PERSONAL"
     }
   },
@@ -104,8 +104,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49368.84182104171,
-        "team": 0.0458803857240682,
+        "dps": 49667.73229383716,
+        "team": 0.04500276667272257,
         "noaff": false,
         "nihil": true
       },
@@ -118,7 +118,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s",
+        "`dragon(c3-s-c3-end), s",
         "`s2",
         "`s4, s",
         "`s3, s",
@@ -136,7 +136,7 @@
       ]
     },
     "META": {
-      "tdps": 219028.99038832585,
+      "tdps": 219627.49133688895,
       "pref": "PERSONAL"
     }
   },
@@ -175,18 +175,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53743.8885049605,
-        "team": 0.09927353295426768,
+        "dps": 53785.83746858155,
+        "team": 0.09927353295426779,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "The_Lurker_in_the_Woods",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
       "acl": [
         "`s1, not have_buff(s1_res_down) or (s4.check() and dgauge>=500)",
         "`s2",
@@ -206,7 +199,7 @@
       ]
     },
     "META": {
-      "tdps": 348673.54434869444,
+      "tdps": 349011.97361438104,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -217,8 +210,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41723.95537511294,
-        "team": 0.11215739679732747,
+        "dps": 45623.960181205,
+        "team": 0.08338981696858183,
         "noaff": false,
         "nihil": true
       },
@@ -226,16 +219,13 @@
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
         "The_Lurker_in_the_Woods",
-        "Dueling_Dancers",
-        "Snipers_Allure"
+        "Beautiful_Gunman",
+        "Enter_the_Blue_Rose"
       ],
-      "acl": [
-        "`s1, not have_buff(s1_res_down) or (s4.check() and dgauge>=500)",
-        "`s2, def_mod()!=1",
-        "`s3",
-        "`s4, s=1",
-        "`dragon(c3-s-c3-c3-c2-end), s=4",
-        "`fs"
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Yurius"
       ],
       "share": [
         "Eugene",
@@ -243,7 +233,7 @@
       ]
     },
     "META": {
-      "tdps": 280898.25731695985,
+      "tdps": 251000.60180061436,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

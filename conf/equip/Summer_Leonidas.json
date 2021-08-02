@@ -1,0 +1,312 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64215.562770307195,
+        "team": 0.11802385771989297,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dazzling_Duet",
+        "Dragon_and_Tamer",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s1, xf",
+        "`fs3, not charged_in(x5, s1) and cancel",
+        "else",
+        "`dragon",
+        "`s4",
+        "`s1, xf",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Bow",
+        "Grace",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 68288.42079320629,
+        "team": 0.10702995574263544,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Levins_Champion",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s1, xf",
+        "`fs3, not charged_in(x5, s1) and cancel",
+        "else",
+        "`dragon",
+        "`s4",
+        "`s1, xf",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Bow",
+        "Grace",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 370465.1934612825,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45207.34132781072,
+        "team": -0.03830134097505799,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "if dragondrive.get()",
+        "`s1, fsc",
+        "`fs3, cancel",
+        "else",
+        "`dragon",
+        "`s2, fsc",
+        "`s3",
+        "`s1, xf",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Delphi",
+        "Grace",
+        "Ieyasu"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55699.38428265292,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Levins_Champion",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "if dragondrive.get()",
+        "`s1, fsc",
+        "`fs3, cancel",
+        "else",
+        "`dragon",
+        "`s4, fsc",
+        "`s3",
+        "`s1, xf",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Delphi",
+        "Grace",
+        "Ieyasu"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47328.68623528952,
+        "team": -0.038445293189316325,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Levins_Champion",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "if dragondrive.get()",
+        "`s1, fsc",
+        "`fs3, cancel",
+        "else",
+        "`dragon",
+        "`s4, fsc",
+        "`s3",
+        "`s1, xf",
+        "`s2",
+        "`fs, x=5",
+        "end"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 91619.69262296181,
+        "team": 0.1070299557426356,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Vania"
+      ]
+    },
+    "META": {
+      "tdps": 2492666.3808122356,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63310.308523178595,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Grace",
+        "Ieyasu",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32737.408559374395,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Levins_Champion",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if dragondrive.get()",
+        "`s1, xf",
+        "`fs3, not charged_in(x5, s1) and cancel",
+        "else",
+        "`dragon",
+        "`s4",
+        "`s1, xf",
+        "`fs, x=5",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  }
+}

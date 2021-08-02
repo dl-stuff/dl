@@ -158,7 +158,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100309.34688534019,
+        "dps": 104327.2414296864,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -171,10 +171,25 @@
         "The_Plaguebringer",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c3-s-end), dragonform.shift_count<=1 and cancel",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
+        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=4",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, fsc",
+        "`s2, fsc",
+        "`fs, x=4 or hits=3"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 385618.5833577794,
+      "tdps": 421253.6796750774,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

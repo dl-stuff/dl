@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43674.92861310212,
-        "team": 0.08913853230625815,
+        "dps": 44275.33783128666,
+        "team": 0.0891385323062583,
         "noaff": true,
         "nihil": false
       },
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 22324996.255033,
+      "tdps": 26077069.57430401,
       "pref": "PERSONAL"
     }
   },
@@ -91,8 +91,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42203.33257797531,
-        "team": 0.08913853230625815,
+        "dps": 42783.51142937986,
+        "team": 0.0891385323062583,
         "noaff": true,
         "nihil": false
       },
@@ -103,7 +103,7 @@
       ]
     },
     "META": {
-      "tdps": 23713376.858003218,
+      "tdps": 27339026.702860318,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -112,11 +112,46 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 26488.44689093767,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s4",
+        "`s1",
+        "`s3, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 22956.21546689473,
+        "dps": 27919.53264390754,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
@@ -133,7 +168,7 @@
         "`dragon",
         "`s2",
         "`s4",
-        "`s1, buff(s3)",
+        "`s1",
         "`s3, cancel",
         "`fs, x=5"
       ],
@@ -144,18 +179,45 @@
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 26488.44689093767,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48016.49506322986,
-        "team": 0.08929855295806813,
+        "dps": 48676.58878693721,
+        "team": 0.0892985529580683,
         "noaff": false,
         "nihil": false
       },
@@ -180,8 +242,8 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46416.691575648154,
-        "team": 0.08913853230625815,
+        "dps": 47054.79243544643,
+        "team": 0.0891385323062583,
         "noaff": false,
         "nihil": false
       },
@@ -206,7 +268,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 27480.51331652475,
+        "dps": 30284.372677564414,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -220,13 +282,22 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Reborn_Jeanne"
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s4",
+        "`s1, cancel",
+        "`s3",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -245,7 +316,7 @@
       ]
     },
     "META": {
-      "tdps": 32909665.077566534,
+      "tdps": 36661738.39684764,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

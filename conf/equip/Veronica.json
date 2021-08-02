@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 71203.45949791314,
-        "team": 0.1388657654248397,
+        "dps": 67418.79646311239,
+        "team": 0.1388657654248401,
         "noaff": true,
         "nihil": false
       },
@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 133339.33176694255,
+        "dps": 133359.846976232,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -47,7 +47,7 @@
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -68,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 447452.7762759504,
+      "tdps": 474854.62173763494,
       "pref": "PERSONAL"
     }
   },
@@ -110,7 +110,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65832.81817835456,
+        "dps": 65845.46785262648,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -122,7 +122,7 @@
         "A_Small_Courage",
         "Chariot_Drift",
         "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -144,7 +144,7 @@
       ]
     },
     "META": {
-      "tdps": 330353.05932475755,
+      "tdps": 330558.02185657405,
       "pref": "PERSONAL"
     }
   },
@@ -177,7 +177,7 @@
       ]
     },
     "META": {
-      "tdps": 566936.6866391021,
+      "tdps": 567240.3094844385,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -186,10 +186,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 138145.07327299952,
-        "team": 0.0,
+        "dps": 95720.68053891332,
+        "team": 0.1397807715617843,
         "noaff": false,
         "nihil": false
       },
@@ -201,10 +201,55 @@
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon(c4-s), s=1 and duration-now<15",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`fs, charged_in(fs,s1) and x=4"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 142352.75755005077,
+        "team": 0.07388060917426571,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c5-s), duration-now<5",
+        "`s3, not buff(s3) and s=1",
+        "`s4, x=5",
+        "`s1",
+        "`fs, charged_in(fs,s1) and x=4"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": 482059.8768190865,
+      "tdps": 707617.0273590934,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -245,8 +290,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77957.51937715012,
-        "team": 0.026265512428004827,
+        "dps": 82574.5411557899,
+        "team": 0.026306196480700962,
         "noaff": false,
         "nihil": true
       },
@@ -263,12 +308,13 @@
         "`dragon(c3-s-end), cancel",
         "`s4",
         "`s1",
+        "`s2",
         "`s3",
         "`fs, charged_in(fs,s1) and x>3"
       ],
       "coabs": [
-        "Blade",
         "Bow",
+        "Ieyasu",
         "Joker"
       ],
       "share": [
@@ -277,7 +323,7 @@
       ]
     },
     "META": {
-      "tdps": 70548.54729932682,
+      "tdps": 167445.98934345372,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -288,9 +334,9 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66389.12440010638,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 67418.79646311239,
+        "team": 0.1388657654248401,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
@@ -299,24 +345,28 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Lord_of_the_Skies",
-        "Mask_of_Determination_Bow",
+        "Savage_Hawk_Lance",
         "Thunderswift_Lords_Blade_Lance"
       ],
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c4-s), s=1 and duration-now<15",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4"
+        "`s4",
+        "`s2, x=5 and (hp>=50 or hp=0)"
       ],
       "coabs": [
         "Curran",
         "Ieyasu",
         "Summer_Patia"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": -34668.9847067634,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -326,8 +376,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 50865.149944324825,
-        "team": 0.07406595562238283,
+        "dps": 51334.49459988959,
+        "team": 0.07407018950413584,
         "noaff": false,
         "nihil": true
       },
@@ -336,9 +386,9 @@
         "#`dragon(c3-s-c5-end)",
         "`s4",
         "`s3",
-        "`s2, hp < 50",
         "`s1",
-        "`fs, charged_in(fs,s1) and x>5"
+        "`s2",
+        "`fs, charged_in(fs,s1) and x>3"
       ],
       "coabs": [
         "Blade",
@@ -376,7 +426,7 @@
       ]
     },
     "META": {
-      "tdps": 48069381.822206326,
+      "tdps": 37759618.56501325,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

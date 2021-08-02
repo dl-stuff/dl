@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94255.31529881446,
-        "team": 0.15148641370880125,
+        "dps": 94819.47066821484,
+        "team": 0.15992947131832963,
         "noaff": false,
         "nihil": false
       },
@@ -53,14 +53,12 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c2-s-end), s=2",
+        "`dragon(c3-s-end), trickery<1",
         "`s3, not buff(s3)",
-        "if x=5 or s=4 or not buff(s3)",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
+        "`s2, aff_timeleft(poison)<2 and sr.count>1",
         "`s1, sr.count>1",
-        "end",
-        "`fs, hits=0 or x=4 and not buff(s3)"
+        "`s4",
+        "`fs, x=4 and not buff(s3)"
       ],
       "coabs": [
         "Delphi",
@@ -73,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 684578.94101019,
+      "tdps": 767055.1357038851,
       "pref": "PERSONAL"
     }
   },
@@ -161,8 +159,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 102529.952283312,
-        "team": 0.15148641370880125,
+        "dps": 103364.80201148859,
+        "team": 0.15992947131832963,
         "noaff": false,
         "nihil": false
       },
@@ -182,7 +180,7 @@
       ]
     },
     "META": {
-      "tdps": 780623.8795670433,
+      "tdps": 877161.4742942256,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,7 +191,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75361.70022223137,
+        "dps": 75361.70022223139,
         "team": 0.04374621935289655,
         "noaff": false,
         "nihil": true
@@ -243,8 +241,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65902.46756604023,
-        "team": 0.1368383945200145,
+        "dps": 66738.33289997827,
+        "team": 0.15992947131832963,
         "noaff": false,
         "nihil": false
       },
@@ -257,15 +255,6 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "if x=5 or s=4 or not buff(s3)",
-        "`s4",
-        "`s1, sr.count>1",
-        "end",
-        "`fs, hits=0 or x=4 and not buff(s3)"
-      ],
       "coabs": [
         "Forte",
         "Ieyasu",
@@ -273,7 +262,7 @@
       ]
     },
     "META": {
-      "tdps": 428779.03026608966,
+      "tdps": 565647.1261485777,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

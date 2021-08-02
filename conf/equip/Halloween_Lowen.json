@@ -2,20 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4250.246848864282,
-        "team": 0.5064401576315068,
+        "dps": 6792.911494668085,
+        "team": 0.5207435011003808,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Honest_Repose",
-        "Study_Rabbits",
+        "Jewels_of_the_Sun",
         "Warrior_Maiden",
         "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Horus",
-      "slots.w": "void",
       "acl": [
         "#`s2, prep or x=5 and mod(maxhp)<1.30",
         "`s1, x=5",
@@ -24,12 +25,12 @@
       ],
       "coabs": [
         "Gala_Sarisse",
-        "Seimei",
+        "Joker",
         "Tobias"
       ],
       "share": [
         "Karl",
-        "Templar_Hope"
+        "Valentines_Orion"
       ]
     },
     "PERSONAL": {
@@ -67,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 68102.9883220088,
+      "tdps": 60188.49438865116,
       "pref": "PERSONAL"
     }
   },
@@ -145,48 +146,6 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 19606.25168709234,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Proper_Maintenance",
-        "Springtime_Breeze",
-        "The_Cutie_Competition",
-        "Dragons_Nest",
-        "Entwined_Flames",
-        "Beneath_the_Boughs",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon",
-        "`s3, x=5",
-        "`s1, x=5",
-        "`s4, x=5"
-      ],
-      "coabs": [
-        "Gala_Mym",
-        "Seimei",
-        "The_Prince"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Yukata_Cassandra"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -204,23 +163,6 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 21384.549685337803,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -231,7 +173,7 @@
       }
     },
     "META": {
-      "tdps": 67466.985292498,
+      "tdps": 59572.96412615909,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -253,23 +195,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 17312.083327337743,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

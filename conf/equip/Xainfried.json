@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30829.888471076494,
-        "team": 1.476981773548531,
+        "dps": 33836.448498489764,
+        "team": 1.4780881387514726,
         "noaff": true,
         "nihil": false
       },
@@ -19,12 +19,13 @@
         "`dragon(c3-c2-s-end), dragonform.shift_count=0 and s=3",
         "`dragon(c3-c3-c1-s-end), dragonform.shift_count=1 and s=2",
         "`dragon(c3-c3-c3-s-end), dragonform.shift_count=2 and s=2",
-        "`dragon(c3-c3-c3-c3-s-end), dragonform.shift_count=3 and s=2",
+        "`dragon(c3-c3-c3-c3-s-end), dragonform.shift_count=3",
+        "`dragon(c3-c3-c3-c3-s-end), dragonform.shift_count=4",
         "`s2",
-        "`s3",
+        "`s3, xf or fscf",
         "`s4, fscf or have_buff(ds_sp_regen_zone)",
         "`fs, x=5",
-        "`dodge, fscf and hits<10"
+        "`dodge, fscf"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -38,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104205.53334250078,
-        "team": 0.24222185397960566,
+        "dps": 104604.652158438,
+        "team": 0.3634310768590728,
         "noaff": false,
         "nihil": false
       },
@@ -52,18 +53,18 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1 and xf=2",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0 and s=4",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1 and fscf",
         "`dragon(c2-s-c3-c3-c3-end), dragonform.shift_count=2 and fscf",
         "`dragon(c3-s-c3-c3-c3-c2-end), dragonform.shift_count=3 and fscf and not s1.check()",
         "`dragon(c2-s-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count>=4",
         "queue prep and not buff(s3)",
-        "`s3;s2;s4, xf=2",
+        "`s3;s2;fs;s4, fscf",
         "end",
-        "`s4",
         "`s2",
+        "`s4",
         "`s1, fscf",
-        "`s1, duration-now<10 and x=1",
+        "`s1, duration-now<10 and xf=2",
         "`fs, charged_in(fs, s2)",
         "`fs, charged_in(fs, s4)",
         "`fs, x=5",
@@ -80,7 +81,7 @@
       ]
     },
     "META": {
-      "tdps": 59425.029682726425,
+      "tdps": 63488.76805194424,
       "pref": "PERSONAL"
     }
   },
@@ -99,7 +100,7 @@
       ]
     },
     "META": {
-      "tdps": 71461.02138640544,
+      "tdps": 81401.31973579938,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -108,49 +109,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 32842.689590974434,
-        "team": 0.09991674714590547,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
-        "if s=4",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c1-end), dragonform.shift_count=2",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
-        "end",
-        "`s3, not buff(s3) and fscf",
-        "`s1, fscf or dgauge>500",
-        "`s4, dgauge>500 and s=1",
-        "`s2, fs",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43155.00775394673,
-        "team": 0.09986956480006158,
+        "dps": 47093.695007732094,
+        "team": 0.191594146623662,
         "noaff": false,
         "nihil": true
       },
@@ -163,45 +125,48 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-end), dragonform.shift_count=0",
-        "if s=4",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c1-end), dragonform.shift_count=2",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=3",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0 and s=4",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1 and fscf",
+        "`dragon(c2-s-c3-c3-c3-end), dragonform.shift_count=2 and fscf",
+        "`dragon(c3-s-c3-c3-c3-c2-end), dragonform.shift_count=3 and fscf and not s1.check()",
+        "`dragon(c2-s-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count>=4",
+        "queue prep and not buff(s3)",
+        "`s3;s2;fs;s4, fscf",
         "end",
-        "`s3, not buff(s3) and fscf",
-        "`s1, fscf or dgauge>=500",
-        "`s4, dgauge>=500 and s=1",
         "`s2",
+        "`s4",
+        "`s1, fscf",
+        "`s1, duration-now<10 and xf=2",
+        "`fs, charged_in(fs, s2)",
+        "`fs, charged_in(fs, s4)",
         "`fs, x=5",
         "`dodge, fscf"
       ],
       "coabs": [
-        "Blade",
+        "Summer_Celliera",
         "Tiki",
         "Yurius"
       ],
       "share": [
-        "Gala_Mym",
-        "Summer_Julietta"
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 213329572.26476994,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 108427.39926321668,
-        "team": 0.24222185397960566,
+        "dps": 108811.19860520653,
+        "team": 0.3634310768590728,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 62844.209276918155,
+      "tdps": 67262.61616234593,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -212,41 +177,40 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54305.37194657223,
-        "team": 0.25177236054895175,
+        "dps": 50921.11515592037,
+        "team": 0.14707313663324373,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c2-end), dragonform.shift_count=0 and s=2",
-        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1 and xf=2",
+        "`dragon(c3-s-c3-end), dragonform.shift_count=0 and s=4",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1 and fscf",
         "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=2 and fscf",
         "`dragon(c3-s-c3-c3-c3-c2-end), dragonform.shift_count=3 and fscf and not s1.check()",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=4",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=4",
+        "queue prep",
+        "`s2;fs;s4,fscf;fs;s3,fscf",
+        "end",
         "`s2",
         "`s4",
         "`s3, fscf",
-        "`s1, fscf and not duration-now<20",
+        "`s1, fscf or duration-now<10",
         "`fs, charged_in(fs, s2)",
-        "`fs, charged_in(fs, s4) and xf",
+        "`fs, charged_in(fs, s3)",
+        "`fs, charged_in(fs, s4)",
         "`fs, x=5",
         "`dodge, fscf"
       ],
-      "coabs": [
-        "The_Prince",
-        "Tiki",
-        "Yurius"
-      ],
       "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -285,7 +249,7 @@
       ]
     },
     "META": {
-      "tdps": 46915.384492303725,
+      "tdps": 44311.25877045802,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -294,14 +258,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 26722.695425511472,
-        "team": 0.09991674714590547,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 41530.14408404223,
@@ -338,7 +294,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -379,8 +335,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

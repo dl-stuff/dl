@@ -42,7 +42,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 107771.37145552343,
+        "dps": 109264.11238229458,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -82,7 +82,7 @@
       ]
     },
     "META": {
-      "tdps": 693549.9643037801,
+      "tdps": 708316.7635122773,
       "pref": "PERSONAL"
     }
   },
@@ -116,7 +116,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104842.58597543777,
+        "dps": 106294.76030374397,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -128,7 +128,7 @@
       ]
     },
     "META": {
-      "tdps": 952088.0040080063,
+      "tdps": 1082856.364162266,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,9 +137,51 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61177.840825836975,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "if gourmand_mode.get()",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge or s",
+        "else",
+        "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
+        "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s3",
+        "`s2",
+        "`fs, x=1",
+        "end"
+      ],
+      "coabs": [
+        "Mitsuhide",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64078.72437802334,
+        "dps": 64965.534151340544,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -191,15 +233,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
         "`s3, not buff(s3)",
         "if gourmand_mode.get()",
@@ -213,36 +246,19 @@
         "`s2",
         "`fs, x=1",
         "end"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Ilia"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58294.594682454896,
+        "dps": 61177.840825836975,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
       "coabs": [
-        "Blade",
         "Mitsuhide",
-        "Peony"
-      ],
-      "share": [
-        "Sharena",
-        "Ilia"
+        "Peony",
+        "Wand"
       ]
     },
     "META": {
@@ -256,7 +272,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 133489.2473339101,
+        "dps": 135340.1486624894,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -291,7 +307,7 @@
       ]
     },
     "META": {
-      "tdps": 947961.6323664024,
+      "tdps": 966271.4996606497,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -302,7 +318,7 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 118360.36101998665,
+        "dps": 119999.77000788147,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -318,7 +334,7 @@
       ]
     },
     "META": {
-      "tdps": 2169364.2228843314,
+      "tdps": 2316993.072114309,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -327,35 +343,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 72824.9483224309,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "if gourmand_mode.get()",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs, dodge",
-        "else",
-        "`s2",
-        "`s3, fsc",
-        "`s4, fsc",
-        "`fs, x=1",
-        "end"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74940.02583689615,
+        "dps": 75977.14928106379,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -401,52 +391,10 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 74940.02583689615,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "share": [
-        "Summer_Celliera",
-        "Yukata_Cassandra"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 56158.751356293484,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Levins_Champion",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
-        "Flowers_Under_the_Moon",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57508.59903516748,
+        "dps": 58303.815363749236,
         "team": 0.0,
         "noaff": false,
         "nihil": true
