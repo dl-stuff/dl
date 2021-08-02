@@ -23,7 +23,7 @@ class Summer_Alex(Adv):
             self.afflics.scorchrend.on("s2", 120, 0, dmg_override=self.scorchbloom_rend, time_override=self.scorchbloom_time, edge=self.scorchbloom_edge)
             self.scorchbloom = 0
             self.scorchbloom_rend = 0
-            self.scorchbloom_rate = 0
+            self.scorchbloom_edge = 0
             self.scorchbloom_time = 0
             self.sb_t.off()
             return True
