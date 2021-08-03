@@ -61,7 +61,8 @@ class Bleed(Dot):
     @allow_acl
     def timeleft(self, stack=3):
         if self._static["stacks"] == stack:
-            return self.dot_end_timer.timing - now()
+            min_timing = min((bleed.dot_end_timer.timing for bleed in self._static["all_bleeds"]))
+            return min_timing - now()
         return 0
 
     def on(self):

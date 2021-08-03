@@ -41,17 +41,17 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68288.42079320629,
-        "team": 0.10702995574263544,
-        "noaff": true,
+        "dps": 96843.19033327712,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Levins_Champion",
+        "Sweet_Surprise",
         "The_Lurker_in_the_Woods",
         "Beautiful_Nothingness",
-        "Beautys_Secret",
+        "The_Plaguebringer",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
@@ -59,58 +59,61 @@
       "acl": [
         "`s3, not buff(s3)",
         "if dragondrive.get()",
-        "`s1, xf",
-        "`fs3, not charged_in(x5, s1) and cancel",
+        "`s4, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs3",
         "else",
         "`dragon",
-        "`s4",
-        "`s1, xf",
+        "`s4, cancel",
+        "`s1, cancel",
         "`fs, x=5",
         "end"
       ],
       "coabs": [
-        "Bow",
         "Grace",
-        "Ieyasu"
+        "Ieyasu",
+        "Summer_Prince"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 370465.1934612825,
+      "tdps": 276449.4246612863,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45207.34132781072,
-        "team": -0.03830134097505799,
+        "dps": 58450.54738843235,
+        "team": 0.0034887243629091523,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
+        "Dragon_and_Tamer",
         "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
         "Beautiful_Nothingness",
-        "Beautys_Secret",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Lord_of_the_Skies",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "if dragondrive.get()",
-        "`s1, fsc",
-        "`fs3, cancel",
+        "If dragondrive.get()",
+        "`s1, xf",
+        "`dodge, fsc",
+        "`fs3, not charged_in(1,s1)",
         "else",
-        "`dragon",
-        "`s2, fsc",
-        "`s3",
+        "`dragon, cancel",
+        "`s4, cancel",
         "`s1, xf",
         "`fs, x=5",
+        "`s3",
         "end"
       ],
       "coabs": [
@@ -119,121 +122,76 @@
         "Ieyasu"
       ],
       "share": [
-        "Gala_Mym",
+        "Fritz",
         "Formal_Joachim"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55699.38428265292,
+        "dps": 65291.928679389624,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Levins_Champion",
+        "Dragon_and_Tamer",
         "The_Lurker_in_the_Woods",
         "Beautiful_Nothingness",
-        "Beautys_Secret",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Lord_of_the_Skies",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "if dragondrive.get()",
+        "`s4, fsc",
         "`s1, fsc",
-        "`fs3, cancel",
+        "`s3, fsc",
+        "`dodge, fsc",
+        "`fs3",
         "else",
         "`dragon",
-        "`s4, fsc",
-        "`s3",
-        "`s1, xf",
+        "`s4, cancel",
+        "`s1, cancel",
         "`fs, x=5",
         "end"
       ],
       "coabs": [
-        "Delphi",
         "Grace",
-        "Ieyasu"
+        "Ieyasu",
+        "Summer_Prince"
       ],
       "share": [
-        "Gala_Mym",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 1960997.940591796,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 47328.68623528952,
-        "team": -0.038445293189316325,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Levins_Champion",
-        "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
-        "Beautiful_Nothingness",
-        "Beautys_Secret",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "acl": [
-        "if dragondrive.get()",
-        "`s1, fsc",
-        "`fs3, cancel",
-        "else",
-        "`dragon",
-        "`s4, fsc",
-        "`s3",
-        "`s1, xf",
-        "`s2",
-        "`fs, x=5",
-        "end"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 91619.69262296181,
-        "team": 0.1070299557426356,
+        "dps": 100821.6577281467,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Dragon_and_Tamer",
         "The_Lurker_in_the_Woods",
         "Welcome_to_the_Opera",
         "Beautiful_Nothingness",
-        "Beautys_Secret",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Vania"
+        "The_Plaguebringer",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
       ]
     },
     "META": {
-      "tdps": 2492666.3808122356,
+      "tdps": 310158.4346168134,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -244,19 +202,36 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63310.308523178595,
-        "team": 0.0,
+        "dps": 80256.42661616014,
+        "team": 0.0368900568034939,
         "noaff": false,
         "nihil": true
       },
-      "coabs": [
-        "Grace",
-        "Ieyasu",
-        "Summer_Prince"
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "Beautiful_Nothingness",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "if dragondrive.get()",
+        "`s1, xf",
+        "`dodge, fsc",
+        "`fs3, not charged_in(1,s1)",
+        "else",
+        "`dragon, cancel",
+        "`s4, cancel",
+        "`s3, fsc",
+        "`s1, xf",
+        "`fs, x=5",
+        "end"
       ],
       "share": [
         "Gala_Mym",
-        "Summer_Julietta"
+        "Seimei"
       ]
     },
     "META": {
@@ -270,9 +245,9 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32737.408559374395,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 59387.26664631136,
+        "team": 0.02462457071678061,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
@@ -280,25 +255,31 @@
         "Levins_Champion",
         "The_Lurker_in_the_Woods",
         "Beautiful_Nothingness",
-        "Beautys_Secret",
+        "Lord_of_the_Skies",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`s3, not buff(s3)",
+        "`s3, fsc",
         "if dragondrive.get()",
         "`s1, xf",
-        "`fs3, not charged_in(x5, s1) and cancel",
+        "`dodge, fsc",
+        "`fs3, not charged_in(1,s1)",
         "else",
-        "`dragon",
-        "`s4",
+        "`dragon, cancel",
+        "`s4, cancel",
         "`s1, xf",
         "`fs, x=5",
         "end"
       ],
+      "coabs": [
+        "Grace",
+        "Ieyasu",
+        "Summer_Prince"
+      ],
       "share": [
-        "Weapon",
-        "Akasha"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {

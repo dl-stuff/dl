@@ -79,7 +79,7 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 83621.61135097878,
+        "dps": 89361.05018825884,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -91,7 +91,7 @@
       ]
     },
     "META": {
-      "tdps": 393872.78038842476,
+      "tdps": 446957.4728917652,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -100,6 +100,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42194.91291940703,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`dragon(c5-s-c5-end), bleed_timeleft()>=10",
+        "`s4, cancel",
+        "`s3, cancel",
+        "`s1, cancel",
+        "`fs, xf=2 and charged_in(fs, s1)",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Delphi",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50717.52640168525,
@@ -150,7 +185,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 112852.36550373308,
+        "dps": 113372.58193813894,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -171,7 +206,6 @@
         "`s2, xf=5",
         "`s4, xf=5",
         "`fsf, xf=5 and not buff(s3)",
-        "`fs, xf=2 and charged_in(fs, s1)",
         "`fs, xf=5 and buff(s3)"
       ],
       "coabs": [
@@ -185,7 +219,7 @@
       ]
     },
     "META": {
-      "tdps": 448145.1261922161,
+      "tdps": 452910.1784422142,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,49 +227,41 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 85998.21037768248,
+        "dps": 71985.19807289455,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(s), duration-now<12",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3) and (bleed_stack<3 or (bleed_stack=3 and (xf>1 or fscf)))",
-        "`s2, xf=5",
-        "`s4, xf>3",
-        "`fsf, xf=5 and not buff(s3)",
-        "`fs, xf=2 and charged_in(fs, s1)",
-        "`fs, xf=5 and buff(s3)"
+        "`s1, bleed_timeleft()<=0.5",
+        "`s4, xf",
+        "`s3, xf",
+        "`dragon(c4-s-end), xf=5",
+        "`fsf, xf=5"
       ],
       "coabs": [
-        "Dagger",
         "Joker",
-        "Vania"
+        "Summer_Prince",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
-    "META": {
-      "tdps": 202167.79090997577,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 72953.8194875349,
@@ -275,7 +301,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

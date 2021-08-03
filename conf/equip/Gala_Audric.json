@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65340.887233698646,
+        "dps": 63339.58646348586,
         "team": 0.054670130408074606,
         "noaff": false,
         "nihil": false
@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67971.79175021054,
+        "dps": 65845.1247452866,
         "team": 0.03142398182896501,
         "noaff": false,
         "nihil": false
@@ -69,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 113175.93138315334,
+      "tdps": 107782.94190429308,
       "pref": "PERSONAL"
     }
   },
@@ -106,7 +106,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44601.98883375589,
+        "dps": 45547.25596510898,
         "team": -0.038443339452928174,
         "noaff": false,
         "nihil": true
@@ -116,21 +116,21 @@
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "A_Small_Courage",
-        "Chariot_Drift",
+        "Snipers_Allure",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
         "`s4",
+        "`s3",
         "`s1, aff_timeleft(flashburn)<2 and sr.count>1",
         "`s2, sr.count>1"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Lucretia",
         "Peony"
       ],
       "share": [
@@ -175,7 +175,7 @@
       ]
     },
     "META": {
-      "tdps": 150241785.04524207,
+      "tdps": 191773888.72805494,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -211,8 +211,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80747.99860755945,
-        "team": 0.03479811909462701,
+        "dps": 80826.6842899507,
+        "team": 0.03608780696618552,
         "noaff": false,
         "nihil": false
       },
@@ -227,14 +227,14 @@
       ],
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, not buff(s3) and x=5",
+        "`s3, not buff(s3) and xf=5",
         "`s4",
         "`s2, sr.count>1 and buff(s3) and xf",
         "`fsf, x=5"
       ]
     },
     "META": {
-      "tdps": 716336.1197992499,
+      "tdps": 731385.6802738602,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -277,8 +277,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53923.26606696081,
-        "team": -0.038410509619233514,
+        "dps": 54919.788823648174,
+        "team": -0.03844328149945838,
         "noaff": false,
         "nihil": true
       },
@@ -292,23 +292,14 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-end), speed()=1.1",
+        "`dragon(c3-s-c3-c3-c3-end)",
         "`s3",
         "`s4",
         "`s2, sr.count>1"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Akasha"
       ]
     },
     "META": {
-      "tdps": 41132684.150240436,
+      "tdps": 38596472.06166315,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -373,10 +364,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 30019.528553679884,
-        "team": -0.03842057953836734,
+        "dps": 36730.52812952837,
+        "team": -0.03842871856075425,
         "noaff": false,
         "nihil": true
       },
@@ -385,7 +376,7 @@
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "A_Small_Courage",
-        "Chariot_Drift",
+        "Lord_of_the_Skies",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
@@ -393,22 +384,77 @@
         "`dragon(c3-s-c3-c3-c3-c3-end)",
         "`s3, not buff(s3)",
         "if x=5 or s=4 or not buff(s3)",
-        "`s1, aff_timeleft(flashburn)<4",
         "`s4",
         "`s2, sr.count>1",
         "end"
       ],
       "coabs": [
-        "Dagger",
-        "Gala_Zena",
+        "Blade",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38495.95406724288,
+        "team": -0.03844328149945836,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3",
+        "`s4",
+        "`s2, sr.count>1"
+      ]
+    },
+    "META": {
+      "tdps": 121227313.63390547,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38495.95406724288,
+        "team": -0.03844328149945836,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3",
+        "`s4",
+        "`s2, sr.count>1"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
         "Wand"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

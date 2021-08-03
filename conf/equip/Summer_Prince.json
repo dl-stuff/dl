@@ -112,19 +112,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40780.54010640033,
-        "team": 0.061691484303553125,
+        "dps": 43676.71860034966,
+        "team": 0.06165345247326703,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Twinfold_Bonds",
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -141,12 +141,12 @@
         "Wand"
       ],
       "share": [
-        "Akasha",
+        "Summer_Julietta",
         "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 4801705.079883627,
+      "tdps": 5237932.986731677,
       "pref": "PERSONAL"
     }
   },
@@ -240,15 +240,11 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon(c5-s-end), buff(s2)",
+        "`dragon(c5-s-end)",
         "`s3, s",
         "`s2",
         "`s1, cancel",
         "`s4, xf or fscf"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Mym"
       ]
     },
     "META": {
@@ -260,22 +256,22 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 11094.0944178786,
-        "team": 0.06787396431734881,
+        "dps": 66532.3729898065,
+        "team": 0.1961065944977712,
         "noaff": false,
-        "nihil": true
+        "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
+        "Twinfold_Bonds",
         "A_Passion_for_Produce",
-        "His_Clever_Brother",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -283,19 +279,110 @@
         "`s3, not buff(s3)",
         "`s2, xf",
         "`s4",
-        "`s1, buff(s3) and xf or not aff(shadowblight)"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Vania"
+        "`s1, buff(s3) and xf"
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 67275.6712107455,
+        "team": 0.194645104358189,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s2, xf",
+        "`s4",
+        "`s1, buff(s3)"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
+      "tdps": 508589.28213601804,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18226.40919989382,
+        "team": 0.06172834378169208,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "Lord_of_the_Skies",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c3-s-end)",
+        "`s3",
+        "`s2, xf",
+        "`s4",
+        "`s1, xf"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Vania"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41223.020959467234,
+        "team": 0.06167278487811395,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon(c5-s-end)",
+        "`s3",
+        "`s2, xf",
+        "`s4",
+        "`s1, xf"
+      ]
+    },
+    "META": {
+      "tdps": 413914067.38680285,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

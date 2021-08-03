@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 76188.24468423593,
-        "team": 0.09500563477447296,
+        "dps": 58291.127670826056,
+        "team": 0.0950056347744731,
         "noaff": false,
         "nihil": false
       },
@@ -46,50 +46,49 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98004.59466612722,
-        "team": 0.0,
+        "dps": 58291.127670826056,
+        "team": 0.0950056347744731,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "A_Game_of_Cat_and_Boar",
-        "A_Small_Courage",
+        "The_Shining_Overlord",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "if electrified",
-        "`s1, cancel and buff(s2)",
+        "`s1, cancel",
         "`s4, fsc",
         "`s3, duration-now<2",
         "if x=2",
-        "`fs2, not aff(paralysis)",
+        "`fs2, not have_buff(affself_paralysis_crit)",
         "`fs1",
         "end",
         "else",
         "`dragon(c3-s-end), cancel",
         "`s3, not buff(s3) and x=5",
         "`s2, charged_in(2, s1)",
-        "`s4",
+        "`s4, cancel",
         "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
         "end"
       ],
       "coabs": [
+        "Blade",
         "Peony",
-        "Sharena",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 229632.16901481207,
       "pref": "PERSONAL"
     }
   },
@@ -152,7 +151,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 117692.00280325708,
+        "dps": 76282.41133487182,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -172,7 +171,7 @@
       ]
     },
     "META": {
-      "tdps": 546573.2782211872,
+      "tdps": 132455.00235794188,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -263,31 +262,10 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
-      "acl": [
-        "if electrified",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`s3, duration-now<2",
-        "if x=2",
-        "`fs2, not have_buff(affself_paralysis_crit)",
-        "`fs1",
-        "end",
-        "else",
-        "`dragon(c3-s-end), cancel",
-        "`s3, not buff(s3) and x=5",
-        "`s2, charged_in(2, s1)",
-        "`s4, cancel",
-        "`s1, not s2.charged>(s2.sp*(4/5)) and buff(s3)",
-        "end"
-      ],
       "coabs": [
         "Blade",
         "Gala_Zena",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "META": {
