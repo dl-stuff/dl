@@ -2599,6 +2599,14 @@ class Adv(object):
             return 0
 
     @allow_acl
+    def bleed_timeleft(self, stack=3):
+        try:
+            # only available for rng bleed
+            return self.bleed.timeleft(stack=stack)
+        except AttributeError:
+            return 0
+
+    @allow_acl
     def aff(self, afflictname=None):
         if not afflictname:
             return any([getattr(self.afflics, afflictname).get() for afflictname in AFFLICT_LIST])

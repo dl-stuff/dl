@@ -58,6 +58,12 @@ class Bleed(Dot):
     def get(self):
         return int(self._static["stacks"] > 0)
 
+    @allow_acl
+    def timeleft(self, stack=3):
+        if self._static["stacks"] == stack:
+            return self.dot_end_timer.timing - now()
+        return 0
+
     def on(self):
         if self._static["stacks"] == 3:
             log("resist", "bleed")
