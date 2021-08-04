@@ -1271,7 +1271,7 @@ class AmpBuff:
     TYPE_BUFFARGS = {
         1: ("maxhp", "buff"),
         2: ("att", "buff"),
-        3: ("def", "passive"),
+        3: ("defense", "passive"),
     }
 
     def __init__(self, amp_id):
@@ -1464,7 +1464,7 @@ class ActiveBuffDict(defaultdict):
     def get_amp(self, amp_id):
         try:
             amp_id = {
-                "hp": 1,
+                "maxhp": 1,
                 "att": 2,
                 "defense": 3,
             }[amp_id.lower()]
