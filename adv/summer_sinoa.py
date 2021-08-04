@@ -40,6 +40,22 @@ class Summer_Sinoa(Adv):
             return
         self.determination.off()
 
+    def ds_before(self, e):
+        if self.determination > 0:
+            self.determination = Modifier("determination", "s", "passive", 0.15 + 0.05 * self.overload).on()
+
+    def ds_proc(self, e):
+        if self.determination > 0:
+            self.determination.off()
+
+    def ds_final_before(self, e):
+        if self.determination > 0:
+            self.determination = Modifier("determination", "s", "passive", 0.15 + 0.05 * self.overload).on()
+
+    def ds_final_proc(self, e):
+        if self.determination > 0:
+            self.determination.off()
+
     def s2_proc(self, e):
         if not self.nihilism:
             if self.overload == 3:
