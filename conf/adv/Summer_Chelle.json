@@ -1,0 +1,47 @@
+{
+    "c": {
+        "name": "Summer Chelle",
+        "icon": "100015_08_r05",
+        "att": 510,
+        "hp": 751,
+        "ele": "light",
+        "wt": "wand",
+        "spiral": false,
+        "a": [["affres_curse", 100.0], ["afftime_flashburn", 0.3, "hp70"]]
+    },
+    "dragonform": {
+        "dx1": {"startup": 0.3, "recovery": 0.7, "attr": [{"dmg": 6.5, "sp": 5}]},
+        "dx2": {"startup": 0.3, "recovery": 0.86667, "attr": [{"dmg": 7.7, "sp": 5}]},
+        "dx3": {"startup": 0.5, "recovery": 0.83333, "attr": [{"dmg": 9.5, "sp": 5}]},
+        "ds": {"sp": 30, "startup": 0.1, "recovery": 1.5, "sp_db": 45, "uses": 1, "attr": [{"dmg": 17.5, "iv": 1.06667}, {"buff": ["affup", 0.5, -1, "flashburn", "-overwrite_MYSELF49"], "coei": 1, "iv": 1.06667}]}
+    },
+    "s1": {
+        "sp": 2950,
+        "startup": 0.1,
+        "recovery": 2.2,
+        "attr": [
+            {"amp": ["20000", 2, 0]},
+            {"dmg": 27.51, "afflic": ["flashburn", 120, 0.416], "iv": 1.03333},
+            {"buff": ["affres", -0.2, 30.0, "flashburn", "-overwrite_HOSTILE49"], "coei": 1, "iv": 1.03333},
+            {"cp": 34, "iv": 1.03333, "msl": 0.3}
+        ]
+    },
+    "s2": {
+        "sp": 6300,
+        "startup": 0.1,
+        "recovery": 1.8,
+        "attr": [
+            {"cp": -100, "heal": 40}
+        ],
+        "energizable": true
+    },
+    "s99": {
+        "sp": 2950,
+        "startup": 0.1,
+        "recovery": 2.2,
+        "attr": [
+            {"dmg": 27.51, "afflic": ["flashburn", 120, 0.416], "iv": 1.03333},
+            {"buff": ["affres", -0.2, 30.0, "flashburn", "-overwrite_HOSTILE49"], "coei": 1, "iv": 1.03333}
+        ]
+    }
+}
