@@ -472,7 +472,7 @@ function setSlotUI(ui) {
     if (ui.afflict_res) {
         for (const key in ui.afflict_res) {
             const res = ui.afflict_res[key];
-            if (res > 100) {
+            if (res > 200) {
                 $('#input-res-' + key).val(res);
             } else {
                 $('#input-res-' + key).val('');
