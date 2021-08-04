@@ -34,7 +34,7 @@ class Summer_Chelle(Adv):
             self.radiance = Modifier("ravishing_radiance", "s", "passive", 1.0).on()
 
     def s1_proc(self, e):
-        if (68 <= self.radiance_gauge < 100):
+        if (self.radiance_gauge == 100):
             self.radiance.off()
 
     def s2_proc(self, e):
