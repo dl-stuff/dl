@@ -915,9 +915,11 @@ class Debuff(Teambuff):
         self._chance = chance
         super().__init__(name, self.ev_val(), duration, mtype, morder)
         self.bufftype = "debuff"
-        if mtype == "defb":
+        self.is_zone = False
+        if mtype in ("defb", "adpt", "attb"):
             self.bufftime = self._no_bufftime
             self.name += "_zone"
+            self.is_zone = True
         else:
             if self.bufftime == self._ex_bufftime:
                 self.bufftime = self._no_bufftime
@@ -1291,6 +1293,7 @@ class AmpBuff:
             self.buffs.append(buff)
         self.max_len = self.publish_level + self.max_team_level
         self.amp_event = Event("amp")
+        self.amp_event.source = self
 
     def iterate_buffs(self, kind=None, adjust=True):
         base = 0
@@ -1368,6 +1371,8 @@ class AmpBuff:
                     team_description = " lv0"
             self_description = self.toggle_buffs(AmpBuff.SELF_AMP, self_level)
         log("amp", self.name, f"self{self_description}", f"team{team_description}", publish)
+        self.amp_event.publish = publish
+        self.amp_event()
         return self
 
     def off(self):
@@ -1483,3 +1488,9 @@ class ActiveBuffDict(defaultdict):
             except KeyError:
                 self.amp_buffs[amp_id] = AmpBuff(amp_id)
                 return self.amp_buffs[amp_id]
+
+    def sum_team_amp_lvl(self):
+        level = 0
+        for amp_buff in self.amp_buffs.values():
+            level += amp_buff.level(AmpBuff.TEAM_AMP)
+        return level
