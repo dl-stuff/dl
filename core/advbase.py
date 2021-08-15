@@ -2431,7 +2431,7 @@ class Adv(object):
         "var>=": lambda s, v: getattr(s, v[0]) >= v[1],
         "var=": lambda s, v: getattr(s, v[0]) == v[1],
         "var<=": lambda s, v: getattr(s, v[0]) <= v[1],
-        "team_amp>=": lambda s, v: s.active_buff_dict.sum_team_amp_lvl() >= v
+        "team_amp>=": lambda s, v: s.active_buff_dict.sum_team_amp_lvl() >= v,
     }
 
     def do_hitattr_make(self, e, aseq, attr, pin=None):
@@ -2448,7 +2448,7 @@ class Adv(object):
             else:
                 if not cond_eval:
                     return
-        if "cd" in attr and self.is_set_cd((e.name, aseq), attr["cd"]):
+        if "cd" in attr and self.is_set_cd((e.base, aseq), attr["cd"]):
             return
 
         spd = self.speed()
