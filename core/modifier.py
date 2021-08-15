@@ -327,7 +327,7 @@ class Buff(object):
 
     def effect_on(self):
         value = self.get()
-        if self.mod_type == "defense" and value > 0:
+        if self.mod_type == "defense" and self.mod_order == "buff" and value > 0:
             db = Event("defchain")
             db.source = self.source
             db.on()
