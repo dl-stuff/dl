@@ -71,4 +71,23 @@ class Sophie_Persona(Adv):
         return self.a_x_dict[self.current_x][x_min]()
 
 
-variants = {None: Sophie_Persona}
+class Sophie_Persona_PERSONA(Sophie_Persona):
+    SAVE_VARIANT = False
+    comment = "infinite persona gauge"
+
+    def prerun(self):
+        self.dragondrive = self.dragonform.set_dragondrive(
+            ModeManager(
+                group="ddrive",
+                buffs=[EffectBuff("pithos", -1, self.pithos_t.on, self.pithos_t.off)],
+                x=True,
+                fs=True,
+                s1=True,
+                s2=True,
+            ),
+            drain=0,
+        )
+        self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
+
+
+variants = {None: Sophie_Persona, "INF_PERSONA": Sophie_Persona_PERSONA}

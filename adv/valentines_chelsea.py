@@ -76,4 +76,13 @@ class Valentines_Chelsea(Adv):
             self.comment += f"full gauge at {self.full_gauge_at:.02f}s;"
 
 
-variants = {None: Valentines_Chelsea}
+class Valentines_Chelsea_MAX_ROMANCE(Valentines_Chelsea):
+    SAVE_VARIANT = False
+    comment = "max romance gauge; "
+
+    def prerun(self):
+        super().prerun()
+        self.add_romance_gauge(2000)
+
+
+variants = {None: Valentines_Chelsea, "MAX_ROMANCE" = Valentines_Chelsea_MAX_ROMANCE}

@@ -37,4 +37,14 @@ class Mona_RNG(Mona):
                 self.conf.s1_ddrive.attr = self.conf.s1_ddrive.attr_base
 
 
-variants = {None: Mona, "RNG": Mona_RNG}
+class Mona_PERSONA(Mona):
+    SAVE_VARIANT = False
+    comment = "infinite persona gauge"
+
+    def prerun(self):
+        super().prerun()
+        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=0)
+        self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
+
+
+variants = {None: Mona, "RNG": Mona_RNG, "INF_PERSONA": Mona_PERSONA}

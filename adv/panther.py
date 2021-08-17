@@ -27,4 +27,14 @@ class Panther(Adv):
             self.s2_res_down.on()
 
 
-variants = {None: Panther}
+class Panther_PERSONA(Panther):
+    SAVE_VARIANT = False
+    comment = "infinite persona gauge" + Panther.comment
+
+    def prerun(self):
+        super().prerun()
+        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, s1=True, s2=True), drain=0)
+        self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
+
+
+variants = {None: Panther, "INF_PERSONA": Panther_PERSONA}

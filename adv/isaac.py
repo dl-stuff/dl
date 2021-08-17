@@ -2,6 +2,8 @@ from core.advbase import *
 
 
 class Isaac(Adv):
+    SAVE_VARIANT = False
+
     def verdure_zone_scharge(self):
         self.charge_p("verdue_zone_scharge", 0.02, no_autocharge=False)
         self.verdure_team_sp += 2
@@ -43,4 +45,47 @@ class Isaac(Adv):
         self.comment = f"total {self.verdure_team_sp}% SP to team from s1"
 
 
-variants = {None: Isaac, "mass": Isaac}
+class Isaac_ALWAYS_STR(Isaac):
+    comment = "s1 always str buff"
+
+    def s1_before(self, e):
+        self.add_amp(max_level=2)
+        self.verdure_buff = self.setup_verdure(e.name)[0]
+        Timer(lambda _: self.verdure_buff[0].on(), 0.9).on()
+
+
+class Isaac_ALWAYS_SPD(Isaac):
+    comment = "s1 always spd buff"
+
+    def s1_before(self, e):
+        self.add_amp(max_level=2)
+        self.verdure_buff = self.setup_verdure(e.name)[1]
+        Timer(lambda _: self.verdure_buff[0].on(), 0.9).on()
+
+
+class Isaac_ALWAYS_REGEN(Isaac):
+    comment = "s1 always regen buff"
+
+    def s1_before(self, e):
+        self.add_amp(max_level=2)
+        self.verdure_buff = self.setup_verdure(e.name)[2]
+        Timer(lambda _: self.verdure_buff[0].on(), 0.9).on()
+
+
+class Isaac_ALWAYS_SCHARGE(Isaac):
+    comment = "s1 always skillcharge buff"
+
+    def s1_before(self, e):
+        self.add_amp(max_level=2)
+        self.verdure_buff = self.setup_verdure(e.name)[3]
+        Timer(lambda _: self.verdure_buff[0].on(), 0.9).on()
+
+
+variants = {
+    None: Isaac,
+    "mass": Isaac,
+    "ALWAYS_STR": Isaac_ALWAYS_STR,
+    "ALWAYS_SPD": Isaac_ALWAYS_SPD,
+    "ALWAYS_REGEN": Isaac_ALWAYS_REGEN,
+    "ALWAYS_SCHARGE": Isaac_ALWAYS_SCHARGE
+}

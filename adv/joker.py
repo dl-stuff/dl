@@ -15,4 +15,15 @@ class Joker(Adv):
             self.dmg_make("x_arsene", 2.56)
 
 
-variants = {None: Joker}
+class Joker_PERSONA(Joker):
+    SAVE_VARIANT = False
+    comment = "infinite persona gauge"
+
+    def prerun(self):
+        self.dragondrive = self.dragonform.set_dragondrive(
+            ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=0
+        )
+        self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
+
+
+variants = {None: Joker, "INF_PERSONA": Joker_PERSONA}

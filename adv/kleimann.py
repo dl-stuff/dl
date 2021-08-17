@@ -41,4 +41,15 @@ class Kleimann(Adv):
             self.fs_alt_uses += 1
 
 
-variants = {None: Kleimann}
+class Kleimann_MAX_MADNESS(Kleimann):
+    SAVE_VARIANT = False
+    comment = "max madness level"
+
+    def prerun(self):
+        super().prerun()
+        self.madness_status = 5
+        self.madness_degen = 5
+        self.madness_timer.on()
+
+
+variants = {None: Kleimann, "MAX_MADNESS": Kleimann_MAX_MADNESS}

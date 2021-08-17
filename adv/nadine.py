@@ -12,7 +12,7 @@ class Nadine(Adv):
     def prerun_skillshare(adv, dst):
         adv.team_s1_hits = 1
         teammates = 2
-        if adv.condition(f"{teammates} teammates in s1"):
+        if adv.condition(f"{teammates} teammates in skillshare"):
             adv.team_s1_hits += teammates
 
     def s1_before(self, e):

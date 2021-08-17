@@ -10,4 +10,12 @@ class Naveed(Adv):
             self.naveed_bauble += 1
 
 
-variants = {None: Naveed}
+class Naveed_MAX_BAUBLES(Naveed):
+    SAVE_VARIANT = False
+    comment = "5 stacks radiant bauble"
+
+    def prerun(self):
+        self.naveed_bauble = 5
+
+
+variants = {None: Naveed, "MAX_BAUBLES": Naveed_MAX_BAUBLES}
