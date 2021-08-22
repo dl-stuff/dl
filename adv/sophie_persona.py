@@ -27,9 +27,7 @@ class Sophie_Persona(Adv):
         self.dmg_make("x_pithos", 6.23)
 
     def reset_to_default(self, e):
-        self.current_x = (
-            "ddrive" if self.dragonform.dragondrive_buff.get() else "default"
-        )
+        self.current_x = "ddrive" if self.dragonform.dragondrive_buff.get() else "default"
 
     @allow_acl
     def norm(self):
@@ -53,9 +51,7 @@ class Sophie_Persona(Adv):
         base_x = "ddrive" if self.dragonform.dragondrive_buff.get() else "default"
         ex_x = "ddriveex" if self.dragonform.dragondrive_buff.get() else "ex"
         prev = self.action.getprev()
-        if isinstance(prev, X) and (
-            prev.group == self.current_x or ex_x in (prev.group, self.current_x)
-        ):
+        if isinstance(prev, X) and (prev.group == self.current_x or ex_x in (prev.group, self.current_x)):
             if self.deferred_x is not None:
                 log("deferred_x", self.deferred_x)
                 self.current_x = self.deferred_x
@@ -76,6 +72,7 @@ class Sophie_Persona_PERSONA(Sophie_Persona):
     comment = "infinite persona gauge"
 
     def prerun(self):
+        self.pithos_t = Timer(self.pithos_dmg, 5.23, 1)
         self.dragondrive = self.dragonform.set_dragondrive(
             ModeManager(
                 group="ddrive",
@@ -85,8 +82,8 @@ class Sophie_Persona_PERSONA(Sophie_Persona):
                 s1=True,
                 s2=True,
             ),
-            shift_cost=0,
-            drain=0,
+            drain=75,
+            infinite=True,
         )
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 

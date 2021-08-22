@@ -96,6 +96,7 @@ class Isaac_ALWAYS_SCHARGE(Isaac):
     comment = "s1 always skillcharge buff"
 
     def prerun(self):
+        dst = "s1"
         self.verdure_team_sp = 0
         verdure_scharge_self = Timer(lambda _: self.charge_p("verdure_scharge", 0.02, no_autocharge=False), 1.0, True)
         verdure_scharge_self.name = "verdure_scharge"

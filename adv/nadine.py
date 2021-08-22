@@ -14,7 +14,7 @@ class Nadine(Adv):
     def prerun_skillshare(adv, dst):
         adv.team_s1_hits = 1
         teammates = 2
-        if adv.condition(f"{teammates} teammates in {dst.name}"):
+        if adv.condition(f"{teammates} teammates in {dst}"):
             adv.team_s1_hits += teammates
 
     def s1_before(self, e):
@@ -43,5 +43,6 @@ class Nadine_NO_TREND(Nadine):
     NO_DEPLOY = True
     FIXED_RNG = False
     comment = "s2 never trending"
+
 
 variants = {None: Nadine, "mass": Nadine, "TREND": Nadine_TREND, "NOTREND": Nadine_NO_TREND}
