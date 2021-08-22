@@ -5,7 +5,8 @@ class Panther(Adv):
     comment = "s2 ddrive always dispel"
 
     def prerun(self):
-        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, s1=True, s2=True), drain=75)
+        self.dragondrive = self.dragonform.set_dragondrive(
+            ModeManager(group="ddrive", x=True, s1=True, s2=True), drain=75)
         self.a3_buffcount = 0
         self.a3_mod = Modifier("a3_flame_att", "flame", "ele", 0.0)
         Event("scorchrend").listener(self.a3_res_buff_proc)
@@ -33,8 +34,9 @@ class Panther_PERSONA(Panther):
 
     def prerun(self):
         super().prerun()
-        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, s1=True, s2=True), drain=0)
+        self.dragondrive = self.dragonform.set_dragondrive(
+            ModeManager(group="ddrive", x=True, s1=True, s2=True), shift_cost=0, drain=0)
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 
 
-variants = {None: Panther, "INF_PERSONA": Panther_PERSONA}
+variants = {None: Panther, "PERSONA": Panther_PERSONA}

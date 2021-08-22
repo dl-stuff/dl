@@ -741,6 +741,8 @@ class Adv(object):
 
     BASE_CTIME = 2
     SAVE_VARIANT = True
+    NO_DEPLOY = False
+    FIXED_RNG = None
 
     Timer = Timer
     Event = Event
@@ -2424,7 +2426,7 @@ class Adv(object):
         "hp>=": lambda s, v: s.hp >= v,
         "hp<": lambda s, v: s.hp < v,
         "hp<=": lambda s, v: s.hp <= v,
-        "rng": lambda s, v: random.random() <= v,
+        "rng": lambda s, v: random.random() <= v if s.FIXED_RNG is None else s.FIXED_RNG,
         "hits": lambda s, v: s.hits >= v,
         "zone": lambda s, v: s.zonecount >= v,
         "amp": lambda s, v: s.amp_lvl(key=v),

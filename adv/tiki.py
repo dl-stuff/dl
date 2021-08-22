@@ -26,8 +26,8 @@ class Tiki_INF_SHIFT(Tiki):
     comment = "infinite divine shift gauge"
 
     def prerun(self):
-        self.configure_divine_shift("divine_dragon", max_gauge=1800, shift_cost=560, drain=0)
+        self.configure_divine_shift("divine_dragon", max_gauge=1800, shift_cost=0, drain=0)
         self.dragonform.charge_gauge(1800, utp=True, dhaste=False)
 
 
-variants = {None: Tiki, "DDAMAGE": Tiki_DDAMAGE, "INF_SHAPESHIFT": Tiki_INF_SHIFT}
+variants = {None: Tiki, "DDAMAGE": Tiki_DDAMAGE, "INFDRGN": Tiki_INF_SHIFT}

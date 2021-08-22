@@ -184,6 +184,7 @@ class Sylas_RNG(Adv):
 
 
 class Sylas_STR(Adv):
+    NO_DEPLOY = True
     comment = "always proc str s2"
 
     def s2_proc(self, e):
@@ -191,6 +192,7 @@ class Sylas_STR(Adv):
 
 
 class Sylas_DEF(Adv):
+    NO_DEPLOY = True
     comment = "always proc def s2"
 
     def s2_proc(self, e):
@@ -198,6 +200,7 @@ class Sylas_DEF(Adv):
 
 
 class Sylas_HP(Adv):
+    NO_DEPLOY = True
     comment = "always proc max hp s2"
 
     def s2_proc(self, e):
@@ -216,8 +219,8 @@ class Sylas_ALL(Adv):
 variants = {
     None: Sylas,
     "RNG": Sylas_RNG,
-    "ALWAYS_STR": Sylas_STR
-    "ALWAYS_DEF": Sylas_DEF
-    "ALWAYS_HP" : Sylas_HP
-    "ALWAYS_ALL": Sylas_ALL
+    "S2STR": Sylas_STR,
+    "S2DEF": Sylas_DEF,
+    "S2HP" : Sylas_HP,
+    "S2ALL": Sylas_ALL,
 }

@@ -85,9 +85,10 @@ class Sophie_Persona_PERSONA(Sophie_Persona):
                 s1=True,
                 s2=True,
             ),
+            shift_cost=0,
             drain=0,
         )
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 
 
-variants = {None: Sophie_Persona, "INF_PERSONA": Sophie_Persona_PERSONA}
+variants = {None: Sophie_Persona, "IPERSONA": Sophie_Persona_PERSONA}

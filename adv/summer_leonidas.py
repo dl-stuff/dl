@@ -10,7 +10,7 @@ class Summer_Leonidas(Adv):
                 fs=True,
                 s1=True,
             ),
-            drain=150
+            drain=150,
         )
 
 
@@ -26,9 +26,10 @@ class Summer_Leonidas_DDRIVE(Summer_Leonidas):
                 fs=True,
                 s1=True,
             ),
-            drain=0
+            shift_cost=0,
+            drain=0,
         )
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 
 
-variants = {None: Summer_Leonidas, "INF_DDRIVE": Summer_Leonidas_DDRIVE}
+variants = {None: Summer_Leonidas, "DDRIVE": Summer_Leonidas_DDRIVE}

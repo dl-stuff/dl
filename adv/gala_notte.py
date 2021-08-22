@@ -36,4 +36,4 @@ class Gala_Notte_METAMORPHOSIS(Gala_Notte):
         self.dragonform.charge_gauge(1800, utp=True, dhaste=False)
 
 
-variants = {None: Gala_Notte, "DDAMAGE": Gala_Notte_DDAMAGE, "INF_METAMORPH": Gala_Notte_METAMORPHOSIS}
+variants = {None: Gala_Notte, "DDAMAGE": Gala_Notte_DDAMAGE, "INFMETA": Gala_Notte_METAMORPHOSIS}

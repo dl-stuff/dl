@@ -2,6 +2,8 @@ from core.advbase import *
 
 
 class Nadine(Adv):
+    FIXED_RNG = None
+
     def prerun(self):
         self.team_s1_hits = 1
         teammates = 2
@@ -12,7 +14,7 @@ class Nadine(Adv):
     def prerun_skillshare(adv, dst):
         adv.team_s1_hits = 1
         teammates = 2
-        if adv.condition(f"{teammates} teammates in skillshare"):
+        if adv.condition(f"{teammates} teammates in {dst.name}"):
             adv.team_s1_hits += teammates
 
     def s1_before(self, e):
@@ -30,4 +32,16 @@ class Nadine(Adv):
             self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_6)
 
 
-variants = {None: Nadine, "mass": Nadine}
+class Nadine_TREND(Nadine):
+    SAVE_VARIANT = False
+    FIXED_RNG = True
+    comment = "s2 always trending"
+
+
+class Nadine_NO_TREND(Nadine):
+    SAVE_VARIANT = False
+    NO_DEPLOY = True
+    FIXED_RNG = False
+    comment = "s2 never trending"
+
+variants = {None: Nadine, "mass": Nadine, "TREND": Nadine_TREND, "NOTREND": Nadine_NO_TREND}

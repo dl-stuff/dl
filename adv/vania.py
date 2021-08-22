@@ -23,4 +23,4 @@ class Vania_MAX_PACT(Vania):
         self.s2.autocharge_init(497).on()
 
 
-variants = {None: Vania}
+variants = {None: Vania, "MAXPACT": Vania_MAX_PACT}

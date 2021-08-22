@@ -58,4 +58,4 @@ class Grimnir_MAX_STORM(Grimnir):
             self.upgrade_brewing_storm()
 
 
-variants = {None: Grimnir, "MAX_STORM": Grimnir_MAX_STORM}
+variants = {None: Grimnir, "STORM": Grimnir_MAX_STORM}

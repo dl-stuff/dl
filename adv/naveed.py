@@ -18,4 +18,4 @@ class Naveed_MAX_BAUBLES(Naveed):
         self.naveed_bauble = 5
 
 
-variants = {None: Naveed, "MAX_BAUBLES": Naveed_MAX_BAUBLES}
+variants = {None: Naveed, "BAUBLES": Naveed_MAX_BAUBLES}

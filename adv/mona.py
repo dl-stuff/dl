@@ -3,7 +3,8 @@ from core.advbase import *
 
 class Mona(Adv):
     def prerun(self):
-        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=75)
+        self.dragondrive = self.dragonform.set_dragondrive(
+            ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=75)
         self.beast_eye = Selfbuff("beast_eye", 0.2, 30, "utph", "buff").ex_bufftime()
         Event("dragondrive").listener(self.ddrive_buff_off)
 
@@ -43,8 +44,9 @@ class Mona_PERSONA(Mona):
 
     def prerun(self):
         super().prerun()
-        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=0)
+        self.dragondrive = self.dragonform.set_dragondrive(
+            ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), shift_cost=0, drain=0)
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 
 
-variants = {None: Mona, "RNG": Mona_RNG, "INF_PERSONA": Mona_PERSONA}
+variants = {None: Mona, "RNG": Mona_RNG, "PERSONA": Mona_PERSONA}

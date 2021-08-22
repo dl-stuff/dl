@@ -43,4 +43,4 @@ class Serena_MAX_STACKS(Serena):
             self.a3_dict["buffs"].append(Selfbuff(*self.a3_dict["buffargs"]).on()))
 
 
-variants = {None: Serena, "MAX_STACKS": Serena_MAX_STACKS}
+variants = {None: Serena, "MAXSTAX": Serena_MAX_STACKS}

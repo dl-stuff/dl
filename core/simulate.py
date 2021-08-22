@@ -20,17 +20,6 @@ import core.advbase
 BR = 64
 
 
-def skill_efficiency(real_d, team_dps, mod):
-    return (team_dps * 1.25) * mod * 2 / 5 / real_d
-
-
-tension_efficiency = {"energy": 0.5, "inspiration": 0.6}
-
-DOT_AFFLICT = ["poison", "paralysis", "burn", "frostbite"]
-
-S_ALT = "†"
-
-
 def run_once(name, module, conf, duration, equip_conditions=None, opt_mode=None):
     adv = module(name=name, conf=conf, duration=duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
     real_d = adv.run()

@@ -52,4 +52,4 @@ class Kleimann_MAX_MADNESS(Kleimann):
         self.madness_timer.on()
 
 
-variants = {None: Kleimann, "MAX_MADNESS": Kleimann_MAX_MADNESS}
+variants = {None: Kleimann, "MADNESS": Kleimann_MAX_MADNESS}

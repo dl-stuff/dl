@@ -32,9 +32,10 @@ class Yurius_DDRIVE(Yurius):
                 s1=True,
                 s2=True,
             ),
+            shift_cost=0,
             drain=0,
         )
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 
 
-variants = {None: Yurius, "INF_DDRIVE": Yurius_DDRIVE}
+variants = {None: Yurius, "DDRIVE": Yurius_DDRIVE}

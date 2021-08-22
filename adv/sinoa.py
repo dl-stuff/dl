@@ -212,6 +212,7 @@ class Sinoa_STR(Adv):
 
 
 class Sinoa_DEF(Adv):
+    NO_DEPLOY = True
     comment = "always proc def s1"
 
     def s1_proc(self, e):
@@ -226,6 +227,7 @@ class Sinoa_CRIT(Adv):
 
 
 class Sinoa_HP(Adv):
+    NO_DEPLOY = True
     comment = "always proc max hp s1"
 
     def s1_proc(self, e):
@@ -235,8 +237,8 @@ class Sinoa_HP(Adv):
 variants = {
     None: Sinoa,
     "RNG": Sinoa_RNG,
-    "ALWAYS_STR": Sinoa_STR,
-    "ALWAYS_DEF": Sinoa_DEF,
-    "ALWAYS_CRIT": Sinoa_CRIT,
-    "ALWAYS_MAXHP": Sinoa_HP,
+    "ALLSTR": Sinoa_STR,
+    "ALLDEF": Sinoa_DEF,
+    "ALLCRIT": Sinoa_CRIT,
+    "ALLHP": Sinoa_HP,
 }
