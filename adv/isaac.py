@@ -118,5 +118,5 @@ variants = {
     "ALLSTR": Isaac_ALWAYS_STR,
     "ALLSPD": Isaac_ALWAYS_SPD,
     "ALLHEAL": Isaac_ALWAYS_REGEN,
-    "ALLCHRG": Isaac_ALWAYS_SCHARGE
+    "ALLCHRG": Isaac_ALWAYS_SCHARGE,
 }

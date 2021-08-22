@@ -85,4 +85,4 @@ class Valentines_Chelsea_MAX_ROMANCE(Valentines_Chelsea):
         self.add_romance_gauge(2000)
 
 
-variants = {None: Valentines_Chelsea, "ROMANCE" = Valentines_Chelsea_MAX_ROMANCE}
+variants = {None: Valentines_Chelsea, "ROMANCE": Valentines_Chelsea_MAX_ROMANCE}

@@ -39,8 +39,8 @@ class Serena_MAX_STACKS(Serena):
     def prerun(self):
         super().prerun()
         for _ in range(3):
-            self.a1_dict["buffs"].append(Selfbuff(*self.a1_dict["buffargs"]).on()))
-            self.a3_dict["buffs"].append(Selfbuff(*self.a3_dict["buffargs"]).on()))
+            self.a1_dict["buffs"].append(Selfbuff(*self.a1_dict["buffargs"]).on())
+            self.a3_dict["buffs"].append(Selfbuff(*self.a3_dict["buffargs"]).on())
 
 
 variants = {None: Serena, "MAXSTAX": Serena_MAX_STACKS}
