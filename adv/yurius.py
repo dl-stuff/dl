@@ -32,8 +32,8 @@ class Yurius_DDRIVE(Yurius):
                 s1=True,
                 s2=True,
             ),
-            shift_cost=0,
-            drain=0,
+            drain=75,
+            infinite=True,
         )
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 

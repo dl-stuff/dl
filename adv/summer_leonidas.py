@@ -26,8 +26,8 @@ class Summer_Leonidas_DDRIVE(Summer_Leonidas):
                 fs=True,
                 s1=True,
             ),
-            shift_cost=0,
-            drain=0,
+            drain=150,
+            infinite=True,
         )
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 
