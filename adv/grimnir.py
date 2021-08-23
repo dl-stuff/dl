@@ -48,4 +48,14 @@ class Grimnir(Adv):
             self.comment += f"lv5 storm at {self.lv5_time:.02f}s"
 
 
-variants = {None: Grimnir}
+class Grimnir_MAX_STORM(Grimnir):
+    SAVE_VARIANT = False
+    comment = "max brewing storm; "
+
+    def prerun(self):
+        super().prerun()
+        for _ in range(5):
+            self.upgrade_brewing_storm()
+
+
+variants = {None: Grimnir, "STORM": Grimnir_MAX_STORM}

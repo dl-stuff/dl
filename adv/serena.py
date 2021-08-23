@@ -32,4 +32,15 @@ class Serena(Adv):
         return result
 
 
-variants = {None: Serena}
+class Serena_MAX_STACKS(Serena):
+    SAVE_VARIANT = False
+    comment = "max a1 and a3 stacks"
+
+    def prerun(self):
+        super().prerun()
+        for _ in range(3):
+            self.a1_dict["buffs"].append(Selfbuff(*self.a1_dict["buffargs"]).on())
+            self.a3_dict["buffs"].append(Selfbuff(*self.a3_dict["buffargs"]).on())
+
+
+variants = {None: Serena, "MAXSTAX": Serena_MAX_STACKS}

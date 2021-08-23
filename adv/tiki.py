@@ -21,4 +21,13 @@ class Tiki_DDAMAGE(Tiki):
         self.comment = "if dragon damage worked on tiki"
 
 
-variants = {None: Tiki, "DDAMAGE": Tiki_DDAMAGE}
+class Tiki_INF_SHIFT(Tiki):
+    SAVE_VARIANT = False
+    comment = "infinite divine shift gauge"
+
+    def prerun(self):
+        self.configure_divine_shift("divine_dragon", max_gauge=1800, drain=40, infinite=True)
+        self.dragonform.charge_gauge(1800, utp=True, dhaste=False)
+
+
+variants = {None: Tiki, "DDAMAGE": Tiki_DDAMAGE, "INFDRGN": Tiki_INF_SHIFT}

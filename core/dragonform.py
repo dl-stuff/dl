@@ -104,7 +104,7 @@ class DragonForm(Action):
     def set_allow_end(self, _):
         self.allow_end = True
 
-    def set_dragondrive(self, dd_buff, max_gauge=3000, shift_cost=1200, drain=150):
+    def set_dragondrive(self, dd_buff, max_gauge=3000, shift_cost=1200, drain=150, infinite=False):
         self.disabled = False
         self.is_dragondrive = True
         self.shift_event = Event("dragondrive")
@@ -114,6 +114,7 @@ class DragonForm(Action):
         self.max_gauge = max_gauge
         self.shift_cost = shift_cost  # does not deduct, but need to have this much pt to shift
         self.drain = drain
+        self.dragondrive_infinite = infinite
         self.dragondrive_buff = dd_buff
         self.dragondrive_timer = Timer(self.d_dragondrive_end)
         return self.dragondrive_buff
@@ -159,13 +160,17 @@ class DragonForm(Action):
 
     def add_drive_gauge_time(self, delta, skill_pause=False):
         max_duration = self.max_gauge / self.drain
-        duration = self.dragondrive_timer.timing - now()
-        max_add = max_duration - duration
-        if skill_pause:
-            add_time = min(delta, max_add)
+        if self.dragondrive_infinite:
+            duration = max_duration
+            add_time = 0
         else:
-            add_time = min(delta / self.drain, max_add)
-        duration = self.dragondrive_timer.add(add_time)
+            duration = self.dragondrive_timer.timing - now()
+            max_add = max_duration - duration
+            if skill_pause:
+                add_time = min(delta, max_add)
+            else:
+                add_time = min(delta / self.drain, max_add)
+            duration = self.dragondrive_timer.add(add_time)
         if duration <= 0:
             self.d_dragondrive_end("<gauge deplete>")
         else:
@@ -293,6 +298,9 @@ class DragonForm(Action):
         return True
 
     def d_dragondrive_end(self, t, immediate=False):
+        if self.dragondrive_infinite:
+            self.add_drive_gauge_time(0)
+            return
         self.dd_end_reason = t if isinstance(t, str) else "<timeout>"
         if immediate:
             self.d_dragondrive_end_cb()
@@ -331,7 +339,6 @@ class DragonForm(Action):
             self.act_timer(self.d_act_do, self.c_act_conf.startup)
 
     def d_act_do_hitattr(self, act_name):
-        actconf = self.conf[act_name]
         e = self.act_event
         e.name = act_name
         e.base = act_name

@@ -73,11 +73,13 @@ class Gala_Alex_BK(Gala_Alex):
     conf["slots.a"] = [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
+        "Moonlight_Party",
         "The_Queen_of_the_Knife",
-        "The_Warrioresses",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Bow",
     ]
-    conf["coabs"] = ["Ieyasu", "Delphi", "Wand"]
+    conf["coabs"] = ["Ieyasu", "Delphi", "Vania"]
     conf["share"] = ["Sha_Wujing"]
     # conf["sim_afflict.poison"] = 1
 

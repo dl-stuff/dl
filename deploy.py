@@ -42,6 +42,8 @@ def sim_adv(name, variants, sanity_test=False):
     for variant, advmodule in variants.items():
         if variant in SKIP_VARIANT:
             continue
+        if advmodule.NO_DEPLOY:
+            continue
         verbose = -5
         outfile = None
         outpath = None

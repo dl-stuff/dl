@@ -2,6 +2,7 @@ from core.advbase import *
 
 
 class Sinoa(Adv):
+    SAVE_VARIANT = False
     S1_DURATIONS = (15, 15, 10)
 
     def prerun(self):
@@ -203,4 +204,41 @@ class Sinoa_RNG(Adv):
         ).on()
 
 
-variants = {None: Sinoa, "RNG": Sinoa_RNG}
+class Sinoa_STR(Adv):
+    comment = "always proc str s1"
+
+    def s1_proc(self, e):
+        Teambuff(e.name, 0.25, 15.0, "att", "buff").on()
+
+
+class Sinoa_DEF(Adv):
+    NO_DEPLOY = True
+    comment = "always proc def s1"
+
+    def s1_proc(self, e):
+        Teambuff(e.name, 0.25, 15.0, "defense", "buff").on()
+
+
+class Sinoa_CRIT(Adv):
+    comment = "always proc crit s1"
+
+    def s1_proc(self, e):
+        Teambuff(e.name, 0.25, 10.0, "crit", "chance").on()
+
+
+class Sinoa_HP(Adv):
+    NO_DEPLOY = True
+    comment = "always proc max hp s1"
+
+    def s1_proc(self, e):
+        Teambuff(e.name, 0.15, -1, "maxhp", "buff").on()
+
+
+variants = {
+    None: Sinoa,
+    "RNG": Sinoa_RNG,
+    "ALLSTR": Sinoa_STR,
+    "ALLDEF": Sinoa_DEF,
+    "ALLCRIT": Sinoa_CRIT,
+    "ALLHP": Sinoa_HP,
+}

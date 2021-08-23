@@ -245,7 +245,7 @@ class ArmamentAdv(Adv):
 
 
 class DivineShiftAdv(Adv):
-    def configure_divine_shift(self, shift_name, max_gauge=1800, shift_cost=560, drain=40, buffs=None):
+    def configure_divine_shift(self, shift_name, max_gauge=1800, shift_cost=560, drain=40, infinite=False, buffs=None):
         self.shift_name = shift_name
         self.comment = f"dragon damage does not work on {shift_name}"
         setattr(
@@ -262,6 +262,7 @@ class DivineShiftAdv(Adv):
                 max_gauge=max_gauge,
                 shift_cost=shift_cost,
                 drain=drain,
+                infinite=infinite,
             ),
         )
         Event("dragondrive").listener(self.a_dragondrive_on)
