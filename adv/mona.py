@@ -45,7 +45,7 @@ class Mona_PERSONA(Mona):
     def prerun(self):
         super().prerun()
         self.dragondrive = self.dragonform.set_dragondrive(
-            ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), shift_cost=0, drain=0)
+            ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=75, infinite=True)
         self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
 
 
