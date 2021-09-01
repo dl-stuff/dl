@@ -557,7 +557,6 @@ class Gala_Beast_Volk_DragonForm(DragonForm):
         super().ds_reset()
         self.adv.moonlit_rage = 0
         self.skill_use_final = 0
-        self.blood_moon_timer.off()
 
     def add_moonlit_rage(self):
         if self.adv.moonlit_rage < 10:
@@ -603,8 +602,10 @@ class Gala_Beast_Volk_DragonForm(DragonForm):
             super().d_act_next(nact=nact)
 
     def d_shift_end(self, t=None):
+        self.blood_moon_timer.off()
         self.dfs_hold_timer.off()
-        super().d_shift_end()
+        result = super().d_shift_end()
         from core.modifier import SelfAffliction
 
         SelfAffliction("gvolk_poison", -10.0, 12, 100, "poison", "regen", "buff").on()
+        return result
