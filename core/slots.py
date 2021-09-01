@@ -267,8 +267,11 @@ class DragonBase(EquipBase):
         super().__init__(conf.d, c, qual)
         self.dragonform = conf
 
-    def oninit(self, adv):
-        from core.dragonform import DragonForm
+    def oninit(self, adv, dform_class=None):
+        if dform_class is None:
+            from core.dragonform import DragonForm
+
+            dform_class = DragonForm
 
         if adv.conf["dragonform"]:
             name = self.c.name
@@ -281,7 +284,7 @@ class DragonBase(EquipBase):
                 adv.hitattr_check(dn, dconf)
 
         self.dragonform.update(DragonBase.DEFAULT_DCONF, rebase=True)
-        adv.dragonform = DragonForm(name, self.dragonform, adv)
+        adv.dragonform = dform_class(name, self.dragonform, adv)
 
     @property
     def att(self):
@@ -510,33 +513,6 @@ class Menoetius(DragonBase):
 
 
 class Rose_Queen(DragonBase):
-    # {'_ArmorBreakLv': 4,
-    #   '_Attributes03': 1,
-    #   '_Attributes08': 1,
-    #   '_DamageAdjustment': 0.5,
-    #   '_DamageMotionTimeScale': 1.2000000476837158,
-    #   '_FontEffect': 'EFF_FNT_COMMON_ATK_02',
-    #   '_HeadText': 'ACTION_CONDITION_0',
-    #   '_HitExecType': 1,
-    #   '_Id': 'S152_002_00_LV02',
-    #   '_InvincibleBreakLv': 2,
-    #   '_KnockBackDurationSec': 0.30000001192092896,
-    #   '_KnockBackType': 1,
-    #   '_SplitDamageCount': 3,
-    #   '_TargetGroup': <ActionTargetGroup.HOSTILE: 3>,
-    #   '_ToBreakDmgRate': 1.0,
-    #   '_ToOdDmgRate': 1.0,
-    #   '_UseDamageMotionTimeScale': 1}
-    #  {'_ArmorBreakLv': 4,
-    #    '_DamageMotionTimeScale': 1.2000000476837158,
-    #    '_HeadText': 'ACTION_CONDITION_0',
-    #    '_HitExecType': 2,
-    #    '_Id': 'S152_002_01_LV02',
-    #    '_InvincibleBreakLv': 2,
-    #    '_RecoveryValue': 10,
-    #    '_SplitDamageCount': 3,
-    #    '_TargetGroup': <ActionTargetGroup.FIXED_OBJECT: 16>,
-    #    '_UseDamageMotionTimeScale': 1}
     def oninit(self, adv):
         super().oninit(adv)
 
@@ -546,7 +522,7 @@ class Rose_Queen(DragonBase):
             o_ds_proc = None
 
         def ds_proc_slayer(e):
-            log("ds_proc_slayer", "wweeeee")
+            log("ds_proc_slayer", "rose_queen")
             if o_ds_proc:
                 o_ds_proc()
             e = adv.Event("slayed")
@@ -555,6 +531,13 @@ class Rose_Queen(DragonBase):
             e()
 
         adv.ds_proc = ds_proc_slayer
+
+
+class Gala_Beast_Volk(DragonBase):
+    def oninit(self, adv):
+        from core.dragonform import Gala_Beast_Volk_DragonForm
+
+        super().oninit(adv, dform_class=Gala_Beast_Volk_DragonForm)
 
 
 ### WIND DRAGONS ###

@@ -190,18 +190,17 @@ class Timer(object):
 
     def callback_repeat(self):
         self.process(self)
-        if self.timing == _g_now:
+        if self.timing == _g_now and self.online:
             self.timing += self.timeout
             self.timeline.add(self)
 
     def callback_once(self):
         self.process(self)
-        if self.timing <= _g_now:
-            if self.online:
-                self.online = 0
-                self._elapsed = _g_now - self.began
-                self.began = None
-                # self.timeline.rm(self)
+        if self.timing <= _g_now and self.online:
+            self.online = 0
+            self._elapsed = _g_now - self.began
+            self.began = None
+            # self.timeline.rm(self)
 
     def callback(self):
         pass

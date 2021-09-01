@@ -2433,6 +2433,8 @@ class Adv(object):
         "var>=": lambda s, v: getattr(s, v[0]) >= v[1],
         "var=": lambda s, v: getattr(s, v[0]) == v[1],
         "var<=": lambda s, v: getattr(s, v[0]) <= v[1],
+        # ik <> is usually != but in this case it's between
+        "var<>": lambda s, v: v[1] <= getattr(s, v[0]) <= v[2],
         "team_amp>=": lambda s, v: s.active_buff_dict.sum_team_amp_lvl() >= v,
     }
 

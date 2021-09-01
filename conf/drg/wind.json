@@ -129,6 +129,72 @@
             ]
         }
     },
+    "Gala_Beast_Volk": {
+        "act": "c3-s-fs",
+        "d": {
+            "name": "Gala Beast Volk",
+            "icon": "210161_01",
+            "att": 126,
+            "hp": 369,
+            "ele": "wind",
+            "a": [["a", 1.0], ["edge_all", 100.0, "wind"], ["affres_all", -150.0], ["k_stormlash", 0.15, "wind"], ["k_poison", 0.15, "wind"], ["afftime_stormlash", 0.3, "wind"], ["afftime_poison", 0.3, "wind"]]
+        },
+        "dfs": {
+            "startup": 0.26667,
+            "recovery": 0.73333,
+            "attr": [
+                {"dmg": 3.14, "sp": 5, "buff": ["debuff", -0.1, 5.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1},
+                {"dmg": 3.14},
+                {"dmg": 3.14}
+            ],
+            "interrupt": {"s": 0.0, "dodge": 0.0},
+            "cancel": {"s": 0.0, "dodge": 0.0}
+        },
+        "dx1": {
+            "startup": 0.76667,
+            "recovery": 0.4,
+            "attr": [
+                {"dmg": 4.6, "sp": 5}
+            ]
+        },
+        "dx2": {
+            "startup": 0.33333,
+            "recovery": 0.66667,
+            "attr": [
+                {"dmg": 4.9, "sp": 5}
+            ]
+        },
+        "dx3": {
+            "startup": 0.83333,
+            "recovery": 1.0,
+            "attr": [
+                {"dmg": 7.68, "sp": 5, "afflic": ["stormlash", 100, 0.22]}
+            ]
+        },
+        "ds": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 2.36667,
+            "sp_db": 120,
+            "uses": 1,
+            "attr": [
+                {"amp": ["10000", 3, 2]}
+            ]
+        },
+        "ds_final": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 2.16667,
+            "sp_db": 120,
+            "uses": 1,
+            "attr": [
+                {"dmg": 10.98, "afflic": ["stun", 180], "cond": ["var<>", ["moonlit_rage", 0, 3]], "iv": 0.33333},
+                {"dmg": 16.18, "afflic": ["stun", 180], "cond": ["var<>", ["moonlit_rage", 4, 6]], "iv": 0.33333},
+                {"dmg": 22.44, "afflic": ["stun", 180], "cond": ["var<>", ["moonlit_rage", 7, 9]], "iv": 0.33333},
+                {"dmg": 36.0, "afflic": ["stun", 180], "cond": ["var=", ["moonlit_rage", 10]], "iv": 0.33333}
+            ]
+        }
+    },
     "Gala_Reborn_Zephyr": {
         "d": {
             "name": "Gala Reborn Zephyr",

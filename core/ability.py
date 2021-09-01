@@ -1,6 +1,7 @@
 import random
 
 from core.log import log
+from core.afflic import AFFLICT_LIST
 from conf import ELEMENTS, WEAPON_TYPES
 
 
@@ -74,7 +75,10 @@ ability_dict["res"] = Resist
 class Affliction_Resist(Ability):
     def __init__(self, name, value, cond=None):
         atype = name.split("_")[1]
-        super().__init__(name, [("affres", atype, value, cond)])
+        if self.atype == "all":
+            super().__init__(name, [("affres", aff, value, cond) for aff in AFFLICT_LIST])
+        else:
+            super().__init__(name, [("affres", atype, value, cond)])
 
 
 ability_dict["affres"] = Affliction_Resist
@@ -997,7 +1001,11 @@ class Affliction_Edge(Ability):
 
     def oninit(self, adv, afrom=None):
         super().oninit(adv, afrom)
-        adv.afflics.__dict__[self.atype].aff_edge_mods.append(self.mod_object)
+        if self.atype == "all":
+            for aff in AFFLICT_LIST:
+                adv.afflics.__dict__[aff].aff_edge_mods.append(self.mod_object)
+        else:
+            adv.afflics.__dict__[self.atype].aff_edge_mods.append(self.mod_object)
 
 
 ability_dict["edge"] = Affliction_Edge

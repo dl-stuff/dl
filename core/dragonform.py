@@ -76,7 +76,7 @@ class DragonForm(Action):
                 self.shift_end_timer.add(delta_t)
                 log("shift_time", f"{delta_t:+2.4}", f"{cur_d+delta_t:2.4}")
             else:
-                self.d_shift_end(None)
+                self.d_shift_end()
                 self.shift_end_timer.off()
 
     def can_interrupt(self, *args):
@@ -253,7 +253,7 @@ class DragonForm(Action):
                 " ".join(self.act_sum),
             )
 
-    def d_shift_end(self, t):
+    def d_shift_end(self, t=None):
         if self.action_timer is not None:
             self.action_timer.off()
             self.action_timer = None
@@ -374,6 +374,7 @@ class DragonForm(Action):
             self.skill_use -= 1
             self.skill_spc = 0
             self.act_sum.append("s")
+            self.ds_event.final = self.c_act_name == "ds_final"
             self.ds_event()
             self.shift_end_timer.add(self.dstime())
         elif self.c_act_name.startswith("dx"):
@@ -386,7 +387,7 @@ class DragonForm(Action):
 
         self.d_act_next()
 
-    def d_act_next(self):
+    def _get_nact(self):
         nact = None
         if self.repeat_act and not self.act_list:
             self.parse_act(self.conf.act)
@@ -396,7 +397,6 @@ class DragonForm(Action):
                     nact = None
                 else:
                     nact = self.act_list.pop(0)
-            # print('CHOSE BY LIST', nact, self.c_act_name)
         if nact is None:
             if self.c_act_name[0:2] == "dx":
                 nact = "dx{}".format(int(self.c_act_name[2]) + 1)
@@ -409,7 +409,11 @@ class DragonForm(Action):
                         nact = "dx1"
             else:
                 nact = "dx1"
-            # print('CHOSE BY DEFAULT', nact, self.c_act_name)
+        return nact
+
+    def d_act_next(self, nact=None):
+        if nact is None:
+            nact = self._get_nact()
         if self.has_delayed and nact == "dsf":
             nact = "ds"
             count = self.clear_delayed()
@@ -459,6 +463,8 @@ class DragonForm(Action):
                     nact = "end"
                 elif a == "dodge":
                     nact = "dodge"
+                elif a in ("fs", "dfs") and self.conf["dfs"]:
+                    nact = "fs"
                 if nact:
                     try:
                         if len(self.act_list) > 0 and self.act_list[-1] == "dodge":
@@ -539,3 +545,66 @@ class DragonForm(Action):
         self.shift_event()
         self.d_act_start("dshift")
         return True
+
+
+class Gala_Beast_Volk_DragonForm(DragonForm):
+    def __init__(self, name, conf, adv):
+        self.blood_moon_timer = Timer(self.d_moon_repeat, 3.5, True)
+        self.dfs_hold_timer = Timer(self.d_fs_hold_repeat, 1.01, True)
+        super().__init__(name, conf, adv)
+
+    def ds_reset(self):
+        super().ds_reset()
+        self.adv.moonlit_rage = 0
+        self.skill_use_final = 0
+        self.blood_moon_timer.off()
+
+    def add_moonlit_rage(self):
+        if self.adv.moonlit_rage < 10:
+            self.adv.moonlit_rage += 1
+            log("moonlit_rage", self.adv.moonlit_rage)
+
+    def d_act_do_hitattr(self, act_name):
+        super().d_act_do_hitattr(act_name)
+        if act_name == "ds":
+            self.skill_use_final = 1
+            self.blood_moon_timer.on()
+
+    def d_moon_repeat(self, t):
+        self.add_moonlit_rage()
+        self.adv.dmg_make("dmoon", 2.58)
+        self.adv.add_hp(10)
+
+    def d_fs_hold_start(self, t):
+        log("d_act", "dfs_hold")
+        self.prev_act = self.c_act_name
+        self.prev_conf = self.c_act_conf
+        self.c_act_name = "dfs"
+        self.c_act_conf = self.conf["dfs"]
+        self.act_sum.append("dfs")
+        self.dfs_hold_timer.on()
+
+    def d_fs_hold_repeat(self, t):
+        self.add_moonlit_rage()
+        if self.shift_end_timer.timing - now() < 1.01 or self.adv.moonlit_rage == 10:
+            self.dfs_hold_timer.off()
+            self.action_timer = None
+            self.d_act_start("dfs")
+
+    def d_act_next(self):
+        nact = self._get_nact()
+        if nact == "fs":
+            # only allow dfs after ds
+            if self.skill_use_final < 0:
+                return super().d_act_next()
+            # enforce fs hold until dform timeout or 10 stack
+            Timer(self.d_fs_hold_start).on(self.max_delayed + self.conf.latency)
+        else:
+            super().d_act_next(nact=nact)
+
+    def d_shift_end(self, t=None):
+        self.dfs_hold_timer.off()
+        super().d_shift_end()
+        from core.modifier import SelfAffliction
+
+        SelfAffliction("gvolk_poison", -10.0, 12, 100, "poison", "regen", "buff").on()
