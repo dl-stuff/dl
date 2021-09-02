@@ -1,0 +1,259 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27347.645093399806,
+        "team": 0.18336413777574573,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Howling_to_the_Heavens",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon(c3-s-end), fsc and energy()<5",
+        "`s3, not buff(s3)",
+        "`s2, energy()<5",
+        "`s1",
+        "`s4, fsc and energy()<5",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Ricardt"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84563.44085761944,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Luck_of_the_Draw",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
+    "META": {
+      "tdps": 312033.72948637605,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 24053.027163654016,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Luck_of_the_Draw",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`s3",
+        "`s4",
+        "`s1",
+        "`fs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27958.54786886131,
+        "team": 0.18336413777574573,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 116402.17245119625,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "Luck_of_the_Draw",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`s3, not buff(s3)",
+        "`s2, energy()<5 and cancel",
+        "`s1",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Vania"
+      ]
+    },
+    "META": {
+      "tdps": 482338.7258554422,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43956.29180725714,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c5-s-c5-c5-end)",
+        "`s3",
+        "`s4",
+        "`s1",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25906.591628538154,
+        "team": 0.18336413777574573,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 319892.7006153111,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 15354.348682466565,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  }
+}
