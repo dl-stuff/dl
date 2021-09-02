@@ -283,6 +283,40 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32386.969427985452,
+        "team": 0.066666388687083,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Memory_of_a_Friend",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end), s1.check()",
+        "`s3, not buff(s3)",
+        "`s1, (sunflowers > 0 and x=4) or duration-now<4 or aff_timeleft(scorchrend) < 2",
+        "`s4, cancel",
+        "`s2"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Luca"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50386.92968090868,
@@ -312,9 +346,27 @@
       ]
     },
     "META": {
+      "tdps": 1679996805.902067,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50386.92968090868,
+        "team": 0.06665567440465717,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

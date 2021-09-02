@@ -32,8 +32,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111019.26868167687,
-        "team": 0.0,
+        "dps": 121485.02655962894,
+        "team": 0.026475455940826485,
         "noaff": false,
         "nihil": false
       },
@@ -48,45 +48,17 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon, not dragondrive.get() and x=1",
+        "if  a3_buffcount < 3",
+        "`dragon, not dragondrive.get() and s=2",
+        "else",
+        "`dragon, not dragondrive.get() and s=1",
+        "end",
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
         "`s4, x=5",
-        "`s2, x=5 and not dragondrive.get()",
         "`s1, x=5 or s",
+        "`s2, x=5",
         "`dodge, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "tdps": 234864.9433361562,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 85691.05894958731,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Flash_of_Genius",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
       ],
       "coabs": [
         "Blade",
@@ -95,16 +67,12 @@
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 175159.7987042168,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "tdps": 276811.0845334337,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -145,8 +113,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56645.11957401335,
-        "team": 0.08825445804402726,
+        "dps": 57741.49337536094,
+        "team": 0.08741513678342448,
         "noaff": false,
         "nihil": true
       },
@@ -161,15 +129,18 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`s4, x=5",
+        "`dragon, not dragondrive.get() and s=1",
+        "queue now=0",
+        "`fs;s1",
+        "end",
+        "`s4",
         "`s3, x=5",
+        "`s1, x=5",
         "`s2, x=5",
-        "`s1, x=5 or s",
-        "`fsf, x=5",
-        "`dragon, not dragondrive.get() and cancel"
+        "`fsf, x=5"
       ],
       "coabs": [
-        "Gala_Laxi",
+        "Dagger2",
         "Kimono_Elisanne",
         "Nobunaga"
       ],
@@ -179,15 +150,46 @@
       ]
     },
     "META": {
-      "tdps": 352020.57114824816,
+      "tdps": 391659.39640207554,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49827.886944857135,
+        "team": 0.10762046443086776,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Horus",
+      "acl": [
+        "`s4, x=5",
+        "`s3, x=5",
+        "`s2, x=5",
+        "`s1, x=5 or s",
+        "`fsf, x=5",
+        "`dragon, not dragondrive.get() and cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Ezelith",
+        "Gala_Laxi"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 127319.97209812618,
-        "team": 0.0,
+        "dps": 138875.57025192247,
+        "team": 0.026475455940826485,
         "noaff": false,
         "nihil": false
       },
@@ -202,7 +204,7 @@
       ]
     },
     "META": {
-      "tdps": 273289.9194941992,
+      "tdps": 320533.8096965454,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -210,47 +212,57 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 117009.29348965292,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ]
-    },
-    "META": {
-      "tdps": 248984.98187389813,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 67677.6558195546,
-        "team": 0.0884469638205326,
+        "dps": 59230.28072641951,
+        "team": 0.10859793816673,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon, not dragondrive.get() and s=1",
+        "`s4, x=5",
+        "`s3, x=5",
+        "`s1, x=5",
+        "`s2, x=5",
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70540.7660253348,
+        "team": 0.09223558772318961,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, not dragondrive.get() and s=1",
+        "queue now=0",
+        "`fs;s1",
+        "end",
+        "`s4, x=5",
+        "`s3, x=5",
+        "`s1, x=5",
+        "`s2, x=5",
+        "`fsf, x=5"
+      ],
       "share": [
         "Gala_Mym",
         "Seimei"
       ]
     },
     "META": {
+      "tdps": 691250.6450673478,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -261,21 +273,36 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59029.62077337218,
-        "team": 0.0,
+        "dps": 77295.87766970294,
+        "team": 0.03724435115859032,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "The_Plaguebringer",
-        "To_the_Extreme"
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, not dragondrive.get() and s=1",
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s1, x=5 or s",
+        "`s2, x=5",
+        "`dodge, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Mikoto"
       ]
     },
     "META": {
-      "tdps": 112311.88962402336,
+      "tdps": 170323.67870986598,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -284,24 +311,77 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 40812.21669876368,
-        "team": 0.08547911770284904,
+        "dps": 42580.96648085662,
+        "team": 0.11788628333868359,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon, not dragondrive.get() and s=1",
+        "`s4, x=5",
+        "`s3, x=5",
+        "`s1, x=5",
+        "`s2, x=5",
+        "`fsf, x=5"
+      ],
       "coabs": [
-        "Blade",
-        "Gala_Laxi",
+        "Dagger2",
+        "Halloween_Mym",
+        "Marth"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47682.12367960665,
+        "team": 0.10797038120726823,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`dragon, not dragondrive.get() and s=1",
+        "`s4, x=5",
+        "`s3, x=5",
+        "`s1, x=5",
+        "`s2, x=5",
+        "`fsf, x=5"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Halloween_Mym",
         "Kimono_Elisanne"
       ],
       "share": [
         "Summer_Celliera",
-        "Sha_Wujing"
+        "Seimei"
       ]
     },
     "META": {
+      "tdps": 514442.06801806245,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -278,15 +278,6 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "Enter_the_Blue_Rose",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
         "`s3, not buff(s3)",
         "if dragondrive.get()",
@@ -472,7 +463,7 @@
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 56868.14808686513,
+        "dps": 53375.0969172159,
         "team": 0.2733527237115694,
         "noaff": false,
         "nihil": false
@@ -507,11 +498,12 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42043.01419053443,
-        "team": 0.1216850191750188,
+        "dps": 53375.0969172159,
+        "team": 0.2733527237115694,
         "noaff": false,
         "nihil": false
       },
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s3, not buff(s3)",
         "if dragondrive.get()",
@@ -532,8 +524,7 @@
       ]
     },
     "META": {
-      "tdps": -97747.46668469536,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
@@ -585,8 +576,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40701.69398117144,
-        "team": 0.09179211809187175,
+        "dps": 40433.13484946275,
+        "team": 0.12026451501662905,
         "noaff": false,
         "nihil": true
       },
@@ -600,24 +591,24 @@
         "Mask_of_Determination_Bow"
       ],
       "acl": [
+        "queue prep and now=0",
+        "`s1;s2;s3;s4",
+        "end",
         "if dragondrive.get()",
-        "`s4, cancel",
-        "`s3, cancel",
+        "`s4, x=2",
+        "`s3",
         "`s2",
         "`s1, ((dgauge>1400) and cancel) or duration-now<2",
         "else",
         "`dragon, xf",
-        "`s1",
-        "`s4, xf",
-        "`s3, xf",
-        "`s2, xf",
+        "`s1, xf",
         "`dodge, xf",
         "end"
       ],
       "coabs": [
         "Ieyasu",
-        "Summer_Prince",
-        "Wand"
+        "Joker",
+        "Vania"
       ],
       "share": [
         "Summer_Celliera",
@@ -625,7 +616,7 @@
       ]
     },
     "META": {
-      "tdps": 109942.23066049488,
+      "tdps": 145345.32460495015,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

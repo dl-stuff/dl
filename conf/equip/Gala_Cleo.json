@@ -2,33 +2,32 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 13491.152204012362,
-        "team": 1.0317073660073568,
+        "dps": 14568.506855004327,
+        "team": 1.0358427498856588,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
+        "Proper_Maintenance",
         "Wily_Warriors_Flash_and_Heat",
         "Blessed_Days",
-        "Luck_of_the_Draw"
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Azazel",
       "acl": [
         "`dragon(c3-s-end), cancel",
-        "queue s1.charged>=s1.sp and c_fs(galacleo)",
-        "`fs;s1, fsc",
-        "end",
         "`s3, not buff(s3)",
-        "`s4",
+        "`fs, s1.check() and c_fs(galacleo)",
+        "`s1, s or fsc",
         "`s2",
-        "`s1, fsc",
-        "`fs, x=3 and (not c_fs(galacleo) and fs_prep_c)"
+        "`s4, s or x=5 or fsc"
       ],
       "coabs": [
-        "Audric",
         "Bow",
+        "Joker",
         "Tobias"
       ],
       "share": [
@@ -38,35 +37,33 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68708.7989471164,
-        "team": 0.5048843698316356,
+        "dps": 78969.51186094886,
+        "team": 0.4822225159207169,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Candy_Couriers",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Flower_in_the_Fray",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), trickery<=1",
+        "`dragon(c3-s-end), trickery<=4 and buff(fs) and buff(s2) and x=5",
         "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
+        "`fs, s1.check() and c_fs(galacleo)",
+        "`s1, s=3 or fsc",
+        "`s2, x=5 and buff(fs)",
+        "`s4, x=5 or (buff(fs) and buff(s2))"
       ],
       "coabs": [
+        "Blade",
         "Bow",
-        "Dragonyule_Victor",
-        "Ieyasu"
+        "Dragonyule_Victor"
       ],
       "share": [
         "Weapon",
@@ -74,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 104812.52174627219,
+      "tdps": 116327.04344043671,
       "pref": "PERSONAL"
     }
   },
@@ -93,7 +90,7 @@
       ]
     },
     "META": {
-      "tdps": 121036.14541253382,
+      "tdps": 137377.01125764172,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -135,19 +132,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28995.645835000185,
-        "team": 0.08711670943864024,
+        "dps": 35112.4009961471,
+        "team": 0.10148078740921236,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
+        "Bloody_Little_Queen",
+        "Jewels_of_the_Sun",
         "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "Seaside_Memory",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Arsene",
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
         "`s4",
@@ -157,32 +156,52 @@
       ],
       "coabs": [
         "Bow",
-        "Dagger",
-        "Ieyasu"
+        "Summer_Prince",
+        "Taro"
       ],
       "share": [
-        "Gala_Chelle",
-        "Ranzal"
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 62859.771345507805,
+      "tdps": 82092.97352377491,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14000.443398302274,
-        "team": 1.0317073660073568,
+        "dps": 16945.686506854832,
+        "team": 1.0752312071708985,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "Luck_of_the_Draw",
+        "Crown_of_Light",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon(c3-s-end)",
+        "queue s1.charged>=s1.sp and c_fs(galacleo)",
+        "`fs;s1, fsc",
+        "end",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, fsc",
+        "`fs, x=3 and (not c_fs(galacleo) and fs_prep_c)"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80085.64114599061,
-        "team": 0.48032778295627443,
+        "dps": 85544.58525628816,
+        "team": 0.4770905352282131,
         "noaff": false,
         "nihil": false
       },
@@ -195,13 +214,21 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
+      "acl": [
+        "`dragon(c3-s-end), trickery<=4 and buff(fs) and buff(s2)",
+        "`s3, not buff(s3)",
+        "`fs, s1.check() and c_fs(galacleo)",
+        "`s1, s=3 or fsc",
+        "`s2, x=5 and buff(fs)",
+        "`s4, x=5 or buff(s2)"
+      ],
       "share": [
         "Weapon",
         "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 119854.27059522785,
+      "tdps": 114686.89886382874,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -212,8 +239,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51000.658576385504,
-        "team": 0.08698845266393121,
+        "dps": 52500.4868459341,
+        "team": 0.08822466071684094,
         "noaff": false,
         "nihil": true
       },
@@ -226,22 +253,21 @@
         "Crown_of_Light",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c5-s-c5-c5-end), xf",
-        "`s1, xf",
-        "`s2, xf",
-        "`s3, xf",
-        "`s4"
+        "`dragon(c5-s-c5-c5-end), s=2",
+        "`s2, x>2 or dgauge>=500",
+        "`s1",
+        "`s3, cancel",
+        "`s4, cancel"
       ],
       "coabs": [
-        "Dagger",
         "Ieyasu",
-        "Joker"
+        "Joker",
+        "Summer_Prince"
       ],
       "share": [
-        "Summer_Julietta",
-        "Summer_Celliera"
+        "Gala_Mym",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -358,8 +384,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 28296.091947337474,
-        "team": 0.08658769990960681,
+        "dps": 34273.11934397118,
+        "team": 0.1006137653274492,
         "noaff": false,
         "nihil": true
       },
@@ -381,7 +407,7 @@
       ]
     },
     "META": {
-      "tdps": 70092.85703313744,
+      "tdps": 91171.24100034365,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

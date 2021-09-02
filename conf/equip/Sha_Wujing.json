@@ -2,21 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37993.552818430944,
-        "team": 0.13757879497689848,
-        "noaff": false,
+        "dps": 8513.58838206607,
+        "team": 0.35830573840432833,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
         "`dragon, s=1",
         "`s3, not buff(s3)",
@@ -27,12 +27,12 @@
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Bow",
+        "Peony"
       ],
       "share": [
-        "Weapon",
-        "Pinon"
+        "Patia",
+        "Templar_Hope"
       ]
     },
     "PERSONAL": {
@@ -71,10 +71,46 @@
       ]
     },
     "META": {
+      "tdps": 133558.52248303904,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6924.558024323182,
+        "team": 0.16095314448115577,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s2, xf",
+        "`s1, x=5",
+        "`s4, x=5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Peony"
+      ],
+      "share": [
+        "Patia",
+        "Templar_Hope"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 24537.901787109688,
@@ -111,6 +147,7 @@
       ]
     },
     "META": {
+      "tdps": 325169.52234829107,
       "pref": "PERSONAL"
     }
   },
@@ -146,6 +183,7 @@
       ]
     },
     "META": {
+      "tdps": 165773.90042817415,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -190,9 +228,46 @@
       ]
     },
     "META": {
+      "tdps": 610223.8341640538,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 8513.58838206607,
+        "team": 0.35830573840432833,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Study_Rabbits",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "coabs": [
+        "Blade",
+        "Bow",
+        "Peony"
+      ],
+      "share": [
+        "Patia",
+        "Templar_Hope"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -221,10 +296,11 @@
       ]
     },
     "META": {
+      "tdps": 619507.3522931456,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

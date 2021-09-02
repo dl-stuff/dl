@@ -35,15 +35,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63163.23458405851,
+        "dps": 66462.86063473402,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "Sweet_Surprise",
-        "Valiant_Crown",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
@@ -66,22 +66,22 @@
       ]
     },
     "META": {
-      "tdps": 461623.2658924853,
+      "tdps": 501697.00281321135,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42338.76058126251,
+        "dps": 44666.87281631315,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "Sweet_Surprise",
-        "Valiant_Crown",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
@@ -110,56 +110,26 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48223.12000700686,
-        "team": 0.10691562839269408,
+        "dps": 85549.6646229182,
+        "team": 0.1082740577407867,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, cancel",
-        "`s2, xf=5"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 85126.21511150412,
-        "team": 0.055216459815177324,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), cancel",
         "`s3, not buff(s3)",
         "`s1",
         "`s4, cancel",
-        "`s2, x=5"
+        "`s2, xf=5",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -168,11 +138,36 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88691.25547868556,
+        "team": 0.07534795425994659,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-c2-end), xf",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, xf>3",
+        "`s4, xf=5",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 713804.4212290465,
+      "tdps": 95413.38098495248,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -183,29 +178,27 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58839.33201275483,
+        "dps": 61661.20009432373,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
       "acl": [
-        "`dragon, s=1",
-        "`s3",
+        "`dragon(c3-s-c3-c3-c2-end), xf",
         "`s1",
-        "`s4, cancel",
-        "`s2, x=5"
+        "`s2, xf>3",
+        "`s4, xf",
+        "`s3, xf=5",
+        "`fsf, xf=5"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
-        "Nino"
+        "Nino",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -219,11 +212,18 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53001.3354906651,
+        "dps": 55667.63785892824,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
       "slots.d": "Gala_Reborn_Zephyr",
       "share": [
         "Weapon",
@@ -232,7 +232,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52935.11141466677,
+        "dps": 55667.63785892824,
         "team": 0.0,
         "noaff": false,
         "nihil": false

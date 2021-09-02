@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39291.04407159378,
-        "team": 0.11868726802696263,
+        "dps": 67375.85926133516,
+        "team": 0.18653639217102994,
         "noaff": false,
         "nihil": false
       },
@@ -14,18 +14,18 @@
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
-      "slots.d": "Freyja",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), x=2",
+        "`dragon, x=2",
         "`s3, not buff(s3)",
         "`s1",
         "`s4, x=2",
         "`dodge, x=2"
       ],
       "coabs": [
-        "Dagger2",
         "Dragonyule_Xainfried",
-        "Gala_Notte"
+        "Gala_Notte",
+        "Nino"
       ],
       "share": [
         "Weapon",
@@ -65,70 +65,14 @@
       ]
     },
     "META": {
-      "tdps": 2126078.9647521265,
+      "tdps": 280491.5515589918,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 54470.438751173475,
-        "team": 0.11731160098586153,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Midgardsormr_Zero",
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Dragonyule_Xainfried"
-      ]
-    },
-    "META": {
-      "tdps": 1618710.483818681,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 60670.81770224983,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "Sweet_Surprise",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), x=2",
-        "`s1, x=2",
-        "`s3, x=2",
-        "`s4",
-        "`dodge, x=2"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Notte",
-        "Mona"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61290.757003887564,
+        "dps": 61600.49405221965,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -149,9 +93,9 @@
         "`dodge, x=2"
       ],
       "coabs": [
-        "Dagger2",
         "Gala_Notte",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Gala_Mym",
@@ -160,35 +104,13 @@
     },
     "META": {
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 60670.81770224983,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "coabs": [
-        "Blade",
-        "Gala_Notte",
-        "Mona"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 98920.72102277592,
-        "team": 0.12014953584475156,
+        "dps": 85751.95787191276,
+        "team": 0.20220253130847896,
         "noaff": false,
         "nihil": false
       },
@@ -199,18 +121,22 @@
         "Dueling_Dancers",
         "The_Plaguebringer"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), x=2",
+        "`dragon, x=2",
         "`s3, not buff(s3)",
+        "`s1, x=2",
         "`s4, x=2",
         "`dodge, x=2"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108756.19759998305,
-        "team": 0.09315831125362178,
+        "dps": 109153.06362486274,
+        "team": 0.10595984462146536,
         "noaff": false,
         "nihil": false
       },
@@ -220,10 +146,21 @@
         "Sweet_Surprise",
         "Dueling_Dancers",
         "The_Plaguebringer"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), x=2",
+        "`s3, not buff(s3)",
+        "`s1, x=2",
+        "`s4, x=2",
+        "`dodge, x=2"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 364395.34427198215,
+      "tdps": 243146.84635780836,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -249,7 +186,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -283,37 +220,6 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 79959.4318707274,
-        "team": 0.0934687813483499,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Pecorines_Grand_Adventure",
-        "Rivalry_of_Kings",
-        "Dueling_Dancers",
-        "Rogues_Banquet"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Nino"
-      ]
-    },
-    "META": {
-      "tdps": 7344909.508980589,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -353,7 +259,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

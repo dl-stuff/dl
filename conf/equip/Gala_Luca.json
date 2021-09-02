@@ -78,6 +78,53 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 80367.0867072327,
+        "team": 0.09991997520208229,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dragonform.shift_count=1",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Gala_Audric",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 136707.5198965606,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -245,7 +292,7 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 105962.16396355716,
+        "dps": 94452.29810307093,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -257,11 +304,10 @@
       ]
     },
     "META": {
-      "tdps": 229160.82422103413,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -305,7 +351,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -350,32 +396,18 @@
     }
   },
   "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 73814.71684187224,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 85084.06199641562,
+        "team": 0.08964174009304358,
+        "noaff": true,
         "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Small_Courage",
-        "Seaside_Memory",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Pecorine",
-        "Peony"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
@@ -383,7 +415,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25382.303209720525,
+        "dps": 25873.28342241567,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -401,7 +433,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38461.68532254579,
+        "dps": 38981.64757367787,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -445,7 +477,7 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25382.303209720525,
+        "dps": 25873.28342241567,
         "team": 0.0,
         "noaff": false,
         "nihil": true

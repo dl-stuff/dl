@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72145.72802032271,
+        "dps": 83800.17138942867,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -45,13 +45,13 @@
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "if metamorphosis.get()",
         "`s1",
         "`s2, cancel",
         "else",
-        "`dragon",
+        "`dragon, buff(s3)",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -59,24 +59,24 @@
         "end"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
-        "Nino"
+        "Nino",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 295219.54291538516,
+      "tdps": 418810.6449637296,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51726.18044050912,
+        "dps": 57342.92478440347,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -88,7 +88,7 @@
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "if metamorphosis.get()",
         "`s1",
@@ -116,7 +116,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84533.99413731394,
+        "dps": 102974.9787081608,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -132,17 +132,18 @@
         "if metamorphosis.get()",
         "`s1",
         "`s2",
+        "`dodge, x=3",
         "else",
-        "`dragon",
+        "`dragon, buff(s3)",
         "`s3, not buff (s3)",
-        "`s1, buff(s3)",
+        "`s1, buff(s3) and xf",
         "`s2",
-        "`s4",
+        "`s4, cancel",
         "end"
       ]
     },
     "META": {
-      "tdps": 426592.5663517301,
+      "tdps": 622152.4514346259,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -153,7 +154,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62605.53208843249,
+        "dps": 73848.05538688572,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -198,14 +199,15 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58131.344929654064,
+        "dps": 57902.88879172363,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.d": "Gala_Reborn_Zephyr"
     },
     "META": {
-      "tdps": 146602.14473961177,
+      "tdps": 144179.45109716998,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -216,7 +218,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42144.55736845175,
+        "dps": 39465.02270156969,
         "team": 0.0,
         "noaff": false,
         "nihil": true

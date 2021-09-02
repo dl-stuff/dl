@@ -35,63 +35,42 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44618.883101171894,
-        "team": 0.051101127793948105,
+        "dps": 48227.01542611452,
+        "team": 0.01876499543845367,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s3",
-        "`s1",
-        "`s4"
+        "`dragon(c3-s-c3-c3-c3-end), not buff(s2)",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not buff(s2)",
+        "`s1, x>3 or fsc",
+        "`s4, cancel",
+        "`fs, x=2 and buff(s2)"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Halloween_Elisanne",
         "Peony"
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Ilia"
       ]
     },
     "META": {
-      "tdps": 179724.9804910682,
+      "tdps": 157878.61740511493,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 43241.53016603827,
-        "team": 0.051101127793948105,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Peony"
-      ]
-    },
-    "META": {
-      "tdps": 159625.3703957176,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -131,6 +110,116 @@
     },
     "PERSONAL": {
       "EQMT": {
+        "dps": 29220.657872721156,
+        "team": 0.015205152132855473,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), not buff(s2)",
+        "`s3, not buff(s3) and x=5",
+        "`s2, not buff(s2)",
+        "`s1, x>3 or fsc",
+        "`s4, cancel",
+        "`fs, x=2 and buff(s2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Elisanne",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 1805873.5069720848,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61394.92993930695,
+        "team": 0.018764995438453648,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38335.311823380325,
+        "team": 0.01520515213285543,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32339.849179971363,
+        "team": 0.11962747873307572,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 44475.37777237852,
+        "team": 0.018764995438453648,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Snipers_Allure",
+        "Crown_of_Light",
+        "Tutelarys_Destiny"
+      ]
+    },
+    "META": {
+      "tdps": 120317.56700813069,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
         "dps": 27716.65630786644,
         "team": 0.017590347066820642,
         "noaff": false,
@@ -163,142 +252,7 @@
       ]
     },
     "META": {
-      "tdps": 2562865.548649106,
-      "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 61394.92993930695,
-        "team": 0.018764995438453648,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), not buff(s2)",
-        "`s3, not buff(s3) and x=5",
-        "`s2, not buff(s2)",
-        "`s1, x>3 or fsc",
-        "`s4, cancel",
-        "`fs, x=2 and buff(s2)"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Elisanne",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "META": {
       "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 32339.849179971363,
-        "team": 0.11962747873307572,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 46292.091217465844,
-        "team": 0.051101127793948105,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Snipers_Allure",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ]
-    },
-    "META": {
-      "tdps": 203604.04204053333,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 32339.849179971363,
-        "team": 0.11962747873307572,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Levins_Champion",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "A_Passion_for_Produce",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "slots.d": "Gala_Thor",
-      "coabs": [
-        "Gala_Zena",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Jiang_Ziya"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27716.65630786644,
-        "team": 0.017590347066820642,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(s)",
-        "`s3",
-        "`s1",
-        "`s4"
-      ]
-    },
-    "META": {
-      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

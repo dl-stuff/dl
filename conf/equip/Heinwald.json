@@ -320,25 +320,98 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42760.11991599687,
-        "team": 0.2223857535155657,
-        "noaff": false,
+        "dps": 44373.03890880038,
+        "team": 0.3815402764547741,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Memory_of_a_Friend",
+        "Proper_Maintenance",
         "Springtime_Breeze",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
+        "From_Whence_He_Comes",
+        "The_Maid_Crusade",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`dragon(c3-s-end)",
+        "queue prep",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s2",
+        "end",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 61555.09205678706,
+      "tdps": 106223.27937096254,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35193.696177011814,
+        "team": 0.4153818614770231,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Proper_Maintenance",
+        "Springtime_Breeze",
+        "From_Whence_He_Comes",
+        "The_Maid_Crusade",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon(c3-s-end), s=2 and trickery<=1",
+        "queue prep",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s2",
+        "end",
+        "`s4",
+        "`s1",
+        "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Joker",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 271244.4681817843,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

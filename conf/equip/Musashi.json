@@ -2,31 +2,31 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43380.637083593756,
-        "team": 0.09999938889262314,
+        "dps": 35661.112273797626,
+        "team": 0.1405754993788432,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon(c3-s-c3-c3-c2-end), timeleft(s2)>13 and xf",
         "`s3, not buff(s3)",
-        "`s2, s4.check() or s1",
+        "`s2, charged_in(5,s1)",
         "`s1, buff(s3)",
-        "`s4",
+        "`s4, xf",
         "`fsf, xf=5"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
+        "Eleonora",
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -35,15 +35,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46166.43662466708,
-        "team": 0.09986488281355317,
+        "dps": 47878.11081658103,
+        "team": 0.09986488281355312,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "Sweet_Surprise",
-        "Valiant_Crown",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
@@ -67,7 +67,7 @@
       ]
     },
     "META": {
-      "tdps": 20711328.144687437,
+      "tdps": 300093.67515203956,
       "pref": "PERSONAL"
     }
   },
@@ -113,18 +113,11 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73284.09593672068,
+        "dps": 75390.05542932633,
         "team": 0.09986313756996018,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
       "acl": [
         "`dragon(c3-s-c3-c3-c2-end), timeleft(s2)>13 and xf",
         "`s3, not buff(s3)",
@@ -145,22 +138,29 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46210.115175787505,
+        "dps": 48370.38575053085,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
       "acl": [
         "`dragon(c3-s-c3-c3-end), cancel",
-        "`s3, cancel",
         "`s1",
         "`s4",
+        "`s3, cancel",
         "`fs, xf=5",
         "`dodge, fsc"
       ],
       "coabs": [
-        "Dagger",
         "Mona",
+        "Nino",
         "Wand"
       ]
     },

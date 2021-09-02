@@ -38,42 +38,42 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43355.21578742785,
-        "team": 0.08086670346640466,
+        "dps": 56012.44053945412,
+        "team": 0.07732633941885393,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Moonlight_Party",
-        "Spirit_of_the_Season",
-        "His_Clever_Brother",
+        "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s2, timeleft(s2)<3",
+        "`dragon(c3-s-c3-c3-c2-end), aff(flashburn) and timeleft(s2)>15",
         "`s3, not buff(s3) and fsc",
         "`s4, fsc",
-        "`s1, fsc",
+        "`s1",
+        "`s2, timeleft(s2)<3 and fsc",
         "`dodge, fsc",
         "`fs2, x=5"
       ],
       "coabs": [
         "Blade",
         "Peony",
-        "Sharena"
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Karina"
+        "Ilia"
       ]
     },
     "META": {
-      "tdps": 445253.66448805144,
+      "tdps": 791549.4713918637,
       "pref": "PERSONAL"
     }
   },
@@ -156,8 +156,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58643.00509202176,
-        "team": 0.08086670346640466,
+        "dps": 69067.37876162461,
+        "team": 0.07692536534478389,
         "noaff": false,
         "nihil": false
       },
@@ -165,15 +165,28 @@
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "His_Clever_Brother",
-        "The_Warrioresses",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
         "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c2-end), fsc and timeleft(s2)>15",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, timeleft(s2)<3 and fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs2, x=5"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Gala_Audric",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -221,22 +234,25 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45640.09875889259,
-        "team": 0.07362665682046837,
+        "dps": 45952.700391661005,
+        "team": 0.07263453125313986,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3), cancel",
-        "`s3",
+        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`s3, fsc",
         "`s4",
         "`s1",
-        "`dodge, fsc",
         "`fs2, charged_in(fs2, s1) or charged_in(fs2, s3)"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 115684.5630832853,
+      "tdps": 121466.02392870234,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -247,8 +263,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40533.095988595705,
-        "team": 0.08086670346640466,
+        "dps": 37520.808734521,
+        "team": 0.08057897338904309,
         "noaff": false,
         "nihil": false
       }

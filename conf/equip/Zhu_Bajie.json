@@ -2,42 +2,43 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46976.44569986729,
-        "team": 0.046659646510759725,
+        "dps": 65249.65118340893,
+        "team": 0.11756376166079448,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Spirit_of_the_Season",
-        "The_Lurker_in_the_Woods",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
         "The_Synthetic_Dragon",
-        "A_Small_Courage",
-        "Kicking_Back",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
         "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Tutelarys_Destiny"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
+        "`dragon(c3-s-c3-end), s=1",
         "`s3, fsc and not buff(s3)",
-        "`s1, fsc and hp<30",
+        "`s1, fsc and hp<100",
         "`s4, fsc",
-        "`s2, fsc",
+        "`s2, fsc or s",
         "`dodge, fsc",
         "`fs3"
       ],
       "coabs": [
         "Halloween_Edward",
         "Peony",
-        "Sharena"
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Peony"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80727.44218204556,
+        "dps": 80823.17603362945,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -68,11 +69,11 @@
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Ryszarda"
       ]
     },
     "META": {
-      "tdps": 723344.4529931294,
+      "tdps": 132468.75253238878,
       "pref": "PERSONAL"
     }
   },
@@ -117,21 +118,71 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 84487.6965739535,
-        "team": 0.11145942691003609,
+        "dps": 88231.0569889886,
+        "team": 0.11877891803766179,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
+        "The_Synthetic_Dragon",
         "The_Queen_of_the_Knife",
         "The_Warrioresses",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon(), s=1",
+        "`s3, fsc and not buff(s3)",
+        "`s1, fsc and hp<100",
+        "`s4, fsc",
+        "`s2, fsc or s",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 92850.9474952643,
+        "team": 0.09834934606930548,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "The_Synthetic_Dragon",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), buffstack(ro_att)=6 and s=1",
+        "`s3, fsc and not buff(s3)",
+        "`s1, fsc and hp<100",
+        "if buffstack(ro_att)<6",
+        "`s4, fsc and not have_buff(s2_20)",
+        "else",
+        "`s4, fsc and not have_buff(s4_10)",
+        "end",
+        "`s2, fsc or s=4",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -139,6 +190,7 @@
       ]
     },
     "META": {
+      "tdps": 226137.41068249175,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -190,10 +242,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 69918.44052548286,
-        "team": 0.11086476840590945,
+        "dps": 72781.22214996244,
+        "team": 0.11739009986115949,
         "noaff": false,
         "nihil": false
       },
@@ -210,6 +262,41 @@
         "Blade",
         "Peony",
         "Wand"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74190.54152680494,
+        "team": 0.09834934606930548,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "The_Synthetic_Dragon",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-end), buffstack(ro_att)=6 and s=1",
+        "`s3, fsc and not buff(s3)",
+        "`s1, fsc and hp<100",
+        "if buffstack(ro_att)<6",
+        "`s4, fsc and not have_buff(s2_20)",
+        "else",
+        "`s4, fsc and not have_buff(s4_10)",
+        "end",
+        "`s2, fsc or s=4",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -217,6 +304,7 @@
       ]
     },
     "META": {
+      "tdps": 74015.9445497074,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -225,6 +313,40 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33925.0681825293,
+        "team": 0.04936445942680466,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Crystalian_Envoy",
+        "Kung_Fu_Masters",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Flowers_Under_the_Moon",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end)",
+        "`s4, fsc",
+        "`s3, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 36162.43758761835,
@@ -260,6 +382,7 @@
       ]
     },
     "META": {
+      "tdps": 45323.48639219915,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

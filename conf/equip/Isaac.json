@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9653.355978828557,
-        "team": 0.6520313955643665,
+        "dps": 9544.505326892735,
+        "team": 0.6376234639842017,
         "noaff": true,
         "nihil": false
       },
@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43899.93674037262,
-        "team": 0.46066706526786033,
+        "dps": 41499.4633758158,
+        "team": 0.43731168594742564,
         "noaff": true,
         "nihil": false
       },
@@ -68,15 +68,15 @@
       ]
     },
     "META": {
-      "tdps": 178960.1056188543,
+      "tdps": 159526.1065630216,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10197.691302958634,
-        "team": 0.5498157748782326,
+        "dps": 10052.765765017837,
+        "team": 0.5193545409790361,
         "noaff": false,
         "nihil": true
       },
@@ -108,8 +108,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35658.66497063037,
-        "team": 0.3036612617169045,
+        "dps": 35197.160894934525,
+        "team": 0.28146435299233596,
         "noaff": false,
         "nihil": true
       },
@@ -140,29 +140,36 @@
       ]
     },
     "META": {
-      "tdps": 103434.92524544847,
+      "tdps": 105697.48732689407,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 19281.87828644642,
-        "team": 0.37549945316451927,
+        "dps": 28403.531114082027,
+        "team": 0.3011534951006431,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "s1"
+      "slots.a": [
+        "Dear_Diary",
+        "Initios_Sentinel",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "The_Bustling_Hut",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
       ],
+      "slots.d": "Daikokuten",
       "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
+        "Gala_Audric",
+        "Mitsuhide",
+        "Peony"
       ]
     },
     "META": {
-      "tdps": 52113.232393734805,
+      "tdps": 84100.2630174897,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -173,8 +180,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 58907.01841154016,
-        "team": 0.27356720649134275,
+        "dps": 59518.70086530105,
+        "team": 0.27685977939718637,
         "noaff": false,
         "nihil": false
       },
@@ -199,7 +206,7 @@
       ]
     },
     "META": {
-      "tdps": 130140.87951980108,
+      "tdps": 138523.35385590803,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -210,8 +217,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45172.63491042465,
-        "team": 0.3277223366814928,
+        "dps": 44842.55165703556,
+        "team": 0.29589570796545245,
         "noaff": false,
         "nihil": true
       },
@@ -241,6 +248,37 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 36492.97128327924,
+        "team": 0.31919780757828936,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Daikokuten",
+      "share": [
+        "Dragonyule_Lily",
+        "Ranzal"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
@@ -311,6 +349,46 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 5853.072594752734,
+        "team": 0.40890340016546745,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dazzling_Duet",
+        "Initios_Sentinel",
+        "Jewels_of_the_Sun",
+        "The_Bustling_Hut",
+        "The_Warrioresses",
+        "Promised_Piety_Staff",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "s1",
+        "fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Prince",
+        "Hildegarde"
+      ],
+      "share": [
+        "Vania",
+        "Aoi"
+      ]
+    },
+    "META": {
+      "tdps": 135127.71907756687,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }

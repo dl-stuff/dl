@@ -73,27 +73,25 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 11098.060641936074,
-        "team": 0.1387251175924225,
-        "noaff": false,
+        "dps": 2785.4536238332375,
+        "team": 0.14841704499291275,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Castle_Cheer_Corps",
         "Jewels_of_the_Sun",
+        "Study_Rabbits",
         "Warrior_Maiden",
-        "Blessed_Days",
-        "Dragons_Nest",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Promised_Piety_Staff",
+        "Recital_Invitation"
       ],
       "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
-        "`dragon",
-        "`s3",
-        "`s4",
+        "`s1, not have_buff(fs_hildegarde)",
         "`s2",
-        "`s1, not buff(s1)"
+        "`fs, x=5 and have_buff(fs_hildegarde)"
       ],
       "coabs": [
         "Bow",
@@ -102,7 +100,7 @@
       ],
       "share": [
         "Weapon",
-        "Seimei"
+        "Gala_Mym"
       ]
     },
     "PERSONAL": {
@@ -119,7 +117,7 @@
       ]
     },
     "META": {
-      "tdps": 996520.7470777062,
+      "tdps": 970714.9925852633,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -130,8 +128,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4379.332044551548,
-        "team": 0.1642587610577475,
+        "dps": 5044.687116200555,
+        "team": 0.16523194741581004,
         "noaff": true,
         "nihil": true
       },
@@ -152,8 +150,8 @@
       ],
       "coabs": [
         "Bow",
-        "The_Prince",
-        "Tobias"
+        "Peony",
+        "Sha_Wujing"
       ],
       "share": [
         "Rawn",
@@ -193,31 +191,8 @@
       ]
     },
     "META": {
-      "tdps": 137512.77757067213,
+      "tdps": 132676.057775626,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 8274.486762976208,
-        "team": 0.09416815278500851,
-        "noaff": false,
-        "nihil": true
-      },
-      "coabs": [
-        "Bow",
-        "Peony",
-        "Sha_Wujing"
-      ]
-    },
-    "META": {
-      "tdps": 198501.54433441738,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
@@ -249,42 +224,11 @@
       ]
     },
     "META": {
-      "tdps": 192823.1382371796,
+      "tdps": 187660.65039726073,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 10544.673956412727,
-        "team": 0.13230879433501908,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
-        "Warrior_Maiden",
-        "A_Small_Courage",
-        "Dragons_Nest",
-        "Mask_of_Determination_Bow",
-        "Wind_of_Oaths"
-      ],
-      "share": [
-        "Weapon",
-        "Sha_Wujing"
-      ]
-    },
-    "META": {
-      "tdps": 1189315.4636273822,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   }

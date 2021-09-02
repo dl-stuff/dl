@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 67767.34486387412,
-        "team": 0.1203275576073703,
+        "dps": 67675.50167824973,
+        "team": 0.12067024772444943,
         "noaff": false,
         "nihil": false
       },
@@ -31,7 +31,7 @@
       ],
       "coabs": [
         "Blade",
-        "Marth",
+        "Gala_Sarisse",
         "Wand"
       ],
       "share": [
@@ -41,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 91054.34906423744,
+        "dps": 92274.36019445473,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -55,9 +55,9 @@
         "Crown_of_Light",
         "Tutelarys_Destiny"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(s-c3-c3-s-end), s=1",
+        "`dragon(c2-s-c2-end)",
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
@@ -70,7 +70,7 @@
       ],
       "coabs": [
         "Blade",
-        "Marth",
+        "Gala_Sarisse",
         "Wand"
       ],
       "share": [
@@ -79,7 +79,7 @@
       ]
     },
     "META": {
-      "tdps": 193530.09953338353,
+      "tdps": 203851.89373586525,
       "pref": "PERSONAL"
     }
   },
@@ -170,7 +170,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 97843.14181613752,
+        "dps": 98045.27534757588,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -183,6 +183,18 @@
         "The_Plaguebringer",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`s2",
+        "if xf=1",
+        "`fs, c_fs(counter)",
+        "`fs, c_fs(sigilcounter)",
+        "`dodge, xf=1",
+        "end"
       ]
     },
     "META": {
@@ -196,13 +208,13 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57079.250535592204,
+        "dps": 58953.35494927663,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-c3-s-end)",
+        "`dragon,s=1",
         "`s3",
         "`s1",
         "`s4",
@@ -212,6 +224,11 @@
         "`fs, c_fs(sigilcounter)",
         "`dodge, xf=1",
         "end"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Nobunaga",
+        "Wand"
       ],
       "share": [
         "Summer_Julietta",

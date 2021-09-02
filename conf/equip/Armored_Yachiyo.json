@@ -241,81 +241,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 98971.01021870832,
-        "team": 0.09892277710284961,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), s=4",
-        "`s3, not buff(s3)",
-        "if not c_fs(enhanced)",
-        "`s1, cancel",
-        "end",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`fs2, c_fs(enhanced) and xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Grace",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 112922.1323355583,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "The_Plaguebringer",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
-      ],
-      "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end), cancel and aff(poison)",
-        "`s3, not buff(s3)",
-        "if not c_fs(enhanced)",
-        "`s1, cancel",
-        "`fsf, xf=5",
-        "end",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`fs2, c_fs(enhanced) and cancel"
-      ]
-    },
-    "META": {
-      "tdps": 141030.43328782663,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
         "dps": 107502.29873619268,
@@ -331,13 +256,18 @@
         "To_the_Extreme",
         "Crown_of_Light",
         "Tutelarys_Destiny"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Marth",
+        "Wand"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

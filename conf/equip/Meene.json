@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32990.811937736464,
-        "team": 0.2184349175266788,
+        "dps": 35961.28809604821,
+        "team": 0.24039209836582476,
         "noaff": false,
         "nihil": false
       },
@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59426.3848300052,
-        "team": 0.08481179495642482,
+        "dps": 61049.962029702576,
+        "team": 0.0935024390210267,
         "noaff": false,
         "nihil": false
       },
@@ -49,12 +49,12 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), fsc",
-        "`s3, not buff(s3) and fsc",
+        "`dragon(c3-s-c3-c3-end), s=4",
+        "`s3, not buff(s3)",
         "`s4",
         "`s2, butterflies>=9",
         "`s1, butterflies>=9",
-        "`fs, xf=2 or butterflies=6"
+        "`fs, xf=3 or butterflies=6"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -67,7 +67,7 @@
       ]
     },
     "META": {
-      "tdps": 197836.8143460344,
+      "tdps": 170799.4561738553,
       "pref": "PERSONAL"
     }
   },
@@ -146,11 +146,29 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74113.39946228848,
-        "team": 0.08481179495642487,
+        "dps": 81639.56476467215,
+        "team": 0.27619688536134684,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, fsc",
+        "`s3, not buff(s3)",
+        "`s4, not have_buff(s4_10)",
+        "`s2, butterflies>=9",
+        "`s1, butterflies>=9",
+        "`fs, xf=3 or butterflies=6"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -163,11 +181,16 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54160.41299915623,
-        "team": 0.08329740537539893,
+        "dps": 54177.92243320578,
+        "team": 0.0825484553440385,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -188,8 +211,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56505.699023222194,
-        "team": 0.20463346153526882,
+        "dps": 57359.58844619941,
+        "team": 0.2082325801915482,
         "noaff": false,
         "nihil": false
       },
@@ -200,13 +223,26 @@
         "Lord_of_the_Skies",
         "The_Queen_of_the_Knife"
       ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), fsc",
+        "`s3, not buff(s3)",
+        "`s4, not have_buff(s4_10)",
+        "`s2, butterflies>=9",
+        "`s1, butterflies>=9",
+        "`fs, xf=3 or butterflies=6"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Nino",
+        "Yukata_Lathna"
+      ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 1941151.9201601236,
+      "tdps": 2709635.1859016726,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -2,17 +2,17 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 77237.92970619757,
-        "team": 0.33162332195976174,
+        "dps": 79079.61059082876,
+        "team": 0.3316233219597615,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "The_Red_Impulse",
-        "Valiant_Crown",
         "Dueling_Dancers",
-        "Mana_Fount"
+        "Entwined_Flames"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -34,17 +34,17 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77237.92970619757,
-        "team": 0.33162332195976174,
+        "dps": 79079.61059082876,
+        "team": 0.3316233219597615,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "The_Red_Impulse",
-        "Valiant_Crown",
         "Dueling_Dancers",
-        "Mana_Fount"
+        "Entwined_Flames"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -69,17 +69,17 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 56159.87855325841,
-        "team": 0.3113364882898264,
+        "dps": 57937.14208419906,
+        "team": 0.3113364882898262,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "The_Bridal_Dragon",
-        "Valiant_Crown",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
@@ -101,41 +101,8 @@
         "Humanoid_Mercury"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 56656.89757492357,
-        "team": 0.28528225887562747,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Prince_of_Dragonyule",
-        "Valiant_Crown",
-        "A_Small_Courage",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
-        "`s2, cancel",
-        "`s1, masterctrl_buff.get() and cancel",
-        "`s4, x=4",
-        "`s3, x=4"
-      ],
-      "coabs": [
-        "Renee",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
     "META": {
-      "tdps": 19076.327830071892,
-      "pref": "TEAMBUFF"
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -164,21 +131,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88309.4461360128,
-        "team": 0.33162332195976174,
+        "dps": 91690.98816290029,
+        "team": 0.3316233219597615,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "OneWinged_Journey",
         "The_Red_Impulse",
-        "Valiant_Crown",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ]
     },
     "META": {
-      "tdps": 1676851.393972283,
+      "tdps": 17909329.68651384,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,71 +154,43 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 55572.06278147228,
-        "team": 0.32756270767747997,
-        "noaff": false,
-        "nihil": true
-      },
-      "coabs": [
-        "Nurse_Aeleen",
-        "Tiki",
-        "Yurius"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62953.91368888037,
-        "team": 0.2852822588756275,
+        "dps": 63585.235740832664,
+        "team": 0.31133648828982624,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Valiant_Crown",
-        "Dueling_Dancers",
+        "OneWinged_Journey",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
         "His_Clever_Brother"
       ]
     },
     "META": {
-      "tdps": 174592.5390244359,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51354.50047594534,
-        "team": 0.3113364882898264,
+        "dps": 52975.97005574168,
+        "team": 0.3113364882898262,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-c3-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
-        "`s2, cancel",
-        "`s1, masterctrl_buff.get() and cancel",
-        "`s4, x=4",
-        "`s3, x=4"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

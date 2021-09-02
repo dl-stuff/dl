@@ -39,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68644.62443493214,
-        "team": 0.020421727709183986,
+        "dps": 91234.81515248475,
+        "team": 0.01751559443361243,
         "noaff": false,
         "nihil": false
       },
@@ -51,23 +51,24 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s3, not buff(s3) and fsc",
         "if dragondrive.get()",
         "`s4, xf=5",
-        "`s2, xf=5",
-        "`s1, (xf=5 and dgauge>=900) or duration-now < 13",
+        "`s2, xf=5 or s",
+        "`s1, xf=5 or duration-now < 5",
+        "`s1, dgauge>=1800 and s=1",
         "else",
-        "`dragon",
+        "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1, fsc",
-        "`fs, x=3",
+        "`fs, x=4 or hits=2",
         "end"
       ],
       "coabs": [
-        "Blade",
         "Mona",
-        "Wand"
+        "Wand",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -75,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 93554.3873933471,
+      "tdps": 288678.95793873206,
       "pref": "PERSONAL"
     }
   },
@@ -120,8 +121,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54989.70200569744,
-        "team": 0.02046478628065157,
+        "dps": 73502.95190386292,
+        "team": 0.020407110776545674,
         "noaff": false,
         "nihil": true
       },
@@ -132,7 +133,7 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "if dragondrive.get()",
         "`s3",
@@ -146,9 +147,9 @@
         "end"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Ranzal",
@@ -156,62 +157,69 @@
       ]
     },
     "META": {
-      "tdps": 2037240.870439182,
+      "tdps": 5157744.164889248,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 85966.63986016683,
-        "team": 0.1323455720295068,
+        "dps": 99775.74455186444,
+        "team": 0.13473143543858251,
         "noaff": false,
         "nihil": false
       },
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s3, not buff(s3) and fsc",
         "if dragondrive.get()",
         "`s4",
         "`s2, xf=5 or s",
-        "`s1, xf=5 or duration-now < 3",
+        "`s1, xf=5 or duration-now < 8",
+        "`s1, dgauge>=1800 and s=1",
         "else",
         "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1, fsc",
         "`fs, x=4 or hits=2",
         "end"
       ],
       "coabs": [
-        "Blade",
+        "Humanoid_Midgardsormr",
         "Mona",
-        "Wand"
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86879.97639576899,
-        "team": 0.13175612856492738,
+        "dps": 105168.7612316609,
+        "team": 0.12133793909524973,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`s3, not buff(s3) and fsc",
         "if dragondrive.get()",
         "`s4",
         "`s2, xf=5 or s",
         "`s1, xf=5 or duration-now < 8",
+        "`s1, dgauge>=1800 and s=1",
         "else",
         "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1, fsc",
         "`fs, x=4 or hits=2",
         "end"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 1549489.6296014222,
+      "tdps": 402659.3610473549,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -222,7 +230,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64403.329783755835,
+        "dps": 78305.1300899582,
         "team": 0.018485151519567086,
         "noaff": false,
         "nihil": true
@@ -248,11 +256,35 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55055.48295378831,
-        "team": 0.020421727709183986,
+        "dps": 66357.05801720648,
+        "team": 0.12204875170871873,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "if dragondrive.get()",
+        "`s4, xf=5",
+        "`s2, xf=5 or s",
+        "`s1, xf=5 or duration-now < 8",
+        "`s1, dgauge>=1800 and s=1",
+        "else",
+        "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1, fsc",
+        "`fs, x=4 or hits=2",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -301,7 +333,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46218.485808870566,
+        "dps": 42783.76738651389,
         "team": 0.018485151519567086,
         "noaff": false,
         "nihil": true
@@ -324,8 +356,8 @@
       ]
     },
     "META": {
-      "tdps": 230409.76913268946,
-      "pref": "PERSONAL",
+      "tdps": -462014.8073051654,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 66410.83023194675,
-        "team": 0.08002977459221228,
+        "dps": 68365.58419141367,
+        "team": 0.10859179439227583,
         "noaff": false,
         "nihil": false
       },
@@ -11,16 +11,17 @@
         "Forest_Bonds",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Plaguebringer",
+        "Hastened_Squall",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Menoetius",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
+        "`dragon(c3-s-c3-c3-c3-end)",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, s=1",
-        "`s4"
+        "`s2, cancel",
+        "`s4",
+        "`dodge,fsc"
       ],
       "coabs": [
         "Blade",
@@ -29,7 +30,7 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "PERSONAL": {
@@ -66,11 +67,44 @@
       ]
     },
     "META": {
-      "tdps": 364400.57666918985,
-      "pref": "PERSONAL"
+      "tdps": 20099.187588247198,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35989.6358413152,
+        "team": 0.03630843331432046,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, cancel",
+        "`s4",
+        "`dodge,fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 49847.47028785318,
@@ -105,17 +139,26 @@
       ]
     },
     "META": {
+      "tdps": 381669.85412373324,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74460.86791899949,
-        "team": 0.08003290993723192,
+        "dps": 93347.33387419092,
+        "team": 0.1450831607810334,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -123,9 +166,10 @@
         "`s2, s=1",
         "`s4"
       ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
       ]
     },
     "META": {
@@ -159,7 +203,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -210,7 +254,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

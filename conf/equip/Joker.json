@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96499.98746831088,
+        "dps": 97875.09281516941,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -52,15 +52,15 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
+        "`dragon, not dragondrive.get() and (s1.check() or s2.check())",
         "`s3, not buff(s3)",
-        "`dragon, not dragondrive.get()",
         "`s4, cancel",
         "`s2, cancel",
         "`s1, cancel"
       ],
       "coabs": [
-        "Delphi",
         "Ieyasu",
+        "Summer_Prince",
         "Vania"
       ],
       "share": [
@@ -69,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 271181.4380761459,
+      "tdps": 283531.48145994503,
       "pref": "PERSONAL"
     }
   },
@@ -148,10 +148,44 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 104141.7511161535,
+        "team": 0.11213363590917909,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, not dragondrive.get() and (s1.check() or s2.check())",
+        "`s3, not buff(s3)",
+        "`s4, x=6",
+        "`s2, x=6",
+        "`s1, x=6"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 115514.68588440788,
-        "team": 0.09947407508125511,
+        "dps": 117702.56639650145,
+        "team": 0.10766683253448082,
         "noaff": false,
         "nihil": false
       },
@@ -165,16 +199,11 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
+        "`dragon, not dragondrive.get() and (s1.check() or s2.check())",
         "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get() and dgauge>=1900",
-        "`s2, dragondrive.get() or xf>2",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Dagger",
-        "Ieyasu",
-        "Vania"
+        "`s4, dragondrive.get() and x=6",
+        "`s2, x=6",
+        "`s1"
       ],
       "share": [
         "Weapon",
@@ -182,7 +211,7 @@
       ]
     },
     "META": {
-      "tdps": 4145642.104504387,
+      "tdps": 3035910.503059474,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -311,14 +340,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45180.91932303673,
+        "dps": 45124.19500499154,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 38994.93521737928,
+      "tdps": 36907.138684467485,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

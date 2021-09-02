@@ -37,7 +37,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78239.27819200448,
+        "dps": 101014.1675344875,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -49,12 +49,10 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
+        "`dragon, not dragondrive.get() and s2.check()",
         "`s3, not buff(s3)",
-        "if s2.check() and not dragondrive.get()",
-        "`dragon",
-        "end",
         "`s1",
         "`s2",
         "`s4",
@@ -63,7 +61,7 @@
       "coabs": [
         "Humanoid_Midgardsormr",
         "Nino",
-        "Wand"
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -71,14 +69,14 @@
       ]
     },
     "META": {
-      "tdps": 135136.86356533828,
+      "tdps": 381172.89324263437,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57101.53871667437,
+        "dps": 75115.80510079564,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -90,7 +88,7 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`s3",
         "if s2.check() and not dragondrive.get()",
@@ -126,33 +124,26 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100553.66177346588,
-        "team": 0.07738715193205324,
+        "dps": 120231.87821296368,
+        "team": 0.09997185236956624,
         "noaff": false,
         "nihil": false
       },
       "acl": [
+        "`dragon, not dragondrive.get() and fsc",
         "`s3, not buff(s3)",
-        "if s2.check() and not dragondrive.get()",
-        "`dragon",
-        "end",
         "`s1, buff(s3)",
-        "`s2",
+        "`s2, cancel or dragondrive.get()",
         "`s4, fsc",
         "`fs, x=4 or hits=3"
       ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Humanoid_Midgardsormr",
-        "Nino"
-      ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 906813.69493869,
+      "tdps": 10851381.123978829,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -163,7 +154,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67555.62284755574,
+        "dps": 81394.37832471206,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -191,15 +182,48 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45364.34815526172,
+        "team": 0.037419039749830164,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Super_Soaking_Androids",
+        "The_Shining_Overlord",
+        "FirstRate_Hospitality",
+        "Odd_Sparrows"
+      ],
+      "acl": [
+        "`dragon, not dragondrive.get() and s2.check()",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Grace",
+        "Templar_Hope"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62808.429489624796,
+        "dps": 62145.13983720671,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
+      "tdps": 448455.96771416755,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -207,10 +231,36 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63112.606128085,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43569.22111776662,
+        "dps": 42914.32460361206,
         "team": 0.0,
         "noaff": false,
         "nihil": true

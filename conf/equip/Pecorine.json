@@ -89,8 +89,8 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 94269.70920251087,
-        "team": 0.011104936443289115,
+        "dps": 88769.90815804101,
+        "team": 0.02936953783703662,
         "noaff": true,
         "nihil": false
       },
@@ -103,15 +103,15 @@
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "coabs": [
         "Blade",
-        "Fritz",
-        "Peony"
+        "Mitsuhide",
+        "Wand"
       ],
       "share": [
         "Weapon",
-        "Mikoto"
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
@@ -123,12 +123,12 @@
       },
       "coabs": [
         "Blade",
-        "Mitsuhide",
+        "Fritz",
         "Peony"
       ]
     },
     "META": {
-      "tdps": 1082856.364162266,
+      "tdps": 596701.665615015,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -139,7 +139,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 61177.840825836975,
+        "dps": 63734.761656910756,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -160,7 +160,7 @@
         "`s4, fsc",
         "`s1, fsc",
         "`dodge, fsc",
-        "`fs, dodge or s",
+        "`fs, dodge",
         "else",
         "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
         "`dragon(c3-s-end), dragonform.shift_count=1",
@@ -170,9 +170,9 @@
         "end"
       ],
       "coabs": [
+        "Blade",
         "Mitsuhide",
-        "Peony",
-        "Wand"
+        "Peony"
       ],
       "share": [
         "Summer_Celliera",
@@ -226,39 +226,32 @@
     }
   },
   "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 62943.84424234721,
+        "dps": 63734.761656910756,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`s3, not buff(s3)",
         "if gourmand_mode.get()",
+        "`s3, fsc",
         "`s4, fsc",
         "`s1, fsc",
         "`dodge, fsc",
-        "`fs, dodge or s",
+        "`fs, dodge",
         "else",
         "`dragon(c3-s-end), dragonform.shift_count=0 and s=2",
         "`dragon(c3-s-end), dragonform.shift_count=1",
+        "`s3",
         "`s2",
         "`fs, x=1",
         "end"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 61177.840825836975,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
+      ],
       "coabs": [
+        "Blade",
         "Mitsuhide",
-        "Peony",
-        "Wand"
+        "Peony"
       ]
     },
     "META": {
@@ -318,7 +311,7 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 126712.82092839056,
+        "dps": 129018.78796004278,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -328,18 +321,13 @@
         "Spirit_of_the_Season",
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
-        "Kicking_Back",
+        "The_Queen_of_the_Knife",
         "Crown_of_Light",
         "Savage_Hawk_Lance"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Peony"
       ]
     },
     "META": {
-      "tdps": 2921503.5936099896,
+      "tdps": 1370429.457396694,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -348,6 +336,41 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70813.02152497176,
+        "team": 0.014595986977588845,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Crown_of_Light",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "if gourmand_mode.get()",
+        "`s4, fsc",
+        "`s3, fsc",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs, dodge",
+        "else",
+        "`s2",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`fs, x=1",
+        "end"
+      ],
+      "share": [
+        "Alex",
+        "Ranzal"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 75977.14928106379,
@@ -389,6 +412,7 @@
       ]
     },
     "META": {
+      "tdps": 353804.6289039034,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

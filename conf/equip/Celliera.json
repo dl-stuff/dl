@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71819.29208442853,
+        "dps": 74923.20755340433,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -41,7 +41,7 @@
       "slots.a": [
         "An_Ancient_Oath",
         "Memory_of_a_Friend",
-        "Valiant_Crown",
+        "OneWinged_Journey",
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
@@ -75,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 189613.3308007814,
+      "tdps": 198841.21555678692,
       "pref": "PERSONAL"
     }
   },
@@ -165,14 +165,32 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74587.89076472809,
+        "dps": 78188.46765946118,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "if dgauge>=500 and xf=5 and s2.check()",
+        "queue dragonform.shift_count=0",
+        "`fs;dragon(c3-s-c3-c3-end);s2, x=2",
+        "end",
+        "queue dragonform.shift_count=1",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
+        "end",
+        "queue dragonform.shift_count>=2",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
+        "end",
+        "end",
+        "`s2, not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
+      ]
     },
     "META": {
-      "tdps": 193063.498713273,
+      "tdps": 203767.9489381036,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -183,11 +201,151 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52737.782173675274,
-        "team": 0.09982564342202549,
+        "dps": 55905.26434356956,
+        "team": 0.13234629697551425,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "if dgauge>=500 and xf=5",
+        "queue dragonform.shift_count=0",
+        "`fs;dragon(c3-s-c3-c3-end);s2,xf",
+        "end",
+        "queue dragonform.shift_count=1",
+        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "end",
+        "queue dragonform.shift_count>=2",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, xf=3",
+        "end",
+        "end",
+        "`s1, buff(s2)",
+        "`s2, not buff(s2)",
+        "`s4, xf",
+        "`s3, xf>3",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55909.52657810252,
+        "team": 0.1322507382932936,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "if dgauge>=500 and xf=5",
+        "queue dragonform.shift_count=0",
+        "`fs;dragon(c3-s-c3-c3-end);s2",
+        "end",
+        "queue dragonform.shift_count=1",
+        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "end",
+        "queue dragonform.shift_count>=2",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, xf",
+        "end",
+        "end",
+        "`s1, buff(s2)",
+        "`s2, not buff(s2)",
+        "`s4, xf",
+        "`s3, xf>3",
+        "`fsf, xf=5"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 44603.320534738596,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55423.801408726904,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ],
+      "acl": [
+        "if dgauge>=500 and xf=5",
+        "queue dragonform.shift_count=0",
+        "`fs;dragon(c3-s-c3-c3-end);s2, x=2",
+        "end",
+        "queue dragonform.shift_count=1",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
+        "end",
+        "queue dragonform.shift_count>=2",
+        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
+        "end",
+        "end",
+        "`s2, not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35330.45201567676,
+        "team": 0.09982564342202538,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "The_Prince_of_Dragonyule",
+        "A_Small_Courage",
+        "His_Clever_Brother"
+      ],
       "slots.d": "Summer_Marishiten",
       "acl": [
         "if dgauge>=500 and xf=5",
@@ -217,71 +375,6 @@
         "Humanoid_Mercury"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 53005.821550480396,
-        "team": 0.09977031211313042,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "if dgauge>=500 and xf=5",
-        "queue dragonform.shift_count=0",
-        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
-        "end",
-        "queue dragonform.shift_count=1",
-        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
-        "end",
-        "queue dragonform.shift_count>=2",
-        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
-        "end",
-        "end",
-        "`s1, buff(s2)",
-        "`s2, not buff(s2)",
-        "`s4",
-        "`s3, xf=5",
-        "`fsf, xf=5"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "tdps": 4844262.356298853,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 53173.34587664045,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "Snipers_Allure"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 35358.33713960391,

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 80456.24278325592,
-        "team": 0.06248728036692965,
+        "dps": 89156.1185568234,
+        "team": 0.12821778864442737,
         "noaff": false,
         "nihil": false
       },
@@ -14,9 +14,9 @@
         "Taiko_Tandem",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
+        "`dragon, brewing_storm.level=5 and xf",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, xf or fsc",
@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80456.24278325592,
-        "team": 0.06248728036692965,
+        "dps": 90692.70049533404,
+        "team": 0.12814660978278333,
         "noaff": false,
         "nihil": false
       },
@@ -48,13 +48,13 @@
         "Taiko_Tandem",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
+        "`dragon, brewing_storm.level=5 and xf",
         "`s3, not buff(s3)",
         "`s4, fsc",
-        "`s1, xf or fsc",
-        "`s2, cancel",
+        "`s1, xf or fscf",
+        "`s2, xf or fscf",
         "`fs, x=3 and brewing_storm.level<5",
         "`fs, x=5"
       ],
@@ -69,14 +69,15 @@
       ]
     },
     "META": {
+      "tdps": 21587616.084603596,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54855.53817881898,
-        "team": 0.0,
+        "dps": 61705.370563928656,
+        "team": 0.037002799169250145,
         "noaff": false,
         "nihil": true
       },
@@ -87,7 +88,7 @@
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -112,10 +113,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 96997.36843009156,
-        "team": 0.06248728036692965,
+        "dps": 107048.3901393085,
+        "team": 0.1774523986314871,
         "noaff": false,
         "nihil": false
       },
@@ -125,9 +126,48 @@
         "Sweet_Surprise",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon, brewing_storm.level=5 and xf",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, xf or fsc",
+        "`s2, xf or fsc",
+        "`fs, x=3 and brewing_storm.level<5",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Nino"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 109760.52507058336,
+        "team": 0.1290746217225909,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon, brewing_storm.level=5",
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s1, xf or fsc",
+        "`s2, xf or fsc",
+        "`fs, x=3 and brewing_storm.level<5",
+        "`fs, x=5"
       ]
     },
     "META": {
+      "tdps": 56061.5866326865,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -138,8 +178,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68009.88792000622,
-        "team": 0.0,
+        "dps": 69199.8438731213,
+        "team": 0.09566798217515014,
         "noaff": false,
         "nihil": true
       },
@@ -173,8 +213,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68943.2211537622,
-        "team": 0.06248728036692965,
+        "dps": 68045.41395191096,
+        "team": 0.06247108976790179,
         "noaff": false,
         "nihil": false
       },
@@ -184,7 +224,8 @@
         "Memory_of_a_Friend",
         "Taiko_Tandem",
         "The_Queen_of_the_Knife"
-      ]
+      ],
+      "slots.d": "Gala_Reborn_Zephyr"
     },
     "META": {
       "pref": "PERSONAL",
@@ -197,8 +238,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44956.60529918385,
-        "team": 0.0,
+        "dps": 38281.59697558282,
+        "team": 0.0666370057949761,
         "noaff": false,
         "nihil": true
       },

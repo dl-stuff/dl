@@ -36,15 +36,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78025.51977356683,
-        "team": 0.2017286252428885,
-        "noaff": true,
+        "dps": 83220.47873976687,
+        "team": 0.14999336531225146,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
         "Candy_Couriers",
-        "Pecorines_Grand_Adventure",
+        "The_Red_Impulse",
         "Dueling_Dancers",
         "Entwined_Flames"
       ],
@@ -53,25 +53,57 @@
         "`dragon(c2-s-c3-c3-c3-end), s=1",
         "`s3, not buff(s3)",
         "`s2, cancel",
-        "`s1, cancel or dgauge>=500",
+        "`s1, x=5 or dgauge>=500",
         "`s4"
       ],
       "coabs": [
-        "Humanoid_Midgardsormr",
         "Nino",
-        "Valentines_Melody"
+        "Valentines_Melody",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 71036.27654745588,
+      "tdps": 72480.31451258292,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17394.77916316965,
+        "team": 0.09996479573110342,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Candy_Couriers",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), s=1",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, x=5 or dgauge>=500",
+        "`s4"
+      ],
+      "coabs": [
+        "Nino",
+        "Valentines_Melody",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 31159.28349189504,
@@ -104,14 +136,15 @@
       ]
     },
     "META": {
+      "tdps": 137693.5172833315,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 96241.45617814081,
-        "team": 0.3313948713743896,
+        "dps": 101924.44860173578,
+        "team": 0.1328294537314246,
         "noaff": false,
         "nihil": false
       },
@@ -123,19 +156,15 @@
         "The_Plaguebringer"
       ],
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), s=1",
+        "`dragon(c3-s-c3-c3-c2-end), timeleft(s1)>10 and cancel",
         "`s3, not buff(s3)",
         "`s2",
-        "`s1, cancel or dgauge>=500",
-        "`s4, x=5"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "`s1, (x=5 and dgauge<400) or (dgauge>=500 and cancel)",
+        "`s4, cancel"
       ]
     },
     "META": {
-      "tdps": 102521.02425271041,
+      "tdps": 88802.82356874648,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -146,7 +175,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47143.74690489159,
+        "dps": 48129.146292078956,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -159,10 +188,15 @@
         "Entwined_Flames"
       ],
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), aff(stormlash)",
+        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`s2",
         "`s3, cancel",
-        "`s2, cancel",
         "`s4"
+      ],
+      "coabs": [
+        "Nino",
+        "Valentines_Melody",
+        "Yukata_Lathna"
       ],
       "share": [
         "Gala_Mym",
@@ -173,6 +207,62 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81317.17459264764,
+        "team": 0.20184237882975833,
+        "noaff": true,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon(c2-s-c3-c3-c3-end), s=1",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, cancel or dgauge>=500",
+        "`s4"
+      ],
+      "coabs": [
+        "Axe2",
+        "Humanoid_Midgardsormr",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Luca"
+      ]
+    },
+    "META": {
+      "tdps": 74333.79964309679,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 74671.73273663665,
+        "team": 0.1548608333286955,
+        "noaff": true,
+        "nihil": false
+      },
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 64657.15682759467,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -201,7 +291,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

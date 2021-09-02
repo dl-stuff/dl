@@ -1,0 +1,300 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64705.15604209141,
+        "team": 0.17389718648348967,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "dragon, s=1",
+        "s3, not buff(s3)",
+        "s1",
+        "s2, xf",
+        "s4, xf",
+        "fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 85414.8989012329,
+        "team": 0.07980300996808205,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "dragon, s=1",
+        "s3, not buff(s3)",
+        "s1",
+        "s2, xf",
+        "s4, xf",
+        "fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 220095.90418967462,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52744.2016011267,
+        "team": 0.01497030146915676,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "dragon(c3-s-c3-c3-end)",
+        "s3, not buff(s3)",
+        "s1",
+        "s2",
+        "s4, xf=5",
+        "fsf, xf=5"
+      ],
+      "coabs": [
+        "Eleonora",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59120.75638894691,
+        "team": 0.014617073314620734,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "acl": [
+        "dragon(c3-s-c3-c3-end)",
+        "s3, not buff(s3)",
+        "s1",
+        "s2",
+        "s4, xf=5",
+        "fsf, xf=5"
+      ],
+      "coabs": [
+        "Eleonora",
+        "Mona",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 18052226.88490378,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 95724.75543805015,
+        "team": 0.1791584641600057,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon, buff(s2) and xf=5",
+        "`s3, not buff(s3)",
+        "`s2, amp_lvl(team,\"10000\")",
+        "`s1",
+        "`s2, s=1",
+        "`s4",
+        "`fsf, xf=5"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 100665.07276824399,
+        "team": 0.0795746133700982,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, buff(s2) and xf=5",
+        "`s3, not buff(s3)",
+        "`s2, amp_lvl(team,\"10000\")",
+        "`s1",
+        "`s2, s=1",
+        "`s4",
+        "`fsf, xf=5"
+      ]
+    },
+    "META": {
+      "tdps": 49609.62335767119,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71959.32062300156,
+        "team": 0.012053981377441514,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "dragon(c3-s-c3-c3-end), s=2",
+        "s1",
+        "s2, xf",
+        "s4, xf",
+        "s3, xf=5",
+        "fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50427.99184610076,
+        "team": 0.12739212634166364,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "Valiant_Crown",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "s3, not buff(s3)",
+        "s1",
+        "s2, xf",
+        "s4, xf",
+        "fsf, xf=5"
+      ]
+    },
+    "META": {
+      "tdps": 1751908.038848139,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 35979.78399089765,
+        "team": 0.011691053346603763,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "dragon(c3-s-c3-c3-end), s=1",
+        "s3, not buff(s3)",
+        "s1",
+        "s2, xf",
+        "s4, xf",
+        "fsf, xf=5"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  }
+}

@@ -57,8 +57,7 @@
         "`dragon(c3-s-end),      dragonform.shift_count=0 and cancel",
         "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-end ), dragonform.shift_count=2",
-        "`dragon( c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count=3",
-        "`dragon( AB10 ), dragonform.shift_count>=4"
+        "`dragon( c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count=3"
       ],
       "coabs": [
         "Kimono_Elisanne",
@@ -132,7 +131,6 @@
         "`dragon(c3-s-c3-end),      dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
-        "`dragon( AB10 ),         dragonform.shift_count>=3",
         "`s3",
         "`s1, cancel",
         "`s2, fscf",
@@ -177,14 +175,16 @@
         "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-end ), dragonform.shift_count=2",
         "`dragon( c3-c3-s-c3-c3-c3-c3-end), dragonform.shift_count=3",
-        "`dragon( AB10 )",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
         "`s4, cancel",
         "`s2, fscf",
         "`fs, x=5",
         "`fs, x<4 and charged_in(fs, s1)",
-        "`dodge, fscf and buff(s3) and dragonform.shift_count>=2 and s"
+        "`dodge, fscf and buff(s3) and dragonform.shift_count>=2 and s",
+        "if not buff(s3)",
+        "`fsf, x=5",
+        "end"
       ]
     },
     "META": {
@@ -218,7 +218,6 @@
         "`dragon(c3-s-end), dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
-        "`dragon( AB10 ),  dragonform.shift_count>=3",
         "`s3, fsc",
         "`s1,cancel",
         "`s2, fscf",
@@ -259,7 +258,6 @@
         "`dragon(c3-s-end), dragonform.shift_count=0 and cancel",
         "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=2",
-        "`dragon( AB10 ), dragonform.shift_count>=3",
         "`s3, not buff(s3)",
         "`s4, fscf",
         "`s1",
@@ -345,7 +343,6 @@
         "`dragon(c3-s-c3-end), dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=2",
-        "`dragon( AB10 ), dragonform.shift_count>=3",
         "`s3, not dragonform.shift_count =4",
         "`s1, cancel or dragonform.shift_count =4",
         "`s2, fscf or dragonform.shift_count=4",
