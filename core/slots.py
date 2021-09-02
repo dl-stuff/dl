@@ -268,14 +268,15 @@ class DragonBase(EquipBase):
         self.dragonform = conf
 
     def oninit(self, adv, dform_class=None):
-        if dform_class is None:
-            from core.dragonform import DragonForm
+        from core.dragonform import DragonForm
 
+        if dform_class is None:
             dform_class = DragonForm
 
         if adv.conf["dragonform"]:
             name = self.c.name
             self.dragonform = Conf(adv.conf["dragonform"])
+            dform_class = DragonForm
         else:
             name = self.name
 
