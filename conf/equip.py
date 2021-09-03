@@ -41,6 +41,7 @@ HAS_7SLOT = (
     "light",
     "flame",
     "shadow",
+    "wind",
 )
 BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
 BUILD_META_KEY = "EQMT"
