@@ -67,8 +67,8 @@ class Bleed(Dot):
 
     def on(self):
         if self._static["stacks"] == 3:
-            log("resist", "bleed")
-            return
+            # turn off lowest potency bleed
+            sorted(self._static["all_bleeds"], key=lambda b: (b.dot_end_timer.timing, b.quickshot_event.dmg_coef))[0].off()
         elif self._static["stacks"] > 3:
             print("err in bleed on")
             exit()
@@ -85,6 +85,10 @@ class Bleed(Dot):
             pass
         self._static["stacks"] += 1
         self.bleed_event()
+
+    def off(self):
+        self.dot_end_proc(self.dot_end_timer)
+        self.dot_end_timer.off()
 
 
 class mBleed(Bleed):
@@ -162,14 +166,12 @@ class mBleed(Bleed):
             if stacks == 1:
                 return total * probability
 
-        if len(active) < 3:
-            # still have room for another stack
-            # add the damages from having it whiff and proc
-            current = bleeds[index]
-            return self.sum_bleeds(bleeds, active + [current], probability * current.chance, index + 1) + self.sum_bleeds(bleeds, active, probability * (1.0 - current.chance), index + 1)
-        else:
-            # stacks saturated, guaranteed whiff
-            return self.sum_bleeds(bleeds, active, probability, index + 1)
+        current = bleeds[index]
+        if len(active) == 3:
+            # turn off lowest potency bleed
+            min_bleed = sorted(active, key=lambda b: (b.dot_end_timer.timing, b.quickshot_event.dmg_coef))[0]
+            active.remove(min_bleed)
+        return self.sum_bleeds(bleeds, active + [current], probability * current.chance, index + 1) + self.sum_bleeds(bleeds, active, probability * (1.0 - current.chance), index + 1)
 
     def tick_proc(self, e):
         stacks = self._static["stacks"]
