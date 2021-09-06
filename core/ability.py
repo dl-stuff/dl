@@ -340,6 +340,11 @@ class Union_Ability(Ability):
             3: [("buff", "passive", 0.08)],
             4: [("buff", "passive", 0.15)],
         },
+        12: {2: [("affres", "poison", 100)]},
+        13: {2: [("affres", "freeze", 100)]},
+        14: {2: [("affres", "blind", 100)]},
+        15: {2: [("affres", "bog", 100)]},
+        16: {2: [("affres", "sleep", 100)]},
     }
 
     def __init__(self, name, value, level):
