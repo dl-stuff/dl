@@ -49,8 +49,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Snipers_Allure",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -80,6 +80,42 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48324.535887807695,
+        "team": 0.029405168146494815,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c2-s), radiance_level=3",
+        "`s1",
+        "`s2, radiance_level=3 and cancel",
+        "`s3, x>3 or fsc",
+        "`s4, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54339.053054499396,
@@ -93,8 +129,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Snipers_Allure",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
@@ -117,6 +153,7 @@
       ]
     },
     "META": {
+      "tdps": 204539.4583947873,
       "pref": "PERSONAL"
     }
   },
@@ -134,8 +171,8 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`s3, not buff(s3) and fsc",
@@ -169,15 +206,15 @@
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -203,8 +240,8 @@
         "The_Red_Impulse",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ]
     },
     "META": {
@@ -238,7 +275,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

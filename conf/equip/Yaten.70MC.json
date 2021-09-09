@@ -35,19 +35,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 84563.44085761944,
+        "dps": 119260.8442378793,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "A_Small_Courage",
+        "Welcome_to_the_Opera",
         "Luck_of_the_Draw",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
@@ -63,23 +63,23 @@
       ],
       "coabs": [
         "Blade",
-        "Joker",
+        "Bow",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Summer_Luca"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 312033.72948637605,
+      "tdps": 501260.4986962571,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24053.027163654016,
+        "dps": 42022.3833548867,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -87,25 +87,32 @@
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`s3",
-        "`s4",
+        "`dragon(c2-s-c3-end), x=5",
         "`s1",
-        "`fs, x=3"
+        "`s2, energy()<5 and cancel",
+        "`s4, energy()<5",
+        "if not buff(s3)",
+        "`fs, x=5",
+        "else",
+        "`fs, x=4",
+        "end"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
+        "Delphi",
+        "Ieyasu",
+        "Vania"
       ],
       "share": [
-        "Gala_Mym",
-        "Summer_Julietta"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -123,7 +130,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 116402.17245119625,
+        "dps": 140236.35736637996,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -133,30 +140,29 @@
         "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
         "A_Small_Courage",
-        "Luck_of_the_Draw",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s), (duration-now)<8 and (s=1 and energy()<3)",
+        "`dragon(s), (duration-now)<3 and (s=1 and energy()<3)",
         "`s3, not buff(s3)",
         "`s2, energy()<5 and cancel",
         "`s1",
         "`s4, energy()<5",
         "if not buff(s3)",
-        "`fs, x=5",
+        "`fs, x=3",
         "else",
         "`fs, x=4",
         "end"
       ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Vania"
+      "share": [
+        "Weapon",
+        "Summer_Luca"
       ]
     },
     "META": {
-      "tdps": 482338.7258554422,
+      "tdps": 612321.5305865009,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -167,26 +173,18 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43956.29180725714,
+        "dps": 57723.73380991591,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
-        "`dragon(c5-s-c5-c5-end)",
+        "`dragon(c5-s-end), fsc",
         "`s3",
         "`s4",
+        "`s2",
         "`s1",
-        "`fs, x=2"
+        "`fs, x=4"
       ],
       "coabs": [
         "Ieyasu",
@@ -215,8 +213,16 @@
         "nihil": false
       }
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73115.59657998354,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "META": {
-      "tdps": 319892.7006153111,
+      "tdps": 257460.40378507372,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,7 +233,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 15354.348682466565,
+        "dps": 25349.60515208301,
         "team": 0.0,
         "noaff": false,
         "nihil": true

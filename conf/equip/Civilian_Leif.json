@@ -1,0 +1,194 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 60699.1838182221,
+        "team": 0.23851029900332218,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Flowers_Under_the_Moon",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Summer_Cat_Sith",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s2",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 70592.79019570857,
+        "team": 0.18327638091949647,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Flowers_Under_the_Moon",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-s-end)",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s2",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 179121.93667795652,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 51112.64358752497,
+        "team": 0.06666057463081825,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Flowers_Under_the_Moon",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`s4, fsc",
+        "`fs",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 85570.59149895006,
+        "team": 0.16459322831495757,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s3, not buff(s3)",
+        "`s1, fsc",
+        "`s2",
+        "`s4, fsc",
+        "`fs, x=1"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 63302.92162578915,
+        "team": 0.06662356122255554,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s3, fsc",
+        "`s1",
+        "`s2",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  }
+}

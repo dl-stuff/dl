@@ -90,6 +90,36 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2727.6343488272382,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`s4",
+        "`s3, not buff(s3)",
+        "`s1, x<=4 and timeleft(s1)<5"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Tobias",
+        "Yuya"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 21439.0262166866,
@@ -200,7 +230,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -235,7 +265,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

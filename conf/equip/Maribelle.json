@@ -36,17 +36,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81318.78500829173,
-        "team": 0.08043839969330899,
+        "dps": 90082.76425636634,
+        "team": 0.08043839969330915,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Candy_Couriers",
+        "Bloody_Little_Queen",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "A_Small_Courage",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -69,24 +71,26 @@
       ]
     },
     "META": {
-      "tdps": 853672.3117884683,
+      "tdps": 1080888.397807705,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64469.51868174817,
-        "team": 0.062304522040650664,
+        "dps": 70891.5054821937,
+        "team": 0.06230452204065081,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Candy_Couriers",
+        "Bloody_Little_Queen",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "A_Small_Courage",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -115,40 +119,12 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 94344.74195108283,
-        "team": 0.23187626060042787,
+        "dps": 79886.72740603844,
+        "team": 0.2558359997762347,
         "noaff": false,
         "nihil": false
       },
       "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, energy()=5 and cancel",
-        "`s4, s=3",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, x>2 or fsc",
-        "`s4, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 96455.75617248382,
-        "team": 0.1937334543259586,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
         "`dragon(c2-s-c3-c3-c3-end), energy()=5 and cancel",
         "`s4, s=3",
@@ -159,13 +135,45 @@
         "`dodge, fsc",
         "`fs, x=5"
       ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 107378.85077734545,
+        "team": 0.24287788757847095,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, energy()=5",
+        "`s4",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x>2 or fsc",
+        "`s4, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "META": {
-      "tdps": 55345.01594377918,
+      "tdps": 2121614.8580694823,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -176,17 +184,22 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68015.79933142074,
-        "team": 0.07669293541928769,
+        "dps": 77211.96450793585,
+        "team": 0.07803280137348453,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`dragon",
         "`s3, cancel",
         "`s4, cancel",
         "`s1",
         "`s2, cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Humanoid_Midgardsormr",
+        "Mona"
       ]
     },
     "META": {

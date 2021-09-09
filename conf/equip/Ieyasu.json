@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98656.24724860728,
+        "dps": 103616.99264162322,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -47,15 +47,15 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), duration-now<12",
+        "`dragon(s), duration-now<15 and s=1",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s2, xf=5",
+        "`s2",
         "`s4",
         "`fs, xf=2 and charged_in(fs, s1)",
         "`fsf, xf=5 and not buff(s3)",
@@ -72,14 +72,14 @@
       ]
     },
     "META": {
-      "tdps": 532929.7589803454,
+      "tdps": 578812.2313337596,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 89361.05018825884,
+        "dps": 93775.0813197706,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -91,7 +91,7 @@
       ]
     },
     "META": {
-      "tdps": 446957.4728917652,
+      "tdps": 487783.32572505664,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -102,7 +102,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50717.52640168525,
+        "dps": 55071.39271591174,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -113,8 +113,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
@@ -150,7 +150,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 113384.39763948976,
+        "dps": 116716.27284678469,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -161,14 +161,14 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s), duration-now<10 and s=1",
+        "`dragon(s), duration-now<15 and s=1",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s2, xf=5",
+        "`s2",
         "`s4, xf=5",
         "`fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
         "`fsf, xf=5 and not buff(s3)"
@@ -184,7 +184,7 @@
       ]
     },
     "META": {
-      "tdps": 453018.4073073236,
+      "tdps": 483537.54973189114,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -195,7 +195,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73957.38041524157,
+        "dps": 75338.4514663149,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -206,17 +206,17 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`s1, bleed_timeleft()<=0.8",
+        "`s1, bleed_timeleft()<=2",
         "`s4",
         "`s3, xf=5",
-        "`dragon(c5-s-c5-end), xf=5 and dragonform.shift_count=0",
-        "`dragon(c5-s-c5-end), xf=5 and dragonform.shift_count=1",
-        "`dragon(c5-s-end), s=1 and dragonform.shift_count=2",
+        "`dragon(c5-s-end), xf=5 and dragonform.shift_count=0",
+        "`dragon(c5-s-end), xf=5 and dragonform.shift_count=1",
+        "`dragon(c5-s-c5-c5-end), s=1 and dragonform.shift_count=2",
         "`fsf, xf=5"
       ],
       "coabs": [
@@ -351,8 +351,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Chariot_Drift",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Arsene",
       "acl": [

@@ -35,17 +35,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 93755.93572338608,
-        "team": 0.05553857207061123,
+        "dps": 100804.72352206621,
+        "team": 0.05553857207061118,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -53,7 +55,7 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
-        "`s1, (gauges[x]>=1000 and (gauges[x]>=1000 and cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel))",
+        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
         "if gauges[fs]<1000",
         "`fs, x=4 or hits=0",
         "else",
@@ -71,24 +73,26 @@
       ]
     },
     "META": {
-      "tdps": 537464.7278017955,
+      "tdps": 602668.749195506,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66862.08028853302,
-        "team": 0.05555037902375774,
+        "dps": 73204.52760570448,
+        "team": 0.05555037902375769,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -96,7 +100,7 @@
         "`s3",
         "`s2, fsc",
         "`s4",
-        "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel))",
+        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
         "if gauges[fs]<1000",
         "`fs, x=4 or hits=0",
         "else",
@@ -120,17 +124,26 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 115736.458251209,
-        "team": 0.17493240806121918,
+        "dps": 127139.71767393386,
+        "team": 0.17493240806121893,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
-        "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel))",
+        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
         "if gauges[fs]<1000",
         "`fs, x=4 or hits=0",
         "else",
@@ -158,17 +171,17 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76160.94223414944,
-        "team": 0.0555451411507858,
+        "dps": 90477.29043067888,
+        "team": 0.07405360236710865,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon, cancel",
+        "`dragon, gauges[fs]>=1000 and gauges[x]>=1000",
         "`s3,xf",
         "`s2, fsc",
         "`s4,xf",
-        "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and Cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel))",
+        "`s1, (gauges[x]>=1000 and (gauges[fs]>=1000 and Cancel)) or (gauges[x]<=1000 and (gauges[fs]<=1000 and cancel)) and hits>14",
         "if gauges[fs]<1000",
         "`fs, x=4 or hits=0",
         "else",
@@ -176,9 +189,9 @@
         "end"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
-        "Nino"
+        "Wand",
+        "Yukata_Lathna"
       ],
       "share": [
         "Summer_Celliera",
@@ -196,7 +209,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75985.65317749587,
+        "dps": 73613.21395092407,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -225,8 +238,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48697.66784886476,
-        "team": 0.0,
+        "dps": 41046.541416899505,
+        "team": 0.05553215252753729,
         "noaff": false,
         "nihil": true
       },

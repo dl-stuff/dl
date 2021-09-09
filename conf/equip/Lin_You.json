@@ -79,6 +79,42 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37110.16334509921,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Summer_Paladyns",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s1.check() and cancel",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=1",
+        "`dodge, fsc",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 47627.401417738736,
@@ -121,8 +157,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 109696.29702133861,
-        "team": 0.14795026454682414,
+        "dps": 104296.04192612851,
+        "team": 0.1562890504325264,
         "noaff": false,
         "nihil": false
       },
@@ -135,7 +171,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(s-c3-end), cancel",
+        "`dragon(s-c3-c3-c3-end), cancel",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, charged_in(4,s1) and cancel",
@@ -145,6 +181,11 @@
         "`dodge, fsc",
         "end"
       ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
@@ -152,17 +193,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 114029.8317858415,
-        "team": 0.1468882722746442,
+        "dps": 126741.91592859,
+        "team": 0.14688827227464402,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Summer_Paladyns",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`dragon(s-c3-c3-c3-end), cancel",
@@ -181,7 +224,7 @@
       ]
     },
     "META": {
-      "tdps": 4080570.9024676103,
+      "tdps": 2387661.2792570842,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -192,20 +235,23 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60774.74301146329,
-        "team": 0.014610635320479794,
+        "dps": 64998.862357877595,
+        "team": 0.0745315029564391,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Summer_Paladyns",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`dragon, cancel",
         "`s3",
         "`s4",
         "`s1, cancel",
@@ -217,7 +263,7 @@
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
-        "Valentines_Melody"
+        "Yukata_Lathna"
       ],
       "share": [
         "Summer_Celliera",
@@ -228,7 +274,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -305,19 +351,47 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 37964.77595687167,
+        "dps": 42416.033180019615,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Summer_Paladyns",
-        "Sweet_Surprise",
         "Hastened_Squall",
-        "The_Plaguebringer"
+        "Lord_of_the_Skies",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42416.033180019615,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Summer_Paladyns",
+        "Hastened_Squall",
+        "Lord_of_the_Skies",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
@@ -340,18 +414,10 @@
         "Formal_Joachim"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 37964.77595687167,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

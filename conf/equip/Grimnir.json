@@ -36,17 +36,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90692.70049533404,
-        "team": 0.12814660978278333,
+        "dps": 97793.49630635759,
+        "team": 0.12814660978278342,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "Advent_of_the_War_God",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "A_Small_Courage",
         "Taiko_Tandem",
-        "The_Queen_of_the_Knife"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -69,24 +71,26 @@
       ]
     },
     "META": {
-      "tdps": 21587616.084603596,
+      "tdps": 121347511.74778922,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61705.370563928656,
-        "team": 0.037002799169250145,
+        "dps": 67561.12483944878,
+        "team": 0.07406040170102672,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -99,8 +103,8 @@
         "`fs, x=3"
       ],
       "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Meene",
         "Mona"
       ],
       "share": [
@@ -115,59 +119,74 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 107048.3901393085,
-        "team": 0.1774523986314871,
+        "dps": 122547.90219826787,
+        "team": 0.1847706942591515,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, brewing_storm.level=5 and xf",
-        "`s3, not buff(s3)",
+        "`dragon, brewing_storm.level=5",
+        "`s3, not buff(s3) and fscf",
         "`s4, fsc",
-        "`s1, xf or fsc",
-        "`s2, xf or fsc",
+        "`s1, xf or fscf",
+        "`s2, xf or fscf",
         "`fs, x=3 and brewing_storm.level<5",
         "`fs, x=5"
       ],
       "coabs": [
+        "Dragonyule_Xainfried",
         "Gala_Notte",
-        "Mona",
         "Nino"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 109760.52507058336,
-        "team": 0.1290746217225909,
+        "dps": 124478.4804222863,
+        "team": 0.17901236535971227,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, brewing_storm.level=5",
         "`s3, not buff(s3)",
+        "if brewing_storm.level<5",
         "`s4, fsc",
-        "`s1, xf or fsc",
-        "`s2, xf or fsc",
-        "`fs, x=3 and brewing_storm.level<5",
-        "`fs, x=5"
+        "`s1, cancel",
+        "`s2",
+        "`fs, x=3",
+        "else",
+        "`dragon, cancel",
+        "`s4, fsc",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Nino"
       ]
     },
     "META": {
-      "tdps": 56061.5866326865,
+      "tdps": 335267.09879431233,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -176,21 +195,37 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 69199.8438731213,
-        "team": 0.09566798217515014,
+        "dps": 87773.30323912128,
+        "team": 0.13282283725206012,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), brewing_storm.level=5 and xf",
-        "`s3, cancel",
-        "`s4",
+        "if brewing_storm.level<5",
         "`s1, xf or fsc",
         "`s2, cancel",
-        "`fs, x=3 and brewing_storm.level<5",
-        "`fs, x=5"
+        "`s3, fscf",
+        "`s4, cancel",
+        "`fs, x=3",
+        "else",
+        "`dragon",
+        "`s4, fsc",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3",
+        "`fs, x=5",
+        "end"
       ],
       "coabs": [
         "Gala_Notte",
@@ -198,11 +233,54 @@
         "Nino"
       ],
       "share": [
-        "Gala_Mym",
-        "Gala_Notte"
+        "Summer_Celliera",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 88148.43086607795,
+        "team": 0.1280754317887282,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "if brewing_storm.level<5",
+        "`s1, xf or fsc",
+        "`s2",
+        "`s3, fscf",
+        "`s4, cancel",
+        "`fs, x=3",
+        "else",
+        "`dragon",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3",
+        "`s4, fsc",
+        "`fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Akasha"
       ]
     },
     "META": {
+      "tdps": 79017.39799856792,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

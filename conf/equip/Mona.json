@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65730.02449518784,
+        "dps": 68891.8160078884,
         "team": 0.09256729338526087,
         "noaff": false,
         "nihil": false
@@ -16,19 +16,17 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
+        "`dragon, not dragondrive.get() and s2.check()",
         "`s3, not buff(s3)",
-        "if s2.check() and not dragondrive.get()",
-        "`dragon",
-        "end",
         "`s1",
         "`s2",
         "`s4",
         "`fs, x=4"
       ],
       "coabs": [
-        "Gala_Notte",
         "Humanoid_Midgardsormr",
-        "Wand"
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -37,17 +35,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101014.1675344875,
+        "dps": 109635.89052192117,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -69,24 +69,26 @@
       ]
     },
     "META": {
-      "tdps": 381172.89324263437,
+      "tdps": 440156.2692824753,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75115.80510079564,
+        "dps": 82277.03865597943,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
@@ -124,8 +126,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 120231.87821296368,
-        "team": 0.09997185236956624,
+        "dps": 131769.23423718556,
+        "team": 0.0999718523695661,
         "noaff": false,
         "nihil": false
       },
@@ -143,7 +145,7 @@
       ]
     },
     "META": {
-      "tdps": 10851381.123978829,
+      "tdps": 13708422.46404069,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -154,7 +156,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81394.37832471206,
+        "dps": 90551.46436719256,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -168,9 +170,9 @@
         "`fs, x=4"
       ],
       "coabs": [
-        "Blade",
         "Humanoid_Midgardsormr",
-        "Wand"
+        "Nino",
+        "Yukata_Lathna"
       ]
     },
     "META": {
@@ -196,14 +198,6 @@
         "FirstRate_Hospitality",
         "Odd_Sparrows"
       ],
-      "acl": [
-        "`dragon, not dragondrive.get() and s2.check()",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`fs, x=4"
-      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Grace",
@@ -216,14 +210,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62145.13983720671,
+        "dps": 66314.1177460866,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 448455.96771416755,
+      "tdps": 559869.246535648,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -231,46 +225,46 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
+  "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63112.606128085,
-        "team": 0.0,
+        "dps": 30736.078446524974,
+        "team": 0.039195026140730845,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Ariel",
       "coabs": [
+        "Gala_Notte",
         "Humanoid_Midgardsormr",
-        "Nino",
-        "Yukata_Lathna"
+        "Lowen"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Sha_Wujing"
       ]
     },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42914.32460361206,
-        "team": 0.0,
+        "dps": 45340.4858705648,
+        "team": 0.02936093277543345,
         "noaff": false,
         "nihil": true
       },
       "share": [
-        "Ranzal",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Sha_Wujing"
       ]
     },
     "META": {
+      "tdps": 1485079.1914967925,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
