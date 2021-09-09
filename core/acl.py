@@ -195,7 +195,11 @@ class AclInterpreter(Interpreter):
             except KeyError:
                 pass
             rres = self.visit(right)
-            res = BINARY_EXPR[op.type](lres, rres)
+            try:
+                res = BINARY_EXPR[op.type](lres, rres)
+            except TypeError:
+                # assume true when type error
+                res = not negate
         return not res if negate else res
 
     def selfcond(self, t):
