@@ -6,21 +6,18 @@ class Cecile(Adv):
         self.manachew_gauge = 0
         self.manachew_mode = ModeManager(
             group="manachew",
-            buffs=[
-                Selfbuff("manachew_defense", 0.2, -1, "defense", "passive"),
-                Selfbuff("manachew_sd", 0.1, -1, "s", "passive"),
-                Selfbuff("manachew_sp", 0.08, -1, "sp", "passive")],
+            buffs=[Selfbuff("manachew_defense", 0.2, -1, "defense", "passive"), Selfbuff("manachew_sd", 0.1, -1, "s", "passive"), Selfbuff("manachew_sp", 0.08, -1, "sp", "passive")],
             fs=True,
             s1=True,
             s2=True,
             duration=20,
-            pause=("s", "dragon")
+            pause=("s", "dragon"),
         )
         Event("dragon_end").listener(self.dshift_manachew_gauge)
 
     def a1_update(self, gauge):
         if self.manachew_mode.get():
-            max_add = self.manachew_mode.duration - (self.manachew_mode.timer.timing - now())
+            max_add = self.manachew_mode.duration - self.manachew_mode.timeleft()
             add_time = min(gauge / 10000 * self.manachew_mode.duration, max_add)
             self.manachew_mode.add_time(add_time)
         else:
