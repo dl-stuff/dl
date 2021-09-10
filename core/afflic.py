@@ -463,8 +463,8 @@ class Afflics(object):
             "shadowblight": 100,
             "scorchrend": 100,
         },
-        ("wind", True): {  # Master Jaldabaoth (water side)
-            "poison": 60,
+        ("wind", True): {  # Master Iblis (water side)
+            "poison": 0,
             "burn": 100,
             "freeze": 100,
             "paralysis": 100,
