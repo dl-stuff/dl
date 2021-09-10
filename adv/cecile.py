@@ -36,11 +36,9 @@ class Cecile(Adv):
         self.a1_update(attr.get("cp", 0))
         super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
 
-    # unused
     def a1_add_manachew_time(self):
         self.manachew_mode.add_time(2)
 
-    # unused
     def a3_dodge_gauge_fill(self):
         self.charge_p("a3", 0.2, target="s1")
         self.charge_p("a3", 0.2, target="s2")
