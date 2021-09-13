@@ -1,0 +1,35 @@
+{
+    "c": {
+        "name": "Undercover Grace",
+        "icon": "110059_02_r05",
+        "att": 505,
+        "hp": 754,
+        "ele": "flame",
+        "wt": "sword",
+        "spiral": false,
+        "a": [["affres_stun", 100.0]]
+    },
+    "s1": {
+        "sp": 3000,
+        "startup": 0.1,
+        "recovery": 2.16667,
+        "attr": [
+            {"dmg": 22.0, "buff": ["debuff", -0.1, 10.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 1.4}
+        ]
+    },
+    "s2": {
+        "sp": 6000,
+        "startup": 0.1,
+        "recovery": 1.83333,
+        "attr": [
+            {"amp": ["20000", 2, 0], "iv": 1.43333},
+            {"amp": ["20000", 2, 0], "cond": ["var>=", ["soul_seal_level", 2]], "iv": 1.43333},
+            {"amp": ["20000", 2, 0], "cond": ["var>=", ["soul_seal_level", 3]], "iv": 1.43333},
+            {"amp": ["20000", 2, 0], "cond": ["var>=", ["soul_seal_level", 4]], "iv": 1.43333},
+            {"dmg": 10.0, "iv": 1.43333, "msl": 0.3},
+            {"dmg": 10.0, "iv": 1.43333, "msl": 0.9, "cond": ["var>=", ["soul_seal_level", 2]]},
+            {"dmg": 10.0, "iv": 1.43333, "msl": 1.2, "cond": ["var>=", ["soul_seal_level", 3]]},
+            {"dmg": 10.0, "iv": 1.43333, "msl": 1.5, "cond": ["var>=", ["soul_seal_level", 4]]}
+        ]
+    }
+}

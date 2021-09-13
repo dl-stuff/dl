@@ -1,0 +1,120 @@
+{
+    "c": {
+        "name": "Farren",
+        "icon": "110393_01_r05",
+        "att": 497,
+        "hp": 763,
+        "ele": "light",
+        "wt": "dagger",
+        "spiral": false,
+        "a": [["affres_curse", 100.0]]
+    },
+    "fs_ddrive": {
+        "charge": 0.15,
+        "startup": 0.15152,
+        "recovery": 0.60606,
+        "attr": [
+            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "sp": 288, "utp": 40},
+            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "iv": 0.12121},
+            {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "iv": 0.36363}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
+    },
+    "s1": {
+        "sp": 2860,
+        "startup": 0.1,
+        "recovery": 2.43333,
+        "attr": [
+            {"utp": 300},
+            {"dmg": 4.0, "iv": 0.26667},
+            {"dmg": 4.0, "iv": 0.7},
+            {"dmg": 4.0, "iv": 1.1},
+            {"dmg": 4.0, "iv": 1.3},
+            {"dmg": 4.0, "iv": 1.6},
+            {"amp": ["20000", 2, 0], "iv": 1.6}
+        ]
+    },
+    "s1_ddrive": {
+        "sp": 2860,
+        "startup": 0.1,
+        "recovery": 2.43333,
+        "attr": [
+            {"utp": 300},
+            {"dmg": 5.2, "crisis": -0.9, "iv": 0.26667},
+            {"dmg": 5.2, "crisis": -0.9, "iv": 0.7},
+            {"dmg": 5.2, "crisis": -0.9, "iv": 1.1},
+            {"dmg": 5.2, "crisis": -0.9, "iv": 1.3},
+            {"dmg": 5.2, "crisis": -0.9, "iv": 1.6},
+            {"amp": ["20000", 2, 0], "iv": 1.6}
+        ]
+    },
+    "s2": {
+        "sp": 10725,
+        "startup": 0.1,
+        "recovery": 0.83333,
+        "attr": [
+            {"heal": 30, "iv": 0.16667}
+        ],
+        "energizable": true
+    },
+    "s2_ddrive": {
+        "sp": 10725,
+        "startup": 0.1,
+        "recovery": 2.46667,
+        "attr": [
+            {"utp": -1500},
+            {"sp": [0.5, "%", "s2"]},
+            {"dmg": 32.5, "crisis": -0.9, "iv": 1.33333}
+        ]
+    },
+    "x1_ddrive": {
+        "startup": 0.2,
+        "recovery": 0.2,
+        "attr": [
+            {"dmg": 0.66, "crisis": -0.9, "sp": 205, "utp": 40},
+            {"dmg": 0.66, "crisis": -0.9, "iv": 0.03333},
+            {"dmg": 0.66, "crisis": -0.9, "iv": 0.06667}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    },
+    "x2_ddrive": {
+        "startup": 0.26667,
+        "recovery": 0.43333,
+        "attr": [
+            {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50},
+            {"dmg": 0.66, "crisis": -0.9},
+            {"dmg": 0.66, "crisis": -0.9},
+            {"dmg": 0.66, "crisis": -0.9, "iv": 0.13333},
+            {"dmg": 0.66, "crisis": -0.9, "iv": 0.13333},
+            {"dmg": 0.66, "crisis": -0.9, "iv": 0.13333}
+        ],
+        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+    },
+    "x3_ddrive": {
+        "startup": 0.43333,
+        "recovery": 0.43334,
+        "attr": [
+            {"dmg": 1.39, "crisis": -0.9, "sp": 340, "utp": 50},
+            {"dmg": 1.39, "crisis": -0.9},
+            {"dmg": 1.39, "crisis": -0.9}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.56667, "fs": 0.56667}
+    },
+    "x4_ddrive": {
+        "startup": 0.26667,
+        "recovery": 0.73333,
+        "attr": [
+            {"dmg": 1.02, "crisis": -0.9, "sp": 545, "utp": 60},
+            {"dmg": 1.02, "crisis": -0.9, "iv": 0.03333},
+            {"dmg": 1.02, "crisis": -0.9, "iv": 0.06666},
+            {"dmg": 1.02, "crisis": -0.9, "iv": 0.13333},
+            {"dmg": 1.9, "crisis": -0.9, "iv": 0.23333}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.23333, "fs": 0.23333}
+    }
+}
