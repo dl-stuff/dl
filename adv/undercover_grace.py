@@ -36,7 +36,7 @@ class Undercover_Grace(Adv):
                 self.soul_seal_level = min(self.soul_seal_level + 1, 4)
         return result
 
-    def a1_reset():
+    def a1_reset(self):
         self.soul_seal.off()
         self.soul_seal_level = 0
 
