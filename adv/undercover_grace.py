@@ -41,7 +41,7 @@ class Undercover_Grace(Adv):
         self.soul_seal_level = 0
 
     def s2_before(self, e):
-        Timer(lambda e: self.a1_reset(e), 1.5).on()
+        Timer(self.a1_reset, 1.5).on()
 
     def a3_regen(self, t):
         if self.amp_lvl(kind="team", key=3) >= 1:
