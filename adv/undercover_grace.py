@@ -11,21 +11,20 @@ class Undercover_Grace(Adv):
             ],
         )
         self.soul_seal_level = 0
-        self.soul_seal_recoil = lambda: self.soul_seal.level==4
         self.a3_regen = Timer(self.a3_regen, 2.9, True).on()
         o_s2_check = self.a_s_dict["s2"].check
         self.a_s_dict["s2"].check = lambda: not self.a_s_dict["s2"]._static.silence and self.soul_seal.get()
 
     def fs_before(self, e):
-        if self.soul_seal_recoil:
+        if self.soul_seal.level == 4:
             self.add_hp(-2)
 
     def x_before(self, e):
-        if self.soul_seal_recoil:
+        if self.soul_seal.level == 4:
             self.add_hp(-2)
 
     def s_hp_check(self, e):
-        if self.soul_seal_recoil and e.name in self.damage_sources:
+        if self.soul_seal.level == 4 and e.name in self.damage_sources:
             self.add_hp(-2)
 
     def add_combo(self, name="#"):
