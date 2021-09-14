@@ -11,6 +11,7 @@ class Undercover_Grace(Adv):
             ],
         )
         self.soul_seal_level = 0
+        Event("dragon").listener(self.a1_reset)
         self.a3_regen = Timer(self.a3_regen, 2.9, True).on()
         o_s2_check = self.a_s_dict["s2"].check
         self.a_s_dict["s2"].check = lambda: not self.a_s_dict["s2"]._static.silence and self.soul_seal.get()
@@ -35,12 +36,12 @@ class Undercover_Grace(Adv):
                 self.soul_seal_level = min(self.soul_seal_level + 1, 4)
         return result
 
-    def a1_reset(self):
+    def a1_reset(self, e):
         self.soul_seal.off()
         self.soul_seal_level = 0
 
     def s2_before(self, e):
-        Timer(lambda _: self.a1_reset(), 1.5).on()
+        Timer(lambda _: self.a1_reset(e), 1.5).on()
 
     def a3_regen(self, t):
         if self.amp_lvl(kind="team", key=3) >= 1:
