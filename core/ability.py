@@ -350,10 +350,7 @@ class Union_Ability(Ability):
     def __init__(self, name, value, level):
         self.union_id = value
         self.union_lv = level
-        try:
-            mod = self.UNION_MAP[value][level]
-        except KeyError:
-            mod = self.UNION_MAP[value][max(self.UNION_MAP[value])]
+        mod = self.UNION_MAP[value][min(level, max(self.UNION_MAP[value]))]
         super().__init__(name, mod.copy())
 
     def oninit(self, adv, afrom=None):
