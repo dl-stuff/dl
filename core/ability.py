@@ -351,10 +351,12 @@ class Union_Ability(Ability):
         self.union_id = value
         self.union_lv = level
         try:
-            mod = self.UNION_MAP[value][level]
+            super().__init__(name, self.UNION_MAP[value][level].copy())
         except KeyError:
-            mod = self.UNION_MAP[value][max(self.UNION_MAP[value])]
-        super().__init__(name, mod.copy())
+            max_level = max(self.UNION_MAP[value])
+            if level > max_level:
+                mod = self.UNION_MAP[value][max_level]
+                super().__init__(name, mod.copy())
 
     def oninit(self, adv, afrom=None):
         if not (adv.conf["berserk"] and self.union_id == 2):
