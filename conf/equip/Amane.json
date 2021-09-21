@@ -268,6 +268,42 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52109.54998149351,
+        "team": 0.06162844057871433,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "queue prep",
+        "`s3;s4;s2;s1",
+        "end",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`s3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 60307.08376156052,
@@ -304,9 +340,41 @@
       ]
     },
     "META": {
+      "tdps": 667949.2678518209,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 60307.08376156052,
+        "team": 0.049355751357224587,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon(c3-s-c3-c3-end), s=4",
+        "queue now=0",
+        "`s4;s2;s1;s3",
+        "end",
+        "`s4",
+        "`s1",
+        "`s3"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 103306.01814905759,
-        "team": 0.44386017302175984,
+        "dps": 100198.73208480584,
+        "team": 0.43291980809852176,
         "noaff": false,
         "nihil": false
       },
@@ -11,24 +11,26 @@
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "The_Lurker_in_the_Woods",
-        "Enter_the_Blue_Rose",
+        "A_Small_Courage",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s3, not buff(s3) and fsc",
-        "if manachew_mode.get()",
-        "`s2",
+        "`s3, not have_buff(s3)",
+        "if amp_lvl(team,2)<5",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`s2, manachew_mode.get() or dgauge<500",
         "`s1",
+        "`s4, s and not have_buff(s4)",
         "else",
-        "`dragon(c3-s-dfs-end), s=1",
-        "`s4, s",
+        "`dragon",
         "`s2",
         "`s1",
+        "`s4, s and not have_buff(s4)",
         "end",
-        "`fs"
+        "fs"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -42,8 +44,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 119617.37067599526,
-        "team": 0.29262333042339195,
+        "dps": 108035.88561209115,
+        "team": 0.32676789102614395,
         "noaff": false,
         "nihil": false
       },
@@ -58,22 +60,23 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s3, not buff(s3) and fsc",
-        "if manachew_mode.get()",
-        "`s2",
+        "`s3, not have_buff(s3)",
+        "if amp_lvl(team,2)<5",
+        "`dragon(c3-s-end), amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`s2, manachew_mode.get() or dgauge<500",
         "`s1",
+        "`s4, s and not have_buff(s4)",
         "else",
-        "`dragon(c3-s-dfs-end), s=1",
-        "`s4, s",
         "`s2",
         "`s1",
+        "`s4, s and not buff(s4)",
         "end",
-        "`fs"
+        "fs"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -81,55 +84,15 @@
       ]
     },
     "META": {
-      "tdps": 107853.03532324402,
+      "tdps": 73829.59953461493,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64776.47366867491,
-        "team": 0.19464717912259333,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Enter_the_Blue_Rose",
-        "The_Warrioresses",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`s3, duration-now<1.3",
-        "`dragon, s",
-        "if amp_lvl(team,2)<5",
-        "#means if not team amp 3",
-        "`s2, manachew_mode.get()",
-        "else",
-        "`s2",
-        "end",
-        "`s1",
-        "`s4, s",
-        "`fs"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Sha_Wujing"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 97114.12343018968,
-        "team": 0.3796704492248892,
+        "dps": 82168.17930755905,
+        "team": 0.36747522612534206,
         "noaff": false,
         "nihil": true
       },
@@ -144,16 +107,57 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s3, duration-now<1.3",
-        "`dragon, s",
         "if amp_lvl(team,2)<5",
-        "#means if not team amp 3",
-        "`s2, manachew_mode.get()",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`s2, manachew_mode.get() or dgauge<500",
         "else",
+        "`dragon",
         "`s2",
+        "`s3, s and manachew_mode.get()",
         "end",
         "`s1",
         "`s4, s",
+        "`fs"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 95649.3883728878,
+        "team": 0.3246806392275607,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "if amp_lvl(team,2)<5",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`s2, manachew_mode.get() or dgauge<500",
+        "else",
+        "`dragon",
+        "`s2",
+        "`s3, s and manachew_mode.get()",
+        "end",
+        "`s1",
+        "`s4, s",
+        "`dodge, not is_cd(a1_a3) and s=4",
         "`fs"
       ],
       "coabs": [
@@ -167,23 +171,33 @@
       ]
     },
     "META": {
+      "tdps": 315021.36234028375,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 116835.34630123325,
-        "team": 0.4626270579169677,
+        "dps": 120979.85298071266,
+        "team": 0.4329198080985216,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`s3, not have_buff(s3)",
         "if amp_lvl(team,2)<5",
-        "`dragon(c3-s-dfs-end), amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
-        "`s1, not manachew_mode.get() and s2.check() or manachew_mode.get()",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
         "`s2, manachew_mode.get() or dgauge<500",
+        "`s1",
         "`s4, s and not have_buff(s4)",
         "else",
         "`dragon",
@@ -192,36 +206,11 @@
         "`s4, s and not have_buff(s4)",
         "end",
         "fs"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 127067.82157416576,
-        "team": 0.43935538675874725,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Enter_the_Blue_Rose",
-        "The_Warrioresses",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
       ],
-      "acl": [
-        "`s3, not buff(s3) and fsc",
-        "if manachew_mode.get()",
-        "`s2",
-        "`s1",
-        "else",
-        "`dragon(c3-s-dfs-end), s=1",
-        "`s4",
-        "`s2",
-        "`s1",
-        "end",
-        "`fs"
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -229,7 +218,6 @@
       ]
     },
     "META": {
-      "tdps": 439696.62528159335,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -240,53 +228,53 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 99081.58563592687,
-        "team": 0.3796704492248892,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "Enter_the_Blue_Rose",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Grimnir",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 99662.47313796855,
-        "team": 0.37746678394607647,
+        "dps": 89248.357478938,
+        "team": 0.3698326358679588,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`s3, duration-now<1.3",
-        "`dragon(c3-s-dfs-end), s",
         "if amp_lvl(team,2)<5",
-        "#means if not team amp 3",
-        "`s2, manachew_mode.get()",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`s2, manachew_mode.get() or dgauge<500",
+        "`s1",
+        "`s4, s and manachew_mode.get()",
         "else",
+        "`dragon, cancel",
         "`s2",
+        "`s1",
+        "`s3, s and manachew_mode.get()",
+        "`s4, s and manachew_mode.get()",
         "end",
+        "fs"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 97363.75124829148,
+        "team": 0.3246806392275607,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "if amp_lvl(team,2)<5",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`s2, manachew_mode.get() or dgauge<500",
         "`s1",
         "`s4, s",
-        "`fs"
+        "else",
+        "`dragon",
+        "`s2",
+        "`s1",
+        "`s3, s and manachew_mode.get()",
+        "`s4, s",
+        "end",
+        "`dodge, not is_cd(a1_a3) and s=4",
+        "fs"
       ]
     },
     "META": {
-      "tdps": 263600.6056031602,
+      "tdps": 179734.99231908863,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -341,7 +329,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

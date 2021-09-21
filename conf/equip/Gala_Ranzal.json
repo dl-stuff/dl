@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100804.72352206621,
-        "team": 0.05553857207061118,
+        "dps": 100971.29231652655,
+        "team": 0.055534757782749376,
         "noaff": false,
         "nihil": false
       },
@@ -51,7 +51,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
+        "`dragon(c3-s-dfs-end)",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 602668.749195506,
+      "tdps": 604188.2571946861,
       "pref": "PERSONAL"
     }
   },
@@ -124,8 +124,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 127139.71767393386,
-        "team": 0.17493240806121893,
+        "dps": 129457.3398189865,
+        "team": 0.17484178760907942,
         "noaff": false,
         "nihil": false
       },
@@ -139,13 +139,13 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, cancel",
+        "`dragon(c3-s-dfs-end), cancel",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
         "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
         "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0",
+        "`fs, x=4 or hits=0 or (charged_in(fs,s1) and duration-now<8)",
         "else",
         "`dodge, x=5",
         "end"

@@ -32,8 +32,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81122.20174157382,
-        "team": 0.11337620125992326,
+        "dps": 86210.3586540956,
+        "team": 0.04992323029969247,
         "noaff": false,
         "nihil": false
       },
@@ -48,15 +48,15 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-end), s=4",
         "`s3, not buff(s3)",
-        "`s4, fsc",
         "`s2, fsc",
+        "`s4, fsc",
         "if buff(s2)",
         "`fs, x=1",
         "else",
         "`fs, x=2 or hits=0",
-        "end"
+        "end",
+        "`s1, duration-now<2 and fscf"
       ],
       "coabs": [
         "Grace",
@@ -69,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 240618.59346835077,
+      "tdps": 214030.0119718638,
       "pref": "PERSONAL"
     }
   },
@@ -138,8 +138,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 104884.75856819106,
-        "team": 0.16365018282888547,
+        "dps": 108509.42138916944,
+        "team": 0.16522959996624886,
         "noaff": false,
         "nihil": false
       },
@@ -156,12 +156,14 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
-        "if buff(s2)",
-        "`fs, x=1",
-        "else",
-        "`fs, x=2 or hits=0",
-        "end",
-        "`s1, duration-now<2 and fscf"
+        "`s1, duration-now<1 and fsc",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=2 or hits=0"
+      ],
+      "coabs": [
+        "Grace",
+        "Mona",
+        "Nino"
       ],
       "share": [
         "Weapon",
@@ -169,7 +171,7 @@
       ]
     },
     "META": {
-      "tdps": 373857.1301298889,
+      "tdps": 389611.27223645075,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -180,19 +182,31 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 85035.21513414278,
-        "team": 0.08135031503617726,
+        "dps": 89617.94643304282,
+        "team": 0.18300339765486953,
         "noaff": false,
         "nihil": false
       },
+      "acl": [
+        "`dragon(c3-s-dfs-end), fsc and not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "if buff(s2)",
+        "`fs, x=1",
+        "else",
+        "`fs, x=2 or hits=0",
+        "end",
+        "`s1, duration-now<2 and fscf"
+      ],
       "coabs": [
+        "Dragonyule_Xainfried",
         "Mona",
-        "Nino",
-        "Valentines_Melody"
+        "Yukata_Lathna"
       ]
     },
     "META": {
-      "tdps": 229825.72755180617,
+      "tdps": 341703.4143762403,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",

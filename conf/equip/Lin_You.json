@@ -39,27 +39,29 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92618.05875811618,
-        "team": 0.04605087348612493,
+        "dps": 111297.53175516303,
+        "team": 0.033158943693847656,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "Summer_Paladyns",
         "Sweet_Surprise",
         "Hastened_Squall",
-        "The_Queen_of_the_Knife"
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, buff(s2)",
+        "`dragon(s-c3-c3-c3-end), cancel",
         "`s3, not buff(s3)",
         "`s4",
-        "`s2, s1.check() and cancel",
+        "`s2, charged_in(4,s1) and cancel",
         "`s1, cancel",
         "if hits<=44 and c_fs(enhanced)",
-        "`fs, x=1",
+        "`fs",
         "`dodge, fsc",
         "end"
       ],
@@ -74,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 1204263.1550726776,
+      "tdps": 1251472.8527811565,
       "pref": "PERSONAL"
     }
   },
@@ -193,8 +195,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 126741.91592859,
-        "team": 0.14688827227464402,
+        "dps": 126875.232655728,
+        "team": 0.14674384264326923,
         "noaff": false,
         "nihil": false
       },
@@ -208,13 +210,13 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s-c3-c3-c3-end), cancel",
+        "`dragon(s-c3-c3-c3-end)",
         "`s3, not buff(s3)",
-        "`s4",
+        "`s4, cancel",
         "`s2, charged_in(4,s1) and cancel",
         "`s1, cancel",
         "if hits<=44 and c_fs(enhanced)",
-        "`fs",
+        "`fs, x=1",
         "`dodge, fsc",
         "end"
       ],
@@ -224,7 +226,7 @@
       ]
     },
     "META": {
-      "tdps": 2387661.2792570842,
+      "tdps": 2365500.1785306004,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -281,29 +283,30 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65404.76859362621,
-        "team": 0.1415437382625576,
+        "dps": 70564.09333153945,
+        "team": 0.14674384264326928,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
+        "Seaside_Princess",
         "Summer_Paladyns",
-        "Hastened_Squall",
-        "Lord_of_the_Skies"
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
+        "`dragon(s-c3-c3-c3-end)",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s1.check() and cancel",
+        "`s4, cancel",
+        "`s2, charged_in(4,s1) and cancel",
         "`s1, cancel",
         "if hits<=44 and c_fs(enhanced)",
-        "`fs",
+        "`fs, x=1",
         "`dodge, fsc",
-        "`buff(s2)",
         "end"
       ],
       "share": [
@@ -313,8 +316,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65404.76859362621,
-        "team": 0.1415437382625576,
+        "dps": 73552.55760090139,
+        "team": 0.14674384264326923,
         "noaff": false,
         "nihil": false
       },
@@ -322,19 +325,20 @@
         "Kung_Fu_Masters",
         "Memory_of_a_Friend",
         "Summer_Paladyns",
+        "A_Small_Courage",
         "Hastened_Squall",
-        "Lord_of_the_Skies"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon",
+        "`dragon(s-c3-c3-c3-end)",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s2, s1.check() and cancel",
+        "`s4, cancel",
+        "`s2, charged_in(4,s1) and cancel",
         "`s1, cancel",
         "if hits<=44 and c_fs(enhanced)",
-        "`fs",
+        "`fs, x=1",
         "`dodge, fsc",
-        "`buff(s2)",
         "end"
       ],
       "share": [
@@ -343,6 +347,7 @@
       ]
     },
     "META": {
+      "tdps": 5.383538627963388e+19,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

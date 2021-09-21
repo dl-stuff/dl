@@ -1,0 +1,363 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45902.67596583656,
+        "team": 0.06451963337877624,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`s3, not buff(s3)",
+        "queue",
+        "`s1",
+        "`s1",
+        "`s1",
+        "`s1",
+        "`s2",
+        "end",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 157116.71670537925,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(c2-s-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4, soul_seal.level=4 or fsc",
+        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`s1, dgauge<500",
+        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Wand",
+        "Yukata_Cassandra"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 1723724.0033066678,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54151.18790139736,
+        "team": 0.03417589175540938,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(c3-s-c3-end), s",
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78621.50916418873,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "#`dragon(c3-s-c3-end), s",
+        "`s1, cancel",
+        "`s3",
+        "`s4",
+        "`s2, duration - now < 3.4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
+    "META": {
+      "tdps": 716011.1998809275,
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 157404.76854740595,
+        "team": 0.11364976274390562,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s2, duration-now<3.5",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Wand",
+        "Yukata_Cassandra"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 176976.95769962712,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Axe"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-end), s=2 and dragonform.shift_count=0",
+        "`dragon(c2-s-c2-end), s=2 and dragonform.shift_count=1",
+        "`s3, not buff(s3)",
+        "`s4, soul_seal.level=4 or fsc",
+        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`s1, dgauge<500",
+        "`fs, hits=1",
+        "`fs, x=4 or (charged_in(fs,s1) and cancel and now>10)"
+      ]
+    },
+    "META": {
+      "tdps": 172214.9583041757,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 97886.91332431255,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "Liber_Grimortis",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-end), duration-now<10",
+        "`s1",
+        "`s3",
+        "`s4, fsc",
+        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel)"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 115483.34012499596,
+        "team": 0.11565311892855716,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Savage_Hawk_Lance",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-end), s=2",
+        "`s3, not buff(s3)",
+        "`s4, soul_seal.level=4 or fsc",
+        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`s1, dgauge<500",
+        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Sarisse",
+        "Yukata_Cassandra"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 116300.08468117742,
+        "team": 0.11565311892855716,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Savage_Hawk_Lance",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 65105.38555778421,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Shining_Overlord",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Savage_Hawk_Lance",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "acl": [
+        "`dragon(c2-s-c2-end), s=2",
+        "`s4",
+        "`s3, soul_seal.level>2",
+        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`s1, dgauge<500",
+        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
+      ],
+      "coabs": [
+        "Bow",
+        "Nobunaga",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  }
+}

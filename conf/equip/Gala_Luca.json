@@ -271,7 +271,7 @@
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Axe2",
+        "Gala_Audric",
         "Peony",
         "Wand"
       ],
@@ -289,29 +289,43 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
+  "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 94452.29810307093,
-        "team": 0.0,
+        "dps": 33840.23837886057,
+        "team": 0.029366089017314714,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dragonform.shift_count=0",
+        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dragonform.shift_count=1",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ],
       "coabs": [
-        "Dagger",
-        "Peony",
-        "Wand"
+        "Gala_Audric",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Sha_Wujing"
       ]
     },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 56809.519382446924,
@@ -348,6 +362,7 @@
       ]
     },
     "META": {
+      "tdps": 782170.2437135329,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

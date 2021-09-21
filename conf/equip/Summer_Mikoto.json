@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35793.443326054745,
-        "team": 0.02459044430580354,
+        "dps": 35306.031448395166,
+        "team": 0.02468440525054583,
         "noaff": false,
         "nihil": false
       },
@@ -13,83 +13,6 @@
         "The_Cutie_Competition",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, light=sun and not illuminating_sun.get()",
-        "`fs, light=wave and not celestial_wave.get()"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Seimei"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 35793.443326054745,
-        "team": 0.02459044430580354,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`fs, light=sun and not illuminating_sun.get()",
-        "`fs, light=wave and not celestial_wave.get()"
-      ],
-      "coabs": [
-        "Lucretia",
-        "Peony",
-        "Sharena"
-      ],
-      "share": [
-        "Weapon",
-        "Seimei"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 29035.443406120598,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "Snipers_Allure",
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
@@ -100,8 +23,8 @@
         "`s2",
         "`s1",
         "`s4",
-        "`fs, light=sun and not illuminating_sun.get()",
-        "`fs, light=wave and not celestial_wave.get()"
+        "`fs, light=sun and not illuminating_sun.get() and x>=4 or s",
+        "`fs, light=wave and not celestial_wave.get() and x>=4"
       ],
       "coabs": [
         "Lucretia",
@@ -110,7 +33,86 @@
       ],
       "share": [
         "Weapon",
-        "Xander"
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47263.53853960354,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Game_of_Cat_and_Boar",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-end), s=4 or duration-now < 12",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`fs, light=sun and not illuminating_sun.get() and x>=4",
+        "`fs, light=wave and not celestial_wave.get() and x>=4",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Ilia"
+      ]
+    },
+    "META": {
+      "tdps": 484415.44245608133,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40444.27360569284,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s1, illuminating_sun.get() == celestial_wave.get()",
+        "`s3, fsc",
+        "`fs, light=sun and not illuminating_sun.get() and (x>=4 or s1.check())",
+        "`fs, light=wave and not celestial_wave.get() and (x>=4 or s1.check())",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Blade",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Ryszarda"
       ]
     },
     "META": {
@@ -120,38 +122,24 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66489.96467346397,
-        "team": 0.04986155661796358,
+        "dps": 71839.90731857256,
+        "team": 0.07803183865485014,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), s=1",
+        "`dragon(c3-s-c3-c3-c3-end), buff(s2) or duration-now < 12",
         "`s2",
         "`s1",
         "`s4, cancel",
         "`fs, light=sun and not illuminating_sun.get()",
-        "`fs, light=wave and not celestial_wave.get()"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
+        "`fs, light=wave and not celestial_wave.get()",
+        "`dodge, fsc"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
@@ -165,36 +153,14 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45529.96509991678,
+        "dps": 50181.55949472276,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), aff(flashburn)",
-        "`s4",
-        "`s1, not (not aff(flashburn) and illuminating_sun.get() and celestial_wave.get())",
-        "`s3, fsc",
-        "`fs, light=sun and not illuminating_sun.get()",
-        "`fs, light=wave and not celestial_wave.get()"
-      ],
-      "coabs": [
-        "Blade",
-        "Lucretia",
-        "Peony"
-      ],
       "share": [
-        "Gala_Mym",
-        "Ilia"
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
@@ -208,8 +174,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30953.425372807553,
-        "team": 0.02459044430580354,
+        "dps": 36929.91784667142,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       }
@@ -225,7 +191,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 21915.53272252582,
+        "dps": 25597.352686943737,
         "team": 0.0,
         "noaff": false,
         "nihil": true
