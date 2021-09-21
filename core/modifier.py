@@ -1052,11 +1052,11 @@ class SelfAffliction(Buff):
         self.affevent.rate = self.rate
         self.affevent()
         if self.rate > 0:
-            self.adv.dragonform.disabled = True
             return super().on(duration)
 
     def effect_on(self):
         super().effect_on()
+        self.adv.dragonform.disabled = self.name
         try:
             self.regen_timer.on(2.9)
         except AttributeError:
@@ -1064,7 +1064,8 @@ class SelfAffliction(Buff):
 
     def effect_off(self):
         super().effect_off()
-        self.adv.dragonform.disabled = False
+        if self.adv.dragonform.disabled == self.name:
+            self.adv.dragonform.disabled = False
 
     @allow_acl
     def get(self):

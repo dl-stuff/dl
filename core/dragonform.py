@@ -605,7 +605,8 @@ class Gala_Beast_Volk_DragonForm(DragonForm):
         self.blood_moon_timer.off()
         self.dfs_hold_timer.off()
         result = super().d_shift_end()
-        from core.modifier import SelfAffliction
+        if result:
+            from core.modifier import SelfAffliction
 
-        SelfAffliction("gvolk_poison", -10.0, 12, 100, "poison", "regen", "buff").on()
+            SelfAffliction("gvolk_poison", -10.0, 12, 100, "poison", "regen", "buff").on()
         return result
