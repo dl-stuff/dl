@@ -1799,7 +1799,7 @@ class Adv(object):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
                         try:
-                            self.conf[dst_sn]["attr"] = [attr for attr in self.conf[dst_sn]["attr"] if not isinstance(attr, dict) or "from_ab" not in attr]
+                            self.conf[dst_sn]["attr"] = [attr for attr in self.conf[dst_sn]["attr"] if not isinstance(attr, dict) or "ab" not in attr]
                         except KeyError:
                             pass
                         self.conf[dst_sn].owner = owner

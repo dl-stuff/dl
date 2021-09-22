@@ -69,7 +69,7 @@ class Yaten_70MC(Yaten):
             "sp": 3636,
             "startup": 0.1,
             "recovery": 1.0,
-            "attr": [{"buff": ["energy", 2, "team"], "iv": 0.13333}, {"buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.13333}],
+            "attr": [{"amp": ["20000", 2, 0], "ab": 1, "cd": 30.0}, {"buff": ["energy", 2, "team"], "iv": 0.13333}, {"buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.13333}],
         },
     }
 
@@ -89,8 +89,8 @@ class Yaten_70MC(Yaten):
     def s2_proc(self, e):
         self.s2_up_s1 = True
         self.current_s["s1"] = "energized"
-        if not self.is_set_cd("s2", 30):
-            self.add_amp(amp_id="20000", max_level=2)
+        # if not self.is_set_cd("s2", 30):
+        #     self.add_amp(amp_id="20000", max_level=2)
 
 
 variants = {None: Yaten, "70MC": Yaten_70MC}

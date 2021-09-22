@@ -37,7 +37,7 @@
         "startup": 0.1,
         "recovery": 1.0,
         "attr": [
-            {"amp": ["10000", 3, 0], "cd": 20.0}
+            {"amp": ["10000", 3, 0], "cd": 20.0, "ab": 1}
         ]
     },
     "s1_masterctrl": {
@@ -72,9 +72,13 @@
         "recovery": 0.23333,
         "attr": [
             {"dmg": 0.13, "sp": 130},
-            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333},
+            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0"},
+            {"dmg": 0.13, "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0"},
+            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0"},
             {"dmg": 0.13, "iv": 0.06667},
-            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.1},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0", "iv": 0.1},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0", "iv": 0.1},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0", "iv": 0.1},
             {"dmg": 0.38, "iv": 0.13333}
         ],
         "interrupt": {"s": 0.0, "fs": 0.13333},
@@ -85,8 +89,12 @@
         "recovery": 0.23333,
         "attr": [
             {"dmg": 0.19, "sp": 220},
-            {"dmg": 0.19, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333},
-            {"dmg": 0.19, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.06667},
+            {"dmg": 0.19, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0"},
+            {"dmg": 0.19, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0"},
+            {"dmg": 0.19, "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0"},
+            {"dmg": 0.19, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0", "iv": 0.06667},
+            {"dmg": 0.19, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0", "iv": 0.06667},
+            {"dmg": 0.19, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0", "iv": 0.06667},
             {"dmg": 0.56, "iv": 0.1}
         ],
         "interrupt": {"s": 0.0, "fs": 0.0},
@@ -97,12 +105,20 @@
         "recovery": 0.46667,
         "attr": [
             {"dmg": 0.13, "sp": 360},
-            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03334},
+            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03334, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0"},
+            {"dmg": 0.13, "iv": 0.03334, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0"},
+            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03334, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0"},
             {"dmg": 0.13, "iv": 0.06667},
-            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.1},
+            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.1, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0"},
+            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.1, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0"},
+            {"dmg": 0.13, "iv": 0.1, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0"},
             {"dmg": 0.13, "iv": 0.26667},
-            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.3},
-            {"dmg": 0.13, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.33334},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0", "iv": 0.3},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0", "iv": 0.3},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0", "iv": 0.3},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0", "iv": 0.33334},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0", "iv": 0.33334},
+            {"dmg": 0.13, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0", "iv": 0.33334},
             {"dmg": 0.37, "iv": 0.36667}
         ],
         "interrupt": {"s": 0.0, "fs": 0.0},
@@ -113,8 +129,12 @@
         "recovery": 0.56667,
         "attr": [
             {"dmg": 0.57, "sp": 660},
-            {"dmg": 0.57, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333},
-            {"dmg": 0.57, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.06667},
+            {"dmg": 0.57, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0"},
+            {"dmg": 0.57, "cond": ["var>=", ["amplified_current", 1]], "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0"},
+            {"dmg": 0.57, "iv": 0.03333, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0"},
+            {"dmg": 0.57, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1750]Amplified Current GreaterThan 0", "iv": 0.06667},
+            {"dmg": 0.57, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1751]Amplified Current GreaterThan 0", "iv": 0.06667},
+            {"dmg": 0.57, "DEBUG_CHECK_PARTCOND": "OwnerBuffCount [1752]Amplified Current GreaterThan 0", "iv": 0.06667},
             {"dmg": 1.72, "iv": 0.1}
         ],
         "interrupt": {"s": 0.0, "fs": 0.0},

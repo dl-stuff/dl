@@ -29,8 +29,8 @@ class Gala_Cleo_70MC(Adv):
             "startup": 0.1,
             "recovery": 1.4,
             "attr": [
-                {"amp": ["10000", 3, 0], "cd": 30.0},
-                {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1},
+                {"amp": ["10000", 3, 0], "cd": 30.0, "ab": 1},
+                {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1, "ab": 1},
                 {"dmg": 0.88},
                 {"dmg": 2.7},
                 {"dmg": 0.88, "msl": 0.2},
@@ -44,8 +44,8 @@ class Gala_Cleo_70MC(Adv):
             "startup": 0.1,
             "recovery": 1.4,
             "attr": [
-                {"amp": ["10000", 3, 0], "cd": 30.0},
-                {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1},
+                {"amp": ["10000", 3, 0], "cd": 30.0, "ab": 1},
+                {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1, "ab": 1},
                 {"dmg": 0.88},
                 {"dmg": 2.7},
                 {"dmg": 0.88, "msl": 0.15},
@@ -62,8 +62,8 @@ class Gala_Cleo_70MC(Adv):
             "startup": 0.1,
             "recovery": 1.4,
             "attr": [
-                {"amp": ["10000", 3, 0], "cd": 30.0},
-                {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1},
+                {"amp": ["10000", 3, 0], "cd": 30.0, "ab": 1},
+                {"buff": ["fsAlt", "galacleo", -1, 1, "-refresh"], "coei": 1, "ab": 1},
                 {"dmg": 0.88},
                 {"dmg": 2.7},
                 {"dmg": 0.88, "msl": 0.1},
