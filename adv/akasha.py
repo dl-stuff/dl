@@ -24,6 +24,7 @@ class Akasha(Adv):
 
 
 class Akasha_70MC(Akasha):
+    comment = "70MC"
     SAVE_VARIANT = False
     S2_DURATION = 15
     conf = {
