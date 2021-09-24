@@ -53,10 +53,11 @@ class Akasha_70MC(Akasha):
 
     def prerun(self):
         super().prerun()
-        Event("s").listener(self.pursuer_amp)
+        Event("s").listener(self.a1_amp)
+        Event("ds").listener(self.a1_amp)
 
-    def pursuer_amp(self, e):
-        if not self.is_set_cd("a1_pursuer", 30):
+    def a1_amp(self, e):
+        if not self.is_set_cd("a1_amp", 30):
             self.add_amp(max_level=2)
 
     def post_run(self, end):
