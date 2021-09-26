@@ -11,7 +11,7 @@ class DragonForm(Action):
         self.name = name
         self.conf = conf
         self.adv = adv
-        self.disabled = False
+        self.disabled_reasons = set()
         self.shift_event = Event("dragon")
         self.act_event = Event("dact")
         self.end_event = Event("dragon_end")
@@ -64,6 +64,18 @@ class DragonForm(Action):
         self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
         self.allow_end = False
 
+    def set_disabled(self, reason):
+        if self.disabled_reasons is not None:
+            self.disabled_reasons.add(reason)
+
+    def unset_disabled(self, reason):
+        if self.disabled_reasons is not None:
+            self.disabled_reasons.discard(reason)
+
+    @property
+    def disabled(self):
+        return bool(self.disabled_reasons)
+
     def set_shift_end(self, value, percent=True):
         if self.can_end:
             max_d = self.dtime() - self.conf.dshift.startup
@@ -105,7 +117,7 @@ class DragonForm(Action):
         self.allow_end = True
 
     def set_dragondrive(self, dd_buff, max_gauge=3000, shift_cost=1200, drain=150, infinite=False):
-        self.disabled = False
+        self.disabled_reasons = None
         self.is_dragondrive = True
         self.shift_event = Event("dragondrive")
         self.end_event = Event("dragondrive_end")
@@ -120,7 +132,7 @@ class DragonForm(Action):
         return self.dragondrive_buff
 
     def set_dragonbattle(self, duration):
-        self.disabled = False
+        self.disabled_reasons = None
         self.dragon_gauge = self.max_gauge
         self.conf.duration = duration
         self.can_end = False
@@ -479,7 +491,7 @@ class DragonForm(Action):
 
     @allow_acl
     def check(self, dryrun=True):
-        if self.disabled or self.shift_silence:
+        if self.disabled_reasons or self.shift_silence:
             return False
         if self.dragon_gauge < self.shift_cost and not (self.is_dragondrive and self.dragondrive_buff.get()):
             return False

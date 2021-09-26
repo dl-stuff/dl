@@ -637,7 +637,7 @@ class Gala_Cat_Sith(DragonBase):
 class Fatalis(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        adv.dragonform.disabled = True
+        adv.dragonform.set_disabled('Fatalis')
 
     @property
     def ab(self):
@@ -656,7 +656,7 @@ class Gold_Fafnir(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         # disabled for convienance
-        adv.dragonform.disabled = True
+        adv.dragonform.set_disabled('Gold_Fafnir')
 
 
 class Arsene(DragonBase):
