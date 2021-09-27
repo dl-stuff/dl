@@ -177,6 +177,7 @@ class Critical_Chance(ConditionalModifierAbility):
 
 
 ability_dict["cc"] = Critical_Chance
+ability_dict["ccu"] = Critical_Chance  # united crit
 
 
 class Critical_Damage(ConditionalModifierAbility):
@@ -706,6 +707,17 @@ class Skill_Prep(Ability):
 
 
 ability_dict["prep"] = Skill_Prep
+
+
+class Buff_Prep(BuffingAbility):
+    def __init__(self, name, value, duration=180):
+        super().__init__(name, value, duration)
+
+    def oninit(self, adv, afrom=None):
+        adv.Buff(*self.buff_args).no_bufftime().on()
+
+
+ability_dict["bprep"] = Buff_Prep
 
 
 class Primed(BuffingAbility):
