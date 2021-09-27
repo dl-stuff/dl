@@ -78,43 +78,80 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 51700.57319911682,
-        "team": 0.06666057463081825,
+        "dps": 32528.646194127185,
+        "team": 0.12760288824554053,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
-        "Flowers_Under_the_Moon",
-        "Savage_Hawk_Lance",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s2, fsc",
+        "`s1, fsc or s",
+        "`s4, fsc or s",
+        "`s3, fsc",
+        "`dodge, fsc",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Malora",
+        "Peony"
+      ],
+      "share": [
+        "Student_Maribelle",
+        "Ryszarda"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 56233.57849211198,
+        "team": 0.08553393334962786,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "The_Queen_of_the_Knife",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), fsc",
-        "`s1, fsc",
         "`s2, fsc",
+        "`s1, fsc or s",
+        "`s4, fsc or s",
         "`s3, fsc",
-        "`s4, fsc",
-        "`fs",
-        "`dodge, fsc"
+        "`dodge, fsc",
+        "`fs"
       ],
       "coabs": [
         "Blade",
-        "Peony",
-        "Wand"
+        "Malora",
+        "Peony"
       ],
       "share": [
-        "Summer_Celliera",
-        "Akasha"
+        "Student_Maribelle",
+        "Ryszarda"
       ]
     },
     "META": {
+      "tdps": 563478.0411501954,
       "pref": "PERSONAL"
     }
   },
@@ -156,8 +193,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63302.92162578915,
-        "team": 0.06662356122255554,
+        "dps": 61385.700468827104,
+        "team": 0.06649433919837407,
         "noaff": false,
         "nihil": true
       },
@@ -188,6 +225,30 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52053.82633814027,
+        "team": 0.21917656021363915,
+        "noaff": true,
+        "nihil": false
+      },
+      "acl": [
+        "`s3, not buff(s3) and fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

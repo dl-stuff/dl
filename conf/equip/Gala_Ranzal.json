@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100971.29231652655,
+        "dps": 101906.11368196824,
         "team": 0.055534757782749376,
         "noaff": false,
         "nihil": false
@@ -46,7 +46,7 @@
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Lance",
+        "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 604188.2571946861,
+      "tdps": 612835.412343229,
       "pref": "PERSONAL"
     }
   },
@@ -122,6 +122,45 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 124726.00718665776,
+        "team": 0.1748417876090793,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon(c3-s-dfs-end), cancel",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4",
+        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "if gauges[fs]<1000",
+        "`fs, x=4 or hits=0 or (charged_in(fs,s1) and duration-now<8)",
+        "else",
+        "`dodge, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 129457.3398189865,

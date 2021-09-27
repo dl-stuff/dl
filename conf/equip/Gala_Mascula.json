@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79079.61059082876,
+        "dps": 79539.846386354,
         "team": 0.3316233219597615,
         "noaff": true,
         "nihil": false
@@ -11,8 +11,8 @@
         "Memory_of_a_Friend",
         "OneWinged_Journey",
         "The_Red_Impulse",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "Chariot_Drift",
+        "Dueling_Dancers"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79079.61059082876,
+        "dps": 79539.846386354,
         "team": 0.3316233219597615,
         "noaff": true,
         "nihil": false
@@ -43,8 +43,8 @@
         "Memory_of_a_Friend",
         "OneWinged_Journey",
         "The_Red_Impulse",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "Chariot_Drift",
+        "Dueling_Dancers"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
@@ -69,6 +69,38 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54171.64308055589,
+        "team": 0.315310490759361,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "OneWinged_Journey",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Summer_Marishiten",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-c3-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`s2, cancel",
+        "`s1, masterctrl_buff.get() and cancel",
+        "`s4, x=4",
+        "`s3, x=4"
+      ],
+      "coabs": [
+        "Renee",
+        "Tiki",
+        "Xander"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57937.14208419906,
@@ -102,6 +134,7 @@
       ]
     },
     "META": {
+      "tdps": 947533.131272546,
       "pref": "PERSONAL"
     }
   },
@@ -165,7 +198,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -182,7 +215,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

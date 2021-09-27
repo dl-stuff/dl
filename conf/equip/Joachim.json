@@ -2,70 +2,73 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 23871.285083784438,
-        "team": 0.0882730983334674,
+        "dps": 42073.99903887179,
+        "team": 0.1079974682381268,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Dear_Diary",
         "Forest_Bonds",
-        "Memory_of_a_Friend",
+        "Sweet_Surprise",
         "Hastened_Squall",
-        "The_Plaguebringer"
+        "The_Plaguebringer",
+        "Testament_of_Eternity",
+        "Treasured_Memory_of_the_Sea"
       ],
-      "slots.d": "Ariel",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-end), s1.check()",
+        "`dragon(c3-s-dfs-end), s1.check()",
         "`s3, not buff(s3)",
         "`s2, s=1",
         "`s1",
         "`s4"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Curran"
+        "Saiga"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35265.67278022862,
-        "team": 0.05828430975279662,
+        "dps": 42073.99903887179,
+        "team": 0.1079974682381268,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Dear_Diary",
         "Forest_Bonds",
-        "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "Hastened_Squall",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Testament_of_Eternity",
+        "Treasured_Memory_of_the_Sea"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-end), s1.check()",
+        "`dragon(c3-s-dfs-end), s1.check()",
         "`s3, not buff(s3)",
         "`s2, s=1",
         "`s1",
         "`s4"
       ],
       "coabs": [
-        "Blade",
         "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Saiga"
       ]
     },
     "META": {
-      "tdps": 379954.9176784158,
       "pref": "PERSONAL"
     }
   },
@@ -109,26 +112,32 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62942.25058374264,
-        "team": 0.15864354115757676,
+        "dps": 72041.13097428271,
+        "team": 0.12341137823565501,
         "noaff": false,
         "nihil": false
       },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, s=1",
-        "`s4"
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dear_Diary",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Hastened_Squall",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
+      "acl": [
+        "`dragon(c3-s-dfs-end), s1.check()",
+        "`s3, not buff(s3)",
+        "`s2, s=1",
+        "`s1",
+        "`s4, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -169,24 +178,15 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 19463.310964562897,
-        "team": 0.0882730983334674,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26968.90726759439,
-        "team": 0.05828430975279658,
+        "dps": 24476.174059952944,
+        "team": 0.1079974682381268,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 250280.07659733214,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

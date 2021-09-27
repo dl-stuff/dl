@@ -39,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100185.3055261507,
-        "team": 0.017515594433612506,
+        "dps": 100653.17724842216,
+        "team": 0.0175409130415033,
         "noaff": false,
         "nihil": false
       },
@@ -59,12 +59,12 @@
         "`s4, xf=5",
         "`s2, xf=5 or s",
         "`s1, xf=5 or duration-now < 5",
-        "`s1, dgauge>=1800 and s=1",
+        "`s1, dgauge>=1500 and s=1",
         "else",
         "`dragon, fsc",
-        "`s3, not buff(s3) and fsc",
-        "`s1, fsc",
-        "`fs, x=4 or hits=2",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3) and fsc",
+        "`fs, x=4 or hits=3",
         "end"
       ],
       "coabs": [
@@ -78,7 +78,7 @@
       ]
     },
     "META": {
-      "tdps": 366931.3279878511,
+      "tdps": 371103.98401487374,
       "pref": "PERSONAL"
     }
   },
@@ -123,55 +123,66 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73502.95190386292,
-        "team": 0.020407110776545674,
+        "dps": 80548.81254789847,
+        "team": 0.017515594433612506,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "if dragondrive.get()",
-        "`s3",
-        "`s4",
+        "`s4, xf=5",
         "`s2, xf=5 or s",
-        "`s1, xf=5 or duration-now < 11",
+        "`s1, (xf=5) or (duration-now < 5) or (dgauge>=1800 and s=1)",
         "else",
-        "`dragon",
+        "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
         "`s1, fsc",
-        "`fs, x=4",
+        "`fs, x=4 or hits=2",
         "end"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
+        "Wand",
         "Yukata_Lathna"
       ],
       "share": [
-        "Ranzal",
+        "Weapon",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 5157744.164889248,
+      "tdps": 4262311.847781519,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 99775.74455186444,
-        "team": 0.13473143543858251,
+        "dps": 79231.24664986525,
+        "team": 0.14261023229118241,
         "noaff": false,
         "nihil": false
       },
-      "slots.d": "Gala_Beast_Volk",
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Ariel",
       "acl": [
         "if dragondrive.get()",
         "`s4",
@@ -186,8 +197,8 @@
         "end"
       ],
       "coabs": [
-        "Humanoid_Midgardsormr",
         "Mona",
+        "Wand",
         "Yukata_Lathna"
       ],
       "share": [
@@ -221,7 +232,7 @@
       ]
     },
     "META": {
-      "tdps": 1228250.4517223344,
+      "tdps": 1739119.7787228972,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -232,25 +243,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 86905.5747933376,
-        "team": 0.018519147031914224,
+        "dps": 85611.95556895014,
+        "team": 0.01752852148460074,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Mona",
-        "Wand",
-        "Yukata_Lathna"
-      ],
       "share": [
         "Summer_Celliera",
         "Formal_Joachim"
