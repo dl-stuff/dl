@@ -637,7 +637,7 @@ class Gala_Cat_Sith(DragonBase):
 class Fatalis(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        adv.dragonform.set_disabled('Fatalis')
+        adv.dragonform.set_disabled("Fatalis")
 
     @property
     def ab(self):
@@ -656,7 +656,7 @@ class Gold_Fafnir(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         # disabled for convienance
-        adv.dragonform.set_disabled('Gold_Fafnir')
+        adv.dragonform.set_disabled("Gold_Fafnir")
 
 
 class Arsene(DragonBase):
@@ -957,42 +957,20 @@ class Slots:
     DRAGON_DICTS = subclass_dict(DragonBase)
 
     DEFAULT_DRAGON = {
-        "flame": "Gala_Mars",
+        "flame": "Agni",
         "water": "Gala_Reborn_Poseidon",
-        "wind": "Gala_Reborn_Zephyr",
+        "wind": "Zephyr",
         "light": "Gala_Reborn_Jeanne",
         "shadow": "Gala_Cat_Sith",
     }
 
-    # DEFAULT_WYRMPRINT = {
-    #     'sword': ('The_Shining_Overlord', 'Primal_Crisis'),
-    #     'blade': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
-    #     'dagger': ('Twinfold_Bonds', {
-    #         'water': 'The_Prince_of_Dragonyule',
-    #         'shadow': 'Howling_to_the_Heavens',
-    #         'all': 'Levins_Champion'
-    #     }),
-    #     'axe': ('Kung_Fu_Masters', 'Breakfast_at_Valerios'),
-    #     'lance': ('Resounding_Rendition', 'Breakfast_at_Valerios'),
-    #     'wand': ('Candy_Couriers', 'Primal_Crisis'),
-    #     'bow': ('Forest_Bonds', 'Primal_Crisis'),
-    #     'staff': ('Resounding_Rendition', 'Breakfast_at_Valerios')
-    # }
     DEFAULT_WYRMPRINT = [
         "Valiant_Crown",
-        "The_Red_Impulse",
-        "Memory_of_a_Friend",
+        "Gentle_Winds",
+        "The_Chocolatiers",
+        "Beautiful_Nothingness",
         "Dueling_Dancers",
-        "A_Small_Courage",
     ]
-
-    AFFLICT_WYRMPRINT = {
-        "flame": "Me_and_My_Bestie",
-        "water": "His_Clever_Brother",
-        "wind": "The_Fires_of_Hate",
-        "light": "Spirit_of_the_Season",
-        "shadow": "The_Fires_of_Hate",
-    }
 
     DEFAULT_WEAPON = "agito"
 
