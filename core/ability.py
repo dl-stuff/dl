@@ -714,7 +714,7 @@ class Buff_Prep(BuffingAbility):
         super().__init__(name, value, duration)
 
     def oninit(self, adv, afrom=None):
-        adv.Buff(*self.buff_args).no_bufftime().on()
+        adv.Buff(*self.buff_args).ex_bufftime().on()
 
 
 ability_dict["bprep"] = Buff_Prep
@@ -728,7 +728,7 @@ class Primed(BuffingAbility):
         if adv.nihilism:
             return
 
-        primed_buff = adv.Buff(*self.buff_args).no_bufftime()
+        primed_buff = adv.Buff(*self.buff_args).ex_bufftime()
 
         def l_primed(e):
             if not adv.is_set_cd(afrom, self.cooldown):
