@@ -2,26 +2,29 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3531.6560864996964,
-        "team": 1.323886172768477,
+        "dps": 5184.209414319382,
+        "team": 1.4031528155287383,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "A_Dogs_Day",
-        "Sisters_Day_Out",
-        "Study_Rabbits",
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
         "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Freyja",
-      "slots.w": "void",
       "acl": [
         "`fs, fs_prep_c>1",
         "`s3, x=5 or fs_prep_c=1",
         "`s1, xf or (s=4 or fscf)",
         "`s4, s1.charged<(s1.sp/3.5)",
-        "`fs, xf>1 and charged_in(fs, s1)"
+        "`fs, xf>1 and charged_in(fs, s1)",
+        "`fs, x=5",
+        "`dodge, fscf and fs_prep_c=0"
       ],
       "coabs": [
         "Bow",
@@ -67,8 +70,8 @@
       ]
     },
     "META": {
-      "tdps": 40835.87605625934,
-      "pref": "PERSONAL"
+      "tdps": 36349.738027050334,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NORMAL-MONO": {
@@ -196,8 +199,8 @@
       ]
     },
     "META": {
-      "tdps": 42557.14783748769,
-      "pref": "PERSONAL",
+      "tdps": 38071.53176942597,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -284,7 +287,7 @@
       }
     },
     "META": {
-      "tdps": 25866.984142114292,
+      "tdps": 22510.55069803429,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33836.448498489764,
-        "team": 1.4780881387514726,
+        "dps": 29156.763117413935,
+        "team": 1.5110965560309195,
         "noaff": true,
         "nihil": false
       },
@@ -16,19 +16,18 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-c2-s-end), dragonform.shift_count=0 and s=3",
-        "`dragon(c3-c3-c1-s-end), dragonform.shift_count=1 and s=2",
-        "`dragon(c3-c3-c3-s-end), dragonform.shift_count=2 and s=2",
-        "`dragon(c3-c3-c3-c3-s-end), dragonform.shift_count=3",
-        "`dragon(c3-c3-c3-c3-s-end), dragonform.shift_count=4",
+        "`dragon(c3-c2-s-end), dragonform.shift_count=0",
+        "`dragon(c3-c3-c1-s-end), dragonform.shift_count=1",
+        "`dragon(c3-c3-c2-s-end), dragonform.shift_count=2 and s=2",
+        "`dragon(c3-c3-c3-s-end), dragonform.shift_count=3",
         "`s2",
-        "`s3, xf or fscf",
+        "`s3, xf or fscf or have_buff(ds_sp_regen_zone)",
         "`s4, fscf or have_buff(ds_sp_regen_zone)",
         "`fs, x=5",
         "`dodge, fscf"
       ],
       "coabs": [
-        "Gala_Mascula",
+        "Renee",
         "Summer_Estelle",
         "Tobias"
       ],
@@ -81,7 +80,7 @@
       ]
     },
     "META": {
-      "tdps": 63488.76805194424,
+      "tdps": 65740.31406387435,
       "pref": "PERSONAL"
     }
   },
@@ -166,7 +165,7 @@
       }
     },
     "META": {
-      "tdps": 67262.61616234593,
+      "tdps": 69405.62117915326,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -177,16 +176,16 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50901.884186537194,
-        "team": 0.17222224566282762,
+        "dps": 57336.87754026121,
+        "team": 0.19581266078507245,
         "noaff": false,
         "nihil": true
       },
       "acl": [
         "`dragon(c3-s-c3-end), dragonform.shift_count=0 and s=4",
         "`dragon(c3-s-c3-c3-end), dragonform.shift_count=1 and fscf",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count=2 and fscf",
-        "`dragon(c3-s-c3-c3-c3-c2-end), dragonform.shift_count=3 and fscf and not s1.check()",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=2 and fscf",
+        "`dragon(c3-s-c3-c3-end), dragonform.shift_count=3 and fscf and not s1.check()",
         "`dragon(c3-s-c3-c3-c3-c3-c3-end), dragonform.shift_count>=4",
         "queue prep",
         "`s2;fs;s4,fscf;fs;s3,fscf",
@@ -202,7 +201,7 @@
         "`dodge, fscf"
       ],
       "coabs": [
-        "Nurse_Aeleen",
+        "Blade",
         "Tiki",
         "Yurius"
       ],
@@ -254,7 +253,7 @@
       ]
     },
     "META": {
-      "tdps": 44311.25877045802,
+      "tdps": 46975.524086403704,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

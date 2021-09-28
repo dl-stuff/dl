@@ -32,30 +32,32 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54423.51697794718,
-        "team": 0.033294299466575354,
+        "dps": 76392.52739385242,
+        "team": 0.0461816650420538,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "OneWinged_Journey",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "Bloom_of_the_Battlefield",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), bleed_stack=3",
-        "`s3",
+        "`dragon(c3-s-dfs-end), xf=5",
+        "`s3, not buff(s3)",
         "`s2, charged_in(2, s1)",
-        "`s1, not charged_in(3, s2) and (bleed_stack<3 and buff(s2))",
-        "`s4, cancel",
+        "`s1, bleed_stack<3 and buff(s2)",
+        "`s4",
         "`fsf, xf=5"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
-        "Lin_You",
+        "Gala_Notte",
         "Mona"
       ],
       "share": [
@@ -64,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 134164.13128628858,
+      "tdps": 200133.68532761757,
       "pref": "PERSONAL"
     }
   },
@@ -104,41 +106,6 @@
     },
     "META": {
       "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 62591.75764922134,
-        "team": 0.15565082614326503,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(2, s1)",
-        "`s1, not charged_in(3, s2) and (bleed_stack<3 and buff(s2))",
-        "`s4, cancel",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "tdps": 232595.94163725304,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {

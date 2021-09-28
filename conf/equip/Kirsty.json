@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80122.8881590034,
-        "team": 0.1388900576011907,
+        "dps": 84866.99326117431,
+        "team": 0.15539551958220602,
         "noaff": false,
         "nihil": false
       },
@@ -44,18 +44,19 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "A_Small_Courage",
+        "Bloom_of_the_Battlefield",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, x=5",
+        "`dragon(c3-s-dfs-end), fscf",
         "`s3, not buff(s3)",
         "`s4, x=5",
-        "`s2, x=5",
-        "`s1"
+        "`s2, x=5 or dgauge>=500",
+        "`s1",
+        "`fs, x=5"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -68,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 113263.4022027225,
+      "tdps": 123322.50317524368,
       "pref": "PERSONAL"
     }
   },
@@ -87,7 +88,7 @@
       ]
     },
     "META": {
-      "tdps": 125773.49938476202,
+      "tdps": 137283.4582916384,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -98,8 +99,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45637.0695104744,
-        "team": 0.0,
+        "dps": 39014.405512291276,
+        "team": 0.04630836203996002,
         "noaff": false,
         "nihil": true
       },
@@ -107,27 +108,27 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "A_Small_Courage",
+        "Bloom_of_the_Battlefield",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, x=5",
-        "`s3",
-        "`s4, cancel",
-        "`s2",
-        "`s1, cancel",
+        "`dragon(c3-s-dfs-end), fscf",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s2, x=5 or dgauge>=500",
+        "`s1",
         "`fs, x=5"
       ],
       "coabs": [
+        "Dragonyule_Xainfried",
         "Mona",
-        "Wand",
         "Yukata_Lathna"
       ],
       "share": [
-        "Summer_Celliera",
+        "Weapon",
         "Formal_Joachim"
       ]
     },
@@ -181,31 +182,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100727.23100287553,
-        "team": 0.1484141861826806,
+        "dps": 104342.74318843303,
+        "team": 0.15539551958220602,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, s=2",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, fsc or dgauge>=500",
-        "`s1, cancel",
-        "`fs, x=5"
-      ]
+      }
     },
     "META": {
-      "tdps": 144187.02383493065,
+      "tdps": 151217.18635153494,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,31 +198,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 45266.99852409319,
-        "team": 0.05547260668660025,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "share": [
-        "Summer_Celliera",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53701.42247325726,
+        "dps": 53701.422473257284,
         "team": 0.05556172187927233,
         "noaff": false,
         "nihil": true
@@ -257,7 +219,33 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53701.422473257284,
+        "team": 0.05556172187927233,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -329,31 +317,33 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 19524.190911831247,
-        "team": 0.03700136361125309,
+        "dps": 23066.695144824982,
+        "team": 0.05556172187927233,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_and_Tamer",
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, x=5",
-        "`s3, not buff(s3)",
+        "`s3",
         "`s4, cancel",
         "`s2",
         "`s1, cancel",
         "`fs, x=5"
       ],
       "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
       ],
       "share": [
         "Summer_Celliera",
@@ -362,8 +352,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 19524.190911831247,
-        "team": 0.03700136361125309,
+        "dps": 23066.695144824982,
+        "team": 0.05556172187927233,
         "noaff": false,
         "nihil": true
       }

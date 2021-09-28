@@ -23,6 +23,7 @@ BANNED_PRINTS = (
     # bugged in game
     "United_by_One_Vision",
     "Second_Anniversary",
+    "Third_Anniversary",
     # corrosion
     "Her_Beloved_Crown",
     "Her_Beloved_Sword",

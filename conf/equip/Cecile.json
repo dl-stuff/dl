@@ -86,46 +86,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 64776.47366867491,
-        "team": 0.19464717912259333,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Enter_the_Blue_Rose",
-        "The_Warrioresses",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`s3, duration-now<1.3",
-        "`dragon, s",
-        "if amp_lvl(team,2)<5",
-        "#means if not team amp 3",
-        "`s2, manachew_mode.get()",
-        "else",
-        "`s2",
-        "end",
-        "`s1",
-        "`s4, s",
-        "`fs"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Sha_Wujing"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 97114.12343018968,
@@ -238,67 +198,45 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 99081.58563592687,
-        "team": 0.3796704492248892,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "Enter_the_Blue_Rose",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Grimnir",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 99662.47313796855,
-        "team": 0.37746678394607647,
+        "dps": 101095.78775582893,
+        "team": 0.30189867856702973,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`s3, duration-now<1.3",
-        "`dragon(c3-s-dfs-end), s",
-        "if amp_lvl(team,2)<5",
-        "#means if not team amp 3",
-        "`s2, manachew_mode.get()",
-        "else",
+        "if manachew_mode.get()",
         "`s2",
-        "end",
         "`s1",
+        "else",
+        "`dragon(c3-s-dfs-end), s=4",
         "`s4, s",
+        "`s3, s",
+        "`s2",
+        "`s1",
+        "end",
         "`fs"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
       ]
     },
     "META": {
-      "tdps": 263600.6056031602,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57365.11555447762,
-        "team": 0.32676789102614395,
+        "dps": 63578.03584919478,
+        "team": 0.29262333042339195,
         "noaff": false,
         "nihil": false
       }

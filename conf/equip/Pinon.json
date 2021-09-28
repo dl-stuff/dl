@@ -2,49 +2,17 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28583.858841671008,
-        "team": 0.2440711831599276,
+        "dps": 75506.71599446876,
+        "team": 0.06234880299812194,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Proper_Maintenance",
-        "Beach_Battle",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Summer_Estelle"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Elisanne"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 86453.6370073885,
-        "team": 0.07170112344784033,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dear_Diary",
+        "Initios_Sentinel",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
-        "Chariot_Drift",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -58,9 +26,44 @@
         "`dodge, x=4"
       ],
       "coabs": [
+        "Blade",
         "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Grace"
+        "Lazry"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75506.71599446876,
+        "team": 0.06234880299812194,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite)",
+        "`dodge, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Lazry"
       ],
       "share": [
         "Weapon",
@@ -68,350 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 335729.87247540784,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 81309.25936567601,
-        "team": 0.062348802998122024,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Catherine",
-        "Dragonyule_Cleo"
-      ]
-    },
-    "META": {
-      "tdps": 290142.5816515187,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 49295.43610203269,
-        "team": 0.03328401566767375,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`s3, not buff(s3,1)",
-        "`dragon(c3-s)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs2, not buff(a1)"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Grace"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Yukata_Cassandra"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 54216.317878007394,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Flowers_Under_the_Moon",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`s3, not buff(s3,1)",
-        "`dragon(c3-s)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs2, not buff(a1)"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Grace"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Yukata_Cassandra"
-      ]
-    },
-    "META": {
-      "tdps": 147845.1946756528,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 51887.51998100816,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c1-s-c3-end), fsc",
-        "`s1, fsc",
-        "`s2, fsc",
-        "`s3, fsc",
-        "`s4, fsc",
-        "`dodge, fsc",
-        "`fs2, not buff(locked_sigil)"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Summer_Estelle"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Karina"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 29352.132810227762,
-        "team": 0.2440711831599276,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 90549.7250732007,
-        "team": 0.07172840440933646,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count>=0 and buff(s2)",
-        "`s2, fsc or x=7",
-        "`s4, fsc or x=5",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs2, aff(frostbite) and buff(s3)"
-      ]
-    },
-    "META": {
-      "tdps": 355092.2916911773,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 84234.07420582371,
-        "team": 0.07660562997930295,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), dragonform.shift_count>=0 and buff(s2)",
-        "`s2",
-        "`s4, fsc or x=8",
-        "`s1, fsc or x=8",
-        "`dodge, fsc",
-        "`fs2, aff(frostbite) and buff(s3) and buff(s2)"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Summer_Estelle"
-      ]
-    },
-    "META": {
-      "tdps": 327720.77811370254,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 59557.88216647667,
-        "team": 0.03328401566767375,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 66168.73807393588,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`s3, cancel",
-        "`dragon(c3-s-c3-c3-end), fsc",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, fsc and aff_timeleft(frostbite)<4",
-        "`dodge, fsc",
-        "`fs2, not buff(a1)"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "tdps": 198619.54078695588,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 62830.817030769584,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3-end), fsc and buff(s2)",
-        "`s2",
-        "`s4, fsc and aff(frostbite)",
-        "`s3, buff(s2)",
-        "`s1, fsc and aff(frostbite)",
-        "`dodge, fsc",
-        "`fs2, buff(s2)"
-      ],
-      "coabs": [
-        "Dragonyule_Cleo",
-        "Gala_Mascula",
-        "Yurius"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 23036.23746131222,
-        "team": 0.2440711831599276,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Proper_Maintenance",
-        "Beach_Battle",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Summer_Estelle"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Elisanne"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 27043.63735034846,
-        "team": 0.03328401566767375,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Summer_Marishiten"
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
     }
   }
 }

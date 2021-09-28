@@ -251,30 +251,32 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97363.75124829148,
-        "team": 0.3246806392275607,
+        "dps": 101095.78775582893,
+        "team": 0.30189867856702973,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "if amp_lvl(team,2)<5",
-        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
-        "`s2, manachew_mode.get() or dgauge<500",
-        "`s1",
-        "`s4, s",
-        "else",
-        "`dragon",
+        "if manachew_mode.get()",
         "`s2",
         "`s1",
-        "`s3, s and manachew_mode.get()",
+        "else",
+        "`dragon(c3-s-dfs-end), s=4",
         "`s4, s",
+        "`s3, s",
+        "`s2",
+        "`s1",
         "end",
-        "`dodge, not is_cd(a1_a3) and s=4",
-        "fs"
+        "`fs"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
       ]
     },
     "META": {
-      "tdps": 179734.99231908863,
+      "tdps": 174396.29233448033,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

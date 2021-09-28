@@ -111,7 +111,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 98124.64076311931,
+        "dps": 102027.52078968726,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -128,8 +128,13 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s2, hp=100",
-        "`s1, buff(s3) and ((x=5 and hp=100) or hp<100)",
-        "`s4"
+        "`s1, buff(s3) and hp<100",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Veronica"
       ]
     },
     "META": {

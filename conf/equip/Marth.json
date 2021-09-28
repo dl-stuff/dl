@@ -2,29 +2,30 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9274.056890987846,
-        "team": 0.8018492229618837,
+        "dps": 19459.296306687746,
+        "team": 0.9360410504686243,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "Dazzling_Duet",
         "Honest_Repose",
-        "Warrior_Maiden",
+        "Jewels_of_the_Sun",
         "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Horus",
-      "slots.w": "void",
       "acl": [
         "`s2",
         "`s3",
-        "`s4, fsc",
-        "`fs, x=4"
+        "`s4, fsc or s",
+        "`fs, x=4 or hits=0"
       ],
       "coabs": [
         "Gala_Sarisse",
-        "Joker",
+        "Seimei",
         "Tobias"
       ],
       "share": [
@@ -34,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74329.73100674573,
+        "dps": 74511.54809821554,
         "team": 0.058858611607172436,
         "noaff": false,
         "nihil": false
@@ -58,9 +59,9 @@
         "`fs, x=2 or hits=0"
       ],
       "coabs": [
-        "Blade",
         "Halloween_Mym",
-        "Kimono_Elisanne"
+        "Kimono_Elisanne",
+        "Wand"
       ],
       "share": [
         "Weapon",
@@ -68,26 +69,26 @@
       ]
     },
     "META": {
-      "tdps": 87559.21423709572,
+      "tdps": 62760.32140244787,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9115.128094246795,
-        "team": 0.5472400412612111,
+        "dps": 20311.570255851577,
+        "team": 0.8149034922368196,
         "noaff": true,
         "nihil": false
       },
       "coabs": [
-        "Gala_Laxi",
-        "Halloween_Lowen",
-        "Wand"
+        "Blade",
+        "Gala_Sarisse",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": 133532.11025795122,
+      "tdps": 71688.83651090303,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -174,8 +175,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 98474.2054272064,
-        "team": 0.08830184645331238,
+        "dps": 101462.03378399489,
+        "team": 0.08823980203842893,
         "noaff": false,
         "nihil": false
       },
@@ -189,16 +190,21 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s-s-c3-c3-end), buff(s2,3)",
+        "`dragon(c3-s-c2-c2-c2-c2-end), buff(s2,3)",
         "`s3, not buff(s3)",
         "`s2",
         "`s4, fsc",
         "`s1, fsc",
-        "`fs, x=3"
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
       ]
     },
     "META": {
-      "tdps": 125009.42680593971,
+      "tdps": 96724.01123393596,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

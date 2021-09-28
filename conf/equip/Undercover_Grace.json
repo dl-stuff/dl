@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45902.67596583656,
-        "team": 0.06451963337877624,
+        "dps": 90010.09862379503,
+        "team": 0.11495583409714795,
         "noaff": false,
         "nihil": false
       },
@@ -11,28 +11,24 @@
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "The_Shining_Overlord",
-        "The_Plaguebringer",
+        "Beautiful_Nothingness",
         "To_the_Extreme",
         "Testament_of_Eternity",
         "Thunderswift_Lords_Blade_Lance"
       ],
-      "slots.d": "Gala_Reborn_Agni",
+      "slots.d": "Gala_Mars",
       "acl": [
+        "`dragon(c2-s-c2-end), s=2",
         "`s3, not buff(s3)",
-        "queue",
-        "`s1",
-        "`s1",
-        "`s1",
-        "`s1",
-        "`s2",
-        "end",
-        "`s4",
-        "`fs, x=4"
+        "`s4, soul_seal.level=4 or fsc",
+        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`s1, dgauge<500",
+        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
       ],
       "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Wand"
+        "Gala_Sarisse",
+        "Wand",
+        "Yukata_Cassandra"
       ],
       "share": [
         "Weapon",
@@ -75,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 1723724.0033066678,
+      "tdps": 583760.0032102166,
       "pref": "PERSONAL"
     }
   },
@@ -116,7 +112,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78621.50916418873,
+        "dps": 80449.66279418339,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -132,12 +128,12 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "#`dragon(c3-s-c3-end), s",
-        "`s1, cancel",
-        "`s3",
-        "`s4",
-        "`s2, duration - now < 3.4",
-        "`fs, x=4"
+        "`dragon(c2-s-c2-end), s=2",
+        "`s2, duration-now<11",
+        "`s1",
+        "`s3, soul_seal.level=4 and cancel",
+        "`s4, soul_seal.level>2 and fsc",
+        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel)"
       ],
       "coabs": [
         "Blade",
@@ -150,43 +146,14 @@
       ]
     },
     "META": {
-      "tdps": 716011.1998809275,
+      "tdps": 769503.6922810797,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 157404.76854740595,
-        "team": 0.11364976274390562,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1, cancel",
-        "`s2, duration-now<3.5",
-        "`s4",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Gala_Sarisse",
-        "Wand",
-        "Yukata_Cassandra"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 176976.95769962712,
+        "dps": 177258.33960389934,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -202,17 +169,16 @@
       ],
       "acl": [
         "`dragon(c2-s-c2-end), s=2 and dragonform.shift_count=0",
-        "`dragon(c2-s-c2-end), s=2 and dragonform.shift_count=1",
-        "`s3, not buff(s3)",
-        "`s4, soul_seal.level=4 or fsc",
-        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`dragon(c2-s-c2-c2-end), s=2 and dragonform.shift_count=1",
+        "`s3, not buff(s3) and s=1",
+        "`s4, fsc and energy()<5",
+        "`s2, soul_seal.level=4 and dgauge>=500 and s1.check() and fsc and energy()<5",
         "`s1, dgauge<500",
-        "`fs, hits=1",
-        "`fs, x=4 or (charged_in(fs,s1) and cancel and now>10)"
+        "`fs, x=4",
+        "`fs, charged_in(fs,s1)"
       ]
     },
     "META": {
-      "tdps": 172214.9583041757,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -221,9 +187,17 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59127.198216293196,
+        "team": 0.03417589175540938,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97886.91332431255,
+        "dps": 99534.94731246433,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -237,19 +211,13 @@
         "Testament_of_Eternity",
         "Thunderswift_Lords_Blade_Lance"
       ],
-      "acl": [
-        "`dragon(c2-s-c2-end), duration-now<10",
-        "`s1",
-        "`s3",
-        "`s4, fsc",
-        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel)"
-      ],
       "share": [
         "Summer_Julietta",
         "Summer_Celliera"
       ]
     },
     "META": {
+      "tdps": 1182346.5905545936,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -258,36 +226,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 115483.34012499596,
-        "team": 0.11565311892855716,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Thunderswift_Lords_Blade_Lance"
-      ],
-      "acl": [
-        "`dragon(c2-s-c2-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4, soul_seal.level=4 or fsc",
-        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
-        "`s1, dgauge<500",
-        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Sarisse",
-        "Yukata_Cassandra"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 116300.08468117742,
@@ -318,6 +256,14 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46599.42613607109,
+        "team": 0.03417589175540938,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 65105.38555778421,
@@ -353,6 +299,7 @@
       ]
     },
     "META": {
+      "tdps": 541491.6325858268,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
