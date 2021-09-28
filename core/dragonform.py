@@ -63,6 +63,7 @@ class DragonForm(Action):
         self.allow_end_cd = self.conf.allow_end + self.dstime()
         self.allow_force_end_timer = Timer(self.set_allow_end, timeout=self.allow_end_cd)
         self.allow_end = False
+        self.dragonbattle = False
 
     def set_disabled(self, reason):
         if self.disabled_reasons is not None:
@@ -132,6 +133,7 @@ class DragonForm(Action):
         return self.dragondrive_buff
 
     def set_dragonbattle(self, duration):
+        self.dragonbattle = True
         self.disabled_reasons = None
         self.dragon_gauge = self.max_gauge
         self.conf.duration = duration
@@ -159,6 +161,8 @@ class DragonForm(Action):
         self.charge_gauge(self.dragon_gauge_val, percent=True, auto=True)
 
     def pause_auto_gauge(self):
+        if self.dragonbattle:
+            return
         if self.dragon_gauge_pause_timer is None:
             self.dragon_gauge_timer_diff = self.dragon_gauge_timer.timing - now()
         else:
