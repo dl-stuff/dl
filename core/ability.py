@@ -1035,7 +1035,11 @@ class Affliction_Time(Ability):
 
     def oninit(self, adv, afrom=None):
         super().oninit(adv, afrom)
-        adv.afflics.__dict__[self.atype].aff_time_mods.append(self.mod_object)
+        if self.atype == "all":
+            for aff in AFFLICT_LIST:
+                adv.afflics.__dict__[aff].aff_time_mods.append(self.mod_object)
+        else:
+            adv.afflics.__dict__[self.atype].aff_time_mods.append(self.mod_object)
 
 
 ability_dict["afftime"] = Affliction_Time

@@ -6,7 +6,7 @@ class Summer_Chelle(Adv):
         self.radiance_gauge = 0
         Event("dragon").listener(self.reset_radiance)
         self.a1_modifier = Modifier("radiance_flashburn", "edge", "flashburn", 0.0)
-        self.afflics.__dict__["flashburn"].aff_edge_mods.append(self.a1_modifier)
+        self.afflics.flashburn.aff_edge_mods.append(self.a1_modifier)
         self.a1_modifier.get = self.a1_get
 
     @staticmethod
@@ -28,14 +28,14 @@ class Summer_Chelle(Adv):
         return self.radiance_gauge // 33
 
     def a1_get(self):
-        return (0.0, 30.0, 50.0, 0.0)[self.radiance_level()]
+        return (0.0, 0.3, 0.5, 0.0)[self.radiance_level]
 
     def s1_before(self, e):
-        if (68 <= self.radiance_gauge < 100):
+        if 68 <= self.radiance_gauge < 100:
             self.radiance = Modifier("ravishing_radiance", "s", "passive", 1.0).on()
 
     def s1_proc(self, e):
-        if (self.radiance_gauge == 100):
+        if self.radiance_gauge == 100:
             self.radiance.off()
 
     def s2_proc(self, e):
