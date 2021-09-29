@@ -6,7 +6,7 @@ class Summer_Chelle(Adv):
         self.radiance_gauge = 0
         Event("dragon").listener(self.reset_radiance)
         self.a1_modifier = Modifier("radiance_flashburn", "edge", "flashburn", 0.0)
-        self.afflics.__dict__["flashburn"].aff_edge_mods.append(self.a1_modifier)
+        self.afflics.flashburn.aff_edge_mods.append(self.a1_modifier)
         self.a1_modifier.get = self.a1_get
 
     @staticmethod
