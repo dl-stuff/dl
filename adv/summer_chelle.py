@@ -28,7 +28,7 @@ class Summer_Chelle(Adv):
         return self.radiance_gauge // 33
 
     def a1_get(self):
-        return (0.0, 30.0, 50.0, 0.0)[self.radiance_level()]
+        return (0.0, 30.0, 50.0, 0.0)[self.radiance_level]
 
     def s1_before(self, e):
         if (68 <= self.radiance_gauge < 100):
