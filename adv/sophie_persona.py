@@ -47,7 +47,7 @@ class Sophie_Persona(Adv):
     def check_deferred_x(self):
         pass
 
-    def x(self, x_min=1):
+    def _next_x(self, x_min=1):
         base_x = "ddrive" if self.dragonform.dragondrive_buff.get() else "default"
         ex_x = "ddriveex" if self.dragonform.dragondrive_buff.get() else "ex"
         prev = self.action.getprev()

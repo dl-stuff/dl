@@ -18,9 +18,10 @@ class Elisanne_55MC(Adv):
     conf[
         "acl"
     ] = """
-    `s1
     `dragon
-    `ds1, x=3
+    qwhile dform
+    `x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;ds1
+    end
     """
 
     ### TEST ###

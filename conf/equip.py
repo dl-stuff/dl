@@ -9,6 +9,7 @@ from pprint import pprint
 from lark.tree import Tree
 
 from core.afflic import AFFLICT_LIST
+from core.acl import regenerate_acl
 from conf import SKIP_VARIANT, get_conf_json_path, ELE_AFFLICT, list_advs, load_json, mono_elecoabs, wyrmprints
 
 
@@ -275,9 +276,7 @@ def build_from_sim(adv, real_d):
     build["slots.d"] = adv.slots.d.qual
     if adv.slots.w.series != adv.slots.DEFAULT_WEAPON:
         build["slots.w"] = adv.slots.w.series
-    acl_list = adv.conf.acl
-    if not isinstance(acl_list, list):
-        acl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
+    acl_list = regenerate_acl(adv._acl).split("\n")
     build["acl"] = acl_list
     build["coabs"] = adv.slots.c.coab_list
     build["share"] = adv.skillshare_list

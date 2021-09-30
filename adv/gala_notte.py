@@ -8,12 +8,12 @@ class Gala_Notte(DivineShiftAdv):
     def prerun(self):
         self.configure_divine_shift("metamorphosis", max_gauge=1800, shift_cost=560, drain=65)
 
-    def x(self):
+    def _next_x(self):
         x_min = 1
         prev = self.action.getprev()
         if isinstance(prev, X) and prev.index == 2:
             x_min = 2
-        return super().x(x_min=x_min)
+        return super()._next_x(x_min=x_min)
 
 
 class Gala_Notte_DDAMAGE(Gala_Notte):

@@ -65,7 +65,7 @@ class DragonForm:
         self.dracolith_mod = self.adv.Modifier("dracolith", "ex", "dragon", 0)
         self.dracolith_mod.get = self.ddamage
         self.dracolith_mod.off()
-        self.shift_mods = []
+        self.shift_mods = [self.dracolith_mod]
         self.shift_spd_mod = None
         self.off_ele = self.adv.slots.c.ele != self.conf.d.ele
         self.previous_x = "default"
@@ -211,7 +211,7 @@ class DragonForm:
                 self.l_s_final_end.on()
                 self.adv.ds1.charged = self.adv.ds1.sp
                 self.adv.ds1.cast()
-                return
+                return False
             else:
                 self.l_s_final_end.off()
                 if self.off_ele:
@@ -252,3 +252,9 @@ class DragonForm:
         g_logs.set_log_shift(self.name)
         self.status = True
         return self.d_shift()
+
+    def sack(self):
+        if not self.status:
+            return True
+        if self.allow_end:
+            return self.d_shift_end()

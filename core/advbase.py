@@ -1610,13 +1610,17 @@ class Adv(object):
         return self.dragonform.shift()
 
     @allow_acl
+    def sack(self):
+        return self.dragonform.sack()
+
+    @allow_acl
     def ds(self, n=1):
         if self.dragonform.status:
             return self.a_s_dict[f"ds{n}"]()
         return False
 
     @property
-    def is_dragon(self):
+    def dform(self):
         return self.dragonform.status
 
     @allow_acl
@@ -1656,7 +1660,20 @@ class Adv(object):
             self.deferred_x = None
 
     @allow_acl
-    def x(self, x_min=1):
+    def x(self, n=0):
+        prev = self.action.getprev()
+        self.check_deferred_x()
+        if isinstance(prev, X) and prev.index >= n and prev.group == self.current_x:
+            log("x_debug", prev.name, str(prev))
+            x_next = self.a_x_dict[self.current_x][1]
+            if x_next.enabled:
+                return x_next()
+            else:
+                self.current_x = "default"
+            self.a_x_dict[self.current_x][1]()
+        return False
+
+    def _next_x(self, x_min=1):
         prev = self.action.getprev()
         self.check_deferred_x()
         if isinstance(prev, X) and prev.group == self.current_x:
@@ -2014,7 +2031,7 @@ class Adv(object):
             if self.current_x == globalconf.DRG and self.dragonform.auto_dodge:
                 result = self.dodge()
 
-        return result or self.x()
+        return result or self._next_x()
 
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
@@ -2180,16 +2197,16 @@ class Adv(object):
 
     def dmg_formula(self, name, dmg_coef):
         dmg_mod = self.dmg_mod(name)
-        att = self.att_mod(name) * self.base_att
+        att = self.att_mod(name)
         armor = 10 * self.def_mod()
         ex = self.mod("ex")
         # to allow dragon overriding
         ele = (self.mod(self.element) + 0.5) * (self.mod(f"{self.slots.c.ele}_resist"))
-        print(dmg_mod, att, armor, ex, ele)
-        return 5.0 / 3 * dmg_coef * dmg_mod * ex * att / armor * ele  # true formula
+        # log("maffs", name, dmg_mod, att, armor, ex, ele)
+        return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
-        log("dmg", e.dname, e.count, e.comment)
+        log("dmg", e.dname, e.count, 0, e.comment)
 
     def l_dmg_make(self, e):
         try:
@@ -2229,7 +2246,7 @@ class Adv(object):
         if hitmods is not None:
             for m in hitmods:
                 m.off()
-        log("dmg", name, count)
+        log("dmg", name, count, coef)
         # self.dmg_proc(name, count)
         dmg_made_event = Event("dmg_made")
         dmg_made_event.name = name

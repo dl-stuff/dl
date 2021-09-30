@@ -100,7 +100,7 @@ class Gala_Laxi(Adv):
     def reset_to_norm(self, e):
         self.current_x = "default"
 
-    def x(self, x_min=1):
+    def _next_x(self, x_min=1):
         prev = self.action.getprev()
         if isinstance(prev, X) and (prev.group == self.current_x or "ex" in (prev.group, self.current_x)):
             if self.deferred_x is not None:

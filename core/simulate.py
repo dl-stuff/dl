@@ -130,8 +130,10 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
     if verbose == 2:
         # output.write(adv._acl_str)
         adv = module(name=name)
-        output.write(str(core.acl.build_acl(adv.conf.acl)._acl_str))
-        output.write(str(core.acl.build_acl(adv.conf.acl)._tree.pretty()))
+        acl = core.acl.build_acl(adv.conf.acl)
+        output.write(str(acl._acl_str))
+        output.write("\n")
+        output.write(str(acl._tree.pretty()))
         return
     if verbose == -5:
         equip_conditions = DEFAULT_CONDITONS

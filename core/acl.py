@@ -481,11 +481,53 @@ class AclRegenerator(Interpreter):
                 return f"{fnres}[{visited_idx}]"
 
 
-FSN_PATTERN = re.compile(r"(^|;)`?(fs|s|ds)(\d+)(\(([^)]+)\))?")
+SEP_PATTERN = re.compile(r"(^|;|\n)")
+FSN_PATTERN = re.compile(r"^`?(fs|s|ds|x)(\d+)(\(([^)]+)\))?")
+DRG_PATTERN = re.compile(r"^(.*)dragon\(([A-Za-z0-9\-]+)\)(.*)")
 
 
 def _pre_parse(acl):
-    return "\n".join(filter(None, (FSN_PATTERN.sub(r"\1`\2(\3,\5)", l.strip()) for l in acl.split("\n"))))
+    pre_parsed = []
+
+    in_queue = True
+    for line in SEP_PATTERN.split(acl):
+        line = line.strip()
+        if not line:
+            continue
+        if line == "end":
+            in_queue = False
+        elif line.startswith("queue"):
+            in_queue = True
+        drgres = DRG_PATTERN.match(line)
+        if drgres:
+            str_b4, dact_str, str_af = drgres.groups()
+            str_b4 = str_b4.strip("` ")
+            str_af = str_af.strip(", ")
+            queue_str = []
+            for a in dact_str.split("-"):
+                if a in ("s", "ds"):
+                    queue_str.append("ds1,cancel")
+                elif a in ("sf", "dsf"):
+                    queue_str.append("ds1")
+                elif a in ("fs", "dfs"):
+                    queue_str.append("dfs")
+                elif a == "dodge":
+                    queue_str.append("dodge")
+                elif a == "end":
+                    queue_str.append("sack")
+            if in_queue:
+                pass
+            else:
+                if str_af:
+                    cond = cond + " and dragonform.check()"
+                else:
+                    cond = ""
+                line = "\nqueue {}\n`{}\nend".format(cond, ";".join(queue_str))
+        else:
+            line = FSN_PATTERN.sub(r"`\1(\2,\4)", line.strip())
+        pre_parsed.append(line)
+
+    return "\n".join(pre_parsed)
 
 
 def build_acl(acl):
