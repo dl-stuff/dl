@@ -28,13 +28,13 @@ TRIBE_TYPES = (
 DURATIONS = (180,)
 ELE_AFFLICT = {
     "flame": ("burn", "scorchrend"),
-    "water": ("frostbite",), # sadness
+    "water": ("frostbite",),  # sadness
     "wind": ("poison", "stormlash"),
     "light": ("paralysis", "flashburn"),
     "shadow": ("poison", "shadowblight"),
 }
 SKIP_VARIANT = ("RNG", "mass")
-
+DRG = "drg"
 
 ROOT_DIR = os.getenv("ROOT_DIR", os.path.realpath(os.path.join(__file__, "../..")))
 

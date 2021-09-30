@@ -14,16 +14,14 @@ class Elisanne_55MC(Adv):
     }
     ### TEST ###
     conf["prefer_baseconf"] = True
+    conf["slots.d"] = "High_Mercury"
     conf[
         "acl"
     ] = """
-    `dragon
-    `ds
     `s1
+    `dragon
+    `ds1, x=3
     """
-
-    def prerun(self):
-        Modifier("bolb", "sp_s1", "passive", 1.0)
 
     ### TEST ###
 

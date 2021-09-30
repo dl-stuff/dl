@@ -153,13 +153,13 @@ class AclInterpreter(Interpreter):
         else:
             t._visited = bool(result) or getattr(t, "_visited", False)
         # if t.data == "action":
-        #     log("visited", str(t._visited), str(t))
+        #     log("visited", str(result), str(t))
         return result
 
     def start(self, t):
         for child in t.children:
             result = self.visit(child)
-            # log('acl', str(result), str(t))
+            # log("acl", str(result), str(child))
             if result and result is not CONTINUE:
                 return True
         return False

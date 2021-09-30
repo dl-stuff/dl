@@ -67,6 +67,10 @@ class Skill(object):
         for ac in self.act_dict.values():
             ac.enabled = enabled
 
+    def reset_uses(self):
+        for ac in self.act_dict.values():
+            ac.uses = ac.conf["uses"] or -1
+
     @property
     def phase(self):
         return self._static.current_s[self.name]
@@ -126,7 +130,7 @@ class Skill(object):
 
     @allow_acl
     def check(self):
-        if self._static.silence == 1 or not self.ac.enabled or self.sp == 0:
+        if self._static.silence == 1 or not self.ac.enabled or self.sp == 0 or self.ac.uses == 0:
             return False
         return self.charged >= self.sp
 
@@ -136,6 +140,8 @@ class Skill(object):
         # Even if animation is shorter than 1.9, you can't cast next skill before 1.9
         self.silence_end_timer.on(self.silence_duration)
         self._static.silence = 1
+        if self.ac.uses > 0:
+            self.ac.uses -= 1
         if loglevel >= 2:
             log("silence", "start")
         return 1
@@ -333,9 +339,9 @@ class Action(object):
         return self.conf.recovery
 
     def getrecovery(self):
-        # Lathna/Ramona spaget
-        if "recovery_nospd" in self.conf:
-            return self._recovery / self.speed() + self.conf["recovery_nospd"]
+        # Lathna/Ramona spaget, fixed now
+        # if "recovery_nospd" in self.conf:
+        #     return self._recovery / self.speed() + self.conf["recovery_nospd"]
         return self._recovery / self.speed()
 
     def getstartup(self):
@@ -532,7 +538,10 @@ class Repeat(Action):
 class X(Action):
     def __init__(self, name, conf, act=None):
         parts = name.split("_")
-        index = int(parts[0][1:])
+        try:
+            index = int(parts[0][1:])
+        except ValueError:
+            index = int(parts[0][2:])
         super().__init__((name, index), conf, act)
         self.base = parts[0]
         self.group = "default" if len(parts) == 1 else parts[1]
@@ -563,24 +572,25 @@ class Fs(Action):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
         parts = name.split("_")
-        self.act_event = Event("fs")
-        self.act_event.name = self.name
-        self.act_event.base = parts[0]
-        self.act_event.group = "default"
-        self.act_event.level = 0
-        if len(parts) >= 2:
-            self.act_event.group = parts[1]
+        self.base = parts[0]
+        self.group = "default" if len(parts) == 1 else parts[1]
+        self.atype = "fs"
+        self.level = 0
         if len(parts[0]) > 2:
             try:
-                self.act_event.level = int(parts[0][2:])
+                self.level = int(parts[0][2:])
             except ValueError:
                 pass
+
+        self.act_event = Event("fs")
+        self.act_event.name = self.name
+        self.act_event.base = self.base
+        self.act_event.group = self.group
+        self.act_event.level = self.level
         self.start_event = Event("fs_start")
         self.start_event.act = self.act_event
         self.end_event = Event("fs_end")
         self.end_event.act = self.act_event
-
-        self.atype = "fs"
 
         self.act_repeat = None
         if self.conf["repeat"]:
@@ -713,17 +723,20 @@ class S(Action):
         self.end_event = Event("s_end")
         self.end_event.act = self.act_event
 
+        self.uses = -1
+
 
 class Misc(Action):
-    def __init__(self, name, conf, act=None):
+    def __init__(self, name, conf, act=None, atype=None):
         super().__init__(name, conf, act)
-        self.atype = name
+        self.atype = atype or name
 
         self.act_event = Event(name)
         self.act_event.name = self.name
         self.act_event.base = self.name
-        self.act_event.group = self.name
+        self.act_event.group = "default"
         self.act_event.conf = self.conf
+        self.act_event.msg = "-"
 
         self.end_event = Event(f"{name}_end")
         self.end_event.act = self.act_event
@@ -737,12 +750,16 @@ class Misc(Action):
 
 class Dodge(Misc):
     def __init__(self, name, conf, act=None):
-        super().__init__(name, conf, act)
+        super().__init__(name, conf, act, atype="dodge")
 
 
 class Shift(Misc):
-    def __init__(self, name, conf, act=None):
-        super().__init__(name, conf, act)
+    def __init__(self, name, conf, act=None, shift_end=False):
+        super().__init__("dend" if shift_end else "dshift", conf, act, atype="s")
+        if shift_end:
+            name += " END"
+        self.name = name
+        self.act_event.msg = name
 
 
 class Adv(object):
@@ -873,7 +890,7 @@ class Adv(object):
         self.afflic_condition()
 
         # init actions
-        for xn, xconf in self.conf.find(r"^x\d+(_[A-Za-z0-9]+)?$"):
+        for xn, xconf in self.conf.find(r"^d?x\d+(_[A-Za-z0-9]+)?$"):
             a_x = X(xn, self.conf[xn])
             if xn != a_x.base and self.conf[a_x.base]:
                 a_x.conf.update(self.conf[a_x.base], rebase=True)
@@ -887,10 +904,10 @@ class Adv(object):
         self.current_x = "default"
         self.deferred_x = None
 
-        for name, fs_conf in self.conf.find(r"^fs\d*(_[A-Za-z0-9]+)?$"):
+        for name, fs_conf in self.conf.find(r"^d?fs\d*(_[A-Za-z0-9]+)?$"):
             try:
                 base = name.split("_")[0]
-                if base != "fs":
+                if base not in ("fs", "dfs"):
                     fs_conf.update(self.conf.fs, rebase=True)
                 if name != base and self.conf[base]:
                     fs_conf.update(self.conf[base], rebase=True)
@@ -911,15 +928,14 @@ class Adv(object):
         self.a_dodge = Dodge("dodge", self.conf.dodge)
         self.a_dooodge = Dodge("dooodge", self.conf.dooodge)
 
+        self._think_modes = set()
         if self.conf["dumb"]:
-            self.cb_think = self._cb_think_dumb
+            self._think_modes.add("dumb")
             self.dumb_cd = int(self.conf["dumb"])
             self.dumb_count = 0
             self.condition(f"be a dumb every {self.dumb_cd}s")
-        elif self.conf["auto_fsf"]:
-            self.cb_think = self._cb_think_fsf
-        else:
-            self.cb_think = self._cb_think
+        if self.conf["auto_fsf"]:
+            self._think_modes.add("auto_fsf")
 
         self.hits = 0
         self.last_c = 0
@@ -954,7 +970,7 @@ class Adv(object):
 
     def actmod_on(self, e):
         do_sab = True
-        do_tension = e.name.startswith("s") or e.name in ("ds", "ds_final")
+        do_tension = e.name.startswith("s") or e.base in ("ds1", "ds2")
         if do_tension:
             for t in self.tension:
                 t.on(e)
@@ -1220,6 +1236,8 @@ class Adv(object):
         self.pre_conf(equip_conditions=equip_conditions)
         self.equip_manager.set_pref_override(None)
 
+        self.dragonform = None
+
         # set afflic
         self.afflics = Afflics()
         if self.conf["berserk"]:
@@ -1263,17 +1281,17 @@ class Adv(object):
             scope = scope[0]
         if name.startswith("dx") or name == "dshift":
             scope = "x"
-        elif name in ("ds", "ds_final"):
-            scope = "s"
 
         if self.berserk_mode:
             mod *= self.mod("odaccel")
 
         if scope[0] == "s":
             try:
-                mod *= 1 if name in ("ds", "ds_final") or self.a_s_dict[scope].owner is None else self.skill_share_att
+                mod *= 1 if self.a_s_dict[name].owner is None else self.skill_share_att
             except:
                 pass
+            return mod * self.mod("s")
+        elif scope[0:2] == "ds":
             return mod * self.mod("s")
         elif scope[0:2] == "fs":
             return mod * self.mod("fs")
@@ -1655,10 +1673,11 @@ class Adv(object):
     def l_x(self, e):
         # FIXME: race condition?
         x_max = self.conf[self.current_x].x_max
+        logname = e.base if e.group in ("default", globalconf.DRG) else e.name
         if e.index == x_max:
-            log("x", e.name, 0, "-" * 38 + f"c{x_max}")
+            log("x", logname, 0, "-" * 38 + f"c{x_max}")
         else:
-            log("x", e.name, 0)
+            log("x", logname, 0)
         self.hit_make(
             e,
             self.conf[e.name],
@@ -1669,6 +1688,8 @@ class Adv(object):
 
     @allow_acl
     def dodge(self):
+        if self.dragonform.status:
+            return self.dragonform.d_dodge()
         return self.a_dodge()
 
     @allow_acl
@@ -1684,7 +1705,7 @@ class Adv(object):
             return False
 
     def l_misc(self, e):
-        log(e.name, "-")
+        log("cast", e.name, e.msg)
         self.hit_make(e, e.conf, cb_kind=e.name)
         self.think_pin(e.name)
 
@@ -1743,6 +1764,8 @@ class Adv(object):
 
     @allow_acl
     def s(self, n):
+        if self.dragonform.status:
+            return False
         self.check_deferred_x()
         return self.a_s_dict[f"s{n}"]()
 
@@ -1975,27 +1998,23 @@ class Adv(object):
     def debug(self):
         pass
 
-    def _cb_think(self, t, default_to_x=True):
-        if loglevel >= 2:
-            log("think", "/".join(map(str, (t.pin, t.dname, t.dstat, t.didx, t.dhit))))
-        result = self._acl(t)
-        if default_to_x:
-            return result or self.x()
-        else:
-            return result
-
-    def _cb_think_fsf(self, t):
-        result = self._cb_think(t, default_to_x=False)
-        if not result and self.current_x == "default" and t.dstat >= 0 and t.pin[0] == "x" and t.didx == 5 and t.dhit == 0:
-            return self.fsf()
-        return result or self.x()
-
-    def _cb_think_dumb(self, t):
-        if now() // self.dumb_cd > self.dumb_count:
+    def cb_think(self, t):
+        if "dumb" in self._think_modes and (now() // self.dumb_cd > self.dumb_count):
             self.dumb_count = now() // self.dumb_cd
             self.last_c = 0
             return self.a_dooodge()
-        return self._cb_think(t)
+
+        # log("think", "/".join(map(str, (t.pin, t.dname, t.dstat, t.didx, t.dhit))))
+
+        result = self._acl(t)
+
+        if not result and t.autocancel:
+            if "auto_fsf" in self._think_modes and self.current_x == "default":
+                result = self.fsf()
+            if self.current_x == globalconf.DRG and self.dragonform.auto_dodge:
+                result = self.dodge()
+
+        return result or self.x()
 
     def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
@@ -2014,6 +2033,7 @@ class Adv(object):
         t.dstat = doing.status
         t.didx = doing.index
         t.dhit = int(doing.has_delayed)
+        t.autocancel = t.pin[0] == "x" and doing.status == Action.DOING and doing.index == self.conf[doing.group].x_max and t.dhit == 0
         t.on(latency)
 
     def l_silence_end(self, e):
@@ -2053,9 +2073,9 @@ class Adv(object):
         return None
 
     # sp = self.sp_convert(self.sp_mod(name), sp)
-    def _charge(self, name, sp, sp_func, target=None, no_autocharge=False):
+    def _charge(self, name, sp, sp_func, target=None, no_autocharge=False, dragon_sp=False):
         real_sp = {}
-        if self.dragonform.status and (self.dragonform.is_dragonbattle or name[0] == "d"):
+        if self.dragonform.status and dragon_sp:
             # dra mode sp
             target = None
             skills = self.dskills
@@ -2114,9 +2134,9 @@ class Adv(object):
         s.charge(sp)
         return sp
 
-    def charge_p(self, name, percent, target=None, no_autocharge=False):
+    def charge_p(self, name, percent, target=None, no_autocharge=False, dragon_sp=False):
         percent = percent / 100 if percent > 1 else percent
-        result = self._charge(name, percent, self._prep_sp_fn, target=target, no_autocharge=no_autocharge)
+        result = self._charge(name, percent, self._prep_sp_fn, target=target, no_autocharge=no_autocharge, dragon_sp=dragon_sp)
         if not result:
             return
         _, all_sp_str, target_str = result
@@ -2129,8 +2149,8 @@ class Adv(object):
         if percent >= 1:
             self.think_pin("prep")
 
-    def charge(self, name, sp, target=None):
-        result = self._charge(name, sp, self._add_sp_fn, target=target)
+    def charge(self, name, sp, target=None, dragon_sp=False):
+        result = self._charge(name, sp, self._add_sp_fn, target=target, dragon_sp=dragon_sp)
         if not result:
             return
         charged_sp, all_sp_str, target_str = result
@@ -2165,6 +2185,7 @@ class Adv(object):
         ex = self.mod("ex")
         # to allow dragon overriding
         ele = (self.mod(self.element) + 0.5) * (self.mod(f"{self.slots.c.ele}_resist"))
+        print(dmg_mod, att, armor, ex, ele)
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
@@ -2299,12 +2320,10 @@ class Adv(object):
             onhit(name, base, group, aseq)
 
         if "sp" in attr:
+            dragon_sp = group == globalconf.DRG
             if isinstance(attr["sp"], int):
-                if name.startswith("dx"):
-                    self.dragonform.ds_charge(attr["sp"])
-                else:
-                    value = attr["sp"]
-                    self.charge(base, value)
+                value = attr["sp"]
+                self.charge(base, value, dragon_sp=dragon_sp)
             else:
                 value = attr["sp"][0]
                 mode = None if len(attr["sp"]) == 1 else attr["sp"][1]
@@ -2314,7 +2333,7 @@ class Adv(object):
                 charge_f = self.charge
                 if mode == "%":
                     charge_f = self.charge_p
-                charge_f(base, value, target=target)
+                charge_f(base, value, target=target, dragon_sp=dragon_sp)
 
         if "dp" in attr:
             self.dragonform.charge_gauge(attr["dp"])
@@ -2631,7 +2650,7 @@ class Adv(object):
         self.think_pin(pin or e.name)
 
     def l_fs(self, e):
-        log("cast", e.name)
+        log("cast", e.base if e.group in ("default", globalconf.DRG) else e.name)
         self.actmod_on(e)
         self.hit_make(e, self.conf[e.name], pin=e.name.split("_")[0])
 
@@ -2646,7 +2665,7 @@ class Adv(object):
             skills = self.skills
         log(
             "cast",
-            e.name,
+            e.base if e.group in ("default", globalconf.DRG) else e.name,
             f"after {prev}",
             ", ".join([f"{s.charged}/{s.sp}" for s in skills]),
         )
@@ -2680,7 +2699,7 @@ class Adv(object):
 
     @property
     def dshift_count(self):
-        return self.dragonform.shift_count
+        return g_logs.shift_count
 
     @property
     def bleed_stack(self):

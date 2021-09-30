@@ -136,6 +136,8 @@ class Timer(object):
         self.timing = 0
         self.online = 0
         self.canceled = False
+
+        self.pause_time = -1
         # self.on()
 
     def elapsed(self):
@@ -144,6 +146,9 @@ class Timer(object):
         else:
             self._elapsed = _g_now - self.began
             return _g_now - self.began
+
+    def timeleft(self):
+        return self.timing - _g_now
 
     def on(self, timeout=None):
         if timeout:
@@ -204,6 +209,17 @@ class Timer(object):
 
     def callback(self):
         pass
+
+    def pause(self):
+        if self.online:
+            self.pause_time = self.timeleft()
+            if self.pause_time > 0:
+                self.off()
+
+    def resume(self):
+        if self.pause_time > 0:
+            self.on(self.pause_time)
+        self.pause_time = -1
 
     def __repr__(self):
         # return '%f: Timer:%s'%(self.timing,self.process)

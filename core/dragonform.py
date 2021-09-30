@@ -1,20 +1,17 @@
 import operator
 from core.advbase import Dodge, Shift, S
-from core.timeline import Event, Timer, now
+from core.timeline import Event, Listener, Timer, now
 from core.log import log, g_logs
-from core.acl import allow_acl
-from math import ceil
-
-DFORM = "drg"
+from core.acl import allow_acl, CONTINUE
+from conf import DRG
 
 
-def _append_dform(act):
+def _append_drg(act):
     parts = act.split("_", 1)
-    parts[0] = parts[0][1:]
     if len(parts) == 1:
-        return f"{parts[0]}_{DFORM}"
+        return f"{parts[0]}_{DRG}"
     else:
-        return f"{parts[0]}_{parts[1]}{DFORM}"
+        return act
 
 
 class DragonForm:
@@ -31,9 +28,9 @@ class DragonForm:
             dxconf.interrupt.dodge = 0
             dxconf.cancel.s = 0
             dxconf.cancel.dodge = 0
-            adv.conf[_append_dform(dx)] = dxconf
+            adv.conf[_append_drg(dx)] = dxconf
         for fs, fsconf in self.conf.find(r"^dfs\d*(_[A-Za-z0-9]+)?$"):
-            adv.conf[_append_dform(fs)] = fsconf
+            adv.conf[_append_drg(fs)] = fsconf
         for ds, dsconf in self.conf.find(r"^ds\d*(_[A-Za-z0-9]+)?$"):
             adv.conf[ds] = dsconf
             # rebind ds(1|2)_(before|proc)
@@ -43,24 +40,35 @@ class DragonForm:
                 self.adv.rebind_function(self.dragon, f"{ds_base}_{sfn}", f"{ds_base}_{sfn}", overwrite=False)
         # make separate dodge action, may want to handle forward/backward later
         self.d_dodge = Dodge("dodge", self.conf.dodge)
-        self.d_shift = Shift("dshift", self.conf.dshift)
+        self.d_shift = Shift(name, self.conf.dshift)
+        self.d_end = Shift(name, self.conf.dend, shift_end=True)
 
         # events
         self.status = False
         self.disabled_reasons = set()
         self.shift_event = Event("dragon")
         self.end_event = Event("dragon_end")
-        self.ds_event = Event("ds")
         self.shift_end_timer = Timer(self.d_shift_end)
-        self.shift_silence = False
+        self.shift_silence_timer = Timer(None, 10)
+        self.can_end = True
+        Event("dshift").listener(self.d_shift_start, order=0)
+        self.l_s = Listener("s", self.l_ds_pause, order=0)
+        self.l_s_end = Listener("s_end", self.l_ds_resume, order=0)
+        self.l_s_final_end = Listener("s_end", self.d_shift_end, order=1)
+        self.l_s.off()
+        self.l_s_end.off()
+        self.l_s_final_end.off()
+
+        self.allow_end_cd = self.conf.allow_end + self.dstime()
 
         # mods
         self.dracolith_mod = self.adv.Modifier("dracolith", "ex", "dragon", 0)
         self.dracolith_mod.get = self.ddamage
         self.dracolith_mod.off()
-        self.shift_mods = [self.dracolith_mod]
+        self.shift_mods = []
         self.shift_spd_mod = None
         self.off_ele = self.adv.slots.c.ele != self.conf.d.ele
+        self.previous_x = "default"
 
         # gauge
         self.dragon_gauge = 0
@@ -78,13 +86,73 @@ class DragonForm:
         # dragonbattle
         self.is_dragonbattle = False
 
-        # logging stuff
-        self.act_sum = []
-        self.shift_start_time = 0
-        self.shift_count = 0
+    @property
+    def shift_silence(self):
+        return bool(self.shift_silence_timer.online)
+
+    def set_disabled(self, reason):
+        if self.disabled_reasons is not None:
+            self.disabled_reasons.add(reason)
+
+    def unset_disabled(self, reason):
+        if self.disabled_reasons is not None:
+            self.disabled_reasons.discard(reason)
+
+    @property
+    def disabled(self):
+        return bool(self.disabled_reasons)
+
+    @property
+    def auto_dodge(self):
+        d_combo = self.adv.a_x_dict[DRG][self.adv.conf[DRG].x_max]
+        if "dodge" not in d_combo.conf.cancel:
+            return False
+        return (self.d_dodge.getstartup() + self.d_dodge.getrecovery()) < d_combo.getrecovery()
 
     def auto_gauge(self, t):
         self.charge_gauge(self.dragon_gauge_val, percent=True, auto=True)
+
+    def pause_auto_gauge(self):
+        if self.is_dragonbattle:
+            return
+        if self.dragon_gauge_pause_timer is None:
+            self.dragon_gauge_timer_diff = self.dragon_gauge_timer.timing - now()
+        else:
+            self.dragon_gauge_timer_diff = self.dragon_gauge_pause_timer.timing - now()
+        self.dragon_gauge_timer.off()
+
+    def resume_auto_gauge(self, t):
+        self.dragon_gauge_pause_timer = None
+        self.auto_gauge(t)
+        self.dragon_gauge_timer.on()
+
+    def l_ds_pause(self, e):
+        if self.status and e.base in ("ds1", "ds2"):
+            self.shift_end_timer.pause()
+
+    def l_ds_resume(self, e):
+        if self.status and e.act.base in ("ds1", "ds2"):
+            self.shift_end_timer.resume()
+
+    @allow_acl
+    def dtime(self):
+        return self.conf.duration * self.adv.mod("dt") + self.conf.exhilaration * int(not self.off_ele)
+
+    def dstime(self):
+        try:
+            return (self.conf.ds.startup + self.conf.ds.recovery) / self.d_shift.speed()
+        except TypeError:
+            return 0
+
+    def reset_allow_end(self):
+        if not self.is_dragondrive:
+            self.allow_force_end_timer = Timer(None, timeout=self.allow_end_cd)
+            self.allow_force_end_timer.on()
+            self.allow_end_cd = min(self.allow_end_cd + self.conf.allow_end_step, self.dtime())
+
+    @property
+    def allow_end(self):
+        return self.is_dragondrive or bool(self.allow_force_end_timer.online)
 
     def dhaste(self):
         return self.adv.mod("dh", operator=operator.add)
@@ -113,8 +181,53 @@ class DragonForm:
     def ddamage(self):
         return self.conf.dracolith + self.adv.mod("da", operator=operator.add, initial=0)
 
-    def d_shift_end(self):
-        pass
+    def d_shift_start(self, _=None):
+        if self.is_dragondrive:
+            pass
+        else:
+            self.dragon_gauge -= self.shift_cost
+            if self.off_ele:
+                self.adv.element = self.adv.slots.d.ele
+            if self.shift_spd_mod is not None:
+                self.shift_spd_mod.on()
+            self.pause_auto_gauge()
+            for s in self.adv.dskills:
+                s.reset_uses()
+            self.adv.charge_p("dshift", 1.0, dragon_sp=True)
+            self.previous_x = self.adv.current_x
+            self.adv.current_x = DRG
+            self.l_s.on()
+            self.l_s_end.on()
+        self.shift_end_timer.on(self.dtime())
+        self.reset_allow_end()
+        self.shift_event()
+
+    def d_shift_end(self, _=None):
+        if self.is_dragondrive:
+            pass
+        else:
+            doing = self.d_shift.getdoing()
+            if self.adv.ds1.ac.conf["final"] and doing.base[:2] != "ds":
+                self.l_s_final_end.on()
+                self.adv.ds1.charged = self.adv.ds1.sp
+                self.adv.ds1.cast()
+                return
+            else:
+                self.l_s_final_end.off()
+                if self.off_ele:
+                    self.adv.element = self.adv.slots.c.ele
+                if self.shift_spd_mod is not None:
+                    self.shift_spd_mod.off()
+                self.shift_silence_timer.on()
+                self.dragon_gauge_pause_timer = Timer(self.resume_auto_gauge).on(self.dragon_gauge_timer_diff)
+                self.adv.current_x = self.previous_x
+                self.l_s.off()
+                self.l_s_end.off()
+            self.d_end()
+            self.end_event()
+        g_logs.set_log_shift()
+        self.status = False
+        return True
 
     def d_shift_partial_end(self):
         pass
@@ -136,6 +249,6 @@ class DragonForm:
     def shift(self):
         if not self.check():
             return False
-        self.adv.current_x = DFORM
+        g_logs.set_log_shift(self.name)
         self.status = True
         return self.d_shift()

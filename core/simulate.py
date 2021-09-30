@@ -13,7 +13,7 @@ from conf.equip import (
     all_monoele_coabs,
 )
 
-from conf import get_icon, get_fullname
+from conf import DRG, get_icon, get_fullname
 import core.acl
 import core.advbase
 
@@ -217,7 +217,7 @@ def append_condensed(condensed, act):
 
 
 def act_repeats(condensed):
-    condensed = list(filter(lambda a: a[0] != "dshift", condensed))
+    condensed = list(filter(lambda a: not a[0].startswith(DRG), condensed))
     start = 0
     maxlen = len(condensed)
     bestest = condensed, 1, 0
@@ -289,19 +289,14 @@ def act_sum(actions, output):
             output.write(act)
             p_type = "x"
         else:
-            if act == "dshift":
-                output.write("[--- dragon ---]")
-                p_type == "d"
-                idx_offset += 1
-            else:
-                parts = act.split("_")
-                if len(parts) > 1:
-                    if parts[1][:5] == "phase":
-                        act = parts[0] + "-" + parts[1][-1]
-                    else:
-                        act = parts[0] + "-" + parts[1]
-                output.write("[" + act + "]")
-                p_type = "s"
+            parts = act.split("_")
+            if len(parts) > 1:
+                if parts[1][:5] == "phase":
+                    act = parts[0] + "-" + parts[1][-1]
+                else:
+                    act = parts[0] + "-" + parts[1]
+            output.write("[" + act + "]")
+            p_type = "s"
         if cnt > 1:
             output.write("*{}".format(cnt))
 
