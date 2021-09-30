@@ -10,33 +10,34 @@ _ELIF: "elif"i
 _ELSE: "else"i
 _END: "end"i
 _QUEUE: "queue"i
+_WHILE: "while"i
 _EOL: (NEWLINE | ";")+
 _SELF: "self"
 
-COMMENT: /#[^\n]*\n?/
+COMMENT: /#(\n)*\n?/
 
 %ignore COMMENT
 %ignore WS_INLINE
 
-?start: (ifelse | ifqueue | actcond) (_EOL (ifelse | ifqueue | actcond))* [_EOL]
+?start: (ifelse | ifqueue | actcond) (_EOL (ifelse | ifqueue | actcond))* (_EOL)?
 
-ifelse: _IF condition _EOL start [_ELIF condition _EOL start] [_ELSE _EOL start] [_EOL] _END
-ifqueue: _QUEUE [condition] _EOL (actcond (_EOL actcond)*) [_EOL] _END
+ifelse: _IF condition _EOL start (_ELIF condition _EOL start)? (_ELSE _EOL start)? (_EOL)? _END
+ifqueue: _QUEUE [condition] [_WHILE condition] _EOL (actcond (_EOL actcond)*) (_EOL)? _END
 
-?actcond: action ["," condition]
+?actcond: action ("," condition)?
 
-action: ["`"] (function | CNAME)
-?condition: [NOT] _ident 
-    | ([NOT] "(" condition ")")
+action: ("`")? (function | CNAME)
+?condition: (NOT)? _ident 
+    | ((NOT)? "(" condition ")")
     | (condition _logic condition)
-    | [NOT] (_atomic _op2 _atomic) 
-    | [NOT] (_atomic _op3 _atomic)
+    | (NOT)? (_atomic _op2 _atomic) 
+    | (NOT)? (_atomic _op3 _atomic)
 
 _atomic: literal | _ident | arithmetic
 ?arithmetic: "(" arithmetic ")" | (_atomic _op1 _atomic)
 _ident: params | pincond | selfcond
 
-selfcond: [_SELF "."] (CNAME ".")* (function | indice | CNAME)
+selfcond: (_SELF ".")? (CNAME ".")* (function | indice | CNAME)
 
 DURATION: "duration"i
 NOW: "now"i
@@ -83,7 +84,7 @@ _QUOTE: "'" | "\""
 STRING: /[A-Za-z0-9-_]+/
 NONE: "none"i
 BOOLEAN: "true"i | "false"i
-indice: (function | CNAME) "[" [literal] "]"
-function: CNAME "(" [_args] ")"
-_args: literal ("," literal)* [","]
+indice: (function | CNAME) "[" (literal)? "]"
+function: CNAME "(" (_args)? ")"
+_args: literal ("," literal)* (",")?
 literal: NONE | SIGNED_INT | SIGNED_FLOAT | BOOLEAN | _QUOTE? STRING _QUOTE?

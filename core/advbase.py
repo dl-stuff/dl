@@ -318,17 +318,18 @@ class Action(object):
             self.act_event = Event(self.name)
         return self.o_tap()
 
-    def can_follow(self, target, timing, elapsed):
+    def can_follow(self, name, atype, conf, elapsed):
+        timing = conf[name] or conf[atype]
         try:
             return max(0, round(timing / self.speed() - elapsed, 5))
-        except (KeyError, TypeError):
+        except TypeError:
             return None
 
-    def can_interrupt(self, target):
-        return self.can_follow(target, self.conf.interrupt[target], self.startup_timer.elapsed())
+    def can_interrupt(self, name, atype):
+        return self.can_follow(name, atype, self.conf.interrupt, self.startup_timer.elapsed())
 
-    def can_cancel(self, target):
-        return self.can_follow(target, self.conf.cancel[target], self.recovery_timer.elapsed())
+    def can_cancel(self, name, atype):
+        return self.can_follow(name, atype, self.conf.cancel, self.recovery_timer.elapsed())
 
     @property
     def _startup(self):
@@ -415,12 +416,10 @@ class Action(object):
     def tap(self, t=None, defer=True):
         doing = self._static.doing
 
-        if doing.idle:
-            if loglevel >= 2:
-                log("tap", self.name, self.atype, f"idle {doing.status}")
-        else:
-            if loglevel >= 2:
-                log("tap", self.name, self.atype, f"doing {doing.name}:{doing.status}")
+        # if doing.idle:
+        #     log("tap", self.name, self.atype, f"idle {doing.status}")
+        # else:
+        #     log("tap", self.name, self.atype, f"doing {doing.name}:{doing.status}")
 
         if doing == self:  # self is doing
             return False
@@ -429,7 +428,7 @@ class Action(object):
         #    pass
         if not doing.idle:  # doing != self
             if doing.status == Action.STARTUP:  # try to interrupt an action
-                timing = doing.can_interrupt(self.atype)
+                timing = doing.can_interrupt(self.name, self.atype)
                 if timing is not None:  # can interrupt action
                     if timing > 0:
                         if defer:
@@ -448,7 +447,7 @@ class Action(object):
                 else:
                     return False
             elif doing.status == Action.RECOVERY:  # try to cancel an action
-                timing = doing.can_cancel(self.atype)
+                timing = doing.can_cancel(self.name, self.atype)
                 if timing is not None:  # can cancel action
                     if timing > 0:
                         if defer:
@@ -501,19 +500,19 @@ class Repeat(Action):
         self.extra_charge = None
         self.index0_time = None
 
-    def can_ic(self, target, can):
-        if target == self.parent.name:
+    def can_ic(self, name, atype, can):
+        if name == self.parent.name and atype == self.parent.atype:
             return None
-        result = can(target, endcheck=False)
+        result = can(name, atype, endcheck=False)
         if result is not None:
             self.end_repeat_event.on()
         return result
 
-    def can_interrupt(self, target):
-        return self.can_ic(target, self.parent.can_interrupt)
+    def can_interrupt(self, name, atype):
+        return self.can_ic(name, atype, self.parent.can_interrupt)
 
-    def can_cancel(self, target):
-        return self.can_ic(target, self.parent.can_interrupt)
+    def can_cancel(self, name, atype):
+        return self.can_ic(name, atype, self.parent.can_cancel)
 
     def __call__(self):
         self.index = 0
@@ -599,23 +598,23 @@ class Fs(Action):
         self.extra_charge = 0
         self.last_buffer = 0
 
-    def can_interrupt(self, target, endcheck=True):
+    def can_interrupt(self, name, atype, endcheck=True):
         if self.act_repeat and endcheck:
-            result = super().can_interrupt(target)
+            result = super().can_interrupt(name, atype)
             if result is not None:
                 self.act_repeat.end_event.on()
             return result
         else:
-            return super().can_interrupt(target)
+            return super().can_interrupt(name, atype)
 
-    def can_cancel(self, target, endcheck=True):
+    def can_cancel(self, name, atype, endcheck=True):
         if self.act_repeat and endcheck:
-            result = super().can_cancel(target)
+            result = super().can_cancel(name, atype)
             if result is not None:
                 self.act_repeat.end_event.on()
             return result
         else:
-            return super().can_cancel(target)
+            return super().can_cancel(name, atype)
 
     def _cb_act_end(self, e):
         if self.act_repeat:
@@ -657,6 +656,7 @@ class Fs(Action):
             elif prev != self.nop:
                 try:
                     # check if it's 2 X in a row, maybe (???)
+                    # actually get prevprev doesnt work whoops
                     prevprev_rec = 0
                     if isinstance(prev, X) and prev.index > 2:
                         prevprev = prev.getprev()
@@ -1661,10 +1661,9 @@ class Adv(object):
 
     @allow_acl
     def x(self, n=0):
-        prev = self.action.getprev()
+        prev = self.action.getdoing()
         self.check_deferred_x()
         if isinstance(prev, X) and prev.index >= n and prev.group == self.current_x:
-            log("x_debug", prev.name, str(prev))
             x_next = self.a_x_dict[self.current_x][1]
             if x_next.enabled:
                 return x_next()
@@ -1674,7 +1673,7 @@ class Adv(object):
         return False
 
     def _next_x(self, x_min=1):
-        prev = self.action.getprev()
+        prev = self.action.getdoing()
         self.check_deferred_x()
         if isinstance(prev, X) and prev.group == self.current_x:
             if prev.index < self.conf[prev.group].x_max:
@@ -2027,9 +2026,9 @@ class Adv(object):
 
         if not result and t.autocancel:
             if "auto_fsf" in self._think_modes and self.current_x == "default":
-                result = self.fsf()
+                self.fsf()
             if self.current_x == globalconf.DRG and self.dragonform.auto_dodge:
-                result = self.dodge()
+                self.dodge()
 
         return result or self._next_x()
 

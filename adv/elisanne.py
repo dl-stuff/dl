@@ -19,8 +19,8 @@ class Elisanne_55MC(Adv):
         "acl"
     ] = """
     `dragon
-    qwhile dform
-    `x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;x2;ds1
+    queue while dform
+    `x3;x2;x3
     end
     """
 

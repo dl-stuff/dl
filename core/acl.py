@@ -26,7 +26,7 @@ from conf import ROOT_DIR
 froot = os.path.join(ROOT_DIR, "core")
 lark_file = os.path.join(froot, "acl.lark")
 with open(lark_file) as f:
-    PARSER = Lark(f.read(), parser="lalr")
+    PARSER = Lark(f.read(), parser="lalr", maybe_placeholders=True)
 
 
 SHORT_CIRCUIT = {
@@ -128,8 +128,13 @@ class AclInterpreter(Interpreter):
         self._adv = adv
         self._inst = self._adv
         self._queue = deque()
+        self._queue_while = None
 
     def checkqueue(self):
+        if self._queue_while is not None and not self.visit(self._queue_while):
+            self._queue.clear()
+            self._queue_while = None
+            return False
         try:
             n_actcond = self._queue.popleft()
             if not self.visit(n_actcond):
@@ -179,8 +184,11 @@ class AclInterpreter(Interpreter):
         return False
 
     def ifqueue(self, t):
-        if self.visit(t.children[0]):
-            self._queue.extend(t.children[1:])
+        if self._queue:
+            return False
+        if t.children[0] is None or self.visit(t.children[0]):
+            self._queue_while = t.children[1]
+            self._queue.extend(t.children[2:])
             return self.checkqueue()
         return False
 
@@ -459,7 +467,7 @@ class AclRegenerator(Interpreter):
     def function(self, t):
         fn = t.children[0]
         args = t.children[1:]
-        if fn.value in ("s", "fs"):
+        if XSF.match(fn.value):
             if len(args) == 0:
                 return str(fn.value)
             elif len(args) == 1:
@@ -481,8 +489,9 @@ class AclRegenerator(Interpreter):
                 return f"{fnres}[{visited_idx}]"
 
 
+XSF = re.compile(r"d?(fs|s|x)")
 SEP_PATTERN = re.compile(r"(^|;|\n)")
-FSN_PATTERN = re.compile(r"^`?(fs|s|ds|x)(\d+)(\(([^)]+)\))?")
+XSF_PATTERN = re.compile(r"^`?d?(fs|s|x)(\d+)(\(([^)]+)\))?")
 DRG_PATTERN = re.compile(r"^(.*)dragon\(([A-Za-z0-9\-]+)\)(.*)")
 
 
@@ -490,9 +499,13 @@ def _pre_parse(acl):
     pre_parsed = []
 
     in_queue = True
+    join_latest_2 = False
     for line in SEP_PATTERN.split(acl):
         line = line.strip()
         if not line:
+            continue
+        if line == ";":
+            join_latest_2 = True
             continue
         if line == "end":
             in_queue = False
@@ -500,6 +513,7 @@ def _pre_parse(acl):
             in_queue = True
         drgres = DRG_PATTERN.match(line)
         if drgres:
+            continue
             str_b4, dact_str, str_af = drgres.groups()
             str_b4 = str_b4.strip("` ")
             str_af = str_af.strip(", ")
@@ -524,8 +538,13 @@ def _pre_parse(acl):
                     cond = ""
                 line = "\nqueue {}\n`{}\nend".format(cond, ";".join(queue_str))
         else:
-            line = FSN_PATTERN.sub(r"`\1(\2,\4)", line.strip())
-        pre_parsed.append(line)
+            line = XSF_PATTERN.sub(r"`\1(\2,\4)", line.strip())
+
+        if join_latest_2:
+            pre_parsed[-1] += ";" + line
+            join_latest_2 = False
+        else:
+            pre_parsed.append(line)
 
     return "\n".join(pre_parsed)
 
