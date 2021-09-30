@@ -1618,7 +1618,6 @@ class Adv(object):
             self.current_x = self.deferred_x
             self.deferred_x = None
 
-    @allow_acl
     def x(self, x_min=1):
         prev = self.action.getprev()
         self.check_deferred_x()
