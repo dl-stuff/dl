@@ -285,7 +285,8 @@ class DragonBase(EquipBase):
                 adv.hitattr_check(dn, dconf)
 
         self.dragonform.update(DragonBase.DEFAULT_DCONF, rebase=True)
-        adv.dragonform = dform_class(name, self.dragonform, adv)
+        adv.dragonform = dform_class(name, self.dragonform, adv, self)
+        self.adv = adv
 
     @property
     def att(self):
@@ -373,13 +374,16 @@ class Gaibhne_and_Creidhne(DragonBase):
         super().oninit(adv)
         if not adv.nihilism:
             charge_timer = Timer(lambda _: adv.charge_p("ds", 0.091, no_autocharge=False), 0.9, True)
-            ds_buff = EffectBuff(
+            self.ds_buff = EffectBuff(
                 "ds_sp_regen_zone",
                 10,
                 lambda: charge_timer.on(),
                 lambda: charge_timer.off(),
             )
-            Event("ds").listener(lambda _: ds_buff.on())
+
+    def ds1_proc(self, e):
+        if not self.adv.nihilism:
+            self.ds_buff.on()
 
 
 class Nimis(DragonBase):
@@ -1057,10 +1061,6 @@ class Slots:
         return self.c.hp + self.d.hp + self.w.hp + self.a.hp
 
     def oninit(self, adv=None):
-        # self.c.oninit(adv)
-        self.d.oninit(adv)
-        # self.w.oninit(adv)
-        # self.a.oninit(adv)
         for kind, slot in (("c", self.c), ("d", self.d), ("a", self.a), ("w", self.w)):
             for aidx, ab in enumerate(slot.ab):
                 name = ab[0]

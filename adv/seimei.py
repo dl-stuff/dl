@@ -7,9 +7,7 @@ class Seimei(Adv):
         self.shikigami_lv = 0
         self.shikigami_hits = 0
         self.shikigami_gauge = 100
-        self.shikigami = EffectBuff(
-            "shikigami", 40, self.shikigami_on, self.shikigami_off
-        )
+        self.shikigami = EffectBuff("shikigami", 40, self.shikigami_on, self.shikigami_off)
         self.agauge = 0
         self.acount = 0
         o_s2_check = self.a_s_dict["s2"].check
@@ -33,7 +31,7 @@ class Seimei(Adv):
     def shikigami_dmg(self, t):
         if any([s_dict.ac.status != -2 for s_dict in self.a_s_dict.values()]):
             return
-        if self.dragonform.status != -2:
+        if self.dragonform.status:
             return
         if self.shikigami_lv < 2 and self.shikigami_gauge >= 6:
             self.hitattr_make("#shikigami_lv1", "#", "#", 0, self.conf.s1.shikigami.lv1)

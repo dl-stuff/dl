@@ -3,7 +3,7 @@ import sys
 import random
 from functools import reduce
 from itertools import product, chain
-from collections import OrderedDict
+from collections import OrderedDict, Counter
 
 # from core import *
 from core.config import Conf
@@ -172,11 +172,12 @@ class ReservoirSkill(Skill):
 
 
 class ReservoirChainSkill(Skill):
-    def __init__(self, name=None, altchain=None, sp=1129):
+    def __init__(self, name=None, altchain=None, sp=1129, maxcharge=3):
         super().__init__(name)
         self.chain_timer = Timer(self.chain_off)
         self.chain_status = 0
         self.altchain = altchain or "base"
+        self.maxcharge = maxcharge
         self._sp = sp
 
     def chain_on(self, skill, timeout=3):
@@ -196,11 +197,6 @@ class ReservoirChainSkill(Skill):
     @property
     def sp(self):
         return self._sp
-
-    def charge(self, sp):
-        self.charged = min(self.sp * 3, self.charged + sp)
-        if self.charged >= self.sp * 3:
-            self.skill_charged()
 
     @property
     def count(self):
@@ -718,16 +714,18 @@ class S(Action):
         self.end_event.act = self.act_event
 
 
-class Dodge(Action):
+class Misc(Action):
     def __init__(self, name, conf, act=None):
-        Action.__init__(self, name, conf, act)
-        self.atype = "dodge"
-        self.cancel_by = ["fs", "s"]
+        super().__init__(name, conf, act)
+        self.atype = name
 
-        self.act_event = Event("dodge")
+        self.act_event = Event(name)
         self.act_event.name = self.name
+        self.act_event.base = self.name
+        self.act_event.group = self.name
+        self.act_event.conf = self.conf
 
-        self.end_event = Event("dodge_end")
+        self.end_event = Event(f"{name}_end")
         self.end_event.act = self.act_event
 
     def getstartup(self):
@@ -735,6 +733,16 @@ class Dodge(Action):
 
     def getrecovery(self):
         return self._recovery
+
+
+class Dodge(Misc):
+    def __init__(self, name, conf, act=None):
+        super().__init__(name, conf, act)
+
+
+class Shift(Misc):
+    def __init__(self, name, conf, act=None):
+        super().__init__(name, conf, act)
 
 
 class Adv(object):
@@ -920,7 +928,6 @@ class Adv(object):
         self.base_hp = 3000
         self.hp_event = Event("hp")
         self.heal_event = Event("heal")
-        self.dragonform = None
 
         from module.tension import Energy, Inspiration
 
@@ -1038,7 +1045,7 @@ class Adv(object):
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        elif self.dragonform.status != Action.OFF and not ignore_dragon:
+        elif self.dragonform.status and not ignore_dragon:
             delta = (hp - old_hp) / 10000
             if delta < 0:
                 self.dragonform.set_shift_end(delta, percent=True)
@@ -1236,6 +1243,8 @@ class Adv(object):
         self.a_x_dict = defaultdict(lambda: {})
         self.a_fs_dict = {}
         self.a_s_dict = {f"s{n}": Skill(f"s{n}") for n in range(1, 5)}
+        self.a_s_dict["ds1"] = Skill("ds1")
+        self.a_s_dict["ds2"] = Skill("ds2")
 
         # self.classconf = self.conf
         # self.init()
@@ -1487,16 +1496,18 @@ class Adv(object):
         return (1 - min(defa + defb, 0.5)) * berserk_def
 
     @allow_acl
-    def sp_mod(self, name):
+    def sp_mod(self, name, target=None):
         sp_mod = self.mod("sp", operator=operator.add)
         if name.startswith("fs"):
             sp_mod += self.mod("spf", operator=operator.add, initial=0)
+        if target is not None:
+            sp_mod += self.mod(f"sp_{target}", operator=operator.add, initial=0)
         return sp_mod
 
     @allow_acl
-    def sp_val(self, param):
+    def sp_val(self, param, target=None):
         if isinstance(param, str):
-            return self.sp_convert(self.sp_mod(param), self.conf[param].attr[0]["sp"])
+            return self.sp_convert(self.sp_mod(param, target=target), self.conf[param].attr[0]["sp"])
         elif isinstance(param, int) and 0 < param:
             suffix = "" if self.current_x == "default" else f"_{self.current_x}"
             return sum(self.sp_convert(self.sp_mod("x"), self.conf[f"x{x}{suffix}"].attr[0]["sp"]) for x in range(1, param + 1))
@@ -1504,7 +1515,7 @@ class Adv(object):
     @allow_acl
     def charged_in(self, param, sn):
         s = getattr(self, sn)
-        return self.sp_val(param) + s.charged >= s.sp
+        return self.sp_val(param, target=sn) + s.charged >= s.sp
 
     @allow_acl
     def have_buff(self, name):
@@ -1577,10 +1588,18 @@ class Adv(object):
         return prev.name, prev.index, prev.status
 
     @allow_acl
-    def dragon(self, act_str=None):
-        if act_str:
-            return self.dragonform.act(act_str)
-        return self.dragonform()
+    def dragon(self):
+        return self.dragonform.shift()
+
+    @allow_acl
+    def ds(self, n=1):
+        if self.dragonform.status:
+            return self.a_s_dict[f"ds{n}"]()
+        return False
+
+    @property
+    def is_dragon(self):
+        return self.dragonform.status
 
     @allow_acl
     def fs(self, n=None):
@@ -1664,9 +1683,10 @@ class Adv(object):
         except AttributeError:
             return False
 
-    def l_dodge(self, e):
-        log("dodge", "-")
-        self.think_pin("dodge")
+    def l_misc(self, e):
+        log(e.name, "-")
+        self.hit_make(e, e.conf, cb_kind=e.name)
+        self.think_pin(e.name)
 
     def add_combo(self, name="#"):
         # real combo count
@@ -1702,8 +1722,10 @@ class Adv(object):
             coab_list = self.conf["coabs"] or []
         self.slots.c.set_coab_list(coab_list)
 
-    def rebind_function(self, owner, src, dst=None):
+    def rebind_function(self, owner, src, dst=None, overwrite=True):
         dst = dst or src
+        if not overwrite and hasattr(self, dst):
+            return
         try:
             self.__setattr__(dst, getattr(owner, src).__get__(self, self.__class__))
         except AttributeError:
@@ -1711,7 +1733,13 @@ class Adv(object):
 
     @property
     def skills(self):
-        return tuple(self.a_s_dict.values())
+        return (self.s1, self.s2, self.s3, self.s4)
+
+    @property
+    def dskills(self):
+        if self.ds2.ac:
+            return (self.ds1, self.ds2)
+        return (self.ds1,)
 
     @allow_acl
     def s(self, n):
@@ -1734,12 +1762,22 @@ class Adv(object):
     def s4(self):
         return self.a_s_dict["s4"]
 
+    @property
+    def ds1(self):
+        return self.a_s_dict["ds1"]
+
+    @property
+    def ds2(self):
+        return self.a_s_dict["ds2"]
+
     def config_skills(self):
         self.current_s = {
             "s1": "default",
             "s2": "default",
             "s3": "default",
             "s4": "default",
+            "ds1": "default",
+            "ds2": "default",
         }
         self.Skill._static.current_s = self.current_s
         self.conf.s1.owner = None
@@ -1812,7 +1850,7 @@ class Adv(object):
                 self.conf[dst_key].owner = owner
                 self.conf[dst_key].sp = shared_sp
 
-        for sn, snconf in self.conf.find(r"^s\d(_[A-Za-z0-9]+)?$"):
+        for sn, snconf in self.conf.find(r"^d?s\d(_[A-Za-z0-9]+)?$"):
             s = S(sn, snconf)
             if s.group != "default" and self.conf[s.base]:
                 snconf.update(self.conf[s.base], rebase=True)
@@ -1839,13 +1877,17 @@ class Adv(object):
             loglevel = 0
 
         self.ctx.on()
+
+        self.config_slots()
+        self.slots.d.oninit(self)
         self.doconfig()
         logreset()
 
         self.l_idle = Listener("idle", self.l_idle)
         self.l_defer = Listener("defer", self.l_defer)
         self.l_x = Listener("x", self.l_x)
-        self.l_dodge = Listener("dodge", self.l_dodge)
+        self.l_dodge = Listener("dodge", self.l_misc)
+        self.l_dshift = Listener("dshift", self.l_misc)
         self.l_fs = Listener("fs", self.l_fs)
         self.l_s = Listener("s", self.l_s)
         self.l_repeat = Listener("repeat", self.l_repeat)
@@ -1860,10 +1902,6 @@ class Adv(object):
         self.l_heal_make = Listener("heal_make", self.l_heal_make)
 
         self.uses_combo = False
-
-        self.ctx.on()
-
-        self.config_slots()
 
         preruns_ss = self.config_skills()
 
@@ -2014,48 +2052,94 @@ class Adv(object):
             return targets
         return None
 
+    # sp = self.sp_convert(self.sp_mod(name), sp)
+    def _charge(self, name, sp, sp_func, target=None, no_autocharge=False):
+        real_sp = {}
+        if self.dragonform.status and (self.dragonform.is_dragonbattle or name[0] == "d"):
+            # dra mode sp
+            target = None
+            skills = self.dskills
+            for s in self.dskills:
+                real_sp[s.name] = sp_func(s, name, sp)
+        else:
+            # adv mode sp
+            targets = self.get_targets(target)
+            if not targets:
+                return None
+            for s in targets:
+                if no_autocharge and hasattr(s, "autocharge_timer"):
+                    continue
+                real_sp[s.name] = sp_func(s, name, sp)
+            skills = self.skills
+
+        # f"{s.name}:+{sp_func(s, name, sp)}"
+        real_sp_counter = Counter(real_sp.values())
+        most_common = real_sp_counter.most_common()[0][0]
+        charged_sp = f"+{most_common}"
+        if len(real_sp_counter) > 1:
+            # charged_sp = [charged_sp]
+            # for key, value in real_sp.items():
+            #     if value != most_common:
+            #         charged_sp.append(f"{key}:+{value}")
+            # charged_sp = ",".join(charged_sp)
+            all_sp_str = []
+            for s in skills:
+                aspstr = f" {s.charged}/{s.sp}"
+                real_sp_val = real_sp.get(s.name, most_common)
+                if real_sp_val != most_common:
+                    aspstr += f" (+{real_sp_val})"
+                if s.maxcharge > 1:
+                    aspstr += f" [{s.count}]"
+                all_sp_str.append(aspstr)
+            all_sp_str = ",".join(all_sp_str)
+        else:
+            all_sp_str = ",".join((f" {s.charged}/{s.sp}" for s in skills))
+        if target:
+            if isinstance(target, list):
+                target_str = ",".join(target)
+            else:
+                target_str = target
+            target_str = f"{name}->{target_str}"
+        else:
+            target_str = name
+        return charged_sp, all_sp_str, target_str
+
+    def _add_sp_fn(self, s, name, sp):
+        sp = float_ceil(sp, self.sp_mod(name, target=s.name))
+        s.charge(sp)
+        return sp
+
+    def _prep_sp_fn(self, s, _, percent):
+        sp = float_ceil(s.sp, percent)
+        s.charge(sp)
+        return sp
+
     def charge_p(self, name, percent, target=None, no_autocharge=False):
         percent = percent / 100 if percent > 1 else percent
-        targets = self.get_targets(target)
-        if not targets:
+        result = self._charge(name, percent, self._prep_sp_fn, target=target, no_autocharge=no_autocharge)
+        if not result:
             return
-        for s in targets:
-            if no_autocharge and hasattr(s, "autocharge_timer"):
-                continue
-            s.charge(self.sp_convert(percent, s.sp))
-        if isinstance(target, list):
-            t_str = ",".join(target)
-        else:
-            t_str = target
+        _, all_sp_str, target_str = result
         log(
             "sp",
-            name if not target else f"{name}->{t_str}",
+            target_str,
             f"{percent*100:.0f}%",
-            ", ".join([f"{s.charged}/{s.sp}" for s in self.skills]),
+            all_sp_str,
         )
-
-        if percent == 1:
+        if percent >= 1:
             self.think_pin("prep")
 
     def charge(self, name, sp, target=None):
-        # sp should be integer
-        sp = self.sp_convert(self.sp_mod(name), sp)
-        targets = self.get_targets(target)
-        if not targets:
+        result = self._charge(name, sp, self._add_sp_fn, target=target)
+        if not result:
             return
-        for s in targets:
-            s.charge(sp)
-        if isinstance(target, list):
-            t_str = ",".join(target)
-        else:
-            t_str = target
+        charged_sp, all_sp_str, target_str = result
         log(
             "sp",
-            name if not target else f"{name}_{t_str}",
-            sp,
-            ", ".join([f"{s.charged}/{s.sp}" for s in self.skills]),
+            target_str,
+            charged_sp,
+            all_sp_str,
         )
-
         self.think_pin("sp")
 
     def l_dmg_formula(self, e):
@@ -2552,17 +2636,19 @@ class Adv(object):
         self.hit_make(e, self.conf[e.name], pin=e.name.split("_")[0])
 
     def l_s(self, e):
-        if e.name in ("ds", "ds_final"):
-            return
         self.actmod_on(e)
         if e.name in self.buff_sources:
             self.buffskill_event()
         prev = self.action.getprev().name
+        if e.name[0] == "d":
+            skills = self.dskills
+        else:
+            skills = self.skills
         log(
             "cast",
             e.name,
             f"after {prev}",
-            ", ".join([f"{s.charged}/{s.sp}" for s in self.skills]),
+            ", ".join([f"{s.charged}/{s.sp}" for s in skills]),
         )
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
 

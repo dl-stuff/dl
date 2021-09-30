@@ -12,6 +12,20 @@ class Elisanne_55MC(Adv):
         },
         "s2": {"attr": [{"dmg": 7.54, "iv": 0.96667}]},
     }
+    ### TEST ###
+    conf["prefer_baseconf"] = True
+    conf[
+        "acl"
+    ] = """
+    `dragon
+    `ds
+    `s1
+    """
+
+    def prerun(self):
+        Modifier("bolb", "sp_s1", "passive", 1.0)
+
+    ### TEST ###
 
 
 variants = {None: Adv, "55MC": Elisanne_55MC}

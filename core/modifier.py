@@ -572,8 +572,9 @@ class FSAltBuff(ModeAltBuff):
     def effect_off(self):
         # self.logwrapper(f'fs-{self.name} off', self.uses)
         self.enable_fs(False)
-        self.adv.current_fs = self.default_fs
-        self.adv.alt_fs_buff = None
+        if self.adv.current_fs == self.group:
+            self.adv.current_fs = self.default_fs
+            self.adv.alt_fs_buff = None
         self.l_fs.off()
 
     def on(self, duration=None):
@@ -610,7 +611,8 @@ class XAltBuff(ModeAltBuff):
     def effect_off(self):
         # self.logwrapper(f'x-{self.group} off', self.default_x)
         self.enable_x(False)
-        self.adv.current_x = self.default_x
+        if self.adv.current_x == self.group:
+            self.adv.current_x = self.default_x
 
 
 bufftype_dict["xAlt"] = XAltBuff
@@ -648,7 +650,8 @@ class SAltBuff(ModeAltBuff):
 
     def effect_off(self):
         # self.logwrapper(f'{self.name} off', self.default_s)
-        self.adv.current_s[self.base] = self.default_s
+        if self.adv.current_s[self.base] == self.group:
+            self.adv.current_s[self.base] = self.default_s
         self.l_end.off()
 
     def l_extend_time(self, e):

@@ -67,11 +67,21 @@ BINARY_EXPR_TOKENS = {
     "MOD": "%",
 }
 
+
+S_PATTERN = re.compile(r"d?s(\d+)-?x?")
+
+
+def _pin_s(e):
+    if res := S_PATTERN.match(e.pin):
+        return int(res.group(1))
+    return 0
+
+
 PIN_CMD = {
     "SEQ": lambda e: e.didx if e.dname[0] == "x" else 0 if e.dstat == -2 else -1,
     "X": lambda e: e.didx if e.pin[0] == "x" and e.dstat != -1 and e.dhit == 0 else 0,
     "XF": lambda e: e.didx if e.pin[0] == "x" and e.dstat != -1 else 0,
-    "S": lambda e: int(e.pin[1]) if (e.pin[0] == "s" and e.pin[1].isdigit()) or e.pin[-2:] == "-x" else 0,
+    "S": _pin_s,
     "FSC": lambda e: e.pin.startswith("fs") and e.dstat != -1 and e.dhit == 0,
     "FSCF": lambda e: e.pin.startswith("fs") and e.dstat != -1,
     "SP": lambda e: e.dname if e.pin == "sp" else None,
@@ -471,7 +481,7 @@ class AclRegenerator(Interpreter):
                 return f"{fnres}[{visited_idx}]"
 
 
-FSN_PATTERN = re.compile(r"(^|;)`?(fs|s)(\d+)(\(([^)]+)\))?")
+FSN_PATTERN = re.compile(r"(^|;)`?(fs|s|ds)(\d+)(\(([^)]+)\))?")
 
 
 def _pre_parse(acl):

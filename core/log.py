@@ -141,7 +141,10 @@ class Log:
             if isinstance(value, float):
                 output.write("{:<16.3f},".format(value))
             else:
-                output.write("{:<16},".format(value))
+                try:
+                    output.write("{:<16},".format(value))
+                except TypeError as err:
+                    raise TypeError(value)
         output.write("\n")
         if flush:
             output.flush()
