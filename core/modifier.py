@@ -1060,6 +1060,11 @@ class SelfAffliction(Buff):
     def effect_on(self):
         super().effect_on()
         self.adv.dragonform.set_disabled(self.name)
+        for t in self.adv.tension:
+            t.has_stack.off()
+            t.stack = 0
+            log(t.name, "reset", "stack <{}>".format(int(t.stack)))
+            t.set_disabled(self.affname)
         try:
             self.regen_timer.on(2.9)
         except AttributeError:
@@ -1068,6 +1073,8 @@ class SelfAffliction(Buff):
     def effect_off(self):
         super().effect_off()
         self.adv.dragonform.unset_disabled(self.name)
+        for t in self.adv.tension:
+            t.unset_disabled(self.affname)
 
     @allow_acl
     def get(self):
@@ -1277,6 +1284,7 @@ class AmpBuff:
         1: ("maxhp", "buff"),
         2: ("att", "buff"),
         3: ("defense", "passive"),
+        4: ("crit", "damage"),
     }
 
     def __init__(self, amp_id):
@@ -1475,6 +1483,7 @@ class ActiveBuffDict(defaultdict):
                 "maxhp": 1,
                 "att": 2,
                 "defense": 3,
+                "crit_dmg": 4,
             }[amp_id.lower()]
         except (KeyError, AttributeError):
             pass

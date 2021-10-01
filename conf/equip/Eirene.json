@@ -100,7 +100,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 44740.516080605616,
+        "dps": 40812.259567489404,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -108,33 +108,34 @@
       "slots.a": [
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "Worthy_Rivals",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon",
-        "`s3, x=2",
+        "`dragon(c3-c3-c3-c3-c1-end), aff_timeleft(flashburn)>11",
+        "`s3, not buff(s3)",
         "`s4, x=2",
         "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
-        "`dodge, x=2"
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`fsf, x=2"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
+        "Dagger",
         "Peony"
       ],
       "share": [
-        "Gala_Mym",
-        "Amane"
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41030.912957352695,
+        "dps": 47112.5458268559,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -148,7 +149,7 @@
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "High_Jupiter",
       "acl": [
         "`dragon",
         "`s3, x=2",
@@ -171,40 +172,6 @@
     }
   },
   "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39117.30042106635,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(c3-c3-c3-c3-c1-end), aff_timeleft(flashburn)>11",
-        "`s3, not buff(s3)",
-        "`s4, x=2",
-        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
-        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
-        "`fsf, x=2"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 41764.869098759664,
@@ -328,7 +295,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53704.51177856101,
+        "dps": 55328.288882697874,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -346,7 +313,7 @@
       ]
     },
     "META": {
-      "tdps": 236182.59698313635,
+      "tdps": 269307.6683103354,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -469,7 +436,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34096.66308946941,
+        "dps": 36382.89629757949,
         "team": 0.0,
         "noaff": false,
         "nihil": true

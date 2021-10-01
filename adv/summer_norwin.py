@@ -10,13 +10,13 @@ class Summer_Norwin(Adv):
     def s1_before(self, e):
         if e.group == "d":
             self.doleful = 0
-            self.energy.disabled = False
+            self.energy.unset_disabled("doleful")
 
     def s2_proc(self, e):
         if e.group == "d":
             self.set_hp(self.hp * (1 - self.doleful * 0.20))
             self.doleful = min(self.doleful + 1, 4)
-            self.energy.disabled = True
+            self.energy.set_disabled("doleful")
 
 
 variants = {None: Summer_Norwin}

@@ -19,8 +19,18 @@ class Tension:
         self.queued_stack = 0
         self.has_stack = Selfbuff("has_" + self.name, 1, -1, "effect")
         self.active = set()
-        self.disabled = False
+        self.disabled_reasons = set()
         self.extra_tensionable = set()
+
+    def set_disabled(self, reason):
+        self.disabled_reasons.add(reason)
+
+    def unset_disabled(self, reason):
+        self.disabled_reasons.discard(reason)
+
+    @property
+    def disabled(self):
+        return bool(self.disabled_reasons)
 
     def add(self, n=1, team=False, queue=False):
         if self.disabled:

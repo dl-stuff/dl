@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14103.853394326792,
+        "dps": 14160.418714286341,
         "team": 1.5571227131533463,
         "noaff": true,
         "nihil": false
@@ -68,7 +68,7 @@
       ]
     },
     "META": {
-      "tdps": 27437.452589792993,
+      "tdps": 27395.016691654033,
       "pref": "TEAMBUFF"
     }
   },
@@ -98,33 +98,36 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10624.55773152537,
-        "team": 0.0,
+        "dps": 6615.277534978867,
+        "team": 0.03325263288805093,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
+        "Gentle_Winds",
         "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Warrior_Maiden",
+        "The_Chocolatiers",
         "Bellathorna",
         "From_Whence_He_Comes"
       ],
-      "slots.d": "Gaibhne_and_Creidhne",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon",
-        "`s2",
-        "`s4",
-        "`s1"
+        "`dragon(c3-sf-end), dragonform.shift_count=0 and s=4",
+        "`s1",
+        "`s4, cancel",
+        "`s3, s=1",
+        "`fs, fs_prep_c=3 and x=5",
+        "`fs, fs_prep_c=2 and x=5",
+        "`fs, fs_prep_c=1 and x=4"
       ],
       "coabs": [
-        "Bow",
-        "Gala_Mascula",
-        "Summer_Estelle"
+        "Blade",
+        "Dagger",
+        "Tobias"
       ],
       "share": [
-        "Cleo",
-        "Yukata_Cassandra"
+        "Summer_Cleo",
+        "Mikoto"
       ]
     },
     "PERSONAL": {
@@ -160,7 +163,48 @@
       ]
     },
     "META": {
+      "tdps": 562486.5809313261,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 10624.55773152537,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Bow",
+        "Gala_Mascula",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Cleo",
+        "Yukata_Cassandra"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -181,7 +225,7 @@
       ]
     },
     "META": {
-      "tdps": 35932.23255092431,
+      "tdps": 35889.77339257944,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -223,10 +267,11 @@
       ]
     },
     "META": {
+      "tdps": 961106.6690208632,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -245,7 +290,7 @@
       ]
     },
     "META": {
-      "tdps": 19916.284534769886,
+      "tdps": 19871.471099980015,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -286,6 +331,7 @@
       ]
     },
     "META": {
+      "tdps": 120570.30822323867,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

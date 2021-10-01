@@ -186,6 +186,7 @@ class Critical_Damage(ConditionalModifierAbility):
 
 
 ability_dict["cd"] = Critical_Damage
+ability_dict["cdu"] = Critical_Damage
 
 
 class Killer(ConditionalModifierAbility):

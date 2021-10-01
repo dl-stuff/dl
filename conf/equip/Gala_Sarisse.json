@@ -99,59 +99,23 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 19645.921467609027,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon(s), s=1 and not s4.check()",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Gala_Leonidas"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 19645.921467609027,
-        "team": 0.0,
+        "dps": 30256.189964242403,
+        "team": 0.014593729456224678,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Forest_Bonds",
+        "Dear_Diary",
         "Memory_of_a_Friend",
         "The_Cutie_Competition",
+        "A_Small_Courage",
         "Chariot_Drift",
-        "To_the_Extreme"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Mars",
+      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(s), s=1 and not s4.check()",
         "`s3, not buff(s3)",
@@ -161,21 +125,53 @@
         "`dodge, fscf"
       ],
       "coabs": [
-        "Blade",
+        "Halloween_Mym",
         "Kimono_Elisanne",
-        "Wand"
+        "Nobunaga"
       ],
       "share": [
-        "Summer_Celliera",
+        "Zace",
+        "Gala_Leonidas"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32041.96541119192,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon(s), s=1 and not s4.check()",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Nobunaga"
+      ],
+      "share": [
+        "Summer_Julietta",
         "Gala_Leonidas"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "tdps": 122365.94163994367,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -241,7 +237,6 @@
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c2-s-c2-c2-c2-c1-end), dragonform.shift_count=2",
         "`dragon(c2-s-c2-c2-c2-c2-end)",
@@ -250,11 +245,6 @@
         "`s1, x=5",
         "`fs, x=5",
         "`dodge, fsc"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Nobunaga"
       ],
       "share": [
         "Gala_Mym",
@@ -265,7 +255,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -286,7 +276,6 @@
         "Crown_of_Light",
         "Mask_of_Determination_Bow"
       ],
-      "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`dragon(c2-s-c3-c3-c2-end), aff(scorchrend) and s=4",
         "`s4, not aff(scorchrend)",
@@ -294,11 +283,6 @@
         "`s1, xf>3 or fsc",
         "`fs, x=5",
         "`dodge, fscf"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Nobunaga"
       ],
       "share": [
         "Panther",
@@ -310,7 +294,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
