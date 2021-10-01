@@ -20,6 +20,7 @@ class Harle(Adv):
 
 
 class Harle_COUNTER(Harle):
+    SAVE_VARIANT = False
     comment = "always max counter on s1"
 
     def prerun(self):

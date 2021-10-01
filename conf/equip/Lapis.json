@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94443.87551939479,
-        "team": 0.041649957320825846,
+        "dps": 97775.0427743494,
+        "team": 0.04159349100686324,
         "noaff": true,
         "nihil": false
       },
@@ -43,15 +43,16 @@
         "Memory_of_a_Friend",
         "Rivalry_of_Kings",
         "The_Lurker_in_the_Woods",
-        "Enter_the_Blue_Rose",
-        "Flowers_Under_the_Moon"
+        "Beautiful_Gunman",
+        "Enter_the_Blue_Rose"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
+        "`dragon(c3-s-c3-end), s and duration-now<10",
         "`s3, not buff(s3)",
-        "`s1, buff(s3) and not have_buff(s1_res_down)",
-        "`s2, energy()=5",
-        "`s4, fsc and energy()<4",
+        "`s1, not have_buff(s1_res_down) and energy()<5 and stronger_bullets>0",
+        "`s4, energy()<5",
+        "`s2, energy()=5 and stronger_bullets>=3",
         "`fs"
       ],
       "coabs": [
@@ -65,7 +66,7 @@
       ]
     },
     "META": {
-      "tdps": 112474.96496918904,
+      "tdps": 117172.54773496099,
       "pref": "PERSONAL"
     }
   },
@@ -143,8 +144,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 108443.35566781853,
-        "team": 0.041633259830583996,
+        "dps": 111918.93665115927,
+        "team": 0.04159349100686324,
         "noaff": false,
         "nihil": false
       },
@@ -154,17 +155,10 @@
         "The_Lurker_in_the_Woods",
         "Enter_the_Blue_Rose",
         "His_Clever_Brother"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1,not have_buff(s1_res_down) and energy()<5 and buff(s3)",
-        "`s4, energy()<4",
-        "`s2, energy()=5",
-        "`fs"
       ]
     },
     "META": {
-      "tdps": 132253.07754944768,
+      "tdps": 137156.2424581008,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

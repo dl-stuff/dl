@@ -37,9 +37,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82356.49196714576,
-        "team": 0.13004076808695259,
-        "noaff": false,
+        "dps": 85207.739446761,
+        "team": 0.13940526478857274,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
@@ -48,14 +48,14 @@
         "The_Lurker_in_the_Woods",
         "Rogues_Banquet",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Lance",
+        "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Jeanne_dArc",
       "acl": [
-        "`dragon, fsc",
+        "`dragon(c3-c3-s-c3-c3-c3-end)",
         "`s3, not buff(s3)",
-        "`s4, x>2",
+        "`s4, x>2 and not buff(s4)",
         "`fs5, c_fs(auspex) and x=1",
         "`s1, cancel",
         "`s2, cancel"
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 476089.2499389963,
+      "tdps": 550493.3065391191,
       "pref": "PERSONAL"
     }
   },
@@ -104,8 +104,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69204.41157865323,
-        "team": 0.12919183294431102,
+        "dps": 84104.98876263414,
+        "team": 0.13940526478857274,
         "noaff": true,
         "nihil": false
       },
@@ -116,7 +116,7 @@
       ]
     },
     "META": {
-      "tdps": 790769.8231829309,
+      "tdps": 1386796.7328035454,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -162,7 +162,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33678.287807711604,
+        "dps": 43389.64069357098,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -176,7 +176,7 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "High_Jupiter",
       "acl": [
         "`dragon(c3-s-c3-c3-end)",
         "`fs5, c_fs(auspex) and cancel",
@@ -196,15 +196,51 @@
       ]
     },
     "META": {
-      "tdps": 185608.1988032364,
+      "tdps": 516313.9830581611,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 102143.8868868818,
-        "team": 0.13004076808695259,
+        "dps": 106134.95605104673,
+        "team": 0.1288901499743072,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Rogues_Banquet",
+        "The_Warrioresses",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon(c3-c3-s-c3-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s4, x>2 and not buff(s4)",
+        "`fs5, c_fs(auspex) and x=1",
+        "`s1, cancel",
+        "`s2, cancel"
+      ]
+    },
+    "META": {
+      "tdps": 689691.1240537447,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 97198.18961223587,
+        "team": 0.13348882404718582,
         "noaff": false,
         "nihil": false
       },
@@ -213,17 +249,16 @@
         "Spirit_of_the_Season",
         "The_Lurker_in_the_Woods",
         "Beautiful_Nothingness",
-        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
         "An_Unfreezing_Flower_Axe",
         "Savage_Hawk_Lance"
       ]
     },
     "META": {
-      "tdps": 659976.3205277808,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -259,35 +294,40 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39325.77978441006,
+        "dps": 55816.923206397536,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
+        "Springtime_Breeze",
+        "Rogues_Banquet",
         "The_Warrioresses",
-        "Mask_of_Determination_Lance",
+        "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), fsc",
+        "`dragon, fsc",
         "`fs5, c_fs(auspex) and cancel",
         "`s4",
         "`s1, cancel and not duration-now<10",
         "`s2, cancel",
         "`s3, x=5 or fsc"
       ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
+      ],
       "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+        "Summer_Celliera",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 71311.9184025155,
+      "tdps": 491862.0547111335,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -327,35 +367,41 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31362.43307512066,
+        "dps": 37285.20349100188,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Levins_Champion",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "The_Lurker_in_the_Woods",
-        "A_Small_Courage",
         "Rogues_Banquet",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
+        "The_Queen_of_the_Knife",
+        "A_Kings_Pride_Sword",
+        "Savage_Hawk_Lance"
       ],
+      "slots.d": "Jeanne_dArc",
       "acl": [
-        "`dragon(c3-c3-c3-c3), cancel",
+        "`dragon(c3-c3-s-c3-c3-c3-end)",
         "`s3, not buff(s3)",
-        "`s4, x>2",
+        "`s4, x>2 and not buff(s4)",
         "`fs5, c_fs(auspex) and x=1",
         "`s1, cancel",
         "`s2, cancel"
       ],
+      "coabs": [
+        "Grace",
+        "Mitsuhide",
+        "Peony"
+      ],
       "share": [
-        "Summer_Julietta",
-        "Summer_Celliera"
+        "Weapon",
+        "Hunter_Sarisse"
       ]
     },
     "META": {
-      "tdps": 60535.06305224008,
+      "tdps": 211649.5893996619,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

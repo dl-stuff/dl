@@ -2,9 +2,9 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 22163.481658886725,
-        "team": 0.22511488013103673,
-        "noaff": true,
+        "dps": 29025.28716774494,
+        "team": 0.3058986203374384,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -80,7 +80,7 @@
       ]
     },
     "META": {
-      "tdps": 2561247.4906765213,
+      "tdps": 500417.595751275,
       "pref": "PERSONAL"
     }
   },
@@ -114,9 +114,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71987.43431110033,
-        "team": 0.09998293170164431,
-        "noaff": true,
+        "dps": 72503.40043744633,
+        "team": 0.2006925613537107,
+        "noaff": false,
         "nihil": false
       },
       "coabs": [
@@ -126,7 +126,7 @@
       ]
     },
     "META": {
-      "tdps": 102433.31650652782,
+      "tdps": 549247.1418369921,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,8 +137,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41469.84147890021,
-        "team": 0.01960372001949488,
+        "dps": 58977.838856011294,
+        "team": 0.03329524665405424,
         "noaff": false,
         "nihil": true
       },
@@ -148,12 +148,12 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon",
+        "`dragon, cancel",
         "`s4, fsc",
         "`s2, fsc",
         "`s3, fsc",
@@ -167,13 +167,13 @@
       ],
       "share": [
         "Weapon",
-        "Sha_Wujing"
+        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47945.67659570866,
-        "team": 0.0,
+        "dps": 63311.74292493089,
+        "team": 0.03329524665405424,
         "noaff": false,
         "nihil": true
       },
@@ -186,7 +186,7 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "High_Jupiter",
       "acl": [
         "`dragon, cancel",
         "`s4, fsc",
@@ -206,15 +206,14 @@
       ]
     },
     "META": {
-      "tdps": 330337.05390449194,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44767.59648240266,
-        "team": 0.0,
+        "dps": 58977.838856011294,
+        "team": 0.03329524665405424,
         "noaff": false,
         "nihil": true
       },
@@ -225,7 +224,6 @@
       ]
     },
     "META": {
-      "tdps": 168220.87849770355,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -254,7 +252,7 @@
         "`dragon(c3-s-c3-c3-c3-c3-end), buff(s3,1) and fsc and dragonform.shift_count=0",
         "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-end), buff(s3,1) and fsc and dragonform.shift_count=1",
         "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), buff(s3,1) and fsc and dragonform.shift_count=2",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), buff(s3,1) and fsc and dragonform.shift_count=3",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), buff(s3,1) and fsc and dragonform.shift_count>=3",
         "`s3, fsc",
         "`s4, cancel",
         "`s2",
@@ -263,7 +261,6 @@
       ]
     },
     "META": {
-      "tdps": 3420192.9657881674,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -272,10 +269,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 59872.19233955825,
-        "team": 0.0,
+        "dps": 68925.99316518952,
+        "team": 0.033307265519727326,
         "noaff": false,
         "nihil": true
       },
@@ -288,21 +285,48 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon",
-        "`s4, fsc",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end)",
         "`s2, fsc",
+        "`s4, fsc",
         "`s3, fsc",
         "`s1, fsc",
         "`fs, x=4"
       ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Peony"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77013.77710577192,
+        "team": 0.0333000307798239,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s3, fsc",
+        "`s1, fsc",
+        "`fs, x=4"
       ]
     },
     "META": {
+      "tdps": 1117909427.08991,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -313,8 +337,8 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50515.62162177538,
-        "team": 0.0,
+        "dps": 62628.816058068136,
+        "team": 0.03322983096906365,
         "noaff": false,
         "nihil": true
       },
@@ -350,41 +374,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 43352.10131204771,
-        "team": 0.0196036755740431,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_Brethren",
-        "Pecorines_Grand_Adventure",
-        "The_Bridal_Dragon",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon, s4",
-        "`s4, fsc",
-        "`s2, fsc",
-        "`s3, fsc",
-        "`s1, fsc",
-        "`fs, x=4 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44767.59648240266,
-        "team": 0.0,
+        "dps": 58502.29609073764,
+        "team": 0.03329524665405424,
         "noaff": false,
         "nihil": true
       },
@@ -395,7 +388,6 @@
       ]
     },
     "META": {
-      "tdps": 72205.6006797616,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

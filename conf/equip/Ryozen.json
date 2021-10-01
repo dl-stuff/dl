@@ -36,9 +36,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46918.75282919282,
-        "team": 0.033329494886505474,
-        "noaff": true,
+        "dps": 47712.05153483794,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -50,7 +50,7 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "High_Jupiter",
       "acl": [
         "`dragon, buff(s3, 1)",
         "`s3",
@@ -69,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 181608.5139151834,
+      "tdps": 162558.29264535027,
       "pref": "PERSONAL"
     }
   },
@@ -89,9 +89,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43315.39468348532,
-        "team": 0.033329494886505474,
-        "noaff": true,
+        "dps": 44511.26743781525,
+        "team": 0.0,
+        "noaff": false,
         "nihil": false
       },
       "coabs": [
@@ -101,7 +101,7 @@
       ]
     },
     "META": {
-      "tdps": 200480.39523203747,
+      "tdps": 177032.88771208355,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -110,9 +110,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 29376.48694998056,
+        "dps": 28570.441241745826,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -131,7 +131,41 @@
         "`dragon(c3-s-c3-c3-c3-c3-c2-end)",
         "`s3",
         "`s4",
-        "`s2, fscf",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 29696.428052489515,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_Brethren",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-c3-c2-end)",
+        "`s3",
+        "`s4",
+        "`s2",
         "`fs, x=5"
       ],
       "coabs": [
@@ -151,8 +185,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50645.6678172005,
-        "team": 0.033329494886505474,
+        "dps": 51313.38670889206,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -167,7 +201,7 @@
       ]
     },
     "META": {
-      "tdps": 196960.59157588606,
+      "tdps": 175602.2415582038,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -178,7 +212,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 37173.549808013806,
+        "dps": 38005.07707787182,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -196,7 +230,7 @@
         "`dragon(c3-s-c3-c3-c3-c2-end), aff(flashburn)",
         "`s3",
         "`s4",
-        "`s2, fscf",
+        "`s2",
         "`fs, x=5"
       ],
       "coabs": [
@@ -214,6 +248,24 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28570.441241745826,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Jeanne"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
