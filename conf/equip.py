@@ -24,6 +24,7 @@ BANNED_PRINTS = (
     "United_by_One_Vision",
     "Second_Anniversary",
     "Third_Anniversary",
+    "Bonded_by_a_Dream",
     # corrosion
     "Her_Beloved_Crown",
     "Her_Beloved_Sword",
