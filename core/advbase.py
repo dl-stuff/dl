@@ -889,6 +889,45 @@ class Adv(object):
             self.afflics.set_resist((self.conf.c.ele, self.nihilism))
         self.afflic_condition()
 
+        # auto fsf/dodge
+        self._think_modes = set()
+        if self.conf["dumb"]:
+            self._think_modes.add("dumb")
+            self.dumb_cd = int(self.conf["dumb"])
+            self.dumb_count = 0
+            self.condition(f"be a dumb every {self.dumb_cd}s")
+        if self.conf["auto_fsf"]:
+            self._think_modes.add("auto_fsf")
+
+        self.hits = 0
+        self.last_c = 0
+
+        self._hp = 3000
+        self.base_hp = 3000
+        self.hp_event = Event("hp")
+        self.heal_event = Event("heal")
+
+        from module.tension import Energy, Inspiration
+
+        self.energy = Energy()
+        self.inspiration = Inspiration()
+        self.tension = [self.energy, self.inspiration]
+        self.sab = []
+        self.extra_actmods = []
+        self.crisis_mods = {
+            "s": CrisisModifier("s_crisis_modifier", "s", self),
+            "x": CrisisModifier("x_crisis_modifier", "x", self),
+            "fs": CrisisModifier("fs_crisis_modifier", "fs", self),
+        }
+        self._cooldowns = {}
+
+        self.disable_echo()
+        self.bleed = None
+        self.alive = True
+
+        # init dragon here so that actions can be processed
+        self.slots.d.oninit(self)
+
         # init actions
         for xn, xconf in self.conf.find(r"^d?x\d+(_[A-Za-z0-9]+)?$"):
             a_x = X(xn, self.conf[xn])
@@ -927,41 +966,6 @@ class Adv(object):
 
         self.a_dodge = Dodge("dodge", self.conf.dodge)
         self.a_dooodge = Dodge("dooodge", self.conf.dooodge)
-
-        self._think_modes = set()
-        if self.conf["dumb"]:
-            self._think_modes.add("dumb")
-            self.dumb_cd = int(self.conf["dumb"])
-            self.dumb_count = 0
-            self.condition(f"be a dumb every {self.dumb_cd}s")
-        if self.conf["auto_fsf"]:
-            self._think_modes.add("auto_fsf")
-
-        self.hits = 0
-        self.last_c = 0
-
-        self._hp = 3000
-        self.base_hp = 3000
-        self.hp_event = Event("hp")
-        self.heal_event = Event("heal")
-
-        from module.tension import Energy, Inspiration
-
-        self.energy = Energy()
-        self.inspiration = Inspiration()
-        self.tension = [self.energy, self.inspiration]
-        self.sab = []
-        self.extra_actmods = []
-        self.crisis_mods = {
-            "s": CrisisModifier("s_crisis_modifier", "s", self),
-            "x": CrisisModifier("x_crisis_modifier", "x", self),
-            "fs": CrisisModifier("fs_crisis_modifier", "fs", self),
-        }
-        self._cooldowns = {}
-
-        self.disable_echo()
-        self.bleed = None
-        self.alive = True
 
     @property
     def ctime(self):
@@ -1620,8 +1624,12 @@ class Adv(object):
         return False
 
     @property
-    def dform(self):
+    def in_dform(self):
         return self.dragonform.status
+
+    @property
+    def can_dform(self):
+        return self.dragonform.check()
 
     @allow_acl
     def fs(self, n=None):
@@ -1918,7 +1926,6 @@ class Adv(object):
         self.ctx.on()
 
         self.config_slots()
-        self.slots.d.oninit(self)
         self.doconfig()
         logreset()
 

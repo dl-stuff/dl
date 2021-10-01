@@ -513,7 +513,6 @@ def _pre_parse(acl):
             in_queue = True
         drgres = DRG_PATTERN.match(line)
         if drgres:
-            continue
             str_b4, dact_str, str_af = drgres.groups()
             str_b4 = str_b4.strip("` ")
             str_af = str_af.strip(", ")
@@ -533,7 +532,7 @@ def _pre_parse(acl):
                 pass
             else:
                 if str_af:
-                    cond = cond + " and dragonform.check()"
+                    cond = cond + " and can_dform"
                 else:
                     cond = ""
                 line = "\nqueue {}\n`{}\nend".format(cond, ";".join(queue_str))

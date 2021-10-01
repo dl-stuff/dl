@@ -107,7 +107,7 @@ class DragonForm:
         d_combo = self.adv.a_x_dict[DRG][self.adv.conf[DRG].x_max]
         if "dodge" not in d_combo.conf.cancel:
             return False
-        return (self.d_dodge.getstartup() + self.d_dodge.getrecovery()) < d_combo.getrecovery()
+        return (self.d_dodge.getstartup() + self.d_dodge.getrecovery()) < (d_combo.conf.cancel["dodge"] / d_combo.speed())
 
     def auto_gauge(self, t):
         self.charge_gauge(self.dragon_gauge_val, percent=True, auto=True)
