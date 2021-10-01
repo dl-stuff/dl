@@ -1291,12 +1291,12 @@ class Adv(object):
             except:
                 pass
             return mod * self.mod("s")
+        elif scope[0] == "x":
+            return mod * self.mod("x")
         elif scope[0:2] == "ds":
             return mod * self.mod("s")
         elif scope[0:2] == "fs":
             return mod * self.mod("fs")
-        elif scope[0] == "x":
-            return mod * self.mod("x")
         else:
             return mod
 

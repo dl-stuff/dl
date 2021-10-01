@@ -206,8 +206,6 @@ class Gala_Laxi_70MC(Gala_Laxi):
                 {"dmg": 0.258, "cp": 1, "msl": 0.2},
                 {"dmg": 0.258, "cp": 1, "msl": 0.25},
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0},
         },
         "s1": {
             "sp": 2476,
@@ -240,50 +238,36 @@ class Gala_Laxi_70MC(Gala_Laxi):
             "startup": 0.2,
             "recovery": 0.3,
             "attr": [{"sp": 172}, {"dmg": 0.62, "cp": 1, "msl": 0.2}, {"dmg": 0.62, "cp": 1, "msl": 0.4}],
-            "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
         },
         "x1_ex": {
             "startup": 0.2,
             "recovery": 0.3,
             "attr": [{"sp": 216}, {"dmg": 0.34, "cp": 1, "msl": 0.1}, {"dmg": 0.34, "cp": 1, "msl": 0.2}, {"dmg": 0.34, "cp": 1, "msl": 0.3}, {"dmg": 0.34, "cp": 1, "msl": 0.4}],
-            "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
         },
         "x2": {
             "startup": 0.16667,
             "recovery": 0.33333,
             "attr": [{"sp": 172}, {"dmg": 0.68, "cp": 1, "msl": 0.2}, {"dmg": 0.68, "cp": 1, "msl": 0.4}],
-            "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
         },
         "x2_ex": {
             "startup": 0.16667,
             "recovery": 0.33333,
             "attr": [{"sp": 216}, {"dmg": 0.37, "cp": 1, "msl": 0.1}, {"dmg": 0.37, "cp": 1, "msl": 0.2}, {"dmg": 0.37, "cp": 1, "msl": 0.3}, {"dmg": 0.37, "cp": 1, "msl": 0.4}],
-            "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
         },
         "x3": {
             "startup": 0.16667,
             "recovery": 0.33333,
             "attr": [{"sp": 315}, {"dmg": 0.74, "cp": 1, "msl": 0.2}, {"dmg": 0.74, "cp": 1, "msl": 0.4}],
-            "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
         },
         "x3_ex": {
             "startup": 0.16667,
             "recovery": 0.33333,
             "attr": [{"sp": 396}, {"dmg": 0.4, "cp": 1, "msl": 0.1}, {"dmg": 0.4, "cp": 1, "msl": 0.2}, {"dmg": 0.4, "cp": 1, "msl": 0.3}, {"dmg": 0.4, "cp": 1, "msl": 0.4}],
-            "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
         },
         "x4": {
             "startup": 0.4,
             "recovery": 0.26667,
             "attr": [{"dmg": 0.77, "sp": 344, "cp": 2}, {"dmg": 0.77, "cp": 2, "iv": 0.1}, {"dmg": 0.8, "cp": 2, "iv": 0.2}],
-            "interrupt": {"s": 0.0},
-            "cancel": {"s": 0.0, "fs": 0.4, "dodge": 0.4},
         },
         "x4_ex": {
             "startup": 0.26667,
@@ -296,8 +280,6 @@ class Gala_Laxi_70MC(Gala_Laxi):
                 {"dmg": 0.44, "cp": 2, "msl": 0.2},
                 {"dmg": 0.44, "cp": 2, "msl": 0.25},
             ],
-            "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
         },
     }
 

@@ -14,13 +14,13 @@
         "startup": 0.63333,
         "recovery": 0.7,
         "attr": [
-            {"dmg": 0.33, "sp": 690, "odmg": 4.2, "msl": 1.26667},
+            {"dmg": 0.33, "odmg": 4.2, "sp": 690, "msl": 1.26667},
             {"dmg": 0.33, "odmg": 4.2, "msl": 1.26667}, 9
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0},
         "cancel": {"s": 0.0, "dodge": 0.0}
     },
-    "fs1_auspex": {
+    "fs1_galazena": {
         "charge": 0.8,
         "startup": 0.0,
         "recovery": 1.16667,
@@ -30,9 +30,11 @@
             {"dmg": 4.0, "iv": 0.5, "msl": 0.33333},
             {"dmg": 4.0, "iv": 0.5, "msl": 0.46667},
             {"dmg": 4.0, "iv": 0.5, "msl": 0.6}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.03333}
     },
-    "fs2_auspex": {
+    "fs2_galazena": {
         "charge": 1.6,
         "startup": 0.0,
         "recovery": 1.16667,
@@ -42,9 +44,11 @@
             {"dmg": 5.0, "iv": 0.5, "msl": 0.33333},
             {"dmg": 5.0, "iv": 0.5, "msl": 0.46667},
             {"dmg": 5.0, "iv": 0.5, "msl": 0.6}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.03333}
     },
-    "fs3_auspex": {
+    "fs3_galazena": {
         "charge": 2.4,
         "startup": 0.0,
         "recovery": 1.16667,
@@ -54,9 +58,11 @@
             {"dmg": 6.0, "iv": 0.5, "msl": 0.33333},
             {"dmg": 6.0, "iv": 0.5, "msl": 0.46667},
             {"dmg": 6.0, "iv": 0.5, "msl": 0.6}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.03333}
     },
-    "fs4_auspex": {
+    "fs4_galazena": {
         "charge": 3.2,
         "startup": 0.0,
         "recovery": 1.16667,
@@ -66,9 +72,11 @@
             {"dmg": 7.0, "iv": 0.5, "msl": 0.33333},
             {"dmg": 7.0, "iv": 0.5, "msl": 0.46667},
             {"dmg": 7.0, "iv": 0.5, "msl": 0.6}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.03333}
     },
-    "fs5_auspex": {
+    "fs5_galazena": {
         "charge": 4.0,
         "startup": 0.0,
         "recovery": 1.16667,
@@ -78,7 +86,9 @@
             {"dmg": 10.0, "iv": 0.5, "msl": 0.33333},
             {"dmg": 10.0, "iv": 0.5, "msl": 0.46667},
             {"dmg": 10.0, "iv": 0.5, "msl": 0.6}
-        ]
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.03333}
     },
     "s1": {
         "sp": 5850,
@@ -114,52 +124,52 @@
     },
     "x1": {
         "startup": 0.26667,
-        "recovery": 0.09444,
+        "recovery": 0.70555,
         "attr": [
             {"dmg": 0.4, "sp": 200},
             {"dmg": 0.4}, 2
         ],
         "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "cancel": {"s": 0.0, "x2": 0.09444, "fs": 0.0, "dodge": 0.0}
     },
     "x2": {
         "startup": 0.36667,
-        "recovery": 0.13333,
+        "recovery": 0.71666,
         "attr": [
             {"dmg": 0.47, "sp": 240},
             {"dmg": 0.47}, 2
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
+        "cancel": {"s": 0.0, "x3": 0.13333, "dodge": 0.0, "fs": 0.0}
     },
     "x3": {
         "startup": 0.63333,
-        "recovery": 0.2,
+        "recovery": 0.61667,
         "attr": [
             {"dmg": 0.53, "sp": 370},
             {"dmg": 0.53}, 3
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
+        "cancel": {"s": 0.0, "x4": 0.2, "dodge": 0.0, "fs": 0.0}
     },
     "x4": {
         "startup": 0.36667,
-        "recovery": 0.16666,
+        "recovery": 1.13333,
         "attr": [
             {"dmg": 0.58, "sp": 490},
             {"dmg": 0.58}, 4
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
+        "cancel": {"s": 0.0, "x5": 0.16666, "dodge": 0.0, "fs": 0.0}
     },
     "x5": {
         "startup": 0.96667,
-        "recovery": 0.7,
+        "recovery": 0.8282,
         "attr": [
             {"dmg": 0.62, "sp": 650},
             {"dmg": 0.62}, 5
         ],
         "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "cancel": {"s": 0.0, "x1": 0.7, "fs": 0.0, "dodge": 0.0}
     }
 }

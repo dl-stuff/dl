@@ -6,7 +6,7 @@ class Gala_Zena(Adv):
         self.auspex_gauge = 0
         self.a3_modifier = Modifier("zena_a3", "att", "passive", 0.0)
         self.a3_modifier.get = self.a3_get
-        self.fs_alt = FSAltBuff("a1_auspex", "auspex", uses=1)
+        self.fs_alt = FSAltBuff("a1_auspex", "galazena", uses=1)
         # ExAbility hp does not work for A3
         self.passive_hp = self.sub_mod("maxhp", "passive")
         for coab in self.slots.c.coabs.values():

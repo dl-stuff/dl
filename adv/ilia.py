@@ -3,7 +3,6 @@ from core.advbase import *
 
 class Ilia(Adv):
     def prerun(self):
-        Event("dodge").listener(self.l_dodge_attack, order=0)
         self.alchemy = 0
         self.cartridge = 0
         o_s2_check = self.a_s_dict["s2"].check
@@ -60,16 +59,10 @@ class Ilia(Adv):
         for buff in self.cartridge_fs:
             buff.off()
 
-    def l_dodge_attack(self, e):
-        log("cast", "dodge_attack")
-        for _ in range(7):
-            self.add_combo("dodge")
-            self.dmg_make("dodge", 0.10)
-        self.a_update(1)
-
     def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
-        if name in ("x1", "x2"):
-            self.a_update(1)
+        add = attr.get("cp")
+        if add:
+            self.a_update(add)
         super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
 
     def s1_before(self, e):

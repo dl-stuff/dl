@@ -538,13 +538,6 @@ class Rose_Queen(DragonBase):
         adv.ds_proc = ds_proc_slayer
 
 
-class Gala_Beast_Volk(DragonBase):
-    def oninit(self, adv):
-        from core.dragonform import Gala_Beast_Volk_DragonForm
-
-        super().oninit(adv, dform_class=Gala_Beast_Volk_DragonForm)
-
-
 ### WIND DRAGONS ###
 
 ### LIGHT DRAGONS ###

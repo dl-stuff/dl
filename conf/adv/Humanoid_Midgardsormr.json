@@ -10,12 +10,53 @@
         "a": [["da", 0.18], ["affres_bog", 100.0], ["dp", 10.0]]
     },
     "dragonform": {
-        "dshift": {"attr": [{"dmg": 1.5}]},
-        "dodge": {"recovery": 0.55556, "backdash": true},
-        "dx1": {"startup": 0.3, "recovery": 0.33333, "attr": [{"dmg": 5.2, "sp": 5}]},
-        "dx2": {"startup": 0.46667, "recovery": 0.43333, "attr": [{"dmg": 5.73, "sp": 5}]},
-        "dx3": {"startup": 0.33333, "recovery": 1.5, "attr": [{"dmg": 7.28, "sp": 5}]},
-        "ds1": {"sp": 30, "startup": 0.1, "recovery": 2.0, "sp_db": 45, "uses": 1, "attr": [{"dmg": 3.46, "iv": 1.16667}, {"dmg": 25.0, "iv": 1.16667}]}
+        "dshift": {
+            "attr": [
+                {"dmg": 1.5}
+            ]
+        },
+        "dodge": {
+            "recovery": 0.55556,
+            "backdash": true
+        },
+        "dx1": {
+            "startup": 0.3,
+            "recovery": 0.9,
+            "attr": [
+                {"dmg": 5.2, "sp": 5}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"s": 0.0, "dx2": 0.23333}
+        },
+        "dx2": {
+            "startup": 0.46667,
+            "recovery": 1.56666,
+            "attr": [
+                {"dmg": 5.73, "sp": 5}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"s": 0.0, "dx3": 0.23333}
+        },
+        "dx3": {
+            "startup": 0.33333,
+            "recovery": 1.4,
+            "attr": [
+                {"dmg": 7.28, "sp": 5}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 2.0,
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 3.46, "iv": 1.16667},
+                {"dmg": 25.0, "iv": 1.16667}
+            ]
+        }
     },
     "s1": {
         "sp": 2896,

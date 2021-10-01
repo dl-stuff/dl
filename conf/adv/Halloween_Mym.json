@@ -11,10 +11,48 @@
     },
     "dragonform": {
         "act": "c3-s",
-        "dx1": {"startup": 0.3, "recovery": 0.23333, "attr": [{"dmg": 4.4, "sp": 5}]},
-        "dx2": {"startup": 0.46667, "recovery": 0.23333, "attr": [{"dmg": 6.6, "sp": 5}]},
-        "dx3": {"startup": 0.33333, "recovery": 1.4, "attr": [{"dmg": 7.48, "sp": 5}, {"dmg": 7.48, "iv": 0.33334}]},
-        "ds1": {"sp": 30, "startup": 0.1, "recovery": 2.63333, "sp_db": 45, "uses": 1, "attr": [{"dmg": 3.08, "iv": 0.86667}, 2, {"dmg": 3.08, "iv": 1.26667}, 2, {"dmg": 3.08, "iv": 1.26667}, 2, {"dmg": 3.08, "iv": 1.46667}, 2]}
+        "dx1": {
+            "startup": 0.3,
+            "recovery": 0.9,
+            "attr": [
+                {"dmg": 4.4, "sp": 5}
+            ],
+            "interrupt": {"s": 0.0, "dodge": 0.0},
+            "cancel": {"s": 0.0, "dx2": 0.23333, "dodge": 0.0}
+        },
+        "dx2": {
+            "startup": 0.46667,
+            "recovery": 1.56666,
+            "attr": [
+                {"dmg": 6.6, "sp": 5}
+            ],
+            "interrupt": {"s": 0.0, "dodge": 0.0},
+            "cancel": {"s": 0.0, "dx3": 0.23333, "dodge": 0.0}
+        },
+        "dx3": {
+            "startup": 0.33333,
+            "recovery": 1.4,
+            "attr": [
+                {"dmg": 7.48, "sp": 5},
+                {"dmg": 7.48, "iv": 0.33334}
+            ],
+            "interrupt": {"s": 0.0, "dodge": 0.0},
+            "cancel": {"s": 0.0, "dx1": 1.4, "dodge": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.1,
+            "recovery": 2.63333,
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 3.08, "iv": 0.86667}, 2,
+                {"dmg": 3.08, "iv": 1.26667}, 2,
+                {"dmg": 3.08, "iv": 1.26667}, 2,
+                {"dmg": 3.08, "iv": 1.46667}, 2
+            ],
+            "cancel": {"dx1": 2.63333, "dodge": 2.63333}
+        }
     },
     "s1": {
         "sp": 3849,
