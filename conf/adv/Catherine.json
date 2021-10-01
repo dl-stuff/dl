@@ -15,7 +15,7 @@
     "fs": {
         "charge": 0.15,
         "startup": 0.56667,
-        "recovery": 0.6,
+        "recovery": 0.93333,
         "attr": [
             {"dmg": 1.5, "odmg": 5.2, "sp": 400}
         ],
@@ -25,7 +25,7 @@
     "fs_escort1": {
         "charge": 0.15,
         "startup": 0.5,
-        "recovery": 0.6,
+        "recovery": 1.0,
         "attr": [
             {"dmg": 0.9, "odmg": 5.2, "sp": 400},
             {"dmg": 0.9, "odmg": 5.2, "msl": 0.2}
@@ -36,7 +36,7 @@
     "fs_escort2": {
         "charge": 0.15,
         "startup": 0.5,
-        "recovery": 0.6,
+        "recovery": 1.0,
         "attr": [
             {"dmg": 0.9, "odmg": 5.2, "sp": 400},
             {"dmg": 0.9, "odmg": 5.2, "msl": 0.2},
@@ -48,7 +48,7 @@
     "fs_escort3": {
         "charge": 0.15,
         "startup": 0.5,
-        "recovery": 0.6,
+        "recovery": 1.0,
         "attr": [
             {"dmg": 0.9, "odmg": 5.2, "sp": 400},
             {"dmg": 0.9, "odmg": 5.2, "msl": 0.2},
@@ -84,12 +84,12 @@
             {"buff": ["self", 0.25, 10.0, "att", "buff"], "iv": 1.0}
         ],
         "sp": 5400,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 1.9
     },
     "s2": {
         "sp": 23400,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 3.33333,
         "attr": [
             {"dmg": 0.54, "iv": 0.4},
@@ -142,7 +142,7 @@
     },
     "s2_escort1": {
         "sp": 23400,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 3.33333,
         "attr": [
             {"dmg": 0.54, "buff": ["s1", "default", 1, "-off"], "coei": 1, "iv": 0.4},
@@ -207,7 +207,7 @@
     },
     "s2_escort2": {
         "sp": 23400,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 3.33333,
         "attr": [
             {"dmg": 0.54, "buff": ["s1", "escort1", 1, "-off"], "coei": 1, "iv": 0.4},
@@ -280,7 +280,7 @@
     },
     "s2_escort3": {
         "sp": 23400,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 3.33333,
         "attr": [
             {"dmg": 0.54, "buff": ["s1", "escort2", 1, "-off"], "coei": 1, "iv": 0.4},
@@ -374,8 +374,8 @@
         "attr": [
             {"dmg": 3.2, "sp": 600}
         ],
-        "interrupt": {"s": 0.0, "500205": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x3": 0.1, "500205": 0.0, "dodge": 0.0}
+        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
+        "cancel": {"s": 0.0, "x3": 0.1, "dodge": 0.0, "fs": 0.0}
     },
     "x3": {
         "startup": 0.83333,
@@ -394,7 +394,7 @@
             {"dmg": 0.592, "msl": 0.2}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x2_escort1": 0.35, "fs_escort1": 0.03334, "dodge": 0.0}
+        "cancel": {"s": 0.0, "x2_escort1": 0.35, "fs_escort1": 0.03334, "dodge": 0.0, "x2_mode2": 0.35}
     },
     "x2_escort1": {
         "startup": 0.4,
