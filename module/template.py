@@ -209,6 +209,12 @@ class ArmamentAdv(Adv):
         else:
             return self.a_s_dict[sn]()
 
+    def _get_sp_targets(self, target, name, no_autocharge):
+        targets = super()._get_sp_targets(target, name, False)
+        if name[0] == "x":
+            return filter(lambda s: s != self.sr, targets)
+        return targets
+
     def charge_p(self, name, percent, target=None, no_autocharge=False):
         percent = percent / 100 if percent > 1 else percent
         targets = self.get_targets(target)

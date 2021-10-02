@@ -256,8 +256,8 @@ class DragonBase(EquipBase):
             "dshift.attr": [{"dmg": 2.0}],
             "dodge.startup": 0.0,
             "dodge.recovery": 0.66667,
-            "dend.startup": 0,
-            "dend.recovery": 0,
+            "dodge.interrupt": {"s": 0.0},
+            "dodge.cancel": {"s": 0.0},
             "allow_end": 3.0,  # time before force end is allowed, not including the time needed for skill
             "allow_end_step": 2.0,  # for each shift, add this amount of time to allow_end
         }

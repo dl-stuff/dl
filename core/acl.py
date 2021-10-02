@@ -379,7 +379,6 @@ class AclRegenerator(Interpreter):
         if had_ran:
             queue_list = []
             for child in t.children[2:]:
-                print(child, getattr(child, "_visited", False))
                 queue_child_res = self.visit(child)
                 if queue_child_res:
                     queue_list.append(queue_child_res)

@@ -639,8 +639,7 @@ class SAltBuff(ModeAltBuff):
         self.l_end = Listener("s", self.l_off, order=2)
 
     def enable_s(self, enabled):
-        for s in self.adv.a_s_dict.values():
-            s.enabled = enabled
+        self.adv.a_s_dict[self.base].set_enabled(enabled)
 
     def effect_on(self):
         # self.logwrapper(f'{self.name} on')

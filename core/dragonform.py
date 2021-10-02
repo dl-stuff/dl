@@ -1,5 +1,5 @@
 import operator
-from core.advbase import Dodge, Shift, ShiftEnd, S
+from core.advbase import Dodge, Shift, Action, S
 from core.timeline import Event, Listener, Timer, now
 from core.log import log, g_logs
 from core.acl import allow_acl, CONTINUE
@@ -36,7 +36,6 @@ class DragonForm:
         # make separate dodge action, may want to handle forward/backward later
         self.d_dodge = Dodge("dodge", self.conf.dodge)
         self.d_shift = Shift(name, self.conf.dshift)
-        self.d_end = ShiftEnd(name, self.conf.dend)
 
         # events
         self.status = False
@@ -96,6 +95,15 @@ class DragonForm:
     @property
     def disabled(self):
         return bool(self.disabled_reasons)
+
+    def set_dacts_enabled(self, enabled):
+        for xact in self.adv.a_x_dict[DRG].values():
+            xact.enabled = enabled
+        fsact = self.adv.a_fs_dict.get(DRG)
+        if fsact:
+            fsact.set_enabled(enabled)
+        for skey in ("ds1", "ds2"):
+            self.adv.a_s_dict[skey].set_enabled(enabled)
 
     @property
     def auto_dodge(self):
@@ -193,27 +201,29 @@ class DragonForm:
             self.adv.current_x = DRG
             self.l_s.on()
             self.l_s_end.on()
+        self.set_dacts_enabled(True)
         self.shift_end_timer.on(self.dtime())
         self.reset_allow_end()
         self.shift_event()
 
-    def d_shift_end(self, _=None, reason="<timeout>"):
+    def d_shift_end(self, e=None, reason="<timeout>"):
         if not self.status:
             return False
+        if isinstance(e, Event):
+            log("ds_end?", self.ds_final, e.name, str(e.act))
         if self.is_dragondrive:
             pass
         else:
             doing = self.d_shift.getdoing()
             if self.ds_final and not self.l_s_final_end.get() and not (isinstance(doing, S) and doing.base[:2] == "ds"):
-                log("ds_final_skill")
                 self.l_s_final_end.on()
                 ds_final = self.adv.a_s_dict[self.ds_final]
                 ds_final.charged = self.adv.ds1.sp
                 ds_final.reset_uses()
                 ds_final()
+                self.set_dacts_enabled(False)
                 return False
             else:
-                self.l_s_final_end.off()
                 if self.off_ele:
                     self.adv.element = self.adv.slots.c.ele
                 if self.shift_spd_mod is not None:
@@ -223,6 +233,8 @@ class DragonForm:
                 self.adv.current_x = self.previous_x
                 self.l_s.off()
                 self.l_s_end.off()
+                self.l_s_final_end.off()
+                self.set_dacts_enabled(False)
             self.end_event()
         g_logs.set_log_shift(end_reason=reason)
         self.status = False
@@ -256,4 +268,6 @@ class DragonForm:
     def sack(self):
         if not self.status:
             return True
+        if self.l_s_final_end.get():
+            return False
         return self.allow_end and self.d_shift_end(reason="<forced>")

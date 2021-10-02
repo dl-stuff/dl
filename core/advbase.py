@@ -425,6 +425,9 @@ class Action(object):
         self.defer_event()
 
     def tap(self, t=None, defer=True):
+        if not self.enabled:
+            return False
+
         doing = self._static.doing
 
         # if doing.idle:
@@ -898,6 +901,8 @@ class Adv(object):
         "s4": skill_default,
         "dodge.startup": 0.63333,
         "dodge.recovery": 0,
+        "dodge.interrupt": {"s": 0.0},
+        "dodge.cancel": {"s": 0.0},
         "dooodge.startup": 3.0,
         "dooodge.recovery": 0,
         "acl": "dragon;s1;s2;s3;s4",
@@ -1712,8 +1717,6 @@ class Adv(object):
             before = self.action.getdoing()
             if before.status == Action.STARTUP:
                 before = self.action.getprev()
-            if not self.a_fs_dict[fsn].enabled:
-                return False
             return self.a_fs_dict[fsn]()
         except KeyError:
             return False
@@ -1773,10 +1776,10 @@ class Adv(object):
         prev = self.action.getdoing()
         self.check_deferred_x()
         if isinstance(prev, X) and prev.index == n and prev.status == Action.RECOVERY:
-            if prev.index != self.conf[prev.group].x_max or self.dragonform.auto_dodge:
+            if prev.index < self.conf[prev.group].x_max or self.dragonform.auto_dodge:
                 x_next = self.dragonform.d_dodge
             else:
-                x_next = self.a_x_dict[self.current_x][prev.index + 1]
+                x_next = self.a_x_dict[self.current_x][1]
             return x_next()
         return False
 
@@ -2166,24 +2169,26 @@ class Adv(object):
         # FIXME: dum
         return float_ceil(sp, haste)
 
-    def get_targets(self, target):
-        # FIXME - make a shared sp skill class
+    def _get_sp_targets(self, target, name, no_autocharge, filter_func=None):
         if target is None:
-            return self.skills
+            targets = self.skills
         if isinstance(target, str):
             try:
-                return [self.a_s_dict[target]]
+                targets = [self.a_s_dict[target]]
             except KeyError:
                 return None
         if isinstance(target, list):
             targets = []
             for t in target:
                 try:
-                    targets.append(self.a_s_dict[t])
+                    s = self.a_s_dict[t]
+                    if s not in targets:
+                        targets.append(s)
                 except KeyError:
                     continue
-            return targets
-        return None
+        if not filter_func and no_autocharge:
+            filter_func = lambda s: hasattr(s, "autocharge_timer")
+        return filter(filter_func, targets)
 
     # sp = self.sp_convert(self.sp_mod(name), sp)
     def _charge(self, name, sp, sp_func, target=None, no_autocharge=False, dragon_sp=False):
@@ -2196,7 +2201,7 @@ class Adv(object):
                 real_sp[s.name] = sp_func(s, name, sp)
         else:
             # adv mode sp
-            targets = self.get_targets(target)
+            targets = self._get_sp_targets(target, name, no_autocharge)
             if not targets:
                 return None
             for s in targets:
