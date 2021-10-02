@@ -3,6 +3,8 @@ import re
 from itertools import islice
 from collections import deque
 
+from lark.exceptions import UnexpectedToken
+
 from core.log import log
 
 CHAR_LIMIT = 1000
@@ -365,15 +367,23 @@ class AclRegenerator(Interpreter):
         return False
 
     def ifqueue(self, t):
-        condres = self.visit(t.children[0])
-        if condres:
+        queue_start = "queue"
+        had_ran = True
+        if t.children[0] is not None:
+            condres = self.visit(t.children[0])
+            if condres:
+                queue_start += " " + remove_paranthesis(condres)
+            had_ran = bool(condres)
+        if t.children[1] is not None:
+            queue_start += " while " + self.visit(t.children[1])
+        if had_ran:
             queue_list = []
-            condres = remove_paranthesis(condres)
-            for child in t.children[1:]:
+            for child in t.children[2:]:
+                print(child, getattr(child, "_visited", False))
                 queue_child_res = self.visit(child)
                 if queue_child_res:
                     queue_list.append(queue_child_res)
-            return f"queue {condres}\n`" + ";".join(queue_list) + "\nend"
+            return f"{queue_start}\n`" + ";".join(queue_list) + "\nend"
         return False
 
     def condition(self, t):
@@ -491,14 +501,14 @@ class AclRegenerator(Interpreter):
 
 XSF = re.compile(r"d?(fs|s|x)")
 SEP_PATTERN = re.compile(r"(^|;|\n)")
-XSF_PATTERN = re.compile(r"^`?d?(fs|s|x)(\d+)(\(([^)]+)\))?")
-DRG_PATTERN = re.compile(r"^(.*)dragon\(([A-Za-z0-9\-]+)\)(.*)")
+XSF_PATTERN = re.compile(r"^`?(d?(fs|s)|x|dx)(\d+)(\(([^)]+)\))?")
+DRG_PATTERN = re.compile(r"^(.*)dragon\s*\(([A-Za-z0-9\-]+)\)(.*)")
 
 
 def _pre_parse(acl):
     pre_parsed = []
 
-    in_queue = True
+    in_queue = False
     join_latest_2 = False
     for line in SEP_PATTERN.split(acl):
         line = line.strip()
@@ -513,31 +523,38 @@ def _pre_parse(acl):
             in_queue = True
         drgres = DRG_PATTERN.match(line)
         if drgres:
+            # dragon actstr -> acl shim
             str_b4, dact_str, str_af = drgres.groups()
             str_b4 = str_b4.strip("` ")
-            str_af = str_af.strip(", ")
             queue_str = []
+            last_dx = None
             for a in dact_str.split("-"):
                 if a in ("s", "ds"):
-                    queue_str.append("ds1,cancel")
-                elif a in ("sf", "dsf"):
-                    queue_str.append("ds1")
+                    if last_dx is not None:
+                        queue_str[-1] = "ds(1),x={}".format(last_dx)
+                    else:
+                        queue_str.append("ds(1),cancel")
+                    continue
+                last_dx = None
+                if a in ("sf", "dsf"):
+                    queue_str.append("ds(1)")
                 elif a in ("fs", "dfs"):
-                    queue_str.append("dfs")
+                    queue_str.append("fs")
+                elif a[0] == "c":
+                    last_dx = a[1:]
+                    queue_str.append("dx({})".format(a[1:]))
                 elif a == "dodge":
                     queue_str.append("dodge")
                 elif a == "end":
                     queue_str.append("sack")
             if in_queue:
-                pass
+                join_latest_2 = True
+                line = "dragon{};{}".format(str_af, ";".join(queue_str))
             else:
-                if str_af:
-                    cond = cond + " and can_dform"
-                else:
-                    cond = ""
-                line = "\nqueue {}\n`{}\nend".format(cond, ";".join(queue_str))
+                line = "`dragon{}\nqueue while in_dform\n`{};\nend".format(str_af, ";".join(queue_str))
         else:
-            line = XSF_PATTERN.sub(r"`\1(\2,\4)", line.strip())
+            # s1 -> s(1,)
+            line = XSF_PATTERN.sub(r"`\1(\3,\5)", line.strip())
 
         if join_latest_2:
             pre_parsed[-1] += ";" + line

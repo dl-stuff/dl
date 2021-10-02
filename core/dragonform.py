@@ -1,17 +1,9 @@
 import operator
-from core.advbase import Dodge, Shift, S
+from core.advbase import Dodge, Shift, ShiftEnd, S
 from core.timeline import Event, Listener, Timer, now
 from core.log import log, g_logs
 from core.acl import allow_acl, CONTINUE
 from conf import DRG
-
-
-def _append_drg(act):
-    parts = act.split("_", 1)
-    if len(parts) == 1:
-        return f"{parts[0]}_{DRG}"
-    else:
-        return act
 
 
 class DragonForm:
@@ -28,9 +20,10 @@ class DragonForm:
             dxconf.interrupt.dodge = 0
             dxconf.cancel.s = 0
             dxconf.cancel.dodge = 0
-            adv.conf[_append_drg(dx)] = dxconf
+            adv.conf[dx] = dxconf
         for fs, fsconf in self.conf.find(r"^dfs\d*(_[A-Za-z0-9]+)?$"):
-            adv.conf[_append_drg(fs)] = fsconf
+            adv.conf[fs] = fsconf
+        self.ds_final = None
         for ds, dsconf in self.conf.find(r"^ds\d*(_[A-Za-z0-9]+)?$"):
             adv.conf[ds] = dsconf
             # rebind ds(1|2)_(before|proc)
@@ -38,10 +31,12 @@ class DragonForm:
             ds_base = ds.split("_")[0]
             for sfn in ("before", "proc"):
                 self.adv.rebind_function(self.dragon, f"{ds_base}_{sfn}", f"{ds_base}_{sfn}", overwrite=False)
+            if ds == "ds99" or dsconf.get("final"):
+                self.ds_final = ds
         # make separate dodge action, may want to handle forward/backward later
         self.d_dodge = Dodge("dodge", self.conf.dodge)
         self.d_shift = Shift(name, self.conf.dshift)
-        self.d_end = Shift(name, self.conf.dend, shift_end=True)
+        self.d_end = ShiftEnd(name, self.conf.dend)
 
         # events
         self.status = False
@@ -152,7 +147,7 @@ class DragonForm:
 
     @property
     def allow_end(self):
-        return self.is_dragondrive or bool(self.allow_force_end_timer.online)
+        return self.is_dragondrive or not bool(self.allow_force_end_timer.online)
 
     def dhaste(self):
         return self.adv.mod("dh", operator=operator.add)
@@ -202,15 +197,20 @@ class DragonForm:
         self.reset_allow_end()
         self.shift_event()
 
-    def d_shift_end(self, _=None):
+    def d_shift_end(self, _=None, reason="<timeout>"):
+        if not self.status:
+            return False
         if self.is_dragondrive:
             pass
         else:
             doing = self.d_shift.getdoing()
-            if self.adv.ds1.ac.conf["final"] and doing.base[:2] != "ds":
+            if self.ds_final and not self.l_s_final_end.get() and not (isinstance(doing, S) and doing.base[:2] == "ds"):
+                log("ds_final_skill")
                 self.l_s_final_end.on()
-                self.adv.ds1.charged = self.adv.ds1.sp
-                self.adv.ds1.cast()
+                ds_final = self.adv.a_s_dict[self.ds_final]
+                ds_final.charged = self.adv.ds1.sp
+                ds_final.reset_uses()
+                ds_final()
                 return False
             else:
                 self.l_s_final_end.off()
@@ -223,14 +223,14 @@ class DragonForm:
                 self.adv.current_x = self.previous_x
                 self.l_s.off()
                 self.l_s_end.off()
-            self.d_end()
             self.end_event()
-        g_logs.set_log_shift()
+        g_logs.set_log_shift(end_reason=reason)
         self.status = False
         return True
 
     def d_shift_partial_end(self):
-        pass
+        if not self.is_dragondrive and self.status:
+            g_logs.set_log_shift(end_reason="<partial>")
 
     @allow_acl
     def check(self):
@@ -256,5 +256,4 @@ class DragonForm:
     def sack(self):
         if not self.status:
             return True
-        if self.allow_end:
-            return self.d_shift_end()
+        return self.allow_end and self.d_shift_end(reason="<forced>")

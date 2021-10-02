@@ -7,6 +7,7 @@ import subprocess
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask_cors import CORS
 
 import core.simulate
 from core.afflic import AFFLICT_LIST, Afflics
@@ -30,6 +31,8 @@ from conf.equip import (
 )
 
 app = Flask(__name__)
+CORS(app)
+
 
 # Helpers
 SIMULATED_BUFFS = {
@@ -90,7 +93,7 @@ def run_adv_test(advname, variant, wp=None, dra=None, wep=None, acl=None, conf=N
 
     result["logs"] = {}
     fn = io.StringIO()
-    adv.logs.write_logs(output=fn, log_filter=[str(adv.slots.d.name), str(adv.slots.c.name)])
+    adv.logs.write_logs(output=fn, log_filter=["dshift_end"])
     result["logs"]["dragon"] = fn.getvalue()
     fn = io.StringIO()
     core.simulate.act_sum(adv.logs.act_seq, fn)
@@ -291,8 +294,4 @@ def get_adv_equip():
 
 @app.route("/simc_git_diff", methods=["GET"])
 def get_git_diff():
-    return (
-        "<pre>"
-        + subprocess.check_output(["git", "diff", "conf/equip"], cwd=ROOT_DIR, encoding="UTF-8").replace(">", "&gt;").replace("<", "&lt;")
-        + "</pre>"
-    )
+    return "<pre>" + subprocess.check_output(["git", "diff", "conf/equip"], cwd=ROOT_DIR, encoding="UTF-8").replace(">", "&gt;").replace("<", "&lt;") + "</pre>"

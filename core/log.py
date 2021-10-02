@@ -66,8 +66,8 @@ class Log:
     def fmt_hitattr(attr):
         return "{" + "/".join([f"{k}:{Log.fmt_hitattr_v(v)}" for k, v in attr.items()]) + "}"
 
-    def set_log_shift(self, shift_name=None):
-        if shift_name:
+    def set_log_shift(self, shift_name=None, end_reason=None):
+        if shift_name and not self.shift_name:
             self.shift_name = shift_name
             self.shift_dmg = 0
             self.shift_acts = []
@@ -80,10 +80,11 @@ class Log:
                     self.shift_acts[i] = f"c{self.shift_acts[i]}"
             shift_act_str = " ".join(self.shift_acts)
             self.log(
-                self.shift_name,
+                "dshift_end",
                 f"{self.shift_dmg:.1f}/{duration:.1f}s",
                 f"{self.shift_dmg / duration:.2f} dps",
                 shift_act_str,
+                end_reason,
             )
             self.act_seq.append(f"drg:{shift_act_str}")
             self.shift_name = None
@@ -194,9 +195,9 @@ class Log:
                 output.write("{:<16.3f},".format(value))
             else:
                 try:
-                    output.write("{:<16},".format(value))
-                except TypeError as err:
-                    raise TypeError(value)
+                    output.write("{:<16},".format(str(value)))
+                except TypeError:
+                    raise TypeError(str(entry))
         output.write("\n")
         if flush:
             output.flush()

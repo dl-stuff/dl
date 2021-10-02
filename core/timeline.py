@@ -89,6 +89,9 @@ class Listener(object):
     def __call__(self, e):
         self.__cb(e)
 
+    def get(self):
+        return bool(self.__online)
+
     def on(self, cb=None):
         if self.__online:
             return

@@ -12,19 +12,6 @@ class Elisanne_55MC(Adv):
         },
         "s2": {"attr": [{"dmg": 7.54, "iv": 0.96667}]},
     }
-    ### TEST ###
-    conf["prefer_baseconf"] = True
-    conf["slots.d"] = "High_Mercury"
-    conf[
-        "acl"
-    ] = """
-    `dragon
-    queue while dform
-    `x3;x2;x3
-    end
-    """
-
-    ### TEST ###
 
 
 variants = {None: Adv, "55MC": Elisanne_55MC}

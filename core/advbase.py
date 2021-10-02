@@ -15,7 +15,7 @@ from core.dummy import Dummy, dummy_function
 from core.condition import Condition
 from core.slots import Slots
 import core.acl
-from core.acl import allow_acl
+from core.acl import CONTINUE, allow_acl
 import conf as globalconf
 from conf.equip import get_equip_manager
 from ctypes import c_float
@@ -130,9 +130,11 @@ class Skill(object):
 
     @allow_acl
     def check(self):
-        if self._static.silence == 1 or not self.ac.enabled or self.sp == 0 or self.ac.uses == 0:
+        if not self.ac.enabled or self._static.silence:
             return False
-        return self.charged >= self.sp
+        if self.charged < self.sp or self.ac.uses == 0:
+            return False
+        return True
 
     def cast(self):
         self.charged -= self.sp
@@ -294,6 +296,7 @@ class Action(object):
         # ?????
         # self.rt_name = self.name
         # self.tap, self.o_tap = self.rt_tap, self.tap
+        self.block_follow = False
 
     def __call__(self):
         return self.tap()
@@ -302,6 +305,7 @@ class Action(object):
         return self._static.doing
 
     def _setdoing(self):
+        self.block_follow = False
         self._static.doing = self
 
     def getprev(self):
@@ -318,7 +322,12 @@ class Action(object):
             self.act_event = Event(self.name)
         return self.o_tap()
 
+    def block_follow_until_end(self):
+        self.block_follow = True
+
     def can_follow(self, name, atype, conf, elapsed):
+        if self.block_follow:
+            return None
         timing = conf[name] or conf[atype]
         try:
             return max(0, round(timing / self.speed() - elapsed, 5))
@@ -363,6 +372,7 @@ class Action(object):
             self.recovery_timer.on(self.getrecovery())
 
     def _cb_act_end(self, e):
+        self.block_follow = False
         if self.getdoing() == self:
             if loglevel >= 2:
                 log("ac_end", self.name)
@@ -411,6 +421,7 @@ class Action(object):
 
     def defer_tap(self, t):
         self.defer_event.pin = t.pin
+        self.defer_event.act = self
         self.defer_event()
 
     def tap(self, t=None, defer=True):
@@ -478,7 +489,7 @@ class Action(object):
         self._setdoing()
         self.start_event()
         if now() <= 3:
-            log("debug", "tap", "startup", self.getstartup())
+            log("debug", "tap", self.name, "startup", self.getstartup())
         return True
 
 
@@ -543,7 +554,12 @@ class X(Action):
             index = int(parts[0][2:])
         super().__init__((name, index), conf, act)
         self.base = parts[0]
-        self.group = "default" if len(parts) == 1 else parts[1]
+        if name[0] == "d":
+            self.group = globalconf.DRG
+        elif len(parts) == 1:
+            self.group = "default"
+        else:
+            self.group = parts[1]
         self.atype = "x"
 
         self.act_event = Event("x")
@@ -572,7 +588,12 @@ class Fs(Action):
         super().__init__(name, conf, act)
         parts = name.split("_")
         self.base = parts[0]
-        self.group = "default" if len(parts) == 1 else parts[1]
+        if name[0] == "d":
+            self.group = globalconf.DRG
+        elif len(parts) == 1:
+            self.group = "default"
+        else:
+            self.group = parts[1]
         self.atype = "fs"
         self.level = 0
         if len(parts[0]) > 2:
@@ -703,6 +724,8 @@ class Fs_group(object):
 
 
 class S(Action):
+    TAP_DELAY = 0.1
+
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
         self.atype = "s"
@@ -724,6 +747,9 @@ class S(Action):
         self.end_event.act = self.act_event
 
         self.uses = -1
+
+    def getstartup(self):
+        return S.TAP_DELAY + super().getstartup()
 
 
 class Misc(Action):
@@ -754,12 +780,55 @@ class Dodge(Misc):
 
 
 class Shift(Misc):
-    def __init__(self, name, conf, act=None, shift_end=False):
-        super().__init__("dend" if shift_end else "dshift", conf, act, atype="s")
-        if shift_end:
-            name += " END"
+    def __init__(self, name, conf, act=None):
+        super().__init__("dshift", conf, act, atype="s")
         self.name = name
         self.act_event.msg = name
+
+
+class ShiftEnd(Misc):
+    def __init__(self, name, conf, act=None):
+        super().__init__("dshift", conf, act, atype="s")
+        self.act_event.msg = name + " END"
+
+    def tap(self, t=None, defer=True):
+        doing = self._static.doing
+
+        if doing == self:  # self is doing
+            return False
+
+        if not doing.idle:
+            if doing.status == Action.STARTUP:
+                doing.startup_timer.off()
+                doing.end_event()
+                logargs = ["interrupt", doing.name, f"by {self.name}"]
+                delta = now() - doing.startup_start
+                if delta > 0:
+                    logargs.append(f"after {delta:.2f}s")
+                log(*logargs)
+            elif doing.status == Action.RECOVERY:  # try to cancel an action
+                doing.recovery_timer.off()
+                doing.end_event()
+                count = doing.clear_delayed()
+                delta = now() - doing.recover_start
+                logargs = ["cancel", doing.name, f"by {self.name}"]
+                if delta > 0:
+                    logargs.append(f"after {delta:.2f}s")
+                if count > 0:
+                    logargs.append(f'lost {count} hit{"s" if count > 1 else ""}')
+                log(*logargs)
+            elif doing.status == 0:
+                raise Exception(f"Illegal action {doing} -> {self}")
+            self._setprev()
+        self.delayed = set()
+        self.status = Action.STARTUP
+        self.startup_start = now()
+        self.startup_timer.on(self.getstartup())
+        self._setdoing()
+        self.start_event()
+        if now() <= 3:
+            log("debug", "tap", self.name, "startup", self.getstartup())
+        return True
 
 
 class Adv(object):
@@ -1603,7 +1672,7 @@ class Adv(object):
         # return self.x()
 
     def l_defer(self, e):
-        self.think_pin(e.pin)
+        self.think_pin(e.pin, default=e.act)
 
     def getprev(self):
         prev = self.action.getprev()
@@ -1634,6 +1703,8 @@ class Adv(object):
     @allow_acl
     def fs(self, n=None):
         fsn = "fs" if n is None else f"fs{n}"
+        if self.dragonform.status:
+            fsn = "d" + fsn
         self.check_deferred_x()
         if self.current_fs is not None:
             fsn += "_" + self.current_fs
@@ -1668,20 +1739,19 @@ class Adv(object):
             self.deferred_x = None
 
     @allow_acl
-    def x(self, n=0):
+    def x(self, n=1):
+        # force wait for full recovery
         prev = self.action.getdoing()
         self.check_deferred_x()
-        if isinstance(prev, X) and prev.index >= n and prev.group == self.current_x:
-            x_next = self.a_x_dict[self.current_x][1]
-            if x_next.enabled:
-                return x_next()
-            else:
-                self.current_x = "default"
-            self.a_x_dict[self.current_x][1]()
+        if isinstance(prev, X) and prev.index == n and prev.group == self.current_x:
+            prev.block_follow_until_end()
+            return True
         return False
 
     def _next_x(self, x_min=1):
         prev = self.action.getdoing()
+        if prev is self.action.nop:
+            prev = self.action.getprev()
         self.check_deferred_x()
         if isinstance(prev, X) and prev.group == self.current_x:
             if prev.index < self.conf[prev.group].x_max:
@@ -1693,6 +1763,22 @@ class Adv(object):
             else:
                 self.current_x = "default"
         return self.a_x_dict[self.current_x][x_min]()
+
+    @allow_acl
+    def dx(self, n=1):
+        # dragon acl compat thing
+        # force dodge cancel if not at max combo, or check dform
+        if not self.dragonform.status:
+            return CONTINUE
+        prev = self.action.getdoing()
+        self.check_deferred_x()
+        if isinstance(prev, X) and prev.index == n and prev.status == Action.RECOVERY:
+            if prev.index != self.conf[prev.group].x_max or self.dragonform.auto_dodge:
+                x_next = self.dragonform.d_dodge
+            else:
+                x_next = self.a_x_dict[self.current_x][prev.index + 1]
+            return x_next()
+        return False
 
     def l_x(self, e):
         # FIXME: race condition?
@@ -2031,15 +2117,18 @@ class Adv(object):
 
         result = self._acl(t)
 
-        if not result and t.autocancel:
-            if "auto_fsf" in self._think_modes and self.current_x == "default":
-                self.fsf()
-            if self.current_x == globalconf.DRG and self.dragonform.auto_dodge:
-                self.dodge()
+        if not result:
+            if t.default and t.default():
+                return True
+            if t.autocancel:
+                if "auto_fsf" in self._think_modes and self.current_x == "default":
+                    return self.fsf()
+                if self.current_x == globalconf.DRG and self.dragonform.auto_dodge:
+                    return self.dodge()
 
         return result or self._next_x()
 
-    def think_pin(self, pin):
+    def think_pin(self, pin, default=None):
         # pin as in "signal", says what kind of event happened
 
         if pin in self.conf.latency:
@@ -2056,6 +2145,7 @@ class Adv(object):
         t.dstat = doing.status
         t.didx = doing.index
         t.dhit = int(doing.has_delayed)
+        t.default = default
         t.autocancel = t.pin[0] == "x" and doing.status == Action.DOING and doing.index == self.conf[doing.group].x_max and t.dhit == 0
         t.on(latency)
 
