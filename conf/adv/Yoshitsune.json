@@ -11,11 +11,15 @@
         "gun": [2]
     },
     "dodge": {
-        "attr_spd": {"buff": ["self", 0.1, 30.0, "spd", "buff", "-overwrite_MYSELF16"]}
+        "startup": 0.16667,
+        "recovery": 0.43333,
+        "attr_spd": {"buff": ["self", 0.1, 30.0, "spd", "buff", "-overwrite_MYSELF16"]},
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0, "x1": 0.43333}
     },
     "s1": {
         "sp": 3819,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 3.0,
         "attr": [
             {"dmg": 2.13, "iv": 2.4},
@@ -37,7 +41,7 @@
     },
     "s2": {
         "sp": 7051,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 2.66667,
         "attr": [
             {"dmg": 1.67, "iv": 0.53333},

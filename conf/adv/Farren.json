@@ -7,7 +7,8 @@
         "ele": "light",
         "wt": "dagger",
         "spiral": false,
-        "a": [["affres_curse", 100.0]]
+        "a": [["affres_curse", 100.0]],
+        "utp": [0, 3000, 1200, 50]
     },
     "fs_ddrive": {
         "charge": 0.15,
@@ -19,11 +20,11 @@
             {"dmg": 0.61, "crisis": -0.9, "odmg": 8.4, "iv": 0.36363}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "cancel": {"s": 0.0, "dodge": 0.0, "x1_ddrive": 0.60606}
     },
     "s1": {
         "sp": 2860,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
             {"utp": 300},
@@ -37,7 +38,7 @@
     },
     "s1_ddrive": {
         "sp": 2860,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 2.43333,
         "attr": [
             {"utp": 300},
@@ -51,7 +52,7 @@
     },
     "s2": {
         "sp": 10725,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 0.83333,
         "attr": [
             {"heal": 30, "iv": 0.16667}
@@ -60,7 +61,7 @@
     },
     "s2_ddrive": {
         "sp": 10725,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 2.46667,
         "attr": [
             {"utp": -1500},
@@ -70,18 +71,18 @@
     },
     "x1_ddrive": {
         "startup": 0.2,
-        "recovery": 0.2,
+        "recovery": 0.46667,
         "attr": [
             {"dmg": 0.66, "crisis": -0.9, "sp": 205, "utp": 40},
             {"dmg": 0.66, "crisis": -0.9, "iv": 0.03333},
             {"dmg": 0.66, "crisis": -0.9, "iv": 0.06667}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x2_ddrive": 0.2}
     },
     "x2_ddrive": {
         "startup": 0.26667,
-        "recovery": 0.43333,
+        "recovery": 0.73333,
         "attr": [
             {"dmg": 0.66, "crisis": -0.9, "sp": 340, "utp": 50},
             {"dmg": 0.66, "crisis": -0.9},
@@ -91,22 +92,22 @@
             {"dmg": 0.66, "crisis": -0.9, "iv": 0.13333}
         ],
         "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x3_ddrive": 0.43333}
     },
     "x3_ddrive": {
         "startup": 0.43333,
-        "recovery": 0.43334,
+        "recovery": 0.9,
         "attr": [
             {"dmg": 1.39, "crisis": -0.9, "sp": 340, "utp": 50},
             {"dmg": 1.39, "crisis": -0.9},
             {"dmg": 1.39, "crisis": -0.9}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.56667, "fs": 0.56667}
+        "cancel": {"s": 0.0, "dodge": 0.56667, "fs": 0.56667, "x4_ddrive": 0.43334}
     },
     "x4_ddrive": {
         "startup": 0.26667,
-        "recovery": 0.73333,
+        "recovery": 0.9,
         "attr": [
             {"dmg": 1.02, "crisis": -0.9, "sp": 545, "utp": 60},
             {"dmg": 1.02, "crisis": -0.9, "iv": 0.03333},
@@ -115,6 +116,6 @@
             {"dmg": 1.9, "crisis": -0.9, "iv": 0.23333}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.23333, "fs": 0.23333}
+        "cancel": {"s": 0.0, "dodge": 0.23333, "fs": 0.23333, "x1_ddrive": 0.73333}
     }
 }

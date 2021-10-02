@@ -16,7 +16,7 @@
     "fs1": {
         "charge": 0.4,
         "startup": 0.0,
-        "recovery": 0.66667,
+        "recovery": 1.0,
         "attr": [
             {"dmg": 2.07, "killer": [0.2, ["paralysis"]], "sp": 600, "odmg": 1.75}
         ],
@@ -26,7 +26,7 @@
     "fs2": {
         "charge": 0.8,
         "startup": 0.0,
-        "recovery": 0.66667,
+        "recovery": 1.0,
         "attr": [
             {"dmg": 2.97, "killer": [0.2, ["paralysis"]], "sp": 960, "odmg": 1.75}
         ],
@@ -36,7 +36,7 @@
     "fs3": {
         "charge": 1.2,
         "startup": 0.0,
-        "recovery": 0.66667,
+        "recovery": 1.0,
         "attr": [
             {"dmg": 3.84, "killer": [0.2, ["paralysis"]], "sp": 1400, "odmg": 1.75}
         ],
@@ -45,7 +45,7 @@
     },
     "s1": {
         "sp": 2800,
-        "startup": 0.1,
+        "startup": 0.0,
         "recovery": 1.16667,
         "attr": [
             {"dmg": 11.076, "crisis": 1.25, "afflic": ["stun", 110], "iv": 0.66667}
@@ -53,8 +53,8 @@
     },
     "s2": {
         "sp": 5600,
-        "startup": 0.1,
-        "recovery": 1.0,
+        "startup": 0.0,
+        "recovery": 0.96667,
         "attr": [
             {"cond": ["hp>=", 30], "hp": [20, "="]},
             {"cond": ["hp<=", 30], "buff": ["self", 0.2, 10, "att", "buff"], "iv": 0.13333},
