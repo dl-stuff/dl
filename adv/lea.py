@@ -17,18 +17,16 @@ class Lea_70MC(Lea):
             "ele": "flame",
             "wt": "sword",
             "spiral": True,
-            "a": [["fs", 0.5], ["k_scorchrend", 0.15], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["spf", 0.15]]
+            "a": [["fs", 0.5], ["k_scorchrend", 0.15], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["spf", 0.15]],
         },
         "fs_lea": {
             "startup": 0.14957,
             "recovery": 0.32052,
-            "attr": [
-                {"dmg": 1.65, "odmg": 8.0, "sp": 345, "afflic": ["scorchrend", 100, 0.22]}
-            ]
+            "attr": [{"dmg": 1.65, "odmg": 8.0, "sp": 345, "afflic": ["scorchrend", 100, 0.22]}],
         },
         "s1": {
             "sp": 2325,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 2.7,
             "attr": [
                 {"amp": ["10000", 2, 0], "cd": 30.0},
@@ -38,19 +36,15 @@ class Lea_70MC(Lea):
                 {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 0.46667},
                 {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 0.9},
                 {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.16667},
-                {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.96667}
-            ]
+                {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.96667},
+            ],
         },
         "s2": {
             "sp": 4730,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 2.13333,
-            "attr": [
-                {"hp": -20.0, "cond": ["hp>", 60.0]},
-                {"dmg": 8.2, "iv": 2.1},
-                {"dmg": 8.2, "iv": 2.1}
-            ]
-        }
+            "attr": [{"hp": -20.0, "cond": ["hp>", 60.0]}, {"dmg": 8.2, "iv": 2.1}, {"dmg": 8.2, "iv": 2.1}],
+        },
     }
 
 

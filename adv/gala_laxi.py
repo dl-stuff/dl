@@ -209,13 +209,13 @@ class Gala_Laxi_70MC(Gala_Laxi):
         },
         "s1": {
             "sp": 2476,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.26667,
             "attr": [{"dmg": 2.13, "afflic": ["burn", 120, 0.97], "iv": 0.13333}, {"dmg": 2.13, "iv": 0.33333}, {"dmg": 2.13, "iv": 0.53333}, {"dmg": 2.13, "iv": 0.93333}],
         },
         "s1_eden": {
             "sp": 2476,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 2.0,
             "attr": [
                 {"dmg": 0.76, "afflic": ["scorchrend", 120, 0.416], "iv": 0.13333},
@@ -232,8 +232,8 @@ class Gala_Laxi_70MC(Gala_Laxi):
                 {"dmg": 1.0, "iv": 1.66667},
             ],
         },
-        "s2": {"sp": 7732, "startup": 0.1, "recovery": 1.33333},
-        "s2_eden": {"sp": 3736, "startup": 0.1, "recovery": 1.16667, "attr": [{"dmg": 5.7, "iv": 0.33333}, {"dmg": 5.7, "iv": 0.5}, {"dmg": 5.7, "iv": 0.7}, {"dmg": 6.26, "iv": 0.86667}]},
+        "s2": {"sp": 7732, "startup": 0.0, "recovery": 1.33333},
+        "s2_eden": {"sp": 3736, "startup": 0.0, "recovery": 1.16667, "attr": [{"dmg": 5.7, "iv": 0.33333}, {"dmg": 5.7, "iv": 0.5}, {"dmg": 5.7, "iv": 0.7}, {"dmg": 6.26, "iv": 0.86667}]},
         "x1": {
             "startup": 0.2,
             "recovery": 0.3,

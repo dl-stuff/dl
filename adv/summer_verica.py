@@ -26,7 +26,7 @@ class Summer_Verica_70MC(Summer_Verica):
         },
         "s1": {
             "sp": 5916,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.8,
             "attr": [
                 {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.93333},
@@ -37,7 +37,7 @@ class Summer_Verica_70MC(Summer_Verica):
         },
         "s2": {
             "sp": 63104,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.93333,
             "attr": [
                 {"amp": ["10000", 2, 0], "cd": 30.0},

@@ -16,7 +16,7 @@ class Nurse_Aeleen_70MC(Adv):
         },
         "s1": {
             "sp": 7888,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.8,
             "attr": [
                 {"amp": ["10000", 2, 0], "cd": 30.0, "ab": 1},
@@ -28,7 +28,7 @@ class Nurse_Aeleen_70MC(Adv):
         },
         "s2": {
             "sp": 11832,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.93333,
             "attr": [{"heal": [108, "team"], "iv": 0.96667}, {"buff": ["nearby", 0.05, -1, "maxhp", "buff"], "coei": 1, "iv": 1.0}],
             "energizable": True,

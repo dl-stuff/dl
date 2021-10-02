@@ -44,13 +44,13 @@ class Yaten_70MC(Yaten):
         },
         "s1": {
             "sp": 2818,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 2.36667,
             "attr": [{"dmg": 4.85, "iv": 0.33333}, {"dmg": 4.85, "iv": 0.63889}, {"dmg": 4.85, "iv": 0.83333}, {"dmg": 4.85, "iv": 1.0}, {"buff": ["energy", 1], "iv": 1.75}],
         },
         "s1_energized": {
             "sp": 2818,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.6,
             "attr": [
                 {"dmg": 4.85, "iv": 0.33333},
@@ -67,7 +67,7 @@ class Yaten_70MC(Yaten):
         },
         "s2": {
             "sp": 3636,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.0,
             "attr": [{"amp": ["20000", 2, 0], "ab": 1, "cd": 30.0}, {"buff": ["energy", 2, "team"], "iv": 0.13333}, {"buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.13333}],
         },

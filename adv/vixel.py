@@ -24,7 +24,7 @@ class Vixel_70MC(Adv):
         },
         "s1": {
             "sp": 5916,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.8,
             "attr": [
                 {"buff": ["fsAlt", "vixel", -1, 1, "-refresh"], "coei": 1, "ab": 1},
@@ -35,7 +35,7 @@ class Vixel_70MC(Adv):
         },
         "s2": {
             "sp": 4819,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.96667,
             "attr": [{"amp": ["10000", 2, 0], "cd": 30.0, "ab": 1}, {"heal": [72, "team"], "iv": 1.26667}, {"buff": ["team", 0.1, 10.0, "recovery", "buff"], "coei": 1, "iv": 1.33333}, {"buff": ["energy", 1, "team"], "iv": 1.33333}],
             "energizable": True,

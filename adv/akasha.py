@@ -40,7 +40,7 @@ class Akasha_70MC(Akasha):
         },
         "s1": {
             "sp": 5916,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.8,
             "attr": [
                 {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.93333},
@@ -49,7 +49,12 @@ class Akasha_70MC(Akasha):
             ],
             "energizable": True,
         },
-        "s2": {"sp": 15000, "startup": 0.1, "recovery": 1.96667, "attr": [{"dmg": 9.0, "hp": 100.0, "afflic": ["stormlash", 120, 0.41]}]},
+        "s2": {
+            "sp": 15000,
+            "startup": 0.0,
+            "recovery": 1.96667,
+            "attr": [{"dmg": 9.0, "hp": 100.0, "afflic": ["stormlash", 120, 0.41]}],
+        },
     }
 
     def prerun(self):

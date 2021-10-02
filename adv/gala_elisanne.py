@@ -47,15 +47,13 @@ class Gala_Elisanne_50MC(Gala_Elisanne):
         },
         "s1": {
             "sp": 4377,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.23333,
-            "attr": [
-                {"buff": ["ele", 0.3, 15.0, "att", "buff", "water"], "iv": 0.5}
-            ],
+            "attr": [{"buff": ["ele", 0.3, 15.0, "att", "buff", "water"], "iv": 0.5}],
         },
         "s2": {
             "sp": 38400,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 2.06667,
             "attr": [
                 {"dmg": 13.431, "iv": 0.2},

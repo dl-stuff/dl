@@ -26,7 +26,7 @@ class Gala_Cleo_70MC(Adv):
         },
         "s1_phase1": {
             "sp": 2814,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [
                 {"amp": ["10000", 3, 0], "cd": 30.0, "ab": 1},
@@ -41,7 +41,7 @@ class Gala_Cleo_70MC(Adv):
         },
         "s1_phase2": {
             "sp": 2814,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [
                 {"amp": ["10000", 3, 0], "cd": 30.0, "ab": 1},
@@ -59,7 +59,7 @@ class Gala_Cleo_70MC(Adv):
         },
         "s1_phase3": {
             "sp": 2814,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [
                 {"amp": ["10000", 3, 0], "cd": 30.0, "ab": 1},
@@ -77,17 +77,22 @@ class Gala_Cleo_70MC(Adv):
             ],
             "phase_coei": True,
         },
-        "s2_phase1": {"sp": 6000, "startup": 0.1, "recovery": 1.5, "attr": [{"dmg": 4.7, "iv": 1.0}, {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0}]},
+        "s2_phase1": {
+            "sp": 6000,
+            "startup": 0.0,
+            "recovery": 1.5,
+            "attr": [{"dmg": 4.7, "iv": 1.0}, {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0}],
+        },
         "s2_phase2": {
             "sp": 6000,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [{"dmg": 4.7, "iv": 1.0}, {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0}, {"buff": ["debuff", -0.1, 20.0, 1.0, "attack"], "coei": 1, "iv": 1.0}],
             "phase_coei": True,
         },
         "s2_phase3": {
             "sp": 6000,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [
                 {"dmg": 4.7, "iv": 1.0},
@@ -125,7 +130,7 @@ class Gala_Cleo_52MC(Adv):
         },
         "s1_phase1": {
             "sp": 2814,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [
                 {"amp": ["10000", 3, 0], "cd": 30.0},
@@ -140,7 +145,7 @@ class Gala_Cleo_52MC(Adv):
         },
         "s1_phase2": {
             "sp": 2814,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [
                 {"amp": ["10000", 3, 0], "cd": 30.0},
@@ -158,7 +163,7 @@ class Gala_Cleo_52MC(Adv):
         },
         "s1_phase3": {
             "sp": 2814,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [
                 {"amp": ["10000", 3, 0], "cd": 30.0},
@@ -176,17 +181,17 @@ class Gala_Cleo_52MC(Adv):
             ],
             "phase_coei": True,
         },
-        "s2_phase1": {"sp": 6000, "startup": 0.1, "recovery": 1.5, "attr": [{"dmg": 4.6, "iv": 1.0}, {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0}]},
+        "s2_phase1": {"sp": 6000, "startup": 0.0, "recovery": 1.5, "attr": [{"dmg": 4.6, "iv": 1.0}, {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0}]},
         "s2_phase2": {
             "sp": 6000,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [{"dmg": 4.6, "iv": 1.0}, {"buff": ["debuff", -0.1, 20.0, 1.0, "def"], "coei": 1, "iv": 1.0}, {"buff": ["debuff", -0.05, 20.0, 1.0, "attack"], "coei": 1, "iv": 1.0}],
             "phase_coei": True,
         },
         "s2_phase3": {
             "sp": 6000,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.4,
             "attr": [
                 {"dmg": 4.6, "iv": 1.0},

@@ -120,7 +120,7 @@ class Gala_Luca_70MC(Gala_Luca):
         },
         "s1": {
             "sp": 2870,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 2.16667,
             "attr": [
                 {"dmg": 5.07, "iv": 0.3},
@@ -131,7 +131,7 @@ class Gala_Luca_70MC(Gala_Luca):
         },
         "s2": {
             "sp": 3899,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.0,
             "attr": [
                 {"amp": ["10000", 3, 0], "cd": 30.0},

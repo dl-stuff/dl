@@ -31,10 +31,10 @@ class Yukata_Cassandra_70MC(Yukata_Cassandra):
             "spiral": True,
             "a": [["prep", 100.0], ["a", 0.2, "hp100"], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["a", 0.35]],
         },
-        "s1": {"sp": 7734, "startup": 0.1, "recovery": 1.66667, "attr": [{"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 1.0}, {"heal": [100, "team"], "iv": 1.0}], "energizable": True},
+        "s1": {"sp": 7734, "startup": 0.0, "recovery": 1.66667, "attr": [{"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 1.0}, {"heal": [100, "team"], "iv": 1.0}], "energizable": True},
         "s2": {
             "sp": 13188,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.93333,
             "attr": [
                 {"amp": ["10000", 2, 0], "cd": 30.0},

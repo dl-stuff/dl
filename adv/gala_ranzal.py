@@ -79,7 +79,7 @@ class Gala_Ranzal_50MC(Gala_Ranzal):
         },
         "s1": {
             "sp": 2661,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.53846,
             "attr": [
                 {"dmg": 3.036, "iv": 0.61538},
@@ -88,11 +88,11 @@ class Gala_Ranzal_50MC(Gala_Ranzal):
                 {"dmg": 3.036, "iv": 0.61538, "msl": 0.86667},
                 {"dmg": 3.036, "iv": 0.61538, "msl": 1.0},
                 {"dmg": 3.036, "iv": 0.61538, "msl": 1.2},
-            ]
+            ],
         },
         "s2": {
             "sp": 5800,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 1.0,
             "attr": [
                 {"buff": ["fsAlt", "enhanced", -1, 3, "-refresh"], "coei": 1},

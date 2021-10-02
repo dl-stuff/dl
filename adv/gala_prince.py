@@ -3,6 +3,7 @@ from core.advbase import *
 
 class Gala_Prince(Adv):
     comment = "70MC"
+
     def prerun(self):
         if self.condition("draconic charge"):
             self.dragonform.dragon_gauge += 500
@@ -22,20 +23,17 @@ class Gala_Prince_50MC(Adv):
             "ele": "light",
             "wt": "sword",
             "spiral": False,
-            "a": [["affres_poison", 100.0], ["affres_curse", 100.0]]
+            "a": [["affres_poison", 100.0], ["affres_curse", 100.0]],
         },
         "s1": {
             "sp": 3817,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 2.4,
-            "attr": [
-                {"dmg": 16.52, "iv": 0.8},
-                {"buff": ["zone", 0.2, 10.0, "att", "buff"], "iv": 0.8}
-            ]
+            "attr": [{"dmg": 16.52, "iv": 0.8}, {"buff": ["zone", 0.2, 10.0, "att", "buff"], "iv": 0.8}],
         },
         "s2": {
             "sp": 999999,
-            "startup": 0.1,
+            "startup": 0.0,
             "recovery": 2.66667,
             "attr": [
                 {"dmg": 1.34, "iv": 0.43333},
@@ -52,10 +50,10 @@ class Gala_Prince_50MC(Adv):
                 {"dmg": 4.0, "iv": 2.46667},
                 {"dmg": 4.0, "iv": 2.46667},
                 {"buff": ["team", 0.15, 15.0, "att", "buff"], "iv": 2.6},
-                {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.6}
+                {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.6},
             ],
-            "sp_regen": 32000
-        }
+            "sp_regen": 32000,
+        },
     }
 
     def prerun(self):
