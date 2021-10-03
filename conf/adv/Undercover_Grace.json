@@ -22,14 +22,14 @@
         "startup": 0.0,
         "recovery": 1.83333,
         "attr": [
-            {"amp": ["20000", 2, 0], "iv": 1.43333},
-            {"amp": ["20000", 2, 0], "cond": ["var>=", ["soul_seal_level", 2]], "iv": 1.43333},
-            {"amp": ["20000", 2, 0], "cond": ["var>=", ["soul_seal_level", 3]], "iv": 1.43333},
-            {"amp": ["20000", 2, 0], "cond": ["var>=", ["soul_seal_level", 4]], "iv": 1.43333},
-            {"dmg": 10.0, "iv": 1.43333, "msl": 0.3},
-            {"dmg": 10.0, "iv": 1.43333, "msl": 0.9, "cond": ["var>=", ["soul_seal_level", 2]]},
-            {"dmg": 10.0, "iv": 1.43333, "msl": 1.2, "cond": ["var>=", ["soul_seal_level", 3]]},
-            {"dmg": 10.0, "iv": 1.43333, "msl": 1.5, "cond": ["var>=", ["soul_seal_level", 4]]}
+            {"cond": ["var>=", ["soul_seal", 1]], "amp": ["20000", 2, 0], "iv": 1.43333},
+            {"cond": ["var>=", ["soul_seal", 2]], "amp": ["20000", 2, 0], "iv": 1.43333},
+            {"cond": ["var>=", ["soul_seal", 3]], "amp": ["20000", 2, 0], "iv": 1.43333},
+            {"cond": ["var>=", ["soul_seal", 4]], "amp": ["20000", 2, 0], "iv": 1.43333},
+            {"dmg": 10.0, "iv": 1.43333, "msl": 0.3, "cond": ["var>=", ["soul_seal", 1]]},
+            {"dmg": 10.0, "iv": 1.43333, "msl": 0.9, "cond": ["var>=", ["soul_seal", 2]]},
+            {"dmg": 10.0, "iv": 1.43333, "msl": 1.2, "cond": ["var>=", ["soul_seal", 3]]},
+            {"dmg": 10.0, "iv": 1.43333, "msl": 1.5, "cond": ["var>=", ["soul_seal", 4]]}
         ]
     }
 }

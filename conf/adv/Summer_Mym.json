@@ -36,6 +36,7 @@
         "startup": 0.0,
         "recovery": 2.7,
         "attr": [
+            {"buff": ["vars", "enhanced_standard_attacks", 1, 10.0, "-refresh"]},
             {"dmg": 5.13, "utp": 300, "afflic": ["shadowblight", 120, 0.41], "iv": 0.33333},
             {"dmg": 5.13, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1, "iv": 1.66667}
         ]
@@ -60,54 +61,28 @@
             {"dmg": 17.67, "iv": 1.0}
         ]
     },
-    "x1": {
-        "startup": 0.2,
-        "recovery": 1.26667,
-        "attr": [
-            {"dmg": 0.67, "sp": 545},
-            {"dmg": 0.67, "iv": 0.23333},
-            {"dmg": 0.67, "iv": 0.46667},
-            {"dmg": 0.67, "iv": 0.7},
-            {"dmg": 0.67, "iv": 0.93333}
-        ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0, "x2": 1.26667}
-    },
-    "x2": {
-        "startup": 0.2,
-        "recovery": 1.26667,
-        "attr": [
-            {"dmg": 0.67, "sp": 545},
-            {"dmg": 0.67, "iv": 0.23333},
-            {"dmg": 0.67, "iv": 0.46667},
-            {"dmg": 0.67, "iv": 0.7},
-            {"dmg": 0.67, "iv": 0.93333}
-        ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0, "x1": 1.26667}
-    },
     "x1_ddrive": {
         "startup": 0.33333,
         "recovery": 0.4,
         "attr": [
-            {"dmg": 0.66, "sp": 480, "utp": 150, "cond": ["var=", ["enhanced_autos", 0]]},
-            {"dmg": 1.49, "cond": ["var=", ["enhanced_autos", 0]], "msl": 0.5},
-            {"dmg": 0.99, "sp": 480, "utp": 200, "cond": ["var=", ["enhanced_autos", 1]]},
-            {"dmg": 2.45, "cond": ["var=", ["enhanced_autos", 1]], "msl": 0.5}
+            {"cond": ["var=", ["enhanced_standard_attacks", 0]], "dmg": 0.66, "sp": 480, "utp": 150},
+            {"cond": ["var=", ["enhanced_standard_attacks", 0]], "dmg": 1.49, "msl": 0.5},
+            {"cond": ["var=", ["enhanced_standard_attacks", 1]], "dmg": 0.99, "sp": 480, "utp": 200},
+            {"cond": ["var=", ["enhanced_standard_attacks", 1]], "dmg": 2.45, "msl": 0.5}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0, "x2_ddrive": 0.4}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_ddrive": 0.4}
     },
     "x2_ddrive": {
         "startup": 0.33333,
         "recovery": 0.4,
         "attr": [
-            {"dmg": 0.66, "sp": 480, "utp": 150, "cond": ["var=", ["enhanced_autos", 0]]},
-            {"dmg": 1.49, "cond": ["var=", ["enhanced_autos", 0]], "msl": 0.5},
-            {"dmg": 0.99, "sp": 480, "utp": 200, "cond": ["var=", ["enhanced_autos", 1]]},
-            {"dmg": 2.45, "cond": ["var=", ["enhanced_autos", 1]], "msl": 0.5}
+            {"cond": ["var=", ["enhanced_standard_attacks", 0]], "dmg": 0.66, "sp": 480, "utp": 150},
+            {"cond": ["var=", ["enhanced_standard_attacks", 0]], "dmg": 1.49, "msl": 0.5},
+            {"cond": ["var=", ["enhanced_standard_attacks", 1]], "dmg": 0.99, "sp": 480, "utp": 200},
+            {"cond": ["var=", ["enhanced_standard_attacks", 1]], "dmg": 2.45, "msl": 0.5}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0, "x1_ddrive": 0.4}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_ddrive": 0.4}
     }
 }

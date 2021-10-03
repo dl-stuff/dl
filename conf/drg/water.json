@@ -645,7 +645,7 @@
             "startup": 0.34667,
             "recovery": 0.72,
             "attr": [
-                {"sp": 5},
+                {"vars": ["ice_spirits", 1, 3], "sp": 5},
                 {"dmg": 1.68}
             ],
             "interrupt": {"s": 0.0, "dodge": 0.0},
@@ -658,13 +658,35 @@
             "sp_db": 45,
             "uses": 1,
             "attr": [
-                {"dmg": 1.8, "iv": 0.43333}, 7,
                 {"dmg": 1.8, "iv": 0.43333},
-                "styx_spirit",
-                {"dmg": 1.8, "iv": 0.43333},
-                "styx_spirit",
-                {"dmg": 1.8, "iv": 0.43333},
-                "styx_spirit"
+                {"dmg": 1.8, "iv": 0.43333, "msl": 0.18},
+                {"dmg": 1.8, "iv": 0.43333, "msl": 0.36},
+                {"dmg": 1.8, "iv": 0.43333, "msl": 0.54},
+                {"dmg": 1.8, "iv": 0.43333, "msl": 0.72},
+                {"dmg": 1.8, "iv": 0.43333, "msl": 0.9},
+                {"cond": ["var=", ["ice_spirits", 1]], "dmg": 1.8, "iv": 0.43333},
+                {"cond": ["var=", ["ice_spirits", 1]], "dmg": 1.8, "iv": 0.43333, "msl": 0.5},
+                {"cond": ["var=", ["ice_spirits", 1]], "dmg": 1.8, "iv": 0.43333, "msl": 1.0},
+                {"cond": ["var=", ["ice_spirits", 2]], "dmg": 1.8, "iv": 0.43333},
+                {"cond": ["var=", ["ice_spirits", 2]], "dmg": 1.8, "iv": 0.43333, "msl": 0.5},
+                {"cond": ["var=", ["ice_spirits", 2]], "dmg": 1.8, "iv": 0.43333, "msl": 1.0},
+                {"cond": ["var=", ["ice_spirits", 2]], "dmg": 1.8, "iv": 0.43333},
+                {"cond": ["var=", ["ice_spirits", 2]], "dmg": 1.8, "iv": 0.43333, "msl": 0.5},
+                {"cond": ["var=", ["ice_spirits", 2]], "dmg": 1.8, "iv": 0.43333, "msl": 1.0},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333, "msl": 0.5},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333, "msl": 1.0},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333, "msl": 0.5},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333, "msl": 1.0},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333, "msl": 0.5},
+                {"cond": ["var=", ["ice_spirits", 3]], "dmg": 1.8, "iv": 0.43333, "msl": 1.0}
+            ]
+        },
+        "dend": {
+            "attr": [
+                {"vars": ["ice_spirits", -3]}
             ]
         }
     },

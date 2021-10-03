@@ -630,7 +630,7 @@ class Dragon_AltSkill(Ability):
         from core.modifier import SAltBuff
 
         def l_dc_buff(t):
-            if adv.dragonform.shift_count == self.shift_req:
+            if adv.dshift_count == self.shift_req:
                 SAltBuff(self.name, *self.buff_args).on()
 
         adv.Event("dragon").listener(l_dc_buff)

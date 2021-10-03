@@ -219,7 +219,7 @@ class Buff(object):
         source=None,
     ):
         self.name = name
-        self.__value = value
+        self._value = value
         self.duration = duration
         self.mod_type = mtype
         self.mod_order = morder or ("chance" if self.mod_type == "crit" else "buff")
@@ -292,17 +292,17 @@ class Buff(object):
             )
             return self.set(newvalue)
         else:
-            return self.__value
+            return self._value
 
     @allow_acl
     def get(self):
         if self.__active:
-            return self.__value
+            return self._value
         else:
             return 0
 
     def set(self, v, d=None):
-        self.__value = v
+        self._value = v
         if d != None:
             self.duration = d
         return self
@@ -322,7 +322,7 @@ class Buff(object):
             if i.name == self.name:
                 if i.__active != 0:
                     stack += 1
-                    value += i.__value
+                    value += i._value
         return value, stack
 
     def effect_on(self):
@@ -1026,17 +1026,7 @@ bufftype_dict["drain"] = DrainBuff
 
 
 class SelfAffliction(Buff):
-    def __init__(
-        self,
-        name="<buff_noname>",
-        value=0,
-        duration=0,
-        rate=100,
-        affname=None,
-        mtype="att",
-        morder=None,
-        source=None,
-    ):
+    def __init__(self, name="<buff_noname>", value=0, duration=0, rate=100, affname=None, mtype="att", morder=None, source=None):
         super().__init__(name, value, duration, mtype, morder, source=source)
         self.name = affname
         self.bufftype = "misc"
@@ -1081,6 +1071,28 @@ class SelfAffliction(Buff):
 
 
 bufftype_dict["selfaff"] = SelfAffliction
+
+
+class VarsBuff(Buff):
+    def __init__(self, name, variable, value=0, duration=-1, limit=1, source=None):
+        super().__init__(name, value, duration, "effect", hidden=True, source=source)
+        self.variable = variable
+        self.limit = limit
+
+    def get(self):
+        try:
+            return self.adv.__dict__[self.variable]
+        except KeyError:
+            return 0
+
+    def effect_on(self):
+        self.adv.__dict__[self.variable] = min(self.limit, self.get() + self._value)
+
+    def effect_off(self):
+        self.adv.__dict__[self.variable] = max(0, self.get() - self._value)
+
+
+bufftype_dict["vars"] = VarsBuff
 
 
 class MultiBuffManager:
@@ -1500,8 +1512,11 @@ class ActiveBuffDict(defaultdict):
                 self.amp_buffs[amp_id] = AmpBuff(amp_id)
                 return self.amp_buffs[amp_id]
 
-    def sum_team_amp_lvl(self):
+    def check_amp_cond(self, amp_type, target, comp, count):
         level = 0
+        target = AmpBuff.TEAM_AMP if target == 2 else AmpBuff.SELF_AMP
         for amp_buff in self.amp_buffs.values():
-            level += amp_buff.level(AmpBuff.TEAM_AMP)
-        return level
+            if not amp_type or amp_buff.amp_type == amp_type:
+                level += amp_buff.level(target)
+        # bad chu
+        return eval("{}{}{}".format(level, comp, count))

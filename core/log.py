@@ -139,7 +139,12 @@ class Log:
                 self.update_dict(self.datasets["dmg"], time_now, dmg_amount)
 
             elif category == "x" or category == "cast":
-                self.update_dict(self.counts[name[0]], name, 1)
+                if name[0] == "#":
+                    name = name[1:]
+                    n_rec[2] = name
+                    self.update_dict(self.counts["o"], name, 1)
+                else:
+                    self.update_dict(self.counts[name[0]], name, 1)
                 # name1 = name.split('_')[0]
                 # if name1 != name:
                 #     self.update_dict(self.counts[name[0]], name1, 1)

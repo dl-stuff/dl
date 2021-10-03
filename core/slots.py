@@ -267,16 +267,12 @@ class DragonBase(EquipBase):
         super().__init__(conf.d, c, qual)
         self.dragonform = conf
 
-    def oninit(self, adv, dform_class=None):
+    def oninit(self, adv):
         from core.dragonform import DragonForm
-
-        if dform_class is None:
-            dform_class = DragonForm
 
         if adv.conf["dragonform"]:
             name = self.c.name
             self.dragonform = Conf(adv.conf["dragonform"])
-            dform_class = DragonForm
         else:
             name = self.name
 
@@ -285,7 +281,7 @@ class DragonBase(EquipBase):
                 adv.hitattr_check(dn, dconf)
 
         self.dragonform.update(DragonBase.DEFAULT_DCONF, rebase=True)
-        adv.dragonform = dform_class(name, self.dragonform, adv, self)
+        adv.dragonform = DragonForm(name, self.dragonform, adv, self)
         self.adv = adv
 
     @property
@@ -398,35 +394,36 @@ class Nimis(DragonBase):
 
 
 class Styx(DragonBase):
-    def oninit(self, adv):
-        super().oninit(adv)
+    pass
+    # def oninit(self, adv):
+    #     super().oninit(adv)
 
-        if not adv.nihilism:
-            adv.csd_buff = SingleActionBuff("d_compounding_sd", 0.0, -1, "s", "buff")
+    #     if not adv.nihilism:
+    #         adv.csd_buff = SingleActionBuff("d_compounding_sd", 0.0, -1, "s", "buff")
 
-            def add_csd(e):
-                if not adv.csd_buff.get():
-                    adv.csd_buff.set(min(2.00, adv.csd_buff.get() + 0.50))
-                    adv.csd_buff.on()
-                else:
-                    adv.csd_buff.value(min(2.00, adv.csd_buff.get() + 0.50))
+    #         def add_csd(e):
+    #             if not adv.csd_buff.get():
+    #                 adv.csd_buff.set(min(2.00, adv.csd_buff.get() + 0.50))
+    #                 adv.csd_buff.on()
+    #             else:
+    #                 adv.csd_buff.value(min(2.00, adv.csd_buff.get() + 0.50))
 
-            Timer(add_csd, 15, True).on()
+    #         Timer(add_csd, 15, True).on()
 
-            def add_spirit(e):
-                if e.index == 3:
-                    adv.styx_spirit = min(3, adv.styx_spirit + 1)
-                    log("dx_spirit", adv.styx_spirit)
+    #         def add_spirit(e):
+    #             if e.index == 3:
+    #                 adv.styx_spirit = min(3, adv.styx_spirit + 1)
+    #                 log("dx_spirit", adv.styx_spirit)
 
-            Event("dx").listener(add_spirit)
+    #         Event("dx").listener(add_spirit)
 
-        adv.styx_spirit = 0
+    #     adv.styx_spirit = 0
 
-        def reset_spirit(e):
-            adv.styx_spirit = 0
+    #     def reset_spirit(e):
+    #         adv.styx_spirit = 0
 
-        Event("ds").listener(reset_spirit)
-        Event("dragon_end").listener(reset_spirit)
+    #     Event("ds").listener(reset_spirit)
+    #     Event("dragon_end").listener(reset_spirit)
 
 
 class Gala_Reborn_Poseidon(Gala_Reborn):

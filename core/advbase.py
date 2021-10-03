@@ -91,6 +91,12 @@ class Skill(object):
         return self.charged // self.sp
 
     @property
+    def sp_str(self):
+        if self.maxcharge > 1:
+            return f"{self.charged}/{self.sp} [{self.count}]"
+        return f"{self.charged}/{self.sp}"
+
+    @property
     def owner(self):
         return self.act_base.conf["owner"] or None
 
@@ -780,58 +786,13 @@ class Misc(Action):
 class Dodge(Misc):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act, atype="dodge")
+        self.act_event.name = "#" + name
 
 
 class Shift(Misc):
-    def __init__(self, name, conf, act=None):
-        super().__init__("dshift", conf, act, atype="s")
-        self.name = name
-        self.act_event.msg = name
-
-
-class ShiftEnd(Misc):
-    def __init__(self, name, conf, act=None):
-        super().__init__("dshift", conf, act, atype="s")
-        self.act_event.msg = name + " END"
-
-    def tap(self, t=None, defer=True):
-        doing = self._static.doing
-
-        if doing == self:  # self is doing
-            return False
-
-        if not doing.idle:
-            if doing.status == Action.STARTUP:
-                doing.startup_timer.off()
-                doing.end_event()
-                logargs = ["interrupt", doing.name, f"by {self.name}"]
-                delta = now() - doing.startup_start
-                if delta > 0:
-                    logargs.append(f"after {delta:.2f}s")
-                log(*logargs)
-            elif doing.status == Action.RECOVERY:  # try to cancel an action
-                doing.recovery_timer.off()
-                doing.end_event()
-                count = doing.clear_delayed()
-                delta = now() - doing.recover_start
-                logargs = ["cancel", doing.name, f"by {self.name}"]
-                if delta > 0:
-                    logargs.append(f"after {delta:.2f}s")
-                if count > 0:
-                    logargs.append(f'lost {count} hit{"s" if count > 1 else ""}')
-                log(*logargs)
-            elif doing.status == 0:
-                raise Exception(f"Illegal action {doing} -> {self}")
-            self._setprev()
-        self.delayed = set()
-        self.status = Action.STARTUP
-        self.startup_start = now()
-        self.startup_timer.on(self.getstartup())
-        self._setdoing()
-        self.start_event()
-        if now() <= 3:
-            log("debug", "tap", self.name, "startup", self.getstartup())
-        return True
+    def __init__(self, name, msg, conf, act=None):
+        super().__init__(name, conf, act, atype="s")
+        self.act_event.msg = msg
 
 
 class Adv(object):
@@ -885,7 +846,7 @@ class Adv(object):
     a2 = None
     a3 = None
 
-    skill_default = {"dmg": 0, "hit": 0, "recovery": 1.8, "sp": 0, "startup": 0.1}
+    skill_default = {"startup": 0.0, "recovery": 1.8, "sp": 0}
     conf_default = {
         # Latency represents the human response time, between when an event
         # triggers a "think" event, and when the human actually triggers
@@ -1756,16 +1717,14 @@ class Adv(object):
         if prev is self.action.nop:
             prev = self.action.getprev()
         self.check_deferred_x()
-        if isinstance(prev, X) and prev.group == self.current_x:
-            if prev.index < self.conf[prev.group].x_max:
-                x_next = self.a_x_dict[self.current_x][prev.index + 1]
-            else:
-                x_next = self.a_x_dict[self.current_x][x_min]
-            if x_next.enabled:
-                return x_next()
-            else:
-                self.current_x = "default"
-        return self.a_x_dict[self.current_x][x_min]()
+        if isinstance(prev, X) and prev.group == self.current_x and prev.index < self.conf[prev.group].x_max:
+            x_next = self.a_x_dict[self.current_x][prev.index + 1]
+        else:
+            x_next = self.a_x_dict[self.current_x][x_min]
+        if not x_next.enabled:
+            self.current_x = "default"
+            x_next = self.a_x_dict[self.current_x][x_min]
+        return x_next()
 
     @allow_acl
     def dx(self, n=1):
@@ -2116,8 +2075,6 @@ class Adv(object):
             self.last_c = 0
             return self.a_dooodge()
 
-        # log("think", "/".join(map(str, (t.pin, t.dname, t.dstat, t.didx, t.dhit))))
-
         result = self._acl(t)
 
         if not result:
@@ -2187,7 +2144,7 @@ class Adv(object):
                 except KeyError:
                     continue
         if not filter_func and no_autocharge:
-            filter_func = lambda s: hasattr(s, "autocharge_timer")
+            filter_func = lambda s: not hasattr(s, "autocharge_timer")
         return filter(filter_func, targets)
 
     # sp = self.sp_convert(self.sp_mod(name), sp)
@@ -2205,8 +2162,6 @@ class Adv(object):
             if not targets:
                 return None
             for s in targets:
-                if no_autocharge and hasattr(s, "autocharge_timer"):
-                    continue
                 real_sp[s.name] = sp_func(s, name, sp)
             skills = self.skills
 
@@ -2215,23 +2170,16 @@ class Adv(object):
         most_common = real_sp_counter.most_common()[0][0]
         charged_sp = f"+{most_common}"
         if len(real_sp_counter) > 1:
-            # charged_sp = [charged_sp]
-            # for key, value in real_sp.items():
-            #     if value != most_common:
-            #         charged_sp.append(f"{key}:+{value}")
-            # charged_sp = ",".join(charged_sp)
             all_sp_str = []
             for s in skills:
-                aspstr = f" {s.charged}/{s.sp}"
+                aspstr = s.sp_str
                 real_sp_val = real_sp.get(s.name, most_common)
                 if real_sp_val != most_common:
                     aspstr += f" (+{real_sp_val})"
-                if s.maxcharge > 1:
-                    aspstr += f" [{s.count}]"
                 all_sp_str.append(aspstr)
-            all_sp_str = ",".join(all_sp_str)
+            all_sp_str = ", ".join(all_sp_str)
         else:
-            all_sp_str = ",".join((f" {s.charged}/{s.sp}" for s in skills))
+            all_sp_str = ", ".join((s.sp_str for s in skills))
         if target:
             if isinstance(target, list):
                 target_str = ",".join(target)
@@ -2525,6 +2473,19 @@ class Adv(object):
         if "buff" in attr and (not self.nihilism or attr.get("coei")):
             self.hitattr_buff_outer(name, base, group, aseq, attr)
 
+        if "vars" in attr:
+            varname = attr["vars"][0]
+            value = attr["vars"][1]
+            try:
+                limit = attr["vars"][2]
+            except IndexError:
+                limit = 1
+            try:
+                value = max(0, min(limit, self.__dict__[varname] + value))
+            except KeyError:
+                pass
+            self.__dict__[varname] = value
+
         for m in hitmods:
             m.off()
         if crisis_mod_key is not None:
@@ -2651,28 +2612,32 @@ class Adv(object):
         "hits": lambda s, v: s.hits >= v,
         "zone": lambda s, v: s.zonecount >= v,
         "amp": lambda s, v: s.amp_lvl(key=v),
-        "var>=": lambda s, v: getattr(s, v[0]) >= v[1],
-        "var=": lambda s, v: getattr(s, v[0]) == v[1],
-        "var<=": lambda s, v: getattr(s, v[0]) <= v[1],
-        # ik <> is usually != but in this case it's between
-        "var<>": lambda s, v: v[1] <= getattr(s, v[0]) <= v[2],
-        "team_amp>=": lambda s, v: s.active_buff_dict.sum_team_amp_lvl() >= v,
+        "var>=": lambda s, v: getattr(s, v[0], 0) >= v[1],
+        "var>": lambda s, v: getattr(s, v[0], 0) > v[1],
+        "var<=": lambda s, v: getattr(s, v[0], 0) <= v[1],
+        "var<": lambda s, v: getattr(s, v[0], 0) < v[1],
+        "var=": lambda s, v: getattr(s, v[0], 0) == v[1],
+        "var!=": lambda s, v: getattr(s, v[0], 0) != v[1],
+        # between 2 values
+        "var<<": lambda s, v: v[1] <= getattr(s, v[0], 0) <= v[2],
+        "ampcond": lambda s, v: s.active_buff_dict.check_amp_cond(*v),
     }
 
+    def eval_attr_cond(self, cond):
+        try:
+            return Adv.ATTR_COND[cond[0]](self, cond[1])
+        except KeyError:
+            if cond[0] == "not":
+                return not self.eval_attr_cond(cond[1])
+            if cond[0] == "and":
+                return all((self.eval_attr_cond(subcond) for subcond in cond[1:]))
+            if cond[0] == "or":
+                return any((self.eval_attr_cond(subcond) for subcond in cond[1:]))
+
     def do_hitattr_make(self, e, aseq, attr, pin=None):
-        if "cond" in attr:
-            if len(attr["cond"]) == 3:
-                negate, condtype, condval = attr["cond"]
-            else:
-                condtype, condval = attr["cond"]
-                negate = False
-            cond_eval = Adv.ATTR_COND[condtype](self, condval)
-            if negate:
-                if cond_eval:
-                    return
-            else:
-                if not cond_eval:
-                    return
+        if "cond" in attr and not self.eval_attr_cond(attr["cond"]):
+            return
+
         if "cd" in attr and self.is_set_cd((e.base, aseq), attr["cd"]):
             return
 
@@ -2785,7 +2750,7 @@ class Adv(object):
             "cast",
             e.base if e.group in ("default", globalconf.DRG) else e.name,
             f"after {prev}",
-            ", ".join([f"{s.charged}/{s.sp}" for s in skills]),
+            ", ".join([s.sp_str for s in skills]),
         )
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
 

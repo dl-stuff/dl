@@ -20,8 +20,8 @@
       "acl": [
         "`dragon(c2-s-c2-end), s=2",
         "`s3, not buff(s3)",
-        "`s4, soul_seal.level=4 or fsc",
-        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`s4, soul_seal=4 or fsc",
+        "`s2, soul_seal=4 and fsc and dgauge>=500 and s1.check()",
         "`s1, dgauge<500",
         "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
       ],
@@ -55,8 +55,8 @@
       "acl": [
         "`dragon(c2-s-c2-end), s=2",
         "`s3, not buff(s3)",
-        "`s4, soul_seal.level=4 or fsc",
-        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`s4, soul_seal=4 or fsc",
+        "`s2, soul_seal=4 and fsc and dgauge>=500 and s1.check()",
         "`s1, dgauge<500",
         "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
       ],
@@ -131,8 +131,8 @@
         "`dragon(c2-s-c2-end), s=2",
         "`s2, duration-now<11",
         "`s1",
-        "`s3, soul_seal.level=4 and cancel",
-        "`s4, soul_seal.level>2 and fsc",
+        "`s3, soul_seal=4 and cancel",
+        "`s4, soul_seal>2 and fsc",
         "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel)"
       ],
       "coabs": [
@@ -168,11 +168,11 @@
         "Thunderswift_Lords_Blade_Axe"
       ],
       "acl": [
-        "`dragon(c2-s-c2-end), s=2 and dragonform.shift_count=0",
-        "`dragon(c2-s-c2-c2-end), s=2 and dragonform.shift_count=1",
+        "`dragon(c2-s-c2-end), s=2 and dshift_count=0",
+        "`dragon(c2-s-c2-c2-end), s=2 and dshift_count=1",
         "`s3, not buff(s3) and s=1",
         "`s4, fsc and energy()<5",
-        "`s2, soul_seal.level=4 and dgauge>=500 and s1.check() and fsc and energy()<5",
+        "`s2, soul_seal=4 and dgauge>=500 and s1.check() and fsc and energy()<5",
         "`s1, dgauge<500",
         "`fs, x=4",
         "`fs, charged_in(fs,s1)"
@@ -215,8 +215,8 @@
         "`dragon(c2-s-c2-c2-end), s=2",
         "`s2, duration-now<10",
         "`s1",
-        "`s3, soul_seal.level=4 and cancel",
-        "`s4, soul_seal.level=4 and fsc",
+        "`s3, soul_seal=4 and cancel",
+        "`s4, soul_seal=4 and fsc",
         "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel)"
       ],
       "coabs": [
@@ -296,8 +296,8 @@
       "acl": [
         "`dragon(c2-s-c2-end), s=2",
         "`s4",
-        "`s3, soul_seal.level>2",
-        "`s2, soul_seal.level=4 and fsc and dgauge>=500 and s1.check()",
+        "`s3, soul_seal>2",
+        "`s2, soul_seal=4 and fsc and dgauge>=500 and s1.check()",
         "`s1, dgauge<500",
         "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
       ],

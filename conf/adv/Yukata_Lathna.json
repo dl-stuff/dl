@@ -54,12 +54,12 @@
         "recovery": 1.86667,
         "attr": [
             {"dmg": 17.53, "buff": ["self", 0.03, 20.0, "wind_resist", "down", "-overwrite_HOSTILE22"], "coei": 1, "iv": 0.93333, "msl": 0.06667, "msl_spd": 1},
-            {"dmg": 3.16, "cond": ["team_amp>=", 1], "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
-            {"dmg": 3.16, "cond": ["team_amp>=", 1], "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
-            {"dmg": 3.16, "cond": ["team_amp>=", 1], "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
-            {"dmg": 3.16, "cond": ["team_amp>=", 2], "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
-            {"dmg": 3.16, "cond": ["team_amp>=", 2], "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
-            {"dmg": 3.16, "cond": ["team_amp>=", 2], "iv": 0.93333, "msl": 1.06667, "msl_spd": 1}
+            {"cond": ["ampcond", [0, 2, ">=", 1]], "dmg": 3.16, "buff": ["self", 0.03, 20.0, "wind_resist", "down", "-overwrite_HOSTILE22"], "coei": 1, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["ampcond", [0, 2, ">=", 1]], "dmg": 3.16, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["ampcond", [0, 2, ">=", 1]], "dmg": 3.16, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["ampcond", [0, 2, ">=", 2]], "dmg": 3.16, "buff": ["self", 0.03, 20.0, "wind_resist", "down", "-overwrite_HOSTILE22"], "coei": 1, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["ampcond", [0, 2, ">=", 2]], "dmg": 3.16, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
+            {"cond": ["ampcond", [0, 2, ">=", 2]], "dmg": 3.16, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1}
         ]
     }
 }

@@ -12,8 +12,13 @@ class Humanoid_Mercury(Adv):
         adv.current_s[dst] = "teamamp"
 
     def a1_on(self, e):
-        if self.dragonform.shift_count == 2:
-            self.dragonform.conf.update(self.conf.dragonform2)
+        if self.dshift_count == 2:
+            for act in self.dragonform.conf.values():
+                try:
+                    if act["attr"] and act["attr_HAS"]:
+                        act["attr"] = act["attr_HAS"]
+                except TypeError:
+                    pass
 
     @allow_acl
     def s(self, n):

@@ -210,44 +210,14 @@ class ArmamentAdv(Adv):
             return self.a_s_dict[sn]()
 
     def _get_sp_targets(self, target, name, no_autocharge):
-        targets = super()._get_sp_targets(target, name, False)
-        if name[0] == "x":
-            return filter(lambda s: s != self.sr, targets)
-        return targets
+        def filter_func(s):
+            if s == self.sr:
+                return name[0] != "x"
+            elif no_autocharge and hasattr(s, "autocharge_timer"):
+                return False
+            return True
 
-    def charge_p(self, name, percent, target=None, no_autocharge=False):
-        percent = percent / 100 if percent > 1 else percent
-        targets = self.get_targets(target)
-        if not targets:
-            return
-        for s in targets:
-            if s != self.sr and no_autocharge and hasattr(s, "autocharge_timer"):
-                continue
-            s.charge(self.sp_convert(percent, s.sp))
-        log(
-            "sp",
-            name if not target else f"{name}->{target}",
-            f"{percent*100:.0f}%",
-            f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
-        )
-        self.think_pin("prep")
-
-    def charge(self, name, sp, target=None):
-        sp = self.sp_convert(self.sp_mod(name), sp)
-        targets = self.get_targets(target)
-        if not targets:
-            return
-        for s in targets:
-            if name[0] == "x" and s == self.sr:
-                continue
-            s.charge(sp)
-        log(
-            "sp",
-            name,
-            sp,
-            f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
-        )
-        self.think_pin("sp")
+        return super()._get_sp_targets(target, name, no_autocharge, filter_func=filter_func)
 
 
 class DivineShiftAdv(Adv):
@@ -313,35 +283,3 @@ class SkillChainAdv(Adv):
     @property
     def skills(self):
         return (self.sr, self.s3, self.s4)
-
-    def charge_p(self, name, percent, target=None, no_autocharge=False):
-        percent = percent / 100 if percent > 1 else percent
-        targets = self.get_targets(target)
-        if not targets:
-            return
-        for s in targets:
-            if no_autocharge and hasattr(s, "autocharge_timer"):
-                continue
-            s.charge(self.sp_convert(percent, s.sp))
-        log(
-            "sp",
-            name if not target else f"{name}->{target}",
-            f"{percent*100:.0f}%",
-            f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
-        )
-        self.think_pin("prep")
-
-    def charge(self, name, sp, target=None):
-        sp = self.sp_convert(self.sp_mod(name), sp)
-        targets = self.get_targets(target)
-        if not targets:
-            return
-        for s in targets:
-            s.charge(sp)
-        log(
-            "sp",
-            name,
-            sp,
-            f"{self.sr.charged}/{self.sr.sp} ({self.sr.count}), {self.s3.charged}/{self.s3.sp}, {self.s4.charged}/{self.s4.sp}",
-        )
-        self.think_pin("sp")

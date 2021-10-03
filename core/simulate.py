@@ -257,7 +257,9 @@ def act_sum(actions, output):
             if xseq <= p_xseq:
                 condensed = append_condensed(condensed, p_act)
             p_xseq = xseq
-        elif (act.startswith("fs") or act == "d") and p_act[0] == "x":
+        elif (act.startswith("fs") or act1 == "dodge") and p_act[0] == "x":
+            if act1 == "dodge":
+                act1 = "d"
             p_xseq = 0
             condensed = append_condensed(condensed, p_act + act1)
         else:

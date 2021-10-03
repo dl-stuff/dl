@@ -47,31 +47,55 @@
         "startup": 0.0,
         "recovery": 1.63333,
         "attr": [
-            {"buff": [["self", 0.15, 15.0, "flashburn_killer", "passive"], ["xAlt", "overclocked", 15], "-refresh"], "coei": 1, "iv": 0.7}
+            {"buff": [["self", 0.15, 15.0, "flashburn_killer", "passive"], ["vars", "buff1564", 1, 15.0], "-refresh"], "coei": 1, "iv": 0.7}
         ]
     },
-    "x1_overclocked": {
+    "x1": {
+        "startup": 0.1,
+        "recovery": 0.8,
         "attr": [
-            {"dmg": 0.54, "sp": 340},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54}
-        ]
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48, "sp": 340},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54, "sp": 340},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.06667, "s": 0.0, "x2": 0.36667}
     },
-    "x2_overclocked": {
+    "x2": {
+        "startup": 0.1,
+        "recovery": 0.8,
         "attr": [
-            {"dmg": 0.54, "sp": 340},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54},
-            {"dmg": 0.54}
-        ]
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48, "sp": 340},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var=", ["buff1564", 0]], "dmg": 0.48},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54, "sp": 340},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54},
+            {"cond": ["var>=", ["buff1564", 1]], "dmg": 0.54}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.06667, "s": 0.0, "x1": 0.8}
     }
 }

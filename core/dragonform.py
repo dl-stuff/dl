@@ -31,11 +31,12 @@ class DragonForm:
             ds_base = ds.split("_")[0]
             for sfn in ("before", "proc"):
                 self.adv.rebind_function(self.dragon, f"{ds_base}_{sfn}", f"{ds_base}_{sfn}", overwrite=False)
-            if ds == "ds99" or dsconf.get("final"):
-                self.ds_final = ds
+            if ds.startswith("ds99") or dsconf.get("final"):
+                self.ds_final = ds.split("_")[0]
         # make separate dodge action, may want to handle forward/backward later
         self.d_dodge = Dodge("dodge", self.conf.dodge)
-        self.d_shift = Shift(name, self.conf.dshift)
+        self.d_shift = Shift("dshift", name, self.conf.dshift)
+        self.d_end = Shift("dend", name, self.conf.dend)
 
         # events
         self.status = False
@@ -236,6 +237,7 @@ class DragonForm:
                 self.l_s_final_end.off()
                 self.set_dacts_enabled(False)
             self.end_event()
+            self.d_end()
         g_logs.set_log_shift(end_reason=reason)
         self.status = False
         return True

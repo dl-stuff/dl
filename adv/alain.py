@@ -9,10 +9,12 @@ class Alain(Adv):
     ### TEST ###
     conf = {"c": {}}
     conf["prefer_baseconf"] = True
-    conf["slots.d"] = "Gala_Reborn_Jeanne"
+    conf["slots.d"] = "Styx"
     conf["c"]["a"] = [["dp", 100.0]]
     conf["acl"] = [
-        "`dragon(c3-c3-c3-c3-c1-end)",
+        "`dragon",
+        "if in_dform",
+        "`ds, ice_spirits=3" "end",
     ]
 
     # def post_run(self, end):
