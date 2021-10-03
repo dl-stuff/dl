@@ -9,7 +9,7 @@ class Alain(Adv):
     ### TEST ###
     conf = {"c": {}}
     conf["prefer_baseconf"] = True
-    conf["slots.d"] = "Styx"
+    conf["slots.d"] = "Daikokuten"
     conf["c"]["a"] = [["dp", 100.0]]
     conf["acl"] = [
         "`dragon",

@@ -250,7 +250,7 @@ class DragonBase(EquipBase):
             "exhilaration": 0,  # psiren aura
             "gauge_val": 10,  # gauge regen percent
             "latency": 0,  # amount of delay for cancel
-            "act": "c3-s",
+            "default_ds_x": 0,
             "dshift.startup": 1.0,
             "dshift.recovery": 0.63333,
             "dshift.attr": [{"dmg": 2.0}],
@@ -258,6 +258,8 @@ class DragonBase(EquipBase):
             "dodge.recovery": 0.66667,
             "dodge.interrupt": {"s": 0.0},
             "dodge.cancel": {"s": 0.0},
+            "dend.interrupt": 0.0,
+            "dend.recovery": 0.0,
             "allow_end": 3.0,  # time before force end is allowed, not including the time needed for skill
             "allow_end_step": 2.0,  # for each shift, add this amount of time to allow_end
         }

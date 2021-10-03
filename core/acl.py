@@ -500,8 +500,8 @@ class AclRegenerator(Interpreter):
 
 XSF = re.compile(r"d?(fs|s|x)")
 SEP_PATTERN = re.compile(r"(^|;|\n)")
-XSF_PATTERN = re.compile(r"^`?(d?(fs|s)|x|dx)(\d+)(\(([^)]+)\))?")
-DRG_PATTERN = re.compile(r"^(.*)dragon\s*\(([A-Za-z0-9\-]+)\)(.*)")
+XSF_PATTERN = re.compile(r"^(d?(fs|s)|x|dx)(\d+)(\(([^)]+)\))?")
+DRG_PATTERN = re.compile(r"dragon\s*\(([A-Za-z0-9\-]+)\)(.*)")
 
 
 def _pre_parse(acl):
@@ -510,7 +510,7 @@ def _pre_parse(acl):
     in_queue = False
     join_latest_2 = False
     for line in SEP_PATTERN.split(acl):
-        line = line.strip()
+        line = line.strip(" `")
         if not line:
             continue
         if line == ";":
@@ -523,8 +523,7 @@ def _pre_parse(acl):
         drgres = DRG_PATTERN.match(line)
         if drgres:
             # dragon actstr -> acl shim
-            str_b4, dact_str, str_af = drgres.groups()
-            str_b4 = str_b4.strip("` ")
+            dact_str, str_af = drgres.groups()
             queue_str = []
             last_dx = None
             for a in dact_str.split("-"):

@@ -334,8 +334,8 @@ class Action(object):
     def can_follow(self, name, atype, conf, elapsed):
         if self.block_follow:
             return None
-        timing = conf[name] or conf[atype]
         try:
+            timing = (conf[name] or conf[atype]) - 0.0001
             return max(0, round(timing / self.speed() - elapsed, 5))
         except TypeError:
             return None
@@ -427,7 +427,6 @@ class Action(object):
 
     def defer_tap(self, t):
         self.defer_event.pin = t.pin
-        self.defer_event.act = self
         self.defer_event()
 
     def tap(self, t=None, defer=True):
@@ -461,8 +460,7 @@ class Action(object):
                     doing.end_event()
                     logargs = ["interrupt", doing.name, f"by {self.name}"]
                     delta = now() - doing.startup_start
-                    if delta > 0:
-                        logargs.append(f"after {delta:.2f}s")
+                    logargs.append(f"after {delta:.2f}s")
                     log(*logargs)
                 else:
                     return False
@@ -481,8 +479,7 @@ class Action(object):
                     count = doing.clear_delayed()
                     delta = now() - doing.recover_start
                     logargs = ["cancel", doing.name, f"by {self.name}"]
-                    if delta > 0:
-                        logargs.append(f"after {delta:.2f}s")
+                    logargs.append(f"after {delta:.2f}s")
                     if count > 0:
                         logargs.append(f'lost {count} hit{"s" if count > 1 else ""}')
                     log(*logargs)
@@ -1100,7 +1097,7 @@ class Adv(object):
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        elif self.dragonform.status and not ignore_dragon:
+        elif self.in_dform and not ignore_dragon:
             delta = (hp - old_hp) / 10000
             if delta < 0:
                 self.dragonform.set_shift_end(delta, percent=True)
@@ -1638,7 +1635,7 @@ class Adv(object):
         # return self.x()
 
     def l_defer(self, e):
-        self.think_pin(e.pin, default=e.act)
+        self.think_pin(e.pin)
 
     def getprev(self):
         prev = self.action.getprev()
@@ -1654,7 +1651,7 @@ class Adv(object):
 
     @allow_acl
     def ds(self, n=1):
-        if self.dragonform.status:
+        if self.in_dform:
             return self.a_s_dict[f"ds{n}"]()
         return False
 
@@ -1669,7 +1666,7 @@ class Adv(object):
     @allow_acl
     def fs(self, n=None):
         fsn = "fs" if n is None else f"fs{n}"
-        if self.dragonform.status:
+        if self.in_dform:
             fsn = "d" + fsn
         self.check_deferred_x()
         if self.current_fs is not None:
@@ -1730,7 +1727,7 @@ class Adv(object):
     def dx(self, n=1):
         # dragon acl compat thing
         # force dodge cancel if not at max combo, or check dform
-        if not self.dragonform.status:
+        if not self.in_dform:
             return CONTINUE
         prev = self.action.getdoing()
         self.check_deferred_x()
@@ -1760,7 +1757,7 @@ class Adv(object):
 
     @allow_acl
     def dodge(self):
-        if self.dragonform.status:
+        if self.in_dform:
             return self.dragonform.d_dodge()
         return self.a_dodge()
 
@@ -1836,7 +1833,7 @@ class Adv(object):
 
     @allow_acl
     def s(self, n):
-        if self.dragonform.status:
+        if self.in_dform:
             return False
         self.check_deferred_x()
         return self.a_s_dict[f"s{n}"]()
@@ -2077,18 +2074,21 @@ class Adv(object):
 
         result = self._acl(t)
 
+        # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))))
+
         if not result:
-            if t.default and t.default():
-                return True
             if t.autocancel:
                 if "auto_fsf" in self._think_modes and self.current_x == "default":
                     return self.fsf()
-                if self.current_x == globalconf.DRG and self.dragonform.auto_dodge:
-                    return self.dodge()
+                if self.in_dform and t.didx:
+                    if t.didx == self.dragonform.default_ds_x and self.ds1.check():
+                        return self.ds1()
+                    if self.dragonform.auto_dodge:
+                        return self.dodge()
 
         return result or self._next_x()
 
-    def think_pin(self, pin, default=None):
+    def think_pin(self, pin):
         # pin as in "signal", says what kind of event happened
 
         if pin in self.conf.latency:
@@ -2105,7 +2105,6 @@ class Adv(object):
         t.dstat = doing.status
         t.didx = doing.index
         t.dhit = int(doing.has_delayed)
-        t.default = default
         t.autocancel = t.pin[0] == "x" and doing.status == Action.DOING and doing.index == self.conf[doing.group].x_max and t.dhit == 0
         t.on(latency)
 
@@ -2150,7 +2149,7 @@ class Adv(object):
     # sp = self.sp_convert(self.sp_mod(name), sp)
     def _charge(self, name, sp, sp_func, target=None, no_autocharge=False, dragon_sp=False):
         real_sp = {}
-        if self.dragonform.status and dragon_sp:
+        if self.in_dform and dragon_sp:
             # dra mode sp
             target = None
             skills = self.dskills

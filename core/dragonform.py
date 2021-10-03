@@ -14,6 +14,7 @@ class DragonForm:
         self.dragon = dragon
 
         # merge confs into adv conf
+        x_max = 0
         for dx, dxconf in self.conf.find(r"^dx\d+$"):
             # maybe parse this properly later
             dxconf.interrupt.s = 0
@@ -21,6 +22,10 @@ class DragonForm:
             dxconf.cancel.s = 0
             dxconf.cancel.dodge = 0
             adv.conf[dx] = dxconf
+            x_max = max(x_max, int(dx[2:]))
+        self.default_ds_x = self.conf.default_ds_x  # the default combo idx to try dragon skill on
+        if not self.default_ds_x:
+            self.default_ds_x = x_max
         for fs, fsconf in self.conf.find(r"^dfs\d*(_[A-Za-z0-9]+)?$"):
             adv.conf[fs] = fsconf
         self.ds_final = None
@@ -111,7 +116,9 @@ class DragonForm:
         d_combo = self.adv.a_x_dict[DRG][self.adv.conf[DRG].x_max]
         if "dodge" not in d_combo.conf.cancel:
             return False
-        return (self.d_dodge.getstartup() + self.d_dodge.getrecovery()) < (d_combo.conf.cancel["dodge"] / d_combo.speed())
+        dodge_t = d_combo.conf.cancel["dodge"] + self.d_dodge.getstartup() + self.d_dodge.getrecovery()
+        combo_t = (d_combo.conf.cancel["dx1"] / d_combo.speed()) or d_combo.getrecovery()
+        return dodge_t < combo_t
 
     def auto_gauge(self, t):
         self.charge_gauge(self.dragon_gauge_val, percent=True, auto=True)
