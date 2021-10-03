@@ -29,7 +29,7 @@ class Gala_Luca(Adv):
         adv.extra_actmods.append(adv.get_gluca_crit_mod)
 
     def get_gluca_crit_mod(self, name, base, group, aseq, attr):
-        if base in (self.share_dst, "ds") or attr.get("gluca"):
+        if base in ("s1", "ds1") or attr.get("gluca"):
             self.gluca_crit_mod.mod_value = 0.1 * self.buff_icon_count()
             log("debug_gluca", f"{name}:{aseq}", self.gluca_crit_mod.mod_value)
             return self.gluca_crit_mod

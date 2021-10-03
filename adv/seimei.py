@@ -29,9 +29,9 @@ class Seimei(Adv):
         super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
 
     def shikigami_dmg(self, t):
-        if any([s_dict.ac.status != -2 for s_dict in self.a_s_dict.values()]):
+        if any([s_dict.ac.status != Action.OFF for s_dict in self.a_s_dict.values()]):
             return
-        if self.dragonform.status:
+        if self.in_dform:
             return
         if self.shikigami_lv < 2 and self.shikigami_gauge >= 6:
             self.hitattr_make("#shikigami_lv1", "#", "#", 0, self.conf.s1.shikigami.lv1)

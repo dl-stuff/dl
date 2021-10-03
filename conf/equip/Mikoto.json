@@ -92,6 +92,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49563.28942772246,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "The_Cutie_Competition",
+        "Snipers_Allure",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, aff(scorchrend)",
+        "`s4",
+        "`s3",
+        "`s1, xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Leonidas"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54735.208768831864,
@@ -133,14 +167,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 132947.55873409516,
+        "dps": 136507.83848031377,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "His_Clever_Brother",
         "To_the_Extreme",
@@ -149,7 +183,10 @@
       ],
       "acl": [
         "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends",
-        "`dragon(s-s-c3-c2-end), s=1",
+        "`dragon, s=1",
+        "queue while in_dform",
+        "`ds1, cancel",
+        "end",
         "`s3, not buff(s3) and fsc",
         "`s1",
         "`s4, xf>1",
@@ -164,7 +201,7 @@
       ]
     },
     "META": {
-      "tdps": 623659.6791041817,
+      "tdps": 652637.2136437187,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -173,6 +210,23 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 59561.37029247235,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 64838.71675012411,
@@ -194,7 +248,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -248,6 +302,44 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36171.83343795976,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Sweet_Surprise",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
+        "if s=1",
+        "`dragon",
+        "end",
+        "`s1",
+        "`s4, xf>2",
+        "`s2, xf>3",
+        "`fs, charged_in(fs, s1) and xf",
+        "`fs, xf=5 and (s3.check())",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Yuya"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 38820.50260716779,
@@ -295,7 +387,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

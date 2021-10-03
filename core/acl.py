@@ -2,6 +2,7 @@ import os
 import re
 from itertools import islice
 from collections import deque
+from types import prepare_class
 
 from lark.exceptions import UnexpectedToken
 
@@ -382,6 +383,8 @@ class AclRegenerator(Interpreter):
                 queue_child_res = self.visit(child)
                 if queue_child_res:
                     queue_list.append(queue_child_res)
+            if not queue_list:
+                return False
             return f"{queue_start}\n`" + ";".join(queue_list) + "\nend"
         return False
 
@@ -499,6 +502,7 @@ class AclRegenerator(Interpreter):
 
 
 XSF = re.compile(r"d?(fs|s|x)")
+LOGIC_KW = re.compile(r"(if|elif|else|end|queue).*")
 SEP_PATTERN = re.compile(r"(^|;|\n)")
 XSF_PATTERN = re.compile(r"^(d?(fs|s)|x|dx)(\d+)(\(([^)]+)\))?")
 DRG_PATTERN = re.compile(r"dragon\s*\(([A-Za-z0-9\-]+)\)(.*)")
@@ -510,8 +514,9 @@ def _pre_parse(acl):
     in_queue = False
     join_latest_2 = False
     for line in SEP_PATTERN.split(acl):
-        line = line.strip(" `")
+        line = line.strip(" `\n")
         if not line:
+            join_latest_2 = False
             continue
         if line == ";":
             join_latest_2 = True
@@ -520,6 +525,9 @@ def _pre_parse(acl):
             in_queue = False
         elif line.startswith("queue"):
             in_queue = True
+        if line[0] == "#":
+            pre_parsed.append(line)
+            continue
         drgres = DRG_PATTERN.match(line)
         if drgres:
             # dragon actstr -> acl shim
@@ -537,7 +545,7 @@ def _pre_parse(acl):
                 if a in ("sf", "dsf"):
                     queue_str.append("ds(1)")
                 elif a in ("fs", "dfs"):
-                    queue_str.append("fs")
+                    queue_str.append("dfs")
                 elif a[0] == "c":
                     last_dx = a[1:]
                     queue_str.append("dx({})".format(a[1:]))
@@ -549,14 +557,17 @@ def _pre_parse(acl):
                 join_latest_2 = True
                 line = "dragon{};{}".format(str_af, ";".join(queue_str))
             else:
-                line = "`dragon{}\nqueue while in_dform\n`{};\nend".format(str_af, ";".join(queue_str))
+                line = "dragon{}\nqueue while in_dform\n`{};\nend".format(str_af, ";".join(queue_str))
         else:
             # s1 -> s(1,)
-            line = XSF_PATTERN.sub(r"`\1(\3,\5)", line.strip())
+            line = XSF_PATTERN.sub(r"\1(\3,\5)", line.strip())
 
-        if join_latest_2:
-            pre_parsed[-1] += ";" + line
-            join_latest_2 = False
+        if not LOGIC_KW.match(line):
+            if join_latest_2:
+                pre_parsed[-1] += ";" + line.strip("`")
+                join_latest_2 = False
+            else:
+                pre_parsed.append("`" + line)
         else:
             pre_parsed.append(line)
 

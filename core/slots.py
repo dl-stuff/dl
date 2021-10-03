@@ -249,8 +249,8 @@ class DragonBase(EquipBase):
             "dracolith": 0.70,  # base dragon damage
             "exhilaration": 0,  # psiren aura
             "gauge_val": 10,  # gauge regen percent
-            "latency": 0,  # amount of delay for cancel
             "default_ds_x": 0,
+            "default_x_loop": 0,
             "dshift.startup": 1.0,
             "dshift.recovery": 0.63333,
             "dshift.attr": [{"dmg": 2.0}],
@@ -610,8 +610,7 @@ class Gala_Cat_Sith(DragonBase):
                     self.trickery_buff.on()
 
             def shift_end_trickery(e=None):
-                if not adv.dragonform.is_dragondrive:
-                    add_trickery(8)
+                add_trickery(8)
 
             Event("dragon_end").listener(shift_end_trickery)
             if adv.condition("always connect hits"):

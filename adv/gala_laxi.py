@@ -129,9 +129,9 @@ class Gala_Laxi(Adv):
         self.a1_update(-100)
 
     def x_fig_dmg(self, t):
-        if any([s_dict.ac.status != -2 for s_dict in self.a_s_dict.values()]):
+        if any([s_dict.ac.status != Action.OFF for s_dict in self.a_s_dict.values()]):
             return
-        if self.dragonform.status != -2:
+        if self.in_dform:
             return
         self.dmg_make("#fig", self.FIG_DAMAGE)
         self.add_combo("#fig")

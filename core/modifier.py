@@ -586,7 +586,7 @@ bufftype_dict["fsAlt"] = FSAltBuff
 
 
 class XAltBuff(ModeAltBuff):
-    def __init__(self, name=None, group=None, duration=-1, hidden=False, deferred=False, source=None):
+    def __init__(self, name=None, group=None, duration=-1, hidden=False, deferred=True, source=None):
         self.default_x = self.adv.current_x
         self.group = group
         self.x_max = self.adv.conf[f"{group}.x_max"]

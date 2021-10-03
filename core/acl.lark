@@ -14,7 +14,7 @@ _WHILE: "while"i
 _EOL: (NEWLINE | ";")+
 _SELF: "self"
 
-COMMENT: /#[^\n]*\n?/
+COMMENT: "#" /[^\n]*/ _EOL?
 
 %ignore COMMENT
 %ignore WS_INLINE

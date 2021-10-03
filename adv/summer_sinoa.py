@@ -1,60 +1,29 @@
+from typing import overload
 from core.advbase import *
 
 
 class Summer_Sinoa(Adv):
     def prerun(self):
         self.overload = 0
+        self.overload_sp = Modifier("overload_sp", "sp_s1", "passive", 0.0)
+        self.overload_sp.get = self.overload_sp_mod
+        self.ssinoa_determination = Modifier("determination", "s", "passive", 0.0)
+        self.extra_actmods.append(self.get_ssinoa_determination)
+
+    def get_ssinoa_determination(self, name, base, group, aseq, attr):
+        if self.overload > 0 and base in ("s1", "ds1"):
+            self.ssinoa_determination.mod_value = 0.15 + 0.05 * self.overload
+            return self.ssinoa_determination
+        return None
+
+    def overload_sp_mod(self):
+        if self.overload == -1:
+            return 0
+        return self.overload * -0.3
 
     @staticmethod
     def prerun_skillshare(adv, dst):
         adv.overload = -1
-
-    def charge(self, name, sp, target=None):
-        sp_s1 = self.sp_convert(self.sp_mod(name) - 0.3 * self.overload, sp)
-        sp = self.sp_convert(self.sp_mod(name), sp)
-        targets = self.get_targets(target)
-        if not targets:
-            return
-        for s in targets:
-            if s == self.s1:
-                s.charge(sp_s1)
-            else:
-                s.charge(sp)
-        self.think_pin("sp")
-        log(
-            "sp",
-            name if not target else f"{name}_{target}",
-            sp,
-            ", ".join([f"{s.charged}/{s.sp}" for s in self.skills]),
-        )
-
-    def s1_before(self, e):
-        if self.overload == -1:
-            return
-        if self.overload < 3:
-            self.overload += 1
-        self.determination = Modifier("determination", "s", "passive", 0.15 + 0.05 * self.overload).on()
-
-    def s1_proc(self, e):
-        if self.overload == -1:
-            return
-        self.determination.off()
-
-    def ds_before(self, e):
-        if self.overload > 0:
-            self.determination = Modifier("determination", "s", "passive", 0.15 + 0.05 * self.overload).on()
-
-    def ds_proc(self, e):
-        if self.overload > 0:
-            self.determination.off()
-
-    def ds_final_before(self, e):
-        if self.overload > 0:
-            self.determination = Modifier("determination", "s", "passive", 0.15 + 0.05 * self.overload).on()
-
-    def ds_final_proc(self, e):
-        if self.overload > 0:
-            self.determination.off()
 
     def s2_proc(self, e):
         if not self.nihilism:

@@ -136,7 +136,7 @@ class Skill(object):
 
     @allow_acl
     def check(self):
-        if not self.ac.enabled or self._static.silence:
+        if not self.ac or not self.ac.enabled or self._static.silence:
             return False
         if self.charged < self.sp or self.ac.uses == 0:
             return False
@@ -1560,11 +1560,49 @@ class Adv(object):
 
     @allow_acl
     def sp_val(self, param, target=None):
-        if isinstance(param, str):
-            return self.sp_convert(self.sp_mod(param, target=target), self.conf[param].attr[0]["sp"])
-        elif isinstance(param, int) and 0 < param:
-            suffix = "" if self.current_x == "default" else f"_{self.current_x}"
-            return sum(self.sp_convert(self.sp_mod("x"), self.conf[f"x{x}{suffix}"].attr[0]["sp"]) for x in range(1, param + 1))
+        if self.in_dform:
+            if target not in ("ds1", "ds2"):
+                return 0
+            if param == "fs":
+                actkeys = ("dfs",)
+            elif isinstance(param, int):
+                actkeys = (f"dx{i}" for i in range(1, min(param, self.dragonform.dx_max) + 1))
+            else:
+                actkeys = (param,)
+        else:
+            if target not in ("s1", "s2", "s3", "s4"):
+                return 0
+            if isinstance(param, int):
+                suffix = "" if self.current_x == "default" else f"_{self.current_x}"
+                actkeys = (f"x{i}{suffix}" for i in range(1, min(param, self.dragonform.dx_max) + 1))
+            else:
+                actkeys = (param,)
+        sp_sum = 0
+        for act in actkeys:
+            attrs = self.conf[f"{act}.attr"]
+            if not attrs:
+                continue
+            for attr in attrs:
+                if attr.get("sp"):
+                    break
+            if attr:
+                sp_sum += attr.get("sp", 0)
+        return sp_sum
+        # if isinstance(param, str):
+        #     if not self.conf[param]:
+        #         return False
+        #     return self.sp_convert(self.sp_mod(param, target=target), self.conf[param].attr[0]["sp"])
+        # elif isinstance(param, int) and 0 < param:
+        #     if self.in_dform:
+        #         if target not in ("ds1", "ds2"):
+        #             return
+        #         xfmt = "dx{}"
+        #     else:
+        #         suffix = "" if self.current_x == "default" else f"_{self.current_x}"
+        #         xfmt = "x{}" + suffix
+        #     for x in range(1, param + 1):
+        #         xconf = self.conf[xfmt.format(x)]
+        #     # return sum(self.sp_convert(self.sp_mod("x"), self.conf[xfmt.format(x)].attr[0]["sp"]) for x in range(1, param + 1))
 
     @allow_acl
     def charged_in(self, param, sn):
@@ -1649,15 +1687,9 @@ class Adv(object):
     def sack(self):
         return self.dragonform.sack()
 
-    @allow_acl
-    def ds(self, n=1):
-        if self.in_dform:
-            return self.a_s_dict[f"ds{n}"]()
-        return False
-
     @property
     def in_dform(self):
-        return self.dragonform.status
+        return self.dragonform.get()
 
     @property
     def can_dform(self):
@@ -1666,16 +1698,21 @@ class Adv(object):
     @allow_acl
     def fs(self, n=None):
         fsn = "fs" if n is None else f"fs{n}"
-        if self.in_dform:
-            fsn = "d" + fsn
         self.check_deferred_x()
         if self.current_fs is not None:
             fsn += "_" + self.current_fs
         try:
-            before = self.action.getdoing()
-            if before.status == Action.STARTUP:
-                before = self.action.getprev()
             return self.a_fs_dict[fsn]()
+        except KeyError:
+            return False
+
+    @allow_acl
+    def dfs(self):
+        if not self.in_dform:
+            return False
+        self.check_deferred_x()
+        try:
+            return self.a_fs_dict["dfs"]()
         except KeyError:
             return False
 
@@ -1694,7 +1731,7 @@ class Adv(object):
         return result
 
     def check_deferred_x(self):
-        if self.deferred_x is not None:
+        if self.deferred_x is not None and not self.in_dform:
             log("deferred_x", self.deferred_x)
             self.current_x = self.deferred_x
             self.deferred_x = None
@@ -1732,7 +1769,7 @@ class Adv(object):
         prev = self.action.getdoing()
         self.check_deferred_x()
         if isinstance(prev, X) and prev.index == n and prev.status == Action.RECOVERY:
-            if prev.index < self.conf[prev.group].x_max or self.dragonform.auto_dodge:
+            if prev.index < self.conf[prev.group].x_max or self.dragonform.auto_dodge(prev.index):
                 x_next = self.dragonform.d_dodge
             else:
                 x_next = self.a_x_dict[self.current_x][1]
@@ -1744,9 +1781,9 @@ class Adv(object):
         x_max = self.conf[self.current_x].x_max
         logname = e.base if e.group in ("default", globalconf.DRG) else e.name
         if e.index == x_max:
-            log("x", logname, 0, "-" * 38 + f"c{x_max}")
+            log("x", logname, "-" * 29 + f" c{x_max} ")
         else:
-            log("x", logname, 0)
+            log("x", logname)
         self.hit_make(
             e,
             self.conf[e.name],
@@ -1833,10 +1870,20 @@ class Adv(object):
 
     @allow_acl
     def s(self, n):
-        if self.in_dform:
-            return False
         self.check_deferred_x()
-        return self.a_s_dict[f"s{n}"]()
+        try:
+            return self.a_s_dict[f"s{n}"]()
+        except KeyError:
+            return False
+
+    @allow_acl
+    def ds(self, n=1):
+        if not self.in_dform:
+            return False
+        try:
+            return self.a_s_dict[f"ds{n}"]()
+        except KeyError:
+            return False
 
     @property
     def s1(self):
@@ -2077,14 +2124,12 @@ class Adv(object):
         # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))))
 
         if not result:
-            if t.autocancel:
-                if "auto_fsf" in self._think_modes and self.current_x == "default":
-                    return self.fsf()
-                if self.in_dform and t.didx:
-                    if t.didx == self.dragonform.default_ds_x and self.ds1.check():
-                        return self.ds1()
-                    if self.dragonform.auto_dodge:
-                        return self.dodge()
+            if self.in_dform and t.didx:
+                dodge_or_skill = self.dragonform.dx_dodge_or_skill(t.didx)
+                if dodge_or_skill:
+                    return dodge_or_skill()
+            elif t.autocancel and "auto_fsf" in self._think_modes and self.current_x == "default":
+                return self.fsf()
 
         return result or self._next_x()
 

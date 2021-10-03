@@ -20,11 +20,11 @@ class Ryszarda(SigilAdv):
         self.x5_level = int(lvl)
         return CONTINUE
 
-    def x(self):
+    def _next_x(self):
         prev = self.action.getprev()
         if self.x5_level and self.unlocked and isinstance(prev, X) and prev.index == 4:
             return self.a_x_dict[f"sigil{self.x5_level}"][5]()
-        return super().x()
+        return super()._next_x()
 
 
 class Ryszarda_UNLOCKED(Ryszarda):
