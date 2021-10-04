@@ -270,8 +270,6 @@ class DragonBase(EquipBase):
         self.dragonform = conf
 
     def oninit(self, adv):
-        from core.dragonform import DragonForm
-
         if adv.conf["dragonform"]:
             name = self.c.name
             self.dragonform = Conf(adv.conf["dragonform"])
@@ -281,9 +279,18 @@ class DragonBase(EquipBase):
         for dn, dconf in self.dragonform.items():
             if isinstance(dconf, dict):
                 adv.hitattr_check(dn, dconf)
-
         self.dragonform.update(DragonBase.DEFAULT_DCONF, rebase=True)
-        adv.dragonform = DragonForm(name, self.dragonform, adv, self)
+
+        if self.c.conf["utp"]:
+            from core.dragonform import DragonFormUTP
+
+            drgclass = DragonFormUTP
+        else:
+            from core.dragonform import DragonForm
+
+            drgclass = DragonForm
+
+        adv.dragonform = drgclass(name, self.dragonform, adv, self)
         self.adv = adv
 
     @property
@@ -311,20 +318,16 @@ from core.log import log
 class Gala_Reborn(DragonBase):
     def oninit(self, adv, buff_name, buff_ele):
         super().oninit(adv)
-        charge_gauge_o = adv.dragonform.charge_gauge
-        self.agauge = 0
-        self.acount = 0
+        self.dp_count = 0
+        Event("dp").listener(self.dp_reborn_buff)
+        self.reborn_buff = adv.Selfbuff(buff_name, 0.3, 45, buff_ele, "ele").no_bufftime()
         setattr(adv, buff_name, adv.Selfbuff(buff_name, 0.3, 45, buff_ele, "ele").no_bufftime())
 
-        def charge_gauge(value, **kwargs):
-            delta = charge_gauge_o(value, **kwargs)
-            self.agauge += delta
-            n_acount = self.agauge // 100
-            if n_acount > self.acount:
-                self.acount = n_acount
-                getattr(adv, buff_name).on()
-
-        adv.dragonform.charge_gauge = charge_gauge
+    def dp_reborn_buff(self, e):
+        self.dp_count += e.value
+        if self.dp_count >= 100.0:
+            self.reborn_buff.on()
+            self.dp_count -= 100.0
 
 
 ### FLAME DRAGONS ###
@@ -389,8 +392,8 @@ class Nimis(DragonBase):
         super().oninit(adv)
 
         def add_gauge_and_time(t):
-            adv.dragonform.charge_gauge(20, percent=True, dhaste=False)
-            adv.dragonform.set_shift_end(5, percent=False)
+            adv.dragonform.charge_dprep(20)
+            adv.dragonform.extend_shift_time(5, percent=False)
 
         Event("ds").listener(add_gauge_and_time)
 

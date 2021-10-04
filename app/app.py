@@ -93,7 +93,7 @@ def run_adv_test(advname, variant, wp=None, dra=None, wep=None, acl=None, conf=N
 
     result["logs"] = {}
     fn = io.StringIO()
-    adv.logs.write_logs(output=fn, log_filter=["dshift_end"])
+    adv.logs.write_logs(output=fn, log_filter=["dshift", "dshift_end"])
     result["logs"]["dragon"] = fn.getvalue()
     fn = io.StringIO()
     core.simulate.act_sum(adv.logs.act_seq, fn)

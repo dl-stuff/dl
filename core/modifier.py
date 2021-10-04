@@ -628,9 +628,7 @@ class SAltBuff(ModeAltBuff):
         self.base = base
         self.group = group
         self.default_s = self.adv.current_s[base]
-        if group == "ddrive":
-            self.l_s = Listener("s", self.l_add_ddrive, order=0).on()
-        elif duration != -1 and not timed_mode:
+        if duration != -1 and not timed_mode:
             self.l_s = Listener("s", self.l_pause, order=0).on()
             self.l_s_end = Listener("s_end", self.l_resume, order=0).on()
         self.enable_s(True)
@@ -667,11 +665,6 @@ class SAltBuff(ModeAltBuff):
     def l_resume(self, e):
         if self.get() and e.act.base == self.base and e.act.group == self.group:
             self.resume()
-
-    def l_add_ddrive(self, e):
-        if self.get() and e.base == self.base and e.group == self.group:
-            skill = self.adv.a_s_dict[self.base]
-            self.adv.dragonform.add_drive_gauge_time(skill.ac.getstartup() + skill.ac.getrecovery(), skill_pause=True)
 
 
 bufftype_dict["sAlt"] = SAltBuff
@@ -1105,12 +1098,6 @@ class MultiBuffManager:
         for b in self.buffs:
             if b.mod_type == "effect":
                 b.hidden = True
-            if not timed_mode:
-                if isinstance(b, SAltBuff) and b.group != "ddrive":
-                    b.pause = self.pause
-                    b.resume = self.resume
-                    self.pause_by = b.name
-                    self.pause_time = -1
 
     def extra_effect_off(self, effect_off):
         for b in self.buffs:

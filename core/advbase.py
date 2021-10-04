@@ -507,6 +507,7 @@ class Repeat(Action):
         self.act_event.name = self.parent.act_event.name
         self.act_event.base = self.parent.act_event.base
         self.act_event.group = self.parent.act_event.group
+        self.act_event.dtype = self.parent.act_event.dtype
         self.act_event.end = False
         self.end_repeat_event = Event("repeat")
         self.end_repeat_event.name = self.parent.act_event.name
@@ -571,8 +572,9 @@ class X(Action):
         self.act_event = Event("x")
         self.act_event.name = self.name
         self.act_event.base = self.base
-        self.act_event.index = self.index
         self.act_event.group = self.group
+        self.act_event.dtype = "x"
+        self.act_event.index = self.index
 
         self.end_event = Event("x_end")
         self.end_event.act = self.act_event
@@ -612,6 +614,7 @@ class Fs(Action):
         self.act_event.name = self.name
         self.act_event.base = self.base
         self.act_event.group = self.group
+        self.act_event.dtype = "fs"
         self.act_event.level = self.level
         self.start_event = Event("fs_start")
         self.start_event.act = self.act_event
@@ -700,35 +703,6 @@ class Fs(Action):
         return buffer + charge + startup
 
 
-class Fs_group(object):
-    def __init__(self, name, conf, act=None):
-        self.enabled = True
-        self.conf = conf
-        self.actions = {"default": Fs(name, self.conf, act)}
-        for xn, xnconf in conf.find(r"^x\d+$"):
-            self.actions[xn] = Fs(name, self.conf + xnconf, act)
-        if conf["s"]:
-            fs_s = Fs(name, self.conf + conf["s"], act)
-            for n in range(1, 5):
-                sn = f"s{n}"
-                self.actions[sn] = fs_s
-        if conf["dodge"]:
-            self.actions["dodge"] = Fs(name, self.conf + conf["dodge"], act)
-
-    def set_enabled(self, enabled):
-        for fs in self.actions.values():
-            fs.enabled = enabled
-        self.enabled = enabled
-
-    def __call__(self, before):
-        if not self.enabled:
-            return False
-        try:
-            return self.actions[before]()
-        except KeyError:
-            return self.actions["default"]()
-
-
 class S(Action):
     TAP_DELAY = 0.1
 
@@ -747,6 +721,7 @@ class S(Action):
         self.act_event.name = self.name
         self.act_event.base = self.base
         self.act_event.group = self.group
+        self.act_event.dtype = "s"
         self.act_event.phase = 0
 
         self.end_event = Event("s_end")
@@ -767,6 +742,7 @@ class Misc(Action):
         self.act_event.name = self.name
         self.act_event.base = self.name
         self.act_event.group = "default"
+        self.act_event.dtype = self.name
         self.act_event.conf = self.conf
         self.act_event.msg = "-"
 
@@ -784,11 +760,13 @@ class Dodge(Misc):
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act, atype="dodge")
         self.act_event.name = "#" + name
+        self.act_event.dtype = "#"
 
 
 class Shift(Misc):
     def __init__(self, name, msg, conf, act=None):
         super().__init__(name, conf, act, atype="s")
+        self.act_event.dtype = "x"
         self.act_event.msg = msg
 
 
@@ -984,7 +962,6 @@ class Adv(object):
                     fs_conf.update(self.conf[base], rebase=True)
             except KeyError:
                 pass
-            # self.a_fs_dict[name] = Fs_group(name, fs_conf)
             self.a_fs_dict[name] = Fs(name, fs_conf)
             self.hitattr_check(name, fs_conf)
         if "fs1" in self.a_fs_dict:
@@ -1030,14 +1007,14 @@ class Adv(object):
         for t in chain(self.tension, self.sab):
             if name in t.active:
                 mods.append(t.modifier)
-        if name[0] == "d":
+        if name != "dodge" and name[0] == "d":
             mods.extend(self.dragonform.shift_mods)
         # log('actmods', name, str(mods))
         return mods
 
     def actmod_off(self, e):
         do_sab = True
-        do_tension = e.name.startswith("s") or e.name in ("ds", "ds_final")
+        do_tension = e.dtype == "s"
         if do_tension:
             for t in self.tension:
                 t.off(e)
@@ -1100,7 +1077,7 @@ class Adv(object):
         elif self.in_dform and not ignore_dragon:
             delta = (hp - old_hp) / 10000
             if delta < 0:
-                self.dragonform.set_shift_end(delta, percent=True)
+                self.dragonform.extend_shift_time(delta, percent=True)
                 return
         if can_die:
             self._hp = max(min(hp, max_hp), 0)
@@ -1211,7 +1188,7 @@ class Adv(object):
                     Timer(proc_sim_doublebuff, interval, True).on()
             if "dprep" in self.conf.sim_buffbot:
                 if self.condition(f"team dprep {self.conf.sim_buffbot.dprep}%"):
-                    self.dragonform.charge_gauge(self.conf.sim_buffbot.dprep, percent=True, dhaste=False)
+                    self.dragonform.charge_dprep(self.conf.sim_buffbot.dprep)
 
     def config_slots(self):
         if self.conf["classbane"] == "HDT":
@@ -1308,30 +1285,31 @@ class Adv(object):
 
         self.stats = []
 
-    def dmg_mod(self, name):
+    def dmg_mod(self, name, dtype=None):
         mod = 1
-        scope = name.split("_")
-        if scope[0] == "o":
-            scope = scope[1]
-        else:
-            scope = scope[0]
-        if name.startswith("dx") or name == "dshift":
-            scope = "x"
+        if dtype is None:
+            dtype = name.split("_")
+            if dtype[0] == "o":
+                dtype = dtype[1]
+            else:
+                dtype = dtype[0]
+            if name.startswith("dx"):
+                dtype = "x"
+            elif name.startswith("ds") and name[2].isdigit():
+                dtype = "s"
 
         if self.berserk_mode:
             mod *= self.mod("odaccel")
 
-        if scope[0] == "s":
+        if dtype == "s":
             try:
                 mod *= 1 if self.a_s_dict[name].owner is None else self.skill_share_att
             except:
                 pass
             return mod * self.mod("s")
-        elif scope[0] == "x":
+        elif dtype == "x":
             return mod * self.mod("x")
-        elif scope[0:2] == "ds":
-            return mod * self.mod("s")
-        elif scope[0:2] == "fs":
+        elif dtype == "fs":
             return mod * self.mod("fs")
         else:
             return mod
@@ -1689,7 +1667,11 @@ class Adv(object):
 
     @property
     def in_dform(self):
-        return self.dragonform.get()
+        return self.dragonform.in_dform()
+
+    @property
+    def in_ddrive(self):
+        return self.dragonform.in_ddrive()
 
     @property
     def can_dform(self):
@@ -1781,7 +1763,7 @@ class Adv(object):
         x_max = self.conf[self.current_x].x_max
         logname = e.base if e.group in ("default", globalconf.DRG) else e.name
         if e.index == x_max:
-            log("x", logname, "-" * 29 + f" c{x_max} ")
+            log("x", logname, "-" * 45 + f" c{x_max} ")
         else:
             log("x", logname)
         self.hit_make(
@@ -2288,8 +2270,8 @@ class Adv(object):
         e.ret = e.dmg
         return
 
-    def dmg_formula(self, name, dmg_coef):
-        dmg_mod = self.dmg_mod(name)
+    def dmg_formula(self, name, dmg_coef, dtype=None):
+        dmg_mod = self.dmg_mod(name, dtype=dtype)
         att = self.att_mod(name)
         armor = 10 * self.def_mod()
         ex = self.mod("ex")
@@ -2318,16 +2300,7 @@ class Adv(object):
             depth=t.depth,
         )
 
-    def dmg_make(
-        self,
-        name,
-        coef,
-        dtype=None,
-        fixed=False,
-        hitmods=None,
-        attenuation=None,
-        depth=0,
-    ):
+    def dmg_make(self, name, coef, dtype=None, fixed=False, hitmods=None, attenuation=None, depth=0):
         if coef <= 0.01:
             return 0
         if dtype == None:
@@ -2335,7 +2308,7 @@ class Adv(object):
         if hitmods is not None:
             for m in hitmods:
                 m.on()
-        count = self.dmg_formula(dtype, coef) if not fixed else coef
+        count = self.dmg_formula(name, coef, dtype=dtype) if not fixed else coef
         if hitmods is not None:
             for m in hitmods:
                 m.off()
@@ -2380,19 +2353,11 @@ class Adv(object):
                 t.on(self.conf.attenuation.delay)
         return count
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         g_logs.log_hitattr(name, attr)
         hitmods = self.actmods(name, base, group, aseq, attr)
-        if name.startswith("fs"):
-            crisis_mod_key = "fs"
-        elif name.startswith("dx") or name.startswith("dshift"):
-            crisis_mod_key = "x"
-        elif name.startswith("ds"):
-            crisis_mod_key = "s"
-        else:
-            crisis_mod_key = name[0]
-            if not crisis_mod_key in self.crisis_mods:
-                crisis_mod_key = None
+        crisis_mod_key = dtype if dtype in self.crisis_mods else None
+        log("crisis_mod_key", name, dtype, crisis_mod_key)
         if "dmg" in attr:
             if "killer" in attr:
                 hitmods.append(KillerModifier(name, "hit", *attr["killer"]))
@@ -2421,10 +2386,10 @@ class Adv(object):
             if "extra" in attr:
                 for _ in range(min(attr["extra"], round(self.buffcount))):
                     self.add_combo(name)
-                    self.dmg_make(name, attr["dmg"], attenuation=attenuation)
+                    self.dmg_make(name, attr["dmg"], dtype=dtype, attenuation=attenuation)
             else:
                 self.add_combo(name)
-                self.dmg_make(name, attr["dmg"], attenuation=attenuation)
+                self.dmg_make(name, attr["dmg"], dtype=dtype, attenuation=attenuation)
 
         if onhit:
             onhit(name, base, group, aseq)
@@ -2446,10 +2411,10 @@ class Adv(object):
                 charge_f(base, value, target=target, dragon_sp=dragon_sp)
 
         if "dp" in attr:
-            self.dragonform.charge_gauge(attr["dp"])
+            self.dragonform.charge_dp(name, attr["dp"])
 
         if "utp" in attr:
-            self.dragonform.charge_gauge(attr["utp"], utp=True, dhaste=attr["utp"] > 0)
+            self.dragonform.charge_utp(name, attr["utp"])
 
         if "hp" in attr:
             try:
@@ -2636,7 +2601,7 @@ class Adv(object):
             t.msl = 0
             t.on(msl)
         else:
-            self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, t.onhit)
+            self.hitattr_make(t.name, t.base, t.group, t.aseq, t.attr, t.onhit, t.dtype)
             if t.pin is not None:
                 self.think_pin(f"{t.pin}-h")
                 p = Event(f"{t.pin}-h")
@@ -2698,6 +2663,7 @@ class Adv(object):
             mt = Timer(self.l_hitattr_make)
             mt.pin = pin
             mt.name = e.name
+            mt.dtype = e.dtype
             mt.base = e.base
             mt.group = e.group
             try:
@@ -2724,7 +2690,7 @@ class Adv(object):
             e.pin = pin
             e.aseq = aseq
             e.attr = attr
-            self.hitattr_make(e.name, e.base, e.group, aseq, attr, onhit)
+            self.hitattr_make(e.name, e.base, e.group, aseq, attr, onhit, e.dtype)
             if pin is not None:
                 p = Event(f"{pin}-h")
                 p.is_hit = e.name in self.damage_sources
@@ -2822,7 +2788,10 @@ class Adv(object):
 
     @property
     def dgauge(self):
-        return self.dragonform.dragon_gauge
+        try:
+            return self.dragonform._utp_gauge
+        except AttributeError:
+            return self.dragonform.dragon_gauge
 
     @property
     def dshift_count(self):

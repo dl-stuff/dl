@@ -747,7 +747,7 @@ class Dragon_Prep(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
-        adv.dragonform.charge_gauge(self.value, percent=True, dhaste=False)
+        adv.dragonform.charge_dprep(self.value)
 
 
 ability_dict["dp"] = Dragon_Prep
@@ -1090,7 +1090,7 @@ ability_dict["ecombo"] = Energy_Combo
 
 class DPrep_Combo(ComboProcAbility):
     def combo_proc_cb(self, adv, delta):
-        adv.dragonform.charge_gauge(delta * 3, dhaste=False, percent=True)
+        adv.dragonform.charge_dprep(delta * 3)
 
 
 ability_dict["dpcombo"] = DPrep_Combo

@@ -151,6 +151,8 @@ class Timer(object):
             return _g_now - self.began
 
     def timeleft(self):
+        if self.pause_time > 0:
+            return self.pause_time
         return self.timing - _g_now
 
     def on(self, timeout=None):

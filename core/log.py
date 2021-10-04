@@ -73,7 +73,7 @@ class Log:
             self.shift_acts = []
             self.shift_start = core.timeline.now()
             self.shift_count += 1
-        else:
+        elif self.shift_name and end_reason:
             duration = core.timeline.now() - self.shift_start
             for i, name in enumerate(self.shift_acts):
                 if isinstance(name, int):
@@ -86,7 +86,10 @@ class Log:
                 shift_act_str,
                 end_reason,
             )
-            self.act_seq.append(f"drg:{shift_act_str}")
+            if not shift_act_str:
+                self.act_seq.append(f"drg")
+            else:
+                self.act_seq.append(f"drg:{shift_act_str}")
             self.shift_name = None
 
     def log_shift_data(self, category, name, args):

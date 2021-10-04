@@ -35,6 +35,8 @@ ELE_AFFLICT = {
 }
 SKIP_VARIANT = ("RNG", "mass")
 DRG = "drg"
+DEFAULT = "default"
+DDRIVE = "ddrive"
 
 ROOT_DIR = os.getenv("ROOT_DIR", os.path.realpath(os.path.join(__file__, "../..")))
 

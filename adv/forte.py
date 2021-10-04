@@ -7,7 +7,7 @@ class Forte(Adv):
 
     def s_dgauge(self, e):
         if e.name != "ds":
-            self.dragonform.charge_gauge(4, dhaste=False, percent=True)
+            self.dragonform.charge_prep(4)
 
 
 variants = {None: Forte}

@@ -20,7 +20,7 @@
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_ddrive",
         "`s4, dgauge>500 and x=3",
         "`s1, (dgauge>1100 and x=3)",
         "else",
@@ -58,7 +58,7 @@
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_ddrive",
         "`s4, dgauge>500 and x=3",
         "`s1, (dgauge>1100 and x=3)",
         "else",
@@ -102,7 +102,7 @@
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_ddrive",
         "`s4, dgauge>500 and x=3",
         "`s1, (dgauge>1100 and x=3)",
         "else",
@@ -144,7 +144,7 @@
       "acl": [
         "`s2, (duration-now)<1.1",
         "`s3, not buff(s3) and x=4",
-        "if dragondrive.get()",
+        "if in_ddrive",
         "`s4, x=3 or hp>0",
         "`s1, x=3 and dgauge>=900",
         "else",
@@ -232,7 +232,7 @@
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_ddrive",
         "`s4, dgauge>500 and x=3",
         "`s1, dgauge>1100 and x=3",
         "else",

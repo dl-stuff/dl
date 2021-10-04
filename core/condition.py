@@ -39,6 +39,8 @@ class Condition(dict):
                 return self[key] and self.global_cond
             except ValueError:
                 pass
+        elif key == "ddrive":
+            return self.adv.in_ddrive
         elif key == "zone":
             return self.adv.zonecount > 0 and self.global_cond
         elif key.startswith("amp"):
