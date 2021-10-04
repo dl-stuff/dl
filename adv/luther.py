@@ -1,5 +1,4 @@
 from core.advbase import *
-from module.x_alt import *
 
 
 class Luther(Adv):

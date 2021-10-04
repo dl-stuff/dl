@@ -2,6 +2,7 @@ import os
 import json
 import argparse
 from time import monotonic, time_ns
+
 import core.simulate
 from conf import ROOT_DIR, load_adv_json, list_advs, ELEMENTS, WEAPON_TYPES, DURATIONS, SKIP_VARIANT
 from conf.equip import get_equip_manager, ALL_COND_ENUMS, ConditionTuple
@@ -98,42 +99,34 @@ def msg_sort(adv):
 
 def combine():
     t_start = monotonic()
-
-    # dst_dict = {}
-    # pages = [str(d) for d in DURATIONS] + ["mono", "sp"]
-    # aff = ["_", "affliction", "noaffliction"]
-    # for p in pages:
-    #     dst_dict[p] = {}
-    #     for a in aff:
-    #         dst_dict[p][a] = open(os.path.join(ROOT_DIR, CHART_DIR, "page/{}_{}.json".format(p, a)), "w")
-
-    # for fn in os.listdir(os.path.join(ROOT_DIR, CHART_DIR, "chara")):
-    #     if not fn.endswith(".csv"):
-    #         continue
-    #     with open(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn), "r", encoding="utf8") as chara:
-    #         for line in chara:
-    #             if line[0] == "-":
-    #                 _, c_page, c_aff = line.strip().split(",")
-    #             else:
-    #                 dst_dict[c_page][c_aff].write(line.strip())
-    #                 dst_dict[c_page][c_aff].write("\n")
-
-    # for p in pages:
-    #     for a in aff:
-    #         dst_dict[p][a].close()
-    #         dst_dict[p][a].close()
+    # check what adv jsons we should have
+    expected_jsons = set()
+    for name, variants in get_sim_target_module_dict().items():
+        for variant in variants.keys():
+            if variant is None:
+                expected_jsons.add(name)
+            elif variant not in SKIP_VARIANT:
+                expected_jsons.add(f"{name}.{variant}")
+    # do combine
     data_by_cond = {str(ConditionTuple(cond)): {} for cond in itertools.product(*ALL_COND_ENUMS)}
     # ConditionTuple
-    for fn in os.listdir(os.path.join(ROOT_DIR, CHART_DIR, "chara")):
+    chara_dir = os.path.join(ROOT_DIR, CHART_DIR, "chara")
+    for fn in os.listdir(chara_dir):
         name, ext = os.path.splitext(fn)
         if not ext == ".json":
             continue
 
-        with open(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn), "r") as chara:
+        chara_json = os.path.join(chara_dir, fn)
+        if name not in expected_jsons:
+            os.remove(chara_json)
+            print("pruned", fn)
+            continue
+
+        with open(chara_json, "r") as chara:
             try:
                 chara_sim = json.load(chara)
             except json.JSONDecodeError as e:
-                print(os.path.join(ROOT_DIR, CHART_DIR, "chara", fn))
+                print(chara_json)
                 raise e
             for condstr, result in chara_sim.items():
                 data_by_cond[condstr][name] = result
@@ -208,39 +201,40 @@ def get_sim_target_modules(targets):
 
 
 def main(targets, do_combine, is_repair, sanity_test):
-    target_modules = get_sim_target_modules(targets)
-    if not target_modules:
-        exit()
+    if targets:
+        target_modules = get_sim_target_modules(targets)
+        if not target_modules:
+            exit()
 
-    if is_repair:
-        for advname, variants in target_modules.items():
-            for variant, advmodule in variants.items():
-                t_start = monotonic()
-                manager = get_equip_manager(advname, variant, advmodule.SAVE_VARIANT)
-                if manager._save:
-                    manager.repair_entries(advmodule)
-                    printlog("repair", monotonic() - t_start, advname, variant)
-        return
+        if is_repair:
+            for advname, variants in target_modules.items():
+                for variant, advmodule in variants.items():
+                    t_start = monotonic()
+                    manager = get_equip_manager(advname, variant, advmodule.SAVE_VARIANT)
+                    if manager._save:
+                        manager.repair_entries(advmodule)
+                        printlog("repair", monotonic() - t_start, advname, variant)
+            return
 
-    message = []
-    for name, variants in target_modules.items():
-        message.extend(sim_adv(name, variants, sanity_test=sanity_test))
+        message = []
+        for name, variants in target_modules.items():
+            message.extend(sim_adv(name, variants, sanity_test=sanity_test))
 
-    if sanity_test:
-        return
+        if sanity_test:
+            return
 
-    with open(os.path.join(ROOT_DIR, CHART_DIR, "page/lastmodified.json"), "r+") as f:
-        try:
-            lastmod = json.load(f)
-        except:
-            lastmod = {}
-        f.truncate(0)
-        f.seek(0)
-        try:
-            lastmod["changed"].extend(message)
-        except KeyError:
-            lastmod["changed"] = message
-        json.dump(lastmod, f)
+        with open(os.path.join(ROOT_DIR, CHART_DIR, "page/lastmodified.json"), "r+") as f:
+            try:
+                lastmod = json.load(f)
+            except:
+                lastmod = {}
+            f.truncate(0)
+            f.seek(0)
+            try:
+                lastmod["changed"].extend(message)
+            except KeyError:
+                lastmod["changed"] = message
+            json.dump(lastmod, f)
 
     if do_combine:
         combine()
@@ -251,7 +245,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "targets",
         type=str,
-        nargs="+",
+        nargs="*",
         help="""targets to simulate:
     all: all advs
     quick: not mass sim advs
