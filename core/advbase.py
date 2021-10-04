@@ -55,7 +55,7 @@ class Skill(object):
     def add_action(self, group, act, phase_up=True):
         act.cast = self.cast
         self.act_dict[group] = act
-        if group == "default":
+        if group == globalconf.DEFAULT:
             self.act_base = act
         if isinstance(group, int):
             # might need to distinguish which phase can up eventually
@@ -564,7 +564,7 @@ class X(Action):
         if name[0] == "d":
             self.group = globalconf.DRG
         elif len(parts) == 1:
-            self.group = "default"
+            self.group = globalconf.DEFAULT
         else:
             self.group = parts[1]
         self.atype = "x"
@@ -599,7 +599,7 @@ class Fs(Action):
         if name[0] == "d":
             self.group = globalconf.DRG
         elif len(parts) == 1:
-            self.group = "default"
+            self.group = globalconf.DEFAULT
         else:
             self.group = parts[1]
         self.atype = "fs"
@@ -712,7 +712,7 @@ class S(Action):
 
         parts = name.split("_")
         self.base = parts[0]
-        self.group = "default"
+        self.group = globalconf.DEFAULT
         self.phase = None
         if len(parts) >= 2:
             self.group = parts[1]
@@ -741,7 +741,7 @@ class Misc(Action):
         self.act_event = Event(name)
         self.act_event.name = self.name
         self.act_event.base = self.name
-        self.act_event.group = "default"
+        self.act_event.group = globalconf.DEFAULT
         self.act_event.dtype = self.name
         self.act_event.conf = self.conf
         self.act_event.msg = "-"
@@ -950,7 +950,7 @@ class Adv(object):
             gxmax = f"{group}.x_max"
             if not self.conf[gxmax]:
                 self.conf[gxmax] = max(actions.keys())
-        self.current_x = "default"
+        self.current_x = globalconf.DEFAULT
         self.deferred_x = None
 
         for name, fs_conf in self.conf.find(r"^d?fs\d*(_[A-Za-z0-9]+)?$"):
@@ -1074,7 +1074,7 @@ class Adv(object):
         if hp > old_hp:
             self.heal_event.delta = hp - old_hp
             self.heal_event()
-        elif self.in_dform and not ignore_dragon:
+        elif self.in_dform() and not ignore_dragon:
             delta = (hp - old_hp) / 10000
             if delta < 0:
                 self.dragonform.extend_shift_time(delta, percent=True)
@@ -1538,7 +1538,7 @@ class Adv(object):
 
     @allow_acl
     def sp_val(self, param, target=None):
-        if self.in_dform:
+        if self.in_dform():
             if target not in ("ds1", "ds2"):
                 return 0
             if param == "fs":
@@ -1551,7 +1551,7 @@ class Adv(object):
             if target not in ("s1", "s2", "s3", "s4"):
                 return 0
             if isinstance(param, int):
-                suffix = "" if self.current_x == "default" else f"_{self.current_x}"
+                suffix = "" if self.current_x == globalconf.DEFAULT else f"_{self.current_x}"
                 actkeys = (f"x{i}{suffix}" for i in range(1, min(param, self.dragonform.dx_max) + 1))
             else:
                 actkeys = (param,)
@@ -1571,12 +1571,12 @@ class Adv(object):
         #         return False
         #     return self.sp_convert(self.sp_mod(param, target=target), self.conf[param].attr[0]["sp"])
         # elif isinstance(param, int) and 0 < param:
-        #     if self.in_dform:
+        #     if self.in_dform():
         #         if target not in ("ds1", "ds2"):
         #             return
         #         xfmt = "dx{}"
         #     else:
-        #         suffix = "" if self.current_x == "default" else f"_{self.current_x}"
+        #         suffix = "" if self.current_x == globalconf.DEFAULT else f"_{self.current_x}"
         #         xfmt = "x{}" + suffix
         #     for x in range(1, param + 1):
         #         xconf = self.conf[xfmt.format(x)]
@@ -1665,16 +1665,15 @@ class Adv(object):
     def sack(self):
         return self.dragonform.sack()
 
-    @property
     def in_dform(self):
         return self.dragonform.in_dform()
 
     @property
-    def in_ddrive(self):
-        return self.dragonform.in_ddrive()
+    def in_drg(self):
+        return self.dragonform.status
 
     @property
-    def can_dform(self):
+    def can_drg(self):
         return self.dragonform.check()
 
     @allow_acl
@@ -1690,7 +1689,7 @@ class Adv(object):
 
     @allow_acl
     def dfs(self):
-        if not self.in_dform:
+        if not self.in_dform():
             return False
         self.check_deferred_x()
         try:
@@ -1713,7 +1712,7 @@ class Adv(object):
         return result
 
     def check_deferred_x(self):
-        if self.deferred_x is not None and not self.in_dform:
+        if self.deferred_x is not None and not self.in_dform():
             log("deferred_x", self.deferred_x)
             self.current_x = self.deferred_x
             self.deferred_x = None
@@ -1733,12 +1732,15 @@ class Adv(object):
         if prev is self.action.nop:
             prev = self.action.getprev()
         self.check_deferred_x()
-        if isinstance(prev, X) and prev.group == self.current_x and prev.index < self.conf[prev.group].x_max:
-            x_next = self.a_x_dict[self.current_x][prev.index + 1]
+        if isinstance(prev, X):
+            if prev.group == self.current_x and prev.index < self.conf[prev.group].x_max:
+                x_next = self.a_x_dict[self.current_x][prev.index + 1]
+            else:
+                x_next = prev if prev.conf["loop"] else self.a_x_dict[self.current_x][1]
         else:
             x_next = self.a_x_dict[self.current_x][x_min]
         if not x_next.enabled:
-            self.current_x = "default"
+            self.current_x = globalconf.DEFAULT
             x_next = self.a_x_dict[self.current_x][x_min]
         return x_next()
 
@@ -1746,7 +1748,7 @@ class Adv(object):
     def dx(self, n=1):
         # dragon acl compat thing
         # force dodge cancel if not at max combo, or check dform
-        if not self.in_dform:
+        if not self.in_dform():
             return CONTINUE
         prev = self.action.getdoing()
         self.check_deferred_x()
@@ -1761,22 +1763,22 @@ class Adv(object):
     def l_x(self, e):
         # FIXME: race condition?
         x_max = self.conf[self.current_x].x_max
-        logname = e.base if e.group in ("default", globalconf.DRG) else e.name
-        if e.index == x_max:
+        logname = e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name
+        if e.index == x_max and not self.conf[e.name]["loop"]:
             log("x", logname, "-" * 45 + f" c{x_max} ")
         else:
             log("x", logname)
         self.hit_make(
             e,
             self.conf[e.name],
-            cb_kind=f"x_{e.group}" if e.group != "default" else "x",
+            cb_kind=f"x_{e.group}" if e.group != globalconf.DEFAULT else "x",
             pin="x",
             actmod=False,
         )
 
     @allow_acl
     def dodge(self):
-        if self.in_dform:
+        if self.in_dform():
             return self.dragonform.d_dodge()
         return self.a_dodge()
 
@@ -1860,7 +1862,7 @@ class Adv(object):
 
     @allow_acl
     def ds(self, n=1):
-        if not self.in_dform:
+        if not self.in_dform():
             return False
         try:
             return self.a_s_dict[f"ds{n}"]()
@@ -1893,12 +1895,12 @@ class Adv(object):
 
     def config_skills(self):
         self.current_s = {
-            "s1": "default",
-            "s2": "default",
-            "s3": "default",
-            "s4": "default",
-            "ds1": "default",
-            "ds2": "default",
+            "s1": globalconf.DEFAULT,
+            "s2": globalconf.DEFAULT,
+            "s3": globalconf.DEFAULT,
+            "s4": globalconf.DEFAULT,
+            "ds1": globalconf.DEFAULT,
+            "ds2": globalconf.DEFAULT,
         }
         self.Skill._static.current_s = self.current_s
         self.conf.s1.owner = None
@@ -1973,7 +1975,7 @@ class Adv(object):
 
         for sn, snconf in self.conf.find(r"^d?s\d(_[A-Za-z0-9]+)?$"):
             s = S(sn, snconf)
-            if s.group != "default" and self.conf[s.base]:
+            if s.group != globalconf.DEFAULT and self.conf[s.base]:
                 snconf.update(self.conf[s.base], rebase=True)
             if s.group.startswith("phase"):
                 s.group = int(s.group[5:])
@@ -2106,11 +2108,11 @@ class Adv(object):
         # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))))
 
         if not result:
-            if self.in_dform and t.didx:
+            if self.in_dform() and t.didx:
                 dodge_or_skill = self.dragonform.dx_dodge_or_skill(t.didx)
                 if dodge_or_skill:
                     return dodge_or_skill()
-            elif t.autocancel and "auto_fsf" in self._think_modes and self.current_x == "default":
+            elif t.autocancel and "auto_fsf" in self._think_modes and self.current_x == globalconf.DEFAULT:
                 return self.fsf()
 
         return result or self._next_x()
@@ -2176,7 +2178,7 @@ class Adv(object):
     # sp = self.sp_convert(self.sp_mod(name), sp)
     def _charge(self, name, sp, sp_func, target=None, no_autocharge=False, dragon_sp=False):
         real_sp = {}
-        if self.in_dform and dragon_sp:
+        if self.in_dform() and dragon_sp:
             # dra mode sp
             target = None
             skills = self.dskills
@@ -2357,7 +2359,6 @@ class Adv(object):
         g_logs.log_hitattr(name, attr)
         hitmods = self.actmods(name, base, group, aseq, attr)
         crisis_mod_key = dtype if dtype in self.crisis_mods else None
-        log("crisis_mod_key", name, dtype, crisis_mod_key)
         if "dmg" in attr:
             if "killer" in attr:
                 hitmods.append(KillerModifier(name, "hit", *attr["killer"]))
@@ -2743,7 +2744,7 @@ class Adv(object):
         self.think_pin(pin or e.name)
 
     def l_fs(self, e):
-        log("cast", e.base if e.group in ("default", globalconf.DRG) else e.name)
+        log("cast", e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name)
         self.actmod_on(e)
         self.hit_make(e, self.conf[e.name], pin=e.name.split("_")[0])
 
@@ -2758,7 +2759,7 @@ class Adv(object):
             skills = self.skills
         log(
             "cast",
-            e.base if e.group in ("default", globalconf.DRG) else e.name,
+            e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name,
             f"after {prev}",
             ", ".join([s.sp_str for s in skills]),
         )

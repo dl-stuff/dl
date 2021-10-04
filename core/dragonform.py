@@ -93,6 +93,9 @@ class DragonForm:
     def in_dform(self):
         return self.status
 
+    def in_ddrive(self):
+        return False
+
     @property
     def shift_silence(self):
         return bool(self.shift_silence_timer.online)

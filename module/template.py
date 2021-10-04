@@ -220,46 +220,6 @@ class ArmamentAdv(Adv):
         return super()._get_sp_targets(target, name, no_autocharge, filter_func=filter_func)
 
 
-class DivineShiftAdv(Adv):
-    def configure_divine_shift(self, shift_name, max_gauge=1800, shift_cost=560, drain=40, infinite=False, buffs=None):
-        self.shift_name = shift_name
-        self.comment = f"dragon damage does not work on {shift_name}"
-        setattr(
-            self,
-            shift_name,
-            self.dragonform.set_dragondrive(
-                ModeManager(
-                    group="ddrive",
-                    buffs=buffs,
-                    x=True,
-                    s1=True,
-                    s2=True,
-                ),
-                max_gauge=max_gauge,
-                shift_cost=shift_cost,
-                drain=drain,
-                infinite=infinite,
-            ),
-        )
-        Event("dragondrive").listener(self.a_dragondrive_on)
-        Event("dragondrive_end").listener(self.a_dragondrive_off)
-
-    @property
-    def dragondrive(self):
-        return getattr(self, self.shift_name)
-
-    def a_dragondrive_on(self, e):
-        self.a_fs_dict["fs"].set_enabled(False)
-        self.s3.set_enabled(False)
-        self.s4.set_enabled(False)
-        self.charge_p(self.shift_name, 100)
-
-    def a_dragondrive_off(self, e):
-        self.a_fs_dict["fs"].set_enabled(True)
-        self.s3.set_enabled(True)
-        self.s4.set_enabled(True)
-
-
 class SkillChainAdv(Adv):
     def __init__(self, altchain=None, sp=1129, **kwargs):
         super().__init__(**kwargs)

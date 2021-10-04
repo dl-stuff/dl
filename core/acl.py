@@ -557,7 +557,7 @@ def _pre_parse(acl):
                 join_latest_2 = True
                 line = "dragon{};{}".format(str_af, ";".join(queue_str))
             else:
-                line = "dragon{}\nqueue while in_dform\n`{};\nend".format(str_af, ";".join(queue_str))
+                line = "dragon{}\nqueue while in_drg\n`{};\nend".format(str_af, ";".join(queue_str))
         else:
             # s1 -> s(1,)
             line = XSF_PATTERN.sub(r"\1(\3,\5)", line.strip())

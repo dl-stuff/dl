@@ -33,7 +33,7 @@ class Seimei(Adv):
         super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
 
     def shikigami_dmg(self, t):
-        if self.in_dform or isinstance(self.action.getdoing(), S):
+        if self.in_dform() or isinstance(self.action.getdoing(), S):
             return
         if self.shikigami_lv < 2 and self.shikigami_gauge >= 6:
             self.hitattr_make("#shikigami_lv1", "#", "#", 0, self.conf.s1.shikigami.lv1)
