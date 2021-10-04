@@ -78,6 +78,8 @@ class Log:
             self.shift_count += 1
         elif self.shift_name and end_reason:
             duration = core.timeline.now() - self.shift_start
+            if len(self.shift_acts) > 11 and self.log_dact_as_act:
+                self.shift_acts = self.shift_acts[:11] + ["..."]
             for i, name in enumerate(self.shift_acts):
                 if isinstance(name, int):
                     self.shift_acts[i] = f"c{self.shift_acts[i]}"
@@ -86,8 +88,8 @@ class Log:
                 "dshift_end",
                 f"{self.shift_dmg:.1f}/{duration:.1f}s",
                 f"{self.shift_dmg / duration:.2f} dps",
-                shift_act_str,
                 end_reason,
+                shift_act_str,
             )
             if self.log_dact_as_act or not shift_act_str:
                 self.act_seq.append(DRG)

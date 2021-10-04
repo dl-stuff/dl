@@ -210,8 +210,7 @@ class DragonForm:
         return self._charge_dp(name, float_ceil(value, self.dhaste()))
 
     def auto_gauge(self, t):
-        delta = self._charge_dp("auto", float_ceil(self.max_dragon_gauge * self.auto_gauge_val, self.dhaste()))
-        log("auto_gauge_debug", self.dragon_gauge, float_ceil(self.max_dragon_gauge * self.auto_gauge_val, self.dhaste()), delta)
+        self._charge_dp("auto", float_ceil(self.max_dragon_gauge * self.auto_gauge_val, self.dhaste()))
 
     @allow_acl
     def ddamage(self):
@@ -482,6 +481,9 @@ class DragonFormUTP(DragonForm):
             self.ddrive_end_reason = None
             return True
         return False
+
+    def pause_auto_gauge(self):
+        pass
 
     def d_shift_end(self, e=None, reason="<timeout>"):
         if not self.status:
