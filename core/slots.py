@@ -245,10 +245,9 @@ class DragonBase(EquipBase):
     FAFNIR = 0.115
     DEFAULT_DCONF = Conf(
         {
-            "duration": 10,  # 10s dragon time
+            "duration": 10.0,  # 10s dragon time
             "dracolith": 0.70,  # base dragon damage
             "exhilaration": 0,  # psiren aura
-            "gauge_val": 10,  # gauge regen percent
             "default_ds_x": 0,
             "default_x_loop": 0,
             "dshift.startup": 1.0,
@@ -275,10 +274,6 @@ class DragonBase(EquipBase):
             self.dragonform = Conf(adv.conf["dragonform"])
         else:
             name = self.name
-
-        for dn, dconf in self.dragonform.items():
-            if isinstance(dconf, dict):
-                adv.hitattr_check(dn, dconf)
         self.dragonform.update(DragonBase.DEFAULT_DCONF, rebase=True)
 
         if self.c.conf["utp"]:

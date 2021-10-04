@@ -440,8 +440,8 @@ class Action(object):
         # else:
         #     log("tap", self.name, self.atype, f"doing {doing.name}:{doing.status}")
 
-        if doing == self:  # self is doing
-            return False
+        # if doing == self:  # self is doing
+        # return False
 
         # if doing.idle # idle
         #    pass
@@ -477,12 +477,13 @@ class Action(object):
                     doing.recovery_timer.off()
                     doing.end_event()
                     count = doing.clear_delayed()
-                    delta = now() - doing.recover_start
-                    logargs = ["cancel", doing.name, f"by {self.name}"]
-                    logargs.append(f"after {delta:.2f}s")
+
                     if count > 0:
+                        delta = now() - doing.recover_start
+                        logargs = ["cancel", doing.name, f"by {self.name}"]
+                        logargs.append(f"after {delta:.2f}s")
                         logargs.append(f'lost {count} hit{"s" if count > 1 else ""}')
-                    log(*logargs)
+                        log(*logargs)
                 else:
                     return False
             elif doing.status == 0:
@@ -553,12 +554,11 @@ class Repeat(Action):
 
 
 class X(Action):
+    INDEX_PATTERN = re.compile(r"d?x(\d)+")
+
     def __init__(self, name, conf, act=None):
         parts = name.split("_")
-        try:
-            index = int(parts[0][1:])
-        except ValueError:
-            index = int(parts[0][2:])
+        index = int(X.INDEX_PATTERN.match(parts[0]).group(1))
         super().__init__((name, index), conf, act)
         self.base = parts[0]
         if name[0] == "d":
@@ -592,6 +592,8 @@ class X(Action):
 
 
 class Fs(Action):
+    LEVEL_PATTERN = re.compile(r"d?fs(\d)+")
+
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
         parts = name.split("_")
@@ -604,11 +606,8 @@ class Fs(Action):
             self.group = parts[1]
         self.atype = "fs"
         self.level = 0
-        if len(parts[0]) > 2:
-            try:
-                self.level = int(parts[0][2:])
-            except ValueError:
-                pass
+        if len(parts[0]) > 2 and (match := Fs.LEVEL_PATTERN.match(parts[0])):
+            self.level = int(match.group(1))
 
         self.act_event = Event("fs")
         self.act_event.name = self.name
@@ -1727,7 +1726,7 @@ class Adv(object):
             return True
         return False
 
-    def _next_x(self, x_min=1):
+    def _next_x(self):
         prev = self.action.getdoing()
         if prev is self.action.nop:
             prev = self.action.getprev()
@@ -1738,10 +1737,10 @@ class Adv(object):
             else:
                 x_next = prev if prev.conf["loop"] else self.a_x_dict[self.current_x][1]
         else:
-            x_next = self.a_x_dict[self.current_x][x_min]
+            x_next = self.a_x_dict[self.current_x][1]
         if not x_next.enabled:
             self.current_x = globalconf.DEFAULT
-            x_next = self.a_x_dict[self.current_x][x_min]
+            x_next = self.a_x_dict[self.current_x][1]
         return x_next()
 
     @allow_acl
@@ -2000,10 +1999,10 @@ class Adv(object):
             loglevel = 0
 
         self.ctx.on()
+        g_logs.reset()
 
         self.config_slots()
         self.doconfig()
-        logreset()
 
         self.l_idle = Listener("idle", self.l_idle)
         self.l_defer = Listener("defer", self.l_defer)
@@ -2106,6 +2105,7 @@ class Adv(object):
         result = self._acl(t)
 
         # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))))
+        # log("???", self.dgauge)
 
         if not result:
             if self.in_dform() and t.didx:
@@ -2790,7 +2790,7 @@ class Adv(object):
     @property
     def dgauge(self):
         try:
-            return self.dragonform._utp_gauge
+            return self.dragonform.utp_gauge
         except AttributeError:
             return self.dragonform.dragon_gauge
 

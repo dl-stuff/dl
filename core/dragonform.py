@@ -12,7 +12,6 @@ class DragonForm:
         self.conf = conf
         self.adv = adv
         self.dragon = dragon
-
         self.config_actions()
         # events
         self.status = False
@@ -25,7 +24,7 @@ class DragonForm:
         self.l_shift = Listener("dshift", self.d_shift_start, order=0)
         self.l_s = Listener("s", self.l_ds_pause, order=0)
         self.l_s_end = Listener("s_end", self.l_ds_resume, order=0)
-        self.l_s_final_end = Listener("s_end", self.d_shift_end, order=1)
+        self.l_s_final_end = Listener("s_end", self.d_shift_end, order=2)
         self.l_s.off()
         self.l_s_end.off()
         self.l_s_final_end.off()
@@ -43,9 +42,9 @@ class DragonForm:
         self.previous_x = DEFAULT
 
         # gauge
-        self.dragon_gauge_val = self.conf.gauge_val
-        self.conf.gauge_iv = min(int(self.adv.duration / 12), 15)
-        self.dragon_gauge_timer = Timer(self.auto_gauge, timeout=max(1, self.conf.gauge_iv), repeat=1).on()
+        self.auto_gauge_val = 0.1  # percent
+        self.auto_gauge_iv = min(int(self.adv.duration / 12), 15)
+        self.dragon_gauge_timer = Timer(self.auto_gauge, timeout=max(1, self.auto_gauge_iv), repeat=1).on()
         self.dragon_gauge_pause_timer = None
         self.dragon_gauge_timer_diff = 0
 
@@ -183,6 +182,7 @@ class DragonForm:
         return not bool(self.allow_force_end_timer.online)
 
     def dhaste(self):
+        log("dhaste", self.adv.mod("dh", operator=operator.add))
         return self.adv.mod("dh", operator=operator.add)
 
     def _charge_dp(self, name, value):
@@ -210,7 +210,8 @@ class DragonForm:
         return self._charge_dp(name, float_ceil(value, self.dhaste()))
 
     def auto_gauge(self, t):
-        return self._charge_dp("auto", float_ceil(self.max_dragon_gauge * self.dragon_gauge_val / 100, self.dhaste()))
+        delta = self._charge_dp("auto", float_ceil(self.max_dragon_gauge * self.auto_gauge_val, self.dhaste()))
+        log("auto_gauge_debug", self.dragon_gauge, float_ceil(self.max_dragon_gauge * self.auto_gauge_val, self.dhaste()), delta)
 
     @allow_acl
     def ddamage(self):
@@ -231,7 +232,6 @@ class DragonForm:
             self.shift_end_timer.off()
 
     def d_shift_start(self, _=None):
-        self.dragon_gauge -= self.shift_cost
         if self.off_ele:
             self.adv.element = self.adv.slots.d.ele
         if self.shift_spd_mod is not None:
@@ -300,9 +300,13 @@ class DragonForm:
     def shift(self):
         if not self.check():
             return False
-        g_logs.set_log_shift(shift_name=self.name)
-        self.status = True
-        return self.d_shift()
+        if self.d_shift():
+            self.status = True
+            self.dragon_gauge -= self.shift_cost
+            log("d_shift_start", self.dragon_gauge)
+            g_logs.set_log_shift(shift_name=self.name)
+            return True
+        return False
 
     def sack(self):
         if not self.status:
@@ -315,13 +319,12 @@ class DragonForm:
 class DragonFormUTP(DragonForm):
     def __init__(self, name, conf, adv, dragon):
         utp_params = adv.conf.c.utp
-        self.use_dragonform = bool(utp_params[0])
+        self.use_dragonform = utp_params[0]
         super().__init__(name, conf, adv, dragon)
         self.shift_mods = []
         self.shift_cost = 0
         self._utp_gauge = 0
-        self.ds_final = False
-        self._last_udp_update = 0
+        self.ds_final = None
 
         self.max_utp_gauge = utp_params[1]
         self.utp_shift_req = utp_params[2]
@@ -329,7 +332,14 @@ class DragonFormUTP(DragonForm):
         self.utp_event = Event("utp")
         self.log_utp = True
 
-        if not self.use_dragonform:
+        if self.use_dragonform:
+            g_logs.log_dact_as_act = True
+            for ds in self.shift_skills:
+                try:
+                    del self.adv.conf[ds]["uses"]
+                except KeyError:
+                    pass
+        else:
             self.ddrive_fs_list = [fsn for fsn, _ in self.adv.conf.find(f"^fs\d*_{DDRIVE}$")]
             self.shift_skills = [sn.split("_")[0] for sn, _ in self.adv.conf.find(f"^s\d*_{DDRIVE}$")]
             self.l_ddrive_end = Listener("idle", self.d_dragondrive_end, order=0)
@@ -345,7 +355,6 @@ class DragonFormUTP(DragonForm):
     @property
     def utp_gauge(self):
         if self.status:
-            log("")
             self._utp_gauge = self.shift_end_timer.timeleft() * self.utp_drain
         return self._utp_gauge
 
@@ -366,6 +375,7 @@ class DragonFormUTP(DragonForm):
                 f"{int(self._utp_gauge)}/{int(self.max_utp_gauge)} ({self.dtime():2.4}s)",
             )
         if self._utp_gauge <= 0:
+            self._utp_gauge = 0
             self.d_shift_end(reason="<gauge deplete>")
         else:
             if self.shift_end_timer.pause_time:
@@ -395,7 +405,8 @@ class DragonFormUTP(DragonForm):
         return self._charge_utp(name, float_ceil(self.max_utp_gauge, value / 100))
 
     def auto_gauge(self, t):
-        return self._charge_utp("auto", super().auto_gauge(t))
+        super().auto_gauge(t)
+        self._charge_utp("auto", float_ceil(self.max_utp_gauge * self.auto_gauge_val, self.dhaste()))
 
     def config_actions(self):
         if self.use_dragonform:
@@ -449,9 +460,9 @@ class DragonFormUTP(DragonForm):
         self.shift_event()
 
     def d_shift_start(self, _=None):
-        if not self.use_dragonform:
-            return self.d_dragondrive_start()
-        return super().d_shift_start()
+        if self.use_dragonform:
+            return super().d_shift_start()
+        return self.d_dragondrive_start()
 
     def d_dragondrive_end(self, _=None):
         if self.ddrive_end_reason is not None:
@@ -469,8 +480,7 @@ class DragonFormUTP(DragonForm):
     def d_shift_end(self, e=None, reason="<timeout>"):
         if not self.status:
             return False
-        self._utp_gauge = 0
-        if not self.use_dragonform:
-            self.ddrive_end_reason = reason
-            return False
-        return super().d_shift_end(e=e, reason=reason)
+        if self.use_dragonform:
+            return super().d_shift_end(e=e, reason=reason)
+        self.ddrive_end_reason = reason
+        return False

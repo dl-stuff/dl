@@ -2,6 +2,7 @@ import sys
 import re
 from collections import defaultdict
 import core.timeline
+from conf import DRG
 
 DACT_NAME = re.compile(r"(?:ds\d+(?:_[A-Za-z0-9]+)?|dfs\d*(?:_[A-Za-z0-9]+)?|dx(\d)+(?:_[A-Za-z0-9]+)?)")
 
@@ -32,6 +33,8 @@ class Log:
         self.shift_acts = []
         self.shift_start = 0
         self.shift_count = 0
+
+        self.log_dact_as_act = False
 
     def convert_dataset(self):
         if "doublebuff" in self.datasets:
@@ -86,10 +89,10 @@ class Log:
                 shift_act_str,
                 end_reason,
             )
-            if not shift_act_str:
-                self.act_seq.append(f"drg")
+            if self.log_dact_as_act or not shift_act_str:
+                self.act_seq.append(DRG)
             else:
-                self.act_seq.append(f"drg:{shift_act_str}")
+                self.act_seq.append(f"{DRG}:{shift_act_str}")
             self.shift_name = None
 
     def log_shift_data(self, category, name, args):
@@ -132,6 +135,8 @@ class Log:
                 dmg_amount = float(args[2])
                 if name[0:2] == "o_" and name[2] in self.damage:
                     name = name[2:]
+                if name[0] == "d" and self.log_dact_as_act:
+                    name = name[1:]
                 if name[0] in self.damage:
                     self.update_dict(self.damage[name[0]], name, dmg_amount)
                 else:
@@ -142,16 +147,19 @@ class Log:
                 self.update_dict(self.datasets["dmg"], time_now, dmg_amount)
 
             elif category == "x" or category == "cast":
-                if name[0] == "#":
+                k = name[0]
+                if k == "#":
                     name = name[1:]
                     n_rec[2] = name
-                    self.update_dict(self.counts["o"], name, 1)
-                else:
-                    self.update_dict(self.counts[name[0]], name, 1)
+                    k = "o"
+                elif k == "d" and self.log_dact_as_act:
+                    name = name[1:]
+                    k = name[0]
+                self.update_dict(self.counts[k], name, 1)
                 # name1 = name.split('_')[0]
                 # if name1 != name:
                 #     self.update_dict(self.counts[name[0]], name1, 1)
-                if not self.shift_name:
+                if self.log_dact_as_act or not self.shift_name:
                     self.act_seq.append(name)
 
             elif category == "buff" and name == "team":
