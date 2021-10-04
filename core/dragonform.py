@@ -7,11 +7,12 @@ from conf import DRG, DEFAULT, DDRIVE
 
 
 class DragonForm:
-    def __init__(self, name, conf, adv, dragon):
+    def __init__(self, name, conf, adv, dragon, dform_mode=-1):
         self.name = name
         self.conf = conf
         self.adv = adv
         self.dragon = dragon
+        self.dform_mode = dform_mode
         self.config_actions()
         # events
         self.status = False
@@ -318,8 +319,11 @@ class DragonForm:
 class DragonFormUTP(DragonForm):
     def __init__(self, name, conf, adv, dragon):
         utp_params = adv.conf.c.utp
-        self.use_dragonform = utp_params[0]
-        super().__init__(name, conf, adv, dragon)
+        # dform_modes
+        # 0: ddrive as adventurer
+        # 1: ddrive as dragon
+        # 2: ddrive as adventurer, with servant
+        super().__init__(name, conf, adv, dragon, dform_mode=utp_params[0])
         self.shift_mods = []
         self.shift_cost = 0
         self._utp_gauge = 0
@@ -332,7 +336,7 @@ class DragonFormUTP(DragonForm):
         self.utp_event = Event("utp")
         self.log_utp = True
 
-        if self.use_dragonform:
+        if self.dform_mode == 1:
             g_logs.log_dact_as_act = True
             for ds in self.shift_skills:
                 try:
@@ -347,7 +351,7 @@ class DragonFormUTP(DragonForm):
             self.ddrive_end_reason = None
 
     def in_dform(self):
-        return self.use_dragonform and self.status
+        return self.dform_mode == 1 and self.status
 
     def in_ddrive(self):
         return self.status
@@ -409,7 +413,7 @@ class DragonFormUTP(DragonForm):
         self._charge_utp("auto", float_ceil(self.max_utp_gauge * self.auto_gauge_val, self.dhaste()))
 
     def config_actions(self):
-        if self.use_dragonform:
+        if self.dform_mode == 1:
             return super().config_actions()
         # should maybe take the actual shift action from the modes
         self.name = "Dragon Drive"
@@ -418,7 +422,7 @@ class DragonFormUTP(DragonForm):
         self.end_event = Event("dragondrive_end")
 
     def set_dacts_enabled(self, enabled):
-        if self.use_dragonform:
+        if self.dform_mode == 1:
             return super().set_dacts_enabled(enabled)
         # ddrive
         try:
@@ -460,7 +464,7 @@ class DragonFormUTP(DragonForm):
         self.shift_event()
 
     def d_shift_start(self, _=None):
-        if self.use_dragonform:
+        if self.dform_mode == 1:
             super().d_shift_start()
             if self.utp_infinte:
                 self.shift_end_timer.off()
@@ -488,7 +492,7 @@ class DragonFormUTP(DragonForm):
     def d_shift_end(self, e=None, reason="<timeout>"):
         if not self.status:
             return False
-        if self.use_dragonform:
+        if self.dform_mode == 1:
             return super().d_shift_end(e=e, reason=reason)
         self.ddrive_end_reason = reason
         return False

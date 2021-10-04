@@ -52,10 +52,10 @@ class StanceAdv(Adv):
             self.stance = self.next_stance
             self.next_stance = None
 
-    def _next_x(self, x_min=1):
+    def _next_x(self):
         if self.can_change_combo():
             self.stance_dict[self.stance].alt["x"].on()
-        super()._next_x(x_min=x_min)
+        super()._next_x()
 
     def queue_stance(self, stance):
         if self.can_queue_stance(stance):

@@ -334,6 +334,8 @@ class Action(object):
     def can_follow(self, name, atype, conf, elapsed):
         if self.block_follow:
             return None
+        if atype == "s" and self.atype != "s":
+            return 0.0
         try:
             timing = (conf[name] or conf[atype]) - 0.0001
             return max(0, round(timing / self.speed() - elapsed, 5))
