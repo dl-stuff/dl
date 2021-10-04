@@ -49,9 +49,9 @@
       "slots.d": "Agni",
       "acl": [
         "if  a3_buffcount < 3",
-        "`dragon, not dragondrive.get() and s=2",
+        "`dragon, not in_drg and s=2",
         "else",
-        "`dragon, not dragondrive.get() and s=1",
+        "`dragon, not in_drg and s=1",
         "end",
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
@@ -99,7 +99,7 @@
         "`s2, x=5",
         "`s1, x=5",
         "`fsf, x=5",
-        "`dragon, not dragondrive.get() and cancel"
+        "`dragon, not in_drg and cancel"
       ],
       "coabs": [
         "Blade",
@@ -129,7 +129,7 @@
       ],
       "slots.d": "Agni",
       "acl": [
-        "`dragon, not dragondrive.get() and s=1",
+        "`dragon, not in_drg and s=1",
         "queue now=0",
         "`fs;s1",
         "end",
@@ -199,7 +199,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, not dragondrive.get() and s=1",
+        "`dragon, not in_drg and s=1",
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
         "`s4, x=5",
@@ -239,7 +239,7 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon, not dragondrive.get() and s=1",
+        "`dragon, not in_drg and s=1",
         "`s4, x=5",
         "`s3, x=5",
         "`s1, x=5",
@@ -274,7 +274,7 @@
       ],
       "slots.d": "Horus",
       "acl": [
-        "`dragon, not dragondrive.get() and s=1",
+        "`dragon, not in_drg and s=1",
         "`s4, x=5",
         "`s3, x=5",
         "`s1, x=5",

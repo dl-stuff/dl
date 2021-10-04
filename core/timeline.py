@@ -164,6 +164,7 @@ class Timer(object):
         self.canceled = False
         if self.online == 0:
             self.online = 1
+        self.pause_time = -1
         self.timeline.add(self)
         self.began = _g_now
         return self

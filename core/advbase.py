@@ -336,11 +336,13 @@ class Action(object):
             return None
         if atype == "s" and self.atype != "s":
             return 0.0
-        try:
-            timing = (conf[name] or conf[atype]) - 0.0001
-            return max(0, round(timing / self.speed() - elapsed, 5))
-        except TypeError:
+        timing = conf[name]
+        if timing is None:
+            timing = conf[atype]
+        if timing is None:
             return None
+        timing -= 0.0001
+        return max(0, round(timing / self.speed() - elapsed, 5))
 
     def can_interrupt(self, name, atype):
         return self.can_follow(name, atype, self.conf.interrupt, self.startup_timer.elapsed())
@@ -373,7 +375,7 @@ class Action(object):
 
     def _cb_acting(self, e):
         if self.getdoing() == self:
-            self.status = 0
+            self.status = Action.DOING
             self._act(1)
             self.status = Action.RECOVERY
             self.recover_start = now()
@@ -480,15 +482,15 @@ class Action(object):
                     doing.end_event()
                     count = doing.clear_delayed()
 
+                    delta = now() - doing.recover_start
+                    logargs = ["cancel", doing.name, f"by {self.name}"]
+                    logargs.append(f"after {delta:.2f}s")
                     if count > 0:
-                        delta = now() - doing.recover_start
-                        logargs = ["cancel", doing.name, f"by {self.name}"]
-                        logargs.append(f"after {delta:.2f}s")
                         logargs.append(f'lost {count} hit{"s" if count > 1 else ""}')
-                        log(*logargs)
+                    log(*logargs)
                 else:
                     return False
-            elif doing.status == 0:
+            elif doing.status == Action.DOING:
                 raise Exception(f"Illegal action {doing} -> {self}")
             self._setprev()
         self.delayed = set()
@@ -516,6 +518,7 @@ class Repeat(Action):
         self.end_repeat_event.name = self.parent.act_event.name
         self.end_repeat_event.base = self.parent.act_event.base
         self.end_repeat_event.group = self.parent.act_event.group
+        self.end_repeat_event.dtype = self.parent.act_event.dtype
         self.end_repeat_event.end = True
         self.index = 0
         self.extra_charge = None
@@ -2107,7 +2110,6 @@ class Adv(object):
         result = self._acl(t)
 
         # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))))
-        # log("???", self.dgauge)
 
         if not result:
             if self.in_dform() and t.didx:
@@ -2136,7 +2138,7 @@ class Adv(object):
         t.dstat = doing.status
         t.didx = doing.index
         t.dhit = int(doing.has_delayed)
-        t.autocancel = t.pin[0] == "x" and doing.status == Action.DOING and doing.index == self.conf[doing.group].x_max and t.dhit == 0
+        t.autocancel = t.pin[0] == "x" and doing.status == Action.RECOVERY and doing.index == self.conf[doing.group].x_max and t.dhit == 0
         t.on(latency)
 
     def l_silence_end(self, e):
@@ -2178,7 +2180,7 @@ class Adv(object):
         return filter(filter_func, targets)
 
     # sp = self.sp_convert(self.sp_mod(name), sp)
-    def _charge(self, name, sp, sp_func, target=None, no_autocharge=False, dragon_sp=False):
+    def _charge(self, name, sp, sp_func, target=None, no_autocharge=False, dragon_sp=False, show_sp_per_skill=False):
         real_sp = {}
         if self.in_dform() and dragon_sp:
             # dra mode sp
@@ -2199,7 +2201,7 @@ class Adv(object):
         real_sp_counter = Counter(real_sp.values())
         most_common = real_sp_counter.most_common()[0][0]
         charged_sp = f"+{most_common}"
-        if len(real_sp_counter) > 1:
+        if show_sp_per_skill and len(real_sp_counter) > 1:
             all_sp_str = []
             for s in skills:
                 aspstr = s.sp_str
@@ -2232,7 +2234,14 @@ class Adv(object):
 
     def charge_p(self, name, percent, target=None, no_autocharge=False, dragon_sp=False):
         percent = percent / 100 if percent > 1 else percent
-        result = self._charge(name, percent, self._prep_sp_fn, target=target, no_autocharge=no_autocharge, dragon_sp=dragon_sp)
+        result = self._charge(
+            name,
+            percent,
+            self._prep_sp_fn,
+            target=target,
+            no_autocharge=no_autocharge,
+            dragon_sp=dragon_sp,
+        )
         if not result:
             return
         _, all_sp_str, target_str = result
@@ -2246,7 +2255,14 @@ class Adv(object):
             self.think_pin("prep")
 
     def charge(self, name, sp, target=None, dragon_sp=False):
-        result = self._charge(name, sp, self._add_sp_fn, target=target, dragon_sp=dragon_sp)
+        result = self._charge(
+            name,
+            sp,
+            self._add_sp_fn,
+            target=target,
+            dragon_sp=dragon_sp,
+            show_sp_per_skill=True,
+        )
         if not result:
             return
         charged_sp, all_sp_str, target_str = result

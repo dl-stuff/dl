@@ -19,8 +19,8 @@
       "slots.d": "Arsene",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get() and dgauge>=1900",
-        "`s2, dragondrive.get() or xf>2",
+        "`dragon, s2.check() and not in_drg and dgauge>=1900",
+        "`s2, in_drg or xf>2",
         "`s1",
         "`s4, not energy()=5 and xf=6"
       ],
@@ -52,7 +52,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon, not dragondrive.get() and (s1.check() or s2.check())",
+        "`dragon, not in_drg and (s1.check() or s2.check())",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s2, cancel",
@@ -92,10 +92,10 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon, not dragondrive.get()",
+        "`dragon, not in_drg",
         "`s4",
         "`s3, cancel",
-        "`s2, dragondrive.get() or xf>3",
+        "`s2, in_drg or xf>3",
         "`s1"
       ],
       "coabs": [
@@ -126,10 +126,10 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon, not dragondrive.get() and cancel",
+        "`dragon, not in_drg and cancel",
         "`s4",
         "`s3, cancel",
-        "`s2, dragondrive.get() or x>3",
+        "`s2, in_drg or x>3",
         "`s1"
       ],
       "coabs": [
@@ -166,9 +166,9 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon, not dragondrive.get() and (s1.check() or s2.check())",
+        "`dragon, not in_drg and (s1.check() or s2.check())",
         "`s3, not buff(s3)",
-        "`s4, dragondrive.get() and x=6",
+        "`s4, in_drg and x=6",
         "`s2, x=6",
         "`s1, x=6"
       ],
@@ -199,9 +199,9 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, not dragondrive.get() and (s1.check() or s2.check())",
+        "`dragon, not in_drg and (s1.check() or s2.check())",
         "`s3, not buff(s3)",
-        "`s4, dragondrive.get() and x=6",
+        "`s4, in_drg and x=6",
         "`s2, x=6",
         "`s1"
       ],
@@ -237,10 +237,10 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, not dragondrive.get() and xf=6",
+        "`dragon, not in_drg and xf=6",
         "`s4, xf>3",
         "`s3, xf>4",
-        "`s2, dragondrive.get() or cancel",
+        "`s2, in_drg or cancel",
         "`s1"
       ],
       "coabs": [
@@ -280,8 +280,8 @@
       ],
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon, s2.check() and not dragondrive.get() and dgauge>=1900",
-        "`s2, dragondrive.get() or xf>2",
+        "`dragon, s2.check() and not in_drg and dgauge>=1900",
+        "`s2, in_drg or xf>2",
         "`s1",
         "`s4"
       ],
@@ -322,10 +322,10 @@
         "Promised_Piety_Staff"
       ],
       "acl": [
-        "`dragon, not dragondrive.get() and cancel",
+        "`dragon, not in_drg and cancel",
         "`s4",
         "`s3, cancel",
-        "`s2, dragondrive.get() or x>3",
+        "`s2, in_drg or x>3",
         "`s1"
       ],
       "coabs": [

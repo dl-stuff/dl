@@ -61,11 +61,6 @@ class DragonForm:
         # merge confs into adv conf
         self.dx_max = 0
         for dx, dxconf in self.conf.find(r"^dx\d+$"):
-            # maybe parse this properly later
-            dxconf.interrupt.s = 0
-            dxconf.interrupt.dodge = 0
-            dxconf.cancel.s = 0
-            dxconf.cancel.dodge = 0
             self.adv.conf[dx] = dxconf
             self.dx_max = max(self.dx_max, int(dx[2:]))
         self.default_ds_x = self.conf["default_ds_x"] or self.dx_max  # the default combo idx to try dragon skill on
@@ -183,7 +178,6 @@ class DragonForm:
         return not bool(self.allow_force_end_timer.online)
 
     def dhaste(self):
-        log("dhaste", self.adv.mod("dh", operator=operator.add))
         return self.adv.mod("dh", operator=operator.add)
 
     def _charge_dp(self, name, value):
@@ -303,7 +297,6 @@ class DragonForm:
         if self.d_shift():
             self.status = True
             self.dragon_gauge -= self.shift_cost
-            log("d_shift_start", self.dragon_gauge)
             g_logs.set_log_shift(shift_name=self.name)
             return True
         return False
@@ -358,7 +351,9 @@ class DragonFormUTP(DragonForm):
 
     @property
     def utp_gauge(self):
-        if self.status and not self.utp_infinte:
+        if self.utp_infinte:
+            self._utp_gauge = self.max_utp_gauge
+        elif self.status:
             self._utp_gauge = self.shift_end_timer.timeleft() * self.utp_drain
         return self._utp_gauge
 
@@ -410,7 +405,8 @@ class DragonFormUTP(DragonForm):
 
     def auto_gauge(self, t):
         super().auto_gauge(t)
-        self._charge_utp("auto", float_ceil(self.max_utp_gauge * self.auto_gauge_val, self.dhaste()))
+        log("auto_gauge", self.max_utp_gauge, self.auto_gauge_val, self.utphaste(), float_ceil(self.max_utp_gauge * self.auto_gauge_val, self.utphaste()))
+        self._charge_utp("auto", float_ceil(self.max_utp_gauge * self.auto_gauge_val, self.utphaste()))
 
     def config_actions(self):
         if self.dform_mode == 1:
@@ -449,7 +445,7 @@ class DragonFormUTP(DragonForm):
 
     @allow_acl
     def check(self):
-        if self.utp_gauge < self.utp_shift_req:
+        if self._utp_gauge < self.utp_shift_req:
             return False
         return super().check()
 
@@ -480,6 +476,7 @@ class DragonFormUTP(DragonForm):
             self.l_s_end.off()
             self.l_ddrive_end.off()
             self.shift_silence_timer.on()
+            self.status = False
             log("dragondrive", "end", self.ddrive_end_reason)
             self.end_event()
             self.ddrive_end_reason = None
