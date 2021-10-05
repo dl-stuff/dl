@@ -2,20 +2,20 @@
     "c": {
         "name": "Yukata Cassandra",
         "icon": "110337_03_r05",
-        "att": 469,
-        "hp": 805,
+        "att": 562,
+        "hp": 965,
         "ele": "flame",
         "wt": "staff",
-        "spiral": false,
-        "a": [["a", 0.2, "hp100"], ["affres_stun", 100.0], ["a", 0.3]]
+        "spiral": true,
+        "a": [["prep", 100.0], ["a", 0.2, "hp100"], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0]]
     },
     "s1": {
         "sp": 7734,
         "startup": 0.0,
         "recovery": 1.66667,
         "attr": [
-            {"buff": ["echo", 0.4, 30.0, "-refresh"], "iv": 1.0, "coei": 1},
-            {"heal": [87, "team"], "iv": 1.0}
+            {"buff": ["echo", 0.5, 30.0, "-refresh"], "coei": 1, "iv": 1.0},
+            {"heal": [100, "team"], "iv": 1.0}
         ],
         "energizable": true
     },
@@ -23,9 +23,10 @@
         "sp": 13188,
         "startup": 0.0,
         "recovery": 1.93333,
-        "energizable": true,
         "attr": [
-            {"buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 1.0, "coei": 1}
-        ]
+            {"amp": ["10000", 2, 0], "cd": 30.0},
+            {"buff": ["team", 35.0, [20.0, 2.9], "heal", "hp"], "coei": 1, "iv": 1.0}
+        ],
+        "energizable": true
     }
 }

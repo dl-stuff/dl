@@ -3,7 +3,7 @@
 | --------------------- | --------- | ---------------------------------- |
 | Addis                 |           |                                    |
 | Aeleen                |           |                                    |
-| Akasha                |           |                                    |
+| Akasha                | x         |                                    |
 | Alain                 |           |                                    |
 | Alberius              |           |                                    |
 | Albert                |           |                                    |
@@ -62,25 +62,25 @@
 | Fleur                 |           |                                    |
 | Forager_Cleo          |           |                                    |
 | Forager_Mitsuba       |           |                                    |
-| Formal_Joachim        |           |                                    |
+| Formal_Joachim        | x         |                                    |
 | Formal_Noelle         |           |                                    |
 | Forte                 |           |                                    |
 | Francesca             |           |                                    |
 | Fritz                 |           |                                    |
-| Gala_Alex             |           |                                    |
+| Gala_Alex             | x         |                                    |
 | Gala_Audric           |           |                                    |
 | Gala_Chelle           |           |                                    |
-| Gala_Cleo             |           |                                    |
-| Gala_Elisanne         |           |                                    |
-| Gala_Laxi             |           |                                    |
+| Gala_Cleo             | x         |                                    |
+| Gala_Elisanne         | x         |                                    |
+| Gala_Laxi             | x         |                                    |
 | Gala_Leif             |           |                                    |
 | Gala_Leonidas         |           |                                    |
-| Gala_Luca             |           |                                    |
+| Gala_Luca             | x         |                                    |
 | Gala_Mascula          |           |                                    |
 | Gala_Mym              |           |                                    |
 | Gala_Notte            | x         | nerfed a bit, prob just acl things |
-| Gala_Prince           |           |                                    |
-| Gala_Ranzal           |           |                                    |
+| Gala_Prince           | x         |                                    |
+| Gala_Ranzal           | x         |                                    |
 | Gala_Sarisse          |           |                                    |
 | Gala_Zena             |           |                                    |
 | Gauld                 |           |                                    |
@@ -122,7 +122,7 @@
 | Karl                  |           |                                    |
 | Kimono_Elisanne       |           |                                    |
 | Kimono_Luca           |           |                                    |
-| Kirsty                |           |                                    |
+| Kirsty                | x         |                                    |
 | Kleimann              |           |                                    |
 | Ku_Hai                |           |                                    |
 | Kuzunoha              |           |                                    |
@@ -130,8 +130,8 @@
 | Laranoa               |           |                                    |
 | Lathna                |           |                                    |
 | Laxi                  |           |                                    |
-| Lazry                 |           |                                    |
-| Lea                   |           |                                    |
+| Lazry                 | x         |                                    |
+| Lea                   | x         |                                    |
 | Lily                  |           |                                    |
 | Lin_You               |           |                                    |
 | Linnea                |           |                                    |
@@ -167,7 +167,7 @@
 | Nobunaga              |           |                                    |
 | Noelle                |           |                                    |
 | Norwin                |           |                                    |
-| Nurse_Aeleen          |           |                                    |
+| Nurse_Aeleen          | x         |                                    |
 | Odetta                |           |                                    |
 | Opera_Karina          |           |                                    |
 | Orion                 |           |                                    |
@@ -219,13 +219,13 @@
 | Summer_Luca           |           |                                    |
 | Summer_Mikoto         |           |                                    |
 | Summer_Mitsuhide      |           |                                    |
-| Summer_Mym            |           |                                    |
+| Summer_Mym            | x         |                                    |
 | Summer_Norwin         |           |                                    |
 | Summer_Patia          |           |                                    |
 | Summer_Prince         |           |                                    |
 | Summer_Ranzal         |           |                                    |
 | Summer_Sinoa          |           |                                    |
-| Summer_Verica         |           |                                    |
+| Summer_Verica         | x         |                                    |
 | Sylas                 |           |                                    |
 | Taro                  |           |                                    |
 | Templar_Hope          |           |                                    |

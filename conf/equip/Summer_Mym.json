@@ -22,7 +22,7 @@
         "`s2",
         "`s3, not buff(s3)",
         "`s4",
-        "if not dragondrive.get()",
+        "if not in_drg",
         "`dragon",
         "`s1",
         "`dodge",
@@ -57,7 +57,7 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, ((dgauge>1400) and cancel) or duration-now<4",
         "`s4",
         "`s2, cancel",
@@ -104,7 +104,7 @@
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, cancel",
         "`s1, ((dgauge>1400) and cancel) or duration-now<2",
         "`s2, not trickery=1",
@@ -156,7 +156,7 @@
         "`s2",
         "`s3",
         "`s4",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s2, dgauge>500",
         "`s1, (dgauge>1100)",
         "else",
@@ -195,7 +195,7 @@
       "acl": [
         "`s2",
         "`s3",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, dgauge>500",
         "`s2, dgauge>500",
         "`s1, (dgauge>1100)",
@@ -241,7 +241,7 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, cancel",
         "`s1, ((dgauge>1400) and cancel) or duration-now<2",
         "`s2, not trickery=1",
@@ -280,7 +280,7 @@
       },
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, cancel or s",
         "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
         "`s2, cancel",
@@ -336,7 +336,7 @@
         "nihil": true
       },
       "acl": [
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, cancel",
         "`s3, cancel",
         "`s2",
@@ -390,7 +390,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "`fs, fs_prep_c and x=2",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, cancel",
         "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
         "`s2, cancel",
@@ -430,7 +430,7 @@
       "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, cancel",
         "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
         "`s2, cancel",
@@ -479,7 +479,7 @@
       ],
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, ((dgauge>1400) and cancel) or duration-now<4",
         "`s2, cancel",
         "`s4, cancel",
@@ -506,7 +506,7 @@
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, ((dgauge>1400) and cancel) or duration-now<4",
         "`s2, cancel",
         "`s4, cancel",
@@ -551,7 +551,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "if dragondrive.get()",
+        "if in_drg",
         "`s3",
         "`s4",
         "`s2",
@@ -595,7 +595,7 @@
         "queue prep and now=0",
         "`s1;s2;s3;s4",
         "end",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, x=2",
         "`s3",
         "`s2",

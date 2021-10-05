@@ -13,9 +13,10 @@ from conf.equip import (
     all_monoele_coabs,
 )
 
-from conf import DRG, get_icon, get_fullname
+from conf import DRG, get_icon, get_fullname, get_conf_json_path
 import core.acl
 import core.advbase
+import module.template
 
 BR = 64
 
@@ -428,6 +429,11 @@ def compile_stats(adv, real_d):
             stats[amp_key] = "1 time " + stats[amp_key]
     for k, v in adv.logs.team_tension.items():
         stats[k] = int(v)
+    if adv.logs.echo_att:
+        stats["echo"] = f"{adv.logs.echo_att[0]/adv.logs.echo_att[1]:.2f} avg overdamage att"
+    if adv.logs.team_sp:
+        stats["sp"] = f"{adv.logs.team_sp} sp to team"
+
     return stats
 
 
@@ -557,10 +563,16 @@ def load_adv_module(name, in_place=None):
             loaded = advmodule.variants[None]
         return loaded, name, vkey
     except ModuleNotFoundError:
+        variants = {None: core.advbase.Adv}
+        if os.path.exists(get_conf_json_path(f"adv/{name}.50MC.json")):
+            variants["50MC"] = module.template.LowerMCAdv
         if in_place is not None:
-            in_place[name] = {None: core.advbase.Adv}
+            in_place[name] = variants
             return name
-        return core.advbase.Adv, name, None
+        try:
+            return variants[vkey], name, vkey
+        except KeyError:
+            return core.advbase.Adv, name, None
 
 
 def test_with_argv(*argv):

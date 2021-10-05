@@ -207,20 +207,13 @@ class Buff(object):
     _static = Static({"all_buffs": [], "adv": None})
     DB_DURATION = 15  # usual doublebuff effect duration for offensive buffs, note that regen lasts 20s
 
-    def __init__(
-        self,
-        name="<buff_noname>",
-        value=0,
-        duration=0,
-        mtype="att",
-        morder=None,
-        modifier=None,
-        hidden=False,
-        source=None,
-    ):
+    def __init__(self, name="<buff_noname>", value=0, duration=0, mtype="att", morder=None, modifier=None, hidden=False, source=None):
         self.name = name
         self._value = value
-        self.duration = duration
+        try:
+            self.duration, self.interval = duration
+        except TypeError:
+            self.duration, self.interval = duration, 3.9
         self.mod_type = mtype
         self.mod_order = morder or ("chance" if self.mod_type == "crit" else "buff")
         self.bufftype = "misc" if hidden else "self"
@@ -342,10 +335,13 @@ class Buff(object):
             self._static.adv.add_hp(percent)
         # FIXME: heal formula 1day twust
         elif self.mod_type == "regen" and value != 0:
-            self.set_hp_event = Event("set_hp")
-            self.set_hp_event.delta = value
-            self.set_hp_event.source = "dot"
-            self.regen_timer = Timer(self.hp_regen, 3.9, True).on()
+            if self.mod_order == "hp":
+                self.set_hp_event = Event("set_hp")
+                self.set_hp_event.delta = value
+                self.set_hp_event.source = "dot"
+                self.regen_timer = Timer(self.hp_regen, self.interval, True).on()
+            elif self.mod_order == "sp":
+                self.regen_timer = Timer(self.sp_regen, self.interval, True).on()
         elif self.mod_type == "heal" and value != 0:
             self.set_hp_event = Event("heal_make")
             self.set_hp_event.name = self.name
@@ -472,6 +468,13 @@ class Buff(object):
 
     def hp_regen(self, t):
         self.set_hp_event.on()
+
+    def sp_regen(self, t):
+        if self.mod_order == "sp%":
+            self.adv.charge_p("sp_regen", self.value())
+        else:
+            self.adv.charge("sp_regen", self.value())
+            log("sp", "team", self.value())
 
     def off(self):
         if self.__active == 0:
@@ -987,7 +990,7 @@ class EchoBuff(Buff):
         self.echo_mod = value
 
     def on(self, duration=None):
-        if self._static.adv.enable_echo(mod=self.echo_mod):
+        if self._static.adv.enable_echo(self.name, mod=self.echo_mod):
             return super().on(duration)
 
     def effect_off(self):

@@ -24,9 +24,11 @@ class Log:
         self.team_doublebuffs = 0
         self.team_amp_publish = {}
         self.team_tension = {}
+        self.team_sp = 0
         self.act_seq = []
         self.hitattr_set = set()
         self.total_hits = 0
+        self.echo_att = None
 
         self.shift_name = None
         self.shift_dmg = None
@@ -193,6 +195,16 @@ class Log:
                     self.team_amp_publish[args[1]].append(time_now)
                 except KeyError:
                     self.team_amp_publish[args[1]] = [time_now]
+
+            elif category == "echo":
+                if self.echo_att == None:
+                    self.echo_att = (args[2], 1)
+                else:
+                    self.echo_att = (self.echo_att[0] + args[2], self.echo_att[1] + 1)
+
+            elif category == "sp" and name == "team":
+                self.team_sp += args[2]
+
         if self.DEBUG:
             self.write_log_entry(n_rec, sys.stdout, flush=True)
         self.record.append(n_rec)

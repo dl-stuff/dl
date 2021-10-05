@@ -243,3 +243,16 @@ class SkillChainAdv(Adv):
     @property
     def skills(self):
         return (self.sr, self.s3, self.s4)
+
+
+class LowerMCAdv(Adv):
+    MC = 50
+    SAVE_VARIANT = False
+
+    def __init__(self, name=None, conf=None, duration=180, equip_conditions=None, opt_mode=None):
+        super().__init__(name=name, conf=conf, duration=duration, equip_conditions=equip_conditions, opt_mode=opt_mode)
+        self.variant = f"{self.MC}MC"
+        self.comment = self.variant
+
+    def pre_conf(self, equip_conditions=None):
+        super().pre_conf(equip_conditions=equip_conditions, name=f"{self.name}.{self.MC}MC")

@@ -9,10 +9,20 @@
         "spiral": false,
         "a": [["k_debuff_def", 0.3], ["affres_paralysis", 100.0], ["affres_blind", 100.0], ["k_poison", 0.3]]
     },
+    "fs": {
+        "charge": 0.05,
+        "startup": 0.14957,
+        "recovery": 1.08376,
+        "attr": [
+            {"dmg": 1.15, "odmg": 8.0, "sp": 345}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.32052}
+    },
     "s1_base1": {
         "sp": 1129,
         "startup": 0.0,
-        "recovery": 1.1,
+        "recovery": 1.06667,
         "attr": [
             {"dmg": 2.02, "buff": ["debuff", -0.05, 15.0, 1.0, "def", "-overwrite_HOSTILE12"], "coei": 1, "iv": 0.16667},
             {"dmg": 2.02, "iv": 0.36667},
@@ -22,12 +32,12 @@
     "s1_break1": {
         "sp": 1129,
         "startup": 0.0,
-        "recovery": 1.1,
+        "recovery": 1.06667,
         "attr": [
-            {"dmg": 2.35, "killer": [0.5, ["break"]], "iv": 0.16667},
-            {"dmg": 2.35, "killer": [0.5, ["break"]], "iv": 0.36667},
-            {"dmg": 2.35, "killer": [0.5, ["break"]], "iv": 0.6},
-            {"dmg": 6.58, "killer": [0.5, ["break"]], "iv": 1.33333}
+            {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.16667},
+            {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.36667},
+            {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.6},
+            {"dmg": 6.68, "killer": [0.5, ["break"]], "iv": 1.0, "msl": 0.33333}
         ]
     },
     "s1_chain1": {
@@ -38,7 +48,7 @@
             {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.16667},
             {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.36667},
             {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.6},
-            {"dmg": 4.85, "killer": [0.1, ["debuff_def"]], "iv": 1.33333}
+            {"dmg": 4.85, "killer": [0.1, ["debuff_def"]], "iv": 1.0, "msl": 0.33333}
         ]
     },
     "s1_dispel1": {
@@ -47,9 +57,10 @@
         "recovery": 1.1,
         "attr": [
             {"dmg": 2.02, "iv": 0.16667},
+            {"dispel": 100, "iv": 0.16667},
             {"dmg": 2.02, "iv": 0.36667},
             {"dmg": 2.02, "iv": 0.6},
-            {"dmg": 4.85, "killer": [0.1, ["debuff_def"]], "iv": 1.33333}
+            {"dmg": 4.95, "killer": [0.1, ["debuff_def"]], "iv": 1.0, "msl": 0.33333}
         ]
     },
     "s2_base2": {
@@ -57,7 +68,7 @@
         "startup": 0.0,
         "recovery": 1.33333,
         "attr": [
-            {"dmg": 5.53, "afflic": ["poison", 120, 0.582], "iv": 0.53333}
+            {"dmg": 5.53, "afflic": ["poison", 120, 0.582], "iv": 0.46667, "msl": 0.06667}
         ]
     },
     "s2_break2": {
@@ -65,8 +76,8 @@
         "startup": 0.0,
         "recovery": 1.33333,
         "attr": [
-            {"dmg": 6.48, "killer": [0.5, ["break"]], "iv": 0.53333},
-            {"dmg": 6.48, "killer": [0.5, ["break"]], "iv": 1.36667}
+            {"dmg": 6.58, "killer": [0.5, ["break"]], "iv": 0.46667, "msl": 0.06667},
+            {"dmg": 6.58, "killer": [0.5, ["break"]], "iv": 1.3, "msl": 0.06667}
         ]
     },
     "s2_chain2": {
@@ -74,8 +85,8 @@
         "startup": 0.0,
         "recovery": 1.33333,
         "attr": [
-            {"dmg": 5.53, "killer": [0.1, ["poison"]], "iv": 0.53333},
-            {"dmg": 4.42, "killer": [0.1, ["poison"]], "iv": 1.36667}
+            {"dmg": 5.53, "killer": [0.1, ["poison"]], "iv": 0.46667, "msl": 0.06667},
+            {"dmg": 4.42, "killer": [0.1, ["poison"]], "iv": 1.3, "msl": 0.06667}
         ]
     },
     "s2_dispel2": {
@@ -83,8 +94,9 @@
         "startup": 0.0,
         "recovery": 1.33333,
         "attr": [
-            {"dmg": 5.53, "iv": 0.53333},
-            {"dmg": 4.42, "killer": [0.1, ["poison"]], "iv": 1.36667}
+            {"dmg": 5.53, "iv": 0.46667, "msl": 0.06667},
+            {"dispel": 100, "iv": 0.46667, "msl": 0.06667},
+            {"dmg": 4.52, "killer": [0.1, ["poison"]], "iv": 1.3, "msl": 0.06667}
         ]
     },
     "x1": {

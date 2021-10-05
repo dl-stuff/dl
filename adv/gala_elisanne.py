@@ -1,4 +1,5 @@
 from core.advbase import *
+from module.template import LowerMCAdv
 
 
 class Gala_Elisanne(Adv):
@@ -31,38 +32,8 @@ class Gala_Elisanne(Adv):
             self.s2.charge(-1536)
 
 
-class Gala_Elisanne_50MC(Gala_Elisanne):
-    SAVE_VARIANT = False
-    comment = "50MC"
-    conf = {
-        "c": {
-            "name": "Gala Elisanne",
-            "icon": "100002_13_r05",
-            "att": 516,
-            "hp": 745,
-            "ele": "water",
-            "wt": "axe",
-            "spiral": False,
-            "a": [["affres_burn", 100.0], ["affres_stun", 100.0], ["primed_att", 0.1]],
-        },
-        "s1": {
-            "sp": 4377,
-            "startup": 0.0,
-            "recovery": 1.23333,
-            "attr": [{"buff": ["ele", 0.3, 15.0, "att", "buff", "water"], "iv": 0.5}],
-        },
-        "s2": {
-            "sp": 38400,
-            "startup": 0.0,
-            "recovery": 2.06667,
-            "attr": [
-                {"dmg": 13.431, "iv": 0.2},
-                {"dmg": 13.431, "iv": 0.53333},
-                {"dmg": 13.431, "iv": 1.43333},
-                {"buff": ["energy", 3], "iv": 1.43333},
-            ],
-        },
-    }
+class Gala_Elisanne_50MC(Gala_Elisanne, LowerMCAdv):
+    pass
 
 
 variants = {None: Gala_Elisanne, "50MC": Gala_Elisanne_50MC}

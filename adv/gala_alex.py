@@ -1,62 +1,9 @@
 from core.advbase import *
-from module.template import SkillChainAdv
+from module.template import LowerMCAdv, SkillChainAdv
 
 
 class Gala_Alex(SkillChainAdv):
     comment = "see special for bk chain"
-
-
-class Gala_Alex_70MC(Gala_Alex):
-    SAVE_VARIANT = False
-    comment = "70MC"
-    conf = {
-        "c": {
-            "name": "Gala Alex",
-            "icon": "100005_02_r05",
-            "att": 606,
-            "hp": 902,
-            "ele": "shadow",
-            "wt": "sword",
-            "spiral": True,
-            "a": [
-                ["k_debuff_def", 0.3],
-                ["resself_blind_att", 0.15, 10.0, 15.0],
-                ["resself_paralysis_att", 0.15, 10.0, 15.0],
-                ["affres_blind", 100.0],
-                ["affres_paralysis", 100.0],
-                ["k_poison", 0.3],
-                ["edge_poison", 30.0],
-            ],
-        },
-        "s1_dispel1": {
-            "attr": [
-                {"dmg": 2.02, "iv": 0.16667},
-                {"dispel": 100, "iv": 0.16667},
-                {"dmg": 2.02, "iv": 0.36667},
-                {"dmg": 2.02, "iv": 0.6},
-                {"dmg": 4.95, "killer": [0.1, ["debuff_def"]], "iv": 1.0, "msl": 0.33333},
-            ],
-        },
-        "s1_break1": {
-            "attr": [
-                {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.16667},
-                {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.36667},
-                {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.6},
-                {"dmg": 6.68, "killer": [0.5, ["break"]], "iv": 1.0, "msl": 0.33333},
-            ],
-        },
-        "s2_dispel2": {
-            "attr": [{"dmg": 5.53, "iv": 0.46667, "msl": 0.06667}, {"dispel": 100, "iv": 0.46667, "msl": 0.06667}, {"dmg": 4.52, "killer": [0.1, ["poison"]], "iv": 1.3, "msl": 0.06667}],
-        },
-        "s2_break2": {
-            "attr": [{"dmg": 6.58, "killer": [0.5, ["break"]], "iv": 0.46667, "msl": 0.06667}, {"dmg": 6.58, "killer": [0.5, ["break"]], "iv": 1.3, "msl": 0.06667}],
-        },
-        "x1": {"attr": [{"dmg": 1.03, "sp": 150}]},
-        "x2": {"attr": [{"dmg": 1.11, "sp": 150}]},
-        "x3": {"attr": [{"dmg": 1.31, "sp": 196}]},
-        "x4": {"attr": [{"dmg": 1.39, "sp": 265}]},
-        "x5": {"attr": [{"dmg": 2.08, "sp": 391}]},
-    }
 
     def prerun(self):
         super().prerun()
@@ -130,4 +77,8 @@ class Gala_Alex_BK(Gala_Alex):
         return rates if not as_list else list(rates.items())
 
 
-variants = {None: Gala_Alex, "BK": Gala_Alex_BK, "70MC": Gala_Alex_70MC}
+class Gala_Alex_50MC(SkillChainAdv, LowerMCAdv):
+    pass
+
+
+variants = {None: Gala_Alex, "BK": Gala_Alex_BK, "50MC": Gala_Alex_50MC}

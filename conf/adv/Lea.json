@@ -2,23 +2,35 @@
     "c": {
         "name": "Lea",
         "icon": "110259_01_r05",
-        "att": 505,
-        "hp": 754,
+        "att": 605,
+        "hp": 904,
         "ele": "flame",
         "wt": "sword",
-        "spiral": false,
-        "a": [["fs", 0.5], ["affres_stun", 100.0], ["spf", 0.12]]
+        "spiral": true,
+        "a": [["fs", 0.5], ["k_scorchrend", 0.15], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["spf", 0.15]]
+    },
+    "fs_lea": {
+        "startup": 0.14957,
+        "recovery": 1.08376,
+        "attr": [
+            {"dmg": 1.65, "odmg": 8.0, "sp": 345, "afflic": ["scorchrend", 100, 0.22]}
+        ],
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.32052}
     },
     "s1": {
         "sp": 2325,
         "startup": 0.0,
         "recovery": 2.7,
         "attr": [
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "afflic": ["burn", 120, 0.97], "iv": 0.33333},
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "iv": 0.46667},
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "iv": 0.9},
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "iv": 1.16667},
-            {"dmg": 3.256, "killer": [0.5, ["burn"]], "iv": 1.96667}
+            {"amp": ["10000", 2, 0], "ab": 1, "cd": 30.0},
+            {"buff": ["fsAlt", "lea", -1, 1, "-refresh"], "coei": 1, "ab": 1},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "afflic": ["burn", 120, 0.97], "iv": 0.33333},
+            {"dispel": 100, "iv": 0.33333},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 0.46667},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 0.9},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.16667},
+            {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.96667}
         ]
     },
     "s2": {
@@ -26,8 +38,9 @@
         "startup": 0.0,
         "recovery": 2.13333,
         "attr": [
-            {"dmg": 8.162, "iv": 2.1},
-            {"dmg": 8.162, "iv": 2.1}
+            {"hp": -20.0, "cond": ["hp>", 60.0]},
+            {"dmg": 8.2, "iv": 2.1},
+            {"dmg": 8.2, "iv": 2.1}
         ]
     }
 }

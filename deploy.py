@@ -102,10 +102,10 @@ def combine():
     # check what adv jsons we should have
     expected_jsons = set()
     for name, variants in get_sim_target_module_dict().items():
-        for variant in variants.keys():
+        for variant, module in variants.items():
             if variant is None:
                 expected_jsons.add(name)
-            elif variant not in SKIP_VARIANT:
+            elif variant not in SKIP_VARIANT and not module.NO_DEPLOY:
                 expected_jsons.add(f"{name}.{variant}")
     # do combine
     data_by_cond = {str(ConditionTuple(cond)): {} for cond in itertools.product(*ALL_COND_ENUMS)}

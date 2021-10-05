@@ -350,6 +350,9 @@ class Action(object):
     def can_cancel(self, name, atype):
         return self.can_follow(name, atype, self.conf.cancel, self.recovery_timer.elapsed())
 
+    def has_follow(self, name, atype):
+        return bool(self.conf.interrupt[name] is not None or self.conf.interrupt[atype] is not None or self.conf.cancel[name] is not None or self.conf.cancel[atype] is not None)
+
     @property
     def _startup(self):
         return self.conf.startup
@@ -780,6 +783,7 @@ class Adv(object):
     SAVE_VARIANT = True
     NO_DEPLOY = False
     FIXED_RNG = None
+    MC = None  # generally assume max mc
 
     Timer = Timer
     Event = Event
@@ -1082,7 +1086,7 @@ class Adv(object):
             delta = (hp - old_hp) / 10000
             if delta < 0:
                 self.dragonform.extend_shift_time(delta, percent=True)
-                return
+                return delta
         if can_die:
             self._hp = max(min(hp, max_hp), 0)
             if self._hp == 0:
@@ -1104,6 +1108,7 @@ class Adv(object):
 
             if self._hp < max_hp:
                 self.slots.c.set_need_regen()
+            return delta
 
     @property
     def hp(self):
@@ -1177,7 +1182,7 @@ class Adv(object):
                     ).on()
             if "echo" in self.conf.sim_buffbot:
                 if self.condition("echo att {:g}".format(self.conf.sim_buffbot.echo)):
-                    self.enable_echo(fixed_att=self.conf.sim_buffbot.echo)
+                    self.enable_echo("sim", fixed_att=self.conf.sim_buffbot.echo)
             if "doublebuff_interval" in self.conf.sim_buffbot:
                 interval = round(self.conf.sim_buffbot.doublebuff_interval, 2)
                 if self.condition("team doublebuff every {:.2f} sec".format(interval)):
@@ -1200,9 +1205,9 @@ class Adv(object):
         self.slots.set_slots(self.conf.slots)
         self.element = self.slots.c.ele
 
-    def pre_conf(self, equip_conditions=None):
+    def pre_conf(self, equip_conditions=None, name=None):
         self.conf = Conf(self.conf_default)
-        self.conf.update(globalconf.get_adv(self.name))
+        self.conf.update(globalconf.get_adv(name or self.name))
         if not self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
         equip_conf, self.real_equip_conditions = self.equip_manager.get_preferred_entry(equip_conditions)
@@ -1345,16 +1350,12 @@ class Adv(object):
     def f_speed(self):
         return 1 + min(self.sub_mod("fspd", "buff"), 0.50) + self.sub_mod("fspd", "passive")
 
-    def enable_echo(self, mod=None, fixed_att=None):
+    def enable_echo(self, name="echo", mod=None, fixed_att=None):
         self.echo = 2
         new_att = fixed_att or (mod * self.base_att * self.mod("att"))
         if new_att >= self.echo_att:
             self.echo_att = new_att
-            log("debug", "echo_att", self.echo_att)
-            try:
-                self.sum_echo_att += new_att
-            except AttributeError:
-                self.sum_echo_att = new_att
+            log("echo", name, self.echo_att)
             return True
         return False
 
@@ -1533,6 +1534,8 @@ class Adv(object):
 
     @allow_acl
     def sp_mod(self, name, target=None):
+        if name == "sp_regen":
+            return 1
         sp_mod = self.mod("sp", operator=operator.add)
         if name.startswith("fs"):
             sp_mod += self.mod("spf", operator=operator.add, initial=0)
@@ -1725,7 +1728,6 @@ class Adv(object):
     def x(self, n=1):
         # force wait for full recovery
         prev = self.action.getdoing()
-        self.check_deferred_x()
         if isinstance(prev, X) and prev.index == n and prev.group == self.current_x:
             prev.block_follow_until_end()
             return True
@@ -1735,17 +1737,26 @@ class Adv(object):
         prev = self.action.getdoing()
         if prev is self.action.nop:
             prev = self.action.getprev()
-        self.check_deferred_x()
         if isinstance(prev, X):
-            if prev.group == self.current_x and prev.index < self.conf[prev.group].x_max:
-                x_next = self.a_x_dict[self.current_x][prev.index + 1]
+            if prev.group == self.current_x and prev.conf["loop"]:
+                x_next = prev
             else:
-                x_next = prev if prev.conf["loop"] else self.a_x_dict[self.current_x][1]
+                if prev.index < self.conf[prev.group].x_max:
+                    x_next = self.a_x_dict[self.current_x][prev.index + 1]
+                else:
+                    x_next = self.a_x_dict[self.current_x][1]
+                if not prev.has_follow(x_next.name, "x"):
+                    x_next = self.a_x_dict[self.current_x][1]
+            # if prev.group == self.current_x and prev.index < self.conf[prev.group].x_max:
+            #     x_next = self.a_x_dict[self.current_x][prev.index + 1]
+            # else:
+            #     x_next = prev if prev.conf["loop"] else self.a_x_dict[self.current_x][1]
         else:
             x_next = self.a_x_dict[self.current_x][1]
         if not x_next.enabled:
             self.current_x = globalconf.DEFAULT
             x_next = self.a_x_dict[self.current_x][1]
+        # log("x_next", prev.name, x_next.name)
         return x_next()
 
     @allow_acl
@@ -1755,7 +1766,6 @@ class Adv(object):
         if not self.in_dform():
             return CONTINUE
         prev = self.action.getdoing()
-        self.check_deferred_x()
         if isinstance(prev, X) and prev.index == n and prev.status == Action.RECOVERY:
             if prev.index < self.conf[prev.group].x_max or self.dragonform.auto_dodge(prev.index):
                 x_next = self.dragonform.d_dodge
@@ -1766,6 +1776,7 @@ class Adv(object):
 
     def l_x(self, e):
         # FIXME: race condition?
+        self.check_deferred_x()
         x_max = self.conf[self.current_x].x_max
         logname = e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name
         if e.index == x_max and not self.conf[e.name]["loop"]:
@@ -1955,18 +1966,25 @@ class Adv(object):
                 src_key = f's{sdata["s"]}'
                 shared_sp = self.sp_convert(sdata["sp"], sp_modifier)
                 try:
-                    owner_module, _, variant = load_adv_module(f"{owner}.70MC")
-                    if variant is None:
-                        owner_conf = globalconf.get_adv(owner)
-                    else:
-                        owner_conf = Conf(owner_module.conf)
+                    owner_module, _, _ = load_adv_module(owner)
+                    owner_conf = globalconf.get_adv(owner)
                     for src_sn, src_snconf in owner_conf.find(f"^{src_key}(_[A-Za-z0-9]+)?$"):
                         dst_sn = src_sn.replace(src_key, dst_key)
                         self.conf[dst_sn] = src_snconf
-                        try:
-                            self.conf[dst_sn]["attr"] = [attr for attr in self.conf[dst_sn]["attr"] if not isinstance(attr, dict) or "ab" not in attr]
-                        except KeyError:
-                            pass
+                        modified_attr = []
+                        for attr in self.conf[dst_sn].get("attr", []):
+                            if isinstance(attr, dict):
+                                if attr.get("ab"):
+                                    continue
+                                if attr.get("buffele", self.slots.c.ele) != self.slots.c.ele:
+                                    attr = dict(attr)
+                                    del attr["buff"]
+                                    del attr["buffele"]
+                                    if all((k == "iv" or k == "msl" for k in attr)):
+                                        continue
+                            modified_attr.append(attr)
+                        self.conf[dst_sn]["attr"] = modified_attr
+
                         self.conf[dst_sn].owner = owner
                         self.conf[dst_sn].sp = shared_sp
                     preruns[dst_key] = owner_module.prerun_skillshare
@@ -2109,7 +2127,7 @@ class Adv(object):
 
         result = self._acl(t)
 
-        # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))))
+        # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))), self.current_x)
 
         if not result:
             if self.in_dform() and t.didx:
@@ -2138,7 +2156,7 @@ class Adv(object):
         t.dstat = doing.status
         t.didx = doing.index
         t.dhit = int(doing.has_delayed)
-        t.autocancel = t.pin[0] == "x" and doing.status == Action.RECOVERY and doing.index == self.conf[doing.group].x_max and t.dhit == 0
+        t.autocancel = isinstance(doing, X) and doing.status == Action.RECOVERY and doing.index == self.conf[doing.group].x_max and t.dhit == 0
         t.on(latency)
 
     def l_silence_end(self, e):

@@ -22,12 +22,14 @@
         "recovery": 6.0
     },
     "s2": {
-        "sp": 9194,
+        "sp": 4958,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 2.83333,
         "attr": [
-            {"afflic": ["scorchrend", 40, 0.311], "iv": 0.9},
-            {"dmg": 6.09, "buff": ["affres", -0.2, 30.0, "scorchrend", "-overwrite_HOSTILE27"], "iv": 0.9, "coei": 1}
-        ]
+            {"cond": ["var<=", ["mochi_master", 1]], "buffele": "wind", "buff": ["team", 3.0, [20.0, 2.9], "heal", "hp", "-refresh"], "coei": 1, "iv": 0.93333},
+            {"cond": ["var=", ["mochi_master", 2]], "buffele": "wind", "buff": ["team", 15.0, [30.0, 2.9], "heal", "hp", "-refresh"], "coei": 1, "iv": 0.93333},
+            {"cond": ["var=", ["mochi_master", 3]], "buffele": "wind", "buff": ["team", 21.0, [60.0, 2.9], "heal", "hp", "-refresh"], "coei": 1, "iv": 0.93333}
+        ],
+        "energizable": true
     }
 }

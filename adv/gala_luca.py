@@ -1,9 +1,10 @@
 from core.advbase import *
+from module.template import LowerMCAdv
 
 
 class Gala_Luca(Adv):
     SAVE_VARIANT = False
-    CONNECTING_CALL_CRITR = 0.03
+    CONNECTING_CALL_CRITR = 0.04
 
     def prerun(self):
         self.crit_mod = self.custom_crit_mod
@@ -104,41 +105,8 @@ class Gala_Luca_MAX(Gala_Luca):
         return 7
 
 
-class Gala_Luca_70MC(Gala_Luca):
-    CONNECTING_CALL_CRITR = 0.04
-    comment = "70 MC"
-    conf = {
-        "c": {
-            "name": "Gala Luca",
-            "icon": "100006_09_r05",
-            "att": 619,
-            "hp": 893,
-            "ele": "light",
-            "wt": "blade",
-            "spiral": True,
-            "a": [["resself_curse_crit_chance", 0.15, 10.0, 15.0], ["resself_poison_crit_chance", 0.15, 10.0, 15.0], ["affres_poison", 100.0], ["affres_curse", 100.0], ["cc", 0.13]],
-        },
-        "s1": {
-            "sp": 2870,
-            "startup": 0.0,
-            "recovery": 2.16667,
-            "attr": [
-                {"dmg": 5.07, "iv": 0.3},
-                {"dmg": 5.07, "iv": 2.0},
-                {"dmg": 5.07, "iv": 2.06667},
-                {"dmg": 5.07, "iv": 2.13333},
-            ],
-        },
-        "s2": {
-            "sp": 3899,
-            "startup": 0.0,
-            "recovery": 1.0,
-            "attr": [
-                {"amp": ["10000", 3, 0], "cd": 30.0},
-                {"buff": ["self", 0.8, 10.0, "crit", "damage"], "iv": 0.16667},
-            ],
-        },
-    }
+class Gala_Luca_50MC(Gala_Luca, LowerMCAdv):
+    CONNECTING_CALL_CRITR = 0.03
 
 
-variants = {None: Gala_Luca, "MAX": Gala_Luca_MAX, "70MC": Gala_Luca_70MC}
+variants = {None: Gala_Luca, "MAX": Gala_Luca_MAX, "50MC": Gala_Luca_50MC}

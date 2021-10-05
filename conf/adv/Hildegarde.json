@@ -17,7 +17,7 @@
             {"heal": [82, "lowest"]}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.03333}
+        "cancel": {"dodge": 0.03333, "s": 0.0}
     },
     "s1": {
         "sp": 5916,
@@ -26,7 +26,7 @@
         "attr": [
             {"buff": ["fsAlt", "hildegarde", -1, 2, "-refresh"], "coei": 1, "ab": 1},
             {"heal": [130, "team"], "iv": 0.96667},
-            {"buff": ["team", 10.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.96667},
+            {"buff": ["team", 10.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.96667},
             {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 1.0}
         ],
         "energizable": true
@@ -36,7 +36,7 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"heal": [36, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "coei": 1, "iv": 0.16667}
+            {"heal": [36, "team"], "buff": ["team", 35.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.16667}
         ],
         "energizable": true
     }

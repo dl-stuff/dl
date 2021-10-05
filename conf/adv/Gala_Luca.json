@@ -2,22 +2,22 @@
     "c": {
         "name": "Gala Luca",
         "icon": "100006_09_r05",
-        "att": 517,
-        "hp": 745,
+        "att": 619,
+        "hp": 893,
         "ele": "light",
         "wt": "blade",
-        "spiral": false,
-        "a": [["res_shadow", 0.1, "hit10"], ["affres_curse", 100.0], ["resself_curse_crit_chance", 0.15, 10.0, 15.0], ["cc", 0.13, "hit15"]]
+        "spiral": true,
+        "a": [["resself_curse_crit_chance", 0.15, 10.0, 15.0], ["resself_poison_crit_chance", 0.15, 10.0, 15.0], ["affres_poison", 100.0], ["affres_curse", 100.0], ["cc", 0.13]]
     },
     "s1": {
         "sp": 2870,
         "startup": 0.0,
         "recovery": 2.16667,
         "attr": [
-            {"dmg": 5.024, "gluca": 1, "iv": 0.3},
-            {"dmg": 5.024, "gluca": 1, "iv": 2.0},
-            {"dmg": 5.024, "gluca": 1, "iv": 2.06667},
-            {"dmg": 5.024, "gluca": 1, "iv": 2.13333}
+            {"dmg": 5.07, "iv": 0.3},
+            {"dmg": 5.07, "iv": 2.0},
+            {"dmg": 5.07, "iv": 2.06667},
+            {"dmg": 5.07, "iv": 2.13333}
         ]
     },
     "s2": {
@@ -25,6 +25,7 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
+            {"amp": ["10000", 3, 0], "cd": 30.0},
             {"buff": ["self", 0.8, 10.0, "crit", "damage"], "iv": 0.16667}
         ]
     }

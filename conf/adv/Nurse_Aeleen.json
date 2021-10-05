@@ -2,21 +2,22 @@
     "c": {
         "name": "Nurse Aeleen",
         "icon": "110029_02_r04",
-        "att": 452,
-        "hp": 784,
+        "att": 542,
+        "hp": 940,
         "ele": "water",
         "wt": "staff",
-        "spiral": false,
-        "a": [["prep", 75.0], ["affres_stun", 100.0], ["sp", 0.02], ["sp", 0.04], ["sp", 0.02]]
+        "spiral": true,
+        "a": [["prep", 100.0], ["affres_stun", 100.0], ["resself_stun_att", 0.15, 10.0, 15.0], ["sp", 0.04], ["sp", 0.04], ["sp", 0.02]]
     },
     "s1": {
         "sp": 7888,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
-            {"heal": [44, "team"], "buff": ["team", 35.0, 15.0, "heal", "buff"], "iv": 0.93333, "coei": 1},
+            {"amp": ["10000", 2, 0], "ab": 1, "cd": 30.0},
+            {"heal": [44, "team"], "buff": ["team", 35.0, [15.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.93333},
             {"buff": ["team", 0.08, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.96667},
-            {"buff": ["team", 0.15, 5.0, "defense", "buff"], "iv": 1.0}
+            {"buff": ["team", 0.15, 10.0, "defense", "buff"], "iv": 1.0}
         ],
         "energizable": true
     },
@@ -24,9 +25,10 @@
         "sp": 11832,
         "startup": 0.0,
         "recovery": 1.93333,
-        "energizable": true,
         "attr": [
-            {"heal": [90, "team"], "iv": 0.96667}
-        ]
+            {"heal": [108, "team"], "iv": 0.96667},
+            {"buff": ["nearby", 0.05, -1, "maxhp", "buff"], "coei": 1, "iv": 1.0}
+        ],
+        "energizable": true
     }
 }

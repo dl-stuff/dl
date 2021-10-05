@@ -277,7 +277,10 @@ def build_from_sim(adv, real_d):
     build["slots.d"] = adv.slots.d.qual
     if adv.slots.w.series != adv.slots.DEFAULT_WEAPON:
         build["slots.w"] = adv.slots.w.series
-    acl_list = regenerate_acl(adv._acl).split("\n")
+    # acl_list = regenerate_acl(adv._acl).split("\n")
+    acl_list = adv.conf.acl
+    if not isinstance(acl_list, list):
+        acl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
     build["acl"] = acl_list
     build["coabs"] = adv.slots.c.coab_list
     build["share"] = adv.skillshare_list
