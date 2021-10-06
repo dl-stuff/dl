@@ -93,8 +93,8 @@ class Log:
                 end_reason,
                 shift_act_str,
             )
-            if not self.log_dact_as_act:
-                if shift_act_str:
+            if end_reason != "<dragondrive>":
+                if self.log_dact_as_act or not shift_act_str:
                     self.act_seq.append(DRG)
                 else:
                     self.act_seq.append(f"{DRG}:{shift_act_str}")

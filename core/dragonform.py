@@ -443,7 +443,7 @@ class DragonFormUTP(DragonForm):
         if self.dform_mode == 1:
             return super().config_actions()
         # should maybe take the actual shift action from the modes
-        self.name = "Dragon Drive"
+        self.name = "Dragondrive"
         self.d_shift = Shift("dshift", self.name, self.conf.dshift)
         self.shift_event = Event("dragondrive")
         self.end_event = Event("dragondrive_end")

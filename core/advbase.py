@@ -924,8 +924,6 @@ class Adv(object):
             self.dumb_cd = int(self.conf["dumb"])
             self.dumb_count = 0
             self.condition(f"be a dumb every {self.dumb_cd}s")
-        if self.conf["auto_fsf"]:
-            self._think_modes.add("auto_fsf")
 
         self.hits = 0
         self.last_c = 0
@@ -1228,22 +1226,25 @@ class Adv(object):
             self._acl = self._acl_default
         else:
             self._acl = core.acl.build_acl(self.conf.acl)
-        # dacl
-        if not self.conf["dacl"]:
-            if self.acl_source is not None and dacl_from_dact:
-                self.conf.dacl = dacl_from_dact
-            else:
-                self.conf.dacl = self.slots.d.dform["dacl"]
-                self.using_default_dacl = True
-        if self.dacl_source != "init":
-            if self._dacl_default is None:
-                self._dacl_default = core.acl.build_acl(self.conf.dacl)
-            self._dacl = self._dacl_default
-        else:
-            self._dacl = core.acl.build_acl(self.conf.dacl)
-
         self._acl.reset(self)
-        self._dacl.reset(self)
+        # dacl
+        if abs(self.dragonform.dform_mode) == 1:
+            self.using_default_dacl = False
+        else:
+            if not self.conf["dacl"]:
+                if self.acl_source is not None and dacl_from_dact:
+                    self.conf.dacl = dacl_from_dact
+                else:
+                    self.conf.dacl = self.slots.d.dform["dacl"]
+                    self.using_default_dacl = True
+            if self.dacl_source != "init":
+                if self._dacl_default is None:
+                    self._dacl_default = core.acl.build_acl(self.conf.dacl)
+                self._dacl = self._dacl_default
+            else:
+                self._dacl = core.acl.build_acl(self.conf.dacl)
+            self._dacl.reset(self)
+
         self._c_acl = self._acl
 
     def pre_conf(self, equip_conditions=None, name=None):
@@ -2188,12 +2189,12 @@ class Adv(object):
 
         # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))), result)
 
-        if not result and t.autocancel:
-            if self.in_dform() and t.didx:
+        if not result and t.pin[0] == "x" and isinstance(t.doing, X) and t.didx > 0 and t.doing.status == Action.RECOVERY and t.dhit == 0:
+            if self.in_dform():
                 dodge = self.dragonform.dx_dodge_or_wait(t.didx)
                 if dodge:
                     return dodge()
-            elif self.current_x == globalconf.DEFAULT and t.dstat == self.conf[globalconf.DEFAULT].x_max and "auto_fsf" in self._think_modes:
+            elif t.doing.conf["auto_fsf"]:
                 return self.fsf()
 
         return result or self._next_x()
@@ -2215,7 +2216,7 @@ class Adv(object):
         t.dstat = doing.status
         t.didx = doing.index
         t.dhit = int(doing.has_delayed)
-        t.autocancel = isinstance(doing, X) and doing.status == Action.RECOVERY and t.dhit == 0
+        t.doing = doing  # t.pin[0] == "x" and doing.status == Action.RECOVERY and t.dhit == 0
         t.on(latency)
 
     def l_silence_end(self, e):
