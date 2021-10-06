@@ -76,10 +76,11 @@ class DragonForm:
         for dx, dxconf in self.conf.find(r"^dx\d+$"):
             self.adv.conf[dx] = dxconf
             self.dx_max = max(self.dx_max, int(dx[2:]))
-        self.default_ds_x = self.conf["default_ds_x"] or self.dx_max  # the default combo idx to try dragon skill on
         self.default_x_loop = self.conf["default_x_loop"] or self.dx_max  # the default combo idx to end combo on
         for fs, fsconf in self.conf.find(r"^dfs\d*(_[A-Za-z0-9]+)?$"):
             self.adv.conf[fs] = fsconf
+            for sfn in ("before", "proc"):
+                self.adv.rebind_function(self.dragon, f"{fs}_{sfn}", f"{fs}_{sfn}", overwrite=False)
         self.ds_final = None
         for ds, dsconf in self.conf.find(r"^ds\d*(_[A-Za-z0-9]+)?$"):
             self.adv.conf[ds] = dsconf
@@ -151,10 +152,8 @@ class DragonForm:
             combo_t = d_combo.getrecovery()
         return dodge_t < combo_t
 
-    def dx_dodge_or_skill(self, index):
+    def dx_dodge_or_wait(self, index):
         # log("dx_dodge_or_skill", "x{}: c on {}, s on {}".format(index, self.default_ds_x, self.default_x_loop), self.adv.ds1.check())
-        if index == self.default_ds_x and self.adv.ds1.check():
-            return self.adv.ds1
         if index == self.default_x_loop:
             return self.d_dodge if self.auto_dodge(index=index) else False
         return False

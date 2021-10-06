@@ -307,7 +307,7 @@ class Action(object):
         # ?????
         # self.rt_name = self.name
         # self.tap, self.o_tap = self.rt_tap, self.tap
-        self.block_follow = False
+        self.explicit_x = False
 
     def __call__(self):
         return self.tap()
@@ -316,7 +316,7 @@ class Action(object):
         return self._static.doing
 
     def _setdoing(self):
-        self.block_follow = False
+        self.explicit_x = False
         self._static.doing = self
 
     def getprev(self):
@@ -333,12 +333,7 @@ class Action(object):
             self.act_event = Event(self.name)
         return self.o_tap()
 
-    def block_follow_until_end(self):
-        self.block_follow = True
-
     def can_follow(self, name, atype, conf, elapsed):
-        if self.block_follow:
-            return None
         if atype == "s" and self.atype != "s":
             return 0.0
         timing = conf[name]
@@ -390,7 +385,7 @@ class Action(object):
             self.recovery_timer.on(self.getrecovery())
 
     def _cb_act_end(self, e):
-        self.block_follow = False
+        self.explicit_x = False
         if self.getdoing() == self:
             if loglevel >= 2:
                 log("ac_end", self.name)
@@ -540,10 +535,21 @@ class Repeat(Action):
             self.end_repeat_event.on()
         return result
 
+    def can_follow(self, name, atype, conf, elapsed):
+        if name == self.parent.name and atype == self.parent.atype:
+            return None
+        result = super().can_follow(name, atype, conf, elapsed)
+        if result is not None:
+            self.end_repeat_event.on()
+        return result
+
     def can_interrupt(self, name, atype):
         return self.can_ic(name, atype, self.parent.can_interrupt)
 
     def can_cancel(self, name, atype):
+        if self.explicit_x:
+            self.end_repeat_event.on()
+            return 0.0
         return self.can_ic(name, atype, self.parent.can_cancel)
 
     def __call__(self):
@@ -605,7 +611,7 @@ class X(Action):
 
 
 class Fs(Action):
-    LEVEL_PATTERN = re.compile(r"d?fs(\d)+")
+    LEVEL_PATTERN = re.compile(r"(d?fs)(\d)+")
 
     def __init__(self, name, conf, act=None):
         super().__init__(name, conf, act)
@@ -620,17 +626,18 @@ class Fs(Action):
         self.atype = "fs"
         self.level = 0
         if len(parts[0]) > 2 and (match := Fs.LEVEL_PATTERN.match(parts[0])):
-            self.level = int(match.group(1))
+            self.base = match.group(1)
+            self.level = int(match.group(2))
 
         self.act_event = Event("fs")
         self.act_event.name = self.name
         self.act_event.base = self.base
         self.act_event.group = self.group
-        self.act_event.dtype = "fs"
+        self.act_event.dtype = self.base
         self.act_event.level = self.level
-        self.start_event = Event("fs_start")
+        self.start_event = Event(f"{self.base}_start")
         self.start_event.act = self.act_event
-        self.end_event = Event("fs_end")
+        self.end_event = Event(f"{self.base}_end")
         self.end_event.act = self.act_event
 
         self.act_repeat = None
@@ -1258,6 +1265,8 @@ class Adv(object):
         self.dacl_source = "init" if "dacl" in self.conf_init else self.dacl_source
         if self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
+            self.acl_source = "init"
+            self.dacl_source = "init"
 
     def default_slot(self):
         self.slots = Slots(self.name, self.conf.c, self.sim_afflict, bool(self.conf["flask_env"]))
@@ -1728,6 +1737,8 @@ class Adv(object):
     @allow_acl
     def fs(self, n=None):
         fsn = "fs" if n is None else f"fs{n}"
+        if self.in_dform:
+            fsn = "d" + fsn
         self.check_deferred_x()
         if self.current_fs is not None:
             fsn += "_" + self.current_fs
@@ -1749,6 +1760,8 @@ class Adv(object):
     @allow_acl
     def fst(self, t=None, n=None):
         fsn = "fs" if n is None else f"fs{n}"
+        if self.in_dform:
+            fsn = "d" + fsn
         if self.current_fs is not None:
             fsn += "_" + self.current_fs
         fs_act = self.a_fs_dict[fsn]
@@ -1770,6 +1783,7 @@ class Adv(object):
     def x(self):
         #  force cancel by x
         prev = self.action.getdoing()
+        prev.explicit_x = True
         if not isinstance(prev, X):
             return self._next_x()
         return False
@@ -1867,7 +1881,7 @@ class Adv(object):
             self.slots.c.update_req_ctime(delta, ctime)
         else:
             self.hits = self.echo
-            log("combo", f"reset combo after {delta:.02}s")
+            log("combo", f"reset combo after {delta:2.4}s")
         self.hit_event.name = name
         self.hit_event.add = self.echo
         self.hit_event.hits = self.hits
@@ -2174,12 +2188,12 @@ class Adv(object):
 
         # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))), result)
 
-        if not result:
+        if not result and t.autocancel:
             if self.in_dform() and t.didx:
-                dodge_or_skill = self.dragonform.dx_dodge_or_skill(t.didx)
-                if dodge_or_skill:
-                    return dodge_or_skill()
-            elif t.autocancel and "auto_fsf" in self._think_modes and self.current_x == globalconf.DEFAULT:
+                dodge = self.dragonform.dx_dodge_or_wait(t.didx)
+                if dodge:
+                    return dodge()
+            elif self.current_x == globalconf.DEFAULT and t.dstat == self.conf[globalconf.DEFAULT].x_max and "auto_fsf" in self._think_modes:
                 return self.fsf()
 
         return result or self._next_x()
@@ -2201,7 +2215,7 @@ class Adv(object):
         t.dstat = doing.status
         t.didx = doing.index
         t.dhit = int(doing.has_delayed)
-        t.autocancel = isinstance(doing, X) and doing.status == Action.RECOVERY and doing.index == self.conf[doing.group].x_max and t.dhit == 0
+        t.autocancel = isinstance(doing, X) and doing.status == Action.RECOVERY and t.dhit == 0
         t.on(latency)
 
     def l_silence_end(self, e):
@@ -2572,12 +2586,12 @@ class Adv(object):
                 limit = attr["vars"][2]
             except IndexError:
                 limit = 1
-            log(varname, f"{value:+}", self.__dict__.get(varname, 0), limit)
             try:
-                value = max(0, min(limit, self.__dict__[varname] + value))
+                new_value = max(0, min(limit, self.__dict__[varname] + value))
             except KeyError:
-                pass
-            self.__dict__[varname] = value
+                new_value = value
+            self.__dict__[varname] = new_value
+            log(varname, f"{value:+}", new_value, limit)
 
         for m in hitmods:
             m.off()

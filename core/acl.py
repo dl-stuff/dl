@@ -72,6 +72,7 @@ BINARY_EXPR_TOKENS = {
 
 
 S_PATTERN = re.compile(r"d?s(\d+)-?x?")
+FS_PATTERN = re.compile(r"d?fs.*")
 
 
 def _pin_s(e):
@@ -85,8 +86,8 @@ PIN_CMD = {
     "X": lambda e: e.didx if e.pin[0] == "x" and e.dstat != -1 and e.dhit == 0 else 0,
     "XF": lambda e: e.didx if e.pin[0] == "x" and e.dstat != -1 else 0,
     "S": _pin_s,
-    "FSC": lambda e: e.pin.startswith("fs") and e.dstat != -1 and e.dhit == 0,
-    "FSCF": lambda e: e.pin.startswith("fs") and e.dstat != -1,
+    "FSC": lambda e: FS_PATTERN.match(e.pin) and e.dstat != -1 and e.dhit == 0,
+    "FSCF": lambda e: FS_PATTERN.match(e.pin) and e.dstat != -1,
     "SP": lambda e: e.dname if e.pin == "sp" else None,
     "PREP": lambda e: e.pin == "prep",
     "REPEAT": lambda e: e.didx if e.dname.endswith("repeat") else 0,

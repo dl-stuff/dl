@@ -245,7 +245,7 @@ class DragonBase(EquipBase):
     FAFNIR = 0.115
     DEFAULT_DCONF = Conf(
         {
-            "dacl": "ds1,x=3", # the default dacl
+            "dacl": "ds1,x=3",  # the default dacl
             "duration": 10.0,  # 10s dragon time
             "dracolith": 0.70,  # base dragon damage
             "exhilaration": 0,  # psiren aura
@@ -468,14 +468,18 @@ class Rose_Queen(DragonBase):
 
 
 class Gala_Beast_Volk(DragonBase):
-    def d_moon_repeat(self, t):
+    def add_rage(self, e=None):
         self.adv.moonlit_rage = min(10, self.adv.moonlit_rage + 1)
+        log("moonlit_rage", "+1", self.adv.moonlit_rage, 10, "auto" if e is None else "dfs")
+
+    def d_moon_repeat(self, t):
+        self.add_rage("auto")
         self.adv.dmg_make("dmoon", 2.58)
         self.adv.add_hp(10)
 
     def ds1_proc(self, e):
-        log("ds1_proc", e.name, e.group)
         if e.group == 0:
+            self.add_rage("auto")
             self.blood_moon_timer.on()
             self.adv.charge_p("ds1", 100, target="ds1", dragon_sp=True)
         else:
@@ -484,7 +488,14 @@ class Gala_Beast_Volk(DragonBase):
             self.adv.moonlit_rage = 0
             self.adv.a_s_dict["ds1"].set_enabled(False)
 
+    def dfs_start(self, e):
+        self.dragon_strike_timer.on()
+
+    def dfs_before(self, e):
+        self.dragon_strike_timer.off()
+
     def shift_end_proc(self):
+        self.dragon_strike_timer.off()
         SelfAffliction("gala_beast_volk_poison", -10, [12, 2.9], affname="poison").on()
 
     def oninit(self, adv):
@@ -492,6 +503,9 @@ class Gala_Beast_Volk(DragonBase):
         self.adv.blood_moon = 0
         self.adv.moonlit_rage = 0
         self.blood_moon_timer = Timer(self.d_moon_repeat, 3.5, True)
+        self.dragon_strike_timer = Timer(self.add_rage, 1.0, True)
+
+        Event("dfs_start").listener(self.dfs_start)
 
 
 ### WIND DRAGONS ###

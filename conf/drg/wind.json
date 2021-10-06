@@ -148,10 +148,10 @@
         }
     },
     "Gala_Beast_Volk": {
-        "default_ds_x": -1,
         "dacl": [
-            "`ds1, (x=3 and blood_moon=0) or moonlit_rage=10",
-            "`dfs, blood_moon=1 and moonlit_rage<10"
+            "`x, fsc and moonlit_rage=9",
+            "`ds1, blood_moon=0",
+            "`dfs, blood_moon=1 and moonlit_rage<9"
         ],
         "d": {
             "name": "Gala Beast Volk",
@@ -163,26 +163,16 @@
         },
         "dfs": {
             "charge": 0.4,
-            "startup": 0.8,
-            "recovery": 0.0,
+            "startup": 0.26667,
+            "recovery": 0.73333,
             "attr": [
-                {"cond": ["var=", ["blood_moon", 1]], "vars": ["moonlit_rage", 1, 10]}
+                {"dmg": 3.14, "sp": 5, "buff": ["debuff", -0.1, 5.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1},
+                {"dmg": 3.14},
+                {"dmg": 3.14}
             ],
-            "repeat": {
-                "startup": 0.0,
-                "recovery": 1.01,
-                "attr": [
-                    {"cond": ["var=", ["blood_moon", 1]], "vars": ["moonlit_rage", 1, 10]}
-                ],
-                "attr_release": [
-                    {"dmg": 3.14, "sp": 5, "buff": ["debuff", -0.1, 5.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1},
-                    {"dmg": 3.14},
-                    {"dmg": 3.14}
-                ]
-            },
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0}
-        },    
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"dodge": 0.0, "s": 0.0}
+        },
         "dx1": {
             "startup": 0.76667,
             "recovery": 0.4,
