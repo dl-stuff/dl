@@ -110,13 +110,13 @@ class Sylas(Adv):
     def buffcount(self):
         return super().buffcount + self.s2_buffcount
 
-    def dmg_formula(self, name, dmg_coef):
+    def dmg_formula(self, name, dmg_coef, dtype=None):
         if self.combined_states is None or name == "test":
-            return super().dmg_formula(name, dmg_coef)
+            return super().dmg_formula(name, dmg_coef, dtype=dtype)
         m_dmg = 0
         for state, state_p in self.combined_states.items():
             with Modifier("sylas_att", "att", "buff", 0.25 * state[0]):
-                s_dmg = state_p * super().dmg_formula(name, dmg_coef)
+                s_dmg = state_p * super().dmg_formula(name, dmg_coef, dtype=dtype)
                 m_dmg += s_dmg
         return m_dmg
 
@@ -221,6 +221,6 @@ variants = {
     "RNG": Sylas_RNG,
     "S2STR": Sylas_STR,
     "S2DEF": Sylas_DEF,
-    "S2HP" : Sylas_HP,
+    "S2HP": Sylas_HP,
     "S2ALL": Sylas_ALL,
 }

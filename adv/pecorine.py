@@ -13,9 +13,9 @@ class Pecorine(Adv):
                 self.gourmand_mode.on()
                 self.gourmand_gauge = 0
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         self.a1_update(attr.get("cp", 0))
-        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit, dtype=dtype)
 
 
 variants = {None: Pecorine}

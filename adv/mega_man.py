@@ -47,7 +47,7 @@ class Mega_Man(Adv):
     def skills(self):
         return self.s3, self.s4
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         ammo = attr.get("ammo", 0)
         if ammo > 0:
             for s in (self.s1, self.s2):
@@ -64,7 +64,7 @@ class Mega_Man(Adv):
                 ammo,
                 " ".join(f"{s.c_ammo}/{s.ammo}" for s in (self.s1, self.s2)),
             )
-        super().hitattr_make(name, base, group, aseq, attr, onhit=None)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit, dtype=dtype)
 
     def s1_proc(self, e):
         if self.current_x != "metalblade":

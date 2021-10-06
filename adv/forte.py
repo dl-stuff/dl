@@ -6,8 +6,8 @@ class Forte(Adv):
         Event("s").listener(self.s_dgauge)
 
     def s_dgauge(self, e):
-        if e.name != "ds":
-            self.dragonform.charge_prep(4)
+        if e.base in ("s1", "s2", "s3", "s4"):
+            self.dragonform.charge_dprep(4)
 
 
 variants = {None: Forte}

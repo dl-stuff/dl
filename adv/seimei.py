@@ -28,9 +28,9 @@ class Seimei(Adv):
             self._add_shikigami_gauge(50)
             self.dp_count -= 100.0
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         self._add_shikigami_gauge(attr.get("cp", 0))
-        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit, dtype=dtype)
 
     def shikigami_dmg(self, t):
         if self.in_dform() or isinstance(self.action.getdoing(), S):

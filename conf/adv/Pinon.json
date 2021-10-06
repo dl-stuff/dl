@@ -21,7 +21,7 @@
             {"dmg": 1.1, "sp": 500}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.03333}
+        "cancel": {"dodge": 0.03333, "s": 0.0}
     },
     "fs2": {
         "charge": 2.5,
@@ -31,7 +31,7 @@
             {"dmg": 6.0, "killer": [2.0, ["frostbite"]], "sp": 710}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.03333}
+        "cancel": {"dodge": 0.03333, "s": 0.0}
     },
     "s1": {
         "sp": 3350,
@@ -46,54 +46,54 @@
         "startup": 0.0,
         "recovery": 0.96667,
         "attr": [
-            {"buff": [["self", 0.5, 40.0, "att", "buff"], ["self", 0.2, 40.0, "defense", "buff"], "-refresh"], "iv": 0.16667, "coei": 1}
+            {"buff": [["self", 0.5, 40.0, "att", "buff"], ["self", 0.2, 40.0, "defense", "buff"], "-refresh"], "coei": 1, "iv": 0.16667}
         ]
     },
     "x1_sigil": {
         "startup": 0.36667,
-        "recovery": 0.06666,
+        "recovery": 0.63333,
         "attr": [
             {"dmg": 0.35, "sp": 184},
             {"dmg": 0.35},
             {"dmg": 0.35}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_sigil": 0.06666}
     },
     "x2_sigil": {
         "startup": 0.27273,
-        "recovery": 0.27272,
+        "recovery": 0.57575,
         "attr": [
             {"dmg": 0.44, "sp": 92},
             {"dmg": 0.44, "iv": 0.21212}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_sigil": 0.27272}
     },
     "x3_sigil": {
         "startup": 0.48485,
-        "recovery": 0.42424,
+        "recovery": 0.57576,
         "attr": [
             {"dmg": 0.5, "sp": 276},
             {"dmg": 0.5},
             {"dmg": 0.5}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_sigil": 0.42424}
     },
     "x4_sigil": {
         "startup": 0.27778,
-        "recovery": 0.27778,
+        "recovery": 0.83333,
         "attr": [
             {"dmg": 0.76, "sp": 414},
             {"dmg": 0.76, "iv": 0.16666}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_sigil": 0.27778}
     },
     "x5_sigil": {
         "startup": 0.97222,
-        "recovery": 0.16667,
+        "recovery": 0.69445,
         "attr": [
             {"dmg": 0.42, "sp": 529},
             {"dmg": 0.42},
@@ -101,37 +101,38 @@
             {"dmg": 0.42},
             {"dmg": 0.42}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x6_sigil": 0.16667}
     },
     "x6_sigil": {
         "startup": 1.33333,
-        "recovery": 0.43334,
+        "recovery": 0.5,
         "attr": [
             {"dmg": 12.72, "sp": 325, "hp": 7.0},
             {"buff": ["energy", 0.4]}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x7_sigil": 0.43334}
     },
     "x7_sigil": {
         "startup": 1.33333,
-        "recovery": 0.43334,
+        "recovery": 0.5,
         "attr": [
             {"dmg": 12.72, "sp": 325, "hp": 7.0},
             {"buff": ["energy", 0.4]}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x8_sigil": 0.43334}
     },
     "x8_sigil": {
         "startup": 1.33333,
-        "recovery": 0.43334,
+        "recovery": 0.5,
         "attr": [
             {"dmg": 12.72, "sp": 325, "hp": 7.0},
             {"buff": ["energy", 0.4]}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "loop": 1,
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x8_sigil": 0.43334}
     }
 }

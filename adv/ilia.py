@@ -59,11 +59,11 @@ class Ilia(Adv):
         for buff in self.cartridge_fs:
             buff.off()
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         add = attr.get("cp")
         if add:
             self.a_update(add)
-        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit, dtype=dtype)
 
     def s1_before(self, e):
         if e.group == "cartridge":

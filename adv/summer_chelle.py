@@ -13,9 +13,9 @@ class Summer_Chelle(Adv):
     def prerun_skillshare(adv, dst):
         adv.radiance_gauge = 0
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         self.update_radiance(attr.get("cp", 0))
-        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit, dtype=dtype)
 
     def update_radiance(self, delta):
         self.radiance_gauge = max(min(self.radiance_gauge + delta, 100), 0)

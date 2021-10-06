@@ -13,6 +13,9 @@ class DragonForm:
         self.adv = adv
         self.dragon = dragon
         self.dform_mode = dform_mode
+
+        self.shift_start_proc = None
+        self.shift_end_proc = None
         self.config_actions()
         # events
         self.status = False
@@ -95,8 +98,6 @@ class DragonForm:
         self.shift_event = Event("dragon")
         self.end_event = Event("dragon_end")
 
-        self.shift_start_proc = None
-        self.shift_end_proc = None
         if self.dform_mode == -1:
             try:
                 self.shift_start_proc = self.dragon.shift_start_proc
@@ -255,6 +256,7 @@ class DragonForm:
         self.pause_auto_gauge()
         for s in self.adv.dskills:
             s.reset_uses()
+        self.adv.set_dacl(True)
         self.adv.charge_p("dshift", 1.0, dragon_sp=True)
         self.previous_x = self.adv.current_x
         self.adv.current_x = DRG
@@ -325,7 +327,6 @@ class DragonForm:
         if self.d_shift():
             self.status = True
             self.dragon_gauge -= self.shift_cost
-            self.adv.set_dacl(True)
             g_logs.set_log_shift(shift_name=self.name)
             if self.shift_start_proc:
                 self.shift_start_proc()
@@ -522,6 +523,5 @@ class DragonFormUTP(DragonForm):
             return False
         if self.dform_mode == 1:
             return super().d_shift_end(e=e, reason=reason)
-        self.adv.set_dacl(False)
         self.ddrive_end_reason = reason
         return False

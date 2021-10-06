@@ -14,9 +14,9 @@ class Gala_Zena(Adv):
                 if ex[0] == "hp":
                     self.passive_hp -= ex[1]
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         self.update_auspex(attr.get("cp", 0))
-        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit, dtype=dtype)
 
     def update_auspex(self, delta):
         if not self.fs_alt.get():

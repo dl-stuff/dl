@@ -10,7 +10,8 @@ class Akasha(Adv):
     conf["slots.d"] = "Gala_Beast_Volk"
     conf["c"]["a"] = [["dp", 100.0]]
     conf["dacl"] = [
-        "`ds1, (x=3 and blood_moon=0) or moonlit_rage=10",
+        "`dodge, fsc and moonlit_rage=10",
+        "`ds1, blood_moon=0 or x=3",
         "`dfs, blood_moon=1 and moonlit_rage<10",
     ]
     conf["acl"] = [

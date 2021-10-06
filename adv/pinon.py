@@ -9,13 +9,6 @@ class Pinon(SigilAdv):
     def prerun(self):
         self.config_sigil(duration=300, x=True)
 
-    def _next_x(self):
-        x_min = 1
-        prev = self.action.getprev()
-        if self.unlocked and isinstance(prev, X) and prev.index >= 5:
-            x_min = 8
-        return super()._next_x(x_min=x_min)
-
 
 class Pinon_UNLOCKED(Pinon):
     SAVE_VARIANT = False

@@ -1767,12 +1767,11 @@ class Adv(object):
             self.deferred_x = None
 
     @allow_acl
-    def x(self, n=1):
-        # force wait for full recovery
+    def x(self):
+        #  force cancel by x
         prev = self.action.getdoing()
-        if isinstance(prev, X) and prev.index == n and prev.group == self.current_x:
-            prev.block_follow_until_end()
-            return True
+        if not isinstance(prev, X):
+            return self._next_x()
         return False
 
     def _next_x(self):
@@ -2160,6 +2159,7 @@ class Adv(object):
 
     def set_dacl(self, enable):
         if enable:
+            self._dacl.reset(self)
             self._c_acl = self._dacl
         else:
             self._c_acl = self._acl
@@ -2363,7 +2363,7 @@ class Adv(object):
         ex = self.mod("ex")
         # to allow dragon overriding
         ele = (self.mod(self.element) + 0.5) * (self.mod(f"{self.slots.c.ele}_resist"))
-        log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
+        # log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
@@ -2849,10 +2849,12 @@ class Adv(object):
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
 
     def l_repeat(self, e):
-        if e.end and self.conf[e.name].repeat["end"]:
-            self.hitattr_make(e.name, e.base, e.group, 0, self.conf[e.name].repeat.end, dtype=e.dtype)
+        self.actmod_on(e)
+        if e.end:
+            if self.conf[e.name].repeat["attr_release"]:
+                for aseq, attr in enumerate(self.conf[e.name].repeat["attr_release"]):
+                    self.do_hitattr_make(e, aseq, attr, pin=e.name.split("_")[0])
         else:
-            self.actmod_on(e)
             self.hit_make(e, self.conf[e.name].repeat, pin=e.name.split("_")[0])
 
     @allow_acl
