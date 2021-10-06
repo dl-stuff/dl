@@ -1022,7 +1022,7 @@ bufftype_dict["drain"] = DrainBuff
 
 
 class SelfAffliction(Buff):
-    def __init__(self, name="<buff_noname>", value=0, duration=0, rate=100, affname=None, mtype="att", morder=None, source=None):
+    def __init__(self, name="<buff_noname>", value=0, duration=0, rate=100, affname=None, mtype="regen", morder="hp", source=None):
         super().__init__(name, value, duration, mtype, morder, source=source)
         self.name = affname
         self.bufftype = "misc"

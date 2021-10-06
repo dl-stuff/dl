@@ -131,12 +131,13 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
     if verbose == 2:
         # output.write(adv._acl_str)
         adv = module(name=name)
-        if isinstance(adv.conf.acl, list):
-            acl = "\n".join(adv.conf.acl)
+        if not adv.conf["dacl"]:
+            adv.config_slots()
+            adv.conf.dacl = adv.slots.d.dform.dacl
         # output.write(acl)
         # output.write("\n")
         # output.write(core.acl._pre_parse(acl))
-        acl = core.acl.build_acl(adv.conf.acl)
+        acl = core.acl.build_acl(adv.conf.acl, adv.conf.dacl)
         output.write(str(acl._acl_str))
         output.write("\n")
         output.write(str(acl._tree.pretty()))

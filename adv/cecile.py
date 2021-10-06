@@ -29,9 +29,9 @@ class Cecile(Adv):
     def dshift_manachew_gauge(self, e):
         self.a1_update(5000)
 
-    def hitattr_make(self, name, base, group, aseq, attr, onhit=None):
+    def hitattr_make(self, name, base, group, aseq, attr, onhit=None, dtype=None):
         self.a1_update(attr.get("cp", 0))
-        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit)
+        super().hitattr_make(name, base, group, aseq, attr, onhit=onhit, dtype=dtype)
 
     def a1_add_manachew_time(self):
         self.manachew_mode.add_time(2)

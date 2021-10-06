@@ -508,10 +508,69 @@ XSF_PATTERN = re.compile(r"^(d?(fs|s)|x|dx)(\d+)(\(([^)]+)\))?")
 DRG_PATTERN = re.compile(r"dragon\s*\(([A-Za-z0-9\-]+)\)(.*)")
 
 
-def _pre_parse(acl):
+def extract_dact(acl, convert_dact=False):
+    if isinstance(acl, list):
+        acl = "\n".join(acl)
+
+    acl_without_dact = []
+    dacl_from_dact = []
+
+    queue_cond = None
+    for line in SEP_PATTERN.split(acl):
+        line = line.strip(" `\n")
+        if not line:
+            continue
+        if line == "end":
+            queue_cond = None
+        elif line.startswith("queue") and len(line) > 5:
+            queue_cond = line[5:]
+        if line[0] == "#":
+            acl_without_dact.append(line)
+            continue
+        drgres = DRG_PATTERN.match(line)
+        if not drgres:
+            acl_without_dact.append(line)
+            continue
+        # dragon actstr -> acl shim
+        dact_str, str_af = drgres.groups()
+        acl_without_dact.append(f"`dragon{str_af}")
+        queue_str = []
+        last_dx = None
+        for a in dact_str.split("-"):
+            if a in ("s", "ds"):
+                if last_dx is not None:
+                    queue_str[-1] = "ds1,x={}".format(last_dx)
+                else:
+                    queue_str.append("ds1,cancel")
+                continue
+            last_dx = None
+            if a in ("sf", "dsf"):
+                queue_str.append("ds1")
+            elif a in ("fs", "dfs"):
+                queue_str.append("dfs")
+            elif a[0] == "c":
+                last_dx = a[1:]
+                queue_str.append("dx{}".format(a[1:]))
+            elif a == "dodge":
+                queue_str.append("dodge")
+            elif a == "end":
+                queue_str.append("sack")
+        if queue_cond:
+            dacl_from_dact.append(f"queue{queue_cond}")
+        else:
+            dacl_from_dact.append("queue")
+        dacl_from_dact.append("`" + ";".join(queue_str))
+        dacl_from_dact.append("end")
+
+    return "\n".join(acl_without_dact), "\n".join(dacl_from_dact)
+
+
+def preparse_acl(acl):
+    if isinstance(acl, list):
+        acl = "\n".join(acl)
+
     pre_parsed = []
 
-    in_queue = False
     join_latest_2 = False
     for line in SEP_PATTERN.split(acl):
         line = line.strip(" `\n")
@@ -521,47 +580,10 @@ def _pre_parse(acl):
         if line == ";":
             join_latest_2 = True
             continue
-        if line == "end":
-            in_queue = False
-        elif line.startswith("queue"):
-            in_queue = True
         if line[0] == "#":
             pre_parsed.append(line)
             continue
-        drgres = DRG_PATTERN.match(line)
-        if drgres:
-            # dragon actstr -> acl shim
-            dact_str, str_af = drgres.groups()
-            queue_str = []
-            last_dx = None
-            for a in dact_str.split("-"):
-                if a in ("s", "ds"):
-                    if last_dx is not None:
-                        queue_str[-1] = "ds(1),x={}".format(last_dx)
-                    else:
-                        queue_str.append("ds(1),cancel")
-                    continue
-                last_dx = None
-                if a in ("sf", "dsf"):
-                    queue_str.append("ds(1)")
-                elif a in ("fs", "dfs"):
-                    queue_str.append("dfs")
-                elif a[0] == "c":
-                    last_dx = a[1:]
-                    queue_str.append("dx({})".format(a[1:]))
-                elif a == "dodge":
-                    queue_str.append("dodge")
-                elif a == "end":
-                    queue_str.append("sack")
-            if in_queue:
-                join_latest_2 = True
-                line = "dragon{};{}".format(str_af, ";".join(queue_str))
-            else:
-                line = "dragon{}\nqueue while in_drg\n`{};\nend".format(str_af, ";".join(queue_str))
-        else:
-            # s1 -> s(1,)
-            line = XSF_PATTERN.sub(r"\1(\3,\5)", line.strip())
-
+        line = XSF_PATTERN.sub(r"\1(\3,\5)", line.strip())
         if not LOGIC_KW.match(line):
             if join_latest_2:
                 pre_parsed[-1] += ";" + line.strip("`")
@@ -575,15 +597,13 @@ def _pre_parse(acl):
 
 
 def build_acl(acl):
-    if isinstance(acl, list):
-        acl = "\n".join(acl)
     if len(acl) > CHAR_LIMIT:
         raise ValueError(f"ACL cannot be longer than {CHAR_LIMIT} characters.")
-    acl = _pre_parse(acl)
-    tree = PARSER.parse(acl)
-    interpreter = AclInterpreter()
-    interpreter.bind(tree, acl)
-    return interpreter
+    acl = preparse_acl(acl)
+    acl_tree = PARSER.parse(acl)
+    acl_intpr = AclInterpreter()
+    acl_intpr.bind(acl_tree, acl)
+    return acl_intpr
 
 
 REGENERATOR = AclRegenerator()

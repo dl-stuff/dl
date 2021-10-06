@@ -21,7 +21,6 @@ class DragonForm:
         self.shift_end_timer = Timer(self.d_shift_end)
         self.shift_silence_timer = Timer(None, 10)
         self.can_end = True
-        Event("dshift").listener(self.d_shift_start, order=0)
         self.l_shift = Listener("dshift", self.d_shift_start, order=0)
         self.l_s = Listener("s", self.l_ds_pause, order=0)
         self.l_s_end = Listener("s_end", self.l_ds_resume, order=0)
@@ -32,6 +31,7 @@ class DragonForm:
         self.shift_skills = ("ds1", "ds2")
 
         self.allow_end_cd = self.conf.allow_end + self.dstime()
+        self.shift_end_reason = None
 
         # mods
         self.dracolith_mod = self.adv.Modifier("dracolith", "ex", "dragon", 0)
@@ -56,6 +56,16 @@ class DragonForm:
 
         # dragonbattle
         self.is_dragonbattle = False
+
+    def set_dragonbattle(self):
+        self.is_dragonbattle = True
+        if self.dform_mode == 0:  # ddrive chara cant do dragon battle
+            self.adv.stop()
+            return
+        for skey in self.shift_skills:
+            self.adv.a_s_dict[skey].dragonbattle_skill = True
+        self.dragon_gauge += self.shift_cost
+        g_logs.log_dact_as_act = True
 
     def config_actions(self):
         # merge confs into adv conf
@@ -84,6 +94,18 @@ class DragonForm:
 
         self.shift_event = Event("dragon")
         self.end_event = Event("dragon_end")
+
+        self.shift_start_proc = None
+        self.shift_end_proc = None
+        if self.dform_mode == -1:
+            try:
+                self.shift_start_proc = self.dragon.shift_start_proc
+            except AttributeError:
+                pass
+            try:
+                self.shift_end_proc = self.dragon.shift_end_proc
+            except AttributeError:
+                pass
 
     def in_dform(self):
         return self.status
@@ -244,33 +266,39 @@ class DragonForm:
         self.shift_event()
 
     def d_shift_end(self, e=None, reason="<timeout>"):
-        if not self.status:
+        if not self.status or self.is_dragonbattle:
             return False
         doing = self.d_shift.getdoing()
-        if self.ds_final and not self.l_s_final_end.get() and not (isinstance(doing, S) and doing.base[:2] == "ds"):
-            self.l_s_final_end.on()
+
+        if self.ds_final and not (isinstance(doing, S) and doing.base in self.shift_skills) and not self.l_s_final_end.get():
             ds_final = self.adv.a_s_dict[self.ds_final]
-            ds_final.charged = self.adv.ds1.sp
-            ds_final.reset_uses()
-            ds_final()
-            self.set_dacts_enabled(False)
-            return False
-        else:
-            if self.off_ele:
-                self.adv.element = self.adv.slots.c.ele
-            if self.shift_spd_mod is not None:
-                self.shift_spd_mod.off()
-            self.shift_silence_timer.on()
-            self.dragon_gauge_pause_timer = Timer(self.resume_auto_gauge).on(self.dragon_gauge_timer_diff)
-            self.adv.current_x = self.previous_x
-            self.l_s.off()
-            self.l_s_end.off()
-            self.l_s_final_end.off()
-            self.set_dacts_enabled(False)
+            if ds_final.ac.conf.final and ds_final.ac.enabled:
+                self.l_s_final_end.on()
+                ds_final.charged = self.adv.ds1.sp
+                ds_final.reset_uses()
+                ds_final()
+                self.set_dacts_enabled(False)
+                self.shift_end_reason = reason
+                return False
+        if self.off_ele:
+            self.adv.element = self.adv.slots.c.ele
+        if self.shift_spd_mod is not None:
+            self.shift_spd_mod.off()
+        self.shift_silence_timer.on()
+        self.dragon_gauge_pause_timer = Timer(self.resume_auto_gauge).on(self.dragon_gauge_timer_diff)
+        self.adv.current_x = self.previous_x
+        self.l_s.off()
+        self.l_s_end.off()
+        self.l_s_final_end.off()
+        self.set_dacts_enabled(False)
+        self.adv.set_dacl(False)
         self.end_event()
         self.d_end()
-        g_logs.set_log_shift(end_reason=reason)
         self.status = False
+        g_logs.set_log_shift(end_reason=self.shift_end_reason or reason)
+        self.shift_end_reason = None
+        if self.shift_end_proc:
+            self.shift_end_proc()
         return True
 
     def d_shift_partial_end(self):
@@ -297,16 +325,19 @@ class DragonForm:
         if self.d_shift():
             self.status = True
             self.dragon_gauge -= self.shift_cost
+            self.adv.set_dacl(True)
             g_logs.set_log_shift(shift_name=self.name)
+            if self.shift_start_proc:
+                self.shift_start_proc()
             return True
         return False
 
     def sack(self):
-        if not self.status:
+        if self.status and not self.l_s_final_end.get() and self.allow_end:
+            self.d_shift_end(reason="<forced>")
+            self.shift_end_timer.off()
             return True
-        if self.l_s_final_end.get():
-            return False
-        return self.allow_end and self.d_shift_end(reason="<forced>")
+        return False
 
 
 class DragonFormUTP(DragonForm):
@@ -491,5 +522,6 @@ class DragonFormUTP(DragonForm):
             return False
         if self.dform_mode == 1:
             return super().d_shift_end(e=e, reason=reason)
+        self.adv.set_dacl(False)
         self.ddrive_end_reason = reason
         return False

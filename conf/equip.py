@@ -282,6 +282,11 @@ def build_from_sim(adv, real_d):
     if not isinstance(acl_list, list):
         acl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
     build["acl"] = acl_list
+    if not adv.using_default_dacl:
+        dacl_list = adv.conf.dacl
+        if not isinstance(acl_list, list):
+            dacl_list = [line.strip() for line in acl_list.split("\n") if line.strip()]
+        build["dacl"] = dacl_list
     build["coabs"] = adv.slots.c.coab_list
     build["share"] = adv.skillshare_list
     return EquipBuild(build)

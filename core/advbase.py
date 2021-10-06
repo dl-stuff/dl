@@ -51,6 +51,7 @@ class Skill(object):
         self.autocharge_sp = 0
 
         self.p_max = 0
+        self.dragonbattle_skill = False
 
     def add_action(self, group, act, phase_up=True):
         act.cast = self.cast
@@ -68,6 +69,8 @@ class Skill(object):
             ac.enabled = enabled
 
     def reset_uses(self):
+        if self.dragonbattle_skill:
+            return
         for ac in self.act_dict.values():
             ac.uses = ac.conf["uses"] or -1
 
@@ -84,6 +87,8 @@ class Skill(object):
 
     @property
     def sp(self):
+        if self.dragonbattle_skill:
+            return self.ac.conf["sp_db"] or self.ac.conf.sp
         return self.ac.conf.sp
 
     @property
@@ -515,17 +520,17 @@ class Repeat(Action):
         self.act_event.name = self.parent.act_event.name
         self.act_event.base = self.parent.act_event.base
         self.act_event.group = self.parent.act_event.group
-        self.act_event.dtype = self.parent.act_event.dtype
+        self.act_event.dtype = "fs"
         self.act_event.end = False
         self.end_repeat_event = Event("repeat")
         self.end_repeat_event.name = self.parent.act_event.name
         self.end_repeat_event.base = self.parent.act_event.base
         self.end_repeat_event.group = self.parent.act_event.group
-        self.end_repeat_event.dtype = self.parent.act_event.dtype
+        self.end_repeat_event.dtype = "fs"
         self.end_repeat_event.end = True
-        self.index = 0
+        self.count = 0
         self.extra_charge = None
-        self.index0_time = None
+        self.count0_time = None
 
     def can_ic(self, name, atype, can):
         if name == self.parent.name and atype == self.parent.atype:
@@ -542,19 +547,19 @@ class Repeat(Action):
         return self.can_ic(name, atype, self.parent.can_cancel)
 
     def __call__(self):
-        self.index = 0
-        self.index0_time = now()
+        self.count = 0
+        self.count0_time = now()
         self.tap()
 
     def _cb_act_end(self, e):
         self.tap()
 
     def tap(self, t=None):
-        self.index += 1
+        self.count += 1
         self._static.doing = self.nop
         # if self.extra_charge:
-        #     log('extra_charge', now() - self.index0_time, self.extra_charge)
-        if self.extra_charge and now() - self.index0_time > self.extra_charge:
+        #     log('extra_charge', now() - self.count0_time, self.extra_charge)
+        if self.extra_charge and now() - self.count0_time > self.extra_charge:
             self.extra_charge = None
             self.end_repeat_event.on()
         else:
@@ -687,13 +692,12 @@ class Fs(Action):
     def getstartup(self, include_buffer=True):
         buffer = 0
         if include_buffer:
-            prev = self.getprev()
+            prev = self.getdoing()
             if prev == self:
                 buffer = self._buffer
             elif prev != self.nop:
                 try:
                     # check if it's 2 X in a row, maybe (???)
-                    # actually get prevprev doesnt work whoops
                     prevprev_rec = 0
                     if isinstance(prev, X) and prev.index > 2:
                         prevprev = prev.getprev()
@@ -791,8 +795,7 @@ class Adv(object):
 
     name = None
     _acl_default = None
-    _acl_dragonbattle = core.acl.build_acl("`dragon")
-    _acl = None
+    _dacl_default = None
 
     def dmg_proc(self, name, amount):
         pass
@@ -919,6 +922,7 @@ class Adv(object):
 
         self.hits = 0
         self.last_c = 0
+        self.hit_event = Event("hit")
 
         self._hp = 3000
         self.base_hp = 3000
@@ -930,6 +934,9 @@ class Adv(object):
         self.energy = Energy()
         self.inspiration = Inspiration()
         self.tension = [self.energy, self.inspiration]
+        if self.nihilism:
+            for tension in self.tension:
+                tension.set_disabled("nihilism")
         self.sab = []
         self.extra_actmods = []
         self.crisis_mods = {
@@ -1205,18 +1212,50 @@ class Adv(object):
         self.slots.set_slots(self.conf.slots)
         self.element = self.slots.c.ele
 
+    def config_acl(self):
+        # acl
+        self.conf.acl, dacl_from_dact = core.acl.extract_dact(self.conf.acl)
+        if self.acl_source != "init":
+            if self._acl_default is None:
+                self._acl_default = core.acl.build_acl(self.conf.acl)
+            self._acl = self._acl_default
+        else:
+            self._acl = core.acl.build_acl(self.conf.acl)
+        # dacl
+        if not self.conf["dacl"]:
+            if self.acl_source is not None and dacl_from_dact:
+                self.conf.dacl = dacl_from_dact
+            else:
+                self.conf.dacl = self.slots.d.dform["dacl"]
+                self.using_default_dacl = True
+        if self.dacl_source != "init":
+            if self._dacl_default is None:
+                self._dacl_default = core.acl.build_acl(self.conf.dacl)
+            self._dacl = self._dacl_default
+        else:
+            self._dacl = core.acl.build_acl(self.conf.dacl)
+
+        self._acl.reset(self)
+        self._dacl.reset(self)
+        self._c_acl = self._acl
+
     def pre_conf(self, equip_conditions=None, name=None):
         self.conf = Conf(self.conf_default)
+        self.acl_source, self.dacl_source = None, None
         self.conf.update(globalconf.get_adv(name or self.name))
         if not self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
-        equip_conf, self.real_equip_conditions = self.equip_manager.get_preferred_entry(equip_conditions)
+        self.equip_conf, self.real_equip_conditions = self.equip_manager.get_preferred_entry(equip_conditions)
         equip_conditions = equip_conditions or self.real_equip_conditions
         self.equip_conditions = equip_conditions
-        if equip_conf:
-            self.conf.update(equip_conf)
+        if self.equip_conf:
+            self.conf.update(self.equip_conf)
             self.conf.update(self.equip_conditions.get_conf())
+            self.acl_source = "equip" if "acl" in self.equip_conf else self.acl_source
+            self.dacl_source = "equip" if "dacl" in self.equip_conf else self.dacl_source
         self.conf.update(self.conf_init)
+        self.acl_source = "init" if "acl" in self.conf_init else self.acl_source
+        self.dacl_source = "init" if "dacl" in self.conf_init else self.dacl_source
         if self.conf["prefer_baseconf"]:
             self.conf.update(self.conf_base)
 
@@ -1291,6 +1330,9 @@ class Adv(object):
 
         # self.ctx.off()
         self._acl = None
+        self._dacl = None
+        self._c_acl = None
+        self.using_default_dacl = False
 
         self.stats = []
 
@@ -1820,14 +1862,19 @@ class Adv(object):
         ctime = self.ctime
         self.last_c = now()
         g_logs.total_hits += self.echo
+        kept_combo = delta <= ctime
         if delta <= ctime:
             self.hits += self.echo
             self.slots.c.update_req_ctime(delta, ctime)
-            return True
         else:
             self.hits = self.echo
             log("combo", f"reset combo after {delta:.02}s")
-            return False
+        self.hit_event.name = name
+        self.hit_event.add = self.echo
+        self.hit_event.hits = self.hits
+        self.hit_event.kept_combo = kept_combo
+        self.hit_event()
+        return kept_combo
 
     def load_aff_conf(self, key):
         confv = self.conf[key]
@@ -2076,16 +2123,7 @@ class Adv(object):
             prerun(self, dst_key)
         self.prerun()
 
-        if "dragonbattle" in self.conf and self.conf["dragonbattle"]:
-            self._acl = self._acl_dragonbattle
-            self.dragonform.set_dragonbattle(self.duration)
-        elif "acl" not in self.conf_init:
-            if self._acl_default is None:
-                self._acl_default = core.acl.build_acl(self.conf.acl)
-            self._acl = self._acl_default
-        else:
-            self._acl = core.acl.build_acl(self.conf.acl)
-        self._acl.reset(self)
+        self.config_acl()
 
         self.displayed_att = int(self.base_att * self.mod("att"))
 
@@ -2093,6 +2131,10 @@ class Adv(object):
             self.condition(f'with {self.conf["fleet"]} other {self.slots.c.name}')
 
         Event("idle")()
+        if "dragonbattle" in self.conf and self.conf["dragonbattle"]:
+            self.dragonform.set_dragonbattle()
+            self.dragon()
+
         end, reason = Timeline.run(self.duration)
 
         self.base_buff.count_team_buff()
@@ -2116,8 +2158,11 @@ class Adv(object):
     def post_run(self, end):
         pass
 
-    def debug(self):
-        pass
+    def set_dacl(self, enable):
+        if enable:
+            self._c_acl = self._dacl
+        else:
+            self._c_acl = self._acl
 
     def cb_think(self, t):
         if "dumb" in self._think_modes and (now() // self.dumb_cd > self.dumb_count):
@@ -2125,9 +2170,9 @@ class Adv(object):
             self.last_c = 0
             return self.a_dooodge()
 
-        result = self._acl(t)
+        result = self._c_acl(t)
 
-        # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))), self.current_x)
+        # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))), result)
 
         if not result:
             if self.in_dform() and t.didx:
@@ -2202,10 +2247,13 @@ class Adv(object):
         real_sp = {}
         if self.in_dform() and dragon_sp:
             # dra mode sp
-            target = None
-            skills = self.dskills
-            for s in self.dskills:
+            if target is None:
+                targets = self.dskills
+            else:
+                targets = (self.a_s_dict[target],)
+            for s in targets:
                 real_sp[s.name] = sp_func(s, name, sp)
+            skills = self.dskills
         else:
             # adv mode sp
             targets = self._get_sp_targets(target, name, no_autocharge)
@@ -2315,7 +2363,7 @@ class Adv(object):
         ex = self.mod("ex")
         # to allow dragon overriding
         ele = (self.mod(self.element) + 0.5) * (self.mod(f"{self.slots.c.ele}_resist"))
-        # log("maffs", name, dmg_mod, att, armor, ex, ele)
+        log("maffs", name, str(dtype), str((dmg_mod, att, self.base_att, armor, ex, ele)))
         return 5.0 / 3 * dmg_coef * dmg_mod * ex * att * self.base_att / armor * ele  # true formula
 
     def l_true_dmg(self, e):
@@ -2341,8 +2389,6 @@ class Adv(object):
     def dmg_make(self, name, coef, dtype=None, fixed=False, hitmods=None, attenuation=None, depth=0):
         if coef <= 0.01:
             return 0
-        if dtype == None:
-            dtype = name
         if hitmods is not None:
             for m in hitmods:
                 m.on()
@@ -2526,6 +2572,7 @@ class Adv(object):
                 limit = attr["vars"][2]
             except IndexError:
                 limit = 1
+            log(varname, f"{value:+}", self.__dict__.get(varname, 0), limit)
             try:
                 value = max(0, min(limit, self.__dict__[varname] + value))
             except KeyError:
@@ -2780,7 +2827,7 @@ class Adv(object):
         self.think_pin(pin or e.name)
 
     def l_fs(self, e):
-        log("cast", e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name)
+        log("cast", e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name, e.dtype)
         self.actmod_on(e)
         self.hit_make(e, self.conf[e.name], pin=e.name.split("_")[0])
 
@@ -2802,9 +2849,8 @@ class Adv(object):
         self.hit_make(e, self.conf[e.name], cb_kind=e.base)
 
     def l_repeat(self, e):
-        log("repeat", e.name)
         if e.end and self.conf[e.name].repeat["end"]:
-            self.hitattr_make(e.name, e.base, e.group, 0, self.conf[e.name].repeat.end)
+            self.hitattr_make(e.name, e.base, e.group, 0, self.conf[e.name].repeat.end, dtype=e.dtype)
         else:
             self.actmod_on(e)
             self.hit_make(e, self.conf[e.name].repeat, pin=e.name.split("_")[0])

@@ -245,6 +245,7 @@ class DragonBase(EquipBase):
     FAFNIR = 0.115
     DEFAULT_DCONF = Conf(
         {
+            "dacl": "ds1,x=3", # the default dacl
             "duration": 10.0,  # 10s dragon time
             "dracolith": 0.70,  # base dragon damage
             "exhilaration": 0,  # psiren aura
@@ -266,15 +267,15 @@ class DragonBase(EquipBase):
 
     def __init__(self, conf, c, qual=None):
         super().__init__(conf.d, c, qual)
-        self.dragonform = conf
+        self.dform = conf
 
     def oninit(self, adv):
         if adv.conf["dragonform"]:
             name = self.c.name
-            self.dragonform = Conf(adv.conf["dragonform"])
+            self.dform = Conf(adv.conf["dragonform"])
         else:
             name = self.name
-        self.dragonform.update(DragonBase.DEFAULT_DCONF, rebase=True)
+        self.dform.update(DragonBase.DEFAULT_DCONF, rebase=True)
 
         if self.c.conf["utp"]:
             from core.dragonform import DragonFormUTP
@@ -285,7 +286,7 @@ class DragonBase(EquipBase):
 
             drgclass = DragonForm
 
-        adv.dragonform = drgclass(name, self.dragonform, adv, self)
+        adv.dragonform = drgclass(name, self.dform, adv, self)
         self.adv = adv
 
     @property
@@ -305,8 +306,8 @@ class DragonBase(EquipBase):
         return super().ab if self.on_ele else []
 
 
-from core.modifier import EffectBuff, Selfbuff, SingleActionBuff
-from core.timeline import Timer, now, Event
+from core.modifier import EffectBuff, SelfAffliction, Selfbuff, SingleActionBuff
+from core.timeline import Listener, Timer, now, Event
 from core.log import log
 
 
@@ -327,13 +328,8 @@ class Gala_Reborn(DragonBase):
 
 ### FLAME DRAGONS ###
 class Gala_Mars(DragonBase):
-    def oninit(self, adv):
-        super().oninit(adv)
-
-        def shift_end_prep(e):
-            adv.charge_p("shift_end", 100)
-
-        Event("dragon_end").listener(shift_end_prep)
+    def shift_end_proc(self):
+        self.adv.charge_p("shift_end", 100)
 
 
 class Gozu_Tenno(DragonBase):
@@ -365,23 +361,6 @@ class Gala_Reborn_Agni(Gala_Reborn):
 ### FLAME DRAGONS ###
 
 ### WATER DRAGONS ###
-class Gaibhne_and_Creidhne(DragonBase):
-    def oninit(self, adv):
-        super().oninit(adv)
-        if not adv.nihilism:
-            charge_timer = Timer(lambda _: adv.charge_p("ds", 0.091, no_autocharge=False), 0.9, True)
-            self.ds_buff = EffectBuff(
-                "ds_sp_regen_zone",
-                10,
-                lambda: charge_timer.on(),
-                lambda: charge_timer.off(),
-            )
-
-    def ds1_proc(self, e):
-        if not self.adv.nihilism:
-            self.ds_buff.on()
-
-
 class Nimis(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
@@ -393,53 +372,20 @@ class Nimis(DragonBase):
         Event("ds").listener(add_gauge_and_time)
 
 
-class Styx(DragonBase):
-    pass
-    # def oninit(self, adv):
-    #     super().oninit(adv)
-
-    #     if not adv.nihilism:
-    #         adv.csd_buff = SingleActionBuff("d_compounding_sd", 0.0, -1, "s", "buff")
-
-    #         def add_csd(e):
-    #             if not adv.csd_buff.get():
-    #                 adv.csd_buff.set(min(2.00, adv.csd_buff.get() + 0.50))
-    #                 adv.csd_buff.on()
-    #             else:
-    #                 adv.csd_buff.value(min(2.00, adv.csd_buff.get() + 0.50))
-
-    #         Timer(add_csd, 15, True).on()
-
-    #         def add_spirit(e):
-    #             if e.index == 3:
-    #                 adv.styx_spirit = min(3, adv.styx_spirit + 1)
-    #                 log("dx_spirit", adv.styx_spirit)
-
-    #         Event("dx").listener(add_spirit)
-
-    #     adv.styx_spirit = 0
-
-    #     def reset_spirit(e):
-    #         adv.styx_spirit = 0
-
-    #     Event("ds").listener(reset_spirit)
-    #     Event("dragon_end").listener(reset_spirit)
-
-
 class Gala_Reborn_Poseidon(Gala_Reborn):
     def oninit(self, adv):
         super().oninit(adv, "gposeidon_buff", "water")
 
 
 class Gabriel(DragonBase):
+    def gab_buff_on(self, e):
+        return self.gabriel_favor.on()
+
     def oninit(self, adv):
         super().oninit(adv)
         self.gabriel_favor = Selfbuff("gabriel_favor", 0.1, -1, "att", "buff")
 
-        def gab_buff_on(_):
-            return self.gabriel_favor.on()
-
-        adv.heal_event.listener(gab_buff_on)
+        adv.heal_event.listener(self.gab_buff_on)
 
 
 ### WATER DRAGONS ###
@@ -460,32 +406,33 @@ class Summer_Konohana_Sakuya(DragonBase):
         4: (0.05, -1, "res", "water"),
         6: (0.20, -1, "regen", "buff"),
     }
+    FLOWER_BUFFS_NIHIL = {
+        4: (0.05, -1, "res", "water"),
+        6: (0.20, -1, "regen", "buff"),
+    }
+
+    def add_flower(self, t=None):
+        if self.adv.summer_sakuya_flowers >= 6:
+            return
+        self.adv.summer_sakuya_flowers += 1
+        try:
+            self.adv.Selfbuff(
+                f"d_sakuya_flower_{self.adv.summer_sakuya_flowers}",
+                *self.flower_buffs[self.adv.summer_sakuya_flowers],
+            ).on()
+        except KeyError:
+            pass
 
     def oninit(self, adv):
         super().oninit(adv)
         adv.summer_sakuya_flowers = 0
         self.flower_buffs = Summer_Konohana_Sakuya.FLOWER_BUFFS
         if adv.nihilism:
-            self.flower_buffs = dict(self.flower_buffs)
-            del self.flower_buffs[1]
-            del self.flower_buffs[2]
-            del self.flower_buffs[3]
+            self.flower_buffs = Summer_Konohana_Sakuya.FLOWER_BUFFS_NIHIL
 
-        def add_flower(t=None):
-            if adv.summer_sakuya_flowers >= 6:
-                return
-            adv.summer_sakuya_flowers += 1
-            try:
-                adv.Selfbuff(
-                    f"d_sakuya_flower_{adv.summer_sakuya_flowers}",
-                    *self.flower_buffs[adv.summer_sakuya_flowers],
-                ).on()
-            except KeyError:
-                pass
-
-        add_flower()
-        Timer(add_flower, 60, True).on()
-        Event("ds").listener(add_flower)
+        self.add_flower()
+        Timer(self.add_flower, 60, True).on()
+        Event("ds").listener(self.add_flower)
 
 
 class Gala_Reborn_Zephyr(Gala_Reborn):
@@ -494,89 +441,97 @@ class Gala_Reborn_Zephyr(Gala_Reborn):
 
 
 class Menoetius(DragonBase):
+    def l_selfaff_proc(self, e):
+        if self.adv.is_set_cd("menoetius_aura", 20):
+            self.deranged_thrill.on()
+            # confirm which mod is used
+            # adv.dmg_make("#menoetius_aura", 27.53)
+            self.adv.dmg_make("#menoetius_aura", 24.57)
+
     def oninit(self, adv):
         super().oninit(adv)
         self.deranged_thrill = Selfbuff("deranged_thrill", 0.25, 45, "att", "passive")
-        self.is_cd = False
-
-        def cd_end(e):
-            self.is_cd = False
-
-        def l_selfaff_proc(e):
-            if not self.is_cd:
-                self.deranged_thrill.on()
-                # confirm which mod is used
-                # adv.dmg_make("#menoetius_aura", 27.53)
-                adv.dmg_make("#menoetius_aura", 24.57)
-                self.is_cd = True
-                Timer(cd_end, 20).on()
-
-        Event("selfaff").listener(l_selfaff_proc)
+        Event("selfaff").listener(self.l_selfaff_proc)
 
 
 class Rose_Queen(DragonBase):
+    def ds1_proc(self, e):
+        log("ds_proc_slayer", "rose_queen")
+        self.slayed_event()
+
     def oninit(self, adv):
         super().oninit(adv)
 
-        try:
-            o_ds_proc = getattr(adv, "ds_proc")
-        except AttributeError:
-            o_ds_proc = None
+        self.slayed_event = Event("slayed")
+        self.slayed_event.count = 25
+        self.slayed_event.name = "dx"
 
-        def ds_proc_slayer(e):
-            log("ds_proc_slayer", "rose_queen")
-            if o_ds_proc:
-                o_ds_proc()
-            e = adv.Event("slayed")
-            e.count = 25
-            e.name = "dx"
-            e()
 
-        adv.ds_proc = ds_proc_slayer
+class Gala_Beast_Volk(DragonBase):
+    def d_moon_repeat(self, t):
+        self.adv.moonlit_rage = min(10, self.adv.moonlit_rage + 1)
+        self.adv.dmg_make("dmoon", 2.58)
+        self.adv.add_hp(10)
+
+    def ds1_proc(self, e):
+        log("ds1_proc", e.name, e.group)
+        if e.group == 0:
+            self.blood_moon_timer.on()
+            self.adv.charge_p("ds1", 100, target="ds1", dragon_sp=True)
+        else:
+            self.blood_moon_timer.off()
+            self.adv.blood_moon = 0
+            self.adv.moonlit_rage = 0
+            self.adv.a_s_dict["ds1"].set_enabled(False)
+
+    def shift_end_proc(self):
+        SelfAffliction("gala_beast_volk_poison", -10, [12, 2.9], affname="poison").on()
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        self.adv.blood_moon = 0
+        self.adv.moonlit_rage = 0
+        self.blood_moon_timer = Timer(self.d_moon_repeat, 3.5, True)
 
 
 ### WIND DRAGONS ###
 
 ### LIGHT DRAGONS ###
 class Gala_Thor(DragonBase):
+    def chariot_energy(self, t):
+        self.adv.energy.add(1)
+
+    def shift_end_proc(self):
+        self.adv.energy.add(5, team=True)
+
     def oninit(self, adv):
         super().oninit(adv)
-        if not adv.nihilism:
-
-            def chariot_energy(t):
-                adv.energy.add(1)
-
-            Timer(chariot_energy, 5, True).on()
-
-            def shift_end_energy(e):
-                adv.energy.add(5, team=True)
-
-            Event("dragon_end").listener(shift_end_energy)
+        Timer(self.chariot_energy, 5, True).on()
 
 
 class Lumiere_Pandora(DragonBase):
+    def add_joyful_radiance(self, e):
+        if self.adv.joyful_radiance == 0:
+            self.joyful_radiance_buff.on()
+        self.adv.joyful_radiance = min(4, self.adv.joyful_radiance + 1)
+        self.joyful_radiance_buff.value(self.adv.joyful_radiance * 0.2)
+
+    def expire_joyful_radiance(self, t):
+        self.adv.joyful_radiance = max(0, self.adv.joyful_radiance - 1)
+        if self.adv.joyful_radiance == 0:
+            self.joyful_radiance_buff.off()
+        else:
+            self.joyful_radiance_buff.value(self.adv.joyful_radiance * 0.2)
+
     def oninit(self, adv):
         super().oninit(adv)
         if not adv.nihilism:
-            joyful_radiance_buff = adv.Selfbuff("joyful_radiance", 0.8, -1, "att", "passive").on()
+            self.joyful_radiance_buff = adv.Selfbuff("joyful_radiance", 0.8, -1, "att", "passive").on()
             adv.joyful_radiance = 4
 
-            def add_joyful_radiance(e):
-                if adv.joyful_radiance == 0:
-                    joyful_radiance_buff.on()
-                adv.joyful_radiance = min(4, adv.joyful_radiance + 1)
-                joyful_radiance_buff.value(adv.joyful_radiance * 0.2)
+            Event("buffskills").listener(self.add_joyful_radiance)
 
-            Event("buffskills").listener(add_joyful_radiance)
-
-            def expire_joyful_radiance(t):
-                adv.joyful_radiance = max(0, adv.joyful_radiance - 1)
-                if adv.joyful_radiance == 0:
-                    joyful_radiance_buff.off()
-                else:
-                    joyful_radiance_buff.value(adv.joyful_radiance * 0.2)
-
-            Timer(expire_joyful_radiance, 20, True).on()
+            Timer(self.expire_joyful_radiance, 20, True).on()
 
 
 class Gala_Reborn_Jeanne(Gala_Reborn):
@@ -589,42 +544,36 @@ class Gala_Reborn_Jeanne(Gala_Reborn):
 ### SHADOW DRAGONS ###
 class Gala_Cat_Sith(DragonBase):
     MAX_TRICKERY = 14
+    THRESHOLD = 25
+
+    def add_trickery(self, t):
+        if not self.adv.nihilism:
+            self.adv.trickery = min(self.adv.trickery + t, Gala_Cat_Sith.MAX_TRICKERY)
+            log("trickery", f"+{t}", self.adv.trickery, self.adv.hits)
+
+    def check_trickery(self, e=None):
+        if self.adv.trickery > 0 and not self.trickery_buff.get():
+            self.adv.trickery -= 1
+            log("trickery", "-1", self.adv.trickery)
+            self.trickery_buff.on()
+
+    def combo_trickery(self, e):
+        n_thit = e.hits // Gala_Cat_Sith.THRESHOLD
+        if n_thit > self.thit:
+            self.add_trickery(1)
+        self.thit = n_thit
+        self.check_trickery()
+
+    def shift_end_proc(self):
+        self.add_trickery(8)
 
     def oninit(self, adv):
         super().oninit(adv)
         adv.trickery = Gala_Cat_Sith.MAX_TRICKERY
         if not adv.nihilism:
-            threshold = 25
+            self.thit = 0
             self.trickery_buff = SingleActionBuff("d_trickery_buff", 1.80, 1, "s", "buff").on()
-
-            def add_trickery(t):
-                adv.trickery = min(adv.trickery + t, Gala_Cat_Sith.MAX_TRICKERY)
-                log("debug", "trickery", f"+{t}", adv.trickery, adv.hits)
-
-            def check_trickery(e=None):
-                if adv.trickery > 0 and not self.trickery_buff.get():
-                    adv.trickery -= 1
-                    log("debug", "trickery", "-1", adv.trickery)
-                    self.trickery_buff.on()
-
-            def shift_end_trickery(e=None):
-                add_trickery(8)
-
-            Event("dragon_end").listener(shift_end_trickery)
-            if adv.condition("always connect hits"):
-                add_combo_o = adv.add_combo
-                self.thit = 0
-
-                def add_combo(name="#"):
-                    result = add_combo_o(name)
-                    n_thit = adv.hits // threshold
-                    if n_thit > self.thit:
-                        add_trickery(1)
-                    self.thit = n_thit
-                    check_trickery()
-                    return result
-
-                adv.add_combo = add_combo
+            self.l_hit = Event("hit").listener(self.combo_trickery)
 
 
 class Fatalis(DragonBase):
@@ -638,11 +587,13 @@ class Fatalis(DragonBase):
 
 
 class Ramiel(DragonBase):
+    def ds1_proc(self, e):
+        self.sp_regen_buff.on()
+
     def oninit(self, adv):
         super().oninit(adv)
-        sp_regen_timer = Timer(lambda _: adv.charge_p("ds_sp", 0.0075, target=["s1", "s2"]), 0.99, True)
-        sp_regen_buff = EffectBuff("ds_sp", 90, lambda: sp_regen_timer.on(), lambda: sp_regen_timer.off())
-        Event("ds").listener(lambda _: sp_regen_buff.on())
+        self.sp_regen_timer = Timer(lambda _: adv.charge_p("ds_sp", 0.0075, target=["s1", "s2"]), 0.99, True)
+        self.sp_regen_buff = EffectBuff("ds_sp", 90, lambda: self.sp_regen_timer.on(), lambda: self.sp_regen_timer.off())
 
 
 class Gold_Fafnir(DragonBase):

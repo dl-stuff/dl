@@ -128,7 +128,8 @@
             "recovery": 0.56667,
             "attr": [
                 {"dmg": 2.66, "sp": 5},
-                {"dmg": 2.66, "msl": 0.2}
+                {"dmg": 2.66, "msl": 0.2},
+                {"dmg": 2.66, "msl": 0.4}
             ],
             "interrupt": {"s": 0.0, "dodge": 0.0},
             "cancel": {"s": 0.0, "dodge": 0.0}
@@ -147,7 +148,11 @@
         }
     },
     "Gala_Beast_Volk": {
-        "act": "c3-s-fs",
+        "default_ds_x": -1,
+        "dacl": [
+            "`ds1, (x=3 and blood_moon=0) or moonlit_rage=10",
+            "`dfs, blood_moon=1 and moonlit_rage<10"
+        ],
         "d": {
             "name": "Gala Beast Volk",
             "icon": "210161_01",
@@ -157,17 +162,24 @@
             "a": [["a", 1.0], ["edge_all", 100.0, "wind"], ["affres_all", -150.0], ["k_stormlash", 0.15, "wind"], ["k_poison", 0.15, "wind"], ["afftime_stormlash", 0.3, "wind"], ["afftime_poison", 0.3, "wind"]]
         },
         "dfs": {
+            "charge": 0.4,
             "startup": 0.26667,
             "recovery": 0.73333,
             "attr": [
                 {"dmg": 3.14, "sp": 5, "buff": ["debuff", -0.1, 5.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1},
-                {"dmg": 3.14},
-                {"dmg": 3.14}
+                {"cond": ["var=", ["blood_moon", 1]], "vars": ["moonlit_rage", 1, 10]}
             ],
+            "repeat": {
+                "startup": 0.0,
+                "recovery": 1.01,
+                "attr": [
+                    {"dmg": 3.14, "sp": 5, "buff": ["debuff", -0.1, 5.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1},
+                    {"cond": ["var=", ["blood_moon", 1]], "vars": ["moonlit_rage", 1, 10]}
+                ]
+            },
             "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0},
-            "charge": 0.4
-        },
+            "cancel": {"s": 0.0, "dodge": 0.0}
+        },    
         "dx1": {
             "startup": 0.76667,
             "recovery": 0.4,
@@ -195,29 +207,36 @@
             "interrupt": {"s": 0.0, "dodge": 0.0, "dfs": 0.0},
             "cancel": {"s": 0.0, "dx1": 0.83334, "dodge": 0.0, "dfs": 0.0}
         },
-        "ds1": {
+        "ds1_phase1": {
             "sp": 30,
             "startup": 0.0,
             "recovery": 2.36667,
             "sp_db": 120,
-            "uses": 1,
+            "uses": 2,
             "attr": [
-                {"amp": ["10000", 3, 2]}
+                {"amp": ["10000", 3, 2], "vars": ["blood_moon", 1, 1]}
             ]
         },
-        "ds1_moon": {
+        "ds1_phase2": {
             "sp": 30,
             "startup": 0.0,
             "recovery": 2.16667,
+            "cancel": {"ds1_phase1": 2.0},
+            "phase_coei": true,
+            "final": true,
             "sp_db": 120,
-            "uses": 1,
             "attr": [
-                {"dmg": 10.98, "afflic": ["stun", 180], "cond": ["var<<", ["moonlit_rage", 0, 3]], "iv": 0.33333},
-                {"dmg": 16.18, "afflic": ["stun", 180], "cond": ["var<<", ["moonlit_rage", 4, 6]], "iv": 0.33333},
-                {"dmg": 22.44, "afflic": ["stun", 180], "cond": ["var<<", ["moonlit_rage", 7, 9]], "iv": 0.33333},
-                {"dmg": 36.0, "afflic": ["stun", 180], "cond": ["var=", ["moonlit_rage", 10]], "iv": 0.33333}
-            ],
-            "final": true
+                {"cond": ["var<=", ["moonlit_rage", 1]], "dmg": 10.98, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 2]], "dmg": 10.98, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 3]], "dmg": 10.98, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 4]], "dmg": 16.18, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 5]], "dmg": 16.18, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 6]], "dmg": 16.18, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 7]], "dmg": 22.44, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 8]], "dmg": 22.44, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 9]], "dmg": 22.44, "afflic": ["stun", 180], "iv": 0.33333},
+                {"cond": ["var=", ["moonlit_rage", 10]], "dmg": 36.0, "afflic": ["stun", 180], "iv": 0.33333}
+            ]
         }
     },
     "Gala_Reborn_Zephyr": {
@@ -326,7 +345,6 @@
         }
     },
     "Hastur": {
-        "act": "c2-s",
         "d": {
             "name": "Hastur",
             "icon": "210105_01",
@@ -428,7 +446,6 @@
         }
     },
     "Long_Long": {
-        "act": "c5-s",
         "d": {
             "name": "Long Long",
             "icon": "210080_01",
