@@ -8,7 +8,7 @@ DACT_NAME = re.compile(r"(?:ds\d+(?:_[A-Za-z0-9]+)?|dfs\d*(?:_[A-Za-z0-9]+)?|dx(
 
 
 class Log:
-    DEBUG = False
+    DEBUG = True
 
     def __init__(self):
         self.reset()

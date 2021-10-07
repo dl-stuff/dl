@@ -52,6 +52,7 @@ class Skill(object):
 
         self.p_max = 0
         self.dragonbattle_skill = False
+        self.overcharge_sp = None
 
     def add_action(self, group, act, phase_up=True):
         act.cast = self.cast
@@ -61,6 +62,10 @@ class Skill(object):
         if isinstance(group, int):
             # might need to distinguish which phase can up eventually
             self.enable_phase_up = self.enable_phase_up or phase_up
+        elif group.startswith("overcharge"):
+            if self.overcharge_sp is None:
+                self.overcharge_sp = [(globalconf.DEFAULT, self.act_dict[globalconf.DEFAULT].conf.sp)]
+            self.overcharge_sp.append((group, act.conf.sp))
         if act.conf["sp_regen"] and not self.autocharge_sp:
             self.autocharge_init(act.conf["sp_regen"]).on()
 
@@ -87,6 +92,12 @@ class Skill(object):
 
     @property
     def sp(self):
+        if self.overcharge_sp:
+            return sum((sp for _, sp in self.overcharge_sp))
+        return self.real_sp
+
+    @property
+    def real_sp(self):
         if self.dragonbattle_skill:
             return self.ac.conf["sp_db"] or self.ac.conf.sp
         return self.ac.conf.sp
@@ -96,10 +107,21 @@ class Skill(object):
         return self.charged // self.sp
 
     @property
+    def overcharge(self):
+        return self.ac.overcharge
+
+    @property
     def sp_str(self):
-        if self.maxcharge > 1:
-            return f"{self.charged}/{self.sp} [{self.count}]"
-        return f"{self.charged}/{self.sp}"
+        if self.overcharge_sp is not None:
+            # oc_summed = "+".join((str(sp) for _, sp in self.overcharge_sp))
+            oc_summed = self.sp
+            if self._static.current_s[self.name] == globalconf.DEFAULT:
+                return f"{self.charged}/{oc_summed}"
+            return f"{self.charged}/{oc_summed} [{self._static.current_s[self.name]}]"
+        else:
+            if self.maxcharge > 1:
+                return f"{self.charged}/{self.sp} [{self.count}]"
+            return f"{self.charged}/{self.sp}"
 
     @property
     def owner(self):
@@ -132,6 +154,12 @@ class Skill(object):
         self.charged = max(min(self.sp * self.maxcharge, self.charged + sp), 0)
         if self.charged >= self.sp:
             self.skill_charged()
+        if self.overcharge_sp is not None:
+            oc_threshold = 0
+            for oc_group, oc_sp in self.overcharge_sp:
+                oc_threshold += oc_sp
+                if self.charged >= oc_threshold:
+                    self._static.current_s[self.name] = oc_group
 
     def cb_silence_end(self, e):
         if loglevel >= 2:
@@ -149,6 +177,8 @@ class Skill(object):
 
     def cast(self):
         self.charged -= self.sp
+        if self.overcharge_sp is not None:
+            self._static.current_s[self.name] = globalconf.DEFAULT
         self._static.s_prev = self.name
         # Even if animation is shorter than 1.9, you can't cast next skill before 1.9
         self.silence_end_timer.on(self.silence_duration)
@@ -731,16 +761,22 @@ class S(Action):
         parts = name.split("_")
         self.base = parts[0]
         self.group = globalconf.DEFAULT
-        self.phase = None
+        self.phase = 0
+        self.overcharge = 0
         if len(parts) >= 2:
             self.group = parts[1]
+            if self.group.startswith("phase"):
+                self.phase = int(self.group[5:])
+            if self.group.startswith("overcharge"):
+                self.overcharge = int(self.group[10:])
 
         self.act_event = Event("s")
         self.act_event.name = self.name
         self.act_event.base = self.base
         self.act_event.group = self.group
         self.act_event.dtype = "s"
-        self.act_event.phase = 0
+        self.act_event.phase = self.phase
+        self.act_event.overcharge = self.overcharge
 
         self.end_event = Event("s_end")
         self.end_event.act = self.act_event
@@ -2316,7 +2352,7 @@ class Adv(object):
         return sp
 
     def _prep_sp_fn(self, s, _, percent):
-        sp = float_ceil(s.sp, percent)
+        sp = float_ceil(s.real_sp, percent)
         s.charge(sp)
         return sp
 
@@ -2369,11 +2405,13 @@ class Adv(object):
         else:
             dmg_coef = e.dmg_coef
         if hasattr(e, "dtype"):
-            name = e.dtype
+            dtype = e.dtype
+        else:
+            dtype = name
         if hasattr(e, "modifiers"):
             if e.modifiers != None and e.modifiers != 0:
                 self.all_modifiers = e.modifiers
-        e.dmg = self.dmg_formula(name, dmg_coef)
+        e.dmg = self.dmg_formula(name, dmg_coef, dtype=dtype)
         self.all_modifiers = self.modifier._static.all_modifiers
         e.ret = e.dmg
         return
@@ -2545,14 +2583,14 @@ class Adv(object):
 
         if "afflic" in attr:
             aff_type, aff_args = attr["afflic"][0], attr["afflic"][1:]
-            getattr(self.afflics, aff_type).on(name, *aff_args)
+            getattr(self.afflics, aff_type).on(name, *aff_args, dtype=dtype)
             if self.conf["fleet"]:
                 try:
                     aff_args[1] = 0
                 except IndexError:
                     pass
                 for _ in range(self.conf["fleet"]):
-                    getattr(self.afflics, aff_type).on(name, *aff_args)
+                    getattr(self.afflics, aff_type).on(name, *aff_args, dtype=dtype)
 
         if "bleed" in attr:
             from module.bleed import Bleed, mBleed
@@ -2566,16 +2604,16 @@ class Adv(object):
                 use_mbleed = self.conf.mbleed and rate < 100
             if use_mbleed:
                 if self.bleed is None:
-                    self.bleed = mBleed("init", mod)
+                    self.bleed = mBleed("init", mod, dtype=dtype)
                     self.bleed.reset()
-                self.bleed = mBleed(base, mod, chance=rate / 100, debufftime=debufftime)
+                self.bleed = mBleed(base, mod, chance=rate / 100, debufftime=debufftime, dtype=dtype)
                 self.bleed.on()
             else:
                 if self.bleed is None:
-                    self.bleed = Bleed("init", mod)
+                    self.bleed = Bleed("init", mod, dtype=dtype)
                     self.bleed.reset()
                 if rate == 100 or rate >= random.uniform(0, 100):
-                    self.bleed = Bleed(base, mod, debufftime=debufftime)
+                    self.bleed = Bleed(base, mod, debufftime=debufftime, dtype=dtype)
                     self.bleed.on()
 
         if "amp" in attr:

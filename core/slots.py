@@ -628,6 +628,19 @@ class Gala_Reborn_Nidhogg(Gala_Reborn):
         super().oninit(adv, "gnidhogg_buff", "shadow")
 
 
+class Gala_Bahamut(DragonBase):
+    def force_dp_amount(self, _):
+        self.adv.dragonform.max_dragon_gauge = 1000
+        self.adv.dragonform.charge_dprep(50)
+        if self.adv.dragonform.dform_mode == -1:
+            self.adv.dragonform.shift_cost = 1000
+
+    def oninit(self, adv):
+        super().oninit(adv)
+        self.adv.dragonform.max_dragon_gauge = 0
+        Timer(self.force_dp_amount, 0.0001).on()
+
+
 ### SHADOW DRAGONS ###
 
 

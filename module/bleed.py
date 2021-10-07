@@ -9,12 +9,12 @@ class Bleed(Dot):
     _static["all_bleeds"] = []
     _static["stacks"] = 0
 
-    def __init__(self, name, dmg_coef, duration=30, debufftime=1):
+    def __init__(self, name, dmg_coef, duration=30, debufftime=1, dtype=None):
         Dot.__init__(self, name, dmg_coef, duration, 4.99)
         self.quickshot_event = Event("dmg_formula")
         self.quickshot_event.dmg_coef = dmg_coef
         self.quickshot_event.dname = f"o_{name}_bleed"
-        self.quickshot_event.dtype = name
+        self.quickshot_event.dtype = dtype or name
         self.quickshot_event.dot = True
         self.dot_end_timer = Timer(self.dot_end_proc)
         self.true_dmg_event = Event("true_dmg")
@@ -98,8 +98,8 @@ class mBleed(Bleed):
     _static["cache"] = []
     _static["get"] = 0
 
-    def __init__(self, name, dmg_coef, chance=0.8, debufftime=1):
-        super(mBleed, self).__init__(name, dmg_coef, debufftime=debufftime)
+    def __init__(self, name, dmg_coef, chance=0.8, debufftime=1, dtype=None):
+        super(mBleed, self).__init__(name, dmg_coef, debufftime=debufftime, dtype=dtype)
         self.end_index = None
         self.chance = chance
         self.bleed_event.rate = chance

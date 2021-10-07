@@ -322,6 +322,123 @@
             ]
         }
     },
+    "Gala_Bahamut": {
+        "d": {
+            "name": "Gala Bahamut",
+            "icon": "210162_01",
+            "att": 128,
+            "hp": 368,
+            "ele": "shadow",
+            "a": [["a", 1.2], ["dt", 1.0]]
+        },
+        "dfs": {
+            "charge": 0.4,
+            "startup": 0.5,
+            "recovery": 1.96667,
+            "attr": [
+                {"dmg": 2.72, "sp": 10},
+                {"dmg": 2.72},
+                {"dmg": 2.72},
+                {"dmg": 2.72}
+            ],
+            "interrupt": {"s": 0.0},
+            "cancel": {"s": 0.0}
+        },
+        "dx1": {
+            "startup": 0.06667,
+            "recovery": 1.6,
+            "attr": [
+                {"dmg": 1.8, "sp": 5},
+                {"dmg": 1.8, "iv": 0.03333},
+                {"dmg": 1.8, "iv": 0.06666},
+                {"dmg": 1.8, "iv": 0.1}
+            ],
+            "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+            "cancel": {"dfs": 0.0, "dodge": 0.0, "dx2": 1.16666, "s": 0.0}
+        },
+        "dx2": {
+            "startup": 1.06667,
+            "recovery": 0.6,
+            "attr": [
+                {"dmg": 9.64, "sp": 5}
+            ],
+            "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+            "cancel": {"dfs": 0.0, "dodge": 0.0, "dx3": 0.5, "s": 0.0}
+        },
+        "dx3": {
+            "startup": 0.76923,
+            "recovery": 1.79487,
+            "attr": [
+                {"dmg": 6.76, "sp": 5},
+                {"dmg": 6.76, "msl": 0.4},
+                {"dmg": 6.76, "msl": 0.8}
+            ],
+            "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+            "cancel": {"dfs": 0.0, "dodge": 0.0, "dx4": 1.64103, "s": 0.0}
+        },
+        "dx4": {
+            "startup": 0.51282,
+            "recovery": 1.02564,
+            "attr": [
+                {"dmg": 18.26, "sp": 15, "msl": 0.4, "msl_spd": 1}
+            ],
+            "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+            "cancel": {"dfs": 0.0, "dodge": 0.0, "dx1": 0.89744, "s": 0.0}
+        },
+        "ds1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 4.0,
+            "cancel": {"dx1": 3.66667},
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"dmg": 4.1, "iv": 2.66667},
+                {"dmg": 4.1, "iv": 2.8},
+                {"dmg": 4.1, "iv": 2.93333},
+                {"dmg": 4.1, "iv": 3.06667},
+                {"dmg": 4.1, "iv": 3.2}
+            ]
+        },
+        "ds1_overcharge1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 4.0,
+            "cancel": {"dx1": 3.66667},
+            "sp_db": 30,
+            "uses": 1,
+            "attr": [
+                {"amp": ["20000", 1, 2]},
+                {"dmg": 5.16, "iv": 2.66667},
+                {"dmg": 5.16, "iv": 2.8},
+                {"dmg": 5.16, "iv": 2.93333},
+                {"dmg": 5.16, "iv": 3.06667},
+                {"dmg": 5.16, "iv": 3.2},
+                {"dmg": 5.16, "iv": 3.33333}
+            ]
+        },
+        "ds1_overcharge2": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 4.0,
+            "cancel": {"dx1": 3.66667},
+            "sp_db": 30,
+            "uses": 1,
+            "attr": [
+                {"amp": ["10000", 1, 2]},
+                {"amp": ["20000", 1, 2]},
+                {"dmg": 5.4, "iv": 2.66667},
+                {"dmg": 5.4, "iv": 3.06667},
+                {"dmg": 5.4, "iv": 3.13333},
+                {"dmg": 5.4, "iv": 3.2},
+                {"dmg": 5.4, "iv": 3.26667},
+                {"dmg": 5.4, "iv": 3.33333},
+                {"dmg": 5.4, "iv": 3.4},
+                {"dmg": 5.4, "iv": 3.46667},
+                {"dmg": 5.4, "iv": 3.53333}
+            ]
+        }
+    },
     "Gala_Cat_Sith": {
         "d": {
             "name": "Gala Cat S\u00ecth",
