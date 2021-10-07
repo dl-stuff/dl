@@ -1,5 +1,6 @@
-const APP_URL = 'http://localhost:5000/';
+//const APP_URL = 'http://localhost:5000/';
 //const APP_URL = 'https://wildshinobu.pythonanywhere.com/';
+const APP_URL = window.location.protocol + "//" + window.location.hostname +  (window.location.hostname === "localhost" ? ":5000/" : "/");
 const BASE_SIM_T = 180;
 const BASE_TEAM_DPS = 50000;
 const WEAPON_TYPES = ['sword', 'blade', 'dagger', 'axe', 'lance', 'bow', 'wand', 'staff', 'gun'];
@@ -559,8 +560,7 @@ function loadAdvSlots(no_conf, default_equip) {
                     }
                     selectSkillShare(slots.adv.basename, slots.adv.pref_share);
                     for (const aclkey of ['acl', 'dacl']){
-                        console.log(slots.adv[aclkey]);
-                        const aclid = `#input-${aclkey}`
+                        const aclid = `#input-${aclkey}`;
                         const acl = trimAcl(slots.adv[aclkey]);
                         $(aclid).data('default_acl', acl);
                         $(aclid).removeData('alternate_acl');
