@@ -13,7 +13,7 @@ from core.afflic import *
 from core.modifier import *
 from core.dummy import Dummy, dummy_function
 from core.condition import Condition
-from core.slots import Slots
+from core.slots import DragonBase, Slots
 import core.acl
 from core.acl import CONTINUE, allow_acl
 import conf as globalconf
@@ -1272,7 +1272,10 @@ class Adv(object):
                 if self.acl_source is not None and dacl_from_dact:
                     self.conf.dacl = dacl_from_dact
                 else:
-                    self.conf.dacl = self.slots.d.dform["dacl"]
+                    if self.slots.d.dform["dacl"]:
+                        self.conf.dacl = self.slots.d.dform["dacl"]
+                    else:
+                        self.conf.dacl = DragonBase.DEFAULT_DCONF["dacl"]
                     self.using_default_dacl = True
             if self.dacl_source != "init":
                 if self._dacl_default is None:
