@@ -13,7 +13,7 @@ class Sophie_Persona(Adv):
         Event("dragondrive_end").listener(lambda e: self.pithos_t.off(), order=0)
 
     def pithos_dmg(self, _):
-        self.dmg_make("x_pithos", 6.23)
+        self.dmg_make("x_pithos", 6.23, dtype="x")
 
     @allow_acl
     def norm(self):

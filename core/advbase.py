@@ -1255,7 +1255,7 @@ class Adv(object):
 
     def config_acl(self):
         # acl
-        self.conf.acl, dacl_from_dact = core.acl.extract_dact(self.conf.acl)
+        self.conf.acl, _ = core.acl.extract_dact(self.conf.acl)
         if self.acl_source != "init":
             if self._acl_default is None:
                 self._acl_default = core.acl.build_acl(self.conf.acl)
@@ -1269,14 +1269,11 @@ class Adv(object):
             self.using_default_dacl = True
         else:
             if not self.conf["dacl"]:
-                if self.acl_source is not None and dacl_from_dact:
-                    self.conf.dacl = dacl_from_dact
+                if self.slots.d.dform["dacl"]:
+                    self.conf.dacl = self.slots.d.dform["dacl"]
                 else:
-                    if self.slots.d.dform["dacl"]:
-                        self.conf.dacl = self.slots.d.dform["dacl"]
-                    else:
-                        self.conf.dacl = DragonBase.DEFAULT_DCONF["dacl"]
-                    self.using_default_dacl = True
+                    self.conf.dacl = DragonBase.DEFAULT_DCONF["dacl"]
+                self.using_default_dacl = True
             if self.dacl_source != "init":
                 if self._dacl_default is None:
                     self._dacl_default = core.acl.build_acl(self.conf.dacl)

@@ -24,7 +24,7 @@ class DragonForm:
         self.shift_end_timer = Timer(self.d_shift_end)
         self.shift_silence_timer = Timer(None, 10)
         self.can_end = True
-        self.l_shift = Listener("dshift", self.d_shift_start, order=0)
+        self.l_shift = Listener("dshift", self.d_shift_start, order=2)
         self.l_s = Listener("s", self.l_ds_pause, order=0)
         self.l_s_end = Listener("s_end", self.l_ds_resume, order=0)
         self.l_s_final_end = Listener("s_end", self.d_shift_end, order=2)
@@ -250,6 +250,11 @@ class DragonForm:
             self.shift_end_timer.off()
 
     def d_shift_start(self, _=None):
+        self.status = True
+        self.dragon_gauge -= self.shift_cost
+        g_logs.set_log_shift(shift_name=self.name)
+        if self.shift_start_proc:
+            self.shift_start_proc()
         if self.off_ele:
             self.adv.element = self.adv.slots.d.ele
         if self.shift_spd_mod is not None:
@@ -264,6 +269,7 @@ class DragonForm:
         self.l_s_end.on()
         self.set_dacts_enabled(True)
         self.adv.charge_p("dshift", 1.0, dragon_sp=True)
+        log("shift_end_timer", "on", self.dtime())
         self.shift_end_timer.on(self.dtime())
         self.reset_allow_end()
         self.shift_event()
@@ -276,6 +282,8 @@ class DragonForm:
         if self.ds_final and not (isinstance(doing, S) and doing.base in self.shift_skills) and not self.l_s_final_end.get():
             ds_final = self.adv.a_s_dict[self.ds_final]
             if ds_final.ac.conf.final and ds_final.ac.enabled:
+                self.l_s.off()
+                self.l_s_end.off()
                 self.l_s_final_end.on()
                 ds_final.charged = self.adv.ds1.sp
                 ds_final.reset_uses()
@@ -283,6 +291,7 @@ class DragonForm:
                 self.set_dacts_enabled(False)
                 self.shift_end_reason = reason
                 return False
+
         if self.off_ele:
             self.adv.element = self.adv.slots.c.ele
         if self.shift_spd_mod is not None:
@@ -305,7 +314,7 @@ class DragonForm:
         return True
 
     def d_shift_partial_end(self):
-        if self.status:
+        if self.status and abs(self.dform_mode) == 1:
             g_logs.set_log_shift(end_reason="<partial>")
 
     @allow_acl
@@ -325,14 +334,7 @@ class DragonForm:
     def shift(self):
         if not self.check():
             return False
-        if self.d_shift():
-            self.status = True
-            self.dragon_gauge -= self.shift_cost
-            g_logs.set_log_shift(shift_name=self.name)
-            if self.shift_start_proc:
-                self.shift_start_proc()
-            return True
-        return False
+        return self.d_shift()
 
     def sack(self):
         if self.status and not self.l_s_final_end.get() and self.allow_end:
@@ -486,13 +488,13 @@ class DragonFormUTP(DragonForm):
         return super().check()
 
     def d_dragondrive_start(self):
-        log("debug", "dtime", self.dtime())
+        self.status = True
         self.set_dacts_enabled(True)
         self.l_s.on()
         self.l_s_end.on()
         self.l_ddrive_end.on()
         self.shift_end_timer.on(self.dtime())
-        g_logs.set_log_shift(end_reason="<dragondrive>")
+        g_logs.set_log_shift(shift_name=self.name, dragondrive=True)
         self.shift_event()
 
     def d_shift_start(self, _=None):

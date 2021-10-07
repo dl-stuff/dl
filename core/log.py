@@ -71,8 +71,8 @@ class Log:
     def fmt_hitattr(attr):
         return "{" + "/".join([f"{k}:{Log.fmt_hitattr_v(v)}" for k, v in attr.items()]) + "}"
 
-    def set_log_shift(self, shift_name=None, end_reason=None):
-        if shift_name and not self.shift_name:
+    def set_log_shift(self, shift_name=None, end_reason=None, dragondrive=False):
+        if not dragondrive and shift_name and not self.shift_name:
             self.shift_name = shift_name
             self.shift_dmg = 0
             self.shift_acts = []
@@ -87,7 +87,7 @@ class Log:
                     self.shift_acts[i] = f"c{self.shift_acts[i]}"
             shift_act_str = " ".join(self.shift_acts)
             self.log(
-                "dshift_end" if end_reason != "<dragondrive>" else "ddrive_start",
+                "dshift_end" if dragondrive else shift_name,
                 f"{self.shift_dmg:.1f}/{duration:.1f}s",
                 f"{self.shift_dmg / duration:.2f} dps",
                 end_reason,
