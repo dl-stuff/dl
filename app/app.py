@@ -63,7 +63,7 @@ def set_teamdps_res(result, logs, real_d, suffix=""):
     return result
 
 
-def run_adv_test(advname, variant, wp=None, dra=None, wep=None, acl=None, conf=None, t=180, log=5, mass=0):
+def run_adv_test(advname, variant, wp=None, dra=None, wep=None, acl=None, dacl=None, conf=None, t=180, log=5, mass=0):
     advmodule = ADV_MODULES[advname][variant]
 
     if conf is None:
@@ -78,6 +78,8 @@ def run_adv_test(advname, variant, wp=None, dra=None, wep=None, acl=None, conf=N
         conf["slots.w"] = wep
     if acl:
         conf["acl"] = acl
+    if dacl:
+        conf["dacl"] = dacl
 
     result = {}
 
@@ -125,7 +127,7 @@ def simc_adv_test():
     dra = params.get("dra")
     wep = params.get("wep")
     acl = params.get("acl")
-    cond = params.get("condition") or None
+    dacl = params.get("dacl")
     t = 180 if not "t" in params else min(abs(float(params["t"])), 600.0)
     log = 5
     mass = 0
@@ -180,6 +182,7 @@ def simc_adv_test():
         dra=dra,
         wep=wep,
         acl=acl,
+        dacl=dacl,
         conf=conf,
         t=t,
         log=log,
@@ -217,7 +220,9 @@ def get_adv_slotlist():
         result["adv"]["pref_wp"] = adv.slots.a.qual_lst
         result["adv"]["pref_coab"] = adv.conf["coabs"] or []
         result["adv"]["pref_share"] = adv.conf["share"] or []
+        adv.config_acl()
         result["adv"]["acl"] = adv.conf.acl
+        result["adv"]["dacl"] = adv.conf.dacl
         if opt_mode is not None and adv.equip_manager[equip_cond] != opt_mode:
             tdps = adv.equip_manager[equip_cond].tdps
             if tdps and 0 <= tdps <= 200000:

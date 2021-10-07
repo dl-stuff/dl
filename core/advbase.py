@@ -1228,8 +1228,9 @@ class Adv(object):
             self._acl = core.acl.build_acl(self.conf.acl)
         self._acl.reset(self)
         # dacl
-        if abs(self.dragonform.dform_mode) != 1:
-            self.using_default_dacl = False
+        self.using_default_dacl = False
+        if self.slots.c.conf["utp"] and self.slots.c.conf["utp"][0] in (0, 2):
+            self.using_default_dacl = True
         else:
             if not self.conf["dacl"]:
                 if self.acl_source is not None and dacl_from_dact:

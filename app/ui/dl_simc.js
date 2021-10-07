@@ -294,8 +294,10 @@ function serConf(no_conf) {
     }
     if ($('#input-edit-acl').prop('checked')) {
         requestJson['acl'] = $('#input-acl').val();
+        requestJson['dacl'] = $('#input-dacl').val();
     } else {
         requestJson['acl'] = $('#input-acl').data('default_acl');
+        requestJson['dacl'] = $('#input-dacl').data('default_acl');
     }
     const sim_aff = readSimAfflic();
     if (sim_aff != null) {
@@ -556,19 +558,23 @@ function loadAdvSlots(no_conf, default_equip) {
                         }
                     }
                     selectSkillShare(slots.adv.basename, slots.adv.pref_share);
-                    const acl = trimAcl(slots.adv.acl);
-                    $('#input-acl').data('default_acl', acl);
-                    $('#input-acl').removeData('alternate_acl');
-                    $('#input-acl').blur();
-                    const acl_check = Boolean(slots.adv.acl_alt && slots.adv.acl_alt != acl);
-                    $('#input-edit-acl').prop('checked', acl_check);
-                    $('#input-acl').prop('disabled', !acl_check);
-                    if (slots.adv.acl_alt) {
-                        const acl_alt = trimAcl(slots.adv.acl_alt);
-                        $('#input-acl').data('alternate_acl', acl_alt);
-                        $('#input-acl').val(acl_alt);
-                    } else {
-                        $('#input-acl').val(acl);
+                    for (const aclkey of ['acl', 'dacl']){
+                        console.log(slots.adv[aclkey]);
+                        const aclid = `#input-${aclkey}`
+                        const acl = trimAcl(slots.adv[aclkey]);
+                        $(aclid).data('default_acl', acl);
+                        $(aclid).removeData('alternate_acl');
+                        $(aclid).blur();
+                        const acl_check = Boolean(slots.adv.acl_alt && slots.adv.acl_alt != acl);
+                        $('#input-edit-acl').prop('checked', acl_check);
+                        $(aclid).prop('disabled', !acl_check);
+                        if (slots.adv.acl_alt) {
+                            const acl_alt = trimAcl(slots.adv.acl_alt);
+                            $(aclid).data('alternate_acl', acl_alt);
+                            $(aclid).val(acl_alt);
+                        } else {
+                            $(aclid).val(acl);
+                        }
                     }
                     $('#input-toggle-affliction').prop('checked', false);
                     $('.input-wp > div > select').prop('disabled', false);
@@ -757,6 +763,7 @@ function toggleInputDisabled(state) {
     $('input').prop('disabled', state);
     if ($('#input-edit-acl').prop('checked')) {
         $('#input-acl').prop('disabled', state);
+        $('#input-dacl').prop('disabled', state);
     }
     $('select').prop('disabled', state);
     if (!state) {
@@ -918,17 +925,19 @@ function runAdvTest(no_conf) {
     });
 }
 function editAcl() {
-    $('#input-acl').prop('disabled', !$(this).prop('checked'));
-    if ($(this).prop('checked')) {
-        $('#input-acl').prop('disabled', false);
-        const altAcl = $('#input-acl').data('alternate_acl');
-        if (altAcl) {
-            $('#input-acl').val(altAcl);
-        }
-    } else {
-        $('#input-acl').data('alternate_acl', $('#input-acl').val());
-        $('#input-acl').prop('disabled', true);
-        $('#input-acl').val($('#input-acl').data('default_acl'));
+    for (const aclkey of ['#input-acl', '#input-dacl']){
+        $(aclkey).prop('disabled', !$(this).prop('checked'));
+        if ($(this).prop('checked')) {
+            $(aclkey).prop('disabled', false);
+            const altAcl = $(aclkey).data('alternate_acl');
+            if (altAcl) {
+                $(aclkey).val(altAcl);
+            }
+        } else {
+            $(aclkey).data('alternate_acl', $(aclkey).val());
+            $(aclkey).prop('disabled', true);
+            $(aclkey).val($(aclkey).data('default_acl'));
+        }    
     }
 }
 function debounce(func, interval) {
@@ -993,25 +1002,6 @@ function resetTest() {
     clearResults();
     populateVariantSelect($('#adv-' + $('#input-adv').val()).data('variants'));
     loadAdvSlots(true, true);
-}
-function weaponSelectChange() {
-    const weapon = $('#input-wep').val();
-    if (weapon.startsWith('Agito') || weapon.startsWith('UnreleasedAgito')) {
-        $('#input-edit-acl').prop('checked', true);
-        $('#input-acl').prop('disabled', false);
-        const acl = $('#input-acl').val().split('\n');
-        let new_acl = '`s3, not buff(s3)\n';
-        for (const line of acl) {
-            if (!line.startsWith('`s3')) {
-                new_acl += line + '\n';
-            }
-        }
-        $('#input-acl').val(new_acl);
-    } else {
-        $('#input-edit-acl').prop('checked', false);
-        $('#input-acl').prop('disabled', true);
-        $('#input-acl').val($('#input-acl').data('default_acl'));
-    }
 }
 function loadGithubCommits() {
     $.ajax({
@@ -1092,7 +1082,6 @@ window.onload = function () {
     $('#input-edit-acl').change(editAcl);
     $('#input-toggle-affliction').change(toggleAffRes);
     $('#input-teamdps').change(updateTeamdps);
-    // $('#input-wep').change(weaponSelectChange);
     clearResults();
     loadAdvWPList();
     loadGithubCommits();

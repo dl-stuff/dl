@@ -99,7 +99,7 @@ class DragonForm:
         self.shift_event = Event("dragon")
         self.end_event = Event("dragon_end")
 
-        if self.dform_mode == -1:
+        if abs(self.dform_mode) == 1:
             try:
                 self.shift_start_proc = self.dragon.shift_start_proc
             except AttributeError:
@@ -258,12 +258,12 @@ class DragonForm:
         for s in self.adv.dskills:
             s.reset_uses()
         self.adv.set_dacl(True)
-        self.adv.charge_p("dshift", 1.0, dragon_sp=True)
         self.previous_x = self.adv.current_x
         self.adv.current_x = DRG
         self.l_s.on()
         self.l_s_end.on()
         self.set_dacts_enabled(True)
+        self.adv.charge_p("dshift", 1.0, dragon_sp=True)
         self.shift_end_timer.on(self.dtime())
         self.reset_allow_end()
         self.shift_event()
