@@ -55,18 +55,16 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "if in_drg",
-        "`ds1, aff_timeleft(frostbite)<15",
-        "`ds2, cancel",
-        "`dodge, x=3",
-        "else",
         "`s3, not buff(s3)",
         "`s4, s=2",
         "`dragon",
         "`s2, x=4",
         "`s1, cancel",
-        "`fs, fs_prep_c and x=4",
-        "end"
+        "`fs, fs_prep_c and x=4"
+      ],
+      "dacl": [
+        "`ds1, aff_timeleft(frostbite)<15",
+        "`ds2, cancel"
       ],
       "coabs": [
         "Blade",

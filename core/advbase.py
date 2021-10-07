@@ -827,10 +827,14 @@ class Dodge(Misc):
 
 
 class Shift(Misc):
-    def __init__(self, name, msg, conf, act=None):
+    def __init__(self, name, dform_name, conf, act=None):
         super().__init__(name, conf, act, atype="s")
         self.act_event.dtype = "x"
-        self.act_event.msg = msg
+        self.dform_name = dform_name
+        self.act_event.msg = dform_name
+
+    def set_msg(self, msg):
+        self.act_event.msg = f"{self.dform_name}: {msg}"
 
 
 class Adv(object):
@@ -1274,22 +1278,19 @@ class Adv(object):
         self._acl.reset(self)
         # dacl
         self.using_default_dacl = False
-        if self.slots.c.conf["utp"] and self.slots.c.conf["utp"][0] in (0, 2):
-            self.using_default_dacl = True
-        else:
-            if not self.conf["dacl"]:
-                if self.slots.d.dform["dacl"]:
-                    self.conf.dacl = self.slots.d.dform["dacl"]
-                else:
-                    self.conf.dacl = DragonBase.DEFAULT_DCONF["dacl"]
-                self.using_default_dacl = True
-            if self.dacl_source != "init":
-                if self._dacl_default is None:
-                    self._dacl_default = core.acl.build_acl(self.conf.dacl)
-                self._dacl = self._dacl_default
+        if not self.conf["dacl"]:
+            if self.slots.d.dform["dacl"]:
+                self.conf.dacl = self.slots.d.dform["dacl"]
             else:
-                self._dacl = core.acl.build_acl(self.conf.dacl)
-            self._dacl.reset(self)
+                self.conf.dacl = DragonBase.DEFAULT_DCONF["dacl"]
+            self.using_default_dacl = True
+        if self.dacl_source != "init":
+            if self._dacl_default is None:
+                self._dacl_default = core.acl.build_acl(self.conf.dacl)
+            self._dacl = self._dacl_default
+        else:
+            self._dacl = core.acl.build_acl(self.conf.dacl)
+        self._dacl.reset(self)
 
         self._c_acl = self._acl
 
@@ -2225,6 +2226,7 @@ class Adv(object):
         pass
 
     def set_dacl(self, enable):
+        log("set_dacl", enable)
         if enable:
             self._dacl.reset(self)
             self._c_acl = self._dacl

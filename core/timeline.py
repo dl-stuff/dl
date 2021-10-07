@@ -151,6 +151,9 @@ class Timer(object):
             return _g_now - self.began
 
     def timeleft(self):
+        from core.log import log
+
+        log("timeleft", self.timing - _g_now, self.pause_time)
         if self.pause_time > 0:
             return self.pause_time
         return self.timing - _g_now
@@ -183,13 +186,16 @@ class Timer(object):
 
     def add(self, time=0):
         # core.log.log('timeline', self.timing, self.timing+time, time, self.timing+time-now())
-        self.timeout += time
-        self.timing += time
-        if self.timing < now():
-            self.off()
-        elif self.online:
-            self.timeline.add(self)
-        return self.timing - now()
+        if self.pause_time > 0:
+            self.pause_time += time
+        else:
+            self.timeout += time
+            self.timing += time
+            if self.timing < now():
+                self.off()
+            elif self.online:
+                self.timeline.add(self)
+            return self.timing - now()
 
     # alias
     disable = off
