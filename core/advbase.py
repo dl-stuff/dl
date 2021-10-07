@@ -78,6 +78,9 @@ class Skill(object):
             return
         for ac in self.act_dict.values():
             ac.uses = ac.conf["uses"] or -1
+        self.charged = 0
+        if self.overcharge_sp is not None:
+            self._static.current_s[self.name] = globalconf.DEFAULT
 
     @property
     def phase(self):
@@ -169,9 +172,15 @@ class Skill(object):
 
     @allow_acl
     def check(self):
-        if not self.ac or not self.ac.enabled or self._static.silence:
+        if self._static.silence or not self.ac or not self.ac.enabled:
             return False
-        if self.charged < self.sp or self.ac.uses == 0:
+        if self.overcharge_sp:
+            valid_sp = self.real_sp
+            valid_uses = self.act_dict[globalconf.DEFAULT].uses
+        else:
+            valid_sp = self.sp
+            valid_uses = self.ac.uses
+        if self.charged < valid_sp or valid_uses == 0:
             return False
         return True
 
