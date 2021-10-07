@@ -71,7 +71,7 @@ def sim_adv(name, variants, sanity_test=False):
                 )
             except Exception as e:
                 printlog("sim", monotonic() - t_start, name, variant, err=e, color=91)
-                # raise e
+                raise e
                 return []
         if not sanity_test:
             dps_after = dps_values(outpath)

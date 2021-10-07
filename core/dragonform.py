@@ -175,10 +175,12 @@ class DragonForm:
     def l_ds_pause(self, e):
         if self.status and e.base in self.shift_skills:
             self.shift_end_timer.pause()
+            log("shift_end_timer", "pause", self.shift_end_timer.timing, self.shift_end_timer.pause_time)
 
     def l_ds_resume(self, e):
         if self.status and e.act.base in self.shift_skills:
             self.shift_end_timer.resume()
+            log("shift_end_timer", "resume", self.shift_end_timer.timing)
 
     @allow_acl
     def dtime(self):
@@ -380,20 +382,23 @@ class DragonFormUTP(DragonForm):
     def in_ddrive(self):
         return self.status
 
+    def set_utp_infinite(self):
+        self.utp_infinte = True
+        self._utp_gauge = self.max_utp_gauge
+
     @property
     def utp_gauge(self):
         if self.utp_infinte:
             self._utp_gauge = self.max_utp_gauge
-        elif self.status:
-            self._utp_gauge = self.shift_end_timer.timeleft() * self.utp_drain
         return self._utp_gauge
 
     def utphaste(self):
         return self.dhaste() + self.adv.mod("utph", operator=operator.add, initial=0)
 
     def _charge_utp(self, name, value):
-        # call utp_gauge here to sync with timer value
-        gauge_before = self.utp_gauge
+        # sync with timer value
+        self._utp_gauge = self.shift_end_timer.timeleft() * self.utp_drain
+        gauge_before = self._utp_gauge
         # use _utp_gauge from here on
         self._utp_gauge = max(0, min(self.max_utp_gauge, gauge_before + value))
         delta = self._utp_gauge - gauge_before
@@ -404,10 +409,10 @@ class DragonFormUTP(DragonForm):
                 f"{int(delta):+} ({delta/self.utp_drain:+2.4}s)",
                 f"{int(self._utp_gauge)}/{int(self.max_utp_gauge)} ({self.dtime():2.4}s)",
             )
-        if self._utp_gauge <= 0:
-            self._utp_gauge = 0
-            self.d_shift_end(reason="<gauge deplete>")
-        elif not self.utp_infinte:
+        else:
+            if self._utp_gauge <= 0:
+                self._utp_gauge = 0
+                self.d_shift_end(reason="<gauge deplete>")
             if self.shift_end_timer.pause_time:
                 self.shift_end_timer.pause_time = self._utp_gauge / self.utp_drain
             else:
@@ -493,12 +498,12 @@ class DragonFormUTP(DragonForm):
     def d_shift_start(self, _=None):
         if self.dform_mode == 1:
             super().d_shift_start()
-            if self.utp_infinte:
-                self.shift_end_timer.off()
-                self.l_s.off()
-                self.l_s_end.off()
-            return
-        return self.d_dragondrive_start()
+        else:
+            self.d_dragondrive_start()
+        if self.utp_infinte:
+            self.shift_end_timer.off()
+            self.l_s.off()
+            self.l_s_end.off()
 
     def d_dragondrive_end(self, _=None):
         if self.ddrive_end_reason is not None:

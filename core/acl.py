@@ -162,7 +162,7 @@ class AclInterpreter(Interpreter):
         else:
             t._visited = bool(result) or getattr(t, "_visited", False)
         # if t.data == "action":
-        #     log("visited", str(result), str(t))
+        #     log("visited", str(result), str(t), self._queue_while)
         return result
 
     def start(self, t):

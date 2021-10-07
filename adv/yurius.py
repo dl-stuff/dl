@@ -1,41 +1,12 @@
 from core.advbase import *
 
 
-class Yurius(Adv):
-    def prerun(self):
-        self.dragondrive = self.dragonform.set_dragondrive(
-            ModeManager(
-                group="ddrive",
-                buffs=[
-                    Selfbuff("dragondrive_sd", 0.35, -1, "s", "passive"),
-                    Selfbuff("dragondrive_sp", 0.30, -1, "sp", "buff"),
-                ],
-                s1=True,
-                s2=True,
-            ),
-            drain=75,
-        )
-
-
-class Yurius_DDRIVE(Yurius):
+class Yurius_DDRIVE(Adv):
     SAVE_VARIANT = False
     comment = "infinite ddrive gauge"
 
     def prerun(self):
-        self.dragondrive = self.dragonform.set_dragondrive(
-            ModeManager(
-                group="ddrive",
-                buffs=[
-                    Selfbuff("dragondrive_sd", 0.35, -1, "s", "passive"),
-                    Selfbuff("dragondrive_sp", 0.30, -1, "sp", "buff"),
-                ],
-                s1=True,
-                s2=True,
-            ),
-            drain=75,
-            infinite=True,
-        )
-        self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
+        self.dragonform.set_utp_infinite()
 
 
-variants = {None: Yurius, "DDRIVE": Yurius_DDRIVE}
+variants = {None: Adv, "DDRIVE": Yurius_DDRIVE}

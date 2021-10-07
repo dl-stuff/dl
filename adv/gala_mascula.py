@@ -30,8 +30,6 @@ a3_stack_cap = 10
 class Gala_Mascula(Adv):
     def prerun(self):
         self.slots.c.set_need_bufftime()
-        self.amplified_current = 0
-        self.amplified_current_buff = EffectBuff("amplified_current", 11, self.amplified_current_on, self.amplified_current_off, source="s1")
 
         self.masterctrl_buff = EffectBuff("masterctrl", 26, self.masterctrl_on, self.masterctrl_off)
         self.masterctrl_mods = [
@@ -48,7 +46,6 @@ class Gala_Mascula(Adv):
             x=True,
             s1=True,
             s2=True,
-            fs=True,
             source="s2",
         )
         self.masterctrl_buff.hidden = False
@@ -68,12 +65,6 @@ class Gala_Mascula(Adv):
     def prerun_skillshare(adv, dst):
         adv.current_s[dst] = "masterctrl"
 
-    def amplified_current_on(self):
-        self.amplified_current = 1
-
-    def amplified_current_off(self):
-        self.amplified_current = 0
-
     def masterctrl_30c(self):
         return self.hits >= 30 and self.masterctrl_buff.get()
 
@@ -83,10 +74,6 @@ class Gala_Mascula(Adv):
     def masterctrl_off(self):
         self.current_s["s2"] = "default"
         self.charge_p("masterctrl", 0.5, target="s2")
-
-    def s1_proc(self, e):
-        if e.group == "masterctrl":
-            self.amplified_current_buff.on()
 
     def s2_proc(self, e):
         if e.group != "masterctrl":

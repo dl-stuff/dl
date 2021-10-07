@@ -131,13 +131,7 @@ def test(name, module, conf={}, duration=180, verbose=0, mass=None, output=sys.s
     if verbose == 2:
         # output.write(adv._acl_str)
         adv = module(name=name)
-        if not adv.conf["dacl"]:
-            adv.config_slots()
-            adv.conf.dacl = adv.slots.d.dform.dacl
-        # output.write(acl)
-        # output.write("\n")
-        # output.write(core.acl._pre_parse(acl))
-        acl = core.acl.build_acl(adv.conf.acl, adv.conf.dacl)
+        acl = core.acl.build_acl(adv.conf.acl)
         output.write(str(acl._acl_str))
         output.write("\n")
         output.write(str(acl._tree.pretty()))
@@ -433,7 +427,7 @@ def compile_stats(adv, real_d):
     if adv.logs.echo_att:
         stats["echo"] = f"{adv.logs.echo_att[0]/adv.logs.echo_att[1]:.2f} avg overdamage att"
     if adv.logs.team_sp:
-        stats["sp"] = f"{adv.logs.team_sp} sp to team"
+        stats["sp"] = f"{round(adv.logs.team_sp)} sp to team"
 
     return stats
 

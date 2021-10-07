@@ -14,7 +14,7 @@ class Tiki_INFDRGN(Adv):
     comment = "infinite divine shift gauge"
 
     def prerun(self):
-        self.dragonform.utp_infinte = True
+        self.dragonform.set_utp_infinite()
 
 
 variants = {None: Adv, "DDAMAGE": Tiki_DDAMAGE, "INFDRGN": Tiki_INFDRGN}

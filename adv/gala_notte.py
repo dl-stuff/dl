@@ -14,7 +14,7 @@ class Gala_Notte_INFMETA(Adv):
     SAVE_VARIANT = False
 
     def prerun(self):
-        self.dragonform.utp_infinte = True
+        self.dragonform.set_utp_infinite()
 
 
 variants = {None: Adv, "DDAMAGE": Gala_Notte_DDAMAGE, "INFMETA": Gala_Notte_INFMETA}

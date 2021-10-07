@@ -10,80 +10,6 @@
         "a": [["affres_freeze", 100.0], ["cd", 0.2]],
         "utp": [2, 3000, 1200, 75]
     },
-    "dragonform": {
-        "dodge": {
-            "recovery": 2.0
-        },
-        "dshift": {
-            "recovery": 0.0
-        },
-        "dx1": {
-            "startup": 1.0,
-            "recovery": 1.8,
-            "attr": [
-                {"dmg": 2.0}
-            ],
-            "interrupt": {"s": 0.0},
-            "cancel": {"s": 0.0}
-        },
-        "dx2": {
-            "startup": 1.0,
-            "recovery": 1.8,
-            "attr": [
-                {"dmg": 2.0},
-                {"heal": [10, "team"]}
-            ],
-            "interrupt": {"s": 0.0},
-            "cancel": {"s": 0.0}
-        },
-        "dx3": {
-            "startup": 0.66667,
-            "recovery": 2.13333,
-            "attr": [
-                {"dmg": 2.0}
-            ],
-            "interrupt": {"s": 0.0},
-            "cancel": {"s": 0.0}
-        },
-        "ds1": {
-            "sp": 30,
-            "startup": 0.0,
-            "recovery": 1.96667,
-            "sp_db": 45,
-            "uses": 1,
-            "attr": [
-                {"dmg": 7.43, "crit": 0.3, "iv": 0.36667, "msl": 0.16667},
-                {"dmg": 7.43, "crit": 0.3, "iv": 0.36667, "msl": 0.33333},
-                {"dmg": 7.43, "crit": 0.3, "iv": 0.36667, "msl": 0.5}
-            ]
-        },
-        "ds2": {
-            "sp": 30,
-            "startup": 0.0,
-            "recovery": 1.33333,
-            "sp_db": 45,
-            "uses": 1,
-            "attr": [
-                {"dmg": 6.0, "iv": 0.71111, "msl": 0.3},
-                {"dmg": 6.0, "iv": 0.71111, "msl": 0.43333},
-                {"dmg": 6.0, "iv": 0.71111, "msl": 0.56667},
-                {"dmg": 6.0, "iv": 0.71111, "msl": 0.7},
-                {"dmg": 6.0, "iv": 0.71111, "msl": 0.83333}
-            ],
-            "attr_base": [
-                {"dmg": 8.25, "gluca": 1, "crit": 0.3, "iv": 0.36667, "msl": 0.16667},
-                {"dmg": 8.25, "gluca": 1, "crit": 0.3, "iv": 0.36667, "msl": 0.33333},
-                {"dmg": 8.25, "gluca": 1, "crit": 0.3, "iv": 0.36667, "msl": 0.5}
-            ],
-            "attr_plus": [
-                {"dmg": 5.0, "gluca": 1, "crit": 0.5, "iv": 0.36667, "msl": 0.2},
-                {"dmg": 5.0, "gluca": 1, "crit": 0.5, "iv": 0.36667, "msl": 0.26667},
-                {"dmg": 5.0, "gluca": 1, "crit": 0.5, "iv": 0.36667, "msl": 0.3},
-                {"dmg": 5.0, "gluca": 1, "crit": 0.5, "iv": 0.36667, "msl": 0.36667},
-                {"dmg": 5.0, "gluca": 1, "crit": 0.5, "iv": 0.36667, "msl": 0.43333}
-            ]
-        }
-    },
     "fs": {
         "charge": 0.4,
         "startup": 0.16667,
@@ -181,11 +107,27 @@
         "startup": 0.0,
         "recovery": 1.33333,
         "attr": [
-            {"dmg": 7.43, "crit": 0.3, "msl": 0.53334, "gluca": 1},
-            {"dmg": 7.43, "crit": 0.3, "msl": 0.7, "gluca": 1},
-            {"dmg": 7.43, "crit": 0.3, "msl": 0.86667, "gluca": 1}
+            {"dmg": 6.1875, "crit": 0.3, "msl": 0.53334, "gluca": 1},
+            {"dmg": 6.1875, "crit": 0.3, "msl": 0.7, "gluca": 1},
+            {"dmg": 6.1875, "crit": 0.3, "msl": 0.86667, "gluca": 1},
+            {"dmg": 1.25, "crit": 0.5, "iv": 0.36667, "msl": 0.2, "gluca": 1},
+            {"dmg": 1.25, "crit": 0.5, "iv": 0.36667, "msl": 0.26667, "gluca": 1},
+            {"dmg": 1.25, "crit": 0.5, "iv": 0.36667, "msl": 0.3, "gluca": 1},
+            {"dmg": 1.25, "crit": 0.5, "iv": 0.36667, "msl": 0.36667, "gluca": 1},
+            {"dmg": 1.25, "crit": 0.5, "iv": 0.36667, "msl": 0.43333, "gluca": 1}
         ],
-        "energizable": true
+        "attr_BASE": [
+            {"dmg": 8.25, "crit": 0.3, "msl": 0.53334, "gluca": 1},
+            {"dmg": 8.25, "crit": 0.3, "msl": 0.7, "gluca": 1},
+            {"dmg": 8.25, "crit": 0.3, "msl": 0.86667, "gluca": 1}
+        ],
+        "attr_PLUS": [
+            {"dmg": 5.0, "crit": 0.5, "iv": 0.36667, "msl": 0.2, "gluca": 1},
+            {"dmg": 5.0, "crit": 0.5, "iv": 0.36667, "msl": 0.26667, "gluca": 1},
+            {"dmg": 5.0, "crit": 0.5, "iv": 0.36667, "msl": 0.3, "gluca": 1},
+            {"dmg": 5.0, "crit": 0.5, "iv": 0.36667, "msl": 0.36667, "gluca": 1},
+            {"dmg": 5.0, "crit": 0.5, "iv": 0.36667, "msl": 0.43333, "gluca": 1}
+        ]
     },
     "s2": {
         "sp": 5450,
@@ -206,7 +148,7 @@
             {"dmg": 6.0, "msl": 1.01111},
             {"dmg": 6.0, "msl": 1.14444},
             {"dmg": 6.0, "msl": 1.27778},
-            {"dmg": 6.0, "msl": 1.4111099999999999},
+            {"dmg": 6.0, "msl": 1.41111},
             {"dmg": 6.0, "msl": 1.54444}
         ],
         "energizable": true

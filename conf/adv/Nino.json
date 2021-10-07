@@ -7,7 +7,7 @@
         "ele": "wind",
         "wt": "sword",
         "spiral": false,
-        "a": [["affres_freeze", 100.0], ["cc", 0.13, "hit15"]],
+        "a": [["a", 0.15, "ddrive"], ["spd", 0.1, "ddrive"], ["affres_freeze", 100.0], ["cc", 0.13, "hit15"]],
         "utp": [0, 3000, 1200, 150]
     },
     "fs_ddrive": {
@@ -17,8 +17,8 @@
         "attr": [
             {"dmg": 1.73, "odmg": 5.34, "sp": 345, "utp": 80}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0, "x1_ddrive": 0.3171, "x1": 0.3171}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.3171, "x1_ddrive": 0.3171}
     },
     "s1": {
         "sp": 2714,
@@ -80,7 +80,7 @@
             {"dmg": 0.9, "iv": 0.16667}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.16667, "dodge": 0.0, "x2_ddrive": 0.4}
+        "cancel": {"dodge": 0.0, "fs": 0.16667, "s": 0.0, "x2_ddrive": 0.4}
     },
     "x2_ddrive": {
         "startup": 0.0,
@@ -90,7 +90,7 @@
             {"dmg": 0.96, "iv": 0.2}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x3_ddrive": 0.37037}
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_ddrive": 0.37037}
     },
     "x3_ddrive": {
         "startup": 0.0,
@@ -100,7 +100,7 @@
             {"dmg": 1.14, "iv": 0.1875}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x4_ddrive": 0.28571}
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_ddrive": 0.28571}
     },
     "x4_ddrive": {
         "startup": 0.26667,
@@ -109,8 +109,8 @@
             {"dmg": 0.15, "sp": 265, "utp": 180},
             {"dmg": 1.2, "iv": 0.23333}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x5_ddrive": 0.3}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_ddrive": 0.3}
     },
     "x5_ddrive": {
         "startup": 0.0,
@@ -121,6 +121,6 @@
             {"dmg": 1.8, "iv": 0.47576}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0, "x1_ddrive": 1.06061}
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1_ddrive": 1.06061}
     }
 }

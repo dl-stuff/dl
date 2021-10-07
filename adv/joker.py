@@ -19,7 +19,7 @@ class Joker_PERSONA(Adv):
     comment = "infinite persona gauge"
 
     def prerun(self):
-        self.dragonform.utp_infinite = True
+        self.dragonform.set_utp_infinite()
 
 
 variants = {None: Adv, "PERSONA": Joker_PERSONA}

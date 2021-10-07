@@ -1228,7 +1228,7 @@ class Adv(object):
             self._acl = core.acl.build_acl(self.conf.acl)
         self._acl.reset(self)
         # dacl
-        if abs(self.dragonform.dform_mode) == 1:
+        if abs(self.dragonform.dform_mode) != 1:
             self.using_default_dacl = False
         else:
             if not self.conf["dacl"]:
@@ -1611,7 +1611,7 @@ class Adv(object):
                 return 0
             if isinstance(param, int):
                 suffix = "" if self.current_x == globalconf.DEFAULT else f"_{self.current_x}"
-                actkeys = (f"x{i}{suffix}" for i in range(1, min(param, self.dragonform.dx_max) + 1))
+                actkeys = (f"x{i}{suffix}" for i in range(1, min(param, self.conf[self.current_x].x_max) + 1))
             else:
                 actkeys = (param,)
         sp_sum = 0
@@ -1738,7 +1738,7 @@ class Adv(object):
     @allow_acl
     def fs(self, n=None):
         fsn = "fs" if n is None else f"fs{n}"
-        if self.in_dform:
+        if self.in_dform():
             fsn = "d" + fsn
         self.check_deferred_x()
         if self.current_fs is not None:
@@ -1765,7 +1765,10 @@ class Adv(object):
             fsn = "d" + fsn
         if self.current_fs is not None:
             fsn += "_" + self.current_fs
-        fs_act = self.a_fs_dict[fsn]
+        try:
+            fs_act = self.a_fs_dict[fsn]
+        except KeyError:
+            return False
         delta = fs_act.getstartup(include_buffer=False) + fs_act.getrecovery()
         if delta < t:
             fs_act.extra_charge = t - delta
@@ -1931,8 +1934,11 @@ class Adv(object):
     @allow_acl
     def s(self, n):
         self.check_deferred_x()
+        skey = f"s{n}"
+        if self.in_dform():
+            skey = f"ds{n}"
         try:
-            return self.a_s_dict[f"s{n}"]()
+            return self.a_s_dict[skey]()
         except KeyError:
             return False
 
@@ -2187,7 +2193,7 @@ class Adv(object):
 
         result = self._c_acl(t)
 
-        # log("think", t.dname, "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit, t.autocancel))), result)
+        # log("think", t.dname, "dacl" if self._acl is self._dacl else "acl", "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit))), result)
 
         if not result and t.pin[0] == "x" and isinstance(t.doing, X) and t.didx > 0 and t.doing.status == Action.RECOVERY and t.dhit == 0:
             if self.in_dform():
@@ -2216,7 +2222,7 @@ class Adv(object):
         t.dstat = doing.status
         t.didx = doing.index
         t.dhit = int(doing.has_delayed)
-        t.doing = doing  # t.pin[0] == "x" and doing.status == Action.RECOVERY and t.dhit == 0
+        t.doing = doing
         t.on(latency)
 
     def l_silence_end(self, e):
@@ -2332,7 +2338,7 @@ class Adv(object):
             f"{percent*100:.0f}%",
             all_sp_str,
         )
-        if percent >= 1:
+        if percent >= 1 and target is None:
             self.think_pin("prep")
 
     def charge(self, name, sp, target=None, dragon_sp=False):

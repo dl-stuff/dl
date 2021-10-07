@@ -20,10 +20,10 @@ class Mona_RNG(Mona):
         if e.group == "ddrive":
             if random.random() <= 0.25:
                 log("s1_ddrive", "variant", "plus")
-                self.conf.s1_ddrive.attr = self.conf.s1_ddrive.attr_plus
+                self.conf.s1_ddrive.attr = self.conf.s1_ddrive.attr_PLUS
             else:
                 log("s1_ddrive", "variant", "base")
-                self.conf.s1_ddrive.attr = self.conf.s1_ddrive.attr_base
+                self.conf.s1_ddrive.attr = self.conf.s1_ddrive.attr_BASE
 
 
 class Mona_PERSONA(Mona):
@@ -32,8 +32,7 @@ class Mona_PERSONA(Mona):
 
     def prerun(self):
         super().prerun()
-        self.dragondrive = self.dragonform.set_dragondrive(ModeManager(group="ddrive", x=True, fs=True, s1=True, s2=True), drain=75, infinite=True)
-        self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
+        self.dragonform.set_utp_infinite()
 
 
 variants = {None: Mona, "RNG": Mona_RNG, "PERSONA": Mona_PERSONA}

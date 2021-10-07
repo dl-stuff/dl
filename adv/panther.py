@@ -28,7 +28,7 @@ class Panther_PERSONA(Panther):
 
     def prerun(self):
         super().prerun()
-        self.dragonform.utp_infinite = True
+        self.dragonform.set_utp_infinite()
 
 
 variants = {None: Panther, "PERSONA": Panther_PERSONA}

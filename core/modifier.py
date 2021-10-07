@@ -335,12 +335,12 @@ class Buff(object):
             self._static.adv.add_hp(percent)
         # FIXME: heal formula 1day twust
         elif self.mod_type == "regen" and value != 0:
-            if self.mod_order == "hp":
+            if self.mod_order in ("hp", "buff"):
                 self.set_hp_event = Event("set_hp")
                 self.set_hp_event.delta = value
                 self.set_hp_event.source = "dot"
                 self.regen_timer = Timer(self.hp_regen, self.interval, True).on()
-            elif self.mod_order == "sp":
+            elif self.mod_order in ("sp", "sp%"):
                 self.regen_timer = Timer(self.sp_regen, self.interval, True).on()
         elif self.mod_type == "heal" and value != 0:
             self.set_hp_event = Event("heal_make")

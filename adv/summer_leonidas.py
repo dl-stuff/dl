@@ -1,35 +1,12 @@
 from core.advbase import *
 
 
-class Summer_Leonidas(Adv):
-    def prerun(self):
-        self.dragondrive = self.dragonform.set_dragondrive(
-            ModeManager(
-                group="ddrive",
-                buffs=[Selfbuff("dragondrive", 0.5, -1, "a", "passive")],
-                fs=True,
-                s1=True,
-            ),
-            drain=150,
-        )
-
-
-class Summer_Leonidas_DDRIVE(Summer_Leonidas):
+class Summer_Leonidas_DDRIVE(Adv):
     SAVE_VARIANT = False
     comment = "infinite ddrive gauge"
 
     def prerun(self):
-        self.dragondrive = self.dragonform.set_dragondrive(
-            ModeManager(
-                group="ddrive",
-                buffs=[Selfbuff("dragondrive", 0.5, -1, "a", "passive")],
-                fs=True,
-                s1=True,
-            ),
-            drain=150,
-            infinite=True,
-        )
-        self.dragonform.charge_gauge(3000, utp=True, dhaste=False)
+        self.dragonform.set_utp_infinite()
 
 
-variants = {None: Summer_Leonidas, "DDRIVE": Summer_Leonidas_DDRIVE}
+variants = {None: Adv, "DDRIVE": Summer_Leonidas_DDRIVE}

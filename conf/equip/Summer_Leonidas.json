@@ -19,7 +19,7 @@
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, xf",
         "`fs3, not charged_in(x5, s1) and cancel",
         "else",
@@ -58,7 +58,7 @@
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
@@ -106,7 +106,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "If dragondrive.get()",
+        "If in_drg",
         "`s1, xf",
         "`dodge, fsc",
         "`fs3, not charged_in(1,s1)",
@@ -145,7 +145,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "if dragondrive.get()",
+        "if in_drg",
         "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
@@ -186,7 +186,7 @@
       },
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, fsc",
         "`s4, cancel",
         "`dodge, fsc",
@@ -231,7 +231,7 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, fsc",
         "`dodge, fsc",
         "`fs3",
@@ -253,7 +253,7 @@
         "nihil": true
       },
       "acl": [
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, fsc",
         "`dodge, fsc",
         "`fs3",
@@ -304,7 +304,7 @@
       ],
       "acl": [
         "`s3, not buff(s3)",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, xf",
         "`fs3, not charged_in(x5, s1) and cancel",
         "else",
@@ -333,6 +333,32 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23250.645520419555,
+        "team": 0.03703084877075344,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "s3, fsc",
+        "if in_drg",
+        "s1, xf",
+        "dodge, fsc",
+        "fs3, not charged_in(1,s1)",
+        "else",
+        "dragon, cancel",
+        "s4, cancel",
+        "s1, xf",
+        "fs, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Delphi",
+        "Grace",
+        "Ieyasu"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 53432.30889507988,
@@ -351,7 +377,7 @@
       ],
       "acl": [
         "`s3, fsc",
-        "if dragondrive.get()",
+        "if in_drg",
         "`s1, xf",
         "`dodge, fsc",
         "`fs3, not charged_in(1,s1)",
@@ -368,6 +394,7 @@
       ]
     },
     "META": {
+      "tdps": 2395578.0309107,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

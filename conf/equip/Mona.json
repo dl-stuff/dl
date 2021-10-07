@@ -16,7 +16,7 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon, not dragondrive.get() and s2.check()",
+        "`dragon, not in_drg and s2.check()",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -51,7 +51,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, not dragondrive.get() and s2.check()",
+        "`dragon, not in_drg and s2.check()",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -93,7 +93,7 @@
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`s3",
-        "if s2.check() and not dragondrive.get()",
+        "if s2.check() and not in_drg",
         "`dragon",
         "end",
         "`s1",
@@ -132,10 +132,10 @@
         "nihil": false
       },
       "acl": [
-        "`dragon, not dragondrive.get() and fsc",
+        "`dragon, not in_drg and fsc",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
-        "`s2, cancel or dragondrive.get()",
+        "`s2, cancel or in_drg",
         "`s4, fsc",
         "`fs, x=4 or hits=3"
       ],
@@ -162,7 +162,7 @@
         "nihil": true
       },
       "acl": [
-        "`dragon, s2.check() and not dragondrive.get() and aff(stormlash)",
+        "`dragon, s2.check() and not in_drg and aff(stormlash)",
         "`s1",
         "`s2",
         "`s4",

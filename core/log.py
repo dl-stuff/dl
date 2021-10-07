@@ -87,7 +87,7 @@ class Log:
                     self.shift_acts[i] = f"c{self.shift_acts[i]}"
             shift_act_str = " ".join(self.shift_acts)
             self.log(
-                "dshift_end",
+                "dshift_end" if end_reason != "<dragondrive>" else "ddrive_start",
                 f"{self.shift_dmg:.1f}/{duration:.1f}s",
                 f"{self.shift_dmg / duration:.2f} dps",
                 end_reason,

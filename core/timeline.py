@@ -218,7 +218,7 @@ class Timer(object):
 
     def pause(self):
         if self.online:
-            self.pause_time = self.timeleft()
+            self.pause_time = self.timing - _g_now
             if self.pause_time > 0:
                 self.off()
 
