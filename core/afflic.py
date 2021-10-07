@@ -311,7 +311,7 @@ class Afflic_cc(AfflicCapped):
         super().__init__(name, duration, tolerance=tolerance)
         self.stack_cap = 1
 
-    def on(self, name, rate, duration=None, min_duration=None):
+    def on(self, name, rate, duration=None, min_duration=None, dtype=None):
         self.event.source = name
         self.rate = rate + self.edge
         self.duration = (duration or self.default_duration) * self.time
@@ -328,7 +328,7 @@ class Afflic_scc(AfflicCapped):
         super().__init__(name, duration, tolerance)
         self.stack_cap = 1
 
-    def on(self, name, rate, duration=None):
+    def on(self, name, rate, duration=None, dtype=None):
         self.event.source = name
         self.rate = rate + self.edge
         self.duration = duration or self.default_duration
@@ -342,7 +342,7 @@ class Afflic_bog(Afflic_scc):
     def __init__(self, name=None, duration=8, tolerance=0.2):
         super().__init__(name, duration, tolerance)
 
-    def on(self, name, rate, duration=None):
+    def on(self, name, rate, duration=None, dtype=None):
         self.event.source = name
         p = super().on(name, rate, duration)
         if p:

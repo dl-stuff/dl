@@ -24,7 +24,7 @@ class Gala_Alex_BK(Gala_Alex):
         "The_Queen_of_the_Knife",
         "A_Small_Courage",
         "Crown_of_Light",
-        "Savage_Hawk_Bow",
+        "Savage_Hawk_Lance",
     ]
     conf["coabs"] = ["Ieyasu", "Delphi", "Vania"]
     conf["share"] = ["Sha_Wujing"]
