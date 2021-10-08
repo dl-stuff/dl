@@ -118,7 +118,7 @@ class ServantAction:
         self.c_servant_act = None
 
     def stop(self):
-        self.startup_timer.off()
+        # self.startup_timer.off()
         self.recovery_timer.off()
 
 
