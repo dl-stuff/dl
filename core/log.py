@@ -86,12 +86,16 @@ class Log:
             for i, name in enumerate(self.shift_acts):
                 if isinstance(name, int):
                     self.shift_acts[i] = f"c{self.shift_acts[i]}"
+            if duration == 0:
+                dps = 0
+            else:
+                dps = self.shift_dmg / duration
             shift_act_str = " ".join(self.shift_acts)
             self.log(
                 "dshift",
                 self.shift_name,
                 f"{self.shift_dmg:.1f}/{duration:.1f}s",
-                f"{self.shift_dmg / duration:.2f} dps",
+                f"{dps:.2f} dps",
                 end_reason,
                 shift_act_str,
             )

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4989.657783197662,
-        "team": 0.2998466342431797,
+        "dps": 5197.59457255843,
+        "team": 0.3124349967698709,
         "noaff": false,
         "nihil": false
       },
@@ -12,7 +12,9 @@
         "Study_Rabbits",
         "Warrior_Maiden",
         "Bellathorna",
-        "From_Whence_He_Comes"
+        "From_Whence_He_Comes",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Azazel",
       "acl": [
@@ -41,7 +43,7 @@
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Synthetic_Dragon",
         "Dueling_Dancers",
         "The_Plaguebringer",
@@ -68,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 150680.86932662988,
+      "tdps": 142261.13786912372,
       "pref": "PERSONAL"
     }
   },
@@ -133,14 +135,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5178.867454775802,
-        "team": 0.2998466342431797,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 48225.37273196392,
@@ -173,7 +167,6 @@
       ]
     },
     "META": {
-      "tdps": 143561.74244156035,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -281,6 +274,50 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7452.598071683739,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Synthetic_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon(s), buff(s3) and buffstack(ro_att)=3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
+        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
+        "`dodge, fsc"
+      ],
+      "coabs": [
+        "Audric",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

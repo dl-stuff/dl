@@ -9,7 +9,7 @@
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Summer_Paladyns",
         "Dueling_Dancers",
         "Entwined_Flames"
@@ -36,14 +36,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63211.192602504976,
+        "dps": 69478.24252866757,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Summer_Paladyns",
         "Dueling_Dancers",
         "His_Clever_Brother"
@@ -60,22 +60,22 @@
         "end"
       ],
       "coabs": [
+        "Pipple",
         "Summer_Celliera",
-        "Tiki",
-        "Yurius"
+        "Tiki"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 36754.186853631494,
-      "pref": "TEAMBUFF"
+      "tdps": 66849.95353203242,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 46199.38995158806,
         "team": 0.06643745567932643,
@@ -83,8 +83,8 @@
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
         "Summer_Paladyns",
         "Entwined_Flames",
         "His_Clever_Brother"
@@ -110,21 +110,57 @@
         "Humanoid_Mercury"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 47211.28860457962,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Kung_Fu_Masters",
+        "Summer_Paladyns",
+        "Entwined_Flames",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if s2_autocharge_buff.get()",
+        "`s1, self.sr.count=2 and cancel",
+        "else",
+        "`s2, self.sr.count=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "META": {
-      "pref": "PERSONAL"
+      "tdps": 15230.845953458635,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75853.43112300597,
+        "dps": 74379.99399968037,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 97465.02613023232,
+      "tdps": 90389.25357354966,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -135,43 +171,39 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49352.56198918977,
-        "team": 0.09984508793435244,
+        "dps": 52540.56039644008,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Kung_Fu_Masters",
         "Summer_Paladyns",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "His_Clever_Brother",
+        "Snipers_Allure"
       ],
       "acl": [
         "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
-        "`s3,  self.sr.count=1",
-        "`s4,  self.sr.count=1",
+        "`s3, not buff(s3)",
+        "`s4",
         "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count=2 and cancel",
+        "`s1, self.sr.count>1.7 and cancel",
         "else",
         "`s2, self.sr.count=2",
         "end"
       ],
       "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "The_Prince",
-        "Gala_Mym"
+        "Gala_Mascula",
+        "Summer_Estelle",
+        "Tiki"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -185,7 +217,7 @@
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Summer_Paladyns",
         "Dueling_Dancers",
         "Entwined_Flames"
@@ -221,13 +253,13 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43033.78694608525,
-        "team": 0.0666407025475338,
+        "dps": 44378.8885903021,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Moonlight_Party",
         "Summer_Paladyns",
         "Dueling_Dancers",
@@ -243,7 +275,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
