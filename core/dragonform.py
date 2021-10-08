@@ -294,7 +294,7 @@ class DragonForm:
         if self.shift_spd_mod is not None:
             self.shift_spd_mod.off()
         self.shift_silence_timer.on()
-        if self.dragon_gauge_pause_timer is not None:
+        if self.dragon_gauge_timer_diff > 0:
             self.dragon_gauge_pause_timer = Timer(self.resume_auto_gauge).on(self.dragon_gauge_timer_diff)
         self.adv.current_x = self.previous_x
         self.l_s.off()
