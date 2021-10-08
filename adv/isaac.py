@@ -38,7 +38,7 @@ class Isaac(Adv):
         self.verdure_buff = random.choice(self.setup_verdure(e.name))
         Timer(lambda _: self.verdure_buff[0].on(), 0.9).on()
 
-    def s1_hit5(self, name, base, group, aseq):
+    def s1_hit5(self, *args):
         self.verdure_buff[1].on()
 
     def post_run(self, end):

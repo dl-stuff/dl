@@ -1,0 +1,256 @@
+{
+    "c": {
+        "name": "Gala Zethia",
+        "icon": "100054_01_r05",
+        "att": 521,
+        "hp": 739,
+        "ele": "shadow",
+        "wt": "blade",
+        "spiral": false,
+        "a": [["affres_paralysis", 100.0], ["affres_blind", 100.0]],
+        "utp": [2, 3000, 1200, 75]
+    },
+    "dservant": {
+        "dshift": {
+            "startup": 0.0,
+            "recovery": 1.3,
+            "recovery2": 2.3
+        },
+        "fs": {
+            "charge": 0.4,
+            "startup": 0.5,
+            "recovery": 1.0,
+            "attr": [
+                {"dmg": 2.72, "vars": ["st_bahamut", 2, 16]},
+                {"dmg": 2.72, "msl": 0.05},
+                {"dmg": 2.72, "msl": 0.1},
+                {"dmg": 2.72, "msl": 0.15}
+            ]
+        },
+        "x1": {
+            "startup": 0.06667,
+            "recovery": 1.16666,
+            "recovery2": 1.6,
+            "attr": [
+                {"dmg": 1.8, "vars": ["st_bahamut", 1, 16]},
+                {"dmg": 1.8, "msl": 0.03333},
+                {"dmg": 1.8, "msl": 0.06666},
+                {"dmg": 1.8, "msl": 0.1}
+            ]
+        },
+        "x2": {
+            "startup": 1.06667,
+            "recovery": 0.5,
+            "recovery2": 0.6,
+            "attr": [
+                {"dmg": 9.64, "vars": ["st_bahamut", 1, 16]}
+            ]
+        },
+        "x3": {
+            "startup": 0.76923,
+            "recovery": 1.64103,
+            "recovery2": 1.79487,
+            "attr": [
+                {"dmg": 6.76, "vars": ["st_bahamut", 1, 16]},
+                {"dmg": 6.76, "msl": 0.4},
+                {"dmg": 6.76, "msl": 0.8}
+            ]
+        },
+        "x4": {
+            "startup": 0.51282,
+            "recovery": 0.89744,
+            "recovery2": 1.02564,
+            "attr": [
+                {"dmg": 18.26, "vars": ["st_bahamut", 1, 16], "msl": 0.4, "msl_spd": 1}
+            ]
+        },
+        "s1": {
+            "sp": 30,
+            "startup": 0.0,
+            "recovery": 4.0,
+            "sp_db": 45,
+            "uses": 1,
+            "attr": [
+                {"amp": ["10000", 1, 2], "vars": ["st_bahamut", -16, 16]},
+                {"amp": ["20000", 1, 2]},
+                {"dmg": 5.4, "msl": 2.66667},
+                {"dmg": 5.4, "msl": 3.06667},
+                {"dmg": 5.4, "msl": 3.13333},
+                {"dmg": 5.4, "msl": 3.2},
+                {"dmg": 5.4, "msl": 3.26667},
+                {"dmg": 5.4, "msl": 3.33333},
+                {"dmg": 5.4, "msl": 3.4},
+                {"dmg": 5.4, "msl": 3.46667},
+                {"dmg": 5.4, "msl": 3.53333}
+            ]
+        }
+    },
+    "dodge_on_x": {
+        "startup": 0.33333,
+        "recovery": 0.26667,
+        "attr": [
+            {"dmg": 0.3, "sp": 200},
+            {"dmg": 0.3, "iv": 0.1},
+            {"dmg": 0.3, "iv": 0.2}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"s": 0.0}
+    },
+    "fs": {
+        "charge": 0.15,
+        "startup": 0.13333,
+        "recovery": 1.36667,
+        "attr": [
+            {"dmg": 0.92, "odmg": 6.0, "sp": 200}
+        ],
+        "interrupt": {"dodge_on_x": 0.0, "s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x1": 0.7}
+    },
+    "s1": {
+        "sp": 999999,
+        "startup": 0.0,
+        "recovery": 2.83333,
+        "cancel": {"x1": 2.5},
+        "attr": [
+            {"dmg": 3.94, "iv": 1.0},
+            {"dmg": 3.94, "iv": 1.1},
+            {"dmg": 3.94, "iv": 1.16667},
+            {"dmg": 3.94, "iv": 1.26667},
+            {"dmg": 3.94, "iv": 1.33333},
+            {"vars": ["s1sp", 1, 2]}
+        ]
+    },
+    "s99": {
+        "sp": 999999,
+        "startup": 0.0,
+        "recovery": 2.83333,
+        "cancel": {"x1": 2.5},
+        "attr": [
+            {"dmg": 3.94, "iv": 1.0},
+            {"dmg": 3.94, "iv": 1.1},
+            {"dmg": 3.94, "iv": 1.16667},
+            {"dmg": 3.94, "iv": 1.26667},
+            {"dmg": 3.94, "iv": 1.33333}
+        ]
+    },
+    "x1": {
+        "startup": 0.33333,
+        "recovery": 0.46667,
+        "attr": [
+            {"dmg": 0.59, "sp": 130}
+        ],
+        "interrupt": {"dodge_on_x": 0.0, "s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x2": 0.1}
+    },
+    "x2": {
+        "startup": 0.23333,
+        "recovery": 1.16667,
+        "attr": [
+            {"dmg": 0.34, "sp": 130},
+            {"dmg": 0.34, "iv": 0.23334}
+        ],
+        "interrupt": {"dodge_on_x": 0.0, "s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x3": 0.46667}
+    },
+    "x3": {
+        "startup": 0.33333,
+        "recovery": 0.6,
+        "attr": [
+            {"cond": ["var=", ["in_drg", false]], "dmg": 0.49, "sp": 220, "utp": 60},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 0.73},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 0.49, "iv": 0.1},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 0.73, "iv": 0.1},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 0.49, "iv": 0.2},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 0.73, "iv": 0.2}
+        ],
+        "interrupt": {"dodge_on_x": 0.0, "s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x4": 0.26667}
+    },
+    "x4": {
+        "startup": 0.33333,
+        "recovery": 1.66667,
+        "attr": [
+            {"dmg": 0.67, "sp": 360},
+            {"dmg": 0.67, "iv": 0.16667},
+            {"dmg": 0.67, "iv": 0.33334},
+            {"dmg": 0.67, "iv": 0.5},
+            {"dmg": 0.67, "iv": 0.66667}
+        ],
+        "interrupt": {"dodge_on_x": 0.0, "s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x5": 1.1}
+    },
+    "x5": {
+        "startup": 0.0,
+        "recovery": 1.56667,
+        "attr": [
+            {"cond": ["var=", ["buff1868", 1]], "amp": ["30000", 1, 0]},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 1.04, "sp": 660, "utp": 90, "iv": 0.33333},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 1.55, "iv": 0.33333},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 1.04, "iv": 0.4},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 1.55, "iv": 0.4},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 1.04, "iv": 0.46667},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 1.55, "iv": 0.46667}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x6": 0.8},
+        "auto_fsf": false
+    },
+    "x6": {
+        "startup": 0.13333,
+        "recovery": 1.3,
+        "attr": [
+            {"dmg": 1.14, "sp": 180},
+            {"dmg": 1.14, "iv": 0.2}
+        ],
+        "interrupt": {"dodge_on_x": 0.0, "s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x7": 0.4}
+    },
+    "x7": {
+        "startup": 0.26667,
+        "recovery": 1.1,
+        "attr": [
+            {"cond": ["var=", ["in_drg", false]], "dmg": 0.88, "sp": 240, "utp": 90},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 0.88},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 0.88, "iv": 0.26666},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 0.88, "iv": 0.26666},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 0.88, "iv": 0.46666},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 1.32, "iv": 0.46666}
+        ],
+        "interrupt": {"dodge_on_x": 0.0, "s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x8": 0.53333}
+    },
+    "x8": {
+        "startup": 0.26667,
+        "recovery": 1.26666,
+        "attr": [
+            {"cond": ["var=", ["in_drg", false]], "dmg": 1.44, "sp": 360, "utp": 90},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 1.44},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 1.44, "iv": 0.13333},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 1.44, "iv": 0.13333},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 1.44, "iv": 0.4},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 2.14, "iv": 0.4}
+        ],
+        "interrupt": {"dodge_on_x": 0.0, "s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x9": 0.43333}
+    },
+    "x9": {
+        "startup": 0.0,
+        "recovery": 2.8,
+        "attr": [
+            {"cond": ["var=", ["buff1867", 1]], "amp": ["30000", 1, 0]},
+            {"cond": ["var=", ["buff1868", 1]], "amp": ["30000", 1, 0]},
+            {"dmg": 0.95, "sp": 360, "iv": 0.06667},
+            {"dmg": 0.95, "iv": 0.3},
+            {"dmg": 0.95, "iv": 0.46667},
+            {"dmg": 0.95, "iv": 0.66667},
+            {"dmg": 0.95, "iv": 0.86667},
+            {"dmg": 0.95, "iv": 1.0},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 1.89, "sp": 330, "utp": 100, "iv": 1.16667, "msl": 0.26667},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 2.84, "sp": 330, "iv": 1.16667, "msl": 0.26667},
+            {"cond": ["var=", ["in_drg", false]], "dmg": 1.89, "sp": 330, "utp": 100, "iv": 1.53333},
+            {"cond": ["var=", ["in_drg", true]], "dmg": 2.84, "sp": 330, "iv": 1.53333}
+        ],
+        "interrupt": {"s": 0.0},
+        "cancel": {"dodge_on_x": 0.0, "s": 0.0, "x1": 1.83333}
+    }
+}

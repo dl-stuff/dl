@@ -372,7 +372,7 @@ class DragonFormUTP(DragonForm):
         else:
             self.ddrive_fs_list = [fsn for fsn, _ in self.adv.conf.find(f"^fs\d*_{DDRIVE}$")]
             self.shift_skills = [sn.split("_")[0] for sn, _ in self.adv.conf.find(f"^s\d*_{DDRIVE}$")]
-            self.l_ddrive_end = Listener("idle", self.d_dragondrive_end, order=0)
+            self.l_ddrive_end = Listener("act_end", self.d_dragondrive_end, order=0)
             self.l_ddrive_end.off()
             self.ddrive_end_reason = None
 
@@ -410,7 +410,8 @@ class DragonFormUTP(DragonForm):
             if self.utp_gauge <= 0:
                 self.utp_gauge = 0
                 self.d_shift_end(reason="gauge deplete")
-            self.shift_end_timer.add(delta / self.utp_drain)
+            else:
+                self.shift_end_timer.add(delta / self.utp_drain)
         self.utp_event.name = name
         self.utp_event.value = value
         self.utp_event.delta = delta
@@ -522,6 +523,8 @@ class DragonFormUTP(DragonForm):
     def d_shift_end(self, e=None, reason="timeout"):
         if not self.status:
             return False
+        if reason == "timeout":
+            self.utp_gauge = 0
         if self.dform_mode == 1:
             return super().d_shift_end(e=e, reason=reason)
         self.ddrive_end_reason = reason

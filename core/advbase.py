@@ -180,6 +180,8 @@ class Skill(object):
         else:
             valid_sp = self.sp
             valid_uses = self.ac.uses
+        if valid_sp == 0:
+            return False
         if self.charged < valid_sp or valid_uses == 0:
             return False
         return True
@@ -341,6 +343,8 @@ class Action(object):
         self.end_event.act = self.act_event
         self.defer_event = Event("defer")
 
+        self.general_end_event = Event("act_end")
+
         self.enabled = True
         self.delayed = set()
         # ?????
@@ -432,6 +436,7 @@ class Action(object):
             self._setprev()  # turn self from doing to prev
             self._static.doing = self.nop
             self.idle_event()
+            self.general_end_event()
             self.end_event()
 
     def _act(self, partidx):
@@ -503,6 +508,7 @@ class Action(object):
                             return False
                         return timing
                     doing.startup_timer.off()
+                    self.general_end_event()
                     doing.end_event()
                     logargs = ["interrupt", doing.name, f"by {self.name}"]
                     delta = now() - doing.startup_start
@@ -521,6 +527,7 @@ class Action(object):
                             return False
                         return timing
                     doing.recovery_timer.off()
+                    self.general_end_event()
                     doing.end_event()
                     count = doing.clear_delayed()
 
@@ -1390,6 +1397,7 @@ class Adv(object):
         self._dacl = None
         self._c_acl = None
         self.using_default_dacl = False
+        self.disable_dacl = False
 
         self.stats = []
 
@@ -1839,30 +1847,26 @@ class Adv(object):
             return self._next_x()
         return False
 
-    def _next_x(self):
-        prev = self.action.getdoing()
+    def _next_x(self, prev=None):
+        self.check_deferred_x()
+        prev = prev or self.action.getdoing()
         if prev is self.action.nop:
             prev = self.action.getprev()
         if isinstance(prev, X):
             if prev.group == self.current_x and prev.conf["loop"]:
                 x_next = prev
             else:
-                if prev.index < self.conf[prev.group].x_max:
+                if prev.index < self.conf[self.current_x].x_max:
                     x_next = self.a_x_dict[self.current_x][prev.index + 1]
                 else:
                     x_next = self.a_x_dict[self.current_x][1]
                 if not prev.has_follow(x_next.name, "x"):
                     x_next = self.a_x_dict[self.current_x][1]
-            # if prev.group == self.current_x and prev.index < self.conf[prev.group].x_max:
-            #     x_next = self.a_x_dict[self.current_x][prev.index + 1]
-            # else:
-            #     x_next = prev if prev.conf["loop"] else self.a_x_dict[self.current_x][1]
         else:
             x_next = self.a_x_dict[self.current_x][1]
         if not x_next.enabled:
             self.current_x = globalconf.DEFAULT
             x_next = self.a_x_dict[self.current_x][1]
-        # log("x_next", prev.name, x_next.name)
         return x_next()
 
     @allow_acl
@@ -1882,7 +1886,6 @@ class Adv(object):
 
     def l_x(self, e):
         # FIXME: race condition?
-        self.check_deferred_x()
         x_max = self.conf[self.current_x].x_max
         logname = e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name
         if e.index == x_max and not self.conf[e.name]["loop"]:
@@ -2226,7 +2229,8 @@ class Adv(object):
         pass
 
     def set_dacl(self, enable):
-        log("set_dacl", enable)
+        if self.disable_dacl:
+            return
         if enable:
             self._dacl.reset(self)
             self._c_acl = self._dacl
@@ -2546,7 +2550,7 @@ class Adv(object):
                 self.dmg_make(name, attr["dmg"], dtype=dtype, attenuation=attenuation)
 
         if onhit:
-            onhit(name, base, group, aseq)
+            onhit(name, base, group, aseq, dtype)
 
         if "sp" in attr:
             dragon_sp = group == globalconf.DRG
@@ -2644,11 +2648,14 @@ class Adv(object):
             except IndexError:
                 limit = 1
             try:
+                old_value = self.__dict__[varname]
                 new_value = max(0, min(limit, self.__dict__[varname] + value))
             except KeyError:
+                old_value = None
                 new_value = value
-            self.__dict__[varname] = new_value
-            log(varname, f"{value:+}", new_value, limit)
+            if new_value != old_value:
+                self.__dict__[varname] = new_value
+                log(varname, f"{value:+}", new_value, limit)
 
         for m in hitmods:
             m.off()
