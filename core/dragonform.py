@@ -501,12 +501,12 @@ class DragonFormUTP(DragonForm):
 
     def d_dragondrive_end(self, _=None):
         if self.ddrive_end_reason is not None:
-            self.set_dacts_enabled(False)
-            self.adv.set_dacl(False)
             self.l_s.off()
             self.l_s_end.off()
             self.l_ddrive_end.off()
             self.shift_silence_timer.on()
+            self.set_dacts_enabled(False)
+            self.adv.set_dacl(False)
             self.status = False
             log("dragondrive", "end", self.ddrive_end_reason)
             self.end_event()

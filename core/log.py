@@ -147,7 +147,7 @@ class Log:
                 if name[0:2] == "o_" and name[2] in self.damage:
                     name = name[2:]
                 elif self.log_dact_as_act and name[0] == "d" and name != "dshift":
-                    name = name[1:]
+                    name = name[1:].split("_")[0] + "_drg"
                 if name[0] in self.damage:
                     self.update_dict(self.damage[name[0]], name, dmg_amount)
                 else:
@@ -164,7 +164,7 @@ class Log:
                     n_rec[2] = name
                     k = "o"
                 elif self.log_dact_as_act and k == "d" and name != "dshift":
-                    name = name[1:]
+                    name = name[1:].split("_")[0] + "_drg"
                     k = name[0]
                 self.update_dict(self.counts[k], name, 1)
                 # name1 = name.split('_')[0]
