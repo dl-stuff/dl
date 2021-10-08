@@ -2633,7 +2633,7 @@ class Adv(object):
             amp_buff.on(amp_max_lvl, amp_target, fleet=self.conf["fleet"] or 0)
 
         # coei: _CurseOfEmptinessInvalid
-        if "buff" in attr and (not self.nihilism or attr.get("coei")):
+        if "buff" in attr:
             self.hitattr_buff_outer(name, base, group, aseq, attr)
 
         if "vars" in attr:
@@ -2658,6 +2658,15 @@ class Adv(object):
     def hitattr_buff_outer(self, name, base, group, aseq, attr):
         bctrl = None
         blist = attr["buff"]
+        if self.nihilism and not attr.get("coei"):
+            if isinstance(blist[0], list):
+                blist = [buff[3:] + ["dummy", "zone"] for buff in blist if buff[0] == "zone"]
+                if not blist:
+                    return
+            else:
+                if blist[0] != "zone":
+                    return
+                blist = blist[:3] + ["dummy", "zone"]
         try:
             if blist[-1][0] == "-":
                 bctrl = blist[-1]
