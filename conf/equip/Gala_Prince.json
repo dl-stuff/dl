@@ -8,8 +8,8 @@
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
         "Sisters_Day_Out",
         "A_Game_of_Cat_and_Boar",
         "Blessed_Days",
@@ -114,19 +114,19 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72503.40043744633,
-        "team": 0.2006925613537107,
+        "dps": 78328.64547664384,
+        "team": 0.2021690704476729,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
         "Blade",
-        "Dagger",
-        "Peony"
+        "Peony",
+        "Raemond"
       ]
     },
     "META": {
-      "tdps": 549247.1418369921,
+      "tdps": 840740.9780687422,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,37 +137,42 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58977.838856011294,
-        "team": 0.03329524665405424,
+        "dps": 21955.638312390558,
+        "team": 0.03332613488819755,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Dragon_Brethren",
-        "Pecorines_Grand_Adventure",
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
         "The_Bridal_Dragon",
-        "A_Small_Courage",
         "Dueling_Dancers",
-        "Savage_Hawk_Lance",
+        "Mana_Fount",
+        "Mask_of_Determination_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Daikokuten",
       "acl": [
-        "`dragon, cancel",
-        "`s4, fsc",
-        "`s2, fsc",
+        "if buff(s3,1) and fsc",
+        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=0",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=1",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=2",
+        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=3",
+        "end",
         "`s3, fsc",
+        "`s4, cancel",
+        "`s2, cancel",
         "`s1, fsc",
-        "`fs, x=4 or hits=0"
+        "`fs, x=4 or hits=3"
       ],
       "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
+        "Dagger2",
+        "Peony",
+        "Raemond"
       ],
       "share": [
         "Weapon",
-        "Humanoid_Mercury"
+        "Gala_Mym"
       ]
     },
     "PERSONAL": {
@@ -206,6 +211,7 @@
       ]
     },
     "META": {
+      "tdps": 1338895076.3797336,
       "pref": "PERSONAL"
     }
   },
@@ -268,65 +274,78 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 96229.85951087266,
+        "team": 0.202621081173632,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 68925.99316518952,
-        "team": 0.033307265519727326,
+        "dps": 56476.82617458924,
+        "team": 0.03333293754678699,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
+        "Dragon_Brethren",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
         "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end)",
-        "`s2, fsc",
+        "`dragon, cancel",
         "`s4, fsc",
+        "`s2, fsc",
         "`s3, fsc",
         "`s1, fsc",
-        "`fs, x=4"
+        "`fs, x=4 or hits=0"
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
-        "Peony"
+        "Peony",
+        "Sword"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77013.77710577192,
-        "team": 0.0333000307798239,
+        "dps": 80552.25993104369,
+        "team": 0.0333126688791427,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`s1, fsc",
-        "`fs, x=4"
       ]
     },
     "META": {
-      "tdps": 1117909427.08991,
+      "tdps": 1187815310.753087,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -337,39 +356,35 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 62628.816058068136,
-        "team": 0.03322983096906365,
+        "dps": 75729.36658532273,
+        "team": 0.0333126688791427,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-end)",
-        "`s4, fsc",
-        "`s2, fsc",
-        "`s3, fsc",
-        "`s1, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
+      }
+    },
+    "META": {
+      "tdps": 949867092.8257271,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80882.57786675611,
+        "team": 0.2021690704476729,
+        "noaff": false,
+        "nihil": false
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95032.55592181071,
-        "team": 0.15977972138848873,
+        "dps": 95269.59897353465,
+        "team": 0.15639222587569648,
         "noaff": false,
         "nihil": false
       },
@@ -53,12 +53,13 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), trickery<1",
+        "`dragon(c3-s-end)",
         "`s3, not buff(s3)",
+        "`s1, duration-now<3",
+        "`s4, s=2",
         "`s2, aff_timeleft(poison)<2 and sr.count>1",
-        "`s1, sr.count>1",
-        "`s4",
-        "`fs, x=4 and not buff(s3)"
+        "`s1, (sr.count>1 and x=5) or sr.count=3",
+        "`fs, (x=4 and not buff(s3)) or hits=1"
       ],
       "coabs": [
         "Delphi",
@@ -71,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 768329.5449313733,
+      "tdps": 738926.8406269,
       "pref": "PERSONAL"
     }
   },
@@ -159,8 +160,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103787.8024187469,
-        "team": 0.15977972138848873,
+        "dps": 108373.84383662464,
+        "team": 0.15639222587569648,
         "noaff": false,
         "nihil": false
       },
@@ -180,7 +181,7 @@
       ]
     },
     "META": {
-      "tdps": 880945.6353879666,
+      "tdps": 900854.7904615742,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -191,7 +192,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75361.70022223139,
+        "dps": 75361.70022223137,
         "team": 0.04374621935289655,
         "noaff": false,
         "nihil": true
@@ -241,8 +242,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67199.08768222478,
-        "team": 0.15977972138848873,
+        "dps": 70828.03563415947,
+        "team": 0.15639222587569648,
         "noaff": false,
         "nihil": false
       },
@@ -262,7 +263,7 @@
       ]
     },
     "META": {
-      "tdps": 570431.6897092887,
+      "tdps": 591126.1746252334,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

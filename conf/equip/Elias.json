@@ -44,7 +44,7 @@
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
@@ -121,7 +121,7 @@
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
@@ -156,7 +156,7 @@
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
         "Such_High_Spirits",
@@ -214,24 +214,58 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 48676.58878693721,
-        "team": 0.0892985529580683,
+        "dps": 25335.131092249518,
+        "team": 0.1003420522498285,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Entwined_Flames",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, buff(s3)",
+        "`fs, x=5"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 54682.98704599274,
+        "team": 0.0892985529580684,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, buff(s3,1)",
+        "`s2",
+        "`s4",
+        "`s1, buff(s3)",
+        "`s3, cancel",
+        "`fs, x=5"
       ]
     },
     "META": {
+      "tdps": 2657477.958606886,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -249,7 +283,7 @@
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Spirit_of_the_Season",
         "Dueling_Dancers",
         "Such_High_Spirits",
@@ -268,28 +302,31 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34842.16411872229,
+        "dps": 44058.587799607936,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Such_High_Spirits",
+        "Entwined_Flames",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "acl": [
         "`dragon",
-        "`s2",
-        "`s4",
-        "`s1, cancel",
+        "`s4, xf",
         "`s3",
+        "`s1, fsc",
         "`fs, x=5",
         "`dodge, fsc"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {

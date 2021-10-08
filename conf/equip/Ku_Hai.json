@@ -32,8 +32,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86210.3586540956,
-        "team": 0.04992323029969247,
+        "dps": 91987.43206542701,
+        "team": 0.04933428880571583,
         "noaff": false,
         "nihil": false
       },
@@ -41,27 +41,24 @@
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "The_Lurker_in_the_Woods",
+        "Flower_in_the_Fray",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`s3, not buff(s3)",
-        "`s2, fsc",
         "`s4, fsc",
-        "if buff(s2)",
-        "`fs, x=1",
-        "else",
-        "`fs, x=2 or hits=0",
-        "end",
-        "`s1, duration-now<2 and fscf"
+        "`s2, fsc",
+        "`s1, duration-now<1",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=3 or hits=0"
       ],
       "coabs": [
         "Grace",
         "Mona",
-        "Yukata_Lathna"
+        "Nino"
       ],
       "share": [
         "Weapon",
@@ -69,26 +66,26 @@
       ]
     },
     "META": {
-      "tdps": 214030.0119718638,
+      "tdps": 228767.21511348983,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 81742.308365692,
-        "team": 0.04992323029969247,
+        "dps": 84509.81025943326,
+        "team": 0.04967984014069229,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
-        "Akasha",
-        "Blade",
-        "Mona"
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
       ]
     },
     "META": {
-      "tdps": 202359.9369967196,
+      "tdps": 209455.20671694126,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -143,15 +140,6 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "Flower_in_the_Fray",
-        "The_Plaguebringer",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
       "acl": [
         "`s3, not buff(s3)",
         "`s2, fsc",
@@ -159,11 +147,6 @@
         "`s1, duration-now<1 and fsc",
         "`fs, x=1 and buff(s2)",
         "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Grace",
-        "Mona",
-        "Nino"
       ],
       "share": [
         "Weapon",

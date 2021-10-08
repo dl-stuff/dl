@@ -35,14 +35,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101906.11368196824,
-        "team": 0.055534757782749376,
+        "dps": 128356.94229352027,
+        "team": 0.10952438798879947,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
@@ -63,9 +63,9 @@
         "end"
       ],
       "coabs": [
+        "Blade",
         "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -73,15 +73,54 @@
       ]
     },
     "META": {
-      "tdps": 612835.412343229,
+      "tdps": 1712984.1845946487,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 84937.8607182922,
+        "team": 0.1200891336152706,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon(c3-s-dfs-end)",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4",
+        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "if gauges[fs]<1000",
+        "`fs, x=4 or hits=0",
+        "else",
+        "`dodge, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73204.52760570448,
-        "team": 0.05555037902375769,
+        "dps": 89638.36051503944,
+        "team": 0.10489817808313963,
         "noaff": false,
         "nihil": true
       },
@@ -108,8 +147,8 @@
         "end"
       ],
       "coabs": [
+        "Meene",
         "Mona",
-        "Nino",
         "Wand"
       ],
       "share": [
@@ -118,14 +157,15 @@
       ]
     },
     "META": {
+      "tdps": 309427.5265835015,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 129457.3398189865,
-        "team": 0.17484178760907942,
+        "dps": 145651.54404343673,
+        "team": 0.22482524339769588,
         "noaff": false,
         "nihil": false
       },
@@ -150,11 +190,6 @@
         "`dodge, x=5",
         "end"
       ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
       "share": [
         "Weapon",
         "Akasha"
@@ -171,8 +206,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 90477.29043067888,
-        "team": 0.07405360236710865,
+        "dps": 102666.82494450198,
+        "team": 0.07405360236710856,
         "noaff": false,
         "nihil": true
       },
@@ -202,7 +237,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

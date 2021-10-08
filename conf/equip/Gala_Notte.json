@@ -33,29 +33,30 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90147.02627534943,
+        "dps": 113524.7188014773,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
+        "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "if metamorphosis.get()",
         "`s1",
         "`s2, cancel",
+        "`dodge, x=3",
         "else",
         "`dragon, buff(s3)",
         "`s3, not buff(s3)",
-        "`s1",
+        "`s1, buff(s3) and xf",
         "`s2",
         "`s4, cancel",
         "end"
@@ -71,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 486623.1389359644,
+      "tdps": 734535.0032048738,
       "pref": "PERSONAL"
     }
   },
@@ -121,36 +122,23 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 135820.45562866906,
+        "dps": 136363.00704641204,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "The_Plaguebringer",
         "Testament_of_Eternity",
         "Thunderswift_Lords_Blade_Lance"
-      ],
-      "acl": [
-        "if metamorphosis.get()",
-        "`s1",
-        "`s2",
-        "`dodge, x=3",
-        "else",
-        "`dragon, buff(s3)",
-        "`s3, not buff (s3)",
-        "`s1, buff(s3) and xf",
-        "`s2",
-        "`s4, cancel",
-        "end"
       ]
     },
     "META": {
-      "tdps": 970973.1236866311,
+      "tdps": 976726.6826952489,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -168,7 +156,7 @@
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball",
@@ -208,7 +196,7 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59589.38069827867,
+        "dps": 61075.61814793325,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -216,7 +204,7 @@
       "slots.d": "Gala_Reborn_Zephyr"
     },
     "META": {
-      "tdps": 162570.50310745364,
+      "tdps": 178331.50674279258,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

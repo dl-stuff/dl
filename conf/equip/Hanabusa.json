@@ -2,37 +2,36 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46622.68514189296,
-        "team": 0.27486571760477607,
+        "dps": 9717.223886084183,
+        "team": 1.1532839336219745,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Worthy_Rivals",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Wily_Warriors_Flash_and_Heat",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
+      "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, charged_in(5,s1)",
-        "`s4, xf",
-        "`fsf,xf=5"
+        "`s1, s1.phase<2 and xf>1",
+        "`s2, s1.phase>0",
+        "`s4",
+        "`s3",
+        "`fs, xf=5"
       ],
       "coabs": [
-        "Gala_Zena",
-        "Peony",
-        "Wand"
+        "Bow",
+        "Joker",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Dragonyule_Lily"
+        "Mikoto",
+        "Patia"
       ]
     },
     "PERSONAL": {
@@ -43,8 +42,8 @@
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Worthy_Rivals",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
@@ -71,21 +70,21 @@
       ]
     },
     "META": {
-      "tdps": 43788.29319734386,
+      "tdps": 42197.688159864396,
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-ANY": {
+  "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30119.66637162157,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
+        "dps": 46622.68514189296,
+        "team": 0.27486571760477607,
+        "noaff": true,
+        "nihil": false
       },
       "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
         "Worthy_Rivals",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
@@ -102,15 +101,25 @@
         "`fsf,xf=5"
       ],
       "coabs": [
-        "Dagger",
+        "Gala_Zena",
         "Peony",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Ilia"
+        "Dragonyule_Lily"
       ]
     },
+    "META": {
+      "tdps": 43788.29319734386,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 31216.5960930929,
@@ -119,8 +128,8 @@
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Worthy_Rivals",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
@@ -153,23 +162,35 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59968.99875947537,
+        "dps": 61790.968059173865,
         "team": 0.17317064320360073,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon(c3-s-c3-c3-c3-end), buff(s2)",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, s1.phase>0",
+        "`s4, xf",
+        "`fsf,xf=5"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 131238.54519180293,
+      "tdps": 53130.33164856009,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -186,8 +207,8 @@
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Spirit_of_the_Season",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
@@ -223,7 +244,7 @@
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Moonlight_Party",
         "Worthy_Rivals",
         "A_Small_Courage",
@@ -237,6 +258,7 @@
       ]
     },
     "META": {
+      "tdps": 42013.54273268647,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

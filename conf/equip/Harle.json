@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 69959.73204700589,
-        "team": 0.05813048139046615,
+        "dps": 54365.577861928854,
+        "team": 0.08211192061174172,
         "noaff": false,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(s-c3-fs-end)",
+        "`dragon(c3-s-fs-end)",
         "`s3, not buff(s3)",
         "`s2, not have_buff(crit_vuln)",
         "`s4",
@@ -27,19 +27,59 @@
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
-        "Nino"
+        "Valentines_Melody"
+      ],
+      "share": [
+        "Weapon",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81372.79182777085,
+        "team": 0.04607933830311337,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon(c3-s-fs-end)",
+        "`s3, not buff(s3)",
+        "`s2, not have_buff(crit_vuln)",
+        "`s4",
+        "`s1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Valentines_Melody"
       ],
       "share": [
         "Weapon",
         "Formal_Joachim"
       ]
     },
+    "META": {
+      "tdps": 749522.0224439718,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69959.73204700589,
-        "team": 0.05813048139046615,
+        "dps": 67047.75121251572,
+        "team": 0.04606384664512635,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
@@ -52,19 +92,20 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(s-c3-fs-end)",
-        "`s3, not buff(s3)",
+        "`dragon(c3-s-fs-end), xf",
+        "`s1",
         "`s2, not have_buff(crit_vuln)",
         "`s4",
-        "`s1"
+        "`s3",
+        "`fsf, xf=5"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
-        "Nino"
+        "Valentines_Melody",
+        "Wand"
       ],
       "share": [
-        "Weapon",
+        "Ranzal",
         "Formal_Joachim"
       ]
     },
@@ -73,18 +114,89 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 82336.6960240816,
-        "team": 0.05813048139046615,
+        "dps": 68936.36744789191,
+        "team": 0.0843712995977699,
         "noaff": false,
         "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Super_Soaking_Androids",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon(c3-s-fs), xf=5",
+        "`s3, not buff(s3)",
+        "`s2, not have_buff(crit_vuln)",
+        "`s4",
+        "`s1"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 96349.84428308647,
+        "team": 0.04630841863577423,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Bloom_of_the_Battlefield",
+        "Hastened_Squall",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon(c3-s-fs), xf=5",
+        "`s3, not buff(s3)",
+        "`s2, not have_buff(crit_vuln)",
+        "`s4",
+        "`s1"
+      ]
+    },
+    "META": {
+      "tdps": 720215.499782212,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 72538.42168548139,
+        "team": 0.04606384664512635,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Bloom_of_the_Battlefield",
+        "Hastened_Squall",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
