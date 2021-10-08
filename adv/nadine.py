@@ -25,11 +25,11 @@ class Nadine(Adv):
         s1_hits += self.team_s1_hits
         log("debug", "s1_hits", s1_hits, self.team_s1_hits)
         if s1_hits <= 3:
-            self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_3)
+            self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_3, dtype=e.dtype)
         if s1_hits <= 5:
-            self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_5)
+            self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_5, dtype=e.dtype)
         elif s1_hits >= 6:
-            self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_6)
+            self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_6, dtype=e.dtype)
 
 
 class Nadine_TREND(Nadine):

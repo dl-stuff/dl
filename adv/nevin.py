@@ -28,7 +28,7 @@ class Nevin(SigilAdv):
     def s2_proc(self, e):
         if not isinstance(self, Nevin) or self.unlocked:
             for aseq in range(self.zonecount):
-                self.hitattr_make(e.name, e.base, e.group, aseq + 1, self.conf[e.name].extra_self)
+                self.hitattr_make(e.name, e.base, e.group, aseq + 1, self.conf[e.name].extra_self, dtype=e.dtype)
         else:
             self.a_update_sigil(-60)
 

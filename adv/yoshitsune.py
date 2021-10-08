@@ -9,10 +9,6 @@ class Yoshitsune(Adv):
         self.allow_dodge = False
 
     def l_dodge_attack(self, e):
-        log("cast", "dodge_attack")
-        for _ in range(7):
-            self.add_combo("dodge")
-            self.dmg_make("dodge", 0.10)
         if self.nihilism:
             return
         if self.allow_dodge and not self.is_set_cd("a1", 5):
