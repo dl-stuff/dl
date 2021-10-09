@@ -942,6 +942,16 @@ class Adv(object):
         if conf.get("energizable"):
             self.energy.extra_tensionable.add(name)
 
+    @property
+    def current_x(self):
+        if self.in_dform():
+            return globalconf.DRG
+        return self._current_x
+
+    @current_x.setter
+    def current_x(self, value):
+        self._current_x = value
+
     def doconfig(self):
         # comment
         if self.conf.c["comment"]:

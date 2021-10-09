@@ -263,8 +263,6 @@ class DragonForm:
         for s in self.adv.dskills:
             s.reset_uses()
         self.adv.set_dacl(True)
-        self.previous_x = self.adv.current_x
-        self.adv.current_x = DRG
         self.l_s.on()
         self.l_s_end.on()
         self.set_dacts_enabled(True)
@@ -296,7 +294,6 @@ class DragonForm:
         self.shift_silence_timer.on()
         if self.dragon_gauge_timer_diff > 0:
             self.dragon_gauge_pause_timer = Timer(self.resume_auto_gauge).on(self.dragon_gauge_timer_diff)
-        self.adv.current_x = self.previous_x
         self.l_s.off()
         self.l_s_end.off()
         self.l_s_final_end.off()
