@@ -146,8 +146,11 @@ class Log:
                 dmg_amount = float(args[2])
                 if name[0:2] == "o_" and name[2] in self.damage:
                     name = name[2:]
-                elif self.log_dact_as_act and name[0] == "d" and name != "dshift":
-                    name = name[1:].split("_")[0] + "_drg"
+                if self.log_dact_as_act and name[0] == "d" and name != "dshift":
+                    parts = name[1:].split("_")
+                    name = parts[0] + "_drg"
+                    if len(parts) > 1:
+                        name += "_" + "_".join(parts[1:])
                 if name[0] in self.damage:
                     self.update_dict(self.damage[name[0]], name, dmg_amount)
                 else:

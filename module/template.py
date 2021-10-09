@@ -256,3 +256,11 @@ class LowerMCAdv(Adv):
 
     def pre_conf(self, equip_conditions=None):
         super().pre_conf(equip_conditions=equip_conditions, name=f"{self.name}.{self.MC}MC")
+
+
+class InfiniteUTPAdv(Adv):
+    SAVE_VARIANT = False
+
+    def doconfig(self):
+        super().doconfig()
+        self.dragonform.set_utp_infinite()

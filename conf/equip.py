@@ -46,7 +46,7 @@ HAS_7SLOT = (
     "shadow",
     "wind",
 )
-BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "coabs", "share")
+BUILD_CONF_KEYS = ("slots.a", "slots.d", "slots.w", "acl", "dacl", "coabs", "share")
 BUILD_META_KEY = "EQMT"
 
 DEBUG = False

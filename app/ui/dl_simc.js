@@ -334,6 +334,9 @@ function loadConf(conf, slots) {
     if (conf.acl) {
         slots.adv.acl_alt = conf.acl;
     }
+    if (conf.dacl) {
+        slots.adv.dacl_alt = conf.dacl;
+    }
     if (conf.afflict_res) {
         slots.adv.afflict_res = conf.afflict_res
     }
@@ -565,11 +568,12 @@ function loadAdvSlots(no_conf, default_equip) {
                         $(aclid).data('default_acl', acl);
                         $(aclid).removeData('alternate_acl');
                         $(aclid).blur();
-                        const acl_check = Boolean(slots.adv.acl_alt && slots.adv.acl_alt != acl);
+                        let acl_alt = slots.adv[`${aclkey}_alt`];
+                        const acl_check = Boolean(acl_alt && acl_alt != acl);
                         $('#input-edit-acl').prop('checked', acl_check);
                         $(aclid).prop('disabled', !acl_check);
-                        if (slots.adv.acl_alt) {
-                            const acl_alt = trimAcl(slots.adv.acl_alt);
+                        if (acl_alt) {
+                            acl_alt = trimAcl(acl_alt);
                             $(aclid).data('alternate_acl', acl_alt);
                             $(aclid).val(acl_alt);
                         } else {

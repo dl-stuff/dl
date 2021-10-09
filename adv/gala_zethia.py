@@ -1,4 +1,5 @@
 from core.advbase import *
+from module.template import InfiniteUTPAdv
 
 
 class DodgeOnX(Dodge):
@@ -123,4 +124,8 @@ class ServantAction:
         self.recovery_timer.off()
 
 
-variants = {None: Gala_Zethia}
+class Gala_Zethia_INFUTP(Gala_Zethia, InfiniteUTPAdv):
+    pass
+
+
+variants = {None: Gala_Zethia, "INFUTP": Gala_Zethia_INFUTP}
