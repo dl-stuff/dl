@@ -94,7 +94,7 @@ class ServantAction:
         self.act_event.name = f"{name}_bahamut"
         self.act_event.base = self.name
         self.act_event.group = "servant"
-        self.act_event.dtype = self.name[1]  # twust
+        self.act_event.dtype = "fs" if name == "fs" else name[0]
         self.act_event.index = 0
 
         self.cast = "x" if self.act_event.dtype == "x" else "cast"
@@ -118,7 +118,8 @@ class ServantAction:
         self.c_servant_act = None
 
     def stop(self):
-        # self.startup_timer.off()
+        if self.name != "s1":
+            self.startup_timer.off()
         self.recovery_timer.off()
 
 
