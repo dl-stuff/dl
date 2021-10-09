@@ -65,6 +65,8 @@ class Gala_Zethia(Adv):
         self.s1.charge(s1_sp)
 
     def next_servant_action(self, prev):
+        if not self.in_drg:
+            return
         if self.st_bahamut >= 16:
             nact = "s1"
         else:
@@ -118,8 +120,6 @@ class ServantAction:
         self.c_servant_act = None
 
     def stop(self):
-        if self.name != "s1":
-            self.startup_timer.off()
         self.recovery_timer.off()
 
 
