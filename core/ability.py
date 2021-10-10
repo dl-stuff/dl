@@ -220,7 +220,6 @@ class AffNumKiller(Killer):
         rates = min(max(rates - 1, 0), len(self.values) - 1)
         floor = int(rates)
         # lin interpolation; i DARE TO BE STUPID
-        lower = self.values[floor]
         if floor == len(self.values) - 1:
             return self.values[floor]
         diff = self.values[floor + 1] - self.values[floor]
