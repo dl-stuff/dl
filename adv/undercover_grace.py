@@ -10,7 +10,7 @@ class Undercover_Grace(Adv):
         Event("dragon").listener(self.a1_reset)
         self.a3_regen = Timer(self.a3_regen, 2.9, True).on()
         o_s2_check = self.a_s_dict["s2"].check
-        self.a_s_dict["s2"].check = lambda: not self.a_s_dict["s2"]._static.silence and self.soul_seal_buff.get()
+        self.a_s_dict["s2"].check = lambda: o_s2_check() and self.soul_seal_buff.get()
 
     @property
     def soul_seal(self):

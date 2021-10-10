@@ -258,10 +258,6 @@ class ReservoirChainSkill(Skill):
     def sp(self):
         return self._sp
 
-    @property
-    def count(self):
-        return self.charged // self.sp
-
     def __call__(self, call=1):
         self.name = f"s{call}"
         casted = super().__call__()
@@ -1597,6 +1593,10 @@ class Adv(object):
                     for order, mods in self.all_modifiers[f"{cond_name}_killer"].items():
                         for mod in mods:
                             modifiers[order].add(mod)
+                    if cond_name in AFFLICT_LIST:
+                        for order, mods in self.all_modifiers["afflicted_killer"].items():
+                            for mod in mods:
+                                modifiers[order].add(mod)
                 else:
                     p *= 1 - cond_p
             total += p * reduce(

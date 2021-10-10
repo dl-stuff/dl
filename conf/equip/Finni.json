@@ -77,8 +77,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46199.38995158806,
-        "team": 0.06643745567932643,
+        "dps": 45820.89380750729,
+        "team": 0.06662126491830854,
         "noaff": false,
         "nihil": true
       },
@@ -91,13 +91,13 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
-        "`s3, not buff(s3)",
-        "`s4",
+        "`dragon, self.sr.count=1",
+        "s3, not buff(s3)",
+        "s4",
         "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count=2 and cancel",
+        "s1, self.sr.count=2 and cancel",
         "else",
-        "`s2, self.sr.count=2",
+        "s2, self.sr.count=2",
         "end"
       ],
       "coabs": [
@@ -146,21 +146,31 @@
       ]
     },
     "META": {
-      "tdps": 15230.845953458635,
+      "tdps": 20870.13506539155,
       "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 74379.99399968037,
+        "dps": 75335.39930697173,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`dragon, self.sr.count=1",
+        "s3, not buff(s3)",
+        "s4",
+        "if s2_autocharge_buff.get()",
+        "s1, self.sr.count=2 and cancel",
+        "else",
+        "s2, self.sr.count=2",
+        "end"
+      ]
     },
     "META": {
-      "tdps": 90389.25357354966,
+      "tdps": 94977.32221035926,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -171,7 +181,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52540.56039644008,
+        "dps": 54259.840557999385,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -184,13 +194,13 @@
         "Snipers_Allure"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
-        "`s3, not buff(s3)",
-        "`s4",
+        "`dragon, self.sr.count=1",
+        "s3, not buff(s3)",
+        "s4",
         "if s2_autocharge_buff.get()",
-        "`s1, self.sr.count>1.7 and cancel",
+        "s1, self.sr.count>1.7 and cancel",
         "else",
-        "`s2, self.sr.count=2",
+        "s2, self.sr.count=2",
         "end"
       ],
       "coabs": [
@@ -253,7 +263,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44378.8885903021,
+        "dps": 45933.068580298816,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -264,6 +274,16 @@
         "Summer_Paladyns",
         "Dueling_Dancers",
         "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon",
+        "s3, not buff(s3)",
+        "s4",
+        "if s2_autocharge_buff.get()",
+        "s1, self.sr.count=2 and cancel",
+        "else",
+        "s2, self.sr.count=2",
+        "end"
       ],
       "coabs": [
         "Blade",

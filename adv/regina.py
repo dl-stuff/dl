@@ -15,7 +15,7 @@ S2_AFFS = {
 
 
 class Regina(SigilAdv):
-    comment = "no s2 rng affliction"
+    comment = "expected value s2 affliction"
 
     def prerun(self):
         self.config_sigil(duration=300)
@@ -26,6 +26,11 @@ class Regina(SigilAdv):
 
     def s1_proc(self, e):
         self.a_update_sigil(-9)
+
+    def s2_hit1(self, *args):
+        name, dtype = args[0], args[4]
+        for aff, affargs in S2_AFFS.items():
+            getattr(self.afflics, aff).on(name, *affargs, dtype=dtype, very_speshul_regina_number=2/7)
 
     def check_protocol(self, e):
         fs_action = self.action.getdoing()

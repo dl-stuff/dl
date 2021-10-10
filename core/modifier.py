@@ -9,6 +9,7 @@ from core.timeline import Timer, Event, Listener, now
 from core.log import log
 from core.ctx import Static
 from core.acl import allow_acl
+from core.afflic import AFFLICT_LIST
 
 
 class ModifierDict(defaultdict):
@@ -135,7 +136,10 @@ class Modifier(object):
 
 class KillerModifier(Modifier):
     def __init__(self, name, order, value, killer_condition):
-        self.killer_condition = killer_condition
+        if "afflicted" in killer_condition:
+            self.killer_condition = AFFLICT_LIST
+        else:
+            self.killer_condition = killer_condition
         super().__init__(f"{name}_killer", f"{killer_condition}_killer", order, value)
 
     def on(self, modifier=None):

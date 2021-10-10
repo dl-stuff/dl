@@ -193,8 +193,41 @@ class Killer(ConditionalModifierAbility):
     def __init__(self, name, value, cond=None):
         super().__init__(name, "killer", "passive", value, cond)
 
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom=afrom)
+
 
 ability_dict["k"] = Killer
+
+
+class AffNumKiller(Killer):
+    def __init__(self, name, values, cond=None):
+        self.values = values
+        super().__init__(f"{name}_afflicted", values[0], cond)
+
+    def oninit(self, adv, afrom=None):
+        super().oninit(adv, afrom=afrom)
+        self.mod_object.get = self.value
+        self.afflics = adv.afflics
+
+    def value(self):
+        # likely slightly wrong, as it treats afflicrate and krate as independent
+        rates = 0
+        for afflic in AFFLICT_LIST:
+            rate = getattr(self.afflics, afflic).get()
+            if rate > 0:
+                rates += rate
+        rates = min(max(rates - 1, 0), len(self.values) - 1)
+        floor = int(rates)
+        # lin interpolation; i DARE TO BE STUPID
+        lower = self.values[floor]
+        if floor == len(self.values) - 1:
+            return self.values[floor]
+        diff = self.values[floor + 1] - self.values[floor]
+        return self.values[floor] + diff * (rates % 1)
+
+
+ability_dict["affnumkiller"] = AffNumKiller
 
 
 class Skill_Haste(Ability):
