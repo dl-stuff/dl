@@ -995,6 +995,8 @@ class Adv(object):
         self.base_hp = 3000
         self.hp_event = Event("hp")
         self.heal_event = Event("heal")
+        self.dispel_event = Event("dispel")
+        self.aff_relief_event = Event("aff_relief")
 
         from module.tension import Energy, Inspiration
 
@@ -2650,6 +2652,12 @@ class Adv(object):
         if "buff" in attr:
             self.hitattr_buff_outer(name, base, group, aseq, attr)
 
+        if "dispel" in attr:
+            self.dispel(attr["dispel"])
+
+        if "relief" in attr:
+            self.aff_relief(*attr["relief"])
+
         if "vars" in attr:
             varname = attr["vars"][0]
             value = attr["vars"][1]
@@ -2922,6 +2930,23 @@ class Adv(object):
             if actmod:
                 self.actmod_off(e)
         self.think_pin(pin or e.name)
+
+
+    def dispel(self, rate=100):
+        # assume 100 rate for now
+        self.dispel_event()
+
+
+    def aff_relief(self, affs, rate=100)
+        # assume 100 rate for now
+        type = set(affs)
+        if "all" in type:
+            type = set(AFFLICT_LIST)
+        affs = [buff for buff in self.all_buffs if buff.name in type]
+        if len(affs) > 0:
+            self.aff_relief_event()
+            for aff in affs:
+                aff.off()
 
     def l_fs(self, e):
         log("cast", e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name, e.dtype)

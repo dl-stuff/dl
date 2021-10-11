@@ -9,13 +9,26 @@
         "spiral": true,
         "a": [["prep", 100.0], ["affres_bog", 100.0], ["resself_bog_att", 0.15, 10.0, 15.0], ["rcv", 0.15]]
     },
+    "fs_lowen": {
+        "charge": 0.5,
+        "startup": 0.7,
+        "recovery": 1.46667,
+        "attr": [
+            {"dmg": 0.61, "odmg": 4.2, "sp": 580, "dispel": 100},
+            {"dmg": 0.61, "odmg": 4.2, "iv": 0.36667},
+            {"dmg": 0.61, "odmg": 4.2, "iv": 0.73333},
+            {"dmg": 0.61, "odmg": 4.2, "iv": 0.96667}
+        ],
+        "interrupt": {"s": 0.0, "dodge": 0.0},
+        "cancel": {"s": 0.0, "dodge": 0.0}
+    },
     "s1": {
         "sp": 5916,
         "startup": 0.0,
         "recovery": 1.8,
         "attr": [
             {"buff": ["fsAlt", "lowen", -1, 1, "-refresh"], "coei": 1, "ab": 1},
-            {"heal": [130, "team"], "iv": 0.93333},
+            {"heal": [130, "team"], "relief": [["bog"], 100], "iv": 0.93333},
             {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.96667}
         ],
         "energizable": true

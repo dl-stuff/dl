@@ -6,7 +6,7 @@ from module.template import SigilAdv
 class Ryszarda(SigilAdv):
     def prerun(self):
         self.config_sigil(duration=300, x=True)
-        self.heal_event.listener(self.a1_healed)
+        self.sigil_listeners = [Listener("heal", self.a1_healed)]
         self.x5_level = 0
 
     def a1_healed(self, e):

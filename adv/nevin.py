@@ -10,7 +10,7 @@ class Nevin(SigilAdv):
 
         t = Timer(self.x_sword_dmg, 1.5, True)
         self.sword = EffectBuff("revelation_sword", 12, lambda: t.on(), lambda: t.off()).no_bufftime()
-        Event("dragon").listener(self.a_shift_sigil)
+        self.sigil_listeners = [Listener("dragon", self.a_shift_sigil)]
 
     @staticmethod
     def prerun_skillshare(adv, dst):

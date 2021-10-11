@@ -20,9 +20,11 @@ class Regina(SigilAdv):
     def prerun(self):
         self.config_sigil(duration=300)
         self._protocol = 0
-
-        Event("fs_end").listener(self.check_protocol, order=0)
-        Event("repeat").listener(self.check_protocol, order=0)
+        self.sigil_listeners = [
+            Listener("aff_relief", lambda e: self.a_update_sigil(-30)),
+            Listener("fs_end", self.check_protocol, order=0),
+            Listener("repeat", self.check_protocol, order=0),
+        ]
 
     def s1_proc(self, e):
         self.a_update_sigil(-9)

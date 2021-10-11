@@ -14,7 +14,8 @@
         "startup": 0.13333,
         "recovery": 1.03334,
         "attr": [
-            {"dmg": 0.92, "odmg": 6.0, "sp": 200}
+            {"dmg": 0.92, "odmg": 6.0, "sp": 200},
+            {"cond": ["var>=", ["hits", 15]], "dispel": 100}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0},
         "cancel": {"s": 0.0, "x1": 0.7, "dodge": 0.0}
@@ -24,7 +25,8 @@
         "startup": 0.13333,
         "recovery": 1.03334,
         "attr": [
-            {"dmg": 3.3, "killer": [0.2, ["scorchrend"]], "odmg": 1.34, "sp": 550}
+            {"dmg": 3.3, "killer": [0.2, ["scorchrend"]], "odmg": 1.34, "sp": 550},
+            {"cond": ["var>=", ["hits", 15]], "dispel": 100}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0},
         "cancel": {"s": 0.0, "x1": 0.7, "dodge": 0.0}
@@ -34,7 +36,8 @@
         "startup": 0.13333,
         "recovery": 1.03334,
         "attr": [
-            {"dmg": 1.84, "odmg": 3.0, "sp": 350}
+            {"dmg": 1.84, "odmg": 3.0, "sp": 350},
+            {"cond": ["var>=", ["hits", 15]], "dispel": 100}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0},
         "cancel": {"s": 0.0, "x1": 0.7, "dodge": 0.0}
@@ -45,6 +48,7 @@
         "recovery": 1.03334,
         "attr": [
             {"dmg": 2.11, "killer": [0.2, ["scorchrend"]], "odmg": 1.81, "sp": 750},
+            {"cond": ["var>=", ["hits", 15]], "dispel": 100},
             {"dmg": 4.15, "killer": [0.2, ["scorchrend"]], "odmg": 1.2, "iv": 0.6}
         ],
         "interrupt": {"s": 0.0, "dodge": 0.0},

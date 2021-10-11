@@ -16,6 +16,7 @@
         "attr": [
             {"cond": ["var=", ["preservation_protocol", 1]], "amp": ["20000", 1, 0], "iv": 2.0},
             {"cond": ["var=", ["restoration_protocol", 1]], "heal": 50, "iv": 2.0},
+            {"cond": ["var=", ["purification_protocol", 1]], "relief": [["all"], 100], "iv": 2.0},
             {"dmg": 24.0, "iv": 2.0}
         ]
     },
@@ -26,6 +27,7 @@
         "attr": [
             {"amp": ["20000", 1, 0], "iv": 2.0},
             {"heal": 50, "iv": 2.0},
+            {"relief": ["all", 100], "iv": 2.0},
             {"dmg": 24.0, "iv": 2.0}
         ]
     },

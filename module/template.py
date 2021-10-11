@@ -159,11 +159,14 @@ class SigilAdv(Adv):
         self.locked_sigil = EffectBuff("locked_sigil", duration, lambda: None, self.a_sigil_unlock).no_bufftime()
         self.locked_sigil.on()
         self.sigil_mode = ModeManager(group="sigil", **kwargs)
+        self.sigil_listeners = []
 
     def a_sigil_unlock(self):
         self.unlocked = True
         self.unlocked_time = now()
         self.sigil_mode.on()
+        for l in self.sigil_listeners:
+            l.off()
 
     def a_update_sigil(self, time):
         if not self.unlocked:

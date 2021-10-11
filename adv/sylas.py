@@ -179,6 +179,7 @@ class Sylas_RNG(Adv):
         if pick == "all":
             for buffarg in self.s2_buff_args[0:3]:
                 Teambuff(e.name, *buffarg).on()
+            self.aff_relief(["all"], 100)
         else:
             Teambuff(e.name, *pick).on()
 
@@ -214,6 +215,7 @@ class Sylas_ALL(Adv):
         Teambuff(e.name, 0.25, 15.0, "att", "buff").on()
         Teambuff(e.name, 0.25, 15.0, "defense", "buff").on()
         Teambuff(e.name, 0.20, -1, "maxhp", "buff").on()
+        self.aff_relief(["all"], 100)
 
 
 variants = {
