@@ -224,7 +224,6 @@ class AffNumKiller(Killer):
         if floor == len(self.values) - 1:
             return self.values[floor]
         # lin interpolation; i DARE TO BE STUPID
-        lower = self.values[floor]
         diff = self.values[floor + 1] - self.values[floor]
         return self.values[floor] + diff * (rates % 1)
 
