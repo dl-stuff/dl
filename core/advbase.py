@@ -2937,7 +2937,7 @@ class Adv(object):
         self.dispel_event()
 
 
-    def aff_relief(self, affs, rate=100)
+    def aff_relief(self, affs, rate=100):
         # assume 100 rate for now
         type = set(affs)
         if "all" in type:
