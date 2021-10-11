@@ -196,8 +196,8 @@ class AfflicUncapped(AfflicBase):
             if res >= self.rate or res >= 1:
                 states[res] += state_p
             else:
-                rate_after_res = min(1.0, self.rate - res)
-                success_p = state_p * rate_after_res * very_speshul_regina_number
+                rate_after_res = min(1.0, self.rate - res) * very_speshul_regina_number
+                success_p = state_p * rate_after_res
                 fail_p = state_p * (1.0 - rate_after_res)
                 total_success_p += success_p
                 states[res + self.tolerance] += success_p
@@ -479,19 +479,19 @@ class Afflics(object):
             "scorchrend": 100,
         },
         ("water", False): {  # Legend Ayaha & Otoha
-            "poison": 100,
+            "poison": 0,
             "burn": 0,
-            "freeze": 100,
-            "paralysis": 100,
-            "blind": 100,
-            "stun": 100,
-            "bog": 100,
-            "sleep": 100,
+            "freeze": 0,
+            "paralysis": 0,
+            "blind": 0,
+            "stun": 0,
+            "bog": 0,
+            "sleep": 0,
             "frostbite": 0,
-            "flashburn": 100,
-            "stormlash": 100,
-            "shadowblight": 100,
-            "scorchrend": 100,
+            "flashburn": 0,
+            "stormlash": 0,
+            "shadowblight": 0,
+            "scorchrend": 0,
         },
         ("water", True): {  # Master Lilith (flame side)
             "poison": 100,

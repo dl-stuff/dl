@@ -30,7 +30,7 @@ class Regina(SigilAdv):
     def s2_hit1(self, *args):
         name, dtype = args[0], args[4]
         for aff, affargs in S2_AFFS.items():
-            getattr(self.afflics, aff).on(name, *affargs, dtype=dtype, very_speshul_regina_number=2/7)
+            getattr(self.afflics, aff).on(name, *affargs, dtype=dtype, very_speshul_regina_number=2/len(S2_AFFS))
 
     def check_protocol(self, e):
         fs_action = self.action.getdoing()
@@ -44,15 +44,15 @@ class Regina(SigilAdv):
 
     @property
     def preservation_protocol(self):
-        return int(self._protocol == 0)
+        return int(self._protocol == 0 or self.unlocked)
 
     @property
     def restoration_protocol(self):
-        return int(self._protocol == 1)
+        return int(self._protocol == 1 or self.unlocked)
 
     @property
     def purification_protocol(self):
-        return int(self._protocol == 2)
+        return int(self._protocol == 2 or self.unlocked)
 
 
 class Regina_RNG(Regina):

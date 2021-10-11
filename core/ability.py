@@ -218,11 +218,13 @@ class AffNumKiller(Killer):
             if rate > 0:
                 rates += rate
         rates = min(max(rates - 1, 0), len(self.values) - 1)
+        if rates == 0:
+            return self.values[0]
         floor = int(rates)
-        # lin interpolation; i DARE TO BE STUPID
-        lower = self.values[floor]
         if floor == len(self.values) - 1:
             return self.values[floor]
+        # lin interpolation; i DARE TO BE STUPID
+        lower = self.values[floor]
         diff = self.values[floor + 1] - self.values[floor]
         return self.values[floor] + diff * (rates % 1)
 
