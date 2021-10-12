@@ -1021,31 +1021,6 @@ class Energy_Stat(Ability):
 ability_dict["estat"] = Energy_Stat
 
 
-class Energy_Haste(Ability):
-    HASTE_LEVELS = {
-        3: (0.0, 0.05, 0.10, 0.15, 0.20, 0.25),
-    }
-
-    def __init__(self, name, value):
-        # self.atk_buff = Selfbuff('a1atk',0.00,-1,'att','passive').on()
-        # self.a1crit = Selfbuff('a1crit',0.00,-1,'crit','chance').on()
-        self.haste_values = self.STR_LEVELS[value]
-        super().__init__(name)
-
-    def oninit(self, adv, afrom=None):
-        self.haste_buff = adv.Selfbuff("ehaste", 0.00, -1, "sp", "passive").on()
-
-        def l_energy(e):
-            self.haste_buff.off()
-            self.haste_buff.set(self.haste_values[round(e.stack)])
-            self.haste_buff.on()
-
-        adv.Event("energy").listener(l_energy)
-
-
-ability_dict["ehaste"] = Energy_Stat
-
-
 class Affliction_Edge(Ability):
     def __init__(self, name, value, cond=None):
         self.atype = name.split("_")[1]
