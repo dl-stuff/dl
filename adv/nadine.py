@@ -18,15 +18,16 @@ class Nadine(Adv):
             adv.team_s1_hits += teammates
 
     def s1_before(self, e):
+        # todo: check if overdamage applies to hit counting?
         for _ in range(self.team_s1_hits):
             self.add_combo(e.name)
         aseq = 1 if e.group == "default" else 3 + 1
         s1_hits = 1 if e.group == "default" else 3
         s1_hits += self.team_s1_hits
         log("debug", "s1_hits", s1_hits, self.team_s1_hits)
-        if s1_hits <= 3:
+        if s1_hits == 3:
             self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_3, dtype=e.dtype)
-        if s1_hits <= 5:
+        elif 4 <= s1_hits <= 5:
             self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_5, dtype=e.dtype)
         elif s1_hits >= 6:
             self.hitattr_make(e.name, e.base, e.group, aseq, self.conf[e.name].extra_6, dtype=e.dtype)
