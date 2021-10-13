@@ -2,23 +2,25 @@
     "c": {
         "name": "Wedding Aoi",
         "icon": "110002_02_r05",
-        "att": 475,
-        "hp": 800,
+        "att": 569,
+        "hp": 960,
         "ele": "wind",
         "wt": "dagger",
-        "spiral": false,
-        "a": [["affteam_sleep_att", 0.15, 10.0, 5.0], ["affres_freeze", 100.0], ["spf", 0.12]]
+        "spiral": true,
+        "a": [["affteam_sleep_att", 0.15, 10.0, 5.0], ["k_stormlash", 0.1], ["k_sleep", 0.1], ["affres_freeze", 100.0], ["resself_freeze_att", 0.15, 10.0, 15.0], ["spf", 0.15]]
     },
     "s1": {
         "sp": 2401,
         "startup": 0.0,
         "recovery": 2.63333,
         "attr": [
-            {"dmg": 3.234, "afflic": ["sleep", 110], "iv": 0.33333},
-            {"dmg": 3.234, "iv": 0.33333, "msl": 0.3},
-            {"dmg": 3.234, "iv": 0.33333, "msl": 0.6},
-            {"dmg": 3.234, "iv": 0.33333, "msl": 0.9},
-            {"dmg": 12.892, "iv": 1.93333}
+            {"dmg": 3.24, "afflic": ["sleep", 110], "iv": 0.33333},
+            {"dmg": 3.24, "iv": 0.33333, "msl": 0.3},
+            {"dmg": 3.24, "iv": 0.33333, "msl": 0.6},
+            {"afflic": ["stormlash", 120, 0.41], "iv": 0.33333},
+            {"iv": 0.33333, "msl": 0.3},
+            {"iv": 0.33333, "msl": 0.6},
+            {"dmg": 12.9, "iv": 1.93333}
         ]
     },
     "s2": {
@@ -26,12 +28,13 @@
         "startup": 0.0,
         "recovery": 3.63333,
         "attr": [
-            {"dmg": 7.0, "killer": [1.0, ["sleep"]], "iv": 0.2},
-            {"dmg": 7.0, "killer": [1.0, ["sleep"]], "iv": 0.4},
-            {"dmg": 7.0, "killer": [1.0, ["sleep"]], "iv": 0.63333},
-            {"dmg": 7.0, "killer": [1.0, ["sleep"]], "iv": 0.8},
-            {"dmg": 7.0, "killer": [1.0, ["sleep"]], "iv": 1.5},
-            {"heal": [25, "team"], "iv": 2.86667}
+            {"amp": ["20000", 2, 0], "ab": 1, "cd": 30.0},
+            {"dmg": 7.01, "killer": [1.0, ["sleep"]], "iv": 0.2},
+            {"dmg": 7.01, "killer": [1.0, ["sleep"]], "iv": 0.4},
+            {"dmg": 7.01, "killer": [1.0, ["sleep"]], "iv": 0.63333},
+            {"dmg": 7.01, "killer": [1.0, ["sleep"]], "iv": 0.8},
+            {"dmg": 7.01, "killer": [1.0, ["sleep"]], "iv": 1.5},
+            {"heal": [30, "team"], "iv": 2.86667}
         ],
         "cancel": {"any": 3.0}
     }
