@@ -22,7 +22,7 @@ class Kleimann(Adv):
         self.madness_degen = 0
         self.fs_alt_uses = 0
         self.madness_timer = Timer(self.a1_madness_autocharge, 2.9, 1)
-        self.fs_alt = FSAltBuff("a1_madness", "madness", uses=1)
+        self.fs_alt = FSAltBuff("a1_madness", "kleimann", uses=1)
         Event("dragon").listener(self.reset_madness_degen)
 
     def fs_madness_proc(self, e):

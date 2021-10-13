@@ -12,23 +12,25 @@
     "s1_phase1": {
         "sp": 2714,
         "startup": 0.0,
-        "recovery": 1.83333,
+        "recovery": 2.16667,
         "attr": [
             {"sp": [1.0, "%", "s1"]},
             {"dmg": 4.5, "iv": 0.6},
             {"dmg": 4.5, "iv": 0.86667}
-        ]
+        ],
+        "cancel": {"any": 1.83333}
     },
     "s1_phase2": {
         "sp": 2714,
         "startup": 0.0,
-        "recovery": 1.83333,
+        "recovery": 2.16667,
         "attr": [
             {"sp": [1.0, "%", "s1"]},
             {"dmg": 4.5, "bleed": [80, 1.46], "iv": 0.66667},
             {"dmg": 4.5, "iv": 0.93333}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 1.83333}
     },
     "s1_phase3": {
         "sp": 2714,
@@ -40,25 +42,28 @@
             {"dispel": 100, "iv": 0.7},
             {"dmg": 4.5, "iv": 0.86667}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 1.83333}
     },
     "s2": {
         "sp": 3372,
         "startup": 0.0,
-        "recovery": 1.76667,
+        "recovery": 2.16667,
         "attr": [
             {"buff": ["sAlt", "enhanced", "s2", -1, 1, "-refresh"], "coei": 1, "iv": 0.16667},
             {"dmg": 21.0, "killer": [0.2, ["bleed"]], "iv": 1.0}
-        ]
+        ],
+        "cancel": {"any": 1.76667}
     },
     "s2_enhanced": {
         "sp": 3372,
         "startup": 0.0,
-        "recovery": 1.76667,
+        "recovery": 2.16667,
         "attr": [
             {"dmg": 21.0, "killer": [0.2, ["bleed"]], "iv": 1.0},
             {"amp": ["10000", 3, 0], "iv": 1.66667}
-        ]
+        ],
+        "cancel": {"any": 1.76667}
     },
     "s99": {
         "sp": 2714,
@@ -69,6 +74,7 @@
             {"dmg": 4.5, "afflic": ["frostbite", 120, 0.41], "iv": 0.66667},
             {"dispel": 100, "iv": 0.7},
             {"dmg": 4.5, "iv": 0.86667}
-        ]
+        ],
+        "cancel": {"any": 1.83333}
     }
 }

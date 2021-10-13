@@ -24,18 +24,19 @@
     "s1": {
         "sp": 2343,
         "startup": 0.0,
-        "recovery": 2.3,
+        "recovery": 2.4,
         "attr": [
             {"dmg": 4.05, "killer": [0.3, ["frostbite"]], "afflic": ["frostbite", 120, 0.41], "iv": 0.3},
             {"dmg": 4.05, "killer": [0.3, ["frostbite"]], "iv": 0.73333},
             {"dmg": 4.05, "killer": [0.3, ["frostbite"]], "iv": 0.9},
             {"dmg": 4.05, "killer": [0.3, ["frostbite"]], "iv": 1.46667}
-        ]
+        ],
+        "cancel": {"any": 2.3}
     },
     "s2": {
         "sp": 4904,
         "startup": 0.0,
-        "recovery": 1.8,
+        "recovery": 2.0,
         "attr": [
             {"dmg": 3.296, "iv": 0.26667},
             {"dmg": 3.296, "iv": 0.46667},
@@ -43,6 +44,7 @@
             {"buff": ["debuff", -0.05, 10.0, 0.5, "def"], "iv": 1.06667, "coei": 1},
             {"dmg": 3.296, "buff": ["debuff", -0.05, 10.0, 1.0, "attack"], "iv": 1.06667, "coei": 1},
             {"dmg": 3.296, "iv": 1.06667}
-        ]
+        ],
+        "cancel": {"any": 1.8}
     }
 }

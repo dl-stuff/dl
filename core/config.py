@@ -70,10 +70,16 @@ class Conf(dict):
     def update(self, other, rebase=False):
         for k, v in other.items():
             if isinstance(v, dict):
-                try:
-                    self[k].update(v, rebase=rebase)
-                except (AttributeError, KeyError):
-                    self[k] = Conf(conf=v, parent=self)
+                if k in ("interrupt", "cancel") and k in self:
+                    if not (rebase and k in self):
+                        self[k] = Conf(conf=v, parent=self)
+                    else:
+                        continue
+                else:
+                    try:
+                        self[k].update(v, rebase=rebase)
+                    except (AttributeError, KeyError):
+                        self[k] = Conf(conf=v, parent=self)
                 # except KeyError:
                 #     self[k] = Conf(conf=v, parent=self)
             elif not (rebase and k in self):

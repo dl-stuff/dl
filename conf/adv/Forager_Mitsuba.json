@@ -16,13 +16,13 @@
             {"dmg": 8.0, "sp": 1000, "buff": ["s2", "default", 3, "-off"], "afflic": ["poison", 110, 0.436]}
         ],
         "charge": 0.4,
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.4, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.4}
     },
     "s1": {
         "sp": 2838,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 1.96667,
         "attr": [
             {"dmg": 1.55, "bleed": [80, 1.46], "iv": 0.66667},
             {"dmg": 1.55, "iv": 0.66667},
@@ -32,17 +32,19 @@
             {"dmg": 1.55, "iv": 0.9, "msl": 0.1},
             {"dmg": 1.55, "iv": 0.9, "msl": 0.13333},
             {"dmg": 1.55, "iv": 0.9, "msl": 0.2}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     },
     "s2": {
         "sp": 10000,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.96667,
         "attr": [
             {"buff": [["fsAlt", "foragermitsuba", -1, 1], ["next", 0.15, 1, "sp", "passive"], "-refresh"], "coei": 1, "ab": 1},
             {"cond": ["var<=", ["new_dish", 1]], "buff": ["zone", 0.1, 15.0, "s", "buff"], "iv": 0.5},
             {"cond": ["var=", ["new_dish", 2]], "buff": [["zone", 0.1, 15.0, "crit", "chance"], ["zone", 0.1, 15.0, "s", "buff"]], "iv": 0.5},
             {"cond": ["var=", ["new_dish", 3]], "buff": [["zone", 0.05, 15.0, "att", "buff"], ["zone", 0.1, 15.0, "crit", "chance"], ["zone", 0.1, 15.0, "s", "buff"]], "iv": 0.5}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     }
 }

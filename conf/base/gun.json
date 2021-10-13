@@ -1,18 +1,18 @@
 {
     "fs_gun1": {
-        "charge": 0.43333,
+        "charge": 0.4,
         "startup": 0.06667,
-        "recovery": 0.83333,
+        "recovery": 0.96666,
         "attr": [
             {"dmg": 1.8, "odmg": 4.0, "sp": 400}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "s": 0.0}
     },
     "fs_gun2": {
         "charge": 0.4,
         "startup": 0.06667,
-        "recovery": 0.76666,
+        "recovery": 0.9,
         "attr": [
             {"dmg": 0.4, "odmg": 2.0, "sp": 400},
             {"dmg": 0.4, "odmg": 2.0},
@@ -25,13 +25,13 @@
             {"dmg": 0.4, "odmg": 2.0},
             {"dmg": 0.4, "odmg": 2.0}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.76666, "dodge": 0.0, "s": 0.0}
     },
     "fs_gun3": {
         "charge": 0.4,
         "startup": 0.16667,
-        "recovery": 0.83333,
+        "recovery": 0.13333,
         "attr": [
             {"dmg": 0.5, "sp": 90, "odmg": 0.3},
             {"dmg": 0.5, "sp": 90, "odmg": 0.3, "iv": 0.16667},
@@ -47,8 +47,8 @@
                 {"dmg": 0.5, "sp": 90, "odmg": 0.3}
             ]
         },
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0}
     },
     "fsf": {
         "charge": 0.43333,
@@ -74,8 +74,8 @@
             {"dmg": 0.67, "iv": 0.7},
             {"dmg": 0.67, "iv": 0.93333}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "x2": 1.26667, "dodge": 0.0, "fs": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 1.26667}
     },
     "x2_gun1": {
         "startup": 0.2,
@@ -87,8 +87,8 @@
             {"dmg": 0.67, "iv": 0.7},
             {"dmg": 0.67, "iv": 0.93333}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "x1": 1.26667, "dodge": 0.0, "fs": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.26667}
     },
     "x1_gun2": {
         "startup": 0.1,
@@ -103,8 +103,8 @@
             {"dmg": 0.48},
             {"dmg": 0.48}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x2": 0.36667, "fs": 0.06667, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.06667, "s": 0.0, "x2": 0.36667}
     },
     "x2_gun2": {
         "startup": 0.1,
@@ -119,8 +119,8 @@
             {"dmg": 0.48},
             {"dmg": 0.48}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.8, "dodge": 0.0, "fs": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.8}
     },
     "x1_gun3": {
         "startup": 0.3,
@@ -130,8 +130,8 @@
             {"dmg": 0.45, "iv": 0.4},
             {"dmg": 0.45, "iv": 0.8}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "x2": 0.4, "dodge": 0.0, "fs": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.4}
     },
     "x2_gun3": {
         "startup": 0.1,
@@ -141,8 +141,8 @@
             {"dmg": 0.6, "iv": 0.1},
             {"dmg": 0.6, "iv": 0.2}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
-        "cancel": {"s": 0.0, "x3": 0.5, "dodge": 0.0, "fs": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.5}
     },
     "x3_gun3": {
         "startup": 0.1,
@@ -154,7 +154,7 @@
             {"dmg": 0.6, "iv": 0.3},
             {"dmg": 0.6, "iv": 0.4}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.5, "dodge": 0.0, "fs": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.5}
     }
 }

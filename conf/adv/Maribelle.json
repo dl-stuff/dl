@@ -12,7 +12,7 @@
     "s1": {
         "sp": 2648,
         "startup": 0.0,
-        "recovery": 2.7,
+        "recovery": 3.1,
         "attr": [
             {"dmg": 2.56, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.96667, "coei": 1},
             {"dmg": 2.56, "iv": 1.13333},
@@ -20,18 +20,20 @@
             {"dmg": 2.56, "iv": 1.46667},
             {"dmg": 2.56, "iv": 1.63333},
             {"dmg": 2.56, "iv": 1.8}
-        ]
+        ],
+        "cancel": {"any": 2.7}
     },
     "s2": {
         "sp": 5838,
         "startup": 0.0,
-        "recovery": 1.76667,
+        "recovery": 2.1,
         "attr": [
             {"dmg": 4.26, "iv": 0.83333},
             {"dmg": 4.26, "iv": 1.0},
             {"dmg": 4.26, "iv": 1.16667},
             {"dmg": 4.26, "iv": 1.33333},
             {"cond": ["hits", 30], "buff": ["energy", 5], "iv": 1.33333}
-        ]
+        ],
+        "cancel": {"any": 1.76667}
     }
 }

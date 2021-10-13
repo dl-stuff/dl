@@ -12,7 +12,7 @@
     "fs": {
         "charge": 0.45,
         "startup": 0.26667,
-        "recovery": 1.46667,
+        "recovery": 0.93333,
         "attr": [
             {"dmg": 3.66, "sp": 480, "odmg": 1.61, "buff": ["debuff", -0.02, 10.0, 1.0, "attack"], "coei": 1}
         ],
@@ -20,7 +20,8 @@
             "startup": 0.0,
             "recovery": 1.46667,
             "attr": [
-                {"dmg": 3.66, "odmg": 1.61, "sp": 480}, {"dmg": 3.66, "odmg": 1.61, "sp": 480, "msl": 0.26667}
+                {"dmg": 3.66, "odmg": 1.61, "sp": 480},
+                {"dmg": 3.66, "odmg": 1.61, "sp": 480, "msl": 0.26667}
             ]
         },
         "interrupt": {"s": 0.0},
@@ -55,12 +56,13 @@
     "s2": {
         "sp": 4958,
         "startup": 0.0,
-        "recovery": 2.83333,
+        "recovery": 3.63333,
         "attr": [
             {"cond": ["var<=", ["mochi_master", 1]], "buff": ["ele", 3.0, 20.0, "heal", "buff", "wind", "-refresh"], "coei": 1, "iv": 0.93333},
             {"cond": ["var=", ["mochi_master", 2]], "buff": ["ele", 15.0, 30.0, "heal", "buff", "wind", "-refresh"], "coei": 1, "iv": 0.93333},
             {"cond": ["var=", ["mochi_master", 3]], "buff": ["ele", 21.0, 60.0, "heal", "buff", "wind", "-refresh"], "coei": 1, "iv": 0.93333}
         ],
-        "energizable": true
+        "energizable": true,
+        "cancel": {"any": 2.83333}
     }
 }

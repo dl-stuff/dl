@@ -13,10 +13,10 @@
     "fs": {
         "charge": 0.08,
         "startup": 0.2,
-        "recovery": 0.13333,
+        "recovery": 0.46667,
         "attr": [],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "cancel": {"any": 0.13333, "dodge": 0.0, "s": 0.0}
     },
     "fs_counter": {
         "charge": 1.5,
@@ -29,12 +29,12 @@
         "cancel": {"s": 0.0, "dodge": 0.0}
     },
     "fs_sigil": {
-        "charge": 0.63333,
+        "charge": 0.08,
         "startup": 0.2,
-        "recovery": 0.13333,
+        "recovery": 0.46667,
         "attr": [],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "cancel": {"any": 0.13333, "dodge": 0.0, "s": 0.0}
     },
     "fs_sigilcounter": {
         "charge": 1.5,
@@ -52,7 +52,8 @@
         "recovery": 1.66667,
         "attr": [
             {"dmg": 27.09, "afflic": ["scorchrend", 120, 0.416], "iv": 0.66667}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     },
     "s1_sigil": {
         "sp": 3810,
@@ -61,7 +62,8 @@
         "attr": [
             {"dmg": 15.07, "afflic": ["scorchrend", 120, 0.416], "iv": 0.66667},
             {"dmg": 15.07, "iv": 0.66667}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     },
     "s2": {
         "sp": 7560,
@@ -81,8 +83,8 @@
             {"dmg": 0.97, "killer": [0.35, ["scorchrend"]], "iv": 0.7},
             {"dmg": 0.97, "killer": [0.35, ["scorchrend"]], "iv": 0.93333}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0}
     },
     "x2_sigil": {
         "startup": 0.2,
@@ -94,7 +96,7 @@
             {"dmg": 0.97, "killer": [0.35, ["scorchrend"]], "iv": 0.7},
             {"dmg": 0.97, "killer": [0.35, ["scorchrend"]], "iv": 0.93333}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0, "fs": 0.16667},
-        "cancel": {"s": 0.0, "dodge": 0.0, "fs": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 1.26667}
     }
 }

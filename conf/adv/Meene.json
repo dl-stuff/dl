@@ -7,7 +7,8 @@
         "ele": "wind",
         "wt": "bow",
         "spiral": false,
-        "a": [["affres_bog", 100.0], ["cc", 0.13, "hit15"]]
+        "a": [["affres_bog", 100.0], ["cc", 0.13, "hit15"]],
+        "suffixmap": {"enhanced2": "sixplus", "enhanced4": "sixplus"}
     },
     "default": {
         "x_max": 3
@@ -15,7 +16,7 @@
     "fs": {
         "charge": 0.35,
         "startup": 0.6,
-        "recovery": 0.4,
+        "recovery": 0.86667,
         "attr": [
             {"dmg": 0.43, "sp": 500, "odmg": 2.5, "butterfly": 1},
             {"dmg": 0.43, "odmg": 2.5, "msl": 1.5, "chaser": 1},
@@ -39,61 +40,66 @@
             {"dmg": 0.43, "odmg": 2.5, "msl": 7.5, "chaser": 3},
             {"dmg": 0.43, "odmg": 2.5, "msl": 9.0, "chaser": 3}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.1},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.1, "s": 0.0},
+        "cancel": {"any": 0.4, "dodge": 0.0, "s": 0.0}
     },
     "s1": {
         "sp": 4140,
         "startup": 0.0,
-        "recovery": 2.16667,
+        "recovery": 2.8,
         "attr": [
             {"dmg": 5.0, "buff": ["debuff", -0.2, 15.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 1.1, "msl": 0.43333},
             {"dmg": 1.67, "iv": 1.1},
             "butterflies_s1"
-        ]
+        ],
+        "cancel": {"any": 2.16667}
     },
     "s1_sixplus": {
         "sp": 4140,
         "startup": 0.0,
-        "recovery": 2.16667,
+        "recovery": 2.8,
         "attr": [
             {"dmg": 5.0, "buff": ["debuff", -0.2, 15.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 1.1, "msl": 0.43333},
             {"buff": ["debuff", -0.1, 15.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1, "iv": 1.1, "msl": 0.43333},
             {"dmg": 1.67, "iv": 1.1},
             "butterflies_s1"
-        ]
+        ],
+        "cancel": {"any": 2.16667}
     },
     "s2": {
         "sp": 6900,
         "startup": 0.0,
-        "recovery": 2.16667,
+        "recovery": 3.13333,
         "attr": [
             {"dmg": 10.0, "iv": 1.5},
             {"dmg": 1.67, "iv": 1.66667},
             "butterflies"
-        ]
+        ],
+        "cancel": {"any": 2.16667}
     },
     "s2_sixplus": {
         "sp": 6900,
         "startup": 0.0,
-        "recovery": 2.16667,
+        "recovery": 3.13333,
         "attr": [
             {"dmg": 10.0, "afflic": ["poison", 120, 0.582], "iv": 1.5},
             {"dmg": 1.67, "iv": 1.66667},
             "butterflies"
-        ]
+        ],
+        "cancel": {"any": 2.16667}
     },
     "s99": {
         "sp": 2896,
         "startup": 0.0,
-        "recovery": 2.16667,
+        "recovery": 2.8,
         "attr": [
             {"dmg": 13.35, "buff": ["debuff", -0.2, 15.0, 1.0, "attack", "-overwrite_HOSTILE1"], "iv": 1.1, "msl": 0.43333, "coei": 1}
-        ]
+        ],
+        "cancel": {"any": 2.16667}
     },
     "x1": {
         "startup": 0.36667,
-        "recovery": 0.8,
+        "recovery": 1.1,
         "attr": [
             {"dmg": 0.43, "sp": 350, "butterfly": 1},
             {"dmg": 0.43, "msl": 1.5, "chaser": 1},
@@ -103,12 +109,12 @@
             {"dmg": 0.43, "msl": 7.5, "chaser": 1},
             {"dmg": 0.43, "msl": 9.0, "chaser": 1}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x2": 0.56666}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.8, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.56666}
     },
     "x2": {
         "startup": 0.23333,
-        "recovery": 1.1,
+        "recovery": 1.4,
         "attr": [
             {"dmg": 0.43, "sp": 400, "butterfly": 1},
             {"dmg": 0.43, "msl": 1.5, "chaser": 1},
@@ -125,12 +131,12 @@
             {"dmg": 0.43, "iv": 0.43334, "msl": 7.5, "chaser": 2},
             {"dmg": 0.43, "iv": 0.43334, "msl": 9.0, "chaser": 2}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x3": 0.93334}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.1, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.93334}
     },
     "x3": {
         "startup": 0.5,
-        "recovery": 0.66667,
+        "recovery": 0.7,
         "attr": [
             {"dmg": 0.43, "sp": 450, "butterfly": 1},
             {"dmg": 0.43, "msl": 1.5, "chaser": 1},
@@ -154,7 +160,7 @@
             {"dmg": 0.43, "msl": 7.5, "chaser": 3},
             {"dmg": 0.43, "msl": 9.0, "chaser": 3}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x1": 0.5}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1": 0.5}
     }
 }

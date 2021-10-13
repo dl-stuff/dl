@@ -738,7 +738,8 @@ class Skill_Prep(Ability):
         super().__init__(name)
 
     def oninit(self, adv, afrom=None):
-        adv.charge_p("skill_prep", self.value)
+        # make sure the adv has correct starting skill (often set in prerun) before charging prep
+        adv.Timer(lambda _: adv.charge_p("skill_prep", self.value), timeout=0.0).on()
 
 
 ability_dict["prep"] = Skill_Prep

@@ -12,15 +12,15 @@
     "fs": {
         "charge": 0.4,
         "startup": 0.7,
-        "recovery": 1.46667,
+        "recovery": 1.76667,
         "attr": [
             {"dmg": 0.61, "sp": 580, "odmg": 4.2},
             {"dmg": 0.61, "odmg": 4.2, "iv": 0.36667},
             {"dmg": 0.61, "odmg": 4.2, "iv": 0.73333},
             {"dmg": 0.61, "odmg": 4.2, "iv": 0.96667}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 1.46667, "dodge": 0.0, "s": 0.0}
     },
     "fs_xihe": {
         "charge": 0.4,
@@ -36,11 +36,12 @@
     "s1": {
         "sp": 3000,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.8,
         "attr": [
             {"dmg": 16.1, "buff": ["debuff", -0.1, 10.0, 0.7, "attack"], "coei": 1, "iv": 0.63333},
             {"afflic": ["paralysis", 120, 0.97], "iv": 0.63333}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     },
     "s1_xihe": {
         "sp": 3000,
@@ -53,7 +54,8 @@
     "s2": {
         "sp": 4500,
         "startup": 0.0,
-        "recovery": 1.33333
+        "recovery": 1.8,
+        "cancel": {"any": 1.33333}
     },
     "s2_xihe": {
         "sp": 4500,

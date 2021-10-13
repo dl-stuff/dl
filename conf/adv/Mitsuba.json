@@ -12,7 +12,7 @@
     "s1_sashimi": {
         "sp": 2275,
         "startup": 0.0,
-        "recovery": 3.26667,
+        "recovery": 3.46667,
         "attr": [
             {"dmg": 1.84, "afflic": ["frostbite", 120, 0.41], "iv": 0.26667},
             {"dmg": 1.84, "iv": 0.66667},
@@ -22,12 +22,13 @@
             {"dmg": 1.84, "iv": 2.06667},
             {"dmg": 1.84, "iv": 2.23333},
             {"dmg": 1.84, "iv": 2.56667}
-        ]
+        ],
+        "cancel": {"any": 3.26667}
     },
     "s1_tempura": {
         "sp": 2275,
         "startup": 0.0,
-        "recovery": 3.26667,
+        "recovery": 3.46667,
         "attr": [
             {"dmg": 1.03, "killer": [1.3, ["frostbite"]], "iv": 0.26667},
             {"dmg": 1.03, "killer": [1.3, ["frostbite"]], "iv": 0.66667},
@@ -37,49 +38,52 @@
             {"dmg": 1.03, "killer": [1.3, ["frostbite"]], "iv": 2.06667},
             {"dmg": 1.03, "killer": [1.3, ["frostbite"]], "iv": 2.23333},
             {"dmg": 1.03, "killer": [1.3, ["frostbite"]], "iv": 2.56667}
-        ]
+        ],
+        "cancel": {"any": 3.26667}
     },
     "s2_sashimi": {
         "sp": 10595,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.96667,
         "attr": [
             {"buff": ["team", 0.1, 15.0, "crit", "chance"], "iv": 0.66667},
             {"buff": ["inspiration", 2, "team"], "iv": 1.0}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     },
     "s2_tempura": {
         "sp": 10595,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.96667,
         "attr": [
             {"buff": ["team", 0.5, 15.0, "crit", "damage"], "iv": 0.66667},
             {"buff": ["inspiration", 3, "team"], "iv": 1.0}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     },
     "x1_sashimi": {
         "startup": 0.19444,
-        "recovery": 0.36112,
+        "recovery": 0.60556,
         "attr": [
             {"dmg": 0.91, "sp": 150}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x2_sashimi": 0.08334}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.36112, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_sashimi": 0.08334}
     },
     "x2_sashimi": {
         "startup": 0.23333,
-        "recovery": 1.1,
+        "recovery": 1.5,
         "attr": [
             {"dmg": 1.21, "sp": 430},
             {"dmg": 1.21, "iv": 0.33334},
             {"dmg": 1.21, "iv": 0.66667}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x3_sashimi": 0.9}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.1, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_sashimi": 0.9}
     },
     "x3_sashimi": {
         "startup": 0.13889,
-        "recovery": 2.02778,
+        "recovery": 3.26111,
         "attr": [
             {"dmg": 1.51, "sp": 860},
             {"dmg": 1.51, "iv": 0.27778},
@@ -88,33 +92,33 @@
             {"dmg": 1.51, "iv": 1.52778},
             {"dmg": 1.51, "iv": 1.80555}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 2.02778, "dodge": 0.0, "fs": 0.0, "s": 0.0}
     },
     "x1_tempura": {
         "startup": 0.19444,
-        "recovery": 0.36112,
+        "recovery": 0.60556,
         "attr": [
             {"dmg": 0.91, "sp": 150}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x2_tempura": 0.08334}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.36112, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_tempura": 0.08334}
     },
     "x2_tempura": {
         "startup": 0.16667,
-        "recovery": 2.16666,
+        "recovery": 2.86666,
         "attr": [
             {"dmg": 1.22, "sp": 995},
             {"dmg": 1.22, "iv": 0.53333},
             {"dmg": 1.22, "iv": 1.06666},
             {"dmg": 1.22, "iv": 1.63333}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x3_tempura": 2.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 2.16666, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_tempura": 2.0}
     },
     "x3_tempura": {
         "startup": 0.33333,
-        "recovery": 1.05556,
+        "recovery": 1.1,
         "attr": [
             {"dmg": 1.4, "sp": 1220},
             {"dmg": 1.4, "iv": 0.43334},
@@ -124,7 +128,7 @@
             {"dmg": 1.4, "iv": 1.0, "msl": 0.1},
             {"dmg": 1.4, "iv": 1.0, "msl": 0.2}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.05556, "dodge": 0.0, "fs": 0.0, "s": 0.0}
     }
 }

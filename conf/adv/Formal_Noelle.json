@@ -12,31 +12,33 @@
     "fs_formalnoelle": {
         "charge": 0.5,
         "startup": 0.33333,
-        "recovery": 0.5,
+        "recovery": 0.63334,
         "attr": [
             {"buff": ["team", 0.15, -1, "maxhp", "buff"], "coei": 1}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.03334}
+        "cancel": {"any": 0.5, "dodge": 0.03334, "s": 0.0}
     },
     "s1": {
         "sp": 5916,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 1.93333,
         "attr": [
             {"buff": ["fsAlt", "formalnoelle", -1, 1, "-refresh"], "coei": 1, "ab": 1},
             {"buff": ["team", 25.0, 40.0, "heal", "buff"], "coei": 1, "iv": 0.86667},
             {"buff": ["team", 0.15, 60.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 1.0}
         ],
-        "energizable": true
+        "energizable": true,
+        "cancel": {"any": 1.5}
     },
     "s2": {
         "sp": 8352,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 1.63333,
         "attr": [
             {"dmg": 14.25, "buff": ["affres", -0.2, 30.0, "poison", "-overwrite_HOSTILE25"], "iv": 0.96667, "msl": 0.5, "coei": 1},
             {"dispel": 100, "iv": 0.96667, "msl": 0.5}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     }
 }

@@ -7,7 +7,8 @@
         "ele": "wind",
         "wt": "bow",
         "spiral": false,
-        "a": [["k_stormlash", 0.3]]
+        "a": [["k_stormlash", 0.3]],
+        "suffixmap": {"mode2": "romance", "enhanced2": "romance"}
     },
     "fs_ablaze": {
         "attr": [
@@ -37,82 +38,86 @@
     "s2_phase1": {
         "sp": 11640,
         "startup": 0.0,
-        "recovery": 2.9
+        "recovery": 3.46667,
+        "cancel": {"any": 2.9}
     },
     "s2_phase2": {
         "sp": 11640,
         "startup": 0.0,
-        "recovery": 2.9,
+        "recovery": 3.46667,
         "attr": [
             {"buff": ["team", 0.15, 15.0, "defense", "buff"], "coei": 1, "iv": 2.5}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 2.9}
     },
     "s2_phase3": {
         "sp": 11640,
         "startup": 0.0,
-        "recovery": 2.9,
+        "recovery": 3.46667,
         "attr": [
             {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5, "coei": 1},
             {"buff": ["next", 0.3, 1, "s", "buff", "-overwrite_MYSELF33"], "coei": 1, "iv": 2.5}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 2.9}
     },
     "s2_romance": {
         "sp": 11640,
         "startup": 0.0,
-        "recovery": 2.9,
+        "recovery": 3.46667,
         "attr": [
             {"buff": ["team", 0.15, 15.0, "defense", "buff"], "iv": 2.5, "coei": 1},
             {"buff": ["next", 0.3, 1, "s", "buff", "-overwrite_MYSELF33"], "iv": 2.5, "coei": 1},
             {"sp": [1.0, "%", "s1"], "iv": 2.5}
-        ]
+        ],
+        "cancel": {"any": 2.9}
     },
     "x1_romance": {
         "startup": 0.36667,
-        "recovery": 0.06666,
+        "recovery": 1.13333,
         "attr": [
             {"dmg": 0.42, "sp": 184},
             {"dmg": 0.42},
             {"dmg": 0.42}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.63333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_romance": 0.06666}
     },
     "x2_romance": {
         "startup": 0.26667,
-        "recovery": 0.26666,
+        "recovery": 1.4,
         "attr": [
             {"dmg": 0.53, "sp": 92},
             {"dmg": 0.53, "iv": 0.2}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.53333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_romance": 0.26666}
     },
     "x3_romance": {
         "startup": 0.46667,
-        "recovery": 0.43333,
+        "recovery": 1.33333,
         "attr": [
             {"dmg": 0.6, "sp": 276},
             {"dmg": 0.6},
             {"dmg": 0.6}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.56666, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_romance": 0.43333}
     },
     "x4_romance": {
         "startup": 0.26667,
-        "recovery": 0.26666,
+        "recovery": 1.4,
         "attr": [
             {"dmg": 0.92, "sp": 414},
             {"dmg": 0.92, "iv": 0.13333}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.83333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_romance": 0.26666}
     },
     "x5_romance": {
         "startup": 0.96667,
-        "recovery": 0.33333,
+        "recovery": 1.26666,
         "attr": [
             {"dmg": 0.51, "sp": 529},
             {"dmg": 0.51},
@@ -120,7 +125,7 @@
             {"dmg": 0.51},
             {"dmg": 0.51}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66666, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_romance": 0.33333}
     }
 }

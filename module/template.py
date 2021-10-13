@@ -230,11 +230,6 @@ class SkillChainAdv(Adv):
         self.a_s_dict["s1"] = self.sr
         self.a_s_dict["s2"] = self.sr
 
-    def prerun(self):
-        self.current_s["s1"] = "base1"
-        self.current_s["s2"] = "base2"
-        self.sr.enable_phase_up = False
-
     @allow_acl
     def s(self, n):
         sn = f"s{n}"

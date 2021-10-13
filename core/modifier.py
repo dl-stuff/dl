@@ -915,7 +915,7 @@ class Debuff(Teambuff):
     ):
         self.val = value
         self._chance = chance
-        super().__init__(name, self.ev_val(), duration, mtype, morder)
+        super().__init__(name, self.ev_val(), duration, mtype, morder, source=source)
         self.bufftype = "debuff"
         self.is_zone = False
         if mtype in ("defb", "adpt", "attb"):

@@ -7,12 +7,13 @@ from conf import DRG, DEFAULT, DDRIVE
 
 
 class DragonForm:
-    def __init__(self, name, conf, adv, dragon, dform_mode=-1):
+    def __init__(self, name, conf, adv, dragon, dform_mode=-1, unique_dform=False):
         self.name = name
         self.conf = conf
         self.adv = adv
         self.dragon = dragon
         self.dform_mode = dform_mode
+        self.unique_dform = unique_dform
 
         self.shift_start_proc = None
         self.shift_end_proc = None
@@ -27,7 +28,7 @@ class DragonForm:
         self.l_shift = Listener("dshift", self.d_shift_start, order=2)
         self.l_s = Listener("s", self.l_ds_pause, order=0)
         self.l_s_end = Listener("s_end", self.l_ds_resume, order=0)
-        self.l_s_final_end = Listener("s_end", self.d_shift_end, order=2)
+        self.l_s_final_end = Listener("s_end", self.d_shift_end, order=0)
         self.l_s.off()
         self.l_s_end.off()
         self.l_s_final_end.off()
@@ -79,16 +80,16 @@ class DragonForm:
         self.default_x_loop = self.conf["default_x_loop"] or self.dx_max  # the default combo idx to end combo on
         for fs, fsconf in self.conf.find(r"^dfs\d*(_[A-Za-z0-9]+)?$"):
             self.adv.conf[fs] = fsconf
-            for sfn in ("before", "proc"):
-                self.adv.rebind_function(self.dragon, f"{fs}_{sfn}", f"{fs}_{sfn}", overwrite=False)
+            if not self.unique_dform:
+                for sfn in ("before", "proc"):
+                    self.adv.rebind_function(self.dragon, f"{fs}_{sfn}", f"{fs}_{sfn}", overwrite=False)
         self.ds_final = None
         for ds, dsconf in self.conf.find(r"^ds\d*(_[A-Za-z0-9]+)?$"):
             self.adv.conf[ds] = dsconf
-            # rebind ds(1|2)_(before|proc)
-            # delicious squid ink spaget
             ds_base = ds.split("_")[0]
-            for sfn in ("before", "proc"):
-                self.adv.rebind_function(self.dragon, f"{ds_base}_{sfn}", f"{ds_base}_{sfn}", overwrite=False)
+            if not self.unique_dform:
+                for sfn in ("before", "proc"):
+                    self.adv.rebind_function(self.dragon, f"{ds_base}_{sfn}", f"{ds_base}_{sfn}", overwrite=False)
             if ds.startswith("ds99") or dsconf.get("final"):
                 self.ds_final = ds.split("_")[0]
         # make separate dodge action, may want to handle forward/backward later
@@ -134,7 +135,7 @@ class DragonForm:
     def set_dacts_enabled(self, enabled):
         for xact in self.adv.a_x_dict[DRG].values():
             xact.enabled = enabled
-        fsact = self.adv.a_fs_dict.get(DRG)
+        fsact = self.adv.a_fs_dict.get("dfs")
         if fsact:
             fsact.set_enabled(enabled)
         for skey in self.shift_skills:
@@ -346,7 +347,7 @@ class DragonFormUTP(DragonForm):
         # 0: ddrive as adventurer
         # 1: ddrive as dragon
         # 2: ddrive as adventurer, with servant
-        super().__init__(name, conf, adv, dragon, dform_mode=utp_params[0])
+        super().__init__(name, conf, adv, dragon, dform_mode=utp_params[0], unique_dform=True)
         self.shift_mods = []
         self.shift_cost = 0
         self.utp_gauge = 0

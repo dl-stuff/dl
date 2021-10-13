@@ -21,7 +21,7 @@
             {"dmg": 2.07, "killer": [0.2, ["paralysis"]], "sp": 600, "odmg": 1.75}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.66667, "dodge": 0.0}
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.66667}
     },
     "fs2": {
         "charge": 0.8,
@@ -31,7 +31,7 @@
             {"dmg": 2.97, "killer": [0.2, ["paralysis"]], "sp": 960, "odmg": 1.75}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.66667, "dodge": 0.0}
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.66667}
     },
     "fs3": {
         "charge": 1.2,
@@ -41,15 +41,16 @@
             {"dmg": 3.84, "killer": [0.2, ["paralysis"]], "sp": 1400, "odmg": 1.75}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.66667, "dodge": 0.0}
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.66667}
     },
     "s1": {
         "sp": 2800,
         "startup": 0.0,
-        "recovery": 1.16667,
+        "recovery": 1.3,
         "attr": [
             {"dmg": 11.076, "crisis": 1.25, "afflic": ["stun", 110], "iv": 0.66667}
-        ]
+        ],
+        "cancel": {"any": 1.16667}
     },
     "s2": {
         "sp": 5600,

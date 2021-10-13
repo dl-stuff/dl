@@ -12,8 +12,9 @@
     },
     "dodge": {
         "startup": 0.16667,
-        "recovery": 0.43333,
+        "recovery": 0.46666,
         "attr": [
+            {"cond": ["vars=", ["allow_dodge", true]], "buff": ["self", 0.1, 30.0, "spd", "buff", "-overwrite_MYSELF16"], "ab": 1, "cd": 5.0},
             {"dmg": 0.1},
             {"dmg": 0.1},
             {"dmg": 0.1},
@@ -22,14 +23,13 @@
             {"dmg": 0.1},
             {"dmg": 0.1}
         ],
-        "attr_spd": {"buff": ["self", 0.1, 30.0, "spd", "buff", "-overwrite_MYSELF16"]},
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.43333}
+        "cancel": {"any": 0.43333, "s": 0.0, "x1": 0.43333}
     },
     "s1": {
         "sp": 3819,
         "startup": 0.0,
-        "recovery": 3.0,
+        "recovery": 3.36667,
         "attr": [
             {"dmg": 2.13, "iv": 2.4},
             {"dmg": 2.13, "iv": 2.4},
@@ -46,12 +46,13 @@
             {"dmg": 2.13, "iv": 2.0},
             {"dmg": 2.13, "iv": 2.0},
             {"buff": ["self", 0.15, 30.0, "spd", "buff", "-overwrite_MYSELF16"], "iv": 2.03333}
-        ]
+        ],
+        "cancel": {"any": 3.0}
     },
     "s2": {
         "sp": 7051,
         "startup": 0.0,
-        "recovery": 2.66667,
+        "recovery": 3.16667,
         "attr": [
             {"dmg": 1.67, "iv": 0.53333},
             {"dmg": 1.67, "iv": 0.73333},
@@ -66,6 +67,7 @@
             {"dmg": 0.88, "iv": 2.4},
             {"dmg": 0.88, "iv": 2.4},
             {"dmg": 0.88, "iv": 2.4}
-        ]
+        ],
+        "cancel": {"any": 2.66667}
     }
 }

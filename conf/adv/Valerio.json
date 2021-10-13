@@ -12,7 +12,7 @@
     "s1_appetizer": {
         "sp": 2640,
         "startup": 0.0,
-        "recovery": 2.83333,
+        "recovery": 3.4,
         "attr": [
             {"dmg": 2.451, "afflic": ["frostbite", 120, 0.41], "iv": 0.23333},
             {"buff": ["debuff", -0.05, 30.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.23333, "coei": 1},
@@ -21,12 +21,13 @@
             {"dmg": 2.451, "iv": 0.86667},
             {"dmg": 2.451, "iv": 1.06667},
             {"dmg": 2.451, "iv": 2.66667}
-        ]
+        ],
+        "cancel": {"any": 2.83333}
     },
     "s1_dessert": {
         "sp": 2640,
         "startup": 0.0,
-        "recovery": 2.83333,
+        "recovery": 3.4,
         "attr": [
             {"dmg": 3.363, "afflic": ["freeze", 120], "iv": 0.23333},
             {"dmg": 3.363, "iv": 0.4},
@@ -34,12 +35,13 @@
             {"dmg": 3.363, "iv": 0.86667},
             {"dmg": 3.363, "iv": 1.06667},
             {"dmg": 3.363, "iv": 2.66667}
-        ]
+        ],
+        "cancel": {"any": 2.83333}
     },
     "s1_entree": {
         "sp": 2640,
         "startup": 0.0,
-        "recovery": 2.83333,
+        "recovery": 3.4,
         "attr": [
             {"dmg": 3.363, "afflic": ["stun", 110], "iv": 0.23333},
             {"buff": ["debuff", -0.15, 30.0, 1.0, "attack", "-overwrite_HOSTILE1"], "iv": 0.23333, "coei": 1},
@@ -48,47 +50,51 @@
             {"dmg": 3.363, "iv": 0.86667},
             {"dmg": 3.363, "iv": 1.06667},
             {"dmg": 3.363, "iv": 2.66667}
-        ]
+        ],
+        "cancel": {"any": 2.83333}
     },
     "s2_appetizer": {
         "sp": 10595,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 1.63333,
         "attr": [
             {"buff": ["team", 0.15, 15.0, "defense", "buff", "-overwrite_MYSELF9"], "iv": 0.66667},
             {"buff": ["inspiration", 2, "team"], "iv": 1.0}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     },
     "s2_dessert": {
         "sp": 10595,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 1.63333,
         "attr": [
             {"buff": ["team", 0.08, 15.0, "att", "buff", "-overwrite_MYSELF8"], "iv": 0.66667},
             {"buff": ["inspiration", 2, "team"], "iv": 1.0}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     },
     "s2_entree": {
         "sp": 10595,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 1.63333,
         "attr": [
             {"buff": ["team", 0.1, 15.0, "crit", "chance", "-overwrite_MYSELF10"], "iv": 0.66667},
             {"buff": ["inspiration", 3, "team"], "iv": 1.0}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     },
     "x1_appetizer": {
         "startup": 0.5,
-        "recovery": 0.88889,
+        "recovery": 1.33333,
         "attr": [
             {"dmg": 2.34, "sp": 350}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.13889, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "x2_appetizer": 0.75, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.13889, "s": 0.0},
+        "cancel": {"any": 0.88889, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_appetizer": 0.75}
     },
     "x2_appetizer": {
         "startup": 0.2,
-        "recovery": 1.46667,
+        "recovery": 2.26667,
         "attr": [
             {"dmg": 1.55, "sp": 680},
             {"dmg": 1.55},
@@ -113,33 +119,33 @@
             {"dmg": 0.07, "iv": 0.76667},
             {"dmg": 0.07, "iv": 0.76667}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "x3_appetizer": 1.13333, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.46667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_appetizer": 1.13333}
     },
     "x3_appetizer": {
         "startup": 0.4,
-        "recovery": 1.86667,
+        "recovery": 2.4,
         "attr": [
             {"dmg": 1.72, "sp": 1030},
             {"dmg": 1.72, "iv": 1.66667},
             {"dmg": 1.72, "iv": 1.73333},
             {"dmg": 1.72, "iv": 1.8}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.86667, "dodge": 0.0, "fs": 0.0, "s": 0.0}
     },
     "x1_dessert": {
         "startup": 0.5,
-        "recovery": 0.88889,
+        "recovery": 1.33333,
         "attr": [
             {"dmg": 2.34, "sp": 350}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.13889, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "x2_dessert": 0.75, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.13889, "s": 0.0},
+        "cancel": {"any": 0.88889, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_dessert": 0.75}
     },
     "x2_dessert": {
         "startup": 0.33333,
-        "recovery": 1.4,
+        "recovery": 1.46667,
         "attr": [
             {"dmg": 0.32, "sp": 710, "iv": 0.33334},
             {"dmg": 0.32, "iv": 0.6},
@@ -147,40 +153,40 @@
             {"dmg": 0.32, "iv": 0.8}
         ],
         "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_dessert": 1.4}
+        "cancel": {"any": 1.4, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_dessert": 1.4}
     },
     "x3_dessert": {
         "startup": 0.41667,
-        "recovery": 0.97222,
+        "recovery": 2.75,
         "attr": [
             {"dmg": 5.44, "sp": 1590}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.97222, "dodge": 0.0, "fs": 0.0, "s": 0.0}
     },
     "x1_entree": {
         "startup": 0.5,
-        "recovery": 0.88889,
+        "recovery": 1.33333,
         "attr": [
             {"dmg": 2.34, "sp": 350}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.13889, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "x2_entree": 0.75, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.13889, "s": 0.0},
+        "cancel": {"any": 0.88889, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_entree": 0.75}
     },
     "x2_entree": {
         "startup": 0.33333,
-        "recovery": 1.47223,
+        "recovery": 2.46667,
         "attr": [
             {"dmg": 1.94, "sp": 700},
             {"dmg": 1.94, "iv": 0.25},
             {"dmg": 1.94, "iv": 0.61111}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "x3_entree": 0.88889, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.47223, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_entree": 0.88889}
     },
     "x3_entree": {
         "startup": 0.66667,
-        "recovery": 1.33333,
+        "recovery": 2.13333,
         "attr": [
             {"dmg": 0.46, "sp": 720},
             {"dmg": 0.46, "msl": 0.13333},
@@ -195,7 +201,7 @@
             {"dmg": 0.46, "msl": 0.13333},
             {"dmg": 0.46, "msl": 0.23333}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 1.33333, "dodge": 0.0, "fs": 0.0, "s": 0.0}
     }
 }

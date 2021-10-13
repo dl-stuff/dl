@@ -10,7 +10,9 @@
         "a": [["affres_sleep", 100.0], ["prep", 100.0]]
     },
     "s1": {
-        "sp": 8714
+        "sp": 8714,
+        "startup": 0.0,
+        "recovery": 2.3
     },
     "s1_lv1": {
         "recovery": 2.4
@@ -22,14 +24,13 @@
         "recovery": 6.0
     },
     "s2": {
-        "sp": 4958,
+        "sp": 9194,
         "startup": 0.0,
-        "recovery": 2.83333,
+        "recovery": 1.96667,
         "attr": [
-            {"cond": ["var<=", ["mochi_master", 1]], "buffele": "wind", "buff": ["team", 3.0, [20.0, 2.9], "heal", "hp", "-refresh"], "coei": 1, "iv": 0.93333},
-            {"cond": ["var=", ["mochi_master", 2]], "buffele": "wind", "buff": ["team", 15.0, [30.0, 2.9], "heal", "hp", "-refresh"], "coei": 1, "iv": 0.93333},
-            {"cond": ["var=", ["mochi_master", 3]], "buffele": "wind", "buff": ["team", 21.0, [60.0, 2.9], "heal", "hp", "-refresh"], "coei": 1, "iv": 0.93333}
+            {"afflic": ["scorchrend", 40, 0.311], "iv": 0.9},
+            {"dmg": 6.09, "buff": ["affres", -0.2, 30.0, "scorchrend", "-overwrite_HOSTILE27"], "coei": 1, "iv": 0.9}
         ],
-        "energizable": true
+        "cancel": {"any": 1.66667}
     }
 }

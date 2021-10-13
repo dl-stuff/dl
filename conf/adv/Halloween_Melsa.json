@@ -12,21 +12,23 @@
     "s1": {
         "sp": 4770,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 3.3,
         "attr": [
             {"buff": ["team", 0.25, 15.0, "att", "buff"], "iv": 0.33333}
-        ]
+        ],
+        "cancel": {"any": 1.33333}
     },
     "s2": {
         "sp": 6800,
         "startup": 0.0,
-        "recovery": 0.46667,
+        "recovery": 3.1,
         "recovery_nospd": 1.2,
         "attr": [
             {"dmg": 1.4, "buff": ["affres", -0.2, 30.0, "poison", "-overwrite_HOSTILE25"], "iv": 0.55556, "coei": 1},
             {"afflic": ["poison", 120, 0.582], "iv": 0.55556},
             {"dmg": 1.4, "iv": 0.80556},
             {"dmg": 1.4, "iv": 1.22222}
-        ]
+        ],
+        "energizable": true
     }
 }

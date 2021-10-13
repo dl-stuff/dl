@@ -2,12 +2,13 @@
     "c": {
         "name": "Gala Alex",
         "icon": "100005_02_r05",
-        "att": 506,
-        "hp": 752,
+        "att": 606,
+        "hp": 902,
         "ele": "shadow",
         "wt": "sword",
-        "spiral": false,
-        "a": [["k_debuff_def", 0.3], ["affres_paralysis", 100.0], ["affres_blind", 100.0], ["k_poison", 0.3]]
+        "spiral": true,
+        "a": [["k_debuff_def", 0.3], ["affres_paralysis", 100.0], ["affres_blind", 100.0], ["k_poison", 0.3]],
+        "suffixmap": {"chain0": "chain", "chain1": "dispel", "chain2": "break"}
     },
     "fs": {
         "charge": 0.05,
@@ -19,94 +20,102 @@
         "interrupt": {"dodge": 0.0, "s": 0.0},
         "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.32052}
     },
-    "s1_base1": {
+    "s1": {
         "sp": 1129,
         "startup": 0.0,
-        "recovery": 1.06667,
+        "recovery": 1.16667,
         "attr": [
             {"dmg": 2.02, "buff": ["debuff", -0.05, 15.0, 1.0, "def", "-overwrite_HOSTILE12"], "coei": 1, "iv": 0.16667},
             {"dmg": 2.02, "iv": 0.36667},
             {"dmg": 2.02, "iv": 0.6}
-        ]
+        ],
+        "cancel": {"any": 1.06667}
     },
-    "s1_break1": {
+    "s1_break": {
         "sp": 1129,
         "startup": 0.0,
-        "recovery": 1.06667,
+        "recovery": 1.16667,
         "attr": [
             {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.16667},
             {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.36667},
             {"dmg": 2.45, "killer": [0.5, ["break"]], "iv": 0.6},
             {"dmg": 6.68, "killer": [0.5, ["break"]], "iv": 1.0, "msl": 0.33333}
-        ]
+        ],
+        "cancel": {"any": 1.06667}
     },
-    "s1_chain1": {
+    "s1_chain": {
         "sp": 1129,
         "startup": 0.0,
-        "recovery": 1.06667,
+        "recovery": 1.16667,
         "attr": [
             {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.16667},
             {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.36667},
             {"dmg": 2.02, "killer": [0.1, ["debuff_def"]], "iv": 0.6},
             {"dmg": 4.85, "killer": [0.1, ["debuff_def"]], "iv": 1.0, "msl": 0.33333}
-        ]
+        ],
+        "cancel": {"any": 1.06667}
     },
-    "s1_dispel1": {
+    "s1_dispel": {
         "sp": 1129,
         "startup": 0.0,
-        "recovery": 1.1,
+        "recovery": 1.16667,
         "attr": [
             {"dmg": 2.02, "iv": 0.16667},
             {"dispel": 100, "iv": 0.16667},
             {"dmg": 2.02, "iv": 0.36667},
             {"dmg": 2.02, "iv": 0.6},
             {"dmg": 4.95, "killer": [0.1, ["debuff_def"]], "iv": 1.0, "msl": 0.33333}
-        ]
+        ],
+        "cancel": {"any": 1.06667}
     },
-    "s2_base2": {
+    "s2": {
         "sp": 2120,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 1.56667,
         "attr": [
             {"dmg": 5.53, "afflic": ["poison", 120, 0.582], "iv": 0.46667, "msl": 0.06667}
-        ]
+        ],
+        "cancel": {"any": 1.33333}
     },
-    "s2_break2": {
+    "s2_break": {
         "sp": 2120,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 1.56667,
         "attr": [
             {"dmg": 6.58, "killer": [0.5, ["break"]], "iv": 0.46667, "msl": 0.06667},
             {"dmg": 6.58, "killer": [0.5, ["break"]], "iv": 1.3, "msl": 0.06667}
-        ]
+        ],
+        "cancel": {"any": 1.33333}
     },
-    "s2_chain2": {
+    "s2_chain": {
         "sp": 2120,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 1.56667,
         "attr": [
             {"dmg": 5.53, "killer": [0.1, ["poison"]], "iv": 0.46667, "msl": 0.06667},
             {"dmg": 4.42, "killer": [0.1, ["poison"]], "iv": 1.3, "msl": 0.06667}
-        ]
+        ],
+        "cancel": {"any": 1.33333}
     },
-    "s2_dispel2": {
+    "s2_dispel": {
         "sp": 2120,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 1.56667,
         "attr": [
             {"dmg": 5.53, "iv": 0.46667, "msl": 0.06667},
             {"dispel": 100, "iv": 0.46667, "msl": 0.06667},
             {"dmg": 4.52, "killer": [0.1, ["poison"]], "iv": 1.3, "msl": 0.06667}
-        ]
+        ],
+        "cancel": {"any": 1.33333}
     },
     "x1": {
         "startup": 0.16667,
-        "recovery": 0.43333,
+        "recovery": 0.56666,
         "attr": [
             {"dmg": 0.98, "sp": 150}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x2": 0.23333, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.43333, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2": 0.23333}
     },
     "x2": {
         "startup": 0.33333,
@@ -114,26 +123,26 @@
         "attr": [
             {"dmg": 1.06, "sp": 150}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x3": 0.23334, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.56667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3": 0.23334}
     },
     "x3": {
         "startup": 0.23077,
-        "recovery": 0.38461,
+        "recovery": 0.60256,
         "attr": [
             {"dmg": 1.25, "sp": 196}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x4": 0.1282, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.38461, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4": 0.1282}
     },
     "x4": {
         "startup": 0.2,
-        "recovery": 0.46667,
+        "recovery": 0.5,
         "attr": [
             {"dmg": 1.32, "sp": 265}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x5": 0.16667, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.46667, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5": 0.16667}
     },
     "x5": {
         "startup": 0.36667,
@@ -141,7 +150,7 @@
         "attr": [
             {"dmg": 1.98, "sp": 391}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0}
     }
 }

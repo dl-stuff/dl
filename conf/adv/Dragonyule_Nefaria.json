@@ -12,22 +12,23 @@
     "fs_enhanced": {
         "charge": 0.35,
         "startup": 0.43333,
-        "recovery": 0.56667,
+        "recovery": 1.53334,
         "attr": [
             {"buff": ["energy", 3, "team"], "msl": 0.5}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.23334}
+        "cancel": {"any": 0.56667, "dodge": 0.23334, "s": 0.0}
     },
     "s1": {
         "sp": 2359,
         "startup": 0.0,
-        "recovery": 2.76667,
+        "recovery": 3.13333,
         "attr": [
             {"dmg": 5.21, "killer": [0.7, ["frostbite"]], "afflic": ["frostbite", 120, 0.41], "iv": 1.3},
             {"dmg": 5.21, "killer": [0.7, ["frostbite"]], "iv": 1.5},
             {"dmg": 5.21, "killer": [0.7, ["frostbite"]], "iv": 2.26667}
-        ]
+        ],
+        "cancel": {"any": 2.76667}
     },
     "s2": {
         "sp": 9476,

@@ -17,8 +17,8 @@
             {"dmg": 5.17, "sp": 600},
             {"dmg": 5.17}, 2
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.56666, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.56666}
     },
     "fs2_enhanced": {
         "charge": 1.8,
@@ -28,8 +28,8 @@
             {"dmg": 2.87, "sp": 925},
             {"dmg": 2.87}, 5
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.56666, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.56666}
     },
     "fs3_enhanced": {
         "charge": 3.5,
@@ -39,8 +39,8 @@
             {"dmg": 2.36, "killer": [0.2, ["poison"]], "sp": 1500},
             {"dmg": 2.36, "killer": [0.2, ["poison"]]}, 8
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.56666, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.56666}
     },
     "s1": {
         "sp": 3000,
@@ -62,12 +62,13 @@
     "s2_enhanced": {
         "sp": 5259,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 2.5,
         "attr": [
             {"dmg": 3.55, "dispel": 100, "iv": 0.4},
             {"dmg": 3.55, "iv": 0.56667},
             {"dmg": 3.55, "iv": 0.73333},
             {"dmg": 3.55, "iv": 0.9}
-        ]
+        ],
+        "cancel": {"any": 1.33333}
     }
 }

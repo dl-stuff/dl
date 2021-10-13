@@ -12,19 +12,20 @@
     "s1_phase1": {
         "sp": 2640,
         "startup": 0.0,
-        "recovery": 2.56667,
+        "recovery": 2.86667,
         "attr": [
             {"dmg": 5.5, "iv": 0.3},
             {"dispel": 100, "iv": 0.3},
             {"dmg": 5.5, "iv": 0.63333},
             {"dmg": 5.5, "iv": 1.1},
             {"amp": ["20000", 2, 0], "iv": 1.56667}
-        ]
+        ],
+        "cancel": {"any": 2.56667}
     },
     "s1_phase2": {
         "sp": 2640,
         "startup": 0.0,
-        "recovery": 2.56667,
+        "recovery": 2.86667,
         "attr": [
             {"dmg": 5.75, "buff": ["debuff", -0.1, 10.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.3},
             {"dispel": 100, "iv": 0.3},
@@ -32,12 +33,13 @@
             {"dmg": 5.75, "iv": 1.1},
             {"amp": ["20000", 2, 0], "iv": 1.56667}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 2.56667}
     },
     "s1_phase3": {
         "sp": 2640,
         "startup": 0.0,
-        "recovery": 2.56667,
+        "recovery": 2.86667,
         "attr": [
             {"dmg": 6.0, "buff": ["debuff", -0.1, 10.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.3},
             {"buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1, "iv": 0.3},
@@ -46,12 +48,13 @@
             {"dmg": 6.0, "iv": 1.1},
             {"amp": ["20000", 2, 0], "iv": 1.56667}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 2.56667}
     },
     "s2": {
         "sp": 6000,
         "startup": 0.0,
-        "recovery": 1.86667,
+        "recovery": 2.1,
         "attr": [
             {"dmg": 17.53, "buff": ["self", 0.03, 20.0, "wind_resist", "down", "-overwrite_HOSTILE22"], "coei": 1, "iv": 0.93333, "msl": 0.06667, "msl_spd": 1},
             {"cond": ["ampcond", [0, 2, ">=", 1]], "dmg": 3.16, "buff": ["self", 0.03, 20.0, "wind_resist", "down", "-overwrite_HOSTILE22"], "coei": 1, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
@@ -60,6 +63,7 @@
             {"cond": ["ampcond", [0, 2, ">=", 2]], "dmg": 3.16, "buff": ["self", 0.03, 20.0, "wind_resist", "down", "-overwrite_HOSTILE22"], "coei": 1, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
             {"cond": ["ampcond", [0, 2, ">=", 2]], "dmg": 3.16, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1},
             {"cond": ["ampcond", [0, 2, ">=", 2]], "dmg": 3.16, "iv": 0.93333, "msl": 1.06667, "msl_spd": 1}
-        ]
+        ],
+        "cancel": {"any": 1.86667}
     }
 }

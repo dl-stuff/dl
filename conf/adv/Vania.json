@@ -7,7 +7,8 @@
         "ele": "shadow",
         "wt": "wand",
         "spiral": false,
-        "a": [["affres_blind", 100.0], ["sp", 0.08, "hp70"]]
+        "a": [["affres_blind", 100.0], ["sp", 0.08, "hp70"]],
+        "suffixmap": {"enhanced2": "bloodpact"}
     },
     "s1": {
         "sp": 3525,
@@ -36,11 +37,12 @@
     "s2": {
         "sp": 7100,
         "startup": 0.0,
-        "recovery": 2.33333,
+        "recovery": 2.63333,
         "attr": [
             {"buff": ["team", 0.03, -1, "maxhp", "buff"], "coei": 1, "iv": 1.46667},
             {"amp": ["10000", 2, 0], "iv": 1.46667}
-        ]
+        ],
+        "cancel": {"any": 2.33333}
     },
     "s99": {
         "sp": 3525,

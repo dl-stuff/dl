@@ -12,43 +12,48 @@
     "s1_phase1": {
         "sp": 3456,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.96667,
         "attr": [
             {"buff": ["zone", 0.25, 10.0, "att", "buff"], "iv": 0.8}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     },
     "s1_phase2": {
         "sp": 3456,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.96667,
         "attr": [
             {"buff": ["zone", 0.25, 10.0, "att", "buff"], "iv": 0.8}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 1.66667}
     },
     "s1_phase3": {
         "sp": 3456,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.96667,
         "attr": [
             {"buff": [["zone", 0.25, 10.0, "att", "buff"], ["zone", 0.2, 10.0, "crit", "damage"]], "iv": 0.8}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 1.66667}
     },
     "s2": {
         "sp": 0,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.96667,
         "attr": [
             {"dmg": 25.0, "iv": 1.0}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     },
     "s99": {
         "sp": 0,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.96667,
         "attr": [
             {"dmg": 25.0, "iv": 1.0}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     }
 }

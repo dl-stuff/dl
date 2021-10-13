@@ -11,8 +11,6 @@ class Yoshitsune(Adv):
     def l_dodge_attack(self, e):
         if self.nihilism:
             return
-        if self.allow_dodge and not self.is_set_cd("a1", 5):
-            self.hitattr_make("dodge", "dodge", "default", 0, self.conf.dodge.attr_spd)
 
 
 class Yoshitsune_COUNTER(Yoshitsune):

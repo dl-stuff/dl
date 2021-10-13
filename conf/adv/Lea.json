@@ -21,7 +21,7 @@
     "s1": {
         "sp": 2325,
         "startup": 0.0,
-        "recovery": 2.7,
+        "recovery": 3.26667,
         "attr": [
             {"amp": ["10000", 2, 0], "ab": 1, "cd": 30.0},
             {"buff": ["fsAlt", "lea", -1, 1, "-refresh"], "coei": 1, "ab": 1},
@@ -31,16 +31,18 @@
             {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 0.9},
             {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.16667},
             {"dmg": 3.3, "killer": [0.5, ["burn"]], "iv": 1.96667}
-        ]
+        ],
+        "cancel": {"any": 2.7}
     },
     "s2": {
         "sp": 4730,
         "startup": 0.0,
-        "recovery": 2.13333,
+        "recovery": 3.13333,
         "attr": [
             {"hp": -20.0, "cond": ["hp>", 60.0]},
             {"dmg": 8.2, "iv": 2.1},
             {"dmg": 8.2, "iv": 2.1}
-        ]
+        ],
+        "cancel": {"any": 2.13333}
     }
 }

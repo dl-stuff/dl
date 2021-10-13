@@ -8,14 +8,15 @@
         "wt": "gun",
         "spiral": false,
         "a": [["affres_poison", 100.0], ["affres_curse", 100.0]],
-        "gun": [1]
+        "gun": [1],
+        "suffixmap": {"mode2": "cartridge1", "mode3": "cartridge2", "mode4": "cartridge3"}
     },
     "default": {
         "x_max": 2
     },
     "dodge": {
         "startup": 0.16667,
-        "recovery": 0.43333,
+        "recovery": 0.46666,
         "attr": [
             {"dmg": 0.1},
             {"dmg": 0.1},
@@ -26,12 +27,12 @@
             {"dmg": 0.1, "cp": 1}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.43333}
+        "cancel": {"any": 0.43333, "s": 0.0, "x1": 0.43333}
     },
     "fs_cartridge1": {
         "charge": 2.0,
         "startup": 0.13333,
-        "recovery": 0.7,
+        "recovery": 0.93334,
         "attr": [
             {"dmg": 2.22, "sp": 400},
             {"dmg": 2.22, "iv": 0.1},
@@ -40,12 +41,12 @@
             {"dmg": 2.22, "iv": 0.4}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0}
+        "cancel": {"any": 0.7, "s": 0.0}
     },
     "fs_cartridge2": {
         "charge": 2.0,
         "startup": 0.13333,
-        "recovery": 0.86667,
+        "recovery": 0.93334,
         "attr": [
             {"dmg": 2.22, "sp": 400},
             {"dmg": 2.22, "iv": 0.1},
@@ -56,12 +57,12 @@
             {"dmg": 2.22, "iv": 0.56667}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0}
+        "cancel": {"any": 0.86667, "s": 0.0}
     },
     "fs_cartridge3": {
         "charge": 2.0,
         "startup": 0.13333,
-        "recovery": 0.86667,
+        "recovery": 0.93334,
         "attr": [
             {"dmg": 2.22, "sp": 400},
             {"dmg": 2.22, "iv": 0.1},
@@ -74,12 +75,12 @@
             {"dmg": 2.22, "iv": 0.8}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0}
+        "cancel": {"any": 0.86667, "s": 0.0}
     },
     "s1": {
         "sp": 3060,
         "startup": 0.0,
-        "recovery": 1.66667,
+        "recovery": 1.73333,
         "attr": [
             {"dmg": 1.88, "afflic": ["flashburn", 120, 0.416], "iv": 0.73333},
             {"dmg": 1.88, "iv": 0.73333},
@@ -91,9 +92,10 @@
             {"dmg": 1.88, "iv": 0.73333},
             {"dmg": 1.88, "iv": 0.73333},
             {"dmg": 1.88, "iv": 0.73333}
-        ]
+        ],
+        "cancel": {"any": 1.66667}
     },
-    "s1_cartridge": {
+    "s1_cartridge1": {
         "sp": 3060,
         "startup": 0.0,
         "recovery": 2.33333,
@@ -109,9 +111,10 @@
     "s2": {
         "sp": 6120,
         "startup": 0.0,
-        "recovery": 1.33333
+        "recovery": 1.46667,
+        "cancel": {"any": 1.33333}
     },
-    "s2_cartridge": {
+    "s2_cartridge1": {
         "sp": 3060,
         "startup": 0.0,
         "recovery": 1.83333,

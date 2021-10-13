@@ -12,17 +12,17 @@
     "fs_dragonyulevictor": {
         "charge": 0.45,
         "startup": 0.5,
-        "recovery": 0.5,
+        "recovery": 0.63333,
         "attr": [
             {"buff": ["zone", 0.15, 10.0, "crit", "chance"]}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0, "x1": 0.36667}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.5, "dodge": 0.0, "s": 0.0, "x1": 0.36667}
     },
     "s1": {
         "sp": 3540,
         "startup": 0.0,
-        "recovery": 2.26667,
+        "recovery": 3.16667,
         "attr": [
             {"buff": ["fsAlt", "dragonyulevictor", -1, 1, "-refresh"], "coei": 1, "ab": 1},
             {"dmg": 4.0, "dispel": 100, "iv": 0.6},
@@ -30,17 +30,19 @@
             {"dmg": 4.0, "iv": 1.06667},
             {"dmg": 4.0, "iv": 1.33333},
             {"dmg": 4.0, "iv": 1.66667}
-        ]
+        ],
+        "cancel": {"any": 2.26667}
     },
     "s2": {
         "sp": 6017,
         "startup": 0.0,
-        "recovery": 1.63333,
+        "recovery": 1.96667,
         "attr": [
             {"dmg": 25.0, "iv": 0.93333, "msl": 0.5},
             {"cond": ["zone", 1], "heal": 50, "iv": 1.4}
         ],
         "extra_self": {"dmg": 5.0, "iv": 1.0},
-        "extra_team": {"dmg": 5.0, "iv": 1.0}
+        "extra_team": {"dmg": 5.0, "iv": 1.0},
+        "cancel": {"any": 1.63333}
     }
 }

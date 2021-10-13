@@ -13,20 +13,22 @@
     "s1": {
         "sp": 4080,
         "startup": 0.0,
-        "recovery": 1.93333,
+        "recovery": 2.63333,
         "attr": [
             {"cond": ["var<=", ["enemy_insight", 2]], "dmg": 2.25, "afflic": ["stormlash", 120, 0.41], "iv": 0.96667},
             {"cond": ["var<=", ["enemy_insight", 2]], "dmg": 2.25, "iv": 0.96667}, 4,
             {"cond": ["var=", ["enemy_insight", 3]], "dmg": 4.0, "killer": [0.2, ["stormlash"]], "afflic": ["stormlash", 120, 0.41], "iv": 0.96667},
             {"cond": ["var=", ["enemy_insight", 3]], "dmg": 4.0, "killer": [0.2, ["stormlash"]], "iv": 0.96667}, 4
-        ]
+        ],
+        "cancel": {"any": 1.93333}
     },
     "s2": {
         "sp": 4080,
         "startup": 0.0,
-        "recovery": 2.0,
+        "recovery": 2.16667,
         "attr": [
             {"dispel": 100, "iv": 0.6}
-        ]
+        ],
+        "cancel": {"any": 2.0}
     }
 }

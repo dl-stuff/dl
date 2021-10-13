@@ -8,7 +8,8 @@
         "wt": "gun",
         "spiral": false,
         "a": [["s", 0.1], ["sp", 0.08], ["affres_bog", 100.0]],
-        "gun": [3]
+        "gun": [3],
+        "suffixmap": {"mode2": "manachew"}
     },
     "fs_manachew": {
         "charge": 0.4,
@@ -29,21 +30,22 @@
                 {"dmg": 0.53, "sp": 90, "odmg": 0.3}
             ]
         },
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0}
     },
     "s1": {
         "sp": 6200,
         "startup": 0.0,
-        "recovery": 1.83333,
+        "recovery": 2.3,
         "attr": [
             {"cp": 5000, "iv": 0.96667}
-        ]
+        ],
+        "cancel": {"any": 1.83333}
     },
     "s1_manachew": {
         "sp": 6200,
         "startup": 0.0,
-        "recovery": 1.3,
+        "recovery": 2.13333,
         "attr": [
             {"dmg": 0.73, "afflic": ["stormlash", 120, 0.41], "iv": 0.33333, "msl": 0.33333, "msl_spd": 1},
             {"dmg": 0.73, "iv": 0.33333, "msl": 0.33333, "msl_spd": 1},
@@ -75,20 +77,22 @@
             {"dmg": 0.73, "iv": 1.26667, "msl": 0.33333, "msl_spd": 1},
             {"dmg": 0.73, "iv": 1.33333, "msl": 0.33333, "msl_spd": 1},
             {"dmg": 0.73, "iv": 1.33333, "msl": 0.33333, "msl_spd": 1}
-        ]
+        ],
+        "cancel": {"any": 1.3}
     },
     "s2": {
         "sp": 6200,
         "startup": 0.0,
-        "recovery": 1.83333,
+        "recovery": 2.3,
         "attr": [
             {"cp": 5000, "iv": 0.96667}
-        ]
+        ],
+        "cancel": {"any": 1.83333}
     },
     "s2_manachew": {
         "sp": 6200,
         "startup": 0.0,
-        "recovery": 2.16667,
+        "recovery": 2.8,
         "attr": [
             {"dmg": 1.15, "afflic": ["poison", 110, 0.436, 21.0], "iv": 0.66667, "msl": 0.01},
             {"dmg": 1.15, "iv": 1.61667, "msl": 0.01},
@@ -102,12 +106,13 @@
             {"dmg": 1.15, "iv": 9.21667, "msl": 0.01},
             {"amp": ["10000", 2, 0], "iv": 0.66667},
             {"dmg": 9.87, "iv": 1.66667}
-        ]
+        ],
+        "cancel": {"any": 2.16667}
     },
     "s99": {
         "sp": 6200,
         "startup": 0.0,
-        "recovery": 1.3,
+        "recovery": 2.13333,
         "attr": [
             {"dmg": 0.73, "afflic": ["stormlash", 120, 0.41], "iv": 0.33333, "msl": 0.33333, "msl_spd": 1},
             {"dmg": 0.73, "iv": 0.33333, "msl": 0.33333, "msl_spd": 1},
@@ -139,6 +144,7 @@
             {"dmg": 0.73, "iv": 1.26667, "msl": 0.33333, "msl_spd": 1},
             {"dmg": 0.73, "iv": 1.33333, "msl": 0.33333, "msl_spd": 1},
             {"dmg": 0.73, "iv": 1.33333, "msl": 0.33333, "msl_spd": 1}
-        ]
+        ],
+        "cancel": {"any": 1.3}
     }
 }

@@ -12,29 +12,31 @@
     "fs_erik": {
         "charge": 0.5,
         "startup": 0.46667,
-        "recovery": 0.55897,
+        "recovery": 1.1,
         "attr": [
             {"dmg": 1.92, "odmg": 3.08, "sp": 300, "dispel": 100}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0, "x1": 0.55897}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.55897, "dodge": 0.0, "s": 0.0, "x1": 0.55897}
     },
     "s1": {
         "sp": 2868,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 2.06667,
         "attr": [
             {"dmg": 7.72, "killer": [0.5, ["poison"]], "iv": 0.66667},
             {"dmg": 8.12, "killer": [0.5, ["poison"]], "iv": 0.83333}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     },
     "s2": {
         "sp": 5883,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 1.86667,
         "attr": [
             {"buff": ["fsAlt", "erik", -1, 1, "-refresh"], "coei": 1, "ab": 1},
             {"dmg": 17.16, "killer": [0.5, ["poison"]], "iv": 0.66667}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     }
 }

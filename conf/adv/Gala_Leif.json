@@ -20,79 +20,82 @@
     "s1_striking": {
         "sp": 3456,
         "startup": 0.0,
-        "recovery": 1.16667,
+        "recovery": 1.36667,
         "attr": [
             {"dmg": 4.804, "buff": ["debuff", -0.05, 20.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1, "iv": 0.33333},
             {"dmg": 5.04, "iv": 0.53333}
-        ]
+        ],
+        "cancel": {"any": 1.16667}
     },
     "s2_shielding": {
         "sp": 8640,
         "startup": 0.0,
-        "recovery": 3.0,
+        "recovery": 3.3,
         "attr": [
             {"dmg": 7.02, "killer": [0.2, ["debuff_def"]], "afflic": ["poison", 120, 0.582], "iv": 0.43333},
             {"dmg": 7.72, "killer": [0.2, ["debuff_def"]], "iv": 1.66667},
             {"dmg": 8.42, "killer": [0.2, ["debuff_def"]], "iv": 2.46667}
-        ]
+        ],
+        "cancel": {"any": 3.0}
     },
     "s2_striking": {
         "sp": 8640,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 1.83333,
         "attr": [
             {"dmg": 4.91, "killer": [0.2, ["poison"]], "buff": ["debuff", -0.05, 20.0, 1.0, "attack", "-overwrite_HOSTILE1"], "coei": 1, "iv": 0.23333},
             {"dmg": 4.91, "killer": [0.2, ["poison"]], "iv": 0.46667},
             {"dmg": 5.4, "killer": [0.2, ["poison"]], "iv": 0.63333}
-        ]
+        ],
+        "cancel": {"any": 1.33333}
     },
     "x1_shielding": {
         "startup": 0.26667,
-        "recovery": 0.56666,
+        "recovery": 0.86666,
         "attr": [
             {"dmg": 2.18, "sp": 400}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0, "fs_shielding": 0.16667},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x2_shielding": 0.36666, "fs_shielding": 0.0}
+        "interrupt": {"dodge": 0.0, "fs_shielding": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.56666, "dodge": 0.0, "fs_shielding": 0.0, "s": 0.0, "x2_shielding": 0.36666}
     },
     "x2_shielding": {
         "startup": 0.56667,
-        "recovery": 0.5,
+        "recovery": 0.76666,
         "attr": [
             {"dmg": 4.4, "sp": 600}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "fs_shielding": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x3_shielding": 0.26666, "fs_shielding": 0.0}
+        "interrupt": {"dodge": 0.0, "fs_shielding": 0.0, "s": 0.0},
+        "cancel": {"any": 0.5, "dodge": 0.0, "fs_shielding": 0.0, "s": 0.0, "x3_shielding": 0.26666}
     },
     "x3_shielding": {
         "startup": 1.0,
-        "recovery": 0.66667,
+        "recovery": 0.83333,
         "attr": [
             {"dmg": 6.58, "sp": 800}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "fs_shielding": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x1_shielding": 0.5, "fs_shielding": 0.0}
+        "interrupt": {"dodge": 0.0, "fs_shielding": 0.0, "s": 0.0},
+        "cancel": {"any": 0.66667, "dodge": 0.0, "fs_shielding": 0.0, "s": 0.0, "x1_shielding": 0.5}
     },
     "x1_striking": {
         "startup": 0.0,
-        "recovery": 0.6,
+        "recovery": 0.63333,
         "attr": [
             {"dmg": 0.67, "sp": 152},
             {"dmg": 0.67, "iv": 0.16667}
         ],
         "interrupt": {"s": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.16667, "dodge": 0.0, "x2_striking": 0.23333, "fs_shielding": 0.16667}
+        "cancel": {"any": 0.6, "dodge": 0.0, "fs_shielding": 0.16667, "s": 0.0, "x2_striking": 0.23333}
     },
     "x2_striking": {
         "startup": 0.2,
-        "recovery": 0.86667,
+        "recovery": 0.93333,
         "attr": [
             {"dmg": 0.7, "sp": 345},
             {"dmg": 0.7, "iv": 0.2},
             {"dmg": 0.7, "iv": 0.46667}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "fs_shielding": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x3_striking": 0.53333, "fs_shielding": 0.0}
+        "interrupt": {"dodge": 0.0, "fs_shielding": 0.0, "s": 0.0},
+        "cancel": {"any": 0.86667, "dodge": 0.0, "fs_shielding": 0.0, "s": 0.0, "x3_striking": 0.53333}
     },
     "x3_striking": {
         "startup": 0.4,
@@ -104,7 +107,7 @@
             {"dmg": 0.78, "iv": 0.13333},
             {"dmg": 0.8, "iv": 0.2}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "fs_shielding": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0, "x1_striking": 0.86667, "fs_shielding": 0.0}
+        "interrupt": {"dodge": 0.0, "fs_shielding": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs_shielding": 0.0, "s": 0.0, "x1_striking": 0.86667}
     }
 }

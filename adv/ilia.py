@@ -40,8 +40,8 @@ class Ilia(Adv):
             for i in range(min(3, prev_cartridge - self.cartridge)):
                 Selfbuff("a3_crit", 0.3, 15, "crit", "chance").ex_bufftime().on()
             if self.cartridge > 0:
-                self.current_s["s1"] = "cartridge"
-                self.current_s["s2"] = "cartridge"
+                self.current_s["s1"] = "cartridge3"
+                self.current_s["s2"] = "cartridge3"
                 self.cartridge_fs[self.cartridge].off()
                 self.cartridge_fs[self.cartridge - 1].on()
             else:
@@ -66,19 +66,19 @@ class Ilia(Adv):
         super().hitattr_make(name, base, group, aseq, attr, onhit=onhit, dtype=dtype)
 
     def s1_before(self, e):
-        if e.group == "cartridge":
+        if e.group == "cartridge3":
             self.a_deplete_cartridge(e.name)
 
     def s2_before(self, e):
-        if e.group == "cartridge":
+        if e.group == "cartridge3":
             self.a_deplete_cartridge(e.name)
         elif not self.nihilism:
             self.cartridge = self.alchemy_bars()
             self.alchemy = 0
             self.cartridge_fs[self.cartridge - 1].on()
             self.cartridge_t.on(20)
-            self.current_s["s1"] = "cartridge"
-            self.current_s["s2"] = "cartridge"
+            self.current_s["s1"] = "cartridge3"
+            self.current_s["s2"] = "cartridge3"
 
     def fs_cartridge1_before(self, e):
         self.a_deplete_cartridge(e.name, consume=1)

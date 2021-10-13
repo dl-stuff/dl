@@ -12,32 +12,35 @@
     "s1_phase1": {
         "sp": 3051,
         "startup": 0.0,
-        "recovery": 0.83333,
+        "recovery": 0.96667,
         "attr": [
             {"dmg": 3.37, "iv": 0.16667, "msl": 0.16667},
             {"dmg": 3.53, "iv": 0.16667, "msl": 0.66667}
-        ]
+        ],
+        "cancel": {"any": 0.83333}
     },
     "s1_phase2": {
         "sp": 3051,
         "startup": 0.0,
-        "recovery": 0.83333,
+        "recovery": 0.96667,
         "attr": [
             {"dmg": 3.7, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.16667, "msl": 0.16667, "coei": 1},
             {"dmg": 3.87, "iv": 0.16667, "msl": 0.66667}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 0.83333}
     },
     "s1_phase3": {
         "sp": 3051,
         "startup": 0.0,
-        "recovery": 0.83333,
+        "recovery": 0.96667,
         "attr": [
             {"dmg": 4.04, "buff": ["debuff", -0.05, 10.0, 1.0, "def", "-overwrite_HOSTILE6"], "iv": 0.16667, "msl": 0.16667, "coei": 1},
             {"dmg": 4.21, "iv": 0.16667, "msl": 0.66667},
             {"sp": [0.3, "%", "s2"], "iv": 0.5}
         ],
-        "phase_coei": true
+        "phase_coei": true,
+        "cancel": {"any": 0.83333}
     },
     "s2": {
         "sp": 8424,

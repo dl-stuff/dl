@@ -12,22 +12,24 @@
     "s1": {
         "sp": 3033,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 2.0,
         "attr": [
             {"dmg": 8.18, "bufc": 0.05, "afflic": ["frostbite", 120, 0.41], "iv": 0.4},
             {"dmg": 8.18, "bufc": 0.05, "iv": 1.06667}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     },
     "s2": {
         "sp": 5610,
         "startup": 0.0,
-        "recovery": 2.1,
+        "recovery": 2.73333,
         "attr": [
             {"buff": ["self", 0.3, 30.0, "defense", "buff"], "iv": 0.03333},
             {"dmg": 5.2, "iv": 0.5},
             {"dmg": 5.2, "iv": 0.9},
             {"dmg": 5.2, "iv": 1.2},
             {"dmg": 5.2, "iv": 1.5}
-        ]
+        ],
+        "cancel": {"any": 2.1}
     }
 }

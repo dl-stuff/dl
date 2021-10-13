@@ -12,64 +12,66 @@
     "s1": {
         "sp": 2490,
         "startup": 0.0,
-        "recovery": 3.1,
+        "recovery": 3.96667,
         "attr": [
             {"dmg": 7.406, "killer": [0.3, ["frostbite"]], "afflic": ["freeze", 200], "iv": 1.93333},
             {"dmg": 7.406, "killer": [0.3, ["frostbite"]], "afflic": ["frostbite", 120, 0.41], "iv": 2.93333}
-        ]
+        ],
+        "cancel": {"any": 3.1}
     },
     "s2": {
         "sp": 5909,
         "startup": 0.0,
-        "recovery": 1.46667,
+        "recovery": 2.0,
         "attr": [
             {"buff": ["xAlt", "cp", 30, "-refresh"], "iv": 0.03333},
             {"dmg": 18.19, "killer": [0.3, ["frostbite"]], "iv": 0.96667}
-        ]
+        ],
+        "cancel": {"any": 1.46667}
     },
     "x1_cp": {
         "startup": 0.25,
-        "recovery": 0.08333,
+        "recovery": 1.21667,
         "attr": [
             {"dmg": 1.524, "killer": [0.3, ["frostbite"]], "sp": 130, "msl": 0.36667}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.16667, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.16667, "s": 0.0},
+        "cancel": {"any": 0.72222, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x2_cp": 0.08333}
     },
     "x2_cp": {
         "startup": 0.46667,
-        "recovery": 0.02222,
+        "recovery": 1.5,
         "attr": [
             {"dmg": 0.821, "killer": [0.3, ["frostbite"]], "sp": 200, "msl": 0.66667},
             {"dmg": 0.821, "killer": [0.3, ["frostbite"]], "msl": 0.66667}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.64444, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x3_cp": 0.02222}
     },
     "x3_cp": {
         "startup": 0.46667,
-        "recovery": 0.34285,
+        "recovery": 1.83333,
         "attr": [
             {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "sp": 240, "msl": 0.66667},
             {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.66667},
             {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.66667}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.9619, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x4_cp": 0.34285}
     },
     "x4_cp": {
         "startup": 0.53333,
-        "recovery": 0.41905,
+        "recovery": 1.1,
         "attr": [
             {"dmg": 1.138, "killer": [0.3, ["frostbite"]], "sp": 430, "msl": 0.66667},
             {"dmg": 1.138, "killer": [0.3, ["frostbite"]], "iv": 0.01429, "msl": 0.66667}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"any": 0.65715, "dodge": 0.0, "fs": 0.0, "s": 0.0, "x5_cp": 0.41905}
     },
     "x5_cp": {
         "startup": 0.66667,
-        "recovery": 1.16666,
+        "recovery": 0.96666,
         "attr": [
             {"dmg": 0.91, "killer": [0.3, ["frostbite"]], "sp": 600, "msl": 0.66667},
             {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.75},
@@ -77,7 +79,7 @@
             {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.83333},
             {"dmg": 0.552, "killer": [0.3, ["frostbite"]], "msl": 0.83333}
         ],
-        "interrupt": {"s": 0.0, "fs": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "fs": 0.0, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "fs": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "fs": 0.0, "s": 0.0, "x1_cp": 1.16666}
     }
 }

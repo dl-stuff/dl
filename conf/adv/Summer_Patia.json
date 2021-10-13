@@ -16,8 +16,8 @@
         "attr": [
             {"dmg": 2.58, "odmg": 1.95, "sp": 600}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.76667, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
     },
     "fs1_enhanced": {
         "charge": 0.4,
@@ -26,8 +26,8 @@
         "attr": [
             {"dmg": 2.87, "sp": 600, "odmg": 1.95, "afflic": ["poison", 110, 0.436]}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.76667, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
     },
     "fs2": {
         "charge": 0.8,
@@ -36,8 +36,8 @@
         "attr": [
             {"dmg": 3.7, "odmg": 1.95, "sp": 900}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.76667, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
     },
     "fs2_enhanced": {
         "charge": 0.8,
@@ -46,8 +46,8 @@
         "attr": [
             {"dmg": 4.12, "sp": 900, "odmg": 1.95, "afflic": ["poison", 110, 0.436]}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.76667, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
     },
     "fs3": {
         "charge": 1.2,
@@ -56,8 +56,8 @@
         "attr": [
             {"dmg": 4.78, "odmg": 1.95, "sp": 1400}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.76667, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
     },
     "fs3_enhanced": {
         "charge": 1.2,
@@ -66,25 +66,27 @@
         "attr": [
             {"dmg": 5.32, "sp": 1400, "odmg": 1.95, "afflic": ["poison", 110, 0.436]}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "x1": 0.76667, "dodge": 0.0}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.76667}
     },
     "s1": {
         "sp": 2800,
         "startup": 0.0,
-        "recovery": 1.33333,
+        "recovery": 1.46667,
         "attr": [
             {"dmg": 7.47, "buff": ["debuff", -0.05, 10.0, 1.0, "def"], "iv": 0.33333, "coei": 1},
             {"dmg": 7.47, "iv": 0.33333},
             {"buff": ["fsAlt", "enhanced", -1, 1, "-refresh"], "iv": 1.16667, "coei": 1}
-        ]
+        ],
+        "cancel": {"any": 1.33333}
     },
     "s2": {
         "sp": 5600,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 1.7,
         "attr": [
             {"dmg": 23.1, "afflic": ["poison", 120, 0.582], "iv": 0.83333}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     }
 }

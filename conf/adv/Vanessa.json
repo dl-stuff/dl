@@ -12,30 +12,32 @@
     "fs_vanessa": {
         "charge": 0.675,
         "startup": 0.46667,
-        "recovery": 0.55897,
+        "recovery": 1.1,
         "attr": [
             {"dmg": 8.448, "killer": [0.3, ["debuff_def"]], "odmg": 3.08, "sp": 300}
         ],
-        "interrupt": {"s": 0.0, "dodge": 0.0},
-        "cancel": {"s": 0.0, "dodge": 0.0, "x1": 0.55897}
+        "interrupt": {"dodge": 0.0, "s": 0.0},
+        "cancel": {"any": 0.55897, "dodge": 0.0, "s": 0.0, "x1": 0.55897}
     },
     "s1": {
         "sp": 3033,
         "startup": 0.0,
-        "recovery": 1.5,
+        "recovery": 2.0,
         "attr": [
             {"buff": ["fsAlt", "vanessa", -1, 1, "-refresh"], "coei": 1, "ab": 1},
             {"dmg": 8.42, "iv": 0.4},
             {"dmg": 8.42, "iv": 1.06667}
-        ]
+        ],
+        "cancel": {"any": 1.5}
     },
     "s2": {
         "sp": 6016,
         "startup": 0.0,
-        "recovery": 1.73333,
+        "recovery": 2.06667,
         "attr": [
             {"dmg": 5.47, "buff": ["debuff", -0.05, 10.0, 1.0, "def"], "coei": 1, "iv": 0.56667},
             {"dmg": 5.47, "iv": 1.2}
-        ]
+        ],
+        "cancel": {"any": 1.73333}
     }
 }

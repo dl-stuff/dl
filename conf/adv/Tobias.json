@@ -30,7 +30,7 @@
     "s2_enhanced": {
         "sp": 1,
         "startup": 0.0,
-        "recovery": 1.53333,
+        "recovery": 2.0,
         "attr": [
             {"buff": ["s2", "default", "-off"]},
             {"dmg": 0.13, "afflic": ["poison", 120, 0.582]},
@@ -41,55 +41,56 @@
             {"dmg": 0.13, "msl": 0.3},
             {"dmg": 0.13, "msl": 0.45},
             {"dmg": 0.13, "msl": 0.45}
-        ]
+        ],
+        "cancel": {"any": 1.53333}
     },
     "x1_sacred": {
         "startup": 0.3125,
-        "recovery": 0.52083,
+        "recovery": 0.67917,
         "attr": [
             {"dmg": 0.88, "sp": 80}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "s": 0.0, "x2_sacred": 0.14583}
+        "cancel": {"any": 0.52083, "dodge": 0.0, "s": 0.0, "x2_sacred": 0.14583}
     },
     "x2_sacred": {
         "startup": 0.07407,
-        "recovery": 0.75926,
+        "recovery": 0.95926,
         "attr": [
             {"dmg": 0.98, "sp": 80},
             {"dmg": 0.98, "iv": 0.24074}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "s": 0.0, "x3_sacred": 0.42593}
+        "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x3_sacred": 0.42593}
     },
     "x3_sacred": {
         "startup": 0.07407,
-        "recovery": 0.75926,
+        "recovery": 0.9926,
         "attr": [
             {"dmg": 1.06, "sp": 138},
             {"dmg": 1.06, "iv": 0.24074}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "s": 0.0, "x4_sacred": 0.42593}
+        "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x4_sacred": 0.42593}
     },
     "x4_sacred": {
         "startup": 0.07407,
-        "recovery": 0.75926,
+        "recovery": 0.9926,
         "attr": [
             {"dmg": 1.08, "sp": 226},
             {"dmg": 1.08, "iv": 0.24074}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "s": 0.0, "x5_sacred": 0.42593}
+        "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x5_sacred": 0.42593}
     },
     "x5_sacred": {
         "startup": 0.07407,
-        "recovery": 0.75926,
+        "recovery": 0.9926,
         "attr": [
             {"dmg": 1.16, "sp": 415},
             {"dmg": 1.16, "iv": 0.24074}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "s": 0.0, "x1_sacred": 0.42593}
+        "cancel": {"any": 0.75926, "dodge": 0.0, "s": 0.0, "x1_sacred": 0.42593}
     }
 }

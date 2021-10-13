@@ -530,6 +530,8 @@ def extract_dact(acl, convert_dact=False):
             continue
         drgres = DRG_PATTERN.match(line)
         if not drgres:
+            if not LOGIC_KW.match(line):
+                line = "`" + line
             acl_without_dact.append(line)
             continue
         # dragon actstr -> acl shim

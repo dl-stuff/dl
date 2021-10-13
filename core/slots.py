@@ -1,3 +1,4 @@
+from enum import unique
 from itertools import chain
 from collections import defaultdict, namedtuple
 import html
@@ -270,9 +271,11 @@ class DragonBase(EquipBase):
         self.dform = conf
 
     def oninit(self, adv):
+        unique_dform = False
         if adv.conf["dragonform"]:
             name = self.c.name
             self.dform = Conf(adv.conf["dragonform"])
+            unique_dform = True
         else:
             name = self.name
         self.dform.update(DragonBase.DEFAULT_DCONF, rebase=True)
@@ -280,14 +283,13 @@ class DragonBase(EquipBase):
         if self.c.conf["utp"]:
             from core.dragonform import DragonFormUTP
 
-            drgclass = DragonFormUTP
+            adv.dragonform = DragonFormUTP(name, self.dform, adv, self)
         else:
             from core.dragonform import DragonForm
 
-            drgclass = DragonForm
-
-        adv.dragonform = drgclass(name, self.dform, adv, self)
+            adv.dragonform = DragonForm(name, self.dform, adv, self, unique_dform=unique_dform)
         self.adv = adv
+        return unique_dform
 
     @property
     def att(self):
@@ -362,14 +364,9 @@ class Gala_Reborn_Agni(Gala_Reborn):
 
 ### WATER DRAGONS ###
 class Nimis(DragonBase):
-    def oninit(self, adv):
-        super().oninit(adv)
-
-        def add_gauge_and_time(t):
-            adv.dragonform.charge_dprep(20)
-            adv.dragonform.extend_shift_time(5, percent=False)
-
-        Event("ds").listener(add_gauge_and_time)
+    def ds1_proc(self, e):
+        self.adv.dragonform.charge_dprep(20)
+        self.adv.dragonform.extend_shift_time(5, percent=False)
 
 
 class Gala_Reborn_Poseidon(Gala_Reborn):
@@ -423,6 +420,9 @@ class Summer_Konohana_Sakuya(DragonBase):
         except KeyError:
             pass
 
+    def ds1_proc(self, e):
+        self.add_flower()
+
     def oninit(self, adv):
         super().oninit(adv)
         adv.summer_sakuya_flowers = 0
@@ -432,7 +432,6 @@ class Summer_Konohana_Sakuya(DragonBase):
 
         self.add_flower()
         Timer(self.add_flower, 60, True).on()
-        Event("ds").listener(self.add_flower)
 
 
 class Gala_Reborn_Zephyr(Gala_Reborn):
@@ -491,7 +490,7 @@ class Gala_Beast_Volk(DragonBase):
     def dfs_start(self, e):
         self.dragon_strike_timer.on()
 
-    def dfs_before(self, e):
+    def dfs_charged(self, e):
         self.dragon_strike_timer.off()
 
     def shift_end_proc(self):
@@ -499,13 +498,14 @@ class Gala_Beast_Volk(DragonBase):
         SelfAffliction("gala_beast_volk_poison", -10, [12, 2.9], affname="poison").on()
 
     def oninit(self, adv):
-        super().oninit(adv)
-        self.adv.blood_moon = 0
-        self.adv.moonlit_rage = 0
-        self.blood_moon_timer = Timer(self.d_moon_repeat, 3.5, True)
-        self.dragon_strike_timer = Timer(self.add_rage, 1.0, True)
+        if not super().oninit(adv):
+            self.adv.blood_moon = 0
+            self.adv.moonlit_rage = 0
+            self.blood_moon_timer = Timer(self.d_moon_repeat, 3.5, True)
+            self.dragon_strike_timer = Timer(self.add_rage, 1.0, True)
 
-        Event("dfs_start").listener(self.dfs_start)
+            Event("dfs_start").listener(self.dfs_start)
+            Event("dfs_charged").listener(self.dfs_charged)
 
 
 ### WIND DRAGONS ###

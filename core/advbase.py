@@ -57,15 +57,15 @@ class Skill(object):
     def add_action(self, group, act, phase_up=True):
         act.cast = self.cast
         self.act_dict[group] = act
-        if group == globalconf.DEFAULT:
+        if act.group == globalconf.DEFAULT:
             self.act_base = act
-        if isinstance(group, int):
+        if isinstance(act.group, int):
             # might need to distinguish which phase can up eventually
             self.enable_phase_up = self.enable_phase_up or phase_up
-        elif group.startswith("overcharge"):
+        elif act.group.startswith("overcharge"):
             if self.overcharge_sp is None:
                 self.overcharge_sp = [(globalconf.DEFAULT, self.act_dict[globalconf.DEFAULT].conf.sp)]
-            self.overcharge_sp.append((group, act.conf.sp))
+            self.overcharge_sp.append((act.group, act.conf.sp))
         if act.conf["sp_regen"] and not self.autocharge_sp:
             self.autocharge_init(act.conf["sp_regen"]).on()
 
@@ -222,6 +222,16 @@ class ReservoirSkill(Skill):
         self.maxcharge = maxcharge
         self.true_sp = true_sp
 
+    def add_action(self, group, act, phase_up=True):
+        super().add_action((act.base, group), act, phase_up=phase_up)
+
+    @property
+    def ac(self):
+        try:
+            return self.act_dict[(self.name, self._static.current_s[self.name])]
+        except KeyError:
+            return self.act_base
+
     @property
     def sp(self):
         return self.true_sp
@@ -236,23 +246,33 @@ class ReservoirChainSkill(Skill):
         super().__init__(name)
         self.chain_timer = Timer(self.chain_off)
         self.chain_status = 0
-        self.altchain = altchain or "base"
+        self.altchain = altchain or "default"
         self.maxcharge = maxcharge
         self._sp = sp
+
+    def add_action(self, group, act, phase_up=True):
+        super().add_action((act.base, group), act, phase_up=phase_up)
+
+    @property
+    def ac(self):
+        try:
+            return self.act_dict[(self.name, self._static.current_s[self.name])]
+        except KeyError:
+            return self.act_base
 
     def chain_on(self, skill, timeout=3):
         timeout += self.ac.getrecovery()
         self.chain_status = skill
         self.chain_timer.on(timeout)
         log("skill_chain", f"s{skill}", timeout)
-        self._static.current_s[f"s{skill}"] = f"chain{skill}"
-        self._static.current_s[f"s{3-skill}"] = f"{self.altchain}{3-skill}"
+        self._static.current_s[f"s{skill}"] = f"chain"
+        self._static.current_s[f"s{3-skill}"] = self.altchain
 
     def chain_off(self, t=None, reason="timeout"):
         log("skill_chain", "chain off", reason)
         self.chain_status = 0
-        self._static.current_s["s1"] = "base1"
-        self._static.current_s["s2"] = "base2"
+        self._static.current_s["s1"] = "base"
+        self._static.current_s["s2"] = "base"
 
     @property
     def sp(self):
@@ -378,9 +398,12 @@ class Action(object):
         timing = conf[name]
         if timing is None:
             timing = conf[atype]
+        if timing is None and name != self.name:
+            timing = conf["any"]
         if timing is None:
             return None
         timing -= 0.0001
+        # log("canfollow", self.name, name, atype, str(conf))
         return max(0, round(timing / self.speed() - elapsed, 5))
 
     def can_interrupt(self, name, atype):
@@ -418,7 +441,7 @@ class Action(object):
     def _cb_acting(self, e):
         if self.getdoing() == self:
             self.status = Action.DOING
-            self._act(1)
+            self._act()
             self.status = Action.RECOVERY
             self.recover_start = now()
             self.recovery_timer.on(self.getrecovery())
@@ -435,13 +458,9 @@ class Action(object):
             self.general_end_event()
             self.end_event()
 
-    def _act(self, partidx):
-        self.idx = partidx
+    def _act(self):
         if loglevel >= 2:
             log("act", self.name)
-        self.act(self)
-
-    def act(self, action):
         self.act_event()
 
     def add_delayed(self, mt):
@@ -681,6 +700,10 @@ class Fs(Action):
         self.start_event.act = self.act_event
         self.end_event = Event(f"{self.base}_end")
         self.end_event.act = self.act_event
+        self.charged_event = Event(f"{self.base}_charged")
+        self.charged_event.act = self.act_event
+
+        self.charged_timer = Timer(self._charged)
 
         self.act_repeat = None
         if self.conf["repeat"]:
@@ -688,6 +711,9 @@ class Fs(Action):
 
         self.extra_charge = 0
         self.last_buffer = 0
+
+    def _charged(self, _):
+        self.charged_event()
 
     def can_interrupt(self, name, atype, endcheck=True):
         if self.act_repeat and endcheck:
@@ -739,28 +765,31 @@ class Fs(Action):
         return self._static.f_spd_func() - 1 + super().speed()
 
     def getstartup(self, include_buffer=True):
+        startup = self._startup / self.speed()
+        return self.getcharge(include_buffer=include_buffer) + startup
+
+    def getcharge(self, include_buffer=True):
         buffer = 0
         if include_buffer:
+            buffer = self._buffer
             prev = self.getdoing()
-            if prev == self:
-                buffer = self._buffer
-            elif prev != self.nop:
-                try:
-                    # check if it's 2 X in a row, maybe (???)
-                    prevprev_rec = 0
-                    if isinstance(prev, X) and prev.index > 2:
-                        prevprev = prev.getprev()
-                        if isinstance(prevprev, X):
-                            prevprev_rec = prevprev.getrecovery()
-                    bufferable = prev.startup_timer.elapsed() + prev.recovery_timer.elapsed() + prevprev_rec
-                    buffer = max(0, self._buffer - bufferable)
-                    log("bufferable", prev.name, bufferable, buffer)
-                except AttributeError:
-                    buffer = 0
+            if isinstance(prev, (X, Dodge, S)):
+                bufferable = prev.startup_timer.elapsed() + prev.recovery_timer.elapsed()
+                buffer = max(0, self._buffer - bufferable)
+                # log("input_buffer", prev.name, buffer, bufferable)
+            self.last_buffer = buffer
         charge = self._charge / self.charge_speed()
-        startup = self._startup / self.speed()
-        self.last_buffer = buffer
-        return buffer + charge + startup
+        return buffer + charge
+
+    def __call__(self):
+        charge = self.getcharge()
+        if super().__call__():
+            log(
+                "charge",
+                self.name,
+                charge,
+            )
+            self.charged_timer.on(charge)
 
 
 class S(Action):
@@ -2255,6 +2284,8 @@ class Adv(object):
             self.last_c = 0
             return self.a_dooodge()
 
+        # log("think", t.dname, "dacl" if self._acl is self._dacl else "acl", "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit))))
+
         result = self._c_acl(t)
 
         # log("think", t.dname, "dacl" if self._acl is self._dacl else "acl", "/".join(map(str, (t.pin, t.dstat, t.didx, t.dhit))), result)
@@ -2931,11 +2962,9 @@ class Adv(object):
                 self.actmod_off(e)
         self.think_pin(pin or e.name)
 
-
     def dispel(self, rate=100):
         # assume 100 rate for now
         self.dispel_event()
-
 
     def aff_relief(self, affs, rate=100):
         # assume 100 rate for now
@@ -2949,7 +2978,8 @@ class Adv(object):
                 aff.off()
 
     def l_fs(self, e):
-        log("cast", e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name, e.dtype)
+        prev = self.action.getprev().name
+        log("cast", e.base if e.group in (globalconf.DEFAULT, globalconf.DRG) else e.name, f"after {prev}")
         self.actmod_on(e)
         self.hit_make(e, self.conf[e.name], pin=e.name.split("_")[0])
 

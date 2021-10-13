@@ -12,7 +12,7 @@
     "s1": {
         "sp": 3444,
         "startup": 0.0,
-        "recovery": 7.0,
+        "recovery": 7.66667,
         "attr": [
             {"dmg": 2.954, "afflic": ["shadowblight", 120, 0.41], "iv": 0.5},
             {"dmg": 2.954, "iv": 1.0},
@@ -28,14 +28,15 @@
             {"dmg": 2.954, "iv": 6.0},
             {"dmg": 2.954, "iv": 6.5}
         ],
-        "cancel": {"dodge": 3.33333}
+        "cancel": {"any": 7.0, "dodge": 3.33333}
     },
     "s2": {
         "sp": 8610,
         "startup": 0.0,
-        "recovery": 2.16667,
+        "recovery": 2.46667,
         "attr": [
             {"buff": ["zone", 0.15, 10.0, "crit", "chance"], "iv": 0.66667}
-        ]
+        ],
+        "cancel": {"any": 2.16667}
     }
 }

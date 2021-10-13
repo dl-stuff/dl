@@ -11,21 +11,22 @@
     },
     "fs_enhanced": {
         "startup": 0.46667,
-        "recovery": 0.55897,
+        "recovery": 1.1,
         "attr": [
             {"dmg": 14.976, "sp": 300, "odmg": 3.08, "buff": ["debuff", -0.1, 10.0, 1.0, "attack"], "coei": 1}
         ],
         "interrupt": {"dodge": 0.0, "s": 0.0},
-        "cancel": {"dodge": 0.0, "s": 0.0, "x1": 0.55897}
+        "cancel": {"any": 0.55897, "dodge": 0.0, "s": 0.0, "x1": 0.55897}
     },
     "s1": {
         "sp": 3130,
         "startup": 0.0,
-        "recovery": 1.93333,
+        "recovery": 2.6,
         "attr": [
             {"dmg": 15.561, "iv": 0.3},
             {"dmg": 15.561, "iv": 1.63333}
-        ]
+        ],
+        "cancel": {"any": 1.93333}
     },
     "s2": {
         "sp": 6296,

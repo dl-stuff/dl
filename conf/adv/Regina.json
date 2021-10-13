@@ -12,29 +12,31 @@
     "s1": {
         "sp": 2640,
         "startup": 0.0,
-        "recovery": 2.5,
+        "recovery": 2.96667,
         "attr": [
             {"cond": ["var=", ["preservation_protocol", 1]], "amp": ["20000", 1, 0], "iv": 2.0},
             {"cond": ["var=", ["restoration_protocol", 1]], "heal": 50, "iv": 2.0},
             {"cond": ["var=", ["purification_protocol", 1]], "relief": [["all"], 100], "iv": 2.0},
             {"dmg": 24.0, "iv": 2.0}
-        ]
+        ],
+        "cancel": {"any": 2.5}
     },
     "s1_sigil": {
         "sp": 2640,
         "startup": 0.0,
-        "recovery": 2.5,
+        "recovery": 2.96667,
         "attr": [
             {"amp": ["20000", 1, 0], "iv": 2.0},
             {"heal": 50, "iv": 2.0},
             {"relief": ["all", 100], "iv": 2.0},
             {"dmg": 24.0, "iv": 2.0}
-        ]
+        ],
+        "cancel": {"any": 2.5}
     },
     "s2": {
         "sp": 5280,
         "startup": 0.0,
-        "recovery": 3.5,
+        "recovery": 3.8,
         "attr": [
             {"dmg": 3.0, "afflic": ["frostbite", 110, 0.31], "iv": 2.33333},
             {"dmg": 3.0, "iv": 2.5},
@@ -43,6 +45,7 @@
             {"dmg": 3.0, "iv": 2.8},
             {"dmg": 3.0, "iv": 2.9},
             {"dmg": 3.0, "iv": 3.0}
-        ]
+        ],
+        "cancel": {"any": 3.5}
     }
 }

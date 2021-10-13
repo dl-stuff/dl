@@ -10,40 +10,41 @@
         },
         "dx1": {
             "startup": 0.3,
-            "recovery": 0.5,
+            "recovery": 1.16667,
             "attr": [
                 {"dmg": 3.6, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.23333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.5, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.46667,
-            "recovery": 1.03333,
+            "recovery": 1.13333,
             "attr": [
                 {"dmg": 5.76, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.2}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.03333, "dodge": 0.0, "dx3": 0.2, "s": 0.0}
         },
         "dx3": {
             "startup": 0.33333,
-            "recovery": 1.0,
+            "recovery": 1.33334,
             "attr": [
                 {"dmg": 5.94, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.0, "dodge": 0.0, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 1.33333,
+            "recovery": 2.13333,
             "sp_db": 45,
             "uses": 1,
             "attr": [
                 {"dmg": 11.0, "iv": 0.73333}
-            ]
+            ],
+            "cancel": {"any": 1.33333}
         }
     },
     "Ariel": {
@@ -57,32 +58,32 @@
         },
         "dx1": {
             "startup": 0.33333,
-            "recovery": 0.66667,
+            "recovery": 1.13334,
             "attr": [
                 {"dmg": 3.8, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.1}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.66667, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
         },
         "dx2": {
             "startup": 0.39394,
-            "recovery": 0.51515,
+            "recovery": 1.17273,
             "attr": [
                 {"dmg": 4.18, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.12121}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.51515, "dodge": 0.0, "dx3": 0.12121, "s": 0.0}
         },
         "dx3": {
             "startup": 0.2,
-            "recovery": 0.86667,
+            "recovery": 1.16667,
             "attr": [
                 {"dmg": 1.64, "sp": 5, "msl": 0.2},
                 {"dmg": 1.64, "msl": 0.4},
                 {"dmg": 1.64, "msl": 0.53333}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
@@ -106,52 +107,50 @@
         },
         "dx1": {
             "startup": 0.23333,
-            "recovery": 0.76667,
+            "recovery": 1.06667,
             "attr": [
                 {"dmg": 3.2, "sp": 5, "msl": 0.06667}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.26667}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.76667, "dodge": 0.0, "dx2": 0.26667, "s": 0.0}
         },
         "dx2": {
             "startup": 0.125,
-            "recovery": 1.125,
+            "recovery": 1.34167,
             "attr": [
                 {"dmg": 1.76, "sp": 5, "msl": 0.06667},
                 {"dmg": 1.76, "iv": 0.125, "msl": 0.06667}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.5}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.125, "dodge": 0.0, "dx3": 0.5, "s": 0.0}
         },
         "dx3": {
             "startup": 0.5,
-            "recovery": 0.56667,
+            "recovery": 0.8,
             "attr": [
                 {"dmg": 2.66, "sp": 5},
                 {"dmg": 2.66, "msl": 0.2},
                 {"dmg": 2.66, "msl": 0.4}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.56667, "dodge": 0.0, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 1.66667,
+            "recovery": 1.96667,
             "energizable": true,
             "sp_db": 90,
             "uses": 1,
             "attr": [
                 {"heal": [42, "team"], "buff": ["team", 30.0, [20.0, 2.9], "heal", "hp"], "coei": 1, "iv": 0.96667},
                 {"buff": ["energy", 5, "team"], "iv": 1.0}
-            ]
+            ],
+            "cancel": {"any": 1.66667}
         }
     },
     "Gala_Beast_Volk": {
-        "dacl": [
-            "`ds1, blood_moon=0",
-            "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-        ],
+        "dacl": ["`ds1, blood_moon=0", "`fst(6.8), blood_moon=1 and moonlit_rage=1"],
         "d": {
             "name": "Gala Beast Volk",
             "icon": "210161_01",
@@ -163,41 +162,41 @@
         "dfs": {
             "charge": 0.4,
             "startup": 0.26667,
-            "recovery": 0.73333,
+            "recovery": 1.86666,
             "attr": [
                 {"dmg": 3.14, "sp": 5, "buff": ["debuff", -0.1, 5.0, 1.0, "def", "-overwrite_HOSTILE6"], "coei": 1},
                 {"dmg": 3.14},
                 {"dmg": 3.14}
             ],
             "interrupt": {"dodge": 0.0, "s": 0.0},
-            "cancel": {"dodge": 0.0, "s": 0.0}
+            "cancel": {"any": 0.73333, "dodge": 0.0, "s": 0.0}
         },
         "dx1": {
             "startup": 0.76667,
-            "recovery": 0.4,
+            "recovery": 0.93333,
             "attr": [
                 {"dmg": 4.6, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0, "dfs": 0.0},
-            "cancel": {"s": 0.0, "dx2": 0.16666, "dodge": 0.0, "dfs": 0.0}
+            "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.4, "dfs": 0.0, "dodge": 0.0, "dx2": 0.16666, "s": 0.0}
         },
         "dx2": {
             "startup": 0.33333,
-            "recovery": 0.66667,
+            "recovery": 1.03334,
             "attr": [
                 {"dmg": 4.9, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0, "dfs": 0.0},
-            "cancel": {"s": 0.0, "dx3": 0.2, "dodge": 0.0, "dfs": 0.0}
+            "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.66667, "dfs": 0.0, "dodge": 0.0, "dx3": 0.2, "s": 0.0}
         },
         "dx3": {
             "startup": 0.83333,
-            "recovery": 1.0,
+            "recovery": 1.4,
             "attr": [
                 {"dmg": 7.68, "sp": 5, "afflic": ["stormlash", 100, 0.22]}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0, "dfs": 0.0},
-            "cancel": {"s": 0.0, "dx1": 0.83334, "dodge": 0.0, "dfs": 0.0}
+            "interrupt": {"dfs": 0.0, "dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.0, "dfs": 0.0, "dodge": 0.0, "dx1": 0.83334, "s": 0.0}
         },
         "ds1_phase1": {
             "sp": 30,
@@ -212,8 +211,8 @@
         "ds1_phase2": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 2.16667,
-            "cancel": {"ds1_phase1": 2.0},
+            "recovery": 2.3,
+            "cancel": {"any": 2.16667, "ds1_phase1": 2.0},
             "phase_coei": true,
             "final": true,
             "sp_db": 120,
@@ -228,7 +227,8 @@
                 {"cond": ["var=", ["moonlit_rage", 8]], "dmg": 22.44, "afflic": ["stun", 180], "iv": 0.33333},
                 {"cond": ["var=", ["moonlit_rage", 9]], "dmg": 22.44, "afflic": ["stun", 180], "iv": 0.33333},
                 {"cond": ["var=", ["moonlit_rage", 10]], "dmg": 36.0, "afflic": ["stun", 180], "iv": 0.33333}
-            ]
+            ],
+            "uses": 2
         }
     },
     "Gala_Reborn_Zephyr": {
@@ -242,44 +242,44 @@
         },
         "dx1": {
             "startup": 0.36667,
-            "recovery": 0.8,
+            "recovery": 1.8,
             "attr": [
                 {"dmg": 4.16, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.53333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.8, "dodge": 0.0, "dx2": 0.53333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.16667,
-            "recovery": 0.83333,
+            "recovery": 1.93333,
             "attr": [
                 {"dmg": 4.24, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.33333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.83333, "dodge": 0.0, "dx3": 0.33333, "s": 0.0}
         },
         "dx3": {
             "startup": 0.4,
-            "recovery": 0.9,
+            "recovery": 2.03333,
             "attr": [
                 {"dmg": 4.05, "sp": 5},
                 {"dmg": 4.05, "iv": 0.1},
                 {"dmg": 4.05, "iv": 0.2}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.9, "dodge": 0.0, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 1.66667,
+            "recovery": 2.46667,
             "sp_db": 45,
             "uses": 1,
             "attr": [
                 {"dmg": 19.23, "iv": 0.83333}
             ],
             "final": true,
-            "cancel": {"dx1": 1.5}
+            "cancel": {"any": 1.66667, "dx1": 1.5}
         }
     },
     "Garuda": {
@@ -297,43 +297,44 @@
         },
         "dx1": {
             "startup": 0.27273,
-            "recovery": 0.21212,
+            "recovery": 1.19394,
             "attr": [
                 {"dmg": 3.8, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.12121}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.21212, "dodge": 0.0, "dx2": 0.12121, "s": 0.0}
         },
         "dx2": {
             "startup": 0.5,
-            "recovery": 0.33333,
+            "recovery": 0.96667,
             "attr": [
                 {"dmg": 1.26, "sp": 5},
                 {"dmg": 2.92, "msl": 0.6}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.16667}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.33333, "dodge": 0.0, "dx3": 0.16667, "s": 0.0}
         },
         "dx3": {
             "startup": 0.63889,
-            "recovery": 0.72222,
+            "recovery": 1.39444,
             "attr": [
                 {"dmg": 5.72, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.72222, "dodge": 0.0, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 2.0,
+            "recovery": 2.3,
             "sp_db": 90,
             "uses": 1,
             "attr": [
                 {"dmg": 4.2, "iv": 0.9},
                 {"dmg": 4.2, "iv": 1.23333},
                 {"dmg": 4.2, "iv": 1.3}
-            ]
+            ],
+            "cancel": {"any": 2.0}
         }
     },
     "Hastur": {
@@ -347,42 +348,43 @@
         },
         "dx1": {
             "startup": 0.3,
-            "recovery": 0.23333,
+            "recovery": 1.0,
             "attr": [
                 {"dmg": 3.8, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.23333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.23333,
-            "recovery": 0.23334,
+            "recovery": 1.23334,
             "attr": [
                 {"dmg": 4.56, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.23334}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.23334, "dodge": 0.0, "dx3": 0.23334, "s": 0.0}
         },
         "dx3": {
             "startup": 0.46667,
-            "recovery": 0.86666,
+            "recovery": 1.26666,
             "attr": [
                 {"dmg": 6.84, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx1": 0.86666}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.86666, "dodge": 0.0, "dx1": 0.86666, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 2.0,
+            "recovery": 2.66667,
             "sp_db": 45,
             "uses": 1,
             "attr": [
                 {"dmg": 0.82, "iv": 0.33333}, 4,
                 {"dmg": 0.82, "iv": 0.33333, "msl": 0.66667},
                 {"dmg": 7.7, "afflic": ["sleep", 120, 8.0, 3.0], "iv": 0.33333, "msl": 0.66667}
-            ]
+            ],
+            "cancel": {"any": 2.0}
         }
     },
     "High_Midgardsormr": {
@@ -400,41 +402,41 @@
         },
         "dx1": {
             "startup": 0.3,
-            "recovery": 0.23333,
+            "recovery": 1.2,
             "attr": [
                 {"dmg": 4.16, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.23333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.46667,
-            "recovery": 0.23333,
+            "recovery": 1.86666,
             "attr": [
                 {"dmg": 4.58, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.23333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.23333, "dodge": 0.0, "dx3": 0.23333, "s": 0.0}
         },
         "dx3": {
             "startup": 0.33333,
-            "recovery": 1.4,
+            "recovery": 1.8,
             "attr": [
                 {"dmg": 5.82, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx1": 1.4}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.4, "dodge": 0.0, "dx1": 1.4, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 3.13333,
+            "recovery": 3.53333,
             "sp_db": 45,
             "uses": 1,
             "attr": [
                 {"dmg": 13.006, "afflic": ["stun", 180], "iv": 1.43333}
             ],
-            "cancel": {"dx1": 3.13333, "dodge": 3.13333}
+            "cancel": {"any": 3.13333, "dodge": 3.13333, "dx1": 3.13333}
         }
     },
     "Long_Long": {
@@ -455,8 +457,8 @@
             "attr": [
                 {"dmg": 3.2, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.1}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.76667, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
         },
         "dx2": {
             "startup": 0.13333,
@@ -464,8 +466,8 @@
             "attr": [
                 {"dmg": 3.36, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.13334}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.6, "dodge": 0.0, "dx3": 0.13334, "s": 0.0}
         },
         "dx3": {
             "startup": 0.2,
@@ -473,8 +475,8 @@
             "attr": [
                 {"dmg": 3.52, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx4": 0.16667}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.83333, "dodge": 0.0, "dx4": 0.16667, "s": 0.0}
         },
         "dx4": {
             "startup": 0.13333,
@@ -483,8 +485,8 @@
                 {"dmg": 1.86, "sp": 5},
                 {"dmg": 1.86, "iv": 0.16667}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx5": 0.33334}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.1, "dodge": 0.0, "dx5": 0.33334, "s": 0.0}
         },
         "dx5": {
             "startup": 0.23333,
@@ -492,13 +494,13 @@
             "attr": [
                 {"dmg": 4.81572, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx1": 1.13334}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.13334, "dodge": 0.0, "dx1": 1.13334, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 2.83333,
+            "recovery": 3.96667,
             "sp_db": 45,
             "uses": 1,
             "attr": [
@@ -509,7 +511,7 @@
                 {"dmg": 1.86, "iv": 1.66667},
                 {"dmg": 1.86, "iv": 1.85714}
             ],
-            "cancel": {"dx1": 2.7381, "dodge": 2.61905}
+            "cancel": {"any": 2.83333, "dodge": 2.61905, "dx1": 2.7381}
         }
     },
     "Menoetius": {
@@ -523,45 +525,46 @@
         },
         "dx1": {
             "startup": 0.27778,
-            "recovery": 0.72222,
+            "recovery": 1.85555,
             "attr": [
                 {"dmg": 1.7, "sp": 5},
                 {"dmg": 1.7, "msl": 0.46667},
                 {"dmg": 1.7, "msl": 0.6}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.38889}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.72222, "dodge": 0.0, "dx2": 0.38889, "s": 0.0}
         },
         "dx2": {
             "startup": 0.16667,
-            "recovery": 0.83333,
+            "recovery": 1.5,
             "attr": [
                 {"dmg": 1.92, "sp": 5},
                 {"dmg": 1.92, "msl": 0.13}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.4}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.83333, "dodge": 0.0, "dx3": 0.4, "s": 0.0}
         },
         "dx3": {
             "startup": 0.53333,
-            "recovery": 0.56667,
+            "recovery": 1.73334,
             "attr": [
                 {"dmg": 3.51, "sp": 5},
                 {"dmg": 3.51, "msl": 0.4},
                 {"dmg": 3.51, "msl": 0.53333}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.56667, "dodge": 0.0, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 1.86667,
+            "recovery": 3.3,
             "sp_db": 45,
             "uses": 1,
             "attr": [
                 {"dmg": 23.04, "afflic": ["stormlash", 120, 0.41], "iv": 1.33333, "msl": 0.13333}
-            ]
+            ],
+            "cancel": {"any": 1.86667}
         }
     },
     "Midgardsormr_Zero": {
@@ -580,38 +583,38 @@
         },
         "dx1": {
             "startup": 0.56667,
-            "recovery": 0.76666,
+            "recovery": 1.4,
             "attr": [
                 {"dmg": 2.1, "sp": 5},
                 {"dmg": 2.1, "msl": 0.13333}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.13333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.76666, "dodge": 0.0, "dx2": 0.13333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.6,
-            "recovery": 0.73333,
+            "recovery": 1.33333,
             "attr": [
                 {"dmg": 3.3, "sp": 5},
                 {"dmg": 3.3, "msl": 0.13333}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.06667}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.73333, "dodge": 0.0, "dx3": 0.06667, "s": 0.0}
         },
         "dx3": {
             "startup": 0.73333,
-            "recovery": 0.76667,
+            "recovery": 1.03334,
             "attr": [
                 {"dmg": 4.5, "sp": 5},
                 {"dmg": 4.5, "msl": 0.13333}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx1": 0.6}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.76667, "dodge": 0.0, "dx1": 0.6, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 3.33333,
+            "recovery": 3.86667,
             "sp_db": 45,
             "uses": 1,
             "attr": [
@@ -635,7 +638,7 @@
                 {"dmg": 3.93, "iv": 2.66667},
                 {"dmg": 3.93, "iv": 2.76667}
             ],
-            "cancel": {"dx1": 3.16667}
+            "cancel": {"any": 3.33333, "dx1": 3.16667}
         }
     },
     "Pazuzu": {
@@ -653,37 +656,37 @@
         },
         "dx1": {
             "startup": 0.33333,
-            "recovery": 0.66667,
+            "recovery": 1.03334,
             "attr": [
                 {"dmg": 2.8, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.1}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.66667, "dodge": 0.0, "dx2": 0.1, "s": 0.0}
         },
         "dx2": {
             "startup": 0.39394,
-            "recovery": 0.51515,
+            "recovery": 1.23939,
             "attr": [
                 {"dmg": 3.08, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.12121}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.51515, "dodge": 0.0, "dx3": 0.12121, "s": 0.0}
         },
         "dx3": {
             "startup": 0.2,
-            "recovery": 0.86667,
+            "recovery": 1.16667,
             "attr": [
                 {"dmg": 1.3, "sp": 5, "msl": 0.2},
                 {"dmg": 1.3, "msl": 0.4},
                 {"dmg": 1.3, "msl": 0.53333}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.86667, "dodge": 0.0, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 2.43333,
+            "recovery": 2.8,
             "sp_db": 45,
             "uses": 1,
             "attr": [
@@ -693,7 +696,8 @@
                 {"dmg": 1.82, "iv": 1.4},
                 {"dmg": 1.82, "iv": 1.46667},
                 {"dmg": 1.82, "iv": 1.6}
-            ]
+            ],
+            "cancel": {"any": 2.43333}
         }
     },
     "Rose_Queen": {
@@ -711,32 +715,32 @@
             "attr": [
                 {"dmg": 4.85, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.23333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"dodge": 0.0, "dx2": 0.23333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.16667,
-            "recovery": 0.83333,
+            "recovery": 0.9,
             "attr": [
                 {"dmg": 2.68, "sp": 5},
                 {"dmg": 2.68, "iv": 0.1}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.5}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.83333, "dodge": 0.0, "dx3": 0.5, "s": 0.0}
         },
         "dx3": {
             "startup": 0.53333,
-            "recovery": 0.96667,
+            "recovery": 1.0,
             "attr": [
                 {"dmg": 6.8, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx1": 0.8}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.96667, "dodge": 0.0, "dx1": 0.8, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 2.66667,
+            "recovery": 2.83333,
             "sp_db": 65,
             "uses": 1,
             "attr": [
@@ -754,7 +758,8 @@
                 {"dmg": 0.5, "iv": 3.13333, "msl": 6}, 5,
                 {"dmg": 0.5, "iv": 3.13333, "msl": 8}, 5,
                 {"heal": 10, "iv": 3.13333, "msl": 10}
-            ]
+            ],
+            "cancel": {"any": 2.66667}
         }
     },
     "Summer_Konohana_Sakuya": {
@@ -768,42 +773,43 @@
         },
         "dx1": {
             "startup": 0.4,
-            "recovery": 0.8,
+            "recovery": 1.23333,
             "attr": [
                 {"dmg": 5.8, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.2}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.8, "dodge": 0.0, "dx2": 0.2, "s": 0.0}
         },
         "dx2": {
             "startup": 0.26667,
-            "recovery": 1.06666,
+            "recovery": 1.76666,
             "attr": [
                 {"dmg": 6.96, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.5}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.06666, "dodge": 0.0, "dx3": 0.5, "s": 0.0}
         },
         "dx3": {
             "startup": 0.5,
-            "recovery": 1.0,
+            "recovery": 1.23333,
             "attr": [
                 {"dmg": 8.12, "sp": 5},
                 {"dmg": 8.12, "msl": 0.5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx1": 0.83333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.0, "dodge": 0.0, "dx1": 0.83333, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 1.83333,
+            "recovery": 2.13333,
             "energizable": true,
             "sp_db": 90,
             "uses": 1,
             "attr": [
                 {"heal": 84, "iv": 1.0}
-            ]
+            ],
+            "cancel": {"any": 1.83333}
         }
     },
     "Vayu": {
@@ -817,42 +823,43 @@
         },
         "dx1": {
             "startup": 0.26667,
-            "recovery": 0.43333,
+            "recovery": 1.56666,
             "attr": [
                 {"dmg": 2.08, "sp": 5},
                 {"dmg": 2.08, "iv": 0.2}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.43333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.43333, "dodge": 0.0, "dx2": 0.43333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.23333,
-            "recovery": 0.23334,
+            "recovery": 1.13334,
             "attr": [
                 {"dmg": 4.52, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.23334}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.23334, "dodge": 0.0, "dx3": 0.23334, "s": 0.0}
         },
         "dx3": {
             "startup": 0.96667,
-            "recovery": 1.06666,
+            "recovery": 1.46666,
             "attr": [
                 {"dmg": 7.38, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx1": 1.06666}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 1.06666, "dodge": 0.0, "dx1": 1.06666, "s": 0.0}
         },
         "ds1": {
             "sp": 30,
             "startup": 0.0,
-            "recovery": 1.66667,
+            "recovery": 2.46667,
             "sp_db": 45,
             "uses": 1,
             "attr": [
                 {"dmg": 17.92, "iv": 0.93333},
                 {"buff": ["next", 0.4, 1, "s", "buff", "-refresh"], "iv": 1.5}
-            ]
+            ],
+            "cancel": {"any": 1.66667}
         }
     },
     "Zephyr": {
@@ -870,36 +877,36 @@
         },
         "dx1": {
             "startup": 0.36667,
-            "recovery": 0.23333,
+            "recovery": 1.1,
             "attr": [
                 {"dmg": 5.12, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx2": 0.23333}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.23333, "dodge": 0.0, "dx2": 0.23333, "s": 0.0}
         },
         "dx2": {
             "startup": 0.46667,
-            "recovery": 0.46666,
+            "recovery": 0.96666,
             "attr": [
                 {"dmg": 2.82, "sp": 5},
                 {"dmg": 2.82, "iv": 0.23333}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx3": 0.46666}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.46666, "dodge": 0.0, "dx3": 0.46666, "s": 0.0}
         },
         "dx3": {
             "startup": 0.6,
-            "recovery": 0.7,
+            "recovery": 1.1,
             "attr": [
                 {"dmg": 7.16, "sp": 5}
             ],
-            "interrupt": {"s": 0.0, "dodge": 0.0},
-            "cancel": {"s": 0.0, "dodge": 0.0, "dx1": 0.7}
+            "interrupt": {"dodge": 0.0, "s": 0.0},
+            "cancel": {"any": 0.7, "dodge": 0.0, "dx1": 0.7, "s": 0.0}
         },
         "ds1": {
             "sp": 50,
             "startup": 0.0,
-            "recovery": 2.93333,
+            "recovery": 4.96667,
             "sp_db": 45,
             "uses": 1,
             "attr": [
@@ -907,7 +914,7 @@
                 {"dmg": 5.348, "iv": 2.16667},
                 {"dmg": 5.348, "iv": 2.33333}
             ],
-            "cancel": {"dodge": 2.93333, "dx1": 2.93333}
+            "cancel": {"any": 2.93333, "dodge": 2.93333, "dx1": 2.93333}
         }
     }
 }
