@@ -5,12 +5,7 @@ class Yoshitsune(Adv):
     comment = "no counter on s1/dodge"
 
     def prerun(self):
-        Event("dodge").listener(self.l_dodge_attack, order=0)
         self.allow_dodge = False
-
-    def l_dodge_attack(self, e):
-        if self.nihilism:
-            return
 
 
 class Yoshitsune_COUNTER(Yoshitsune):
