@@ -324,6 +324,13 @@ function exportConf(){
         'share': readSkillShare(),
         'coab': readCoabList()
     }
+    if ($('#input-edit-acl').prop('checked')) {
+        exported['acl'] = $('#input-acl').val();
+        exported['dacl'] = $('#input-dacl').val();
+    } else {
+        exported['acl'] = $('#input-acl').data('default_acl');
+        exported['dacl'] = $('#input-dacl').data('default_acl');
+    }
     $('#input-conf').val(JSON.stringify(exported, null, 4));
 }
 function importConf() {
