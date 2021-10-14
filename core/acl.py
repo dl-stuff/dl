@@ -518,7 +518,7 @@ def extract_dact(acl, convert_dact=False):
 
     queue_cond = None
     for line in SEP_PATTERN.split(acl):
-        line = line.strip(" `\n")
+        line = line.strip(" `\n;")
         if not line:
             continue
         if line == "end":
@@ -564,7 +564,6 @@ def extract_dact(acl, convert_dact=False):
             dacl_from_dact.append("queue")
         dacl_from_dact.append("`" + ";".join(queue_str))
         dacl_from_dact.append("end")
-
     return "\n".join(acl_without_dact), "\n".join(dacl_from_dact)
 
 
@@ -576,7 +575,7 @@ def preparse_acl(acl):
 
     join_latest_2 = False
     for line in SEP_PATTERN.split(acl):
-        line = line.strip(" `\n")
+        line = line.strip(" `\n;")
         if not line:
             join_latest_2 = False
             continue

@@ -295,7 +295,7 @@ function serConf(no_conf) {
         requestJson['dacl'] = $('#input-dacl').val();
     } else {
         requestJson['acl'] = $('#input-acl').data('default_acl');
-        requestJson['dacl'] = $('#input-dacl').data('default_acl');
+        requestJson['dacl'] = $('#input-dacl').data('default_dacl');
     }
     const simAff = readSimAfflic();
     if (simAff != null) {
@@ -329,7 +329,7 @@ function exportConf(){
         exported['dacl'] = $('#input-dacl').val();
     } else {
         exported['acl'] = $('#input-acl').data('default_acl');
-        exported['dacl'] = $('#input-dacl').data('default_acl');
+        exported['dacl'] = $('#input-dacl').data('default_dacl');
     }
     $('#input-conf').val(JSON.stringify(exported, null, 4));
 }
@@ -374,7 +374,13 @@ function importConf() {
         }
     }
     $('#input-edit-acl').prop('checked', acl_check);
-    for (const aclkey of ['acl', 'dacl']){$( `#input-${aclkey}`).prop('disabled', !acl_check);}
+    for (const aclid of ['#input-acl', '#input-dacl']){
+        if ($(aclid).data('always_disabled')){
+            $(aclid).prop('disabled', true);
+        } else {
+            $(aclid).prop('disabled', !acl_check);
+        }
+    }
     runAdvTest();
 }
 function loadConfToSlot(conf, slots) {
@@ -627,6 +633,9 @@ function loadAdvSlots(no_conf, default_equip) {
                     let acl_check = false;
                     for (const aclkey of ['acl', 'dacl']){
                         const aclid = `#input-${aclkey}`;
+                        if (slots.adv[aclkey] == "DISABLED") {
+                            $(aclid).data('always_disabled', true);
+                        }
                         const acl = trimAcl(slots.adv[aclkey]);
                         $(aclid).data('default_acl', acl);
                         $(aclid).removeData('alternate_acl');
@@ -640,11 +649,15 @@ function loadAdvSlots(no_conf, default_equip) {
                             $(aclid).val(acl);
                         }
                         acl_check = Boolean(acl_check || (acl_alt && acl_alt != acl));
-                        $('#input-edit-acl').prop('checked', acl_check);
-                        $(aclid).prop('disabled', !acl_check);
                     }
                     $('#input-edit-acl').prop('checked', acl_check);
-                    for (const aclid of ['#input-acl', '#input-dacl']){$(aclid).prop('disabled', !acl_check);}
+                    for (const aclid of ['#input-acl', '#input-dacl']){
+                        if ($(aclid).data('always_disabled')){
+                            $(aclid).prop('disabled', true);
+                        } else {
+                            $(aclid).prop('disabled', !acl_check);
+                        }
+                    }
                 
                     $('#input-toggle-affliction').prop('checked', false);
                     $('.input-wp > div > select').prop('disabled', false);
@@ -997,7 +1010,7 @@ function runAdvTest(no_conf) {
 function editAcl() {
     for (const aclkey of ['#input-acl', '#input-dacl']){
         $(aclkey).prop('disabled', !$(this).prop('checked'));
-        if ($(this).prop('checked')) {
+        if ($(this).prop('checked') && !$(aclkey).data('always_disabled')) {
             $(aclkey).prop('disabled', false);
             const altAcl = $(aclkey).data('alternate_acl');
             if (altAcl) {

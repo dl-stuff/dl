@@ -876,6 +876,7 @@ class Adv(object):
     NO_DEPLOY = False
     FIXED_RNG = None
     MC = None  # generally assume max mc
+    DISABLE_DACL = False
 
     Timer = Timer
     Event = Event
@@ -1434,7 +1435,6 @@ class Adv(object):
         self._dacl = None
         self._c_acl = None
         self.using_default_dacl = False
-        self.disable_dacl = False
 
         self.stats = []
 
@@ -2270,7 +2270,7 @@ class Adv(object):
         pass
 
     def set_dacl(self, enable):
-        if self.disable_dacl:
+        if self.DISABLE_DACL:
             return
         if enable:
             self._dacl.reset(self)

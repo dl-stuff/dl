@@ -222,7 +222,10 @@ def get_adv_slotlist():
         result["adv"]["pref_share"] = adv.conf["share"] or []
         adv.config_acl()
         result["adv"]["acl"] = adv.conf.acl
-        result["adv"]["dacl"] = adv.conf.dacl
+        if adv.DISABLE_DACL:
+            result["adv"]["dacl"] = "DISABLED"
+        else:
+            result["adv"]["dacl"] = adv.conf.dacl
         if opt_mode is not None and adv.equip_manager[equip_cond] != opt_mode:
             tdps = adv.equip_manager[equip_cond].tdps
             if tdps and 0 <= tdps <= 200000:

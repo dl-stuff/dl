@@ -17,6 +17,8 @@ class DodgeOnX(Dodge):
 
 
 class Gala_Zethia(Adv):
+    DISABLE_DACL = True
+
     def prerun(self):
         # crit amp x5 x9
         self.buff1868 = 1
@@ -34,7 +36,6 @@ class Gala_Zethia(Adv):
         # this is likely meant to be reset on each shift irl, but it doesn't seem to happen
         self.st_bahamut = 0
         self.c_servant_act = None
-        self.disable_dacl = True
 
     @property
     def skills(self):
