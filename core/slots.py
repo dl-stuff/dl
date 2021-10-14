@@ -804,6 +804,7 @@ class AmuletStack:
         "k_shadowblight": 0.25,
         "k_stormlash": 0.25,
         "k_flashburn": 0.25,
+        "k_scorchrend": 0.25,
         "bleed": 0.15,
         "rcv": 0.20,
         "hp": 0.15,
