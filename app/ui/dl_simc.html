@@ -296,16 +296,8 @@
                     <button type="button" id="toggle-advanced" class="btn btn-info" data-toggle="collapse" data-target="#advanced-inputs" aria-expanded="false" aria-controls="advanced-inputs">
                         Conditions
                     </button>
-                    <!-- <button type="button" id="toggle-coab" class="btn btn-info" data-toggle="collapse" data-target="#coability" aria-expanded="false" aria-controls="coability">
-                    Co-Abilities
-                </button>
-                <button type="button" id="toggle-advanced" class="btn btn-info" data-toggle="collapse" data-target="#conditions" aria-expanded="false" aria-controls="conditions">
-                    Conditions
-                </button>
-                <button type="button" id="toggle-resist" class="btn btn-info" data-toggle="collapse" data-target="#affliction-resist" aria-expanded="false" aria-controls="affliction-resist">
-                    Resist
-                </button> -->
                     <button type="button" id="display-mode" class="btn btn-secondary"></button>
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#confBox">Import/Export</button>
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#damageLogBox">Log</button>
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#simulationGraphBox">Graph</button>
                     <button type="button" id="clear-results" class="btn btn-secondary">Clear</button>
@@ -315,12 +307,10 @@
                         Guide</button>
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#commitsBox">Latest
                         Updates</button>
-                    <!--<a href="https://notte.moe/a-quick-guide-to-dragalia-dps-simulator/">-->
-                    <!--    <button type="button" class="btn btn-dark">Usage Guide</button>-->
-                    <!--</a>-->
                 </div>
             </div>
         </div>
+        <!-- modals -->
         <div class="modal fade" id="aboutBox" tabindex="-1" role="dialog" aria-labelledby="aboutTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
@@ -367,6 +357,23 @@
                         <p><a href="https://github.com/dl-stuff/dl/issues">Open an issue here</a>, or ask me on
                             discord
                             I'm chu2.718281828459045235360287471#0110</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="confBox" tabindex="-1" role="dialog" aria-labelledby="confTitle" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="damageLogTitle">Conf</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <textarea id="input-conf" class="modal-body form-control"></textarea>
+                    <div class="modal-footer">
+                        <button id="conf-import" type="button" class="btn btn-secondary" data-dismiss="modal">Import</button>
                     </div>
                 </div>
             </div>

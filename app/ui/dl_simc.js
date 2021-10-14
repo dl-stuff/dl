@@ -264,10 +264,7 @@ function serConf(no_conf) {
     if (variant && variant !== 'Default') {
         requestJson['variant'] = variant;
     }
-    const wplist = readWpList();
-    if (wplist) {
-        requestJson['wp'] = wplist;
-    }
+    requestJson['wp'] = readWpList();
     requestJson['share'] = readSkillShare();
     requestJson['coab'] = readCoabList();
     const t = $('#input-t').val();
@@ -300,13 +297,13 @@ function serConf(no_conf) {
         requestJson['acl'] = $('#input-acl').data('default_acl');
         requestJson['dacl'] = $('#input-dacl').data('default_acl');
     }
-    const sim_aff = readSimAfflic();
-    if (sim_aff != null) {
-        requestJson['sim_afflict'] = sim_aff;
+    const simAff = readSimAfflic();
+    if (simAff != null) {
+        requestJson['sim_afflict'] = simAff;
     }
-    const sim_buff = readSimBuff();
-    if (sim_buff != null) {
-        requestJson['sim_buff'] = sim_buff;
+    const simBuff = readSimBuff();
+    if (simBuff != null) {
+        requestJson['sim_buff'] = simBuff;
     }
 
     if (!no_conf) {
@@ -319,7 +316,61 @@ function serConf(no_conf) {
 function deserConf(confStr) {
     return JSON.parse(atob(confStr));
 }
-function loadConf(conf, slots) {
+function exportConf(){
+    let exported = {
+        'dra': $('#input-dra').val(),
+        'wep': $('#input-wep').val(),
+        'wp': readWpList(),
+        'share': readSkillShare(),
+        'coab': readCoabList()
+    }
+    $('#input-conf').val(JSON.stringify(exported, null, 4));
+}
+function importConf() {
+    const imported = JSON.parse($('#input-conf').val());
+    if (imported.t){$("#input-t").val(imported.t)}
+    if (imported.wep){$('#wep-' + imported.wep).prop('selected', true);}
+    if (imported.dra){$('#dra-' + imported.dra).prop('selected', true);}
+    if (imported.wp){
+        for (let i = 0; i < 7; i++) {
+            if (imported.wp[i]) {
+                $(`#wp${i + 1}-` + imported.wp[i]).prop('selected', true);
+            } else {
+                $(`#wp${i + 1}-None`).prop('selected', true);
+            }
+        }    
+    }
+    if (imported.coab){
+        for (const c of imported.coab) {
+            const check = $("input[id$='-" + c + "']");
+            if (check.length) {
+                check.prop('checked', true);
+                coabSelection(1, true);
+            }
+        }
+    }
+    selectSkillShare($('#input-adv').data('basename'), imported.share);
+    let acl_check = false;
+    for (const aclkey of ['acl', 'dacl']){
+        if (!imported[aclkey]){ continue; }
+        const aclid = `#input-${aclkey}`;
+        const acl = $(aclid).data('default_acl');
+        $(aclid).removeData('alternate_acl');
+        $(aclid).blur();
+        const acl_alt = trimAcl(imported[aclkey]);
+        acl_check = Boolean(acl_check || (acl_alt && acl_alt != acl));
+        if (acl_alt) {
+            $(aclid).data('alternate_acl', acl_alt);
+            $(aclid).val(acl_alt);
+        } else {
+            $(aclid).val(acl);
+        }
+    }
+    $('#input-edit-acl').prop('checked', acl_check);
+    for (const aclkey of ['acl', 'dacl']){$( `#input-${aclkey}`).prop('disabled', !acl_check);}
+    runAdvTest();
+}
+function loadConfToSlot(conf, slots) {
     slots.adv.pref_wep = conf.wep;
     slots.adv.pref_dra = conf.dra;
     if (conf.wp) {
@@ -539,10 +590,14 @@ function loadAdvSlots(no_conf, default_equip) {
                     $('#test-error').empty();
                     populateSelect('#input-wep', slots.weapons);
                     populateSelect('#input-dra', slots.dragons);
+                    $('#input-adv').data('basename', slots.adv.basename);
                     buildCoab(slots.coabilities, slots.adv.basename, slots.adv.wt);
 
                     const urlVars = getUrlVars();
-                    if (urlVars.conf) { slots = loadConf(conf, slots); }
+                    if (urlVars.conf) { 
+                        slots = loadConfToSlot(conf, slots);
+                        if (urlVars.conf.t){$("#input-t").val(urlVars.conf.t)}
+                    }
 
                     $('#wep-' + slots.adv.pref_wep).prop('selected', true);
                     $('#dra-' + slots.adv.pref_dra).prop('selected', true);
@@ -562,6 +617,7 @@ function loadAdvSlots(no_conf, default_equip) {
                         }
                     }
                     selectSkillShare(slots.adv.basename, slots.adv.pref_share);
+                    let acl_check = false;
                     for (const aclkey of ['acl', 'dacl']){
                         const aclid = `#input-${aclkey}`;
                         const acl = trimAcl(slots.adv[aclkey]);
@@ -569,9 +625,6 @@ function loadAdvSlots(no_conf, default_equip) {
                         $(aclid).removeData('alternate_acl');
                         $(aclid).blur();
                         let acl_alt = slots.adv[`${aclkey}_alt`];
-                        const acl_check = Boolean(acl_alt && acl_alt != acl);
-                        $('#input-edit-acl').prop('checked', acl_check);
-                        $(aclid).prop('disabled', !acl_check);
                         if (acl_alt) {
                             acl_alt = trimAcl(acl_alt);
                             $(aclid).data('alternate_acl', acl_alt);
@@ -579,7 +632,13 @@ function loadAdvSlots(no_conf, default_equip) {
                         } else {
                             $(aclid).val(acl);
                         }
+                        acl_check = Boolean(acl_check || (acl_alt && acl_alt != acl));
+                        $('#input-edit-acl').prop('checked', acl_check);
+                        $(aclid).prop('disabled', !acl_check);
                     }
+                    $('#input-edit-acl').prop('checked', acl_check);
+                    for (const aclid of ['#input-acl', '#input-dacl']){$(aclid).prop('disabled', !acl_check);}
+                
                     $('#input-toggle-affliction').prop('checked', false);
                     $('.input-wp > div > select').prop('disabled', false);
                     $('#input-edit-acl').prop('disabled', false);
@@ -1086,8 +1145,10 @@ window.onload = function () {
     $('#input-edit-acl').change(editAcl);
     $('#input-toggle-affliction').change(toggleAffRes);
     $('#input-teamdps').change(updateTeamdps);
+    $('#simulationGraphBox').on('shown.bs.modal', populateAllGraphs);
+    $('#confBox').on('shown.bs.modal', exportConf);
+    $('#conf-import').click(importConf);
     clearResults();
     loadAdvWPList();
     loadGithubCommits();
-    $('#simulationGraphBox').on('shown.bs.modal', populateAllGraphs);
 }
