@@ -512,6 +512,10 @@ class DragonFormUTP(DragonForm):
             return True
         return False
 
+    @property
+    def allow_end(self):
+        return True
+
     def pause_auto_gauge(self):
         pass
 

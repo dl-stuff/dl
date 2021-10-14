@@ -17,12 +17,6 @@ class DodgeOnX(Dodge):
 
 
 class Gala_Zethia(Adv):
-    conf = {}
-    conf["acl"] = [
-        "`s1",
-        "`dragon",
-    ]
-
     def prerun(self):
         # crit amp x5 x9
         self.buff1868 = 1
