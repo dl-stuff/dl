@@ -635,6 +635,8 @@ function loadAdvSlots(no_conf, default_equip) {
                         const aclid = `#input-${aclkey}`;
                         if (slots.adv[aclkey] == "DISABLED") {
                             $(aclid).data('always_disabled', true);
+                        } else {
+                            $(aclid).data('always_disabled', false);
                         }
                         const acl = trimAcl(slots.adv[aclkey]);
                         $(aclid).data('default_acl', acl);
