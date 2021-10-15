@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 70693.27558422631,
-        "team": 0.055474474117900234,
+        "dps": 70525.26394430551,
+        "team": 0.05560659732417601,
         "noaff": false,
         "nihil": false
       },
@@ -18,12 +18,16 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, x=5",
-        "`s3, not buff(s3)",
-        "`s1, c_s(1, a) or c_s(1, c)",
-        "`s2, energy()=3 and (c_s(2, b) or c_s(2, d))",
-        "`s2, x=5 and (c_s(2, b) or c_s(2, d))",
-        "`s4"
+        "dragon, x=5",
+        "s3, not buff(s3)",
+        "s1, c_s(1, a) or c_s(1, c)",
+        "s2, energy()=3 and (c_s(2, b) or c_s(2, d))",
+        "s2, x=5 and (c_s(2, b) or c_s(2, d))",
+        "s4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -71,6 +75,7 @@
       ]
     },
     "META": {
+      "tdps": 1271628.5401832964,
       "pref": "PERSONAL"
     }
   },

@@ -176,34 +176,45 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66192.02845839651,
-        "team": 0.048944651255300016,
+        "dps": 76884.49146031046,
+        "team": 0.09572185460138727,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
         "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c3-s-end), trickery<=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1"
+        "dragon",
+        "s3, not buff(s3)",
+        "s4",
+        "s1, buff(s3) and cancel",
+        "s2, x=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;dx2;sack",
+        "end"
+      ],
+      "coabs": [
+        "Audric",
+        "Ieyasu",
+        "Vania"
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 450729.6035418453,
+      "tdps": 817033.2856561472,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

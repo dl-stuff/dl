@@ -112,8 +112,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60060.20364792124,
-        "team": 0.041498592795234934,
+        "dps": 63132.09927140589,
+        "team": 0.07688497326596011,
         "noaff": false,
         "nihil": true
       },
@@ -128,15 +128,18 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-c5-end), fsc",
-        "`s3, cancel",
-        "`s4, aff_timeleft(poison)<3",
-        "`s1, sr.count>1 and cancel",
-        "`fs, x=4"
+        "dragon, fsc",
+        "s4, aff_timeleft(poison)<2",
+        "s3, cancel",
+        "s1, sr.count>1 and cancel",
+        "fs, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
-        "Blade",
         "Delphi",
+        "Ieyasu",
         "Wand"
       ],
       "share": [
@@ -145,7 +148,7 @@
       ]
     },
     "META": {
-      "tdps": 303501.28154978674,
+      "tdps": 667365.7413699876,
       "pref": "PERSONAL"
     }
   },
@@ -160,8 +163,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108373.84383662464,
-        "team": 0.15639222587569648,
+        "dps": 113759.38805957849,
+        "team": 0.2352023182765055,
         "noaff": false,
         "nihil": false
       },
@@ -174,14 +177,29 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "dragon, s",
+        "s3, not buff(s3)",
+        "s1, duration-now<3",
+        "s4, s=2",
+        "s2, aff_timeleft(poison)<2 and sr.count>1",
+        "s1, (sr.count>1 and x=5) or sr.count=3",
+        "fs, (x=4 and not buff(s3)) or hits=1"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
       "coabs": [
-        "Forte",
         "Ieyasu",
+        "Summer_Prince",
         "Vania"
       ]
     },
     "META": {
-      "tdps": 900854.7904615742,
+      "tdps": 47264141.040533826,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -192,8 +210,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75361.70022223137,
-        "team": 0.04374621935289655,
+        "dps": 81636.60950669118,
+        "team": 0.07155859802102241,
         "noaff": false,
         "nihil": true
       },
@@ -207,11 +225,11 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c5-s-c5-end), fsc",
-        "`s3, cancel",
-        "`s4",
-        "`s1, sr.count>1 and cancel",
-        "`fs, x=4"
+        "dragon, fsc",
+        "s3, cancel",
+        "s4",
+        "s1, sr.count>1 and cancel",
+        "fs, x=4"
       ],
       "coabs": [
         "Blade",

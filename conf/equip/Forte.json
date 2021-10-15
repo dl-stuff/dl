@@ -161,40 +161,47 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 139131.46979773365,
-        "team": 0.0,
+        "dps": 142443.03082698965,
+        "team": 0.06660498731740704,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Red_Impulse",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
         "Welcome_to_the_Opera",
-        "Dueling_Dancers",
+        "Entwined_Flames",
         "The_Plaguebringer",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c4-s-end), dshift_count=0 and x=1",
-        "`dragon(end), dshift_count=1 and fscf",
-        "`dragon(end), dshift_count=2 and fscf",
-        "`dragon(end), dshift_count=3 and fscf",
-        "`dragon(end), dshift_count>=4",
-        "`s3, not buff(s3) and fscf",
-        "`s2",
-        "`s4, x>3 or fscf",
-        "`s1, buff(s3) and (fscf or x>3)",
-        "`fs, x=5",
-        "`dodge, fscf"
+        "dragon, s",
+        "s3, not buff(s3) and fscf",
+        "s2",
+        "s4",
+        "s1, buff(s3) and (fscf or x>3) and not duration-now<30",
+        "fs, x=5",
+        "dodge, fscf"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Audric",
+        "Ieyasu",
+        "Summer_Prince"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 228683.3912458013,
+      "tdps": 388544.0358717697,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

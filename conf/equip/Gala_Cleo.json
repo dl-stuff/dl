@@ -200,8 +200,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85544.58525628816,
-        "team": 0.4770905352282131,
+        "dps": 93027.33174842813,
+        "team": 0.4796805449601878,
         "noaff": false,
         "nihil": false
       },
@@ -215,12 +215,15 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-end), trickery<=4 and buff(fs) and buff(s2)",
-        "`s3, not buff(s3)",
-        "`fs, s1.check() and c_fs(galacleo)",
-        "`s1, s=3 or fsc",
-        "`s2, x=5 and buff(fs)",
-        "`s4, x=5 or buff(s2)"
+        "dragon, trickery<=4 and buff(fs) and buff(s2)",
+        "s3, not buff(s3)",
+        "fs, s1.check() and c_fs(galacleo)",
+        "s1, s=3 or fsc",
+        "s2, x=5 and buff(fs)",
+        "s4, x=5 or buff(s2)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "share": [
         "Weapon",
@@ -228,7 +231,7 @@
       ]
     },
     "META": {
-      "tdps": 114686.89886382874,
+      "tdps": 127750.08083973044,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

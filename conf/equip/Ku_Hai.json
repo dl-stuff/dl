@@ -135,18 +135,22 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 108509.42138916944,
-        "team": 0.16522959996624886,
+        "dps": 108559.15204254432,
+        "team": 0.16524360289466822,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s1, duration-now<1 and fsc",
-        "`fs, x=1 and buff(s2)",
-        "`fs, x=2 or hits=0"
+        "s3, not buff(s3)",
+        "s2, fsc",
+        "s4, fsc",
+        "s1, duration-now<1 and fsc",
+        "fs, x=1 and buff(s2)",
+        "fs, x=2 or hits=0"
+      ],
+      "dacl": [
+        "ds1, blood_moon=0 and fsc",
+        "fs"
       ],
       "share": [
         "Weapon",
@@ -154,7 +158,7 @@
       ]
     },
     "META": {
-      "tdps": 389611.27223645075,
+      "tdps": 389817.5428009535,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

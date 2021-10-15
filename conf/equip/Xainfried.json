@@ -158,14 +158,41 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 108811.19860520653,
-        "team": 0.3634310768590728,
+        "dps": 111237.31352958095,
+        "team": 0.35843769741146914,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "dragon, dshift_count=0 and s=4",
+        "dragon, dshift_count=1 and fscf",
+        "dragon, dshift_count=2 and fscf",
+        "dragon, dshift_count=3 and fscf and not s1.check()",
+        "dragon, dshift_count>=4",
+        "queue prep and not buff(s3)",
+        "s3",
+        ";",
+        "s2",
+        ";",
+        "fs",
+        ";",
+        "s4, fscf",
+        "end",
+        "s2",
+        "s4",
+        "s1, fscf",
+        "fs, charged_in(fs, s2)",
+        "fs, charged_in(fs, s4)",
+        "fs, x=5",
+        "dodge, fscf"
+      ],
+      "dacl": [
+        "ds1,x=3",
+        "sack, x=3"
+      ]
     },
     "META": {
-      "tdps": 69405.62117915326,
+      "tdps": 71209.75108843183,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

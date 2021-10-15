@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40759.995438026555,
-        "team": 0.062455266548785915,
+        "dps": 40510.790986200074,
+        "team": 0.08329922265763466,
         "noaff": false,
         "nihil": false
       },
@@ -52,12 +52,15 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s), buff(s3) and buffstack(ro_att)=3",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
-        "`fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
-        "`dodge, fsc"
+        "dragon, buff(s3) and buffstack(ro_att)=3",
+        "s3, not buff(s3)",
+        "s4",
+        "s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
+        "fs, buffstack(ro_att)<3 and (hp<40 and x=4)",
+        "dodge, fsc"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Audric",
@@ -70,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 142261.13786912372,
+      "tdps": 154114.72324851548,
       "pref": "PERSONAL"
     }
   },
@@ -89,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 174300.2975523416,
+      "tdps": 192794.0171630669,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,8 +140,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48225.37273196392,
-        "team": 0.0,
+        "dps": 62553.80819264472,
+        "team": 0.03328920791919017,
         "noaff": false,
         "nihil": false
       },
@@ -151,19 +154,28 @@
         "Testament_of_Eternity",
         "Thunderswift_Lords_Blade_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), buffstack(ro_att)=3 and hp=30",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
-        "`fs, buffstack(ro_att)<3 and (hp<40 and x=3)",
-        "`dodge, fsc"
+        "dragon, buffstack(ro_att)=3 and hp=30",
+        "s3, not buff(s3)",
+        "s4",
+        "s1, buffstack(ro_att)<3 and (hp>=40 and x>2)",
+        "fs, buffstack(ro_att)<3 and (hp<40 and x=3)",
+        "dodge, fsc"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
       ],
       "coabs": [
-        "Alberius",
         "Forte",
-        "Ieyasu"
+        "Ieyasu",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -189,7 +201,7 @@
       ]
     },
     "META": {
-      "tdps": 150893.33663887135,
+      "tdps": 227531.92254936948,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
