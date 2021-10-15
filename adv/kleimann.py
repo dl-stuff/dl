@@ -25,7 +25,7 @@ class Kleimann(Adv):
         self.fs_alt = FSAltBuff("a1_madness", "kleimann", uses=1)
         Event("dragon").listener(self.reset_madness_degen)
 
-    def fs_madness_proc(self, e):
+    def fs_kleimann_proc(self, e):
         if self.madness_status < 5:
             self.madness_status += 1
             self.madness_degen += 1
