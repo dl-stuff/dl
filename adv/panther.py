@@ -1,4 +1,5 @@
 from core.advbase import *
+from module.template import Adv_INFUTP
 
 
 class Panther(Adv):
@@ -22,13 +23,8 @@ class Panther(Adv):
             self.s2_res_down.on()
 
 
-class Panther_PERSONA(Panther):
-    SAVE_VARIANT = False
-    comment = "infinite persona gauge; " + Panther.comment
-
-    def prerun(self):
-        super().prerun()
-        self.dragonform.set_utp_infinite()
+class Panther_INFUTP(Panther, Adv_INFUTP):
+    comment = Panther.comment + ";" + Adv_INFUTP.comment
 
 
-variants = {None: Panther, "PERSONA": Panther_PERSONA}
+variants = {None: Panther, "INFUTP": Panther_INFUTP}

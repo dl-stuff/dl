@@ -1,4 +1,5 @@
 from core.advbase import *
+from module.template import Adv_INFUTP
 from conf import DEFAULT
 from core.acl import CONTINUE
 
@@ -33,12 +34,8 @@ class Sophie_Persona(Adv):
         return super()._next_x()
 
 
-class Sophie_Persona_PERSONA(Sophie_Persona):
-    SAVE_VARIANT = False
-    comment = "infinite persona gauge"
-
-    def prerun(self):
-        self.dragonform.set_utp_infinite()
+class Sophie_Persona_INFUTP(Sophie_Persona, Adv_INFUTP):
+    pass
 
 
-variants = {None: Sophie_Persona, "PERSONA": Sophie_Persona_PERSONA}
+variants = {None: Sophie_Persona, "INFUTP": Sophie_Persona_INFUTP}

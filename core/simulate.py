@@ -13,7 +13,7 @@ from conf.equip import (
     all_monoele_coabs,
 )
 
-from conf import DRG, get_icon, get_fullname, get_conf_json_path
+from conf import DRG, get_icon, get_fullname, get_conf_json_path, load_adv_json
 import core.acl
 import core.advbase
 import module.template
@@ -546,28 +546,30 @@ def load_adv_module(name, in_place=None):
     vkey = None if len(parts) == 1 else parts[1].upper()
     name = cap_snakey(parts[0])
     lname = name.lower()
+    advconf = load_adv_json(name)
     try:
+        # when a py exist, use specifically defined modules
         advmodule = getattr(__import__(f"adv.{lname}"), lname)
-        if in_place is not None:
-            in_place[name] = advmodule.variants
-            return name
-        try:
-            loaded = advmodule.variants[vkey]
-        except KeyError:
-            vkey = None
-            loaded = advmodule.variants[None]
-        return loaded, name, vkey
+        variants = advmodule.variants
     except ModuleNotFoundError:
+        # setup default modules
         variants = {None: core.advbase.Adv}
         if os.path.exists(get_conf_json_path(f"adv/{name}.50MC.json")):
             variants["50MC"] = module.template.LowerMCAdv
-        if in_place is not None:
-            in_place[name] = variants
-            return name
-        try:
-            return variants[vkey], name, vkey
-        except KeyError:
-            return core.advbase.Adv, name, None
+        utp_conf = advconf["c"].get("utp")
+        if utp_conf:
+            variants["INFUTP"] = module.template.Adv_INFUTP
+            if utp_conf[0] == 1:
+                variants["DDAMAGE"] = module.template.Adv_DDAMAGE
+    if in_place is not None:
+        in_place[name] = variants
+        return name
+    try:
+        loaded = variants[vkey]
+    except KeyError:
+        vkey = None
+        loaded = variants[None]
+    return loaded, name, vkey
 
 
 def test_with_argv(*argv):

@@ -1,4 +1,5 @@
 from core.advbase import *
+from module.template import Adv_INFUTP
 
 
 class Mona(Adv):
@@ -26,13 +27,8 @@ class Mona_RNG(Mona):
                 self.conf.s1_ddrive.attr = self.conf.s1_ddrive.attr_BASE
 
 
-class Mona_PERSONA(Mona):
-    SAVE_VARIANT = False
-    comment = "infinite persona gauge"
-
-    def prerun(self):
-        super().prerun()
-        self.dragonform.set_utp_infinite()
+class Mona_INFUTP(Mona, Adv_INFUTP):
+    pass
 
 
-variants = {None: Mona, "RNG": Mona_RNG, "PERSONA": Mona_PERSONA}
+variants = {None: Mona, "RNG": Mona_RNG, "INFUTP": Mona_INFUTP}

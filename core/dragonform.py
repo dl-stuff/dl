@@ -391,7 +391,7 @@ class DragonFormUTP(DragonForm):
         # sync with timer value
         if self.utp_infinte:
             self.utp_gauge = self.max_utp_gauge
-        if self.status:
+        elif self.status:
             self.utp_gauge = self.shift_end_timer.timeleft() * self.utp_drain
         gauge_before = self.utp_gauge
         # use utp_gauge from here on

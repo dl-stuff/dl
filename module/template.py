@@ -255,9 +255,19 @@ class LowerMCAdv(Adv):
         super().pre_conf(equip_conditions=equip_conditions, name=f"{self.name}.{self.MC}MC")
 
 
-class InfiniteUTPAdv(Adv):
+class Adv_INFUTP(Adv):
     SAVE_VARIANT = False
+    comment = "infinite utp gain"
 
     def doconfig(self):
         super().doconfig()
         self.dragonform.set_utp_infinite()
+
+
+class Adv_DDAMAGE(Adv):
+    SAVE_VARIANT = False
+    comment = "dracolith on utp shift"
+
+    def doconfig(self):
+        super().doconfig()
+        self.dragonform.shift_mods.append(self.dragonform.dracolith_mod)

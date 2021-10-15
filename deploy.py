@@ -1,6 +1,8 @@
 import os
 import json
 import argparse
+import glob
+from posixpath import basename
 from time import monotonic, time_ns
 
 import core.simulate
@@ -10,6 +12,7 @@ import itertools
 
 ADV_DIR = "adv"
 CHART_DIR = "www/dl-sim"
+CHARA_DIR = os.path.join(ROOT_DIR, CHART_DIR, "chara")
 
 
 def printlog(prefix, delta, advname, variant, err=None, color=None):
@@ -80,6 +83,11 @@ def sim_adv(name, variants, sanity_test=False):
                 msg.append(name)
                 print(dps_before)
                 print(dps_after)
+    if sanity_test:
+        for variant_equip in glob.glob(os.path.join(ROOT_DIR, f"conf/equip/{name}.*.json")):
+            if os.path.basename(variant_equip).split(".")[1] not in variants:
+                os.remove(variant_equip)
+                print("pruned", variant_equip)
     return msg
 
 
@@ -110,13 +118,12 @@ def combine():
     # do combine
     data_by_cond = {str(ConditionTuple(cond)): {} for cond in itertools.product(*ALL_COND_ENUMS)}
     # ConditionTuple
-    chara_dir = os.path.join(ROOT_DIR, CHART_DIR, "chara")
-    for fn in os.listdir(chara_dir):
+    for fn in os.listdir(CHARA_DIR):
         name, ext = os.path.splitext(fn)
         if not ext == ".json":
             continue
 
-        chara_json = os.path.join(chara_dir, fn)
+        chara_json = os.path.join(CHARA_DIR, fn)
         if name not in expected_jsons:
             os.remove(chara_json)
             print("pruned", fn)
