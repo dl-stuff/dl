@@ -1,6 +1,7 @@
 from collections import defaultdict
 from functools import reduce
 import operator
+from conf import DEFAULT
 
 from core.log import log
 from core.timeline import now, Event
@@ -192,8 +193,6 @@ class ArmamentAdv(Adv):
         self.a_s_dict["s2"] = self.sr
 
     def config_armament(self, autocharge=80000):
-        self.current_s["s1"] = "base1"
-        self.current_s["s2"] = "base2"
         self.sr.autocharge_init(autocharge).on()
 
     @property
@@ -204,10 +203,10 @@ class ArmamentAdv(Adv):
     def s(self, n):
         sn = f"s{n}"
         if n == 1 or n == 2:
-            if self.sr.count == self.sr.maxcharge and f"max{n}" in self.sr.act_dict:
-                self.current_s[sn] = f"max{n}"
+            if self.sr.count == self.sr.maxcharge and (sn, "max") in self.sr.act_dict:
+                self.current_s[sn] = "max"
             else:
-                self.current_s[sn] = f"base{n}"
+                self.current_s[sn] = DEFAULT
             return self.sr(call=n)
         else:
             return self.a_s_dict[sn]()
