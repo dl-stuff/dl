@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 70404.23581536635,
+        "dps": 70634.90951920106,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -18,12 +18,15 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-c3-end), s=1 and duration-now<15",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, cancel",
-        "`s2, x=5",
-        "`fs, charged_in(fs,s1)  and x>3"
+        "dragon, s=1 and duration-now<15",
+        "s3, not buff(s3)",
+        "s1",
+        "s4, cancel",
+        "s2, x=5",
+        "fs, charged_in(fs,s1)  and x>3"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -37,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70404.23581536635,
+        "dps": 70634.90951920106,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -53,12 +56,15 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-c3-end), s=1 and duration-now<15",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, cancel",
-        "`s2, x=5",
-        "`fs, charged_in(fs,s1)  and x>3"
+        "dragon, s=1 and duration-now<15",
+        "s3, not buff(s3)",
+        "s1",
+        "s4, cancel",
+        "s2, x=5",
+        "fs, charged_in(fs,s1)  and x>3"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",

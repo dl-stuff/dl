@@ -151,18 +151,29 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 113845.58238109035,
-        "team": 0.09953963486778292,
+        "dps": 115220.00723438316,
+        "team": 0.15427904401255957,
         "noaff": false,
         "nihil": false
       },
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c5-s-end), cancel",
-        "`s3, not buff(s3)",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s4, fsc and not have_buff(s4_00)",
-        "`fs, x=4"
+        "dragon, s",
+        "s3, not buff(s3)",
+        "s1, cancel",
+        "s2, cancel",
+        "s4, fsc and not have_buff(s4_00)",
+        "fs, x=4"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Vania"
       ],
       "share": [
         "Weapon",
@@ -214,18 +225,22 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64928.24542313724,
-        "team": 0.024665052387741818,
+        "dps": 66522.2638075531,
+        "team": 0.024630525065366796,
         "noaff": false,
         "nihil": true
       },
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`fs, x=4"
+        "dragon",
+        "s4, fsc",
+        "s3, fsc",
+        "s2, fsc",
+        "s1, cancel",
+        "fs, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Ieyasu",
@@ -238,7 +253,7 @@
       ]
     },
     "META": {
-      "tdps": 266915.05992474756,
+      "tdps": 293915.6193463259,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

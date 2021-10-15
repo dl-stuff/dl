@@ -144,8 +144,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86351.63096387718,
-        "team": 0.08287567349667405,
+        "dps": 98831.46965584748,
+        "team": 0.13121001578201982,
         "noaff": false,
         "nihil": false
       },
@@ -158,13 +158,33 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "dragon, not buff(s2) and s2.check() and (xf or fsc)",
+        "s3, not buff(s3) and fscf",
+        "s2, cancel",
+        "s1, (x=5 or fsc) and buff(s3)",
+        "s4, cancel",
+        "fs, xf=3 and buff(s2)",
+        "fs, x=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Axe2",
+        "Ieyasu",
+        "Vania"
+      ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 318616.82223546517,
+      "tdps": 453943.68298507994,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -175,19 +195,19 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 77935.44070556546,
-        "team": 0.0,
+        "dps": 97343.95733663873,
+        "team": 0.13121001578201982,
         "noaff": false,
         "nihil": false
       },
       "coabs": [
-        "Blade",
         "Grace",
+        "Ieyasu",
         "Vania"
       ]
     },
     "META": {
-      "tdps": 215358.44312124586,
+      "tdps": 446723.4331382601,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -198,7 +218,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51813.50822528357,
+        "dps": 54536.70023867431,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -212,13 +232,17 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), not buff(s2)",
-        "`s3",
-        "`s2, not buff(s2)",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`fs, xf=3"
+        "dragon, not buff(s2)",
+        "s3",
+        "s2, not buff(s2)",
+        "s1, fsc",
+        "s4, fsc",
+        "fs, xf=3"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Ieyasu",

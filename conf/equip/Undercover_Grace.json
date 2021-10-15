@@ -153,7 +153,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 177258.33960389934,
+        "dps": 179467.36432664728,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -168,14 +168,17 @@
         "Thunderswift_Lords_Blade_Axe"
       ],
       "acl": [
-        "`dragon(c2-s-c2-end), s=2 and dshift_count=0",
-        "`dragon(c2-s-c2-c2-end), s=2 and dshift_count=1",
-        "`s3, not buff(s3) and s=1",
-        "`s4, fsc and energy()<5",
-        "`s2, soul_seal=4 and dgauge>=500 and s1.check() and fsc and energy()<5",
-        "`s1, dgauge<500",
-        "`fs, x=4",
-        "`fs, charged_in(fs,s1)"
+        "dragon, s=2",
+        "s3, not buff(s3) and s=1",
+        "s4, fsc and energy()<5",
+        "s2, dgauge>=500 and s1.check() and (fsc or s=4) and energy()<5",
+        "s1, dgauge<500",
+        "fs, x=4 or hits=2",
+        "fs, charged_in(fs,s1)"
+      ],
+      "dacl": [
+        "ds1,x=2",
+        "sack, x=2"
       ]
     },
     "META": {

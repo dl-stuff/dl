@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42413.88250962837,
-        "team": 0.16106158440429755,
+        "dps": 42539.6881268866,
+        "team": 0.1599720479152463,
         "noaff": false,
         "nihil": false
       },
@@ -51,11 +51,14 @@
       ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
         "`s1, not buff(s1)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Dagger2",
@@ -68,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 113881.17732195972,
+      "tdps": 113886.44113347463,
       "pref": "PERSONAL"
     }
   },
@@ -152,28 +155,44 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45124.782877344944,
-        "team": 0.16106158440429755,
+        "dps": 74401.85385453553,
+        "team": 0.1548277747037443,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Sweet_Surprise",
+        "Pecorines_Grand_Adventure",
         "Welcome_to_the_Opera",
         "Dueling_Dancers",
         "The_Plaguebringer",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "dragon",
+        "s3, not buff(s3) and x=5",
+        "s4",
+        "s1, timeleft(s1)<5 and x=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
       "coabs": [
-        "Cleo",
-        "Forte",
+        "Alberius",
+        "Dagger2",
         "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 121627.59486395693,
+      "tdps": 207165.0002883712,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

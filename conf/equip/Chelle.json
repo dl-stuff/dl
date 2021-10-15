@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47043.14239634074,
-        "team": 0.12529026363640247,
+        "dps": 47619.08958808121,
+        "team": 0.12583741176271052,
         "noaff": false,
         "nihil": false
       },
@@ -51,12 +51,15 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon, buff(s3)",
-        "`s3, not buff(s3)",
-        "`s1, fsc",
-        "`s4",
-        "`s2",
-        "`fs, x=4"
+        "dragon, buff(s3)",
+        "s3, not buff(s3)",
+        "s1, fsc",
+        "s4",
+        "s2",
+        "fs, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Forte",
@@ -69,15 +72,15 @@
       ]
     },
     "META": {
-      "tdps": 74814.30806844016,
+      "tdps": 75894.41232594446,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38181.146811603205,
-        "team": 0.12597344440318753,
+        "dps": 32277.156127579034,
+        "team": 0.14162068896529917,
         "noaff": false,
         "nihil": false
       },
@@ -85,19 +88,22 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
-        "Dragons_Nest",
-        "Taiko_Tandem",
+        "A_Small_Courage",
+        "FirstRate_Hospitality",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, buff(s3)",
-        "`s3, not buff(s3)",
-        "`s1, fsc",
-        "`s4",
-        "`s2",
-        "`fs, x=4"
+        "dragon, buff(s3)",
+        "s3, not buff(s3)",
+        "s1, fsc",
+        "s4",
+        "s2",
+        "fs, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Forte",
@@ -106,11 +112,11 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 12971670.186853636,
+      "tdps": 972037.2558612801,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -181,8 +187,52 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48562.49629783552,
-        "team": 0.2976308411894191,
+        "dps": 56170.10640662776,
+        "team": 0.1329788957036975,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Sisters_of_the_Anvil",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "dragon, s=1",
+        "s3, not buff(s3)",
+        "s4, cancel",
+        "s1, cancel",
+        "s2, fsc",
+        "fs, x=5"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "tdps": 92017.06213218614,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46749.08252287399,
+        "team": 0.29418170070915695,
         "noaff": false,
         "nihil": false
       },
@@ -195,13 +245,14 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=1",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, buffcount>8",
-        "`fs, x=5"
+        "dragon, s=1",
+        "s3, not buff(s3)",
+        "s4, cancel",
+        "s1, cancel",
+        "s2, buffcount>8",
+        "fs, x=5"
       ],
       "coabs": [
         "Ieyasu",
@@ -214,11 +265,11 @@
       ]
     },
     "META": {
-      "tdps": 110906.2599716801,
+      "tdps": 58442.05926463071,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },

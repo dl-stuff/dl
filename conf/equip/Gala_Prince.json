@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80933.37913194334,
-        "team": 0.2021690704476729,
+        "dps": 101321.99703526478,
+        "team": 0.17891183325228663,
         "noaff": false,
         "nihil": false
       },
@@ -58,16 +58,19 @@
       "slots.d": "Daikokuten",
       "acl": [
         "if buff(s3,1) and fsc",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dshift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-end), dshift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), dshift_count=2",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), dshift_count=3",
+        "dragon, dshift_count=0",
+        "dragon, dshift_count=1",
+        "dragon, dshift_count=2",
+        "dragon, dshift_count=3",
         "end",
-        "`s3, fsc",
-        "`s4, cancel",
-        "`s2, cancel",
-        "`s1, fsc",
-        "`fs, x=4 or hits=3"
+        "s3, fsc",
+        "s4, cancel",
+        "s2, cancel",
+        "s1, fsc",
+        "fs, x=4 or hits=3"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Dagger2",
@@ -80,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 500417.595751275,
+      "tdps": 569324.6638253854,
       "pref": "PERSONAL"
     }
   },
@@ -237,48 +240,11 @@
       }
     }
   },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 99096.61462685556,
-        "team": 0.202621081173632,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-end), buff(s3,1) and fsc and dshift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-end), buff(s3,1) and fsc and dshift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), buff(s3,1) and fsc and dshift_count=2",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), buff(s3,1) and fsc and dshift_count>=3",
-        "`s3, fsc",
-        "`s4, cancel",
-        "`s2",
-        "`s1, fsc",
-        "`fs, x=4 or hits=3"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 96229.85951087266,
-        "team": 0.202621081173632,
+        "dps": 96936.84661709782,
+        "team": 0.17891183325228663,
         "noaff": false,
         "nihil": false
       }

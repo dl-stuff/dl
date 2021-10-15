@@ -32,8 +32,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85794.95589602571,
-        "team": 0.05812718311172547,
+        "dps": 89520.46013437008,
+        "team": 0.05485888185310659,
         "noaff": false,
         "nihil": false
       },
@@ -48,12 +48,16 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(s-c3-fs), fscf",
+        "`dragon, fscf",
         "`s3, not buff(s3)",
         "`s1, fscf",
         "`s2, fscf",
         "`s4",
         "`fs, xf=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -66,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 1880862.1342699982,
+      "tdps": 1825585.597004109,
       "pref": "PERSONAL"
     }
   },
@@ -148,13 +152,22 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106448.48898464424,
-        "team": 0.13192370938666928,
+        "dps": 106687.82655397475,
+        "team": 0.11988404972568478,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
       "acl": [
-        "`dragon(c3-s-fs), fscf",
+        "`dragon, fscf",
         "`s3, not buff(s3)",
         "`s2, fscf",
         "`s1, fscf",
@@ -167,7 +180,7 @@
       ]
     },
     "META": {
-      "tdps": 779461.9304342482,
+      "tdps": 578364.1912262517,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -178,11 +191,23 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75880.18437341816,
-        "team": 0.05534471828409685,
+        "dps": 76346.57665054896,
+        "team": 0.05492489106504477,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon, fscf",
+        "`s2, fscf",
+        "`s3, fscf",
+        "`s1, fscf",
+        "`s4, cancel",
+        "`fs, xf=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "share": [
         "Summer_Julietta",
         "Summer_Celliera"

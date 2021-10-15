@@ -1,0 +1,358 @@
+{
+  "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 92069.89392358807,
+        "team": 0.21232736930629836,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "OneWinged_Journey",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "s1, xf=9",
+        "s3, not buff(s3)",
+        "s4",
+        "dragon, dgauge>=3000"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Summer_Prince",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 114457.94349005076,
+        "team": 0.17845830620342018,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`s4, x=9 or x=5",
+        "`dragon, dgauge>=2600 and (x=5 or x=9)",
+        "`s1, x=9",
+        "`s3, not buff(s3) and x=9",
+        "`dodge, xf=4"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Audric",
+        "Dagger2",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 661017.6814888087,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53472.9588840803,
+        "team": 0.12771457815014348,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "OneWinged_Journey",
+        "Flower_in_the_Fray",
+        "Snipers_Allure",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "s4, x=9",
+        "s3, (x=5 or x=9)",
+        "s1, x=5 or x=9",
+        "dragon, dgauge>=3000"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Audric",
+        "Dagger2",
+        "Delphi"
+      ],
+      "share": [
+        "Ranzal",
+        "Halloween_Melsa"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55762.23938941314,
+        "team": 0.10928730080311035,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "OneWinged_Journey",
+        "Flower_in_the_Fray",
+        "Snipers_Allure",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "s4, x=9",
+        "s3, (x=5 or x=9)",
+        "s1, x=5 or x=9",
+        "dragon, dgauge>=2400"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Audric",
+        "Dagger2",
+        "Delphi"
+      ],
+      "share": [
+        "Ranzal",
+        "Halloween_Melsa"
+      ]
+    },
+    "META": {
+      "tdps": 124233.2473875434,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43310.76084751443,
+        "team": 0.10618202949471861,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Flower_in_the_Fray",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "acl": [
+        "s1, x=9",
+        "s4, cancel",
+        "s3, not buff(s3) and x=9",
+        "dragon, dgauge>=2800"
+      ],
+      "coabs": [
+        "Audric",
+        "Summer_Prince",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 136154.27641476196,
+        "team": 0.3193099172608881,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s4, x=9",
+        "`dragon, (dgauge>=2000 and (x=5 or x=9)) or duration-now<25",
+        "`s1, x=9",
+        "`s3, not buff(s3) and x=9",
+        "`dodge, xf=4"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "coabs": [
+        "Audric",
+        "Dagger2",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 140023.4402925167,
+        "team": 0.29827687582750556,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s4, x=9",
+        "`dragon, dgauge>=2700 and (x=5 or x=9)",
+        "`s1, x=9",
+        "`s3, not buff(s3) and x=9",
+        "`dodge, xf=4"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "tdps": 183956.46155167092,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 132552.89134279484,
+        "team": 0.29827687582750556,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Audric",
+        "Summer_Prince",
+        "Vania"
+      ]
+    },
+    "META": {
+      "tdps": 592686.0916353116,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 84653.17802864946,
+        "team": 0.10753306983815734,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s4, x=9",
+        "`s1, x=9 or duration - now < 2",
+        "`s3, x=9",
+        "`dragon, dgauge>=2400",
+        "`dodge, xf=4"
+      ],
+      "coabs": [
+        "Audric",
+        "Dagger2",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80708.2665172749,
+        "team": 0.121533076035004,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Audric",
+        "Joker",
+        "Summer_Prince"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  }
+}

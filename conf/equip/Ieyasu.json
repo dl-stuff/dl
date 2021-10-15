@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 103616.99264162322,
+        "dps": 109973.55437679977,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -52,14 +52,17 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(s), duration-now<15 and s=1",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2",
-        "`s4",
-        "`fs, xf=2 and charged_in(fs, s1)",
-        "`fsf, xf=5 and not buff(s3)",
-        "`fs, xf=5 and buff(s3)"
+        "dragon, duration-now<15 and s=1",
+        "s3, not buff(s3)",
+        "s1, buff(s3)",
+        "s2",
+        "s4",
+        "fs, xf=2 and charged_in(fs, s1)",
+        "fsf, xf=5 and not buff(s3)",
+        "fs, xf=5 and buff(s3)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Axe2",
@@ -72,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 578812.2313337596,
+      "tdps": 637604.7604741623,
       "pref": "PERSONAL"
     }
   },
@@ -185,7 +188,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 116716.27284678469,
+        "dps": 125312.48596764819,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -200,13 +203,13 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s), duration-now<15 and s=1",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s2",
-        "`s4, xf=5",
-        "`fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
-        "`fsf, xf=5 and not buff(s3)"
+        "dragon, duration-now<15 and s=1",
+        "s3, not buff(s3)",
+        "s1, buff(s3)",
+        "s2",
+        "s4, xf=5",
+        "fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
+        "fsf, xf=5 and not buff(s3)"
       ],
       "coabs": [
         "Axe2",
@@ -219,7 +222,7 @@
       ]
     },
     "META": {
-      "tdps": 483537.54973189114,
+      "tdps": 562276.7089816652,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -230,19 +233,34 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 98964.37642451264,
-        "team": 0.0,
+        "dps": 117727.01213638022,
+        "team": 0.033302004259351856,
         "noaff": false,
         "nihil": false
       },
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "dragon, s=2",
+        "s3, not buff(s3)",
+        "s1, buff(s3)",
+        "s2",
+        "s4, xf=5",
+        "fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
+        "fsf, xf=5 and not buff(s3)"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
       "coabs": [
-        "Bow",
-        "Dagger",
+        "Audric",
+        "Summer_Prince",
         "Vania"
       ]
     },
     "META": {
-      "tdps": 320934.6244988827,
+      "tdps": 709097.3054331524,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",

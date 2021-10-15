@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94936.633757154,
+        "dps": 106072.97084149384,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -49,12 +49,15 @@
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`s3, not buff(s3) and cancel",
-        "`s1, not aff(shadowblight) or duration-now<1.1",
-        "`s4",
-        "`fs"
+        "s3, not buff(s3) and cancel",
+        "s1, not aff(shadowblight) or duration-now<1.1",
+        "s4",
+        "fs"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -67,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 278899.52980112424,
+      "tdps": 335954.2109433703,
       "pref": "PERSONAL"
     }
   },
@@ -106,7 +109,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58008.74253820227,
+        "dps": 61185.89541993648,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -120,12 +123,15 @@
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c3-s-end), s",
-        "`s4, not aff(poison)",
-        "`s1, duration-now<0.8",
-        "`fs"
+        "dragon, s",
+        "s4, not aff(poison)",
+        "s1, duration-now<0.8",
+        "fs"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -138,14 +144,14 @@
       ]
     },
     "META": {
-      "tdps": 98355.65296270477,
+      "tdps": 130774.28458263059,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 115056.26967892644,
+        "dps": 127809.47048201629,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -160,11 +166,11 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`s3, not buff(s3) and cancel",
-        "`s2, royal_pride<5 and fsc",
-        "`s1, duration-now<1.1",
-        "`s4",
-        "`fs"
+        "s3, not buff(s3) and cancel",
+        "s2, royal_pride<5 and fsc",
+        "s1, duration-now<1.1",
+        "s4",
+        "fs"
       ]
     },
     "META": {
@@ -178,8 +184,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64982.750247101365,
-        "team": 0.09800391697536685,
+        "dps": 74153.19833381083,
+        "team": 0.0980342544708696,
         "noaff": false,
         "nihil": true
       },
@@ -192,21 +198,26 @@
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`s1, duration-now < 0.1",
-        "`s3",
-        "#`s4",
+        "`s2, royal_pride<1 and s",
+        "#`s3",
+        "`s4",
         "`fs"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "share": [
-        "Sha_Wujing",
-        "Summer_Celliera"
+        "Weapon",
+        "Seimei"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68416.44587560053,
-        "team": 0.08638595222785277,
+        "dps": 74344.97328495173,
+        "team": 0.09828820942786658,
         "noaff": false,
         "nihil": true
       },
@@ -219,12 +230,12 @@
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`s1, duration-now < 0.1",
+        "s1, duration-now < 0.1",
+        "s2, royal_pride<1 and s",
         "#`s3",
-        "`s4",
-        "`fs"
+        "s4",
+        "fs"
       ],
       "coabs": [
         "Blade",
@@ -237,7 +248,6 @@
       ]
     },
     "META": {
-      "tdps": 295550.5291263585,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

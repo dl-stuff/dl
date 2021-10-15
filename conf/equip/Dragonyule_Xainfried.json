@@ -145,8 +145,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 116978.7584474104,
-        "team": 0.13282945373142446,
+        "dps": 122876.43604902487,
+        "team": 0.13301601896490672,
         "noaff": false,
         "nihil": false
       },
@@ -160,11 +160,14 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), timeleft(s1)>10 and cancel",
+        "`dragon, timeleft(s1)>10 and cancel",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, (x=5 and dgauge<400) or (dgauge>=500 and cancel)",
         "`s4, cancel"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Mona",
@@ -173,7 +176,7 @@
       ]
     },
     "META": {
-      "tdps": 102876.43045538367,
+      "tdps": 108408.81554040818,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
