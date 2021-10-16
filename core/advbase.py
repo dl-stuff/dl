@@ -44,7 +44,7 @@ class Skill(object):
         self._static.silence = 0
         self.silence_end_timer = Timer(self.cb_silence_end)
         self.silence_end_event = Event("silence_end")
-        self.skill_charged = Event("{}_charged".format(self.name))
+        self.skill_charged = Event(f"{self.name}_charged")
 
         self.enable_phase_up = False
         self.maxcharge = 1
