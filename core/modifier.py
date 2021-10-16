@@ -995,7 +995,7 @@ class EchoBuff(Buff):
         self.active_time = None
 
     def on(self, duration=None):
-        result = self._static.adv.enable_echo(self.name, mod=self.echo_mod)
+        result = self._static.adv.enable_echo(self.name, active_time=self.active_time, mod=self.echo_mod)
         if result is not False:
             self.active_time = result
             return super().on(duration)

@@ -46,7 +46,7 @@ class Basileus(SigilAdv):
                 self.a_update_sigil(-15)
             self.a1_hit = n_a1_hit
         if self.echo == 1 and e.hits >= 15:
-            self.a3_active_time = self.enable_echo("a3_echo", mod=0.3)
+            self.a3_active_time = self.enable_echo("a3_echo", active_time=self.a3_active_time, mod=0.3)
         else:
             self.disable_echo("a3_echo", self.a3_active_time)
 

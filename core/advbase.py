@@ -1472,12 +1472,15 @@ class Adv(object):
     def f_speed(self):
         return 1 + min(self.sub_mod("fspd", "buff"), 0.50) + self.sub_mod("fspd", "passive")
 
-    def enable_echo(self, name, mod=None, fixed_att=None):
+    def enable_echo(self, name, active_time=None, mod=None, fixed_att=None):
         new_att = fixed_att or (mod * self.base_att * self.mod("att"))
         if new_att >= self.echo_att:
-            self._echoes[(name, now())] = new_att
+            if active_time is not None:
+                self.disable_echo(name, active_time)
+            active_time = now()
+            self._echoes[(name, active_time)] = new_att
             log("echo", name, new_att, str(self._echoes))
-            return now()
+            return active_time
         return False
 
     @property
@@ -1489,6 +1492,7 @@ class Adv(object):
         return 0 if not self._echoes else max(self._echoes.values())
 
     def disable_echo(self, name, active_time):
+        log("echo_disable", name, active_time, str(self._echoes), self._echoes.get((name, active_time)))
         try:
             del self._echoes[(name, active_time)]
         except KeyError:
