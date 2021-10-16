@@ -15,9 +15,8 @@ class Basileus(SigilAdv):
     def prerun(self):
         self.config_sigil(duration=300, x=True, s1=True, s2=True, fs=True)
         self.ranged_mode = ModeManager(group="ranged", x=True, s1=True, s2=True)
-        self.l_hit = Listener("hit", self.combo_sigil_unlock)
+        self.l_hit = Listener("hit", self.combo_sigil_and_echo)
         self.a1_hit = 0
-        self.a3_hit = 0
         self.a3_active_time = None
 
     @staticmethod
@@ -40,10 +39,10 @@ class Basileus(SigilAdv):
             else:
                 self.ranged_mode.off()
 
-    def combo_sigil_unlock(self, e):
-        if not self.unlocked and not self.is_set_cd("a1_sigil", 8):
+    def combo_sigil_and_echo(self, e):
+        if not self.unlocked:
             n_a1_hit = e.hits // 25
-            if n_a1_hit > self.a1_hit:
+            if n_a1_hit > self.a1_hit and not self.is_set_cd("a1_sigil", 8):
                 self.a_update_sigil(-15)
             self.a1_hit = n_a1_hit
         if self.echo == 1 and e.hits >= 15:
