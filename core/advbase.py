@@ -1492,7 +1492,6 @@ class Adv(object):
         return 0 if not self._echoes else max(self._echoes.values())
 
     def disable_echo(self, name, active_time):
-        log("echo_disable", name, active_time, str(self._echoes), self._echoes.get((name, active_time)))
         try:
             del self._echoes[(name, active_time)]
         except KeyError:
