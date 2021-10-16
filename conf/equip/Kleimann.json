@@ -78,7 +78,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49704.886649069515,
+        "dps": 49734.01020416218,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -94,7 +94,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-end), x=5",
+        "`dragon, x=5",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -135,7 +135,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 132315.24723762428,
+        "dps": 133809.4375479181,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -150,13 +150,17 @@
         "Thunderswift_Lords_Blade_Lance"
       ],
       "acl": [
-        "`dragon(c3-s-end), x=5 and trickery<=1",
+        "`dragon, x=5 and trickery<=2",
         "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
         "`s4",
-        "`fs, madness_status<5 and madness and x=5",
+        "`s1",
+        "`s2, cancel",
+        "`fs, madness_status<5 and madness and x=3",
         "`dodge, fsc"
+      ],
+      "dacl": [
+        "ds1, x=3",
+        "sack"
       ],
       "coabs": [
         "Blade",
@@ -169,7 +173,7 @@
       ]
     },
     "META": {
-      "tdps": 374309.19505434873,
+      "tdps": 387343.291716061,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -180,7 +184,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60456.82312294072,
+        "dps": 60604.54736386148,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -195,7 +199,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-end), x=5",
+        "`dragon, x=5",
         "`s3",
         "`s1",
         "`s2",
@@ -256,7 +260,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40553.95329460881,
+        "dps": 40666.62729017127,
         "team": 0.0,
         "noaff": false,
         "nihil": true

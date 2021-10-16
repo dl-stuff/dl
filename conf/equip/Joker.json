@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97998.12875836885,
+        "dps": 95560.83898242714,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -52,8 +52,13 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon, not in_drg and (s1.check() or s2.check())",
+        "`dragon, (s1.check() or s2.check())",
         "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, cancel",
+        "`s1, cancel"
+      ],
+      "dacl": [
         "`s4, cancel",
         "`s2, cancel",
         "`s1, cancel"
@@ -69,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 284636.4871526006,
+      "tdps": 262746.79372617626,
       "pref": "PERSONAL"
     }
   },
@@ -184,8 +189,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 117850.52688222914,
-        "team": 0.10766683253448082,
+        "dps": 113547.36600034416,
+        "team": 0.1027176582909963,
         "noaff": false,
         "nihil": false
       },
@@ -199,11 +204,16 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, not in_drg and (s1.check() or s2.check())",
+        "`dragon, xf=6 and s2.check()",
         "`s3, not buff(s3)",
-        "`s4, in_drg and x=6",
-        "`s2, x=6",
-        "`s1"
+        "`s4, xf=6 and energy()<5",
+        "`s2, xf=6 and energy()<5",
+        "`s1, xf"
+      ],
+      "dacl": [
+        "s4, x=6 and energy()<5",
+        "s2",
+        "s1, xf"
       ],
       "share": [
         "Weapon",
@@ -211,7 +221,7 @@
       ]
     },
     "META": {
-      "tdps": 3039726.8581858557,
+      "tdps": 984996.1079464098,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55557.61372981496,
-        "team": 0.20823692558263748,
+        "dps": 55659.117642493875,
+        "team": 0.20840096496364444,
         "noaff": true,
         "nihil": false
       },
@@ -70,7 +70,7 @@
       ]
     },
     "META": {
-      "tdps": 66849.95353203242,
+      "tdps": 66310.2730286515,
       "pref": "PERSONAL"
     }
   },
@@ -112,8 +112,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47211.28860457962,
-        "team": 0.0,
+        "dps": 46770.422546959955,
+        "team": 0.06659864676617061,
         "noaff": false,
         "nihil": true
       },
@@ -124,9 +124,9 @@
         "Entwined_Flames",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
+        "`dragon, self.sr.count=1",
         "`s3, not buff(s3)",
         "`s4",
         "if s2_autocharge_buff.get()",
@@ -146,8 +146,8 @@
       ]
     },
     "META": {
-      "tdps": 20870.13506539155,
-      "pref": "TEAMBUFF"
+      "tdps": 41980827.33117552,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -252,7 +252,7 @@
       ]
     },
     "META": {
-      "tdps": 38027.07672622122,
+      "tdps": 37033.26681692788,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -261,6 +261,36 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44681.724870804486,
+        "team": 0.06663897012639433,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Summer_Paladyns",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if s2_autocharge_buff.get()",
+        "`s1, self.sr.count=2 and cancel",
+        "else",
+        "`s2, self.sr.count=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Renee",
+        "Yurius"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45933.068580298816,
@@ -292,7 +322,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 18777.956909011376,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

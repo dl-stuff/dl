@@ -46,8 +46,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61292.302008320905,
-        "team": 0.09829247176377366,
+        "dps": 62319.032593049466,
+        "team": 0.11977385427057884,
         "noaff": false,
         "nihil": false
       },
@@ -71,7 +71,7 @@
         "`fs1",
         "end",
         "else",
-        "`dragon(c3-s-end), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3) and x=5",
         "`s2, charged_in(2, s1)",
         "`s4, cancel",
@@ -89,11 +89,54 @@
       ]
     },
     "META": {
-      "tdps": 258772.43274992416,
+      "tdps": 384530.1416187452,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54213.63370195216,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "Rogues_Banquet",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "if electrified",
+        "`s1, cancel",
+        "`s3",
+        "if x=4",
+        "`fs2, not aff(paralysis)",
+        "`fs1",
+        "end",
+        "else",
+        "`dragon, cancel",
+        "`s3",
+        "`s2, charged_in(2, s1)",
+        "`s4",
+        "`s1, not s2.charged>(s2.sp*(4/5))",
+        "end"
+      ],
+      "coabs": [
+        "Bow",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Ilia",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 55224.12059256001,
@@ -144,8 +187,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82960.9057175187,
-        "team": 0.07279951508055578,
+        "dps": 90844.11596220211,
+        "team": 0.07733282703756461,
         "noaff": false,
         "nihil": false
       },
@@ -172,6 +215,46 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63120.78125948779,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Rogues_Banquet",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "if electrified",
+        "`s1",
+        "`s4",
+        "`s3, fsc",
+        "`fs1, x=2",
+        "else",
+        "`dragon",
+        "`s2, charged_in(4,s1)",
+        "`s1",
+        "`s4, x",
+        "`s3, x>2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 68860.835443016,
@@ -216,7 +299,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -240,8 +323,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50230.59152512117,
-        "team": 0.04998934873411928,
+        "dps": 56754.080974795535,
+        "team": 0.049992068682557955,
         "noaff": false,
         "nihil": false
       },
@@ -261,7 +344,7 @@
       ]
     },
     "META": {
-      "tdps": 102471.26992682043,
+      "tdps": 232933.61972440002,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -272,7 +355,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30321.525867455657,
+        "dps": 32230.617309322555,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -296,7 +379,7 @@
         "`fs1",
         "end",
         "else",
-        "`dragon(c3-s-end), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3) and x=5",
         "`s2, charged_in(2, s1)",
         "`s4, cancel",
@@ -317,7 +400,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

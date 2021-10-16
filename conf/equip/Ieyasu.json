@@ -105,7 +105,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45874.9653025353,
+        "dps": 54371.128262875565,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -114,19 +114,22 @@
         "A_Man_Unchanging",
         "Dragonyule_Dreaming",
         "Memory_of_a_Friend",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Shinobi",
+      "slots.d": "Arsene",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=1",
+        "`dragon, s=1",
         "`s4, cancel",
         "`s3, cancel",
         "`s1, cancel",
         "`fs, xf=2 and charged_in(fs, s1)",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Delphi",
@@ -188,7 +191,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 125312.48596764819,
+        "dps": 126081.29989087718,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -197,19 +200,19 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "dragon, duration-now<15 and s=1",
-        "s3, not buff(s3)",
-        "s1, buff(s3)",
-        "s2",
-        "s4, xf=5",
-        "fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
-        "fsf, xf=5 and not buff(s3)"
+        "`dragon, duration-now<15 and s=1",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4, xf=5",
+        "`fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
+        "`fsf, xf=5 and not buff(s3)"
       ],
       "coabs": [
         "Axe2",
@@ -222,7 +225,7 @@
       ]
     },
     "META": {
-      "tdps": 562276.7089816652,
+      "tdps": 569318.8519675863,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86542.77792541808,
-        "team": 0.05553962363578765,
+        "dps": 79060.62153021074,
+        "team": 0.05491652865791234,
         "noaff": false,
         "nihil": false
       },
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 159964.5043608994,
+      "tdps": 103842.94000289122,
       "pref": "PERSONAL"
     }
   },
@@ -111,8 +111,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72964.64077216745,
-        "team": 0.033222637351380625,
+        "dps": 73512.23138031228,
+        "team": 0.054876232020568766,
         "noaff": false,
         "nihil": true
       },
@@ -127,7 +127,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
+        "`dragon, xf",
         "`s3, not buff(s3)",
         "`s2, s1.check() and xf",
         "`s1, s2.charged < 3763 or s=2",
@@ -145,7 +145,7 @@
       ]
     },
     "META": {
-      "tdps": 697830.1570942265,
+      "tdps": 1160653.392414174,
       "pref": "PERSONAL"
     }
   },
@@ -165,15 +165,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94338.51222372374,
-        "team": 0.05553962363578765,
+        "dps": 85172.61805653936,
+        "team": 0.05491652865791234,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 72072.50003219787,
-      "pref": "PERSONAL",
+      "tdps": 6822.996567910015,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -191,14 +191,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74576.27218094743,
-        "team": 0.033222637351380625,
+        "dps": 75127.76924736003,
+        "team": 0.054876232020568766,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 379756.0419602175,
+      "tdps": 639115.3526409131,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -209,8 +209,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32072.575994540817,
-        "team": 0.05553962363578765,
+        "dps": 28370.722030140543,
+        "team": 0.05491652865791234,
         "noaff": false,
         "nihil": false
       }
@@ -224,6 +224,31 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 21757.727239070427,
+        "team": 0.10426125494265816,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Crystalian_Envoy",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, xf",
+        "`s3",
+        "`s2, s1.check() and xf",
+        "`s1",
+        "`s4, xf",
+        "`dodge, xf=1"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 22028.634926132156,
@@ -250,7 +275,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 17418.054911691273,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

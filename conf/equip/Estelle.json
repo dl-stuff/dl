@@ -74,6 +74,39 @@
     }
   },
   "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49184.994979849755,
+        "team": 0.09577625073403072,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3",
+        "`s4",
+        "`s1, not buff(s1)",
+        "`s2"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Raemond"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 49872.25533543546,
@@ -96,6 +129,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32129.58209109178,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "#`s1, not buff(s1)",
+        "#`s2"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Peony",
+        "Raemond"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 32332.752816383017,
@@ -137,8 +204,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54577.74333167374,
-        "team": 0.08499291804380105,
+        "dps": 56139.173652289595,
+        "team": 0.09593715572840746,
         "noaff": false,
         "nihil": false
       },
@@ -152,14 +219,14 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s), buff(s3, 1)",
+        "`dragon, buff(s3, 1)",
         "`s3",
         "`s4",
         "`s1, not buff(s1)"
       ]
     },
     "META": {
-      "tdps": 125763.42425681511,
+      "tdps": 165030.99764810925,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -168,6 +235,32 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35917.14583507079,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "coabs": [
+        "Dagger",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Ilia",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 36385.32067451994,
@@ -198,14 +291,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 23404.954542605938,
+        "dps": 24000.781634456132,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -220,6 +313,13 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "#`s1, not buff(s1)",
+        "#`s2"
+      ],
       "coabs": [
         "Dagger",
         "Dagger2",
@@ -234,7 +334,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

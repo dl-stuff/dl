@@ -131,8 +131,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95649.3883728878,
-        "team": 0.3246806392275607,
+        "dps": 90399.44674604673,
+        "team": 0.31141943212101375,
         "noaff": false,
         "nihil": true
       },
@@ -171,7 +171,7 @@
       ]
     },
     "META": {
-      "tdps": 315021.36234028375,
+      "tdps": 146840.61807869677,
       "pref": "PERSONAL"
     }
   },
@@ -285,6 +285,46 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49464.074596108374,
+        "team": 0.1732407836089801,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not have_buff(s3)",
+        "if amp_lvl(team,2)<5",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`s2, manachew_mode.get() or dgauge<500",
+        "`s1",
+        "`s4, s and not have_buff(s4)",
+        "else",
+        "`s2",
+        "`s1",
+        "`s4, s and not buff(s4)",
+        "end",
+        "`fs"
+      ],
+      "coabs": [
+        "Mona",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Noelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57365.11555447762,
@@ -304,8 +344,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 27992.987612555185,
-        "team": 0.05556008619811326,
+        "dps": 27187.737179519467,
+        "team": 0.09213577198712693,
         "noaff": false,
         "nihil": true
       },

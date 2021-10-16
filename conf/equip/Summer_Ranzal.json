@@ -94,6 +94,39 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25867.685267498022,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Mana_Fount"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s1, dgauge>=500",
+        "`dragon, s=1",
+        "`s3, not buff(s3) and xf=5",
+        "`s4",
+        "`s1, dgauge<=300 and xf",
+        "`s2, xf=5"
+      ],
+      "coabs": [
+        "Summer_Celliera",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 26177.528499028354,
@@ -175,7 +208,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41744.88626136187,
+        "dps": 42275.63076900098,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -184,11 +217,11 @@
         "Emissaries_of_the_Heavens",
         "Moonlight_Party",
         "OneWinged_Journey",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "A_Choice_Blend",
+        "His_Clever_Brother"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), xf",
+        "`dragon, xf",
         "`s4",
         "`s1",
         "`s3, xf=5",
@@ -208,7 +241,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -261,34 +294,31 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 26177.528499028354,
+        "dps": 33439.12676789653,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Mana_Fount"
+        "Moonlight_Party",
+        "OneWinged_Journey",
+        "A_Choice_Blend",
+        "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`s1, dgauge>=500",
-        "`dragon(c3-s-c3-c3-c2-end), s=1",
-        "`s3, not buff(s3) and xf=5",
+        "`dragon",
+        "`s3",
         "`s4",
-        "`s1, dgauge<=300 and xf",
-        "`s2, xf=5"
+        "`s1"
       ],
       "coabs": [
-        "Summer_Celliera",
+        "Joker",
         "Tiki",
         "Yurius"
       ],
       "share": [
-        "Weapon",
+        "The_Prince",
         "Gala_Mym"
       ]
     },
@@ -326,14 +356,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 26177.528499028354,
+        "dps": 25867.685267498022,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -342,8 +372,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

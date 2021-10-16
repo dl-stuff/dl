@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94745.27286410553,
-        "team": 0.04174305567528826,
+        "dps": 94847.47172317388,
+        "team": 0.04267384903471174,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c1-s-c3-c2-s-c3-c3-end), s",
+        "`dragon, s",
         "`s3, not buff(s3) and x=5",
         "`s4",
         "`s2, fsc",
@@ -71,7 +71,7 @@
       ]
     },
     "META": {
-      "tdps": 555509.6169851964,
+      "tdps": 564543.4885834244,
       "pref": "PERSONAL"
     }
   },
@@ -227,8 +227,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64407.18429991934,
-        "team": 0.041598381875272754,
+        "dps": 64527.47751331467,
+        "team": 0.04291219891985747,
         "noaff": false,
         "nihil": false
       },
@@ -325,11 +325,20 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42006.22819361904,
-        "team": 0.04798718279989428,
+        "dps": 42097.1050314663,
+        "team": 0.04794816296595648,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "`dragon, aff(scorchrend)",
+        "`s4",
+        "`s1",
+        "`s3",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -337,6 +346,7 @@
       ]
     },
     "META": {
+      "tdps": 2328990.8919683807,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

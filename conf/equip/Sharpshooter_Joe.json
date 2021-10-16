@@ -37,7 +37,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42289.97820232984,
+        "dps": 44300.8597489276,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -53,7 +53,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(s), buff(s3, 1)",
+        "`dragon, buff(s3, 1)",
         "`s3, not buff(s3)",
         "`s1, xf",
         "`s2, xf",
@@ -71,11 +71,46 @@
       ]
     },
     "META": {
-      "tdps": 62833.25241207658,
+      "tdps": 78187.56407811101,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23834.418573040333,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Spirit_of_the_Season",
+        "Worthy_Rivals",
+        "A_Game_of_Cat_and_Boar",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s3, not buff(s3)",
+        "`s1, xf",
+        "`s2, xf",
+        "`s4, xf",
+        "`dodge, xf"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 23893.982800681584,
@@ -118,8 +153,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 67247.08713584614,
-        "team": 0.10917424906864338,
+        "dps": 68593.61561195279,
+        "team": 0.11181999996556755,
         "noaff": false,
         "nihil": false
       },
@@ -133,7 +168,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
+        "`dragon, s=2",
         "`s3, not buff(s3) and xf",
         "`s1, xf",
         "`s2, xf",
@@ -161,7 +196,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50349.44846702004,
+        "dps": 50682.054899170886,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -176,7 +211,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), aff(flashburn) and xf",
+        "`dragon, aff(flashburn) and xf",
         "`s3, xf",
         "`s1, xf",
         "`s4, xf",
@@ -196,15 +231,15 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40413.76411824941,
-        "team": 0.10759903888782309,
+        "dps": 42575.54350595675,
+        "team": 0.10656477704124129,
         "noaff": false,
         "nihil": false
       },
@@ -238,7 +273,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26147.40944741216,
+        "dps": 26148.17922472578,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -253,7 +288,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), aff(flashburn) and xf",
+        "`dragon, aff(flashburn) and xf",
         "`s3, xf",
         "`s1, xf",
         "`s4, xf",
@@ -273,7 +308,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

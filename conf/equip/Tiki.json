@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83558.76939528593,
-        "team": 0.0,
+        "dps": 83369.58486610468,
+        "team": 0.014331356243120914,
         "noaff": false,
         "nihil": false
       },
@@ -55,29 +55,29 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "if in_drg",
-        "`s1",
-        "`s2",
-        "`dodge, x=3",
-        "else",
         "`dragon",
         "`s3, not buff(s3)",
         "`s2",
-        "end",
+        "`s1, dshift_count>0",
+        "`s4, dshift_count>0",
         "`fs, fs_prep_c and x=4"
       ],
+      "dacl": [
+        "`s1",
+        "`s2"
+      ],
       "coabs": [
-        "Blade",
+        "Gala_Mascula",
         "Xander",
         "Yurius"
       ],
       "share": [
         "Weapon",
-        "Summer_Celliera"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 427794.2206559274,
+      "tdps": 594415.5291225594,
       "pref": "PERSONAL"
     }
   },
@@ -175,33 +175,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86851.03162920538,
-        "team": 0.0,
+        "dps": 86916.5478638114,
+        "team": 0.014331356243120914,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "if in_drg",
-        "`ds1",
-        "`ds2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4, s=2",
-        "`dragon",
-        "`s2, x=4",
-        "`s1, cancel",
-        "`fs, x=4",
-        "end"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
+      }
     },
     "META": {
-      "tdps": 454152.4995151563,
+      "tdps": 638509.4708091628,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -282,8 +263,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48093.958765616466,
-        "team": 0.0,
+        "dps": 49022.4331071772,
+        "team": 0.014331356243120937,
         "noaff": false,
         "nihil": false
       },
@@ -293,28 +274,10 @@
         "Twinfold_Bonds",
         "A_Passion_for_Produce",
         "Having_a_Summer_Ball"
-      ],
-      "acl": [
-        "if in_drg",
-        "`ds1",
-        "`ds2",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3)",
-        "`s4, s=2",
-        "`dragon",
-        "`s2, x=4",
-        "`s1, cancel",
-        "`fs, fs_prep_c and x=4",
-        "end"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
       ]
     },
     "META": {
-      "tdps": 269936.0342459135,
+      "tdps": 404457.82997695147,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

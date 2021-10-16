@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79323.84523458128,
-        "team": 0.11624289980421013,
+        "dps": 87228.58266201976,
+        "team": 0.16353307556105587,
         "noaff": true,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`dragon, s=1 and buff(s2)",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94026.8987052352,
+        "dps": 102468.8188188171,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -47,15 +47,15 @@
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Moonlight_Party",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dshift_count=0",
-        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dshift_count=1",
+        "`dragon, s=1 and buff(s2) and dshift_count=0",
+        "`dragon, s=1 and buff(s2) and dshift_count=1",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -74,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 126485.60467278879,
+      "tdps": 93193.6007716514,
       "pref": "PERSONAL"
     }
   },
@@ -118,8 +118,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82335.49181965302,
-        "team": 0.0,
+        "dps": 91885.33932415255,
+        "team": 0.03330913794563111,
         "noaff": false,
         "nihil": false
       },
@@ -131,8 +131,8 @@
       ]
     },
     "META": {
-      "tdps": 19699.81586203701,
-      "pref": "TEAMBUFF",
+      "tdps": 172918.5984042608,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -140,44 +140,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 41111.46186830319,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "Snipers_Allure",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s1",
-        "`s4, xf or fsc",
-        "`s3, xf=5",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Gala_Audric",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Sharena",
-        "Ilia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45001.48364335719,
+        "dps": 45046.91734081207,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -260,8 +225,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 112918.29711828326,
-        "team": 0.0,
+        "dps": 121114.2496815879,
+        "team": 0.033308067313827544,
         "noaff": false,
         "nihil": false
       },
@@ -275,8 +240,8 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dshift_count=0",
-        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dshift_count=1",
+        "`dragon, s=1 and buff(s2) and dshift_count=0",
+        "`dragon, s=1 and buff(s2) and dshift_count=1",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -295,7 +260,7 @@
       ]
     },
     "META": {
-      "tdps": 289002.1837057203,
+      "tdps": 260208.59952826574,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -349,8 +314,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 85084.06199641562,
-        "team": 0.08964174009304358,
+        "dps": 87228.58266201976,
+        "team": 0.16353307556105587,
         "noaff": true,
         "nihil": false
       },
@@ -363,8 +328,9 @@
         "Promised_Piety_Staff",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=1 and buff(s2)",
+        "`dragon, s=1 and buff(s2)",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -378,7 +344,6 @@
       ]
     },
     "META": {
-      "tdps": 216540.0615754483,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

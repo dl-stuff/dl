@@ -78,7 +78,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43023.39222349498,
+        "dps": 45055.95401876132,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -94,7 +94,7 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-s-c3-end), cancel",
+        "`dragon, cancel",
         "`s4, cancel",
         "`s3, cancel",
         "`s2, cancel",
@@ -148,7 +148,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 53590.66162928542,
+        "dps": 54489.481451196094,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -163,7 +163,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon",
         "`s3, x=5 and not buff(s3)",
         "`s4",
         "`s1",
@@ -184,6 +184,22 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54215.04683512277,
+        "team": 0.08846823721699398,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, energy()=5",
+        "`s3, x=5 and not buff(s3)",
+        "`s4, not energy()=5 or not inspiration()=5",
+        "`s1",
+        "`s2, fsc and energy()<5",
+        "`fs, x=5"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 60894.40030780413,
@@ -206,6 +222,7 @@
       ]
     },
     "META": {
+      "tdps": 2388442.31214038,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -216,7 +233,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 38137.751889061605,
+        "dps": 39941.941218062806,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -231,7 +248,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s-end)",
+        "`dragon",
         "`s3, x=5 and not buff(s3)",
         "`s4",
         "`s1",

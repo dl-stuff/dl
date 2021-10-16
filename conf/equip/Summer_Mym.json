@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14544.294167020122,
-        "team": 0.8423237652841752,
+        "dps": 7668.531883905766,
+        "team": 0.06066468939528344,
         "noaff": false,
         "nihil": false
       },
@@ -41,46 +41,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83101.84164670622,
-        "team": 0.12090431365150317,
+        "dps": 21386.015589251394,
+        "team": 0.05662963383136259,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Sweet_Surprise",
         "Welcome_to_the_Opera",
         "A_Small_Courage",
-        "The_Plaguebringer",
+        "Enter_the_Blue_Rose",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "if in_drg",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4",
-        "`s4",
-        "`s2, cancel",
-        "else",
         "`s3, not buff(s3)",
-        "`s2, xf",
-        "`s1, xf",
+        "if in_drg",
+        "`s4, cancel",
+        "`s1, ((dgauge>1400) and cancel) or duration-now<2",
+        "`s2, not trickery=1",
+        "else",
         "`dragon, xf",
-        "`dodge, xf=1",
+        "`s4, xf",
+        "`s1",
+        "`s2, xf",
         "end"
       ],
       "coabs": [
+        "Dagger",
         "Ieyasu",
-        "Summer_Leonidas",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 95031.4651546072,
+      "tdps": 3399577.4006185913,
       "pref": "PERSONAL"
     }
   },
@@ -126,8 +126,8 @@
       ]
     },
     "META": {
-      "tdps": 141651.0971237477,
-      "pref": "PERSONAL",
+      "tdps": -184474.45118658931,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -177,33 +177,32 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44147.7281177744,
-        "team": 0.10086832911042315,
+        "dps": 14119.286873551215,
+        "team": 0.016531805340582212,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
+        "Moonlight_Party",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`s2",
         "`s3",
+        "`s4",
         "if in_drg",
-        "`s4, dgauge>500",
         "`s2, dgauge>500",
         "`s1, (dgauge>1100)",
         "else",
         "`s1",
         "`s2",
         "`dragon",
-        "`dodge, xf=1",
         "end"
       ],
       "coabs": [
@@ -213,38 +212,28 @@
       ],
       "share": [
         "Summer_Celliera",
-        "Formal_Joachim"
+        "Sha_Wujing"
       ]
     },
     "META": {
-      "tdps": 265740.5655377315,
-      "pref": "PERSONAL"
+      "tdps": -144026.35032461502,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 84983.88662959503,
-        "team": 0.27380346516646525,
+        "dps": 28192.964078850306,
+        "team": 0.059664255534466644,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "Enter_the_Blue_Rose",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
         "if in_drg",
-        "`s4, cancel",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<2",
-        "`s2, not trickery=1",
+        "`s4, cancel or s",
+        "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
+        "`s2, cancel",
         "else",
         "`dragon, xf",
         "`s4, xf",
@@ -253,13 +242,9 @@
         "end"
       ],
       "coabs": [
-        "Dagger",
+        "Bow",
         "Ieyasu",
         "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
       ]
     },
     "META": {
@@ -298,8 +283,8 @@
       ]
     },
     "META": {
-      "tdps": 401206.2789860125,
-      "pref": "PERSONAL",
+      "tdps": -255173.51009594637,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
@@ -330,8 +315,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58914.81141576438,
-        "team": 0.10868883378766477,
+        "dps": 15810.62765446011,
+        "team": 0.008689571657680584,
         "noaff": false,
         "nihil": true
       },
@@ -361,8 +346,8 @@
       ]
     },
     "META": {
-      "tdps": 531827.33852997,
-      "pref": "PERSONAL",
+      "tdps": -101660.91470590312,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -413,58 +398,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58364.51740359754,
-        "team": 0.274734118970722,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "Worthy_Rivals",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Savage_Hawk_Lance",
-        "Treasured_Memory_of_the_Sea"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if in_drg",
-        "`s4, cancel",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
-        "`s2, cancel",
-        "else",
-        "`dragon",
-        "`s1, xf",
-        "`s4, xf",
-        "`s2, xf",
-        "end"
-      ],
-      "coabs": [
-        "Gala_Leif",
-        "Ieyasu",
-        "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "tdps": 58390.883003785224,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 53441.26439273313,
-        "team": 0.2733527237115692,
+        "dps": 20623.629936451496,
+        "team": 0.05952863731672597,
         "noaff": false,
         "nihil": false
       },
@@ -496,39 +431,12 @@
         "Vania"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 40991.78489012827,
-        "team": 0.12168501917501885,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`s3, not buff(s3)",
-        "if in_drg",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4",
-        "`s2, cancel",
-        "`s4, cancel",
-        "else",
-        "`dragon",
-        "`s1",
-        "`s4, xf",
-        "`s2, xf",
-        "end"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Vania"
-      ]
-    },
     "META": {
-      "tdps": -82083.91852864537,
+      "tdps": -160305.45623524277,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

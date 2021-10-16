@@ -210,8 +210,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51991.895388127545,
-        "team": 0.06659258980967998,
+        "dps": 47953.2871557901,
+        "team": 0.06665961556066512,
         "noaff": false,
         "nihil": true
       },
@@ -242,8 +242,8 @@
       ]
     },
     "META": {
-      "tdps": 141749.51747720636,
-      "pref": "PERSONAL",
+      "tdps": 20624.73411158672,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -251,6 +251,30 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 58484.48526667998,
+        "team": 0.1627072669043779,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Snipers_Allure",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon,not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4, not buff(s2)",
+        "`s2, not buff(s2) or duration - now < 1.2",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 65238.03614142891,
@@ -261,6 +285,7 @@
       "slots.d": "Summer_Marishiten"
     },
     "META": {
+      "tdps": 1768510.2285331795,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

@@ -71,6 +71,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53233.116270513914,
+        "team": 0.07403956341090645,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Bloody_Little_Queen",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Hastened_Squall",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s3",
+        "`s1, cancel",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 55103.689811664706,
@@ -106,6 +140,7 @@
       ]
     },
     "META": {
+      "tdps": 137479406.59146988,
       "pref": "PERSONAL"
     }
   },
@@ -134,6 +169,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57621.44866002354,
+        "team": 0.07403956341090645,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 59418.16527281857,
@@ -143,14 +186,49 @@
       }
     },
     "META": {
+      "tdps": 132051228.30302271,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39815.07205817883,
+        "team": 0.07405481982092074,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, x=5",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, buff(s3)",
+        "`s4"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 41942.13866365253,
@@ -168,6 +246,14 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29188.603598750025,
+        "team": 0.07403956341090645,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 30242.85162401957,
@@ -177,10 +263,11 @@
       }
     },
     "META": {
+      "tdps": 77482862.72942759,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

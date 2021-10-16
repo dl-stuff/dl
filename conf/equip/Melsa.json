@@ -34,7 +34,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68884.62548973168,
+        "dps": 70047.12915836432,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -50,7 +50,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3) and x=5",
         "`s4",
         "`s1, cancel",
@@ -67,11 +67,45 @@
       ]
     },
     "META": {
-      "tdps": 399695.6506786401,
+      "tdps": 422953.62649289804,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36555.7642461858,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, cancel",
+        "`s2"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 37986.84272158143,
@@ -121,7 +155,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87115.57590936625,
+        "dps": 87708.87326654882,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -136,7 +170,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end), aff(poison) and cancel",
+        "`dragon, aff(poison) and cancel",
         "`s3, not buff(s3) and xf=2",
         "`s4",
         "`s1, buff(s3)",
@@ -150,7 +184,7 @@
       ]
     },
     "META": {
-      "tdps": 632431.6409349578,
+      "tdps": 644301.6211821995,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -159,6 +193,39 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54275.61438328914,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, cancel",
+        "`s1",
+        "`s4",
+        "`s3, cancel",
+        "`s2, x=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Summer_Julietta"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 59458.350470716236,
@@ -196,7 +263,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -234,6 +301,14 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28793.08997434125,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 30392.63583172941,
@@ -246,7 +321,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

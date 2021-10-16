@@ -295,7 +295,7 @@ function serConf(no_conf) {
         requestJson['dacl'] = $('#input-dacl').val();
     } else {
         requestJson['acl'] = $('#input-acl').data('default_acl');
-        requestJson['dacl'] = $('#input-dacl').data('default_dacl');
+        requestJson['dacl'] = $('#input-dacl').data('default_acl');
     }
     const simAff = readSimAfflic();
     if (simAff != null) {
@@ -329,7 +329,7 @@ function exportConf(){
         exported['dacl'] = $('#input-dacl').val();
     } else {
         exported['acl'] = $('#input-acl').data('default_acl');
-        exported['dacl'] = $('#input-dacl').data('default_dacl');
+        exported['dacl'] = $('#input-dacl').data('default_acl');
     }
     $('#input-conf').val(JSON.stringify(exported, null, 4));
 }
@@ -345,7 +345,7 @@ function importConf() {
             } else {
                 $(`#wp${i + 1}-None`).prop('selected', true);
             }
-        }    
+        }
     }
     if (imported.coab){
         for (const c of imported.coab) {
@@ -607,7 +607,7 @@ function loadAdvSlots(no_conf, default_equip) {
                     buildCoab(slots.coabilities, slots.adv.basename, slots.adv.wt);
 
                     const urlVars = getUrlVars();
-                    if (urlVars.conf) { 
+                    if (urlVars.conf) {
                         slots = loadConfToSlot(conf, slots);
                         if (urlVars.conf.t){$("#input-t").val(urlVars.conf.t)}
                     }
@@ -656,7 +656,7 @@ function loadAdvSlots(no_conf, default_equip) {
                             $(aclid).prop('disabled', !acl_check);
                         }
                     }
-                
+
                     $('#input-toggle-affliction').prop('checked', false);
                     $('.input-wp > div > select').prop('disabled', false);
                     $('#input-edit-acl').prop('disabled', false);
@@ -1018,7 +1018,7 @@ function editAcl() {
             $(aclkey).data('alternate_acl', $(aclkey).val());
             $(aclkey).prop('disabled', true);
             $(aclkey).val($(aclkey).data('default_acl'));
-        }    
+        }
     }
 }
 function debounce(func, interval) {
@@ -1127,12 +1127,17 @@ function updateTeamdps() {
             $(rs).css('width', portion + '%');
         });
         if (team_p == 0) { return; }
-        const tdps_txt = 'team: ' + Math.ceil(team_v) + ' (+' + Math.round(team_p * 100) + '%)';
         const trs = $(ri).find('.team-result-slice')[0];
         const portion = 100 - others;
-        $(trs).css('width', portion + '%');
-        $(trs).html(tdps_txt)
-        $(trs).attr('data-original-title', tdps_txt);
+        if (team_v == 0) {
+            $(trs).css('display', 'none');
+        } else {
+            $(trs).css('display', 'block');
+            $(trs).css('width', portion + '%');
+            const tdps_txt = 'team: ' + Math.ceil(team_v) + ' (+' + Math.round(team_p * 100) + '%)';
+            $(trs).html(tdps_txt);
+            $(trs).attr('data-original-title', tdps_txt);
+        }
     });
 }
 function reloadSlots() {

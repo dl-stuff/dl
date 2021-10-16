@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 112742.0176975038,
-        "team": 0.033158943693847656,
+        "dps": 114600.66258420973,
+        "team": 0.03324695221033218,
         "noaff": false,
         "nihil": false
       },
@@ -56,7 +56,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(s-c3-c3-c3-end), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, charged_in(4,s1) and cancel",
@@ -77,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 291078.23560574156,
+      "tdps": 307659.0202123985,
       "pref": "PERSONAL"
     }
   },
@@ -121,8 +121,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56371.05595420566,
-        "team": 0.055553575290168036,
+        "dps": 70200.31195253468,
+        "team": 0.03332505390882882,
         "noaff": false,
         "nihil": true
       },
@@ -157,7 +157,7 @@
       ]
     },
     "META": {
-      "tdps": 306109.1380872511,
+      "tdps": 478595.44037119293,
       "pref": "PERSONAL"
     }
   },
@@ -226,8 +226,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 65743.00319407161,
-        "team": 0.0745315029564391,
+        "dps": 72761.79460408617,
+        "team": 0.06935558548915735,
         "noaff": false,
         "nihil": true
       },
@@ -269,6 +269,34 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 70134.76375304983,
+        "team": 0.11848674759770464,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Kung_Fu_Masters",
+        "Summer_Paladyns",
+        "A_Small_Courage",
+        "Hastened_Squall",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, charged_in(4,s1) and cancel",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=1",
+        "`dodge, fsc",
+        "end"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 74115.52758095156,
@@ -312,8 +340,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31641.714856442944,
-        "team": 0.055553575290168,
+        "dps": 39299.762925863695,
+        "team": 0.03332505390882885,
         "noaff": false,
         "nihil": true
       },

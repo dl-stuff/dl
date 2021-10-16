@@ -40,21 +40,64 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 127195.35608713201,
+        "dps": 125115.60803160195,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and x=4",
+        "`s2"
+      ],
+      "dacl": [
+        "`s2, duration-now<2",
+        "`s4, x=3",
+        "`s1, x=3 and dgauge>=900"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "tdps": 642487.4247320491,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52144.110657587415,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
         "A_Passion_for_Produce",
         "A_Small_Courage",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`s2, (duration-now)<1.5",
         "`s3, not buff(s3)",
@@ -66,22 +109,21 @@
         "`dragon",
         "end"
       ],
+      "dacl": [
+        "`s2, duration-now<2",
+        "`s4, x=3",
+        "`s1, x=3 and dgauge>=900"
+      ],
       "coabs": [
-        "Berserker",
         "Ieyasu",
-        "Summer_Patia"
+        "Joker",
+        "Vania"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Gala_Chelle"
       ]
     },
-    "META": {
-      "tdps": 660156.2315224437,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 57058.980148840055,
@@ -127,7 +169,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 129972.59713942876,
+        "dps": 127229.14961507675,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -141,16 +183,10 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "acl": [
-        "`s2, (duration-now)<1.1",
-        "`s3, not buff(s3) and x=4",
-        "if in_drg",
-        "`s4, x=3 or hp>0",
+      "dacl": [
+        "`s2, duration-now<2",
         "`s1, x=3 and dgauge>=900",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
+        "`s4"
       ],
       "share": [
         "Weapon",
@@ -165,54 +201,16 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 82147.5519550899,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 81917.68111209071,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "share": [
-        "Weapon",
-        "Veronica"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 84611.80852009292,
-        "team": 0.058821576521060036,
+        "dps": 82825.10032706383,
+        "team": 0.05881362915342983,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Twinfold_Bonds",
         "Worthy_Rivals",
         "A_Passion_for_Produce",
@@ -220,12 +218,50 @@
         "Testament_of_Eternity",
         "Thunderswift_Lords_Blade_Axe"
       ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and x=4",
+        "`s2"
+      ],
+      "dacl": [
+        "`s2, duration-now<2",
+        "`s4, x=3",
+        "`s1, x=3 and dgauge>=900"
+      ],
       "share": [
         "Weapon",
         "Sha_Wujing"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 86944.50849624314,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Axe"
+      ],
+      "dacl": [
+        "`s2, duration-now<3",
+        "`s1, x=3 and dgauge>=900",
+        "`s4"
+      ],
+      "share": [
+        "Weapon",
+        "Veronica"
+      ]
+    },
     "META": {
+      "tdps": 70041.72720633887,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

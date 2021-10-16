@@ -137,8 +137,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36964.52138005188,
-        "team": 0.07824509705463169,
+        "dps": 37488.23295231458,
+        "team": 0.07841200478383811,
         "noaff": false,
         "nihil": true
       },
@@ -153,12 +153,17 @@
       "acl": [
         "`s3",
         "queue s4.check() and s2.check() and dgauge>=500",
-        "`s4;s2;dragon(c3-s-c3-c3-c2-end)",
+        "`s4",
+        "`s2",
+        "`dragon",
         "end",
         "`s1",
         "`s2, dgauge<=500",
         "`s4, dgauge<=450",
         "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -171,7 +176,7 @@
       ]
     },
     "META": {
-      "tdps": 99522.3190158068,
+      "tdps": 101545.19757507139,
       "pref": "PERSONAL"
     }
   },
@@ -212,7 +217,7 @@
       ]
     },
     "META": {
-      "tdps": 427464.35823104356,
+      "tdps": 440914.0854876542,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -316,6 +321,48 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25651.722621943707,
+        "team": 0.12857036129738703,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Emissaries_of_the_Heavens",
+        "The_Cutie_Competition",
+        "Dueling_Dancers",
+        "Entwined_Flames"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "queue s4.check() and s2.check() and dgauge>=500",
+        "`s4",
+        "`s2",
+        "`dragon",
+        "end",
+        "`s1, buff(s3)",
+        "`s2, dgauge<=500",
+        "`s4, dgauge<=450",
+        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
+      ],
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Tiki"
+      ]
+    },
+    "META": {
+      "tdps": 1065716.1982293832,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

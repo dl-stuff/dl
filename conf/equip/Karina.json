@@ -204,23 +204,16 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 43803.76944321605,
-        "team": 0.09985196391616268,
+        "dps": 44706.73262854395,
+        "team": 0.09986016802582828,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "His_Clever_Brother",
-        "Lord_of_the_Skies"
-      ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-end), cancel",
+        "`dragon, cancel",
         "`s1",
         "`s2",
         "`s3",
@@ -236,17 +229,8 @@
         "Humanoid_Mercury"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 45458.57949560617,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "META": {
-      "tdps": 16572.634002266877,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -291,6 +275,56 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52638.7305342128,
+        "team": 0.08584244653465037,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Summer_Paladyns",
+        "Super_Soaking_Androids",
+        "From_Whence_He_Comes",
+        "Halidom_Grooms"
+      ],
+      "acl": [
+        "if prep",
+        "queue",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4",
+        "`s1",
+        "end",
+        "end",
+        "`s4",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`dragon, s and dshift_count=0",
+        "`dragon, s=4 and dshift_count=1"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Renee",
+        "Summer_Estelle"
+      ],
+      "share": [
+        "Summer_Luca",
+        "Summer_Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -302,14 +336,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37250.25038226271,
+        "dps": 37301.02710078433,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "`dragon, cancel",
+        "`s1",
+        "`s2",
+        "`s3",
+        "`s4"
+      ]
     },
     "META": {
-      "tdps": 387859.6651554415,
+      "tdps": 389596.3956390032,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

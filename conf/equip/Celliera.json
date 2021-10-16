@@ -299,6 +299,58 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 10409.868311092869,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "OneWinged_Journey",
+        "Dueling_Dancers",
+        "Snipers_Allure"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "if dgauge>=500 and xf=5",
+        "queue dshift_count=0",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
+        "end",
+        "queue dshift_count=1",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
+        "end",
+        "queue dshift_count>=2",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
+        "end",
+        "end",
+        "`s2, not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 55423.801408726904,

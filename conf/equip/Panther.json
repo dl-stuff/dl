@@ -32,8 +32,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 123104.87917656518,
-        "team": 0.026475455940826603,
+        "dps": 120112.89561511033,
+        "team": 0.022090086113466273,
         "noaff": false,
         "nihil": false
       },
@@ -48,17 +48,20 @@
       ],
       "slots.d": "Agni",
       "acl": [
-        "if  a3_buffcount < 3",
-        "`dragon, not in_drg and s=2",
-        "else",
-        "`dragon, not in_drg and s=1",
-        "end",
+        "`dragon, a3_buffcount=1 and s=1",
+        "`dragon, a3_buffcount=2 and s=2",
+        "`dragon, a3_buffcount=3 and s=1",
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
         "`s4, x=5",
         "`s1, x=5 or s",
+        "`s2, x=5"
+      ],
+      "dacl": [
+        "`s4, x=5",
+        "`s1, x=5",
         "`s2, x=5",
-        "`dodge, x=5"
+        "`sack, not have_buff(s1_10) and (s1.check() or s2.check())"
       ],
       "coabs": [
         "Blade",
@@ -71,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 280883.66397822916,
+      "tdps": 270380.22777199827,
       "pref": "PERSONAL"
     }
   },
@@ -157,8 +160,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 140340.2440748918,
-        "team": 0.026475455940826603,
+        "dps": 135991.25905528196,
+        "team": 0.019199518443883623,
         "noaff": false,
         "nihil": false
       },
@@ -170,10 +173,19 @@
         "To_the_Extreme",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, a3_buffcount=2 and s=2",
+        "`dragon, a3_buffcount>2 and s=1",
+        "`fs, not buff(s3)",
+        "`s3, not buff(s3) and s1.check()",
+        "`s4, x=5",
+        "`s1, x=5 or s",
+        "`s2, x=5"
       ]
     },
     "META": {
-      "tdps": 324216.24379109713,
+      "tdps": 307654.27575265325,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -201,8 +213,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 77295.87766970294,
-        "team": 0.03724435115859032,
+        "dps": 71350.48307462614,
+        "team": 0.0333137855442822,
         "noaff": false,
         "nihil": false
       },
@@ -217,13 +229,12 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon, not in_drg and s=1",
+        "`dragon, s=1",
         "`fs, not buff(s3)",
         "`s3, not buff(s3) and s1.check()",
         "`s4, x=5",
         "`s1, x=5 or s",
-        "`s2, x=5",
-        "`dodge, x=5"
+        "`s2, x=5"
       ],
       "share": [
         "Weapon",
@@ -231,7 +242,7 @@
       ]
     },
     "META": {
-      "tdps": 170323.67870986598,
+      "tdps": 153401.87928928595,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

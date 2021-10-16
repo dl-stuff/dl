@@ -84,8 +84,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31928.496232336096,
-        "team": 0.0378633463670796,
+        "dps": 33359.579195749684,
+        "team": 0.032098741588308645,
         "noaff": false,
         "nihil": true
       },
@@ -93,8 +93,8 @@
         "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
         "Worthy_Rivals",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
@@ -102,7 +102,7 @@
       "acl": [
         "queue s2.check() and dgauge>=500",
         "`s2",
-        "`dragon (c3-s-end), cancel",
+        "`dragon, cancel",
         "end",
         "`s3, not buff(s3)",
         "`s1",
@@ -196,8 +196,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 51720.26664871208,
-        "team": 0.042321500978737873,
+        "dps": 52794.45672213409,
+        "team": 0.040327187549913435,
         "noaff": false,
         "nihil": true
       },
@@ -205,13 +205,13 @@
         "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon (c3-s-c3-c3-end), aff(flashburn) and xf",
+        "`dragon, aff(flashburn) and xf",
         "`s4",
         "`s1, xf",
         "`s3, xf>1",
@@ -262,6 +262,40 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30708.709200692105,
+        "team": 0.04676850102553392,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon, aff(flashburn) and xf",
+        "`s1",
+        "`s4, xf",
+        "`s3, xf",
+        "`fsf, xf=5"
+      ],
+      "coabs": [
+        "Dagger",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Ilia"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 31023.173112735178,
@@ -296,6 +330,7 @@
       ]
     },
     "META": {
+      "tdps": 1012988.7434420949,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

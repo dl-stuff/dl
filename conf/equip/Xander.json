@@ -78,6 +78,42 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43577.64266228233,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "The_Shining_Overlord",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s1",
+        "`s2, cancel",
+        "`s4, fsc",
+        "if not buff(s1, default)",
+        "`fs, x=2 and s1.charged!=2235",
+        "`fs, x=3",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Renee",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45723.92195824677,
@@ -171,6 +207,31 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 49344.24621512758,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, cancel",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4, cancel",
+        "`fs, x=4 and not buff(s1, default)"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 51272.23517961225,
@@ -200,7 +261,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -257,6 +318,31 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39911.3463008479,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, cancel",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4, cancel",
+        "`fs, x=4 and not buff(s1, default)"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 40779.12683277147,
@@ -286,7 +372,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

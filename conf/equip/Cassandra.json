@@ -81,6 +81,40 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27380.65293277091,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Arsene",
+      "acl": [
+        "`dragon, s=1 and duration-now<15",
+        "`s3",
+        "`s1",
+        "`s4, hp>0 or x>2",
+        "`fs, charged_in(fs,s1) and x=4"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Summer_Patia"
+      ],
+      "share": [
+        "Ranzal",
+        "Veronica"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 27462.576886665727,
@@ -120,6 +154,31 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 80121.81379627515,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s=1 and duration-now<15",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, cancel",
+        "`s2, x=5",
+        "`fs, charged_in(fs,s1)  and x>3"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 80172.02536410015,
@@ -146,6 +205,40 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57311.514226180305,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, charged_in(fs,s1) and x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Joker"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Veronica"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57571.0338284683,
@@ -184,11 +277,27 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45530.26390467123,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, s=1 and duration-now<15",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, cancel",
+        "`s2, x=5",
+        "`fs, charged_in(fs,s1)  and x>3"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45600.093549074045,

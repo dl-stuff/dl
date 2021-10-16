@@ -39,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100653.17724842216,
-        "team": 0.0175409130415033,
+        "dps": 23494.63221998433,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -78,8 +78,8 @@
       ]
     },
     "META": {
-      "tdps": 371103.98401487374,
-      "pref": "PERSONAL"
+      "tdps": -263247.56862214813,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -207,32 +207,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 116226.31248570453,
-        "team": 0.12133793909524959,
+        "dps": 43465.06960697106,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "if in_drg",
-        "`s4",
-        "`s2, xf=5 or s",
-        "`s1, xf=5 or duration-now < 8",
-        "`s1, dgauge>=1800 and s=1",
-        "else",
-        "`dragon, fsc",
-        "`s3, not buff(s3) and fsc",
-        "`s1, fsc",
-        "`fs, x=4 or hits=2",
-        "end"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
+      }
     },
     "META": {
-      "tdps": 1739119.7787228972,
-      "pref": "PERSONAL",
+      "tdps": -250796.70980316895,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

@@ -75,6 +75,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39229.287839184806,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, fsc",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite)",
+        "`dodge, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Lazry"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 42703.56978560156,
@@ -115,6 +150,40 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55677.17484886803,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s3, fsc",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite)",
+        "`dodge, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Cleo",
+        "Grace"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 61457.326593934005,
@@ -153,7 +222,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14649.461460511155,
-        "team": 0.5483611484884727,
+        "dps": 14581.663800952847,
+        "team": 0.5521965131049723,
         "noaff": true,
         "nihil": false
       },
@@ -33,8 +33,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70707.58636099538,
-        "team": 0.08316289559896411,
+        "dps": 71838.60116417489,
+        "team": 0.08307506219552982,
         "noaff": false,
         "nihil": false
       },
@@ -47,9 +47,9 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-c3-c3-c1-end), dshift_count=0",
-        "`dragon(c3-s-c3-c3-c3-end), dshift_count=1 and x=4",
-        "`dragon(c3-s-c3-c3-c3-end), dshift_count>=2",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1 and x=4",
+        "`dragon, dshift_count>=2",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
         "`s2, cancel",
@@ -67,7 +67,7 @@
       ]
     },
     "META": {
-      "tdps": 120503.73051121249,
+      "tdps": 122051.41600799389,
       "pref": "PERSONAL"
     }
   },
@@ -87,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 160200.19550873592,
+      "tdps": 163199.04283403384,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -207,14 +207,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 72730.72653796503,
-        "team": 0.08316289559896411,
+        "dps": 73692.32574225796,
+        "team": 0.08307506219552982,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 124852.71541045324,
+      "tdps": 126002.89717452215,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -254,14 +254,14 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59426.71442229666,
-        "team": 0.08316289559896411,
+        "dps": 60236.723620481884,
+        "team": 0.08307506219552982,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 96254.12968268554,
+      "tdps": 97320.34152567909,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -302,6 +302,42 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 40037.95548115464,
+        "team": 0.0333279990019375,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Holywyrms_Advent",
+        "Pecorines_Grand_Adventure",
+        "Twinfold_Bonds",
+        "Dueling_Dancers",
+        "Lord_of_the_Skies"
+      ],
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, cancel",
+        "`s4"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "tdps": 203005304.4818026,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

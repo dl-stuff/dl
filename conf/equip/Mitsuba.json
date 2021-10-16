@@ -38,8 +38,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61232.26240532724,
-        "team": 0.10475365348439537,
+        "dps": 62889.42393794009,
+        "team": 0.10924804912764903,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "if xf=2 and hits>19",
         "`s2",
@@ -75,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 98429.2762625122,
+      "tdps": 102246.7490265732,
       "pref": "PERSONAL"
     }
   },
@@ -94,7 +94,7 @@
       ]
     },
     "META": {
-      "tdps": 109451.95952060857,
+      "tdps": 113896.64757747803,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -103,6 +103,44 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44830.457134262826,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`tempura",
+        "if xf=2 and hits>19",
+        "`s4",
+        "`s3",
+        "`s1(sashimi), aff_timeleft(frostbite)<6",
+        "`s1(tempura)",
+        "`dragon",
+        "`fsf",
+        "else",
+        "`fs, xf=2",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45349.26147685142,
@@ -148,14 +186,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66470.44969731297,
-        "team": 0.10393824003852345,
+        "dps": 66972.82455993893,
+        "team": 0.10833340357947238,
         "noaff": false,
         "nihil": false
       },
       "acl": [
         "`tempura",
-        "`dragon(c3-s-c3-c3-c2-end), s=2",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s4",
         "if xf=2 and hits>19",
@@ -167,7 +205,7 @@
       ]
     },
     "META": {
-      "tdps": 107717.95265126688,
+      "tdps": 109489.26988873012,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -204,15 +242,15 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41225.37852940727,
-        "team": 0.1047536534843954,
+        "dps": 44088.70856805525,
+        "team": 0.10924804912764896,
         "noaff": false,
         "nihil": false
       },
@@ -225,7 +263,7 @@
       ]
     },
     "META": {
-      "tdps": 62346.80125534581,
+      "tdps": 68062.5169070764,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -234,6 +272,14 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35026.379697575474,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 35280.03480328376,
@@ -246,7 +292,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

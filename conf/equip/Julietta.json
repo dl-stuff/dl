@@ -115,7 +115,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59143.2551737723,
+        "dps": 60399.30219893105,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -131,7 +131,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), aff(flashburn)",
+        "`dragon, aff(flashburn)",
         "`s4",
         "`s2",
         "`s1",
@@ -150,7 +150,7 @@
       ]
     },
     "META": {
-      "tdps": 435139.90227446676,
+      "tdps": 499214.1443347388,
       "pref": "PERSONAL"
     }
   },
@@ -192,7 +192,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 72088.11740253595,
+        "dps": 74075.04972555728,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -207,7 +207,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon",
         "`s4",
         "`s2",
         "`s1",
@@ -221,7 +221,7 @@
       ]
     },
     "META": {
-      "tdps": 1095491.1624335689,
+      "tdps": 1196849.7740719798,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -230,6 +230,33 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57606.27057185797,
+        "team": 0.06412466633921501,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "The_Red_Impulse",
+        "A_Small_Courage",
+        "Sisters_of_the_Anvil",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Thor",
+      "acl": [
+        "`dragon, energy()=5 and dshift_count=0",
+        "`dragon, dshift_count>=1 and energy()>=4",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1",
+        "`s4, x>2 and energy()<5",
+        "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 70930.00932191842,

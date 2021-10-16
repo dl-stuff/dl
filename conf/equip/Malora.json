@@ -77,12 +77,20 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35950.555472339,
-        "team": 0.017537370821918703,
+        "dps": 39177.25295919533,
+        "team": 0.020465483863636967,
         "noaff": false,
         "nihil": false
       },
       "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s1",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Lucretia",
@@ -98,6 +106,41 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33922.91489412992,
+        "team": 0.017526854705202103,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Spirit_of_the_Season",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon",
+        "`s1",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Peony",
+        "Raemond"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 34171.350560623854,
@@ -134,6 +177,7 @@
       ]
     },
     "META": {
+      "tdps": 50436651.04520005,
       "pref": "PERSONAL"
     }
   },
@@ -184,8 +228,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41007.428581969805,
-        "team": 0.020463865130593197,
+        "dps": 41194.55497466576,
+        "team": 0.023374788228070997,
         "noaff": false,
         "nihil": true
       },
@@ -221,11 +265,27 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39102.161829500896,
+        "team": 0.05076140902854035,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s1",
+        "`s3",
+        "`s2",
+        "`s4",
+        "`fs, x=5"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 39166.93306212092,
@@ -243,6 +303,14 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27959.58883238132,
+        "team": 0.017526854705202103,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 28431.346944824465,
@@ -252,10 +320,11 @@
       }
     },
     "META": {
+      "tdps": 95774892.67475294,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

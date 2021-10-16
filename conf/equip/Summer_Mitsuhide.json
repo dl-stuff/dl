@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98149.62450949522,
-        "team": 0.03332464084570135,
+        "dps": 100783.19721685998,
+        "team": 0.03332065576280346,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end), s1.check() and aff_timeleft(poison)>14",
+        "`dragon, s1.check() and aff_timeleft(poison)>14",
         "`s3, not buff(s3)",
         "`s1, (sunflowers > 0 and x=4) or duration-now<4 or aff_timeleft(scorchrend) < 2",
         "`s4, cancel",
@@ -69,7 +69,7 @@
       ]
     },
     "META": {
-      "tdps": 205641.72626867282,
+      "tdps": 225458.31059473415,
       "pref": "PERSONAL"
     }
   },
@@ -319,8 +319,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50450.402613532235,
-        "team": 0.06665567440465717,
+        "dps": 50846.84812090051,
+        "team": 0.06665577562456541,
         "noaff": false,
         "nihil": false
       },
@@ -334,7 +334,7 @@
         "Promised_Piety_Staff"
       ],
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end), s1.check()",
+        "`dragon, s1.check()",
         "`s3, not buff(s3)",
         "`s1, (sunflowers > 0 and x=4) or duration-now<4 or aff_timeleft(scorchrend) < 2",
         "`s4, cancel",
@@ -346,7 +346,7 @@
       ]
     },
     "META": {
-      "tdps": 1685920948.0985193,
+      "tdps": 1739354560.6968293,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -357,8 +357,8 @@
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 50450.402613532235,
-        "team": 0.06665567440465717,
+        "dps": 50846.84812090051,
+        "team": 0.06665577562456541,
         "noaff": false,
         "nihil": false
       },
@@ -370,6 +370,13 @@
         "Having_a_Summer_Ball",
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon, s1.check()",
+        "`s3, not buff(s3)",
+        "`s1, (sunflowers > 0 and x=4) or duration-now<4 or aff_timeleft(scorchrend) < 2",
+        "`s4, cancel",
+        "`s2"
       ]
     },
     "META": {
@@ -411,8 +418,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43053.724277000816,
-        "team": 0.06666189802735022,
+        "dps": 43153.98084597263,
+        "team": 0.06659552922889314,
         "noaff": false,
         "nihil": true
       },
@@ -426,7 +433,7 @@
         "Promised_Piety_Staff"
       ],
       "acl": [
-        "`dragon(s-s-end), s1.check()",
+        "`dragon, s1.check()",
         "`s3",
         "`s4, cancel",
         "`s1, (sunflowers > 0 and x=5) or not afflics.scorchrend",
@@ -438,7 +445,7 @@
       ]
     },
     "META": {
-      "tdps": 48645.50584962657,
+      "tdps": 51126.88753360412,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

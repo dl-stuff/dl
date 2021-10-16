@@ -119,8 +119,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89638.36051503944,
-        "team": 0.10489817808313963,
+        "dps": 88670.20034301371,
+        "team": 0.08976455919630143,
         "noaff": false,
         "nihil": true
       },
@@ -152,16 +152,55 @@
         "Wand"
       ],
       "share": [
-        "Xander",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 309427.5265835015,
+      "tdps": 123079.70338362912,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 140476.2887256431,
+        "team": 0.23047266231204713,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4",
+        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "if gauges[fs]<1000",
+        "`fs, x=4 or hits=0 or (charged_in(fs,s1) and duration-now<8)",
+        "else",
+        "`dodge, x=5",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 145651.54404343673,
@@ -196,6 +235,7 @@
       ]
     },
     "META": {
+      "tdps": 916393.0277320584,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

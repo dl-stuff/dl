@@ -259,6 +259,22 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 45665.47339003772,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "`dragon, aff(poison) and xf=5",
+        "`s3, healed and not buff(s3)",
+        "`s2, not buff(s2)",
+        "`s1, xf",
+        "`s4, xf",
+        "`fsf, xf=5"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 50056.753635850124,
@@ -278,7 +294,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18488.76146339193,
+        "dps": 23392.55635907942,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -286,7 +302,7 @@
       "slots.d": "Gozu_Tenno",
       "acl": [
         "`fst(3), not have_buff(gozu_tenno_buff) and xf=5",
-        "`dragon(c3-s-c3-c3-end), xf=5",
+        "`dragon, xf=5",
         "`s3, healed=1 and not buff(s3)",
         "`s2, not buff(s2)",
         "`s1",
@@ -295,7 +311,7 @@
       ]
     },
     "META": {
-      "tdps": 181295.4988678663,
+      "tdps": 517599.3475282143,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
