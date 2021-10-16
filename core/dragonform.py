@@ -418,7 +418,8 @@ class DragonFormUTP(DragonForm):
         return value
 
     def charge_dprep(self, value):
-        return self._charge_utp("dprep", super().charge_dprep(value))
+        super().charge_dprep(value)
+        return self._charge_utp("dprep", float_ceil(self.max_utp_gauge, value / 100))
 
     def charge_dp(self, name, value):
         return self._charge_utp(name, super().charge_dp(name, value))

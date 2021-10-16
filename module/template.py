@@ -75,6 +75,8 @@ class StanceAdv(Adv):
 
     @allow_acl
     def s(self, n, stance=None):
+        if self.in_dform():
+            return False
         if stance:
             self.queue_stance(stance)
         return super().s(n)
@@ -160,13 +162,13 @@ class SigilAdv(Adv):
         self.locked_sigil = EffectBuff("locked_sigil", duration, lambda: None, self.a_sigil_unlock).no_bufftime()
         self.locked_sigil.on()
         self.sigil_mode = ModeManager(group="sigil", **kwargs)
-        self.sigil_listeners = []
+        self._presigil_listeners = []
 
     def a_sigil_unlock(self):
         self.unlocked = True
         self.unlocked_time = now()
         self.sigil_mode.on()
-        for l in self.sigil_listeners:
+        for l in self._presigil_listeners:
             l.off()
 
     def a_update_sigil(self, time):
@@ -201,6 +203,8 @@ class ArmamentAdv(Adv):
 
     @allow_acl
     def s(self, n):
+        if self.in_dform():
+            return False
         sn = f"s{n}"
         if n == 1 or n == 2:
             if self.sr.count == self.sr.maxcharge and (sn, "max") in self.sr.act_dict:
@@ -231,11 +235,13 @@ class SkillChainAdv(Adv):
 
     @allow_acl
     def s(self, n):
+        if self.in_dform():
+            return False
         sn = f"s{n}"
         if n == 1 or n == 2:
-            return self.a_s_dict[sn](call=n)
+            return self.sr(call=n)
         else:
-            return self.a_s_dict[sn]()
+            return self.a_s_dict[f"s{n}"]()
 
     @property
     def skills(self):

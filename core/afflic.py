@@ -184,7 +184,7 @@ class AfflicUncapped(AfflicBase):
         self.stacks.remove(e.total_success_p)
         self.update()
 
-    def on(self, very_speshul_regina_number=1.0):
+    def on(self, speshul_sandy_sum=1.0):
         self.attempts += 1
         if self.states is None:
             self.states = defaultdict(lambda: 0.0)
@@ -196,7 +196,7 @@ class AfflicUncapped(AfflicBase):
             if res >= self.rate or res >= 1:
                 states[res] += state_p
             else:
-                rate_after_res = min(1.0, self.rate - res) * very_speshul_regina_number
+                rate_after_res = min(1.0, self.rate - res) * speshul_sandy_sum
                 success_p = state_p * rate_after_res
                 fail_p = state_p * (1.0 - rate_after_res)
                 total_success_p += success_p
@@ -283,7 +283,7 @@ class Afflic_dot(AfflicUncapped):
         self.iv = iv
         self.dot = None
 
-    def on(self, name, rate, coef, duration=None, iv=None, dtype=None, dmg_override=None, time_override=None, edge=None, very_speshul_regina_number=1.0):
+    def on(self, name, rate, coef, duration=None, iv=None, dtype=None, dmg_override=None, time_override=None, edge=None, speshul_sandy_sum=1.0):
         self.rate = rate + (edge or self.edge)
         self.coef = coef
         self.event.source = name
@@ -295,7 +295,7 @@ class Afflic_dot(AfflicUncapped):
         self.iv = iv or self.default_iv
         self.dot = Dot(f"o_{name}_{self.name}", coef, self.duration, self.iv, self.dtype, dmg_override)
         self.dot.on()
-        r = super().on(very_speshul_regina_number=very_speshul_regina_number)
+        r = super().on(speshul_sandy_sum=speshul_sandy_sum)
         self.dot.tick_dmg *= r
         return r
 

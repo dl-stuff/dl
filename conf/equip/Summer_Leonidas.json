@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 19102.79016937829,
-        "team": 0.11335812569869883,
+        "dps": 8591.180598885016,
+        "team": 0.0,
         "noaff": true,
         "nihil": false
       },
@@ -44,7 +44,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 27664.721832726325,
+        "dps": 8997.293970731173,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -89,15 +89,14 @@
       ]
     },
     "META": {
-      "tdps": 75529.93321453895,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 58862.384213108824,
-        "team": 0.03698255146579695,
+        "dps": 15600.060059816622,
+        "team": 0.02463457532855902,
         "noaff": false,
         "nihil": true
       },
@@ -112,7 +111,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "If in_drg",
+        "if in_drg",
         "`s1, xf",
         "`dodge, fsc",
         "`fs3, not charged_in(1,s1)",
@@ -135,40 +134,33 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 21799.2103367389,
+        "dps": 9769.350016016007,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
+        "Levins_Champion",
         "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
         "Beautiful_Nothingness",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Axe",
+        "Lord_of_the_Skies",
+        "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "if in_drg",
-        "`s4, fsc",
-        "`s1, fsc",
-        "`s2, fsc",
         "`s3, fsc",
+        "if in_drg",
+        "`s1, xf",
         "`dodge, fsc",
-        "`fs3",
+        "`fs3, not charged_in(1,s1)",
         "else",
-        "`dragon",
-        "`s4, cancel and not aff(poison)",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s3, cancel",
+        "`dragon, cancel",
+        "`s4, cancel",
+        "`s1, xf",
         "`fs, x=5",
         "end"
-      ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
         "Delphi",
@@ -176,20 +168,20 @@
         "Ieyasu"
       ],
       "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": -1002180.0121240292,
+      "tdps": -236688.06813328888,
       "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 32071.11416929439,
-        "team": 0.10626516420659471,
+        "dps": 13491.479062622619,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -214,8 +206,8 @@
       ]
     },
     "META": {
-      "tdps": 1828337.0090691221,
-      "pref": "PERSONAL",
+      "tdps": -49500.73999697476,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -224,37 +216,6 @@
   },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
-      "EQMT": {
-        "dps": 80680.80498808045,
-        "team": 0.03703479231712494,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
-        "Beautiful_Nothingness",
-        "The_Plaguebringer",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "if in_drg",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs3",
-        "else",
-        "`dragon, cancel",
-        "`s4",
-        "`s3",
-        "`s2, xf",
-        "`s1",
-        "`fs, x=5",
-        "end"
-      ]
-    },
-    "PERSONAL": {
       "EQMT": {
         "dps": 26856.733021571712,
         "team": 0.037021798453440315,
@@ -283,9 +244,37 @@
         "`s1",
         "`fs, x=5",
         "end"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 13197.953612006842,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "Beautiful_Nothingness",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
       ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
+      "acl": [
+        "if in_drg",
+        "`s1, fsc",
+        "`dodge, fsc",
+        "`fs3",
+        "else",
+        "`dragon, cancel",
+        "`s4",
+        "`s3",
+        "`s2, xf",
+        "`s1",
+        "`fs, x=5",
+        "end"
       ],
       "coabs": [
         "Grace",
@@ -298,7 +287,7 @@
       ]
     },
     "META": {
-      "tdps": -4142268479.40458,
+      "tdps": -368938.84090321936,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -309,8 +298,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 19102.79016937829,
-        "team": 0.11335812569869883,
+        "dps": 8591.180598885016,
+        "team": 0.0,
         "noaff": true,
         "nihil": false
       },
@@ -381,43 +370,9 @@
         "Ieyasu"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 53432.30889507988,
-        "team": 0.02443194237521161,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Levins_Champion",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Nothingness",
-        "Lord_of_the_Skies",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`s3, fsc",
-        "if in_drg",
-        "`s1, xf",
-        "`dodge, fsc",
-        "`fs3, not charged_in(1,s1)",
-        "else",
-        "`dragon, cancel",
-        "`s4, cancel",
-        "`s1, xf",
-        "`fs, x=5",
-        "end"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
-      ]
-    },
     "META": {
-      "tdps": 2395578.0309107,
-      "pref": "PERSONAL",
+      "tdps": -364055.8062242129,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

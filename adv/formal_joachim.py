@@ -4,6 +4,8 @@ from core.advbase import *
 class Formal_Joachim(Adv):
     @allow_acl
     def s(self, n):
+        if self.in_dform():
+            return False
         if n == 1:
             if self.action.getdoing() is self.a_s_dict["s2"].ac:
                 self.current_s["s1"] = "from2"

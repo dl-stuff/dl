@@ -463,6 +463,12 @@ class Action(object):
             log("act", self.name)
         self.act_event()
 
+    def turn_off(self):
+        self.startup_timer.off()
+        self.recovery_timer.off()
+        self.general_end_event()
+        self.end_event()
+
     def add_delayed(self, mt):
         self.delayed.add(mt)
 
@@ -498,7 +504,6 @@ class Action(object):
     def tap(self, t=None, defer=True):
         if not self.enabled:
             return False
-
         doing = self._static.doing
 
         # if doing.idle:
@@ -522,9 +527,7 @@ class Action(object):
                             dt.on(timing)
                             return False
                         return timing
-                    doing.startup_timer.off()
-                    self.general_end_event()
-                    doing.end_event()
+                    doing.turn_off()
                     logargs = ["interrupt", doing.name, f"by {self.name}"]
                     delta = now() - doing.startup_start
                     logargs.append(f"after {delta:.2f}s")
@@ -541,11 +544,8 @@ class Action(object):
                             dt.on(timing)
                             return False
                         return timing
-                    doing.recovery_timer.off()
-                    self.general_end_event()
-                    doing.end_event()
+                    doing.turn_off()
                     count = doing.clear_delayed()
-
                     delta = now() - doing.recover_start
                     logargs = ["cancel", doing.name, f"by {self.name}"]
                     logargs.append(f"after {delta:.2f}s")
@@ -591,16 +591,9 @@ class Repeat(Action):
     def can_ic(self, name, atype, can):
         if name == self.parent.name and atype == self.parent.atype:
             return None
-        result = can(name, atype, endcheck=False)
+        result = can(name, atype)
         if result is not None:
-            self.end_repeat_event.on()
-        return result
-
-    def can_follow(self, name, atype, conf, elapsed):
-        if name == self.parent.name and atype == self.parent.atype:
-            return None
-        result = super().can_follow(name, atype, conf, elapsed)
-        if result is not None:
+            self.parent.end_event.on()
             self.end_repeat_event.on()
         return result
 
@@ -609,6 +602,7 @@ class Repeat(Action):
 
     def can_cancel(self, name, atype):
         if self.explicit_x:
+            self.parent.end_event.on()
             self.end_repeat_event.on()
             return 0.0
         return self.can_ic(name, atype, self.parent.can_cancel)
@@ -713,25 +707,8 @@ class Fs(Action):
         self.last_buffer = 0
 
     def _charged(self, _):
+        self.extra_charge = 0
         self.charged_event()
-
-    def can_interrupt(self, name, atype, endcheck=True):
-        if self.act_repeat and endcheck:
-            result = super().can_interrupt(name, atype)
-            if result is not None:
-                self.act_repeat.end_event.on()
-            return result
-        else:
-            return super().can_interrupt(name, atype)
-
-    def can_cancel(self, name, atype, endcheck=True):
-        if self.act_repeat and endcheck:
-            result = super().can_cancel(name, atype)
-            if result is not None:
-                self.act_repeat.end_event.on()
-            return result
-        else:
-            return super().can_cancel(name, atype)
 
     def _cb_act_end(self, e):
         if self.act_repeat:
@@ -739,8 +716,13 @@ class Fs(Action):
             self.act_repeat()
         else:
             super()._cb_act_end(e)
-        self.extra_charge = 0
         self.last_buffer = 0
+
+    def turn_off(self):
+        self.charged_timer.off()
+        self.extra_charge = 0
+        self.charged_event()
+        return super().turn_off()
 
     @property
     def _charge(self):
@@ -748,7 +730,7 @@ class Fs(Action):
             self.act_repeat.extra_charge = self.extra_charge or None
             self.extra_charge = 0
             return self.conf.charge
-        return self.conf.charge + self.extra_charge
+        return self.conf.charge
 
     @property
     def _buffer(self):
@@ -778,17 +760,13 @@ class Fs(Action):
                 buffer = max(0, self._buffer - bufferable)
                 # log("input_buffer", prev.name, buffer, bufferable)
             self.last_buffer = buffer
-        charge = self._charge / self.charge_speed()
+        charge = self._charge / self.charge_speed() + self.extra_charge
         return buffer + charge
 
     def __call__(self):
         charge = self.getcharge()
         if super().__call__():
-            log(
-                "charge",
-                self.name,
-                charge,
-            )
+            log("charge", self.name, charge, self.extra_charge)
             self.charged_timer.on(charge)
 
 
@@ -1045,7 +1023,7 @@ class Adv(object):
         }
         self._cooldowns = {}
 
-        self.disable_echo()
+        self._echoes = {}
         self.bleed = None
         self.alive = True
 
@@ -1494,18 +1472,27 @@ class Adv(object):
     def f_speed(self):
         return 1 + min(self.sub_mod("fspd", "buff"), 0.50) + self.sub_mod("fspd", "passive")
 
-    def enable_echo(self, name="echo", mod=None, fixed_att=None):
-        self.echo = 2
+    def enable_echo(self, name, mod=None, fixed_att=None):
         new_att = fixed_att or (mod * self.base_att * self.mod("att"))
         if new_att >= self.echo_att:
-            self.echo_att = new_att
-            log("echo", name, self.echo_att)
-            return True
+            self._echoes[(name, now())] = new_att
+            log("echo", name, new_att, str(self._echoes))
+            return now()
         return False
 
-    def disable_echo(self):
-        self.echo = 1
-        self.echo_att = 0
+    @property
+    def echo(self):
+        return 2 if self._echoes else 1
+
+    @property
+    def echo_att(self):
+        return 0 if not self._echoes else max(self._echoes.values())
+
+    def disable_echo(self, name, active_time):
+        try:
+            del self._echoes[(name, active_time)]
+        except KeyError:
+            pass
 
     def dmg_formula_echo(self, coef):
         # so 5/3(Bonus Damage amount)/EnemyDef +/- 5%
@@ -1855,9 +1842,9 @@ class Adv(object):
             return False
 
     @allow_acl
-    def fst(self, t=None, n=None):
+    def fst(self, t=None, n=None, include_fs_anim=True):
         fsn = "fs" if n is None else f"fs{n}"
-        if self.in_dform:
+        if self.in_dform():
             fsn = "d" + fsn
         if self.current_fs is not None:
             fsn += "_" + self.current_fs
@@ -1865,13 +1852,18 @@ class Adv(object):
             fs_act = self.a_fs_dict[fsn]
         except KeyError:
             return False
-        delta = fs_act.getstartup(include_buffer=False) + fs_act.getrecovery()
+        delta = 0
+        if include_fs_anim:
+            delta = fs_act.getstartup(include_buffer=False) + fs_act.getrecovery()
+        else:
+            delta = fs_act.getcharge(include_buffer=False)
         if delta < t:
             fs_act.extra_charge = t - delta
-        result = self.fs(n=n)
-        if result:
-            log(fsn, "charge_for", fs_act.extra_charge)
-        return result
+        return self.fs(n=n)
+
+    @allow_acl
+    def fstc(self, t=None, n=None):
+        return self.fst(t=t, n=n, include_fs_anim=False)
 
     def check_deferred_x(self):
         if self.deferred_x is not None and not self.in_dform():
@@ -1961,7 +1953,7 @@ class Adv(object):
 
     def l_misc(self, e):
         log("cast", e.name, e.msg)
-        self.hit_make(e, e.conf, cb_kind=e.name)
+        self.hit_make(e, e.conf, cb_kind=e.name.strip("#"))
         self.think_pin(e.name)
 
     def add_combo(self, name="#"):
@@ -2024,10 +2016,10 @@ class Adv(object):
 
     @allow_acl
     def s(self, n):
+        if self.in_dform():
+            return False
         self.check_deferred_x()
         skey = f"s{n}"
-        if self.in_dform():
-            skey = f"ds{n}"
         try:
             return self.a_s_dict[skey]()
         except KeyError:
@@ -2596,7 +2588,7 @@ class Adv(object):
             onhit(name, base, group, aseq, dtype)
 
         if "sp" in attr:
-            dragon_sp = group == globalconf.DRG
+            dragon_sp = base in ("ds1", "ds2", "dfs") or group == globalconf.DRG
             if isinstance(attr["sp"], int):
                 value = attr["sp"]
                 self.charge(base, value, dragon_sp=dragon_sp)

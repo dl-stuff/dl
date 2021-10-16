@@ -992,14 +992,17 @@ class EchoBuff(Buff):
     def __init__(self, name, value=0, duration=0, source=None):
         super().__init__(name, 1, duration, "effect", source=source)
         self.echo_mod = value
+        self.active_time = None
 
     def on(self, duration=None):
-        if self._static.adv.enable_echo(self.name, mod=self.echo_mod):
+        result = self._static.adv.enable_echo(self.name, mod=self.echo_mod)
+        if result is not False:
+            self.active_time = result
             return super().on(duration)
 
     def effect_off(self):
         super().effect_off()
-        self._static.adv.disable_echo()
+        self._static.adv.disable_echo(self.name, self.active_time)
 
 
 bufftype_dict["echo"] = EchoBuff

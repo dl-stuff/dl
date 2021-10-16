@@ -5,8 +5,8 @@ from module.template import LowerMCAdv
 class Akasha(Adv):
     def prerun(self):
         super().prerun()
-        Event("s").listener(self.a1_amp)
-        Event("ds").listener(self.a1_amp)
+        if self.MC is None:
+            Event("s").listener(self.a1_amp)
 
     def a1_amp(self, e):
         if not self.is_set_cd("a1_amp", 30):

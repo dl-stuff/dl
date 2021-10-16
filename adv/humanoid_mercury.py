@@ -22,6 +22,8 @@ class Humanoid_Mercury(Adv):
 
     @allow_acl
     def s(self, n):
+        if self.in_dform():
+            return False
         if self.amp_lvl(kind="team", key=2) >= 1:
             self.current_s["s1"] = "teamamp"
         return super().s(n)

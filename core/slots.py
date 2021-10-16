@@ -335,24 +335,18 @@ class Gala_Mars(DragonBase):
 
 
 class Gozu_Tenno(DragonBase):
-    def oninit(self, adv):
-        from core.advbase import Repeat, Fs
+    def update_gozu_tenno_buff(self, t):
+        # will ignore cd of 15s for qol reasons
+        self.adv.gozu_tenno_buff.on(30)
 
+    def oninit(self, adv):
         super().oninit(adv)
         adv.gozu_tenno_buff = adv.Selfbuff("gozu_tenno_buff", 0.3, 30, "flame", "ele").no_bufftime()
 
-        def fs_end(e):
-            fs_action = adv.action.getdoing()
-            if not isinstance(fs_action, Fs):
-                fs_action = adv.action.getprev()
-            if isinstance(fs_action, Repeat):
-                fs_action = fs_action.parent
-            fs_elapsed = now() - fs_action.startup_start - fs_action.last_buffer + 0.0001  # float shenanigans
-            if fs_elapsed >= 3.0:
-                adv.gozu_tenno_buff.on(30)
+        self.fs_charging_timer = Timer(self.update_gozu_tenno_buff, 3.0 - 0.00001, True)
 
-        Event("fs_end").listener(fs_end, order=0)
-        Event("repeat").listener(fs_end, order=0)
+        Event("fs_start").listener(lambda _: self.fs_charging_timer.on(), order=0)
+        Event("fs_end").listener(lambda _: self.fs_charging_timer.off(), order=0)
 
 
 class Gala_Reborn_Agni(Gala_Reborn):

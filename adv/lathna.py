@@ -3,9 +3,7 @@ from core.advbase import *
 
 class Lathna(Adv):
     def prerun(self):
-        self.dragonform.shift_mods.append(
-            Modifier("faceless_god", "poison_killer", "passive", 2.00).off()
-        )
+        self.dragonform.shift_mods.append(Modifier("faceless_god", "poison_killer", "passive", 2.00).off())
         Event("dragon").listener(self.dshift_heal)
 
     def dshift_heal(self, e):
@@ -17,6 +15,8 @@ class Lathna(Adv):
 
     @allow_acl
     def s(self, n, s1_kind=None):
+        if self.in_dform():
+            return False
         if n == 1 and s1_kind == "all":
             self.current_s["s1"] = "all"
         else:

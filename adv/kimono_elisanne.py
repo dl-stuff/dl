@@ -20,6 +20,8 @@ class Kimono_Elisanne(Adv):
 
     @allow_acl
     def s(self, n, s1_lv=None):
+        if self.in_dform():
+            return False
         if n == 1:
             s1_lv = max(1, min(3, s1_lv or 1))
             self.current_s["s1"] = f"lv{s1_lv}"
