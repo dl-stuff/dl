@@ -488,10 +488,12 @@ class Gala_Beast_Volk(DragonBase):
         self.dragon_strike_timer.off()
 
     def shift_end_proc(self):
-        self.dragon_strike_timer.off()
+        if self.dragon_strike_timer is not None:
+            self.dragon_strike_timer.off()
         SelfAffliction("gala_beast_volk_poison", -10, [12, 2.9], affname="poison").on()
 
     def oninit(self, adv):
+        self.dragon_strike_timer = None
         if not super().oninit(adv):
             self.adv.blood_moon = 0
             self.adv.moonlit_rage = 0

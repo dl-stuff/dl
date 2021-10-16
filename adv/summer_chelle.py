@@ -39,7 +39,7 @@ class Summer_Chelle(Adv):
             self.radiance.off()
 
     def s2_proc(self, e):
-        self.dragonform.charge_gauge(100, dhaste=False)
+        self.dragonform.charge_dprep(10)
 
 
 variants = {None: Summer_Chelle}

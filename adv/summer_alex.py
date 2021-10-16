@@ -29,7 +29,7 @@ class Summer_Alex(Adv):
             return True
         return False
 
-    def s1_enhanced_hit2(self, name, base, group, aseq):
+    def s1_enhanced_hit2(self, *args):
         self.scorchbloom_proc()
 
 

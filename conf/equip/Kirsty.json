@@ -97,10 +97,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 77574.38297804238,
-        "team": 0.033313859531667066,
+        "dps": 92079.11576374769,
+        "team": 0.08823103034091706,
         "noaff": false,
         "nihil": true
       },
@@ -113,7 +113,7 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, x=5",
         "`s3",
@@ -136,7 +136,12 @@
         "Formal_Joachim"
       ]
     },
-    "PERSONAL": {
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 92079.1157637477,
         "team": 0.08823103034091706,
@@ -176,7 +181,11 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -355,6 +364,10 @@
         "`s2",
         "`s1, cancel",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Mona",

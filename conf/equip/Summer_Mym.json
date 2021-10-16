@@ -41,9 +41,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 20940.821430817883,
-        "team": 0.05952863731672597,
-        "noaff": false,
+        "dps": 17984.52027286343,
+        "team": 0.0,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 11682817.889620796,
+      "tdps": 170049.30696570437,
       "pref": "PERSONAL"
     }
   },
@@ -129,7 +129,7 @@
       ]
     },
     "META": {
-      "tdps": -189048.31457774426,
+      "tdps": -158741.9001844705,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -231,6 +231,15 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
       "acl": [
         "`s3, not buff(s3)",
         "if in_drg",
@@ -354,57 +363,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 14366.21017928127,
-        "team": 0.059245622280453214,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Memory_of_a_Friend",
-        "Rivalry_of_Kings",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Promised_Piety_Staff",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`fs, fs_prep_c and x=2",
-        "if in_drg",
-        "`s4, cancel",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
-        "`s2, cancel",
-        "else",
-        "`dragon",
-        "`s1, xf",
-        "`s4, xf",
-        "`s2, xf",
-        "end"
-      ],
-      "coabs": [
-        "Gala_Leif",
-        "Ieyasu",
-        "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "tdps": 61073.03720187171,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

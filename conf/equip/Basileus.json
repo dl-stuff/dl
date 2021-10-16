@@ -86,18 +86,18 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55046.7443960843,
-        "team": 0.07961198802963719,
+        "dps": 69579.90773306294,
+        "team": 0.09280018087095503,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Bloody_Little_Queen",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
+        "A_Small_Courage",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
@@ -119,7 +119,7 @@
         "Yukata_Lathna"
       ],
       "share": [
-        "Weapon",
+        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -163,8 +163,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 105210.20401877315,
-        "team": 0.11646942414407553,
+        "dps": 111570.8986988483,
+        "team": 0.11627793495542137,
         "noaff": false,
         "nihil": false
       },
@@ -178,20 +178,13 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if unlocked",
-        "`s1",
-        "`s2",
-        "else",
-        "`s1",
-        "`s2, close_combat",
-        "queue s2.check()",
-        "`dodge",
-        "`s2, cancel",
-        "end",
-        "end"
+        "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs, x=3  and unlocked",
+        "`fs1, x=3 and not unlocked"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
@@ -199,7 +192,7 @@
       ]
     },
     "META": {
-      "tdps": 138881.3926262143,
+      "tdps": 208453.63007091833,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -215,25 +208,12 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
       "acl": [
         "`dragon, x=5",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
         "`s4"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
       ]
     },
     "META": {

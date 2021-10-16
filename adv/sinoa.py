@@ -133,13 +133,13 @@ class Sinoa(Adv):
         m_dmg = 0
         for state, state_p in self.combined_states.items():
             if state[0] == 0 and state[2] == 0:
-                m_dmg += state_p * super().dmg_formula(name, dtype=dtype)
+                m_dmg += state_p * super().dmg_formula(name, dmg_coef, dtype=dtype)
                 continue
             state_mods = [
                 Modifier("sinoa_att", "att", "buff", 0.25 * state[0]),
                 Modifier("sinoa_crit", "crit", "chance", 0.25 * state[2]),
             ]
-            m_dmg += state_p * super().dmg_formula(name, dmg_coef)
+            m_dmg += state_p * super().dmg_formula(name, dmg_coef, dtype=dtype)
             for m in state_mods:
                 m.off()
         return m_dmg
