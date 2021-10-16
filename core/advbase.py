@@ -1348,6 +1348,8 @@ class Adv(object):
         self.name = name
         if self.__class__.__name__.startswith(self.name):
             self.variant = self.__class__.__name__.replace(self.name, "").strip("_")
+        elif self.__class__.__name__.startswith("Adv"):
+            self.variant = self.__class__.__name__.replace("Adv", "").strip("_")
         else:
             self.variant = None
 
