@@ -60,6 +60,9 @@
         "`s2, x=5 and buff(fs)",
         "`s4, x=5 or (buff(fs) and buff(s2))"
       ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
       "coabs": [
         "Blade",
         "Bow",
@@ -132,8 +135,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35572.496244340895,
-        "team": 0.10127454720746512,
+        "dps": 35159.105463611544,
+        "team": 0.10136958298533517,
         "noaff": false,
         "nihil": true
       },
@@ -148,7 +151,7 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c5-s-c5-end)",
+        "`dragon",
         "`s4",
         "`s1",
         "`s3",
@@ -165,7 +168,7 @@
       ]
     },
     "META": {
-      "tdps": 83306.51303079503,
+      "tdps": 82195.89483912915,
       "pref": "PERSONAL"
     }
   },
@@ -239,8 +242,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57199.31431767741,
-        "team": 0.12349419600241873,
+        "dps": 50698.67247387091,
+        "team": 0.08806956871346924,
         "noaff": false,
         "nihil": true
       },
@@ -289,8 +292,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54632.58884513108,
-        "team": 0.48032778295627465,
+        "dps": 56145.7839881612,
+        "team": 0.4591256448880418,
         "noaff": false,
         "nihil": false
       },
@@ -304,7 +307,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-end), trickery<=1 and cancel",
+        "`dragon, trickery<=1 and cancel",
         "`s3, not buff(s3)",
         "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
         "if x=5 or (x=4 or (fsc or s))",
@@ -319,7 +322,7 @@
       ]
     },
     "META": {
-      "tdps": 75920.253814034,
+      "tdps": 75751.75985596333,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -361,8 +364,8 @@
       ]
     },
     "META": {
-      "tdps": 38867.137818754876,
-      "pref": "TEAMBUFF",
+      "tdps": 41913.668231780626,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
@@ -384,13 +387,13 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 34273.11934397118,
-        "team": 0.1006137653274492,
+        "dps": 33885.58628048968,
+        "team": 0.1005956377604935,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c5-s-c5-c4-end), xf",
+        "`dragon, xf",
         "`s1, xf",
         "`s2, xf",
         "`s3, xf",
@@ -407,7 +410,7 @@
       ]
     },
     "META": {
-      "tdps": 91171.24100034365,
+      "tdps": 89992.68138313865,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

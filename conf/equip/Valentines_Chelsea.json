@@ -111,7 +111,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66517.73651390713,
+        "dps": 66517.73651390715,
         "team": 0.05478285105666785,
         "noaff": false,
         "nihil": true
@@ -145,7 +145,7 @@
       ]
     },
     "META": {
-      "tdps": 363094.06074008066,
+      "tdps": 363094.06074008177,
       "pref": "PERSONAL"
     }
   },
@@ -189,7 +189,11 @@
         "team": 0.05478285105666785,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ]
     },
     "META": {
       "tdps": 290076.50170295953,
@@ -201,6 +205,34 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55438.317423347646,
+        "team": 0.03702294644344487,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Forest_Bonds",
+        "Initios_Sentinel",
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Mask_of_Determination_Bow",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "acl": [
+        "`dragon, hp=0",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, s=1",
+        "`s4"
+      ],
+      "share": [
+        "Weapon",
+        "Summer_Julietta"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 61511.86319308211,
@@ -240,8 +272,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 31195.549214730585,
-        "team": 0.04624937435774335,
+        "dps": 28916.29068416804,
+        "team": 0.05478285105666785,
         "noaff": false,
         "nihil": true
       },
@@ -255,7 +287,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

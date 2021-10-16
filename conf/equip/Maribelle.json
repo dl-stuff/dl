@@ -256,13 +256,13 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78880.28301995716,
-        "team": 0.04226912440736917,
+        "dps": 79517.7986131245,
+        "team": 0.039742077635499605,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-dfs-s-end), duration-now<65 and not have_buff(poison)",
+        "`dragon, duration-now<65 and not have_buff(poison)",
         "`s1",
         "`s4",
         "`s2, cancel",
@@ -277,7 +277,7 @@
       ]
     },
     "META": {
-      "tdps": 56794.49444633,
+      "tdps": 61686.09531482857,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -333,14 +333,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49031.43146397489,
-        "team": 0.04238679452026691,
+        "dps": 50501.0909226238,
+        "team": 0.03947936930252985,
         "noaff": false,
         "nihil": true
-      }
+      },
+      "acl": [
+        "`dragon, s=2",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`s1",
+        "`s2, cancel",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ]
     },
     "META": {
-      "tdps": 342856.1610027177,
+      "tdps": 357578.2815133273,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -2,47 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 62172.83060447075,
-        "team": 0.04999118211093313,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sisters_Day_Out",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gabriel",
-      "acl": [
-        "if in_drg",
-        "`ds1, aff_timeleft(frostbite)<15",
-        "`ds2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3, not buff(s3)",
-        "`s4, s=2",
-        "`dragon",
-        "`s2, x=4",
-        "`s1, cancel",
-        "`fs, fs_prep_c and x=4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Xander",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Cleo"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 83369.58486610468,
-        "team": 0.014331356243120914,
+        "dps": 28019.25851296213,
+        "team": 0.05747861476205205,
         "noaff": false,
         "nihil": false
       },
@@ -76,22 +37,59 @@
         "Akasha"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 140118.24423307466,
+        "team": 0.014331356243120914,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sisters_Day_Out",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s1, dshift_count>0",
+        "`s4, dshift_count>0",
+        "`fs, fs_prep_c and x=4"
+      ],
+      "dacl": [
+        "`ds1",
+        "`ds2"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Xander",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "META": {
-      "tdps": 594415.5291225594,
+      "tdps": 2598055.8109138818,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 53614.750424274636,
-        "team": 0.009795885677077018,
+        "dps": 68061.8048261805,
+        "team": 0.009797542279987364,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Gentle_Winds",
-        "Memory_of_a_Friend",
         "Twinfold_Bonds",
         "His_Clever_Brother",
         "Rogues_Banquet"
@@ -120,107 +118,15 @@
         "Gala_Mym"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 57976.35115481286,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Sisters_Day_Out",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if in_drg",
-        "`ds1, x=3",
-        "`ds2, cancel",
-        "`dodge, x=3",
-        "else",
-        "`s3",
-        "`s4, s=2",
-        "`dragon",
-        "`s2, x=4",
-        "`s1, cancel",
-        "`fs, fs_prep_c and x=4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Yurius"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
-      ]
-    },
     "META": {
-      "tdps": 445248.22709442594,
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 64147.411319807725,
-        "team": 0.04999118211093313,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 86916.5478638114,
-        "team": 0.014331356243120914,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 638509.4708091628,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 46456.156488174216,
-        "team": 0.02466850950300062,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "if in_drg",
-        "`ds1, cancel",
-        "`ds2",
-        "`dodge, x=3",
-        "else",
-        "`s3",
-        "`s4",
-        "`dragon",
-        "`s2, x=4",
-        "`s1, cancel",
-        "`fs, fs_prep_c and x=4",
-        "end"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63941.19458811523,
-        "team": 0.0029180589467575034,
+        "dps": 75921.19052584807,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -244,11 +150,10 @@
       ]
     },
     "META": {
-      "tdps": 803893.1448673928,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -263,7 +168,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49022.4331071772,
+        "dps": 81843.7170049777,
         "team": 0.014331356243120937,
         "noaff": false,
         "nihil": false
@@ -277,7 +182,7 @@
       ]
     },
     "META": {
-      "tdps": 404457.82997695147,
+      "tdps": 1324857.273862799,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -286,10 +191,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 32244.5916036337,
-        "team": 0.009795885677077018,
+        "dps": 43166.3210366228,
+        "team": 0.009797542279987364,
         "noaff": false,
         "nihil": true
       },
@@ -313,16 +218,29 @@
         "`s1, cancel",
         "end"
       ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Yurius"
+      ],
       "share": [
         "Sha_Wujing",
         "Gala_Mym"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43166.3210366228,
+        "team": 0.009797542279987364,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

@@ -26,6 +26,9 @@
         "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
         "`fsf, xf=5"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Axe2",
         "Lucretia",
@@ -62,6 +65,9 @@
         "`s4, xf or fsc",
         "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
         "`fsf, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Axe2",
@@ -142,7 +148,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 45046.91734081207,
+        "dps": 45130.90823922469,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -150,7 +156,7 @@
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Moonlight_Party",
+        "Spirit_of_the_Season",
         "A_Small_Courage",
         "Snipers_Allure",
         "Mask_of_Determination_Bow",
@@ -166,12 +172,12 @@
         "`fsf, xf=5"
       ],
       "coabs": [
-        "Axe2",
+        "Gala_Audric",
         "Peony",
         "Wand"
       ],
       "share": [
-        "Summer_Celliera",
+        "Sharena",
         "Ilia"
       ]
     },
@@ -180,9 +186,9 @@
     }
   },
   "SELF-NIHILISM-MONO": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 41111.46186830319,
+        "dps": 45130.90823922469,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -196,8 +202,9 @@
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
+      "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-s-c3-end)",
+        "`dragon",
         "`s1",
         "`s4, xf or fsc",
         "`s3, xf=5",
@@ -218,7 +225,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -271,7 +278,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59178.833445381446,
+        "dps": 61364.286904312794,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -280,23 +287,18 @@
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-end), xf",
+        "`dragon, xf",
         "`s1",
         "`s3",
         "`s4",
         "`fsf, xf=5",
         "`fs, (charged_in(fs, s1) or charged_in(fs, s3)) and xf"
-      ],
-      "coabs": [
-        "Gala_Audric",
-        "Peony",
-        "Wand"
       ],
       "share": [
         "Summer_Julietta",
@@ -307,7 +309,45 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 61364.286904312794,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, xf",
+        "`s1",
+        "`s3",
+        "`s4",
+        "`fsf, xf=5",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s3)) and xf"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Ryszarda"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   },
@@ -369,28 +409,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 26458.722432766936,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dshift_count=0",
-        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dshift_count=1",
-        "`s3, not buff(s3) or duration-now<=2.4",
-        "`s2, charged_in(5, s1)",
-        "`s1",
-        "`s4, xf or fsc",
-        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
-        "`fsf, xf=5"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40818.93891976841,
-        "team": 0.0,
+        "dps": 43708.14926735255,
+        "team": 0.033307788110285445,
         "noaff": false,
         "nihil": true
       },
@@ -426,21 +448,39 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 26458.722432766936,
-        "team": 0.0,
+        "dps": 28815.00130530788,
+        "team": 0.0332854411311192,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=1 and buff(s2) and dshift_count=0",
-        "`dragon(c3-s-c3-end), s=1 and buff(s2) and dshift_count=1",
+        "`dragon, s=1 and buff(s2) and dshift_count=0",
+        "`dragon, s=1 and buff(s2) and dshift_count=1",
+        "`s3, not buff(s3) or duration-now<=2.4",
+        "`s2, charged_in(5, s1)",
+        "`s1",
+        "`s4, xf or fsc",
+        "`fs, (charged_in(fs, s1) or charged_in(fs, s4)) and xf>1",
+        "`fsf, xf=5"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 28815.00130530788,
+        "team": 0.0332854411311192,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, s=1 and buff(s2) and dshift_count=0",
+        "`dragon, s=1 and buff(s2) and dshift_count=1",
         "`s3, not buff(s3) or duration-now<=2.4",
         "`s2, charged_in(5, s1)",
         "`s1",
@@ -452,8 +492,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

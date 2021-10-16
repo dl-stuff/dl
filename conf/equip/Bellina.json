@@ -40,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 125115.60803160195,
+        "dps": 46279.341252035425,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -76,8 +76,8 @@
       ]
     },
     "META": {
-      "tdps": 642487.4247320491,
-      "pref": "PERSONAL"
+      "tdps": -27277.72403216172,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -126,7 +126,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57058.980148840055,
+        "dps": 23114.347233739736,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -169,29 +169,11 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 127229.14961507675,
+        "dps": 47596.11580888352,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "dacl": [
-        "`s2, duration-now<2",
-        "`s1, x=3 and dgauge>=900",
-        "`s4"
-      ],
-      "share": [
-        "Weapon",
-        "Veronica"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -204,8 +186,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 82825.10032706383,
-        "team": 0.05881362915342983,
+        "dps": 29944.359353980613,
+        "team": 0.03915534788342143,
         "noaff": true,
         "nihil": false
       },
@@ -236,7 +218,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86944.50849624314,
+        "dps": 35798.75637882336,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -261,7 +243,7 @@
       ]
     },
     "META": {
-      "tdps": 70041.72720633887,
+      "tdps": 149517.17559177981,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -270,11 +252,49 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22432.07482449086,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "Seaside_Princess",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`s2, (duration-now)<1.5",
+        "`s3, not buff(s3)",
+        "if in_drg",
+        "`s4, dgauge>500 and x=3",
+        "`s1, dgauge>1100 and x=3",
+        "else",
+        "`s2",
+        "`dragon",
+        "end"
+      ],
+      "coabs": [
+        "Berserker",
+        "Ieyasu",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54742.70003172187,
+        "dps": 22432.07482449086,
         "team": 0.0,
-        "noaff": false,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
@@ -311,7 +331,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

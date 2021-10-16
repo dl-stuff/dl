@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8591.180598885016,
-        "team": 0.0,
+        "dps": 19102.79016937829,
+        "team": 0.11335812569869883,
         "noaff": true,
         "nihil": false
       },
@@ -44,7 +44,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 8997.293970731173,
+        "dps": 83913.85870961222,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -61,22 +61,18 @@
       "slots.d": "Gala_Bahamut",
       "acl": [
         "`s3, not buff(s3)",
-        "if in_drg",
+        "`dragon",
+        "`s4",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
         "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
         "`dodge, fsc",
-        "`fs3",
-        "else",
-        "`dragon",
-        "`s4, cancel and not aff(poison)",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5",
-        "end"
-      ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
+        "`fs3"
       ],
       "coabs": [
         "Grace",
@@ -89,6 +85,7 @@
       ]
     },
     "META": {
+      "tdps": 571737.2984138698,
       "pref": "PERSONAL"
     }
   },
@@ -134,71 +131,75 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 9769.350016016007,
+        "dps": 90599.86902293673,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Levins_Champion",
         "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
         "Beautiful_Nothingness",
-        "Lord_of_the_Skies",
+        "The_Plaguebringer",
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`s3, fsc",
-        "if in_drg",
-        "`s1, xf",
+        "`s3, not buff(s3)",
+        "`dragon",
+        "`s4",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`s4, fsc",
+        "`s1, fsc",
+        "`s2, fsc",
         "`dodge, fsc",
-        "`fs3, not charged_in(1,s1)",
-        "else",
-        "`dragon, cancel",
-        "`s4, cancel",
-        "`s1, xf",
-        "`fs, x=5",
-        "end"
+        "`fs3"
       ],
       "coabs": [
         "Delphi",
-        "Grace",
-        "Ieyasu"
+        "Ieyasu",
+        "Summer_Prince"
       ],
       "share": [
-        "Summer_Celliera",
-        "Seimei"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": -236688.06813328888,
-      "pref": "TEAMBUFF"
+      "tdps": 3044493.6826725956,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 13491.479062622619,
-        "team": 0.0,
+        "dps": 106345.78199650616,
+        "team": 0.10505249006678129,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "Beautiful_Nothingness",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Axe",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "`s3, not buff(s3)",
-        "if in_drg",
-        "`s1, fsc",
-        "`s4, cancel",
-        "`dodge, fsc",
-        "`fs3",
-        "else",
         "`dragon, cancel",
         "`s4, cancel",
         "`s2",
         "`s1, cancel",
-        "`fs, x=5",
-        "end"
+        "`fs, x=5"
       ],
       "share": [
         "Weapon",
@@ -206,8 +207,8 @@
       ]
     },
     "META": {
-      "tdps": -49500.73999697476,
-      "pref": "TEAMBUFF",
+      "tdps": 10504071.656101042,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -217,8 +218,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 26856.733021571712,
-        "team": 0.037021798453440315,
+        "dps": 84246.76574671279,
+        "team": 0.026926131671200632,
         "noaff": false,
         "nihil": true
       },
@@ -231,37 +232,7 @@
         "Mask_of_Determination_Lance",
         "Savage_Hawk_Lance"
       ],
-      "acl": [
-        "if in_drg",
-        "`s1, fsc",
-        "`dodge, fsc",
-        "`fs3",
-        "else",
-        "`dragon, cancel",
-        "`s4",
-        "`s3",
-        "`s2, xf",
-        "`s1",
-        "`fs, x=5",
-        "end"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 13197.953612006842,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "The_Lurker_in_the_Woods",
-        "Welcome_to_the_Opera",
-        "Beautiful_Nothingness",
-        "The_Plaguebringer",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "if in_drg",
         "`s1, fsc",
@@ -276,18 +247,15 @@
         "`fs, x=5",
         "end"
       ],
-      "coabs": [
-        "Grace",
-        "Ieyasu",
-        "Summer_Prince"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
+      "dacl": [
+        "`s4, fsc",
+        "`s1, fsc",
+        "`s2, fsc",
+        "`dodge, fsc",
+        "`fs3"
       ]
     },
     "META": {
-      "tdps": -368938.84090321936,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -298,9 +266,9 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 8591.180598885016,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 86797.565783585,
+        "team": 0.11283303028707689,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -336,6 +304,7 @@
       ]
     },
     "META": {
+      "tdps": 128919000.46337974,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -344,35 +313,42 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 23250.645520419555,
-        "team": 0.03703084877075344,
+        "dps": 75957.59956091223,
+        "team": 0.03702736055347903,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Dragon_and_Tamer",
+        "Levins_Champion",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Lord_of_the_Skies",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
-        "s3, fsc",
+        "`s3, fsc",
         "if in_drg",
-        "s1, xf",
-        "dodge, fsc",
-        "fs3, not charged_in(1,s1)",
+        "`s1, xf",
+        "`dodge, fsc",
+        "`fs3, not charged_in(1,s1)",
         "else",
-        "dragon, cancel",
-        "s4, cancel",
-        "s1, xf",
-        "fs, x=5",
+        "`dragon, cancel",
+        "`s4, cancel",
+        "`s1, xf",
+        "`fs, x=5",
         "end"
       ],
-      "coabs": [
-        "Delphi",
-        "Grace",
-        "Ieyasu"
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": -364055.8062242129,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

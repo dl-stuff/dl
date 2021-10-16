@@ -36,27 +36,27 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95560.83898242714,
-        "team": 0.0,
-        "noaff": false,
+        "dps": 79041.17179413927,
+        "team": 0.10680259274256111,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
         "A_Passion_for_Produce",
-        "A_Small_Courage",
+        "Having_a_Summer_Ball",
         "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Promised_Piety_Staff"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon, (s1.check() or s2.check())",
         "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, cancel",
-        "`s1, cancel"
+        "`dragon, s2.check() and not in_drg and dgauge>=1900",
+        "`s2, in_drg or xf>2",
+        "`s1",
+        "`s4"
       ],
       "dacl": [
         "`s4, cancel",
@@ -64,17 +64,17 @@
         "`s1, cancel"
       ],
       "coabs": [
+        "Dagger",
         "Ieyasu",
-        "Summer_Prince",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 262746.79372617626,
+      "tdps": 2804235.686178366,
       "pref": "PERSONAL"
     }
   },
@@ -115,7 +115,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54878.3829201323,
+        "dps": 33675.22307189972,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -148,8 +148,8 @@
       ]
     },
     "META": {
-      "tdps": 378996.2738757546,
-      "pref": "PERSONAL"
+      "tdps": -213319.28190997196,
+      "pref": "TEAMBUFF"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -189,8 +189,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 113547.36600034416,
-        "team": 0.1027176582909963,
+        "dps": 121548.99758417241,
+        "team": 0.09552208386676252,
         "noaff": false,
         "nihil": false
       },
@@ -221,92 +221,7 @@
       ]
     },
     "META": {
-      "tdps": 984996.1079464098,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 68853.95738877653,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, not in_drg and xf=6",
-        "`s4, xf>3",
-        "`s3, xf>4",
-        "`s2, in_drg or cancel",
-        "`s1"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Summer_Prince",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 85318.57780191836,
-        "team": 0.10726382659451894,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
-        "Worthy_Rivals",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, s2.check() and not in_drg and dgauge>=1900",
-        "`s2, in_drg or xf>2",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Dagger",
-        "Ieyasu",
-        "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "tdps": 4659670.671660087,
+      "tdps": 1040019.1894252115,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -350,7 +265,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47214.06069257341,
+        "dps": 29452.762840207623,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -366,8 +281,8 @@
       ]
     },
     "META": {
-      "tdps": 111785.38081006541,
-      "pref": "PERSONAL",
+      "tdps": -541937.3496534437,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
