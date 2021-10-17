@@ -40,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46279.341252035425,
+        "dps": 121935.08652194019,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -54,7 +54,7 @@
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`dragon",
         "`s3, not buff(s3) and x=4",
@@ -76,8 +76,8 @@
       ]
     },
     "META": {
-      "tdps": -27277.72403216172,
-      "pref": "TEAMBUFF"
+      "tdps": 615466.8344747425,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -131,7 +131,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47596.11580888352,
+        "dps": 123320.263188616,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -141,6 +141,46 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40554.49550634736,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3) and x=4",
+        "`s2"
+      ],
+      "coabs": [
+        "Berserker",
+        "Curran",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -180,7 +220,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35798.75637882336,
+        "dps": 84086.40022784352,
         "team": 0.0,
         "noaff": true,
         "nihil": false
@@ -205,7 +245,7 @@
       ]
     },
     "META": {
-      "tdps": 149517.17559177981,
+      "tdps": 1382749.5808506636,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,49 +254,11 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 22432.07482449086,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Seaside_Princess",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`s2, (duration-now)<1.5",
-        "`s3, not buff(s3)",
-        "if in_drg",
-        "`s4, dgauge>500 and x=3",
-        "`s1, dgauge>1100 and x=3",
-        "else",
-        "`s2",
-        "`dragon",
-        "end"
-      ],
-      "coabs": [
-        "Berserker",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 22432.07482449086,
+        "dps": 35365.48706824635,
         "team": 0.0,
-        "noaff": true,
+        "noaff": false,
         "nihil": true
       },
       "slots.a": [
@@ -293,7 +295,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

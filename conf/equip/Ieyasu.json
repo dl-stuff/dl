@@ -199,73 +199,29 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63926.8873740487,
-        "team": 0.10917329068240163,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 126081.29989087718,
-        "team": 0.0,
+        "dps": 116337.153869621,
+        "team": 0.11527151871070408,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Welcome_to_the_Opera",
         "A_Choice_Blend",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
+        "His_Clever_Brother",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, duration-now<15 and s=1",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
         "`s2",
         "`s4, xf=5",
         "`fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
         "`fsf, xf=5 and not buff(s3)"
-      ],
-      "coabs": [
-        "Axe2",
-        "Dagger",
-        "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "tdps": 569318.8519675863,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 117727.01213638022,
-        "team": 0.033302004259351856,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "dragon, s=2",
-        "s3, not buff(s3)",
-        "s1, buff(s3)",
-        "s2",
-        "s4, xf=5",
-        "fs, (xf=5 and buff(s3)) or (xf=5 and not buff(s3) and s3.check())",
-        "fsf, xf=5 and not buff(s3)"
       ],
       "dacl": [
         "queue",
@@ -276,14 +232,59 @@
         "Audric",
         "Summer_Prince",
         "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 127081.76628752176,
+        "team": 0.033306605494103796,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "A_Choice_Blend",
+        "His_Clever_Brother",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, xf",
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s2",
+        "`s4, xf=5",
+        "`fs, xf=5 and buff(s3) or s3.check()",
+        "`fsf, xf=5 and not buff(s3)"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Summer_Prince",
+        "Vania",
+        "Yaten"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 709097.3054331524,
+      "tdps": 131087.94966337696,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

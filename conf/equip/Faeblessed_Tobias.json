@@ -2,27 +2,30 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65185.45885923122,
-        "team": 0.15921178346997641,
+        "dps": 58484.48526667998,
+        "team": 0.1627072669043779,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Moonlight_Party",
-        "Beach_Battle",
+        "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end),not buff(s2)",
+        "`dragon,not buff(s2)",
         "`s3, not buff(s3)",
         "`s4, not buff(s2)",
         "`s2, not buff(s2) or duration - now < 1.2",
         "`s1",
         "`fs, x=5",
         "`dodge, fsc"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -69,7 +72,7 @@
       ]
     },
     "META": {
-      "tdps": 58192.768809336965,
+      "tdps": 122694.45446015331,
       "pref": "PERSONAL"
     }
   },
@@ -256,23 +259,7 @@
         "team": 0.1627072669043779,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon,not buff(s2)",
-        "`s3, not buff(s3)",
-        "`s4, not buff(s2)",
-        "`s2, not buff(s2) or duration - now < 1.2",
-        "`s1",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ]
+      }
     },
     "PERSONAL": {
       "EQMT": {

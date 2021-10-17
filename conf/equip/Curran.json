@@ -2,30 +2,37 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 66886.64418589813,
-        "team": 0.05963124772890244,
+        "dps": 90093.00703625908,
+        "team": 0.08215766212877226,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Summer_Paladyns",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "Beautiful_Nothingness",
-        "Beautys_Secret"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c3-s-end), trickery<1",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s1",
         "`s2"
       ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
       "coabs": [
-        "Bow",
+        "Berserker",
         "Ieyasu",
-        "Wand"
+        "Vania"
       ],
       "share": [
         "Weapon",
@@ -67,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 5477259.697625095,
+      "tdps": 285252.3402214072,
       "pref": "PERSONAL"
     }
   },
@@ -176,8 +183,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 119263.50274793901,
-        "team": 0.05240067061670996,
+        "dps": 122479.91812341588,
+        "team": 0.05352669481330232,
         "noaff": false,
         "nihil": false
       },
@@ -191,11 +198,15 @@
         "Thunderswift_Lords_Blade_Lance"
       ],
       "acl": [
-        "`dragon(c3-s-end), trickery<1",
+        "`dragon, trickery<1 and x=3",
         "`s3, not buff(s3)",
         "`s4, x=4",
         "`s1",
         "`s2"
+      ],
+      "dacl": [
+        "ds1, x=1",
+        "sack"
       ],
       "coabs": [
         "Berserker",
@@ -208,7 +219,7 @@
       ]
     },
     "META": {
-      "tdps": 205190.78075668536,
+      "tdps": 231379.61086214392,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

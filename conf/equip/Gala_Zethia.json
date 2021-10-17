@@ -211,10 +211,43 @@
     }
   },
   "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57411.540209439154,
+        "team": 0.10681877542741193,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, dgauge>=2700 and (x=5 or x=9)",
+        "`s1",
+        "`s3",
+        "`s4",
+        "`dodge, xf=4"
+      ],
+      "coabs": [
+        "Delphi",
+        "Joker",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59693.27184641187,
-        "team": 0.10901243257711091,
+        "dps": 58747.53722485186,
+        "team": 0.10880656002109818,
         "noaff": false,
         "nihil": true
       },
@@ -238,10 +271,6 @@
         "Audric",
         "Delphi",
         "Joker"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
       ]
     },
     "META": {
@@ -333,6 +362,28 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 79604.72541565375,
+        "team": 0.14418628443619277,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "coabs": [
+        "Audric",
+        "Joker",
+        "Summer_Prince"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 89075.72664010884,
@@ -355,10 +406,33 @@
       ]
     },
     "META": {
+      "tdps": 521128.1135873538,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 79604.72541565375,
+        "team": 0.14418628443619277,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Audric",
+        "Joker",
+        "Summer_Prince"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-MONO",
+        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
       }
     }
   },

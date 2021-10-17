@@ -2,39 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43025.94986674367,
-        "team": 0.11903322366412199,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Taiko_Tandem",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2"
-      ],
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 46856.420439999994,
-        "team": 0.0,
+        "dps": 30257.447767154656,
+        "team": 0.14510020381373817,
         "noaff": false,
         "nihil": false
       },
@@ -51,8 +20,8 @@
       "acl": [
         "`s3, not buff(s3)",
         "`s4",
-        "`s1, cancel",
-        "`s2"
+        "`s2",
+        "`s1, x=5"
       ],
       "dacl": [
         "ds1,x=3"
@@ -64,12 +33,51 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61580.796135152996,
+        "team": 0.03330512048037668,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "His_Clever_Brother",
+        "Taiko_Tandem",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, energy()=5",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, cancel",
+        "`s1, x=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Yaten"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 32179.844041398268,
-      "pref": "TEAMBUFF"
+      "tdps": 280185.38413353404,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -149,14 +157,81 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55205.316079818425,
-        "team": 0.11903322366412199,
+        "dps": 66546.2025166679,
+        "team": 0.16100814551674758,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "Taiko_Tandem",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, energy()=5",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, cancel",
+        "`s1, x=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Yaten"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 80862.10247171597,
+        "team": 0.03330512048037668,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "Taiko_Tandem",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, energy()=5",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, cancel",
+        "`s1, x=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Yaten"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 112103.06060463948,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -200,6 +275,29 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 27580.690179664358,
+        "team": 0.14510020381373817,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "A_Small_Courage",
+        "Taiko_Tandem",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Arsene",
+      "coabs": [
+        "Bow",
+        "Ieyasu",
+        "Summer_Prince"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 33244.61452916896,
@@ -213,6 +311,7 @@
       ]
     },
     "META": {
+      "tdps": 229995.57605990337,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
