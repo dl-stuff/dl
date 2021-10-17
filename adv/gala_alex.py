@@ -35,9 +35,9 @@ class Gala_Alex_BK(Gala_Alex):
         if "poison" in self.sim_afflict:
             self.conf.acl = """
                 queue
-                `s1; fs, x=4
-                `s2; fs, x=4
                 `s1;
+                `s2, x=5;
+                `s1, x=5;
                 `s2;
                 `s1;
                 end
@@ -46,9 +46,9 @@ class Gala_Alex_BK(Gala_Alex):
         else:
             self.conf.acl = """
                 queue
-                `s2; fs, x=4;
-                `s1; fs, x=4;
                 `s2;
+                `s1, x=5;
+                `s2, x=5;
                 `s1;
                 `s2;
                 end

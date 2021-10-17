@@ -768,6 +768,8 @@ class Fs(Action):
         if super().__call__():
             log("charge", self.name, charge, self.extra_charge)
             self.charged_timer.on(charge)
+            return True
+        return False
 
 
 class S(Action):
