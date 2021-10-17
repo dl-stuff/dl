@@ -1328,9 +1328,9 @@ class Adv(object):
         self.equip_conf, self.real_equip_conditions = self.equip_manager.get_preferred_entry(equip_conditions)
         equip_conditions = equip_conditions or self.real_equip_conditions
         self.equip_conditions = equip_conditions
+        self.conf.update(equip_conditions.get_conf())
         if self.equip_conf:
             self.conf.update(self.equip_conf)
-            self.conf.update(self.equip_conditions.get_conf())
             self.acl_source = "equip" if "acl" in self.equip_conf else self.acl_source
             self.dacl_source = "equip" if "dacl" in self.equip_conf else self.dacl_source
         self.conf.update(self.conf_init)
