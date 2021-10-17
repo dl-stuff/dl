@@ -103,6 +103,44 @@
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3290.6522162508704,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Ariel",
+      "acl": [
+        "`s1",
+        "`s4, s1.charged<(s1.sp/2)",
+        "`s3, x>1",
+        "`fs, fs_prep_c=3 and x=1",
+        "`fs, fs_prep_c=1 and x=5",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 5232.47091462432,
@@ -177,7 +215,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -218,7 +256,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

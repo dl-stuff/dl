@@ -2,48 +2,9 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 7668.531883905766,
-        "team": 0.06066468939528344,
+        "dps": 52204.49511727968,
+        "team": 0.2996620517770716,
         "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Proper_Maintenance",
-        "Warrior_Maiden",
-        "From_Whence_He_Comes",
-        "Seaside_Memory",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Bow"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "if xf",
-        "`s2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "if not in_drg",
-        "`dragon",
-        "`s1",
-        "`dodge",
-        "end",
-        "end"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 17984.52027286343,
-        "team": 0.0,
-        "noaff": true,
         "nihil": false
       },
       "slots.a": [
@@ -58,19 +19,16 @@
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "`s3, not buff(s3)",
-        "if in_drg",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4",
-        "`s2, cancel",
-        "`s4, cancel",
-        "else",
         "`dragon",
         "`s1",
         "`s4, xf",
         "`s2, xf",
-        "end"
+        "`dodge, xf=2"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`s1, ((dgauge>1400) and cancel) or duration-now<4",
+        "`s2, cancel",
+        "`s4, cancel"
       ],
       "coabs": [
         "Ieyasu",
@@ -79,62 +37,52 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
-    "META": {
-      "tdps": 170049.30696570437,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 61445.91095032339,
-        "team": 0.273786508961745,
+        "dps": 77002.1527938481,
+        "team": 0.2729501507550982,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "if in_drg",
-        "`s4, cancel",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<2",
-        "`s2, not trickery=1",
-        "else",
-        "`dragon, xf",
-        "`s4, xf",
+        "`dragon",
         "`s1",
+        "`s4, xf",
         "`s2, xf",
-        "end"
+        "`dodge, xf=2"
+      ],
+      "dacl": [
+        "`s4, cancel",
+        "`s1, ((dgauge>1000) and cancel) or duration-now<4",
+        "`s2, cancel"
       ],
       "coabs": [
-        "Dagger",
         "Ieyasu",
+        "Summer_Prince",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": -158741.9001844705,
-      "pref": "TEAMBUFF",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "tdps": 928337.4349197269,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -226,8 +174,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24386.297005143893,
-        "team": 0.0,
+        "dps": 90733.00309407793,
+        "team": 0.2729501507550982,
         "noaff": false,
         "nihil": false
       },
@@ -239,24 +187,6 @@
         "Enter_the_Blue_Rose",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "if in_drg",
-        "`s4, cancel or s",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
-        "`s2, cancel",
-        "else",
-        "`dragon, xf",
-        "`s4, xf",
-        "`s1",
-        "`s2, xf",
-        "end"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Vania"
       ]
     },
     "META": {
@@ -264,42 +194,6 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 83670.77654038704,
-        "team": 0.27707637029777743,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`s3, not buff(s3)",
-        "if in_drg",
-        "`s4, cancel or s",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<4 and cancel",
-        "`s2, cancel",
-        "else",
-        "`dragon, xf",
-        "`s4, xf",
-        "`s1",
-        "`s2, xf",
-        "end"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Vania"
-      ]
-    },
-    "META": {
-      "tdps": -213964.40075900152,
-      "pref": "TEAMBUFF",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -327,8 +221,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 15810.62765446011,
-        "team": 0.008689571657680584,
+        "dps": 16848.243515039336,
+        "team": 0.0029225031855673205,
         "noaff": false,
         "nihil": true
       },
@@ -347,6 +241,9 @@
         "`dodge, xf",
         "end"
       ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
       "coabs": [
         "Ieyasu",
         "Joker",
@@ -358,11 +255,29 @@
       ]
     },
     "META": {
-      "tdps": -101660.91470590312,
+      "tdps": -91367.50380002639,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18565.035506530123,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.d": "Gala_Bahamut"
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

@@ -147,11 +147,38 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 73357.51570289025,
-        "team": 0.11770876538856503,
+        "dps": 94827.43515909692,
+        "team": 0.13156735960990668,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, x=5 and trickery<=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, buff(s3) and cancel"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Gala_Alex"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
@@ -171,7 +198,7 @@
       ]
     },
     "META": {
-      "tdps": 301737.97253606183,
+      "tdps": 106768.76699138522,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

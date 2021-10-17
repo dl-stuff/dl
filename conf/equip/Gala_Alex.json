@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95536.66757165908,
-        "team": 0.14153496221213632,
+        "dps": 98227.87831351747,
+        "team": 0.2180851866744477,
         "noaff": false,
         "nihil": false
       },
@@ -53,10 +53,12 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon",
+        "queue s=4 and dgauge=1000",
+        "`dragon, x=4",
+        "end",
         "`s3, not buff(s3)",
         "`s1, duration-now<3",
-        "`s4, s=2",
+        "`s4, x=5",
         "`s2, aff_timeleft(poison)<2 and sr.count>1",
         "`s1, (sr.count>1 and x=5) or sr.count=3",
         "`fs, (x=4 and not buff(s3)) or hits=1"
@@ -65,8 +67,8 @@
         "`ds1, ds1.overcharge=2"
       ],
       "coabs": [
+        "Blade",
         "Delphi",
-        "Ieyasu",
         "Vania"
       ],
       "share": [
@@ -75,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 626548.0737780536,
+      "tdps": 3325971.9705249066,
       "pref": "PERSONAL"
     }
   },
@@ -166,8 +168,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 113759.38805957849,
-        "team": 0.2352023182765055,
+        "dps": 116585.78705890363,
+        "team": 0.21808765351993858,
         "noaff": false,
         "nihil": false
       },
@@ -181,13 +183,15 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "dragon, s",
-        "s3, not buff(s3)",
-        "s1, duration-now<3",
-        "s4, s=2",
-        "s2, aff_timeleft(poison)<2 and sr.count>1",
-        "s1, (sr.count>1 and x=5) or sr.count=3",
-        "fs, (x=4 and not buff(s3)) or hits=1"
+        "queue s=4 and dgauge=1000",
+        "`dragon, x=4",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1, duration-now<3",
+        "`s4, x=5",
+        "`s2, aff_timeleft(poison)<2 and sr.count>1",
+        "`s1, (sr.count>1 and x=5) or sr.count=3",
+        "`fs, (x=4 and not buff(s3)) or hits=1"
       ],
       "dacl": [
         "queue",
@@ -195,13 +199,13 @@
         "end"
       ],
       "coabs": [
-        "Ieyasu",
-        "Summer_Prince",
+        "Blade",
+        "Delphi",
         "Vania"
       ]
     },
     "META": {
-      "tdps": 47264141.040533826,
+      "tdps": 4300818.339604433,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -262,8 +266,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68695.81335730804,
-        "team": 0.14153496221213632,
+        "dps": 68704.71058273436,
+        "team": 0.1415403398841877,
         "noaff": false,
         "nihil": false
       },
@@ -283,7 +287,7 @@
       ]
     },
     "META": {
-      "tdps": 478418.4475783903,
+      "tdps": 478536.89563916,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

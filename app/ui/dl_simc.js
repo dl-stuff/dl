@@ -348,6 +348,9 @@ function importConf() {
         }
     }
     if (imported.coab){
+        $('input.coab-check').prop('checked', false);
+        $('input.coab-check').prop('disabled', false);
+        $('#input-coabs').data('selected', 0);
         for (const c of imported.coab) {
             const check = $("input[id$='-" + c + "']");
             if (check.length) {
@@ -720,7 +723,7 @@ function coabSelection(add, debounce) {
         //     }
         // }
     } else {
-        $('.coab-check').prop('disabled', false);
+        $('input.coab-check').prop('disabled', false);
     }
 
     if (add == 0) {

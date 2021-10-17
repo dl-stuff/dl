@@ -68,9 +68,6 @@
         "`s4, x=5",
         "end"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Blade",
         "Peony",
@@ -123,6 +120,45 @@
     },
     "META": {
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 69256.95237900344,
+        "team": 0.09089640331837529,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4, x=5",
+        "`dragon"
+      ],
+      "dacl": [
+        "`s4",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`fs3"
+      ]
+    },
+    "META": {
+      "tdps": 169353.4646927714,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "IMMUNE-NIHILISM-ANY": {

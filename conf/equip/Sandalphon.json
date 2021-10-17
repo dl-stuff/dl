@@ -23,9 +23,8 @@
         "`s2"
       ],
       "dacl": [
-        "queue",
-        "`ds2;ds2;ds2;ds1;sack, cancel",
-        "end"
+        "`ds2",
+        "`ds1"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -39,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40270.64491485467,
+        "dps": 40308.53555241861,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -55,12 +54,15 @@
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "`s4",
-        "`s1"
+        "`s1",
+        "`s4"
       ],
       "dacl": [
-        "`ds2",
-        "`ds1"
+        "queue prep",
+        "`ds1;ds2",
+        "end",
+        "`ds2, x=3",
+        "`ds1, x=3 or s"
       ],
       "coabs": [
         "Gala_Mascula",
@@ -69,16 +71,16 @@
       ],
       "share": [
         "Weapon",
-        "Summer_Julietta"
+        "Gala_Notte"
       ]
     },
     "META": {
-      "tdps": 320190.4185437858,
+      "tdps": 320541.1467890177,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
         "dps": 17775.615103358712,
         "team": 0.0,
@@ -113,23 +115,38 @@
         "Ranzal"
       ]
     },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41299.44606436966,
+        "dps": 22507.11387009896,
         "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Springtime_Breeze",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
         "`s1",
         "`s4"
+      ],
+      "dacl": [
+        "queue prep",
+        "`ds1;ds2",
+        "end",
+        "`ds2, x=3",
+        "`ds1, x=3 or s"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Summer_Estelle",
+        "Xander"
       ],
       "share": [
         "Weapon",
@@ -137,6 +154,35 @@
       ]
     },
     "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6642.653749206722,
+        "team": 0.10803417768329968,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41456.17948809091,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "dacl": [
+        "queue prep",
+        "`ds1, x=1;ds2",
+        "end",
+        "`ds1, x=3",
+        "`ds2, x=3 or s"
+      ]
+    },
+    "META": {
+      "tdps": 322245.4827299138,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -147,7 +193,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26526.582474260715,
+        "dps": 26727.85628331047,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -170,7 +216,7 @@
         "`ds2"
       ],
       "share": [
-        "Chelsea",
+        "Summer_Celliera",
         "Gala_Notte"
       ]
     },
@@ -178,6 +224,23 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33928.1278786935,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
