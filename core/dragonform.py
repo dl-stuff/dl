@@ -438,7 +438,10 @@ class DragonFormUTP(DragonForm):
 
     def config_actions(self):
         if self.dform_mode == 1:
-            return super().config_actions()
+            super().config_actions()
+            self.shift_event = Event("divinedragon")
+            self.end_event = Event("divinedragon_end")
+            return
         # should maybe take the actual shift action from the modes
         self.name = "Dragondrive"
         self.d_shift = Shift("dshift", self.name, self.conf.dshift)
