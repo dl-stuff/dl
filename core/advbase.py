@@ -2652,7 +2652,11 @@ class Adv(object):
         if "bleed" in attr:
             from module.bleed import Bleed, mBleed
 
-            rate, mod = attr["bleed"]
+            try:
+                rate, mod, duration = attr["bleed"]
+            except ValueError:
+                rate, mod = attr["bleed"]
+                duration = 30
             rate = max(min(100, rate + self.sub_mod("debuff_rate", "passive") * 100), 0)
             debufftime = self.mod("debuff", operator=operator.add)
             if self.bleed is not None:
@@ -2663,14 +2667,14 @@ class Adv(object):
                 if self.bleed is None:
                     self.bleed = mBleed("init", mod, dtype=dtype)
                     self.bleed.reset()
-                self.bleed = mBleed(base, mod, chance=rate / 100, debufftime=debufftime, dtype=dtype)
+                self.bleed = mBleed(base, mod, duration=duration, chance=rate / 100, debufftime=debufftime, dtype=dtype)
                 self.bleed.on()
             else:
                 if self.bleed is None:
                     self.bleed = Bleed("init", mod, dtype=dtype)
                     self.bleed.reset()
                 if rate == 100 or rate >= random.uniform(0, 100):
-                    self.bleed = Bleed(base, mod, debufftime=debufftime, dtype=dtype)
+                    self.bleed = Bleed(base, mod, duration=duration, debufftime=debufftime, dtype=dtype)
                     self.bleed.on()
 
         if "amp" in attr:

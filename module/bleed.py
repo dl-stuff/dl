@@ -98,8 +98,8 @@ class mBleed(Bleed):
     _static["cache"] = []
     _static["get"] = 0
 
-    def __init__(self, name, dmg_coef, chance=0.8, debufftime=1, dtype=None):
-        super(mBleed, self).__init__(name, dmg_coef, debufftime=debufftime, dtype=dtype)
+    def __init__(self, name, dmg_coef, duration=15, chance=0.8, debufftime=1, dtype=None):
+        super(mBleed, self).__init__(name, dmg_coef, duration=duration, debufftime=debufftime, dtype=dtype)
         self.end_index = None
         self.chance = chance
         self.bleed_event.rate = chance
