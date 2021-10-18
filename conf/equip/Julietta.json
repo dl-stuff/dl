@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45759.08732966542,
-        "team": 0.10997662943781183,
+        "dps": 45728.974258285576,
+        "team": 0.11000687214202973,
         "noaff": false,
         "nihil": false
       },
@@ -18,13 +18,16 @@
       ],
       "slots.d": "Cupid",
       "acl": [
-        "`dragon(c3-s-end), energy()=5 and dshift_count=0",
-        "`dragon(c7-s-end), dshift_count>=1 and energy()>=4",
+        "`dragon, energy()=5 and dshift_count=0",
+        "`dragon, dshift_count>=1 and energy()>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
         "`s4, x>2 and energy()<5",
         "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -73,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 1254689.2721728839,
+      "tdps": 1254300.4329104994,
       "pref": "PERSONAL"
     }
   },
@@ -155,14 +158,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 54136.84833665289,
-        "team": 0.10997662943781183,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 91093.54062192682,
@@ -181,7 +176,6 @@
       ]
     },
     "META": {
-      "tdps": 1837537.2302799292,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -246,19 +240,7 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Thor",
-      "acl": [
-        "`dragon, energy()=5 and dshift_count=0",
-        "`dragon, dshift_count>=1 and energy()>=4",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, x>2 and energy()<5",
-        "`fs, c_fs(enhanced) and ((energy()>2 and x>3) or (charged_in(fs, s1) and x>1))"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ]
+      "slots.d": "Gala_Thor"
     },
     "PERSONAL": {
       "EQMT": {

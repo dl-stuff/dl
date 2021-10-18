@@ -182,26 +182,10 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "acl": [
-        "queue s=4 and dgauge=1000",
-        "`dragon, x=4",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1, duration-now<3",
-        "`s4, x=5",
-        "`s2, aff_timeleft(poison)<2 and sr.count>1",
-        "`s1, (sr.count>1 and x=5) or sr.count=3",
-        "`fs, (x=4 and not buff(s3)) or hits=1"
-      ],
       "dacl": [
         "queue",
         "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
         "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Delphi",
-        "Vania"
       ]
     },
     "META": {
@@ -214,10 +198,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 81636.60950669118,
-        "team": 0.07155859802102241,
+        "dps": 77335.69733789575,
+        "team": 0.1512534958421489,
         "noaff": false,
         "nihil": true
       },
@@ -230,24 +214,64 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "dragon, fsc",
-        "s3, cancel",
-        "s4",
-        "s1, sr.count>1 and cancel",
-        "fs, x=4"
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, sr.count>1 and cancel",
+        "`s2, aff_timeleft(poison)<2 and sr.count>1",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, ds1.overcharge=2"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Seimei"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 87063.52759360545,
+        "team": 0.12214436343574253,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Welcome_to_the_Opera",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s3, cancel",
+        "`s2, aff_timeleft(poison)<2 and sr.count>1 and cancel",
+        "`s1, sr.count>1 and cancel"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4",
+        "end"
       ],
       "coabs": [
-        "Blade",
-        "Joker",
+        "Ieyasu",
+        "Summer_Prince",
         "Wand"
       ],
       "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 334184.82282106066,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -266,8 +290,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68704.71058273436,
-        "team": 0.1415403398841877,
+        "dps": 70605.60454821996,
+        "team": 0.2180851866744477,
         "noaff": false,
         "nihil": false
       },
@@ -287,7 +311,7 @@
       ]
     },
     "META": {
-      "tdps": 478536.89563916,
+      "tdps": 2377441.483977646,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

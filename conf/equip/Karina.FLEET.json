@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 669079.7272402884,
+        "dps": 386104.9932106086,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -27,17 +27,19 @@
         "end",
         "`s4",
         "`s3",
-        "`s2, s=1",
+        "`s2, cancel",
         "`s1",
-        "`dragon, s=1"
+        "`dragon, s=1",
+        "`fsf, x=4"
       ],
       "dacl": [
-        "ds1,x=3"
+        "ds1,x=3",
+        "sack"
       ],
       "coabs": [
         "Renee",
-        "Tobias",
-        "Yurius"
+        "Summer_Estelle",
+        "Tobias"
       ],
       "share": [
         "Patia",
@@ -46,7 +48,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 669079.7272402884,
+        "dps": 386104.9932106086,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -71,17 +73,19 @@
         "end",
         "`s4",
         "`s3",
-        "`s2, s=1",
+        "`s2, cancel",
         "`s1",
-        "`dragon, s=1"
+        "`dragon, s=1",
+        "`fsf, x=4"
       ],
       "dacl": [
-        "ds1,x=3"
+        "ds1,x=3",
+        "sack"
       ],
       "coabs": [
         "Renee",
-        "Tobias",
-        "Yurius"
+        "Summer_Estelle",
+        "Tobias"
       ],
       "share": [
         "Patia",
@@ -93,9 +97,38 @@
     }
   },
   "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 217798.48141665244,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "acl": [
+        "if prep",
+        "queue",
+        "`s2",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s1",
+        "end",
+        "end",
+        "`s4, s=1",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`dragon"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Renee",
+        "Summer_Estelle"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 595586.6445135364,
+        "dps": 292298.3854822141,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -103,7 +136,7 @@
       "coabs": [
         "Gala_Mascula",
         "Renee",
-        "Yurius"
+        "Summer_Estelle"
       ]
     },
     "META": {
@@ -115,9 +148,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 13219.433025142916,
+        "dps": 16057.849428706711,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -147,61 +180,38 @@
         "Summer_Cleo"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 15670.159692656694,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "Super_Soaking_Androids",
-        "FirstRate_Hospitality",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Gaibhne_and_Creidhne",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`s2",
-        "`s1",
-        "`dragon(s-end)"
-      ],
-      "coabs": [
-        "Dagger",
-        "Tobias",
-        "Yurius"
-      ],
-      "share": [
-        "Patia",
-        "Summer_Cleo"
-      ]
-    },
     "META": {
       "pref": "PERSONAL"
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 15863.319630171485,
+        "dps": 308096.9564821579,
         "team": 0.0,
         "noaff": false,
-        "nihil": true
+        "nihil": false
       },
       "slots.a": [
-        "Kung_Fu_Masters",
+        "Brothers_in_Arms",
         "Summer_Paladyns",
         "Super_Soaking_Androids",
-        "FirstRate_Hospitality",
+        "From_Whence_He_Comes",
         "His_Clever_Brother"
       ]
     },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18804.191631188016,
+        "dps": 19269.41931444804,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -218,14 +228,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 589141.0135271981,
+        "dps": 166151.63767448431,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -238,7 +248,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 661605.7388105524,
+        "dps": 175277.4551994838,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -255,7 +265,7 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 589141.0135271981,
+        "dps": 166151.63767448431,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -272,7 +282,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 13009.083629792653,
+        "dps": 15845.120289188162,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -283,11 +293,23 @@
         "Super_Soaking_Androids",
         "FirstRate_Hospitality",
         "His_Clever_Brother"
+      ],
+      "acl": [
+        "`s4",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`dragon"
+      ],
+      "coabs": [
+        "Dagger",
+        "Tobias",
+        "Yurius"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 15457.544748967457,
+        "dps": 15845.120289188162,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -304,7 +326,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

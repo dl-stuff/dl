@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101317.00959654372,
-        "team": 0.19304756900834447,
+        "dps": 102535.96880280873,
+        "team": 0.1261587892748948,
         "noaff": false,
         "nihil": false
       },
@@ -55,7 +55,7 @@
         "Mask_of_Determination_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "if buff(s3,1) and fsc",
         "`dragon, dshift_count=0",
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 640594.142255557,
+      "tdps": 408983.81399660074,
       "pref": "PERSONAL"
     }
   },
@@ -140,8 +140,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 21955.638312390558,
-        "team": 0.03332613488819755,
+        "dps": 64216.30866474637,
+        "team": 0.0333324971309664,
         "noaff": false,
         "nihil": true
       },
@@ -154,19 +154,20 @@
         "Mask_of_Determination_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "High_Jupiter",
       "acl": [
-        "if buff(s3,1) and fsc",
-        "`dragon(c3-s-c3-c3-c3-c3-end), dragonform.shift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=1",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=2",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-c3-c3-c3-end), dragonform.shift_count=3",
-        "end",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count=2",
+        "`dragon, dshift_count=3",
         "`s3, fsc",
         "`s4, cancel",
         "`s2, cancel",
         "`s1, fsc",
         "`fs, x=4 or hits=3"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Dagger2",
@@ -217,7 +218,7 @@
       ]
     },
     "META": {
-      "tdps": 2209808511.2140446,
+      "tdps": 354685837.23033786,
       "pref": "PERSONAL"
     }
   },

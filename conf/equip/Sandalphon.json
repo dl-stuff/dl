@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40308.53555241861,
+        "dps": 40217.8711829094,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -75,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 320541.1467890177,
+      "tdps": 319701.92746552743,
       "pref": "PERSONAL"
     }
   },
@@ -168,21 +168,42 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41456.17948809091,
-        "team": 0.0,
+        "dps": 42095.19385317437,
+        "team": 0.06198058630302336,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sisters_Day_Out",
+        "Springtime_Breeze",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon, buff(s3) and buff(s4)",
+        "`s3, not buff(s3)",
+        "`s2, dgauge < 500",
+        "`s1",
+        "`s4, x>=1",
+        "`fstc(1.5), fs_prep_c = 3",
+        "`dodge, fscf and fs_prep_c = 0"
+      ],
       "dacl": [
         "queue prep",
         "`ds1, x=1;ds2",
         "end",
-        "`ds1, x=3",
-        "`ds2, x=3 or s"
+        "`ds1",
+        "`ds2",
+        "`sack, ds1.charged = 0 and ds2.c"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 322245.4827299138,
+      "tdps": 769810.5411850931,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,18 +214,11 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 26727.85628331047,
+        "dps": 24611.31070889327,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Springtime_Breeze",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
       "acl": [
         "`dragon",
         "`s3",
@@ -224,7 +238,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

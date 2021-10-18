@@ -478,22 +478,14 @@ end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully cha
                                 (dodge), and shapeshift (dragon). Force strike fail (fsf) is an action too, but it
                                 is
                                 assumed to be performed for c5 hit of blade, wand, and lance.</li>
+                            <li>When in dragonform, use the second input box to specify DACL. The syntax is identical,
+                            with available actions being ds1, ds2, dodge, dfs (for certain dragons), and sack (end shift).
+                            Dodge automatically occurs at the last combo if it would be faster than the recovery.</li>
+                            <li>Dragondrive adventurers also use DACL box, but the have the same actions available as usual,
+                            plus sack to end dragondrive early.</li>
                             <li>Some adventurers have extra actions implemented, for example Ramona has s1a for
                                 using
                                 all hits on her s1.</li>
-                            <li>The dragon action assumes you are doing the normal full duration optimal combo, but
-                                you
-                                can change that by using <code>dragon(act seq)</code>. The syntax is:
-                            <li>Each action is separated by a hypen (-), e.g. <code>dragon(c3-s-c3-end)</code></li>
-                            <li><code>cX</code> (e.g. <code>c3</code>) means do c1 to cX of the dragon combo chain.
-                                Most
-                                dragons go up to 3 combos, some have 5 combos.</li>
-                            <li><code>s</code> means use skill (if they have usage left)</li>
-                            <li><code>dodge</code> means do a dodge. Dodge is implicitly added after <code>cX</code>
-                                if
-                                dodge is faster than recovery or if the <code>cX</code> is not the final combo.</li>
-                            <li><code>end</code> means preemptively stop the transform, used to represent dragon
-                                tanking.</li>
                             <li>The conditions are a limited subset of python code, some common commonly used conditions
                                 are:
                                 <ul>

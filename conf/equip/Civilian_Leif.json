@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 60699.1838182221,
-        "team": 0.23851029900332218,
+        "dps": 52211.60608296963,
+        "team": 0.2084968914420209,
         "noaff": false,
         "nihil": false
       },
@@ -38,8 +38,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70592.79019570857,
-        "team": 0.18327638091949647,
+        "dps": 67018.29432078122,
+        "team": 0.16331829701156825,
         "noaff": false,
         "nihil": false
       },
@@ -54,13 +54,15 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-s-end)",
+        "`dragon",
         "`s3, not buff(s3) and fsc",
         "`s1, fsc",
-        "`s2",
+        "`s2, fsc",
         "`s4, fsc",
-        "`dodge, fsc",
-        "`fs"
+        "`fs, x=1"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -73,15 +75,15 @@
       ]
     },
     "META": {
-      "tdps": 179121.93667795652,
+      "tdps": 327736.8059912712,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32528.646194127185,
-        "team": 0.12760288824554053,
+        "dps": 28314.292024280596,
+        "team": 0.09243125050567887,
         "noaff": false,
         "nihil": true
       },
@@ -96,7 +98,7 @@
       ],
       "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s2, fsc",
         "`s1, fsc or s",
         "`s4, fsc or s",
@@ -116,8 +118,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57698.83477045625,
-        "team": 0.10002202897085713,
+        "dps": 50388.0081018988,
+        "team": 0.0860656489644733,
         "noaff": false,
         "nihil": true
       },
@@ -132,7 +134,7 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-s-end)",
+        "`dragon",
         "`s3, not buff(s3) and fsc",
         "`s1, fsc",
         "`s2",
@@ -158,8 +160,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 85787.585865763,
-        "team": 0.16380531518065417,
+        "dps": 85817.22910737881,
+        "team": 0.1674826429249208,
         "noaff": false,
         "nihil": false
       },
@@ -173,13 +175,12 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s3, not buff(s3)",
         "`s4, fsc",
         "`s1, fsc",
         "`s2, fsc",
-        "`fs",
-        "`dodge, fsc"
+        "`fs, x=1"
       ]
     },
     "META": {
@@ -191,10 +192,18 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31502.958043427603,
+        "team": 0.09243125050567887,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62923.765247724165,
-        "team": 0.06644528206105287,
+        "dps": 56799.76133510967,
+        "team": 0.06652022608450957,
         "noaff": false,
         "nihil": true
       },
@@ -208,7 +217,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s3, fsc",
         "`s1",
         "`s2",
@@ -216,12 +225,16 @@
         "`dodge, fsc",
         "`fs"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "share": [
         "Summer_Celliera",
         "Summer_Julietta"
       ]
     },
     "META": {
+      "tdps": 976294.9885923688,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -230,10 +243,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 69157.28647855452,
-        "team": 0.17649358932995154,
+        "dps": 62477.23254033203,
+        "team": 0.16469001134169048,
         "noaff": false,
         "nihil": false
       },
@@ -246,9 +259,8 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s3, not buff(s3)",
         "`s1, fsc",
         "`s2, fsc",
@@ -262,43 +274,84 @@
         "Peony"
       ]
     },
-    "PERSONAL": {
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 70239.16342496312,
-        "team": 0.16380531518065425,
+        "dps": 29425.030677609873,
+        "team": 0.06658730939105231,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       },
       "slots.a": [
         "Dragonyule_Dreaming",
         "Memory_of_a_Friend",
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "Flowers_Under_the_Moon",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Summer_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s4, fsc",
         "`s1, fsc",
-        "`s2, fsc",
-        "`fs",
-        "`dodge, fsc"
+        "`s2",
+        "`s4, fsc",
+        "`dodge, fsc",
+        "`fs"
       ],
       "coabs": [
         "Blade",
-        "Halloween_Elisanne",
+        "Gala_Zena",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38488.9798620818,
+        "team": 0.03327516833907659,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "A_Small_Courage",
+        "Flowers_Under_the_Moon",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Gala_Zena",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 85265.88672963921,
+      "tdps": 272091.4626991334,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -32,8 +32,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 120112.89561511033,
-        "team": 0.022090086113466273,
+        "dps": 121502.17310964085,
+        "team": 0.02499316575767458,
         "noaff": false,
         "nihil": false
       },
@@ -61,7 +61,7 @@
         "`s4, x=5",
         "`s1, x=5",
         "`s2, x=5",
-        "`sack, not have_buff(s1_10) and (s1.check() or s2.check())"
+        "`sack, not aff(scorchrend) and s1.check()"
       ],
       "coabs": [
         "Blade",
@@ -74,7 +74,7 @@
       ]
     },
     "META": {
-      "tdps": 270380.22777199827,
+      "tdps": 275826.26530062954,
       "pref": "PERSONAL"
     }
   },
@@ -160,8 +160,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 135991.25905528196,
-        "team": 0.019199518443883623,
+        "dps": 137028.33187486973,
+        "team": 0.023075452962095427,
         "noaff": false,
         "nihil": false
       },
@@ -182,10 +182,18 @@
         "`s4, x=5",
         "`s1, x=5 or s",
         "`s2, x=5"
+      ],
+      "dacl": [
+        "`s4, x=5",
+        "`s1, x=5",
+        "`s2, x=5",
+        "if a3_buffcount<3",
+        "`sack, not have_buff(s1_10) and s1.check()",
+        "end"
       ]
     },
     "META": {
-      "tdps": 307654.27575265325,
+      "tdps": 313212.1525333296,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

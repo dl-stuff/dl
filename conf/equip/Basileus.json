@@ -2,48 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 84255.20445362545,
-        "team": 0.12269499971444962,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon, fsc",
-        "`s3, not buff(s3) and fsc",
-        "`s2, fsc",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`fs, x=4  and unlocked",
-        "`fs1, x=4 and not unlocked"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`dfs"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 93516.5080922835,
-        "team": 0.11627793495542142,
+        "dps": 89584.54594145631,
+        "team": 0.13189050927186952,
         "noaff": false,
         "nihil": false
       },
@@ -72,7 +32,7 @@
       ],
       "coabs": [
         "Gala_Notte",
-        "Mona",
+        "Meene",
         "Yukata_Lathna"
       ],
       "share": [
@@ -80,18 +40,12 @@
         "Formal_Joachim"
       ]
     },
-    "META": {
-      "tdps": 1443230.5090311382,
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 69579.90773306294,
-        "team": 0.09280018087095503,
+        "dps": 94745.2183460795,
+        "team": 0.11627793495542137,
         "noaff": false,
-        "nihil": true
+        "nihil": false
       },
       "slots.a": [
         "Bloody_Little_Queen",
@@ -104,16 +58,17 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, x=4",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`dodge, x=4"
+        "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs, x=3  and unlocked",
+        "`fs1, x=3 and not unlocked"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs"
       ],
       "coabs": [
         "Gala_Notte",
@@ -121,14 +76,20 @@
         "Yukata_Lathna"
       ],
       "share": [
-        "Summer_Celliera",
+        "Weapon",
         "Formal_Joachim"
       ]
     },
+    "META": {
+      "tdps": 330545.8984548326,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70187.29158068991,
-        "team": 0.0767183007912117,
+        "dps": 73511.04491087116,
+        "team": 0.10545084713560098,
         "noaff": false,
         "nihil": true
       },
@@ -152,7 +113,7 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs"
       ],
       "coabs": [
         "Blade",
@@ -165,8 +126,7 @@
       ]
     },
     "META": {
-      "tdps": 37768.211466272034,
-      "pref": "TEAMBUFF"
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -201,7 +161,7 @@
     "PERSONAL": {
       "EQMT": {
         "dps": 111570.8986988483,
-        "team": 0.11627793495542137,
+        "team": 0.11686978165676837,
         "noaff": false,
         "nihil": false
       },
@@ -213,10 +173,14 @@
         "The_Plaguebringer",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fstc(0.5)"
       ]
     },
     "META": {
-      "tdps": 208453.63007091833,
+      "tdps": 209817.59171336945,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,8 +191,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79510.27104591168,
-        "team": 0.08732232832518214,
+        "dps": 82288.69357922958,
+        "team": 0.11646084657965883,
         "noaff": false,
         "nihil": true
       },
@@ -238,13 +202,18 @@
         "`s1",
         "`s2",
         "`s4"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

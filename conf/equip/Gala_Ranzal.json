@@ -2,35 +2,45 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35654.07736291924,
-        "team": 0.16364214678908737,
+        "dps": 88285.1557146864,
+        "team": 0.23047266231204713,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Brothers_in_Arms",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Midgardsormr_Zero",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s2, fsc",
-        "`s4, fsc",
-        "`s1, gauges[x]>=1000 and cancel",
-        "`fs, x=4"
+        "`s4",
+        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "if gauges[fs]<1000",
+        "`fs, x=4 or hits=0",
+        "else",
+        "`dodge, x=5",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Blade",
-        "Lowen",
-        "Sylas"
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
-        "Elisanne",
-        "Cleo"
+        "Weapon",
+        "Akasha"
       ]
     },
     "PERSONAL": {
@@ -73,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 1712984.1845946487,
+      "tdps": 331313.42140308325,
       "pref": "PERSONAL"
     }
   },
