@@ -1878,15 +1878,6 @@ class Adv(object):
             self.current_x = self.deferred_x
             self.deferred_x = None
 
-    @allow_acl
-    def x(self):
-        #  force cancel by x
-        prev = self.action.getdoing()
-        prev.explicit_x = True
-        if not isinstance(prev, X):
-            return self._next_x()
-        return False
-
     def _next_x(self, prev=None):
         self.check_deferred_x()
         prev = prev or self.action.getdoing()
