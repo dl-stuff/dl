@@ -240,6 +240,8 @@ class Buff(object):
         self.dmg_test_event.dmg_coef = 1
         self.dmg_test_event.dname = "test"
 
+        self.regen_timer = None
+
         self.hidden = hidden
 
         self.__stored = 0
@@ -343,20 +345,26 @@ class Buff(object):
                 self.set_hp_event = Event("set_hp")
                 self.set_hp_event.delta = value
                 self.set_hp_event.source = "dot"
-                self.regen_timer = Timer(self.hp_regen, self.interval, True).on()
+                self.set_regen_timer(self.hp_regen)
             elif self.mod_order in ("sp", "sp%"):
-                self.regen_timer = Timer(self.sp_regen, self.interval, True).on()
+                self.set_regen_timer(self.sp_regen)
         elif self.mod_type == "heal" and value != 0:
             self.set_hp_event = Event("heal_make")
             self.set_hp_event.name = self.name
             self.set_hp_event.delta = self._static.adv.heal_formula(self.source, value)
             self.set_hp_event.target = "team" if self.bufftype == "team" else "self"
-            self.regen_timer = Timer(self.hp_regen, 2.9, True).on()
+            self.set_regen_timer(self.hp_regen)
         else:
             return self.modifier and self.modifier.on()
 
+    def set_regen_timer(self, callback):
+        if self.regen_timer is not None:
+            self.regen_timer.off()
+        self.regen_timer = Timer(callback, self.interval, True).on()
+        self.regen_timer.on()
+
     def effect_off(self):
-        if self.mod_type in ("regen", "heal"):
+        if self.regen_timer is not None:
             self.regen_timer.off()
         else:
             return self.modifier and self.modifier.off()
@@ -1057,10 +1065,6 @@ class SelfAffliction(Buff):
             t.stack = 0
             log(t.name, "reset", "stack <{}>".format(int(t.stack)))
             t.set_disabled(self.affname)
-        try:
-            self.regen_timer.on(2.9)
-        except AttributeError:
-            pass
 
     def effect_off(self):
         super().effect_off()
