@@ -5,12 +5,6 @@ from module.template import SigilAdv
 
 class Basileus(SigilAdv):
     comment = "change mode by dodge"
-    conf = {
-        "acl": [
-            "`s1",
-            "`dodge, x=5",
-        ]
-    }
 
     def prerun(self):
         self.config_sigil(duration=300, x=True, s1=True, s2=True, fs=True)

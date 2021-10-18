@@ -1904,7 +1904,7 @@ class Adv(object):
                     x_next = self.a_x_dict[self.current_x][1]
         else:
             x_next = self.a_x_dict[self.current_x][1]
-        if not x_next.enabled:
+        if not x_next.enabled and x_next.group != globalconf.DRG:
             self.current_x = globalconf.DEFAULT
             x_next = self.a_x_dict[self.current_x][1]
         return x_next()
