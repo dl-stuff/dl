@@ -619,10 +619,13 @@ class Repeat(Action):
         self.count += 1
         self._static.doing = self.nop
         # if self.extra_charge:
-        #     log('extra_charge', now() - self.count0_time, self.extra_charge)
+        #     log("extra_charge", now() - self.count0_time, self.extra_charge)
         if self.extra_charge and now() - self.count0_time > self.extra_charge:
             self.extra_charge = None
+            self.parent.end_event.on()
             self.end_repeat_event.on()
+            self.idle_event()
+            return False
         else:
             return super().tap()
 
