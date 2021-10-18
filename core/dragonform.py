@@ -100,7 +100,7 @@ class DragonForm:
         self.shift_event = Event("dragon")
         self.end_event = Event("dragon_end")
 
-        if abs(self.dform_mode) == 1:
+        if self.dform_mode == -1:
             try:
                 self.shift_start_proc = self.dragon.shift_start_proc
             except AttributeError:

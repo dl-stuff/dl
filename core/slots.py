@@ -468,6 +468,7 @@ class Gala_Beast_Volk(DragonBase):
     def d_moon_repeat(self, t):
         self.add_rage("auto")
         self.adv.dmg_make("dmoon", 2.58)
+        self.adv.add_combo()
         self.adv.add_hp(10)
 
     def ds1_proc(self, e):
@@ -487,7 +488,7 @@ class Gala_Beast_Volk(DragonBase):
     def dfs_charged(self, e):
         self.dragon_strike_timer.off()
 
-    def shift_end_proc(self):
+    def shift_end_proc(self, _=None):
         if self.dragon_strike_timer is not None:
             self.dragon_strike_timer.off()
         SelfAffliction("gala_beast_volk_poison", -10, [12, 2.9], affname="poison").on()
@@ -502,6 +503,7 @@ class Gala_Beast_Volk(DragonBase):
 
             Event("dfs_start").listener(self.dfs_start)
             Event("dfs_charged").listener(self.dfs_charged)
+        Event("divinedragon_end").listener(self.shift_end_proc)
 
 
 ### WIND DRAGONS ###

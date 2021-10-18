@@ -3,8 +3,6 @@ from pprint import pprint
 
 
 class Sylas(Adv):
-    SAVE_VARIANT = False
-
     def prerun(self):
         self.s2_states = {(None, None, None): 1}
         self.combined_states = None
@@ -184,7 +182,8 @@ class Sylas_RNG(Adv):
             Teambuff(e.name, *pick).on()
 
 
-class Sylas_STR(Adv):
+class Sylas_S2STR(Adv):
+    SAVE_VARIANT = False
     NO_DEPLOY = True
     comment = "always proc str s2"
 
@@ -192,7 +191,8 @@ class Sylas_STR(Adv):
         Teambuff(e.name, 0.25, 15.0, "att", "buff").on()
 
 
-class Sylas_DEF(Adv):
+class Sylas_S2DEF(Adv):
+    SAVE_VARIANT = False
     NO_DEPLOY = True
     comment = "always proc def s2"
 
@@ -200,7 +200,8 @@ class Sylas_DEF(Adv):
         Teambuff(e.name, 0.25, 15.0, "defense", "buff").on()
 
 
-class Sylas_HP(Adv):
+class Sylas_S2HP(Adv):
+    SAVE_VARIANT = False
     NO_DEPLOY = True
     comment = "always proc max hp s2"
 
@@ -208,7 +209,8 @@ class Sylas_HP(Adv):
         Teambuff(e.name, 0.20, -1, "maxhp", "buff").on()
 
 
-class Sylas_ALL(Adv):
+class Sylas_S2ALL(Adv):
+    SAVE_VARIANT = False
     comment = "always proc all s2"
 
     def s2_proc(self, e):
@@ -221,8 +223,8 @@ class Sylas_ALL(Adv):
 variants = {
     None: Sylas,
     "RNG": Sylas_RNG,
-    "S2STR": Sylas_STR,
-    "S2DEF": Sylas_DEF,
-    "S2HP": Sylas_HP,
-    "S2ALL": Sylas_ALL,
+    "S2STR": Sylas_S2STR,
+    "S2DEF": Sylas_S2DEF,
+    "S2HP": Sylas_S2HP,
+    "S2ALL": Sylas_S2ALL,
 }
