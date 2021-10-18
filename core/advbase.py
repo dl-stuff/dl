@@ -2852,7 +2852,7 @@ class Adv(object):
         "var!=": lambda s, v: getattr(s, v[0], 0) != v[1],
         # between 2 values
         "var<<": lambda s, v: v[1] <= getattr(s, v[0], 0) <= v[2],
-        "ampcond": lambda s, v: s.active_buff_dict.check_amp_cond(*v),
+        "amp": lambda s, v: s.active_buff_dict.check_amp_cond(*v),
     }
 
     def eval_attr_cond(self, cond):
