@@ -438,90 +438,245 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <p><strong>Note:</strong> this guide assumes you are familiar with Dragalia Lost&rsquo;s gameplay and concepts.</p>
+                        <h2><strong>What is ACL?</strong></h2>
+                        <p>ACL (Action Condition Language) is a language used to instruct the DPS simulator what actions to perform under which conditions. As you can guess, the language consists of two parts: Actions and Conditions.</p>
+                        <h3><strong>How does it work?</strong></h3>
+                        <p>Like most scripting languages, it will follow exactly what was written, in the order it was written. It will read each line in order (top to bottom), and execute the first action it sees whose conditions are true. Once an action is performed, it will once again start reading the ACL from top to bottom, and repeats until the simulation ends.</p>
+                        <p>You can also control the dragon during shapeshift similarly in the lower text box</p>
+                        <p>As mentioned earlier, each line consists of 1 action, and, optionally, one or more conditions.<br />If the condition(s) is/are true, it will perform the action in question.</p>
+                        <h4><strong>ACL Structure:</strong></h4>
+                        <p><code>`action, condition(s)</code></p>
+                        <p>Each line for an action follows the above structure:</p>
+                        <p>Backtick (`) + action + comma (,) + condition</p>
+                        <p>Backtick is a decorator and is there mostly for historical reasons. The action line works with or without it.</p>
+                        <p>Action is whatever action you want to be executed (skill, dragon, force strike, etc)</p>
+                        <p>Comma is there for the simulator to know the upcoming syntax are conditions for the action on the same line</p>
+                        <p>Condition is the requirement that needs to be met before being allowed to perform the action. It can be one or more condition</p>
+                        <h4><strong>Example ACL 1 (Simple):</strong></h4>
+                        <p>A list of actions and conditions is in the next section, but most terms in the following example should be fairly obvious.</p>
+                        <h4><strong>Adventurer:</strong></h4>
+                        <p><code>`dragon<br />`s3, not buff(s3)<br />`s1<br />`s2<br />`s4, fsc<br />`fs, x=4</code></p>
+                        <h4><strong>Dragon:</strong></h4>
+                        <p><code>`ds1, x=3</code></p>
+                        <p>In the above example, the simulator checks the following in order:</p>
+                        <ol>
+                            <li>Shapeshift whenever possible (dragon gauge is 50% or higher)</li>
+                            <li>Use skill 3 as soon as it can be used and if skill 3&rsquo;s buff is not active (Agito weapon buff in this example)</li>
+                            <li>Use skill 1 as soon as it can be used</li>
+                            <li>Use skill 2 as soon as it can be used</li>
+                            <li>Use skill 4 as soon as it can be used and if the adventurer&rsquo;s force strike connects</li>
+                            <li>Perform force strike (fs) if the adventurer&rsquo;s 4th tap combo&rsquo;s hit connects</li>
+                            <li>And while shapeshifted:</li>
+                            <li>Use dragon skill if the dragon is on the 3rd tap combo</li>
+                        </ol>
+                        <p>Following our example ACL with the Prince as our adventurer, the output is as follows:</p>
+                        <p><code>c4fs*2 [s1] c3 [s3-1] c4fs c3 [s1] c1 [s2] c4fs [s4] c4fs [s1] c1 [dshift] [drg:c3 s1 c3 c3 c2 s1] c4fs*2 [s1]</code></p>
+                        <p>This is a fairly straightforward ACL. It has two skills (s1 and s2) that will be used as soon as they are ready, and two skills that will be used if certain conditions are met (s3 if no s3 buff is active, and s4 if the last action was a force strike).</p>
+                        <h4><strong>Example ACL (Complex):</strong></h4>
+                        <p>This example has a combination of actions and conditions that are more complex compared to the earlier example.</p>
+                        <h4>Adventurer ACL:</h4>
+                        <p><code>`dragon, s=1 and buff(s2)<br />`s3, not buff(s3)<br />`s2, charged_in(5, s1)<br />`s1<br />`s4, xf<br />`fs, charged_in(fs, s1) and xf&gt;1<br />`fsf, xf=5</code></p>
+                        <h4>Dragon ACL:</h4>
+                        <p><code>ds1,x=3<br />sack, x=3</code></p>
+                        <p>In this example, we are following Gala Luca's ACL, which is a bit more complex than the previous example. If you are unfamiliar with his kit, <a href="https://dragalialost.wiki/w/Gala_Luca">I highly recommend you familiarize yourself with his kit on the wiki before proceeding.</a></p>
+                        <p>In this ACL, the following checks happen in order:</p>
+                        <ol>
+                            <li>Check if shapeshift is possible after skill 1 is used and skill 2's buff is active</li>
+                            <li>Use skill 3 as soon as it can be used and if skill 3&rsquo;s buff is not active (Agito weapon buff in this example)</li>
+                            <li>Use skill 2 if it can be charged in 5 hit combo attacks or less</li>
+                            <li>Use skill 1 as soon as it can be used</li>
+                            <li>Use skill 4 as soon as it can be used on the first hit in the animation of a combo attack</li>
+                            <li>Force strike if skill 1 can be readied with a force strike and on the first hit of combo attacks 2, 3, 4, or 5 (greater than 1).</li>
+                            <li>Use dragon skill on the third dragon attack combo</li>
+                            <li>End shapeshift on the third dragon attack combo.</li>
+                        </ol>
+                        <p>With the above ACL, the actions it outputs is below:</p>
+                        <p><code>c5*2 [s3-1] c2 [s1] c5 [s2] c5 [s1] c1 [s4] c5 c3 [s2] c3fs [s1] c5*2 [s2] c2 [s1] c4 [s4] c5 c2fs [s1]</code></p>
+                        <p>You can see skill 2 is being saved for whenever skill 1 will be ready in 5 uninterrupted combo attacks or less. Skill 4 is used after a combo attack and not immediately after the skill 1.</p>
+                        <hr />
+                        <h2><strong>Actions List:</strong></h2>
+                        <h3><strong>Skills</strong></h3>
+                        <p><code>`s1</code><br /><code>`s2</code><br /><code>`s3</code><br /><code>`s4</code><br /><code>`ds1</code><br /><code>`ds2</code></p>
+                        <p><code>s1</code> and <code>s2</code> are the adventurer&rsquo;s skills. <code>s3</code> is the weapon skill or shared skill slot. <code>s4</code> is the second shared skill slot.</p>
+                        <p><code>ds1</code> and <code>ds2</code> are for dragon skills.</p>
+                        <h3><strong>Shapeshifting</strong></h3>
+                        <p><code>`dragon</code></p>
+                        <p>Dragon is for shapeshifting. Once shapeshifted, simulator will follow the dragon ACL instead. This applies to all mechanics the alter shapeshifting behavior (dragondrive, divine dragon, etc)</p>
+                        <h3><strong>Force Strike</strong></h3>
+                        <p><code>fs</code><br /><code>dfs</code></p>
+                        <p>Perform a force strike. <code>dfs</code> is for dragons that can perform a Dragon Force Strike.</p>
+                        <h3><strong>Force Strike Fail</strong></h3>
+                        <p><code>fsf</code></p>
+                        <p>This will simulate a screen press that activates the force strike charging period, but is short enough to fail or cancel the charging. It can be used to end the current tap combo animation so that it can be restarted.</p>
+                        <h3><strong>Dodge</strong></h3>
+                        <p><code>dodge</code></p>
+                        <p>This will simulate a dodge. This is usually used to end the current animation (tap combo or force strike) so that you can start the next tap combo attack or action faster</p>
+                        <h3><strong>End Dragon</strong></h3>
+                        <p><code>sack</code></p>
+                        <p>This ends the shapeshift. Note that there is a minimum time enforced for shapeshifting which increases with every shapeshift.</p>
+                        <hr />
+                        <h2><strong>Conditions</strong></h2>
+                        <h3><strong>Standard Combo Attacks and Force Strikes Conditions</strong></h3>
+                        <h4><strong>Cancel on Combo or Force Strike</strong></h4>
+                        <p><code>cancel</code></p>
+                        <p><code>`s1, cancel</code></p>
+                        <p>This will perform the action only after a combo attack or force strike&rsquo;s end of animation.</p>
+                        <h4><strong>Cancel on Combo Attack</strong></h4>
+                        <p><code>x</code></p>
+                        <p><code>`s1, x</code><br /><code>`s1, x=5</code><br /><code>`s1, x&gt;2</code></p>
+                        <p>This will perform the action only after a combo attack&rsquo;s end of animation. You can also specify which combo attack it follows by using <code>!=</code>, <code>=</code>, <code>&gt;</code>, <code>=&gt;</code>, <code>=&lt;</code>, or <code>&lt;</code> to compare it against a number.</p>
+                        <h4><strong>Cancel on Force Strike</strong></h4>
+                        <p><code>fsc</code></p>
+                        <p><code>`s1, fsc</code></p>
+                        <p>This will perform the action only after a force strike&rsquo;s end of animation.</p>
+                        <h4><strong>Action on Combo Attack First Hit</strong></h4>
+                        <h4>xf</h4>
+                        <h4>`s1, xf<br />`s1, xf=5<br />`s1, xf&gt;2</h4>
+                        <p>Similar to <code>x</code> but will perform the action on the first hit of the combo attack&rsquo;s animation. For example, blade&rsquo;s 5th combo attack hits twice. <code>xf=5</code> will result in the action being executed on the first hit of the two hits. <code>x=5</code> will do it after the second hit.</p>
+                        <p>Like x, you can also specify which combo attack it follows by using <code>!=</code>, <code>=</code>, <code>&gt;</code>, <code>=&gt;</code>, <code>=&lt;</code>, or <code>&lt;</code> to compare it against a number.</p>
+                        <h4><br /><strong>Action on Force Strike First Hit</strong></h4>
+                        <p><code>fscf</code></p>
+                        <p><code>`s1, fscf</code></p>
+                        <p>Similar to <code>fsc</code>, but will perform the action on the first hit of the force strike&rsquo;s animation. For example, dagger&rsquo;s force strike animation hits 3 times. <code>fscf</code> will perform the action on the first hit of the animation.</p>
+                        <h3><strong>Skill Related Conditions:</strong></h3>
+                        <h4><strong>Perform Action After Skill</strong></h4>
+                        <p><code>s</code><br /><code>s=</code></p>
+                        <p><code>`s2, s=1</code></p>
+                        <p>Performs action if the previous action was the specified skill (<code>s=x</code>, where <code>x</code> is the number of the skill), or any skill (<code>s</code>)</p>
+                        <h4><strong>Skill SP Cost and Current Charge</strong></h4>
+                        <p><code>s1.sp</code><br /><code>s1.charged</code></p>
+                        <p><code>`s2, s1.charged&lt;s1.sp/2</code></p>
+                        <p>sp returns the value of the SP cost of the skill in question. This is not usually used by itself.</p>
+                        <p>charged returns the value of the current SP amount of the skill in question. You can compare it with a value with <code>!=</code>, <code>=</code>, <code>&gt;</code>, <code>=&gt;</code>, <code>=&lt;</code>, or <code>&lt;</code> to compare it against a number. The value ideally is a specified number or <code>sp</code>.</p>
+                        <p>In the above example, you can perform skill 1 only if skill 1's skill bar is less than 50% by dividing the value of s1.sp by 2 (<code>/2</code>)</p>
+                        <h4><strong>Skill Ready</strong></h4>
+                        <p><code>s1.check()</code></p>
+                        <p><code>`s2, s1.check()</code></p>
+                        <p>Checks if the skill is ready.</p>
+                        <h4><strong>Skill is Charged In X Number of Combo Attacks or FS</strong></h4>
+                        <p><code>charged_in(value, skill)</code></p>
+                        <p><code>s2, charged_in(5, s1)</code><br /><code>fs, charged_in(fs, s1)</code></p>
+                        <p>Checks if the skill's remaining SP to be readied is equal to or less than the attack(s) specified.</p>
+                        <p>Numbers means combo attacks (<code>5</code> = the combined amount of SP combo attacks 1+2+3+4+5 would net you)<br /><code>fs</code> means Force Strike. Different weapons have different SP values on FS.</p>
+                        <h4><br /><strong>Check if All Skills are Charged</strong></h4>
+                        <p><code>prep</code></p>
+                        <p><code>`s2, prep</code><br /><code>`s3, prep and not buff(s3)</code></p>
+                        <p>Checks if all skills are charged/ready.</p>
+                        <h4><strong>Check Skill Phase for Skills with Skill Shift</strong></h4>
+                        <p><code>s1.phase</code></p>
+                        <p><code>`s2, s1.phase=2</code></p>
+                        <p>Returns the current phase of a skill with Skill Shift. The initial phase starts at zero (<code>0</code>, <code>1</code>, <code>2</code>)</p>
+                        <h4><strong>Check for Cooldown</strong></h4>
+                        <p><code>is_cd(skill, id)</code></p>
+                        <p><code>`s2, not is_cd(s2, 0)</code></p>
+                        <p>Checks if there is any cooldown in effect with the skill in question. Above example is used to check Gala Luca's strength amp cooldown on his skill 2.</p>
+                        <h3><strong>Buff and Debuff Conditions</strong></h3>
+                        <h4><strong>Energy Count</strong></h4>
+                        <p><code>energy()</code></p>
+                        <p><code>`s1, energy()=5</code></p>
+                        <p>Returns the current amount of Energy stacks.</p>
+                        <h4><strong>Inspiration Count</strong></h4>
+                        <p><code>inspiration()</code></p>
+                        <p><code>`s1, inspiration()=5</code></p>
+                        <p>Returns the current amount of Inspiration stacks.</p>
+                        <h4><strong>Attack Rate</strong></h4>
+                        <p><code>speed()</code></p>
+                        <p><code>`fs, xf=5 and speed()&gt;1</code></p>
+                        <p>Returns the value of the current attack rate. Max is <code>1.5</code> (50% attack rate).</p>
+                        <h4><strong>Defense Modifier Value</strong></h4>
+                        <p><code>def_mod()</code></p>
+                        <p><code>`s2, def_mod()&lt;1</code></p>
+                        <p>Returns the value of the defense modifier on the target enemy.</p>
+                        <h4><strong>Check for Active Buff by Name</strong></h4>
+                        <p><code>have_buff(buffname)</code></p>
+                        <p><code>`s1, have_buff(s1_res_down)</code><br /><code>`s3, have_buff(ds_sp_regen_zone) or x=5</code></p>
+                        <p>Check if the buff with the given name is active. You can get the buff's name from the simulation logs.</p>
+                        <h4><strong>Time Left on Buff From Skill</strong></h4>
+                        <p><code>timeleft(s)</code></p>
+                        <p><code>`s1, timeleft(s4)&gt;10</code><br /><code>`s1, buff(s1,0)&lt;5</code></p>
+                        <p>Returns the time remaining in seconds for the specified buff. If the skill has multiple buff effects, you can check by specifying the buff's ID in the second value.</p>
+                        <h4><strong>Buff from skill is Active</strong></h4>
+                        <p><code>buff(s)</code></p>
+                        <p><code>`s1, buff(s3)</code><br /><code>`s1, buff(s2,1)</code></p>
+                        <p>Checks if buff from specified skill is active. If the skill has multiple buff effects, you can check by specifying the buff's ID in the second value.</p>
+                        <h4>Count Total Buff Count</h4>
+                        <p><code>buffcount</code></p>
+                        <p><code>`s1, buffcount&gt;10</code></p>
+                        <p>Returns the total number of buffs.</p>
+                        <h4><strong>Count Active Buff Zones</strong></h4>
+                        <p><code>zonecount</code></p>
+                        <p><code>`s2, zonecount&gt;1</code></p>
+                        <p>Counts the number of active buff zones</p>
+                        <h4><strong>Count Buff Stack</strong></h4>
+                        <p><code>buff_stack(buffname)</code></p>
+                        <p><code>`dragon, buff_stack(ro_att)=3</code></p>
+                        <p>Returns the number of stacks the buff named in the parathesis has. In the above example, it is checking if Resilient Offense stack is at 3.</p>
+                        <h4>Current Amp Level</h4>
+                        <p><code>amp_lvl(level,id)</code></p>
+                        <p><code>`s2, amp_lvl(team, 20000)</code><br /><code>`s1, amp_lvl(self)</code></p>
+                        <p>Checks if the current amp level matches the values provided in the level and id fields. id field will default to strength amp if only the team value was provided. The following are the valid values for each field:</p>
+                        <p><strong>Level</strong></p>
                         <ul>
-                            <li>Each consists of an action, optionally followed by a comma and condition, e.g.
-                                <code>s1, x=5</code>
-                            </li>
-                            <li>Lines starting with # is considered comment and not evaluated</li>
-                            <li>` is a decorator that is removed from each line, this behavior exists due to
-                                historical
-                                reasons.</li>
-                            <li>During the simulation, the ACL is read from top to bottom. When the action is
-                                available
-                                (e.g. skill is filled) and the specified conditions are met, the action is executed.
-                                When
-                                none of the specified actions are used, the sim will perform the next auto attack</li>
-                            <li>You can specify the same action multiple times, to cover different conditions.</li>
-                            <li>It's also possible to specify blocks of actions+subconditions under one condition,
-                                using
-                                python-like if/elif/else syntax:<br />
-                                <pre class="leftpad-code"><code>if &lt;condition&gt;
-...
-elif &lt;condition&gt;
-...
-else
-...
-end</code></pre>Unlike python, <code>end</code> is required and indentation does not matter.
-                            </li>
-                            <li>You can use <code>queue</code> to enforce a certain sequence of actions, for
-                                example:
-                                <pre class="leftpad-code"><code>queue
-`s1
-`s1
-`s2
-end</code></pre>This forces 2 s1 uses before an s2 use, even if s2 was fully charged before the second s1 is cast.<br>
-                                Queue can be used with a condition like <code>queue &lt;condition&gt;</code> such
-                                that
-                                the actions in that block are only queued when the condition is true.
-                            </li>
-                            <li>The built in actions include skills (s1, s2, s3), force strike (fs), a dodge roll
-                                (dodge), and shapeshift (dragon). Force strike fail (fsf) is an action too, but it
-                                is
-                                assumed to be performed for c5 hit of blade, wand, and lance.</li>
-                            <li>When in dragonform, use the second input box to specify DACL. The syntax is identical,
-                            with available actions being ds1, ds2, dodge, dfs (for certain dragons), and sack (end shift).
-                            Dodge automatically occurs at the last combo if it would be faster than the recovery.</li>
-                            <li>Dragondrive adventurers also use DACL box, but the have the same actions available as usual,
-                            plus sack to end dragondrive early.</li>
-                            <li>Some adventurers have extra actions implemented, for example Ramona has s1a for
-                                using
-                                all hits on her s1.</li>
-                            <li>The conditions are a limited subset of python code, some common commonly used conditions
-                                are:
-                                <ul>
-                                    <li><code>x=n</code> or <code>seq=n</code>: the previous action was combo #n in
-                                        the
-                                        attack chain.</li>
-                                    <li><code>xf=n</code>: the previous action was the first cancelable hit in combo #n
-                                    </li>
-                                    <li><code>fsc</code>: the previous action was force strike</li>
-                                    <li><code>fscf</code>: the previous action was the first cancelable hit in force
-                                        strike</li>
-                                    <li><code>cancel</code>: the previous action was a combo or a force strike,
-                                        equivalent to <code>x=1 or x=2 or x=3 or x=4 or x=5 or fsc</code>.</li>
-                                    <li><code>s=n</code>: the previous action was skill #n</li>
-                                    <li><code>s</code>: the previous action was a skill</li>
-                                    <li><code>prep</code>: at the start of the fight if the adventurer has skill
-                                        prep</li>
-                                    <li><code>s1.check()</code> signify that a skill is ready to use.</li>
-                                    <li>`buff(s3)` checks if a buff created by `s3` is currently active, works for all
-                                        skills. If you need to check for buff from specific phase of skill, use
-                                        `buff(s3, 1)` and so on.</li>
-                                    <li>`have_buff(buffname)` checks for presence of misc. buffs on certain
-                                        character.
-                                        The name of buffs is poorly documented with inconsistent naming scheme, but
-                                        you
-                                        can look at logs to figure out the specifics for your adventurer.</li>
-                                    <li>You can use basic arithmetic operators and most logical operations in the
-                                        condition.
-                                    <li>Special conditions are implemented for some adventurers but unfortunately
-                                        most
-                                        aren't well documented nor universal. You most likely have to look at the
-                                        source
-                                        code to tell.</li>
-                                </ul>
-                            </li>
+                            <li><code>self</code></li>
+                            <li><code>team</code></li>
                         </ul>
+                        <p><strong>ID</strong></p>
+                        <ul>
+                            <li><code>10000</code> - Strength Amp - Default value</li>
+                            <li><code>20000</code> - Defense Amp</li>
+                            <li><code>30000</code> - Critical Damage Amp</li>
+                        </ul>
+                        <h4><strong>Amp Time Left</strong></h4>
+                        <p><code>amp_timeleft(level,id)</code></p>
+                        <p><code>`s2, amp_timeleft(team, 20000)&lt;10</code><br /><code>`s1, amp_timeleft(self)&gt;10</code></p>
+                        <p>Returns the time remaining of the specified amp and level in seconds. id field will default to strength amp if only the team value was provided. The following are the valid values for each field:</p>
+                        <p><strong>Level</strong></p>
+                        <ul>
+                            <li><code>self</code></li>
+                            <li><code>team</code></li>
+                        </ul>
+                        <p><strong>ID</strong></p>
+                        <ul>
+                            <li><code>10000</code> - Strength Amp - Default value</li>
+                            <li><code>20000</code> - Defense Amp</li>
+                            <li><code>30000</code> - Critical Damage Amp</li>
+                        </ul>
+                        <h3><strong>Status Related Conditions</strong></h3>
+                        <h4><strong>Current HP by Percent</strong></h4>
+                        <p><code>hp</code></p>
+                        <p><code>`s2, hp&gt;80</code><br /><code>`s4, hp&gt;0 or x=5</code></p>
+                        <p>Returns the current HP value as a percentage. Useful for cases where skills do more damage if HP is higher or lower.</p>
+                        <h4><strong>Current Number of Hits</strong></h4>
+                        <p><code>hits</code></p>
+                        <p><code>`fs, hits=0</code><br /><code>`fs, x=4 or hits=3</code></p>
+                        <p>Returns the current number of hits made as a number.</p>
+                        <h4><strong>Number of Times Shapeshifted</strong></h4>
+                        <p><code>dshift_count</code></p>
+                        <p><code>`s2, dshift_count&gt;0</code><br /><code>`dragon, dshift_count&gt;1 and s=1</code></p>
+                        <p>This condition checks for the number of times you have shapeshifted.</p>
+                        <h4><strong>Dragon Gauge</strong></h4>
+                        <p><code>dgauge</code></p>
+                        <p><code>`s4, dgauge&gt;=500</code></p>
+                        <p>Returns the amount your dragon gauge is filled as a number. 1000 is max for a normal dragon shapeshift. You can use this with Adventurers with Dragon Drive and similar mechanics as well.</p>
+                        <h3><strong>Affliction Conditions</strong></h3>
+                        <h4><strong>Check for Active Affliction by Name</strong></h4>
+                        <p><code>aff(affname)</code></p>
+                        <p><code>`s2, aff(frostbite)</code><br /><code>`s4, not aff(poison)</code></p>
+                        <p>Check if affliction with the given name is active.</p>
+                        <h4>Check for Time Left on Affliction By Name</h4>
+                        <p><code>aff_timeleft(affname)</code></p>
+                        <p><code>`s1, aff_timeleft(stormlash)&lt;3</code><br /><code>`dragon, aff_timeleft(shadowblight)&gt;15</code></p>
+                        <p>Returns the time remaining in seconds on the given affliction.</p>
+                        <h3><br /><strong>Simulation Related Conditions</strong></h3>
+                        <h4>Duration and Now</h4>
+                        <p><code>duration</code><br /><code>now</code></p>
+                        <p><code>`s1, duration-now&lt;10</code></p>
+                        <p>duration returns the simulation duration (default is 180 seconds)</p>
+                        <p>now returns the amount time has passed within the simulation.</p>
+                        <p>You can subtract duration with now to get the time remaining, which is useful if you want to use a skill during the last x amount of seconds of the simulation.</p>
+                        <hr />
+                        <p>Coming soon: More conditions and character/dragon/mechanic specific actions and conditions</p>
                     </div>
                 </div>
             </div>
