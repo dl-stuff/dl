@@ -2837,7 +2837,6 @@ class Adv(object):
         "rng": lambda s, v: random.random() <= v if s.FIXED_RNG is None else s.FIXED_RNG,
         "hits": lambda s, v: s.hits >= v,
         "zone": lambda s, v: s.zonecount >= v,
-        "amp": lambda s, v: s.amp_lvl(key=v),
         "var>=": lambda s, v: getattr(s, v[0], 0) >= v[1],
         "var>": lambda s, v: getattr(s, v[0], 0) > v[1],
         "var<=": lambda s, v: getattr(s, v[0], 0) <= v[1],
