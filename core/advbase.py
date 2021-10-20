@@ -255,10 +255,7 @@ class ReservoirChainSkill(Skill):
 
     @property
     def ac(self):
-        try:
-            return self.act_dict[(self.name, self._static.current_s[self.name])]
-        except KeyError:
-            return self.act_base
+        return self.act_dict[(self.name, self._static.current_s[self.name])]
 
     def chain_on(self, skill, timeout=3):
         timeout += self.ac.getrecovery()
@@ -271,8 +268,8 @@ class ReservoirChainSkill(Skill):
     def chain_off(self, t=None, reason="timeout"):
         log("skill_chain", "chain off", reason)
         self.chain_status = 0
-        self._static.current_s["s1"] = "base"
-        self._static.current_s["s2"] = "base"
+        self._static.current_s["s1"] = globalconf.DEFAULT
+        self._static.current_s["s2"] = globalconf.DEFAULT
 
     @property
     def sp(self):

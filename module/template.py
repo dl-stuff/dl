@@ -238,11 +238,12 @@ class SkillChainAdv(Adv):
     def s(self, n):
         if self.in_dform():
             return False
+        self.sr.ac
         sn = f"s{n}"
         if n == 1 or n == 2:
             return self.sr(call=n)
         else:
-            return self.a_s_dict[f"s{n}"]()
+            return self.a_s_dict[sn]()
 
     @property
     def skills(self):
