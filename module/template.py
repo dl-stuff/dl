@@ -238,7 +238,6 @@ class SkillChainAdv(Adv):
     def s(self, n):
         if self.in_dform():
             return False
-        self.sr.ac
         sn = f"s{n}"
         if n == 1 or n == 2:
             return self.sr(call=n)
