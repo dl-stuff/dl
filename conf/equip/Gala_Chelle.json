@@ -187,8 +187,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 74153.19833381083,
-        "team": 0.0980342544708696,
+        "dps": 73844.22166980113,
+        "team": 0.09828999528153483,
         "noaff": false,
         "nihil": true
       },
@@ -204,7 +204,7 @@
       "slots.d": "Gala_Bahamut",
       "acl": [
         "`s1, duration-now < 0.1",
-        "`s2, royal_pride<1 and s",
+        "#`s2, royal_pride<1 and s",
         "#`s3",
         "`s4",
         "`fs"
@@ -251,6 +251,7 @@
       ]
     },
     "META": {
+      "tdps": 280399018.1574728,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -259,6 +260,39 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 69598.5727689226,
+        "team": 0.12954108013640425,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Brothers_in_Arms",
+        "Memory_of_a_Friend",
+        "Super_Soaking_Androids",
+        "Flower_in_the_Fray",
+        "The_Warrioresses",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`s3, not buff(s3) and cancel",
+        "`s1, not buff(s3)",
+        "`s4",
+        "`fs"
+      ],
+      "coabs": [
+        "Blade",
+        "Grace",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 74767.07393377049,
@@ -283,7 +317,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 39898.54924326362,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 89584.54594145631,
-        "team": 0.13189050927186952,
+        "dps": 86784.59813185933,
+        "team": 0.14662974003429385,
         "noaff": false,
         "nihil": false
       },
@@ -42,14 +42,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94745.2183460795,
-        "team": 0.11627793495542137,
+        "dps": 105059.1385525255,
+        "team": 0.11221738259648291,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Bloody_Little_Queen",
-        "Emissaries_of_the_Heavens",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
         "The_Plaguebringer",
@@ -68,7 +68,7 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`dfs"
+        "`dfs, x=3"
       ],
       "coabs": [
         "Gala_Notte",
@@ -81,15 +81,15 @@
       ]
     },
     "META": {
-      "tdps": 330545.8984548326,
+      "tdps": 531045.8736717302,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 73511.04491087116,
-        "team": 0.10545084713560098,
+        "dps": 69938.16803343849,
+        "team": 0.11217947250035133,
         "noaff": false,
         "nihil": true
       },
@@ -104,12 +104,12 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, x=4",
+        "`dragon, fsc",
         "`s3",
-        "`s1",
+        "`s1, fsc",
         "`s2",
         "`s4",
-        "`dodge, x=4"
+        "`fs, x=3"
       ],
       "dacl": [
         "`ds1, blood_moon=0",
@@ -125,7 +125,48 @@
         "Formal_Joachim"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 81678.74442068866,
+        "team": 0.0753692568717887,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Bloody_Little_Queen",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, fsc",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, cancel",
+        "`s3",
+        "`fs, x=3",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Notte",
+        "Mona"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "META": {
+      "tdps": 318948.8620691522,
       "pref": "PERSONAL"
     }
   },
@@ -160,27 +201,18 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111570.8986988483,
-        "team": 0.11686978165676837,
+        "dps": 115561.46999388213,
+        "team": 0.1088600067459183,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
       "dacl": [
         "`ds1, blood_moon=0",
         "`fstc(0.5)"
       ]
     },
     "META": {
-      "tdps": 209817.59171336945,
+      "tdps": 233278.34707565865,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -191,8 +223,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 82288.69357922958,
-        "team": 0.11646084657965883,
+        "dps": 84800.15751998099,
+        "team": 0.11084200813382364,
         "noaff": false,
         "nihil": true
       },
@@ -213,15 +245,15 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59334.55288996349,
-        "team": 0.11627793495542142,
+        "dps": 59045.43603275435,
+        "team": 0.11396328014395381,
         "noaff": false,
         "nihil": false
       }

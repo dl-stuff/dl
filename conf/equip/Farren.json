@@ -87,48 +87,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 16564.62662524575,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Gentle_Winds",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "if in_drg",
-        "`s4",
-        "`s1, cancel",
-        "`s2, cancel",
-        "else",
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s4, x=5",
-        "end"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 23942.01725655927,
@@ -173,8 +131,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 69256.95237900344,
-        "team": 0.09089640331837529,
+        "dps": 77132.68272340242,
+        "team": 0.10403768449728336,
         "noaff": false,
         "nihil": false
       },
@@ -196,12 +154,11 @@
       "dacl": [
         "`s4",
         "`s1, cancel",
-        "`s2, cancel",
         "`fs3"
       ]
     },
     "META": {
-      "tdps": 169353.4646927714,
+      "tdps": 862246.250452585,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -222,7 +179,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

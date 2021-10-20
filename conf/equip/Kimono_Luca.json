@@ -108,7 +108,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58355.61912727554,
+        "dps": 58337.711016027344,
         "team": 0.06872754104109667,
         "noaff": false,
         "nihil": true
@@ -145,7 +145,7 @@
       ]
     },
     "META": {
-      "tdps": 657004.536915723,
+      "tdps": 653653.6786055241,
       "pref": "PERSONAL"
     }
   },
@@ -215,7 +215,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66176.274528778,
+        "dps": 66141.14955187321,
         "team": 0.054910947001601144,
         "noaff": false,
         "nihil": true
@@ -253,7 +253,7 @@
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 64683.423627485005,
+        "dps": 64663.34483608551,
         "team": 0.06872754104109667,
         "noaff": false,
         "nihil": true
@@ -303,6 +303,43 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29551.35703101547,
+        "team": 0.07399174592477512,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Holywyrms_Advent",
+        "Kung_Fu_Masters",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "The_Warrioresses",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4, charged_in(fs,s1)",
+        "`s1, fsc",
+        "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 46763.04249237198,
@@ -335,10 +372,11 @@
       ]
     },
     "META": {
+      "tdps": 232616.29045562787,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

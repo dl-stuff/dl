@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5679.1363454052225,
-        "team": 0.10803417768329968,
+        "dps": 5672.361677330271,
+        "team": 0.11612182922125877,
         "noaff": false,
         "nihil": false
       },
@@ -23,13 +23,16 @@
         "`s2"
       ],
       "dacl": [
-        "`ds2",
-        "`ds1"
+        "queue prep",
+        "`ds1;ds2",
+        "end",
+        "`ds2, x=3",
+        "`ds1, x=3 or s"
       ],
       "coabs": [
         "Gala_Mascula",
-        "Renee",
-        "Yurius"
+        "Hunter_Sarisse",
+        "Renee"
       ],
       "share": [
         "Weapon",
@@ -75,49 +78,14 @@
       ]
     },
     "META": {
-      "tdps": 319701.92746552743,
+      "tdps": 297493.6731297614,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 17775.615103358712,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Springtime_Breeze",
-        "The_Prince_of_Dragonyule",
-        "Chariot_Drift",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Gala_Mascula",
-        "Renee",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Ranzal"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 22507.11387009896,
+        "dps": 22524.43099196108,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -160,8 +128,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 6642.653749206722,
-        "team": 0.10803417768329968,
+        "dps": 6611.169014211097,
+        "team": 0.11612182922125877,
         "noaff": false,
         "nihil": false
       }
@@ -203,7 +171,7 @@
       ]
     },
     "META": {
-      "tdps": 769810.5411850931,
+      "tdps": 655397.3076043262,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,7 +182,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24611.31070889327,
+        "dps": 24452.092255351647,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -238,14 +206,14 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33928.1278786935,
+        "dps": 33853.946965168034,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -255,6 +223,46 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 3384.1732966181557,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Springtime_Breeze",
+        "The_Prince_of_Dragonyule",
+        "Chariot_Drift",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "`dragon, rapid_analysis=3",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, not buff(s1)",
+        "`s2"
+      ],
+      "coabs": [
+        "Gala_Mascula",
+        "Hunter_Sarisse",
+        "Renee"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

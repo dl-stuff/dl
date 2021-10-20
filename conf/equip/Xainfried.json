@@ -110,8 +110,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41242.47383650124,
-        "team": 0.0,
+        "dps": 39390.14923635001,
+        "team": 0.0997692558820903,
         "noaff": false,
         "nihil": true
       },
@@ -122,7 +122,7 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
+      "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, dshift_count=0 and s=4",
         "`dragon, dshift_count=1 and fscf",
@@ -143,9 +143,6 @@
         "`fs, charged_in(fs, s4)",
         "`fs, x=5",
         "`dodge, fscf"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Summer_Celliera",
@@ -250,6 +247,46 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47472.47145927132,
+        "team": 0.1322339924635127,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, dshift_count=0 and s=4",
+        "`dragon, dshift_count=1 and fscf",
+        "`dragon, dshift_count=2 and fscf",
+        "`dragon, dshift_count=3 and fscf and not s1.check()",
+        "`dragon, dshift_count>=4",
+        "queue prep",
+        "`s2",
+        "`fs",
+        "`s4,fscf",
+        "`fs",
+        "`s3,fscf",
+        "end",
+        "`s2",
+        "`s4",
+        "`s3, fscf",
+        "`s1, fscf or duration-now<10",
+        "`fs, charged_in(fs, s2)",
+        "`fs, charged_in(fs, s3)",
+        "`fs, charged_in(fs, s4)",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57336.87754026121,
@@ -345,7 +382,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, dshift_count=0",
         "`dragon, dshift_count=1 and xf=2",

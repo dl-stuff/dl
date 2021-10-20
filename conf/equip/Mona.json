@@ -35,23 +35,23 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38410.06022274437,
+        "dps": 100026.0178790364,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
         "Sweet_Surprise",
-        "A_Small_Courage",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon, not in_drg and dgauge>=2700",
+        "`dragon, dgauge>=2700",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -59,8 +59,10 @@
         "`fs, x=4"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`s1",
+        "`s2",
+        "`s4",
+        "`dodge, x=4"
       ],
       "coabs": [
         "Humanoid_Midgardsormr",
@@ -73,11 +75,52 @@
       ]
     },
     "META": {
-      "tdps": -329292.93566227914,
-      "pref": "TEAMBUFF"
+      "tdps": 336341.2792201763,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33017.95881380336,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Zephyr",
+      "acl": [
+        "`s3",
+        "if s2.check() and not in_drg",
+        "`dragon",
+        "end",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Blade",
+        "Nino",
+        "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 34160.761646218336,
@@ -134,18 +177,18 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65435.52587927362,
-        "team": 0.0,
+        "dps": 115891.99971650669,
+        "team": 0.0998959591992153,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon, not in_drg and fsc",
+        "`dragon, s2.check()",
         "`s3, not buff(s3)",
-        "`s1, buff(s3)",
+        "`s1",
         "`s2",
-        "`s4, fsc",
-        "`fs, x=4 or hits=3"
+        "`s4",
+        "`fs, x=4"
       ],
       "share": [
         "Weapon",
@@ -153,8 +196,8 @@
       ]
     },
     "META": {
-      "tdps": -105529.28889854948,
-      "pref": "TEAMBUFF",
+      "tdps": 9596328.96678356,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -164,7 +207,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40247.3099157882,
+        "dps": 81131.12043172224,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -176,6 +219,12 @@
         "`s4",
         "`s3, fsc",
         "`fs, x=4"
+      ],
+      "dacl": [
+        "`s1",
+        "`s2",
+        "`s4",
+        "`dodge, x=4"
       ],
       "coabs": [
         "Humanoid_Midgardsormr",
@@ -194,49 +243,60 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45364.34815526172,
-        "team": 0.037419039749830164,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Super_Soaking_Androids",
-        "The_Shining_Overlord",
-        "FirstRate_Hospitality",
-        "Odd_Sparrows"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Grace",
-        "Templar_Hope"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 31527.90683822143,
-        "team": 0.0,
+        "dps": 71946.88341074827,
+        "team": 0.09989595919921544,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Memory_of_a_Friend",
-        "Sisters_Day_Out",
-        "Sweet_Surprise",
+        "Moonlight_Party",
+        "Worthy_Rivals",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Zephyr"
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s2.check()",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`s1",
+        "`s2",
+        "`s4",
+        "`dodge, x=4"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 73438.8743177784,
+        "team": 0.0994397722176819,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "Lord_of_the_Skies",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "META": {
-      "tdps": -369770.0798723221,
-      "pref": "TEAMBUFF",
+      "tdps": 3270568.7961865286,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"

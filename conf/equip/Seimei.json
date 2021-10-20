@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66878.31014436603,
-        "team": 0.07861735047651701,
+        "dps": 82224.47089203322,
+        "team": 0.07863302742232735,
         "noaff": false,
         "nihil": false
       },
@@ -53,17 +53,13 @@
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
-        "if self.shikigami_lv=2 and self.shikigami.timeleft()<2",
-        "`s2",
-        "end",
-        "if not have_buff(shikigami)",
-        "`s1",
-        "end",
+        "`s2, (self.shikigami_lv=2 and self.shikigami.timeleft()<2) or duration - now < 3",
+        "`s1, not have_buff(shikigami)",
         "`s4",
         "if not have_buff(gozu_tenno_buff)",
-        "`fst(3),x=1",
+        "`fst(3), x=1",
         "else",
-        "`fs,x=5",
+        "`fs, x=5",
         "end"
       ],
       "dacl": [
@@ -80,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 114365.83871651192,
+      "tdps": 226729.16891139979,
       "pref": "PERSONAL"
     }
   },
@@ -130,8 +126,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37934.0395832456,
-        "team": 0.024681530661899542,
+        "dps": 47797.49996059513,
+        "team": 0.024684340815138574,
         "noaff": false,
         "nihil": true
       },
@@ -161,6 +157,9 @@
         "`fs,x=5",
         "end"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Ezelith",
@@ -172,8 +171,8 @@
       ]
     },
     "META": {
-      "tdps": -246584.99158107865,
-      "pref": "TEAMBUFF"
+      "tdps": 877343.9303785249,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {

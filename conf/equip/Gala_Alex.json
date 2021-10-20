@@ -37,15 +37,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98227.87831351747,
-        "team": 0.2180851866744477,
+        "dps": 112041.11723628723,
+        "team": 0.132509075074764,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Sweet_Surprise",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
@@ -54,14 +54,14 @@
       "slots.d": "Gala_Bahamut",
       "acl": [
         "queue s=4 and dgauge=1000",
+        "`s1",
         "`dragon, x=4",
         "end",
         "`s3, not buff(s3)",
         "`s1, duration-now<3",
         "`s4, x=5",
-        "`s2, aff_timeleft(poison)<2 and sr.count>1",
-        "`s1, (sr.count>1 and x=5) or sr.count=3",
-        "`fs, (x=4 and not buff(s3)) or hits=1"
+        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
+        "`s1, (sr.count>1 and x=5) or sr.count=3"
       ],
       "dacl": [
         "`ds1, ds1.overcharge=2"
@@ -73,11 +73,11 @@
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 3325971.9705249066,
+      "tdps": 730527.5983809865,
       "pref": "PERSONAL"
     }
   },
@@ -160,36 +160,88 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35893.26583910054,
-        "team": 0.23684978547904495,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 116585.78705890363,
-        "team": 0.21808765351993858,
+        "dps": 118259.5217583684,
+        "team": 0.2457921435913683,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
         "Welcome_to_the_Opera",
-        "A_Small_Courage",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "queue s=4 and dgauge=1000",
+        "`s1",
+        "`dragon, x=4",
+        "end",
+        "`s3, not buff(s3)",
+        "`s1, duration-now<3",
+        "`s4, x=5",
+        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
+        "`s1, (sr.count>1 and x=5) or sr.count=3"
       ],
       "dacl": [
         "queue",
         "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
         "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 130692.54177354882,
+        "team": 0.14508602261008133,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, aff(frostbite) and s=1",
+        "`s3, not buff(s3)",
+        "`s1, duration-now<3",
+        "`s4, x=5",
+        "`s2, buff(s1) and timeleft(s1)<2 and sr.count>1",
+        "`s1, (sr.count>1 and x=5) or sr.count=3 or duration-now<4"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Ieyasu",
+        "Summer_Prince",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
-      "tdps": 4300818.339604433,
+      "tdps": 123458.43424443582,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -233,8 +285,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 87063.52759360545,
-        "team": 0.12214436343574253,
+        "dps": 88330.77113413114,
+        "team": 0.14130011751698512,
         "noaff": false,
         "nihil": true
       },
@@ -249,7 +301,7 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon",
+        "`dragon, not is_cd(s1, 30)",
         "`s4",
         "`s3, cancel",
         "`s2, aff_timeleft(poison)<2 and sr.count>1 and cancel",
@@ -271,7 +323,7 @@
       ]
     },
     "META": {
-      "tdps": 334184.82282106066,
+      "tdps": 1104657.4777970654,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -290,8 +342,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70605.60454821996,
-        "team": 0.2180851866744477,
+        "dps": 58641.35174613951,
+        "team": 0.05526219877580736,
         "noaff": false,
         "nihil": false
       },
@@ -311,7 +363,7 @@
       ]
     },
     "META": {
-      "tdps": 2377441.483977646,
+      "tdps": 198106.8230114085,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

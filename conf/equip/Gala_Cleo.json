@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 86399.16491838133,
-        "team": 0.5470882067122835,
+        "dps": 75060.8973160921,
+        "team": 0.4570916396684473,
         "noaff": false,
         "nihil": false
       },
@@ -51,22 +51,24 @@
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
-      "slots.d": "Gala_Bahamut",
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon, trickery<=4 and buff(fs) and buff(s2) and x=5",
+        "`dragon, buff(fs) and buff(s2)",
         "`s3, not buff(s3)",
         "`fs, s1.check() and c_fs(galacleo)",
         "`s1, s=3 or fsc",
         "`s2, x=5 and buff(fs)",
-        "`s4, x=5 or (buff(fs) and buff(s2))"
+        "`s4, x=5 or buff(s2)"
       ],
       "dacl": [
-        "`ds1, ds1.overcharge=2"
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
       ],
       "coabs": [
-        "Blade",
         "Bow",
-        "Dragonyule_Victor"
+        "Dragonyule_Victor",
+        "Ieyasu"
       ],
       "share": [
         "Weapon",
@@ -74,7 +76,7 @@
       ]
     },
     "META": {
-      "tdps": 146966.7322108075,
+      "tdps": 104522.28841234416,
       "pref": "PERSONAL"
     }
   },
@@ -93,7 +95,7 @@
       ]
     },
     "META": {
-      "tdps": 178725.35473862258,
+      "tdps": 122205.68169160439,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -203,35 +205,28 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80037.54027059376,
-        "team": 0.4491030497839755,
+        "dps": 82706.94555674517,
+        "team": 0.4367211678014223,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
         "Welcome_to_the_Opera",
-        "A_Small_Courage",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "acl": [
-        "`dragon, trickery<=4 and buff(fs) and buff(s2)",
-        "`s3, not buff(s3)",
-        "`fs, s1.check() and c_fs(galacleo)",
-        "`s1, s=3 or fsc",
-        "`s2, x=5 and buff(fs)",
-        "`s4, x=5 or buff(s2)"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
+      "coabs": [
+        "Dragonyule_Victor",
+        "Ieyasu",
+        "Joker"
       ]
     },
     "META": {
-      "tdps": 100765.07983133332,
+      "tdps": 102991.73857129806,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -263,6 +258,9 @@
         "`s3, cancel",
         "`s4, cancel"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Ieyasu",
         "Joker",
@@ -292,83 +290,36 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56145.7839881612,
-        "team": 0.4591256448880418,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Lord_of_the_Skies",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, trickery<=1 and cancel",
-        "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "tdps": 75751.75985596333,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 46664.86351414581,
-        "team": 0.685326807277035,
+        "dps": 61764.484415740706,
+        "team": 0.5943460281120817,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Bloody_Little_Queen",
         "Memory_of_a_Friend",
+        "Worthy_Rivals",
         "A_Small_Courage",
         "Lord_of_the_Skies",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), trickery<=1",
-        "`s3, not buff(s3)",
-        "`fs, s1.charged>=s1.sp and c_fs(galacleo)",
-        "if x=5 or (x=4 or (fsc or s))",
-        "`s4",
-        "`s2",
-        "end",
-        "`s1, s or fsc"
+      "coabs": [
+        "Dragonyule_Victor",
+        "Ieyasu",
+        "Summer_Prince"
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 41913.668231780626,
+      "tdps": 112018.9857189782,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

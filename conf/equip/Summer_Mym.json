@@ -42,21 +42,21 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77002.1527938481,
-        "team": 0.2729501507550982,
+        "dps": 84850.84151932075,
+        "team": 0.13943993067270533,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
         "Welcome_to_the_Opera",
-        "A_Small_Courage",
         "Enter_the_Blue_Rose",
-        "Savage_Hawk_Lance",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Cat_Sith",
+      "slots.d": "Arsene",
       "acl": [
         "`s3, not buff(s3)",
         "`dragon",
@@ -66,22 +66,22 @@
         "`dodge, xf=2"
       ],
       "dacl": [
-        "`s4, cancel",
-        "`s1, ((dgauge>1000) and cancel) or duration-now<4",
+        "`s4, xf",
+        "`s1, ((dgauge>1000) and cancel) or duration-now<2",
         "`s2, cancel"
       ],
       "coabs": [
         "Ieyasu",
-        "Summer_Prince",
+        "Joker",
         "Vania"
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 928337.4349197269,
+      "tdps": 203756.7982312238,
       "pref": "PERSONAL"
     }
   },
@@ -128,66 +128,58 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 14119.286873551215,
-        "team": 0.016531805340582212,
+        "dps": 46491.00567131658,
+        "team": 0.11099368449205221,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Small_Courage",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "Beautiful_Gunman",
         "Enter_the_Blue_Rose",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
+      "slots.d": "Arsene",
       "acl": [
-        "`s2",
-        "`s3",
-        "`s4",
-        "if in_drg",
-        "`s2, dgauge>500",
-        "`s1, (dgauge>1100)",
-        "else",
-        "`s1",
-        "`s2",
+        "`s3, not buff(s3)",
         "`dragon",
-        "end"
+        "`s1",
+        "`s4, xf",
+        "`s2, xf",
+        "`dodge, xf=2"
+      ],
+      "dacl": [
+        "`s4, xf",
+        "`s1, ((dgauge>1000) and cancel) or duration-now<2",
+        "`s2, cancel",
+        "`s3"
       ],
       "coabs": [
         "Delphi",
         "Ieyasu",
-        "Wand"
+        "Vania"
       ],
       "share": [
         "Summer_Celliera",
-        "Sha_Wujing"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": -144026.35032461502,
-      "pref": "TEAMBUFF"
+      "tdps": 415948.5441859079,
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 90733.00309407793,
-        "team": 0.2729501507550982,
+        "dps": 86740.03698854761,
+        "team": 0.13943993067270533,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "Enter_the_Blue_Rose",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -200,63 +192,52 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 31262.494638830573,
-        "team": 0.16068374787645134,
+        "dps": 45061.980128625815,
+        "team": 0.17072921657501103,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
         "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "Liber_Grimortis",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Bow"
+        "Beautiful_Gunman",
+        "Enter_the_Blue_Rose",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
-      "share": [
-        "Gala_Mym",
-        "Sha_Wujing"
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon",
+        "`s1, xf or prep",
+        "`s4, xf or s",
+        "`s2, xf or s",
+        "`s3, xf or s",
+        "`dodge, xf=2"
+      ],
+      "dacl": [
+        "`s4, xf",
+        "`s1, ((dgauge>1000) and cancel) or duration-now<2",
+        "`s2, cancel",
+        "`s3"
+      ],
+      "coabs": [
+        "Delphi",
+        "Ieyasu",
+        "Vania"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 16848.243515039336,
-        "team": 0.0029225031855673205,
+        "dps": 57211.030938749136,
+        "team": 0.11099368449205221,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "if in_drg",
-        "`s4, cancel",
-        "`s3, cancel",
-        "`s2",
-        "`s1, ((dgauge>1400) and cancel) or duration-now<2",
-        "else",
-        "`dragon, xf",
-        "`s1",
-        "`s4, xf",
-        "`s3, xf",
-        "`s2, xf",
-        "`dodge, xf",
-        "end"
-      ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
+      }
     },
     "META": {
-      "tdps": -91367.50380002639,
-      "pref": "TEAMBUFF",
+      "tdps": 203380.64107725874,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
@@ -266,12 +247,25 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 18565.035506530123,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 54882.45084303342,
+        "team": 0.28558028036876487,
+        "noaff": false,
         "nihil": false
       },
-      "slots.d": "Gala_Bahamut"
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Worthy_Rivals",
+        "Enter_the_Blue_Rose",
+        "Lord_of_the_Skies",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "META": {
       "pref": "PERSONAL",
@@ -326,8 +320,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40483.258570350525,
-        "team": 0.12026451501662914,
+        "dps": 41330.36431019926,
+        "team": 0.11383459144512958,
         "noaff": false,
         "nihil": true
       },
@@ -342,7 +336,10 @@
       ],
       "acl": [
         "queue prep and now=0",
-        "`s1;s2;s3;s4",
+        "`s1",
+        "`s2",
+        "`s3",
+        "`s4",
         "end",
         "if in_drg",
         "`s4, x=2",
@@ -366,7 +363,7 @@
       ]
     },
     "META": {
-      "tdps": 145965.4097925349,
+      "tdps": 144917.54144377043,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

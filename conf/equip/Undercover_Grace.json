@@ -115,7 +115,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82621.29068635829,
+        "dps": 84499.41183488567,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -131,12 +131,15 @@
       ],
       "slots.d": "Agni",
       "acl": [
-        "`dragon(c2-s-c2-end), s=2",
-        "`s2, duration-now<11",
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s4, soul_seal=4 or fsc",
+        "`s2, soul_seal=4 and fsc and dgauge>=500 and s1.check()",
         "`s1",
-        "`s3, soul_seal=4 and cancel",
-        "`s4, soul_seal>2 and fsc",
-        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel)"
+        "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -149,14 +152,14 @@
       ]
     },
     "META": {
-      "tdps": 833046.3763379244,
+      "tdps": 888000.9379326518,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 179569.89144280987,
+        "dps": 180396.2991738213,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -173,6 +176,7 @@
       "acl": [
         "`dragon, s=2",
         "`s3, not buff(s3) and s=1",
+        "`s2, duration-now<3",
         "`s4, fsc and energy()<5",
         "`s2, dgauge>=500 and s1.check() and (fsc or s=4) and energy()<5",
         "`s1, dgauge<500",

@@ -38,8 +38,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45686.24146326746,
-        "team": 0.049922226717687944,
+        "dps": 63226.40143502962,
+        "team": 0.06243636000572091,
         "noaff": true,
         "nihil": false
       },
@@ -55,15 +55,19 @@
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`ex",
-        "`dragon, not in_drg",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, x=6 and not in_drg",
-        "`s4, not buff(s4)",
+        "`s2, x=6",
+        "`s4, fsc",
         "`fs, x=6"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`ex",
+        "`sack, not buff(s2) and x=6",
+        "`s1",
+        "`s4, fsc",
+        "`fs, x=6"
       ],
       "coabs": [
         "Blade",
@@ -72,11 +76,11 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": -249906.57195912467,
+      "tdps": 27799.305506308247,
       "pref": "TEAMBUFF"
     }
   },
@@ -101,10 +105,23 @@
         "noaff": true,
         "nihil": false
       },
+      "acl": [
+        "`ex",
+        "`dragon, not in_drg",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, x=6 and not in_drg",
+        "`s4, not buff(s4)",
+        "`fs, x=6"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Gala_Zena"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
@@ -218,8 +235,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 57902.048157007324,
-        "team": 0.0,
+        "dps": 78862.05735342552,
+        "team": 0.062476810690432046,
         "noaff": false,
         "nihil": false
       },
@@ -227,24 +244,24 @@
         "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
+        "Chariot_Drift",
         "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "coabs": [
-        "Blade",
-        "Dagger2",
-        "Halloween_Elisanne"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
+      "acl": [
+        "`ex",
+        "`dragon, s=2",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s2, x=6",
+        "`s4, fsc",
+        "`fs, x=6"
       ]
     },
     "META": {
-      "tdps": -33948.957949530784,
-      "pref": "TEAMBUFF",
+      "tdps": 329323.9386043558,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -254,8 +271,8 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47505.49598969408,
-        "team": 0.049922226717687944,
+        "dps": 62670.82320560402,
+        "team": 0.062459585178412665,
         "noaff": false,
         "nihil": false
       },
@@ -267,16 +284,11 @@
         "The_Queen_of_the_Knife",
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Zena",
-        "Mitsuhide"
       ]
     },
     "META": {
-      "tdps": -225768.65904256946,
-      "pref": "TEAMBUFF",
+      "tdps": 102470.02348628918,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
         "TEAMBUFF": "SELF-NORMAL-MONO"

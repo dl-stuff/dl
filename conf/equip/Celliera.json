@@ -301,7 +301,7 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10409.868311092869,
+        "dps": 54952.231653438415,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -438,22 +438,35 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35358.33713960391,
-        "team": 0.09982564342202549,
+        "dps": 35873.15885932742,
+        "team": 0.06664065829863614,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "OneWinged_Journey",
+        "The_Prince_of_Dragonyule",
+        "A_Small_Courage",
+        "His_Clever_Brother"
+      ],
       "slots.d": "Summer_Marishiten",
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dshift_count=0",
-        "`fs;dragon(c3-s-c3-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "queue dshift_count=1",
-        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "queue dshift_count>=2",
-        "`fs;dragon(c3-s-c3-c3-c2-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "end",
         "`s1, buff(s2)",
@@ -468,7 +481,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 16353.987854228457,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

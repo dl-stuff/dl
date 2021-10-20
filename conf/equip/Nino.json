@@ -39,37 +39,32 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 23494.63221998433,
-        "team": 0.0,
+        "dps": 106442.8377791396,
+        "team": 0.018979432080729643,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
         "Sweet_Surprise",
-        "Hastened_Squall",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "if in_drg",
-        "`s4, xf=5",
-        "`s2, xf=5 or s",
-        "`s1, xf=5 or duration-now < 5",
-        "`s1, dgauge>=1500 and s=1",
-        "else",
         "`dragon, fsc",
         "`s3, not buff(s3)",
         "`s1, buff(s3) and fsc",
-        "`fs, x=4 or hits=3",
-        "end"
+        "`fs, x=4 or hits=3"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`s4, xf=5",
+        "`s2, xf=5 or s",
+        "`s1, xf=5 or duration-now<2",
+        "`s1, dgauge>=1500 and s=1"
       ],
       "coabs": [
         "Mona",
@@ -82,8 +77,8 @@
       ]
     },
     "META": {
-      "tdps": -263247.56862214813,
-      "pref": "TEAMBUFF"
+      "tdps": 427105.81573039526,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -153,6 +148,10 @@
         "`fs, x=4 or hits=2",
         "end"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Mona",
         "Wand",
@@ -211,15 +210,30 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43465.06960697106,
-        "team": 0.0,
+        "dps": 122592.44162308732,
+        "team": 0.020450890009466857,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "dacl": [
+        "`s4, xf",
+        "`s2, xf=5 or s",
+        "`s1, xf=5 or duration-now<2",
+        "`s1, dgauge>=1500 and s=1"
+      ]
     },
     "META": {
-      "tdps": -250796.70980316895,
-      "pref": "TEAMBUFF",
+      "tdps": 354956.02844050544,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
