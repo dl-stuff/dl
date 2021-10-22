@@ -203,22 +203,22 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 130692.54177354882,
-        "team": 0.14508602261008133,
+        "dps": 132038.64335341906,
+        "team": 0.13642042927682285,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
+        "An_Ancient_Oath",
         "Welcome_to_the_Opera",
+        "Dueling_Dancers",
         "His_Clever_Brother",
-        "The_Queen_of_the_Knife",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, aff(frostbite) and s=1",
+        "`dragon, aff(frostbite) and cancel",
         "`s3, not buff(s3)",
         "`s1, duration-now<3",
         "`s4, x=5",
@@ -241,7 +241,7 @@
       ]
     },
     "META": {
-      "tdps": 123458.43424443582,
+      "tdps": 125984.32493636209,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -252,70 +252,74 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 77335.69733789575,
-        "team": 0.1512534958421489,
+        "dps": 38138.23502763443,
+        "team": 0.20462191105518482,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
+        "Jewels_of_the_Sun",
+        "The_Bridal_Dragon",
+        "Wily_Warriors_Flash_and_Heat",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "Promised_Piety_Staff",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
+      "slots.d": "High_Zodiark",
       "acl": [
         "`dragon",
-        "`s3",
         "`s4",
-        "`s1, sr.count>1 and cancel",
-        "`s2, aff_timeleft(poison)<2 and sr.count>1",
-        "`fs, x=4"
+        "`s3",
+        "`s1"
       ],
       "dacl": [
-        "`ds1, ds1.overcharge=2"
+        "ds1",
+        "sack"
+      ],
+      "coabs": [
+        "Bow",
+        "Delphi",
+        "Joker"
       ],
       "share": [
-        "Gala_Mym",
-        "Seimei"
+        "Sha_Wujing",
+        "Raemond"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88330.77113413114,
-        "team": 0.14130011751698512,
+        "dps": 96512.27889331273,
+        "team": 0.1442013029873439,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
         "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
+        "Dueling_Dancers",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, not is_cd(s1, 30)",
-        "`s4",
-        "`s3, cancel",
-        "`s2, aff_timeleft(poison)<2 and sr.count>1 and cancel",
-        "`s1, sr.count>1 and cancel"
+        "`dragon, fsc",
+        "`fs, dgauge=1000",
+        "`s4, x>3",
+        "`s3, x>1",
+        "`s1, (sr.count>1 and cancel) or sr.count=3 or duration-now<4"
       ],
       "dacl": [
         "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx1",
         "end"
       ],
       "coabs": [
+        "Dagger2",
         "Ieyasu",
-        "Summer_Prince",
-        "Wand"
+        "Joker"
       ],
       "share": [
         "Gala_Mym",
@@ -323,7 +327,7 @@
       ]
     },
     "META": {
-      "tdps": 1104657.4777970654,
+      "tdps": 966128.0435995496,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

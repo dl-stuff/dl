@@ -25,6 +25,9 @@
         "`s1, cancel",
         "`s2, cancel"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Dagger",
         "Grace",
@@ -268,8 +271,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36529.40671841742,
-        "team": 0.03921326376621493,
+        "dps": 27150.53868755164,
+        "team": 0.049015139296271444,
         "noaff": false,
         "nihil": true
       },
@@ -277,18 +280,22 @@
         "Extreme_Teamwork",
         "Memory_of_a_Friend",
         "Spirit_of_the_Season",
-        "A_Small_Courage",
+        "Rogues_Banquet",
         "The_Warrioresses",
-        "Mask_of_Determination_Lance",
+        "A_Kings_Pride_Sword",
         "Savage_Hawk_Lance"
       ],
+      "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), fsc",
+        "`dragon, fsc",
         "`fs5, c_fs(auspex) and cancel",
         "`s4",
         "`s1, cancel and not duration-now<10",
         "`s2, cancel",
         "`s3, x=5 or fsc"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "share": [
         "Summer_Celliera",
@@ -297,7 +304,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36412.608204931435,
+        "dps": 57246.54627243403,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -313,7 +320,7 @@
       ],
       "acl": [
         "`dragon, fsc",
-        "`fs5, c_fs(auspex) and cancel",
+        "`fs5",
         "`s4",
         "`s1, cancel and not duration-now<10",
         "`s2, cancel",
@@ -325,8 +332,8 @@
       ]
     },
     "META": {
-      "tdps": -2978.546090484184,
-      "pref": "TEAMBUFF",
+      "tdps": 614014.5272865067,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

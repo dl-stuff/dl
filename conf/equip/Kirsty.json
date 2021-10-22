@@ -35,7 +35,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 100415.66401982612,
+        "dps": 100415.66401982609,
         "team": 0.19598214474361686,
         "noaff": false,
         "nihil": false
@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 156641.39865333802,
+      "tdps": 156641.398653338,
       "pref": "PERSONAL"
     }
   },
@@ -92,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 175548.88240897094,
+      "tdps": 175548.8824089709,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -147,7 +147,7 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 92079.11576374769,
+        "dps": 92016.7511825787,
         "team": 0.08823103034091706,
         "noaff": false,
         "nihil": true
@@ -203,18 +203,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110428.18895235179,
-        "team": 0.20338532516557378,
+        "dps": 115826.53019136126,
+        "team": 0.19598214474361686,
         "noaff": false,
         "nihil": false
-      },
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ]
+      }
     },
     "META": {
-      "tdps": 173108.46597097695,
+      "tdps": 179781.9795268713,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -225,8 +221,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 97717.86713896845,
-        "team": 0.08823103034091706,
+        "dps": 100572.9794721601,
+        "team": 0.05477515690603546,
         "noaff": false,
         "nihil": true
       },
@@ -238,6 +234,14 @@
         "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, x=5",
+        "`s3",
+        "`s4, cancel",
+        "`s2, is_cd(s2, 0) and cancel",
+        "`s1, cancel",
+        "`fs, x=5"
       ]
     },
     "META": {
@@ -251,8 +255,8 @@
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 97787.86680653012,
-        "team": 0.08823103034091706,
+        "dps": 99202.968540462,
+        "team": 0.12024454184288538,
         "noaff": false,
         "nihil": true
       },
@@ -264,10 +268,19 @@
         "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, x=5",
+        "`s3, cancel",
+        "`s4, cancel",
+        "`s2, cancel",
+        "`s1, cancel",
+        "`fs, x=5"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 20925.978348805136,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "ALWAYS-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-MONO"

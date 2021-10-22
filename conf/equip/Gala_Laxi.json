@@ -36,15 +36,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 145018.72765118117,
+        "dps": 151212.00757350863,
         "team": 0.03330606861549736,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Me_and_My_Bestie",
         "Sweet_Surprise",
+        "The_Cutie_Competition",
         "A_Passion_for_Produce",
         "The_Plaguebringer",
         "An_Unfreezing_Flower_Deer",
@@ -75,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 871984.4329815365,
+      "tdps": 939535.9997926273,
       "pref": "PERSONAL"
     }
   },
@@ -166,8 +166,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 165323.24124553523,
-        "team": 0.03330606861549736,
+        "dps": 173166.53694862535,
+        "team": 0.03332479478035972,
         "noaff": false,
         "nihil": false
       },
@@ -179,10 +179,24 @@
         "The_Plaguebringer",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`ex",
+        "`dragon, dshift_count=0 and not fig.get() and energy()=5",
+        "`dragon, dshift_count=1 and not fig.get() and energy()=4",
+        "`s3, x=4 and not buff(s3)",
+        "`s2, x=4 or fig.get()",
+        "`s1, x=4 and buff(s3)",
+        "`s4, x=4 or s"
+      ],
+      "dacl": [
+        "queue",
+        "`dx2;ds1;dx2;dx2;dx2;dx2;dx2;sack",
+        "end"
       ]
     },
     "META": {
-      "tdps": 1049760.8762965475,
+      "tdps": 1135541.4900684075,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

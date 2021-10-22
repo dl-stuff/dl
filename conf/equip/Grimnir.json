@@ -240,10 +240,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 74954.3263030215,
-        "team": 0.1054855010573248,
+        "dps": 72309.17058079614,
+        "team": 0.1057386355753886,
         "noaff": false,
         "nihil": true
       },
@@ -272,17 +272,68 @@
         "`fs, x=5",
         "end"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Gala_Notte",
         "Mona",
         "Nino"
       ],
       "share": [
-        "Summer_Celliera",
-        "Akasha"
+        "Catherine",
+        "Dragonyule_Cleo"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 75910.00290860859,
+        "team": 0.10560144688998335,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "if brewing_storm.level<5",
+        "`s1, xf or fsc",
+        "`s2",
+        "`s3, fscf",
+        "`s4, cancel",
+        "`fs, x=3",
+        "else",
+        "`dragon",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s3",
+        "`s4, fsc",
+        "`fs, x=5",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Nino"
+      ],
+      "share": [
+        "Catherine",
+        "Summer_Celliera"
       ]
     },
     "META": {
+      "tdps": 26247298.143982604,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

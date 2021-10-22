@@ -232,9 +232,49 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 68373.85458331174,
+        "team": 0.08154472465706426,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, cancel",
+        "`s3",
+        "`s4",
+        "`s1, cancel",
+        "if hits<=44 and c_fs(enhanced)",
+        "`fs, x=1",
+        "`dodge, fsc",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Curran"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72761.79460408617,
+        "dps": 75521.26084235006,
         "team": 0.06935558548915735,
         "noaff": false,
         "nihil": true
@@ -258,17 +298,13 @@
         "`dodge, fsc",
         "end"
       ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
       "share": [
         "Summer_Celliera",
         "Curran"
       ]
     },
     "META": {
+      "tdps": 586374.9819065902,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

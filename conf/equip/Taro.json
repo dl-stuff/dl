@@ -2,38 +2,46 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 31756.42585541784,
-        "team": 0.06247536254709177,
-        "noaff": false,
+        "dps": 47164.658679328044,
+        "team": 0.15045129038297794,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "The_Plaguebringer"
+        "Snipers_Allure",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Ramiel",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-c3-c3-end), buff(s3)",
+        "`dragon, buff(s3)",
         "`s3, not buff(s3) and x=5",
-        "`s4"
+        "`s4",
+        "`s2, x=5"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
       ],
       "coabs": [
-        "Alberius",
-        "Forte",
-        "Wand"
+        "Audric",
+        "Dagger2",
+        "Vania"
       ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54539.83489625306,
-        "team": 0.04161304345866502,
+        "dps": 57340.30332642874,
+        "team": 0.033308194329519716,
         "noaff": false,
         "nihil": false
       },
@@ -46,16 +54,21 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Ramiel",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-c3-c3), buff(s3)",
+        "`dragon, buff(s3)",
         "`s3, not buff(s3) and x=5",
         "`s4",
         "`s2, x=5"
       ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
       "coabs": [
+        "Audric",
         "Forte",
-        "Gala_Alex",
         "Vania"
       ],
       "share": [
@@ -64,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 1092084.1994730192,
+      "tdps": 86865.08202290504,
       "pref": "PERSONAL"
     }
   },
@@ -102,76 +115,48 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37363.5406177198,
-        "team": 0.0,
+        "dps": 41770.22153844205,
+        "team": 0.033238466246387995,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Dragonyule_Dreaming",
+        "Holywyrms_Advent",
         "Memory_of_a_Friend",
+        "Moonlight_Party",
         "A_Choice_Blend",
         "A_Small_Courage",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon, s",
         "`s4",
         "`s3",
         "`s2, bleed_stack<3"
       ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
       "coabs": [
-        "Delphi",
+        "Alberius",
         "Joker",
-        "Vania"
+        "Summer_Prince"
       ],
       "share": [
-        "Formal_Joachim",
+        "Humanoid_Mercury",
         "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 199162.5476869683,
+      "tdps": 576262.3193439897,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 45727.658639189736,
-        "team": 0.11828025684950817,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-end), s=4",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, xf=5",
-        "`fsf,xf=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Forte",
-        "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 82311.20259836652,
@@ -188,7 +173,6 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "dragon",
         "s3, not buff(s3)",
@@ -196,11 +180,6 @@
         "s2",
         "s1, xf=5",
         "fsf,xf=5"
-      ],
-      "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
       ],
       "coabs": [
         "Alberius",
@@ -213,7 +192,7 @@
       ]
     },
     "META": {
-      "tdps": 430440.070237579,
+      "tdps": 299982.294017393,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -274,31 +253,33 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27569.011013086507,
-        "team": 0.06247536254709177,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39803.51271605023,
-        "team": 0.062442081500403666,
-        "noaff": false,
+        "dps": 47164.658679328044,
+        "team": 0.15045129038297794,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Pecorines_Grand_Adventure",
         "The_Bridal_Dragon",
         "Dueling_Dancers",
-        "Snipers_Allure"
+        "Snipers_Allure",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "coabs": [
+        "Audric",
+        "Dagger2",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 367611686.54404056,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -307,33 +288,69 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 19693.972692698382,
-        "team": 0.06247884072635189,
+        "dps": 37448.45002940868,
+        "team": 0.03331898950834993,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Valiant_Crown",
-        "Entwined_Flames",
-        "The_Plaguebringer"
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "Moonlight_Party",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-c3-c3-end)",
+        "`dragon",
         "`s2, x=5",
         "`s3",
         "`s4"
       ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
       "coabs": [
-        "Bow",
-        "Joker",
-        "Wand"
+        "Alberius",
+        "Summer_Patia",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 43365.162461056214,
+        "team": 0.033238466246387995,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dragonyule_Dreaming",
+        "Holywyrms_Advent",
+        "Memory_of_a_Friend",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, s",
+        "`s4",
+        "`s3",
+        "`s2"
       ]
     },
     "META": {
+      "tdps": 73478300.40025349,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

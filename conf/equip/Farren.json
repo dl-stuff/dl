@@ -2,47 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 64562.53232623218,
-        "team": 0.1186160609072385,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Gentle_Winds",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "if in_drg",
-        "`s4",
-        "`s1, cancel",
-        "`s2, cancel",
-        "else",
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s4, x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 33212.70400131893,
-        "team": 0.04996172931534436,
+        "dps": 58047.1496246174,
+        "team": 0.12312042254952944,
         "noaff": true,
         "nihil": false
       },
@@ -57,19 +18,53 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "if in_drg",
-        "`s4",
-        "`s1, cancel",
-        "`s2, cancel",
-        "else",
-        "`dragon",
         "`s3, not buff(s3)",
         "`s1, buff(s3)",
         "`s4, x=5",
-        "end"
+        "`dragon"
       ],
       "dacl": [
-        "ds1,x=3"
+        "`s4",
+        "`s1, cancel",
+        "`fs3"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 58047.1496246174,
+        "team": 0.12312042254952944,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Gentle_Winds",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, buff(s3)",
+        "`s4, x=5",
+        "`dragon"
+      ],
+      "dacl": [
+        "`s4",
+        "`s1, cancel",
+        "`fs3"
       ],
       "coabs": [
         "Blade",
@@ -82,8 +77,7 @@
       ]
     },
     "META": {
-      "tdps": -456632.9261097147,
-      "pref": "TEAMBUFF"
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
@@ -144,21 +138,10 @@
         "A_Small_Courage",
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1, buff(s3)",
-        "`s4, x=5",
-        "`dragon"
-      ],
-      "dacl": [
-        "`s4",
-        "`s1, cancel",
-        "`fs3"
       ]
     },
     "META": {
-      "tdps": 862246.250452585,
+      "tdps": 1000146.4698897657,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

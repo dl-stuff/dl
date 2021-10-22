@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 88285.1557146864,
-        "team": 0.23047266231204713,
+        "dps": 79238.65004590398,
+        "team": 0.24707772587553092,
         "noaff": false,
         "nihil": false
       },
@@ -31,7 +31,7 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs"
       ],
       "coabs": [
         "Blade",
@@ -83,7 +83,7 @@
       ]
     },
     "META": {
-      "tdps": 331313.42140308325,
+      "tdps": 357085.4259317417,
       "pref": "PERSONAL"
     }
   },
@@ -176,39 +176,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 141250.25474002404,
-        "team": 0.23047266231204713,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, cancel",
-        "`s3, not buff(s3)",
-        "`s2, fsc",
-        "`s4",
-        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
-        "if gauges[fs]<1000",
-        "`fs, x=4 or hits=0 or (charged_in(fs,s1) and duration-now<8)",
-        "else",
-        "`dodge, x=5",
-        "end"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 145651.54404343673,
-        "team": 0.22482524339769588,
+        "dps": 147814.58153281856,
+        "team": 0.29135765884421494,
         "noaff": false,
         "nihil": false
       },
@@ -222,7 +193,8 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-dfs-end), cancel",
+        "`dragon, dgauge=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
@@ -232,6 +204,16 @@
         "else",
         "`dodge, x=5",
         "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs",
+        "`sack, fsc"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -239,7 +221,6 @@
       ]
     },
     "META": {
-      "tdps": 779345.2850165076,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

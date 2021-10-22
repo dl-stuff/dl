@@ -86,42 +86,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 43164.502676360455,
-        "team": 0.3497191821924246,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Blossoms_on_the_Waters_Edge",
-        "Dragonyule_Dreaming",
-        "The_Shining_Overlord",
-        "Dragons_Nest",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Summer_Marishiten",
-      "acl": [
-        "`dragon(s-c3-end)",
-        "`s2",
-        "`s3",
-        "`s4",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Pipple",
-        "Yurius"
-      ],
-      "share": [
-        "The_Prince",
-        "Humanoid_Mercury"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70370.37237507706,
-        "team": 0.34593896903707566,
+        "dps": 70496.9684345884,
+        "team": 0.36606517648202497,
         "noaff": false,
         "nihil": true
       },
@@ -134,15 +102,19 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(s-c3-end),  dshift_count=0 and cancel",
-        "`dragon(c3-s-c3-c3-end),  dshift_count=1",
-        "`dragon(c3-s-c3-c3-c3-end),  dshift_count=2",
-        "`dragon(c3-s-c3-c3-c3-c3-c1-end),  dshift_count>=3",
-        "queue prep and now=0",
-        "`s4;fs;s3,fsc;fs;s1,fsc",
+        "`dragon, x=1",
+        "queue now=0",
+        "`s4",
+        "`fs",
+        "`s3,fsc",
+        "`fs",
+        "`s1,fsc",
         "end",
         "queue s1.phase>0",
-        "`fs;s1,fsc;fs;s1,fsc",
+        "`fs",
+        "`s1,fsc",
+        "`fs",
+        "`s1,fsc",
         "end",
         "`s1, bleed_stack=0",
         "`fs, s=1",
@@ -151,10 +123,15 @@
         "`s4",
         "`fs, x=4"
       ],
+      "dacl": [
+        "queue",
+        "dx3;ds1;dx3;dx3;dx3;sack",
+        "end"
+      ],
       "coabs": [
         "Blade",
-        "Pipple",
-        "Tiki"
+        "Tiki",
+        "Yurius"
       ],
       "share": [
         "Humanoid_Mercury",
@@ -162,7 +139,6 @@
       ]
     },
     "META": {
-      "tdps": 7196914.189936828,
       "pref": "PERSONAL"
     }
   },
@@ -237,13 +213,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Dragonyule_Dreaming",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
       "acl": [
         "`dragon(s-c3-end),  dshift_count=0 and x=1",
         "`dragon(c3-s-c3-c3-end),  dshift_count=1 and x=1",
@@ -255,11 +224,6 @@
         "`s4, x>1 or fsc",
         "`fs, x=4"
       ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ],
       "share": [
         "The_Prince",
         "Gala_Mym"
@@ -267,36 +231,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74607.50517560294,
-        "team": 0.34724094943765305,
+        "dps": 75501.30213142086,
+        "team": 0.3660651764820251,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon(s-c3-end),  dshift_count=0 and x=1",
-        "`dragon(c3-s-c3-c3-end),  dshift_count=1 and x=1",
-        "`dragon(c3-s-c3-c3-c3-end),  dshift_count=2",
-        "`dragon(c3-s-c3-c3-c3-c3-c1-end),  dshift_count>=3",
-        "queue prep and now=0",
-        "`s4;fs;s3,fsc;fs;s1,fsc",
-        "end",
-        "queue s1.phase>0",
-        "`fs;s1,fsc;fs;s1,fsc",
-        "end",
-        "`s1,  bleed_stack=0",
-        "`s2, not s1.charged=0",
-        "`s3, fs",
-        "`s4, fsc or x>2",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
-      ]
+      }
     },
     "META": {
-      "tdps": 316710.2889805639,
+      "tdps": 801169.0652855912,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -370,13 +312,6 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Dragonyule_Dreaming",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
       "acl": [
         "`dragon(s-c3-end),  dshift_count=0 and x=1",
         "`dragon(c3-s-c3-c3-end),  dshift_count=1 and x=1",
@@ -421,11 +356,6 @@
         "`s3, fsc or (duration-now<20 and x=2)",
         "`s4, x>1 or fsc",
         "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Tiki",
-        "Yurius"
       ]
     },
     "META": {
@@ -433,7 +363,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

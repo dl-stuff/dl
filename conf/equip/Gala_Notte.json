@@ -76,51 +76,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 30460.92773831432,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "if in_drg",
-        "`ds1",
-        "`ds2, cancel",
-        "else",
-        "`dragon",
-        "`s1",
-        "`s2",
-        "`s4",
-        "end"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Ranzal"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50640.55547940239,
+        "dps": 70706.85479089769,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -136,24 +94,25 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "if in_drg",
-        "`ds1",
-        "`ds2, cancel",
-        "else",
         "`dragon",
-        "`s1",
+        "`s1, xf",
         "`s2",
-        "`s4",
-        "end"
+        "`s3",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1",
+        "`ds2",
+        "`sack, x=1"
       ],
       "coabs": [
-        "Dragonyule_Xainfried",
         "Mona",
-        "Nino"
+        "Nino",
+        "Wand"
       ],
       "share": [
-        "Formal_Joachim",
-        "Ranzal"
+        "Ranzal",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -179,47 +138,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 58561.582003031195,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "if in_drg",
-        "`ds1, cancel",
-        "`ds2",
-        "else",
-        "`dragon",
-        "`s1",
-        "`s2",
-        "`s3",
-        "`s4",
-        "end"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69505.39294033461,
+        "dps": 80521.4552627842,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -232,23 +153,6 @@
         "Having_a_Summer_Ball",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "if in_drg",
-        "`ds1, cancel",
-        "`ds2",
-        "else",
-        "`dragon",
-        "`s1",
-        "`s2",
-        "`s3",
-        "`s4",
-        "end"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Wand"
       ],
       "share": [
         "Summer_Celliera",
@@ -259,7 +163,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

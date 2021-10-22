@@ -42,8 +42,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95808.03256407035,
-        "team": 0.11622594061457471,
+        "dps": 98349.26685326826,
+        "team": 0.1094103145747394,
         "noaff": false,
         "nihil": false
       },
@@ -58,7 +58,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s3, not buff(s3) and fsc",
+        "`s3, not buff(s3)",
         "if manachew_mode.get()",
         "`s2",
         "`s1",
@@ -72,7 +72,8 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fstc(0.5)"
+        "`fstc(0.5), x=3",
+        "`sack, fsc"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -85,15 +86,15 @@
       ]
     },
     "META": {
-      "tdps": 86360.0287513103,
+      "tdps": 101357.05684125204,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 79510.02556572456,
-        "team": 0.18583219119515662,
+        "dps": 93451.08532681478,
+        "team": 0.3692406443032517,
         "noaff": false,
         "nihil": true
       },
@@ -110,7 +111,7 @@
       "acl": [
         "`s3, duration-now<1.3",
         "`dragon, s",
-        "if amp_lvl(team,2)<5",
+        "if amp_lvl(team)<5",
         "#means if not team amp 3",
         "`s2, manachew_mode.get()",
         "else",
@@ -122,10 +123,56 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1",
+        "`sack, fsc"
       ],
       "coabs": [
-        "Humanoid_Midgardsormr",
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Grimnir",
+        "Formal_Joachim"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 95073.97545839741,
+        "team": 0.35138869366386405,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Enter_the_Blue_Rose",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`s3, duration-now<1.3",
+        "`dragon, s",
+        "if amp_lvl(team)<5",
+        "#means if not team amp 3",
+        "`s2, manachew_mode.get()",
+        "else",
+        "`s2",
+        "end",
+        "`s1",
+        "`s4, s",
+        "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3",
+        "`sack, fsc"
+      ],
+      "coabs": [
+        "Gala_Notte",
         "Mona",
         "Yukata_Lathna"
       ],
@@ -135,6 +182,7 @@
       ]
     },
     "META": {
+      "tdps": 90908.28024148647,
       "pref": "PERSONAL"
     }
   },
@@ -225,26 +273,21 @@
         "`s1",
         "end",
         "`fs"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Yukata_Lathna"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55935.57453967217,
-        "team": 0.2368148348443383,
+        "dps": 55664.61747189674,
+        "team": 0.2292476863511852,
         "noaff": false,
         "nihil": false
       },
@@ -264,8 +307,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 27099.344245266093,
-        "team": 0.12198297279343077,
+        "dps": 25755.531366305233,
+        "team": 0.12711602257473795,
         "noaff": false,
         "nihil": true
       },
@@ -291,7 +334,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
