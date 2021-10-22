@@ -2369,6 +2369,9 @@ class Adv(object):
                 real_sp[s.name] = sp_func(s, name, sp)
             skills = self.skills
 
+        if not real_sp:
+            return None
+
         # f"{s.name}:+{sp_func(s, name, sp)}"
         real_sp_counter = Counter(real_sp.values())
         most_common = real_sp_counter.most_common()[0][0]

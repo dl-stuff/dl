@@ -138,11 +138,14 @@ class AclInterpreter(Interpreter):
         if self._queue_while is not None and not self.visit(self._queue_while):
             self._queue.clear()
             self._queue_while = None
+            log("queue", "end", "by while")
             return False
         try:
             n_actcond = self._queue.popleft()
             if not self.visit(n_actcond):
                 self._queue.appendleft(n_actcond)
+            elif not self._queue:
+                log("queue", "end", "by exhaust")
             return True
         except IndexError:
             pass
@@ -193,6 +196,7 @@ class AclInterpreter(Interpreter):
         if t.children[0] is None or self.visit(t.children[0]):
             self._queue_while = t.children[1]
             self._queue.extend(t.children[2:])
+            log("queue", "start", len(self._queue))
             return self.checkqueue()
         return False
 

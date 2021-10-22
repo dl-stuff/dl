@@ -591,7 +591,8 @@ class Gala_Cat_Sith(DragonBase):
 class Fatalis(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
-        adv.dragonform.set_disabled("Fatalis")
+        if adv.dragonform.dform_mode == -1:
+            adv.dragonform.set_disabled("Fatalis")
 
     @property
     def ab(self):
@@ -612,7 +613,8 @@ class Gold_Fafnir(DragonBase):
     def oninit(self, adv):
         super().oninit(adv)
         # disabled for convienance
-        adv.dragonform.set_disabled("Gold_Fafnir")
+        if adv.dragonform.dform_mode == -1:
+            adv.dragonform.set_disabled("Gold_Fafnir")
 
 
 class Arsene(DragonBase):
