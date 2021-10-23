@@ -189,25 +189,35 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 116835.34630123325,
-        "team": 0.4626270579169677,
+        "dps": 107929.5964103362,
+        "team": 0.5244151752314503,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
       "acl": [
-        "`s3, not have_buff(s3)",
-        "if amp_lvl(team,2)<5",
-        "`dragon(c3-s-dfs-end), amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
-        "`s1, not manachew_mode.get() and s2.check() or manachew_mode.get()",
-        "`s2, manachew_mode.get() or dgauge<500",
-        "`s4, s and not have_buff(s4)",
-        "else",
-        "`dragon",
+        "`s3, not buff(s3)",
+        "if manachew_mode.get()",
+        "`dragon, manachew_gauge<=5000",
         "`s2",
         "`s1",
-        "`s4, s and not have_buff(s4)",
+        "else",
+        "`s4",
+        "`s1",
         "end",
-        "fs"
+        "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0 and x=1",
+        "`dfs, x=3"
       ]
     },
     "PERSONAL": {
@@ -245,7 +255,7 @@
       ]
     },
     "META": {
-      "tdps": 439696.62528159335,
+      "tdps": 224997.32843764705,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

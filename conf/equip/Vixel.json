@@ -102,34 +102,33 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8772.380790435074,
-        "team": 0.0,
+        "dps": 2458.11808996637,
+        "team": 0.04920632128295601,
         "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
+        "Jewels_of_the_Sun",
+        "Warrior_Maiden",
+        "Wily_Warriors_Flash_and_Heat",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "A_Kings_Pride_Staff",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Daikokuten",
+      "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s3",
-        "`s4",
-        "`s1, not buff(s1)"
+        "#`dragon, buff(s3, 1)",
+        "`s2",
+        "`s1"
       ],
       "dacl": [
         "ds1,x=3"
       ],
       "coabs": [
-        "Dagger2",
-        "Peony",
-        "Raemond"
+        "Bow",
+        "Sha_Wujing",
+        "Sophie_Persona"
       ],
       "share": [
         "Weapon",
@@ -173,7 +172,45 @@
       ]
     },
     "META": {
+      "tdps": 583451.3107724003,
       "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 2458.11808996637,
+        "team": 0.04920632128295601,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Warrior_Maiden",
+        "Wily_Warriors_Flash_and_Heat",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "A_Kings_Pride_Staff",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "#`dragon, buff(s3, 1)",
+        "`s2",
+        "`s1"
+      ],
+      "coabs": [
+        "Bow",
+        "Sha_Wujing",
+        "Sophie_Persona"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
@@ -220,6 +257,7 @@
       ]
     },
     "META": {
+      "tdps": 128322.18576469414,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

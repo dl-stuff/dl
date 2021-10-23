@@ -167,40 +167,42 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 136707.9411254574,
+        "dps": 148623.55592603347,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "Luck_of_the_Draw",
-        "Savage_Hawk_Lance",
+        "Taiko_Tandem",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, (duration-now)<8 and (s=1 and energy()<3)",
-        "`s3, not buff(s3)",
-        "`s2, energy()<5 and cancel",
+        "queue not buff(s3)",
+        "`s3",
+        "`s2",
+        "`fs,x=3",
+        "`s4,fsc",
+        "`fs,x=4",
+        "`s1, fsc",
+        "end",
         "`s1",
         "`s4, energy()<5",
-        "if not buff(s3)",
-        "`fs, x=5",
-        "else",
-        "`fs, x=4",
-        "end"
+        "`s2, energy()<5",
+        "`fs, x=4"
       ],
       "coabs": [
+        "Blade",
         "Bow",
-        "Ieyasu",
         "Vania"
       ]
     },
     "META": {
-      "tdps": 593078.8570532618,
+      "tdps": 658062.2008254712,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
