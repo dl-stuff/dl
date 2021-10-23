@@ -178,8 +178,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 147814.58153281856,
-        "team": 0.29135765884421494,
+        "dps": 149974.12597544712,
+        "team": 0.2452106963111942,
         "noaff": false,
         "nihil": false
       },
@@ -198,7 +198,7 @@
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
-        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "`s1, ((gauges[x]>=1000 and gauges[fs]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
         "if gauges[fs]<1000",
         "`fs, x=4 or hits=0 or (charged_in(fs,s1) and duration-now<8)",
         "else",
@@ -207,8 +207,7 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`dfs",
-        "`sack, fsc"
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",

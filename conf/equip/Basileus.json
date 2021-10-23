@@ -201,18 +201,24 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 115561.46999388213,
-        "team": 0.1088600067459183,
+        "dps": 122753.23341405054,
+        "team": 0.1451850565268535,
         "noaff": false,
         "nihil": false
       },
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fstc(0.5)"
+      "acl": [
+        "`dragon, dgauge=1000",
+        "`dragon, dshift_count>0",
+        "`s3, not buff(s3) and fsc",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs, x=3  and unlocked",
+        "`fs1, x=3 and not unlocked"
       ]
     },
     "META": {
-      "tdps": 233278.34707565865,
+      "tdps": 485394.9002925804,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -221,6 +227,26 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 81682.35276175824,
+        "team": 0.11641725723920458,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, x=5",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 84800.15751998099,
@@ -242,6 +268,7 @@
       ]
     },
     "META": {
+      "tdps": 559222.5027602084,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -263,6 +290,41 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 38128.51122556458,
+        "team": 0.09641138787077337,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s2, fsc",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs, x=3  and unlocked",
+        "`fs1, x=3 and not unlocked"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
