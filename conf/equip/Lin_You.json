@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79637.88539757996,
-        "team": 0.14688827227464404,
+        "dps": 79366.75334783661,
+        "team": 0.11791982129920198,
         "noaff": false,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(s-c3-c3-c3-end), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, charged_in(4,s1) and cancel",
@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 114600.66258420973,
-        "team": 0.03324695221033218,
+        "dps": 114853.05280470982,
+        "team": 0.03331475480507035,
         "noaff": false,
         "nihil": false
       },
@@ -88,14 +88,14 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 50708.40882639877,
-        "team": 0.07405236027643279,
+        "dps": 63488.809711739304,
+        "team": 0.06659822958596366,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "Hastened_Squall",
         "The_Plaguebringer",
@@ -125,8 +125,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70244.6018578957,
-        "team": 0.03332505390882882,
+        "dps": 70610.88961615352,
+        "team": 0.03322890963874298,
         "noaff": false,
         "nihil": true
       },
@@ -170,72 +170,31 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 104296.04192612851,
-        "team": 0.1562890504325264,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Mona"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 128007.24959206485,
-        "team": 0.14674384264326923,
+        "dps": 123080.09863541146,
+        "team": 0.11791982129920198,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(s-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, charged_in(4,s1) and cancel",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs, x=1",
-        "`dodge, fsc",
-        "end"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 2484095.4947699076,
+      "tdps": 489560.4403208776,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 68373.85458331174,
-        "team": 0.08154472465706426,
+        "dps": 69430.7789425843,
+        "team": 0.0815818511838605,
         "noaff": false,
         "nihil": true
       },
@@ -274,8 +233,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75521.26084235006,
-        "team": 0.06935558548915735,
+        "dps": 75558.4989234436,
+        "team": 0.06897647332752603,
         "noaff": false,
         "nihil": true
       },
@@ -304,7 +263,7 @@
       ]
     },
     "META": {
-      "tdps": 586374.9819065902,
+      "tdps": 486119.5000021366,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -313,10 +272,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 70134.76375304983,
-        "team": 0.11848674759770464,
+        "dps": 70413.88359429534,
+        "team": 0.11854082516321944,
         "noaff": false,
         "nihil": false
       },
@@ -340,38 +299,6 @@
         "`dodge, fsc",
         "end"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 74115.52758095156,
-        "team": 0.14674384264326923,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Kung_Fu_Masters",
-        "Summer_Paladyns",
-        "A_Small_Courage",
-        "Hastened_Squall",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(s-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, charged_in(4,s1) and cancel",
-        "`s1, cancel",
-        "if hits<=44 and c_fs(enhanced)",
-        "`fs, x=1",
-        "`dodge, fsc",
-        "end"
-      ],
       "share": [
         "Weapon",
         "Dragonyule_Lily"
@@ -386,10 +313,18 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 36090.75684000794,
+        "team": 0.06659822958596366,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39325.72663533413,
-        "team": 0.03332505390882885,
+        "dps": 39467.71669328805,
+        "team": 0.03322890963874302,
         "noaff": false,
         "nihil": true
       },
@@ -404,6 +339,7 @@
       ]
     },
     "META": {
+      "tdps": 101199.54073446378,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -41,9 +41,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70993.49596162752,
-        "team": 0.08986455133877709,
-        "noaff": false,
+        "dps": 57653.3622685726,
+        "team": 0.06413682133891584,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
@@ -57,8 +57,8 @@
       ],
       "slots.d": "Gala_Thor",
       "acl": [
-        "`dragon(c3-s-end), energy()=5 and dshift_count=0",
-        "`dragon(c7-s-end), dshift_count>=1 and energy()>=4",
+        "`dragon, energy()=5 and dshift_count=0",
+        "`dragon, dshift_count>=1 and energy()>=4",
         "`s3, not buff(s3)",
         "`s2",
         "`s1",
@@ -76,15 +76,15 @@
       ]
     },
     "META": {
-      "tdps": 1254300.4329104994,
+      "tdps": 259960.2093633944,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 50613.20999172251,
-        "team": 0.019602994663241464,
+        "dps": 51753.382271545284,
+        "team": 0.0195467584312263,
         "noaff": true,
         "nihil": true
       },
@@ -99,7 +99,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), buff(s2) and fs",
+        "`dragon, buff(s2) and fs",
         "`s3",
         "`s2",
         "`s1, cancel",
@@ -156,15 +156,23 @@
       ]
     },
     "META": {
-      "tdps": 499214.1443347388,
+      "tdps": 442319.8842818743,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 54101.222040907596,
+        "team": 0.11000687214202973,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 91093.54062192682,
-        "team": 0.08986455133877709,
+        "dps": 75912.0605436141,
+        "team": 0.06413682133891575,
         "noaff": false,
         "nihil": false
       },
@@ -179,6 +187,7 @@
       ]
     },
     "META": {
+      "tdps": 475491.9194732141,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -218,46 +227,11 @@
       ]
     },
     "META": {
-      "tdps": 1196849.7740719798,
+      "tdps": 1141962.6191498195,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 57606.27057185797,
-        "team": 0.06412466633921501,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "A_Small_Courage",
-        "Sisters_of_the_Anvil",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Thor"
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 70930.00932191842,
-        "team": 0.08986455133877709,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -293,7 +267,7 @@
       ]
     },
     "META": {
-      "tdps": 298453.3147402695,
+      "tdps": 240981.4636442479,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 90010.09862379503,
-        "team": 0.11495583409714795,
+        "dps": 91371.30558344949,
+        "team": 0.113003320331184,
         "noaff": false,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(c2-s-c2-end), s=2",
+        "`dragon, s=2",
         "`s3, not buff(s3)",
         "`s4, soul_seal=4 or fsc",
         "`s2, soul_seal=4 and fsc and dgauge>=500 and s1.check()",
@@ -37,7 +37,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 157622.43257088566,
+        "dps": 156944.79113291262,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -81,8 +81,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54151.18790139736,
-        "team": 0.03417589175540938,
+        "dps": 54414.1419655312,
+        "team": 0.028410389001024546,
         "noaff": false,
         "nihil": true
       },
@@ -97,7 +97,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-end), s",
+        "`dragon, s",
         "`s3, not buff(s3)",
         "`s1, cancel",
         "`s4",
@@ -199,15 +199,15 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 59127.198216293196,
-        "team": 0.03417589175540938,
+        "dps": 59405.881168949905,
+        "team": 0.028410389001024546,
         "noaff": false,
         "nihil": true
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 102447.25566180325,
+        "dps": 100804.32716135758,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -222,7 +222,7 @@
         "Thunderswift_Lords_Blade_Lance"
       ],
       "acl": [
-        "`dragon(c2-s-c2-c2-end), s=2",
+        "`dragon, s=2",
         "`s2, duration-now<10",
         "`s1",
         "`s3, soul_seal=4 and cancel",
@@ -240,7 +240,7 @@
       ]
     },
     "META": {
-      "tdps": 1267561.8753577464,
+      "tdps": 1457158.717218365,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -251,8 +251,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 111478.33255315854,
-        "team": 0.11320851333104792,
+        "dps": 110984.01133750072,
+        "team": 0.11264670233574181,
         "noaff": false,
         "nihil": false
       },
@@ -281,15 +281,15 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46599.42613607109,
-        "team": 0.03417589175540938,
+        "dps": 46296.16163552722,
+        "team": 0.028410389001024546,
         "noaff": false,
         "nihil": true
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65123.07354245565,
+        "dps": 62832.620498009026,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -304,7 +304,7 @@
         "Thunderswift_Lords_Blade_Lance"
       ],
       "acl": [
-        "`dragon(c2-s-c2-end), s=2",
+        "`dragon, s=2",
         "`s4",
         "`s3, soul_seal>2",
         "`s2, soul_seal=4 and fsc and dgauge>=500 and s1.check()",
@@ -312,8 +312,8 @@
         "`fs, x=4 or hits=1 or (charged_in(fs,s1) and cancel and now>10)"
       ],
       "coabs": [
+        "Blade",
         "Bow",
-        "Nobunaga",
         "Wand"
       ],
       "share": [
@@ -322,7 +322,7 @@
       ]
     },
     "META": {
-      "tdps": 542009.1899563272,
+      "tdps": 582056.7561354216,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -1,44 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 79225.02326268048,
-        "team": 0.18259986176740048,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Dragon_and_Tamer",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s-c3-c2-end), dshift_count=0 and buff(s3)",
-        "`dragon(s-c3-c3-c3-c1-end), dshift_count=1 and s=2",
-        "`dragon(s-c3-c3-c3-c3-end), dshift_count=2 and s=2",
-        "`dragon(s-c3-c3-c3-c3-c3-end), dshift_count>=3 and s=2",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4, cancel",
-        "`s1, xf or fscf",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Cleo"
-      ],
-      "share": [
-        "Weapon",
-        "Lowen"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 122446.91444784762,
+        "dps": 107847.46842875787,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -54,7 +18,7 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c2-s-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
@@ -77,42 +41,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 41678.91187246483,
-        "team": 0.10415425035520184,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(c5-s-c5-end)",
-        "`s3",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Ranzal",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45012.611279959834,
+        "dps": 43079.351077144274,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -128,7 +59,7 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c5-s-c5-end)",
+        "`dragon",
         "`s3",
         "`s2",
         "`s1, cancel",
@@ -151,14 +82,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 97373.91416774997,
-        "team": 0.18259986176740048,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 142524.96349479866,
@@ -203,16 +126,15 @@
       "tdps": 389388.2817200014,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70616.46156723109,
-        "team": 0.06649313529195384,
+        "dps": 70782.82366102614,
+        "team": 0.06664275060421054,
         "noaff": false,
         "nihil": true
       },
@@ -256,36 +178,27 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 51699.06042439643,
-        "team": 0.18259986176740048,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78156.57349203306,
+        "dps": 71636.75279165307,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 144893.39045250075,
+      "tdps": 109187.88313571498,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30790.64361123286,
-        "team": 0.10413300996951944,
+        "dps": 32644.001406847263,
+        "team": 0.10412462345759518,
         "noaff": false,
         "nihil": true
       },
@@ -295,9 +208,10 @@
         "The_Bridal_Dragon",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Ramiel",
       "acl": [
         "`dragon",
         "`s4",
@@ -318,7 +232,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38556.20310583747,
+        "dps": 38522.91213070483,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -354,11 +268,10 @@
       ]
     },
     "META": {
-      "tdps": 74573.46615523408,
+      "tdps": 56460.33117470778,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   }

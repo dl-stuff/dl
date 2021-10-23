@@ -1,41 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 29560.978677818843,
-        "team": 0.11651762408667059,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "Taiko_Tandem"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`dragon(s-s), hp<30",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1, fscf or s=2",
-        "`s4",
-        "`fs, charged_in(fs, s1) or charged_in(fs, s4)"
-      ],
-      "coabs": [
-        "Dagger",
-        "Marth",
-        "Valentines_Hildegarde"
-      ],
-      "share": [
-        "Sylas",
-        "Cleo"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 131940.06885606438,
+        "dps": 125713.13604955979,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -51,8 +18,8 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-end), aff(stormlash) and cancel and dshift_count=0",
-        "`dragon(c2-s-c2-c2-c2-c1-end), aff(stormlash) and cancel and dshift_count>=1",
+        "`dragon, aff(stormlash) and cancel and dshift_count=0",
+        "`dragon, aff(stormlash) and cancel and dshift_count>=1",
         "`s3, not buff(s3)",
         "`s2",
         "`s4,xf",
@@ -76,46 +43,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 18797.615420534847,
-        "team": 0.024675198511355162,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "The_Warrioresses",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gozu_Tenno",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1",
-        "if not have_buff(gozu_tenno_buff)",
-        "`fst(3),x=1",
-        "else",
-        "`fs,x=5",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Yuya"
-      ],
-      "share": [
-        "Seimei",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 32921.45641623569,
+        "dps": 33686.71431033414,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -131,7 +61,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), cancel",
+        "`dragon, cancel",
         "`s4,  cancel",
         "`s3, x=5",
         "`s1, x=5"
@@ -154,7 +84,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 131977.17552241322,
+        "dps": 125750.73789621466,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -180,7 +110,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41064.907143859025,
+        "dps": 41544.85765733305,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -195,7 +125,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), aff(scorchrend)",
+        "`dragon, aff(scorchrend)",
         "`s4, cancel",
         "`s3, x=5",
         "`s1, x=5"
@@ -214,17 +144,9 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 28183.16570694584,
-        "team": 0.11651762408667059,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95901.20546409854,
+        "dps": 91987.29150118728,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -239,8 +161,8 @@
         "Thunderswift_Lords_Blade_Lance"
       ],
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-end), cancel and dshift_count=0",
-        "`dragon(c2-s-c2-c2-c2-c1-end), cancel and dshift_count>=1",
+        "`dragon, cancel and dshift_count=0",
+        "`dragon, cancel and dshift_count>=1",
         "`s3, not buff(s3)",
         "`s2",
         "`s4, xf",
@@ -254,51 +176,17 @@
       ]
     },
     "META": {
-      "tdps": 581182.8063605317,
+      "tdps": 547592.0599512166,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 26556.269412231253,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Initios_Sentinel",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Lord_of_the_Skies",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon, cancel",
-        "`s4,  cancel",
-        "`s3, x=5",
-        "`s1, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 29119.668312032893,
+        "dps": 29561.62952792189,
         "team": 0.0,
         "noaff": false,
         "nihil": true

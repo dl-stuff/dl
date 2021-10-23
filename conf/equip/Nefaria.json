@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 66536.99121473229,
-        "team": 0.10829726513743476,
+        "dps": 63862.20375164876,
+        "team": 0.07702180597106718,
         "noaff": false,
         "nihil": false
       },
@@ -13,12 +13,12 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Lord_of_the_Skies",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon",
         "`s3, not buff(s3) and x=4",
         "`fs, c_fs(enhanced) and x=4",
         "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
@@ -39,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81024.17178807163,
-        "team": 0.03330400972207246,
+        "dps": 81031.86684924281,
+        "team": 0.03330717268426511,
         "noaff": false,
         "nihil": false
       },
@@ -83,44 +83,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42014.17869135592,
-        "team": 0.014615969239527711,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3) and x=4",
-        "`fs, c_fs(enhanced) and x=4",
-        "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
-        "`s4, x>=4",
-        "`s2",
-        "`dodge, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Delphi",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Curran",
-        "Meene"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 41050.71204944135,
+        "dps": 37818.08876183193,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -164,6 +129,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 69693.40295071762,
+        "team": 0.07702180597106718,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 85063.89422506724,
@@ -178,6 +151,7 @@
       ]
     },
     "META": {
+      "tdps": 351609.74984068196,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -186,22 +160,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27509.66255571529,
-        "team": 0.04162755368954974,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Ramiel",
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56767.58408072322,
+        "dps": 57184.11332228412,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -237,120 +198,59 @@
       ]
     },
     "META": {
-      "tdps": 702849.8898399811,
+      "tdps": 712855.9844730526,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12849.075443708456,
-        "team": 0.026951149292729838,
+        "dps": 29532.579939101313,
+        "team": 0.07702180597106718,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35811.4216704942,
-        "team": 0.0,
+        "dps": 29532.579939101313,
+        "team": 0.07702180597106718,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Forest_Bonds",
+        "A_Man_Unchanging",
+        "Dear_Diary",
         "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-end), fs",
-        "`s3, not buff(s3) and x=3",
-        "`s4, cancel",
+        "`dragon",
+        "`s3, not buff(s3) and x=4",
         "`fs, c_fs(enhanced) and x=4",
         "`s1, fsc or (x=1 or (s=4 or not buff(s3)))",
+        "`s4",
         "`s2",
         "`dodge, fsc",
         "`fs, x=4"
       ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 851998.7766525383,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 12689.020637371117,
-        "team": 0.04162755368954974,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Ramiel",
-      "share": [
-        "Weapon",
-        "Karina"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 21669.120804747574,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c5-s-c3-end)",
-        "`s3",
-        "`fs, c_fs(enhanced) and x=4",
-        "`s1, fsc or (x=1 or (s=4))",
-        "`s4, x>=4",
-        "`s2",
-        "`dodge, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Gala_Chelle",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "tdps": 215724.90745788979,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

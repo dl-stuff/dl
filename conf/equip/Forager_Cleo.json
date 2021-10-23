@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 13954.671228094207,
-        "team": 0.6630933089828018,
+        "dps": 13956.446282558378,
+        "team": 0.6630196825350164,
         "noaff": true,
         "nihil": false
       },
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54871.70345017498,
-        "team": 0.1330393668453851,
+        "dps": 54687.12194038867,
+        "team": 0.13282033428058357,
         "noaff": false,
         "nihil": false
       },
@@ -48,18 +48,16 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "s3, not buff(s3)",
+        "`s3, not buff(s3)",
         "queue s4.check() and s2.check() and dgauge>=500",
-        "s4",
-        ";",
-        "s2",
-        ";",
-        "dragon",
+        "`s4",
+        "`s2",
+        "`dragon",
         "end",
-        "s1, buff(s3)",
-        "s2, dgauge<=500",
-        "s4, dgauge<=450",
-        "fs, x=5"
+        "`s1, buff(s3)",
+        "`s2, dgauge<=500",
+        "`s4, dgauge<=450",
+        "`fs, x=5"
       ],
       "dacl": [
         "ds1,x=3"
@@ -75,15 +73,15 @@
       ]
     },
     "META": {
-      "tdps": 77194.0909581482,
+      "tdps": 76821.43667646381,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14955.815869945944,
-        "team": 0.5826390826007152,
+        "dps": 14956.78175054398,
+        "team": 0.5825507953425032,
         "noaff": true,
         "nihil": false
       },
@@ -94,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 88780.94487486522,
+      "tdps": 88342.55988805382,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -105,8 +103,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10364.920680780526,
-        "team": 0.34551781499689177,
+        "dps": 10364.565242206134,
+        "team": 0.3455088857784772,
         "noaff": true,
         "nihil": true
       },
@@ -137,8 +135,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37488.23295231458,
-        "team": 0.07841200478383811,
+        "dps": 37383.450520970124,
+        "team": 0.07838335403541151,
         "noaff": false,
         "nihil": true
       },
@@ -176,21 +174,21 @@
       ]
     },
     "META": {
-      "tdps": 101545.19757507139,
+      "tdps": 101146.77209047943,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17980.792567476346,
-        "team": 0.12265518282443726,
+        "dps": 17789.868766442214,
+        "team": 0.11070844923614147,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Candy_Couriers",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Cutie_Competition",
         "Dueling_Dancers",
         "Entwined_Flames"
@@ -199,7 +197,9 @@
       "acl": [
         "`s3, not buff(s3)",
         "queue s4.check() and s2.check() and dgauge>=500",
-        "`s4;s2;dragon(c3-s-c3-c3-c2-end)",
+        "`s4",
+        "`s2",
+        "`dragon",
         "end",
         "`s1, buff(s3)",
         "`s2, dgauge<=500",
@@ -228,8 +228,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 61967.04887933545,
-        "team": 0.1330393668453851,
+        "dps": 61758.38461693347,
+        "team": 0.13282033428058357,
         "noaff": false,
         "nihil": false
       },
@@ -242,7 +242,7 @@
       ]
     },
     "META": {
-      "tdps": 90580.17276059426,
+      "tdps": 90158.42530126203,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -253,13 +253,13 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43569.07411984322,
-        "team": 0.07841513190392321,
+        "dps": 43943.7222161588,
+        "team": 0.07822225837828853,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
+        "`dragon, cancel",
         "`s3, cancel",
         "`s1",
         "`s2",
@@ -277,58 +277,82 @@
       ]
     },
     "META": {
-      "tdps": 124312.317100557,
+      "tdps": 125629.76794075467,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 13956.446282558378,
+        "team": 0.6630196825350164,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Once_in_a_Lifetime",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`fs, fs_prep_c",
+        "`s1, not buff(s1)",
+        "`s2",
+        "`s3",
+        "`s4"
+      ],
+      "coabs": [
+        "Hunter_Sarisse",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Gala_Elisanne",
+        "Templar_Hope"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14956.78175054398,
+        "team": 0.5825507953425032,
+        "noaff": true,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Hunter_Sarisse",
+        "Xander"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25950.62005196761,
-        "team": 0.12828989504331254,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
-        "The_Cutie_Competition",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "queue s4.check() and s2.check() and dgauge>=500",
-        "`s4;s2;dragon(c3-s-c3-c3-c2-end)",
-        "end",
-        "`s1, buff(s3)",
-        "`s2, dgauge<=500",
-        "`s4, dgauge<=450",
-        "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
-      ],
-      "share": [
-        "Weapon",
-        "Seimei"
-      ]
-    },
-    "META": {
-      "tdps": 71748.14072941309,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 25651.722621943707,
-        "team": 0.12857036129738703,
+        "dps": 25555.441958903823,
+        "team": 0.12804911269409625,
         "noaff": false,
         "nihil": true
       },
@@ -351,21 +375,17 @@
         "`s4, dgauge<=450",
         "`fs, (starlit_dining>=3 and charged_in(fs, s1)) or (starlit_dining and (duration-now)<2)"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Hunter_Sarisse",
-        "Tiki"
+      "share": [
+        "Weapon",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": 1065716.1982293832,
+      "tdps": 69856.03130746931,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

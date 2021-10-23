@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 26548.034688912132,
-        "team": 0.190060787282113,
+        "dps": 26759.26731724454,
+        "team": 0.0998040156976261,
         "noaff": false,
         "nihil": false
       },
@@ -22,7 +22,7 @@
         "`s4",
         "`s1",
         "`s2",
-        "`dragon(s-s-c3-end)",
+        "`dragon",
         "`fsf, x=4"
       ],
       "coabs": [
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62186.32111235015,
-        "team": 0.12756916730689288,
+        "dps": 61934.24576860055,
+        "team": 0.12706023958999463,
         "noaff": false,
         "nihil": false
       },
@@ -81,8 +81,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38706.76881082911,
-        "team": 0.13201200305771332,
+        "dps": 41212.34525046516,
+        "team": 0.09854599700085032,
         "noaff": false,
         "nihil": true
       },
@@ -115,8 +115,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44847.01951939549,
-        "team": 0.122625933507019,
+        "dps": 44416.951177084986,
+        "team": 0.12249498667211466,
         "noaff": false,
         "nihil": true
       },
@@ -158,8 +158,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25483.28816123618,
-        "team": 0.2744463655620298,
+        "dps": 24622.143078268095,
+        "team": 0.2567536504569532,
         "noaff": false,
         "nihil": false
       },
@@ -169,8 +169,8 @@
         "The_Cutie_Competition",
         "A_Small_Courage",
         "His_Clever_Brother",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`s3, not buff(s3)",
@@ -192,14 +192,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64273.183400759335,
-        "team": 0.12756916730689288,
+        "dps": 63949.871372728834,
+        "team": 0.12706023958999463,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 264097.4616913794,
+      "tdps": 303236.13228742755,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -208,10 +208,18 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42354.239562252915,
+        "team": 0.09854599700085032,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54815.52117586963,
-        "team": 0.09868324714226098,
+        "dps": 56464.186574757914,
+        "team": 0.09867153970907375,
         "noaff": false,
         "nihil": true
       },
@@ -243,10 +251,18 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18839.656300252285,
+        "team": 0.0998040156976261,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45319.276917391115,
-        "team": 0.12756916730689288,
+        "dps": 45065.5146543207,
+        "team": 0.12706023958999463,
         "noaff": false,
         "nihil": false
       }
@@ -256,6 +272,64 @@
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 13461.469207719516,
+        "team": 0.09992453534862647,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "His_Clever_Brother",
+        "Liber_Grimortis",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`dragon",
+        "`fsf, x=4"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31979.08020757091,
+        "team": 0.09854599700085032,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Nobunaga",
+        "Wand",
+        "Yuya"
+      ]
+    },
+    "META": {
+      "tdps": 13432786.276655883,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

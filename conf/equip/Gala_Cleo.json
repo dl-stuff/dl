@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 14568.506855004327,
-        "team": 1.0358427498856588,
+        "dps": 17686.546647789262,
+        "team": 0.9987683775285334,
         "noaff": false,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Azazel",
       "acl": [
-        "`dragon(c3-s-end), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
         "`fs, s1.check() and c_fs(galacleo)",
         "`s1, s or fsc",
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74098.44253535422,
-        "team": 0.45529763435747145,
+        "dps": 83258.45317447162,
+        "team": 0.49233143207449015,
         "noaff": false,
         "nihil": false
       },
@@ -83,19 +83,41 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 15767.585733920107,
-        "team": 0.9422843963506065,
+        "dps": 19792.36050930862,
+        "team": 0.927667012393631,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Proper_Maintenance",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`fs, s1.check() and c_fs(galacleo)",
+        "`s1, s or fsc",
+        "`s2",
+        "`s4, s or x=5 or fsc"
+      ],
       "coabs": [
         "Bow",
         "Dragonyule_Victor",
         "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
     "META": {
-      "tdps": 119779.14258428323,
+      "tdps": 149995.38351554307,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -104,41 +126,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5150.347880161811,
-        "team": 0.4664578595006258,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
-        "Wily_Warriors_Flash_and_Heat",
-        "Blessed_Days",
-        "Chariot_Drift"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`fs, s4.charged>=s4.sp and c_fs(galacleo)",
-        "`s3, cancel",
-        "`s4",
-        "`s2"
-      ],
-      "coabs": [
-        "Axe",
-        "Bow",
-        "Joker"
-      ],
-      "share": [
-        "Raemond",
-        "Sha_Wujing"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35159.105463611544,
-        "team": 0.10136958298533517,
+        "dps": 40490.63318648645,
+        "team": 0.1422494108535367,
         "noaff": false,
         "nihil": true
       },
@@ -177,8 +168,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 16945.686506854832,
-        "team": 1.0752312071708985,
+        "dps": 19921.428996162424,
+        "team": 1.0240254439126282,
         "noaff": false,
         "nihil": false
       },
@@ -188,13 +179,14 @@
         "Wily_Warriors_Flash_and_Heat",
         "Blessed_Days",
         "Luck_of_the_Draw",
-        "Crown_of_Light",
-        "Promised_Piety_Staff"
+        "Promised_Piety_Staff",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon",
         "queue s1.charged>=s1.sp and c_fs(galacleo)",
-        "`fs;s1, fsc",
+        "`fs",
+        "`s1, fsc",
         "end",
         "`s3, not buff(s3)",
         "`s4",
@@ -205,8 +197,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76082.00106347987,
-        "team": 0.4615435213504457,
+        "dps": 86939.23126825753,
+        "team": 0.5226491888642385,
         "noaff": false,
         "nihil": false
       },
@@ -226,7 +218,7 @@
       ]
     },
     "META": {
-      "tdps": 96362.23102238783,
+      "tdps": 133667.68289740203,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -234,11 +226,56 @@
       }
     }
   },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 18114.40756698743,
+        "team": 0.9987683775285334,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Proper_Maintenance",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Azazel",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`fs, s1.check() and c_fs(galacleo)",
+        "`s1, s or fsc",
+        "`s2",
+        "`s4, s or x=5 or fsc"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "tdps": 164749.86428502676,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50698.67247387091,
-        "team": 0.08806956871346924,
+        "dps": 57252.661429593485,
+        "team": 0.12361973604548991,
         "noaff": false,
         "nihil": true
       },
@@ -282,16 +319,16 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12771.710952016683,
-        "team": 1.0317073660073568,
+        "dps": 16781.975003508618,
+        "team": 0.9987683775285334,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50794.31744751655,
-        "team": 0.6301443694444283,
+        "dps": 58158.539546852524,
+        "team": 0.6828568784941675,
         "noaff": true,
         "nihil": false
       },
@@ -315,7 +352,7 @@
       ]
     },
     "META": {
-      "tdps": 94686.52943857935,
+      "tdps": 130975.1771297278,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -323,23 +360,56 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
+  "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4168.064103189212,
-        "team": 0.43081718156337045,
-        "noaff": true,
-        "nihil": true
+        "dps": 16781.975003508618,
+        "team": 0.9987683775285334,
+        "noaff": false,
+        "nihil": false
       },
+      "slots.a": [
+        "Jewels_of_the_Sun",
+        "Proper_Maintenance",
+        "Wily_Warriors_Flash_and_Heat",
+        "Blessed_Days",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Azazel",
       "acl": [
-        "`s4",
-        "`s2"
+        "`dragon, cancel",
+        "`s3, not buff(s3)",
+        "`fs, s1.check() and c_fs(galacleo)",
+        "`s1, s or fsc",
+        "`s2",
+        "`s4, s or x=5 or fsc"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
       ]
     },
+    "META": {
+      "tdps": 161445.72416050034,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33885.58628048968,
-        "team": 0.1005956377604935,
+        "dps": 38883.722597833534,
+        "team": 0.14029613681671846,
         "noaff": false,
         "nihil": true
       },
@@ -361,11 +431,10 @@
       ]
     },
     "META": {
-      "tdps": 89992.68138313865,
+      "tdps": 119494.4707875397,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   }

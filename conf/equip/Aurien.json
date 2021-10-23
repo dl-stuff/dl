@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 18822.477996207595,
-        "team": 0.24143299019492004,
+        "dps": 16568.668674969882,
+        "team": 0.19697651384966897,
         "noaff": false,
         "nihil": false
       },
@@ -17,7 +17,7 @@
       "slots.d": "Gala_Mars",
       "slots.w": "void",
       "acl": [
-        "`dragon(s), s=2",
+        "`dragon, s=2",
         "`s4, cancel",
         "`s2",
         "`s1, not buff(s1)",
@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58504.50616645871,
-        "team": 0.0999757447734761,
+        "dps": 54787.330611626065,
+        "team": 0.09993700082509065,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=2",
+        "`dragon, s=2",
         "`s3, not buff(s3) and x=5",
         "`s4, cancel",
         "`s2",
@@ -78,7 +78,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 22653.895086585148,
+        "dps": 23001.523559041238,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -114,7 +114,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 23019.019156246253,
+        "dps": 23001.523559041238,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -130,7 +130,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=2",
+        "`dragon, s=2",
         "`s3, not buff(s3) and x=5",
         "`s4, cancel",
         "`s2",
@@ -155,14 +155,23 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 20587.70869080983,
-        "team": 0.24143299019492004,
+        "dps": 19346.617586494747,
+        "team": 0.19697651384966897,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 59992.9557117999,
+        "team": 0.09993700082509065,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "pref": "TEAMBUFF",
+      "tdps": 418863.78917637584,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -170,9 +179,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 46796.04232070187,
+        "dps": 53481.985967465596,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -202,9 +211,78 @@
         "Humanoid_Mercury"
       ]
     },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 14510.127333733464,
+        "team": 0.19697651384966897,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50844.209804315724,
+        "dps": 45669.484521578794,
+        "team": 0.09993700082509065,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 321099.6862685537,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 8820.146653301697,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Me_and_My_Bestie",
+        "The_Red_Impulse",
+        "Dueling_Dancers",
+        "Mana_Fount"
+      ],
+      "slots.d": "Gala_Mars",
+      "slots.w": "void",
+      "acl": [
+        "`dragon, s=2",
+        "`s4, cancel",
+        "`s2",
+        "`s1, not buff(s1)",
+        "`dodge, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Marth",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Elisanne"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33198.311028929,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -219,7 +297,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c2-s-c3-c3-c2-end)",
+        "`dragon",
         "`s4",
         "`s3",
         "`s2, x=5"
@@ -233,57 +311,6 @@
         "Gala_Mym",
         "Humanoid_Mercury"
       ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 15471.550912476014,
-        "team": 0.24143299019492004,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 49689.731942618826,
-        "team": 0.0999757447734761,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 241897.69091145875,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 19191.675682609366,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 19946.91304631344,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
     },
     "META": {
       "pref": "PERSONAL",

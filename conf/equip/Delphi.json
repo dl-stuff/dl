@@ -1,41 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 4954.739551129756,
-        "team": 0.6132487427399139,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Sisters_Day_Out",
-        "Summertime_Feeling_Feline",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(s-end)",
-        "`s1",
-        "`s3",
-        "`s4",
-        "`fs, x=2 and c_fs(delphi)"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Karl",
-        "Templar_Hope"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49846.349418210484,
-        "team": 0.2452777562091753,
+        "dps": 48668.81153418699,
+        "team": 0.24578687327755505,
         "noaff": false,
         "nihil": false
       },
@@ -51,15 +19,14 @@
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
         "queue buff(s3) and (s=1 and dgauge>=500)",
-        "dragon",
-        ";",
-        "fs",
+        "`dragon",
+        "`fs",
         "end",
-        "s3, not buff(s3)",
-        "s1",
-        "s4, s=1",
-        "s2, fscf",
-        "fs, x=2"
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, s=1",
+        "`s2, fscf",
+        "`fs, x=2"
       ],
       "dacl": [
         "ds1,x=3"
@@ -79,34 +46,11 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5740.493185002616,
-        "team": 0.5468998435376358,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Forte",
-        "Gala_Alex",
-        "Ieyasu"
-      ]
-    },
-    "META": {
-      "tdps": 146228.867467446,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 22561.342321358166,
-        "team": 0.30332264744094395,
+        "dps": 22503.06071326534,
+        "team": 0.2979122803078808,
         "noaff": false,
         "nihil": true
       },
@@ -122,7 +66,8 @@
       "slots.d": "Ramiel",
       "acl": [
         "queue (s=1 and dgauge>=500)",
-        "`dragon(c3-s-c3-end);fs",
+        "`dragon",
+        "`fs",
         "end",
         "`fs, fs_prep_c and x=4",
         "`s1",
@@ -142,8 +87,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 34348.09424023872,
-        "team": 0.15231596431505676,
+        "dps": 34362.52822782105,
+        "team": 0.15258127685973671,
         "noaff": false,
         "nihil": true
       },
@@ -186,8 +131,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60056.825656794084,
-        "team": 0.2719082208809726,
+        "dps": 60503.342273790724,
+        "team": 0.27202006968138676,
         "noaff": false,
         "nihil": false
       },
@@ -230,16 +175,16 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 22730.51184178458,
-        "team": 0.303322647440944,
+        "dps": 22737.540647844875,
+        "team": 0.2979122803078808,
         "noaff": false,
         "nihil": true
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35410.87576324722,
-        "team": 0.15269172877420678,
+        "dps": 35644.77455914019,
+        "team": 0.15946330668350908,
         "noaff": false,
         "nihil": true
       },
@@ -270,7 +215,7 @@
       ]
     },
     "META": {
-      "tdps": 84181.68085077712,
+      "tdps": 93227.37159694772,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -279,61 +224,41 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 2780.789020494853,
-        "team": 0.6132487427399139,
+        "dps": 21211.185716293974,
+        "team": 0.24578687327755505,
         "noaff": false,
         "nihil": false
       }
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 21476.710961443943,
-        "team": 0.24119379239772437,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "queue buff(s3) and (s=1 and dgauge>=500)",
-        "`dragon",
-        "`fs",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, s=1",
-        "`s2, fscf",
-        "`fs, x=2"
-      ]
-    },
     "META": {
-      "tdps": 50250.43188849904,
+      "tdps": 50155.943316690296,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10886.008469066906,
-        "team": 0.30332264744094395,
+        "dps": 11896.510113662593,
+        "team": 0.2979122803078808,
         "noaff": false,
         "nihil": true
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 13958.370459604566,
-        "team": 0.16666208034427832,
+        "dps": 15886.80484993137,
+        "team": 0.15258127685973671,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "tdps": 22481.700872530786,
+      "tdps": 27456.59660770569,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

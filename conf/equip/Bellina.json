@@ -2,31 +2,30 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 49490.12929155458,
-        "team": 0.11770732909144044,
-        "noaff": false,
+        "dps": 29944.359353980613,
+        "team": 0.03915534788342143,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
+        "Emissaries_of_the_Heavens",
+        "Twinfold_Bonds",
+        "Worthy_Rivals",
         "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
+        "Having_a_Summer_Ball",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Axe"
       ],
-      "slots.d": "Gala_Reborn_Nidhogg",
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`s2, (duration-now)<1.5",
-        "`s3, not buff(s3)",
-        "if in_drg",
-        "`s4, dgauge>500 and x=3",
-        "`s1, (dgauge>1100 and x=3)",
-        "else",
-        "`s2",
         "`dragon",
-        "end"
+        "`s3, not buff(s3) and x=4",
+        "`s2"
+      ],
+      "dacl": [
+        "`s2, duration-now<2",
+        "`s4, x=3",
+        "`s1, x=3 and dgauge>=900"
       ],
       "coabs": [
         "Berserker",
@@ -35,7 +34,7 @@
       ],
       "share": [
         "Weapon",
-        "Dragonyule_Lily"
+        "Sha_Wujing"
       ]
     },
     "PERSONAL": {
@@ -76,7 +75,7 @@
       ]
     },
     "META": {
-      "tdps": 642487.4247320491,
+      "tdps": 2430606.643081757,
       "pref": "PERSONAL"
     }
   },
@@ -129,6 +128,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 47469.75630281841,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 126591.69926217053,
@@ -186,38 +193,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 29944.359353980613,
-        "team": 0.03915534788342143,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
-        "Worthy_Rivals",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Testament_of_Eternity",
-        "Thunderswift_Lords_Blade_Axe"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and x=4",
-        "`s2"
-      ],
-      "dacl": [
-        "`s2, duration-now<2",
-        "`s4, x=3",
-        "`s1, x=3 and dgauge>=900"
-      ],
-      "share": [
-        "Weapon",
-        "Sha_Wujing"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 86944.50849624314,

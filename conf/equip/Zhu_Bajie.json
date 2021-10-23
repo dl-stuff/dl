@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65249.65118340893,
-        "team": 0.11756376166079448,
+        "dps": 69817.5449896339,
+        "team": 0.1087938025913056,
         "noaff": false,
         "nihil": false
       },
@@ -13,12 +13,12 @@
         "The_Synthetic_Dragon",
         "The_Queen_of_the_Knife",
         "The_Warrioresses",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-end), s=1",
+        "`dragon, s=1",
         "`s3, fsc and not buff(s3)",
         "`s1, fsc and hp<100",
         "`s4, fsc",
@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80823.17603362945,
+        "dps": 75645.07717447144,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -54,7 +54,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-end), s=1",
+        "`dragon, s=1",
         "`s3, fsc and not buff(s3)",
         "`s1, fsc and hp<30",
         "`s4, fsc",
@@ -120,8 +120,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 88231.0569889886,
-        "team": 0.11877891803766179,
+        "dps": 84660.95345364703,
+        "team": 0.11588301407784846,
         "noaff": false,
         "nihil": false
       },
@@ -129,10 +129,10 @@
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
         "The_Synthetic_Dragon",
+        "Fresh_Perspective",
         "The_Queen_of_the_Knife",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
@@ -190,7 +190,7 @@
       ]
     },
     "META": {
-      "tdps": 365423.14557414514,
+      "tdps": 640351.2652474758,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -242,32 +242,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 72781.22214996244,
-        "team": 0.11739009986115949,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "The_Synthetic_Dragon",
-        "A_Small_Courage",
-        "The_Warrioresses",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76391.03606071207,
-        "team": 0.09904830879154833,
+        "dps": 76461.40943161039,
+        "team": 0.1087938025913056,
         "noaff": false,
         "nihil": false
       },
@@ -281,15 +259,11 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, buffstack(ro_att)=6 and s=1",
+        "`dragon, s=1",
         "`s3, fsc and not buff(s3)",
         "`s1, fsc and hp<100",
-        "if buffstack(ro_att)<6",
-        "`s4, fsc and not have_buff(s2_20)",
-        "else",
-        "`s4, fsc and not have_buff(s4_10)",
-        "end",
-        "`s2, fsc or s=4",
+        "`s4, fsc",
+        "`s2, fsc or s",
         "`dodge, fsc",
         "`fs3"
       ],
@@ -304,7 +278,6 @@
       ]
     },
     "META": {
-      "tdps": 196808.14687342042,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -315,8 +288,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33925.0681825293,
-        "team": 0.04936445942680466,
+        "dps": 34883.55966011137,
+        "team": 0.04934741619766269,
         "noaff": false,
         "nihil": true
       },
@@ -326,11 +299,11 @@
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "Flowers_Under_the_Moon",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon",
         "`s4, fsc",
         "`s3, fsc",
         "`s1, fsc",
@@ -382,7 +355,7 @@
       ]
     },
     "META": {
-      "tdps": 61125.4349662851,
+      "tdps": 41723.209347167714,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

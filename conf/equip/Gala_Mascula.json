@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 71425.75957887496,
-        "team": 0.3325723089531617,
+        "dps": 60742.60471218233,
+        "team": 0.15078956014765793,
         "noaff": true,
         "nihil": false
       },
@@ -16,7 +16,7 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-end), (s2.charged>=s2.sp*(3/4) or duration-now<30)",
+        "`dragon, (s2.charged>=s2.sp*(3/4) or duration-now<30)",
         "`s3, not buff(s3) and x=4",
         "`s4, x=4",
         "`s2",
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79539.846386354,
-        "team": 0.3316233219597615,
+        "dps": 62921.98861722728,
+        "team": 0.13181642162037294,
         "noaff": true,
         "nihil": false
       },
@@ -48,7 +48,7 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-end), (s2.charged>=s2.sp*(3/4) or duration-now<30)",
+        "`dragon, (s2.charged>=s2.sp*(3/4) or duration-now<30)",
         "`s3, not buff(s3) and x=4",
         "`s4, x=4",
         "`s2",
@@ -65,47 +65,47 @@
       ]
     },
     "META": {
-      "tdps": 8550261.345950173,
+      "tdps": 114866.810354587,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54171.64308055589,
-        "team": 0.315310490759361,
-        "noaff": false,
+        "dps": 32786.50402242558,
+        "team": 0.1557085349041436,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "OneWinged_Journey",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "The_Red_Impulse",
+        "Chariot_Drift",
+        "Dueling_Dancers"
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-c3-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
-        "`s2, cancel",
-        "`s1, masterctrl_buff.get() and cancel",
+        "`dragon, (s2.charged>=s2.sp*(3/4) or duration-now<30)",
+        "`s3, not buff(s3) and x=4",
         "`s4, x=4",
-        "`s3, x=4"
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4"
       ],
       "coabs": [
-        "Renee",
+        "Summer_Celliera",
         "Tiki",
-        "Xander"
+        "Yurius"
       ],
       "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57937.14208419906,
-        "team": 0.3113364882898262,
+        "dps": 45057.61144752762,
+        "team": 0.15466817870159444,
         "noaff": false,
         "nihil": true
       },
@@ -118,7 +118,7 @@
       ],
       "slots.d": "Summer_Marishiten",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c3-c3-end), s2.charged>=s2.sp*(3/4) or duration-now<30",
+        "`dragon, s2.charged>=s2.sp*(3/4) or duration-now<30",
         "`s2, cancel",
         "`s1, masterctrl_buff.get() and cancel",
         "`s4, x=4",
@@ -135,43 +135,27 @@
       ]
     },
     "META": {
-      "tdps": 947533.131272546,
+      "tdps": 11795101.903592624,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 87434.09332960955,
-        "team": 0.3325723089531617,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Holywyrms_Advent",
-        "Memory_of_a_Friend",
-        "OneWinged_Journey",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 91690.98816290029,
-        "team": 0.3316233219597615,
+        "dps": 74805.25450479545,
+        "team": 0.15078956014765793,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
         "OneWinged_Journey",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
+        "A_Choice_Blend",
         "His_Clever_Brother"
       ]
     },
     "META": {
-      "tdps": 4485725.160508756,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -180,10 +164,18 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 44920.83804558042,
+        "team": 0.13965798457493775,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63585.235740832664,
-        "team": 0.31133648828982624,
+        "dps": 49670.57114201851,
+        "team": 0.1546681787015943,
         "noaff": false,
         "nihil": true
       },
@@ -204,42 +196,16 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 41519.47711286654,
         "team": 0.15466817870159444,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "`dragon, s2.charged>=s2.sp*(3/4) or duration-now<30",
-        "`s2, cancel",
-        "`s1, masterctrl_buff.get() and cancel",
-        "`s4, x=4",
-        "`s3, x=4"
-      ],
-      "coabs": [
-        "Pipple",
-        "Renee",
-        "Tiki"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 52975.97005574168,
-        "team": 0.3113364882898262,
-        "noaff": false,
-        "nihil": true
       }
     },
     "META": {
+      "tdps": 8394214.47100784,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -2,7 +2,7 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 70634.90951920106,
+        "dps": 70416.38894811488,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -18,12 +18,12 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "dragon, s=1 and duration-now<15",
-        "s3, not buff(s3)",
-        "s1",
-        "s4, cancel",
-        "s2, x=5",
-        "fs, charged_in(fs,s1)  and x>3"
+        "`dragon, s=1 and duration-now<15",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, cancel",
+        "`s2, x=5",
+        "`fs, charged_in(fs,s1)  and x>3"
       ],
       "dacl": [
         "ds1,x=3"
@@ -40,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70634.90951920106,
+        "dps": 70416.38894811488,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -56,12 +56,12 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "dragon, s=1 and duration-now<15",
-        "s3, not buff(s3)",
-        "s1",
-        "s4, cancel",
-        "s2, x=5",
-        "fs, charged_in(fs,s1)  and x>3"
+        "`dragon, s=1 and duration-now<15",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, cancel",
+        "`s2, x=5",
+        "`fs, charged_in(fs,s1)  and x>3"
       ],
       "dacl": [
         "ds1,x=3"
@@ -117,7 +117,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 27462.576886665727,
+        "dps": 27380.65293277091,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -133,7 +133,7 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(c4-s), s=1 and duration-now<15",
+        "`dragon, s=1 and duration-now<15",
         "`s3",
         "`s1",
         "`s4, hp>0 or x>2",
@@ -242,9 +242,17 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39568.49596701503,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57599.5358229711,
+        "dps": 57675.328344740956,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -289,35 +297,67 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 45530.26390467123,
-        "team": 0.0,
+        "dps": 54306.75524408099,
+        "team": 0.03326943923310905,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Pecorines_Grand_Adventure",
+        "Welcome_to_the_Opera",
+        "Dueling_Dancers",
+        "His_Clever_Brother",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
       "acl": [
-        "`dragon, s=1 and duration-now<15",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s1",
-        "`s4, cancel",
-        "`s2, x=5",
-        "`fs, charged_in(fs,s1)  and x>3"
+        "`s4",
+        "`s2"
+      ],
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Summer_Prince"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 45600.093549074045,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 25045.505620254793,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

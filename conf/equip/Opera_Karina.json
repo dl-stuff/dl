@@ -1,42 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5387.699113957155,
-        "team": 0.40375312038039474,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "#`s1, not aff(shadowblight)",
-        "`fs, fs_prep_c and x=1",
-        "`dragon(s-end)",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68135.47429403027,
-        "team": 0.026883542597450533,
+        "dps": 61363.310960287825,
+        "team": 0.021491661900156767,
         "noaff": false,
         "nihil": false
       },
@@ -51,8 +18,8 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c2-s-c3-c2-end), dshift_count = 0",
-        "`dragon(c2-s-c3-c3-end), dshift_count > 0",
+        "`dragon, dshift_count = 0",
+        "`dragon, dshift_count > 0",
         "`s3, not buff(s3)",
         "`s2",
         "`s1, cancel",
@@ -73,33 +40,10 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5588.601430854287,
-        "team": 0.3388800230572216,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ]
-    },
-    "META": {
-      "tdps": 200473.00780766594,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 32041.87756616773,
+        "dps": 32259.245115772523,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -110,12 +54,12 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Plaguebringer",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-end)",
+        "`dragon",
         "`s3",
         "`s2",
         "`s1, cancel",
@@ -123,38 +67,6 @@
       ],
       "coabs": [
         "Dagger",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 35662.296606833675,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(s)",
-        "`s3",
-        "`s2",
-        "`s1, cancel",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Forte",
         "Ieyasu",
         "Wand"
       ],
@@ -168,45 +80,53 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 7051.4591272738535,
-        "team": 0.40375312038039474,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73522.45903204713,
-        "team": 0.026883542597450533,
+        "dps": 66444.2548297505,
+        "team": 0.021491661900156767,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 176376.66668615225,
+      "tdps": 155372.17887098895,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48212.87404726997,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50606.61445209431,
+        "dps": 26342.47118201863,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "A_Man_Unchanging",
+        "Dear_Diary",
         "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
+        "The_Plaguebringer",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
@@ -214,8 +134,9 @@
       "acl": [
         "`dragon",
         "`s3",
+        "`s2",
         "`s1, cancel",
-        "`s4"
+        "`s4, cancel"
       ],
       "coabs": [
         "Dagger",
@@ -224,80 +145,14 @@
       ],
       "share": [
         "Summer_Celliera",
-        "Summer_Julietta"
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5019.163453886701,
-        "team": 0.40375312038039474,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 36092.446822255864,
-        "team": 0.026883542597450592,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ]
-    },
-    "META": {
-      "tdps": 82451.02603178451,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 25003.209210838806,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c5-s-end)",
-        "`s3",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`s4, xf"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4865.8753017673935,
-        "team": 1.0775007228417341,
+        "dps": 4643.892944160685,
+        "team": 1.0399768772174884,
         "noaff": true,
         "nihil": false
       },
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75348.0410301942,
-        "team": 0.23278514024296096,
+        "dps": 69028.77850290149,
+        "team": 0.23335994162530743,
         "noaff": false,
         "nihil": false
       },
@@ -50,7 +50,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-dfs-end), s=1",
+        "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
@@ -68,15 +68,15 @@
       ]
     },
     "META": {
-      "tdps": 83438.93161244635,
+      "tdps": 79820.89479868456,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5243.915959520878,
-        "team": 0.9788329017651075,
+        "dps": 4865.799463533617,
+        "team": 0.9830580549955501,
         "noaff": true,
         "nihil": false
       },
@@ -87,7 +87,7 @@
       ]
     },
     "META": {
-      "tdps": 93967.34188658546,
+      "tdps": 85585.0880442067,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -95,61 +95,25 @@
       }
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 39383.250830609526,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-end), cancel",
-        "`s3",
-        "`s4",
-        "`s2, cancel",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39383.250830609526,
+        "dps": 25385.961209612444,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
         "The_Shining_Overlord",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
       "acl": [
-        "`dragon(c3-s-end), cancel",
+        "`dragon, cancel",
         "`s3",
         "`s4",
         "`s2, cancel",
@@ -176,8 +140,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 86084.77921546341,
-        "team": 0.23278514024296096,
+        "dps": 80769.0131014224,
+        "team": 0.23335994162530743,
         "noaff": false,
         "nihil": false
       },
@@ -192,7 +156,7 @@
       ]
     },
     "META": {
-      "tdps": 96149.40885052164,
+      "tdps": 94375.80194293112,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -200,44 +164,16 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 44419.26465845054,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3), cancel and aff(stormlash)",
-        "`s3, cancel",
-        "`s4",
-        "`s2, cancel",
-        "`fs, x=2 or hits=0"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 44419.26465845054,
+        "dps": 29021.469810381386,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3), cancel and aff(stormlash)",
+        "`dragon, cancel and aff(stormlash)",
         "`s3, cancel",
         "`s4",
         "`s2, cancel",
@@ -249,9 +185,9 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
@@ -259,8 +195,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52850.09534252512,
-        "team": 0.21104915632548946,
+        "dps": 51999.2600507798,
+        "team": 0.20630067182388837,
         "noaff": false,
         "nihil": false
       },
@@ -281,7 +217,7 @@
       ]
     },
     "META": {
-      "tdps": 55380.15267684105,
+      "tdps": 56803.069105542505,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -292,32 +228,36 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 23992.476387786817,
+        "dps": 17761.256584490842,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "The_Shining_Overlord",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife"
+      ],
+      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
       "acl": [
-        "`dragon(c3-s-c3), cancel and aff(stormlash)",
-        "`s3, cancel",
+        "`dragon, cancel",
+        "`s3",
         "`s4",
         "`s2, cancel",
         "`fs, x=2 or hits=0"
       ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
       "share": [
-        "Summer_Celliera",
+        "Gala_Mym",
         "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -325,13 +265,13 @@
   "IMMUNE-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 23992.476387786817,
+        "dps": 15340.781786479529,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-c3), cancel and aff(stormlash)",
+        "`dragon, cancel and aff(stormlash)",
         "`s3, cancel",
         "`s4",
         "`s2, cancel",

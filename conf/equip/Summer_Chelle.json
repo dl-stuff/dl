@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30322.543401558203,
-        "team": 0.14466242326539183,
+        "dps": 29046.001915547356,
+        "team": 0.1295511177973611,
         "noaff": false,
         "nihil": false
       },
@@ -19,7 +19,7 @@
       "slots.d": "Summer_Cat_Sith",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-end), radiance_level=3",
+        "`dragon, radiance_level=3",
         "`s1, buff(s3)",
         "`s2, radiance_level=3 and cancel",
         "`s4",
@@ -38,8 +38,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76940.95936554957,
-        "team": 0.08520386112391232,
+        "dps": 75068.6999685607,
+        "team": 0.08545968023372799,
         "noaff": false,
         "nihil": false
       },
@@ -56,7 +56,7 @@
       "acl": [
         "`s3, not buff(s3)",
         "if radiance_level=3",
-        "`dragon(c2-s)",
+        "`dragon",
         "`s2, radiance_level=3 and fsc",
         "end",
         "`s4",
@@ -82,8 +82,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48324.535887807695,
-        "team": 0.029405168146494815,
+        "dps": 47696.15423079848,
+        "team": 0.02936504166181602,
         "noaff": false,
         "nihil": true
       },
@@ -98,7 +98,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c2-s), radiance_level=3",
+        "`dragon, radiance_level=3",
         "`s1",
         "`s2, radiance_level=3 and cancel",
         "`s3, x>3 or fsc",
@@ -118,7 +118,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55582.8794630771,
+        "dps": 53905.107162070875,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -134,7 +134,7 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), radiance_level=3",
+        "`dragon, radiance_level=3",
         "`s1",
         "`s2, radiance_level=3 and cancel",
         "`s3, x>3 or fsc",
@@ -158,6 +158,14 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 32190.78662448288,
+        "team": 0.1295511177973611,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 82829.65856912297,
@@ -185,6 +193,7 @@
       ]
     },
     "META": {
+      "tdps": 1166737.2310062184,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,9 +202,17 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 48070.26656423168,
+        "team": 0.02936504166181602,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61146.69646170923,
+        "dps": 59316.167713248644,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -211,6 +228,7 @@
       ]
     },
     "META": {
+      "tdps": 382969.0173278469,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -221,16 +239,16 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45962.58349649132,
-        "team": 0.13977193648374844,
+        "dps": 21828.3607443065,
+        "team": 0.1295511177973611,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 59262.61675349285,
-        "team": 0.08520386112391219,
+        "dps": 57624.24811925355,
+        "team": 0.08545968023372799,
         "noaff": false,
         "nihil": false
       },
@@ -245,7 +263,7 @@
       ]
     },
     "META": {
-      "tdps": 243732.86338756885,
+      "tdps": 811855.7559681777,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -254,36 +272,9 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 38948.225160401904,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon, radiance_level=3",
-        "`s1",
-        "`s2, radiance_level=3 and cancel",
-        "`s3, x>3 or fsc",
-        "`s4, cancel",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Blade",
-        "Fritz",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38978.52145125517,
+        "dps": 38948.225160401904,
         "team": 0.0,
         "noaff": false,
         "nihil": true

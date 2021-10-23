@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43682.889975018225,
-        "team": 0.06763917110258895,
+        "dps": 43713.172960366115,
+        "team": 0.06766586613657936,
         "noaff": false,
         "nihil": false
       },
@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43693.75555512866,
-        "team": 0.06731843943931097,
+        "dps": 43713.172960366115,
+        "team": 0.06766586613657936,
         "noaff": false,
         "nihil": false
       },
@@ -56,7 +56,7 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(s), buff(s3, 1)",
+        "`dragon, buff(s3, 1)",
         "`s3",
         "`s2, cancel",
         "`s1, x>3 or fsc",
@@ -81,8 +81,8 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29566.029654000802,
-        "team": 0.03214493254702971,
+        "dps": 28985.740031719102,
+        "team": 0.03210987836909433,
         "noaff": false,
         "nihil": true
       },
@@ -119,31 +119,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 53191.60831701439,
-        "team": 0.1404082880547601,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53191.60831701439,
-        "team": 0.1404082880547601,
+        "dps": 53710.439833577206,
+        "team": 0.14075635711515713,
         "noaff": false,
         "nihil": false
       },
@@ -156,13 +135,8 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s3",
-        "`s2, cancel",
-        "`s1, x>3 or fsc",
-        "`s4",
-        "`fs, x=5"
+      "dacl": [
+        "ds1,x=3"
       ],
       "share": [
         "Weapon",
@@ -216,38 +190,27 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 22889.125262011952,
-        "team": 0.0422889718734845,
+        "dps": 43713.172960366115,
+        "team": 0.06766586613657936,
         "noaff": false,
-        "nihil": true
+        "nihil": false
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon, aff(flashburn)",
-        "`s4",
-        "`s3",
-        "`s2, cancel",
-        "`s1, x>3 or fsc",
-        "`fs, x=5",
-        "`dodge,fsc"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Ilia"
+      "dacl": [
+        "ds1,x=3"
       ]
     },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 22889.125262011952,
@@ -273,6 +236,9 @@
         "`s1, x>3 or fsc",
         "`fs, x=5",
         "`dodge,fsc"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "share": [
         "Gala_Mym",

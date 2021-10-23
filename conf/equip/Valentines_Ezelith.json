@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17261.38392635701,
-        "team": 0.2014384277634331,
+        "dps": 17171.655897664783,
+        "team": 0.20180735868185232,
         "noaff": false,
         "nihil": false
       },
@@ -14,7 +14,7 @@
         "Bellathorna",
         "From_Whence_He_Comes",
         "Beneath_the_Boughs",
-        "Wind_of_Oaths"
+        "Treasured_Memory_of_the_Sea"
       ],
       "slots.d": "Horus",
       "acl": [
@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62718.1575816772,
-        "team": 0.043168111395434784,
+        "dps": 62150.243667485556,
+        "team": 0.043206326423388786,
         "noaff": false,
         "nihil": false
       },
@@ -80,8 +80,8 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46895.55670943831,
-        "team": 0.1551861734590865,
+        "dps": 47668.17908404713,
+        "team": 0.15514082542680274,
         "noaff": false,
         "nihil": false
       },
@@ -91,8 +91,8 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
@@ -123,42 +123,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 15586.75577540099,
-        "team": 0.05554005370945356,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Kimono_Elisanne",
-        "Marth"
-      ],
-      "share": [
-        "Weapon",
-        "Cleo"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37139.64912254645,
-        "team": 0.04319621693949763,
+        "dps": 37291.23086946012,
+        "team": 0.04319490470929429,
         "noaff": false,
         "nihil": true
       },
@@ -173,7 +141,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), s",
+        "`dragon, s",
         "`s4",
         "`s3",
         "`s2",
@@ -196,10 +164,18 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 17827.693688034695,
+        "team": 0.20180735868185232,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72142.00551977308,
-        "team": 0.13548521627432025,
+        "dps": 71213.74172348317,
+        "team": 0.13501696115463685,
         "noaff": false,
         "nihil": false
       },
@@ -218,6 +194,7 @@
       ]
     },
     "META": {
+      "tdps": 799307.2359495234,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -225,24 +202,60 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
+  "ALWAYS-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17148.51348273983,
-        "team": 0.05554005370945356,
+        "dps": 17827.693688034695,
+        "team": 0.20180735868185232,
         "noaff": false,
-        "nihil": true
-      }
+        "nihil": false
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Honest_Repose",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Treasured_Memory_of_the_Sea"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Nobunaga",
+        "Tobias"
+      ],
+      "share": [
+        "Weapon",
+        "Cleo"
+      ]
     },
+    "META": {
+      "tdps": 1134578.270891614,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48531.8848081624,
-        "team": 0.043202774487114966,
+        "dps": 49241.635254675784,
+        "team": 0.04320603120643254,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), aff(scorchrend)",
+        "`dragon, aff(scorchrend)",
         "`s4",
         "`s2",
         "`s1",
@@ -261,27 +274,26 @@
       ]
     },
     "META": {
-      "tdps": 2543783.8246051874,
+      "tdps": 2601999.612379113,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17810.35407391525,
-        "team": 0.17294648899626822,
+        "dps": 13782.797727993415,
+        "team": 0.20180735868185232,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45185.81763070483,
-        "team": 0.1354852162743204,
+        "dps": 44463.36953998998,
+        "team": 0.13501696115463702,
         "noaff": false,
         "nihil": false
       },
@@ -300,7 +312,7 @@
       ]
     },
     "META": {
-      "tdps": 730767.0446752022,
+      "tdps": 459356.0294276592,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -311,8 +323,8 @@
   "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41825.24674143146,
-        "team": 0.15796846534879633,
+        "dps": 43677.89718427388,
+        "team": 0.17607373175944468,
         "noaff": false,
         "nihil": false
       },
@@ -322,8 +334,8 @@
         "Sisters_Day_Out",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`fs, fs_prep_c and x=3",
@@ -336,8 +348,8 @@
       ]
     },
     "META": {
-      "tdps": 149469.98443781192,
-      "pref": "PERSONAL",
+      "tdps": 19131.372101246572,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "IMMUNE-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
@@ -345,18 +357,10 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 10227.064149598666,
-        "team": 0.05554005370945356,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31216.64129869365,
-        "team": 0.043199976548584186,
+        "dps": 31226.33200192328,
+        "team": 0.04316229251361879,
         "noaff": false,
         "nihil": true
       },
@@ -375,11 +379,10 @@
       ]
     },
     "META": {
-      "tdps": 1700927.5448984508,
+      "tdps": 1696531.9915358415,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -2,22 +2,22 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43657.957497894415,
-        "team": 0.1601708313855165,
+        "dps": 41881.820142854565,
+        "team": 0.1601634659024309,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Snipers_Allure",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Cat_Sith",
       "slots.w": "high_dragon",
       "acl": [
-        "`dragon(c4-s), s=1 and duration-now<15",
+        "`dragon, s=1 and duration-now<15",
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
@@ -79,23 +79,23 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45469.80364121085,
-        "team": 0.06157070905524303,
+        "dps": 45596.788444609025,
+        "team": 0.04920742280687042,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Bloody_Little_Queen",
+        "Emissaries_of_the_Heavens",
         "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
         "A_Small_Courage",
         "Seaside_Memory",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-c3-end)",
+        "`dragon",
         "`s3",
         "`s4",
         "`s2, hp <= 50",
@@ -114,7 +114,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66909.79180577226,
+        "dps": 61130.51717250619,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -130,7 +130,7 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "`dragon(s), s=1 and duration-now<10",
+        "`dragon, s=1 and duration-now<10",
         "`s4",
         "`s3, not aff(poison)",
         "`s2, hp < 50",
@@ -155,21 +155,29 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42212.84185266752,
-        "team": 0.04166245875833209,
+        "dps": 42823.99448457294,
+        "team": 0.041640007808334184,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "A_Small_Courage",
         "Chariot_Drift",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Ramiel",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s2, hp <= 50",
+        "`s1",
+        "`fs, charged_in(fs,s1) and x>3"
+      ],
       "coabs": [
         "Blade",
         "Bow",
@@ -190,10 +198,18 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50329.57138648577,
+        "team": 0.1601634659024309,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 151574.2442872713,
-        "team": 0.033312476306501235,
+        "dps": 151588.64331907773,
+        "team": 0.03331564087715863,
         "noaff": false,
         "nihil": false
       },
@@ -229,6 +245,7 @@
       ]
     },
     "META": {
+      "tdps": 798272.0390548108,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -239,8 +256,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 74591.0240799979,
-        "team": 0.07398435889650401,
+        "dps": 70990.02192977187,
+        "team": 0.06166258107779463,
         "noaff": false,
         "nihil": true
       },
@@ -250,8 +267,8 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Arsene",
       "acl": [
@@ -269,8 +286,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 82735.31568302859,
-        "team": 0.026295994460715982,
+        "dps": 80960.52320668803,
+        "team": 0.026315409772107043,
         "noaff": false,
         "nihil": true
       },
@@ -284,7 +301,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-end), s=1",
+        "`dragon, s=1",
         "`s4",
         "`s1",
         "`s2",
@@ -302,7 +319,7 @@
       ]
     },
     "META": {
-      "tdps": 170781.52499855417,
+      "tdps": 282073.5269221341,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -311,41 +328,6 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 66988.55494684626,
-        "team": 0.13941754328854014,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Lord_of_the_Skies",
-        "Savage_Hawk_Lance",
-        "Thunderswift_Lords_Blade_Lance"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4",
-        "`s2, x=5 and (hp>=50 or hp=0)"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Curran",
-        "Ieyasu",
-        "Summer_Patia"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 66434.49435552463,
@@ -380,18 +362,18 @@
       ]
     },
     "META": {
+      "tdps": 1602011.559784352,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 51334.49459988959,
-        "team": 0.07407018950413584,
+        "dps": 51354.03722281398,
+        "team": 0.07382469016931067,
         "noaff": false,
         "nihil": true
       },
@@ -412,22 +394,22 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53906.042869798766,
-        "team": 0.07397071233204222,
+        "dps": 52685.451291759266,
+        "team": 0.07396904214362149,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Bloody_Little_Queen",
+        "Emissaries_of_the_Heavens",
         "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
         "A_Small_Courage",
         "Seaside_Memory",
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s), duration-now<5",
+        "`dragon, duration-now<5",
         "`s4",
         "`s3",
         "`s2, hp < 50",
@@ -440,7 +422,6 @@
       ]
     },
     "META": {
-      "tdps": 25850637.04353292,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

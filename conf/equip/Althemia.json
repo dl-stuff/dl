@@ -1,40 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 71052.03464198785,
-        "team": 0.11770876538856503,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-c3-end), x=5",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, buff(s3) and cancel"
-      ],
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Heinwald"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98568.85097040933,
+        "dps": 96045.3239003514,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -50,7 +18,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-c3-end), x=5 and trickery<=1",
+        "`dragon, x=5 and trickery<=1",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
@@ -74,7 +42,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52855.55081631961,
+        "dps": 53348.14987763307,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -108,7 +76,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55040.34981375871,
+        "dps": 53348.14987763307,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -124,7 +92,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c2-s-c3-end), x=5",
+        "`dragon, x=5",
         "`s4",
         "`s3",
         "`s2",
@@ -178,11 +146,15 @@
         "Blade",
         "Delphi",
         "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108874.71992095883,
+        "dps": 106015.09036908267,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -198,18 +170,17 @@
       ]
     },
     "META": {
-      "tdps": 106768.76699138522,
+      "tdps": 85033.66825295283,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 67726.14297277963,
+        "dps": 67743.36630988611,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -240,9 +211,58 @@
         "Summer_Julietta"
       ]
     },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68143.28017160692,
+        "dps": 52726.26240897919,
+        "team": 0.13156735960990668,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Delphi",
+        "Gala_Alex"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 41024.79948517921,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -257,7 +277,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c2-s-c3-end), x=5",
+        "`dragon, x=5",
         "`s3",
         "`s2",
         "`s4",
@@ -278,86 +298,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 45469.90567483068,
-        "team": 0.11770876538856503,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-end), x=5",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s4",
-        "`s1, buff(s3) and cancel"
-      ],
-      "coabs": [
-        "Bow",
-        "Delphi",
-        "Heinwald"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 33490.81507339014,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c5-s-c3-end), x=5",
-        "`s3",
-        "`s2",
-        "`s4",
-        "`s1, cancel"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Joker"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

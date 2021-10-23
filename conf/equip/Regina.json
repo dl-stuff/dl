@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72526.34034738755,
-        "team": 0.08964207749416797,
+        "dps": 69580.85207473118,
+        "team": 0.08844575721095017,
         "noaff": false,
         "nihil": false
       },
@@ -54,12 +54,12 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "dragon",
-        "s3, not buff(s3)",
-        "s1",
-        "s2, xf=5",
-        "s4, xf",
-        "fsf, xf=5"
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, xf=5",
+        "`s4, xf",
+        "`fsf, xf=5"
       ],
       "dacl": [
         "queue",
@@ -164,10 +164,18 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 71956.76188552302,
+        "team": 0.20880270589263902,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77201.78426756198,
-        "team": 0.08964207749416797,
+        "dps": 74188.58151213158,
+        "team": 0.08844575721095017,
         "noaff": false,
         "nihil": false
       },
@@ -180,7 +188,8 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": 18543.33838681063,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -190,8 +199,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 52843.60414180611,
-        "team": 0.10039018670355082,
+        "dps": 53170.404389236646,
+        "team": 0.10039018670355072,
         "noaff": false,
         "nihil": true
       }
@@ -205,7 +214,7 @@
       }
     },
     "META": {
-      "tdps": 2900764.6904437956,
+      "tdps": 2063812.1282948866,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -216,19 +225,12 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50239.15928401851,
-        "team": 0.08844575721095017,
+        "dps": 49505.571746739064,
+        "team": 0.20880270589263902,
         "noaff": false,
         "nihil": false
       },
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, xf=5",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ]
+      "slots.d": "Summer_Marishiten"
     },
     "META": {
       "pref": "PERSONAL",
@@ -241,19 +243,18 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25718.19071218644,
-        "team": 0.0,
+        "dps": 36174.89015006392,
+        "team": 0.10039018670355072,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
         "OneWinged_Journey",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
+        "Seaside_Princess",
+        "A_Choice_Blend",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`dragon",
         "`s3, not buff(s3)",
@@ -261,15 +262,6 @@
         "`s2, xf=5",
         "`s4, xf",
         "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Summer_Celliera",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
       ]
     },
     "META": {

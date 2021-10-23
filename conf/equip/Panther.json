@@ -1,35 +1,5 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 11384.495494121114,
-        "team": 0.4242215622829289,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Dazzling_Duet",
-        "Jewels_of_the_Sun",
-        "Amaterasu_Oblation",
-        "Seaside_Memory"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "`s3",
-        "`s4",
-        "`fs"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Patia",
-        "Templar_Hope"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 121502.17310964085,
@@ -81,8 +51,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55907.897060677955,
-        "team": 0.12045232300973673,
+        "dps": 40648.16259900381,
+        "team": 0.06171372319546182,
         "noaff": false,
         "nihil": true
       },
@@ -116,8 +86,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61887.262181916034,
-        "team": 0.08741513678342451,
+        "dps": 46932.767164406396,
+        "team": 0.061631513746092444,
         "noaff": false,
         "nihil": true
       },
@@ -134,7 +104,8 @@
       "acl": [
         "`dragon, not in_drg and s=1",
         "queue now=0",
-        "`fs;s1",
+        "`fs",
+        "`s1",
         "end",
         "`s4",
         "`s3, x=5",
@@ -202,15 +173,24 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42114.56319075958,
+        "team": 0.06171372319546182,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63763.72697573641,
-        "team": 0.08741513678342451,
+        "dps": 49226.421715439916,
+        "team": 0.061631513746092444,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
+      "tdps": 86509015.43843317,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -261,8 +241,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42580.96648085662,
-        "team": 0.11788628333868359,
+        "dps": 31585.80941690338,
+        "team": 0.0370145804966861,
         "noaff": false,
         "nihil": true
       },
@@ -272,8 +252,8 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`dragon, not in_drg and s=1",
@@ -329,11 +309,52 @@
       ]
     },
     "META": {
-      "tdps": -119120.65885902256,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32843.57355944604,
+        "team": 0.06171372319546182,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Moonlight_Party",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s4, x=5",
+        "`s3, x=5",
+        "`s2, x=5",
+        "`s1, x=5",
+        "`fsf, x=5",
+        "`dragon, not in_drg and cancel"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Laxi",
+        "Halloween_Mym"
+      ],
+      "share": [
+        "The_Prince",
+        "Seimei"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   }

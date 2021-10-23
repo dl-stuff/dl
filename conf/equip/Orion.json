@@ -1,40 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 34455.46774582875,
-        "team": 0.0018429126311027431,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "His_Clever_Brother"
-      ],
-      "slots.d": "Giovanni",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, xf=4 or x=5",
-        "`s1, buff(s3) and cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70199.76866361767,
+        "dps": 66635.03155977113,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -50,7 +18,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), trickery<=1",
+        "`dragon, trickery<=1",
         "`s3, not buff(s3)",
         "`s4",
         "`s2, xf=4 or x=5",
@@ -71,48 +39,11 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 27355.402946696595,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, xf=4 or x=5",
-        "`s1"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Pinon"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 72523.90570030399,
-        "team": 0.1026763355714379,
+        "dps": 72565.73282805896,
+        "team": 0.10267878387134861,
         "noaff": false,
         "nihil": false
       },
@@ -127,11 +58,11 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "dragon, sim_afflict",
-        "s3, not buff(s3)",
-        "s2, x=4 or x=5",
-        "s1, buff(s3)",
-        "s4, cancel"
+        "`dragon, sim_afflict",
+        "`s3, not buff(s3)",
+        "`s2, x=4 or x=5",
+        "`s1, buff(s3)",
+        "`s4, cancel"
       ],
       "dacl": [
         "ds1,x=8"
@@ -148,8 +79,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 77560.60847444358,
-        "team": 0.12494604656448,
+        "dps": 74561.04351697936,
+        "team": 0.10257323001745756,
         "noaff": false,
         "nihil": false
       },
@@ -163,7 +94,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-end), sim_afflict",
+        "`dragon, sim_afflict",
         "`s3, not buff(s3)",
         "`s2, x=4 or x=5",
         "`s1, buff(s3)",
@@ -180,55 +111,26 @@
       ]
     },
     "META": {
+      "tdps": 18903248.108590387,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
+  "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60199.02589255374,
-        "team": 0.033277067513845716,
+        "dps": 69361.27475698035,
+        "team": 0.0,
         "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`s3, cancel"
-      ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Summer_Celliera"
-      ]
+        "nihil": false
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -236,85 +138,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55817.357555709496,
-        "team": 0.10847451089420458,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon, sim_afflict",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, x=4 or x=5",
-        "`s1, buff(s3)"
-      ],
-      "coabs": [
-        "Axe2",
-        "Blade",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 55933.99685101854,
-        "team": 0.10780301543472118,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Moonlight_Party",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "acl": [
-        "`dragon(c3-s-end), sim_afflict",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s2, x=4 or x=5",
-        "`s1, buff(s3)"
-      ],
-      "coabs": [
-        "Axe2",
-        "Blade",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "tdps": 173700.79523513134,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 49015.200407729644,
-        "team": 0.0,
+        "dps": 32130.807125887935,
+        "team": 0.00579484469253367,
         "noaff": false,
         "nihil": false
       },
@@ -327,6 +152,7 @@
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
+      "slots.d": "Giovanni",
       "acl": [
         "`dragon, trickery<=1",
         "`s3, not buff(s3)",
@@ -346,7 +172,48 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51205.96989152533,
+        "dps": 53755.01953706004,
+        "team": 0.12832147635627403,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "Having_a_Summer_Ball",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "acl": [
+        "`dragon, sim_afflict",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s2, x=4 or x=5",
+        "`s1, buff(s3)"
+      ],
+      "coabs": [
+        "Axe2",
+        "Blade",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 49015.200407729644,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -358,76 +225,11 @@
       ]
     },
     "META": {
+      "tdps": 2913692.1138881077,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 31665.195072099054,
-        "team": 0.022391345869963934,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Chariot_Drift"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2, xf=4 or x=5",
-        "`s1"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Curran",
-        "Fritz"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 32434.465266392916,
-        "team": 0.017509569620724332,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Having_a_Summer_Ball"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Curran",
-        "Ranzal"
-      ]
-    },
-    "META": {
-      "tdps": 157579.97806918854,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
       }
     }
   }

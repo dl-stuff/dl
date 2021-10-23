@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 56295.60735908717,
-        "team": 0.08462451680934586,
+        "dps": 59545.881761050136,
+        "team": 0.08424777171033013,
         "noaff": true,
         "nihil": false
       },
@@ -13,12 +13,12 @@
         "The_Red_Impulse",
         "A_Small_Courage",
         "Dueling_Dancers",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-c3-s-c3), s=1 and energy()<5",
+        "`dragon, s=1 and energy()<5",
         "`s3, not buff(s3) and x=5",
         "`s2, energy()=5",
         "`s4",
@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75500.50525673249,
+        "dps": 71802.21387026255,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -52,7 +52,7 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-c3-s-c3-end), s=1",
+        "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s2, energy()=5",
         "`s4, energy()<5",
@@ -69,30 +69,30 @@
       ]
     },
     "META": {
-      "tdps": 226942.48217585508,
+      "tdps": 145479.59976144502,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 26576.86356438743,
-        "team": 0.02467221375749413,
+        "dps": 26913.624028759255,
+        "team": 0.02466397553096856,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
         "Candy_Couriers",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Chariot_Drift",
         "To_the_Extreme",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s-c3-c3-s-c3-end)",
+        "`dragon",
         "`s3, not buff(s3) and x=5",
         "`s2",
         "`s4",
@@ -110,7 +110,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48345.359559223994,
+        "dps": 48853.66075403833,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -126,7 +126,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), s=1",
+        "`dragon, s=1",
         "`s4",
         "`s3, x=5",
         "`s2, s=1",
@@ -150,7 +150,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 93179.34023602186,
+        "dps": 89547.82694654717,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -165,7 +165,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s-c3-c3-s-c3-end), s=1 and energy()<5",
+        "`dragon, s=1 and energy()<5",
         "`s3, not buff(s3) and x=5",
         "`s2, energy()=5",
         "`s4, energy()<5",
@@ -178,7 +178,7 @@
       ]
     },
     "META": {
-      "tdps": 435851.62158185913,
+      "tdps": 356115.5930468166,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -187,35 +187,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27852.586324405936,
-        "team": 0.03053116281294606,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Me_and_My_Bestie",
-        "The_Cutie_Competition",
-        "Beautiful_Nothingness",
-        "To_the_Extreme"
-      ],
-      "acl": [
-        "`dragon(s-c3-c3-s-c3-end), s=1 and energy()<5",
-        "`s3",
-        "`s2, energy()=5",
-        "`s4, energy()<5",
-        "`s1"
-      ],
-      "share": [
-        "Seimei",
-        "Panther"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 60178.511377790164,
+        "dps": 61006.14601238713,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -235,18 +209,17 @@
       ]
     },
     "META": {
-      "tdps": 1058784.601537585,
+      "tdps": 1085892.4663663046,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63381.191894657226,
+        "dps": 61730.65617430996,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -261,7 +234,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s-c3-c3-s-c3), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3) and x=5",
         "`s2, energy()=5 and cancel",
         "`s4, cancel",
@@ -278,8 +251,8 @@
       ]
     },
     "META": {
-      "tdps": 83729.68972494661,
-      "pref": "PERSONAL",
+      "tdps": 25932.726396274946,
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -289,8 +262,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36894.25114746673,
-        "team": 0.024652124169076316,
+        "dps": 34354.52370659366,
+        "team": 0.024624057738884608,
         "noaff": false,
         "nihil": true
       },
@@ -300,8 +273,8 @@
         "Worthy_Rivals",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`dragon, s",
@@ -322,7 +295,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42504.23201017607,
+        "dps": 42566.79817775534,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -337,7 +310,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), s=1",
+        "`dragon, s=1",
         "`s3, x=5",
         "`s2, s=1",
         "`s4, cancel",
@@ -349,7 +322,7 @@
       ]
     },
     "META": {
-      "tdps": 227565.82046371934,
+      "tdps": 333506.14095553505,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

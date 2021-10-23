@@ -1,38 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 3750.5009334575175,
-        "team": 0.3330096350403557,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`fs, xf=5"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger",
-        "Wand"
-      ],
-      "share": [
-        "Yuya",
-        "Karl"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96759.07534611732,
+        "dps": 10833.849298328889,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -41,8 +11,8 @@
         "Memory_of_a_Friend",
         "OneWinged_Journey",
         "Sweet_Surprise",
+        "A_Choice_Blend",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
         "Testament_of_Eternity",
         "Thunderswift_Lords_Blade_Lance"
       ],
@@ -106,7 +76,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36860.51229207877,
+        "dps": 14200.557971230628,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -115,8 +85,8 @@
         "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "OneWinged_Journey",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Mask_of_Determination_Bow",
         "Thunderswift_Lords_Blade_Axe"
       ],
@@ -186,7 +156,7 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 21909.87459290707,
         "team": 0.0,
@@ -215,9 +185,18 @@
         "Veronica"
       ]
     },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 43977.70916171131,
+        "dps": 14135.402963165852,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -226,8 +205,8 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Welcome_to_the_Opera",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
@@ -242,90 +221,6 @@
       "share": [
         "Summer_Celliera",
         "Veronica"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 50392.52255466203,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ]
-    },
-    "META": {
-      "tdps": 140062.0784307103,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 12542.576473586374,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Fatalis",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2",
-        "`dragon, not in_drg",
-        "`s4",
-        "`s1, x=5 or s"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 18427.089969021228,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.d": "Fatalis",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s2",
-        "`dragon, not in_drg",
-        "`s4",
-        "`s1, x=5 or s"
-      ],
-      "coabs": [
-        "Curran",
-        "Summer_Patia",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {

@@ -1,42 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 35661.112273797626,
-        "team": 0.1405754993788432,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "OneWinged_Journey",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), timeleft(s2)>13 and xf",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(5,s1)",
-        "`s1, buff(s3)",
-        "`s4, xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Eleonora",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 56142.99832933894,
-        "team": 0.04630303493521852,
+        "dps": 51156.031395304424,
+        "team": 0.05490822368723094,
         "noaff": false,
         "nihil": false
       },
@@ -44,7 +11,7 @@
         "A_Man_Unchanging",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "Bloom_of_the_Battlefield",
+        "A_Choice_Blend",
         "Hastened_Squall",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
@@ -73,50 +40,11 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 35251.69012450808,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "# S1 is DPS loss",
-        "#`s1",
-        "`s4",
-        "`fs, xf=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Eleonora",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78129.71672942927,
-        "team": 0.05556557691260051,
+        "dps": 76837.52093761238,
+        "team": 0.05489463859793129,
         "noaff": false,
         "nihil": false
       },
@@ -130,124 +58,6 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 47882.94303447732,
-        "team": 0.0332244659873112,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "OneWinged_Journey",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s1",
-        "`s4",
-        "`s3, cancel",
-        "`fs, xf=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Mona",
-        "Nino",
-        "Wand"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 23119.32479980815,
-        "team": 0.062454155180422265,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 40669.58988231236,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Liber_Grimortis"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), xf>1",
-        "`s3, not buff(s3)",
-        "`s2, charged_in(5,s1) or dgauge>=500",
-        "`s1, buff(s3)",
-        "`s4",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Akasha",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Ilia"
-      ]
-    },
-    "META": {
-      "tdps": 281010.36723343196,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 25733.82105702463,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s3, cancel",
-        "`s1",
-        "`s4",
-        "`fs, xf=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Dagger",
-        "Mona",
-        "Wand"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

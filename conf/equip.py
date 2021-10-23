@@ -734,30 +734,34 @@ class EquipManager(dict):
                 if entry[opt] is None:
                     continue
                 # repair this condition
-                adv, real_d = core.simulate.test(
-                    self._advname,
-                    advmodule,
-                    duration=180,
-                    verbose=4,
-                    equip_conditions=conditions,
-                    opt_mode=opt,
-                )
-                self.accept_new_entry_with_faith(adv, real_d, conditions, opt)
-                # check this build against all other aff conditions
-                for aff in AfflictionCondition:
-                    if aff == conditions.aff:
-                        continue
-                    affcond = conditions.aff_to(aff)
+                try:
                     adv, real_d = core.simulate.test(
                         self._advname,
                         advmodule,
                         duration=180,
                         verbose=4,
-                        conf=affcond.get_conf(),
                         equip_conditions=conditions,
                         opt_mode=opt,
                     )
-                    self.accept_new_entry(adv, real_d)
+                    self.accept_new_entry_with_faith(adv, real_d, conditions, opt)
+                    # check this build against all other aff conditions
+                    for aff in AfflictionCondition:
+                        if aff == conditions.aff:
+                            continue
+                        affcond = conditions.aff_to(aff)
+                        adv, real_d = core.simulate.test(
+                            self._advname,
+                            advmodule,
+                            duration=180,
+                            verbose=4,
+                            conf=affcond.get_conf(),
+                            equip_conditions=conditions,
+                            opt_mode=opt,
+                        )
+                        self.accept_new_entry(adv, real_d)
+                except Exception as e:
+                    print(conditions)
+                    raise e
 
             entry.update_meta()
         self.save_equip_json()

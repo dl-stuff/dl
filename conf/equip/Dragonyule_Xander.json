@@ -2,21 +2,21 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 21349.49948705296,
-        "team": 0.3330232292436752,
+        "dps": 21068.76145940066,
+        "team": 0.266486312565939,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Bloody_Little_Queen",
         "Candy_Couriers",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "From_Whence_He_Comes",
         "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(c3-s-c3-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50009.05949034404,
-        "team": 0.08311819573670155,
+        "dps": 50120.578714624484,
+        "team": 0.0833035476870604,
         "noaff": false,
         "nihil": false
       },
@@ -75,7 +75,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25811.355854971614,
+        "dps": 25854.55584830273,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -106,7 +106,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26332.357466220215,
+        "dps": 25854.55584830273,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -120,7 +120,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s1, cancel"
@@ -142,16 +142,16 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25619.39938446355,
-        "team": 0.3330232292436752,
+        "dps": 25282.513751280803,
+        "team": 0.266486312565939,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57731.2081579327,
-        "team": 0.06653797114081839,
+        "dps": 53463.945407156716,
+        "team": 0.06651188611746181,
         "noaff": false,
         "nihil": false
       },
@@ -164,9 +164,9 @@
       ],
       "acl": [
         "if s=2",
-        "`dragon(s-c3-end), dshift_count=0",
-        "`dragon(s-c3-c3-end), dshift_count=1",
-        "`dragon(c3-s-c3-c3-end), dshift_count>=2",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
         "end",
         "`s3, not buff(s3)",
         "`s2, dgauge>=500 or dgauge<=450",
@@ -184,7 +184,7 @@
       ]
     },
     "META": {
-      "tdps": 120501.25775090631,
+      "tdps": 140925.17806589018,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -193,9 +193,17 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 28373.32718271482,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 40671.24718895189,
+        "dps": 40657.633247659774,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -232,10 +240,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 44591.06022616921,
-        "team": 0.06656827505789363,
+        "dps": 44553.287839297256,
+        "team": 0.06651188611746181,
         "noaff": false,
         "nihil": false
       },
@@ -246,50 +254,11 @@
         "Dueling_Dancers",
         "His_Clever_Brother"
       ],
-      "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "if s=2",
         "`dragon, dshift_count=0",
         "`dragon, dshift_count=1",
         "`dragon, dshift_count>=2",
-        "end",
-        "`s3, not buff(s3)",
-        "`s2, dgauge>=500 or dgauge<=450",
-        "`s4",
-        "`s1, x>2"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Summer_Celliera",
-        "Tiki"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 48109.340131610574,
-        "team": 0.06653797114081839,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Candy_Couriers",
-        "Emissaries_of_the_Heavens",
-        "Dueling_Dancers",
-        "His_Clever_Brother"
-      ],
-      "acl": [
-        "if s=2",
-        "`dragon(s-c3-end), dshift_count=0",
-        "`dragon(s-c3-c3-end), dshift_count=1",
-        "`dragon(c3-s-c3-c3-end), dshift_count>=2",
         "end",
         "`s3, not buff(s3)",
         "`s2, dgauge>=500 or dgauge<=450",
@@ -307,7 +276,6 @@
       ]
     },
     "META": {
-      "tdps": 116099839.39388065,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -316,9 +284,17 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23243.453624800866,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33640.05033049349,
+        "dps": 33629.09516765695,
         "team": 0.0,
         "noaff": false,
         "nihil": true

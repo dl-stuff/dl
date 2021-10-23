@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 56322.5815118855,
-        "team": 0.122863445865657,
+        "dps": 55740.62540512922,
+        "team": 0.0902438140743098,
         "noaff": true,
         "nihil": false
       },
@@ -19,12 +19,13 @@
       "slots.d": "Horus",
       "acl": [
         "if s=1",
-        "`dragon(c3-s-s-c3-c1-end), dshift_count>=2",
-        "`dragon(c3-s-s-c3-end)",
+        "`dragon, dshift_count>=2",
+        "`dragon",
         "end",
         "`s3, not buff(s3) and fsc",
         "queue dshift_count=3 and prep",
-        "`s4;s1",
+        "`s4",
+        "`s1",
         "end",
         "`s1",
         "`s4, xf>2",
@@ -45,7 +46,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110858.03591741307,
+        "dps": 100467.59371642754,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -62,12 +63,13 @@
       "slots.d": "Gala_Mars",
       "acl": [
         "if s=1",
-        "`dragon(c3-s-s-c3-c1-end), dshift_count>=2",
-        "`dragon(c3-s-s-c3-end)",
+        "`dragon, dshift_count>=2",
+        "`dragon",
         "end",
         "`s3, not buff(s3) and fsc",
         "queue dshift_count=3 and prep",
-        "`s4;s1",
+        "`s4",
+        "`s1",
         "end",
         "`s1",
         "`s4, xf>2",
@@ -87,14 +89,14 @@
       ]
     },
     "META": {
-      "tdps": 443870.46139954805,
+      "tdps": 495623.6476715027,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48488.85184002428,
+        "dps": 55207.96391010573,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -128,7 +130,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54735.208768831864,
+        "dps": 55207.96391010573,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -144,7 +146,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-c1-end), aff(scorchrend)",
+        "`dragon, aff(scorchrend)",
         "`s4",
         "`s3",
         "`s1, xf",
@@ -205,7 +207,7 @@
       ]
     },
     "META": {
-      "tdps": 508688.23605059803,
+      "tdps": 699007.9741899245,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,9 +216,17 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 56405.13358340381,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71431.30449700258,
+        "dps": 71432.03005367823,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -257,8 +267,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 72273.38963939271,
-        "team": 0.11514628918052143,
+        "dps": 70479.95601116434,
+        "team": 0.11862419181670025,
         "noaff": false,
         "nihil": false
       },
@@ -275,12 +285,13 @@
       "acl": [
         "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
         "if s=1",
-        "`dragon(c3-s-c3-c3-end), dshift_count>=2",
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon, dshift_count>=2",
+        "`dragon",
         "end",
         "`s3, not buff(s3) and fsc",
         "queue dshift_count=3 and prep",
-        "`s4;s1",
+        "`s4",
+        "`s1",
         "end",
         "`s1",
         "`s4, xf>2",
@@ -295,7 +306,6 @@
       ]
     },
     "META": {
-      "tdps": 2066928.1159252482,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -306,7 +316,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36171.83343795976,
+        "dps": 36560.17500776729,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -344,7 +354,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38820.50260716779,
+        "dps": 39673.21703679257,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -361,12 +371,13 @@
       "acl": [
         "#Shapeshift after S1, try to end shapeshift to use S1 again before Ruin Stance ends, except for shapeshift 3 because of DPS sim breakpoints",
         "if s=1",
-        "`dragon(c3-s-s-c3-c1-end), dshift_count>=2",
-        "`dragon(c3-s-s-c3-end)",
+        "`dragon, dshift_count>=2",
+        "`dragon",
         "end",
         "`s3, not buff(s3) and fsc",
         "queue dshift_count=3 and prep",
-        "`s4;s1",
+        "`s4",
+        "`s1",
         "end",
         "`s1",
         "`s4, xf>2",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 63973.319248050924,
-        "team": 0.10611826969087722,
+        "dps": 63792.29176491491,
+        "team": 0.1060693156568614,
         "noaff": false,
         "nihil": false
       },
@@ -47,7 +47,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 104041.96341446812,
+        "dps": 101679.61078812821,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -64,9 +64,13 @@
       "slots.d": "Gala_Mars",
       "acl": [
         "queue now=0",
-        "`fs;s2;s3;s4;s1",
+        "`fs",
+        "`s2",
+        "`s3",
+        "`s4",
+        "`s1",
         "end",
-        "`dragon(s-c3-c3-s-c1-end), s=4",
+        "`dragon, s=4",
         "`s2",
         "`s1",
         "`s4, cancel or dgauge>=500",
@@ -89,46 +93,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 40711.08472619786,
-        "team": 0.0485084193374241,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Mars",
-      "acl": [
-        "queue prep",
-        "`fs;s2;s3;s4;s1",
-        "end",
-        "`dragon(s-c3-c3-s-c1-end), s=4",
-        "`s2",
-        "`s1",
-        "`s3",
-        "`s4, cancel or dgauge>=500",
-        "`fs, x=4",
-        "`fs, cancel and charged_in(fs, s2)"
-      ],
-      "coabs": [
-        "Kimono_Elisanne",
-        "Nobunaga",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Seimei"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53318.6000137554,
+        "dps": 53970.98951809795,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -144,7 +111,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), aff(scorchrend)",
+        "`dragon, aff(scorchrend)",
         "`s2, naveed_bauble<5",
         "`s4",
         "`s1",
@@ -169,25 +136,28 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 96772.77907939773,
-        "team": 0.1453763870622857,
+        "dps": 102876.01762614545,
+        "team": 0.11846317381726247,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
         "The_Cutie_Competition",
         "A_Small_Courage",
         "FirstRate_Hospitality",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "queue prep and not buff(s3)",
-        "`s2;s3;s4;s1",
+        "`s2",
+        "`s3",
+        "`s4",
+        "`s1",
         "end",
-        "`dragon(s-c3-c3-s-end)",
+        "`dragon",
         "`s2, naveed_bauble<5 or (naveed_bauble=5 and cancel)",
         "`s1",
         "`s4, fsc",
@@ -197,7 +167,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 115678.45530112793,
+        "dps": 115678.84673380159,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -231,7 +201,7 @@
       ]
     },
     "META": {
-      "tdps": 130046.40302162807,
+      "tdps": 108074.33816863105,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -242,7 +212,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 70488.58158583939,
+        "dps": 70660.14481005952,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -257,7 +227,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`dragon",
         "`s2, naveed_bauble<5",
         "`s1",
         "`s3, fsc",
@@ -278,32 +248,50 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 44737.38621508916,
-        "team": 0.005844958000119132,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64405.055324446184,
-        "team": 0.0,
+        "dps": 68397.6747771802,
+        "team": 0.11846317381726247,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Honest_Repose",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "To_the_Extreme"
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "A_Small_Courage",
+        "FirstRate_Hospitality",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Agni"
+      "acl": [
+        "queue prep and not buff(s3)",
+        "`s2",
+        "`s3",
+        "`s4",
+        "`s1",
+        "end",
+        "`dragon",
+        "`s2, naveed_bauble<5 or (naveed_bauble=5 and cancel)",
+        "`s1",
+        "`s4, fsc",
+        "`fs, x=4",
+        "`fs, cancel and charged_in(fs, s2)"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Kimono_Elisanne",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
     },
     "META": {
-      "tdps": 3364894.856208746,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -312,27 +300,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27189.4526270909,
-        "team": 0.044266502971751304,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Apollo",
-      "coabs": [
-        "Halloween_Mym",
-        "Nobunaga",
-        "Yuya"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 29781.91217249996,
@@ -350,14 +317,6 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Mars",
-      "acl": [
-        "`dragon, aff(scorchrend)",
-        "`s2, naveed_bauble<5",
-        "`s4",
-        "`s1",
-        "`s3, fsc",
-        "`fs, x=2"
-      ],
       "dacl": [
         "ds1,x=3"
       ],
@@ -375,8 +334,7 @@
       "tdps": 58564.81473278879,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   }

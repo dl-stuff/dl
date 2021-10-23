@@ -1,43 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 65073.22917785806,
-        "team": 0.12498832285020786,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Amaterasu_Oblation"
-      ],
-      "slots.d": "Horus",
-      "acl": [
-        "# `norm",
-        "# `dragon,s=2",
-        "`ex",
-        "`s3, not buff(s3) and x=4",
-        "`s2",
-        "`s1",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Sarisse",
-        "Halloween_Mym"
-      ],
-      "share": [
-        "Weapon",
-        "Karl"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 151212.00757350863,
-        "team": 0.03330606861549736,
+        "dps": 151212.51959678825,
+        "team": 0.03330618139412359,
         "noaff": false,
         "nihil": false
       },
@@ -82,8 +48,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 46781.04788312575,
-        "team": 0.03703701028808517,
+        "dps": 52699.053032426855,
+        "team": 0.03702723921812631,
         "noaff": false,
         "nihil": true
       },
@@ -99,7 +65,7 @@
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`ex",
-        "`dragon(c2-s-c3-c3-c2-end), not fig.get()",
+        "`dragon, not fig.get()",
         "`s2, x=4 or fig.get()",
         "`s1",
         "`s3, x=4",
@@ -117,7 +83,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53406.63800179902,
+        "dps": 57842.269028983406,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -134,7 +100,7 @@
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
         "`ex",
-        "`dragon(c2-s-c3-c3-c2-end), not fig.get()",
+        "`dragon, not fig.get()",
         "`s2, cancel or fig.get()",
         "`s1",
         "`s3, cancel",
@@ -156,14 +122,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 69078.7976992627,
-        "team": 0.12498832285020786,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 173166.53694862535,
@@ -199,27 +157,26 @@
       "tdps": 1135541.4900684075,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 64334.769606312104,
+        "team": 0.03702723921812631,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 65586.12982977458,
+        "dps": 71056.81025988483,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`ex",
-        "`dragon, not fig.get()",
-        "`s2, cancel or fig.get()",
-        "`s1",
-        "`s3, cancel",
-        "`s4, x=4"
-      ],
       "dacl": [
         "ds1,x=3"
       ],
@@ -229,6 +186,7 @@
       ]
     },
     "META": {
+      "tdps": 181543.12326591238,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -239,8 +197,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 102405.81929224524,
-        "team": 0.15377471260846304,
+        "dps": 102406.16599005234,
+        "team": 0.1537747253878597,
         "noaff": false,
         "nihil": false
       },
@@ -274,8 +232,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40611.548136249105,
-        "team": 0.017540596123766277,
+        "dps": 46006.67783774208,
+        "team": 0.014613282708245818,
         "noaff": false,
         "nihil": true
       },
@@ -285,14 +243,16 @@
         "Moonlight_Party",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
         "`ex",
-        "`dragon(c1-s-s-c3-end), x=4",
+        "`dragon, x=4",
         "queue prep",
-        "`s2;s1;s4",
+        "`s2",
+        "`s1",
+        "`s4",
         "end",
         "`s3, not buff(s3) and x=4",
         "`s1, x=4 or s",
@@ -306,7 +266,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 46378.78478211807,
+        "dps": 49330.25215072023,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -322,7 +282,7 @@
       ],
       "acl": [
         "`ex",
-        "`dragon(c2-s-c3-c3-c2-end), not fig.get()",
+        "`dragon, not fig.get()",
         "`s2, fig.get() or cancel",
         "`s1",
         "`s3, x=4",
@@ -334,7 +294,7 @@
       ]
     },
     "META": {
-      "tdps": 328793.65132036555,
+      "tdps": 227435.16151253038,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

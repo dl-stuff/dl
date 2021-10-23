@@ -2,13 +2,13 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 47171.83726205631,
-        "team": 0.06248293174581135,
+        "dps": 48375.87554661695,
+        "team": 0.06244812988944568,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Moonlight_Party",
         "Sweet_Surprise",
         "The_Plaguebringer",
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Gala_Mars",
       "acl": [
-        "`dragon(s), not s4.check()",
+        "`dragon, not s4.check()",
         "`s3, not buff(s3)",
         "`s2, s1.check()",
         "`s4, s=1",
@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 67653.39227093352,
+        "dps": 66967.79295055904,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -73,47 +73,18 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 19136.576933211505,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Summer_Paladyns",
-        "The_Plaguebringer",
-        "To_the_Extreme"
-      ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon(s), not s4.check()",
-        "`s3, not buff(s3)",
-        "`s2, s1.check()",
-        "`s4, s=1",
-        "`s1(all)"
-      ],
-      "coabs": [
-        "Blade",
-        "Halloween_Mym",
-        "Serena"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 53963.3767320586,
+        "team": 0.06244812988944568,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88296.88315412294,
+        "dps": 87579.31316404675,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -138,50 +109,10 @@
       ]
     },
     "META": {
+      "tdps": 538301.7312367837,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 48463.69158965076,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, s=1 and not s4.check()",
-        "`s3",
-        "`s4",
-        "`s1(all)"
-      ],
-      "coabs": [
-        "Blade",
-        "Wand",
-        "Yuya"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -189,63 +120,20 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 49125.09239233894,
-        "team": 0.0,
+        "dps": 48375.87554661695,
+        "team": 0.06244812988944568,
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Summer_Paladyns",
-        "Snipers_Allure",
-        "To_the_Extreme"
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 15806.220854520407,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "FirstRate_Hospitality",
-        "To_the_Extreme"
-      ],
-      "acl": [
-        "`dragon(c3-s-s-end), s=1 and not s4.check()",
-        "`s3, not buff(s3)",
-        "`s2, s1.check()",
-        "`s4, s=1",
-        "`s1(all)"
-      ],
-      "coabs": [
-        "Dagger",
-        "Marth",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

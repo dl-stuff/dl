@@ -1,38 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5203.949005544909,
-        "team": 0.3372295235230047,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Wily_Warriors_Flash_and_Heat",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(s-end), not buff(s2) and buff(s3)",
-        "`s3",
-        "`s4"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Joker"
-      ],
-      "share": [
-        "Elisanne",
-        "Templar_Hope"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76401.56989073506,
+        "dps": 63862.86741645729,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -48,7 +18,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), not buff(s2) and buff(s3)",
+        "`dragon, not buff(s2) and buff(s3)",
         "`s3, not buff(s3) and fsc",
         "`s2, not buff(s2)",
         "`s1, fsc and buff (s3)",
@@ -73,15 +43,37 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75507.07651926644,
+        "dps": 63012.85058670663,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Passion_for_Produce",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`dragon, not buff(s2) and buff(s3)",
+        "`s3, not buff(s3) and fsc",
+        "`s2, not buff(s2)",
+        "`s1, fsc and buff (s3)",
+        "`s4, fsc",
+        "`fs, xf=3"
+      ],
       "coabs": [
         "Blade",
         "Forte",
         "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -96,7 +88,7 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34751.97524343401,
+        "dps": 34729.137791664834,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -134,18 +126,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5310.215545131603,
-        "team": 0.3372295235230047,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98831.46965584748,
-        "team": 0.13121001578201982,
+        "dps": 91404.0811180445,
+        "team": 0.13073719591543603,
         "noaff": false,
         "nihil": false
       },
@@ -160,13 +144,13 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "dragon, not buff(s2) and s2.check() and (xf or fsc)",
-        "s3, not buff(s3) and fscf",
-        "s2, cancel",
-        "s1, (x=5 or fsc) and buff(s3)",
-        "s4, cancel",
-        "fs, xf=3 and buff(s2)",
-        "fs, x=5"
+        "`dragon, not buff(s2) and s2.check() and (xf or fsc)",
+        "`s3, not buff(s3) and fscf",
+        "`s2, cancel",
+        "`s1, (x=5 or fsc) and buff(s3)",
+        "`s4, cancel",
+        "`fs, xf=3 and buff(s2)",
+        "`fs, x=5"
       ],
       "dacl": [
         "queue",
@@ -184,19 +168,18 @@
       ]
     },
     "META": {
-      "tdps": 453943.68298507994,
+      "tdps": 416934.9368589191,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 97343.95733663873,
-        "team": 0.13121001578201982,
+        "dps": 63231.428380962156,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
@@ -207,7 +190,7 @@
       ]
     },
     "META": {
-      "tdps": 446723.4331382601,
+      "tdps": 171756.05572944254,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -218,7 +201,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 54536.70023867431,
+        "dps": 49822.409833084756,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -234,12 +217,12 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "dragon, not buff(s2)",
-        "s3",
-        "s2, not buff(s2)",
-        "s1, fsc",
-        "s4, fsc",
-        "fs, xf=3"
+        "`dragon, not buff(s2)",
+        "`s3",
+        "`s2, not buff(s2)",
+        "`s1, fsc",
+        "`s4, fsc",
+        "`fs, xf=3"
       ],
       "dacl": [
         "ds1,x=3"
@@ -263,18 +246,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 4847.503873053774,
-        "team": 0.3372295235230047,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 62850.232251528396,
-        "team": 0.08287567349667405,
+        "dps": 54413.495893514584,
+        "team": 0.09188774858199171,
         "noaff": false,
         "nihil": false
       },
@@ -298,53 +273,10 @@
       ]
     },
     "META": {
-      "tdps": 228039.51413540696,
+      "tdps": 202028.342023603,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 28711.74510908328,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Twinfold_Bonds",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c5-s-c5-c5-end), not buff(s2)",
-        "`s3, fsc",
-        "`s2, not buff(s2)",
-        "`s1, fsc",
-        "`s4, fsc",
-        "`fs, xf=3"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Gala_Chelle",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   }

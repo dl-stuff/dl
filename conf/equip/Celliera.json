@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8040.455855080596,
-        "team": 0.3363626173328373,
+        "dps": 9395.341529157651,
+        "team": 0.2586713030201758,
         "noaff": false,
         "nihil": false
       },
@@ -11,12 +11,12 @@
         "Once_in_a_Lifetime",
         "Study_Rabbits",
         "Warrior_Maiden",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
+        "A_Choice_Blend",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon",
         "`s4, xf",
         "`s3",
         "`fsf, xf=5"
@@ -33,7 +33,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 76158.07277410103,
+        "dps": 72525.09628967881,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -49,26 +49,26 @@
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dshift_count=0",
-        "fs",
-        "dragon",
-        "s2, x=2",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
         "end",
         "queue dshift_count=1",
-        "fs",
-        "dragon",
-        "s2, x=2",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
         "end",
         "queue dshift_count>=2",
-        "fs",
-        "dragon",
-        "s2, x=2",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
         "end",
         "end",
-        "s2, not buff(s2)",
-        "s3, not buff(s3)",
-        "s4",
-        "s1, buff(s2) and cancel",
-        "fsf, xf=5"
+        "`s2, not buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, buff(s2) and cancel",
+        "`fsf, xf=5"
       ],
       "dacl": [
         "ds1,x=3"
@@ -91,15 +91,15 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37147.41659337546,
-        "team": 0.04933874700267888,
+        "dps": 36338.2617628412,
+        "team": 0.037020770521811665,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "OneWinged_Journey",
         "The_Prince_of_Dragonyule",
-        "Valiant_Crown",
         "A_Small_Courage",
         "His_Clever_Brother"
       ],
@@ -123,15 +123,15 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48959.72108344471,
+        "dps": 47112.22967968463,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "OneWinged_Journey",
         "The_Prince_of_Dragonyule",
-        "Valiant_Crown",
         "A_Small_Courage",
         "His_Clever_Brother"
       ],
@@ -139,7 +139,9 @@
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue",
-        "`fs;dragon(c3-s-c3-c3-end);s2, x=2",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
         "end",
         "end",
         "`s1, cancel",
@@ -166,15 +168,15 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9648.547026096712,
-        "team": 0.3363626173328373,
+        "dps": 11274.409834989181,
+        "team": 0.2586713030201758,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78188.46765946118,
+        "dps": 75319.8488400918,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -182,13 +184,19 @@
       "acl": [
         "if dgauge>=500 and xf=5 and s2.check()",
         "queue dshift_count=0",
-        "`fs;dragon(c3-s-c3-c3-end);s2, x=2",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
         "end",
         "queue dshift_count=1",
-        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
         "end",
         "queue dshift_count>=2",
-        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
+        "`fs",
+        "`dragon",
+        "`s2, x=2",
         "end",
         "end",
         "`s2, not buff(s2)",
@@ -199,7 +207,7 @@
       ]
     },
     "META": {
-      "tdps": 203767.9489381036,
+      "tdps": 247593.9087843355,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -210,13 +218,13 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 55905.26434356956,
-        "team": 0.13234629697551425,
+        "dps": 51136.68607084666,
+        "team": 0.06650682121669568,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "OneWinged_Journey",
         "The_Prince_of_Dragonyule",
         "Chariot_Drift",
@@ -226,13 +234,19 @@
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dshift_count=0",
-        "`fs;dragon(c3-s-c3-c3-end);s2,xf",
+        "`fs",
+        "`dragon",
+        "`s2,xf",
         "end",
         "queue dshift_count=1",
-        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "queue dshift_count>=2",
-        "`fs;dragon(c3-s-c3-c3-c2-end);s2, xf=3",
+        "`fs",
+        "`dragon",
+        "`s2, xf=3",
         "end",
         "end",
         "`s1, buff(s2)",
@@ -253,8 +267,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55933.439842513675,
-        "team": 0.13225073829329365,
+        "dps": 51878.31022175849,
+        "team": 0.06665313608004239,
         "noaff": false,
         "nihil": true
       },
@@ -269,13 +283,19 @@
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dshift_count=0",
-        "`fs;dragon(c3-s-c3-c3-end);s2",
+        "`fs",
+        "`dragon",
+        "`s2",
         "end",
         "queue dshift_count=1",
-        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "queue dshift_count>=2",
-        "`fs;dragon(c3-s-c3-c3-c2-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "end",
         "`s1, buff(s2)",
@@ -290,7 +310,6 @@
       ]
     },
     "META": {
-      "tdps": 294850.22490234085,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -299,61 +318,9 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 54952.231653438415,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "Dueling_Dancers",
-        "Snipers_Allure"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "if dgauge>=500 and xf=5",
-        "queue dshift_count=0",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "queue dshift_count=1",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "queue dshift_count>=2",
-        "`fs",
-        "`dragon",
-        "`s2, x=2",
-        "end",
-        "end",
-        "`s2, not buff(s2)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buff(s2) and cancel",
-        "`fsf, xf=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Eugene",
-        "Tiki",
-        "Yurius"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 55423.801408726904,
+        "dps": 55548.410587321625,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -364,24 +331,6 @@
         "OneWinged_Journey",
         "Dueling_Dancers",
         "Snipers_Allure"
-      ],
-      "acl": [
-        "if dgauge>=500 and xf=5",
-        "queue dshift_count=0",
-        "`fs;dragon(c3-s-c3-c3-end);s2, x=2",
-        "end",
-        "queue dshift_count=1",
-        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
-        "end",
-        "queue dshift_count>=2",
-        "`fs;dragon(c3-s-c3-c3-c2-end);s2, x=2",
-        "end",
-        "end",
-        "`s2, not buff(s2)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, buff(s2) and cancel",
-        "`fsf, xf=5"
       ]
     },
     "META": {
@@ -395,29 +344,28 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35330.45201567676,
-        "team": 0.09982564342202538,
+        "dps": 35873.15885932742,
+        "team": 0.06664065829863614,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "OneWinged_Journey",
-        "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
-        "His_Clever_Brother"
-      ],
       "slots.d": "Summer_Marishiten",
       "acl": [
         "if dgauge>=500 and xf=5",
         "queue dshift_count=0",
-        "`fs;dragon(c3-s-c3-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "queue dshift_count=1",
-        "`fs;dragon(c3-s-c3-c3-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "queue dshift_count>=2",
-        "`fs;dragon(c3-s-c3-c3-c2-end);s2, xf",
+        "`fs",
+        "`dragon",
+        "`s2, xf",
         "end",
         "end",
         "`s1, buff(s2)",
@@ -438,8 +386,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35873.15885932742,
-        "team": 0.06664065829863614,
+        "dps": 36689.37290139465,
+        "team": 0.06650682121669568,
         "noaff": false,
         "nihil": true
       },
@@ -447,7 +395,7 @@
         "Emissaries_of_the_Heavens",
         "OneWinged_Journey",
         "The_Prince_of_Dragonyule",
-        "A_Small_Courage",
+        "Chariot_Drift",
         "His_Clever_Brother"
       ],
       "slots.d": "Summer_Marishiten",
@@ -456,7 +404,7 @@
         "queue dshift_count=0",
         "`fs",
         "`dragon",
-        "`s2, xf",
+        "`s2,xf",
         "end",
         "queue dshift_count=1",
         "`fs",
@@ -466,13 +414,13 @@
         "queue dshift_count>=2",
         "`fs",
         "`dragon",
-        "`s2, xf",
+        "`s2, xf=3",
         "end",
         "end",
         "`s1, buff(s2)",
         "`s2, not buff(s2)",
-        "`s4",
-        "`s3, xf=5",
+        "`s4, xf",
+        "`s3, xf>3",
         "`fsf, xf=5"
       ],
       "share": [
@@ -481,8 +429,8 @@
       ]
     },
     "META": {
-      "tdps": 16353.987854228457,
-      "pref": "TEAMBUFF",
+      "tdps": 6098564.241189789,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

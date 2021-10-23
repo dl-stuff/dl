@@ -1,41 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 54791.015490157406,
-        "team": 0.06249250170098182,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), fsc",
-        "`s3, fsc and not buff(s3)",
-        "`s4",
-        "`s1, cancel and buff(s3)",
-        "`s2, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Fjorm"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83992.90597472104,
+        "dps": 78902.36377080598,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -51,7 +18,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s3, fsc and not buff(s3)",
         "`s4",
         "`s1, cancel and buff(s3)",
@@ -73,49 +40,11 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 41944.562415330896,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-c5-end), s=2",
-        "`s3",
-        "`s4",
-        "`s1",
-        "`s2",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 88329.64702976539,
-        "team": 0.11858851061456,
+        "dps": 85434.82629766478,
+        "team": 0.09853029062403404,
         "noaff": false,
         "nihil": false
       },
@@ -125,12 +54,12 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), fsc and trickery<=2",
+        "`dragon, fsc and trickery<=2",
         "`s3, fsc and not buff(s3)",
         "`s4",
         "`s1, cancel and buff(s3)",
@@ -149,7 +78,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 94595.86302528654,
+        "dps": 90088.1947457603,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -164,7 +93,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), fsc and trickery<=1",
+        "`dragon, fsc and trickery<=1",
         "`s3, fsc and not buff(s3)",
         "`s4",
         "`s1, cancel and buff(s3)",
@@ -177,21 +106,20 @@
       ]
     },
     "META": {
-      "tdps": 52839.9923655994,
+      "tdps": 47227.79582424613,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
+  "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55920.32514533094,
-        "team": 0.0,
+        "dps": 52051.06643071953,
+        "team": 0.09853029062403404,
         "noaff": false,
-        "nihil": true
+        "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
@@ -203,102 +131,27 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, xf",
-        "`s3",
+        "`dragon, fsc and trickery<=2",
+        "`s3, fsc and not buff(s3)",
         "`s4",
-        "`s1",
-        "`s2",
-        "`fs, x=2"
+        "`s1, cancel and buff(s3)",
+        "`s2, fsc",
+        "`fs, x=4"
       ],
       "coabs": [
+        "Delphi",
         "Ieyasu",
-        "Joker",
-        "Wand"
+        "Vania"
       ],
       "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 37782.097673396966,
-        "team": 0.06249250170098182,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 53481.76388684197,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ]
-    },
-    "META": {
-      "tdps": 251224.7995538054,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 32323.523383553347,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c5-s-c5-end), xf",
-        "`s3",
-        "`s4",
-        "`s1",
-        "`s2",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   }

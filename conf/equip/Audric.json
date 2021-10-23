@@ -1,42 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 55930.144474412926,
-        "team": 0.1127510504972552,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s-c3-c2-end), dshift_count=0 and (cancel and buff(s3))",
-        "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
-        "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Delphi"
-      ],
-      "share": [
-        "Weapon",
-        "Sha_Wujing"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 92812.6935658049,
+        "dps": 89782.20224973992,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -52,12 +18,12 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "dragon, fsc",
-        "s3, not buff(s3) and fsc",
-        "s1",
-        "s4",
-        "s2, fsc or aff_timeleft(poison)<4",
-        "fs, x=4"
+        "`dragon, fsc",
+        "`s3, not buff(s3) and fsc",
+        "`s1",
+        "`s4",
+        "`s2, fsc or aff_timeleft(poison)<4",
+        "`fs, x=4"
       ],
       "dacl": [
         "ds1,x=3"
@@ -77,88 +43,7 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 19854.59915939687,
-        "team": 0.02939753303350168,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(s-c3-c2-end), dshift_count=0 and (cancel and buff(s3))",
-        "`dragon(s-c3-c3-c3-c3-c3-end), cancel and buff(s3)",
-        "`s3, not buff(s3)",
-        "`s2, cancel",
-        "`s1, cancel",
-        "`s4, fsc",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Delphi"
-      ],
-      "share": [
-        "Weapon",
-        "Sha_Wujing"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 45204.10680912001,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s4",
-        "`s2, fsc or aff_timeleft(poison)<4",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Delphi",
-        "Ieyasu",
-        "Joker"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "tdps": 862300.5073532743,
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 56830.44652048718,
-        "team": 0.1127510504972552,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 111665.60743881093,
@@ -203,98 +88,31 @@
       "tdps": 1188786.4139882952,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 71312.27639219948,
-        "team": 0.06661340831288777,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon, xf",
-        "`s1",
-        "`s2",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`fs, x=4 or hits=1"
-      ],
-      "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 39780.29346065317,
-        "team": 0.1127510504972552,
+        "dps": 67712.0529250025,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       }
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 67566.32133605612,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon, fsc",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s4",
-        "`s2, fsc or aff_timeleft(poison)<4",
-        "`fs, x=4"
-      ]
-    },
     "META": {
-      "tdps": 246436.97555686516,
+      "tdps": 247729.48315039687,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37394.031361525515,
+        "dps": 37376.6312501104,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -329,7 +147,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39000.15757863779,
+        "dps": 37376.6312501104,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -343,14 +161,7 @@
         "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
-      "acl": [
-        "`dragon(c5-s-end), fsc",
-        "`s3, not buff(s3) and fsc",
-        "`s1",
-        "`s4",
-        "`s2, fsc or aff_timeleft(poison)<4",
-        "`fs, x=4"
-      ],
+      "slots.d": "Arsene",
       "coabs": [
         "Ieyasu",
         "Summer_Prince",
@@ -364,8 +175,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   }

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79238.65004590398,
-        "team": 0.24707772587553092,
+        "dps": 79752.46528007044,
+        "team": 0.24641664068984864,
         "noaff": false,
         "nihil": false
       },
@@ -45,8 +45,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 128356.94229352027,
-        "team": 0.10952438798879947,
+        "dps": 125767.38087093935,
+        "team": 0.10646290609887579,
         "noaff": false,
         "nihil": false
       },
@@ -61,7 +61,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-dfs-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
@@ -90,8 +90,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 84937.8607182922,
-        "team": 0.1200891336152706,
+        "dps": 78539.23151888496,
+        "team": 0.06664413724582553,
         "noaff": false,
         "nihil": true
       },
@@ -106,7 +106,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-dfs-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4",
@@ -129,8 +129,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 89673.24980307333,
-        "team": 0.08976455919630143,
+        "dps": 89392.40668964283,
+        "team": 0.0892985660812344,
         "noaff": false,
         "nihil": true
       },
@@ -176,10 +176,18 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 144804.32172754066,
+        "team": 0.24641664068984864,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 149974.12597544712,
-        "team": 0.2452106963111942,
+        "dps": 150180.3888039812,
+        "team": 0.24168526059051168,
         "noaff": false,
         "nihil": false
       },
@@ -220,6 +228,7 @@
       ]
     },
     "META": {
+      "tdps": 1136257.7014672535,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -228,10 +237,18 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 86453.60414685076,
+        "team": 0.06664413724582553,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98770.89524336316,
-        "team": 0.07034770668420036,
+        "dps": 98845.2277887594,
+        "team": 0.07032207082805671,
         "noaff": false,
         "nihil": true
       },
@@ -264,22 +281,18 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 73613.21395092407,
-        "team": 0.0,
-        "noaff": true,
+        "dps": 79752.46528007044,
+        "team": 0.24641664068984864,
+        "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
       "share": [
         "Weapon",
-        "Gala_Mym"
+        "Akasha"
       ]
     },
     "META": {
@@ -293,28 +306,51 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41046.541416899505,
-        "team": 0.05553215252753729,
+        "dps": 45335.63110178481,
+        "team": 0.1264742204198452,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Worthy_Rivals",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife"
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4",
+        "`s1, ((gauges[x]>=1000 and gauges[x]>=1000) or (gauges[x]<=1000 and gauges[fs]<=1000)) and cancel",
+        "if gauges[fs]<1000",
+        "`fs, x=4 or hits=0",
+        "else",
+        "`dodge, x=5",
+        "end"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
       ],
       "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

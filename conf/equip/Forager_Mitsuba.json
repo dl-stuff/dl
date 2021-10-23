@@ -2,9 +2,9 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3143.202368261498,
-        "team": 0.5262267036785544,
-        "noaff": true,
+        "dps": 3361.13787055129,
+        "team": 0.5072391143797641,
+        "noaff": false,
         "nihil": false
       },
       "slots.a": [
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81774.30583312159,
-        "team": 0.062262001936007776,
+        "dps": 81918.96024927161,
+        "team": 0.062251547514751815,
         "noaff": false,
         "nihil": false
       },
@@ -84,15 +84,34 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3081.5569178571927,
-        "team": 0.4550209739095472,
-        "noaff": true,
+        "dps": 3293.1745786775955,
+        "team": 0.40719585591692836,
+        "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Lin_You",
         "Mona"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
       ]
     },
     "META": {
@@ -107,33 +126,34 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50249.18192148119,
-        "team": 0.03333187228626479,
-        "noaff": false,
+        "dps": 2189.8365364109945,
+        "team": 0.0,
+        "noaff": true,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "OneWinged_Journey",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Gala_Beast_Volk",
+      "slots.d": "Freyja",
+      "slots.w": "void",
       "acl": [
-        "`dragon(c3-s-c3-end), cancel",
-        "`s4, cancel",
-        "`s3, cancel",
-        "`s1, cancel"
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
       ],
       "coabs": [
-        "Eleonora",
-        "Mona",
-        "Nino"
+        "Bow",
+        "Dagger2",
+        "Tobias"
       ],
       "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
+        "Templar_Hope",
+        "Tobias"
       ]
     },
     "META": {
@@ -143,21 +163,22 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 50249.18192148119,
-        "team": 0.03333187228626479,
+        "dps": 33806.24437833324,
+        "team": 0.054848963267958836,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "OneWinged_Journey",
         "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Choice_Blend",
+        "The_Plaguebringer"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "slots.w": "void",
       "acl": [
-        "`dragon(c3-s-c3-end), cancel",
+        "`dragon, cancel",
         "`s4, cancel",
         "`s3, cancel",
         "`s1, cancel"
@@ -183,14 +204,13 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 95443.52502357971,
-        "team": 0.062262001936007776,
+        "dps": 95755.41822294531,
+        "team": 0.062251547514751815,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 198938.24316517843,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -198,29 +218,152 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2189.8365364109945,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
+    "META": {
+      "pref": "TEAMBUFF",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3339.309229433523,
+        "team": 0.5072391143797641,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52828.31643432346,
-        "team": 0.03326482442742506,
+        "dps": 49003.66885400559,
+        "team": 0.062251547514751815,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 102619.40563032501,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 3339.309229433523,
+        "team": 0.5072391143797641,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Sisters_Day_Out",
+        "Study_Rabbits",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Freyja",
+      "slots.w": "void",
+      "acl": [
+        "`s2, new_dish=3",
+        "`s3",
+        "`s4",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Dagger2",
+        "Tobias"
+      ],
+      "share": [
+        "Templar_Hope",
+        "Tobias"
+      ]
+    },
+    "META": {
+      "tdps": 132579.26698649488,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 2189.8365364109945,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18533.029280476057,
+        "team": 0.054848963267958836,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "OneWinged_Journey",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "The_Plaguebringer"
+      ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s1",
-        "`s3, xf",
-        "`s4",
-        "`fsf, xf=5"
+        "`dragon, cancel",
+        "`s4, cancel",
+        "`s3, cancel",
+        "`s1, cancel"
       ],
       "coabs": [
+        "Eleonora",
         "Mona",
-        "Nino",
-        "Wand"
+        "Nino"
       ],
       "share": [
         "Summer_Celliera",
-        "Summer_Julietta"
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -228,58 +371,6 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 48836.38669042009,
-        "team": 0.062262001936007776,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 98484.18241850148,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 27952.555217462075,
-        "team": 0.03333187228626479,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27952.555217462075,
-        "team": 0.03333187228626479,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

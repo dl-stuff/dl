@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 53429.19634770008,
-        "team": 0.07849223135291426,
+        "dps": 53433.637418293874,
+        "team": 0.07848745276474013,
         "noaff": false,
         "nihil": false
       },
@@ -39,8 +39,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 53429.19634770008,
-        "team": 0.07849223135291426,
+        "dps": 53433.637418293874,
+        "team": 0.07848745276474013,
         "noaff": false,
         "nihil": false
       },
@@ -81,15 +81,39 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50152.9557136795,
-        "team": 0.07849223135291426,
+        "dps": 50157.12446095697,
+        "team": 0.07848745276474013,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`s4",
+        "`s3",
+        "`fs, x=4 or hits=0",
+        "`s1"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -103,8 +127,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30456.115694814216,
-        "team": 0.04198614537150282,
+        "dps": 34204.426929988804,
+        "team": 0.03842746042502752,
         "noaff": false,
         "nihil": true
       },
@@ -119,7 +143,7 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
+        "`dragon",
         "`s4",
         "`s3",
         "`fs, x=4 or hits=0",
@@ -182,10 +206,31 @@
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Blossoms_on_the_Waters_Edge",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon",
+        "`s4",
+        "`s3",
+        "`fs, x=4 or hits=0",
+        "`s1, fsc"
+      ],
       "coabs": [
         "Blade",
         "Peony",
         "Wand"
+      ],
+      "share": [
+        "Humanoid_Mercury",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -242,21 +287,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 29505.115268754605,
-        "team": 0.042004122147024175,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c1-end)",
-        "`s4",
-        "`s3",
-        "`fs, x=4 or hits=0",
-        "`s1, fsc"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 46085.09524646334,
@@ -275,7 +305,6 @@
       ]
     },
     "META": {
-      "tdps": 4749364.779566003,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -283,13 +312,13 @@
       }
     }
   },
-  "IMMUNE-NIHILISM-ANY": {
+  "IMMUNE-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 15941.606401789333,
-        "team": 0.05058892001119971,
+        "dps": 53433.637418293874,
+        "team": 0.07848745276474013,
         "noaff": false,
-        "nihil": true
+        "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
@@ -308,39 +337,8 @@
         "`fs, x=4 or hits=0",
         "`s1"
       ],
-      "coabs": [
-        "Cleo",
-        "Dagger2",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 16028.935122740948,
-        "team": 0.050294957097594635,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "A_Small_Courage",
-        "Dueling_Dancers",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon(s), buff(s3, 1)",
-        "`s4",
-        "`s3",
-        "`fs, x=4 or hits=0",
-        "`s1"
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Cleo",
@@ -353,7 +351,28 @@
       ]
     },
     "META": {
-      "tdps": 297073.939976444,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 33817.110635336816,
+        "team": 0.03842746042502752,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

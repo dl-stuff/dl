@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 3438.636578113528,
-        "team": 0.8005648892418671,
+        "dps": 3553.622484119858,
+        "team": 0.7707452158700918,
         "noaff": true,
         "nihil": false
       },
@@ -35,46 +35,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36292.30881642372,
-        "team": 0.12082826325307282,
-        "noaff": false,
+        "dps": 3553.622484119858,
+        "team": 0.7707452158700918,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "Entwined_Flames"
+        "A_Dogs_Day",
+        "Gentle_Winds",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Freyja",
+      "slots.w": "void",
       "acl": [
-        "#`s1, cancel and buff(s3)",
-        "`dragon",
-        "`s3, not buff(s3)",
+        "`s3",
+        "`s2",
         "`s4",
-        "`s2"
+        "`fs, x=4 and fs_prep_c",
+        "`fsf, x=4"
       ],
       "coabs": [
+        "Bow",
         "Dagger2",
-        "Dragonyule_Xainfried",
-        "Mona"
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Tobias",
+        "Templar_Hope"
       ]
     },
     "META": {
-      "tdps": 48332.94394063121,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 3054.5619845162237,
-        "team": 0.8005648892418671,
+        "dps": 3150.2811029996997,
+        "team": 0.7707452158700918,
         "noaff": true,
         "nihil": false
       },
@@ -84,21 +84,7 @@
         "Tobias"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 35672.77801084054,
-        "team": 0.13428529892696134,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Eleonora"
-      ]
-    },
     "META": {
-      "tdps": 48955.74845825291,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -106,48 +92,11 @@
       }
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 21410.05878147064,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "#`s1, cancel and buff(s3)",
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2"
-      ],
-      "coabs": [
-        "Dagger2",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 50859.27562573619,
-        "team": 0.1724287951656332,
+        "dps": 50953.60080483162,
+        "team": 0.17256312384003153,
         "noaff": false,
         "nihil": false
       },
@@ -161,122 +110,28 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "#`s1, cancel and buff(s3)",
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2"
+      ],
       "coabs": [
         "Dragonyule_Xainfried",
         "Mona",
         "Yukata_Lathna"
-      ]
-    },
-    "META": {
-      "tdps": 75494.21135774988,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 34017.51645391862,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "#`s1, cancel and buff(s3)",
-        "`dragon(c3-s-c3-c3-c2-end)",
-        "`s3",
-        "`s4",
-        "`fsf, x=4"
-      ],
-      "coabs": [
-        "Blade",
-        "Humanoid_Midgardsormr",
-        "Mona"
       ],
       "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 33795.45984480393,
-        "team": 0.12082826325307282,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ]
-    },
-    "META": {
-      "tdps": 44659.68451020447,
+      "tdps": 79240.0490624012,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 30571.390602130596,
-        "team": 0.12082826325307282,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Valentines_Melody"
-      ]
-    },
-    "META": {
-      "tdps": 40481.603558711286,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 18894.74085338665,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

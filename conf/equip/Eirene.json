@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70591.05769275011,
-        "team": 0.09724690286181659,
+        "dps": 59100.92350676513,
+        "team": 0.11372128844780735,
         "noaff": false,
         "nihil": false
       },
@@ -54,11 +54,11 @@
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
         "`dragon, have_buff(s2_base2_00)",
-        "s3, not buff(s3)",
-        "s4, x=2",
-        "s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
-        "s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
-        "dodge, x=2"
+        "`s3, not buff(s3)",
+        "`s4, x=2",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
         "Blade",
@@ -83,31 +83,67 @@
         "noaff": false,
         "nihil": false
       },
-      "coabs": [
-        "Blade",
-        "Halloween_Elisanne",
-        "Peony"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 66871.29320702815,
-        "team": 0.09724690286181659,
-        "noaff": false,
-        "nihil": false
-      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "dragon, have_buff(s2_base2_00)",
-        "s3, not buff(s3)",
-        "s4, x=2",
-        "s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
-        "s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
-        "dodge, x=2"
+        "`dragon, have_buff(s2_base2_00)",
+        "`s3, not buff(s3)",
+        "`s4, x=2",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`dodge, x=2"
       ],
       "coabs": [
         "Blade",
         "Halloween_Elisanne",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55520.99023224003,
+        "team": 0.11372128844780735,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon, have_buff(s2_base2_00)",
+        "`s3, not buff(s3)",
+        "`s4, x=2",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Elisanne",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
@@ -196,38 +232,58 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 41654.55563716936,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon, aff_timeleft(flashburn)>11",
-        "s3, not buff(s3)",
-        "s4, x=2",
-        "s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
-        "s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
-        "fsf, x=2"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 41764.869098759664,
+        "dps": 40067.65311248359,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Worthy_Rivals",
         "A_Small_Courage",
         "Enter_the_Blue_Rose",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-c3-c3-c3-c1-end), aff_timeleft(flashburn)>11",
+        "`dragon, aff_timeleft(flashburn)>11",
+        "`s3, not buff(s3)",
+        "`s4, x=2",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`fsf, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40067.65311248359,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Enter_the_Blue_Rose",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon, aff_timeleft(flashburn)>11",
         "`s3, not buff(s3)",
         "`s4, x=2",
         "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
@@ -268,8 +324,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 81970.33091051472,
-        "team": 0.09821729460245718,
+        "dps": 81752.66389153925,
+        "team": 0.0970674569586315,
         "noaff": false,
         "nihil": false
       },
@@ -284,19 +340,36 @@
       ],
       "acl": [
         "`dragon, buff(s2) and x=2",
-        "s3, not buff(s3)",
-        "s4, x=2",
-        "s2,  aff_timeleft(flashburn)>15 and not buff(s2) and x=2",
-        "s1, aff_timeleft(flashburn)<2.7 and x=2 and sr.count=2",
-        "dodge, x=2"
+        "`s3, not buff(s3)",
+        "`s4, x=2",
+        "`s2,  aff_timeleft(flashburn)>15 and not buff(s2) and x=2",
+        "`s1, aff_timeleft(flashburn)<2.7 and x=2 and sr.count=2",
+        "`dodge, x=2"
       ]
     },
     "META": {
-      "tdps": 1358943.7146784498,
+      "tdps": 1252047.4932827845,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 60901.27592196273,
+        "team": 0.11372128844780735,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
       }
     }
   },
@@ -341,30 +414,8 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 53847.68565764907,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-MONO",
-        "TEAMBUFF": "ALWAYS-NIHILISM-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 49098.78822426534,
         "team": 0.11372128844780735,
@@ -372,24 +423,7 @@
         "nihil": false
       }
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 56456.14569153455,
-        "team": 0.09724690286181659,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "dragon, have_buff(s2_base2_00)",
-        "s3, not buff(s3)",
-        "s4, x=2",
-        "s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
-        "s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
-        "dodge, x=2"
-      ]
-    },
     "META": {
-      "tdps": 446593.7396491218,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -398,38 +432,19 @@
     }
   },
   "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 43244.81766742625,
+        "dps": 46196.99487001023,
         "team": 0.11372128844780735,
         "noaff": false,
         "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 50744.34758092639,
-        "team": 0.09724690286181659,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ]
+      }
     },
     "META": {
-      "tdps": 455223.6485151517,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
       }
     }
   },
@@ -457,7 +472,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38376.16233913818,
+        "dps": 33004.95163645797,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -472,12 +487,17 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, have_buff(s2_base2_00)",
-        "s3, not buff(s3)",
-        "s4, x=2",
-        "s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
-        "s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
-        "fsf, x=2"
+        "`dragon, aff_timeleft(flashburn)>11",
+        "`s3, not buff(s3)",
+        "`s4, x=2",
+        "`s1, aff_timeleft(flashburn)<2 and x=2 and sr.count=2",
+        "`s2,  aff_timeleft(flashburn)>12 and not have_buff(s2_base2_00) and x=2",
+        "`fsf, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Mitsuhide",
+        "Peony"
       ],
       "share": [
         "Weapon",

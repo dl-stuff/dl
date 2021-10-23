@@ -1,42 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5673.763268809188,
-        "team": 0.567506066952234,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(s-end)",
-        "`s1, (x=5 or (s or prep)) and timeleft(s1)<5",
-        "`s4",
-        "`s3",
-        "`fs, fs_prep_c>=3",
-        "`dodge, fscf and fs_prep_c"
-      ],
-      "coabs": [
-        "Audric",
-        "Bow",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Patia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51571.188709972885,
-        "team": 0.21943847487277168,
+        "dps": 51888.257934480556,
+        "team": 0.21896991313358544,
         "noaff": false,
         "nihil": false
       },
@@ -54,7 +21,7 @@
         "`s3, not buff(s3)",
         "`s1, (x=5 or s) and timeleft(s1)<5",
         "`s4",
-        "`dragon(s)"
+        "`dragon"
       ],
       "coabs": [
         "Audric",
@@ -71,111 +38,11 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 7140.731127831249,
-        "team": 0.5101722393690357,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Audric",
-        "Blade",
-        "Ieyasu"
-      ]
-    },
-    "META": {
-      "tdps": 152821.80127624146,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 2964.394805290248,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(s-end)",
-        "`s1, (x=5 or (s or prep)) and timeleft(s1)<5",
-        "`s4",
-        "`s3",
-        "`fs, fs_prep_c>=3",
-        "`dodge, fscf and fs_prep_c"
-      ],
-      "coabs": [
-        "Audric",
-        "Bow",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Patia"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 13614.277199018092,
-        "team": 0.062455327092426835,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1, (x=5 or s) and timeleft(s1)<5",
-        "`s4",
-        "`dragon(s)"
-      ],
-      "coabs": [
-        "Audric",
-        "Blade",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5920.396502723994,
-        "team": 0.567506066952234,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 70514.63913178309,
-        "team": 0.1440054717039981,
+        "dps": 69301.72532319909,
+        "team": 0.14355549703665046,
         "noaff": false,
         "nihil": false
       },
@@ -209,150 +76,27 @@
       ]
     },
     "META": {
-      "tdps": 152524.56160350147,
+      "tdps": 149501.69505160826,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 41906.235510824576,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`s3, x>1",
-        "`s4",
-        "`dragon, dshift_count=0",
-        "`dragon, dshift_count=1",
-        "`dragon, dshift_count=2",
-        "`dragon, dshift_count>=3"
-      ],
-      "coabs": [
-        "Audric",
-        "Ieyasu",
-        "Joker"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5264.399985217581,
-        "team": 0.567506066952234,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43063.68863921069,
-        "team": 0.21943847487277168,
+        "dps": 43552.00935746325,
+        "team": 0.21896991313358544,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 108597.552642487,
+      "tdps": 109852.61916950971,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5885.469692694746,
-        "team": 0.36036467061195304,
-        "noaff": true,
-        "nihil": false
-      },
-      "acl": [
-        "`s1, (x=5 or (s or prep)) and timeleft(s1)<5",
-        "`s2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`fs, fs_prep_c>=3",
-        "`dodge, fscf and fs_prep_c"
-      ],
-      "coabs": [
-        "Bow",
-        "Ieyasu",
-        "Joker"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
-    "META": {
-      "tdps": 263813.40070602205,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 16036.850867330028,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Arsene",
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   }

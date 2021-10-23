@@ -2,23 +2,23 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40223.82308796012,
-        "team": 0.16350636065216237,
+        "dps": 39229.420681650496,
+        "team": 0.15352835068114262,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Crystalian_Envoy",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Spirit_of_the_Season",
-        "Seaside_Memory",
+        "Amanes_Babysitting_Chronicles",
         "The_Bustling_Hut",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
+        "`dragon, xf",
         "`s3, not buff(s3)",
         "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
         "`s4",
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48676.421136671815,
-        "team": 0.08655534207087301,
+        "dps": 47270.205202279845,
+        "team": 0.07566687042211945,
         "noaff": false,
         "nihil": false
       },
@@ -53,7 +53,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
+        "`dragon, xf",
         "`s3, not buff(s3)",
         "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
         "`s4",
@@ -78,8 +78,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25231.670051314766,
-        "team": 0.029370328068033053,
+        "dps": 26867.811734514205,
+        "team": 0.029383238478526065,
         "noaff": false,
         "nihil": true
       },
@@ -94,7 +94,7 @@
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
+        "`dragon, xf",
         "`s3, not buff(s3)",
         "`s2, (not charged_in(s2, s1) or not charged_in(s2, s4)) and fscf",
         "`s4",
@@ -113,7 +113,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48302.697311203934,
+        "dps": 43653.1203595109,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -129,7 +129,7 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), aff(flashburn)",
+        "`dragon, aff(flashburn)",
         "`s4",
         "`s3",
         "`s1, fscf",
@@ -154,8 +154,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 60083.80414511193,
-        "team": 0.08661055826195536,
+        "dps": 55855.3694002901,
+        "team": 0.08657257510309598,
         "noaff": false,
         "nihil": false
       },
@@ -182,15 +182,24 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 30544.38514677057,
+        "team": 0.029383238478526065,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57334.52340955953,
+        "dps": 52353.36168446849,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
+      "tdps": 742225.0802489456,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -201,16 +210,16 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 35854.731729124214,
-        "team": 0.15404956147672122,
+        "dps": 37378.21978389222,
+        "team": 0.15352835068114257,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 47114.805828869656,
-        "team": 0.08655534207087301,
+        "dps": 46014.33123223727,
+        "team": 0.07566687042211945,
         "noaff": false,
         "nihil": false
       },
@@ -225,7 +234,7 @@
       ]
     },
     "META": {
-      "tdps": 166830.19966551065,
+      "tdps": 110916.35324187456,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -234,7 +243,7 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 38407.36069489828,
         "team": 0.0,
@@ -250,43 +259,8 @@
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
       "acl": [
         "`dragon, xf",
-        "`s3",
-        "`s4",
-        "`s1, fscf",
-        "`s2, (not charged_in(s2, s3) or not charged_in(s2, s4)) and cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 40317.38992937417,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Jewels_of_the_Sun",
-        "Levins_Champion",
-        "A_Small_Courage",
-        "Seaside_Memory",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), xf",
         "`s3",
         "`s4",
         "`s1, fscf",

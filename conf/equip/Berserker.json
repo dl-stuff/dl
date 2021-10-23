@@ -1,41 +1,8 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 29944.307170366155,
-        "team": 0.0492333341389829,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3) and fsc",
-        "`s2",
-        "`s4, cancel",
-        "`s1, buff(s3) or cancel",
-        "`fs, x=4 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Gala_Alex",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68868.30144615629,
+        "dps": 64493.08841640723,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -51,7 +18,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), trickery<=1",
+        "`dragon, trickery<=1",
         "`s3, not buff(s3) and fsc",
         "`s2",
         "`s4, cancel",
@@ -76,7 +43,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29886.010106881742,
+        "dps": 29602.51364299361,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -92,40 +59,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(s)",
-        "`s3, fsc",
-        "`s2",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`fs, x=4 or hits=0"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 30130.135117171965,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(s)",
+        "`dragon",
         "`s3, fsc",
         "`s2",
         "`s4, cancel",
@@ -147,7 +81,7 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 84201.77850266587,
         "team": 0.057041614538213686,
@@ -187,46 +121,6 @@
         "Humanoid_Mercury"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 85379.04588250323,
-        "team": 0.061126624294221575,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Welcome_to_the_Opera",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "dragon",
-        "s3, not buff(s3) and fsc",
-        "s2",
-        "s4, cancel",
-        "s1, cancel",
-        "fs, x=4"
-      ],
-      "dacl": [
-        "queue",
-        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
-        "end"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Summer_Prince",
-        "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
-    },
     "META": {
       "pref": "PERSONAL",
       "partial": {
@@ -236,121 +130,63 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 48823.75036015595,
+        "dps": 36141.83145676141,
         "team": 0.0,
         "noaff": false,
         "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`dragon, fsc",
-        "`s3",
-        "`s4",
-        "`s1, cancel",
-        "`fs, x=4 or hits=0"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Dagger",
-        "Ieyasu",
-        "Wand"
-      ],
-      "share": [
-        "Humanoid_Mercury",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 20780.3707102372,
-        "team": 0.04923333413898283,
-        "noaff": false,
-        "nihil": false
       }
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 44626.54748068259,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Jewels_of_the_Sun",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ]
-    },
     "META": {
-      "tdps": 484350.2311488599,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 24429.31311406663,
+        "dps": 27530.26013190968,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(s)",
-        "`s3",
-        "`s4",
-        "`s1",
-        "`fs, x=2 or hits=0"
+        "`dragon",
+        "`s3, fsc",
+        "`s2",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`fs, x=4 or hits=0"
       ],
       "coabs": [
-        "Ieyasu",
-        "Joker",
+        "Blade",
+        "Dagger",
         "Wand"
       ],
       "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
+        "Summer_Celliera",
+        "Formal_Joachim"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

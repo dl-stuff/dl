@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 142080.75222859948,
-        "team": 0.18186187120324568,
+        "dps": 131608.85960763885,
+        "team": 0.17836761958633204,
         "noaff": false,
         "nihil": false
       },
@@ -51,7 +51,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), s",
+        "`dragon, s",
         "`s3, not buff(s3)",
         "`s1",
         "`s2, cancel",
@@ -68,16 +68,16 @@
       ]
     },
     "META": {
-      "tdps": 228729.5967939188,
+      "tdps": 209149.60752113434,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34585.20164369445,
-        "team": 0.331197336619608,
-        "noaff": false,
+        "dps": 10976.498801558353,
+        "team": 0.624477091283275,
+        "noaff": true,
         "nihil": false
       },
       "coabs": [
@@ -88,8 +88,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106589.84848786518,
-        "team": 0.16583710807858268,
+        "dps": 107491.46139845031,
+        "team": 0.16601428142565292,
         "noaff": false,
         "nihil": false
       },
@@ -110,7 +110,7 @@
       ]
     },
     "META": {
-      "tdps": 435441.1425254327,
+      "tdps": 210518.62991212995,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -119,9 +119,9 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 2620.3378020094365,
+        "dps": 2637.380530896333,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -152,38 +152,6 @@
         "Karl"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 23164.90145548998,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Bridal_Dragon",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "The_Plaguebringer"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`dragon(c5-s), s",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, cancel or s",
-        "`s4, x=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Dagger2",
-        "Joker"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "META": {
       "pref": "PERSONAL"
     }
@@ -191,8 +159,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 164478.38544843695,
-        "team": 0.19638316927900762,
+        "dps": 160452.6855676135,
+        "team": 0.19022662021848255,
         "noaff": false,
         "nihil": false
       },
@@ -206,7 +174,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), s=1",
+        "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -218,7 +186,7 @@
       ]
     },
     "META": {
-      "tdps": 274851.7374601919,
+      "tdps": 264709.88627635676,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -229,8 +197,8 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 129940.31254533019,
-        "team": 0.19464772441906925,
+        "dps": 130405.87531370668,
+        "team": 0.1946705989166646,
         "noaff": false,
         "nihil": false
       },
@@ -241,6 +209,7 @@
       ]
     },
     "META": {
+      "tdps": 277867.78150917066,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
@@ -248,58 +217,17 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 49838.480111613935,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4, xf=5",
-        "`fsf, x=5"
-      ],
-      "coabs": [
-        "Alberius",
-        "Dagger2",
-        "Summer_Prince"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 123434.81176276247,
-        "team": 0.1963831692790078,
+        "dps": 118718.65094468469,
+        "team": 0.19048764760505285,
         "noaff": true,
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Holywyrms_Advent",
-        "Memory_of_a_Friend",
         "Moonlight_Party",
         "Bellathorna",
         "From_Whence_He_Comes",
@@ -307,7 +235,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-c2-end), s=1",
+        "`dragon, s=1",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -319,7 +247,7 @@
       ]
     },
     "META": {
-      "tdps": 201248.12512786896,
+      "tdps": 190773.6665508016,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -330,24 +258,26 @@
   "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 34585.20164369445,
-        "team": 0.331197336619608,
-        "noaff": false,
+        "dps": 10976.498801558353,
+        "team": 0.624477091283275,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "Luck_of_the_Draw",
-        "The_Plaguebringer"
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Wily_Warriors_Flash_and_Heat",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Fatalis",
+      "slots.d": "Azazel",
       "acl": [
         "`s3, not buff(s3)",
         "`s1",
-        "`s2, x=5",
-        "`s4"
+        "`s4",
+        "`fs, xf=5"
       ],
       "coabs": [
         "Cleo",
@@ -363,82 +293,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 20150.308885156624,
-        "team": 0.06249889711837153,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(c5-s), s",
-        "`s3, x=5",
-        "`s4, x=5",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Ilia"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 20553.247996123293,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c5-s)",
-        "`s3",
-        "`s4, x=5",
-        "`fsf, x=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Gala_Chelle"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   }

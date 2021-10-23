@@ -1,39 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5567.866873592224,
-        "team": 0.5923915227595984,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "acl": [
-        "`s4",
-        "`s3, not buff(s3)",
-        "`s1, x<=4 and timeleft(s1)<5"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Tobias",
-        "Yuya"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50132.28854181367,
-        "team": 0.2042001126269564,
+        "dps": 48387.26607134949,
+        "team": 0.20023819853458522,
         "noaff": false,
         "nihil": false
       },
@@ -48,7 +18,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-dfs-end)",
+        "`dragon",
         "`s4",
         "`s3, not buff(s3)",
         "`s1, x<=4 and timeleft(s1)<5"
@@ -68,206 +38,21 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5175.249060376609,
-        "team": 0.5610785975355141,
-        "noaff": true,
-        "nihil": false
-      },
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Humanoid_Midgardsormr",
-        "Tobias"
-      ]
-    },
-    "META": {
-      "tdps": 125972.96105691638,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 2727.6343488272382,
-        "team": 0.0,
-        "noaff": true,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "acl": [
-        "`s4",
-        "`s3, not buff(s3)",
-        "`s1, x<=4 and timeleft(s1)<5"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Tobias",
-        "Yuya"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 21439.0262166866,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(s)",
-        "`s4",
-        "`s3, not buff(s3)",
-        "`s1, x<=4 and timeleft(s1)<5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 58413.88944789717,
-        "team": 0.12387416291368222,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), buff(s2) and cancel",
-        "`s2, dgauge>=500",
-        "`s4, cancel",
-        "`s3, not buff(s3)",
-        "`s1, x=5 and timeleft(s1)<5"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Gala_Notte",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
-    "META": {
-      "tdps": 112794.16112069935,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 38135.74685032342,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s3",
-        "`s4"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30236.506341663353,
-        "team": 0.2042001126269564,
+        "dps": 28738.4731162057,
+        "team": 0.20023819853458522,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 63547.61806718507,
+      "tdps": 59085.57906121036,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 17650.147265485328,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

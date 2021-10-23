@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 106072.97084149384,
+        "dps": 99967.14494490933,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -54,10 +54,10 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "s3, not buff(s3) and cancel",
-        "s1, not aff(shadowblight) or duration-now<1.1",
-        "s4",
-        "fs"
+        "`s3, not buff(s3) and cancel",
+        "`s1, not aff(shadowblight) or duration-now<1.1",
+        "`s4",
+        "`fs"
       ],
       "dacl": [
         "ds1,x=3"
@@ -80,8 +80,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 48369.50329118736,
-        "team": 0.09800391697536685,
+        "dps": 48934.24383950795,
+        "team": 0.09801610464911234,
         "noaff": true,
         "nihil": true
       },
@@ -112,7 +112,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 61185.89541993648,
+        "dps": 60631.742422913274,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -128,10 +128,10 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "dragon, s",
-        "s4, not aff(poison)",
-        "s1, duration-now<0.8",
-        "fs"
+        "`dragon, s",
+        "`s4, not aff(poison)",
+        "`s1, duration-now<0.8",
+        "`fs"
       ],
       "dacl": [
         "ds1,x=3"
@@ -147,14 +147,22 @@
       ]
     },
     "META": {
-      "tdps": 130774.28458263059,
+      "tdps": 119342.61849398294,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38174.72857989764,
+        "team": 0.22395595378198818,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 127809.47048201629,
+        "dps": 120513.70593884861,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -169,14 +177,15 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "s3, not buff(s3) and cancel",
-        "s2, royal_pride<5 and fsc",
-        "s1, duration-now<1.1",
-        "s4",
-        "fs"
+        "`s3, not buff(s3) and cancel",
+        "`s2, royal_pride<5 and fsc",
+        "`s1, duration-now<1.1",
+        "`s4",
+        "`fs"
       ]
     },
     "META": {
+      "tdps": 367657.01455342665,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -219,8 +228,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74344.97328495173,
-        "team": 0.09828820942786658,
+        "dps": 74153.19833381083,
+        "team": 0.0980342544708696,
         "noaff": false,
         "nihil": true
       },
@@ -234,11 +243,11 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "s1, duration-now < 0.1",
-        "s2, royal_pride<1 and s",
+        "`s1, duration-now < 0.1",
+        "`s2, royal_pride<1 and s",
         "#`s3",
-        "s4",
-        "fs"
+        "`s4",
+        "`fs"
       ],
       "coabs": [
         "Blade",
@@ -251,7 +260,7 @@
       ]
     },
     "META": {
-      "tdps": 280399018.1574728,
+      "tdps": 1208163.3088046536,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -326,27 +335,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 46116.51344605691,
-        "team": 0.10098421780843699,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dazzling_Duet",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Gunman",
-        "Enter_the_Blue_Rose",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Seimei"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 54554.887784772625,
@@ -379,7 +367,6 @@
       ]
     },
     "META": {
-      "tdps": 3132025.7530539767,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

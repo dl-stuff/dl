@@ -2,42 +2,47 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17728.101441392362,
-        "team": 0.6369724081266954,
-        "noaff": false,
+        "dps": 33692.55814231525,
+        "team": 0.37674381485052966,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
+        "Proper_Maintenance",
         "Springtime_Breeze",
-        "Luck_of_the_Draw",
-        "Seaside_Memory"
+        "From_Whence_He_Comes",
+        "The_Maid_Crusade",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Azazel",
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-end), x=5",
+        "`dragon, s=2 and trickery<=1",
         "queue prep",
-        "`s3;s1;s4;s2",
+        "`s3",
+        "`s1",
+        "`s4",
+        "`s2",
         "end",
         "`s4",
         "`s1",
         "`s2, cancel"
       ],
       "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
+        "Blade",
+        "Joker",
+        "Vania"
       ],
       "share": [
         "Weapon",
-        "Karl"
+        "Akasha"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66411.77307791114,
-        "team": 0.19142009556612957,
+        "dps": 63576.37729898491,
+        "team": 0.15685803325173836,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +57,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-c3-end), s=2",
+        "`dragon, s=2",
         "queue prep",
         "`s3",
         "`s1",
@@ -74,37 +79,14 @@
       ]
     },
     "META": {
-      "tdps": 109265.8937325143,
+      "tdps": 135906.1006099811,
       "pref": "PERSONAL"
-    }
-  },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 20350.530906448064,
-        "team": 0.5423806743622802,
-        "noaff": false,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Gala_Alex",
-        "Wand"
-      ]
-    },
-    "META": {
-      "tdps": 131243.3502630418,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30152.939678152572,
+        "dps": 30815.22669448937,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -120,7 +102,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-c3-end), s=2",
+        "`dragon, s=2",
         "queue prep",
         "`s3",
         "`s1",
@@ -138,41 +120,6 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 32019.7740961813,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Springtime_Breeze",
-        "Chariot_Drift",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon(c3-s-end)",
-        "queue prep",
-        "`s3",
-        "`s1",
-        "`s4",
-        "end",
-        "`s4",
-        "`s1"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
         "Formal_Joachim"
       ]
     },
@@ -181,14 +128,6 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 18136.299124487945,
-        "team": 0.6369724081266954,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 98437.89721591,
@@ -232,16 +171,15 @@
       "tdps": 167766.6300291874,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40484.37208624396,
-        "team": 0.049006485758624964,
+        "dps": 45732.398511260246,
+        "team": 0.04899346667436225,
         "noaff": false,
         "nihil": true
       },
@@ -251,11 +189,11 @@
         "Welcome_to_the_Opera",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c5-s-c5-end), s",
+        "`dragon, s",
         "`s1",
         "`s4, x=5",
         "`s3, x=5"
@@ -270,61 +208,19 @@
         "Sha_Wujing"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 54792.293972712825,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Reborn_Nidhogg",
-      "acl": [
-        "`dragon(c5-s-c5-end), s",
-        "`s1",
-        "`s4, x=5",
-        "`s3, x=5"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Summer_Celliera"
-      ]
-    },
     "META": {
-      "tdps": 291959.76134548115,
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 17240.200225893394,
-        "team": 0.6369724081266954,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44373.03890880038,
-        "team": 0.3815402764547741,
+        "dps": 44864.256287735414,
+        "team": 0.3405725306423976,
         "noaff": true,
         "nihil": false
       },
@@ -338,7 +234,7 @@
         "Promised_Piety_Staff"
       ],
       "acl": [
-        "`dragon(c3-s-end)",
+        "`dragon",
         "queue prep",
         "`s3",
         "`s1",
@@ -360,7 +256,7 @@
       ]
     },
     "META": {
-      "tdps": 106223.27937096254,
+      "tdps": 308855.4467996617,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -368,76 +264,28 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 35193.696177011814,
-        "team": 0.4153818614770231,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Proper_Maintenance",
-        "Springtime_Breeze",
-        "From_Whence_He_Comes",
-        "The_Maid_Crusade",
-        "Mask_of_Determination_Bow",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Gala_Cat_Sith",
-      "acl": [
-        "`dragon(c3-s-end), s=2 and trickery<=1",
-        "queue prep",
-        "`s3",
-        "`s1",
-        "`s4",
-        "`s2",
-        "end",
-        "`s4",
-        "`s1",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Joker",
-        "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "META": {
-      "tdps": 271244.4681817843,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 28271.245051034675,
-        "team": 0.0,
+        "dps": 29504.77323307112,
+        "team": 0.04899346667436225,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "A_Man_Unchanging",
         "Memory_of_a_Friend",
-        "Springtime_Breeze",
         "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c5-s-c3-end)",
-        "`s3",
+        "`dragon, s",
         "`s1",
-        "`s4",
-        "`s2, fsc"
+        "`s4, x=5",
+        "`s3, x=5"
       ],
       "coabs": [
         "Ieyasu",
@@ -445,15 +293,15 @@
         "Wand"
       ],
       "share": [
-        "Summer_Julietta",
-        "Gala_Chelle"
+        "Gala_Mym",
+        "Sha_Wujing"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

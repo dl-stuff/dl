@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 100198.73208480584,
-        "team": 0.43291980809852176,
+        "dps": 86874.85373110134,
+        "team": 0.32885189942294774,
         "noaff": false,
         "nihil": false
       },
@@ -30,7 +30,7 @@
         "`s1",
         "`s4, s and not have_buff(s4)",
         "end",
-        "fs"
+        "`fs"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -44,8 +44,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 108035.88561209115,
-        "team": 0.32676789102614395,
+        "dps": 92011.68546540437,
+        "team": 0.17280639294407416,
         "noaff": false,
         "nihil": false
       },
@@ -62,7 +62,7 @@
       "acl": [
         "`s3, not have_buff(s3)",
         "if amp_lvl(team,2)<5",
-        "`dragon(c3-s-end), amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
+        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
         "`s2, manachew_mode.get() or dgauge<500",
         "`s1",
         "`s4, s and not have_buff(s4)",
@@ -71,7 +71,7 @@
         "`s1",
         "`s4, s and not buff(s4)",
         "end",
-        "fs"
+        "`fs"
       ],
       "coabs": [
         "Mona",
@@ -91,8 +91,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 82168.17930755905,
-        "team": 0.36747522612534206,
+        "dps": 88194.59094808646,
+        "team": 0.28043807534704335,
         "noaff": false,
         "nihil": true
       },
@@ -131,8 +131,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90399.44674604673,
-        "team": 0.31141943212101375,
+        "dps": 90567.09896259855,
+        "team": 0.3110696960181775,
         "noaff": false,
         "nihil": true
       },
@@ -178,8 +178,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 120979.85298071266,
-        "team": 0.4329198080985216,
+        "dps": 102634.58130857661,
+        "team": 0.32885189942294774,
         "noaff": false,
         "nihil": false
       },
@@ -205,7 +205,7 @@
         "`s1",
         "`s4, s and not have_buff(s4)",
         "end",
-        "fs"
+        "`fs"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -226,10 +226,10 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 89248.357478938,
-        "team": 0.3698326358679588,
+        "dps": 92088.66621941044,
+        "team": 0.30465892279875556,
         "noaff": false,
         "nihil": true
       },
@@ -246,37 +246,14 @@
         "`s3, s and manachew_mode.get()",
         "`s4, s and manachew_mode.get()",
         "end",
-        "fs"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 101095.78775582893,
-        "team": 0.30189867856702973,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "if manachew_mode.get()",
-        "`s2",
-        "`s1",
-        "else",
-        "`dragon(c3-s-dfs-end), s=4",
-        "`s4, s",
-        "`s3, s",
-        "`s2",
-        "`s1",
-        "end",
         "`fs"
       ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Yukata_Lathna"
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 174396.29233448033,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -285,10 +262,10 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 49452.29980993486,
-        "team": 0.1732407836089801,
+        "dps": 55599.62768552809,
+        "team": 0.32885189942294774,
         "noaff": false,
         "nihil": false
       },
@@ -296,9 +273,9 @@
         "Memory_of_a_Friend",
         "Sweet_Surprise",
         "The_Lurker_in_the_Woods",
-        "Enter_the_Blue_Rose",
+        "A_Small_Courage",
         "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "acl": [
@@ -309,29 +286,22 @@
         "`s1",
         "`s4, s and not have_buff(s4)",
         "else",
+        "`dragon",
         "`s2",
         "`s1",
-        "`s4, s and not buff(s4)",
+        "`s4, s and not have_buff(s4)",
         "end",
         "`fs"
       ],
       "coabs": [
-        "Mona",
-        "Nino",
-        "Yukata_Lathna"
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
       ],
       "share": [
         "Weapon",
-        "Formal_Noelle"
+        "Akasha"
       ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 57365.11555447762,
-        "team": 0.32676789102614395,
-        "noaff": false,
-        "nihil": false
-      }
     },
     "META": {
       "pref": "PERSONAL",
@@ -342,30 +312,21 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 27234.711110331322,
-        "team": 0.09213577198712693,
+        "dps": 43929.899533239986,
+        "team": 0.28043807534704335,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon",
-        "`s1",
-        "`s2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`fs"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
+      }
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 45057.88692907203,
+        "team": 0.3110696960181775,
+        "noaff": false,
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",

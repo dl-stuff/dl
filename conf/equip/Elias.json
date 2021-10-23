@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 44033.085302744126,
-        "team": 0.08944039601829108,
+        "dps": 44215.25642941698,
+        "team": 0.08945846802255454,
         "noaff": true,
         "nihil": false
       },
@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44033.085302744126,
-        "team": 0.08944039601829108,
+        "dps": 44215.25642941698,
+        "team": 0.08945846802255454,
         "noaff": true,
         "nihil": false
       },
@@ -83,8 +83,8 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42571.72775350454,
-        "team": 0.08944039601829108,
+        "dps": 42768.14966475739,
+        "team": 0.08945846802255454,
         "noaff": true,
         "nihil": false
       },
@@ -105,7 +105,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 27296.548440258255,
+        "dps": 27310.213715026355,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -143,7 +143,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 30926.087777144745,
+        "dps": 30475.102693287707,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -186,12 +186,32 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 27296.548440258255,
+        "dps": 27310.213715026355,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
       "slots.d": "Gala_Reborn_Jeanne",
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s4",
+        "`s1",
+        "`s3, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Peony",
@@ -213,8 +233,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25335.131092249518,
-        "team": 0.1003420522498285,
+        "dps": 25548.67201586723,
+        "team": 0.10037134584909774,
         "noaff": false,
         "nihil": false
       },
@@ -238,8 +258,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54430.98812929409,
-        "team": 0.08972779685891695,
+        "dps": 54498.66495292861,
+        "team": 0.08972548835465295,
         "noaff": false,
         "nihil": false
       },
@@ -262,7 +282,7 @@
       ]
     },
     "META": {
-      "tdps": 2741205.6678001047,
+      "tdps": 2719366.9417581484,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -273,8 +293,8 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46855.59779221566,
-        "team": 0.08944039601829108,
+        "dps": 47090.4492910749,
+        "team": 0.08945846802255454,
         "noaff": false,
         "nihil": false
       },
@@ -324,6 +344,59 @@
       "share": [
         "Weapon",
         "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 23303.835289867806,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon",
+        "`s2",
+        "`s4",
+        "`s1, buff(s3)",
+        "`s3, cancel",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger2",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 27310.213715026355,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.d": "Gala_Reborn_Jeanne",
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Wand"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
       ]
     },
     "META": {

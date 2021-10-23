@@ -1,44 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 22108.556098077734,
-        "team": 0.16726789248060292,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Astounding_Trick",
-        "Brothers_in_Arms",
-        "Blessed_Days",
-        "Odd_Sparrows"
-      ],
-      "slots.d": "Ariel",
-      "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
-        "`s4, cancel",
-        "`s2(shielding), s2.check() and fsc",
-        "`s1(striking), s1.check()",
-        "`fs, xf=2 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, x=2 or hits=0"
-      ],
-      "coabs": [
-        "Bow",
-        "Lin_You",
-        "Tobias"
-      ],
-      "share": [
-        "Weapon",
-        "Patia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 83706.5877579813,
-        "team": 0.11500069461410194,
+        "dps": 56363.47161797558,
+        "team": 0.0548928129281387,
         "noaff": false,
         "nihil": false
       },
@@ -54,7 +19,7 @@
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`shielding",
-        "`dragon(c3-s-c3-end), s",
+        "`dragon, s",
         "`s3, not buff(s3)",
         "`s4",
         "`s1(striking), s1.check() and fsc",
@@ -79,8 +44,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 78042.18966892734,
-        "team": 0.10983975375365347,
+        "dps": 54164.1792144301,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -96,7 +61,7 @@
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`shielding",
-        "`dragon(c3-s-c3-end), fsc",
+        "`dragon, fsc",
         "`s3, fsc",
         "`s4",
         "`s1(striking), s1.check() and fsc",
@@ -115,8 +80,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79031.03648488398,
-        "team": 0.10786856497088276,
+        "dps": 45472.16662375385,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
@@ -132,7 +97,7 @@
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`shielding",
-        "`dragon(c3-s-c3-end), fsc",
+        "`dragon, fsc",
         "`s3, fsc",
         "`s4",
         "`s1(striking), s1.check() and fsc",
@@ -155,44 +120,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 83562.22966687882,
-        "team": 0.2328193629062081,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`shielding",
-        "`dragon(c3-s-c3-c3-end), fsc",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1(striking), s1.check() and fsc",
-        "`s2(shielding), s2.check() and cancel",
-        "`fs, xf=2 or hits=0"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101072.14566484437,
-        "team": 0.1713995192073143,
+        "dps": 64695.14411880622,
+        "team": 0.10221809716436196,
         "noaff": false,
         "nihil": false
       },
@@ -207,7 +138,7 @@
       ],
       "acl": [
         "`shielding",
-        "`dragon(c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s3, not buff(s3)",
         "`s4",
         "`s1(striking), s1.check() and fsc",
@@ -225,25 +156,32 @@
       ]
     },
     "META": {
-      "tdps": 285085.6489281641,
-      "pref": "PERSONAL",
+      "tdps": -144463.26718889803,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55941.231208190795,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80468.38009477947,
-        "team": 0.11707987351069504,
+        "dps": 64320.966033326804,
+        "team": 0.07929368119350805,
         "noaff": false,
         "nihil": true
       },
       "acl": [
         "`shielding",
-        "`dragon(c3-s-c3-end), fsc",
+        "`dragon, fsc",
         "`s3, fsc",
         "`s4, cancel or s",
         "`s1(striking), s1.check() and (xf=2 or fsc)",
@@ -259,71 +197,22 @@
       }
     }
   },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 66913.05295705757,
-        "team": 0.1750654895733909,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Worthy_Rivals",
-        "Lord_of_the_Skies",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-end)",
-        "`s3, not buff(s3) and cancel",
-        "`s4, fsc",
-        "`s1(striking), s1.check()",
-        "`s2(shielding), s2.check() and fsc",
-        "`fs, x=3 and (hits>5 and stance='striking')",
-        "`fs, x=1 and (hits>5 and stance='shielding')",
-        "`fs, xf=2 and (hits<5 or hits=0)"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 44257.958002319305,
-        "team": 0.04898814929608141,
+        "dps": 25972.374973644306,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Worthy_Rivals",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
       "acl": [
-        "`dragon(c3-s-c3-c3-end), fsc",
+        "`shielding",
+        "`dragon, fsc",
         "`s3, fsc",
-        "`s4, cancel",
-        "`s1(striking), fsc",
-        "`s2(shielding), fsc",
-        "`striking, not s2.check() and fsc",
-        "`fs, xf=2"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
+        "`s4",
+        "`s1(striking), s1.check() and fsc",
+        "`s2(shielding), s2.check() and cancel",
+        "`fs, xf=2 or hits=0"
       ]
     },
     "META": {

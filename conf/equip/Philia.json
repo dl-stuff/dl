@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5108.3494704322375,
-        "team": 0.21721075319724178,
+        "dps": 5339.117290887664,
+        "team": 0.2171894560146437,
         "noaff": false,
         "nihil": false
       },
@@ -17,7 +17,7 @@
       "slots.d": "Freyja",
       "slots.w": "void",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50475.87755853511,
-        "team": 0.05548590602979464,
+        "dps": 47282.19956675343,
+        "team": 0.054909714919981895,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
       "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon(c3-s-dfs-end), cancel",
+        "`dragon, cancel",
         "`s4",
         "`s2",
         "`s1",
@@ -74,107 +74,25 @@
       "pref": "PERSONAL"
     }
   },
-  "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 49983.28472397291,
-        "team": 0.05556624056317878,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dear_Diary",
-        "Sweet_Surprise",
-        "Bloom_of_the_Battlefield",
-        "Hastened_Squall",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon(c3-s-dfs-end)",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s2",
-        "`s1, cancel",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Saiga"
-      ]
-    },
-    "META": {
-      "tdps": 6131769.412374166,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 33868.62829760383,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s2",
-        "`s1",
-        "`s4",
-        "`s3"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 33913.656387518655,
+        "dps": 25140.05642163782,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Forest_Bonds",
-        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
+        "`dragon, cancel",
         "`s2",
         "`s1",
         "`s4",
@@ -199,18 +117,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5558.466899484973,
-        "team": 0.21721075319724178,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 66136.73097579252,
-        "team": 0.14005896121877784,
+        "dps": 61473.964802593546,
+        "team": 0.1363072572750357,
         "noaff": false,
         "nihil": false
       },
@@ -229,65 +139,9 @@
       ]
     },
     "META": {
-      "tdps": 785182.8521781749,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 60191.964316403864,
-        "team": 0.14051344196789922,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Forest_Bonds",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon, cancel",
-        "`s4",
-        "`s2",
-        "`s1, cancel",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
-    "META": {
-      "tdps": 13080348.663571065,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 42610.896328208175,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -295,16 +149,16 @@
   "ALWAYS-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42610.896328208175,
+        "dps": 29545.50516652577,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
@@ -312,22 +166,22 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 4980.441654351044,
-        "team": 0.21721075319724178,
+        "dps": 5214.145821330395,
+        "team": 0.21718945601464362,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31698.21018537723,
-        "team": 0.05548590602979464,
+        "dps": 29405.55821665545,
+        "team": 0.054909714919981895,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 165205.09370686288,
+      "tdps": 149072.28858107195,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -335,50 +189,25 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 31698.21018537723,
-        "team": 0.05548590602979464,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`s3, not buff(s3)",
-        "`dragon(c3-s-dfs-end), cancel",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 25961.125825505223,
+        "dps": 17817.03438866336,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Forest_Bonds",
-        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "The_Plaguebringer",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Zephyr",
+      "slots.w": "void",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
+        "`dragon, cancel",
         "`s3",
         "`s2",
         "`s1",
@@ -394,29 +223,10 @@
         "Formal_Joachim"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 25926.656528104686,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), cancel",
-        "`s3",
-        "`s2",
-        "`s1",
-        "`s4"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

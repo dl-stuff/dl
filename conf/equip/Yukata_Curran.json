@@ -2,23 +2,23 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 40380.934170734465,
-        "team": 0.06341997109443388,
+        "dps": 33756.22727723768,
+        "team": 0.06345877199531791,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Moonlight_Party",
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "Taiko_Tandem",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Cupid",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5 and cancel",
+        "`dragon, energy()=5 and not inspiration()=5 and cancel",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
@@ -113,7 +113,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26566.865901663175,
+        "dps": 26232.25555808867,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -129,7 +129,7 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5 and cancel",
+        "`dragon, energy()=5 and not inspiration()=5 and cancel",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
@@ -152,8 +152,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 76923.0071202827,
-        "team": 0.13344705758941258,
+        "dps": 76551.17167262858,
+        "team": 0.13541567590897263,
         "noaff": false,
         "nihil": false
       },
@@ -163,12 +163,12 @@
         "Spirit_of_the_Season",
         "A_Passion_for_Produce",
         "A_Small_Courage",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), energy()=5 and not inspiration()=5",
+        "`dragon, energy()=5 and not inspiration()=5",
         "`s3, not buff(s3)",
         "`s2",
         "`s4",
@@ -218,7 +218,7 @@
       ]
     },
     "META": {
-      "tdps": 42752.08174586775,
+      "tdps": 48703.64429586649,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -227,16 +227,16 @@
     }
   },
   "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 71027.12012242786,
-        "team": 0.0,
+        "dps": 45864.36810194409,
+        "team": 0.06345877199531791,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "pref": "PERSONAL",
+      "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -244,7 +244,7 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 51787.04320315805,
         "team": 0.0,
@@ -277,9 +277,127 @@
         "Ilia"
       ]
     },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 31487.145222149677,
+        "team": 0.06345877199531791,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 52792.9515613506,
+        "dps": 48201.04150297569,
+        "team": 0.13541567590897263,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "A_Small_Courage",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`dragon, energy()=5 and not inspiration()=5",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4",
+        "`s1, not energy()=5 and cancel"
+      ],
+      "coabs": [
+        "Axe2",
+        "Lucretia",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31487.145222149677,
+        "team": 0.06345877199531791,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "Taiko_Tandem",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Cupid",
+      "coabs": [
+        "Lucretia",
+        "Peony",
+        "Sharena"
+      ],
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 15103.840707715133,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Spirit_of_the_Season",
+        "A_Passion_for_Produce",
+        "Taiko_Tandem",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Cupid",
+      "share": [
+        "Weapon",
+        "Patia"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 31385.84577070119,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -294,7 +412,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), s=4",
+        "`dragon, s=4",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
@@ -308,83 +426,6 @@
       "share": [
         "Gala_Mym",
         "Ilia"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 40591.80297308488,
-        "team": 0.03492285928415899,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 50062.176344176914,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 271179.782103002,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 19055.130237472047,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Taiko_Tandem",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
-      ],
-      "share": [
-        "Weapon",
-        "Peony"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 19099.07734916787,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "Taiko_Tandem",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
-      ],
-      "share": [
-        "Weapon",
-        "Peony"
       ]
     },
     "META": {

@@ -1,38 +1,5 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27347.645093399806,
-        "team": 0.18336413777574573,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Howling_to_the_Heavens",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(c3-s-end), fsc and energy()<5",
-        "`s3, not buff(s3)",
-        "`s2, energy()<5",
-        "`s1",
-        "`s4, fsc and energy()<5",
-        "`fs, x=2"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Ricardt"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 95835.9187399258,
@@ -121,50 +88,11 @@
         "Summer_Luca"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 24053.027163654016,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`s3",
-        "`s4",
-        "`s1",
-        "`fs, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Wand"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Summer_Julietta"
-      ]
-    },
     "META": {
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27958.54786886131,
-        "team": 0.18336413777574573,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 148623.55592603347,
@@ -205,67 +133,11 @@
       "tdps": 658062.2008254712,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 67795.42943140268,
-        "team": 0.06661282966585644,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs, x=4"
-      ],
-      "dacl": [
-        "`ds1, ds1.overcharge=2"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Summer_Prince"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 25906.591628538154,
-        "team": 0.18336413777574573,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 91111.10316318803,
@@ -278,40 +150,25 @@
       "tdps": 355601.2223851262,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 15354.348682466565,
+        "dps": 23269.176106217474,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, energy()<5 and cancel",
-        "`s4, energy()<5",
-        "if not buff(s3)",
-        "`fs, x=5",
-        "else",
-        "`fs, x=4",
-        "end"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
+      "slots.d": "Gala_Bahamut"
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

@@ -2,25 +2,25 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 49051.45056744422,
-        "team": 0.0680869663136885,
+        "dps": 50356.2172169026,
+        "team": 0.05568845628074221,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "Moonlight_Party",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Cupid",
       "acl": [
         "queue s2.check() and dgauge>=500 and energy()>2",
         "`s2",
-        "`dragon (c3-s-end), cancel",
+        "`dragon, cancel",
         "end",
         "`s3, not buff(s3)",
         "`s1",
@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69276.59826686449,
-        "team": 0.041787661416533416,
+        "dps": 67659.06627835808,
+        "team": 0.04191075325928364,
         "noaff": false,
         "nihil": false
       },
@@ -49,8 +49,8 @@
         "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
         "Moonlight_Party",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
@@ -58,7 +58,7 @@
       "acl": [
         "queue s2.check() and dgauge>=500 and energy()>2",
         "`s2",
-        "`dragon (c3-s-end), cancel",
+        "`dragon, cancel",
         "end",
         "`s3, not buff(s3)",
         "`s1",
@@ -125,37 +125,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 68828.98690381413,
-        "team": 0.15659582959223278,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Memory_of_a_Friend",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "coabs": [
-        "Gala_Zena",
-        "Lucretia",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78695.2466053559,
-        "team": 0.04114760064493004,
+        "dps": 82372.76873539777,
+        "team": 0.14886409186090274,
         "noaff": false,
         "nihil": false
       },
@@ -163,29 +136,17 @@
         "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
         "Spirit_of_the_Season",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "queue s2.check() and dgauge>=500 and energy()>2",
-        "`s2",
-        "`dragon (c3-s-c3-c3-end)",
-        "end",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2, charged_in(5,s1)",
-        "`s4, xf",
-        "`fsf, xf=5"
       ],
       "share": [
         "Weapon",
-        "Pinon"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 85460.46822463861,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -236,24 +197,28 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39076.41955450865,
-        "team": 0.06808696631368853,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57498.44721944114,
-        "team": 0.041787661416533395,
+        "dps": 57696.637118232495,
+        "team": 0.14886409186090274,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Extreme_Teamwork",
+        "Spirit_of_the_Season",
+        "A_Choice_Blend",
+        "A_Small_Courage",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
     },
     "META": {
-      "tdps": 700475.839075323,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -262,7 +227,7 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 30708.709200692105,
         "team": 0.04676850102553392,
@@ -278,7 +243,6 @@
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
       "acl": [
         "`dragon, aff(flashburn) and xf",
         "`s1",
@@ -296,41 +260,7 @@
         "Ilia"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 31023.173112735178,
-        "team": 0.04645806923240803,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon (c3-s-c3-c3-end), aff(flashburn) and xf",
-        "`s1",
-        "`s4, xf",
-        "`s3, xf",
-        "`fsf, xf=5"
-      ],
-      "coabs": [
-        "Dagger",
-        "Peony",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Ilia"
-      ]
-    },
     "META": {
-      "tdps": 1012988.7434420949,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

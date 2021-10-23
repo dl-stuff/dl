@@ -1,42 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5154.883981840957,
-        "team": 0.4882359200054343,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Sisters_Day_Out",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(s-end)",
-        "`s1, (x=5 or s) and timeleft(s1)<5",
-        "`s4",
-        "`s3",
-        "`fs, fs_prep_c>=3",
-        "`dodge, fscf and fs_prep_c"
-      ],
-      "coabs": [
-        "Audric",
-        "Blade",
-        "Bow"
-      ],
-      "share": [
-        "Yuya",
-        "Patia"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42539.6881268866,
-        "team": 0.1599720479152463,
+        "dps": 42631.56697734913,
+        "team": 0.19549331322405133,
         "noaff": false,
         "nihil": false
       },
@@ -78,8 +45,8 @@
   "SELF-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 36164.74053188925,
-        "team": 0.1599720479152463,
+        "dps": 36271.09563491957,
+        "team": 0.19549331322405133,
         "noaff": false,
         "nihil": false
       },
@@ -92,43 +59,16 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "coabs": [
-        "Blade",
-        "Forte",
-        "Ieyasu"
-      ]
-    },
-    "META": {
-      "tdps": 94466.24860846266,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 13640.181978377352,
-        "team": 0.04160047338010661,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
       "slots.d": "Ramiel",
       "acl": [
-        "`dragon(s)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4",
         "`s2",
         "`s1, not buff(s1)"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -141,22 +81,19 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL"
+      "tdps": 94466.24860846266,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 5331.355336965606,
-        "team": 0.4882359200054343,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74401.85385453553,
-        "team": 0.1548277747037443,
+        "dps": 74126.87164429524,
+        "team": 0.15176093362024334,
         "noaff": false,
         "nihil": false
       },
@@ -171,10 +108,10 @@
       ],
       "slots.d": "Gala_Bahamut",
       "acl": [
-        "dragon",
-        "s3, not buff(s3) and x=5",
-        "s4",
-        "s1, timeleft(s1)<5 and x=5"
+        "`dragon",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s1, timeleft(s1)<5 and x=5"
       ],
       "dacl": [
         "queue",
@@ -192,61 +129,65 @@
       ]
     },
     "META": {
-      "tdps": 207165.0002883712,
+      "tdps": 204459.52623822587,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
+  "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 22437.624445619746,
-        "team": 0.0,
+        "dps": 43641.73788482708,
+        "team": 0.19549331322405133,
         "noaff": false,
-        "nihil": true
+        "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
         "Dueling_Dancers",
-        "Entwined_Flames"
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, not buff(s1)"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
+        "Dagger2",
+        "Forte",
+        "Ieyasu"
       ],
       "share": [
-        "Gala_Chelle",
-        "Summer_Julietta"
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
+      "tdps": 109155.09859509648,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-MONO",
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 4813.100777261355,
-        "team": 0.4882359200054343,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33397.21288485625,
-        "team": 0.16040424251236632,
+        "dps": 33540.738771266566,
+        "team": 0.15964459125218486,
         "noaff": false,
         "nihil": false
       },
@@ -270,45 +211,10 @@
       ]
     },
     "META": {
-      "tdps": 87191.42801018461,
+      "tdps": 87426.64665864564,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 14117.18458325177,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Arsene",
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Gala_Chelle",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   }

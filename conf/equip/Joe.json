@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65806.19279434439,
-        "team": 0.049979988567910666,
+        "dps": 66350.69383313206,
+        "team": 0.04994493848004443,
         "noaff": false,
         "nihil": false
       },
@@ -13,14 +13,15 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-end), s=1",
+        "`dragon, s=1",
         "queue prep",
-        "`s4;s1",
+        "`s4",
+        "`s1",
         "end",
         "`s3, x=5 and not buff(s3)",
         "`s4",
@@ -40,7 +41,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73604.49199510907,
+        "dps": 73593.65523287373,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -88,7 +89,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38865.03152408187,
+        "dps": 39860.44655666103,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -123,7 +124,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42815.285753431686,
+        "dps": 39860.44655666103,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -139,7 +140,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(s-c3-c3-s-end)",
+        "`dragon",
         "`s3",
         "`s4",
         "`s1, cancel",
@@ -161,9 +162,17 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 74546.84008629981,
+        "team": 0.04994493848004443,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 90963.64553422746,
+        "dps": 90182.9329635094,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -187,6 +196,7 @@
       ]
     },
     "META": {
+      "tdps": 313066.6160186986,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -195,32 +205,15 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 54909.114205934064,
+        "dps": 57841.37507535784,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "acl": [
         "`dragon, s=2",
-        "`s3",
-        "`s4",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5",
-        "`dodge, fsc"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 57251.04241975759,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), s=2",
         "`s3",
         "`s4",
         "`s1, cancel",
@@ -240,43 +233,34 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 23256.58984556024,
-        "team": 0.005845170915018714,
+        "dps": 43063.37615592524,
+        "team": 0.04994493848004443,
         "noaff": false,
         "nihil": false
       }
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 39406.9949634204,
-        "team": 0.0,
+        "dps": 43063.37615592524,
+        "team": 0.04994493848004443,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Forest_Bonds",
-        "Honest_Repose",
+        "Initios_Sentinel",
+        "Me_and_My_Bestie",
         "Memory_of_a_Friend",
-        "Snipers_Allure",
-        "To_the_Extreme"
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Agni",
-      "acl": [
-        "`dragon(c3-s-c3-c3-end), s=2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Marth"
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
       ]
     },
     "META": {
-      "tdps": 2763033.853529064,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -287,8 +271,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 13408.95530583027,
-        "team": 0.030483328608076905,
+        "dps": 21625.312089139497,
+        "team": 0.024631842020626935,
         "noaff": false,
         "nihil": true
       },
@@ -299,8 +283,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33940.6794088921,
-        "team": 0.011687652352931285,
+        "dps": 30715.684847659195,
+        "team": 0.011630191328888146,
         "noaff": false,
         "nihil": true
       },
@@ -314,7 +298,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(s-c3-c3-s-end)",
+        "`dragon",
         "`s3",
         "`s4",
         "`s1, cancel",
@@ -327,7 +311,7 @@
       ]
     },
     "META": {
-      "tdps": 1092364.2131493376,
+      "tdps": 699170.6648676305,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

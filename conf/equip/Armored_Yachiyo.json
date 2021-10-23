@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 73559.11503779137,
-        "team": 0.04999663356000694,
+        "dps": 75296.2553050759,
+        "team": 0.04996251146223288,
         "noaff": false,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "if not c_fs(enhanced)",
         "`s1, cancel",
@@ -40,7 +40,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 101358.13059782941,
+        "dps": 100693.43030076158,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -87,28 +87,81 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65242.10679966649,
-        "team": 0.02941163888942715,
+        "dps": 79865.40863045979,
+        "team": 0.04996251146223288,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "OneWinged_Journey",
+        "The_Cutie_Competition",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "`fsf, xf=5",
+        "end",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs2, c_fs(enhanced) and x=1"
+      ],
       "coabs": [
         "Dagger",
         "Halloween_Mym",
         "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Ricardt"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 99912.94326385322,
+        "dps": 99369.20784232154,
         "team": 0.0,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "The_Warrioresses",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "`fsf, xf=5",
+        "end",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs2, c_fs(enhanced) and xf"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Kimono_Elisanne",
         "Marth",
         "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -123,15 +176,15 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 43730.12572635258,
-        "team": 0.036863567329066434,
+        "dps": 44871.34890041651,
+        "team": 0.03700427591809109,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "OneWinged_Journey",
         "The_Cutie_Competition",
         "The_Lurker_in_the_Woods",
-        "Valiant_Crown",
         "Beautiful_Nothingness",
         "Flowers_Under_the_Moon",
         "Mask_of_Determination_Lance",
@@ -159,7 +212,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 64933.86519327641,
+        "dps": 65227.32347944169,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -175,7 +228,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`dragon, cancel",
         "if not c_fs(enhanced)",
         "`s1, cancel",
         "`fsf, x=5",
@@ -203,8 +256,8 @@
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 61301.60991542049,
-        "team": 0.024687202345629888,
+        "dps": 61725.52410360392,
+        "team": 0.02466416715063931,
         "noaff": false,
         "nihil": true
       },
@@ -214,12 +267,12 @@
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`dragon, cancel",
         "if not c_fs(enhanced)",
         "`s1, cancel",
         "end",
@@ -232,6 +285,10 @@
         "Ezelith",
         "Halloween_Mym",
         "Wand"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
@@ -246,8 +303,8 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 106467.90152531517,
-        "team": 0.09992857327645689,
+        "dps": 107523.91021978851,
+        "team": 0.0999911563377285,
         "noaff": false,
         "nihil": false
       },
@@ -261,7 +318,7 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end), fsc",
+        "`dragon, fsc",
         "`s3, not buff(s3)",
         "if not c_fs(enhanced)",
         "`s1, cancel",
@@ -283,8 +340,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 111232.3308770884,
-        "team": 0.062470538200067864,
+        "dps": 110700.5381774753,
+        "team": 0.06243117310005571,
         "noaff": false,
         "nihil": false
       },
@@ -320,7 +377,7 @@
       ]
     },
     "META": {
-      "tdps": 127193.78744926208,
+      "tdps": 84574.7970009909,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -331,13 +388,13 @@
   "ALWAYS-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 103295.17516143298,
-        "team": 0.09961519204729873,
+        "dps": 76502.83332081018,
+        "team": 0.09988987696008896,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "if not c_fs(enhanced)",
         "`s1, cancel",
@@ -354,7 +411,7 @@
       ]
     },
     "META": {
-      "tdps": 213682.31746887407,
+      "tdps": 912944.1580372603,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "ALWAYS-NORMAL-ANY",
@@ -370,22 +427,13 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "OneWinged_Journey",
-        "The_Cutie_Competition",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Nothingness",
-        "Flowers_Under_the_Moon",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
       "dacl": [
         "ds1,x=3"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78724.18666493085,
+        "dps": 78867.09520229354,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -400,7 +448,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c2-s-c2-c2-c2-c2-c1-end), fsc",
+        "`dragon, fsc",
         "`s2, fsc or s",
         "`s3, fsc",
         "`s4, fsc",
@@ -409,7 +457,7 @@
       ]
     },
     "META": {
-      "tdps": 872273.951861829,
+      "tdps": 876135.8984562987,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -417,10 +465,66 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 39183.26597242675,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "OneWinged_Journey",
+        "The_Cutie_Competition",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "`fsf, xf=5",
+        "end",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs2, c_fs(enhanced) and x=1"
+      ],
+      "coabs": [
+        "Grace",
+        "Hunter_Berserker",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Ricardt"
+      ]
+    },
+    "META": {
+      "tdps": 633370.0476242255,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55258.89618242552,
+        "team": 0.04996251146223288,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 71992.49590416835,
+        "dps": 71401.56801379811,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -440,6 +544,7 @@
       ]
     },
     "META": {
+      "tdps": 323095.6843227344,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -447,11 +552,59 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 55258.89618242552,
+        "team": 0.04996251146223288,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "OneWinged_Journey",
+        "The_Cutie_Competition",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "if not c_fs(enhanced)",
+        "`s1, cancel",
+        "`fsf, xf=5",
+        "end",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`fs2, c_fs(enhanced) and x=1"
+      ],
+      "coabs": [
+        "Grace",
+        "Hunter_Berserker",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Ricardt"
+      ]
+    },
+    "META": {
+      "tdps": 174165.15258219358,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45702.56303405399,
-        "team": 0.024627921970566773,
+        "dps": 46204.186118785896,
+        "team": 0.024667954987617903,
         "noaff": false,
         "nihil": true
       },
@@ -461,12 +614,12 @@
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "To_the_Extreme",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), cancel",
+        "`dragon, cancel",
         "if not c_fs(enhanced)",
         "`s1, cancel",
         "`fsf, x=5",
@@ -484,8 +637,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50700.31572625174,
-        "team": 0.011664778970066963,
+        "dps": 51245.98168561621,
+        "team": 0.011694359528857591,
         "noaff": false,
         "nihil": true
       },
@@ -509,7 +662,7 @@
       ]
     },
     "META": {
-      "tdps": 385535.5674164098,
+      "tdps": 388619.76102591364,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -520,8 +673,8 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46734.87786229168,
-        "team": 0.011660893304945682,
+        "dps": 46204.186118785896,
+        "team": 0.024667954987617903,
         "noaff": false,
         "nihil": true
       },
@@ -531,12 +684,11 @@
         "Yuya"
       ],
       "share": [
-        "Gala_Mym",
-        "Student_Maribelle"
+        "Summer_Celliera",
+        "Seimei"
       ]
     },
     "META": {
-      "tdps": 79610.74621317248,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

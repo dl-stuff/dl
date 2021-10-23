@@ -1,44 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 35817.34865128187,
-        "team": 0.23684978547904495,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Luck_of_the_Draw",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Azazel",
-      "acl": [
-        "`dragon(c3-s-end), s=2",
-        "`s3, not buff(s3)",
-        "if x=5 or s=4 or not buff(s3)",
-        "`s2, aff_timeleft(poison)<4",
-        "`s4",
-        "`s1, sr.count>1",
-        "end",
-        "`fs, hits=0 or x=4 and not buff(s3)"
-      ],
-      "coabs": [
-        "Delphi",
-        "Heinwald",
-        "Wand"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 112041.11723628723,
-        "team": 0.132509075074764,
+        "dps": 112051.76218930045,
+        "team": 0.13252166467501783,
         "noaff": false,
         "nihil": false
       },
@@ -82,43 +47,10 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 37799.973172367754,
-        "team": 0.11484335879386512,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon(c3-s-c5-end), fsc",
-        "`s3, cancel",
-        "`s4",
-        "`s2, aff_timeleft(poison)<3",
-        "`s1, sr.count>1 and cancel",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 63132.09927140589,
-        "team": 0.07688497326596011,
+        "dps": 61697.00107886682,
+        "team": 0.07713558434153991,
         "noaff": false,
         "nihil": true
       },
@@ -133,11 +65,11 @@
       ],
       "slots.d": "Arsene",
       "acl": [
-        "dragon, fsc",
-        "s4, aff_timeleft(poison)<2",
-        "s3, cancel",
-        "s1, sr.count>1 and cancel",
-        "fs, x=4"
+        "`dragon, fsc",
+        "`s4, aff_timeleft(poison)<2",
+        "`s3, cancel",
+        "`s1, sr.count>1 and cancel",
+        "`fs, x=4"
       ],
       "dacl": [
         "ds1,x=3"
@@ -203,7 +135,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 132038.64335341903,
+        "dps": 132038.64335341906,
         "team": 0.13642042927682285,
         "noaff": false,
         "nihil": false
@@ -239,11 +171,10 @@
       ]
     },
     "META": {
-      "tdps": 125984.32493636182,
+      "tdps": 125984.32493636209,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -287,8 +218,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96512.27889331273,
-        "team": 0.1442013029873439,
+        "dps": 96186.88441289068,
+        "team": 0.12745903394605312,
         "noaff": false,
         "nihil": true
       },
@@ -325,67 +256,52 @@
       ]
     },
     "META": {
-      "tdps": 966128.0435995496,
+      "tdps": 752287.2598848001,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 22365.24698523683,
-        "team": 0.238376057296539,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 58641.35174613951,
-        "team": 0.05526219877580736,
+        "dps": 72490.22602609833,
+        "team": 0.2457921435913683,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "An_Ancient_Oath",
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "A_Small_Courage",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Welcome_to_the_Opera",
+        "The_Plaguebringer",
         "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "coabs": [
-        "Forte",
-        "Ieyasu",
-        "Vania"
+      "dacl": [
+        "queue",
+        "dx4;dx4;ds1, ds1.overcharge=2;dx4;dx4;sack",
+        "end"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
-      "tdps": 198106.8230114085,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 31457.709300934104,
-        "team": 0.11357420676223191,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48065.09031620608,
-        "team": 0.04326132164700762,
+        "dps": 49451.03306385198,
+        "team": 0.07215722961198891,
         "noaff": false,
         "nihil": true
       },
@@ -399,7 +315,7 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-c5-end), fsc",
+        "`dragon, fsc",
         "`s3, cancel",
         "`s4",
         "`s1, sr.count>1 and cancel",
@@ -416,11 +332,10 @@
       ]
     },
     "META": {
-      "tdps": 236192.56965571604,
+      "tdps": 171088.2941176258,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY"
       }
     }
   }

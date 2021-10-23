@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 9577.455150105136,
-        "team": 0.7265043189757067,
+        "dps": 9459.610729531494,
+        "team": 0.714246143516827,
         "noaff": false,
         "nihil": false
       },
@@ -18,7 +18,7 @@
       ],
       "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), buff(s3, 1)",
+        "`dragon, buff(s3, 1)",
         "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
         "`s3",
         "`s2, not c_fs(peonydreams)",
@@ -81,15 +81,37 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8888.495160141669,
-        "team": 0.5890876745441491,
+        "dps": 8693.812638998585,
+        "team": 0.5875819868029846,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Proper_Maintenance",
+        "From_Whence_He_Comes",
+        "Seaside_Memory",
+        "Beneath_the_Boughs",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
+        "`s3",
+        "`s2, not c_fs(peonydreams)",
+        "`s1",
+        "`s4, cancel"
+      ],
       "coabs": [
         "Bow",
         "Gala_Prince",
         "Hildegarde"
+      ],
+      "share": [
+        "Dragonyule_Lily",
+        "Templar_Hope"
       ]
     },
     "META": {
@@ -142,9 +164,17 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11766.313639797761,
+        "team": 0.714246143516827,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78537.05654774692,
+        "dps": 78791.01506129083,
         "team": 0.1564734291750983,
         "noaff": false,
         "nihil": false
@@ -168,10 +198,56 @@
       ]
     },
     "META": {
+      "tdps": 120164.89817110213,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 11766.313639797761,
+        "team": 0.714246143516827,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Proper_Maintenance",
+        "From_Whence_He_Comes",
+        "Seaside_Memory",
+        "Beneath_the_Boughs",
+        "Mask_of_Determination_Bow"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "`dragon, buff(s3, 1)",
+        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
+        "`s3",
+        "`s2, not c_fs(peonydreams)",
+        "`s1",
+        "`s4, cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Dragonyule_Lily",
+        "Templar_Hope"
+      ]
+    },
+    "META": {
+      "tdps": 157739.34596654054,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -220,8 +296,8 @@
   "IMMUNE-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 25632.113806632384,
-        "team": 0.17416647825831735,
+        "dps": 29814.837704056048,
+        "team": 0.1640208545925496,
         "noaff": false,
         "nihil": false
       },
@@ -238,14 +314,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 48168.57108705857,
+        "dps": 48739.137413300115,
         "team": 0.1544520214383355,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 1143143.708508573,
+      "tdps": 1977701.9208355476,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -271,14 +347,6 @@
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
-        "`s3",
-        "`s2, not c_fs(peonydreams)",
-        "`s1",
-        "`s4, cancel"
-      ],
       "dacl": [
         "ds1,x=3"
       ],
@@ -294,7 +362,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 32141.221281471262,
+        "dps": 31636.115269985923,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -336,14 +404,14 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 27683.240200128777,
+        "dps": 15438.611246367816,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "coabs": [
         "Blade",
-        "Mitsuhide",
+        "Dagger",
         "Wand"
       ]
     },

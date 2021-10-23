@@ -1,42 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 64705.15604209141,
-        "team": 0.17389718648348967,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "OneWinged_Journey",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "dragon, s=1",
-        "s3, not buff(s3)",
-        "s1",
-        "s2, xf",
-        "s4, xf",
-        "fsf, xf=5"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 97376.64218346307,
-        "team": 0.0798724309481868,
+        "dps": 95176.47290017553,
+        "team": 0.07984894775903807,
         "noaff": false,
         "nihil": false
       },
@@ -44,19 +11,19 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "dragon(c3-s-dfs-end), s=1",
-        "s3, not buff(s3)",
-        "s1",
-        "s2, xf",
-        "s4, xf",
-        "fsf, xf=5"
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2, xf",
+        "`s4, xf",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -76,8 +43,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 65872.88764984321,
-        "team": 0.08153622343125848,
+        "dps": 66247.86106086364,
+        "team": 0.07987584573897012,
         "noaff": false,
         "nihil": true
       },
@@ -85,19 +52,19 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "dragon(c3-s-c3-c3-end)",
-        "s3, not buff(s3)",
-        "s1",
-        "s2",
-        "s4, xf=5",
-        "fsf, xf=5"
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, xf=5",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Gala_Notte",
@@ -111,8 +78,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69756.28760327109,
-        "team": 0.07275310111942998,
+        "dps": 69918.42745851197,
+        "team": 0.0749275738258846,
         "noaff": false,
         "nihil": true
       },
@@ -120,19 +87,19 @@
         "A_Man_Unchanging",
         "Memory_of_a_Friend",
         "Sweet_Surprise",
+        "A_Choice_Blend",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "dragon(c3-s-c3-c3-end)",
-        "s3, not buff(s3)",
-        "s1",
-        "s2",
-        "s4, xf=5",
-        "fsf, xf=5"
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, xf=5",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Meene",
@@ -150,39 +117,15 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 95724.75543805015,
-        "team": 0.1791584641600057,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "OneWinged_Journey",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon, buff(s2) and xf=5",
-        "`s3, not buff(s3)",
-        "`s2, amp_lvl(team,\"10000\")",
-        "`s1",
-        "`s2, s=1",
-        "`s4",
-        "`fsf, xf=5"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 118364.51993684549,
-        "team": 0.07991882165771298,
+        "dps": 113356.82240995868,
+        "team": 0.07972790755286978,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon(c3-s-dfs-end), s1.check()",
+        "`dragon, s1.check()",
         "`s3, not buff(s3)",
         "`s2, amp_lvl(team)",
         "`s1",
@@ -192,24 +135,31 @@
       ]
     },
     "META": {
-      "tdps": 228132.26577546666,
+      "tdps": 177330.46634321177,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 77966.6522403298,
+        "team": 0.07987584573897012,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 88058.77668026043,
-        "team": 0.07989358073717363,
+        "dps": 81219.81729081828,
+        "team": 0.0801343369798226,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-dfs-end), s=2",
+        "`dragon, s=2",
         "`s1",
         "`s2, xf",
         "`s4, xf",
@@ -231,43 +181,21 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 50427.99184610076,
-        "team": 0.12739212634166364,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Red_Impulse",
-        "Valiant_Crown",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "acl": [
-        "s3, not buff(s3)",
-        "s1",
-        "s2, xf",
-        "s4, xf",
-        "fsf, xf=5"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50177.48301551356,
-        "team": 0.014617073314620734,
+        "dps": 47627.51846828296,
+        "team": 0.014614188378864091,
         "noaff": false,
         "nihil": false
       },
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "dragon(c3-s-c3-c3-end)",
-        "s3, not buff(s3)",
-        "s1",
-        "s2",
-        "s4, xf=5",
-        "fsf, xf=5"
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4, xf=5",
+        "`fsf, xf=5"
       ],
       "coabs": [
         "Eleonora",
@@ -280,45 +208,25 @@
       ]
     },
     "META": {
-      "tdps": -2221.3142345154492,
+      "tdps": -24831.74837565799,
       "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 35979.78399089765,
-        "team": 0.011691053346603763,
-        "noaff": true,
+        "dps": 42212.917443029146,
+        "team": 0.07987584573897012,
+        "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "OneWinged_Journey",
-        "The_Red_Impulse",
-        "Dueling_Dancers",
-        "Entwined_Flames"
-      ],
-      "acl": [
-        "dragon(c3-s-c3-c3-end), s=1",
-        "s3, not buff(s3)",
-        "s1",
-        "s2, xf",
-        "s4, xf",
-        "fsf, xf=5"
-      ],
       "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+        "Gala_Notte",
+        "Meene",
+        "Mona"
       ]
     },
     "META": {

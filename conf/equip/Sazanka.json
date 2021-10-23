@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 54605.100826254915,
-        "team": 0.11235959225012426,
+        "dps": 54046.91710747477,
+        "team": 0.07645462026127005,
         "noaff": false,
         "nihil": false
       },
@@ -13,12 +13,12 @@
         "Memory_of_a_Friend",
         "A_Small_Courage",
         "Snipers_Allure",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-c3-end), trickery<=1 and cancel",
+        "`dragon, trickery<=1 and cancel",
         "`s3, not buff(s3)",
         "`s1",
         "`s2",
@@ -38,7 +38,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 73584.50531854469,
+        "dps": 68507.69188748054,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -54,7 +54,7 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c3-s-c3-end), trickery<=1 and cancel",
+        "`dragon, trickery<=1 and cancel",
         "`s3, not buff(s3)",
         "`s4",
         "`s1",
@@ -80,7 +80,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 36074.44568694791,
+        "dps": 36108.432695703515,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -116,7 +116,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 36392.074853408376,
+        "dps": 36108.432695703515,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -132,7 +132,7 @@
       ],
       "slots.d": "Gala_Reborn_Nidhogg",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
+        "`dragon",
         "`s3",
         "`s4",
         "`s1",
@@ -157,7 +157,7 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 79181.5465130763,
+        "dps": 74221.98139182448,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -176,7 +176,7 @@
         "`s4",
         "`s1, cancel",
         "`s2",
-        "`dragon(c3-s-end), cancel"
+        "`dragon, cancel"
       ],
       "share": [
         "Weapon",
@@ -192,9 +192,9 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 47067.45063620491,
+        "dps": 47071.80054328461,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -210,41 +210,6 @@
       ],
       "acl": [
         "`dragon",
-        "`s3",
-        "`s4",
-        "`s1",
-        "`s2",
-        "`fs, x=4 and c_fs(enhanced)",
-        "`fsf, x=5"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 47393.27065701643,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end)",
         "`s3",
         "`s4",
         "`s1",
@@ -271,7 +236,7 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
         "dps": 53978.99797717294,
         "team": 0.07645462026126994,
@@ -295,32 +260,6 @@
         "`s4",
         "`fs, x=4 and c_fs(enhanced)",
         "`fsf, x=4"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 55796.04124065865,
-        "team": 0.11235959225012426,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Dragonyule_Dreaming",
-        "Kung_Fu_Masters",
-        "Memory_of_a_Friend",
-        "A_Small_Courage",
-        "Snipers_Allure",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-end), trickery<=1 and cancel",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`fs, x=4 and c_fs(enhanced)",
-        "`fsf, x=4"
       ],
       "share": [
         "Weapon",
@@ -336,44 +275,55 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 26559.425463968215,
+        "dps": 12476.99224432351,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
+        "Dragonyule_Dreaming",
+        "Kung_Fu_Masters",
         "Memory_of_a_Friend",
-        "Summer_Paladyns",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
+        "A_Small_Courage",
+        "Snipers_Allure",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon(c5-s-c5-c5-end)",
-        "`s3",
-        "`s4",
+        "`dragon, trickery<=1 and cancel",
+        "`s3, not buff(s3)",
         "`s1",
         "`s2",
+        "`s4",
         "`fs, x=4 and c_fs(enhanced)",
-        "`fsf, x=5"
+        "`fsf, x=4"
       ],
       "coabs": [
+        "Bow",
         "Ieyasu",
-        "Joker",
-        "Wand"
+        "Vania"
       ],
       "share": [
-        "Gala_Chelle",
-        "Summer_Julietta"
+        "Weapon",
+        "Dragonyule_Lily"
       ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 32142.31757572604,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }

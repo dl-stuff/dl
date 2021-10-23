@@ -36,7 +36,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69478.24252866757,
+        "dps": 69408.70562706412,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -50,7 +50,7 @@
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), self.sr.count=1",
+        "`dragon, self.sr.count=1",
         "`s3, not buff(s3)",
         "`s4",
         "if s2_autocharge_buff.get()",
@@ -70,15 +70,15 @@
       ]
     },
     "META": {
-      "tdps": 66310.2730286515,
+      "tdps": 65976.60422046923,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 45820.89380750729,
-        "team": 0.06662126491830854,
+        "dps": 46770.422546959955,
+        "team": 0.06659864676617061,
         "noaff": false,
         "nihil": true
       },
@@ -92,12 +92,12 @@
       "slots.d": "Summer_Marishiten",
       "acl": [
         "`dragon, self.sr.count=1",
-        "s3, not buff(s3)",
-        "s4",
+        "`s3, not buff(s3)",
+        "`s4",
         "if s2_autocharge_buff.get()",
-        "s1, self.sr.count=2 and cancel",
+        "`s1, self.sr.count=2 and cancel",
         "else",
-        "s2, self.sr.count=2",
+        "`s2, self.sr.count=2",
         "end"
       ],
       "coabs": [
@@ -156,24 +156,14 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 75335.39930697173,
+        "dps": 74410.22940507419,
         "team": 0.0,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon, self.sr.count=1",
-        "s3, not buff(s3)",
-        "s4",
-        "if s2_autocharge_buff.get()",
-        "s1, self.sr.count=2 and cancel",
-        "else",
-        "s2, self.sr.count=2",
-        "end"
-      ]
+      }
     },
     "META": {
-      "tdps": 94415.50171281779,
+      "tdps": 89976.1273459144,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -182,10 +172,18 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51612.44586825953,
+        "team": 0.06659864676617061,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 54259.840557999385,
-        "team": 0.0,
+        "dps": 52944.11764880248,
+        "team": 0.06660719271815996,
         "noaff": false,
         "nihil": true
       },
@@ -198,12 +196,12 @@
       ],
       "acl": [
         "`dragon, self.sr.count=1",
-        "s3, not buff(s3)",
-        "s4",
+        "`s3, not buff(s3)",
+        "`s4",
         "if s2_autocharge_buff.get()",
-        "s1, self.sr.count>1.7 and cancel",
+        "`s1, self.sr.count>1.7 and cancel",
         "else",
-        "s2, self.sr.count=2",
+        "`s2, self.sr.count=2",
         "end"
       ],
       "coabs": [
@@ -223,8 +221,8 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59674.002854402344,
-        "team": 0.0999880282449948,
+        "dps": 59607.617864916385,
+        "team": 0.09991897367690379,
         "noaff": true,
         "nihil": false
       },
@@ -255,7 +253,7 @@
       ]
     },
     "META": {
-      "tdps": 37033.26681692788,
+      "tdps": 36397.74837821511,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -296,8 +294,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 45933.068580298816,
-        "team": 0.0,
+        "dps": 44681.724870804486,
+        "team": 0.06663897012639433,
         "noaff": false,
         "nihil": true
       },
@@ -310,12 +308,12 @@
       ],
       "acl": [
         "`dragon",
-        "s3, not buff(s3)",
-        "s4",
+        "`s3, not buff(s3)",
+        "`s4",
         "if s2_autocharge_buff.get()",
-        "s1, self.sr.count=2 and cancel",
+        "`s1, self.sr.count=2 and cancel",
         "else",
-        "s2, self.sr.count=2",
+        "`s2, self.sr.count=2",
         "end"
       ],
       "coabs": [
@@ -325,8 +323,7 @@
       ]
     },
     "META": {
-      "tdps": 18777.956909011376,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 75506.71599446876,
-        "team": 0.06234880299812194,
+        "dps": 63556.30991215787,
+        "team": 0.04997619883530454,
         "noaff": false,
         "nihil": false
       },
@@ -17,7 +17,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s2, fsc",
         "`s4, fsc",
         "`s1, fsc or aff_timeleft(frostbite)<4",
@@ -37,8 +37,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 75506.71599446876,
-        "team": 0.06234880299812194,
+        "dps": 63556.30991215787,
+        "team": 0.04997619883530454,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s2, fsc",
         "`s4, fsc",
         "`s1, fsc or aff_timeleft(frostbite)<4",
@@ -77,7 +77,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39229.287839184806,
+        "dps": 39272.57354792466,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -115,7 +115,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 42703.56978560156,
+        "dps": 39272.57354792466,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -130,7 +130,7 @@
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
         "`s3, not buff(s3)",
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
+        "`dragon, fsc",
         "`s2, fsc",
         "`s4, fsc",
         "`s1, fsc or aff_timeleft(frostbite)<4",
@@ -155,8 +155,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 76257.1236574199,
-        "team": 0.05733305781459993,
+        "dps": 76370.24509844823,
+        "team": 0.057418106893394,
         "noaff": false,
         "nihil": false
       },
@@ -186,10 +186,27 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
+  "ALWAYS-NORMAL-MONO": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 55677.17484886803,
+        "dps": 64922.41266763252,
+        "team": 0.04992878860295131,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "ALWAYS-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 55688.9735205274,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -211,39 +228,8 @@
         "`fs2, aff(frostbite)",
         "`dodge, x=4"
       ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Cleo",
-        "Grace"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Humanoid_Mercury"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 61457.326593934005,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(c3-s-c3-c3-c3-end), fsc",
-        "`s1, fsc or aff_timeleft(frostbite)<4",
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`dodge, fsc",
-        "`fs2, aff(frostbite)",
-        "`dodge, x=4"
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -260,6 +246,109 @@
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 12522.212355914191,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Lazry"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 7943.513924065124,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Lazry"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 9630.77253874961,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Forest_Bonds",
+        "Memory_of_a_Friend",
+        "The_Lurker_in_the_Woods",
+        "His_Clever_Brother",
+        "The_Queen_of_the_Knife"
+      ],
+      "acl": [
+        "`dragon, fsc",
+        "`s1, fsc or aff_timeleft(frostbite)<4",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s3, fsc",
+        "`dodge, fsc",
+        "`fs2, aff(frostbite)",
+        "`dodge, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Grace"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Humanoid_Mercury"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 7943.513924065124,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Lazry"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }
   }

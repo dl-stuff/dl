@@ -1,35 +1,5 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 4265.995935372373,
-        "team": 0.4327871191710138,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Study_Rabbits",
-        "Warrior_Maiden",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`fs, x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Bow",
-        "Tobias"
-      ],
-      "share": [
-        "Yuya",
-        "Tobias"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 91909.1232324155,
@@ -82,10 +52,36 @@
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Flower_in_the_Fray",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s4, fsc",
+        "`s2, fsc",
+        "`s1, duration-now<1",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=3 or hits=0"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
       "coabs": [
         "Mona",
         "Nino",
         "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
       ]
     },
     "META": {
@@ -97,60 +93,21 @@
       }
     }
   },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 56676.149979043636,
-        "team": 0.05047913584370655,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`s4, fsc",
-        "`s2, fsc",
-        "if buff(s2)",
-        "`fs, x=1",
-        "else",
-        "`fs, x=2 or hits=0",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 108559.15204254432,
-        "team": 0.16524360289466822,
+        "dps": 107624.52304218063,
+        "team": 0.1652742862114628,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "s3, not buff(s3)",
-        "s2, fsc",
-        "s4, fsc",
-        "s1, duration-now<1 and fsc",
-        "fs, x=1 and buff(s2)",
-        "fs, x=2 or hits=0"
+        "`s3, not buff(s3)",
+        "`s2, fsc",
+        "`s4, fsc",
+        "`s1, duration-now<1 and fsc",
+        "`fs, x=1 and buff(s2)",
+        "`fs, x=2 or hits=0"
       ],
       "dacl": [
         "ds1, blood_moon=0 and fsc",
@@ -162,7 +119,7 @@
       ]
     },
     "META": {
-      "tdps": 389817.5428009535,
+      "tdps": 386368.48170359177,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -205,56 +162,16 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 69877.80773341724,
-        "team": 0.05010918535473324,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "acl": [
-        "`s2, fsc",
-        "`s4, fsc",
-        "if buff(s2)",
-        "`fs, x=1",
-        "else",
-        "`fs, x=2 or hits=0",
-        "end"
-      ],
-      "coabs": [
-        "Grace",
-        "Mona",
-        "Nino"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55896.40658113453,
-        "team": 0.16072692948099543,
+        "dps": 52480.70296136917,
+        "team": 0.19234077989654425,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon(c3-c3-c3-c2-end), fsc and not buff(s2)",
+        "`dragon, fsc and not buff(s2)",
         "`s3, not buff(s3)",
         "`s2, fsc",
         "`s4, fsc",
@@ -271,44 +188,10 @@
       ]
     },
     "META": {
-      "tdps": 189775.69156512435,
+      "tdps": 200521.69299595655,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 35216.0095414256,
-        "team": 0.050030432115693496,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`s2, fsc",
-        "`s4, fsc",
-        "`s3, fsc",
-        "if buff(s2)",
-        "`fs, x=1",
-        "else",
-        "`fs, x=2 or hits=0",
-        "end"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

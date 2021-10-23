@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 72084.84650869896,
-        "team": 0.21858592748124825,
+        "dps": 61314.596348411666,
+        "team": 0.2203506148681621,
         "noaff": false,
         "nihil": false
       },
@@ -18,9 +18,12 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-dfs-end), energy()=5",
+        "`dragon, energy()=5",
         "queue not buff(s3) and prep",
-        "`s3;s4;s2;s1",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
         "end",
         "`s1",
         "`s2, x>2 or fsc",
@@ -40,8 +43,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 95923.45672848601,
-        "team": 0.05607928440491691,
+        "dps": 92495.18247912609,
+        "team": 0.06488471552464667,
         "noaff": false,
         "nihil": false
       },
@@ -56,7 +59,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-dfs-end), s=2 and duration-now<20",
+        "`dragon, s=2 and duration-now<20",
         "`s3, not buff(s3)",
         "`s4, cancel",
         "`s1, cancel",
@@ -82,8 +85,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 66476.48535460011,
-        "team": 0.08031802143227972,
+        "dps": 63322.40272977977,
+        "team": 0.0799455319753711,
         "noaff": false,
         "nihil": true
       },
@@ -98,7 +101,7 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon(c3-s-dfs-end), s=2",
+        "`dragon, s=2",
         "`s3, cancel and hp<100",
         "`s4, cancel",
         "`s1",
@@ -118,8 +121,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 72422.10189305383,
-        "team": 0.04238679452026691,
+        "dps": 70407.62308394385,
+        "team": 0.03941505706556899,
         "noaff": false,
         "nihil": true
       },
@@ -134,7 +137,7 @@
       ],
       "slots.d": "Gala_Reborn_Zephyr",
       "acl": [
-        "`dragon(c3-s-dfs-end), s=2",
+        "`dragon, s=2",
         "`s3, cancel",
         "`s4, cancel",
         "`s1",
@@ -160,13 +163,13 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79886.72740603844,
-        "team": 0.2558359997762347,
+        "dps": 82588.69092814984,
+        "team": 0.23855084530658488,
         "noaff": false,
         "nihil": false
       },
       "acl": [
-        "`dragon(c2-s-c3-c3-c3-end), energy()=5 and cancel",
+        "`dragon, energy()=5 and cancel",
         "`s4, s=3",
         "`s3, not buff(s3)",
         "`s1",
@@ -187,8 +190,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 110179.21154615922,
-        "team": 0.21858592748124855,
+        "dps": 97143.03616539632,
+        "team": 0.22035061486816235,
         "noaff": false,
         "nihil": false
       },
@@ -202,9 +205,12 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-s-dfs-end), energy()=5",
+        "`dragon, energy()=5",
         "queue not buff(s3) and prep",
-        "`s3;s4;s2;s1",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
         "end",
         "`s1",
         "`s2, x>2 or fsc",
@@ -223,7 +229,7 @@
       ]
     },
     "META": {
-      "tdps": 813219.4724410811,
+      "tdps": 799679.1736505041,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -234,13 +240,13 @@
   "ALWAYS-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 73288.23993051071,
-        "team": 0.14073013095318593,
+        "dps": 68520.12229404606,
+        "team": 0.13984290825051285,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-dfs-end), duration-now<65 and not have_buff(poison)",
+        "`dragon, duration-now<65 and not have_buff(poison)",
         "`s1",
         "`s4",
         "`s2, cancel",
@@ -256,8 +262,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 79517.7986131245,
-        "team": 0.039742077635499605,
+        "dps": 78919.855104475,
+        "team": 0.03971199826632576,
         "noaff": false,
         "nihil": true
       },
@@ -277,7 +283,7 @@
       ]
     },
     "META": {
-      "tdps": 61686.09531482857,
+      "tdps": 103861.3632101346,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -288,17 +294,37 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55782.93406729482,
-        "team": 0.08043839969330899,
+        "dps": 55418.79450615691,
+        "team": 0.2203506148681621,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Bloody_Little_Queen",
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Lord_of_the_Skies",
-        "Snipers_Allure"
+        "Pecorines_Grand_Adventure",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, energy()=5",
+        "queue not buff(s3) and prep",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "end",
+        "`s1",
+        "`s2, x>2 or fsc",
+        "`s4",
+        "`dodge, fsc",
+        "`fs, x=5"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
@@ -312,13 +338,13 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 39016.73794522523,
-        "team": 0.0715964009320656,
+        "dps": 39290.36782072583,
+        "team": 0.08021387115466277,
         "noaff": false,
         "nihil": true
       },
       "acl": [
-        "`dragon(c3-s-dfs-end), s=2",
+        "`dragon, s=2",
         "`s3, cancel",
         "`s4, cancel",
         "`s1",
@@ -333,23 +359,14 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50501.0909226238,
-        "team": 0.03947936930252985,
+        "dps": 50308.75693107714,
+        "team": 0.03941505706556899,
         "noaff": false,
         "nihil": true
-      },
-      "acl": [
-        "`dragon, s=2",
-        "`s3, cancel",
-        "`s4, cancel",
-        "`s1",
-        "`s2, cancel",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ]
+      }
     },
     "META": {
-      "tdps": 357578.2815133273,
+      "tdps": 270066.406496279,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

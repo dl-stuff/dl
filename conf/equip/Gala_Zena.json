@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 17070.903267340083,
-        "team": 0.24219474485364664,
+        "dps": 17083.647887719813,
+        "team": 0.24226357466339749,
         "noaff": true,
         "nihil": false
       },
@@ -40,8 +40,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 85207.739446761,
-        "team": 0.13940526478857274,
+        "dps": 39270.96468228662,
+        "team": 0.1353218006455614,
         "noaff": true,
         "nihil": false
       },
@@ -56,16 +56,19 @@
       ],
       "slots.d": "Jeanne_dArc",
       "acl": [
-        "`dragon(c3-c3-s-c3-c3-c3-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4, x>2 and not buff(s4)",
         "`fs5, c_fs(auspex) and x=1",
         "`s1, cancel",
         "`s2, cancel"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
-        "Grace",
-        "Mitsuhide",
+        "Blade",
+        "Dagger",
         "Peony"
       ],
       "share": [
@@ -74,15 +77,15 @@
       ]
     },
     "META": {
-      "tdps": 662877.5253682078,
+      "tdps": 207470.99997486797,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30643.47792792753,
-        "team": 0.17795562301347922,
+        "dps": 17026.797851098596,
+        "team": 0.1845507562654053,
         "noaff": false,
         "nihil": false
       },
@@ -92,8 +95,8 @@
         "The_Lurker_in_the_Woods",
         "Rogues_Banquet",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Mask_of_Determination_Lance"
+        "Mask_of_Determination_Lance",
+        "Testament_of_Eternity"
       ],
       "coabs": [
         "Gala_Prince",
@@ -105,21 +108,8 @@
         "Hunter_Sarisse"
       ]
     },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 84104.98876263414,
-        "team": 0.13940526478857274,
-        "noaff": true,
-        "nihil": false
-      },
-      "coabs": [
-        "Blade",
-        "Mitsuhide",
-        "Peony"
-      ]
-    },
     "META": {
-      "tdps": 1386796.7328035454,
+      "tdps": 451851.28449528874,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -130,8 +120,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28227.80341068785,
-        "team": 0.029365536825244568,
+        "dps": 23119.27268321043,
+        "team": 0.029364377126617176,
         "noaff": false,
         "nihil": true
       },
@@ -141,12 +131,12 @@
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "The_Queen_of_the_Knife",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Reborn_Jeanne",
       "acl": [
-        "`dragon(c3-s-c3-c3-end)",
+        "`dragon",
         "`fs5, c_fs(auspex) and cancel",
         "`s1, cancel",
         "`s2, cancel",
@@ -165,7 +155,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 35507.69054292481,
+        "dps": 35529.58517311338,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -209,8 +199,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 106134.95605104673,
-        "team": 0.1288901499743072,
+        "dps": 47719.35098940626,
+        "team": 0.12208934984456138,
         "noaff": false,
         "nihil": false
       },
@@ -224,17 +214,14 @@
         "Savage_Hawk_Lance"
       ],
       "slots.d": "High_Jupiter",
-      "acl": [
-        "`dragon(c3-c3-s-c3-c3-c3-c3-end)",
-        "`s3, not buff(s3)",
-        "`s4, x>2 and not buff(s4)",
-        "`fs5, c_fs(auspex) and x=1",
-        "`s1, cancel",
-        "`s2, cancel"
+      "coabs": [
+        "Dagger",
+        "Grace",
+        "Peony"
       ]
     },
     "META": {
-      "tdps": 786058.6137618948,
+      "tdps": 254927.40350828215,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -243,27 +230,19 @@
     }
   },
   "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 97198.18961223587,
-        "team": 0.13348882404718582,
+        "dps": 21794.30124940619,
+        "team": 0.1845507562654053,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Nothingness",
-        "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Axe",
-        "Savage_Hawk_Lance"
-      ]
+      }
     },
     "META": {
+      "tdps": 355007.8041029108,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
@@ -304,7 +283,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57246.54627243403,
+        "dps": 57381.309187006234,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -337,7 +316,7 @@
       ]
     },
     "META": {
-      "tdps": 614014.5272865067,
+      "tdps": 616763.9413758481,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -345,51 +324,11 @@
       }
     }
   },
-  "IMMUNE-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39154.52153297401,
-        "team": 0.1351429392273049,
-        "noaff": true,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Lurker_in_the_Woods",
-        "Rogues_Banquet",
-        "The_Queen_of_the_Knife",
-        "A_Kings_Pride_Sword",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Jeanne_dArc",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4, x>2 and not buff(s4)",
-        "`fs5, c_fs(auspex) and x=1",
-        "`s1, cancel",
-        "`s2, cancel"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28989.826753045334,
-        "team": 0.03919391840771412,
+        "dps": 22745.49876211348,
+        "team": 0.03918152433878904,
         "noaff": false,
         "nihil": true
       },
@@ -399,11 +338,11 @@
         "The_Lurker_in_the_Woods",
         "A_Small_Courage",
         "Rogues_Banquet",
-        "Crown_of_Light",
-        "Savage_Hawk_Lance"
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon(c3-c3-c3-c3), cancel",
+        "`dragon, cancel",
         "`s3, not buff(s3)",
         "`s4, x>2",
         "`fs5, c_fs(auspex) and x=1",
@@ -417,7 +356,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 37285.20349100188,
+        "dps": 28179.320241419497,
         "team": 0.0,
         "noaff": true,
         "nihil": true
@@ -432,7 +371,7 @@
         "Savage_Hawk_Lance"
       ],
       "acl": [
-        "`dragon(c3-c3-s-c3-c3-c3-end)",
+        "`dragon",
         "`s3, not buff(s3)",
         "`s4, x>2 and not buff(s4)",
         "`fs5, c_fs(auspex) and x=1",
@@ -450,7 +389,7 @@
       ]
     },
     "META": {
-      "tdps": 211649.5893996619,
+      "tdps": 138683.25878088994,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

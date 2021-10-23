@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42894.15425734966,
-        "team": 0.06910916448814741,
+        "dps": 43256.28313301176,
+        "team": 0.0691546802613806,
         "noaff": false,
         "nihil": false
       },
@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43267.331818441184,
-        "team": 0.06579224492687458,
+        "dps": 43256.28313301176,
+        "team": 0.0691546802613806,
         "noaff": false,
         "nihil": false
       },
@@ -52,7 +52,7 @@
       ],
       "slots.d": "Daikokuten",
       "acl": [
-        "`dragon(c3), buff(s3, 1)",
+        "`dragon, buff(s3, 1)",
         "`s1",
         "`s2",
         "`s3",
@@ -76,15 +76,15 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 22655.511805018814,
-        "team": 0.04868282555338894,
+        "dps": 22592.285186738398,
+        "team": 0.04885235264325368,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
         "Extreme_Teamwork",
-        "Memory_of_a_Friend",
         "A_Small_Courage",
         "Dueling_Dancers",
         "Mask_of_Determination_Bow",
@@ -92,7 +92,7 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(s), buff(s3, 1)",
+        "`dragon, buff(s3, 1)",
         "`s1",
         "`s2",
         "`s3",
@@ -110,8 +110,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 31782.300721918735,
-        "team": 0.04083213901424187,
+        "dps": 31210.542771629895,
+        "team": 0.04012801775497791,
         "noaff": false,
         "nihil": true
       },
@@ -126,7 +126,7 @@
       ],
       "slots.d": "High_Jupiter",
       "acl": [
-        "`dragon(s)",
+        "`dragon",
         "`s1",
         "`s2",
         "`s3",
@@ -148,32 +148,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 50649.3739962303,
-        "team": 0.06910916448814744,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "A_Passion_for_Produce",
-        "A_Small_Courage",
-        "Mask_of_Determination_Bow",
-        "Testament_of_Eternity"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Peony"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 51068.28090795505,
-        "team": 0.06579224492687458,
+        "dps": 51101.02722128346,
+        "team": 0.06915468026138064,
         "noaff": false,
         "nihil": false
       },
@@ -193,7 +171,6 @@
       ]
     },
     "META": {
-      "tdps": 126293.96160695382,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -204,28 +181,29 @@
   "ALWAYS-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 48030.48187812997,
-        "team": 0.06910916448814741,
+        "dps": 48479.46319697601,
+        "team": 0.0691546802613806,
         "noaff": false,
         "nihil": false
-      },
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`s1",
-        "`s2",
-        "`s3",
-        "`s4"
-      ]
+      }
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "TEAMBUFF": "ALWAYS-NORMAL-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 24865.39625274881,
+        "team": 0.04885235264325368,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 43857.67221116311,
@@ -260,6 +238,7 @@
       ]
     },
     "META": {
+      "tdps": 2208825.6195525895,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -268,24 +247,15 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 37959.97232129078,
-        "team": 0.06910916448814741,
-        "noaff": false,
-        "nihil": false
-      }
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38306.064626990774,
-        "team": 0.06579224492687458,
+        "dps": 38318.851510637665,
+        "team": 0.0691546802613806,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 104341.4829050563,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -294,6 +264,14 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 19458.405540689088,
+        "team": 0.04885235264325368,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 23975.761116079495,

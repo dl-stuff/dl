@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 37529.22403883799,
-        "team": 0.3607166566557466,
+        "dps": 38210.921657118946,
+        "team": 0.36070745639458573,
         "noaff": true,
         "nihil": false
       },
@@ -13,8 +13,8 @@
         "Worthy_Rivals",
         "A_Game_of_Cat_and_Boar",
         "Seaside_Memory",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Thor",
       "acl": [
@@ -36,9 +36,9 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 69125.75544712892,
-        "team": 0.14397930022040994,
-        "noaff": false,
+        "dps": 59030.5232877521,
+        "team": 0.14315794786901828,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
@@ -53,8 +53,8 @@
       "slots.d": "Gala_Thor",
       "acl": [
         "if energy()>3 and not s2.check()",
-        "`dragon(c6-s-end), dshift_count=0",
-        "`dragon(c8-s), dshift_count=1 and cancel",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1 and cancel",
         "end",
         "`s3, not buff(s3, 1)",
         "`s2, energy()<4",
@@ -73,15 +73,15 @@
       ]
     },
     "META": {
-      "tdps": 145782.58186755047,
+      "tdps": 95700.52247755977,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 28218.025718260153,
-        "team": 0.25204886362772494,
+        "dps": 32861.81263400611,
+        "team": 0.25585285469978375,
         "noaff": true,
         "nihil": false
       },
@@ -92,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 378531.4610246664,
+      "tdps": 232208.45901264797,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,7 +137,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 38798.09237212671,
+        "dps": 38869.19093603304,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -190,10 +190,22 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, cancel",
+        "`fs, x=5"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Ryszarda"
       ]
     },
     "META": {
@@ -207,8 +219,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 88034.78981486977,
-        "team": 0.14397930022040992,
+        "dps": 75255.06777354915,
+        "team": 0.14315794786901823,
         "noaff": false,
         "nihil": false
       },
@@ -223,7 +235,7 @@
       ]
     },
     "META": {
-      "tdps": 233026.58391102072,
+      "tdps": 170279.15331776807,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -242,7 +254,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 49018.6813973418,
+        "dps": 49092.59473573309,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -293,25 +305,15 @@
       }
     }
   },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+  "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 68996.78859979403,
-        "team": 0.14397930022040997,
+        "dps": 33938.730215856485,
+        "team": 0.0,
         "noaff": false,
-        "nihil": false
+        "nihil": true
       }
     },
-    "META": {
-      "tdps": 145187.54440167014,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
         "dps": 36698.85830346673,

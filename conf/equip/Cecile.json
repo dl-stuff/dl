@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 85152.41874762288,
-        "team": 0.23961188629474908,
+        "dps": 85229.6474739705,
+        "team": 0.23956793301691182,
         "noaff": false,
         "nihil": false
       },
@@ -93,8 +93,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 93451.08532681478,
-        "team": 0.3692406443032517,
+        "dps": 93702.00268590775,
+        "team": 0.36835765402132276,
         "noaff": false,
         "nihil": true
       },
@@ -187,10 +187,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 107929.5964103362,
-        "team": 0.5244151752314503,
+        "dps": 109467.00815708909,
+        "team": 0.5224372007887671,
         "noaff": false,
         "nihil": false
       },
@@ -218,36 +218,11 @@
       "dacl": [
         "`ds1, blood_moon=0 and x=1",
         "`dfs, x=3"
-      ]
-    },
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 127067.82157416576,
-        "team": 0.43935538675874725,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "Enter_the_Blue_Rose",
-        "The_Warrioresses",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
       ],
-      "acl": [
-        "`s3, not buff(s3) and fsc",
-        "if manachew_mode.get()",
-        "`s2",
-        "`s1",
-        "else",
-        "`dragon(c3-s-dfs-end), s=1",
-        "`s4",
-        "`s2",
-        "`s1",
-        "end",
-        "`fs"
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
       ],
       "share": [
         "Weapon",
@@ -255,7 +230,6 @@
       ]
     },
     "META": {
-      "tdps": 224997.32843764705,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -266,23 +240,15 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 101095.78775582893,
-        "team": 0.30189867856702973,
+        "dps": 96631.64791716667,
+        "team": 0.36835765402132276,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "if manachew_mode.get()",
-        "`s2",
-        "`s1",
-        "else",
-        "`dragon(c3-s-dfs-end), s=4",
-        "`s4, s",
-        "`s3, s",
-        "`s2",
-        "`s1",
-        "end",
-        "`fs"
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1",
+        "`sack, fsc"
       ]
     },
     "META": {
@@ -296,11 +262,41 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 55664.61747189674,
-        "team": 0.2292476863511852,
+        "dps": 60947.80609675699,
+        "team": 0.5224372007887671,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Lurker_in_the_Woods",
+        "Flowers_Under_the_Moon",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "if manachew_mode.get()",
+        "`dragon, manachew_gauge<=5000",
+        "`s2",
+        "`s1",
+        "else",
+        "`s4",
+        "`s1",
+        "end",
+        "`fs"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0 and x=1",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Mona"
+      ],
       "share": [
         "Weapon",
         "Akasha"
@@ -317,27 +313,15 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25755.531366305233,
-        "team": 0.12711602257473795,
+        "dps": 47545.04440447319,
+        "team": 0.36835765402132276,
         "noaff": false,
         "nihil": true
       },
-      "acl": [
-        "`dragon",
-        "`s1",
-        "`s2",
-        "`s3, not buff(s3)",
-        "`s4",
-        "`fs"
-      ],
-      "coabs": [
-        "Dragonyule_Xainfried",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Weapon",
-        "Akasha"
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1",
+        "`sack, fsc"
       ]
     },
     "META": {

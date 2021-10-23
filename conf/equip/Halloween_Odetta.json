@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 10508.297830918902,
-        "team": 1.4365093339578918,
+        "dps": 12651.639963131714,
+        "team": 1.1820318028102768,
         "noaff": true,
         "nihil": false
       },
@@ -17,7 +17,7 @@
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
         "#`s1, not buff(s1) and fsc",
-        "`dragon(c3-s-end), fsc",
+        "`dragon, fsc",
         "`s4",
         "`s2",
         "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
@@ -35,8 +35,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 50257.10254177141,
-        "team": 0.33263615874018154,
+        "dps": 50189.97526865236,
+        "team": 0.3318138168705305,
         "noaff": false,
         "nihil": false
       },
@@ -70,15 +70,15 @@
       ]
     },
     "META": {
-      "tdps": 36008.488659046445,
-      "pref": "TEAMBUFF"
+      "tdps": 44151.424606748944,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 11397.72711397448,
-        "team": 1.381031283482451,
+        "dps": 13771.994567953563,
+        "team": 1.0949354347152265,
         "noaff": true,
         "nihil": false
       },
@@ -89,8 +89,8 @@
       ]
     },
     "META": {
-      "tdps": 37065.58196495798,
-      "pref": "TEAMBUFF",
+      "tdps": 47722.38113703951,
+      "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
@@ -100,8 +100,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8638.328381549427,
-        "team": 0.19380484303429288,
+        "dps": 10326.053905442923,
+        "team": 0.17460718586364463,
         "noaff": true,
         "nihil": true
       },
@@ -115,7 +115,7 @@
       "slots.d": "Summer_Marishiten",
       "acl": [
         "#`s1, not buff(s1) and fsc",
-        "`dragon(c3-s-end), fsc",
+        "`dragon, fsc",
         "`s4",
         "`s2",
         "`s3, fsc or (have_buff(ds_sp_regen_zone) and cancel)",
@@ -133,8 +133,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 26988.479061608257,
-        "team": 0.04185399137043131,
+        "dps": 27030.962795026833,
+        "team": 0.04187853129804535,
         "noaff": false,
         "nihil": true
       },
@@ -165,15 +165,33 @@
       ]
     },
     "META": {
-      "tdps": 120763.72379045404,
+      "tdps": 125857.59227543243,
       "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 52700.20333392926,
+        "team": 0.3318138168705305,
+        "noaff": false,
+        "nihil": false
+      }
+    },
+    "META": {
+      "tdps": 47103.87692696463,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
     }
   },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40789.69716094906,
-        "team": 0.04086375958244709,
+        "dps": 41011.367761815825,
+        "team": 0.040917176540185604,
         "noaff": false,
         "nihil": true
       },
@@ -202,7 +220,7 @@
       ]
     },
     "META": {
-      "tdps": 210220.61602906478,
+      "tdps": 229525.85620762946,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -213,14 +231,14 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40192.64855046055,
-        "team": 0.3106759129750736,
+        "dps": 40337.81058301157,
+        "team": 0.3318138168705305,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 26366.556691511356,
+      "tdps": 32563.614364471858,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -231,8 +249,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 33991.414300790886,
-        "team": 0.04086375958244709,
+        "dps": 34176.13980151319,
+        "team": 0.040917176540185604,
         "noaff": false,
         "nihil": true
       },
@@ -261,7 +279,7 @@
       ]
     },
     "META": {
-      "tdps": 165770.27798566627,
+      "tdps": 178398.4159830948,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 7588.37588245533,
-        "team": 0.7703439631394084,
+        "dps": 9172.233774357313,
+        "team": 0.6049987327367677,
         "noaff": true,
         "nihil": false
       },
@@ -16,7 +16,7 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon",
         "`s3",
         "`s4",
         "`dodge, fscf",
@@ -34,8 +34,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68884.50476646957,
-        "team": 0.14874124383154752,
+        "dps": 68961.31856571801,
+        "team": 0.14873984017997227,
         "noaff": false,
         "nihil": false
       },
@@ -73,15 +73,15 @@
       ]
     },
     "META": {
-      "tdps": 98609.81456494583,
+      "tdps": 131042.01532667795,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 8116.6535392845535,
-        "team": 0.7064183061523999,
+        "dps": 9857.292711052087,
+        "team": 0.5314655841805721,
         "noaff": true,
         "nihil": false
       },
@@ -92,7 +92,7 @@
       ]
     },
     "META": {
-      "tdps": 108966.0223325144,
+      "tdps": 154429.1879528577,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -103,8 +103,8 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 5549.4845841375945,
-        "team": 0.18055758668653127,
+        "dps": 6922.452587929054,
+        "team": 0.1739674970726303,
         "noaff": true,
         "nihil": true
       },
@@ -117,7 +117,7 @@
       ],
       "slots.d": "Gaibhne_and_Creidhne",
       "acl": [
-        "`dragon(s-end)",
+        "`dragon",
         "`s3",
         "`s4",
         "`dodge, fscf",
@@ -135,8 +135,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 43116.76055738188,
-        "team": 0.04900260121814785,
+        "dps": 43122.6177156889,
+        "team": 0.04899395134395017,
         "noaff": false,
         "nihil": true
       },
@@ -175,30 +175,32 @@
       ]
     },
     "META": {
-      "tdps": 285563.3014552141,
+      "tdps": 289662.6235311518,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 38942.492799323576,
-        "team": 0.058815445555525515,
+        "dps": 40291.27875048331,
+        "team": 0.05881879776625556,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Moonlight_Party",
         "His_Clever_Brother",
         "The_Queen_of_the_Knife"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
-        "`dragon(c3-s-c3-c3-end), s=4",
+        "`dragon, s=4",
         "queue prep",
-        "`s3, x=1;s4;s1",
+        "`s3, x=1",
+        "`s4",
+        "`s1",
         "end",
         "`s4, cancel",
         "`s1",
@@ -227,8 +229,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 77014.76427380183,
-        "team": 0.15041027246720415,
+        "dps": 77007.16902615319,
+        "team": 0.15011411596038948,
         "noaff": false,
         "nihil": false
       },
@@ -246,7 +248,7 @@
       ]
     },
     "META": {
-      "tdps": 111990.02318468339,
+      "tdps": 149125.5864674439,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -257,7 +259,7 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 52304.62901893783,
+        "dps": 52462.87275478993,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -284,7 +286,7 @@
       ]
     },
     "META": {
-      "tdps": 258948.65617567507,
+      "tdps": 261775.4519273681,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -292,23 +294,69 @@
       }
     }
   },
+  "ALWAYS-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6922.452587929054,
+        "team": 0.1739674970726303,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`dodge, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Gala_Elisanne"
+      ]
+    },
+    "META": {
+      "tdps": 140469.79126040716,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "ALWAYS-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
+      }
+    }
+  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30418.126475042416,
-        "team": 0.029499296933423076,
+        "dps": 31488.435122790797,
+        "team": 0.02948393289456875,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Red_Impulse",
         "A_Small_Courage",
         "Dueling_Dancers"
       ],
       "acl": [
-        "dragon;s1;s2;s3;s4"
+        "`dragon",
+        "`s1",
+        "`s2",
+        "`s3",
+        "`s4"
       ],
       "coabs": [
         "Blade",
@@ -321,7 +369,7 @@
       ]
     },
     "META": {
-      "tdps": 30815.839856825634,
+      "tdps": 38776.06858164618,
       "pref": "TEAMBUFF",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -332,8 +380,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 29624.107121534078,
-        "team": 0.049005883473215724,
+        "dps": 29626.058648441547,
+        "team": 0.048998696288421344,
         "noaff": false,
         "nihil": true
       },
@@ -351,11 +399,53 @@
       ]
     },
     "META": {
-      "tdps": 183005.02349527672,
+      "tdps": 181674.1932229642,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "SELF-NIHILISM-ANY"
+      }
+    }
+  },
+  "IMMUNE-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 6922.452587929054,
+        "team": 0.1739674970726303,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Once_in_a_Lifetime",
+        "Study_Rabbits",
+        "Warrior_Maiden",
+        "Bellathorna",
+        "From_Whence_He_Comes"
+      ],
+      "slots.d": "Gaibhne_and_Creidhne",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`dodge, fscf",
+        "`fs, x=5"
+      ],
+      "coabs": [
+        "Bow",
+        "Renee",
+        "Tobias"
+      ],
+      "share": [
+        "Yuya",
+        "Gala_Elisanne"
+      ]
+    },
+    "META": {
+      "tdps": 181674.1932229642,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

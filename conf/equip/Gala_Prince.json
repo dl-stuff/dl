@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 29025.28716774494,
-        "team": 0.3058986203374384,
+        "dps": 34426.17783515248,
+        "team": 0.2263098391762245,
         "noaff": false,
         "nihil": false
       },
@@ -19,9 +19,9 @@
       "slots.d": "Tie_Shan_Gongzhu",
       "acl": [
         "if (s=2 or fsc) and buff(s3,1)",
-        "`dragon(c3-s-end), dshift_count=0",
-        "`dragon(c3-s-c3-c3-c3-c3-c3-c3-c3-end), dshift_count=1",
-        "`dragon(c3-s), dshift_count>=2",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
         "end",
         "`s4",
         "`s2, cancel",
@@ -41,8 +41,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 102535.96880280873,
-        "team": 0.1261587892748948,
+        "dps": 102704.58368104669,
+        "team": 0.12636625060910373,
         "noaff": false,
         "nihil": false
       },
@@ -90,21 +90,33 @@
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 59188.14957640765,
-        "team": 0.22493529262492853,
+        "dps": 96614.56732686037,
+        "team": 0.2201622343775878,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "An_Ancient_Oath",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Red_Impulse",
         "Dueling_Dancers",
         "Entwined_Flames",
-        "Crown_of_Light",
-        "Tutelarys_Destiny"
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
       "slots.d": "Daikokuten",
+      "acl": [
+        "if (s=2 or fsc) and buff(s3,1)",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
+        "end",
+        "`s4",
+        "`s2, cancel",
+        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
+        "`s1, fsc",
+        "`fs, x=2"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
@@ -117,16 +129,45 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 98011.20366414764,
-        "team": 0.18455883202179774,
+        "dps": 97999.9594484062,
+        "team": 0.1845456533553546,
         "noaff": false,
         "nihil": false
       },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Memory_of_a_Friend",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Mana_Fount",
+        "Mask_of_Determination_Lance",
+        "Testament_of_Eternity"
+      ],
       "slots.d": "Daikokuten",
+      "acl": [
+        "if buff(s3,1) and fsc",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count=2",
+        "`dragon, dshift_count=3",
+        "end",
+        "`s3, fsc",
+        "`s4, cancel",
+        "`s2, cancel",
+        "`s1, fsc",
+        "`fs, x=4 or hits=3"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
       ]
     },
     "META": {
@@ -182,8 +223,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 74984.28087154869,
-        "team": 0.03330213794805995,
+        "dps": 73999.65347903538,
+        "team": 0.0333031712286308,
         "noaff": false,
         "nihil": true
       },
@@ -227,15 +268,41 @@
   "SELF-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 68982.55297335442,
-        "team": 0.03330213794805995,
+        "dps": 68109.1206985236,
+        "team": 0.0333031712286308,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Dragon_Brethren",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "A_Small_Courage",
+        "Dueling_Dancers",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon, cancel",
+        "`s4, fsc",
+        "`s2, fsc",
+        "`s3, fsc",
+        "`s1, fsc",
+        "`fs, x=4 or hits=0"
+      ],
+      "dacl": [
+        "ds1, x=3",
+        "dodge, x=3"
+      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
@@ -249,8 +316,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 122958.91441110402,
-        "team": 0.19304756900834447,
+        "dps": 123010.94734015147,
+        "team": 0.19300622228029343,
         "noaff": false,
         "nihil": false
       },
@@ -300,15 +367,24 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34384.40021502381,
+        "team": 0.22630983917622444,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 102489.98066427613,
-        "team": 0.12615878927489482,
+        "dps": 102658.51991749712,
+        "team": 0.12636625060910373,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
+      "tdps": 683126.5585047646,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -316,11 +392,68 @@
       }
     }
   },
+  "IMMUNE-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 34384.40021502381,
+        "team": 0.22630983917622444,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "A_Game_of_Cat_and_Boar",
+        "Blessed_Days",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Tie_Shan_Gongzhu",
+      "acl": [
+        "if (s=2 or fsc) and buff(s3,1)",
+        "`dragon, dshift_count=0",
+        "`dragon, dshift_count=1",
+        "`dragon, dshift_count>=2",
+        "end",
+        "`s4",
+        "`s2, cancel",
+        "`s3, (fsc and (not buff(s3) or buff(s3,1))) or buff(s3,2)",
+        "`s1, fsc",
+        "`fs, x=2"
+      ],
+      "coabs": [
+        "Albert",
+        "Cleo",
+        "Peony"
+      ],
+      "share": [
+        "Weapon",
+        "Karl"
+      ]
+    },
+    "META": {
+      "tdps": 65242.51469333245,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "IMMUNE-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-MONO"
+      }
+    }
+  },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 63659.27895804388,
+        "team": 0.0333324971309664,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 68304.40865607536,
-        "team": 0.03330213794805995,
+        "dps": 67430.95534015259,
+        "team": 0.0333031712286308,
         "noaff": false,
         "nihil": true
       },
@@ -331,6 +464,7 @@
       ]
     },
     "META": {
+      "tdps": 128612457.98838618,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

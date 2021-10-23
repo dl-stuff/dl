@@ -41,47 +41,52 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44802.066722276824,
-        "team": 0.3132451722198628,
-        "noaff": false,
+        "dps": 5120.243948970771,
+        "team": 1.2932448059669022,
+        "noaff": true,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
+        "A_Dogs_Day",
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Bellathorna",
         "From_Whence_He_Comes",
-        "The_Queen_of_the_Knife"
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Gala_Reborn_Zephyr",
+      "slots.d": "Freyja",
       "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, cancel",
-        "`fs, x=5"
+        "`fs, fs_prep_c>1",
+        "`s3, x=5 or fs_prep_c=1",
+        "`s1, xf or (s=4 or fscf)",
+        "`s4, s1.charged<(s1.sp/3.5)",
+        "`fs, xf>1 and charged_in(fs, s1)",
+        "`fs, x=5",
+        "`dodge, fscf and fs_prep_c=0"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
+        "Bow",
+        "Joker",
+        "Tobias"
       ],
       "share": [
-        "Weapon",
-        "Formal_Joachim"
+        "Mikoto",
+        "Summer_Cleo"
       ]
     },
     "META": {
-      "tdps": 40491.67102398005,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
+    "PERSONAL": {
       "EQMT": {
-        "dps": 3509.8641257722625,
-        "team": 1.2477549981105345,
+        "dps": 5259.949705627226,
+        "team": 1.2521532595851839,
         "noaff": true,
         "nihil": false
       },
@@ -92,279 +97,10 @@
       ]
     },
     "META": {
-      "tdps": 44185.94802590694,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "SELF-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 22221.63742273743,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "From_Whence_He_Comes",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL"
-    }
-  },
-  "SELF-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 22221.63742273743,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "From_Whence_He_Comes",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`dragon(s), s",
-        "`s3, not buff(s3)",
-        "`s2",
-        "`s1",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 47841.516927737815,
-        "team": 0.2827012463151468,
-        "noaff": false,
-        "nihil": false
-      },
-      "acl": [
-        "`dragon(c3-s-c3-c3-c2-end), s=1",
-        "`s3, not buff(s3) and fsc",
-        "`s4",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "tdps": 42275.53831869383,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 34857.788077006924,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(s), s",
-        "`s3",
-        "`s2",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 34857.788077006924,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(s), s",
-        "`s3",
-        "`s2",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 30018.68690201463,
-        "team": 0.2999155904232729,
-        "noaff": false,
-        "nihil": false
-      }
-    },
-    "META": {
-      "tdps": 25065.650504820234,
-      "pref": "TEAMBUFF",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 21105.408113217465,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(s), s",
-        "`s3",
-        "`s2",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 21105.408113217465,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dragon_and_Tamer",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "acl": [
-        "`dragon(s), s",
-        "`s3",
-        "`s2",
-        "`s4, cancel",
-        "`fs, x=5"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
       }
     }
   }

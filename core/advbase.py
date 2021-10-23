@@ -2717,13 +2717,13 @@ class Adv(object):
         blist = attr["buff"]
         if self.nihilism and not attr.get("coei"):
             if isinstance(blist[0], list):
-                blist = [buff[3:] + ["dummy", "zone"] for buff in blist if buff[0] == "zone"]
+                blist = [["team", buff[1], buff[2], "dummy", "zone"] for buff in blist if buff[0] == "zone"]
                 if not blist:
                     return
             else:
                 if blist[0] != "zone":
                     return
-                blist = blist[:3] + ["dummy", "zone"]
+                blist = ["team", blist[1], blist[2], "dummy", "zone"]
         try:
             if blist[-1][0] == "-":
                 bctrl = blist[-1]

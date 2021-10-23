@@ -1,42 +1,5 @@
 {
   "SELF-NORMAL-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 58215.773908255556,
-        "team": 0.1318953936403042,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "`s3, not buff(s3) and fsc",
-        "if in_drg",
-        "`s4",
-        "`s2, xf=5 or s",
-        "`s1, (xf=5 and dgauge>=800)",
-        "else",
-        "`dragon, fsc",
-        "`s1, fsc",
-        "`fs, x=4 or hits=2",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Weapon",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 106442.8377791396,
@@ -82,44 +45,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 43097.41521743462,
-        "team": 0.026302233860278773,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Shining_Overlord",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "acl": [
-        "if in_drg",
-        "`s4",
-        "`s2",
-        "`s3",
-        "`s1, xf=5 or duration-now < 11",
-        "`fs, x=4",
-        "else",
-        "`dragon",
-        "`s1, fsc",
-        "`fs, x=4",
-        "end"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Ranzal",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 16863.120198231765,
@@ -170,14 +95,14 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 79231.24664986525,
-        "team": 0.14261023229118241,
+        "dps": 28737.598167945624,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
         "A_Man_Unchanging",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
         "Hastened_Squall",
         "The_Queen_of_the_Knife",
@@ -232,11 +157,9 @@
       ]
     },
     "META": {
-      "tdps": 354956.02844050544,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -264,21 +187,24 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 66357.05801720648,
-        "team": 0.12204875170871873,
+        "dps": 18540.38591480359,
+        "team": 0.0,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Hastened_Squall",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
       ],
+      "slots.d": "Ariel",
       "acl": [
         "if in_drg",
-        "`s4, xf=5",
+        "`s4",
         "`s2, xf=5 or s",
         "`s1, xf=5 or duration-now < 8",
         "`s1, dgauge>=1800 and s=1",
@@ -295,44 +221,10 @@
       ]
     },
     "META": {
-      "pref": "PERSONAL",
+      "tdps": -2201261.2696430846,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 45056.59959930208,
-        "team": 0.023435714002780002,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Moonlight_Party",
-        "The_Shining_Overlord",
-        "Snipers_Allure",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Zephyr",
-      "coabs": [
-        "Blade",
-        "Mona",
-        "Wand"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Student_Maribelle"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   }

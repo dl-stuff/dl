@@ -2,8 +2,8 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 12868.854746397155,
-        "team": 0.44193619521249144,
+        "dps": 12878.712968429063,
+        "team": 0.4425349547233201,
         "noaff": true,
         "nihil": false
       },
@@ -36,8 +36,8 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 57140.83102427905,
-        "team": 0.10833312923684187,
+        "dps": 56443.68965067895,
+        "team": 0.10801709586385558,
         "noaff": false,
         "nihil": false
       },
@@ -74,15 +74,15 @@
       ]
     },
     "META": {
-      "tdps": 132708.54135709113,
+      "tdps": 130232.14016370983,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 11681.846776568174,
-        "team": 0.40060919560227704,
+        "dps": 11623.650321544636,
+        "team": 0.400144926125399,
         "noaff": true,
         "nihil": false
       },
@@ -93,7 +93,7 @@
       ]
     },
     "META": {
-      "tdps": 155534.40558103425,
+      "tdps": 153426.11927458853,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -104,14 +104,14 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 30256.189964242403,
-        "team": 0.014593729456224678,
+        "dps": 31066.70840779132,
+        "team": 0.014618142669838942,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Dear_Diary",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "The_Cutie_Competition",
         "A_Small_Courage",
         "Chariot_Drift",
@@ -120,7 +120,7 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "`dragon(s), s=1 and not s4.check()",
+        "`dragon, s=1 and not s4.check()",
         "`s3, not buff(s3)",
         "`s1",
         "`s4",
@@ -139,7 +139,7 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 33435.57401822221,
+        "dps": 32920.65626300325,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -180,8 +180,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78172.89703593352,
-        "team": 0.20170621298701374,
+        "dps": 77648.39146280737,
+        "team": 0.20102610488747844,
         "noaff": false,
         "nihil": false
       },
@@ -196,13 +196,13 @@
       ],
       "slots.d": "Gala_Reborn_Agni",
       "acl": [
-        "dragon, cancel and buff(s2)",
-        "s3, not buff(s3)",
-        "s2, cancel",
-        "s1, buff(s3)",
-        "s4, x=5 or fsc",
-        "fs, x=5",
-        "dodge, fsc"
+        "`dragon, cancel and buff(s2)",
+        "`s3, not buff(s3)",
+        "`s2, cancel",
+        "`s1, buff(s3)",
+        "`s4, x=5 or fsc",
+        "`fs, x=5",
+        "`dodge, fsc"
       ],
       "coabs": [
         "Halloween_Mym",
@@ -215,7 +215,7 @@
       ]
     },
     "META": {
-      "tdps": 271839.68330914906,
+      "tdps": 268187.59866730985,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -224,9 +224,17 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 33245.888619953825,
+        "team": 0.014618142669838942,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 44372.648273461105,
+        "dps": 44154.07772262252,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -255,6 +263,7 @@
       ]
     },
     "META": {
+      "tdps": 746208.9643696764,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -262,50 +271,11 @@
       }
     }
   },
-  "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 33350.58989372792,
-        "team": 0.02468598059525176,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "To_the_Extreme",
-        "Crown_of_Light",
-        "Mask_of_Determination_Bow"
-      ],
-      "acl": [
-        "`dragon(c2-s-c3-c3-c2-end), aff(scorchrend) and s=4",
-        "`s4, not aff(scorchrend)",
-        "`s3, not aff(scorchrend)",
-        "`s1, xf>3 or fsc",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "share": [
-        "Panther",
-        "Seimei"
-      ]
-    },
-    "META": {
-      "tdps": 446490.60373373335,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
-      }
-    }
-  },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 47013.63854172545,
-        "team": 0.12993984915358284,
+        "dps": 46584.58487232167,
+        "team": 0.13045254542406187,
         "noaff": true,
         "nihil": false
       },
@@ -329,7 +299,7 @@
       ]
     },
     "META": {
-      "tdps": 109439.69128690167,
+      "tdps": 108003.11359930507,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -340,82 +310,21 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 23518.593721042525,
-        "team": 0.0,
+        "dps": 25678.330232105476,
+        "team": 0.014618142669838942,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Forest_Bonds",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s1",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Nobunaga"
-      ],
       "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
+        "Zace",
+        "Gala_Leonidas"
       ]
     },
     "META": {
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 23518.593721042525,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Forest_Bonds",
-        "Me_and_My_Bestie",
-        "Memory_of_a_Friend",
-        "Chariot_Drift",
-        "To_the_Extreme"
-      ],
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s1",
-        "`s4",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Halloween_Mym",
-        "Kimono_Elisanne",
-        "Nobunaga"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "IMMUNE-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-MONO"
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   }
