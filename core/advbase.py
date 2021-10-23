@@ -1895,7 +1895,11 @@ class Adv(object):
                     x_next = self.a_x_dict[self.current_x][1]
         else:
             x_next = self.a_x_dict[self.current_x][1]
-        if not x_next.enabled and x_next.group != globalconf.DRG:
+        # special: in dform and if there isn't enough time left to complete next x, try sack instead
+        if x_next.group == globalconf.DRG:
+            if self.dragonform.dform_mode == -1 and x_next.getstartup() >= self.dshift_timeleft:
+                return self.sack()
+        elif not x_next.enabled:
             self.current_x = globalconf.DEFAULT
             x_next = self.a_x_dict[self.current_x][1]
         return x_next()
@@ -3029,6 +3033,10 @@ class Adv(object):
     @property
     def dshift_count(self):
         return g_logs.shift_count
+
+    @property
+    def dshift_timeleft(self):
+        return self.dragonform.shift_end_timer.timeleft()
 
     @property
     def bleed_stack(self):
