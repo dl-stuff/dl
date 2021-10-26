@@ -25,6 +25,9 @@
         "`s1",
         "`s4, cancel"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Bow",
         "Joker",
@@ -74,7 +77,7 @@
       ]
     },
     "META": {
-      "tdps": 75862.35466171558,
+      "tdps": 77734.07577027305,
       "pref": "PERSONAL"
     }
   },
@@ -86,36 +89,14 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
-        "Proper_Maintenance",
-        "From_Whence_He_Comes",
-        "Seaside_Memory",
-        "Beneath_the_Boughs",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
-        "`s3",
-        "`s2, not c_fs(peonydreams)",
-        "`s1",
-        "`s4, cancel"
-      ],
       "coabs": [
         "Bow",
         "Gala_Prince",
         "Hildegarde"
-      ],
-      "share": [
-        "Dragonyule_Lily",
-        "Templar_Hope"
       ]
     },
     "META": {
-      "tdps": 101432.53080082645,
+      "tdps": 102234.61855070703,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -206,51 +187,6 @@
       }
     }
   },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 11766.313639797761,
-        "team": 0.714246143516827,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Castle_Cheer_Corps",
-        "Jewels_of_the_Sun",
-        "Proper_Maintenance",
-        "From_Whence_He_Comes",
-        "Seaside_Memory",
-        "Beneath_the_Boughs",
-        "Mask_of_Determination_Bow"
-      ],
-      "slots.d": "Tie_Shan_Gongzhu",
-      "acl": [
-        "`dragon, buff(s3, 1)",
-        "`fs, c_fs(peonydreams) and (s2.check() and cancel)",
-        "`s3",
-        "`s2, not c_fs(peonydreams)",
-        "`s1",
-        "`s4, cancel"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Tobias"
-      ],
-      "share": [
-        "Dragonyule_Lily",
-        "Templar_Hope"
-      ]
-    },
-    "META": {
-      "tdps": 157739.34596654054,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
-      }
-    }
-  },
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
@@ -332,32 +268,36 @@
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 15438.611246367816,
+        "dps": 31636.115269985923,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
-        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Sisters_of_the_Anvil",
-        "An_Unfreezing_Flower_Deer",
+        "Holywyrms_Advent",
+        "Jewels_of_the_Sun",
+        "A_Small_Courage",
+        "Chariot_Drift",
+        "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Reborn_Jeanne",
-      "dacl": [
-        "ds1,x=3"
+      "slots.d": "High_Jupiter",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s2",
+        "`s1",
+        "`s4, cancel"
       ],
       "coabs": [
         "Blade",
-        "Dagger",
+        "Dagger2",
         "Wand"
       ],
       "share": [
         "Weapon",
-        "Gala_Luca"
+        "Summer_Julietta"
       ]
     },
     "PERSONAL": {
@@ -419,7 +359,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

@@ -1,5 +1,43 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 57265.32882552338,
+        "team": 0.27317033953638087,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Twinfold_Bonds",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Axe"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon, buff(s3) and s=1",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s4, xf",
+        "`s2, cancel",
+        "`dodge, xf=6"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57265.32882552338,
@@ -25,6 +63,9 @@
         "`s2, cancel",
         "`dodge, xf=6"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Dagger2",
         "Forte",
@@ -36,7 +77,6 @@
       ]
     },
     "META": {
-      "tdps": 118368.02297741028,
       "pref": "PERSONAL"
     }
   },
@@ -48,39 +88,17 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Twinfold_Bonds",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer",
-        "Testament_of_Eternity",
-        "Thunderswift_Lords_Blade_Axe"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon, buff(s3) and s=1",
-        "`s3, not buff(s3)",
-        "`s1",
-        "`s4, xf",
-        "`s2, cancel",
-        "`dodge, xf=6"
-      ],
       "coabs": [
         "Forte",
         "Ieyasu",
         "Vania"
-      ],
-      "share": [
-        "Weapon",
-        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 125953.08618998206,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -154,7 +172,7 @@
       ]
     },
     "META": {
-      "tdps": 101933.60752175373,
+      "tdps": 91500.20944499403,
       "pref": "PERSONAL"
     }
   },
@@ -175,7 +193,6 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Ramiel",
       "acl": [
         "`dragon",
         "`s3, xf",
@@ -194,7 +211,7 @@
       ]
     },
     "META": {
-      "tdps": 88921.50403565449,
+      "tdps": 81041.05162273528,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -205,8 +222,8 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 63120.292816090056,
-        "team": 0.3966764037855231,
+        "dps": 65448.28864265829,
+        "team": 0.3945012928318527,
         "noaff": false,
         "nihil": false
       },
@@ -226,7 +243,7 @@
         "`s1",
         "`s4",
         "`s2, cancel",
-        "`dodge, xf=6"
+        "`fsf, xf=6"
       ],
       "dacl": [
         "queue",
@@ -244,45 +261,10 @@
       ]
     },
     "META": {
-      "tdps": 184335.5764408467,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 61913.91960465968,
-        "team": 0.273190668308155,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Twinfold_Bonds",
-        "Welcome_to_the_Opera",
-        "A_Passion_for_Produce",
-        "The_Plaguebringer",
-        "Testament_of_Eternity",
-        "Thunderswift_Lords_Blade_Axe"
-      ],
-      "coabs": [
-        "Dragonyule_Victor",
-        "Forte",
-        "Ieyasu"
-      ],
-      "share": [
-        "Weapon",
-        "Summer_Julietta"
-      ]
-    },
-    "META": {
-      "tdps": 128718.12730722969,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-MONO"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -329,14 +311,6 @@
     }
   },
   "ALWAYS-NIHILISM-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 32486.674617139888,
-        "team": 0.06246540804514483,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 43017.50842503096,
@@ -355,7 +329,6 @@
       ]
     },
     "META": {
-      "tdps": 168586.6487941655,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -395,10 +368,10 @@
       ]
     },
     "META": {
-      "tdps": 150752.56790435672,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

@@ -1,5 +1,46 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 100026.0178790364,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, dgauge>=2700",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`s1",
+        "`s2",
+        "`s4",
+        "`dodge, x=4"
+      ],
+      "coabs": [
+        "Humanoid_Midgardsormr",
+        "Nino",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 100026.0178790364,
@@ -42,55 +83,13 @@
       ]
     },
     "META": {
-      "tdps": 336341.2792201763,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 31959.483204376033,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`s3",
-        "if s2.check() and not in_drg",
-        "`dragon",
-        "end",
-        "`s1",
-        "`s2",
-        "`s4",
-        "`fs, x=4"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
-      "coabs": [
-        "Nino",
-        "Wand",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 34160.761646218336,
+        "dps": 76376.58430059617,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -116,8 +115,11 @@
         "`fs, x=4"
       ],
       "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`s3",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
       ],
       "coabs": [
         "Blade",
@@ -155,10 +157,10 @@
       ]
     },
     "META": {
-      "tdps": 9596328.96678356,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -193,7 +195,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -214,7 +217,6 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Beast_Volk",
       "acl": [
         "`dragon, s2.check()",
         "`s3, not buff(s3)",
@@ -222,17 +224,6 @@
         "`s2",
         "`s4",
         "`fs, x=4"
-      ],
-      "dacl": [
-        "`s1",
-        "`s2",
-        "`s4",
-        "`dodge, x=4"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Nino",
-        "Yukata_Lathna"
       ],
       "share": [
         "Weapon",
@@ -264,29 +255,47 @@
       "tdps": 3270568.7961865286,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 22904.64113185756,
+        "dps": 44424.94290731258,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, dgauge>=2700",
+        "`s3, not buff(s3)",
+        "`s1",
+        "`s2",
+        "`s4",
+        "`fs, x=4"
+      ],
       "coabs": [
+        "Humanoid_Midgardsormr",
         "Nino",
-        "Wand",
         "Yukata_Lathna"
       ]
     },
     "META": {
-      "tdps": -199806.91648344407,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

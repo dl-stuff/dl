@@ -1,5 +1,45 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 117893.85014613303,
+        "team": 0.03332560549570356,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "The_Cutie_Competition",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`ex",
+        "`dragon, dshift_count=0 and not fig.get() and energy()=5",
+        "`dragon, dshift_count=1 and not fig.get() and energy()=4",
+        "`s3, x=4 and not buff(s3)",
+        "`s2, x=4 or fig.get()",
+        "`s4, cancel",
+        "`s1, x=4"
+      ],
+      "dacl": [
+        "`ds1, x=2",
+        "`dodge, x=2"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Wand"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 151212.51959678825,
@@ -41,7 +81,7 @@
       ]
     },
     "META": {
-      "tdps": 939535.9997926273,
+      "tdps": 1715326153.6179402,
       "pref": "PERSONAL"
     }
   },
@@ -117,11 +157,47 @@
       ]
     },
     "META": {
-      "tdps": 178891.06240318567,
+      "tdps": 138903.57761371369,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 130484.24807968753,
+        "team": 0.03333158898017686,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Me_and_My_Bestie",
+        "The_Cutie_Competition",
+        "A_Passion_for_Produce",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`ex",
+        "`dragon, dshift_count=0 and not fig.get() and energy()=5",
+        "`dragon, dshift_count=1 and not fig.get() and energy()=4",
+        "`s3, x=4 and not buff(s3)",
+        "`s2, x=4 or fig.get()",
+        "`s1, x=4 and buff(s3)",
+        "`s4, x=4 or s"
+      ],
+      "dacl": [
+        "queue",
+        "`dx2;ds1;dx2;dx2;dx2;dx2;dx2;sack",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Joe",
+        "Wand"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 173166.53694862535,
@@ -154,10 +230,11 @@
       ]
     },
     "META": {
-      "tdps": 1135541.4900684075,
+      "tdps": 6282165673.324008,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },

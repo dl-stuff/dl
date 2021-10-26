@@ -24,6 +24,9 @@
         "`s1",
         "`s3"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Cleo",
         "Dagger2",
@@ -58,6 +61,9 @@
         "`s1",
         "`s3"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Cleo",
         "Dagger2",
@@ -69,45 +75,10 @@
       ]
     },
     "META": {
-      "tdps": 9214154.573569143,
       "pref": "PERSONAL"
     }
   },
   "SELF-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 42688.167171661305,
-        "team": 0.1110406387409139,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon, buff(s3, 1) and cancel",
-        "`s2",
-        "`s4",
-        "`s1",
-        "`s3"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 42688.167171661305,
@@ -115,35 +86,13 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "An_Ancient_Oath",
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Dueling_Dancers",
-        "Such_High_Spirits",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon, buff(s3, 1) and cancel",
-        "`s2",
-        "`s4",
-        "`s1",
-        "`s3"
-      ],
       "coabs": [
         "Blade",
         "Dagger",
         "Peony"
-      ],
-      "share": [
-        "Weapon",
-        "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 7450750.357388966,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -154,7 +103,7 @@
   "SELF-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 34825.8856435593,
+        "dps": 30195.992457816054,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -168,7 +117,7 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "slots.d": "High_Jupiter",
+      "slots.d": "Daikokuten",
       "acl": [
         "`dragon",
         "`s4",
@@ -178,8 +127,8 @@
       ],
       "coabs": [
         "Blade",
-        "Dagger2",
-        "Peony"
+        "Peony",
+        "Wand"
       ],
       "share": [
         "Ilia",
@@ -232,31 +181,11 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "Extreme_Teamwork",
-        "Spirit_of_the_Season",
-        "Dueling_Dancers",
-        "Entwined_Flames",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
       "slots.d": "Daikokuten",
-      "acl": [
-        "`dragon",
-        "`s4",
-        "`s1",
-        "`s3",
-        "`fs, x=5"
-      ],
       "coabs": [
         "Blade",
         "Peony",
         "Wand"
-      ],
-      "share": [
-        "Ilia",
-        "Gala_Mym"
       ]
     },
     "META": {
@@ -321,6 +250,14 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 35636.91303766004,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 40785.245896543835,
@@ -355,6 +292,19 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42486.06934692056,
+        "team": 0.11104063874091386,
+        "noaff": false,
+        "nihil": false
+      },
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Peony"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45298.6131541208,
@@ -384,11 +334,19 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-MONO",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
+        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 22943.481405182833,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 26466.800208381195,

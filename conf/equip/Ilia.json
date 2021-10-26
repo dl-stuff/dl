@@ -68,6 +68,9 @@
         "`dodge",
         "end"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Gala_Audric",
@@ -79,7 +82,7 @@
       ]
     },
     "META": {
-      "tdps": 110887.38059612298,
+      "tdps": 61142.72830859299,
       "pref": "PERSONAL"
     }
   },
@@ -147,6 +150,9 @@
         "`dodge",
         "end"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Lucretia",
@@ -158,18 +164,48 @@
       ]
     },
     "META": {
-      "tdps": 232081.75267414053,
+      "tdps": 224102.70658534626,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 84573.12718800698,
-        "team": 0.07817931559518065,
+        "dps": 91520.57301822625,
+        "team": 0.09091222406945103,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Extreme_Teamwork",
+        "Memory_of_a_Friend",
+        "Spirit_of_the_Season",
+        "A_Small_Courage",
+        "Beautiful_Gunman",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`s3, not buff(s3)",
+        "`dragon, fscf",
+        "`dodge, hits<14",
+        "if (xf=1)",
+        "`fs, c_fs(cartridge3)",
+        "`s1",
+        "`s2, alchemy=100",
+        "`s4",
+        "`dodge",
+        "`s2",
+        "`s1",
+        "end"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "PERSONAL": {
       "EQMT": {
@@ -203,7 +239,7 @@
       ]
     },
     "META": {
-      "tdps": 154574.1900532413,
+      "tdps": 56505.69666954955,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",

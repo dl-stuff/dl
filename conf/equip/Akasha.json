@@ -1,5 +1,43 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 62556.87880829118,
+        "team": 0.26063753053400024,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Springtime_Breeze",
+        "Sweet_Surprise",
+        "Beautiful_Nothingness",
+        "Bloom_of_the_Battlefield",
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, not buff(s2)",
+        "`s1, prep or (timeleft(s1)<5 and x=5)",
+        "`s2",
+        "`s3, not buff(s3)",
+        "`s4"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 62556.87880829118,
@@ -39,15 +77,14 @@
       ]
     },
     "META": {
-      "tdps": 83055.29131591678,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40460.444530573004,
-        "team": 0.13849432263745265,
+        "dps": 30187.697651841594,
+        "team": 0.06863044579008408,
         "noaff": false,
         "nihil": true
       },
@@ -89,34 +126,13 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 71665.17946957811,
-        "team": 0.28192060108477607,
+        "dps": 59799.4341152788,
+        "team": 0.21428649940179204,
         "noaff": false,
         "nihil": false
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Sweet_Surprise",
-        "The_Red_Impulse",
-        "Beautiful_Nothingness",
-        "Bloom_of_the_Battlefield",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, timeleft(s1)>15 and not buff(s2)",
-        "`s2",
-        "`s4, cancel",
-        "`s3, not buff(s3)",
-        "`s1, (x=5 or s=3) and timeleft(s1)<5"
-      ],
-      "share": [
-        "Weapon",
-        "Humanoid_Mercury"
-      ]
+      }
     },
     "META": {
-      "tdps": 144275.04959440773,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -127,8 +143,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 41965.91303891129,
-        "team": 0.13849432263745265,
+        "dps": 31478.74574577031,
+        "team": 0.06863044579008408,
         "noaff": false,
         "nihil": true
       }
@@ -144,14 +160,13 @@
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 39055.16062503162,
-        "team": 0.26063753053400024,
+        "dps": 29358.00089269817,
+        "team": 0.21428649940179204,
         "noaff": false,
         "nihil": false
       }
     },
     "META": {
-      "tdps": 69431.998228613,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -162,8 +177,8 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 20495.284294123212,
-        "team": 0.13849432263745265,
+        "dps": 14747.107473231501,
+        "team": 0.06863044579008408,
         "noaff": false,
         "nihil": true
       }

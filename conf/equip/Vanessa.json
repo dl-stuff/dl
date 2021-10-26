@@ -1,5 +1,44 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 71493.16745815835,
+        "team": 0.020460684111508354,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Warrioresses",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s=1",
+        "`fs, buff(s1) and buff(s2)",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1, fsc or not buff(s1)",
+        "`s2, cancel",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Serena",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 71493.16745815835,
@@ -40,7 +79,6 @@
       ]
     },
     "META": {
-      "tdps": 899900.981146729,
       "pref": "PERSONAL"
     }
   },
@@ -86,7 +124,6 @@
       ]
     },
     "META": {
-      "tdps": 230028.3412556508,
       "pref": "PERSONAL"
     }
   },
@@ -171,7 +208,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -198,10 +235,10 @@
       ]
     },
     "META": {
-      "tdps": 460018380.7406692,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

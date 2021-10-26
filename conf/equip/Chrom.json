@@ -1,5 +1,40 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 74307.14732482992,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s2.flames=3 and (s2.count=3 and aff())",
+        "`s1",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 74307.14732482992,
@@ -36,7 +71,46 @@
       ]
     },
     "META": {
-      "tdps": 420544.89553609263,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 18353.69540747707,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Chariot_Drift",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2, s2.flames=3 and (s2.count=3 and aff())",
+        "`s1",
+        "`fs, x=4 or hits=0"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL"
     }
   },
@@ -73,10 +147,10 @@
       ]
     },
     "META": {
-      "tdps": 508240.26366592664,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

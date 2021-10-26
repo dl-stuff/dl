@@ -84,51 +84,11 @@
       ]
     },
     "META": {
-      "tdps": 73829.59953461493,
-      "pref": "PERSONAL"
+      "tdps": 32918.80586768765,
+      "pref": "TEAMBUFF"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 88194.59094808646,
-        "team": 0.28043807534704335,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "The_Lurker_in_the_Woods",
-        "Enter_the_Blue_Rose",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "if amp_lvl(team,2)<5",
-        "`dragon, amp_lvl(self,2)>=1 and s=1 and not manachew_mode.get()",
-        "`s2, manachew_mode.get() or dgauge<500",
-        "else",
-        "`dragon",
-        "`s2",
-        "`s3, s and manachew_mode.get()",
-        "end",
-        "`s1",
-        "`s4, s",
-        "`fs"
-      ],
-      "coabs": [
-        "Humanoid_Midgardsormr",
-        "Mona",
-        "Yukata_Lathna"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 90567.09896259855,
@@ -171,7 +131,6 @@
       ]
     },
     "META": {
-      "tdps": 146840.61807869677,
       "pref": "PERSONAL"
     }
   },
@@ -257,7 +216,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -312,14 +271,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 43929.899533239986,
-        "team": 0.28043807534704335,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 45057.88692907203,
@@ -332,7 +283,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

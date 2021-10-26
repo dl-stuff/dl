@@ -1,9 +1,9 @@
 {
   "SELF-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 64354.664815176184,
-        "team": 0.05492370412545614,
+        "dps": 46340.64273837181,
+        "team": 0.21287877819268566,
         "noaff": false,
         "nihil": false
       },
@@ -18,7 +18,8 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s4",
         "`s1",
@@ -28,7 +29,47 @@
       ],
       "dacl": [
         "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 71686.26930578491,
+        "team": 0.06181204757984769,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s1",
+        "`s2",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -41,47 +82,11 @@
       ]
     },
     "META": {
-      "tdps": 740698.1148395978,
+      "tdps": 167777.68648724016,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 52880.49855849633,
-        "team": 0.05491447276834436,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Dear_Diary",
-        "Memory_of_a_Friend",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Plaguebringer",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s4",
-        "`s2",
-        "`s1",
-        "`fs, x=5",
-        "`dodge, fscf"
-      ],
-      "coabs": [
-        "Blade",
-        "Dragonyule_Xainfried",
-        "Mona"
-      ],
-      "share": [
-        "Formal_Joachim",
-        "Summer_Celliera"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 52880.49855849633,
@@ -125,18 +130,18 @@
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 78248.28092843923,
-        "team": 0.05480601300517149,
+        "dps": 87798.25145878953,
+        "team": 0.1654235695639255,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
+        "Dear_Diary",
+        "Memory_of_a_Friend",
         "Sweet_Surprise",
         "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Mask_of_Determination_Bow",
+        "The_Plaguebringer",
+        "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
       "acl": [
@@ -146,7 +151,11 @@
         "`s2",
         "`s1",
         "`fs, x=5",
-        "`dodge, fscf"
+        "`dodge, fsc"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
       ]
     },
     "META": {
@@ -170,28 +179,76 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 30446.843646644524,
-        "team": 0.05492370412545614,
+        "dps": 43534.170083371944,
+        "team": 0.16532921343889506,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "Worthy_Rivals",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
     },
     "META": {
-      "tdps": 103542.34373614941,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 25468.741726508095,
+        "team": 0.05491447276834436,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Plaguebringer",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs, x=5",
+        "`dodge, fscf"
+      ],
+      "coabs": [
+        "Blade",
+        "Dragonyule_Xainfried",
+        "Mona"
+      ],
+      "share": [
+        "Formal_Joachim",
+        "Summer_Celliera"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 25468.741726508095,
@@ -204,7 +261,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

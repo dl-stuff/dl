@@ -1,5 +1,40 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 78902.36377080598,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, fsc",
+        "`s3, fsc and not buff(s3)",
+        "`s4",
+        "`s1, cancel and buff(s3)",
+        "`s2, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 78902.36377080598,
@@ -36,7 +71,46 @@
       ]
     },
     "META": {
-      "tdps": 467286.309392617,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14080.318824605994,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "The_Queen_of_the_Knife",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, fsc",
+        "`s3, fsc and not buff(s3)",
+        "`s4",
+        "`s1, cancel and buff(s3)",
+        "`s2, fsc",
+        "`fs, x=4"
+      ],
+      "coabs": [
+        "Forte",
+        "Ieyasu",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL"
     }
   },
@@ -57,7 +131,6 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Cat_Sith",
       "acl": [
         "`dragon, fsc and trickery<=2",
         "`s3, fsc and not buff(s3)",
@@ -109,7 +182,8 @@
       "tdps": 47227.79582424613,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -151,7 +225,8 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

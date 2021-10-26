@@ -74,6 +74,42 @@
     }
   },
   "SELF-NORMAL-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 52941.38246099769,
+        "team": 0.09676588863729087,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Daikokuten",
+      "acl": [
+        "`s1, dgauge>=500 and not buff(s1)",
+        "`dragon, xf and buff(s3,1)",
+        "`s4, xf>2",
+        "`s3, xf>3"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Peony",
+        "Raemond"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 52941.38246099769,
@@ -88,10 +124,10 @@
       ]
     },
     "META": {
-      "tdps": 971051.4221954164,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -149,6 +185,9 @@
         "`dragon",
         "`s4",
         "`s3"
+      ],
+      "dacl": [
+        "ds1,x=3"
       ],
       "coabs": [
         "Blade",

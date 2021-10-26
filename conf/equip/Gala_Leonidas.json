@@ -1,5 +1,43 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 121232.47482082737,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Halloween_Mym",
+        "Kimono_Elisanne",
+        "Serena"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 121232.47482082737,
@@ -39,7 +77,6 @@
       ]
     },
     "META": {
-      "tdps": 175159.87060073263,
       "pref": "PERSONAL"
     }
   },
@@ -83,15 +120,14 @@
       ]
     },
     "META": {
-      "tdps": 1219107.14618595,
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 131902.8335808231,
-        "team": 0.10304218888853683,
+        "dps": 66293.9030850981,
+        "team": 0.13040686717052077,
         "noaff": false,
         "nihil": false
       },
@@ -105,10 +141,36 @@
         "Testament_of_Eternity"
       ],
       "acl": [
-        "`dragon, s",
+        "`dragon",
+        "`fs",
+        "`s4"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 131962.76561847734,
+        "team": 0.10304218888853682,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "The_Cutie_Competition",
+        "Enter_the_Blue_Rose",
+        "The_Warrioresses",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon",
         "`s3, not buff(s3)",
-        "`s4",
         "`s1",
+        "`s4",
         "`fs"
       ],
       "share": [
@@ -117,6 +179,7 @@
       ]
     },
     "META": {
+      "tdps": 2399767.388334821,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -154,7 +217,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -218,7 +281,8 @@
       "tdps": 1793344.95854302,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -250,10 +314,10 @@
       ]
     },
     "META": {
-      "tdps": 444695.7258281182,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

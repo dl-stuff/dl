@@ -73,7 +73,7 @@
       ]
     },
     "META": {
-      "tdps": 156641.398653338,
+      "tdps": 147176.72638554068,
       "pref": "PERSONAL"
     }
   },
@@ -85,34 +85,14 @@
         "noaff": false,
         "nihil": false
       },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`s2",
-        "`fs, x=5",
-        "`fs, fs_prep_c=3"
-      ],
       "coabs": [
         "Blade",
         "Tobias",
         "Wand"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Tobias"
       ]
     },
     "META": {
-      "tdps": 175548.8824089709,
+      "tdps": 163468.89590800466,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -164,6 +144,54 @@
       "pref": "PERSONAL"
     }
   },
+  "SELF-NIHILISM-MONO": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 91883.64674082838,
+        "team": 0.088052067990965,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, x=5",
+        "`s3",
+        "`s4, cancel",
+        "`s2",
+        "`s1, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
@@ -175,61 +203,34 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 116224.56372027434,
-        "team": 0.19476004314976003,
+        "dps": 129217.57228164008,
+        "team": 0.16117639097131964,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "acl": [
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s2, x=5",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Noelle"
+      ]
     },
     "META": {
-      "tdps": 168344.70928251412,
+      "tdps": 179084.82690968015,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "ALWAYS-NORMAL-MONO": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 6837.971257659596,
-        "team": 0.8445374726206408,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
-      ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
-      "acl": [
-        "`s4",
-        "`s3",
-        "`s2",
-        "`fs, x=5",
-        "`fs, fs_prep_c=3"
-      ],
-      "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
-      ],
-      "share": [
-        "Templar_Hope",
-        "Tobias"
-      ]
-    },
-    "META": {
-      "tdps": 187089.72501428175,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "ALWAYS-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-MONO"
       }
     }
   },
@@ -268,52 +269,49 @@
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 5259.977890507381,
-        "team": 0.8445374726206408,
+        "dps": 33924.64990930859,
+        "team": 0.19836408408605777,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes"
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Bloom_of_the_Battlefield",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
       ],
-      "slots.d": "Freyja",
-      "slots.w": "void",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s4",
-        "`s3",
-        "`s2",
-        "`fs, x=5",
-        "`fs, fs_prep_c=3"
+        "`dragon, fscf",
+        "`s3, not buff(s3)",
+        "`s4, x=5",
+        "`s2, x=5 or dgauge>=500",
+        "`s1",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1 and x=3"
       ],
       "coabs": [
-        "Bow",
-        "Dagger2",
-        "Tobias"
+        "Blade",
+        "Tobias",
+        "Wand"
       ],
       "share": [
-        "Templar_Hope",
-        "Tobias"
+        "Weapon",
+        "Halloween_Melsa"
       ]
     },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 4847.678228970702,
-        "team": 0.7822994284057988,
+        "dps": 33924.64990930859,
+        "team": 0.19836408408605777,
         "noaff": false,
         "nihil": false
       },
@@ -327,11 +325,50 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "IMMUNE-NORMAL-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 38462.53078511905,
+        "team": 0.088052067990965,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, x=5",
+        "`s3",
+        "`s4, cancel",
+        "`s2",
+        "`s1, cancel",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Mona",
+        "Wand",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Summer_Celliera",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 38462.53078511905,
@@ -341,10 +378,10 @@
       }
     },
     "META": {
-      "tdps": -476332.695631063,
-      "pref": "TEAMBUFF",
+      "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

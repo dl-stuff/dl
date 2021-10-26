@@ -1,5 +1,45 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 125713.13604955979,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Forest_Bonds",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Testament_of_Eternity",
+        "Thunderswift_Lords_Blade_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, aff(stormlash) and cancel and dshift_count=0",
+        "`dragon, aff(stormlash) and cancel and dshift_count>=1",
+        "`s3, not buff(s3)",
+        "`s2",
+        "`s4,xf",
+        "`s1,  buff(s2) and cancel",
+        "`fs, x=5 and not buff(s2) or hp>=30",
+        "`dodge, fsc and buff (s2) or buff (s3)"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Kimono_Elisanne",
+        "Wand",
+        "Yukata_Cassandra"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 125713.13604955979,
@@ -27,6 +67,9 @@
         "`fs, x=5 and not buff(s2) or hp>=30",
         "`dodge, fsc and buff (s2) or buff (s3)"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Kimono_Elisanne",
         "Wand",
@@ -38,7 +81,6 @@
       ]
     },
     "META": {
-      "tdps": 878657.5505701333,
       "pref": "PERSONAL"
     }
   },
@@ -77,7 +119,6 @@
       ]
     },
     "META": {
-      "tdps": 572390.1669606128,
       "pref": "PERSONAL"
     }
   },
@@ -139,7 +180,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -176,14 +217,46 @@
       ]
     },
     "META": {
-      "tdps": 547592.0599512166,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29561.62952792189,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "Dear_Diary",
+        "Initios_Sentinel",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Lord_of_the_Skies",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "acl": [
+        "`dragon, cancel",
+        "`s4,  cancel",
+        "`s3, x=5",
+        "`s1, x=5"
+      ],
+      "coabs": [
+        "Blade",
+        "Halloween_Mym",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Summer_Julietta",
+        "Summer_Celliera"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 29561.62952792189,
@@ -209,7 +282,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

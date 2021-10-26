@@ -54,6 +54,9 @@
         "`s2",
         "`s1, masterctrl_buff.get() and x=4"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Summer_Celliera",
         "Tiki",
@@ -124,6 +127,9 @@
         "`s4, x=4",
         "`s3, x=4"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Pipple",
         "Renee",
@@ -140,10 +146,10 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 74805.25450479545,
-        "team": 0.15078956014765793,
+        "dps": 82284.01989285105,
+        "team": 0.32610919248075176,
         "noaff": false,
         "nihil": false
       },
@@ -153,9 +159,69 @@
         "OneWinged_Journey",
         "A_Choice_Blend",
         "His_Clever_Brother"
+      ],
+      "acl": [
+        "queue now=0",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "end",
+        "`dragon, not buff(s2)",
+        "`s4, x=4",
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 85229.25447202439,
+        "team": 0.3117656107070741,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Holywyrms_Advent",
+        "OneWinged_Journey",
+        "A_Choice_Blend",
+        "His_Clever_Brother"
+      ],
+      "acl": [
+        "queue now=0",
+        "`s3",
+        "`s4",
+        "`s2",
+        "`s1",
+        "end",
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
+        "`s4, x=4",
+        "`s2",
+        "`s1, masterctrl_buff.get() and x=4"
+      ],
+      "dacl": [
+        "`ds1, x=3"
+      ],
+      "coabs": [
+        "Eugene",
+        "Tiki",
+        "Yurius"
+      ],
+      "share": [
+        "Weapon",
+        "Humanoid_Mercury"
       ]
     },
     "META": {
+      "tdps": 205334.66644839194,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -164,14 +230,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 44920.83804558042,
-        "team": 0.13965798457493775,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 49670.57114201851,
@@ -188,6 +246,7 @@
       ]
     },
     "META": {
+      "tdps": 16229121.40882131,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

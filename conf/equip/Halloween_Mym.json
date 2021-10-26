@@ -1,5 +1,43 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 62556.20933016321,
+        "team": 0.22406110893395859,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Amaterasu_Oblation",
+        "Dueling_Dancers",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3)",
+        "`s4, cancel",
+        "`s1, cancel",
+        "`s2, x=4",
+        "`dodge, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Gala_Laxi",
+        "Serena",
+        "Yuya"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 76221.59282426472,
@@ -39,11 +77,44 @@
       ]
     },
     "META": {
-      "tdps": 113553.35824809218,
+      "tdps": 1197836.0388810977,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 29611.352508973545,
+        "team": 0.21960020393240048,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "Honest_Repose",
+        "Pecorines_Grand_Adventure",
+        "The_Bridal_Dragon",
+        "Dueling_Dancers",
+        "Such_High_Spirits",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Horus",
+      "acl": [
+        "`dragon",
+        "`s3",
+        "`s4",
+        "`s1, cancel"
+      ],
+      "coabs": [
+        "Bow",
+        "Kimono_Elisanne",
+        "The_Prince"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Sha_Wujing"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 41691.041456915635,
@@ -79,7 +150,7 @@
       ]
     },
     "META": {
-      "tdps": 291521.1465101284,
+      "tdps": 109521.14612063245,
       "pref": "PERSONAL"
     }
   },
@@ -110,7 +181,7 @@
       ]
     },
     "META": {
-      "tdps": 144688.19724639694,
+      "tdps": 3556021.2637546263,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -137,10 +208,11 @@
       ]
     },
     "META": {
-      "tdps": 244722.28008424505,
+      "tdps": 267278.16502389073,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
@@ -180,7 +252,6 @@
       ]
     },
     "META": {
-      "tdps": 92035.95860642148,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -214,7 +285,6 @@
       ]
     },
     "META": {
-      "tdps": 5041354.681763966,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

@@ -1,5 +1,44 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 75201.39244226467,
+        "team": 0.054840763894285605,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Hastened_Squall",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s=1 or s=4",
+        "`s3, not buff(s3)",
+        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
+        "`s4, xf or s",
+        "`s1, fsc or (s=1 or s=4)"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Halloween_Melsa"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 75201.39244226467,
@@ -40,15 +79,58 @@
       ]
     },
     "META": {
-      "tdps": 820801.4693017864,
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 40432.35446542771,
+        "team": 0.03327948343142089,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Dear_Diary",
+        "Memory_of_a_Friend",
+        "A_Small_Courage",
+        "Hastened_Squall",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s=1 or s=4",
+        "`s3, not buff(s3)",
+        "`s2, c_fs(enhanced)=0 or c_s(2, enhanced)",
+        "`fs, (s1.check() and c_fs(enhanced)>1) or (x=4 and (not c_s(2, enhanced) and c_fs(enhanced)>0))",
+        "`s4, xf or s",
+        "`s1, fsc or (s=1 or s=4)"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Halloween_Melsa"
+      ]
+    },
+    "META": {
       "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 94763.86172523857,
-        "team": 0.07028836727521594,
+        "dps": 102432.5704778052,
+        "team": 0.079506703216272,
         "noaff": false,
         "nihil": false
       },
@@ -69,16 +151,20 @@
         "`s4, s or x=5 or fsc",
         "`s1, fsc or (s=1 or s=4)"
       ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
       "share": [
         "Weapon",
         "Gala_Mym"
       ]
     },
     "META": {
-      "tdps": 1088477.4084524112,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -92,10 +178,10 @@
       }
     },
     "META": {
-      "tdps": 196165.41776067432,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

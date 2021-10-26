@@ -82,17 +82,17 @@
   "SELF-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 40360.508755101924,
-        "team": 0.009797542279987364,
+        "dps": 42763.445959545556,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Emissaries_of_the_Heavens",
-        "Gentle_Winds",
+        "Sisters_Day_Out",
         "Twinfold_Bonds",
-        "His_Clever_Brother",
-        "Rogues_Banquet"
+        "A_Passion_for_Produce",
+        "His_Clever_Brother"
       ],
       "slots.d": "Gala_Reborn_Poseidon",
       "acl": [
@@ -154,8 +154,8 @@
   "ALWAYS-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 46483.47167113847,
-        "team": 0.002909967217677009,
+        "dps": 53974.48858404522,
+        "team": 0.002923889378820675,
         "noaff": false,
         "nihil": true
       },
@@ -165,6 +165,10 @@
         "`s2",
         "`s4",
         "`s3"
+      ],
+      "dacl": [
+        "`ds1",
+        "`ds2"
       ],
       "share": [
         "Summer_Julietta",
@@ -204,19 +208,57 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 18441.150163052862,
-        "team": 0.009800991616633612,
+        "dps": 18565.600170263944,
+        "team": 0.009800293826529352,
         "noaff": false,
         "nihil": true
       },
+      "acl": [
+        "if in_drg",
+        "`ds1, x=3",
+        "`ds2, cancel",
+        "`dodge, x=3",
+        "else",
+        "`s3",
+        "`s4, s=2",
+        "`dragon",
+        "`s2, x=4",
+        "`s1, cancel",
+        "end"
+      ],
+      "coabs": [
+        "Blade",
+        "Dagger",
+        "Yurius"
+      ],
+      "share": [
+        "Sha_Wujing",
+        "Gala_Mym"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 30242.33197210801,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "acl": [
+        "`dragon",
+        "`s2, x=4",
+        "`s1, cancel",
+        "`s3",
+        "`s4"
+      ],
       "dacl": [
-        "`s1",
-        "`s2"
+        "`ds1",
+        "`ds2"
       ]
     },
     "META": {
+      "tdps": 1191467.5221507344,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",

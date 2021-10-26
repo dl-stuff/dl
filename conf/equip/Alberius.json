@@ -1,8 +1,46 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 77222.65073952038,
+        "team": 0.09988376901431062,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Welcome_to_the_Opera",
+        "Entwined_Flames",
+        "The_Plaguebringer",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`dragon, cancel",
+        "`s3, not buff(s3) and cancel",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Cleo",
+        "Forte",
+        "Vania"
+      ],
+      "share": [
+        "Weapon",
+        "Akasha"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 96554.81500874083,
+        "dps": 108838.93155419511,
         "team": 0.0,
         "noaff": false,
         "nihil": false
@@ -18,12 +56,16 @@
       ],
       "slots.d": "Gala_Cat_Sith",
       "acl": [
-        "`dragon, cancel",
-        "`s3, not buff(s3) and cancel",
+        "`dragon, (dshift_count<3 or trickery<1) and cancel",
+        "`s3, not buff(s3)",
         "`s1, cancel",
         "`s2, cancel",
         "`s4, fsc",
         "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1",
+        "`sack"
       ],
       "coabs": [
         "Cleo",
@@ -36,7 +78,7 @@
       ]
     },
     "META": {
-      "tdps": 203026.48711799,
+      "tdps": 316530.7149167046,
       "pref": "PERSONAL"
     }
   },
@@ -80,7 +122,6 @@
       ]
     },
     "META": {
-      "tdps": 221405.23327661527,
       "pref": "PERSONAL"
     }
   },
@@ -134,41 +175,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 52332.62239152339,
-        "team": 0.08328159120716022,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Emissaries_of_the_Heavens",
-        "The_Bridal_Dragon",
-        "Welcome_to_the_Opera",
-        "Dueling_Dancers",
-        "The_Plaguebringer",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "slots.d": "Ramiel",
-      "acl": [
-        "`dragon",
-        "`s4, fsc",
-        "`s3, fsc",
-        "`s2, fsc",
-        "`s1, cancel",
-        "`fs, x=4"
-      ],
-      "coabs": [
-        "Ieyasu",
-        "Joker",
-        "Vania"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Seimei"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 75501.65035103046,
@@ -209,18 +215,48 @@
       ]
     },
     "META": {
-      "tdps": 1392673.677776297,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 81818.14760971072,
+        "team": 0.10488159087529848,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "The_Red_Impulse",
+        "Entwined_Flames",
+        "Lord_of_the_Skies",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Cat_Sith",
+      "acl": [
+        "`dragon, (dshift_count<3 or trickery<1) and cancel",
+        "`s3, not buff(s3)",
+        "`s1, cancel",
+        "`s2, cancel",
+        "`s4, fsc",
+        "`fs, x=4"
+      ],
+      "dacl": [
+        "`ds1",
+        "`sack"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 78672.9316806587,
-        "team": 0.09650153881179445,
+        "dps": 82170.27550505457,
+        "team": 0.0897165215388795,
         "noaff": false,
         "nihil": false
       },
@@ -248,10 +284,11 @@
       ]
     },
     "META": {
-      "tdps": 224866.35353985088,
-      "pref": "PERSONAL",
+      "tdps": 23219.669329055316,
+      "pref": "TEAMBUFF",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -291,10 +328,10 @@
       ]
     },
     "META": {
-      "tdps": 1064851.6924568089,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

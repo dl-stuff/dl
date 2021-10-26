@@ -1,5 +1,44 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 88534.14277168179,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Candy_Couriers",
+        "Me_and_My_Bestie",
+        "The_Fires_of_Hate",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Mask_of_Determination_Bow",
+        "Savage_Hawk_Bow"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, x=5 and aff(poison) and aff(burn)",
+        "`s3, not buff(s3) and x=5",
+        "`s1, cancel",
+        "`s4",
+        "`s2, x=5"
+      ],
+      "dacl": [
+        "queue",
+        "`ds1,x=2;dx2;dx2;dx2;sack",
+        "end"
+      ],
+      "coabs": [
+        "Joe",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 88534.14277168179,
@@ -40,7 +79,6 @@
       ]
     },
     "META": {
-      "tdps": 408083.50609536463,
       "pref": "PERSONAL"
     }
   },
@@ -114,7 +152,7 @@
       ]
     },
     "META": {
-      "tdps": 2144805.648062956,
+      "tdps": 6150495.805620737,
       "pref": "PERSONAL"
     }
   },
@@ -142,10 +180,10 @@
       ]
     },
     "META": {
-      "tdps": 522009.10177757504,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -180,14 +218,6 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 25694.24115951847,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 29230.76161590474,

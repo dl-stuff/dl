@@ -1,5 +1,44 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 46041.070554061866,
+        "team": 0.04946688272109853,
+        "noaff": true,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Levins_Champion",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Flowers_Under_the_Moon",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Reborn_Nidhogg",
+      "acl": [
+        "`dragon, buff(s3) and s=1",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1",
+        "`fs3",
+        "`fs, hits=0 or x=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Forte",
+        "Gala_Alex",
+        "Grace"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 62009.65434936439,
@@ -39,11 +78,46 @@
       ]
     },
     "META": {
-      "tdps": 169639.47610054747,
+      "tdps": 322813.62634746404,
       "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 50384.621869344104,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Levins_Champion",
+        "The_Lurker_in_the_Woods",
+        "Beautiful_Nothingness",
+        "Flowers_Under_the_Moon",
+        "Mask_of_Determination_Lance",
+        "Savage_Hawk_Lance"
+      ],
+      "slots.d": "Gala_Bahamut",
+      "acl": [
+        "`fs3",
+        "`s1",
+        "`s4"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Delphi",
+        "Grace",
+        "Joker"
+      ],
+      "share": [
+        "Gala_Mym",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 51392.871072604044,
@@ -80,7 +154,6 @@
       ]
     },
     "META": {
-      "tdps": 842741.7381663967,
       "pref": "PERSONAL"
     }
   },
@@ -92,36 +165,13 @@
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Levins_Champion",
-        "The_Lurker_in_the_Woods",
-        "Beautiful_Nothingness",
-        "Flowers_Under_the_Moon",
-        "Mask_of_Determination_Lance",
-        "Savage_Hawk_Lance"
-      ],
-      "slots.d": "Gala_Bahamut",
-      "acl": [
-        "`fs3",
-        "`s1",
-        "`s4"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Delphi",
         "Grace",
         "Joker"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Formal_Joachim"
       ]
     },
     "META": {
-      "tdps": 822166.7857252305,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -171,10 +221,10 @@
       ]
     },
     "META": {
-      "tdps": 621901.3305947798,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -195,7 +245,6 @@
         "An_Unfreezing_Flower_Axe",
         "Savage_Hawk_Lance"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`fs3",
@@ -251,7 +300,7 @@
         "Summer_Prince"
       ],
       "share": [
-        "Weapon",
+        "Gala_Mym",
         "Seimei"
       ]
     },
@@ -259,37 +308,43 @@
       "tdps": 3699894.3317636545,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },
   "ALWAYS-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 59439.8361251894,
-        "team": 0.02461347960779678,
+        "dps": 67095.81579535031,
+        "team": 0.0,
         "noaff": false,
         "nihil": true
       },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "The_Lurker_in_the_Woods",
+        "Welcome_to_the_Opera",
+        "Beautiful_Nothingness",
+        "Beautys_Secret",
+        "An_Unfreezing_Flower_Axe",
+        "Savage_Hawk_Lance"
+      ],
       "acl": [
         "`dragon",
-        "`fs3",
         "`s1",
-        "`s3",
-        "`s4"
+        "`s3, fsc",
+        "`s4",
+        "`fs3"
       ],
       "coabs": [
         "Alberius",
         "Grace",
         "Summer_Prince"
-      ],
-      "share": [
-        "Gala_Mym",
-        "Seimei"
       ]
     },
     "META": {
-      "tdps": 620432.4892005626,
+      "tdps": 512686.1015573128,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-MONO",
@@ -342,6 +397,19 @@
     }
   },
   "IMMUNE-NIHILISM-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 37024.9010641496,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": true
+      },
+      "coabs": [
+        "Bow",
+        "Dagger",
+        "Grace"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 43618.79093946208,
@@ -376,10 +444,10 @@
       ]
     },
     "META": {
-      "tdps": 515227.01603872696,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NIHILISM-ANY"
+        "PERSONAL": "SELF-NIHILISM-ANY",
+        "TEAMBUFF": "SELF-NIHILISM-ANY"
       }
     }
   },

@@ -81,57 +81,23 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 27380.65293277091,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Candy_Couriers",
-        "Memory_of_a_Friend",
-        "Welcome_to_the_Opera",
-        "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
-        "Testament_of_Eternity",
-        "Thunderswift_Lords_Blade_Lance"
-      ],
-      "slots.d": "Arsene",
-      "acl": [
-        "`dragon, s=1 and duration-now<15",
-        "`s3",
-        "`s1",
-        "`s4, hp>0 or x>2",
-        "`fs, charged_in(fs,s1) and x=4"
-      ],
-      "coabs": [
-        "Berserker",
-        "Curran",
-        "Summer_Patia"
-      ],
-      "share": [
-        "Ranzal",
-        "Veronica"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
-        "dps": 27380.65293277091,
+        "dps": 33250.37385184432,
         "team": 0.0,
         "noaff": false,
         "nihil": true
       },
       "slots.a": [
         "Candy_Couriers",
-        "Memory_of_a_Friend",
+        "Emissaries_of_the_Heavens",
         "Welcome_to_the_Opera",
+        "Seaside_Memory",
         "The_Plaguebringer",
-        "The_Queen_of_the_Knife",
-        "Testament_of_Eternity",
-        "Thunderswift_Lords_Blade_Lance"
+        "Mask_of_Determination_Bow",
+        "Promised_Piety_Staff"
       ],
-      "slots.d": "Arsene",
+      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon, s=1 and duration-now<15",
         "`s3",
@@ -139,14 +105,17 @@
         "`s4, hp>0 or x>2",
         "`fs, charged_in(fs,s1) and x=4"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
-        "Berserker",
-        "Curran",
-        "Summer_Patia"
+        "Blade",
+        "Joker",
+        "Summer_Prince"
       ],
       "share": [
-        "Ranzal",
-        "Veronica"
+        "Veronica",
+        "Ranzal"
       ]
     },
     "META": {
@@ -242,14 +211,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 39568.49596701503,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57675.328344740956,
@@ -266,7 +227,6 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gala_Bahamut",
       "acl": [
         "`dragon",
         "`s3",
@@ -274,9 +234,6 @@
         "`s2",
         "`s4",
         "`fs, charged_in(fs,s1) and x=4"
-      ],
-      "dacl": [
-        "ds1,x=3"
       ],
       "coabs": [
         "Blade",
@@ -292,7 +249,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -347,7 +304,7 @@
   "IMMUNE-NIHILISM-ANY": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 25045.505620254793,
+        "dps": 30644.719922686058,
         "team": 0.0,
         "noaff": false,
         "nihil": true
@@ -357,7 +314,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

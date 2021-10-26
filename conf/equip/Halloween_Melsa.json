@@ -103,5 +103,98 @@
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 1841.115329457112,
+        "team": 0.0,
+        "noaff": true,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Castle_Cheer_Corps",
+        "Jewels_of_the_Sun",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "Beneath_the_Boughs",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Freyja",
+      "acl": [
+        "`fs, fs_prep_c>1",
+        "`s3, x=5 or fs_prep_c=1",
+        "`s1, xf or (s=4 or fscf)",
+        "`s4, s1.charged<(s1.sp/3.5)",
+        "`fs, xf>1 and charged_in(fs, s1)",
+        "`fs, x=5",
+        "`dodge, fscf and fs_prep_c=0"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Tobias"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "ALWAYS-NORMAL-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 61488.87980269318,
+        "team": 0.19026876255257943,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "From_Whence_He_Comes",
+        "The_Queen_of_the_Knife",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s=1",
+        "`s3, not buff(s3)",
+        "`s1, charged_in(5, s4)",
+        "`s4",
+        "`s2",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Lathna"
+      ]
+    },
+    "META": {
+      "tdps": 51105.947577274856,
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
   }
 }

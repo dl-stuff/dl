@@ -1,9 +1,9 @@
 {
   "ALWAYS-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 70885.78689921192,
-        "team": 0.10649389553980296,
+        "dps": 71483.05761157037,
+        "team": 0.244017116449033,
         "noaff": false,
         "nihil": false
       },
@@ -18,12 +18,56 @@
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`dragon",
+        "`dragon, dgauge>=1000",
+        "`dragon, dshift_count>0",
         "`s3, not buff(s3)",
         "`s2, fscf",
         "`s4",
         "`s1, buff(s3)",
         "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
+      ],
+      "coabs": [
+        "Gala_Notte",
+        "Mona",
+        "Yukata_Lathna"
+      ],
+      "share": [
+        "Weapon",
+        "Dragonyule_Lily"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 78612.27762942441,
+        "team": 0.13229476953958258,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Emissaries_of_the_Heavens",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "Bloom_of_the_Battlefield",
+        "Mask_of_Determination_Bow",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Beast_Volk",
+      "acl": [
+        "`dragon, s=2",
+        "`s3, not buff(s3)",
+        "`s2, fscf",
+        "`s4, not buff(s4)",
+        "`s1, buff(s3)",
+        "`fs, x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -32,15 +76,12 @@
       ],
       "share": [
         "Weapon",
-        "Formal_Joachim"
+        "Mikoto"
       ]
     },
     "META": {
-      "tdps": 103189.65537791372,
-      "pref": "PERSONAL",
-      "partial": {
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "tdps": 63811.942866114165,
+      "pref": "PERSONAL"
     }
   }
 }

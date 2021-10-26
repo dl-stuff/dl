@@ -1,5 +1,42 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 42631.56697734913,
+        "team": 0.19549331322405133,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s4",
+        "`s2",
+        "`s1, not buff(s1)"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Dagger2",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 42631.56697734913,
@@ -38,7 +75,6 @@
       ]
     },
     "META": {
-      "tdps": 113886.44113347463,
       "pref": "PERSONAL"
     }
   },
@@ -59,6 +95,37 @@
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
+      "coabs": [
+        "Blade",
+        "Forte",
+        "Ieyasu"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL",
+      "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
+      }
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14608.258217923689,
+        "team": 0.041618091417633736,
+        "noaff": false,
+        "nihil": true
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Sweet_Surprise",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
       "slots.d": "Ramiel",
       "acl": [
         "`dragon",
@@ -71,7 +138,7 @@
         "ds1,x=3"
       ],
       "coabs": [
-        "Blade",
+        "Dagger2",
         "Forte",
         "Ieyasu"
       ],
@@ -81,15 +148,18 @@
       ]
     },
     "META": {
-      "tdps": 94466.24860846266,
-      "pref": "PERSONAL",
-      "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
+      "pref": "PERSONAL"
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 43641.73788482708,
+        "team": 0.19549331322405133,
+        "noaff": false,
+        "nihil": false
+      }
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 74126.87164429524,
@@ -129,10 +199,11 @@
       ]
     },
     "META": {
-      "tdps": 204459.52623822587,
+      "tdps": 697083.8091969199,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -211,10 +282,10 @@
       ]
     },
     "META": {
-      "tdps": 87426.64665864564,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

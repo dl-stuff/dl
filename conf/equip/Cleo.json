@@ -1,11 +1,88 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 51888.257934480556,
+        "team": 0.21896991313358544,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s4",
+        "`dragon"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Audric",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 51888.257934480556,
         "team": 0.21896991313358544,
         "noaff": false,
         "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "An_Ancient_Oath",
+        "Pecorines_Grand_Adventure",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Ramiel",
+      "acl": [
+        "`s3, not buff(s3)",
+        "`s1, (x=5 or s) and timeleft(s1)<5",
+        "`s4",
+        "`dragon"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Audric",
+        "Forte",
+        "Ieyasu"
+      ],
+      "share": [
+        "Weapon",
+        "Gala_Mym"
+      ]
+    },
+    "META": {
+      "pref": "PERSONAL"
+    }
+  },
+  "SELF-NIHILISM-ANY": {
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 17229.371176131397,
+        "team": 0.08317807683192244,
+        "noaff": false,
+        "nihil": true
       },
       "slots.a": [
         "A_Man_Unchanging",
@@ -34,7 +111,6 @@
       ]
     },
     "META": {
-      "tdps": 131863.54169590573,
       "pref": "PERSONAL"
     }
   },
@@ -62,9 +138,6 @@
         "`s1, (x=5 or s) and timeleft(s1)<14 and not duration-now<10",
         "`dragon, aff(frostbite) and timeleft(s1)>14"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Alberius",
         "Forte",
@@ -76,10 +149,10 @@
       ]
     },
     "META": {
-      "tdps": 149501.69505160826,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -93,10 +166,10 @@
       }
     },
     "META": {
-      "tdps": 109852.61916950971,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

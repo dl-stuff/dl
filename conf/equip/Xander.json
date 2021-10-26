@@ -26,6 +26,9 @@
         "`fs, x=3",
         "end"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Gala_Mascula",
         "Xainfried",
@@ -62,6 +65,9 @@
         "`fs, x=3",
         "end"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Gala_Mascula",
         "Xainfried",
@@ -73,50 +79,11 @@
       ]
     },
     "META": {
-      "tdps": 39381.23908561751,
-      "pref": "TEAMBUFF"
+      "tdps": 62561.49207905349,
+      "pref": "PERSONAL"
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 43681.89172575149,
-        "team": 0.0,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "Memory_of_a_Friend",
-        "The_Lurker_in_the_Woods",
-        "The_Shining_Overlord",
-        "His_Clever_Brother",
-        "The_Queen_of_the_Knife"
-      ],
-      "slots.d": "Gala_Reborn_Poseidon",
-      "acl": [
-        "`dragon",
-        "`s3",
-        "`s1",
-        "`s2, cancel",
-        "`s4, fsc",
-        "if not buff(s1, default)",
-        "`fs, x=2 and s1.charged!=2235",
-        "`fs, x=3",
-        "end"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Blade",
-        "Renee",
-        "Yurius"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Dragonyule_Lily"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 43681.89172575149,
@@ -242,7 +209,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -331,7 +298,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

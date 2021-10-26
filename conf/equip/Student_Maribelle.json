@@ -1,5 +1,44 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 94515.20715796074,
+        "team": 0.0427295378743817,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Mars",
+      "acl": [
+        "`dragon, s",
+        "`s3, not buff(s3) and x=5",
+        "`s4",
+        "`s2, fsc",
+        "`s1, cancel",
+        "`fs, x=5",
+        "`dodge, fsc"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Gala_Sarisse",
+        "Kimono_Elisanne",
+        "Marth"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 94515.20715796074,
@@ -40,7 +79,6 @@
       ]
     },
     "META": {
-      "tdps": 564543.4885834244,
       "pref": "PERSONAL"
     }
   },
@@ -107,6 +145,9 @@
         "`dodge, fsc",
         "`fs, x=5"
       ],
+      "dacl": [
+        "ds1,x=3"
+      ],
       "coabs": [
         "Blade",
         "Halloween_Mym",
@@ -118,7 +159,7 @@
       ]
     },
     "META": {
-      "tdps": 494541.4126943169,
+      "tdps": 468009.4148260952,
       "pref": "PERSONAL"
     }
   },
@@ -204,47 +245,24 @@
       "slots.d": "Gala_Reborn_Agni"
     },
     "META": {
-      "tdps": 2624120.8432902605,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 42097.1050314663,
-        "team": 0.04794816296595648,
+        "dps": 38974.974606060554,
+        "team": 0.09644893881279858,
         "noaff": false,
         "nihil": true
       },
-      "slots.a": [
-        "Bloody_Little_Queen",
-        "Memory_of_a_Friend",
-        "The_Cutie_Competition",
-        "A_Small_Courage",
-        "Chariot_Drift",
-        "Savage_Hawk_Lance",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`dragon, aff(scorchrend)",
-        "`s4",
-        "`s1",
-        "`s3",
-        "`s2, fsc",
-        "`dodge, fsc",
-        "`fs, x=5"
-      ],
-      "coabs": [
-        "Blade",
-        "Dagger",
-        "Kimono_Elisanne"
-      ],
-      "share": [
-        "Summer_Julietta",
-        "Gala_Leonidas"
+      "slots.d": "Gala_Mars",
+      "dacl": [
+        "ds1,x=3"
       ]
     },
     "PERSONAL": {
@@ -283,7 +301,7 @@
       ]
     },
     "META": {
-      "tdps": 959705.724852431,
+      "tdps": 147213.12467961843,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
@@ -294,8 +312,8 @@
   "IMMUNE-NIHILISM-MONO": {
     "PERSONAL": {
       "EQMT": {
-        "dps": 42709.362298053304,
-        "team": 0.07347562452791849,
+        "dps": 38974.974606060554,
+        "team": 0.09644893881279858,
         "noaff": false,
         "nihil": true
       },
@@ -308,6 +326,7 @@
         "Mask_of_Determination_Bow",
         "Testament_of_Eternity"
       ],
+      "slots.d": "Gala_Mars",
       "acl": [
         "`dragon, s=1 or (s=2 or s=4)",
         "`s3, not buff(s3) and x=5",
@@ -330,7 +349,7 @@
     "META": {
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
+        "PERSONAL": "SELF-NIHILISM-ANY",
         "TEAMBUFF": "IMMUNE-NIHILISM-ANY"
       }
     }

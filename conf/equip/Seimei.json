@@ -1,5 +1,47 @@
 {
   "SELF-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 82375.0912036003,
+        "team": 0.07863302742232735,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Man_Unchanging",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "A_Small_Courage",
+        "To_the_Extreme",
+        "Savage_Hawk_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gozu_Tenno",
+      "acl": [
+        "`dragon",
+        "`s3, not buff(s3)",
+        "`s2, (self.shikigami_lv=2 and self.shikigami.timeleft()<2) or duration - now < 3",
+        "`s1, not have_buff(shikigami)",
+        "`s4",
+        "if not have_buff(gozu_tenno_buff)",
+        "`fst(3), x=1",
+        "else",
+        "`fs, x=5",
+        "end"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Ezelith",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 82375.0912036003,
@@ -43,7 +85,6 @@
       ]
     },
     "META": {
-      "tdps": 226729.16891139979,
       "pref": "PERSONAL"
     }
   },
@@ -138,7 +179,7 @@
       ]
     },
     "META": {
-      "tdps": 877343.9303785249,
+      "tdps": 1551576.7138608643,
       "pref": "PERSONAL"
     }
   },
@@ -159,7 +200,6 @@
         "Savage_Hawk_Lance",
         "Testament_of_Eternity"
       ],
-      "slots.d": "Gozu_Tenno",
       "acl": [
         "`dragon, fsc and have_buff(gozu_tenno_buff) and buff(s4,0)",
         "`s3, not buff(s3)",
@@ -224,7 +264,8 @@
       "tdps": 175823.0113610952,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
@@ -335,22 +376,14 @@
       ]
     },
     "META": {
-      "tdps": 1927854.3522577372,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY",
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 32109.023153523493,
-        "team": 0.03334284607969151,
-        "noaff": false,
-        "nihil": true
-      }
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 32109.023153523493,

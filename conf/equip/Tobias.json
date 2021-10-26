@@ -36,8 +36,43 @@
         "Summer_Cleo"
       ]
     },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 14033.922630966941,
+        "team": 1.9824412551161805,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "A_Dogs_Day",
+        "Jewels_of_the_Sun",
+        "Sisters_Day_Out",
+        "Bellathorna",
+        "From_Whence_He_Comes",
+        "A_Kings_Pride_Staff",
+        "Promised_Piety_Staff"
+      ],
+      "slots.d": "Ariel",
+      "acl": [
+        "`s1",
+        "`s4",
+        "`s3, not speed()>=1.57 and not duration-now<5",
+        "`fs, xf=5"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Bow",
+        "Joker",
+        "Mona"
+      ],
+      "share": [
+        "Mikoto",
+        "Summer_Cleo"
+      ]
+    },
     "META": {
-      "tdps": 22398.331585509,
       "pref": "TEAMBUFF"
     }
   },
@@ -145,9 +180,6 @@
         "`s4",
         "`fs, xf=5"
       ],
-      "dacl": [
-        "ds1,x=3"
-      ],
       "coabs": [
         "Humanoid_Midgardsormr",
         "Mona",
@@ -177,41 +209,46 @@
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 19167.64062351615,
-        "team": 1.942150556494029,
+        "dps": 87155.66159900693,
+        "team": 0.8489396924958005,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes",
-        "A_Kings_Pride_Staff",
+        "Emissaries_of_the_Heavens",
+        "Proper_Maintenance",
+        "Sweet_Surprise",
+        "A_Choice_Blend",
+        "The_Plaguebringer",
+        "Mask_of_Determination_Bow",
         "Promised_Piety_Staff"
       ],
-      "slots.d": "Ariel",
+      "slots.d": "Gala_Beast_Volk",
       "acl": [
-        "`s1",
+        "`dragon, s=4",
+        "`s3, not buff(s3)",
         "`s4",
-        "`s3, not speed()>=1.57 and not duration-now<5",
-        "`fs, xf=5"
+        "`s1"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
-        "Blade",
-        "Bow",
-        "Mona"
+        "Dagger2",
+        "Mona",
+        "Yukata_Lathna"
       ],
       "share": [
-        "Mikoto",
-        "Summer_Cleo"
+        "Weapon",
+        "Mikoto"
       ]
     },
     "META": {
-      "tdps": 22921.945631177812,
+      "tdps": 60795.29526138733,
       "pref": "TEAMBUFF",
       "partial": {
+        "PERSONAL": "SELF-NORMAL-ANY",
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
@@ -232,50 +269,6 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
-      }
-    }
-  },
-  "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
-      "EQMT": {
-        "dps": 14033.922630966941,
-        "team": 1.9824412551161805,
-        "noaff": false,
-        "nihil": false
-      },
-      "slots.a": [
-        "A_Dogs_Day",
-        "Jewels_of_the_Sun",
-        "Sisters_Day_Out",
-        "Bellathorna",
-        "From_Whence_He_Comes",
-        "A_Kings_Pride_Staff",
-        "Promised_Piety_Staff"
-      ],
-      "slots.d": "Ariel",
-      "acl": [
-        "`s1",
-        "`s4",
-        "`s3, not speed()>=1.57 and not duration-now<5",
-        "`fs, xf=5"
-      ],
-      "dacl": [
-        "ds1,x=3"
-      ],
-      "coabs": [
-        "Bow",
-        "Joker",
-        "Mona"
-      ],
-      "share": [
-        "Mikoto",
-        "Summer_Cleo"
-      ]
-    },
-    "META": {
-      "pref": "PERSONAL",
-      "partial": {
         "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }

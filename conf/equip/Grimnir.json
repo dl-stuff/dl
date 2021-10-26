@@ -2,35 +2,33 @@
   "SELF-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 80248.9181870882,
-        "team": 0.171800004021149,
+        "dps": 106420.60049580646,
+        "team": 0.19670159573912255,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "The_Red_Impulse",
-        "A_Small_Courage",
         "Dueling_Dancers",
-        "Savage_Hawk_Lance",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
+        "`dragon, brewing_storm.level=5",
         "`s3, not buff(s3)",
-        "if brewing_storm.level<5",
         "`s4, cancel",
         "`s1, cancel",
         "`s2, cancel",
-        "`fs, x=3",
-        "else",
-        "`dragon, cancel and not have_buff(poison)",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5",
-        "end"
+        "`fs, brewing_storm.level<5 and x=3",
+        "`fs, brewing_storm.level=5 and x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -39,40 +37,38 @@
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Dragonyule_Lily"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 80248.9181870882,
-        "team": 0.171800004021149,
+        "dps": 106420.60049580646,
+        "team": 0.19670159573912255,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
-        "Memory_of_a_Friend",
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "The_Red_Impulse",
-        "A_Small_Courage",
         "Dueling_Dancers",
-        "Savage_Hawk_Lance",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
       "slots.d": "Gala_Beast_Volk",
       "acl": [
+        "`dragon, brewing_storm.level=5",
         "`s3, not buff(s3)",
-        "if brewing_storm.level<5",
         "`s4, cancel",
         "`s1, cancel",
         "`s2, cancel",
-        "`fs, x=3",
-        "else",
-        "`dragon, cancel and not have_buff(poison)",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5",
-        "end"
+        "`fs, brewing_storm.level<5 and x=3",
+        "`fs, brewing_storm.level=5 and x=5"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`dfs, x=3"
       ],
       "coabs": [
         "Dragonyule_Xainfried",
@@ -81,7 +77,7 @@
       ],
       "share": [
         "Weapon",
-        "Akasha"
+        "Dragonyule_Lily"
       ]
     },
     "META": {
@@ -89,42 +85,6 @@
     }
   },
   "SELF-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 57111.06408854458,
-        "team": 0.074016900130773,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "A_Small_Courage",
-        "The_Queen_of_the_Knife",
-        "Testament_of_Eternity",
-        "Thunderswift_Lords_Blade_Axe"
-      ],
-      "slots.d": "Gala_Beast_Volk",
-      "acl": [
-        "`dragon",
-        "`s3, not buff(s3)",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=3 and brewing_storm.level<5",
-        "`fs, x=3"
-      ],
-      "coabs": [
-        "Bow",
-        "Gala_Notte",
-        "Mona"
-      ],
-      "share": [
-        "Summer_Celliera",
-        "Formal_Joachim"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 57111.06408854458,
@@ -150,6 +110,10 @@
         "`s2, cancel",
         "`fs, x=3 and brewing_storm.level<5",
         "`fs, x=3"
+      ],
+      "dacl": [
+        "`ds1, blood_moon=0",
+        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
       ],
       "coabs": [
         "Bow",
@@ -168,70 +132,45 @@
   "ALWAYS-NORMAL-ANY": {
     "TEAMBUFF": {
       "EQMT": {
-        "dps": 95997.43132944132,
-        "team": 0.19573527940209498,
+        "dps": 127437.18120084745,
+        "team": 0.20793783877032304,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
       ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "if brewing_storm.level<5",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2",
-        "`fs, x=5",
-        "else",
-        "`dragon, cancel and not have_buff(poison)",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5",
-        "end"
+      "coabs": [
+        "Dragonyule_Xainfried",
+        "Gala_Notte",
+        "Yukata_Lathna"
       ]
     },
     "PERSONAL": {
       "EQMT": {
-        "dps": 99494.01416263865,
-        "team": 0.17180000402114898,
+        "dps": 129303.95286996385,
+        "team": 0.19670159573912255,
         "noaff": false,
         "nihil": false
       },
       "slots.a": [
+        "An_Ancient_Oath",
         "Emissaries_of_the_Heavens",
         "Sweet_Surprise",
-        "The_Red_Impulse",
         "Dueling_Dancers",
         "The_Plaguebringer",
         "An_Unfreezing_Flower_Deer",
         "Testament_of_Eternity"
-      ],
-      "acl": [
-        "`s3, not buff(s3)",
-        "if brewing_storm.level<5",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=3",
-        "else",
-        "`dragon, cancel",
-        "`s4, cancel",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`fs, x=5",
-        "end"
       ]
     },
     "META": {
-      "tdps": 146084.92183803464,
+      "tdps": 166138.42046071755,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -240,52 +179,6 @@
     }
   },
   "ALWAYS-NIHILISM-ANY": {
-    "TEAMBUFF": {
-      "EQMT": {
-        "dps": 72315.31102069428,
-        "team": 0.10555438977702192,
-        "noaff": false,
-        "nihil": true
-      },
-      "slots.a": [
-        "A_Man_Unchanging",
-        "Emissaries_of_the_Heavens",
-        "Sweet_Surprise",
-        "Hastened_Squall",
-        "The_Queen_of_the_Knife",
-        "An_Unfreezing_Flower_Deer",
-        "Testament_of_Eternity"
-      ],
-      "acl": [
-        "if brewing_storm.level<5",
-        "`s1, xf or fsc",
-        "`s2",
-        "`s3, fscf",
-        "`s4, cancel",
-        "`fs, x=3",
-        "else",
-        "`dragon",
-        "`s1, cancel",
-        "`s2, cancel",
-        "`s3",
-        "`s4, fsc",
-        "`fs, x=5",
-        "end"
-      ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
-      "coabs": [
-        "Gala_Notte",
-        "Mona",
-        "Nino"
-      ],
-      "share": [
-        "Catherine",
-        "Dragonyule_Cleo"
-      ]
-    },
     "PERSONAL": {
       "EQMT": {
         "dps": 76077.5396270471,
@@ -318,10 +211,6 @@
         "`fs, x=5",
         "end"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
       "coabs": [
         "Gala_Notte",
         "Mona",
@@ -336,20 +225,47 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   },
   "IMMUNE-NORMAL-ANY": {
-    "PERSONAL": {
+    "TEAMBUFF": {
       "EQMT": {
-        "dps": 54564.02691814391,
-        "team": 0.171800004021149,
+        "dps": 75107.18729709208,
+        "team": 0.20793783877032304,
         "noaff": false,
         "nihil": false
-      }
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Blossoms_on_the_Waters_Edge",
+        "Emissaries_of_the_Heavens",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ]
+    },
+    "PERSONAL": {
+      "EQMT": {
+        "dps": 77840.4510339515,
+        "team": 0.19670159573912255,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "An_Ancient_Oath",
+        "Emissaries_of_the_Heavens",
+        "Moonlight_Party",
+        "Dueling_Dancers",
+        "Entwined_Flames",
+        "An_Unfreezing_Flower_Deer",
+        "Testament_of_Eternity"
+      ]
     },
     "META": {
+      "tdps": 243254.23802865093,
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NORMAL-ANY",
@@ -390,10 +306,6 @@
         "`fs, x=5",
         "end"
       ],
-      "dacl": [
-        "`ds1, blood_moon=0",
-        "`fst(6.8), blood_moon=1 and moonlit_rage=1"
-      ],
       "coabs": [
         "Gala_Notte",
         "Mona",
@@ -408,7 +320,7 @@
       "pref": "PERSONAL",
       "partial": {
         "PERSONAL": "SELF-NIHILISM-ANY",
-        "TEAMBUFF": "SELF-NIHILISM-ANY"
+        "TEAMBUFF": "SELF-NORMAL-ANY"
       }
     }
   }

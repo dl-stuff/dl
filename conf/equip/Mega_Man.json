@@ -125,6 +125,47 @@
     }
   },
   "ALWAYS-NORMAL-ANY": {
+    "TEAMBUFF": {
+      "EQMT": {
+        "dps": 65620.94174536562,
+        "team": 0.0,
+        "noaff": false,
+        "nihil": false
+      },
+      "slots.a": [
+        "Me_and_My_Bestie",
+        "Memory_of_a_Friend",
+        "Sweet_Surprise",
+        "The_Plaguebringer",
+        "To_the_Extreme",
+        "Mask_of_Determination_Lance",
+        "Testament_of_Eternity"
+      ],
+      "slots.d": "Gala_Reborn_Agni",
+      "acl": [
+        "`dragon, s=4",
+        "`s3, not buff(s3)",
+        "`s4",
+        "if bleed_stack>=3",
+        "`s2, c_x(metalblade) or c_x(default)",
+        "`s1, c_x(metalblade)",
+        "else",
+        "`s1, c_x(default) and s1.check_full()",
+        "end"
+      ],
+      "dacl": [
+        "ds1,x=3"
+      ],
+      "coabs": [
+        "Blade",
+        "Gala_Laxi",
+        "Kimono_Elisanne"
+      ],
+      "share": [
+        "Weapon",
+        "Formal_Joachim"
+      ]
+    },
     "PERSONAL": {
       "EQMT": {
         "dps": 66598.06927541028,
@@ -143,11 +184,9 @@
       ]
     },
     "META": {
-      "tdps": 213549.75716234357,
       "pref": "PERSONAL",
       "partial": {
-        "PERSONAL": "SELF-NORMAL-ANY",
-        "TEAMBUFF": "SELF-NORMAL-ANY"
+        "PERSONAL": "SELF-NORMAL-ANY"
       }
     }
   },
